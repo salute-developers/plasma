@@ -1,0 +1,38 @@
+
+.container {
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+th {
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+thead {
+    th {
+        background-color: #55608f;
+        color: #fff;
+    }
+}
+
+tbody {
+
+    td {
+        position: relative;
+
+    }
+}

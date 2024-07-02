@@ -16,6 +16,7 @@ import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -138,8 +139,7 @@ import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectNotFoundContent } from '@salutejs/plasma-new-hope/styled-components';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
@@ -610,8 +610,8 @@ id?: string | undefined;
 disabled?: boolean | undefined;
 label?: ReactNode;
 role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
+contentLeft?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
+contentRight?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
 name?: string | undefined;
 checked?: boolean | undefined;
 text?: string | undefined;
@@ -1019,7 +1019,7 @@ contentRight?: ReactNode;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "img" | "div" | undefined;
+base?: "div" | "img" | undefined;
 ratio?: "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16 / 9" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
 customRatio?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -1093,9 +1093,9 @@ export { OverlayProps }
 // @public
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
+default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-default: PolymorphicClassName;
 };
 viewCurrentPage: {
 default: PolymorphicClassName;
@@ -1410,37 +1410,89 @@ export { SegmentProvider }
 export { SegmentProviderProps }
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLSelectElement>>;
+export const Select: FunctionComponent<PropsType<    {
+size: {
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
+};
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+}> & ((BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
 
-// @public (undocumented)
-export const SelectDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const SelectItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
-id?: string | undefined;
-disabled?: boolean | undefined;
-label?: ReactNode;
-role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-name?: string | undefined;
-checked?: boolean | undefined;
-text?: string | undefined;
-value?: string | number | boolean | undefined;
-isSelected?: boolean | undefined;
-onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-onSelect?: ((value?: any, text?: any) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { SelectPrimitiveValue }
-
-export { SelectProps }
+export { SelectNotFoundContent }
 
 // @public
 export const Sheet: FunctionComponent<PropsType<    {

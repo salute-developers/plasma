@@ -13,6 +13,7 @@ export * from './components/Switch';
 export * from './components/Typography';
 export * from './components/Toast';
 export * from './components/SSRProvider';
+export * from './components/Select';
 
 export * from './mixins';
 export * from './tokens';

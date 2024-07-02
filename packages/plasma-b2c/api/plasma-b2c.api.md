@@ -30,6 +30,7 @@ import { arrayItemSelecting } from '@salutejs/plasma-hope';
 import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { AsProps as AsProps_2 } from '@salutejs/plasma-new-hope/types/types';
+import { AsProps as AsProps_3 } from '@salutejs/plasma-hope';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -38,6 +39,7 @@ import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
@@ -142,7 +144,8 @@ import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
-import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-hope';
+import { InputHTMLAttributes as InputHTMLAttributes_3 } from '@salutejs/plasma-new-hope/types/types';
 import { JSXElementConstructor } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -219,8 +222,8 @@ import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectGroup } from '@salutejs/plasma-hope';
-import { SelectProps } from '@salutejs/plasma-hope';
+import { SelectNotFoundContent } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
@@ -886,11 +889,11 @@ l: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -934,8 +937,8 @@ id?: string | undefined;
 disabled?: boolean | undefined;
 label?: ReactNode;
 role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
+contentLeft?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
+contentRight?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
 name?: string | undefined;
 checked?: boolean | undefined;
 text?: string | undefined;
@@ -1408,7 +1411,7 @@ contentRight?: ReactNode;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "img" | "div" | undefined;
+base?: "div" | "img" | undefined;
 ratio?: "16 / 9" | "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
 customRatio?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -1592,16 +1595,16 @@ export { padZeroNumber }
 // @public
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
+default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-default: PolymorphicClassName;
 primary: PolymorphicClassName;
 };
 viewCurrentPage: {
 default: PolymorphicClassName;
-primary: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
+primary: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
@@ -1727,7 +1730,7 @@ true: PolymorphicClassName;
 focused: {
 true: PolymorphicClassName;
 };
-}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_3<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
@@ -1961,10 +1964,90 @@ export { SegmentProvider }
 
 export { SegmentProviderProps }
 
-// @public
-export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
+// @public (undocumented)
+export const Select: FunctionComponent<PropsType<    {
+size: {
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
+};
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+}> & ((BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
 
-export { SelectGroup }
+export { SelectNotFoundContent }
 
 export { SelectProps }
 
@@ -2070,7 +2153,7 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 export { syntheticFocus }
 
 // @public
-export const TabItem: ForwardRefExoticComponent<AsProps<any> & ButtonHTMLAttributes<HTMLButtonElement> & {
+export const TabItem: ForwardRefExoticComponent<AsProps_3<any> & ButtonHTMLAttributes<HTMLButtonElement> & {
     isActive?: boolean | undefined;
     selected?: boolean | undefined;
     disabled?: boolean | undefined;
@@ -2155,7 +2238,7 @@ true: PolymorphicClassName;
     disabled?: boolean | undefined;
 } & {
     label?: string | undefined;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
@@ -2174,7 +2257,7 @@ true: PolymorphicClassName;
     disabled?: boolean | undefined;
 } & {
     label?: string | undefined;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;

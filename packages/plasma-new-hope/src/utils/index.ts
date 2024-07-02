@@ -5,6 +5,7 @@ export { extractTextFrom } from './extractTextFrom';
 export { getSizeValueFromProp } from './getSizeValueFromProp';
 export { IS_REACT_18, safeUseId } from './react';
 export { isNumber } from './isNumber';
+export { isEmpty } from './isEmpty';
 export * from './getPopoverPlacement';
 
 export const cx = (...classes: (string | undefined)[]) => classes.filter((classItem) => classItem).join(' ');

@@ -1,14 +1,11 @@
 import { styled } from '@linaria/react';
 
-import { selectConfig, selectTokens, selectItemConfig } from '../../../Select';
+import { selectConfig, selectTokens } from '../../../Select';
 import { component, mergeConfig } from '../../../../engines';
 import { tokens } from '../../Pagination.tokens';
 
 const mergedSelectConfig = mergeConfig(selectConfig);
 const Select = component(mergedSelectConfig);
-
-const mergedItemConfig = mergeConfig(selectItemConfig);
-export const SelectItem = component(mergedItemConfig);
 
 export const SelectPerPageRoot = styled.div`
     display: flex;
@@ -17,69 +14,27 @@ export const SelectPerPageRoot = styled.div`
 `;
 
 export const SelectPerPageSelect = styled(Select)`
-    ${selectTokens.targetColor}: var(${tokens.buttonColor});
-    ${selectTokens.targetLabelColor}: var(${tokens.buttonColor});
-    ${selectTokens.targetArrowColor}: var(${tokens.buttonColor});
-    ${selectTokens.targetBackgroundColor}: var(${tokens.buttonBackgroundColor});
-    ${selectTokens.targetBackgroundColorHover}: var(${tokens.buttonHoverBackgroundColor});
-    ${selectTokens.targetBackgroundColorActive}: var(${tokens.buttonActiveBackgroundColor});
-    ${selectTokens.targetBackgroundColorOpen}: var(${tokens.buttonHoverBackgroundColor});
-    ${selectTokens.targetFontWeight}: var(${tokens.paginationFontWeight}) !important; /* TODO: Переделать когда появится возможность пересечения свойств */
-
-    ${selectTokens.targetArrowRight}: var(${tokens.selectTargetArrowRight});
+    ${selectTokens.targetButtonColor}: var(${tokens.buttonColor});
+    ${selectTokens.targetButtonColorHover}: var(${tokens.buttonColorHover});
+    ${selectTokens.targetButtonColorActive}: var(${tokens.buttonColorActive});
+    ${selectTokens.targetButtonBackgroundColor}: var(${tokens.buttonBackgroundColor});
+    ${selectTokens.targetButtonBackgroundColorHover}: var(${tokens.buttonBackgroundColorHover});
+    ${selectTokens.targetButtonBackgroundColorActive}: var(${tokens.buttonBackgroundColorActive});
     ${selectTokens.targetHeight}: var(${tokens.buttonHeight});
-    ${selectTokens.targetWidth}: var(${tokens.selectTargetWidth});
-    ${selectTokens.targetRadius}: var(${tokens.buttonRadius});
-    ${selectTokens.targetPadding}: var(${tokens.selectTargetPadding});
-    ${selectTokens.targetPaddingHasChips}: var(${tokens.selectTargetPaddingHasChips});
-    ${selectTokens.targetPaddingWithInput}: var(${tokens.selectTargetPaddingWithInput});
-    ${selectTokens.targetInnerTop}: var(${tokens.selectTargetInnerTop});
-    ${selectTokens.targetLabelInnerTop}: var(${tokens.selectTargetLabelInnerTop});
-    ${selectTokens.targetFontFamily}: var(${tokens.paginationFontFamily});
-    ${selectTokens.targetFontSize}: var(${tokens.paginationFontSize});
-    ${selectTokens.targetFontStyle}: var(${tokens.paginationFontStyle});
-    ${selectTokens.targetFontWeight}: var(${tokens.paginationFontWeight});
-    ${selectTokens.targetLabelInnerFontFamily}: var(${tokens.paginationFontFamily});
-    ${selectTokens.targetLabelInnerFontSize}: var(${tokens.paginationFontSize});
-    ${selectTokens.targetLabelInnerFontStyle}: var(${tokens.paginationFontStyle});
-    ${selectTokens.targetLabelInnerFontWeight}: var(${tokens.paginationFontWeight});
-
-    ${selectTokens.width}: var(${tokens.selectWidth});
-    ${selectTokens.height}: var(${tokens.selectHeight});
+    ${selectTokens.targetButtonPadding}: var(${tokens.selectTargetPadding});
     ${selectTokens.borderRadius}: var(${tokens.buttonRadius});
-    ${selectTokens.paddingTop}: var(${tokens.selectPaddingTop});
-    ${selectTokens.paddingRight}: var(${tokens.selectPaddingRight});
-    ${selectTokens.paddingBottom}: var(${tokens.selectPaddingBottom});
-    ${selectTokens.paddingLeft}: var(${tokens.selectPaddingLeft});
+    ${selectTokens.targetButtonArrowColor}: var(${tokens.buttonArrowColor});
+    ${selectTokens.targetButtonArrowColorHover}: var(${tokens.buttonArrowColorHover});
+    ${selectTokens.targetButtonArrowColorActive}: var(${tokens.buttonArrowColorActive});
+    ${selectTokens.targetButtonArrowMargin}: var(${tokens.buttonArrowMargin});
 
-    ${selectTokens.background}: var(${tokens.selectBackgroundColor});
-    ${selectTokens.boxShadow}: var(--shadow-down-soft-s);
-`;
-
-export const SelectPerPageSelectItem = styled(SelectItem)`
-    ${selectTokens.itemWidth}: var(${tokens.selectItemWidth});
+    ${selectTokens.padding}: 0.125rem;
+    ${selectTokens.focusOffset}: 0.125rem;
+    ${selectTokens.itemPadding}: var(${tokens.selectItemPadding});
+    ${selectTokens.itemBorderRadius}: calc(var(${tokens.buttonRadius}) - 0.125rem);
+    ${selectTokens.itemIconMargin}: 0 0.375rem 0 0;
+    ${selectTokens.itemIconSize}: 1.5rem;
     ${selectTokens.itemHeight}: var(${tokens.selectItemHeight});
-    ${selectTokens.itemPaddingTop}: var(${tokens.selectItemPaddingTop});
-    ${selectTokens.itemPaddingRight}: var(${tokens.selectItemPaddingRight});
-    ${selectTokens.itemPaddingBottom}: var(${tokens.selectItemPaddingBottom});
-    ${selectTokens.itemPaddingLeft}: var(${tokens.selectItemPaddingLeft});
-    ${selectTokens.itemBorderRadius}: var(${tokens.buttonRadius});
-    ${selectTokens.itemContentLeftWidth}: var(${tokens.selectItemContentLeftWidth});
-    ${selectTokens.itemFontFamily}: var(${tokens.paginationFontFamily});
-    ${selectTokens.itemFontSize}: var(${tokens.paginationFontSize});
-    ${selectTokens.itemFontStyle}: var(${tokens.paginationFontStyle});
-    ${selectTokens.itemFontWeightBold}: var(${tokens.paginationFontWeight});
-    ${selectTokens.itemFontLetterSpacing}: var(${tokens.paginationLetterSpacing});
-    ${selectTokens.itemFontLineHeight}: var(${tokens.paginationLineHeight});
-
-    ${selectTokens.itemBackground}: var(${tokens.selectItemBackground});
-    ${selectTokens.itemBackgroundHover}: var(${tokens.buttonHoverBackgroundColor});
-    ${selectTokens.itemBackgroundSelectedHover}: var(${tokens.buttonActiveBackgroundColor});
-    ${selectTokens.itemColor}: var(${tokens.buttonColor});
-    ${selectTokens.itemContentLeftColor}: var(${tokens.buttonColor});
-
-    ${selectTokens.itemBackgroundSelected}: var(${tokens.buttonHoverBackgroundColor});
-    ${selectTokens.itemColorSelected}: var(${tokens.buttonColor});
 `;
 
 export const SelectPerPageTypography = styled.div`

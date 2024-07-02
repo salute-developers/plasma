@@ -10,6 +10,7 @@ import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
 import { AnchorHTMLAttributes } from 'react';
 import { AsProps } from '@salutejs/plasma-new-hope/types/types';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { bodyL } from '@salutejs/caldera-online-themes/tokens';
 import { bodyLBold } from '@salutejs/caldera-online-themes/tokens';
 import { bodyM } from '@salutejs/caldera-online-themes/tokens';
@@ -47,6 +48,7 @@ import { h5 } from '@salutejs/caldera-online-themes/tokens';
 import { h5Bold } from '@salutejs/caldera-online-themes/tokens';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import { JSXElementConstructor } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -61,12 +63,14 @@ import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
+import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectNotFoundContent } from '@salutejs/plasma-new-hope/styled-components';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
@@ -548,6 +552,91 @@ export { SegmentItemProps }
 export { SegmentProvider }
 
 export { SegmentProviderProps }
+
+// @public (undocumented)
+export const Select: FunctionComponent<PropsType<    {
+size: {
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
+};
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+}> & ((BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "nonce" | "onChange" | "onResize" | "onResizeCapture"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "nonce" | "onChange" | "onResize" | "onResizeCapture"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "nonce" | "onChange" | "onResize" | "onResizeCapture"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "nonce" | "onChange" | "onResize" | "onResizeCapture"> & RefAttributes<HTMLButtonElement>))>;
+
+export { SelectNotFoundContent }
 
 // @public
 export const Sheet: FunctionComponent<PropsType<    {

@@ -3,10 +3,10 @@ import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
 import { cx, getPlacements } from '../../utils';
-import { getChildren, getNewSelected, getValues } from '../Select/utils';
-import { useKeyNavigation } from '../Select/hooks';
 import { useDidMountEffect, useForceUpdate } from '../../hooks';
 
+import { getChildren, getNewSelected, getValues } from './utils';
+import { useKeyNavigation } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { ComboboxTarget } from './ui';
