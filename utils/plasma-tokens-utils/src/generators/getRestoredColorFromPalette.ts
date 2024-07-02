@@ -7,7 +7,8 @@ const paletteMap: Record<string, Record<string, Record<string, string>>> = {
     additional,
 };
 
-export const getRestoredColorFromPalette = (value: string) => {
+// TODO: удалить alphaSign после того, как избавимся от старого формата тем
+export const getRestoredColorFromPalette = (value: string, alphaSign = 0) => {
     if (typeof value === 'string' && value.startsWith('[') && value.endsWith(']')) {
         const [, color, opacity] = extractColors(value);
         const [palette, shade, saturation] = color.split('.');
@@ -16,7 +17,7 @@ export const getRestoredColorFromPalette = (value: string) => {
         const format = 'hexa';
         const isRaw = true;
 
-        return opacity ? alphenColor(resultColor, Number(opacity), format, isRaw) : resultColor;
+        return opacity ? alphenColor(resultColor, Number(opacity) + alphaSign, format, isRaw) : resultColor;
     }
 
     return value;
