@@ -1990,8 +1990,9 @@ secondary: string;
 accent: string;
 };
 }> & ((BasicProps & {
-value: string;
-onChange: (value: string) => void;
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
 separator?: undefined;
 isTargetAmount?: false | undefined;
 } & {
@@ -2003,8 +2004,9 @@ labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
-value: string;
-onChange: (value: string) => void;
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
 separator?: undefined;
 isTargetAmount?: false | undefined;
 } & {
@@ -2016,8 +2018,9 @@ labelPlacement?: undefined;
 placeholder?: undefined;
 helperText?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
-value: string[];
-onChange: (value: string[]) => void;
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
 separator?: string | undefined;
 isTargetAmount?: boolean | undefined;
 } & {
@@ -2029,8 +2032,9 @@ labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
-value: string[];
-onChange: (value: string[]) => void;
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
 separator?: string | undefined;
 isTargetAmount?: boolean | undefined;
 } & {

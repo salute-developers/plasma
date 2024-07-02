@@ -20,6 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
     renderValue,
     focusedPath,
     focusedToValueMap,
+    separator,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
@@ -60,6 +61,7 @@ export const Button: React.FC<ButtonProps> = ({
                         valueToItemMap,
                         label,
                         renderValue,
+                        separator,
                     })}
                 </Label>
             </StyledButton>

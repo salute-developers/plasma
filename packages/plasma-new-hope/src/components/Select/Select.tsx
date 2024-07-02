@@ -261,6 +261,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                                 contentLeft={contentLeft}
                                 disabled={disabled}
                                 renderValue={renderValue}
+                                separator={separator}
                             />
                         }
                         preventOverflow={false}

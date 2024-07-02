@@ -75,6 +75,7 @@ const meta: Meta<StorySelectProps> = {
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
+        separator: '',
     },
 };
 
@@ -851,6 +852,7 @@ export const Common: StoryObj<StorySelectProps> = {
                 'isTargetAmount',
                 'variant',
                 'disabled',
+                'separator',
             ],
         },
     },

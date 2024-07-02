@@ -22,6 +22,7 @@ export const Target: React.FC<TargetProps> = ({
     renderValue,
     focusedPath,
     focusedToValueMap,
+    separator,
 }) => {
     return target === 'button-like' ? (
         <Button
@@ -37,6 +38,7 @@ export const Target: React.FC<TargetProps> = ({
             renderValue={renderValue}
             focusedPath={focusedPath}
             focusedToValueMap={focusedToValueMap}
+            separator={separator}
         />
     ) : (
         <Textfield

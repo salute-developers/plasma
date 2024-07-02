@@ -2,7 +2,7 @@ import { GetButtonLabelProps } from '../ui/Target/ui/Button/Button.types';
 import { isEmpty } from '../../../utils';
 
 const getLabel = ({ renderValue, value, valueToItemMap }: GetButtonLabelProps) => {
-    const { label } = valueToItemMap.get(value.toString())!;
+    const { label } = valueToItemMap.get(value?.toString())!;
 
     return renderValue ? renderValue(value as string, label) : label;
 };
@@ -14,6 +14,7 @@ export const getButtonLabel = ({
     multiselect,
     valueToItemMap,
     renderValue,
+    separator,
 }: GetButtonLabelProps) => {
     if (isEmpty(value)) {
         return label;
@@ -32,7 +33,7 @@ export const getButtonLabel = ({
                     valueToItemMap,
                 }),
             )
-            .join(', ');
+            .join(separator || ', ');
     }
 
     return getLabel({

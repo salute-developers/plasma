@@ -6,7 +6,6 @@ import { FocusedChipIndexState, FocusedPathState } from '../../reducers';
 
 export type TargetProps = Pick<
     SelectProps,
-    | 'value'
     | 'size'
     | 'multiselect'
     | 'isTargetAmount'
@@ -17,7 +16,9 @@ export type TargetProps = Pick<
     | 'contentLeft'
     | 'disabled'
     | 'renderValue'
+    | 'separator'
 > & {
+    value: string | string[];
     opened: boolean;
     valueToItemMap: ValueToItemMapType;
     onChipClick: (value: string) => void;

@@ -65,7 +65,7 @@ type IsMultiselect =
           onChange?: (value: string) => void;
           /**
            * Разделитель выбранных значений.
-           * @deprecated
+           * @deprecated Использовать renderValue
            */
           separator?: never;
           /**

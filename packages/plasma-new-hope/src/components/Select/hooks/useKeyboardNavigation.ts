@@ -49,7 +49,7 @@ interface Props {
     handlePressDown: (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => void;
     focusedChipIndex: FocusedChipIndexState;
     dispatchFocusedChipIndex: Dispatch<FocusedChipIndexAction>;
-    value: SelectProps['value'];
+    value: string | string[];
     valueToItemMap: ValueToItemMapType;
     multiselect: boolean;
     isTargetAmount: SelectProps['isTargetAmount'];
