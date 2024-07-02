@@ -16,7 +16,7 @@ export const _component = (componentConfig: ComponentConfig) => {
     const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
         const { className, ...rest } = props;
         const variants = dynamicVariants(rest);
-        const cls = cx(className, base, ...staticVariants, ...variants);
+        const cls = cx(className, base as string, ...(staticVariants as string[]), ...variants);
 
         // styled-components do it inside
         // filter props

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { ComponentProps } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Button } from '../Button/Button';
 import { BodyM } from '../Typography';

@@ -10,6 +10,10 @@ src-sc
 styled-components/*
 !styled-components/package.json
 
+# emotion
+src-emotion
+emotion/*
+!emotion/package.json
 
 node_modules
 

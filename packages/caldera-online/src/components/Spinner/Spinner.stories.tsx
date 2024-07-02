@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, ComponentProps } from 'react';
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
