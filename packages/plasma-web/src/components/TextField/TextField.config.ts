@@ -38,6 +38,9 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
 
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.focusColor}: var(--text-accent);
             `,
             positive: css`
@@ -64,6 +67,9 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
+
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
 
                 ${tokens.focusColor}: var(--text-accent);
             `,
@@ -92,6 +98,9 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
 
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.focusColor}: var(--text-accent);
             `,
             negative: css`
@@ -118,6 +127,9 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
+
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
 
                 ${tokens.focusColor}: var(--text-accent);
             `,
@@ -158,6 +170,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.5rem;
@@ -210,6 +224,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.375rem;
@@ -262,6 +278,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.25rem;
@@ -314,6 +332,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.125rem;
