@@ -1,5 +1,6 @@
 /components
 /es
+/cjs
 /hocs
 /hooks
 /mixins
@@ -10,4 +11,9 @@
 /utils
 /index.*
 /helpers
+src-sc
+styled-components/*
+src-emotion
+emotion/cjs
+emotion/es
 build-sb
