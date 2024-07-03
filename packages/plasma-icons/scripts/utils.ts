@@ -6,6 +6,8 @@ const getSvgContent = (source: string) => (/<svg(.*?)>(.*?)<\/svg>/gm.exec(sourc
 
 const getViewBox = (source: string) => (/viewBox="(.*?)"/gm.exec(source) || [])[1];
 
+const removeOpacity = (source: string) => source.replace(/opacity="(.*?)"/gm, '');
+
 const removeFillOpacity = (source: string) => source.replace(/fill-opacity="(.*?)"/gm, '');
 
 const setFillCurrentColor = (source: string) => source.replace(/fill="(.*?)"/gm, 'fill="currentColor"');
@@ -36,6 +38,7 @@ export const getIconAsset = (source: string, iconName: string) => {
         getSvgContent,
         setFillCurrentColor,
         setStrokeCurrentColor,
+        removeOpacity,
         removeFillOpacity,
         convertInlineStyleToObject,
         camelizeAttributes,
