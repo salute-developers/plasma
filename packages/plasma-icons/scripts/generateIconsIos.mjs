@@ -38,10 +38,16 @@ try {
     let pngCount = 0;
     
     for (const sourceDirectory of listSVG) {
-        const [fullSvgName] = sourceDirectory.split('/').reverse();
+        const [fullSvgName, dir] = sourceDirectory.split('/').reverse();
+      
+        // @example Icon.svg.24
+        const [size] = dir.split('.').reverse();
+        
+        // @example Accessibility.svg
         const [svgName] = fullSvgName.split('.');
         
-        const pngDirectory = `${iosIconsDirectory}/${svgName}.imageset`;
+        // @example ./icons-ios/ScenarioSyncAuto45Fill24.imageset
+        const pngDirectory = `${iosIconsDirectory}/${svgName}${size}.imageset`;
         
         try {
             await access(pngDirectory);
@@ -86,23 +92,7 @@ try {
         
         const pngContentsJsonPath = path.join(pngDirectory, 'Contents.json');
         
-        try {
-            // INFO: если Contents.json для этого imageset уже существует нужно
-            // INFO: дописать в images новые значения
-            await access(pngContentsJsonPath);
-            
-            const rawData = await readFile(pngContentsJsonPath, 'utf8');
-            const json = JSON.parse(rawData);
-            
-            const data = {
-                ...json,
-                images: [...json.images, ...images]
-            };
-            
-            await writeFile(pngContentsJsonPath, JSON.stringify(data, null, 2), 'utf8');
-        } catch (e) {
-            await writeFile(pngContentsJsonPath, JSON.stringify(contentsJson, null, 2), 'utf8');
-        }
+        await writeFile(pngContentsJsonPath, JSON.stringify(contentsJson, null, 2), 'utf8');
     }
     
     if (svgCount !== pngCount) {
