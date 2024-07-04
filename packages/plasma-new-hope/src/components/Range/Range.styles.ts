@@ -97,6 +97,8 @@ export const ContentWrapper = styled.div`
 
 export const StyledDivider = styled.div``;
 
-export const StyledContentLeft = styled.div``;
+export const StyledContentLeft = styled.div`
+    line-height: 0;
+`;
 
 export const StyledContentRight = styled.div``;
