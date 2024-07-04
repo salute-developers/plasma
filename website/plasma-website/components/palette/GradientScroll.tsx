@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const GradientScrollContainer = styled.div`
+const fixPadding = 212;
+
+const GradientScrollContainer = styled.div<{ padding: number }>`
     position: fixed;
     top: 7.5rem;
-    height: calc(100vh - 208px);
+    height: calc(100vh - ${({ padding }) => padding}px);
     left: 0;
     width: 4rem;
     padding-left: 1.875rem;
@@ -64,16 +66,39 @@ const GradientScrollBottomText = styled.div`
 export const GradientScroll: React.FC<{
     hsl: number[];
     colors: string[];
-    scrollHeight: number;
-    scrollTop: number;
-    height: number;
-}> = ({ hsl, colors, scrollHeight, scrollTop, height }) => {
-    const heightAllScroll = height - 212;
-    const heightScroll = heightAllScroll / (scrollHeight / height);
-    const topScroll = heightAllScroll * (scrollTop / scrollHeight) + 2;
+    scrollRef: React.RefObject<HTMLDivElement>;
+}> = ({ hsl, colors, scrollRef }) => {
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    const scrollHeight = scrollRef?.current?.scrollHeight ?? 0;
+    const clientHeight = scrollRef?.current?.scrollHeight ?? 0;
+
+    const heightAllScroll = clientHeight - fixPadding;
+    const heightScroll = heightAllScroll / (scrollHeight / clientHeight);
+    const topScroll = heightAllScroll * (scrollPosition / scrollHeight) + 2;
+
+    const handlerScroll = () => {
+        if (scrollRef.current) {
+            const { scrollTop } = scrollRef.current;
+            setScrollPosition(scrollTop);
+        }
+    };
+
+    useEffect(() => {
+        if (scrollRef?.current) {
+            scrollRef.current.addEventListener('scroll', handlerScroll);
+            handlerScroll();
+
+            return () => {
+                if (scrollRef.current) {
+                    scrollRef.current.removeEventListener('scroll', handlerScroll);
+                }
+            };
+        }
+    }, []);
 
     return (
-        <GradientScrollContainer>
+        <GradientScrollContainer padding={fixPadding}>
             <GradientScrollContainerScroll>
                 <GradientScrollTopText>H:{hsl[0]}</GradientScrollTopText>
                 <GradientScrollHeight colors={colors} />

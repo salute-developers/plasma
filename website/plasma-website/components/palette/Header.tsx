@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.a`
     display: flex;
     top: 2rem;
     left: 1.625rem;
@@ -10,6 +10,8 @@ const HeaderWrapper = styled.div`
     align-items: center;
     cursor: pointer;
     z-index: 99999;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
 
     &:hover .hoverHeader {
         opacity: 1;
@@ -26,9 +28,9 @@ const HeaderTextBold = styled(HeaderText)`
     opacity: 1;
 `;
 
-export const Header: React.FC<{ text?: string; onClose?: () => void }> = ({ text, onClose }) => {
+export const Header: React.FC<{ text?: string; link?: string }> = ({ text, link }) => {
     return (
-        <HeaderWrapper onClick={() => onClose?.()}>
+        <HeaderWrapper href={link}>
             <HeaderText className="hoverHeader">←</HeaderText>
             <HeaderTextBold>{text}</HeaderTextBold>
         </HeaderWrapper>

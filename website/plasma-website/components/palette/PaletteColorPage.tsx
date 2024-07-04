@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useToast } from '@salutejs/plasma-b2c';
 import type { ShowToastArgs } from '@salutejs/plasma-b2c';
 import { IconCopyOutline } from '@salutejs/plasma-icons';
+import { ContrastRatioChecker } from 'contrast-ratio-checker';
+import { useRouter } from 'next/router';
 
-import { convertHexToRgb } from '../../utils';
+import { convertHexToRgb, paletteColors, checkColor } from '../../utils';
 
 import { TextReadble } from './TextReadble';
-import type { colorItemType } from './PalleteItem';
+import { Header } from './Header';
+
+const widthText = 570;
 
 const toastData: ShowToastArgs = {
     text: '',
@@ -163,7 +167,7 @@ const ColorItemWrapperIconCopy = styled(IconCopyOutline)`
     transition: opacity 0.2s, visibility 0s linear 0.2s;
 `;
 
-const TextReadbleWrapper = styled.div`
+const TextReadableWrapper = styled.div`
     width: 100%;
     height: 15rem;
     display: grid;
@@ -171,12 +175,20 @@ const TextReadbleWrapper = styled.div`
     grid-template-rows: 7.5rem 7.5rem;
 `;
 
-export const Color: React.FC<{
-    color: string;
-    colorItem: colorItemType;
-    handlerSetColor: (color?: string, colorItem?: colorItemType, code?: string) => void;
-}> = ({ color, colorItem, handlerSetColor }) => {
+export const PaletteColorPage: React.FC<{
+    query: string | string[] | undefined;
+}> = ({ query }) => {
+    const checker = new ContrastRatioChecker();
+
+    const color = query?.[1] ?? '';
+    const colorCode = query?.[3] ?? '';
+
+    const router = useRouter();
     const { showToast } = useToast();
+
+    if (!checkColor(color, colorCode)) {
+        return null;
+    }
 
     const copyToClipboard = async (text: string) => {
         try {
@@ -194,37 +206,36 @@ export const Color: React.FC<{
         }
     };
 
-    const widthText = 570;
+    const handlerSetColor = (code: string) => {
+        router.push(`/palette/color/${color}/code/${code}`);
+    };
 
-    const colorsKeys = Object.keys(colorItem.colors).reverse() ?? [];
+    const paletteColor = paletteColors[color];
+    const selectedColor = paletteColor[colorCode];
+    const colorCodes = Object.keys(paletteColor).reverse();
 
-    const rgb = convertHexToRgb(color);
-    const colorIndex = colorsKeys.findIndex((colorKey) => colorItem.colors[colorKey] === color);
+    const rgb = convertHexToRgb(selectedColor);
+    const colorIndex = colorCodes.findIndex((code) => paletteColor[code] === selectedColor);
     const colorText =
-        colorItem.textColor[
-            colorItem.textColor.length - 1 - colorsKeys.findIndex((colorKey) => colorItem.colors[colorKey] === color)
-        ];
+        Math.round(checker.getContrastRatioByHex(paletteColors[color][colorCode], '#FFFFFF') * 100) / 100 > 3.5;
 
-    const [direction, setDirection] = useState<string | null>(null);
+    const windowWidth = window.innerWidth;
+    const item = windowWidth / 15;
+    const direction = item * colorIndex < windowWidth - widthText ? 'left' : 'right';
 
-    useEffect(() => {
-        const windowWidth = window.innerWidth;
-        const item = windowWidth / 15;
-        const d = item * colorIndex < windowWidth - widthText ? 'left' : 'right';
-        setDirection(d);
-    }, [color]);
     return (
-        <ColorWrapper background={color}>
+        <ColorWrapper background={selectedColor}>
+            <Header text={`${color} ${colorCode}`} link="/palette" />
             <ColorPalette>
-                {colorsKeys.map((colorKey) => (
+                {colorCodes.map((code) => (
                     <ColorItem
-                        onClick={() => handlerSetColor(colorItem.colors[colorKey], colorItem, colorKey)}
-                        color={colorItem.colors[colorKey]}
+                        onClick={() => handlerSetColor(code)}
+                        color={paletteColor[code]}
                         colorText={colorText}
-                        className={color === colorItem.colors[colorKey] ? 'selected' : ''}
-                        key={colorKey}
+                        className={selectedColor === paletteColor[code] ? 'selected' : ''}
+                        key={code}
                     >
-                        {color === colorItem.colors[colorKey] && direction && (
+                        {selectedColor === paletteColor[code] && direction && (
                             <ColorItemText direction={direction}>
                                 <ColorIndex
                                     direction={direction}
@@ -240,26 +251,26 @@ export const Color: React.FC<{
                                 <ColorIndex
                                     direction={direction}
                                     colorText={colorText}
-                                    onClick={() => copyToClipboard(color)}
+                                    onClick={() => copyToClipboard(selectedColor)}
                                 >
                                     <ColorItemWrapperText>
                                         <ColorItemWrapperOpacityText>#</ColorItemWrapperOpacityText>
-                                        {color.slice(1)}
+                                        {selectedColor.slice(1)}
                                     </ColorItemWrapperText>
                                     <ColorItemWrapperIconCopy className="copyIcon" color="inhert" size="m" />
                                 </ColorIndex>
                             </ColorItemText>
                         )}
-                        {colorKey}
+                        {code}
                     </ColorItem>
                 ))}
             </ColorPalette>
-            <TextReadbleWrapper>
-                <TextReadble color="#000000" background={color} alignX="left" alignY="top" />
-                <TextReadble color="#FFFFFF" background={color} alignX="right" alignY="top" />
-                <TextReadble color={color} background="#000000" alignX="left" alignY="bottom" />
-                <TextReadble color={color} background="#FFFFFF" alignX="right" alignY="bottom" />
-            </TextReadbleWrapper>
+            <TextReadableWrapper>
+                <TextReadble color="#000000" background={selectedColor} alignX="left" alignY="top" />
+                <TextReadble color="#FFFFFF" background={selectedColor} alignX="right" alignY="top" />
+                <TextReadble color={selectedColor} background="#000000" alignX="left" alignY="bottom" />
+                <TextReadble color={selectedColor} background="#FFFFFF" alignX="right" alignY="bottom" />
+            </TextReadableWrapper>
         </ColorWrapper>
     );
 };

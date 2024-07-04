@@ -2,7 +2,7 @@ import React from 'react';
 import { ToastProvider } from '@salutejs/plasma-b2c';
 import Head from 'next/head';
 
-import { Pallete } from '../components/colors/Pallete';
+import { Palette } from '../../components/palette/PalettePage';
 
 export default function Home() {
     return (
@@ -10,7 +10,7 @@ export default function Home() {
             <Head>
                 <title>Colors</title>
             </Head>
-            <Pallete />
+            <Palette />
         </ToastProvider>
     );
 }
