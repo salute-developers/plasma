@@ -10,7 +10,7 @@ import { multipleMediaQuery } from '../mixins';
 import { Header, Main, SearchForm, IconsList, Footer, IconFilterMenu } from '../components/roster';
 import { StyledActionIcon } from '../components/roster/StyledActionIcon';
 
-const StyledSection = styled.section`
+const StyledSection = styled.div`
     --page-padding-y: 4rem;
 
     --common-transition-config: 120ms ease-in;
@@ -77,6 +77,7 @@ export default function Home() {
     const [isScrolling, setIsScrolling] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
 
     const router = useRouter();
 
@@ -125,7 +126,7 @@ export default function Home() {
             <Head>
                 <title>Plasma Icons</title>
             </Head>
-            <StyledSection>
+            <StyledSection ref={sectionRef}>
                 <StyledIconBackWrapper>
                     {!isScrolling && (
                         <StyledIconNavigation onClick={() => router.push('/')}>
@@ -144,7 +145,7 @@ export default function Home() {
                 <Header />
                 <StyledMain>
                     <SearchForm searchQuery={searchQuery} onInput={onSearchInput} ref={inputRef} />
-                    <IconsList searchQuery={searchQuery} />
+                    <IconsList searchQuery={searchQuery} pageRef={sectionRef} />
                 </StyledMain>
                 <Footer />
             </StyledSection>

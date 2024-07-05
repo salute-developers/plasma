@@ -1,5 +1,5 @@
 import React, { useMemo, useContext, useRef, useState, useEffect } from 'react';
-import type { FC } from 'react';
+import type { FC, RefObject } from 'react';
 import styled, { css } from 'styled-components';
 import { applyNoSelect, H4 } from '@salutejs/plasma-b2c';
 
@@ -8,13 +8,13 @@ import { iconsList } from '../../utils';
 import { multipleMediaQuery } from '../../mixins';
 
 import { IconGroupHeading } from './IconGroupHeading';
-import { IconHoverDetails } from './IconHoverDetails';
+import { IconHoverDetails, StyledIconHoverDetails } from './IconHoverDetails';
 import { IconExtendedInfo } from './IconExtendedInfo';
-import { AnimationSlideUp } from './AnimationSlideUp';
 import { AbstractIcon } from './AbstractIcon';
 import { Grid } from './Grid';
 
 export interface IconsListProps {
+    pageRef: RefObject<HTMLDivElement>;
     searchQuery?: string;
     /**
      * Item click handler
@@ -56,29 +56,12 @@ const StyledEmptySearch = styled(H4)`
 
     ${multipleMediaQuery(['S'])(css`
         font-size: 1.25rem;
+        max-width: calc(100% - 1rem);
     `)}
 `;
 
 const StyledCell = styled.div`
     position: relative;
-`;
-
-const StyledIconHoverDetails = styled.div`
-    position: absolute;
-    z-index: 2;
-    top: -4.25rem;
-    left: 0.625rem;
-    display: none;
-    flex-direction: column;
-    padding: 0.75rem;
-    border-radius: 1rem;
-
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-
-    background-color: rgba(23, 23, 23, 1);
-
-    ${AnimationSlideUp};
 `;
 
 const StyledIcon = styled.div<{ isDeprecated: boolean; isActive?: boolean; hasOpacity?: boolean }>`
@@ -153,7 +136,7 @@ const StyledIcon = styled.div<{ isDeprecated: boolean; isActive?: boolean; hasOp
         `}
 `;
 
-export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
+export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick, pageRef }) => {
     const { state, dispatch } = useContext(Context);
     const [offset, setOffset] = useState(0);
     const [cellIndex, setCellIndex] = useState(1);
@@ -233,7 +216,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
     if (!items.length) {
         return (
-            <StyledEmptySearch bold={false}>У нас нет иконки с таким именем, а по tags пока не ищем</StyledEmptySearch>
+            <StyledEmptySearch bold={false}>У нас нет иконки с таким именем, а по тегам пока не ищем</StyledEmptySearch>
         );
     }
 
@@ -282,9 +265,11 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                 >
                                     <AbstractIcon isDeprecated={isDeprecated} component={component} name={name} />
                                 </StyledIcon>
-                                <StyledIconHoverDetails>
-                                    <IconHoverDetails name={name} sizes={{ 36: true, 24: true, 16: true }} />
-                                </StyledIconHoverDetails>
+                                <IconHoverDetails
+                                    pageRef={pageRef}
+                                    name={name}
+                                    sizes={{ 36: true, 24: true, 16: true }}
+                                />
                                 {name === state.wizardItemName && (
                                     <IconExtendedInfo
                                         onClose={handleCloseExtendInfo}
