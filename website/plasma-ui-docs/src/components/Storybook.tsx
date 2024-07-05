@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { StorybookLink as BaseLink } from '@salutejs/plasma-docs-ui';
 
+// INFO: Список должен совпадать со списком компонентов в библиотеки
 const storyLinks = {
     Badge: 'content-badge--default',
     Button: 'controls-button--default',
@@ -33,6 +34,8 @@ const storyLinks = {
     Typography: 'content-typography--default',
 };
 
-export const StorybookLink: FC<{ name: keyof typeof storyLinks }> = ({ name }) => {
-    return <BaseLink link={`https://bit.ly/3xRatFG?path=/story/${storyLinks[name]}`} />;
+// INFO: Временно убираем кнопку
+export const StorybookLink: FC<{ name: keyof typeof storyLinks }> = () => {
+    // INFO: short links работает с ошибкой
+    return <BaseLink link={null} />;
 };
