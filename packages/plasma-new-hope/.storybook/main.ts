@@ -13,9 +13,9 @@ const storyMap = {
 
 const stories = [];
 
-if (process.env.USE_STYLED_COMPONENTS) {
+if (USE_STYLED_COMPONENTS) {
     stories.push(...storyMap['styled-components']);
-} else if (process.env.USE_EMOTION_COMPONENTS) {
+} else if (USE_EMOTION_COMPONENTS) {
     stories.push(...storyMap['emotion']);
 } else {
     // default

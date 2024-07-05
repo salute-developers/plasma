@@ -89,10 +89,10 @@
     "prepare": "npm run build",
   
     "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map && npm run prebuild:emotion",
-    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && npm run build:replace-linaria-emotion",
+    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && npm run build:replace-st-emotion",
     
     "build": "npm run build:styled-components && npm run build:emotion",
-    "build:replace-linaria-emotion": "./scripts/replace-linaria_emotion.sh",
+    "build:replace-st-emotion": "./scripts/replace-st_emotion.sh",
     "postbuild": "npm run generate:typings",
     
     "build:emotion": "npm run build:emotion:esm && npm run build:emotion:cjs",
@@ -108,6 +108,7 @@
 
     "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
+    "prestorybook:emotion": "npm run prebuild:emotion",
     "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
