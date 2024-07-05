@@ -92,6 +92,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             const innerLabelPlacementValue = hideLabel ? 'outer' : labelPlacement;
             const innerPlaceholderValue = hideLabel ? label : placeholder;
             const innerLabelValue = hideLabel ? undefined : label;
+            const hideLabelClass = hideLabel && label ? classes.hideLabel : undefined;
+            const labelPlacementClass = classes[`${labelPlacement}LabelPlacement` as keyof typeof classes];
 
             const isChipsVisible = isChipEnumeration && chips?.length;
             const withHasChips = isChipsVisible ? classes.hasChips : undefined;
@@ -178,7 +180,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                     readOnly={!disabled && readOnly}
                     labelPlacement={innerLabelPlacementValue}
                     onClick={handleInputFocus}
-                    className={className}
+                    className={cx(labelPlacementClass, hideLabelClass, className)}
                     style={style}
                 >
                     {labelInside ||

@@ -1,10 +1,6 @@
 import { css } from '@linaria/core';
 
-import {
-    textFieldTokens as tokens,
-    textField_labelPlacement_inner as labelPlacement_inner,
-    textField_labelPlacement_outer as labelPlacement_outer,
-} from '../../../../components/TextField';
+import { textFieldTokens as tokens } from '../../../../components/TextField';
 
 export const config = {
     defaults: {
@@ -42,7 +38,6 @@ export const config = {
 
                 ${tokens.focusColor}: var(--text-accent);
             `,
-            // TODO заменить --surface-transparent-positive на корректный токен
             positive: css`
                 ${tokens.color}: var(--plasma-colors-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
@@ -71,7 +66,6 @@ export const config = {
 
                 ${tokens.focusColor}: var(--text-accent);
             `,
-            // // TODO заменить --surface-transparent-warning на корректный токен
             warning: css`
                 ${tokens.color}: var(--plasma-colors-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
@@ -100,7 +94,6 @@ export const config = {
 
                 ${tokens.focusColor}: var(--text-accent);
             `,
-            // // TODO заменить --surface-transparent-negative на корректный токен
             negative: css`
                 ${tokens.color}: var(--plasma-colors-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
@@ -337,10 +330,7 @@ export const config = {
             `,
         },
         labelPlacement: {
-            inner: [
-                labelPlacement_inner,
-                css`
-                    &.${labelPlacement_inner} {
+            inner: css`
                         ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
                         ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                         ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -350,21 +340,13 @@ export const config = {
                         ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
                     }
                 `,
-            ],
-            outer: [
-                labelPlacement_outer,
-                css`
-                    &.${labelPlacement_outer} {
-                    }
-                `,
-            ],
+            outer: css``,
         },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
             `,
         },
-        // TODO заменить --surface-transparent-primary на корректный токен
         readOnly: {
             true: css`
                 ${tokens.colorReadOnly}: var(--text-secondary);

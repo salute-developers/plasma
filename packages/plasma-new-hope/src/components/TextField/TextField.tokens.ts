@@ -2,6 +2,9 @@ export const classes = {
     hasChips: 'has-chips',
     hasEmptyContentLeft: 'has-empty-content-left',
     hasEmptyContentRight: 'has-empty-content-right',
+    innerLabelPlacement: 'label-placement-inner',
+    outerLabelPlacement: 'label-placement-outer',
+    hideLabel: 'hide-label',
 };
 
 export const tokens = {
