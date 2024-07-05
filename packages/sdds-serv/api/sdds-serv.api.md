@@ -16,6 +16,7 @@ import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -127,6 +128,7 @@ import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { Portal } from '@salutejs/plasma-new-hope/styled-components';
 import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Props } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -167,6 +169,7 @@ import { TextAreaPropsExtends } from '@salutejs/plasma-new-hope/types/components
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TextFieldPropsBase } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { textFieldTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { textL } from '@salutejs/sdds-themes/tokens';
 import { textLBold } from '@salutejs/sdds-themes/tokens';
@@ -188,6 +191,32 @@ import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 
 export { addFocus }
+
+// @public (undocumented)
+export const Autocomplete: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & BaseProps & Omit<TextFieldPropsBase, "enumerationType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -918,6 +947,16 @@ breakWord?: boolean | undefined;
 export { dsplS }
 
 export { dsplSBold }
+
+// @public (undocumented)
+export const EmptyState: FunctionComponent<PropsType<    {
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & Props & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Grid: FunctionComponent<PropsType<    {

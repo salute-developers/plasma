@@ -219,7 +219,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                                 </StyledChips>
                             )}
                             <Input
-                                {...rest}
                                 ref={inputForkRef}
                                 id={innerId}
                                 aria-labelledby={labelId}
@@ -229,6 +228,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                                 readOnly={!disabled && readOnly}
                                 onChange={handleChange}
                                 onKeyDown={handleOnKeyDown}
+                                {...rest}
                             />
                             {labelInside && (
                                 <Label id={labelId} htmlFor={innerId}>

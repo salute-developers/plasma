@@ -44,6 +44,8 @@ export * from './components/Notification';
 export * from './components/ButtonBase';
 export * from './components/Skeleton';
 export * from './components/Accordion';
+export * from './components/Autocomplete';
+export * from './components/EmptyState';
 
 export * from './mixins';
 export * from './tokens';

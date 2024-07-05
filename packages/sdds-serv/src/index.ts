@@ -40,6 +40,8 @@ export * from './components/Toast';
 export * from './components/Toolbar';
 export * from './components/Tooltip';
 export * from './components/Typography';
+export * from './components/Autocomplete';
+export * from './components/EmptyState';
 
 export * from './mixins';
 export * from './tokens';
