@@ -1,10 +1,6 @@
 import { css } from '@linaria/core';
 
-import {
-    textFieldTokens as tokens,
-    textField_labelPlacement_inner as labelPlacement_inner,
-    textField_labelPlacement_outer as labelPlacement_outer,
-} from '../../../../components/TextField';
+import { textFieldTokens as tokens } from '../../../../components/TextField';
 
 export const config = {
     defaults: {
@@ -334,34 +330,22 @@ export const config = {
             `,
         },
         labelPlacement: {
-            inner: [
-                labelPlacement_inner,
-                css`
-                    &.${labelPlacement_inner} {
-                        ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
-                        ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                        ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                        ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                        ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                        ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                        ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
-                    }
-                `,
-            ],
-            outer: [
-                labelPlacement_outer,
-                css`
-                    &.${labelPlacement_outer} {
-                    }
-                `,
-            ],
+            inner: css`
+                ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
+            outer: css``,
         },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
             `,
         },
-        // TODO заменить --surface-transparent-primary на корректный токен
         readOnly: {
             true: css`
                 ${tokens.colorReadOnly}: var(--text-primary);
