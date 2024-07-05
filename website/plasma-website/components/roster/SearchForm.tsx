@@ -120,6 +120,7 @@ const StyleIconClose = styled.span`
         --icon-size: 4rem;
 
         top: 0.625rem;
+        margin-left: 0;
     `)}
 `;
 
