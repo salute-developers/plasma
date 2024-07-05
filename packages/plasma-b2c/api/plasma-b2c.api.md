@@ -2139,8 +2139,8 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
 labelPlacement: {
-inner: PolymorphicClassName[];
-outer: PolymorphicClassName[];
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
