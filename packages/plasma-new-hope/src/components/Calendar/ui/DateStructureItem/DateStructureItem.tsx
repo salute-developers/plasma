@@ -3,16 +3,17 @@ import React, { forwardRef, memo } from 'react';
 import { cx } from '../../../../utils';
 import { classes } from '../../Calendar.tokens';
 
-import type { CalendarDayItemProps } from './CalendarDayItem.types';
-import { StyledDay, StyledDayRoot, StyledEvent, StyledEvents } from './CalendarDayItem.styles';
+import type { DateStructureItemProps } from './DateStructureItem.types';
+import { StyledItem, StyledItemRoot, StyledEvent, StyledEvents } from './DateStructureItem.styles';
 
 /**
- * Компонент дня в календаре.
+ * Компонент элемента даты в сетке календаря.
  */
-export const CalendarDayItem = memo(
-    forwardRef<HTMLDivElement, CalendarDayItemProps>(
+export const DateStructureItem = memo(
+    forwardRef<HTMLDivElement, DateStructureItemProps>(
         (
             {
+                children,
                 isFocused,
                 dayOfWeek,
                 disabled,
@@ -37,20 +38,21 @@ export const CalendarDayItem = memo(
             outerRef,
         ) => {
             const selectableClass = !dayOfWeek && !disabled ? classes.selectableItem : undefined;
-            const selectedClass = isSelected ? classes.selectedItem : undefined;
-            const currentClass = isCurrent ? classes.currentItem : undefined;
-            const hoveredClass = isHovered ? classes.hoveredItem : undefined;
+            const selectedClass = isDayInCurrentMonth && isSelected ? classes.selectedItem : undefined;
+            const currentClass = isDayInCurrentMonth && isCurrent ? classes.currentItem : undefined;
+            const hoveredClass = isDayInCurrentMonth && isHovered ? classes.hoveredItem : undefined;
             const dayOfWeekClass = dayOfWeek ? classes.dayOfWeek : undefined;
-            const disabledClass = disabled && !isCurrent ? classes.dayDisabled : undefined;
-            const disabledCurrentClass = disabled && isCurrent ? classes.dayDisabledCurrent : undefined;
-            const sideInRangeLeft = sideInRange === 'left' ? classes.daySideLeft : undefined;
-            const sideInRangeRight = sideInRange === 'right' ? classes.daySideRight : undefined;
-            const sideInRangeClass = sideInRange ? classes.daySideInRange : undefined;
-            const inRangeStyle = inRange ? classes.dayInRange : undefined;
+            const dayInCurrentMonthClass = isDayInCurrentMonth ? classes.dayInCurrentMonth : undefined;
+            const disabledClass = disabled && !isCurrent ? classes.disabled : undefined;
+            const disabledCurrentClass = disabled && isCurrent ? classes.disabledCurrent : undefined;
+            const sideInRangeLeft = isDayInCurrentMonth && sideInRange === 'left' ? classes.sideLeft : undefined;
+            const sideInRangeRight = isDayInCurrentMonth && sideInRange === 'right' ? classes.sideRight : undefined;
+            const sideInRangeClass = isDayInCurrentMonth && sideInRange ? classes.sideInRange : undefined;
+            const inRangeStyle = isDayInCurrentMonth && inRange ? classes.inRange : undefined;
             const sideOffset = !isSelected && isCurrent ? -1 : 0;
 
             return (
-                <StyledDayRoot
+                <StyledItemRoot
                     ref={outerRef}
                     className={cx(
                         dayOfWeekClass,
@@ -60,6 +62,7 @@ export const CalendarDayItem = memo(
                         disabledClass,
                         disabledCurrentClass,
                         hoveredClass,
+                        dayInCurrentMonthClass,
                     )}
                     tabIndex={isFocused ? 0 : -1}
                     dayOfWeek={dayOfWeek}
@@ -82,18 +85,18 @@ export const CalendarDayItem = memo(
                     aria-describedby={disabled ? 'withShift' : undefined}
                     {...rest}
                 >
-                    <StyledDay
+                    <StyledItem
                         className={cx(sideInRangeClass, sideInRangeLeft, sideInRangeRight, inRangeStyle)}
                         offset={sideOffset}
                     >
-                        {day}
-                    </StyledDay>
+                        {children}
+                    </StyledItem>
                     <StyledEvents aria-hidden>
                         {[eventList[0], eventList[1], eventList[2]].map(
                             (event, i) => event && <StyledEvent key={`${event.date}-${i}`} {...event} />,
                         )}
                     </StyledEvents>
-                </StyledDayRoot>
+                </StyledItemRoot>
             );
         },
     ),

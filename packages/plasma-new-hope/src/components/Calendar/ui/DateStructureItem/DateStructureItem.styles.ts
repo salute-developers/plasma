@@ -1,10 +1,10 @@
 import { styled } from '@linaria/react';
 import { FocusProps } from '@salutejs/plasma-core';
 
-import type { DayProps } from '../../Calendar.types';
-import { classes, tokens } from '../../Calendar.tokens';
+import type { DateStructureProps } from '../../Calendar.types';
+import { classes, innerTokens, tokens } from '../../Calendar.tokens';
 import { addFocus } from '../../../../mixins';
-import { addSelected, flexCenter } from '../../mixins';
+import { addActive, addSelected, flexCenter } from '../../mixins';
 
 const inRange = () => `
     &:before {
@@ -28,56 +28,56 @@ const sideInRange = () => `
     }
 `;
 
-export const StyledDay = styled.div<{ offset: number }>`
-    border-radius: calc(var(${tokens.calendarDayItemBorderRadius}) - 0.125rem);
+export const StyledItem = styled.div<{ offset: number }>`
+    border-radius: calc(var(${innerTokens.dateStructureBorderRadius}) - 0.125rem);
 
     ${String(flexCenter)};
 
-    &.${String(classes.dayInRange)} {
+    &.${String(classes.inRange)} {
         ${inRange()};
     }
 
-    &.${String(classes.daySideInRange)} {
+    &.${String(classes.sideInRange)} {
         ${sideInRange()};
     }
 
-    &.${String(classes.daySideLeft)} {
+    &.${String(classes.sideLeft)} {
         &:before {
             left: ${({ offset }) => `${offset}px`};
         }
     }
 
-    &.${String(classes.daySideRight)} {
+    &.${String(classes.sideRight)} {
         &:before {
             right: ${({ offset }) => `${offset}px`};
         }
     }
 `;
 
-const disabledDay = () => `
+const disabledItem = () => `
     cursor: not-allowed;
     opacity: 0.4;
 `;
 
-const disabledCurrentDay = () => `
-    ${disabledDay()};
+const disabledCurrentItem = () => `
+    ${disabledItem()};
 `;
 
-export const StyledDayRoot = styled.div<DayProps & FocusProps>`
-    font-family: var(${tokens.calendarDayFontFamily});
-    font-size: var(${tokens.calendarDayFontSize});
-    font-style: var(${tokens.calendarDayFontStyle});
-    font-weight: var(${tokens.calendarDayFontWeight});
-    letter-spacing: var(${tokens.calendarDayFontLetterSpacing});
-    line-height: var(${tokens.calendarDayFontLineHeight});
+export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
+    font-family: var(${innerTokens.dateStructureFontFamily});
+    font-size: var(${innerTokens.dateStructureFontSize});
+    font-style: var(${innerTokens.dateStructureFontStyle});
+    font-weight: var(${innerTokens.dateStructureFontWeight});
+    letter-spacing: var(${innerTokens.dateStructureFontLetterSpacing});
+    line-height: var(${innerTokens.dateStructureFontLineHeight});
 
     position: relative;
     box-sizing: border-box;
 
-    min-width: var(${tokens.calendarDayItemWidth});
-    min-height: var(${tokens.calendarDayItemHeight});
+    min-width: var(${innerTokens.dateStructureWidth});
+    min-height: var(${innerTokens.dateStructureHeight});
 
-    border-radius: var(${tokens.calendarDayItemBorderRadius});
+    border-radius: var(${innerTokens.dateStructureBorderRadius});
 
     ${String(flexCenter)};
 
@@ -85,13 +85,12 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
         isDayInCurrentMonth
             ? `var(${tokens.calendarContentPrimaryColor})`
             : `var(${tokens.calendarContentSecondaryColor})`};
-    visibility: ${({ isDayInCurrentMonth, isDouble }) => (!isDayInCurrentMonth && isDouble ? 'hidden' : 'visible')};
 
     &.${String(classes.selectableItem)} {
         ${addSelected({
-            minWidth: `calc(var(${tokens.calendarDayItemWidth}) - 0.25rem)`,
-            minHeight: `calc(var(${tokens.calendarDayItemHeight}) - 0.25rem)`,
-            selectedFontWeight: `var(${tokens.calendarDaySelectedFontWeight})`,
+            minWidth: `calc(var(${innerTokens.dateStructureWidth}) - 0.25rem)`,
+            minHeight: `calc(var(${innerTokens.dateStructureHeight}) - 0.25rem)`,
+            selectedFontWeight: `var(${innerTokens.dateStructureSelectedFontWeight})`,
             selectedBackground: `var(${tokens.calendarSelectedItemBackground})`,
             selectedColor: `var(${tokens.calendarSelectedItemColor})`,
             selectableBackgroundHover: `var(${tokens.calendarSelectableItemBackgroundHover})`,
@@ -104,7 +103,7 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
             outlineSize: '0.063rem',
             outlineOffset: '-0.125rem',
             outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-            outlineRadius: `calc(var(${tokens.calendarDayItemBorderRadius}) + 0.125rem)`,
+            outlineRadius: `calc(var(${innerTokens.dateStructureBorderRadius}) + 0.125rem)`,
         })};
 
         &.${classes.currentItem} {
@@ -112,36 +111,44 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
                 outlineSize: '0.063rem',
                 outlineOffset: '-0.1875rem',
                 outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-                outlineRadius: `calc(var(${tokens.calendarDayItemBorderRadius}) + 0.125rem)`,
+                outlineRadius: `calc(var(${innerTokens.dateStructureBorderRadius}) + 0.125rem)`,
             })};
         }
+    }
+
+    &.${classes.dayInCurrentMonth}:not(.${classes.disabled}) {
+        ${addActive({
+            activeBackground: `var(${tokens.calendarActiveItemBackground})`,
+            activeColor: `var(${tokens.calendarActiveItemColor})`,
+            activeFontWeight: `var(${innerTokens.dateStructureSelectedFontWeight})`,
+        })};
     }
 
     &.${classes.dayOfWeek} {
         color: var(${tokens.calendarDayOfWeekColor});
     }
 
-    &.${classes.dayDisabled} {
-        ${disabledDay()};
+    &.${classes.disabled} {
+        ${disabledItem()};
     }
 
-    &.${classes.dayDisabledCurrent} {
-        ${disabledCurrentDay()};
+    &.${classes.disabledCurrent} {
+        ${disabledCurrentItem()};
     }
 
     &.${classes.currentItem} {
-        & > .${classes.dayInRange}:before {
+        & > .${classes.inRange}:before {
             width: calc(100% + 2px);
             height: 100%;
         }
 
-        & > .${classes.daySideRight}:before {
+        & > .${classes.sideRight}:before {
             width: 100%;
             right: -1px;
             left: unset;
         }
 
-        & > .${classes.daySideLeft}:before {
+        & > .${classes.sideLeft}:before {
             width: 100%;
             left: -1px;
             right: unset;

@@ -11,8 +11,9 @@ import {
     ROW_STEP,
     SHORT_DAY_NAMES,
 } from '../../utils';
-import { CalendarDayItem } from '../CalendarDayItem/CalendarDayItem';
+import { DateStructureItem } from '../DateStructureItem/DateStructureItem';
 import { DateItem } from '../../Calendar.types';
+import { innerTokens, tokens } from '../../Calendar.tokens';
 
 import { StyledCalendarDays, StyledCalendarDaysHint, StyledFlex } from './CalendarDays.styles';
 import type { CalendarDaysProps } from './CalendarDays.types';
@@ -43,6 +44,19 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     const onSetSelectedRef = useRef(onSetSelected);
 
     const offset = isSecond ? ROW_STEP : 0;
+
+    const dayItemTokens = {
+        [`${innerTokens.dateStructureFontFamily}`]: `var(${tokens.calendarDayFontFamily})`,
+        [`${innerTokens.dateStructureFontSize}`]: `var(${tokens.calendarDayFontSize})`,
+        [`${innerTokens.dateStructureFontWeight}`]: `var(${tokens.calendarDayFontWeight})`,
+        [`${innerTokens.dateStructureFontLineHeight}`]: `var(${tokens.calendarDayFontLineHeight})`,
+        [`${innerTokens.dateStructureFontLetterSpacing}`]: `var(${tokens.calendarDayFontLetterSpacing})`,
+        [`${innerTokens.dateStructureFontStyle}`]: `var(${tokens.calendarDayFontStyle})`,
+        [`${innerTokens.dateStructureSelectedFontWeight}`]: `var(${tokens.calendarDaySelectedFontWeight})`,
+        [`${innerTokens.dateStructureWidth}`]: `var(${tokens.calendarDayItemWidth})`,
+        [`${innerTokens.dateStructureHeight}`]: `var(${tokens.calendarDayItemHeight})`,
+        [`${innerTokens.dateStructureBorderRadius}`]: `var(${tokens.calendarDayItemBorderRadius})`,
+    };
 
     const getSelectedDate = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
@@ -94,10 +108,6 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
         [getSelectedDate, onHoverDay, value],
     );
 
-    const handleOnFocusDay = useCallback(() => {
-        // заглушка будет убрана при реализации доступности
-    }, []);
-
     const getRefs = useCallback(
         (element: HTMLDivElement, isDayInCurrentMonth: boolean, i: number, j: number) => {
             if (isDayInCurrentMonth) {
@@ -120,13 +130,16 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
             </StyledCalendarDaysHint>
             <StyledFlex role="row">
                 {SHORT_DAY_NAMES.map((name) => (
-                    <CalendarDayItem
+                    <DateStructureItem
                         role="columnheader"
                         aria-label={FULL_DAY_NAMES[name]}
                         key={name}
                         dayOfWeek
                         day={name}
-                    />
+                        style={dayItemTokens}
+                    >
+                        {name}
+                    </DateStructureItem>
                 ))}
             </StyledFlex>
             {days.map((day: DateItem[], i) => (
@@ -143,12 +156,13 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                                 inRange,
                                 isOutOfMinMaxRange = false,
                                 disabledArrowKey,
-                                disabledMonths,
+                                disabledDates,
                             },
                             j,
                         ) => (
-                            <CalendarDayItem
-                                ref={(element: HTMLDivElement) => getRefs(element, isDayInCurrentMonth, i, j)}
+                            <DateStructureItem
+                                ref={(element: HTMLDivElement) => getRefs(element, Boolean(isDayInCurrentMonth), i, j)}
+                                style={dayItemTokens}
                                 eventList={events}
                                 disabled={disabled}
                                 day={date.day}
@@ -166,12 +180,13 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                                 sideInRange={getSideInRange(value, date, hoveredDay, isSelected)}
                                 onClick={disabled ? undefined : handleOnChangeDay(i, j)}
                                 onMouseOver={disabled ? undefined : handleOnHoverDay}
-                                onFocus={handleOnFocusDay}
                                 key={`StyledDay-${j}`}
                                 role="gridcell"
                                 disabledArrowKey={disabledArrowKey}
-                                disabledMonths={disabledMonths}
-                            />
+                                disabledMonths={disabledDates}
+                            >
+                                {date.day}
+                            </DateStructureItem>
                         ),
                     )}
                 </StyledFlex>

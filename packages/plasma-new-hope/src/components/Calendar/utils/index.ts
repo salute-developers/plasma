@@ -1,7 +1,11 @@
 import type { CalendarStateType } from '../store/types';
-import type { CalendarValueType, DateObject, DisabledDay, ItemProps } from '../Calendar.types';
+import type { CalendarValueType, DateObject, DisabledDay, EventDay, ItemProps } from '../Calendar.types';
+
+export { getDatesWithModifications } from './getDateWithModification';
 
 export const ROW_STEP = 6;
+export const ROW_MONTH_STEP = 3;
+export const ROW_YEAR_STEP = 3;
 
 export const YEAR_RENDER_COUNT = 12;
 
@@ -85,14 +89,28 @@ export const isCurrentMonth = (date: DateObject, monthIndex: number) => {
     return monthIndex === currentMonthIndex && date.year === currentYear;
 };
 
-export const isSelectedMonth = (date: DateObject, monthIndex: number) => date.monthIndex === monthIndex;
+export const isSelectedMonth = (date: DateObject, currentMonth: number, value?: Date) => {
+    if (!value) {
+        return false;
+    }
+
+    const { monthIndex, year } = getDateFromValue(value);
+    return currentMonth === monthIndex && date.year === year;
+};
 
 export const isCurrentYear = (year: number) => {
     const { year: currentYear } = getDateFromNow();
     return year === currentYear;
 };
 
-export const isSelectedYear = (date: DateObject, year: number) => date.year === year;
+export const isSelectedYear = (yearValue: number, value?: Date) => {
+    if (!value) {
+        return false;
+    }
+
+    const { year } = getDateFromValue(value);
+    return yearValue === year;
+};
 
 export const getSortedValues = (values: [Date | undefined, (Date | undefined)?]) =>
     values.sort((start, end) => {
@@ -103,7 +121,7 @@ export const getSortedValues = (values: [Date | undefined, (Date | undefined)?])
         return start.getTime() - end.getTime();
     });
 
-export const isDayInRange = (
+export const isDateInRange = (
     year: number,
     monthIndex: number,
     currentDay: number,
@@ -282,6 +300,7 @@ export const getMatrix = <T extends ItemProps>(items: T[], rowSize = 7): readonl
 export const getCalendarType = (type: CalendarStateType) => {
     switch (type) {
         case 'Months':
+        case 'Quarter':
             return 'год';
         case 'Years':
             return 'период';
@@ -289,3 +308,18 @@ export const getCalendarType = (type: CalendarStateType) => {
             return 'месяц';
     }
 };
+
+/**
+ * Метод для получения набора неповторяющихся дат.
+ */
+export const getPropsMap = <T extends EventDay | DisabledDay>(props: T[]) =>
+    props.reduce((acc, prop) => {
+        const { year, monthIndex, day } = getDateFromValue(prop.date);
+
+        const key = `${year}-${monthIndex}-${day}`;
+
+        const propList = acc.get(key) || [];
+        propList.push(prop);
+
+        return acc.set(key, propList);
+    }, new Map<string, T[]>());

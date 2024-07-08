@@ -136,7 +136,7 @@ export const Default: StoryObj<CalendarProps> = {
 };
 
 const StoryBase = (args: CalendarBaseProps) => {
-    const { min, max, type, includeEdgeDates, size } = args;
+    const { min, max, includeEdgeDates, size } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
 
     const handleOnChange = useCallback((newValue: Date) => {
@@ -149,40 +149,68 @@ const StoryBase = (args: CalendarBaseProps) => {
         color: 'purple',
     }));
 
+    const eventsMonthRange = [...new Array(3)].map(() => ({
+        date: new Date(2023, 10, 1),
+        color: 'green',
+    }));
+
     const disabledDays = [...new Array(5)].map((_, day) => ({
         date: new Date(2023, 10, 23 + day),
     }));
 
     return (
-        <CalendarBase
-            size={size}
-            value={value}
-            eventList={eventsRange}
-            disabledList={disabledDays}
-            min={min}
-            max={max}
-            includeEdgeDates={includeEdgeDates}
-            type={type}
-            onChangeValue={handleOnChange}
-        />
+        <div style={{ display: 'flex', gap: '3rem' }}>
+            <div>
+                <h3>type: &apos;Days&apos;</h3>
+                <CalendarBase
+                    size={size}
+                    value={value}
+                    eventList={eventsRange}
+                    disabledList={disabledDays}
+                    min={min}
+                    max={max}
+                    includeEdgeDates={includeEdgeDates}
+                    type="Days"
+                    onChangeValue={handleOnChange}
+                />
+            </div>
+            <div>
+                <h3>type: &apos;Months&apos;</h3>
+                <CalendarBase
+                    size={size}
+                    value={value}
+                    eventMonthList={eventsMonthRange}
+                    min={min}
+                    max={max}
+                    includeEdgeDates={includeEdgeDates}
+                    type="Months"
+                    onChangeValue={handleOnChange}
+                />
+            </div>
+            <div>
+                <h3>type: &apos;Years&apos;</h3>
+                <CalendarBase
+                    size={size}
+                    value={value}
+                    eventList={eventsRange}
+                    disabledList={disabledDays}
+                    min={min}
+                    max={max}
+                    includeEdgeDates={includeEdgeDates}
+                    type="Years"
+                    onChangeValue={handleOnChange}
+                />
+            </div>
+        </div>
     );
 };
 
 export const Base: StoryObj<CalendarBaseProps> = {
-    argTypes: {
-        type: {
-            options: ['Days', 'Months', 'Years'],
-            control: {
-                type: 'select',
-            },
-        },
-    },
     args: {
         size: 'm',
-        min: new Date(2023, 10, 1),
-        max: new Date(2023, 11, 24),
+        min: new Date(2016, 5, 1),
+        max: new Date(2030, 11, 24),
         includeEdgeDates: false,
-        type: 'Days',
     },
     render: (args) => <StoryBase {...args} />,
 };
@@ -230,11 +258,11 @@ export const Double: StoryObj<CalendarDoubleProps> = {
 
 const StoryRange = (args: CalendarBaseRangeProps) => {
     const { min, max, type, includeEdgeDates, size } = args;
-    const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 10, 15), new Date(2023, 10, 24)]);
-    const handleOnChange = useCallback((newValue: [Date, Date?]) => {
+    const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 1, 1), new Date(2023, 5, 1)]);
+    const handleOnChange = (newValue: [Date, Date?]) => {
         onChangeValue(newValue);
         setValue(newValue);
-    }, []);
+    };
 
     const eventsRange = [...new Array(10)].map((_, day) => ({
         date: new Date(2023, 10, 16 + day),

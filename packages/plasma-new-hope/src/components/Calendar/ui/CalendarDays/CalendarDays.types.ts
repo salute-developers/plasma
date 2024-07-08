@@ -1,4 +1,4 @@
-import { HTMLAttributes, MutableRefObject, KeyboardEvent } from 'react';
+import type { HTMLAttributes, MutableRefObject, KeyboardEvent } from 'react';
 
 import type { CalendarValueType, DateObject, DisabledDay, EventDay } from '../../Calendar.types';
 
