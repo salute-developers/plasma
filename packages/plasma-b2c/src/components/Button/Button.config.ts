@@ -1,5 +1,36 @@
 import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+
+
+// applyOnLight() {
+//     button: css`
+//         --inverse-text-primary:
+//         --surface-solid-default:
+//         --inverse-text-primary:
+//         --surface-solid-default-hover:
+//         --inverse-text-primary:
+//         --surface-solid-default-active:
+// 
+// 
+// 
+//     `
+// }
+// 
+///  applyOnDark() {
+///      return css`
+///          --text-primary: var(--on-dark-text-primary);
+///          --text-secondary: var(--on-dark-text-secondary);
+///          --text-positive: var(--on-dark-text-positive);
+/// 
+///          --inverse-text-primary: var(--on-light-text-primary);
+///      `;
+///  }
+/// 
+/// <Container onLight >
+///     <Button view="default" />
+///     <Button view="success" /> => onDark
+/// <Container />
+
 export const config = {
     defaults: {
         view: 'default',
@@ -60,6 +91,7 @@ export const config = {
             success: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
+                ${buttonTokens.buttonColor}: var(--text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-positive);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
