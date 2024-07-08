@@ -1,12 +1,15 @@
 import { getDateFromValue, getNextDate, getPrevDate, getStartYear } from '../utils';
 
-import { CalendarStateType, Action, ActionType, InitialState } from './types';
+import { CalendarStateType, Action, ActionType, InitialState, SizeMap } from './types';
 
-export const getInitialState = (
-    value: Date | undefined,
-    size: [number, number],
-    calendarState: CalendarStateType,
-): InitialState => {
+const sizeMap: SizeMap = {
+    Days: [5, 6],
+    Months: [3, 2],
+    Years: [3, 2],
+    Quarter: [2, 1],
+};
+
+export const getInitialState = (value: Date | undefined, calendarState: CalendarStateType): InitialState => {
     const initDate = value || new Date();
     const date = getDateFromValue(initDate);
 
@@ -14,7 +17,7 @@ export const getInitialState = (
         date: { ...date, day: value !== undefined ? date.day : 0 },
         startYear: getStartYear(date.year),
         calendarState,
-        size,
+        size: sizeMap[calendarState],
     };
 };
 
@@ -114,10 +117,11 @@ export const reducer = (state: InitialState, action: Action): InitialState => {
             };
         }
         case ActionType.UPDATE_YEAR: {
-            const { calendarState, year } = action.payload;
+            const { calendarState, year, size } = action.payload;
 
             return {
                 ...state,
+                size,
                 calendarState,
                 date: {
                     day: state.date.day,

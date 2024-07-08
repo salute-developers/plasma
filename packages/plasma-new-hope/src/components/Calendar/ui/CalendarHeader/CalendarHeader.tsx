@@ -37,7 +37,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             onUpdateCalendarState?.(CalendarState.Months, [3, 2]);
         }
 
-        if (type === CalendarState.Months) {
+        if (type === CalendarState.Months || type === CalendarState.Quarter) {
             onUpdateCalendarState?.(CalendarState.Years, [3, 2]);
         }
     }, [type, onUpdateCalendarState]);
@@ -60,7 +60,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 );
             }
 
-            if (type === CalendarState.Months) {
+            if (type === CalendarState.Months || type === CalendarState.Quarter) {
                 return (
                     <StyledHeaderDate>
                         {date.year}
@@ -83,7 +83,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         [type, startYear, size],
     );
 
-    const currentCalendarType = getCalendarType(isDouble ? CalendarState.Days : type);
+    const currentCalendarType = getCalendarType(type);
 
     const PreviousButton = useMemo(
         () => (
@@ -109,10 +109,14 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 <StyledNavigation>
                     <StyledDoubleHeaderWrapper>
                         {PreviousButton}
-                        <StyledHeaderDouble aria-live="polite">{getHeaderContent(firstDate)}</StyledHeaderDouble>
+                        <StyledHeaderDouble onClick={handleCalendarState} aria-live="polite">
+                            {getHeaderContent(firstDate)}
+                        </StyledHeaderDouble>
                     </StyledDoubleHeaderWrapper>
                     <StyledDoubleHeaderWrapper className={classes.doubleHeaderLastDateWrapper}>
-                        <StyledHeaderDouble aria-live="polite">{getHeaderContent(secondDate)}</StyledHeaderDouble>
+                        <StyledHeaderDouble onClick={handleCalendarState} aria-live="polite">
+                            {getHeaderContent(secondDate)}
+                        </StyledHeaderDouble>
                         {NextButton}
                     </StyledDoubleHeaderWrapper>
                 </StyledNavigation>

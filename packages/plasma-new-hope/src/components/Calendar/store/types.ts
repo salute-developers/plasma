@@ -4,6 +4,7 @@ export enum CalendarState {
     Days = 'Days',
     Months = 'Months',
     Years = 'Years',
+    Quarter = 'Quarter',
 }
 
 export const enum ActionType {
@@ -18,6 +19,10 @@ export const enum ActionType {
     UPDATE_YEAR = 'update_year',
     UPDATE_CALENDAR_STATE = 'update_calendar_state',
 }
+
+export type SizeMap = {
+    [key in CalendarState]: [number, number];
+};
 
 export type CalendarStateType = keyof typeof CalendarState;
 
@@ -49,7 +54,7 @@ export type UpdateMonthAction = {
 
 export type UpdateYearAction = {
     type: ActionType.UPDATE_YEAR;
-    payload: { calendarState: CalendarStateType; year: number };
+    payload: { calendarState: CalendarStateType; year: number; size: [number, number] };
 };
 
 export type UpdateCalendarStateAction = {

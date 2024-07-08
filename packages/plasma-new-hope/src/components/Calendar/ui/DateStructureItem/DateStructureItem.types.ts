@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from 'react';
 
-import type { DayProps, EventDay } from '../../Calendar.types';
+import type { DateStructureProps, EventDay } from '../../Calendar.types';
 
-export interface CalendarDayItemProps extends DayProps, HTMLAttributes<HTMLDivElement> {
-    day: number | string;
+export interface DateStructureItemProps extends DateStructureProps, HTMLAttributes<HTMLDivElement> {
+    day?: number | string;
     year?: number;
     monthIndex?: number;
     sideInRange?: 'left' | 'right';

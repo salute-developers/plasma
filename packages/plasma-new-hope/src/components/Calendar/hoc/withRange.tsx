@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, ReactElement } from 'react';
+import React, { useMemo, useState, useCallback, ReactElement, useEffect } from 'react';
 
 import type { Calendar, CalendarRange } from '../Calendar.types';
 import { getSortedValues, isValueUpdate } from '../utils';
@@ -8,10 +8,14 @@ import { getSortedValues, isValueUpdate } from '../utils';
  */
 export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => ({
     value,
-    disabledList,
-    eventList,
     min,
     max,
+    disabledList,
+    eventList,
+    eventMonthList,
+    disabledMonthList,
+    eventYearList,
+    disabledYearList,
     onChangeValue,
     onChangeStartOfRange,
     ...rest
@@ -53,6 +57,10 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
             onChangeValue={handleOnChangeDay}
             disabledList={disabledList}
             eventList={eventList}
+            eventMonthList={eventMonthList}
+            disabledMonthList={disabledMonthList}
+            eventYearList={eventYearList}
+            disabledYearList={disabledYearList}
             min={min}
             max={max}
             {...rest}

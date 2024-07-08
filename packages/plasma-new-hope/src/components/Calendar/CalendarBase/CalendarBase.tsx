@@ -24,7 +24,7 @@ import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
 export type CalendarBaseProps = Calendar & {
     /**
-     * Тип отображения календаря: дни, месяца, года.
+     * Конечный тип отображения календаря: дни, месяца, года, кварталы.
      */
     type?: CalendarStateType;
     /**
@@ -51,6 +51,10 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 type = 'Days',
                 eventList,
                 disabledList,
+                eventMonthList,
+                disabledMonthList,
+                eventYearList,
+                disabledYearList,
                 onChangeValue,
                 ...rest
             },
@@ -61,12 +65,12 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 [externalValue],
             );
             const value = secondValue || firstValue;
-            const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
+            const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
             const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
 
-            const [state, dispatch] = useReducer(reducer, getInitialState(value, [5, 6], type));
+            const [state, dispatch] = useReducer(reducer, getInitialState(value, type));
 
             const { date, calendarState, startYear, size } = state;
 
@@ -90,7 +94,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                         return;
                     }
 
-                    if (calendarState === CalendarState.Months) {
+                    if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
                         dispatch({ type: ActionType.PREVIOUS_YEAR, payload: { step: 1 } });
 
                         return;
@@ -123,7 +127,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                         return;
                     }
 
-                    if (calendarState === CalendarState.Months) {
+                    if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
                         dispatch({ type: ActionType.NEXT_YEAR, payload: { step: 1 } });
 
                         return;
@@ -152,19 +156,44 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 [onChangeValue, onSelectIndexes],
             );
 
-            const handleOnChangeMonth = useCallback((monthIndex: number) => {
-                dispatch({
-                    type: ActionType.UPDATE_MONTH,
-                    payload: { calendarState: CalendarState.Days, monthIndex, size: [5, 6] },
-                });
-            }, []);
+            const handleOnChangeMonth = useCallback(
+                (newDate: DateObject) => {
+                    if (type === CalendarState.Months) {
+                        const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
+                        return onChangeValue?.(newDay);
+                    }
 
-            const handleOnChangeYear = useCallback((year: number) => {
-                dispatch({
-                    type: ActionType.UPDATE_YEAR,
-                    payload: { calendarState: CalendarState.Months, year },
-                });
-            }, []);
+                    dispatch({
+                        type: ActionType.UPDATE_MONTH,
+                        payload: { calendarState: CalendarState.Days, monthIndex: newDate.monthIndex, size: [5, 6] },
+                    });
+                },
+                [onChangeValue],
+            );
+
+            const handleOnChangeYear = useCallback(
+                (newDate: DateObject) => {
+                    if (type === CalendarState.Years) {
+                        const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
+                        return onChangeValue?.(newDay);
+                    }
+
+                    if (type === CalendarState.Quarter) {
+                        dispatch({
+                            type: ActionType.UPDATE_YEAR,
+                            payload: { calendarState: CalendarState.Quarter, year: newDate.year, size: [1, 1] },
+                        });
+
+                        return;
+                    }
+
+                    dispatch({
+                        type: ActionType.UPDATE_YEAR,
+                        payload: { calendarState: CalendarState.Months, year: newDate.year, size: [3, 2] },
+                    });
+                },
+                [onChangeValue],
+            );
 
             const handleUpdateCalendarState = useCallback(
                 (newCalendarState: CalendarStateType, newSize: [number, number]) => {
@@ -236,39 +265,53 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                     />
                     {calendarState === CalendarState.Days && (
                         <CalendarDays
-                            eventList={eventList}
-                            disabledList={disabledList}
-                            min={min}
-                            max={max}
-                            includeEdgeDates={includeEdgeDates}
                             value={externalValue}
                             date={date}
-                            hoveredDay={hoveredDay}
+                            min={min}
+                            max={max}
+                            eventList={eventList}
+                            disabledList={disabledList}
+                            includeEdgeDates={includeEdgeDates}
+                            hoveredDay={hoveredItem}
                             selectIndexes={selectIndexes}
                             onChangeDay={handleOnChangeDay}
-                            onHoverDay={setHoveredDay}
                             onSetSelected={onSelectIndexes}
+                            onHoverDay={setHoveredItem}
                             onKeyDown={handleKeyDown}
                             outerRefs={outerRefs}
                         />
                     )}
                     {calendarState === CalendarState.Months && (
                         <CalendarMonths
+                            value={externalValue}
                             date={date}
+                            min={min}
+                            max={max}
+                            eventList={eventMonthList}
+                            disabledList={disabledMonthList}
+                            hoveredMonth={hoveredItem}
                             selectIndexes={selectIndexes}
                             onChangeMonth={handleOnChangeMonth}
                             onSetSelected={onSelectIndexes}
+                            onHoverMonth={setHoveredItem}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
                         />
                     )}
                     {calendarState === CalendarState.Years && (
                         <CalendarYears
+                            value={externalValue}
                             date={date}
                             startYear={startYear}
                             selectIndexes={selectIndexes}
+                            min={min}
+                            max={max}
+                            eventList={eventYearList}
+                            disabledList={disabledYearList}
+                            hoveredYear={hoveredItem}
                             onChangeYear={handleOnChangeYear}
                             onSetSelected={onSelectIndexes}
+                            onHoverYear={setHoveredItem}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
                         />
