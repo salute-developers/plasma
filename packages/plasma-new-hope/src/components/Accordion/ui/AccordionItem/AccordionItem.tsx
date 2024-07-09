@@ -1,7 +1,8 @@
-import React, { HTMLAttributes, useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { convertRoundnessMatrix } from '../../../../utils/roundness';
 import { classes, tokens } from '../../Accordion.tokens';
+import { HTMLAttributesOmitOnChange } from '../../../../engines/types';
 
 import {
     StyledAccordionItem,
@@ -18,7 +19,7 @@ import {
 } from './AccordionItem.styles';
 import type { AccordionItemProps } from './AccordionItem.types';
 
-export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionItemProps> = ({
+export const AccordionItem: React.FC<HTMLAttributesOmitOnChange & AccordionItemProps> = ({
     value,
     contentRight,
     contentLeft,
@@ -31,7 +32,7 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
     disabled,
     onChange,
 }) => {
-    const key = eventKey ?? index;
+    const key = eventKey ?? index ?? 0;
 
     const [leftPadding, setLeftPadding] = useState<string | number | null>();
 
