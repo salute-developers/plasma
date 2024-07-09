@@ -7,7 +7,6 @@ import type { StyledHeaderRootProps } from './HeaderRoot.types';
 export const StyledHeaderRoot = styled.header<StyledHeaderRootProps>`
     box-sizing: content-box;
 
-    width: 100%;
     height: var(${tokens.headerHeight});
     padding-top: var(${tokens.headerPaddingTop});
     padding-bottom: var(${tokens.headerPaddingBottom});
