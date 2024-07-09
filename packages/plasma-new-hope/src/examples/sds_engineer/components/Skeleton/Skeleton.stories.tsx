@@ -48,7 +48,7 @@ export const Line: StoryObj<StoryLineSkeletonProps> = {
         ...Default.argTypes,
     },
     args: {
-        size: 'body1',
+        size: 'bodyM',
         ...Default.args,
     },
     render: (args) => <LineSkeleton {...args} />,
@@ -60,7 +60,7 @@ export const Text: StoryObj<StoryTextSkeletonProps> = {
         ...Default.argTypes,
     },
     args: {
-        size: 'body1',
+        size: 'bodyM',
         lines: 5,
         width: '',
         ...Default.args,
@@ -86,5 +86,5 @@ export const Button: StoryObj = {
     args: {
         skeleton: true,
     },
-    render: (args) => <ButtonSkeleton view="primary" text="test" {...args} />,
+    render: (args) => <ButtonSkeleton view="default" text="test" {...args} />,
 };
