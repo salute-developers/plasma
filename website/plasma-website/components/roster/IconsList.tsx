@@ -149,13 +149,13 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick, pageRe
             return iconsList;
         }
 
-        const regExp = new RegExp(searchQuery.toLocaleLowerCase().replace(/\W/g, ''));
+        const regExp = new RegExp(searchQuery.toLocaleLowerCase().replace(/[^\w\u0400-\u04FF]/g, ''));
 
         return iconsList
             .map((group) => ({
                 ...group,
-                items: group.items.filter((item) => {
-                    return item.name.toLocaleLowerCase().search(regExp) !== -1;
+                items: group.items.filter(({ name }) => {
+                    return name.toLocaleLowerCase().search(regExp) !== -1;
                 }),
             }))
             .filter((group) => {
