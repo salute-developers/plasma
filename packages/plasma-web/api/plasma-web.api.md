@@ -262,6 +262,7 @@ import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/compone
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import type { TextFieldProps as TextFieldProps_2 } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
+import { TextSkeletonBaseProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/TextSkeleton/TextSkeleton.types';
 import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TimingFunction } from '@salutejs/plasma-core';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
@@ -2225,13 +2226,48 @@ breakWord?: boolean | undefined;
 } & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public
-export const TextSkeleton: FC<    {
-lines: number;
-width?: string | number | undefined;
-} & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+export const TextSkeleton: FC<PropsType<    {
+size: {
+body1: PolymorphicClassName;
+body2: PolymorphicClassName;
+body3: PolymorphicClassName;
+button1: PolymorphicClassName;
+button2: PolymorphicClassName;
+caption: PolymorphicClassName;
+display1: PolymorphicClassName;
+display2: PolymorphicClassName;
+display3: PolymorphicClassName;
+footnote1: PolymorphicClassName;
+footnote2: PolymorphicClassName;
+headline1: PolymorphicClassName;
+headline2: PolymorphicClassName;
+headline3: PolymorphicClassName;
+headline4: PolymorphicClassName;
+paragraph1: PolymorphicClassName;
+paragraph2: PolymorphicClassName;
+underline: PolymorphicClassName;
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
 customGradientColor?: string | undefined;
 roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
-} & SkeletonGradientProps_2>;
+} & SkeletonGradientProps_2 & RefAttributes<HTMLDivElement> & TextSkeletonBaseProps>;
 
 export { TextSkeletonProps }
 
