@@ -33,6 +33,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     onUpdateCalendarState,
 }) => {
     const handleCalendarState = useCallback(() => {
+        console.log('change');
         if (type === CalendarState.Days) {
             onUpdateCalendarState?.(CalendarState.Months, [3, 2]);
         }

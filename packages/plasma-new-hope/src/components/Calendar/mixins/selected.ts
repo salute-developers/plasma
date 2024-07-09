@@ -1,7 +1,5 @@
 import { classes } from '../Calendar.tokens';
 
-import { addActive } from './active';
-
 export type SelectedProps = {
     /**
      * Минимальная ширина дочернего дива.

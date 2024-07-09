@@ -22,20 +22,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
-export type CalendarBaseProps = Calendar & {
-    /**
-     * Конечный тип отображения календаря: дни, месяца, года, кварталы.
-     */
-    type?: CalendarStateType;
-    /**
-     * Размер календаря.
-     */
-    size?: string;
-    /**
-     * Вид календаря.
-     */
-    view?: string;
-};
+export type CalendarBaseProps = Calendar;
 
 /**
  * Компонент календаря.

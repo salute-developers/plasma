@@ -2,6 +2,7 @@ import { HTMLAttributes, MutableRefObject } from 'react';
 
 import type { CalendarBaseProps } from './CalendarBase/CalendarBase';
 import type { CalendarDoubleProps } from './CalendarDouble/CalendarDouble';
+import type { CalendarStateType } from './store/types';
 
 export enum Keys {
     pageUp = 33,
@@ -142,6 +143,18 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      * Список отключенных годов.
      */
     disabledYearList?: DisabledDay[];
+    /**
+     * Конечный тип отображения календаря: дни, месяца, года, кварталы.
+     */
+    type?: CalendarStateType;
+    /**
+     * Размер календаря.
+     */
+    size?: string;
+    /**
+     * Вид календаря.
+     */
+    view?: string;
 }
 
 export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {

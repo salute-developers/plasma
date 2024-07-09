@@ -9,17 +9,7 @@ import { RootProps } from '../../../engines/types';
 import { base as viewCSS } from './variations/_view/base';
 import { StyledCalendar, StyledSeparator, StyledWrapper } from './CalendarDouble.styles';
 
-export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> &
-    Calendar & {
-        /**
-         * Размер календаря.
-         */
-        size?: string;
-        /**
-         * Вид календаря.
-         */
-        view?: string;
-    };
+export type CalendarDoubleProps = Calendar;
 
 /**
  * Компонент двойного календаря.
