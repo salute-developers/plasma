@@ -35,9 +35,12 @@ const StyledHeading = styled(BodyM)`
 const MetaInfo = styled.div`
     display: flex;
     gap: 1rem;
-    margin-right: 3.125rem;
 
     color: ${textSecondary};
+
+    ${multipleMediaQuery(['S'])(css`
+        margin-right: 2rem;
+    `)}
 `;
 
 const StyledLineSkeleton = styled(LineSkeleton)`

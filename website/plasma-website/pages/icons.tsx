@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
 import { ToastProvider } from '@salutejs/plasma-b2c';
 import Head from 'next/head';
-import { IconArrowLeft, IconArrowUp } from '@salutejs/plasma-icons';
 
 import { multipleMediaQuery } from '../mixins';
 import { Header, Main, SearchForm, IconsList, Footer, IconFilterMenu } from '../components/roster';
@@ -54,16 +53,31 @@ const StyledFilterWrapper = styled.div`
 const StyledIconBackWrapper = styled(StyledFilterWrapper)`
     right: auto;
     left: 1.375rem;
+    padding: 2rem 0;
 
     ${multipleMediaQuery(['S'])(css`
         left: 0.5rem;
     `)}
 `;
 
-const StyledIconNavigation = styled.span`
+const StyledIconNavigation = styled.div<{ isScrolling: boolean }>`
     position: sticky;
-    top: 2.125rem;
-    left: 1.375rem;
+
+    width: 1.25rem;
+    height: 1.25rem;
+
+    ${({ isScrolling }) => {
+        return (
+            isScrolling &&
+            css`
+                top: 0.75rem;
+
+                transform: rotate(0deg);
+                writing-mode: vertical-lr;
+                transition: transform 120ms ease-in;
+            `
+        );
+    }}
 
     ${StyledActionIcon};
 `;
@@ -105,6 +119,8 @@ export default function Home() {
         setInputFocus();
     };
 
+    const backToMain = () => router.push('/');
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolling(window.scrollY !== 0);
@@ -128,16 +144,9 @@ export default function Home() {
             </Head>
             <StyledSection ref={sectionRef}>
                 <StyledIconBackWrapper>
-                    {!isScrolling && (
-                        <StyledIconNavigation onClick={() => router.push('/')}>
-                            <IconArrowLeft size="xs" color="inherit" />
-                        </StyledIconNavigation>
-                    )}
-                    {isScrolling && (
-                        <StyledIconNavigation onClick={scrollToTop}>
-                            <IconArrowUp size="xs" color="inherit" />
-                        </StyledIconNavigation>
-                    )}
+                    <StyledIconNavigation isScrolling={isScrolling} onClick={!isScrolling ? backToMain : scrollToTop}>
+                        ←
+                    </StyledIconNavigation>
                 </StyledIconBackWrapper>
                 <StyledFilterWrapper>
                     <IconFilterMenu setInputFocus={setInputFocus} />
