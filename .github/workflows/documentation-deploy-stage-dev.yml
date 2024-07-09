@@ -81,6 +81,11 @@ jobs:
           npm run storybook:build --prefix="./packages/sdds-serv"
           cp -R ./packages/sdds-serv/build-sb ./s3_build_sb/sdds-serv-storybook
 
+      - name: Plasma "SDDS DFA" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-dfa"
+          cp -R ./packages/sdds-dfa/build-sb ./s3_build_sb/sdds-dfa-storybook
+
       - name: Install s3cmd
         run: pip3 install s3cmd
 
