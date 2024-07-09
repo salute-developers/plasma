@@ -5,4 +5,8 @@ generate([
         name: 'sdds_serv',
         version: 'latest',
     },
+    {
+        name: 'sdds_dfa',
+        version: 'latest',
+    },
 ]);
