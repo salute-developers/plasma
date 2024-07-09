@@ -32,7 +32,7 @@ export const headerArrowRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<H
                     size="s"
                     tabIndex={-1}
                     className={classes.headerArrow}
-                    value={String(value)}
+                    value={value as string}
                     {...rest}
                 >
                     <IconChevronLeft
