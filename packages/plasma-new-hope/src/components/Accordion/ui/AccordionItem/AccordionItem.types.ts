@@ -39,9 +39,9 @@ type CustomAccordionItemProps = {
     children: ReactNode;
 
     /**
-     * Функция при открытии аккардеона
+     * @deprecated Внутренняя функция при открытии аккардеона (будет удалена в ближайшее время)
      */
-    onChange: (index: number, value: boolean) => void;
+    onChange?: (index: number, value: boolean) => void;
 
     /**
      * Блокировка элемента
@@ -53,14 +53,14 @@ type CustomAccordionItemProps = {
     //
 
     /**
-     * Индекс элемента
+     * Индекс элемента, который необходимо автоматически открыть
      */
     eventKey?: number;
 
     /**
-     * Индекс элемента
+     * @deprecated Внутреннее свойство индекс элемента (будет удалено в ближайшее время)
      */
-    index: number;
+    index?: number;
 };
 
 export type AccordionItemProps = CustomAccordionItemProps;
