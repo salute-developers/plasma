@@ -63,8 +63,6 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
             right: (rightPositionBound ?? stepSize * (max - min)) - (offsetRight ? stepSize : 0),
         };
 
-        console.log(computedBounds);
-
         const showCurrentValueCondition =
             showCurrentValue &&
             ((xPosition >= startOffset && xPosition <= max * stepSize - endOffset) || (xPosition === 0 && value !== 0));
