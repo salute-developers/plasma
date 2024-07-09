@@ -51,6 +51,9 @@ packages/plasma-asdk/*
 packages/sdds-serv/*
 !packages/sdds-serv/src
 
+packages/sdds-dfa/*
+!packages/sdds-dfa/src
+
 packages/caldera-online/*
 !packages/caldera-online/src
 
