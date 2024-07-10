@@ -43,6 +43,11 @@ jobs:
           npm run build --prefix="./website/sdds-serv-docs"
           cp -R ./website/sdds-serv-docs/build ./s3_build/sdds-serv
 
+      - name: SDDS DFA Docs
+        run: |
+          npm run build --prefix="./website/sdds-dfa-docs"
+          cp -R ./website/sdds-dfa-docs/build ./s3_build/sdds-dfa
+
       - name: CALDERA-ONLINE Docs
         run: |
           npm run build --prefix="./website/caldera-online-docs"
