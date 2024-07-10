@@ -38,8 +38,8 @@ export const getIconAsset = (source: string, iconName: string) => {
         getSvgContent,
         setFillCurrentColor,
         setStrokeCurrentColor,
-        removeOpacity,
         removeFillOpacity,
+        removeOpacity,
         convertInlineStyleToObject,
         camelizeAttributes,
     )(source);
