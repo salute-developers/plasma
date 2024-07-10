@@ -13,16 +13,16 @@ import { PropsTable, Description } from '@site/src/components';
 Компонент `DatePicker` представляет собой поле ввода даты с выпадающим календарем.
 
 Размер `DatePicker` задаётся с помощью свойства `size`. 
-Возможные значения свойтсва: `"l"`, `"m"`, `"s"`, `"xs"`.
+Возможные значения свойства: `"l"`, `"m"`, `"s"`, `"xs"`.
 
 ```tsx live
-import React, {useState} from 'react';
-import { DatePicker, IconButton } from '@salutejs/{{ package }}';
+import React from 'react';
+import { DatePicker } from '@salutejs/{{ package }}';
 import { IconDone } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style={{ height: "450px" }}>
+        <div style=\{{ height: "450px" }}>
             <DatePicker
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
@@ -41,13 +41,13 @@ export function App() {
 Свойство `maskWithFormat` позволяет маскировать ввод:
 
 ```tsx live
-import React, {useState} from 'react';
-import { DatePicker, IconButton } from '@salutejs/{{ package }}';
+import React from 'react';
+import { DatePicker } from '@salutejs/{{ package }}';
 import { IconDone } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style={{ height: "450px" }}>
+        <div style=\{{ height: "450px" }}>
             <DatePicker
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
@@ -67,7 +67,7 @@ export function App() {
 
 ```tsx live
 import React, {useState} from 'react';
-import { DatePicker, IconButton } from '@salutejs/{{ package }}';
+import { DatePicker } from '@salutejs/{{ package }}';
 import { IconDone } from '@salutejs/plasma-icons';
 
 export function App() {
@@ -89,7 +89,7 @@ export function App() {
     };
 
     return (
-        <div style={{ height: "450px" }}>
+        <div style=\{{ height: "450px" }}>
             <DatePicker
                 isOpen={isOpen}
                 label="Лейбл"
@@ -120,7 +120,7 @@ export function App() {
 Календарь может быть одиночным или двойным. За это отвечает свойство `isDoubleCalendar`.
 
 ```tsx live
-import React, {useState} from 'react';
+import React from 'react';
 import { DatePickerRange, IconButton } from '@salutejs/{{ package }}';
 import { IconDone } from '@salutejs/plasma-icons';
 
@@ -134,7 +134,7 @@ export function App() {
     };
 
     return (
-        <div style={{ height: "500px" }}>
+        <div style=\{{ height: "500px" }}>
             <DatePickerRange
                 size="l"
                 label="Лейбл"
