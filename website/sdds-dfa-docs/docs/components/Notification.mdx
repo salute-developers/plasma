@@ -1,0 +1,58 @@
+---
+id: notification
+title: Notification
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Notification
+<Description name="Notification" />
+<PropsTable name="Notification" />
+
+## Использование
+Компонент `Notification` может использоваться для создания собственных систем оповещения. 
+Вид компонента контролируется свойствами (props).
+Текстовая часть оповещения состоит из `title` и `children`. 
+Слева или сверху от нее, также можно пробросить иконку через свойство `icon`.
+Также есть часть `actions`, в которой предполагается отображение кнопок для взаимодействия.
+
+### Провайдер контекста
+Поместите `NotificationsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна:
+
+```tsx title="index.ts"
+import ReactDOM from 'react-dom';
+import { NotificationsProvider } from '@salutejs/sdds-dfa';
+
+import { App } from './App';
+
+ReactDOM.render(
+    <NotificationsProvider>
+        <App />
+    </NotificationsProvider>,
+    document.getElementById('root')
+);
+```
+
+### Вызов уведомления
+После подключения `NotificationsProvider` станет возможен вызов функции `addNotification`,который приведет к отображению оповещения.
+Функция принимает значения свойств компонента `Notification`:
+
+```tsx live
+import React from 'react';
+import { Button, addNotification, NotificationsProvider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const handleClick = React.useCallback(() => {
+        addNotification({
+            title: 'Входящий вызов',
+            children: 'Принять?',
+        }, 1000);
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <Button text="Показать оповещение" onClick={handleClick} />
+        </NotificationsProvider>
+    );
+}
+```

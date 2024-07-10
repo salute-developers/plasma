@@ -1,0 +1,68 @@
+---
+id: segment
+title: Segment
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Segment
+Набор компонентов для создания группы сегментов.
+Структура для сегментов похожа на структуру маркированных списков.
+
+## SegmentGroup
+
+<Description name="SegmentGroup" />
+<PropsTable name="SegmentGroup"  exclude={['css', 'selectedView']} />
+
+## SegmentItem
+
+<Description name="SegmentItem" />
+<PropsTable name="SegmentItem"  exclude={['css', 'filledBackground', 'disabled']} />
+
+### Провайдер контекста
+
+Оберните в `SegmentProvider` компонент, в котором будут использованы SegmentGroup с SegmentItem. 
+Внутри данного провайдера есть доступ к хуку `useSegment`.
+
+### Выбранные по умолчанию SegmentItem
+
+Можно задать выбранные по умолчанию сегменты с помощью свойства `defaultSelected`. 
+Оно передается в `SegmentProvider`, в виде массива `value` элеметов.
+
+```tsx live
+import React from 'react';
+import { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const items = Array(8).fill(0);
+
+    const SegmentTemplate = () => {
+        const {selectedSegmentItems} = useSegment();
+
+        return (
+            <>
+                <div>Выбранные элементы: {selectedSegmentItems.join(', ')}</div>
+                <SegmentGroup view='filled' selectionMode='multiple' filledBackground pilled>
+                    {items.map((_, i) => (
+                        <SegmentItem
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            view='default'
+                            pilled
+                        />
+                    ))}
+                </SegmentGroup>
+            </>
+        )
+    }
+
+    return (
+        <div style={{ display: "block" }} >
+            <SegmentProvider defaultSelected={['label_1']}>
+                <SegmentTemplate/>
+            </SegmentProvider>
+        </div>
+    );
+}
+```
