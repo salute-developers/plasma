@@ -1,0 +1,76 @@
+---
+id: counter
+title: Counter
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Counter
+<Description name="Counter" />
+<PropsTable name="Counter"  exclude={['css']} />
+
+## Примеры
+
+### Максимальное значение числового badge
+Задается с помощью свойства `maxCount`.
+
+```tsx live 
+import React from 'react';
+import { Counter } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <Counter count={10} maxCount={9} />
+            <Counter count={100} maxCount={99} />
+        </div>
+    );
+}
+```
+
+### Размер числового badge
+Размер задается с помощью свойства `size`. Возможные значения свойства: `"xs"` или `"xxs"`.
+
+```tsx live 
+import React from 'react';
+import { Counter } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <Counter count={10} size="xs" />
+            <Counter count={10} size="xxs" />
+        </div>
+    );
+}
+```
+
+### Вид числового badge
+Вид задается с помощью свойства `view`. Возможные значения свойства `view`:
+
++ `"primary"` – основной бейдж;
++ `"accent"` – бейдж акцентного цвета;
++ `"positive"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"negative"` – ошибка;
++ `"dark"` – темный badge;
++ `"light"` – светлый badge.
+
+```tsx live 
+import React from 'react';
+import { Counter } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <Counter count={10} view="primary" />
+            <Counter count={10} view="accent" />
+            <Counter count={10} view="positive" />
+            <Counter count={10} view="warning" />
+            <Counter count={10} view="negative" />
+            <Counter count={10} view="dark" />
+            <Counter count={10} view="light" />
+        </div>
+    );
+}
+```

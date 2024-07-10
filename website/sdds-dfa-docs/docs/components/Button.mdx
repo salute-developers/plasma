@@ -1,0 +1,208 @@
+---
+id: button
+title: Button
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Button
+Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
+
+## Button
+<Description name="Button" />
+<PropsTable name="Button" />
+
+:::caution Взаимоисключающие свойства
+Свойство `value` - это значение кнопки. Оно отображается справа от основного текста.<br/>
+`value` и `contentRight` взаимоисключающие: если передано одно, второе передать нельзя.
+:::
+
+## Использование
+Компонент `Button` может содержать текст, который указывается в
+свойстве `text`, или любой контент напрямую через `children`.
+
+Свойство text можно использовать вместе со свойствами `contentLeft` и `contentRight`.
+С их помощью можно размещать **иконку** слева или справа от текста.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Button text="Текст" />
+
+            <Button text="Текст" contentLeft={<IconDownload />} />
+
+            <Button text="Текст" contentRight={<IconDownload />} />
+
+            <Button contentLeft={<IconDownload />} />
+
+            <Button text="Текст" isLoading />
+
+            <Button text="Текст" isLoading loader={<div>Loader...</div>} />
+
+            <Button>
+                <IconDownload />
+                <span>Текст</span>
+            </Button>
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер кнопки
+Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"` или `"s"`:
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <Button text="Button" size="l" />
+            <Button text="Button" size="m" />
+            <Button text="Button" size="s" />
+        </div>
+    );
+}
+```
+
+### Ширина кнопки
+Ширина кнопки регулируется с помощью свойства `stretching`.
+Возможные значения свойства `contentPlacing`:
++ `auto` – ширина подстраивается под контент;
++ `filled` – кнопка растягивается на всю доступную ширину;
++ `fixed` – кнопка фиксированной ширины.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <Button text="Button" stretching="fixed" />
+            <Button text="Button" stretching="auto" />
+            <Button text="Button" stretching="filled" />
+        </div>
+    );
+}
+```
+
+### Позиционирование контента внутри
+Позиционирование контента внутри кнопки регулируется с помощью свойства `contentPlacing`.
+Возможные значения свойства `contentPlacing`:
++ `default` – контент центрируется;
++ `relaxed` – контент располагается по краям.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <Button text="Hello" value="Plasma" stretching="filled" contentPlacing="default" />
+            <Button text="Hello" value="Plasma" stretching="filled" contentPlacing="relaxed" />
+        </div>
+    );
+}
+```
+
+### Вид кнопки
+Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
++ `"primary"` – основная;
++ `"secondary"` – вторичная;
++ `"success"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"critical"` – ошибка;
++ `"checked"` – выбранное состояние;
++ `"clear"` – без цветового сопровождения.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <Button text="Кнопка" size="s" view="primary" />
+            <Button text="Кнопка" size="s" view="secondary" />
+            <Button text="Кнопка" size="s" view="success" />
+            <Button text="Кнопка" size="s" view="warning" />
+            <Button text="Кнопка" size="s" view="critical" />
+            <Button text="Кнопка" size="s" view="checked" />
+            <Button text="Кнопка" size="s" view="overlay" />
+            <Button text="Кнопка" size="s" view="clear" />
+        </div>
+    );
+}
+```
+
+### Границы кнопки
+Границы кнопки задаются с помощью свойства `pin`. Возможные значения свойства `pin`:
++ `square` – обычное скругление;
++ `circle` – сильное скругление;
++ `clear` – нет скругления.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <Button pin="square-square">Button</Button>
+            <Button pin="square-clear">Button</Button>
+            <Button pin="clear-square">Button</Button>
+            <Button pin="clear-clear">Button</Button>
+            <Button pin="clear-circle">Button</Button>
+            <Button pin="circle-clear">Button</Button>
+            <Button pin="circle-circle">Button</Button>
+        </div>
+    );
+}
+```
+
+### Квадратные и круглые кнопки
+Для отображения иконок и/или текста в квадратных или круглых кнопках с **равными сторонами**,
+используйте компонент `Button` и свойство `contentLeft`, в которое требуется передать нужное значение.
+
+По умолчанию границы кнопки **квадратные** (со скругленными углами) — `pin="square-square"`.
+**Круглые** границы кнопки можно сделать с помощью свойства `pin` со значением `"circle-circle"`.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Button contentLeft={<IconDownload color="inherit" />} />
+
+            <Button contentLeft={<IconDownload color="inherit" />} pin="circle-circle" />
+        </div>
+    );
+}
+```
+
+### Гиперссылка
+Компонент поддерживает вывод в виде тега `<a>`, для этого необходимо указать свойство `as`:
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <Button as="a" text="Гиперссылка" />
+    );
+}
+```

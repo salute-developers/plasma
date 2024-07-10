@@ -1,0 +1,23 @@
+---
+id: link
+title: Link
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Link
+<Description name="Link" />
+<PropsTable name="Link" exclude={['css', 'focused']} />
+
+```tsx live
+import React from 'react';
+import { TextS, Link } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <TextS>
+            Скачайте <Link href="/" target="_blank">приложение.</Link>
+        </TextS>
+    );
+}
+```

@@ -22,12 +22,6 @@ import { PropsTable, Description } from '@site/src/components';
 <Description name="HeaderLogo" />
 <PropsTable name="HeaderLogo" />
 
-### HeaderTitle
-<Description name="HeaderTitle" />
-
-### HeaderContent
-<Description name="HeaderContent" />
-
 ### Пример
 
 ```tsx live
@@ -63,7 +57,7 @@ export function App() {
     };
 
     return (
-        <div style=\{{ position: 'relative' }}>
+       <div style=\{{ position: 'relative', display: 'block', padding: '0 16px' }}>
             <HeaderRoot {...props} style=\{{ marginLeft: '40px' }}>
                 {isBack ? (
                     <HeaderArrow onClick={onBackClick} />

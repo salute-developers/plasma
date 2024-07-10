@@ -14,7 +14,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { LineSkeleton } from '@salutejs/{{ package }}';
+import { LineSkeleton } from '@salutejs/sdds-dfa';
 
 export function App() {
     return (
@@ -29,7 +29,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { RectSkeleton } from '@salutejs/{{ package }}';
+import { RectSkeleton } from '@salutejs/sdds-dfa';
 
 export function App() {
     return (
@@ -44,7 +44,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { TextSkeleton } from '@salutejs/{{ package }}';
+import { TextSkeleton } from '@salutejs/sdds-dfa';
 
 export function App() {
     return (
@@ -56,7 +56,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button, withSkeleton } from '@salutejs/{{ package }}';
+import { Button, withSkeleton } from '@salutejs/sdds-dfa';
 
 export function App() {
     const ButtonSkeleton = withSkeleton(Button);
@@ -81,7 +81,7 @@ export function App() {
 
 ```tsx
 import React, { useState } from 'react';
-import { Button } from '@salutejs/{{ package }}';
+import { Button } from '@salutejs/sdds-dfa';
 
 const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(Button);
 
