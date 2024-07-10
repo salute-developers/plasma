@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-serv",
-  "version": "0.76.0-dev.0",
+  "version": "0.77.0-dev.0",
   "description": "Salute Design System / React UI kit for SDDS SERV web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "directory": "packages/sdds-serv"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.103.0-dev.0",
+    "@salutejs/plasma-new-hope": "0.104.0-dev.0",
     "@salutejs/sdds-themes": "0.14.0-dev.0"
   },
   "peerDependencies": {
@@ -87,25 +87,19 @@
     "preapi-report": "npm run generate:typings",
     "api-report": "npx api-extractor run --local",
     "prepare": "npm run build",
-  
     "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map && npm run prebuild:emotion",
     "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && npm run build:replace-st-emotion",
-    
     "build": "npm run build:styled-components && npm run build:emotion",
     "build:replace-st-emotion": "./scripts/replace-st_emotion.sh",
     "postbuild": "npm run generate:typings",
-    
     "build:emotion": "npm run build:emotion:esm && npm run build:emotion:cjs",
     "build:emotion:cjs": "rm -rf emotion/cjs && BABEL_ENV=cjs EMOTION=true SC_NAMESPACE=sdds-srvc babel ./src-emotion --out-dir ./emotion/cjs --extensions .ts,.tsx --copy-files",
     "build:emotion:esm": "rm -rf emotion/es && BABEL_ENV=esm EMOTION=true SC_NAMESPACE=sdds-srvc babel ./src-emotion --out-dir ./emotion/es --extensions .ts,.tsx --copy-files",
-    
     "build:styled-components": "npm run build:styled-components:esm && npm run build:styled-components:cjs",
     "build:styled-components:cjs": "BABEL_ENV=cjs SC_NAMESPACE=sdds-srvc babel ./src --out-dir . --extensions .ts,.tsx",
     "build:styled-components:esm": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc babel ./src --out-dir ./es --extensions .ts,.tsx",
-
     "postbuild:styled-components": "npm run generate:typings",
     "postbuild:emotion": "rm -rf src-emotion && npm run generate:typings",
-
     "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
     "prestorybook:emotion": "npm run prebuild:emotion",
