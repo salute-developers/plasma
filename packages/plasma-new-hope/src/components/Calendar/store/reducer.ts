@@ -16,8 +16,8 @@ export const sizeMap: SizeMap = {
         double: [7, 2],
     },
     Quarter: {
-        single: [2, 1],
-        double: [5, 1],
+        single: [1, 1],
+        double: [3, 1],
     },
 };
 
