@@ -2,13 +2,13 @@ import type { CalendarValueType, DateObject, DisabledDay, EventDay, ItemProps } 
 import type { CalendarStateType } from '../store/types';
 
 import { isSelectProcess } from './calendarRangeHelper';
-import { MONTH_NAMES } from './constants';
+import { MONTH_NAMES, YEAR_RENDER_COUNT } from './constants';
 
 export const getDaysInMonth = (monthIndex: number, year: number) => new Date(year, monthIndex + 1, 0).getDate();
 
 export const getOffsetDayInWeek = (monthIndex: number, year: number) => (new Date(year, monthIndex).getDay() || 7) - 1;
 
-export const getStartYear = (year: number) => Math.trunc((year - 1) * 0.1) * 10 - 1;
+export const getStartYear = (year: number) => Math.floor(year / YEAR_RENDER_COUNT) * YEAR_RENDER_COUNT;
 
 export const getNextDate = (currentYear: number, currentMonth: number) =>
     currentMonth + 1 === MONTH_NAMES.length ? [currentYear + 1, 0] : [currentYear, currentMonth + 1];

@@ -11,8 +11,10 @@ import {
     isDateInRange,
     isSelectedDay,
 } from '../utils';
-import type { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../Calendar.types';
+import type { CalendarValueType, DateItem, DateObject } from '../Calendar.types';
 import { CalendarState } from '../store/types';
+
+import type { UseDaysArgs } from './types';
 
 /**
  * Метод возвращающий массив дней в предыдущем месяце.
@@ -84,15 +86,7 @@ const getDaysInNextMonth = (
 /**
  * Хук для получения списка дней.
  */
-export const useDays = (
-    date: DateObject,
-    value: CalendarValueType,
-    eventList?: EventDay[],
-    disabledList?: DisabledDay[],
-    min?: Date,
-    max?: Date,
-    includeEdgeDates?: boolean,
-) =>
+export const useDays = ({ date, value, eventList, disabledList, min, max, includeEdgeDates }: UseDaysArgs) =>
     useMemo(() => {
         const { monthIndex, year } = date;
         const daysInMonth = getDaysInMonth(monthIndex, year);

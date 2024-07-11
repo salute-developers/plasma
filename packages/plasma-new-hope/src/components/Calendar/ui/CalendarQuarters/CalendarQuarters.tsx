@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
-import { useMonths } from '../../hooks';
+import { useQuarters } from '../../hooks';
 import { innerTokens, tokens } from '../../Calendar.tokens';
-import { ROW_MONTH_STEP, canSelectDate, getInRange, getSideInRange, isSameDay, isSelectProcess } from '../../utils';
+import { ROW_QUARTER_STEP, canSelectDate, getInRange, getSideInRange, isSameDay, isSelectProcess } from '../../utils';
 import { DateStructureItem } from '../DateStructureItem/DateStructureItem';
 
-import type { CalendarMonthsProps } from './CalendarMonths.types';
-import { StyledCalendarMonths, StyledFlex } from './CalendarMonths.styles';
+import type { CalendarQuartersProps } from './CalendarQuarters.types';
+import { StyledCalendarQuarters, StyledFlex } from './CalendarQuarters.styles';
 
 /**
- * Компонент месяцев в календаре.
+ * Компонент кварталов в календаре.
  */
-export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
+export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
     date: currentDate,
     value,
     selectIndexes,
@@ -22,29 +22,29 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
     outerRefs,
     isDouble,
     isSecond,
-    hoveredMonth,
-    onChangeMonth,
-    onHoverMonth,
+    hoveredQuarter,
+    onChangeQuarter,
+    onHoverQuarter,
     onSetSelected,
     onKeyDown,
 }) => {
-    const [months, selected] = useMonths({ date: currentDate, value, eventList, disabledList, min, max });
+    const [quarters, selected] = useQuarters({ date: currentDate, value, eventList, disabledList, min, max });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
 
-    const offset = isSecond ? ROW_MONTH_STEP : 0;
+    const offset = isSecond ? ROW_QUARTER_STEP : 0;
 
-    const monthItemTokens = {
-        [`${innerTokens.dateStructureFontFamily}`]: `var(${tokens.calendarMonthFontFamily})`,
-        [`${innerTokens.dateStructureFontSize}`]: `var(${tokens.calendarMonthFontSize})`,
-        [`${innerTokens.dateStructureFontWeight}`]: `var(${tokens.calendarMonthFontWeight})`,
-        [`${innerTokens.dateStructureFontLineHeight}`]: `var(${tokens.calendarMonthFontLineHeight})`,
-        [`${innerTokens.dateStructureFontLetterSpacing}`]: `var(${tokens.calendarMonthFontLetterSpacing})`,
-        [`${innerTokens.dateStructureFontStyle}`]: `var(${tokens.calendarMonthFontStyle})`,
-        [`${innerTokens.dateStructureSelectedFontWeight}`]: `var(${tokens.calendarMonthSelectedFontWeight})`,
-        [`${innerTokens.dateStructureWidth}`]: `var(${tokens.calendarMonthItemWidth})`,
-        [`${innerTokens.dateStructureHeight}`]: `var(${tokens.calendarMonthItemHeight})`,
-        [`${innerTokens.dateStructureBorderRadius}`]: `var(${tokens.calendarMonthItemBorderRadius})`,
+    const quarterItemTokens = {
+        [`${innerTokens.dateStructureFontFamily}`]: `var(${tokens.calendarQuarterFontFamily})`,
+        [`${innerTokens.dateStructureFontSize}`]: `var(${tokens.calendarQuarterFontSize})`,
+        [`${innerTokens.dateStructureFontWeight}`]: `var(${tokens.calendarQuarterFontWeight})`,
+        [`${innerTokens.dateStructureFontLineHeight}`]: `var(${tokens.calendarQuarterFontLineHeight})`,
+        [`${innerTokens.dateStructureFontLetterSpacing}`]: `var(${tokens.calendarQuarterFontLetterSpacing})`,
+        [`${innerTokens.dateStructureFontStyle}`]: `var(${tokens.calendarQuarterFontStyle})`,
+        [`${innerTokens.dateStructureSelectedFontWeight}`]: `var(${tokens.calendarQuarterSelectedFontWeight})`,
+        [`${innerTokens.dateStructureWidth}`]: `var(${tokens.calendarQuarterItemWidth})`,
+        [`${innerTokens.dateStructureHeight}`]: `var(${tokens.calendarQuarterItemHeight})`,
+        [`${innerTokens.dateStructureBorderRadius}`]: `var(${tokens.calendarQuarterItemBorderRadius})`,
     };
 
     const getSelectedDate = useCallback(
@@ -66,8 +66,8 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
         [disabledList, value],
     );
 
-    const handleOnChangeMonth = useCallback(
-        (i: number, j: number) => (event: React.MouseEvent<HTMLDivElement>) => {
+    const handleOnChangeQuarter = useCallback(
+        (i: number, j: number, quarterName: string) => (event: React.MouseEvent<HTMLDivElement>) => {
             /**
              * нужно вызвать stopImmediatePropagation для случаев, когда
              * обработчик события onClick навешивается снаружи.
@@ -81,16 +81,16 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                 return;
             }
 
-            onChangeMonth(selectedDate, [i + offset, j]);
+            onChangeQuarter(selectedDate, [i + offset, j], quarterName);
 
             if (isSelectProcess(value)) {
-                onHoverMonth?.(undefined);
+                onHoverQuarter?.(undefined);
             }
         },
-        [getSelectedDate, onChangeMonth, offset, value, onHoverMonth],
+        [getSelectedDate, onChangeQuarter, offset, value, onHoverQuarter],
     );
 
-    const handleOnHoverMonth = useCallback(
+    const handleOnHoverQuarter = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
             const selectedDate = getSelectedDate(event);
             const isSelectedDone = Array.isArray(value) && value[0] && value[1];
@@ -99,9 +99,9 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                 return;
             }
 
-            onHoverMonth?.(selectedDate);
+            onHoverQuarter?.(selectedDate);
         },
-        [getSelectedDate, onHoverMonth, value],
+        [getSelectedDate, onHoverQuarter, value],
     );
 
     const getRefs = useCallback(
@@ -118,17 +118,15 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
     }, []);
 
     return (
-        <StyledCalendarMonths role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
-            {months.map((month, i) => (
+        <StyledCalendarQuarters role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
+            {quarters.map((quarter, i) => (
                 <StyledFlex role="row" key={i}>
-                    {month.map(
+                    {quarter.map(
                         (
                             {
-                                monthName,
-                                monthIndex,
+                                quarterName,
                                 isSelected,
                                 isCurrent,
-                                monthFullName,
                                 date,
                                 events,
                                 isOutOfMinMaxRange,
@@ -142,12 +140,12 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                             return (
                                 <DateStructureItem
                                     ref={(element: HTMLDivElement) => getRefs(element, i, j)}
-                                    style={monthItemTokens}
+                                    style={quarterItemTokens}
                                     eventList={events}
                                     disabled={disabled}
                                     day={date.day}
                                     year={date.year}
-                                    monthIndex={monthIndex}
+                                    monthIndex={date.monthIndex}
                                     isFocused={
                                         i + offset === selectIndexes?.[0] &&
                                         j === selectIndexes?.[1] &&
@@ -156,25 +154,25 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                                     isSelected={isSelected}
                                     isCurrent={isCurrent}
                                     isDouble={isDouble}
-                                    isHovered={isSameDay(date, hoveredMonth)}
-                                    inRange={getInRange(value, date, hoveredMonth, inRange)}
-                                    sideInRange={getSideInRange(value, date, hoveredMonth, isSelected)}
-                                    onClick={disabled ? undefined : handleOnChangeMonth(i, j)}
-                                    onMouseOver={disabled ? undefined : handleOnHoverMonth}
-                                    key={`StyledMonth-${i}-${j}`}
+                                    isHovered={isSameDay(date, hoveredQuarter)}
+                                    inRange={getInRange(value, date, hoveredQuarter, inRange)}
+                                    sideInRange={getSideInRange(value, date, hoveredQuarter, isSelected)}
+                                    onClick={disabled ? undefined : handleOnChangeQuarter(i, j, String(quarterName))}
+                                    onMouseOver={disabled ? undefined : handleOnHoverQuarter}
+                                    key={`StyledQuarter-${i}-${j}`}
                                     role="gridcell"
-                                    aria-label={monthFullName}
+                                    aria-label={quarterName}
                                     disabledArrowKey={disabledArrowKey}
                                     disabledMonths={disabledDates}
                                     isDayInCurrentMonth
                                 >
-                                    {monthName}
+                                    {quarterName}
                                 </DateStructureItem>
                             );
                         },
                     )}
                 </StyledFlex>
             ))}
-        </StyledCalendarMonths>
+        </StyledCalendarQuarters>
     );
 };

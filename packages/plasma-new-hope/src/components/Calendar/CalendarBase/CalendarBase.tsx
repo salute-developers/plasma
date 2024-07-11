@@ -9,13 +9,12 @@ import React, {
     useEffect,
 } from 'react';
 
-import type { Calendar, DateObject, UseKeyNavigationProps } from '../Calendar.types';
-import type { CalendarStateType } from '../store/types';
+import type { Calendar, DateObject } from '../Calendar.types';
 import { getInitialState, reducer } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
-import { isValueUpdate, YEAR_RENDER_COUNT } from '../utils';
-import { useKeyNavigation } from '../hooks';
-import { CalendarDays, CalendarHeader, CalendarMonths, CalendarYears } from '../ui';
+import { isValueUpdate } from '../utils';
+import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
+import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines';
 
 import { base as viewCSS } from './variations/_view/base';
@@ -40,6 +39,8 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 disabledList,
                 eventMonthList,
                 disabledMonthList,
+                eventQuarterList,
+                disabledQuarterList,
                 eventYearList,
                 disabledYearList,
                 onChangeValue,
@@ -52,6 +53,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 [externalValue],
             );
             const value = secondValue || firstValue;
+
             const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
@@ -61,154 +63,26 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
 
             const { date, calendarState, startYear, size } = state;
 
-            const handlePrev = useCallback<UseKeyNavigationProps['onPrev']>(
-                (withShift = false) => {
-                    if (calendarState === CalendarState.Days) {
-                        if (withShift) {
-                            dispatch({
-                                type: ActionType.PREVIOUS_YEAR,
-                                payload: { step: 1 },
-                            });
-
-                            return;
-                        }
-
-                        dispatch({
-                            type: ActionType.PREVIOUS_MONTH,
-                            payload: { monthIndex: date.monthIndex, year: date.year },
-                        });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
-                        dispatch({ type: ActionType.PREVIOUS_YEAR, payload: { step: 1 } });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Years) {
-                        dispatch({ type: ActionType.PREVIOUS_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
-                    }
-                },
-                [date, calendarState],
-            );
-
-            const handleNext = useCallback<UseKeyNavigationProps['onNext']>(
-                (withShift = false) => {
-                    if (calendarState === CalendarState.Days) {
-                        if (withShift) {
-                            dispatch({
-                                type: ActionType.NEXT_YEAR,
-                                payload: { step: 1 },
-                            });
-
-                            return;
-                        }
-
-                        dispatch({
-                            type: ActionType.NEXT_MONTH,
-                            payload: { monthIndex: date.monthIndex, year: date.year },
-                        });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
-                        dispatch({ type: ActionType.NEXT_YEAR, payload: { step: 1 } });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Years) {
-                        dispatch({ type: ActionType.NEXT_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
-                    }
-                },
-                [date, calendarState],
-            );
+            const { handleNext, handlePrev } = useCalendarNavigation({
+                calendarState,
+                date,
+                dispatch,
+            });
 
             const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
                 size,
+                calendarState,
                 onNext: handleNext,
                 onPrev: handlePrev,
             });
 
-            const handleOnChangeDay = useCallback(
-                (newDate: DateObject, coord: number[]) => {
-                    const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
-                    onChangeValue?.(newDay);
-
-                    onSelectIndexes(coord);
-                },
-                [onChangeValue, onSelectIndexes],
-            );
-
-            const handleOnChangeMonth = useCallback(
-                (newDate: DateObject) => {
-                    if (type === CalendarState.Months) {
-                        const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
-                        return onChangeValue?.(newDay);
-                    }
-
-                    dispatch({
-                        type: ActionType.UPDATE_MONTH,
-                        payload: { calendarState: CalendarState.Days, monthIndex: newDate.monthIndex, size: [5, 6] },
-                    });
-                },
-                [onChangeValue],
-            );
-
-            const handleOnChangeYear = useCallback(
-                (newDate: DateObject) => {
-                    if (type === CalendarState.Years) {
-                        const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
-                        return onChangeValue?.(newDay);
-                    }
-
-                    if (type === CalendarState.Quarter) {
-                        dispatch({
-                            type: ActionType.UPDATE_YEAR,
-                            payload: { calendarState: CalendarState.Quarter, year: newDate.year, size: [1, 1] },
-                        });
-
-                        return;
-                    }
-
-                    dispatch({
-                        type: ActionType.UPDATE_YEAR,
-                        payload: { calendarState: CalendarState.Months, year: newDate.year, size: [3, 2] },
-                    });
-                },
-                [onChangeValue],
-            );
-
-            const handleUpdateCalendarState = useCallback(
-                (newCalendarState: CalendarStateType, newSize: [number, number]) => {
-                    dispatch({
-                        type: ActionType.UPDATE_CALENDAR_STATE,
-                        payload: { calendarState: newCalendarState, size: newSize },
-                    });
-                },
-                [],
-            );
-
-            if (value && prevValue && isValueUpdate(value, prevValue)) {
-                dispatch({
-                    type: ActionType.UPDATE_DATE,
-                    payload: { value },
-                });
-
-                setPrevValue(value);
-            }
-
-            if (prevType !== type) {
-                dispatch({
-                    type: ActionType.UPDATE_CALENDAR_STATE,
-                    payload: { calendarState: type },
-                });
-
-                setPrevType(type);
-            }
+            const {
+                handleOnChangeDay,
+                handleOnChangeMonth,
+                handleOnChangeQuarter,
+                handleOnChangeYear,
+                handleUpdateCalendarState,
+            } = useCalendarDateChange({ type, onChangeValue, onSelectIndexes, dispatch });
 
             // Изменяем ключ каждый раз как пытаемся перейти на даты которые находятся за пределами min/max ограничений.
             // Это необходимо для того чтобы screen-reader корректно озвучивал уведомление aria-live="assertive"
@@ -223,7 +97,27 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             );
 
             useEffect(() => {
+                if (prevType !== type) {
+                    dispatch({
+                        type: ActionType.UPDATE_CALENDAR_STATE,
+                        payload: { calendarState: type },
+                    });
+
+                    setPrevType(type);
+                }
+            }, [type]);
+
+            useEffect(() => {
                 if (!prevValue) {
+                    setPrevValue(value);
+                }
+
+                if (value && prevValue && isValueUpdate(value, prevValue)) {
+                    dispatch({
+                        type: ActionType.UPDATE_DATE,
+                        payload: { value },
+                    });
+
                     setPrevValue(value);
                 }
             }, [value, prevValue]);
@@ -281,6 +175,23 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             onChangeMonth={handleOnChangeMonth}
                             onSetSelected={onSelectIndexes}
                             onHoverMonth={setHoveredItem}
+                            onKeyDown={onKeyDown}
+                            outerRefs={outerRefs}
+                        />
+                    )}
+                    {calendarState === CalendarState.Quarter && (
+                        <CalendarQuarters
+                            value={externalValue}
+                            date={date}
+                            min={min}
+                            max={max}
+                            eventList={eventQuarterList}
+                            disabledList={disabledQuarterList}
+                            hoveredQuarter={hoveredItem}
+                            selectIndexes={selectIndexes}
+                            onChangeQuarter={handleOnChangeQuarter}
+                            onSetSelected={onSelectIndexes}
+                            onHoverQuarter={setHoveredItem}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
                         />

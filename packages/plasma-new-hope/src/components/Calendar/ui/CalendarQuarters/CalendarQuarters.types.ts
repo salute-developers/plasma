@@ -2,21 +2,21 @@ import type { HTMLAttributes, MutableRefObject, KeyboardEvent } from 'react';
 
 import type { CalendarValueType, DateObject, DisabledDay, EventDay } from '../../Calendar.types';
 
-export interface CalendarDaysProps extends HTMLAttributes<HTMLDivElement> {
+export interface CalendarQuartersProps extends HTMLAttributes<HTMLDivElement> {
     date: DateObject;
     value: CalendarValueType;
     outerRefs: MutableRefObject<HTMLDivElement[][]>;
-    onChangeDay: (date: DateObject, coord: number[]) => void;
-    min?: Date;
-    max?: Date;
-    includeEdgeDates?: boolean;
+    onChangeQuarter: (date: DateObject, coord: number[], quarterName: string) => void;
     eventList?: EventDay[];
     disabledList?: DisabledDay[];
+    min?: Date;
+    max?: Date;
+    hoveredQuarter?: DateObject;
+    selectIndexes?: number[];
     isDouble?: boolean;
     isSecond?: boolean;
-    hoveredDay?: DateObject;
-    selectIndexes?: number[];
-    onHoverDay?: (date?: DateObject) => void;
+    onHoverQuarter?: (date?: DateObject) => void;
+    onSetRefs?: (refs: HTMLDivElement[][]) => void;
     onSetSelected?: (selected: number[]) => void;
     onKeyDown?: (event: KeyboardEvent<HTMLDivElement>) => void;
 }

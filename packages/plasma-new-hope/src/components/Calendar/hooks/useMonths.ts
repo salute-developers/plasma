@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import type { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../Calendar.types';
+import type { DateItem } from '../Calendar.types';
 import {
     SHORT_MONTH_NAME,
     isSelectedMonth,
@@ -12,17 +12,12 @@ import {
 } from '../utils';
 import { CalendarState } from '../store/types';
 
+import { UseMonthsArgs } from './types';
+
 /**
  * Хук для получения списка месяцев.
  */
-export const useMonths = (
-    date: DateObject,
-    value: CalendarValueType,
-    eventList?: EventDay[],
-    disabledList?: DisabledDay[],
-    min?: Date,
-    max?: Date,
-) =>
+export const useMonths = ({ date, value, eventList, disabledList, min, max }: UseMonthsArgs) =>
     useMemo(() => {
         const months = SHORT_MONTH_NAME.map((monthName, monthIndex) => {
             return {

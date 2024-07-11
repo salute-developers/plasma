@@ -139,9 +139,9 @@ const StoryBase = (args: CalendarBaseProps) => {
     const { min, max, includeEdgeDates, size } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
 
-    const handleOnChange = useCallback((newValue: Date) => {
+    const handleOnChange = useCallback((newValue: Date, dateInfo?: unknown) => {
         setValue(newValue);
-        onChangeValue(newValue);
+        onChangeValue(newValue, dateInfo);
     }, []);
 
     const eventsRange = [...new Array(10)].map((_, day) => ({
@@ -184,6 +184,20 @@ const StoryBase = (args: CalendarBaseProps) => {
                     max={max}
                     includeEdgeDates={includeEdgeDates}
                     type="Months"
+                    onChangeValue={handleOnChange}
+                />
+            </div>
+            <div>
+                <h3>type: &apos;Quarter&apos;</h3>
+                <CalendarBase
+                    size={size}
+                    value={value}
+                    eventList={eventsRange}
+                    disabledList={disabledDays}
+                    min={min}
+                    max={max}
+                    includeEdgeDates={includeEdgeDates}
+                    type="Quarter"
                     onChangeValue={handleOnChange}
                 />
             </div>
@@ -242,6 +256,7 @@ const StoryDouble = (args: CalendarDoubleProps) => {
             max={max}
             includeEdgeDates={includeEdgeDates}
             onChangeValue={handleOnChange}
+            type="Days"
         />
     );
 };
@@ -302,8 +317,8 @@ export const Range: StoryObj<CalendarBaseRangeProps> = {
     },
     args: {
         size: 'm',
-        min: new Date(2023, 10, 1),
-        max: new Date(2023, 11, 24),
+        min: new Date(2022, 10, 1),
+        max: new Date(2024, 11, 24),
         includeEdgeDates: false,
         type: 'Days',
     },

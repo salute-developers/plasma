@@ -21,7 +21,10 @@ export const enum ActionType {
 }
 
 export type SizeMap = {
-    [key in CalendarState]: [number, number];
+    [key in CalendarState]: {
+        single: [number, number];
+        double: [number, number];
+    };
 };
 
 export type CalendarStateType = keyof typeof CalendarState;

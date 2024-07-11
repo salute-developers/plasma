@@ -4,7 +4,7 @@ import { CalendarState } from '../store/types';
 
 import { getPropsMap } from '.';
 
-type GetDatesWithModificationsParams = {
+type GetDatesWithModificationsArgs = {
     dates: DateItem[];
     type: CalendarStateType;
     eventList?: EventDay[];
@@ -20,7 +20,7 @@ type DateOperationHandler = {
     };
 };
 
-const dateOperationHandler: Omit<DateOperationHandler, 'Quarter'> = {
+const dateOperationHandler: DateOperationHandler = {
     Days: {
         add: (date: Date) => date.setDate(date.getDate() + 1),
         subtract: (date: Date) => date.setDate(date.getDate() - 1),
@@ -28,6 +28,10 @@ const dateOperationHandler: Omit<DateOperationHandler, 'Quarter'> = {
     Months: {
         add: (date: Date) => date.setMonth(date.getMonth() + 1),
         subtract: (date: Date) => date.setMonth(date.getMonth() - 1),
+    },
+    Quarter: {
+        add: (date: Date) => date.setMonth(date.getMonth() + 3),
+        subtract: (date: Date) => date.setMonth(date.getMonth() - 3),
     },
     Years: {
         add: (date: Date) => date.setFullYear(date.getFullYear() + 1),
@@ -170,7 +174,7 @@ export const getDatesWithModifications = ({
     includeEdgeDates,
     min,
     max,
-}: GetDatesWithModificationsParams) => {
+}: GetDatesWithModificationsArgs) => {
     const eventsMap = getPropsMap(eventList);
     const disabledDatesMap = getPropsMap(disabledList);
 
