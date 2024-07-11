@@ -39,11 +39,9 @@ export * from './components/Toast';
 export * from './components/Toolbar';
 export * from './components/Tooltip';
 export * from './components/Typography';
-export * from './components/Select';
 export * from './components/Calendar';
 export * from './components/Notification';
 export * from './components/ButtonBase';
-export * from './components/Header';
 export * from './components/Skeleton';
 export * from './components/Accordion';
 
