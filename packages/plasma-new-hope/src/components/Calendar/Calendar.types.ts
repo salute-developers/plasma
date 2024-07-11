@@ -43,6 +43,7 @@ export interface DateItem extends ItemProps {
     monthIndex?: number;
     monthFullName?: string;
     yearValue?: number;
+    quarterName?: string;
 }
 
 export type DateBasePorps = {
@@ -58,7 +59,13 @@ export interface DateStructureProps extends Partial<ItemProps>, DateBasePorps {
     dayOfWeek?: boolean;
 }
 
+export type QuarterPartialDate = {
+    monthIndex: number;
+    day: number;
+};
+
 export interface QuarterProps extends Partial<ItemProps>, DateBasePorps {
+    quarterName: number;
     quarterIndex: number;
 }
 
@@ -85,14 +92,12 @@ export interface DisabledDay {
     date: Date;
 }
 
-export interface UseKeyNavigationProps {
-    size: [number, number];
-    onPrev: (withShift?: boolean) => void;
-    onNext: (withShift?: boolean) => void;
-    isDouble?: boolean;
-}
-
 export type CalendarValueType = Date | undefined | [Date | undefined, Date?];
+
+export type DateInfo = {
+    name: string;
+    fullValue: CalendarValueType;
+};
 
 export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     /**
@@ -102,7 +107,7 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue: (value: Date) => void;
+    onChangeValue: (value: Date, dateInfo?: DateInfo) => void;
     /**
      * Состояние календаря, отвечающее за отображение.
      */
@@ -135,6 +140,14 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      * Список отключенных месяцев.
      */
     disabledMonthList?: DisabledDay[];
+    /**
+     * Список событий по кварталам.
+     */
+    eventQuarterList?: EventDay[];
+    /**
+     * Список отключенных кварталов.
+     */
+    disabledQuarterList?: DisabledDay[];
     /**
      * Список событий по годам.
      */

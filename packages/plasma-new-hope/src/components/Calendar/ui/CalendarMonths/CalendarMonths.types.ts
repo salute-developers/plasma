@@ -6,7 +6,7 @@ export interface CalendarMonthsProps extends HTMLAttributes<HTMLDivElement> {
     date: DateObject;
     value: CalendarValueType;
     outerRefs: MutableRefObject<HTMLDivElement[][]>;
-    onChangeMonth: (date: DateObject) => void;
+    onChangeMonth: (date: DateObject, coord: number[]) => void;
     eventList?: EventDay[];
     disabledList?: DisabledDay[];
     min?: Date;

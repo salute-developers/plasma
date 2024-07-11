@@ -29,7 +29,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
     onSetSelected,
     onKeyDown,
 }) => {
-    const [years, selected] = useYears(currentDate, value, startYear, eventList, disabledList, min, max);
+    const [years, selected] = useYears({ date: currentDate, value, startYear, eventList, disabledList, min, max });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
 
@@ -68,7 +68,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
     );
 
     const handleOnChangeYear = useCallback(
-        (event: React.MouseEvent<HTMLDivElement>) => {
+        (i: number, j: number) => (event: React.MouseEvent<HTMLDivElement>) => {
             /**
              * нужно вызвать stopImmediatePropagation для случаев, когда
              * обработчик события onClick навешивается снаружи.
@@ -82,7 +82,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
                 return;
             }
 
-            onChangeYear(selectedDate);
+            onChangeYear(selectedDate, [i + offset, j]);
 
             if (isSelectProcess(value)) {
                 onHoverYear?.(undefined);
@@ -107,7 +107,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
 
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
-            outerRefs.current[i][j] = element;
+            outerRefs.current[i + offset][j] = element;
         },
         [outerRefs],
     );
@@ -158,7 +158,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
                                     isHovered={isSameDay(date, hoveredYear)}
                                     inRange={getInRange(value, date, hoveredYear, inRange)}
                                     sideInRange={getSideInRange(value, date, hoveredYear, isSelected)}
-                                    onClick={disabled ? undefined : handleOnChangeYear}
+                                    onClick={disabled ? undefined : handleOnChangeYear(i, j)}
                                     onMouseOver={disabled ? undefined : handleOnHoverYear}
                                     key={`StyledYear-${i}-${j}`}
                                     role="gridcell"

@@ -5,6 +5,7 @@ import { CalendarState } from '../../store/types';
 import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../utils';
 import type { DateObject } from '../../Calendar.types';
 import { classes } from '../../Calendar.tokens';
+import { sizeMap } from '../../store/reducer';
 
 import type { CalendarHeaderProps } from './CalendarHeader.types';
 import {
@@ -33,18 +34,19 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     onUpdateCalendarState,
 }) => {
     const handleCalendarState = useCallback(() => {
-        console.log('change');
+        const newSize: [number, number] = isDouble ? sizeMap.Months.double : sizeMap.Months.single;
+
         if (type === CalendarState.Days) {
-            onUpdateCalendarState?.(CalendarState.Months, [3, 2]);
+            onUpdateCalendarState?.(CalendarState.Months, newSize);
         }
 
         if (type === CalendarState.Months || type === CalendarState.Quarter) {
-            onUpdateCalendarState?.(CalendarState.Years, [3, 2]);
+            onUpdateCalendarState?.(CalendarState.Years, newSize);
         }
     }, [type, onUpdateCalendarState]);
 
     const getHeaderContent = useCallback(
-        (date?: DateObject) => {
+        (date?: DateObject, secondPart?: boolean) => {
             if (!date) {
                 return '';
             }
@@ -71,9 +73,11 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             }
 
             if (type === CalendarState.Years) {
+                const yearValue = secondPart ? startYear + 12 : startYear;
+
                 return (
                     <StyledHeaderDate>
-                        {startYear}—{startYear + YEAR_RENDER_COUNT - 1}
+                        {yearValue}—{yearValue + YEAR_RENDER_COUNT - 1}
                         <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                     </StyledHeaderDate>
                 );
@@ -116,7 +120,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                     </StyledDoubleHeaderWrapper>
                     <StyledDoubleHeaderWrapper className={classes.doubleHeaderLastDateWrapper}>
                         <StyledHeaderDouble onClick={handleCalendarState} aria-live="polite">
-                            {getHeaderContent(secondDate)}
+                            {getHeaderContent(secondDate, true)}
                         </StyledHeaderDouble>
                         {NextButton}
                     </StyledDoubleHeaderWrapper>

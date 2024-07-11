@@ -8,21 +8,15 @@ import {
     isDateInRange,
     getDatesWithModifications,
 } from '../utils';
-import type { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../Calendar.types';
+import type { DateItem } from '../Calendar.types';
 import { CalendarState } from '../store/types';
+
+import type { UseYearsArgs } from './types';
 
 /**
  * Хук для получения списка годов.
  */
-export const useYears = (
-    date: DateObject,
-    value: CalendarValueType,
-    startYear: number,
-    eventList?: EventDay[],
-    disabledList?: DisabledDay[],
-    min?: Date,
-    max?: Date,
-) =>
+export const useYears = ({ date, value, startYear, eventList, disabledList, min, max }: UseYearsArgs) =>
     useMemo(() => {
         // type-coverage:ignore-next-line
         const years = Array.from(Array(YEAR_RENDER_COUNT), (_, i) => {

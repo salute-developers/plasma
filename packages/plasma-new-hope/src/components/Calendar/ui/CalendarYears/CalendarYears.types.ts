@@ -7,7 +7,7 @@ export interface CalendarYearsProps extends HTMLAttributes<HTMLDivElement> {
     value: CalendarValueType;
     outerRefs: MutableRefObject<HTMLDivElement[][]>;
     startYear: number;
-    onChangeYear: (date: DateObject) => void;
+    onChangeYear: (date: DateObject, coord: number[]) => void;
     eventList?: EventDay[];
     disabledList?: DisabledDay[];
     min?: Date;
