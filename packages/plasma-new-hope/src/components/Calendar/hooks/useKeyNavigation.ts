@@ -2,7 +2,7 @@ import React, { KeyboardEvent, useCallback, useLayoutEffect, useRef, useState } 
 
 import type { DaysMetaDescription, KeyboardArrowKey } from '../Calendar.types';
 import { Keys } from '../Calendar.types';
-import { ROW_STEP, offsetMap } from '../utils';
+import { ROW_STEP, YEAR_RENDER_COUNT, offsetMap } from '../utils';
 import type { CalendarStateType } from '../store/types';
 
 import type { UseKeyNavigationArgs } from './types';
@@ -243,10 +243,11 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
     const withShiftState = useRef<boolean>(false);
     const currentIndexes = useRef<number[]>([0, 0]);
 
+    // NOTE: Выставляем наибольший размер, чтобы гарантированно поместились все элементы сетки
     const outerRefs = useRef(
-        Array(rowSize + 1)
+        Array(YEAR_RENDER_COUNT)
             .fill(0)
-            .map(() => Array<HTMLDivElement>(columnSize + 1)),
+            .map(() => Array<HTMLDivElement>(YEAR_RENDER_COUNT)),
     );
 
     useLayoutEffect(() => {
@@ -342,6 +343,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
             setIsOutOfMinMaxRange(false);
 
             const { keyCode, shiftKey: withShift } = event;
+
+            event.preventDefault();
 
             const [currentRowIndex, currentColumnIndex] = selectIndexes;
 

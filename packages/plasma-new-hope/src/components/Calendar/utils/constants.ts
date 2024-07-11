@@ -3,7 +3,7 @@ import type { QuarterPartialDate } from '../Calendar.types';
 export const ROW_STEP = 6;
 export const ROW_MONTH_STEP = 4;
 export const ROW_YEAR_STEP = 4;
-export const ROW_QUARTER_STEP = 3;
+export const ROW_QUARTER_STEP = 2;
 
 export const YEAR_RENDER_COUNT = 12;
 

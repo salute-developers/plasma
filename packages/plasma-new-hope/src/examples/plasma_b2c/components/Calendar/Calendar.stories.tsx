@@ -256,7 +256,7 @@ const StoryDouble = (args: CalendarDoubleProps) => {
             max={max}
             includeEdgeDates={includeEdgeDates}
             onChangeValue={handleOnChange}
-            type="Days"
+            type="Quarter"
         />
     );
 };
@@ -264,8 +264,8 @@ const StoryDouble = (args: CalendarDoubleProps) => {
 export const Double: StoryObj<CalendarDoubleProps> = {
     args: {
         size: 'm',
-        min: new Date(2023, 10, 1),
-        max: new Date(2023, 11, 24),
+        min: new Date(2008, 10, 1),
+        max: new Date(2043, 11, 24),
         includeEdgeDates: false,
     },
     render: (args) => <StoryDouble {...args} />,
