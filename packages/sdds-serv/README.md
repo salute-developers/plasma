@@ -22,10 +22,10 @@ $ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo @salutejs/sdds-th
 Так же надо установить пакет styled-components
 
 ```bash
-$ npm install --save styled-components
+$ npm install --save styled-components@5.3.1
 ```
 
-или, если вы используете пакет @emotion
+Или, если вы используете пакет @emotion
 
 ```bash
 $ npm install --save @emotion/styled @emotion/react @emotion/css
