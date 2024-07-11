@@ -101,11 +101,7 @@ import { h4 } from '@salutejs/sdds-themes/tokens';
 import { h4Bold } from '@salutejs/sdds-themes/tokens';
 import { h5 } from '@salutejs/sdds-themes/tokens';
 import { h5Bold } from '@salutejs/sdds-themes/tokens';
-import { HeaderContent } from '@salutejs/plasma-new-hope/styled-components';
-import { HeaderLogoProps } from '@salutejs/plasma-new-hope/styled-components';
-import { HeaderTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { HTMLAttributes } from 'react';
-import { HtmlHTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -158,8 +154,6 @@ import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
@@ -1043,43 +1037,6 @@ export { h5 }
 
 export { h5Bold }
 
-// @public (undocumented)
-export const HeaderArrow: FunctionComponent<PropsType<Variants> & ButtonHTMLAttributes<HTMLButtonElement> & {
-arrow?: "back" | "minimize" | undefined;
-iconSize?: "xxl" | "s" | "m" | "xs" | "l" | "xxs" | "xl" | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { HeaderContent }
-
-// @public (undocumented)
-export const HeaderLogo: FunctionComponent<PropsType<Variants> & HeaderLogoProps & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const HeaderRoot: FunctionComponent<PropsType<    {
-view: {
-default: PolymorphicClassName;
-};
-size: {
-m: PolymorphicClassName;
-};
-}> & HtmlHTMLAttributes<HTMLDivElement> & {
-size?: string | undefined;
-gradientColor?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { HeaderTitle }
-
-// @public (undocumented)
-export const HeaderTitleWrapper: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-label?: string | undefined;
-title?: string | undefined;
-subTitle?: string | undefined;
-caption?: string | undefined;
-children?: ReactNode;
-withBigTitle?: boolean | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
 // @public
 export const IconButton: FunctionComponent<PropsType<    {
 view: {
@@ -1589,39 +1546,6 @@ export { SegmentItemProps }
 export { SegmentProvider }
 
 export { SegmentProviderProps }
-
-// @public (undocumented)
-export const Select: ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLSelectElement>>;
-
-// @public (undocumented)
-export const SelectDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const SelectItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
-id?: string | undefined;
-disabled?: boolean | undefined;
-label?: ReactNode;
-role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-name?: string | undefined;
-checked?: boolean | undefined;
-text?: string | undefined;
-value?: string | number | boolean | undefined;
-isSelected?: boolean | undefined;
-onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-onSelect?: ((value?: any, text?: any) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { SelectPrimitiveValue }
-
-export { SelectProps }
 
 // @public
 export const Sheet: FunctionComponent<PropsType<    {
