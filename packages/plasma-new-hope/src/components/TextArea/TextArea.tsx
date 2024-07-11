@@ -125,9 +125,9 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const placeLabel = labelPlacement === 'inner' && label && size !== 'xs' ? label : placeholder;
 
         useResizeObserver(outerRef, (currentElement) => {
-            const { width: inlineWidth, height: inlineHeight } = currentElement.style;
+            const { width: inlineWidth } = currentElement.style;
 
-            if (inlineWidth || inlineHeight || cols) {
+            if (inlineWidth || cols) {
                 const { width: elementWidth } = currentElement.getBoundingClientRect();
                 setHelperWidth(`${elementWidth / ROOT_FONT_SIZE}rem`);
             }
@@ -172,7 +172,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 size={size}
                 disabled={disabled}
                 readOnly={readOnly}
-                style={style}
+                style={{ width: helperWidth, ...style }}
                 className={className}
             >
                 {label && labelPlacement === 'outer' && <StyledLabel>{label}</StyledLabel>}
