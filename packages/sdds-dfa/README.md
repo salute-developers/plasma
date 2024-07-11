@@ -14,7 +14,7 @@
 
 ```bash
 $ npm install --save react react-dom
-$ npm install --save styled-components@5.1.1
+$ npm install --save styled-components@5.3.1
 $ npm install --save @salutejs/sdds-dfa @salutejs/sdds-themes
 ```
 
@@ -42,7 +42,7 @@ export const GlobalStyle = () => (
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-Для корректной работы dfaer side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-dfa);
+Для корректной работы `SSR - server side rendering` - приложение нужно обернуть в `SSRProvider` (доступен в `sdds-dfa`);
 
 ### Использование компонентов
 
