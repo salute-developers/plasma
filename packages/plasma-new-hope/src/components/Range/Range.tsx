@@ -1,9 +1,9 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
 
 import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
 
-import type { RangeProps } from './Range.types';
+import type { RangeInputRefs, RangeProps } from './Range.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
@@ -22,7 +22,7 @@ import {
 import { classes } from './Range.tokens';
 
 export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
-    forwardRef<HTMLInputElement, RangeProps>(
+    forwardRef<RangeInputRefs, RangeProps>(
         (
             {
                 label,
@@ -67,6 +67,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
             },
             ref,
         ) => {
+            const rangeRef = useRef<HTMLDivElement>(null);
+            const firstTextFieldRef = useRef<HTMLInputElement>(null);
+            const secondTextFieldRef = useRef<HTMLInputElement>(null);
             const rangeErrorClass = firstValueError && secondValueError ? classes.rangeError : undefined;
             const firstValueErrorClass = !rangeErrorClass && firstValueError ? classes.rangeValueError : undefined;
             const secondValueErrorClass = !rangeErrorClass && secondValueError ? classes.rangeValueError : undefined;
@@ -81,6 +84,19 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
             const handleSearchFirstValue = getSearchHandler(onSearchFirstValue, disabled, readOnly);
             const handleSearchSecondValue = getSearchHandler(onSearchSecondValue, disabled, readOnly);
 
+            useImperativeHandle(
+                ref,
+                () => ({
+                    firstTextField: () => {
+                        return firstTextFieldRef;
+                    },
+                    secondTextField: () => {
+                        return secondTextFieldRef;
+                    },
+                }),
+                [firstTextFieldRef, secondTextFieldRef],
+            );
+
             const Divider = useMemo(() => {
                 if (dividerVariant === 'none') {
                     return null;
@@ -94,11 +110,19 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
             }, [dividerVariant, dividerIcon]);
 
             return (
-                <Root view={view} size={size} disabled={disabled} readOnly={!disabled && readOnly} ref={ref} {...rest}>
+                <Root
+                    ref={rangeRef}
+                    view={view}
+                    size={size}
+                    disabled={disabled}
+                    readOnly={!disabled && readOnly}
+                    {...rest}
+                >
                     {label && <StyledLabel>{label}</StyledLabel>}
                     <ContentWrapper className={cx(rangeErrorClass, rangeSuccessClass)}>
                         {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                         <StyledInput
+                            ref={firstTextFieldRef}
                             className={cx(firstValueErrorClass, firstValueSuccessClass)}
                             value={firstValue}
                             readOnly={readOnly}
@@ -115,6 +139,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                         />
                         {Divider}
                         <StyledInput
+                            ref={secondTextFieldRef}
                             className={cx(secondValueErrorClass, secondValueSuccessClass)}
                             value={secondValue}
                             readOnly={readOnly}

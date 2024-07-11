@@ -4,6 +4,7 @@ export * from './components/Dropdown';
 export * from './components/Link';
 export * from './components/Modal';
 export * from './components/Popup';
+export * from './components/Portal';
 export * from './components/Radiobox';
 export * from './components/Segment';
 export * from './components/Sheet';

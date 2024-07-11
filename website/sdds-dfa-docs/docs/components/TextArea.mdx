@@ -1,0 +1,126 @@
+---
+id: textarea
+title: TextArea
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TextArea
+<Description name="TextArea" />
+<PropsTable name="TextArea" exclude={['$isFocused']} />
+
+## Использование
+Компонент `TextArea` может содержать иконку (или кнопку) справа.
+Для этого используйте свойство `contentRight`:
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/sdds-dfa';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Положение иконки"
+                defaultValue="Справа"
+                contentRight={<IconDownload />}
+            />
+        </div>
+    );
+}
+```
+
+### Размеры компонента
+Высоту и ширину можно регулировать с помощью свойств `height` и `width`, 
+указав значения в `rem` или соответствующие свойствам css значения.
+`height` и `width` отвечают за **всю** высоту и ширину компонента.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                height={10}
+                width={20}
+            />
+        </div>
+    );
+}
+```
+
+Свойства `rows` и `cols` указываются в абсолютных единицах, отвечают за фиксированное количество строк и столбцов.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                rows={5}
+                cols={20}
+            />
+        </div>
+    );
+}
+```
+
+### Autoresize
+Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра `value`).
+Для этого необходимо использовать свойство `autoResize`. 
+
+Свойства `minAuto`, `maxAuto` указываются в абсолютных единицах и отвечают за минимальное и максимальное количество строк.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = React.useState('Значение');
+
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                autoResize
+                minAuto={3}
+                maxAuto={5}
+            />
+        </div>
+    );
+}
+```
+
+### Подсказка
+Для вывода подсказки снизу от поля используйте свойство `leftHelper` и/или `rightHelper`.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                leftHelper="Подсказка снизу слева"
+                rightHelper="Подсказка снизу справа"
+            />
+        </div>
+    );
+}
+```

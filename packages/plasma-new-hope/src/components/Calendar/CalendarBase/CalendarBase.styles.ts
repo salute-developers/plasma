@@ -1,13 +1,15 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
+import { tokens } from '../Calendar.tokens';
+
 export const StyledCalendar = css`
     position: relative;
     user-select: none;
     z-index: 1;
 
-    width: 19.5rem;
-    height: 19.5rem;
+    width: var(${tokens.calendarWidth});
+    height: var(${tokens.calendarHeight});
 `;
 
 export const IsOutOfRange = styled.div`

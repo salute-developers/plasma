@@ -2,6 +2,9 @@ export const classes = {
     hasChips: 'has-chips',
     hasEmptyContentLeft: 'has-empty-content-left',
     hasEmptyContentRight: 'has-empty-content-right',
+    innerLabelPlacement: 'label-placement-inner',
+    outerLabelPlacement: 'label-placement-outer',
+    hideLabel: 'hide-label',
 };
 
 export const tokens = {
@@ -26,7 +29,7 @@ export const tokens = {
     placeholderColor: '--plasma-textfield__placeholder-color',
 
     height: '--plasma-textfield-height',
-    borderWidth: '--plasmas-textfield-border-width',
+    borderWidth: '--plasma-textfield-border-width',
     borderRadius: '--plasma-textfield-border-radius',
 
     /** Отступ от границы ТextField */

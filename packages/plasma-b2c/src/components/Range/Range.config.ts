@@ -44,7 +44,7 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.leftContentMargin}: 0 0.375rem 0 1rem;
+                ${tokens.leftContentMargin}: 0 0 0 1rem;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.75rem 0;
@@ -90,7 +90,7 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.leftContentMargin}: 0 0.375rem 0 0.875rem;
+                ${tokens.leftContentMargin}: 0 0 0 0.875rem;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.625rem 0;
@@ -136,7 +136,7 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.leftContentMargin}: 0 0.375rem 0 0.75rem;
+                ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.5rem 0;
@@ -182,7 +182,7 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0.25rem 0 0.5rem;
+                ${tokens.leftContentMargin}: 0 0 0 0.5rem;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.375rem 0;

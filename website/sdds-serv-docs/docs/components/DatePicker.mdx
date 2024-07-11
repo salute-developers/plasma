@@ -1,0 +1,150 @@
+---
+id: datepicker
+title: DatePicker
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# DatePicker
+<Description name="DatePicker" />
+<PropsTable name="DatePicker" exclude={['css']} />
+
+## Использование
+Компонент `DatePicker` представляет собой поле ввода даты с выпадающим календарем.
+
+Размер `DatePicker` задаётся с помощью свойства `size`. 
+Возможные значения свойтсва: `"l"`, `"m"`, `"s"`, `"xs"`.
+
+```tsx live
+import React, {useState} from 'react';
+import { DatePicker, IconButton } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ height: "450px" }}>
+            <DatePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                contentRight={<IconDone size="s" />}
+                size="l"
+            />
+        </div>
+    );
+}
+```
+
+### Формат даты
+Формат даты задается с помощью свойства `format`. 
+При выборе даты в календаре или вводе даты через поле ввода, дата будет приводиться к заданному формату. 
+Свойство `maskWithFormat` позволяет маскировать ввод:
+
+```tsx live
+import React, {useState} from 'react';
+import { DatePicker, IconButton } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ height: "450px" }}>
+            <DatePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                format="DD-MM-YYYY"
+                maskWithFormat
+                contentRight={<IconDone size="s" />}
+            />
+        </div>
+    );
+}
+```
+
+### Валидация и индикация успешного ввода даты.
+За индикацию ошибки или успешного ввода отвечают `valueError`, `valueSuccess`.
+В данном примере валидация происходит при нажатии клавиши `Enter` после ввода значений:
+
+```tsx live
+import React, {useState} from 'react';
+import { DatePicker, IconButton } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [error, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+
+    const handleCommitDate = (newDate: Date | string, dateError?: boolean, dateSuccess?: boolean) => {
+        if (dateError) {
+            setError(true);
+            return;
+        }
+
+        if (dateSuccess) {
+            setSuccess(true);
+        }
+
+        setIsOpen(false);
+    };
+
+    return (
+        <div style={{ height: "450px" }}>
+            <DatePicker
+                isOpen={isOpen}
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                format="DD-MM-YYYY"
+                maskWithFormat
+                valueError={error}
+                valueSuccess={success}
+                contentRight={<IconDone size="s" />}
+                onChangeValue={() => {
+                    setError(false);
+                    setSuccess(false);
+                }}
+                onCommitDate={handleCommitDate}
+            />
+        </div>
+    );
+}
+```
+
+## DatePickerRange
+<Description name="DatePickerRange" />
+<PropsTable name="DatePickerRange" exclude={['css']} />
+
+## Использование
+Компонент `DatePickerRange` представляет собой `Range` с выпадающим календарем.
+Календарь может быть одиночным или двойным. За это отвечает свойство `isDoubleCalendar`.
+
+```tsx live
+import React, {useState} from 'react';
+import { DatePickerRange, IconButton } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const ActionButton = () => {
+        return (
+            <IconButton view="clear" size="l">
+                <IconDone size="s" />
+            </IconButton>
+        );
+    };
+
+    return (
+        <div style={{ height: "500px" }}>
+            <DatePickerRange
+                size="l"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                firstPlaceholder="Введите дату 1"
+                secondPlaceholder="Введите дату 2"
+                contentRight={<ActionButton />}
+                isDoubleCalendar
+            />
+        </div>
+    );
+}
+```

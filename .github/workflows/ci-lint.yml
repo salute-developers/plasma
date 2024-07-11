@@ -1,0 +1,33 @@
+name: ESLint
+
+on:
+    merge_group:
+    pull_request:
+        branches:
+            - dev
+            - master
+
+concurrency:
+    # New commit on branch cancels running workflows of the same branch
+    group: ${{ github.workflow }}-${{ github.head_ref }}
+    cancel-in-progress: true
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  show-progress: false
+
+            - name: Prepare environment
+              uses: ./.github/actions/prepare-environment
+
+            # INFO: Для корректной работы ESLint не нужно build typings, etc.
+            # INFO: Только установить пакеты и сделать symlink
+            - name: Lerna bootstrap
+              run: npx lerna bootstrap --ignore-scripts
+
+            - name: Lint
+              run: npm run lint

@@ -2,17 +2,17 @@ import { styled } from '@linaria/react';
 import { FocusProps } from '@salutejs/plasma-core';
 
 import type { DayProps } from '../../Calendar.types';
-import { flexCenter, selectedMixin } from '../../mixins';
 import { classes, tokens } from '../../Calendar.tokens';
 import { addFocus } from '../../../../mixins';
+import { addSelected, flexCenter } from '../../mixins';
 
 const inRange = () => `
     &:before {
         content: '';
         z-index: -1;
         position: absolute;
-        width: 2.5rem;
-        height: 1.875rem;
+        width: 100%;
+        height: calc(100% - 0.125rem);
         background: var(${tokens.calendarRangeBackground});
     }
 `;
@@ -22,14 +22,14 @@ const sideInRange = () => `
         content: '';
         z-index: -1;
         position: absolute;
-        width: 0.313rem;
-        height: 1.875rem;
+        width: 0.75rem;
+        height: calc(100% - 0.125rem);
         background: var(${tokens.calendarRangeBackground});
     }
 `;
 
 export const StyledDay = styled.div<{ offset: number }>`
-    border-radius: 0.375rem;
+    border-radius: calc(var(${tokens.calendarDayItemBorderRadius}) - 0.125rem);
 
     ${String(flexCenter)};
 
@@ -54,25 +54,13 @@ export const StyledDay = styled.div<{ offset: number }>`
     }
 `;
 
-const dayOfWeek = () => `
-    color: var(--plasma-colors-tertiary);
-`;
-
 const disabledDay = () => `
     cursor: not-allowed;
     opacity: 0.4;
-
-    ${addFocus({
-        outlineSize: '0.063rem',
-        outlineOffset: '-0.063rem',
-        outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-        outlineRadius: '0.563rem',
-    })};
 `;
 
 const disabledCurrentDay = () => `
     ${disabledDay()};
-    --calendar_private-add-focus-outline-offset: 0.125rem;
 `;
 
 export const StyledDayRoot = styled.div<DayProps & FocusProps>`
@@ -86,10 +74,10 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
     position: relative;
     box-sizing: border-box;
 
-    min-width: 2.5rem;
-    min-height: 2rem;
+    min-width: var(${tokens.calendarDayItemWidth});
+    min-height: var(${tokens.calendarDayItemHeight});
 
-    border-radius: var(${tokens.calendarItemBorderRadius});
+    border-radius: var(${tokens.calendarDayItemBorderRadius});
 
     ${String(flexCenter)};
 
@@ -100,40 +88,64 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
     visibility: ${({ isDayInCurrentMonth, isDouble }) => (!isDayInCurrentMonth && isDouble ? 'hidden' : 'visible')};
 
     &.${String(classes.selectableItem)} {
-        --calendar_private-selected-min-width: 2.25rem;
-        --calendar_private-selected-min-height: 1.75rem;
-        --calendar_private-selected-background: var(${tokens.calendarSelectedItemBackground});
-        --calendar_private-selected-color: var(${tokens.calendarSelectedItemColor});
-        --calendar_private-selectable-background-hover: var(${tokens.calendarSelectableItemBackgroundHover});
-        --calendar_private-current-border-color: var(${tokens.calendarCurrentItemBorderColor});
-        --calendar_private-current-background-hover: var(${tokens.calendarCurrentItemBackgroundHover});
-        --calendar_private-current-color-hover: var(${tokens.calendarCurrentItemColorHover});
-        --calendar_private-current-child-background-hover: var(${tokens.calendarCurrentItemChildBackgroundHover});
-        --calendar_private-active-background: var(${tokens.calendarActiveItemBackground});
-        --calendar_private-active-color: var(${tokens.calendarActiveItemColor});
-        --calendar_private-hovered-background: var(${tokens.calendarHoveredItemBackground});
-        --calendar_private-hovered-color: var(${tokens.calendarHoveredItemColor});
+        ${addSelected({
+            minWidth: `calc(var(${tokens.calendarDayItemWidth}) - 0.25rem)`,
+            minHeight: `calc(var(${tokens.calendarDayItemHeight}) - 0.25rem)`,
+            selectedFontWeight: `var(${tokens.calendarDaySelectedFontWeight})`,
+            selectedBackground: `var(${tokens.calendarSelectedItemBackground})`,
+            selectedColor: `var(${tokens.calendarSelectedItemColor})`,
+            selectableBackgroundHover: `var(${tokens.calendarSelectableItemBackgroundHover})`,
+            currentBorderColor: `var(${tokens.calendarCurrentItemBorderColor})`,
+            activeBackground: `var(${tokens.calendarActiveItemBackground})`,
+            activeColor: `var(${tokens.calendarActiveItemColor})`,
+        })};
 
         ${addFocus({
             outlineSize: '0.063rem',
-            outlineOffset: '-0.063rem',
+            outlineOffset: '-0.125rem',
             outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-            outlineRadius: '0.563rem',
+            outlineRadius: `calc(var(${tokens.calendarDayItemBorderRadius}) + 0.125rem)`,
         })};
 
-        ${String(selectedMixin)};
+        &.${classes.currentItem} {
+            ${addFocus({
+                outlineSize: '0.063rem',
+                outlineOffset: '-0.1875rem',
+                outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
+                outlineRadius: `calc(var(${tokens.calendarDayItemBorderRadius}) + 0.125rem)`,
+            })};
+        }
     }
 
-    &.${String(classes.dayOfWeek)} {
-        ${dayOfWeek()};
+    &.${classes.dayOfWeek} {
+        color: var(${tokens.calendarDayOfWeekColor});
     }
 
-    &.${String(classes.dayDisabled)} {
+    &.${classes.dayDisabled} {
         ${disabledDay()};
     }
 
-    &.${String(classes.dayDisabledCurrent)} {
+    &.${classes.dayDisabledCurrent} {
         ${disabledCurrentDay()};
+    }
+
+    &.${classes.currentItem} {
+        & > .${classes.dayInRange}:before {
+            width: calc(100% + 2px);
+            height: 100%;
+        }
+
+        & > .${classes.daySideRight}:before {
+            width: 100%;
+            right: -1px;
+            left: unset;
+        }
+
+        & > .${classes.daySideLeft}:before {
+            width: 100%;
+            left: -1px;
+            right: unset;
+        }
     }
 `;
 

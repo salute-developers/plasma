@@ -18,24 +18,6 @@ import { Popover, Button } from '@salutejs/sdds-serv';
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
-    const StyledArrow = styled.div`
-        visibility: hidden;
-
-        &,
-        &::before {
-            position: absolute;
-            width: 0.5rem;
-            height: 0.5rem;
-            background: ${surfaceSolidTertiary};
-        }
-
-        &::before {
-            visibility: visible;
-            content: '';
-            transform: rotate(45deg);
-        }
-    `;
-
     const StyledContent = styled.div`
         background: ${surfaceSolidTertiary};
         padding: 1rem;
@@ -54,7 +36,7 @@ export function App() {
                 id="popover"
                 target={<Button>Target</Button>}
                 offset={[0, 6]}
-                arrow={<StyledArrow/>}
+                hasArrow
                 placement='bottom'
                 trigger='click'
                 closeOnOverlayClick

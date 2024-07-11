@@ -2,7 +2,7 @@ import React from 'react';
 import type { ArgTypes, StoryContext, Decorator } from '@storybook/react';
 
 import { ComponentConfig } from '../engines';
-import type { HTMLTagList, PropsType, Variants } from '../engines/types';
+import type { HTMLAttributesOmitOnChange, HTMLTagList, PropsType, Variants } from '../engines/types';
 
 import { ThemeType, themes } from './themes';
 
@@ -25,7 +25,7 @@ export function argTypesFromConfig<
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
-    LayoutProps extends React.HTMLAttributes<HTMLElement>
+    LayoutProps extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange
 >(config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>, exclude: string[] = []) {
     const { defaults, variations } = config;
 

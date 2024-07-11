@@ -1,6 +1,6 @@
 import type { LineSkeletonProps } from '../LineSkeleton';
 
-export type TextSkeletonProps = {
+export type TextSkeletonBaseProps = {
     /**
      * Количество линий скелета
      */
@@ -9,4 +9,6 @@ export type TextSkeletonProps = {
      * Заданная ширина линий в процентах; по умолчанию подбирается случайная для заданного кол-ва линий
      */
     width?: string | number;
-} & LineSkeletonProps;
+};
+
+export type TextSkeletonProps = TextSkeletonBaseProps & LineSkeletonProps;

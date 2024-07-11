@@ -89,6 +89,11 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/sdds-serv"
           cp -R ./packages/sdds-serv/build-sb ./s3_build/${PR_NAME}/sdds-serv-storybook
+
+      - name: Plasma "SDDS DFA" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-dfa"
+          cp -R ./packages/sdds-dfa/build-sb ./s3_build/${PR_NAME}/sdds-dfa-storybook
       
       - name: Install s3cmd
         run: pip3 install s3cmd
@@ -131,5 +136,6 @@ jobs:
               asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/
               caldera-online storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-online-storybook/
               sdds-serv storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-serv-storybook/
+              sdds-dfa storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-dfa-storybook/
               `
             });

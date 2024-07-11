@@ -7,7 +7,13 @@ const fg = require('fast-glob');
 // INFO: Генерация компонентов по шаблону и на основе списка компонентов на основе пакета
 // INFO: для которого делается документация
 async function main() {
-    const { npm_config_package: npmConfigPackage, npm_config_vertical: npmConfigVertical } = process.env || {};
+    const {
+        npm_config_package: npmConfigPackage,
+        npm_config_vertical: npmConfigVertical,
+        npm_config_exclude: npmConfigExclude,
+    } = process.env || {};
+
+    const excludeList = npmConfigExclude ? npmConfigExclude.split(',').map((component) => component?.trim()) : [];
 
     if (!npmConfigPackage) {
         return;
@@ -25,7 +31,9 @@ async function main() {
 
         // INFO: Получаем актуальный список директорий компонентов
         // например ['AutoComplete','Avatar','AvatarGroup','Badge','Button','ButtonGroup','Cell']
-        const components = await readdir(packageDir);
+        const components = (await readdir(packageDir)).filter(
+            (component) => !excludeList.includes(component.toLowerCase()),
+        );
 
         // INFO: Собираем шаблоны документации для компонентов
         // [

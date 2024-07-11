@@ -272,4 +272,4 @@ export const useDays = (
         }
 
         return getMatrix<DateItem>(days);
-    }, [date, value, eventList, disabledList, max, min]);
+    }, [date, value, eventList, disabledList, max, min, includeEdgeDates]);

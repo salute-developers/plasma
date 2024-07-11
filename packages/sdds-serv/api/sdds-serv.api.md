@@ -50,6 +50,18 @@ import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
+import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
+import { DatePickerCalendarProps as DatePickerCalendarProps_2 } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
+import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerdVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
+import { DatePickerPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerPlacementBasic } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
+import { DatePickerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
+import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -95,6 +107,7 @@ import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
+import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { PopoverProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopoverTrigger } from '@salutejs/plasma-new-hope/styled-components';
@@ -103,9 +116,11 @@ import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
+import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
@@ -123,8 +138,6 @@ import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
@@ -170,17 +183,17 @@ export { addFocus }
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 size: {
-xxl: string;
-l: string;
-m: string;
-s: string;
-fit: string;
+xxl: PolymorphicClassName;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+fit: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 size: "xxl" | "s" | "m" | "l" | "fit";
@@ -205,24 +218,24 @@ export { AvatarProps }
 // @public
 export const Badge: FunctionComponent<PropsType<    {
 view: {
-default: string;
-accent: string;
-positive: string;
-warning: string;
-negative: string;
-dark: string;
-light: string;
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 pilled: {
-true: string;
+true: PolymorphicClassName;
 };
 transparent: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
@@ -241,7 +254,7 @@ export { BadgeProps }
 // @public (undocumented)
 export const BodyL: FunctionComponent<PropsType<    {
 size: {
-l: string;
+l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -254,7 +267,7 @@ export { bodyLBold }
 // @public (undocumented)
 export const BodyM: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -267,7 +280,7 @@ export { bodyMBold }
 // @public (undocumented)
 export const BodyS: FunctionComponent<PropsType<    {
 size: {
-s: string;
+s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -280,7 +293,7 @@ export { bodySBold }
 // @public (undocumented)
 export const BodyXS: FunctionComponent<PropsType<    {
 size: {
-xs: string;
+xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -293,7 +306,7 @@ export { bodyXSBold }
 // @public (undocumented)
 export const BodyXXS: FunctionComponent<PropsType<    {
 size: {
-xxs: string;
+xxs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -306,38 +319,38 @@ export { bodyXXSBold }
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
-default: string;
-accent: string;
-secondary: string;
-clear: string;
-success: string;
-warning: string;
-critical: string;
-dark: string;
-black: string;
-white: string;
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
 };
 size: {
-l: string;
-lr: string;
-m: string;
-mr: string;
-s: string;
-sr: string;
-xs: string;
-xsr: string;
-xxs: string;
+l: PolymorphicClassName;
+lr: PolymorphicClassName;
+m: PolymorphicClassName;
+mr: PolymorphicClassName;
+s: PolymorphicClassName;
+sr: PolymorphicClassName;
+xs: PolymorphicClassName;
+xsr: PolymorphicClassName;
+xxs: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 stretching: {
-auto: string;
-filled: string;
-fixed: string;
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
+fixed: PolymorphicClassName;
 };
 }> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
 text?: string | undefined;
@@ -386,44 +399,44 @@ contentRight?: ReactNode;
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
 view: {
-default: string;
-accent: string;
-secondary: string;
-clear: string;
-success: string;
-warning: string;
-critical: string;
-dark: string;
-black: string;
-white: string;
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
 };
 size: {
-l: string;
-lr: string;
-m: string;
-mr: string;
-s: string;
-sr: string;
-xs: string;
-xsr: string;
-xxs: string;
+l: PolymorphicClassName;
+lr: PolymorphicClassName;
+m: PolymorphicClassName;
+mr: PolymorphicClassName;
+s: PolymorphicClassName;
+sr: PolymorphicClassName;
+xs: PolymorphicClassName;
+xsr: PolymorphicClassName;
+xxs: PolymorphicClassName;
 };
 orientation: {
-horizontal: string;
-vertical: string;
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
 };
 gap: {
-none: string;
-dense: string;
-wide: string;
+none: PolymorphicClassName;
+dense: PolymorphicClassName;
+wide: PolymorphicClassName;
 };
 shape: {
-segmented: string;
-default: string;
+segmented: PolymorphicClassName;
+default: PolymorphicClassName;
 };
 stretching: {
-auto: string;
-filled: string;
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
 };
 }> & ButtonGroupProps & RefAttributes<HTMLDivElement>>;
 
@@ -437,13 +450,13 @@ export type ButtonProps = typeof ButtonComponent;
 // @public
 export const Cell: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
-xs: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 }> & (({
 size?: string | undefined;
@@ -490,24 +503,24 @@ export { CellTextboxTitle }
 // @public
 export const Checkbox: FunctionComponent<PropsType<    {
 size: {
-s: string;
-m: string;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
 };
 view: {
-default: string;
-secondary: string;
-tertiary: string;
-paragraph: string;
-accent: string;
-positive: string;
-warning: string;
-negative: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+tertiary: PolymorphicClassName;
+paragraph: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & CheckboxProps_2 & RefAttributes<HTMLInputElement>>;
 
@@ -519,24 +532,24 @@ export type CheckboxProps = ComponentProps<typeof CheckboxComponent>;
 // @public
 export const Chip: FunctionComponent<PropsType<    {
 view: {
-default: string;
-secondary: string;
-accent: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
-xs: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 pilled: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & ChipProps & RefAttributes<HTMLButtonElement>>;
 
@@ -613,17 +626,17 @@ export { ComboboxProps }
 // @public
 export const Counter: FunctionComponent<PropsType<    {
 view: {
-default: string;
-accent: string;
-positive: string;
-warning: string;
-negative: string;
-dark: string;
-light: string;
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
 };
 size: {
-xs: string;
-xxs: string;
+xs: PolymorphicClassName;
+xxs: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 count: number;
@@ -636,20 +649,111 @@ export { CounterProps }
 
 export { counterTokens }
 
+// @public (undocumented)
+export const DatePicker: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & DatePickerdVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
+
+export { datePickerClasses }
+
+export { DatePickerPlacement }
+
+export { DatePickerPlacementBasic }
+
+export { DatePickerProps }
+
+// @public (undocumented)
+export const DatePickerRange: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & DatePickerdVariationProps & {
+defaultFirstDate?: Date | undefined;
+defaultSecondDate?: Date | undefined;
+onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined) => void) | undefined;
+onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined) => void) | undefined;
+} & {
+label?: string | undefined;
+view?: string | undefined;
+disabled?: boolean | undefined;
+readOnly?: boolean | undefined;
+size?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+leftHelper?: string | undefined;
+dividerVariant?: "none" | "dash" | "icon" | undefined;
+dividerIcon?: ReactNode;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & DatePickerCalendarProps_2 & Omit<DatePickerPopoverProps, "placement"> & {
+placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
+isDoubleCalendar?: boolean | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>>;
+
+export { DatePickerRangePlacement }
+
+export { DatePickerRangeProps }
+
+export { datePickerTokens }
+
 // @public
 export const Divider: FunctionComponent<PropsType<    {
 view: {
-default: string;
-dark: string;
-light: string;
-inverse: string;
+default: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
+inverse: PolymorphicClassName;
 };
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 orientation: {
-horizontal: string;
-vertical: string;
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
 };
 }> & DividerProps & RefAttributes<HTMLDivElement>>;
 
@@ -660,14 +764,14 @@ export { dividerTokens }
 // @public
 export const Drawer: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 borderRadius: {
-none: string;
-default: string;
+none: PolymorphicClassName;
+default: PolymorphicClassName;
 };
 }> & PopupProps & PanelProps & {
 placement?: "top" | "bottom" | "right" | "left" | undefined;
@@ -712,13 +816,13 @@ export { DrawerProps }
 // @public (undocumented)
 export const Dropdown: FunctionComponent<PropsType<    {
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
 };
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 }> & DropdownProps & RefAttributes<HTMLDivElement>>;
 
@@ -727,7 +831,7 @@ export { DropdownProps }
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
 size: {
-l: string;
+l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -740,7 +844,7 @@ export { dsplLBold }
 // @public (undocumented)
 export const DsplM: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -753,7 +857,7 @@ export { dsplMBold }
 // @public (undocumented)
 export const DsplS: FunctionComponent<PropsType<    {
 size: {
-s: string;
+s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -766,7 +870,7 @@ export { dsplSBold }
 // @public (undocumented)
 export const Grid: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 }> & GridProps & RefAttributes<HTMLDivElement>>;
 
@@ -775,7 +879,7 @@ export { GridProps }
 // @public (undocumented)
 export const H1: FunctionComponent<PropsType<    {
 size: {
-h1: string;
+h1: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -788,7 +892,7 @@ export { h1Bold }
 // @public (undocumented)
 export const H2: FunctionComponent<PropsType<    {
 size: {
-h2: string;
+h2: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -801,7 +905,7 @@ export { h2Bold }
 // @public (undocumented)
 export const H3: FunctionComponent<PropsType<    {
 size: {
-h3: string;
+h3: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -814,7 +918,7 @@ export { h3Bold }
 // @public (undocumented)
 export const H4: FunctionComponent<PropsType<    {
 size: {
-h4: string;
+h4: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -827,7 +931,7 @@ export { h4Bold }
 // @public (undocumented)
 export const H5: FunctionComponent<PropsType<    {
 size: {
-h5: string;
+h5: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -840,32 +944,32 @@ export { h5Bold }
 // @public
 export const IconButton: FunctionComponent<PropsType<    {
 view: {
-default: string;
-accent: string;
-secondary: string;
-clear: string;
-success: string;
-warning: string;
-critical: string;
-dark: string;
-black: string;
-white: string;
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
 };
 size: {
-l: string;
-lr: string;
-m: string;
-mr: string;
-s: string;
-sr: string;
-xs: string;
-xsr: string;
+l: PolymorphicClassName;
+lr: PolymorphicClassName;
+m: PolymorphicClassName;
+mr: PolymorphicClassName;
+s: PolymorphicClassName;
+sr: PolymorphicClassName;
+xs: PolymorphicClassName;
+xsr: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
 text?: string | undefined;
@@ -924,19 +1028,19 @@ export { ImageProps }
 // @public (undocumented)
 export const Indicator: FunctionComponent<PropsType<    {
 view: {
-default: string;
-accent: string;
-inactive: string;
-positive: string;
-warning: string;
-negative: string;
-black: string;
-white: string;
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+inactive: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 size: string;
@@ -948,21 +1052,21 @@ export { IndicatorProps }
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
-default: string;
-secondary: string;
-tertiary: string;
-paragraph: string;
-accent: string;
-positive: string;
-warning: string;
-negative: string;
-clear: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+tertiary: PolymorphicClassName;
+paragraph: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+clear: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps & RefAttributes<HTMLAnchorElement>>;
 
@@ -987,24 +1091,24 @@ export { OverlayProps }
 // @public
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
-secondary: string;
-clear: string;
-default: string;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+default: PolymorphicClassName;
 };
 viewCurrentPage: {
-default: string;
-secondary: string;
-clear: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
-xs: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 type: {
-compact: string;
-default: string;
+compact: PolymorphicClassName;
+default: PolymorphicClassName;
 };
 }> & PaginationProps & RefAttributes<HTMLDivElement>>;
 
@@ -1013,7 +1117,7 @@ export { PaginationProps }
 // @public (undocumented)
 export const Popover: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
@@ -1037,18 +1141,23 @@ export { PopupProps }
 export { PopupProvider }
 
 // @public (undocumented)
+export const Portal: FunctionComponent<PropsType<Variants> & PortalProps & RefAttributes<HTMLDivElement>>;
+
+export { PortalProps }
+
+// @public (undocumented)
 export const Progress: FunctionComponent<PropsType<    {
 view: {
-default: string;
-secondary: string;
-primary: string;
-accent: string;
-success: string;
-warning: string;
-error: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+primary: PolymorphicClassName;
+accent: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+error: PolymorphicClassName;
 };
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & ProgressProps & RefAttributes<HTMLDivElement>>;
 
@@ -1057,24 +1166,24 @@ export { ProgressProps }
 // @public
 export const Radiobox: FunctionComponent<PropsType<    {
 size: {
-s: string;
-m: string;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
 };
 view: {
-default: string;
-secondary: string;
-tertiary: string;
-paragraph: string;
-accent: string;
-positive: string;
-warning: string;
-negative: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+tertiary: PolymorphicClassName;
+paragraph: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
@@ -1088,19 +1197,19 @@ export { RadioGroup }
 // @public
 const Range_2: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
-xs: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 readOnly: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & (({
 label?: string | undefined;
@@ -1138,7 +1247,7 @@ firstTextfieldTextBefore: string;
 secondTextfieldTextBefore: string;
 dividerVariant?: "none" | undefined;
 dividerIcon?: undefined;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>) | ({
 label?: string | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactNode;
@@ -1174,7 +1283,7 @@ dividerVariant?: "dash" | undefined;
 dividerIcon?: undefined;
 firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>) | ({
 label?: string | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactNode;
@@ -1210,7 +1319,7 @@ dividerIcon?: ReactNode;
 dividerVariant?: "icon" | undefined;
 firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>))>;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>))>;
 export { Range_2 as Range }
 
 export { RangeProps }
@@ -1230,26 +1339,26 @@ export { ScreenVariant }
 // @public
 export const SegmentGroup: FunctionComponent<PropsType<    {
 view: {
-clear: string;
-filled: string;
+clear: PolymorphicClassName;
+filled: PolymorphicClassName;
 };
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 pilled: {
-true: string;
+true: PolymorphicClassName;
 };
 filledBackground: {
-true: string;
+true: PolymorphicClassName;
 };
 stretch: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 selectionMode?: "multiple" | "single" | undefined;
@@ -1266,21 +1375,21 @@ export { SegmentGroupProps }
 // @public
 export const SegmentItem: FunctionComponent<PropsType<    {
 view: {
-clear: string;
-default: string;
-secondary: string;
+clear: PolymorphicClassName;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
 };
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 pilled: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & ButtonHTMLAttributes<HTMLButtonElement> & {
 value: string;
@@ -1298,43 +1407,10 @@ export { SegmentProvider }
 
 export { SegmentProviderProps }
 
-// @public (undocumented)
-export const Select: ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLSelectElement>>;
-
-// @public (undocumented)
-export const SelectDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const SelectItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
-id?: string | undefined;
-disabled?: boolean | undefined;
-label?: ReactNode;
-role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-name?: string | undefined;
-checked?: boolean | undefined;
-text?: string | undefined;
-value?: string | number | boolean | undefined;
-isSelected?: boolean | undefined;
-onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-onSelect?: ((value?: any, text?: any) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { SelectPrimitiveValue }
-
-export { SelectProps }
-
 // @public
 export const Sheet: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 }> & SheetProps & RefAttributes<HTMLDivElement>>;
 
@@ -1347,17 +1423,17 @@ export { ShowToastArgs }
 // @public
 export const Slider: FunctionComponent<PropsType<    {
 view: {
-default: string;
-accent: string;
-gradient: string;
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+gradient: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (DoubleSliderProps & RefAttributes<HTMLDivElement>))>;
 
@@ -1366,14 +1442,14 @@ export { SliderProps }
 // @public
 export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
 view: {
-default: string;
-secondary: string;
-tertiary: string;
-paragraph: string;
-accent: string;
-positive: string;
-warning: string;
-negative: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+tertiary: PolymorphicClassName;
+paragraph: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
 width?: undefined;
@@ -1407,20 +1483,20 @@ export { SSRProvider }
 // @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 labelPosition: {
-before: string;
-after: string;
+before: PolymorphicClassName;
+after: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
@@ -1432,27 +1508,27 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 // @public
 export const TabItem: FunctionComponent<PropsType<    {
 view: {
-clear: string;
-secondary: string;
-divider: string;
-default: string;
+clear: PolymorphicClassName;
+secondary: PolymorphicClassName;
+divider: PolymorphicClassName;
+default: PolymorphicClassName;
 };
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
-h5: string;
-h4: string;
-h3: string;
-h2: string;
-h1: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
+h5: PolymorphicClassName;
+h4: PolymorphicClassName;
+h3: PolymorphicClassName;
+h2: PolymorphicClassName;
+h1: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 pilled: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLElement>>;
 
@@ -1486,20 +1562,20 @@ export { TabsProps }
 // @public
 export const TextArea: FunctionComponent<PropsType<    {
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
 };
 view: {
-default: string;
-primary: string;
-positive: string;
-warning: string;
-negative: string;
+default: PolymorphicClassName;
+primary: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
 autoResize?: boolean | undefined;
@@ -1536,26 +1612,26 @@ width?: undefined;
 // @public
 export const TextField: FunctionComponent<PropsType<    {
 view: {
-default: string;
-positive: string;
-warning: string;
-negative: string;
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 size: {
-l: string;
-m: string;
-s: string;
-xs: string;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 labelPlacement: {
-inner: string[];
-outer: string[];
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 readOnly: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & (({
 size?: string | undefined;
@@ -1604,7 +1680,7 @@ export { textFieldTokens }
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {
 size: {
-l: string;
+l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -1617,7 +1693,7 @@ export { textLBold }
 // @public (undocumented)
 export const TextM: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -1630,7 +1706,7 @@ export { textMBold }
 // @public (undocumented)
 export const TextS: FunctionComponent<PropsType<    {
 size: {
-s: string;
+s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -1643,7 +1719,7 @@ export { textSBold }
 // @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
 size: {
-xs: string;
+xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -1656,15 +1732,15 @@ export { textXSBold }
 // @public (undocumented)
 export const Toast: FunctionComponent<PropsType<    {
 view: {
-default: string;
-dark: string;
-light: string;
+default: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
 };
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 pilled: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLButtonElement> & CustomToastProps & RefAttributes<HTMLDivElement>>;
 
@@ -1682,13 +1758,13 @@ export { ToastRole }
 // @public
 export const Toolbar: FunctionComponent<PropsType<    {
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 children: ReactNode;

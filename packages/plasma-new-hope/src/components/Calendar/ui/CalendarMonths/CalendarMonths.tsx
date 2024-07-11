@@ -56,7 +56,7 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                 <StyledFlex role="row" key={i}>
                     {month.map(({ monthName, monthIndex, isSelected, isCurrent, monthFullName }, j) => {
                         const selectedClass = isSelected ? classes.selectedItem : undefined;
-                        const currentClass = !isSelected && isCurrent ? classes.currentItem : undefined;
+                        const currentClass = isCurrent ? classes.currentItem : undefined;
 
                         return (
                             <StyledMonthRoot

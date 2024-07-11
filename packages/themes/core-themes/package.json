@@ -1,0 +1,37 @@
+{
+  "name": "@salutejs/core-themes",
+  "version": "0.12.0-dev.0",
+  "description": "Core-themes package",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "module": "build/esm/index.js",
+  "main": "build/cjs/index.js",
+  "types": "build/cjs/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "prebuild": "rm -rf ./build",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc",
+    "build:esm": "tsc -p ./tsconfig.es.json",
+    "lint": "../../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@salutejs/plasma-tokens-utils": "0.43.0-dev.0",
+    "@types/node": "16.7.13",
+    "jszip": "3.10.1",
+    "ts-node": "10.2.1",
+    "typescript": "4.2.4"
+  },
+  "contributors": [
+    "Виноградов Антон Александрович",
+    "Неретин Артём Андреевич",
+    "Vasiliy Loginevskiy"
+  ],
+  "sideEffects": false
+}

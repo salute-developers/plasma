@@ -1,16 +1,19 @@
 import React, { useCallback, useMemo } from 'react';
 
-import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
+import { IconDisclosureDownFill, IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { CalendarState } from '../../store/types';
 import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../utils';
 import type { DateObject } from '../../Calendar.types';
+import { classes } from '../../Calendar.tokens';
 
 import type { CalendarHeaderProps } from './CalendarHeader.types';
 import {
     StyledArrow,
     StyledArrows,
     StyledCalendarHeader,
+    StyledDoubleHeaderWrapper,
     StyledHeader,
+    StyledHeaderDate,
     StyledHeaderDouble,
     StyledNavigation,
 } from './CalendarHeader.styles';
@@ -21,6 +24,7 @@ import {
 export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     type = 'Days',
     startYear = 0,
+    size,
     firstDate,
     secondDate,
     isDouble,
@@ -45,60 +49,72 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             }
 
             if (type === CalendarState.Days) {
-                return `${MONTH_NAMES[date.monthIndex]} ${date.year}`;
+                return (
+                    <>
+                        <StyledHeaderDate>{MONTH_NAMES[date.monthIndex]}</StyledHeaderDate>
+                        <StyledHeaderDate>
+                            {date.year}
+                            <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                        </StyledHeaderDate>
+                    </>
+                );
             }
 
             if (type === CalendarState.Months) {
-                return `${date.year}`;
+                return (
+                    <StyledHeaderDate>
+                        {date.year}
+                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                    </StyledHeaderDate>
+                );
             }
 
             if (type === CalendarState.Years) {
-                return `${startYear}—${startYear + YEAR_RENDER_COUNT - 1}`;
+                return (
+                    <StyledHeaderDate>
+                        {startYear}—{startYear + YEAR_RENDER_COUNT - 1}
+                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                    </StyledHeaderDate>
+                );
             }
 
             return '';
         },
-        [type, startYear],
+        [type, startYear, size],
     );
 
     const currentCalendarType = getCalendarType(isDouble ? CalendarState.Days : type);
 
     const PreviousButton = useMemo(
         () => (
-            <StyledArrow
-                type="button"
-                aria-label={`Предыдущий ${currentCalendarType}`}
-                tabIndex={0}
-                onClick={() => onPrev()}
-            >
-                <IconDisclosureLeft />
+            <StyledArrow aria-label={`Предыдущий ${currentCalendarType}`} onClick={() => onPrev()}>
+                <IconDisclosureLeft color="inherit" size={size === 'xs' ? 'xs' : 's'} />
             </StyledArrow>
         ),
-        [currentCalendarType, onPrev],
+        [currentCalendarType, size, onPrev],
     );
 
     const NextButton = useMemo(
         () => (
-            <StyledArrow
-                type="button"
-                aria-label={`Следующий ${currentCalendarType}`}
-                tabIndex={0}
-                onClick={() => onNext()}
-            >
-                <IconDisclosureRight />
+            <StyledArrow aria-label={`Следующий ${currentCalendarType}`} onClick={() => onNext()}>
+                <IconDisclosureRight color="inherit" size={size === 'xs' ? 'xs' : 's'} />
             </StyledArrow>
         ),
-        [currentCalendarType, onNext],
+        [currentCalendarType, size, onNext],
     );
 
     return (
         <StyledCalendarHeader>
             {isDouble ? (
                 <StyledNavigation>
-                    {PreviousButton}
-                    <StyledHeaderDouble aria-live="polite">{getHeaderContent(firstDate)}</StyledHeaderDouble>
-                    <StyledHeaderDouble aria-live="polite">{getHeaderContent(secondDate)}</StyledHeaderDouble>
-                    {NextButton}
+                    <StyledDoubleHeaderWrapper>
+                        {PreviousButton}
+                        <StyledHeaderDouble aria-live="polite">{getHeaderContent(firstDate)}</StyledHeaderDouble>
+                    </StyledDoubleHeaderWrapper>
+                    <StyledDoubleHeaderWrapper className={classes.doubleHeaderLastDateWrapper}>
+                        <StyledHeaderDouble aria-live="polite">{getHeaderContent(secondDate)}</StyledHeaderDouble>
+                        {NextButton}
+                    </StyledDoubleHeaderWrapper>
                 </StyledNavigation>
             ) : (
                 <>

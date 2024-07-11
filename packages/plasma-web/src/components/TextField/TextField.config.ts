@@ -1,9 +1,4 @@
-import {
-    css,
-    textFieldTokens as tokens,
-    textField_labelPlacement_inner as labelPlacement_inner,
-    textField_labelPlacement_outer as labelPlacement_outer,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -38,6 +33,9 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
 
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.focusColor}: var(--text-accent);
             `,
             positive: css`
@@ -64,6 +62,9 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
+
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
 
                 ${tokens.focusColor}: var(--text-accent);
             `,
@@ -92,6 +93,9 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
 
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.focusColor}: var(--text-accent);
             `,
             negative: css`
@@ -118,6 +122,9 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
+
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
 
                 ${tokens.focusColor}: var(--text-accent);
             `,
@@ -158,6 +165,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.5rem;
@@ -210,6 +219,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.375rem;
@@ -262,6 +273,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.25rem;
@@ -314,6 +327,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.125rem;
@@ -333,34 +348,22 @@ export const config = {
             `,
         },
         labelPlacement: {
-            inner: [
-                labelPlacement_inner,
-                css`
-                    &.${labelPlacement_inner} {
-                        ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
-                        ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                        ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                        ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                        ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                        ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                        ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
-                    }
-                `,
-            ],
-            outer: [
-                labelPlacement_outer,
-                css`
-                    &.${labelPlacement_outer} {
-                    }
-                `,
-            ],
+            inner: css`
+                ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
+            outer: css``,
         },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
             `,
         },
-        // TODO заменить --surface-transparent-primary на корректный токен
         readOnly: {
             true: css`
                 ${tokens.colorReadOnly}: var(--text-primary);

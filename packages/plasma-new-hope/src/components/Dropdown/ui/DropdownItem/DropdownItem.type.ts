@@ -52,6 +52,7 @@ export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {
     currentLevel: number;
     index: number;
     variant: DropdownProps['variant'];
+    size?: string;
     path?: PathState;
     itemRole?: DropdownProps['itemRole'];
     closeOnSelect?: DropdownProps['closeOnSelect'];

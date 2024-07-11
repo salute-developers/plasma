@@ -222,7 +222,7 @@ const StoryWithInsideScroll = ({
                 <div
                     style={{
                         height: '150px',
-                        overflow: 'scroll',
+                        overflowY: 'scroll',
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '1rem',
@@ -296,7 +296,7 @@ const StoryWithDoubleScroll = ({
                     <div
                         style={{
                             height: '150px',
-                            overflow: 'scroll',
+                            overflowY: 'scroll',
                             display: 'flex',
                             flexDirection: 'column',
                             gap: '1rem',

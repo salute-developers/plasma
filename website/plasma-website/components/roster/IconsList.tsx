@@ -1,20 +1,20 @@
 import React, { useMemo, useContext, useRef, useState, useEffect } from 'react';
-import type { FC } from 'react';
+import type { FC, RefObject } from 'react';
 import styled, { css } from 'styled-components';
-import { Headline4, applyNoSelect } from '@salutejs/plasma-b2c';
-import { secondary } from '@salutejs/plasma-tokens-b2c';
+import { applyNoSelect, H4 } from '@salutejs/plasma-b2c';
 
-import { Context, setWizardItem, setIconColor, setIconSize, initColorState, initSizeState } from '../../store';
+import { Context, setWizardItem, setIconColor, setIconSize, initColorState } from '../../store';
 import { iconsList } from '../../utils';
+import { multipleMediaQuery } from '../../mixins';
 
 import { IconGroupHeading } from './IconGroupHeading';
-import { IconHoverDetails } from './IconHoverDetails';
+import { IconHoverDetails, StyledIconHoverDetails } from './IconHoverDetails';
 import { IconExtendedInfo } from './IconExtendedInfo';
-import { AnimationSlideUp } from './AnimationSlideUp';
 import { AbstractIcon } from './AbstractIcon';
 import { Grid } from './Grid';
 
 export interface IconsListProps {
+    pageRef: RefObject<HTMLDivElement>;
     searchQuery?: string;
     /**
      * Item click handler
@@ -43,37 +43,28 @@ const StyledGridWrapper = styled.div`
     }
 `;
 
-const StyledIconList = styled.div`
-    margin-top: 4rem;
-`;
+const StyledIconList = styled.div``;
 
-const StyledHeadline4 = styled(Headline4).attrs(() => ({ as: 'h4', mt: '8x', mb: '6x' }))`
-    color: ${secondary};
+const StyledEmptySearch = styled(H4)`
+    font-size: 3rem;
+    line-height: 3.25rem;
+    color: rgba(255, 255, 255, 0.96);
+
+    ${multipleMediaQuery(['M'])(css`
+        font-size: 2rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        font-size: 1.25rem;
+        max-width: calc(100% - 1rem);
+    `)}
 `;
 
 const StyledCell = styled.div`
     position: relative;
 `;
 
-const StyledIconHoverDetails = styled.div`
-    position: absolute;
-    z-index: 2;
-    top: -4.25rem;
-    left: 0.625rem;
-    display: none;
-    flex-direction: column;
-    padding: 0.75rem;
-    border-radius: 1rem;
-
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-
-    background-color: rgba(23, 23, 23, 1);
-
-    ${AnimationSlideUp};
-`;
-
-const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpacity?: boolean }>`
+const StyledIcon = styled.div<{ isDeprecated: boolean; isActive?: boolean; hasOpacity?: boolean }>`
     ${applyNoSelect};
 
     display: flex;
@@ -100,7 +91,7 @@ const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpa
         opacity: 1;
 
         &::before {
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
+            box-shadow: 0 0 0 0.063rem rgba(255, 255, 255, 0.28);
         }
 
         & + ${StyledIconHoverDetails} {
@@ -108,8 +99,8 @@ const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpa
         }
     }
 
-    ${({ isDeprecate }) =>
-        isDeprecate &&
+    ${({ isDeprecated }) =>
+        isDeprecated &&
         css`
             &::after {
                 content: '';
@@ -127,12 +118,12 @@ const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpa
         isActive &&
         css`
             &::before {
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                box-shadow: 0 0 0 0.063rem rgba(255, 255, 255, 1);
             }
 
             &:hover {
                 &::before {
-                    box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                    box-shadow: 0 0 0 0.063rem rgba(255, 255, 255, 1);
                 }
             }
         `}
@@ -145,7 +136,7 @@ const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpa
         `}
 `;
 
-export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
+export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick, pageRef }) => {
     const { state, dispatch } = useContext(Context);
     const [offset, setOffset] = useState(0);
     const [cellIndex, setCellIndex] = useState(1);
@@ -158,13 +149,13 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
             return iconsList;
         }
 
-        const regExp = new RegExp(searchQuery.toLocaleLowerCase().replace(/\W/g, ''));
+        const regExp = new RegExp(searchQuery.toLocaleLowerCase().replace(/[^\w\u0400-\u04FF]/g, ''));
 
         return iconsList
             .map((group) => ({
                 ...group,
-                items: group.items.filter((item) => {
-                    return item.name.toLocaleLowerCase().search(regExp) !== -1;
+                items: group.items.filter(({ name }) => {
+                    return name.toLocaleLowerCase().search(regExp) !== -1;
                 }),
             }))
             .filter((group) => {
@@ -224,7 +215,9 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
     };
 
     if (!items.length) {
-        return <StyledHeadline4>Nothing found</StyledHeadline4>;
+        return (
+            <StyledEmptySearch bold={false}>У нас нет иконки с таким именем, а по тегам пока не ищем</StyledEmptySearch>
+        );
     }
 
     return (
@@ -237,12 +230,12 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                         count={group.items.length}
                     />
                     <Grid ref={(el) => el && handleRefInit(el, indexGroup)}>
-                        {group.items.map(({ name, component, groupName, isDeprecate = false }, index) => (
+                        {group.items.map(({ name, component, groupName, isDeprecated = false }, index) => (
                             <StyledCell key={name}>
                                 <StyledIcon
                                     hasOpacity={groupName === currentGridRowLabel && name !== state.wizardItemName}
                                     isActive={name === state.wizardItemName}
-                                    isDeprecate={isDeprecate}
+                                    isDeprecated={isDeprecated}
                                     onClick={(event) => {
                                         event.stopPropagation();
 
@@ -270,15 +263,17 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                         }
                                     }}
                                 >
-                                    <AbstractIcon isDeprecate={isDeprecate} component={component} name={name} />
+                                    <AbstractIcon isDeprecated={isDeprecated} component={component} name={name} />
                                 </StyledIcon>
-                                <StyledIconHoverDetails>
-                                    <IconHoverDetails name={name} sizes={{ 36: true, 24: true, 16: true }} />
-                                </StyledIconHoverDetails>
+                                <IconHoverDetails
+                                    pageRef={pageRef}
+                                    name={name}
+                                    sizes={{ 36: true, 24: true, 16: true }}
+                                />
                                 {name === state.wizardItemName && (
                                     <IconExtendedInfo
                                         onClose={handleCloseExtendInfo}
-                                        isDeprecate={isDeprecate}
+                                        isDeprecated={isDeprecated}
                                         offset={offset}
                                     />
                                 )}

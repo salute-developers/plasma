@@ -14,7 +14,7 @@ import { IconOptionsColors } from './IconOptionsColors';
 type IconInfoProps = {
     onClose: () => void;
     offset: number;
-    isDeprecate: boolean;
+    isDeprecated: boolean;
 };
 
 const StyledHeader = styled.header`
@@ -61,7 +61,7 @@ const StyledIconClose = styled.span`
     height: 2.25rem;
     margin-right: 1.5rem;
     color: rgba(255, 255, 255, 0.28);
-    transition: color 120ms ease-in;
+    transition: var(--color-transition);
 
     cursor: pointer;
 
@@ -87,12 +87,12 @@ const StyledClipboardWrapper = styled.div`
     flex-direction: column;
 `;
 
-const StyledDeprecateIcon = styled.span`
+const StyledDeprecatedIcon = styled.span`
     margin-left: 1rem;
     color: var(--text-negative);
 `;
 
-export const IconExtendedInfo = ({ offset, onClose, isDeprecate }: IconInfoProps) => {
+export const IconExtendedInfo = ({ offset, onClose, isDeprecated }: IconInfoProps) => {
     const { state } = useContext(Context);
 
     if (!state.wizardItemName) {
@@ -111,7 +111,7 @@ export const IconExtendedInfo = ({ offset, onClose, isDeprecate }: IconInfoProps
                 </StyledIconClose>
                 <H2 bold={false}>
                     {state.wizardItemName}
-                    {isDeprecate && <StyledDeprecateIcon>[deprecate]</StyledDeprecateIcon>}
+                    {isDeprecated && <StyledDeprecatedIcon>[deprecated]</StyledDeprecatedIcon>}
                 </H2>
             </StyledHeader>
             <StyledContent>

@@ -1,4 +1,13 @@
-import React, { useCallback, useMemo, useReducer, useState, KeyboardEvent, HTMLAttributes, forwardRef } from 'react';
+import React, {
+    useCallback,
+    useMemo,
+    useReducer,
+    useState,
+    KeyboardEvent,
+    HTMLAttributes,
+    forwardRef,
+    useEffect,
+} from 'react';
 
 import type { Calendar, DateObject, UseKeyNavigationProps } from '../Calendar.types';
 import type { CalendarStateType } from '../store/types';
@@ -13,13 +22,20 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
-export type CalendarBaseProps = HTMLAttributes<HTMLDivElement> &
-    Calendar & {
-        /**
-         * Тип отображения календаря: дни, месяца, года.
-         */
-        type?: CalendarStateType;
-    };
+export type CalendarBaseProps = Calendar & {
+    /**
+     * Тип отображения календаря: дни, месяца, года.
+     */
+    type?: CalendarStateType;
+    /**
+     * Размер календаря.
+     */
+    size?: string;
+    /**
+     * Вид календаря.
+     */
+    view?: string;
+};
 
 /**
  * Компонент календаря.
@@ -190,6 +206,12 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 [onKeyDown],
             );
 
+            useEffect(() => {
+                if (!prevValue) {
+                    setPrevValue(value);
+                }
+            }, [value, prevValue]);
+
             return (
                 <Root ref={outerRootRef} aria-label="Выбор даты" {...rest}>
                     {isOutOfRange && (
@@ -204,6 +226,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                         </IsOutOfRange>
                     )}
                     <CalendarHeader
+                        size={rest.size}
                         firstDate={date}
                         startYear={startYear}
                         type={calendarState}

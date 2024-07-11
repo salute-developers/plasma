@@ -1,4 +1,4 @@
-import type { KeyboardEvent, ChangeEvent, ReactNode, HTMLAttributes, ReactElement } from 'react';
+import type { KeyboardEvent, ChangeEvent, ReactNode, ReactElement, MutableRefObject, HTMLAttributes } from 'react';
 
 export type TextfieldPrimitiveValue = string | number;
 
@@ -31,7 +31,12 @@ export type BaseCallbackKeyboardInstance = (
     value?: TextfieldPrimitiveValue,
 ) => void;
 
-export type RangeProps = {
+export type RangeInputRefs = {
+    firstTextField: () => MutableRefObject<HTMLInputElement | null>;
+    secondTextField: () => MutableRefObject<HTMLInputElement | null>;
+};
+
+export type RangeInnerProps = {
     /**
      * Метка-подпись к элементу
      */
@@ -153,5 +158,6 @@ export type RangeProps = {
      * Коллбэк, вызываемый при потере фокуса вторым полем ввода
      */
     onBlurSecondTextfield?: (event: ChangeEvent<HTMLInputElement>) => void;
-} & RangeDividerVariants &
-    HTMLAttributes<HTMLDivElement>;
+} & RangeDividerVariants;
+
+export type RangeProps = RangeInnerProps & HTMLAttributes<HTMLDivElement>;

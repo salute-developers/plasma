@@ -11,7 +11,6 @@ export const WifiSignal3: React.FC<IconProps> = (props) => (
             fill="currentColor"
         />
         <path
-            opacity={0.3}
             fillRule="evenodd"
             clipRule="evenodd"
             d="M12 6.5a11.464 11.464 0 00-8.149 3.388 1 1 0 11-1.417-1.412A13.464 13.464 0 0112 4.5c3.737 0 7.12 1.52 9.566 3.976a1 1 0 11-1.416 1.412A11.464 11.464 0 0012 6.5z"

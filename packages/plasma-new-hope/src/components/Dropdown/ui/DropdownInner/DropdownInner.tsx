@@ -25,6 +25,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
     listWidth,
     variant,
     hasArrow,
+    size,
 }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
@@ -63,6 +64,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                         ariaExpanded={isCurrentListOpen}
                         ariaLevel={nextLevel}
                         ariaLabel={item.label}
+                        size={size}
                     />
                 }
                 onToggle={handleToggle}
@@ -98,6 +100,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                             listWidth={listWidth}
                             variant={variant}
                             hasArrow={hasArrow}
+                            size={size}
                         />
                     ))}
                 </Ul>
@@ -118,6 +121,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
             onItemSelect={onItemSelect}
             onItemClick={onItemClick}
             variant={variant}
+            size={size}
         />
     );
 };
