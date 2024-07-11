@@ -289,13 +289,13 @@ export const config = {
                 ${comboboxTokens.targetColor}: var(--text-primary);
                 ${comboboxTokens.targetLabelColor}: var(--text-secondary);
                 ${comboboxTokens.targetArrowColor}: var(--text-secondary);
-                ${comboboxTokens.targetBorderColor}: var(--text-tertiary);
-                ${comboboxTokens.targetBorderColorHover}: var(--text-tertiary);
-                ${comboboxTokens.targetBorderColorActive}: var(--text-tertiary);
-                ${comboboxTokens.targetBorderColorOpen}: var(--text-accent);
+                ${comboboxTokens.targetBackgroundColor}: var(--surface-transparent-primary);
+                ${comboboxTokens.targetBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${comboboxTokens.targetBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${comboboxTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
 
                 ${comboboxTokens.background}: var(--surface-solid-card);
-                ${comboboxTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04); /* TODO: Забирать из токена --shadow-down-soft-s */
+                ${comboboxTokens.boxShadow}: var(--shadow-down-soft-s);
 
                 ${comboboxTokens.itemBackground}: var(--plasma-colors-transparent);
                 ${comboboxTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
@@ -307,9 +307,9 @@ export const config = {
                 ${comboboxTokens.chipColor}: var(--text-primary);
                 ${comboboxTokens.chipBackground}: var(--surface-transparent-secondary);
                 ${comboboxTokens.chipColorHover}: var(--text-primary);
-                ${comboboxTokens.chipBackgroundHover}: var(--surface-transparent-secondary);
+                ${comboboxTokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
                 ${comboboxTokens.chipColorActive}: var(--text-primary);
-                ${comboboxTokens.chipBackgroundActive}: var(--surface-transparent-secondary);
+                ${comboboxTokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
                 ${comboboxTokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
                 ${comboboxTokens.chipColorReadOnly}: var(--text-primary);
                 ${comboboxTokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
