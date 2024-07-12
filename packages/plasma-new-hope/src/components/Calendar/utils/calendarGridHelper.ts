@@ -147,7 +147,7 @@ export const getMatrix = <T extends ItemProps>(items: T[], rowSize = 7): readonl
 export const getCalendarType = (type: CalendarStateType) => {
     switch (type) {
         case 'Months':
-        case 'Quarter':
+        case 'Quarters':
             return 'год';
         case 'Years':
             return 'период';

@@ -71,13 +71,13 @@ export const useCalendarDateChange = ({
                 return;
             }
 
-            if (type === CalendarState.Quarter) {
+            if (type === CalendarState.Quarters) {
                 dispatch({
                     type: ActionType.UPDATE_YEAR,
                     payload: {
-                        calendarState: CalendarState.Quarter,
+                        calendarState: CalendarState.Quarters,
                         year: newDate.year,
-                        size: sizeMap.Quarter.double,
+                        size: sizeMap.Quarters.double,
                     },
                 });
 

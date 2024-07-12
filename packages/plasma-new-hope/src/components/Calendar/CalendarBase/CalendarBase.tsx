@@ -179,7 +179,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             outerRefs={outerRefs}
                         />
                     )}
-                    {calendarState === CalendarState.Quarter && (
+                    {calendarState === CalendarState.Quarters && (
                         <CalendarQuarters
                             value={externalValue}
                             date={date}

@@ -40,7 +40,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             onUpdateCalendarState?.(CalendarState.Months, newSize);
         }
 
-        if (type === CalendarState.Months || type === CalendarState.Quarter) {
+        if (type === CalendarState.Months || type === CalendarState.Quarters) {
             onUpdateCalendarState?.(CalendarState.Years, newSize);
         }
     }, [type, onUpdateCalendarState]);
@@ -63,7 +63,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 );
             }
 
-            if (type === CalendarState.Months || type === CalendarState.Quarter) {
+            if (type === CalendarState.Months || type === CalendarState.Quarters) {
                 return (
                     <StyledHeaderDate>
                         {date.year}
