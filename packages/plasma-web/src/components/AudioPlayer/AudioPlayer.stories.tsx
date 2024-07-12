@@ -23,7 +23,7 @@ const song = {
     duration: 128,
     id: 123,
     file:
-        'https://vc-static.sberdevices.ru/smartmarket-video-news/media/uploads/15/159f025fe48c54f70b7a4041edbb413044f01a61.mp3',
+        'https://cdn1.newsback.sberdevices.ru/p-newsback/media/uploads/15/159f025fe48c54f70b7a4041edbb413044f01a61.mp3',
     canDelete: true,
 };
 
