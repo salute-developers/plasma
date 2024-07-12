@@ -9,7 +9,7 @@ import React, {
     useReducer,
 } from 'react';
 
-import type { Calendar, DateObject } from '../Calendar.types';
+import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
@@ -21,7 +21,7 @@ import { IsOutOfRange } from '../CalendarBase/CalendarBase.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { StyledCalendar, StyledSeparator, StyledWrapper } from './CalendarDouble.styles';
 
-export type CalendarDoubleProps = Calendar;
+export type CalendarDoubleProps = Calendar & CalendarConfigProps;
 
 /**
  * Компонент двойного календаря.

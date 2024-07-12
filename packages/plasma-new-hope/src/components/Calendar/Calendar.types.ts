@@ -160,6 +160,9 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      * Конечный тип отображения календаря: дни, месяца, года, кварталы.
      */
     type?: CalendarStateType;
+}
+
+export type CalendarConfigProps = {
     /**
      * Размер календаря.
      */
@@ -168,7 +171,7 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      * Вид календаря.
      */
     view?: string;
-}
+};
 
 export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
     /**

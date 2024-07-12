@@ -2,7 +2,7 @@ import React, { KeyboardEvent, useCallback, useLayoutEffect, useRef, useState } 
 
 import type { DaysMetaDescription, KeyboardArrowKey } from '../Calendar.types';
 import { Keys } from '../Calendar.types';
-import { YEAR_RENDER_COUNT, offsetMap } from '../utils';
+import { offsetMap } from '../utils';
 import type { CalendarStateType } from '../store/types';
 import { sizeMap } from '../store/reducer';
 

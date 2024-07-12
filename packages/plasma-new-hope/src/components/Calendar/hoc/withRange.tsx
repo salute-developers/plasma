@@ -1,4 +1,5 @@
-import React, { useMemo, useState, useCallback, ReactElement, useEffect } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
+import type { ReactElement, FC } from 'react';
 
 import type { Calendar, CalendarRange } from '../Calendar.types';
 import { getSortedValues, isValueUpdate } from '../utils';
@@ -6,7 +7,7 @@ import { getSortedValues, isValueUpdate } from '../utils';
 /**
  * HOC для календаря, дающий возможность выбора диапазона даты
  */
-export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => ({
+export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
     value,
     min,
     max,

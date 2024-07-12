@@ -9,7 +9,7 @@ import React, {
     useEffect,
 } from 'react';
 
-import type { Calendar, DateObject } from '../Calendar.types';
+import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { getInitialState, reducer } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
 import { isValueUpdate } from '../utils';
@@ -21,7 +21,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
-export type CalendarBaseProps = Calendar;
+export type CalendarBaseProps = Calendar & CalendarConfigProps;
 
 /**
  * Компонент календаря.
