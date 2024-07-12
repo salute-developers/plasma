@@ -28,6 +28,7 @@ export const useCalendarDateChange = ({
             const endQuarter = new Date(newQuarterDate);
 
             endQuarter.setMonth(newQuarterDate.getMonth() + 3);
+            endQuarter.setDate(0);
 
             onChangeValue?.(newQuarterDate, {
                 name: quarterName,
@@ -36,7 +37,7 @@ export const useCalendarDateChange = ({
 
             onSelectIndexes(coord);
         },
-        [onChangeValue, onSelectIndexes],
+        [onChangeValue, onSelectIndexes, type],
     );
 
     const handleOnChangeMonth = useCallback(
@@ -58,7 +59,7 @@ export const useCalendarDateChange = ({
                 },
             });
         },
-        [onChangeValue],
+        [onChangeValue, onSelectIndexes, type],
     );
 
     const handleOnChangeYear = useCallback(
@@ -93,7 +94,7 @@ export const useCalendarDateChange = ({
                 },
             });
         },
-        [onChangeValue],
+        [onChangeValue, onSelectIndexes, type],
     );
 
     const handleUpdateCalendarState = useCallback((newCalendarState: CalendarStateType, newSize: [number, number]) => {
