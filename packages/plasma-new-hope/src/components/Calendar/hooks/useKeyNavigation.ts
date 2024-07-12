@@ -2,20 +2,21 @@ import React, { KeyboardEvent, useCallback, useLayoutEffect, useRef, useState } 
 
 import type { DaysMetaDescription, KeyboardArrowKey } from '../Calendar.types';
 import { Keys } from '../Calendar.types';
-import { ROW_STEP, YEAR_RENDER_COUNT, offsetMap } from '../utils';
+import { YEAR_RENDER_COUNT, offsetMap } from '../utils';
 import type { CalendarStateType } from '../store/types';
+import { sizeMap } from '../store/reducer';
 
 import type { UseKeyNavigationArgs } from './types';
 
 /**
  * Метод для получения стороны двойного календаря.
  */
-const getDoubleCalendarSide = (currentIndexWeek: number) => {
-    if (currentIndexWeek >= 0 && currentIndexWeek < ROW_STEP) {
+const getDoubleCalendarSide = (currentIndex: number, calendarState: CalendarStateType) => {
+    if (currentIndex >= 0 && currentIndex < offsetMap[calendarState]) {
         return 'first';
     }
 
-    if (currentIndexWeek >= ROW_STEP && currentIndexWeek < ROW_STEP * 2) {
+    if (currentIndex >= offsetMap[calendarState] && currentIndex < offsetMap[calendarState] * 2) {
         return 'second';
     }
 
@@ -263,11 +264,13 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
             const isSecond = isDouble && isNext;
             const isFirst = isDouble && !isNext;
 
+            const firstEndIndex = Math.floor(sizeMap[calendarState].double[0] / 2);
+
             // Определяем какую часть сдвоенного календаря взять
             if (isFirst) {
-                refs = outerRefs.current.slice(0, 6);
+                refs = outerRefs.current.slice(0, firstEndIndex);
             } else if (isSecond) {
-                refs = outerRefs.current.slice(6, 13);
+                refs = outerRefs.current.slice(firstEndIndex, sizeMap[calendarState].double[1]);
             }
 
             const refsList = refs?.flatMap((items) => items.filter(Boolean));
@@ -467,7 +470,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'first') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'first') {
                         if (isCurrentDateDisabledArrowLeft) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;
@@ -533,7 +536,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'first') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'first') {
                         if (isCurrentDateDisabledArrowUp) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;
@@ -589,7 +592,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'second') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'second') {
                         if (isCurrentDateDisabledArrowRight) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;
@@ -655,7 +658,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'second') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'second') {
                         if (isCurrentDateDisabledArrowDown) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;
