@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useCallback } from 'react';
 import type { ReactElement, FC } from 'react';
 
-import type { Calendar, CalendarRange } from '../Calendar.types';
+import type { Calendar, CalendarRange, DateInfo } from '../Calendar.types';
 import { getSortedValues, isValueUpdate } from '../utils';
 
 /**
@@ -32,11 +32,11 @@ export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
     }
 
     const handleOnChangeDay = useCallback(
-        (newDay: Date) => {
+        (newDay: Date, dateInfo?: DateInfo) => {
             if (endValue) {
                 setValues([newDay, undefined]);
 
-                onChangeStartOfRange?.(newDay);
+                onChangeStartOfRange?.(newDay, dateInfo);
 
                 return;
             }
@@ -46,7 +46,7 @@ export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
             const [first, second] = getSortedValues([startValue, newDay]);
 
             if (first) {
-                onChangeValue([first, second]);
+                onChangeValue([first, second], dateInfo);
             }
         },
         [onChangeValue, onChangeStartOfRange, startValue, endValue],

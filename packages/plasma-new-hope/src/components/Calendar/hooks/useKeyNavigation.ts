@@ -244,11 +244,10 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
     const withShiftState = useRef<boolean>(false);
     const currentIndexes = useRef<number[]>([0, 0]);
 
-    // NOTE: Выставляем наибольший размер, чтобы гарантированно поместились все элементы сетки
     const outerRefs = useRef(
-        Array(YEAR_RENDER_COUNT)
+        Array(rowSize + 1)
             .fill(0)
-            .map(() => Array<HTMLDivElement>(YEAR_RENDER_COUNT)),
+            .map(() => Array<HTMLDivElement>(columnSize + 1)),
     );
 
     useLayoutEffect(() => {
@@ -331,23 +330,11 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
         setSelectIndexes([newRowIndex, newColumnIndex]);
     }, [onPrev, onNext, selectIndexes, rowSize, columnSize, withShiftState, currentIndexes, isDouble]);
 
-    useLayoutEffect(() => {
-        const [rowIndex, columnIndex] = selectIndexes;
-
-        const item = outerRefs?.current?.[rowIndex]?.[columnIndex];
-
-        if (item) {
-            item.focus();
-        }
-    }, [selectIndexes]);
-
     const onKeyDown = useCallback(
         (event: KeyboardEvent<HTMLDivElement>) => {
             setIsOutOfMinMaxRange(false);
 
             const { keyCode, shiftKey: withShift } = event;
-
-            event.preventDefault();
 
             const [currentRowIndex, currentColumnIndex] = selectIndexes;
 
@@ -375,6 +362,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
 
             switch (keyCode) {
                 case Keys.pageUp: {
+                    event.preventDefault();
+
                     const isDisabledPreviousMonth = hasDisabledMonths({
                         item: outerRefs.current[currentRowIndex][currentColumnIndex],
                         key: 'previous',
@@ -391,6 +380,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                     break;
                 }
                 case Keys.pageDown: {
+                    event.preventDefault();
+
                     const isDisabledNextMonth = hasDisabledMonths({
                         item: outerRefs.current[currentRowIndex][currentColumnIndex],
                         key: 'next',
@@ -407,6 +398,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                     break;
                 }
                 case Keys.home: {
+                    event.preventDefault();
+
                     newColumnIndex = minColumnIndex;
 
                     if (isVisible(outerRefs, newRowIndex, newColumnIndex)) {
@@ -418,6 +411,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                     break;
                 }
                 case Keys.end: {
+                    event.preventDefault();
+
                     newColumnIndex = columnSize;
 
                     if (isVisible(outerRefs, newRowIndex, newColumnIndex)) {
@@ -430,6 +425,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                 }
 
                 case Keys.left: {
+                    event.preventDefault();
+
                     newRowIndex = prevColumnIndex < minColumnIndex ? prevRowIndex : currentRowIndex;
                     newColumnIndex = prevColumnIndex < minColumnIndex ? columnSize : prevColumnIndex;
 
@@ -486,6 +483,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                     break;
                 }
                 case Keys.up: {
+                    event.preventDefault();
+
                     newRowIndex = prevRowIndex < minRowIndex ? rowSize : prevRowIndex;
 
                     withShiftState.current = withShift;
@@ -553,6 +552,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                 }
 
                 case Keys.right: {
+                    event.preventDefault();
+
                     newRowIndex = nextColumnIndex > columnSize ? nextRowIndex : currentRowIndex;
                     newColumnIndex = nextColumnIndex > columnSize ? minColumnIndex : nextColumnIndex;
 
@@ -608,6 +609,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
                     break;
                 }
                 case Keys.down: {
+                    event.preventDefault();
+
                     newRowIndex = nextRowIndex > rowSize ? minRowIndex : nextRowIndex;
 
                     withShiftState.current = withShift;
@@ -684,6 +687,9 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
             }
 
             setSelectIndexes([newRowIndex, newColumnIndex]);
+
+            const item = outerRefs?.current?.[newRowIndex]?.[newColumnIndex];
+            item?.focus();
         },
         [selectIndexes, outerRefs, rowSize, columnSize, onNext, onPrev, isDouble],
     );

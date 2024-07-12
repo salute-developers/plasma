@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
-import { getInitialState, reducer } from '../store/reducer';
+import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
 import { isValueUpdate } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
@@ -68,7 +68,6 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 date,
                 dispatch,
             });
-
             const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
                 size,
                 calendarState,
@@ -100,7 +99,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 if (prevType !== type) {
                     dispatch({
                         type: ActionType.UPDATE_CALENDAR_STATE,
-                        payload: { calendarState: type },
+                        payload: { calendarState: type, size: sizeMap[type].single },
                     });
 
                     setPrevType(type);

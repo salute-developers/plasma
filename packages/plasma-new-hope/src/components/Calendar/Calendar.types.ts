@@ -181,11 +181,11 @@ export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue: (values: [Date, Date?]) => void;
+    onChangeValue: (values: [Date, Date?], dateInfo?: DateInfo) => void;
     /**
      * Обработчик для выбора стартового значения в диапазоне.
      */
-    onChangeStartOfRange?: (value: Date) => void;
+    onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
 };
 
 export interface DaysMetaDescription {

@@ -14,7 +14,7 @@ import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines/types';
-import { getInitialState, reducer } from '../store/reducer';
+import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
 import { IsOutOfRange } from '../CalendarBase/CalendarBase.styles';
 
@@ -136,7 +136,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                 if (prevType !== type) {
                     dispatch({
                         type: ActionType.UPDATE_CALENDAR_STATE,
-                        payload: { calendarState: type },
+                        payload: { calendarState: type, size: sizeMap[type].double },
                     });
 
                     setPrevType(type);
