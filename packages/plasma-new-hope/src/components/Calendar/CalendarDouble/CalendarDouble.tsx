@@ -94,7 +94,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                     setSecondDate({ year: nextYear, monthIndex: nextMonthIndex, day: date.day });
                 }
 
-                if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
+                if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarters) {
                     setSecondDate({ year: date.year + 1, monthIndex: date.monthIndex, day: date.day });
                 }
 
@@ -112,7 +112,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                     ];
                 }
 
-                if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
+                if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarters) {
                     return [new Date(firstDate.year, 0), new Date(secondDate.year, 12, 0)];
                 }
 
@@ -272,7 +272,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                 />
                             </>
                         )}
-                        {calendarState === CalendarState.Quarter && (
+                        {calendarState === CalendarState.Quarters && (
                             <>
                                 <CalendarQuarters
                                     value={externalValue}

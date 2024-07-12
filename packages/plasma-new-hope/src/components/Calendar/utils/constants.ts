@@ -11,7 +11,7 @@ export const offsetMap = {
     Days: ROW_STEP,
     Months: ROW_MONTH_STEP,
     Years: ROW_YEAR_STEP,
-    Quarter: ROW_QUARTER_STEP,
+    Quarters: ROW_QUARTER_STEP,
 };
 
 export const QUARTER_NAMES = ['Q1', 'Q2', 'Q3', 'Q4'];

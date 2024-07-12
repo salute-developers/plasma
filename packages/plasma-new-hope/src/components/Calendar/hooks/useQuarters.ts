@@ -36,7 +36,7 @@ export const useQuarters = ({ date, value, eventList, disabledList, min, max }: 
         if (eventList?.length || disabledList?.length || max || min) {
             const modifiedQuarters = getDatesWithModifications({
                 dates: quarters,
-                type: CalendarState.Quarter,
+                type: CalendarState.Quarters,
                 min,
                 max,
                 eventList,

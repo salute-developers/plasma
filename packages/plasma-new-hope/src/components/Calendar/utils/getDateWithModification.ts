@@ -29,7 +29,7 @@ const dateOperationHandler: DateOperationHandler = {
         add: (date: Date) => date.setMonth(date.getMonth() + 1),
         subtract: (date: Date) => date.setMonth(date.getMonth() - 1),
     },
-    Quarter: {
+    Quarters: {
         add: (date: Date) => date.setMonth(date.getMonth() + 3),
         subtract: (date: Date) => date.setMonth(date.getMonth() - 3),
     },

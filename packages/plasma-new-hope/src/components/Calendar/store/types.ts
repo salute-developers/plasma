@@ -4,7 +4,7 @@ export enum CalendarState {
     Days = 'Days',
     Months = 'Months',
     Years = 'Years',
-    Quarter = 'Quarter',
+    Quarters = 'Quarters',
 }
 
 export const enum ActionType {

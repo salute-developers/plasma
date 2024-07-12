@@ -26,7 +26,7 @@ export const useCalendarNavigation = ({ calendarState, dispatch, date }: UseCale
                 return;
             }
 
-            if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
+            if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarters) {
                 dispatch({ type: ActionType.PREVIOUS_YEAR, payload: { step: 1 } });
 
                 return;
@@ -59,7 +59,7 @@ export const useCalendarNavigation = ({ calendarState, dispatch, date }: UseCale
                 return;
             }
 
-            if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarter) {
+            if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarters) {
                 dispatch({ type: ActionType.NEXT_YEAR, payload: { step: 1 } });
 
                 return;
