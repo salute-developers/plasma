@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { convertRoundnessMatrix } from '../../../../utils/roundness';
 import { classes, tokens } from '../../Accordion.tokens';
 import { HTMLAttributesWithoutOnChange } from '../../../../engines/types';
+import { cx } from '../../../../utils';
 
 import {
     StyledAccordionItem,
@@ -28,6 +29,7 @@ export const AccordionItem: React.FC<HTMLAttributesWithoutOnChange<HTMLElement> 
     children,
     type = 'sign',
     index,
+    className,
     eventKey,
     disabled,
     onChange,
@@ -77,7 +79,7 @@ export const AccordionItem: React.FC<HTMLAttributesWithoutOnChange<HTMLElement> 
 
     return (
         <StyledAccordionItem
-            className={classes.accordionItem}
+            className={cx(classes.accordionItem, className)}
             key={key}
             style={{ borderRadius: accordionBorderRadius }}
         >
