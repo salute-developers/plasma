@@ -110,6 +110,8 @@ export const StyledHeaderDouble = styled.button`
     letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
     line-height: var(${tokens.calendarHeaderFontLineHeight});
 
+    color: var(${tokens.calendarContentPrimaryColor});
+
     grid-area: b;
     justify-self: center;
     cursor: pointer;
