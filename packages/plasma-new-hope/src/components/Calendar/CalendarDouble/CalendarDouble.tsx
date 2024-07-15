@@ -148,7 +148,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                     setPrevValue(value);
                 }
 
-                if (value && prevValue && isValueUpdate(value, prevValue)) {
+                if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     const [minVisibleDate, maxVisibleDate] = getBoundaryDates();
 
                     if (value > maxVisibleDate || value < minVisibleDate) {

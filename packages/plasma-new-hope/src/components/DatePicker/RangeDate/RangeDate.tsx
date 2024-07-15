@@ -71,6 +71,12 @@ export const datePickerRangeRoot = (
                 includeEdgeDates = false,
                 eventList,
                 disabledList,
+                eventMonthList,
+                disabledMonthList,
+                eventQuarterList,
+                disabledQuarterList,
+                eventYearList,
+                disabledYearList,
                 type = 'Days',
 
                 placement = ['top', 'bottom'],
@@ -248,6 +254,12 @@ export const datePickerRangeRoot = (
                         includeEdgeDates={includeEdgeDates}
                         eventList={eventList}
                         disabledList={disabledList}
+                        eventMonthList={eventMonthList}
+                        disabledMonthList={disabledMonthList}
+                        eventQuarterList={eventQuarterList}
+                        disabledQuarterList={disabledQuarterList}
+                        eventYearList={eventYearList}
+                        disabledYearList={disabledYearList}
                         min={min}
                         max={max}
                         placement={placement}
@@ -257,13 +269,13 @@ export const datePickerRangeRoot = (
                         type={type}
                         onToggle={handleToggle}
                         isDoubleCalendar={isDoubleCalendar}
-                        onChangeStartOfRange={(firstDate) => {
-                            handleCommitFirstDate(firstDate, false, true);
+                        onChangeStartOfRange={(firstDate, dateInfo) => {
+                            handleCommitFirstDate(firstDate, false, true, dateInfo);
                             handleCommitSecondDate('');
                         }}
-                        onChangeValue={([firstDate, secondDate]) => {
-                            firstDate && handleCommitFirstDate(firstDate, false, true);
-                            secondDate && handleCommitSecondDate(secondDate, false, true);
+                        onChangeValue={([firstDate, secondDate], dateInfo) => {
+                            firstDate && handleCommitFirstDate(firstDate, false, true, dateInfo);
+                            secondDate && handleCommitSecondDate(secondDate, false, true, dateInfo);
                             if (firstDate && secondDate && !firstValueError && !secondValueError) {
                                 setIsInnerOpen(false);
                             }

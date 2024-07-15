@@ -111,7 +111,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                     setPrevValue(value);
                 }
 
-                if (value && prevValue && isValueUpdate(value, prevValue)) {
+                if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     dispatch({
                         type: ActionType.UPDATE_DATE,
                         payload: { value },
