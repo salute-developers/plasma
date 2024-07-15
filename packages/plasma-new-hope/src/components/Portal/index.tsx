@@ -1,2 +1,2 @@
-export { portalConfig, portalRoot } from './Portal';
+export { Portal } from './Portal';
 export type { PortalProps } from './Portal.types';

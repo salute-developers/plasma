@@ -3,8 +3,7 @@ import { useForkRef, safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines/types';
 import { cx } from '../../utils';
-import { portalConfig } from '../Portal';
-import { component, mergeConfig } from '../../engines';
+import { Portal } from '../Portal';
 
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
 import { POPUP_PORTAL_ID } from './PopupContext';
@@ -78,9 +77,6 @@ export const handlePosition = (
         transform,
     };
 };
-
-const mergedPortalConfig = mergeConfig(portalConfig);
-const Portal = component(mergedPortalConfig);
 
 /**
  * Базовый копмонент Popup.
