@@ -18,35 +18,32 @@ export default meta;
 
 type Story = StoryObj<StoryViewProps>;
 
-// const StoryBaseButton: Story = {
-//     args: {
-//         view: 'default',
-//     },
-// };
+const backgroundPrimary = '--background-primary';
+const textPrimary = '--text-primary';
 
 const ViewExample = ({ view }: StoryViewProps) => {
     return (
         <>
             <H4>view: {view}</H4>
-            <ViewContainer view={view}>
-                <H3>Inside ViewContainer</H3>
-                <Button text="default Button" />
-                <Button view="accent" text="Accent Button" />
-            </ViewContainer>
+            <div>
+                <ViewContainer
+                    view={view}
+                    style={{ background: `var(${backgroundPrimary})`, color: `var(${textPrimary})` }}
+                >
+                    <H3>Inside ViewContainer</H3>
+                    <Button text="default Button" />
+                    <Button view="accent" text="Accent Button" />
+                </ViewContainer>
+            </div>
         </>
     );
 };
 
 export const Default: Story = {
-    // ...StoryBaseButton,
-    // args: {
-    //     view: 'default',
-    // },
-    render: ({ view, ...rest }) => {
-        console.log(rest, view);
+    render: () => {
         return (
             <>
-                <ViewExample view="default" />
+                <ViewExample />
                 <br />
                 <ViewExample view="onDark" />
                 <br />

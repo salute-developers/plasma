@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withTheme } from './decoratorThemes';
 import { withToast } from './decoratorToast';
+import { withViewContainer } from './decoratorViewContainer';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -9,7 +10,7 @@ if (typeof document !== 'undefined') {
 }
 
 const preview: Preview = {
-    decorators: [withKnobs, withTheme, withToast],
+    decorators: [withKnobs, withViewContainer, withTheme, withToast],
     globalTypes: {
         theme: {
             description: 'Global theme for components',
