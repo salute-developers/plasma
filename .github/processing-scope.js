@@ -35,7 +35,6 @@ module.exports = () => {
             HAS_PACKAGES_CYPRESS_RUN: false,
             HAS_PACKAGES_DS_CHANGES: false,
             HAS_DEPLOY_WEBSITE: false,
-            HAS_ASSETS: false,
         };
     }
 
@@ -79,17 +78,12 @@ module.exports = () => {
 
     const HAS_DEPLOY_WEBSITE = HAS_PACKAGES_DS_CHANGES || PROCESSED_DATA.includes('plasma-website');
 
-    // INFO: HAS_ASSETS - это флаг для управления логикой "@auto-it" плагина upload-assets-extend
-    // INFO: Изменения в plasma-tokens или plasma-tokens-utils так же повлияют на то что в packagesList окажется plasma-tokens-native
-    const HAS_ASSETS = PROCESSED_DATA.includes('plasma-tokens-native');
-
     return {
         RAW_DATA: JSON.stringify(rawData),
         PACKAGES_DOCUMENTATIONS_RUN: JSON.stringify(PACKAGES_DOCUMENTATIONS_RUN),
         PACKAGES_CYPRESS_RUN: JSON.stringify(PACKAGES_CYPRESS_RUN),
         PROCESSED_DATA: JSON.stringify(PROCESSED_DATA),
         HAS_PACKAGES_CYPRESS_RUN: Boolean(PACKAGES_CYPRESS_RUN.length),
-        HAS_ASSETS,
         HAS_DEPLOY_WEBSITE,
         HAS_PACKAGES_DS_CHANGES,
     };
