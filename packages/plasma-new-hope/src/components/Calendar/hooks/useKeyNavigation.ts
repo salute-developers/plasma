@@ -330,6 +330,16 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
         setSelectIndexes([newRowIndex, newColumnIndex]);
     }, [onPrev, onNext, selectIndexes, rowSize, columnSize, withShiftState, currentIndexes, isDouble]);
 
+    useLayoutEffect(() => {
+        const [rowIndex, columnIndex] = selectIndexes;
+
+        const item = outerRefs?.current?.[rowIndex]?.[columnIndex];
+
+        if (item) {
+            item.focus();
+        }
+    }, [selectIndexes, outerRefs]);
+
     const onKeyDown = useCallback(
         (event: KeyboardEvent<HTMLDivElement>) => {
             setIsOutOfMinMaxRange(false);
@@ -687,9 +697,6 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
             }
 
             setSelectIndexes([newRowIndex, newColumnIndex]);
-
-            const item = outerRefs?.current?.[newRowIndex]?.[newColumnIndex];
-            item?.focus();
         },
         [selectIndexes, outerRefs, rowSize, columnSize, onNext, onPrev, isDouble],
     );
