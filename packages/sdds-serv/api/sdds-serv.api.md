@@ -29,6 +29,13 @@ import { bodyXXSBold } from '@salutejs/sdds-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
+import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarBaseProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarConfigProps } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarRange } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarStateType } from '@salutejs/plasma-new-hope/styled-components';
 import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
@@ -76,6 +83,7 @@ import { dsplM } from '@salutejs/sdds-themes/tokens';
 import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
+import type { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
@@ -447,6 +455,49 @@ export { ButtonGroupProps }
 //
 // @public (undocumented)
 export type ButtonProps = typeof ButtonComponent;
+
+// @public (undocumented)
+export const Calendar: FC<CalendarProps>;
+
+// @public (undocumented)
+export const CalendarBase: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & Calendar_2 & CalendarConfigProps & RefAttributes<HTMLDivElement>>;
+
+export { CalendarBaseProps }
+
+// @public (undocumented)
+export const CalendarBaseRange: ({ value, min, max, disabledList, eventList, eventMonthList, disabledMonthList, eventYearList, disabledYearList, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | JSXElementConstructor<any>>;
+
+// @public (undocumented)
+export const CalendarDouble: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & Calendar_2 & CalendarConfigProps & RefAttributes<HTMLDivElement>>;
+
+export { CalendarDoubleProps }
+
+// @public (undocumented)
+export const CalendarDoubleRange: ({ value, min, max, disabledList, eventList, eventMonthList, disabledMonthList, eventYearList, disabledYearList, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
+
+export { CalendarProps }
+
+export { CalendarStateType }
 
 // @public
 export const Cell: FunctionComponent<PropsType<    {
