@@ -5,6 +5,7 @@ import type { ShowToastArgs } from '@salutejs/plasma-b2c';
 import { IconCopyOutline } from '@salutejs/plasma-icons';
 import { ContrastRatioChecker } from 'contrast-ratio-checker';
 import { useRouter } from 'next/router';
+import _ from 'lodash';
 
 import { convertHexToRgb, paletteColors, checkColor } from '../../utils';
 
@@ -212,7 +213,7 @@ export const PaletteColorPage: React.FC<{
 
     const paletteColor = paletteColors[color];
     const selectedColor = paletteColor[colorCode];
-    const colorCodes = Object.keys(paletteColor).reverse();
+    const colorCodes = Object.keys(_.omit(paletteColor, '50')).reverse();
 
     const rgb = convertHexToRgb(selectedColor);
     const colorIndex = colorCodes.findIndex((code) => paletteColor[code] === selectedColor);
@@ -225,7 +226,7 @@ export const PaletteColorPage: React.FC<{
 
     return (
         <ColorWrapper background={selectedColor}>
-            <Header text={`${color} ${colorCode}`} link="/palette" />
+            <Header text={`${color} ${colorCode}`} link="/palette/" />
             <ColorPalette>
                 {colorCodes.map((code) => (
                     <ColorItem
