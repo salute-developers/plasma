@@ -13,7 +13,6 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     outputs:
-      HAS_ASSETS: ${{ steps.scope.outputs.result }}
       PR: ${{ steps.pull_request.outputs.result }}
     steps:
       ## Получаем актуальное состояние dev branch
@@ -64,20 +63,6 @@ jobs:
           SHA: ${{ fromJSON(steps.pull_request.outputs.result).sha }}
         run: |
           echo "RAW_DATA=$(npx lerna la --json --since=${{ env.SHA }} | jq -c)" >> "$GITHUB_OUTPUT"
-      
-      ## Высчитываем условие для загрузки assets
-      - name: Computed scope state
-        id: scope
-        uses: actions/github-script@v6
-        env:
-          RAW_DATA: ${{ steps.lerna_ls.outputs.RAW_DATA }}
-        with:
-          script: |
-            const processingScope = require('./.github/processing-scope.js');
-            
-            const state = processingScope();
-            
-            return state.HAS_ASSETS ?? false;
   
   publish:
     name: Publish RC version
@@ -87,7 +72,6 @@ jobs:
     with:
       with-update-package-lock: true
       commit-message: "Update package-lock.json files"
-      upload_assets: ${{ needs.state.outputs.HAS_ASSETS == 'true' }}
       auto-options: '--no-changelog'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
