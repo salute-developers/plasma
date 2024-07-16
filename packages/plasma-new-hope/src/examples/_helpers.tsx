@@ -1,20 +1,21 @@
 import React from 'react';
-import type { ArgTypes, StoryContext, Decorator } from '@storybook/react';
+import type { ArgTypes, Decorator } from '@storybook/react';
 
 import { ComponentConfig } from '../engines';
 import type { HTMLAttributesOmitOnChange, HTMLTagList, PropsType, Variants } from '../engines/types';
 
-import { ThemeType, themes } from './themes';
+// import { ThemeType, themes } from './themes';
 
-export const WithTheme: Decorator = (Story, context: StoryContext) => {
-    const themeType = context.globals.theme as keyof ThemeType;
-    const themeName = context.title.split('/')[0];
+export const WithTheme: Decorator = (Story) => {
+    // const themeType = context.globals.theme as keyof ThemeType;
+    // const themeName = context.title.split('/')[0];
 
     return (
         <div
-            id="theme-root"
-            className={themes?.[themeName]?.[themeType]}
-            style={{ padding: '1rem', height: '100vh', boxSizing: 'border-box' }}
+            // id="theme-root"
+            // className={themes?.[themeName]?.[themeType]}
+            // style={{ padding: '1rem', height: '100vh', boxSizing: 'border-box' }}
+            style={{ padding: '1rem' }}
         >
             <Story />
         </div>

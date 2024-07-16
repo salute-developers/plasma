@@ -1,9 +1,11 @@
 import type { Preview } from '@storybook/react';
+import { withViewContainer } from './decoratorViewContainer';
 
 const LIGHT_THEME = 'light';
 const DARK_THEME = 'dark';
 
 const preview: Preview = {
+    decorators: [withViewContainer],
     parameters: {
         docs: {
             source: { type: 'code', language: 'tsx' },

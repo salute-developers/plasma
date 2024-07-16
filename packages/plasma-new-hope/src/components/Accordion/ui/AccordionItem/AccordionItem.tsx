@@ -57,10 +57,10 @@ export const AccordionItem: React.FC<HTMLAttributesOmitOnChange & AccordionItemP
 
     const StyledAnimationPLus = () => (
         <StyledPlus>
-            <StyledMinus size="xs" color="inhert" />
+            <StyledMinus size="xs" color="inherit" />
             <StyledMinus
                 size="xs"
-                color="inhert"
+                color="inherit"
                 className={openedBodyClass ?? classes.accordionPlusAnimationElement}
             />
         </StyledPlus>
@@ -69,7 +69,7 @@ export const AccordionItem: React.FC<HTMLAttributesOmitOnChange & AccordionItemP
     const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`, '1.5rem');
     const disabledClass = disabled ? classes.accordionDisabled : '';
 
-    const leftContent = contentLeft ?? (type === 'arrow' ? <StyledArrow size="xs" color="inhert" /> : undefined);
+    const leftContent = contentLeft ?? (type === 'arrow' ? <StyledArrow size="xs" color="inherit" /> : undefined);
     const leftContentRotate = type === 'arrow' && value ? classes.accordionItemShowBody : undefined;
 
     const rightContent = contentRight ?? (type === 'sign' ? <StyledAnimationPLus /> : undefined);
