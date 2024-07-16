@@ -1,110 +1,255 @@
 /* eslint-disable newline-per-chained-call */
-import React, { FC } from 'react';
+import React, { useCallback, useState } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
+import { CalendarDouble as CalendarDoubleB2C, CalendarBase as CalendarBaseB2C } from './Calendar';
+
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const date = new Date(1970, 1, 1);
+const baseDate = new Date(1999, 6, 7);
+const minBaseDate = new Date(1970, 1, 1);
+
+const events = [
+    {
+        date: new Date('1999-07-09'),
+        color: 'red',
+    },
+    {
+        date: new Date('1999-07-09'),
+        color: 'red',
+    },
+    {
+        date: new Date('1999-07-10'),
+        color: 'red',
+    },
+    {
+        date: new Date('1999-07-11'),
+        color: 'red',
+    },
+    {
+        date: new Date('1999-07-12'),
+        color: 'red',
+    },
+    {
+        date: new Date('1999-07-12'),
+        color: 'red',
+    },
+];
+const disabledDays = [...new Array(5)].map((_, day) => ({
+    date: new Date(1999, 6, 23 + day),
+}));
+const monthEvents = [
+    {
+        date: new Date('1999-06-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-06-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-06-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-07-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-07-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-08-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-08-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-08-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-09-01'),
+        color: 'purple',
+    },
+    {
+        date: new Date('1999-09-01'),
+        color: 'purple',
+    },
+];
+const quarterEvents = [
+    {
+        date: new Date('1999-06-01'),
+        color: 'green',
+    },
+    {
+        date: new Date('1999-06-01'),
+        color: 'green',
+    },
+    {
+        date: new Date('1999-06-01'),
+        color: 'green',
+    },
+    {
+        date: new Date('1999-07-01'),
+        color: 'green',
+    },
+    {
+        date: new Date('1999-07-01'),
+        color: 'green',
+    },
+    {
+        date: new Date('1999-07-01'),
+        color: 'green',
+    },
+];
+const yearEvents = [
+    {
+        date: new Date('1999-01-01'),
+        color: 'blue',
+    },
+    {
+        date: new Date('1999-01-01'),
+        color: 'blue',
+    },
+    {
+        date: new Date('1999-01-01'),
+        color: 'blue',
+    },
+];
 
 const dateFormatter = new Intl.DateTimeFormat('ru', {
     month: 'long',
 });
 
-const getMonth = () => {
+const getMonth = (date) => {
     const [first, ...currentMonth] = dateFormatter.format(date);
 
     return first.toUpperCase().concat(...currentMonth);
 };
 
-const events = [
-    {
-        date: new Date(2021, 5, 6),
-    },
-    {
-        date: new Date(2021, 5, 10),
-        color: 'red',
-    },
-    {
-        date: new Date(2021, 5, 10),
-        color: 'green',
-    },
-    {
-        date: new Date(2021, 5, 10),
-        color: 'blue',
-    },
-];
+const checkFocusedDay = (day: string) => cy.focused().should('have.attr', 'data-day', day);
+const checkFocusedMonth = (monthIndex: string) => cy.focused().should('have.attr', 'data-month-index', monthIndex);
 
 describe('plasma-web: Calendar', () => {
-    const Calendar = getComponent('Calendar');
-    const Button = getComponent('Button');
+    const CalendarBase = getComponent('CalendarBase') as typeof CalendarBaseB2C;
+    const CalendarDouble = getComponent('CalendarDouble') as typeof CalendarDoubleB2C;
 
-    // TODO: https://github.com/salute-developers/plasma/issues/173
-    // после переезда на новую типографику для @salutejs/plasma-web - https://github.com/salute-developers/plasma/issues/69
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
             <StandardTypoStyle />
             {children}
         </CypressTestDecorator>
     );
 
-    function Demo() {
-        const [value, setValue] = React.useState(date);
-        const handleOnChange = React.useCallback((newValue: Date) => {
+    const Demo = (args) => {
+        const { min, max, includeEdgeDates, displayDouble, baseValue, size = 's', type = 'Days' } = args;
+        const [value, setValue] = useState(baseValue);
+
+        const handleOnChange = useCallback((newValue: Date) => {
             setValue(newValue);
         }, []);
 
-        return (
-            <>
-                <Button onClick={() => setValue(new Date(2005, 5, 5))}>Set date</Button>
-                <Calendar value={value} onChangeValue={handleOnChange} />
-            </>
-        );
-    }
+        const getCalendarComponent = (rest) => {
+            return displayDouble ? (
+                <CalendarDouble
+                    {...rest}
+                    size={size}
+                    value={value}
+                    min={min}
+                    max={max}
+                    includeEdgeDates={includeEdgeDates}
+                    type={type}
+                    onChangeValue={handleOnChange}
+                />
+            ) : (
+                <CalendarBase
+                    {...rest}
+                    size={size}
+                    value={value}
+                    min={min}
+                    max={max}
+                    includeEdgeDates={includeEdgeDates}
+                    type={type}
+                    onChangeValue={handleOnChange}
+                />
+            );
+        };
+
+        const calendarMap = {
+            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays }),
+            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents }),
+            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents }),
+            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents }),
+        };
+
+        return <CypressTestDecoratorWithTypo>{calendarMap[type]}</CypressTestDecoratorWithTypo>;
+    };
 
     it('default', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} type="Days" onChangeValue={() => {}} />
+            <>
+                <Demo baseValue={baseDate} type="Days" />
                 <PadMe />
-                <Calendar value={date} type="Months" onChangeValue={() => {}} />
+                <Demo baseValue={baseDate} type="Months" />
                 <PadMe />
-                <Calendar value={date} type="Years" onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
+                <Demo baseValue={baseDate} type="Quarters" />
+                <PadMe />
+                <Demo baseValue={baseDate} type="Years" />
+            </>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('set value', () => {
+    it('default: double calendar', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo />
-            </CypressTestDecoratorWithTypo>,
+            <>
+                <Demo baseValue={baseDate} type="Days" displayDouble />
+                <PadMe />
+                <Demo baseValue={baseDate} type="Months" displayDouble />
+                <PadMe />
+                <Demo baseValue={baseDate} type="Quarters" displayDouble />
+                <PadMe />
+                <Demo baseValue={baseDate} type="Years" displayDouble />
+            </>,
         );
 
-        cy.get('button').first().click();
+        cy.viewport(1200, 500);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('size', () => {
+        mount(
+            <>
+                <Demo baseValue={baseDate} size="l" />
+                <PadMe />
+                <Demo baseValue={baseDate} size="m" />
+                <PadMe />
+                <Demo baseValue={baseDate} size="s" />
+                <PadMe />
+                <Demo baseValue={baseDate} size="xs" />
+            </>,
+        );
 
         cy.matchImageSnapshot();
     });
 
     it('value as undefined', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={undefined} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+        mount(<Demo />);
 
         cy.get('body').find('[aria-selected="true"]').should('not.be.exist');
     });
 
-    it('prev month', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+    it('days: prev month', () => {
+        mount(<Demo baseValue={baseDate} />);
 
         cy.get('button').eq(1).click();
 
@@ -114,12 +259,8 @@ describe('plasma-web: Calendar', () => {
         });
     });
 
-    it('next month', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+    it('days: next month', () => {
+        mount(<Demo baseValue={baseDate} />);
 
         cy.get('button').eq(2).click();
 
@@ -129,47 +270,8 @@ describe('plasma-web: Calendar', () => {
         });
     });
 
-    it('prev year', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').eq(0).click();
-        cy.get('button').eq(1).click();
-
-        cy.matchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent',
-        });
-    });
-
-    it('next year', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').eq(0).click();
-        cy.get('button').eq(2).click();
-
-        cy.matchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent',
-        });
-    });
-
-    it('prev range years', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').eq(0).click();
-        cy.get('button').eq(0).click();
+    it('months: prev year', () => {
+        mount(<Demo baseValue={baseDate} type="Months" />);
 
         cy.get('button').eq(1).click();
 
@@ -179,15 +281,8 @@ describe('plasma-web: Calendar', () => {
         });
     });
 
-    it('next range years', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').eq(0).click();
-        cy.get('button').eq(0).click();
+    it('months: next year', () => {
+        mount(<Demo baseValue={baseDate} type="Months" />);
 
         cy.get('button').eq(2).click();
 
@@ -197,147 +292,148 @@ describe('plasma-web: Calendar', () => {
         });
     });
 
-    it('event list', () => {
-        const eventsRange = [...new Array(10)].map((_, day) => ({
-            date: new Date(2021, 5, 15 + day),
-            color: 'purple',
-        }));
+    it('quartes: prev year', () => {
+        mount(<Demo baseValue={baseDate} type="Quarters" />);
 
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar
-                    value={new Date(2021, 5, 6)}
-                    eventList={[...events, ...eventsRange]}
-                    onChangeValue={() => {}}
-                />
-            </CypressTestDecoratorWithTypo>,
-        );
+        cy.get('button').eq(1).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
-    it('disabled days', () => {
-        const disabledDays = [...new Array(5)].map((_, day) => ({
-            date: new Date(2021, 5, 11 + day),
-        }));
+    it('quartes: next year', () => {
+        mount(<Demo baseValue={baseDate} type="Quarters" />);
 
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={new Date(2021, 5, 6)} disabledList={disabledDays} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+        cy.get('button').eq(2).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('min and max', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar
-                    value={new Date(2021, 5, 6)}
-                    min={new Date(2021, 5, 4)}
-                    max={new Date(2021, 5, 15)}
-                    onChangeValue={() => {}}
+            <>
+                <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} />
+                <PadMe />
+                <Demo baseValue={baseDate} type="Months" min={new Date(1999, 4, 1)} max={new Date(1999, 10, 1)} />
+                <PadMe />
+                <Demo baseValue={baseDate} type="Quarters" min={new Date(1999, 3, 1)} max={new Date(1999, 9, 1)} />
+                <PadMe />
+                <Demo baseValue={baseDate} type="Years" min={new Date(1993, 0, 1)} max={new Date(2002, 0, 1)} />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('min and max: double', () => {
+        mount(
+            <>
+                <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} displayDouble />
+                <PadMe />
+                <Demo
+                    baseValue={baseDate}
+                    type="Months"
+                    min={new Date(1999, 4, 1)}
+                    max={new Date(1999, 10, 1)}
+                    displayDouble
                 />
-            </CypressTestDecoratorWithTypo>,
+                <PadMe />
+                <Demo
+                    baseValue={baseDate}
+                    type="Quarters"
+                    min={new Date(1999, 3, 1)}
+                    max={new Date(1999, 9, 1)}
+                    displayDouble
+                />
+                <PadMe />
+                <Demo
+                    baseValue={baseDate}
+                    type="Years"
+                    min={new Date(1993, 0, 1)}
+                    max={new Date(2002, 0, 1)}
+                    displayDouble
+                />
+            </>,
         );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('range', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isRange value={[new Date(2021, 5, 6), new Date(2021, 5, 15)]} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('range with init values as undefined', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isRange value={[undefined, undefined]} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body').find('[aria-selected="true"]').should('not.be.exist');
-    });
-
-    it('range in progress', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isRange value={[new Date(2021, 5, 6)]} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('div:nth-of-type(5) > div:nth-of-type(5)').first().trigger('mouseover');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('range in progress with disabled', () => {
-        const disabledDays = [...new Array(5)].map((_, day) => ({
-            date: new Date(2021, 5, 11 + day),
-        }));
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isRange disabledList={disabledDays} value={[new Date(2021, 5, 6)]} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('div:nth-of-type(3) > div:nth-of-type(4)').first().trigger('mouseover');
-        cy.get('div:nth-of-type(5) > div:nth-of-type(5)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
 });
 
 describe('plasma-web: Calendar keyboard navigation', () => {
-    const Calendar = getComponent('Calendar');
+    const CalendarBase = getComponent('CalendarBase') as typeof CalendarBaseB2C;
+    const CalendarDouble = getComponent('CalendarDouble') as typeof CalendarDoubleB2C;
 
-    // TODO: https://github.com/salute-developers/plasma/issues/173
-    // после переезда на новую типографику для @salutejs/plasma-web
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
             <StandardTypoStyle />
             {children}
         </CypressTestDecorator>
     );
 
-    function Demo() {
-        const [value, setValue] = React.useState(date);
-        const handleOnChange = React.useCallback((newValue: Date) => {
+    const Demo = (args) => {
+        const { min, max, baseValue, displayDouble, disabledList, size = 's', type = 'Days' } = args;
+        const [value, setValue] = useState(baseValue);
+
+        const disabledDates = disabledList?.length ? disabledList : disabledDays;
+
+        const handleOnChange = useCallback((newValue: Date) => {
             setValue(newValue);
         }, []);
 
-        return <Calendar value={value} onChangeValue={handleOnChange} />;
-    }
+        const getCalendarComponent = (rest) => {
+            return displayDouble ? (
+                <CalendarDouble
+                    {...rest}
+                    size={size}
+                    value={value}
+                    min={min}
+                    max={max}
+                    type={type}
+                    onChangeValue={handleOnChange}
+                />
+            ) : (
+                <CalendarBase
+                    {...rest}
+                    size={size}
+                    value={value}
+                    min={min}
+                    max={max}
+                    type={type}
+                    onChangeValue={handleOnChange}
+                />
+            );
+        };
+
+        const calendarMap = {
+            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDates }),
+            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents }),
+            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents }),
+            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents }),
+        };
+
+        return <CypressTestDecoratorWithTypo>{calendarMap[type]}</CypressTestDecoratorWithTypo>;
+    };
 
     beforeEach(() => {
         cy.viewport(700, 500);
     });
 
     it('set value with `Enter` and `Space`', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo />
-            </CypressTestDecoratorWithTypo>,
-        );
+        mount(<Demo baseValue={baseDate} />);
 
-        cy.get('body').type('{rightarrow}').type('{enter}').type('{rightarrow}').type(' ');
+        cy.get('body').type('{rightarrow}{enter}{rightarrow} ');
 
         cy.matchImageSnapshot();
     });
 
     it('navigate with `Down`, `Left`, `Up`, `Right` arrows', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+        mount(<Demo baseValue={baseDate} />);
 
         cy.get('body')
             .type('{downarrow}')
@@ -350,80 +446,75 @@ describe('plasma-web: Calendar keyboard navigation', () => {
     });
 
     it('navigate with `Home` and `End`', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+        mount(<Demo baseValue={baseDate} />);
 
-        cy.get('body').type('{downarrow}').type('{downarrow}').type('{home}');
-        cy.get('body').find('[data-day="9"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+        cy.get('body').type('{downarrow}').type('{end}');
+        checkFocusedDay('18');
+        checkFocusedMonth('6');
 
-        cy.get('body').type('{end}');
-        cy.get('body').find('[data-day="15"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+        cy.get('body').type('{home}');
+        checkFocusedDay('12');
+        checkFocusedMonth('6');
 
-        cy.get('body').type('{home}').type('{downarrow}').type('{downarrow}').type('{end}');
-        cy.get('body').find('[data-day="28"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+        cy.get('body').type('{end}').type('{uparrow}').type('{uparrow}').type('{home}');
+        checkFocusedDay('1');
+        checkFocusedMonth('6');
     });
 
     it('navigate with `PageUp` and `PageDown`', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+        mount(<Demo baseValue={baseDate} />);
 
         cy.get('body').type('{pageup}');
-        cy.get('body').find('[data-day="4"][data-month-index="0"]').first().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('9');
+        checkFocusedMonth('5');
 
         cy.get('body').type('{downarrow}').type('{pagedown}');
-        cy.get('body').find('[data-day="8"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('14');
+        checkFocusedMonth('6');
     });
 
     it('navigate with Shift + `PageUp` and `PageDown`', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+        mount(<Demo baseValue={minBaseDate} />);
 
         cy.get('body').type('{shift}{pageup}');
         cy.get('body')
             .find('[data-day="2"][data-month-index="1"]')
             .first()
             .should('have.attr', 'tabindex', '0')
-            .should('have.attr', 'data-year', date.getFullYear() - 1);
+            .should('have.attr', 'data-year', minBaseDate.getFullYear() - 1);
 
-        cy.get('[id="id-grid-label"] span').first().contains(`${getMonth()}`);
+        cy.get('[id="id-grid-label"] span')
+            .first()
+            .contains(`${getMonth(minBaseDate)}`);
         cy.get('[id="id-grid-label"] span')
             .last()
-            .contains(`${date.getFullYear() - 1}`);
+            .contains(`${minBaseDate.getFullYear() - 1}`);
 
         cy.get('body').type('{shift}{pagedown}'.repeat(2));
         cy.get('body')
             .find('[data-day="7"][data-month-index="1"]')
             .first()
             .should('have.attr', 'tabindex', '0')
-            .should('have.attr', 'data-year', date.getFullYear() + 1);
+            .should('have.attr', 'data-year', minBaseDate.getFullYear() + 1);
 
-        cy.get('[id="id-grid-label"] span').first().contains(`${getMonth()}`);
+        cy.get('[id="id-grid-label"] span')
+            .first()
+            .contains(`${getMonth(minBaseDate)}`);
         cy.get('[id="id-grid-label"] span')
             .last()
-            .contains(`${date.getFullYear() + 1}`);
+            .contains(`${minBaseDate.getFullYear() + 1}`);
     });
 
     it('navigate with arrow abroad bounds', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
+        mount(<Demo baseValue={minBaseDate} />);
 
         cy.get('body').type('{leftarrow}');
-        cy.get('body').find('[data-day="31"][data-month-index="0"]').first().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('31');
+        checkFocusedMonth('0');
 
         cy.get('body').type('{uparrow}').type('{uparrow}').type('{uparrow}').type('{uparrow}').type('{uparrow}');
-        cy.get('body').find('[data-day="27"][data-month-index="11"]').first().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('27');
+        checkFocusedMonth('11');
 
         cy.get('body')
             .type('{rightarrow}')
@@ -431,16 +522,20 @@ describe('plasma-web: Calendar keyboard navigation', () => {
             .type('{rightarrow}')
             .type('{rightarrow}')
             .type('{rightarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="0"]').last().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('1');
+        checkFocusedMonth('0');
 
         cy.get('body').type('{uparrow}');
-        cy.get('body').find('[data-day="25"][data-month-index="11"]').first().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('25');
+        checkFocusedMonth('11');
 
         cy.get('body').type('{downarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="0"]').last().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('1');
+        checkFocusedMonth('0');
 
         cy.get('body').type('{leftarrow}').type('{downarrow}');
-        cy.get('body').find('[data-day="7"][data-month-index="0"]').last().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('7');
+        checkFocusedMonth('0');
 
         cy.get('body')
             .type('{downarrow}')
@@ -450,27 +545,75 @@ describe('plasma-web: Calendar keyboard navigation', () => {
             .type('{rightarrow}')
             .type('{rightarrow}')
             .type('{rightarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="1"]').last().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('1');
+        checkFocusedMonth('1');
 
         cy.get('body').type('{downarrow}').type('{downarrow}').type('{downarrow}').type('{downarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="2"]').last().should('have.attr', 'tabindex', '0');
+        checkFocusedDay('1');
+        checkFocusedMonth('2');
+    });
+
+    it('double: navigate with arrow abroad bounds', () => {
+        mount(<Demo baseValue={minBaseDate} displayDouble />);
+
+        cy.get('body').type('{leftarrow}');
+        checkFocusedDay('31');
+        checkFocusedMonth('0');
+
+        cy.get('body')
+            .type('{uparrow}')
+            .type('{uparrow}')
+            .type('{uparrow}')
+            .type('{uparrow}')
+            .type('{uparrow}')
+            .type('{uparrow}');
+        checkFocusedDay('27');
+        checkFocusedMonth('11');
+
+        cy.get('body')
+            .type('{rightarrow}')
+            .type('{rightarrow}')
+            .type('{rightarrow}')
+            .type('{rightarrow}')
+            .type('{rightarrow}');
+        checkFocusedDay('1');
+        checkFocusedMonth('0');
+
+        cy.get('body').type('{uparrow}');
+        checkFocusedDay('25');
+        checkFocusedMonth('11');
+
+        cy.get('body').type('{downarrow}');
+        checkFocusedDay('1');
+        checkFocusedMonth('0');
+
+        cy.get('body').type('{leftarrow}').type('{downarrow}');
+        checkFocusedDay('7');
+        checkFocusedMonth('0');
+
+        cy.get('body')
+            .type('{downarrow}')
+            .type('{downarrow}')
+            .type('{downarrow}')
+            .type('{rightarrow}')
+            .type('{rightarrow}')
+            .type('{rightarrow}')
+            .type('{rightarrow}');
+        checkFocusedDay('1');
+        checkFocusedMonth('1');
+
+        cy.get('body').type('{downarrow}').type('{downarrow}').type('{downarrow}').type('{downarrow}');
+        checkFocusedDay('1');
+        checkFocusedMonth('2');
     });
 
     it('processing aria-disabled as disabled attr', () => {
-        const disabledDays = [...new Array(5)].map((_, day) => ({
-            date: new Date(1970, 1, 11 + day),
-        }));
+        mount(<Demo baseValue={baseDate} />);
 
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar disabledList={disabledDays} value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body').type('{downArrow}'.repeat(2));
+        cy.get('body').type('{downArrow}'.repeat(2)).type('{end}');
 
         cy.get('body')
-            .find('[data-day="15"][data-month-index="1"]')
+            .find('[data-day="25"][data-month-index="6"]')
             .first()
             .should('have.attr', 'tabindex', '0')
             .should('have.attr', 'aria-disabled', 'true');
@@ -492,23 +635,17 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 },
             ];
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar disabledList={disabledDays} value={date} onChangeValue={() => {}} />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo disabledList={disabledDays} baseValue={minBaseDate} />);
 
             const start = '[data-day="3"][data-month-index="1"]';
 
-            cy.get('body').find(start).first().type(shiftRightArrow);
+            cy.get('body').find(start).type(shiftRightArrow);
+            checkFocusedDay('6');
+            checkFocusedMonth('1');
 
-            cy.get('body')
-                .find('[data-day="6"][data-month-index="1"]')
-                .first()
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftLeftArrow);
-
-            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+            cy.focused().type(shiftLeftArrow);
+            checkFocusedDay('3');
+            checkFocusedMonth('1');
         });
 
         it('Arrow Up or Down in current month', () => {
@@ -521,21 +658,17 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 },
             ];
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar disabledList={disabledDays} value={date} onChangeValue={() => {}} />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo disabledList={disabledDays} baseValue={minBaseDate} />);
 
             const start = '[data-day="4"][data-month-index="1"]';
 
-            cy.get('body').find(start).first().type(shiftDownArrow);
-
-            cy.get('body').find('[data-day="13"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+            cy.get('body').find(start).type(shiftDownArrow);
+            checkFocusedDay('13');
+            checkFocusedMonth('1');
 
             cy.get('body').find('[data-day="19"][data-month-index="1"]').type(shiftUpArrow);
-
-            cy.get('body').find('[data-day="10"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+            checkFocusedDay('10');
+            checkFocusedMonth('1');
         });
 
         it('Arrow Left or Right between months', () => {
@@ -548,23 +681,17 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 },
             ];
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar disabledList={disabledDays} value={date} onChangeValue={() => {}} />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo disabledList={disabledDays} baseValue={minBaseDate} />);
 
             const start = '[data-day="27"][data-month-index="1"]';
 
-            cy.get('body').find(start).first().type(shiftRightArrow);
+            cy.get('body').find(start).type(shiftRightArrow);
+            checkFocusedDay('2');
+            checkFocusedMonth('2');
 
-            cy.get('body')
-                .find('[data-day="2"][data-month-index="2"]')
-                .first()
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftLeftArrow);
-
-            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+            cy.focused().type(shiftLeftArrow);
+            checkFocusedDay('27');
+            checkFocusedMonth('1');
         });
 
         it('Arrow Left or Right when entire one month disabled', () => {
@@ -580,175 +707,104 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 })),
             ];
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar disabledList={[...may, ...april]} value={new Date(1970, 2, 1)} onChangeValue={() => {}} />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo disabledList={[...may, ...april]} baseValue={new Date(1970, 2, 1)} />);
 
-            cy.get('body').find('[data-day="31"][data-month-index="2"]').first().type(shiftRightArrow);
+            cy.get('body').find('[data-day="31"][data-month-index="2"]').type(shiftRightArrow);
+            checkFocusedDay('2');
+            checkFocusedMonth('4');
 
-            cy.get('body')
-                .find('[data-day="2"][data-month-index="4"]')
-                .first()
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftLeftArrow);
+            cy.focused().type(shiftLeftArrow);
 
-            cy.get('body').find('[data-day="31"][data-month-index="2"]').first().should('have.attr', 'tabindex', '0');
+            checkFocusedDay('31');
+            checkFocusedMonth('2');
         });
 
         it('Arrow Left or Right when entire few months disabled', () => {
             const march = [...new Array(31)].map((_, day) => ({
                 date: new Date(1970, 2, 1 + day),
+                color: '',
             }));
 
             const april = [...new Array(31)].map((_, day) => ({
                 date: new Date(1970, 3, 1 + day),
+                color: '',
             }));
 
             const may = [
                 {
                     date: new Date(1970, 4, 1),
+                    color: '',
                 },
             ];
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar disabledList={[...march, ...april, ...may]} value={date} onChangeValue={() => {}} />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo baseValue={minBaseDate} disabledList={[...march, ...april, ...may]} />);
 
             const start = '[data-day="28"][data-month-index="1"]';
 
-            cy.get('body').find(start).first().type(shiftRightArrow);
+            cy.get('body').find(start).type(shiftRightArrow);
+            checkFocusedDay('2');
+            checkFocusedMonth('4');
 
-            cy.get('body')
-                .find('[data-day="2"][data-month-index="4"]')
-                .first()
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftLeftArrow);
+            cy.focused().type(shiftLeftArrow);
 
-            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+            checkFocusedDay('28');
+            checkFocusedMonth('1');
         });
 
         it("Can't jump to dates outside of min max dates", () => {
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        value={new Date(1970, 1, 28)}
-                        min={new Date(1970, 0, 31)}
-                        max={new Date(1970, 2, 1)}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo baseValue={new Date(1970, 1, 28)} min={new Date(1970, 0, 31)} max={new Date(1970, 2, 1)} />);
 
-            cy.get('body')
-                .find('[data-day="28"][data-month-index="1"]')
-                .first()
-                .type('rightArrow')
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="1"][data-month-index="1"]').type('leftArrow');
+            checkFocusedDay('1');
 
-            cy.get('body')
-                .find('[data-day="28"][data-month-index="1"]')
-                .first()
-                .type(shiftRightArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="1"][data-month-index="1"]').type(shiftLeftArrow);
+            checkFocusedDay('1');
 
-            cy.get('body')
-                .find('[data-day="1"][data-month-index="1"]')
-                .first()
-                .type('leftArrow')
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="28"][data-month-index="1"]').type('rightArrow');
+            checkFocusedDay('28');
 
-            cy.get('body')
-                .find('[data-day="1"][data-month-index="1"]')
-                .first()
-                .type(shiftLeftArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="28"][data-month-index="1"]').type(shiftRightArrow);
+            checkFocusedDay('28');
 
-            cy.get('body')
-                .find('[data-day="5"][data-month-index="1"]')
-                .first()
-                .type('upArrow')
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="5"][data-month-index="1"]').type('upArrow');
+            checkFocusedDay('5');
 
-            cy.get('body')
-                .find('[data-day="5"][data-month-index="1"]')
-                .first()
-                .type(shiftUpArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="5"][data-month-index="1"]').type(shiftUpArrow);
+            checkFocusedDay('5');
 
-            cy.get('body')
-                .find('[data-day="25"][data-month-index="1"]')
-                .first()
-                .type('downArrow')
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="25"][data-month-index="1"]').type('downArrow');
+            checkFocusedDay('25');
 
-            cy.get('body')
-                .find('[data-day="25"][data-month-index="1"]')
-                .first()
-                .type(shiftDownArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="25"][data-month-index="1"]').type(shiftDownArrow);
+            checkFocusedDay('25');
         });
 
         it("Can't jump to dates outside of min max dates in current month", () => {
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        value={new Date(1970, 1, 14)}
-                        min={new Date(1970, 1, 10)}
-                        max={new Date(1970, 1, 15)}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo baseValue={new Date(1970, 1, 14)} min={new Date(1970, 1, 10)} max={new Date(1970, 1, 15)} />);
 
-            cy.get('body')
-                .find('[data-day="14"][data-month-index="1"]')
-                .first()
-                .type('rightArrow')
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="14"][data-month-index="1"]').type('rightArrow');
+            checkFocusedDay('14');
 
-            cy.get('body').find('[data-day="14"][data-month-index="1"]').first().type(shiftRightArrow);
+            cy.get('body').find('[data-day="14"][data-month-index="1"]').type(shiftRightArrow);
+            checkFocusedDay('14');
 
-            cy.get('body').find('[data-day="14"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="11"][data-month-index="1"]').type('leftArrow');
+            checkFocusedDay('11');
 
-            cy.get('body')
-                .find('[data-day="11"][data-month-index="1"]')
-                .first()
-                .type('leftArrow')
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="11"][data-month-index="1"]').type(shiftLeftArrow);
+            checkFocusedDay('11');
 
-            cy.get('body')
-                .find('[data-day="11"][data-month-index="1"]')
-                .first()
-                .type(shiftLeftArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="12"][data-month-index="1"]').type('upArrow');
+            checkFocusedDay('12');
 
-            cy.get('body')
-                .find('[data-day="12"][data-month-index="1"]')
-                .first()
-                .type('upArrow')
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="12"][data-month-index="1"]').type(shiftUpArrow);
+            checkFocusedDay('12');
 
-            cy.get('body')
-                .find('[data-day="12"][data-month-index="1"]')
-                .first()
-                .type(shiftUpArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="12"][data-month-index="1"]').type('downArrow');
+            checkFocusedDay('12');
 
-            cy.get('body')
-                .find('[data-day="12"][data-month-index="1"]')
-                .first()
-                .type('downArrow')
-                .should('have.attr', 'tabindex', '0');
-
-            cy.get('body')
-                .find('[data-day="12"][data-month-index="1"]')
-                .first()
-                .type(shiftDownArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="12"][data-month-index="1"]').type(shiftDownArrow);
+            checkFocusedDay('12');
         });
 
         it("Can't jump from the disabled day to the day of month that is outside min", () => {
@@ -756,24 +812,13 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 date: new Date(1970, 4, 1 + day),
             }));
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        value={new Date(1970, 4, 1)}
-                        min={new Date(1970, 3, 31)}
-                        disabledList={disabledList}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo baseValue={new Date(1970, 4, 1)} min={new Date(1970, 3, 31)} disabledList={disabledList} />);
 
-            cy.get('body')
-                .find('[data-day="9"][data-month-index="4"]')
-                .first()
-                .type(shiftLeftArrow)
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftUpArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="9"][data-month-index="4"]').first().type(shiftLeftArrow);
+            checkFocusedDay('9');
+
+            cy.focused().type(shiftUpArrow);
+            checkFocusedDay('9');
         });
 
         it("Can't jump through disabled entire month in month that is outside min", () => {
@@ -781,24 +826,12 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 date: new Date(1970, 1, 1 + day),
             }));
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        value={new Date(1970, 2, 1)}
-                        min={new Date(1970, 0, 31)}
-                        disabledList={disabledList}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo baseValue={new Date(1970, 2, 1)} min={new Date(1970, 0, 31)} disabledList={disabledList} />);
 
-            cy.get('body')
-                .find('[data-day="1"][data-month-index="2"]')
-                .first()
-                .type(shiftLeftArrow)
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftUpArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="1"][data-month-index="2"]').type(shiftLeftArrow);
+            checkFocusedDay('1');
+            cy.focused().type(shiftUpArrow);
+            checkFocusedDay('1');
         });
 
         it("Can't jump from the disabled day to the day of month that is outside max", () => {
@@ -806,24 +839,12 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 date: new Date(1970, 4, 24 + day),
             }));
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        value={new Date(1970, 4, 1)}
-                        max={new Date(1970, 5, 1)}
-                        disabledList={disabledList}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo baseValue={new Date(1970, 4, 1)} max={new Date(1970, 5, 1)} disabledList={disabledList} />);
 
-            cy.get('body')
-                .find('[data-day="23"][data-month-index="4"]')
-                .first()
-                .type(shiftRightArrow)
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftDownArrow)
-                .should('have.attr', 'tabindex', '0');
+            cy.get('body').find('[data-day="23"][data-month-index="4"]').type(shiftRightArrow);
+            checkFocusedDay('23');
+            cy.focused().type(shiftDownArrow);
+            checkFocusedDay('23');
         });
 
         it("Can't jump through disabled entire month in month that is outside max", () => {
@@ -831,429 +852,18 @@ describe('plasma-web: Calendar keyboard navigation', () => {
                 date: new Date(1970, 5, 1 + day),
             }));
 
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        value={new Date(1970, 4, 1)}
-                        max={new Date(1970, 6, 1)}
-                        disabledList={disabledList}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
+            mount(<Demo baseValue={new Date(1970, 4, 1)} max={new Date(1970, 6, 1)} disabledList={disabledList} />);
 
-            cy.get('body')
-                .find('[data-day="31"][data-month-index="4"]')
-                .first()
-                .type(shiftRightArrow)
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftDownArrow)
-                .should('have.attr', 'tabindex', '0');
-        });
-    });
-});
-
-describe('plasma-web: CalendarDouble', () => {
-    const Calendar = getComponent('Calendar');
-    const Button = getComponent('Button');
-
-    // TODO: https://github.com/salute-developers/plasma/issues/173
-    // после переезда на новую типографику для @salutejs/plasma-web
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
-    );
-
-    function Demo() {
-        const [value, setValue] = React.useState(date);
-        const handleOnChange = React.useCallback((newValue: Date) => {
-            setValue(newValue);
-        }, []);
-
-        return (
-            <>
-                <Button onClick={() => setValue(new Date(2005, 5, 5))}>Set date</Button>
-                <Calendar isDouble value={value} onChangeValue={handleOnChange} />
-            </>
-        );
-    }
-
-    beforeEach(() => {
-        cy.viewport(700, 500);
-    });
-
-    it('default', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('set value', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prev month', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').first().click();
-
-        cy.matchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent',
+            cy.get('body').find('[data-day="31"][data-month-index="4"]').type(shiftRightArrow);
+            checkFocusedDay('31');
+            cy.focused().type(shiftDownArrow);
+            checkFocusedDay('31');
         });
     });
 
-    it('next month', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').last().click();
-
-        cy.matchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent',
-        });
-    });
-
-    it('event list', () => {
-        const eventsRange = [...new Array(20)].map((_, day) => ({
-            date: new Date(2021, 5, 25 + day),
-            color: 'purple',
-        }));
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar
-                    isDouble
-                    value={new Date(2021, 5, 6)}
-                    eventList={[...events, ...eventsRange]}
-                    onChangeValue={() => {}}
-                />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('disabled days', () => {
-        const disabledDays = [...new Array(5)].map((_, day) => ({
-            date: new Date(2021, 5, 11 + day),
-        }));
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={new Date(2021, 5, 6)} disabledList={disabledDays} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('min and max', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar
-                    isDouble
-                    value={new Date(2021, 5, 6)}
-                    min={new Date(2021, 5, 4)}
-                    max={new Date(2021, 5, 15)}
-                    onChangeValue={() => {}}
-                />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('range', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar
-                    isRange
-                    isDouble
-                    value={[new Date(2021, 5, 6), new Date(2021, 6, 15)]}
-                    onChangeValue={() => {}}
-                />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('range in progress', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble isRange value={[new Date(2021, 5, 6)]} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(4)').first().trigger('mouseover');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('range in progress with disabled', () => {
-        const disabledDays = [...new Array(5)].map((_, day) => ({
-            date: new Date(2021, 6, 11 + day),
-        }));
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar
-                    isDouble
-                    isRange
-                    disabledList={disabledDays}
-                    value={[new Date(2021, 5, 6)]}
-                    onChangeValue={() => {}}
-                />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(6)').first().trigger('mouseover');
-        cy.get('div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(4)').first().trigger('mouseover');
-
-        cy.matchImageSnapshot();
-    });
-});
-
-describe('plasma-web: CalendarDouble keyboard navigation', () => {
-    const Calendar = getComponent('Calendar');
-
-    // TODO: https://github.com/salute-developers/plasma/issues/173
-    // после переезда на новую типографику для @salutejs/plasma-web
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
-    );
-
-    function Demo() {
-        const [value, setValue] = React.useState(date);
-        const handleOnChange = React.useCallback((newValue: Date) => {
-            setValue(newValue);
-        }, []);
-
-        return <Calendar isDouble value={value} onChangeValue={handleOnChange} />;
-    }
-
-    beforeEach(() => {
-        cy.viewport(700, 500);
-    });
-
-    it('set value with `Enter` and `Space`', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body').type('{rightarrow}').type('{enter}').type('{rightarrow}').type(' ');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('navigate with `Down`, `Left`, `Up`, `Right` arrows', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body')
-            .type('{downarrow}')
-            .type('{leftarrow}')
-            .type('{downarrow}')
-            .type('{rightarrow}')
-            .type('{uparrow}');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('navigate with `Home` and `End`', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body').type('{downarrow}').type('{downarrow}').type('{home}');
-        cy.get('body').find('[data-day="9"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{end}');
-        cy.get('body').find('[data-day="15"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{home}').type('{downarrow}').type('{downarrow}').type('{end}');
-        cy.get('body').find('[data-day="28"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
-    });
-
-    it('navigate with `PageUp` and `PageDown`', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body').type('{pageup}');
-        cy.get('body').find('[data-day="4"][data-month-index="0"]').first().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{downarrow}').type('{pagedown}');
-        cy.get('body').find('[data-day="8"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
-    });
-
-    it('navigate with arrow abroad bounds', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body').type('{leftarrow}');
-        cy.get('body').find('[data-day="31"][data-month-index="0"]').first().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{uparrow}').type('{uparrow}').type('{uparrow}').type('{uparrow}').type('{uparrow}');
-        cy.get('body').find('[data-day="27"][data-month-index="11"]').first().should('have.attr', 'tabindex', '0');
-
-        cy.get('body')
-            .type('{rightarrow}')
-            .type('{rightarrow}')
-            .type('{rightarrow}')
-            .type('{rightarrow}')
-            .type('{rightarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="0"]').last().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{uparrow}');
-        cy.get('body').find('[data-day="25"][data-month-index="11"]').first().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{downarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="0"]').last().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{leftarrow}').type('{downarrow}');
-        cy.get('body').find('[data-day="7"][data-month-index="0"]').last().should('have.attr', 'tabindex', '0');
-
-        cy.get('body')
-            .type('{downarrow}')
-            .type('{downarrow}')
-            .type('{downarrow}')
-            .type('{rightarrow}')
-            .type('{rightarrow}')
-            .type('{rightarrow}')
-            .type('{rightarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="1"]').last().should('have.attr', 'tabindex', '0');
-
-        cy.get('body').type('{downarrow}').type('{downarrow}').type('{downarrow}').type('{downarrow}');
-        cy.get('body').find('[data-day="1"][data-month-index="2"]').last().should('have.attr', 'tabindex', '0');
-    });
-
-    it('processing aria-disabled as disabled attr', () => {
-        const disabledDays = [...new Array(5)].map((_, day) => ({
-            date: new Date(1970, 1, 11 + day),
-        }));
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar isDouble disabledList={disabledDays} value={date} onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('body').type('{downArrow}'.repeat(2));
-
-        cy.get('body')
-            .find('[data-day="15"][data-month-index="1"]')
-            .first()
-            .should('have.attr', 'tabindex', '0')
-            .should('have.attr', 'aria-disabled', 'true');
-    });
-
-    describe('navigate with pressed Shift and skipped disabled date', () => {
-        const shiftLeftArrow = '{shift}{leftArrow}';
+    describe('double: navigate with pressed Shift', () => {
         const shiftDownArrow = '{shift}{downArrow}';
         const shiftUpArrow = '{shift}{upArrow}';
-
-        it('default case', () => {
-            const may = [...new Array(31)].map((_, day) => ({
-                date: new Date(2022, 4, 1 + day),
-            }));
-
-            const apr = [...new Array(30)].map((_, day) => ({
-                date: new Date(2022, 3, 1 + day),
-            }));
-
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        isDouble
-                        disabledList={[...may, ...apr]}
-                        value={new Date(2022, 5, 1)}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
-
-            const start = '[data-day="1"][data-month-index="5"]';
-
-            cy.get('body').find(start).first().type(shiftLeftArrow);
-
-            cy.get('body').find('[data-day="31"][data-month-index="2"]').first().should('have.attr', 'tabindex', '0');
-        });
-
-        it('arrow down + up', () => {
-            const june = [...new Array(6)].map((_, day) => ({
-                date: new Date(2022, 5, 1 + day),
-            }));
-
-            const may = [...new Array(31)].map((_, day) => ({
-                date: new Date(2022, 4, 1 + day),
-            }));
-
-            const apr = [...new Array(30)].map((_, day) => ({
-                date: new Date(2022, 3, 1 + day),
-            }));
-
-            mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        isDouble
-                        disabledList={[...may, ...apr, ...june]}
-                        value={new Date(2022, 5, 1)}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
-            );
-
-            const start = '[data-day="10"][data-month-index="5"]';
-
-            cy.get('body').find(start).first().type(shiftUpArrow);
-
-            cy.get('body')
-                .find('[data-day="31"][data-month-index="2"]')
-                .first()
-                .should('have.attr', 'tabindex', '0')
-                .type(shiftDownArrow);
-
-            cy.get('body').find('[data-day="7"][data-month-index="5"]').first().should('have.attr', 'tabindex', '0');
-        });
 
         it('arrow up with min', () => {
             const june = [...new Array(6)].map((_, day) => ({
@@ -1261,22 +871,15 @@ describe('plasma-web: CalendarDouble keyboard navigation', () => {
             }));
 
             mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        isDouble
-                        disabledList={june}
-                        value={new Date(2022, 5, 1)}
-                        min={new Date(2022, 4, 31)}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
+                <Demo displayDouble disabledList={june} baseValue={new Date(2022, 5, 1)} min={new Date(2022, 4, 31)} />,
             );
 
             const start = '[data-day="10"][data-month-index="5"]';
 
-            cy.get('body').find(start).first().type(shiftUpArrow);
+            cy.get('body').find(start).type(shiftUpArrow);
 
-            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+            checkFocusedDay('10');
+            checkFocusedMonth('5');
         });
 
         it('arrow down with max', () => {
@@ -1285,22 +888,15 @@ describe('plasma-web: CalendarDouble keyboard navigation', () => {
             }));
 
             mount(
-                <CypressTestDecoratorWithTypo>
-                    <Calendar
-                        isDouble
-                        disabledList={june}
-                        value={new Date(2022, 5, 1)}
-                        max={new Date(2022, 6, 1)}
-                        onChangeValue={() => {}}
-                    />
-                </CypressTestDecoratorWithTypo>,
+                <Demo displayDouble disabledList={june} baseValue={new Date(2022, 5, 1)} max={new Date(2022, 6, 1)} />,
             );
 
             const start = '[data-day="17"][data-month-index="5"]';
 
-            cy.get('body').find(start).first().type(shiftDownArrow);
+            cy.get('body').find(start).type(shiftDownArrow);
 
-            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+            checkFocusedDay('17');
+            checkFocusedMonth('5');
         });
     });
 });
