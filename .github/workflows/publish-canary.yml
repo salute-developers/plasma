@@ -32,7 +32,6 @@ jobs:
     uses: ./.github/workflows/publish-common.yml
     with:
       ref: refs/pull/${{github.event.pull_request.number}}/merge
-      upload_assets: ${{ fromJSON(needs.state.outputs.STATE).HAS_ASSETS }}
       auto-options: '--no-changelog'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
