@@ -11,7 +11,7 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean }) =
     Root: RootProps<HTMLDivElement, FontProps>,
 ) =>
     forwardRef<HTMLDivElement, FontProps>((props, ref) => {
-        const { size, children, breakWord, bold = defaultArgs?.defaultBold, className, style, ...rest } = props;
+        const { size, children, breakWord, bold = defaultArgs?.defaultBold, color, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
         const typographyBold = bold ? classes.typoBold : undefined;
@@ -21,7 +21,7 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean }) =
                 size={size}
                 ref={ref}
                 className={cx(withBreakWord, typographyBold, className)}
-                style={{ ...style, ...applySpacing(rest) }}
+                style={{ color, ...style, ...applySpacing(rest) }}
                 bold={bold}
                 {...rest}
             >

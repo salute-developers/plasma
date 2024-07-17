@@ -45,6 +45,11 @@ const meta: Meta = {
     component: DsplL,
     argTypes: {
         ...disableProps(['size']),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
     },
     decorators: [InSpacingDecorator],
 };
