@@ -1,17 +1,19 @@
 import React from 'react';
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconDownload } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
+import { Chip as ChipB2C } from '.';
+
 const Icon = () => <IconDownload color="inherit" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: Chip', () => {
-    const Chip = getComponent('Chip');
+    const Chip = getComponent('Chip') as typeof ChipB2C;
 
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
             <StandardTypoStyle />
             {children}
@@ -22,6 +24,16 @@ describe('plasma-web: Chip', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Chip>Hello Plasma</Chip>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('without Clear', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Chip hasClear={false}>Hello Plasma</Chip>
             </CypressTestDecoratorWithTypo>,
         );
 
