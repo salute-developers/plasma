@@ -51,6 +51,7 @@ export const Default: Story = {
         text: 'This is chip',
         view: 'default',
         size: 'm',
+        hasClear: true,
         disabled: false,
         focused: true,
         pilled: false,
