@@ -72,6 +72,7 @@ const StyledColorItem = styled.div<{ colors: colorItemType['colors'] }>`
 
 const StyledMask = styled.div`
     display: flex;
+    flex-direction: row-reverse;
     width: 100%;
     height: 100%;
     flex: 1;
@@ -181,7 +182,7 @@ export const PaletteItem: React.FC<{
                         <StyledNameColor
                             className={classes.nameColor}
                             color={
-                                paletteColor.colors[paletteColor.colors.length - 1 - index].ratio > 3.5
+                                paletteColor.colors[index].ratio > 3
                                     ? 'rgba(255, 255, 255, 0.56)'
                                     : 'rgba(0, 0, 0, 0.56)'
                             }

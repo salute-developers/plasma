@@ -42,6 +42,7 @@ const TextReadbleTextWrapper = styled.div<{ alignX: string; alignY: string }>`
 
 const TextReadbleTextSmall = styled.div<{ alignX: string; score: string }>`
     font-size: 0.875rem;
+    height: 1rem;
     font-weight: var(--plasma-typo-body1-font-weight);
     display: flex;
     align-items: center;
@@ -66,6 +67,7 @@ const TextReadbleTextLarge = styled.div<{ alignX: string; score: string }>`
     cursor: default;
     transition: 0.15s;
     font-family: var(--plasma-typo-headline1-font-family);
+    height: 2rem;
 
     &:hover {
         color: ${({ score }) => (score === 'Poor' ? 'red' : 'inhert')};

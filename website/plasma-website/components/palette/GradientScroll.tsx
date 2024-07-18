@@ -68,10 +68,10 @@ export const GradientScroll: React.FC<{
     colors: string[];
     scrollRef: React.RefObject<HTMLDivElement>;
 }> = ({ hsl, colors, scrollRef }) => {
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState(1);
 
     const scrollHeight = scrollRef?.current?.scrollHeight ?? 0;
-    const clientHeight = scrollRef?.current?.scrollHeight ?? 0;
+    const clientHeight = scrollRef?.current?.clientHeight ?? 0;
 
     const heightAllScroll = clientHeight - fixPadding;
     const heightScroll = heightAllScroll / (scrollHeight / clientHeight);
