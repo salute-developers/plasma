@@ -16,7 +16,35 @@ export const config = {
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemBorder}: none;
                 ${accordionTokens.accordionItemBorderBottom}: 0;
+                ${accordionTokens.accordionItemPaddingHorizontalLeft}: var(${accordionTokens.accordionItemPaddingHorizontal});
+            `,
+            secondary: css`
+                ${accordionTokens.accordionGap}: 0.125rem;
+                ${accordionTokens.accordionWidth}: 20rem;
+                ${accordionTokens.accordionItemPadding}: var(${accordionTokens.accordionItemPaddingVertical}) var(${accordionTokens.accordionItemPaddingHorizontal});
+                ${accordionTokens.accordionItemBackground}: var(--surface-transparent-primary);
+                ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
+                ${accordionTokens.accordionItemTextColor}: var(--text-primary);
+                ${accordionTokens.accordionItemFocus}: var(--surface-accent);
+                ${accordionTokens.accordionBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemBorder}: none;
+                ${accordionTokens.accordionItemBorderBottom}: 0;
+                ${accordionTokens.accordionItemPaddingHorizontalLeft}: var(${accordionTokens.accordionItemPaddingHorizontal});
+            `,
+            outlined: css`
+                ${accordionTokens.accordionGap}: 0.125rem;
+                ${accordionTokens.accordionWidth}: 20rem;
+                ${accordionTokens.accordionItemPadding}: var(${accordionTokens.accordionItemPaddingVertical}) var(${accordionTokens.accordionItemPaddingHorizontal});
+                ${accordionTokens.accordionItemBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
+                ${accordionTokens.accordionItemTextColor}: var(--text-primary);
+                ${accordionTokens.accordionItemFocus}: var(--surface-accent);
+                ${accordionTokens.accordionBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemBorder}: 0.125rem solid var(--surface-transparent-secondary);
+                ${accordionTokens.accordionItemBorderBottom}: 0.125rem solid var(--surface-transparent-secondary);
+                ${accordionTokens.accordionItemPaddingHorizontalLeft}: var(${accordionTokens.accordionItemPaddingHorizontal});
             `,
             clear: css`
                 ${accordionTokens.accordionGap}: 0.125rem;
@@ -28,14 +56,16 @@ export const config = {
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemBorder}: none;
                 ${accordionTokens.accordionItemBorderBottom}: 0.125rem solid var(--surface-solid-tertiary);
+                ${accordionTokens.accordionItemPaddingHorizontalLeft}: 0;
             `,
         },
         size: {
             l: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.0625rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.25rem;
-                ${accordionTokens.accordionItemGap}: 0.5rem;
+                ${accordionTokens.accordionItemGap}: 0.875rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -55,7 +85,7 @@ export const config = {
             m: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.875rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.125rem;
-                ${accordionTokens.accordionItemGap}: 0.375rem;
+                ${accordionTokens.accordionItemGap}: 0.75rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -75,7 +105,7 @@ export const config = {
             s: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.6875rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 0.875rem;
-                ${accordionTokens.accordionItemGap}: 0.375rem;
+                ${accordionTokens.accordionItemGap}: 0.625rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.625rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -95,7 +125,7 @@ export const config = {
             xs: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.5rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 0.75rem;
-                ${accordionTokens.accordionItemGap}: 0.25rem;
+                ${accordionTokens.accordionItemGap}: 0.5rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-xs-font-family);

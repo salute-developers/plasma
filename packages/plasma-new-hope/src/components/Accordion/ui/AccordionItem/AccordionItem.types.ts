@@ -19,6 +19,11 @@ type CustomAccordionItemProps = {
     contentLeft?: ReactNode;
 
     /**
+     * Позиционирование текста без учета размера иконки
+     */
+    alignWithTitle?: boolean;
+
+    /**
      * Контент справа
      */
     contentRight?: ReactNode;
@@ -61,6 +66,8 @@ type CustomAccordionItemProps = {
      * @deprecated Внутреннее свойство индекс элемента (будет удалено в ближайшее время)
      */
     index?: number;
+
+    view: string;
 };
 
 export type AccordionItemProps = CustomAccordionItemProps;
