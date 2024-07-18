@@ -30,6 +30,7 @@ export const Default: Story = {
         text: 'Hello',
         view: 'primary',
         size: 'm',
+        hasClear: true,
         readOnly: false,
         onClear,
     },

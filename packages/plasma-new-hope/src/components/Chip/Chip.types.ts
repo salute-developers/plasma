@@ -14,6 +14,11 @@ type CustomChipProps = {
      */
     contentRight?: ReactNode;
     /**
+     * Есть ли иконка закрытия
+     * @default 'true'
+     */
+    hasClear?: boolean;
+    /**
      * Слот для контента Clear
      */
     contentClearButton?: ReactNode;
@@ -25,26 +30,22 @@ type CustomChipProps = {
     pilled?: boolean;
     /**
      * Компонент не активен
-     * @default
-     * false
+     * @default 'false'
      */
     disabled?: boolean;
     /**
      * Компонент только для чтения
-     * @default
-     * false
+     * @default 'false'
      */
     readOnly?: boolean;
     /**
      * Размер Chip
-     * @default
-     * m
+     * @default 'm'
      */
     size?: string;
     /**
      * Вид Chip
-     * @default
-     * primary
+     * @default 'primary'
      */
     view?: string;
     /**
