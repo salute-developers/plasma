@@ -5,6 +5,7 @@ import { AccordionItemProps } from '../ui/AccordionItem/AccordionItem.types';
 export const updatePropsRecursively = (
     children?: ReactElement<AccordionItemProps>[],
     activeIndex?: number[],
+    view?: string,
     disabled?: boolean,
     updateValue?: (index: number, value?: boolean) => void,
 ): ReactNode[] =>
@@ -16,6 +17,7 @@ export const updatePropsRecursively = (
         const props = {
             index,
             value: !!(activeIndex?.findIndex((i: number) => i === (child.props.eventKey ?? index)) !== -1),
+            view,
             disabled,
             onChange: updateValue,
         };
@@ -26,8 +28,9 @@ export const updatePropsRecursively = (
 export const getChildren = (
     children: ReactElement<AccordionItemProps>[],
     activeIndex?: number[],
+    view?: string,
     disabled?: boolean,
     updateValue?: (index: number, value?: boolean) => void,
 ) => {
-    return updatePropsRecursively(children, activeIndex, disabled, updateValue);
+    return updatePropsRecursively(children, activeIndex, view, disabled, updateValue);
 };

@@ -30,8 +30,11 @@ export const AccordionItem: React.FC<HTMLAttributesWithoutOnChange<HTMLElement> 
     type = 'sign',
     index,
     className,
+    style,
     eventKey,
     disabled,
+    alignWithTitle = true,
+    view,
     onChange,
 }) => {
     const key = eventKey ?? index ?? 0;
@@ -51,7 +54,10 @@ export const AccordionItem: React.FC<HTMLAttributesWithoutOnChange<HTMLElement> 
 
     useEffect(() => {
         const leftContentWidth = leftContentRef?.current?.offsetWidth ?? 0;
-        const leftPaddingBody = leftContentWidth ? `calc(${leftContentWidth}px + var(${tokens.accordionItemGap}))` : 0;
+        const leftPaddingBody =
+            leftContentWidth && (alignWithTitle || view === 'clear')
+                ? `calc(${leftContentWidth}px + var(${tokens.accordionItemGap}))`
+                : 0;
         setLeftPadding(leftPaddingBody);
     }, [value, type, leftContentRef, setLeftPadding]);
 
@@ -79,15 +85,14 @@ export const AccordionItem: React.FC<HTMLAttributesWithoutOnChange<HTMLElement> 
 
     return (
         <StyledAccordionItem
-            className={cx(classes.accordionItem, className)}
+            className={cx(classes.accordionItem, className, disabledClass)}
             key={key}
-            style={{ borderRadius: accordionBorderRadius }}
+            style={{ borderRadius: accordionBorderRadius, ...style }}
         >
             <StyledAccordionHeader
                 role="tab"
                 tabIndex={0}
                 onClick={handleOpen}
-                className={disabledClass}
                 aria-expanded={value}
                 aria-controls={`accordion-item-section${key}`}
                 id={`accordion-item-${key}`}
@@ -109,10 +114,10 @@ export const AccordionItem: React.FC<HTMLAttributesWithoutOnChange<HTMLElement> 
                 aria-labelledby={`accordion-item-${key}`}
                 aria-hidden={!value}
                 id={`accordion-item-section${key}`}
-                className={openedBodyClass}
+                className={cx(openedBodyClass)}
                 style={{ paddingLeft: `${leftPadding}` }}
             >
-                <StyledAccordionBody>{children}</StyledAccordionBody>
+                <StyledAccordionBody className={classes.accordionItemBody}>{children}</StyledAccordionBody>
             </StyledAccordionBodyAnimate>
         </StyledAccordionItem>
     );
