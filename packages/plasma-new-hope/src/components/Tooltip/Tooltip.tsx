@@ -60,6 +60,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 contentLeft,
                 zIndex = '9200',
                 className,
+                style,
                 ...rest
             },
             outerRef,
@@ -101,12 +102,10 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     aria-hidden={!innerIsOpen}
                     aria-live="polite"
                     role="tooltip"
-                    className={cx(ref?.classList.toString(), animatedClass, className)}
-                    // INFO: Прокидываем стили для Popover из Root Tooltip-а
-
+                    className={cx(ref?.classList.toString(), animatedClass)}
                     {...rest}
                 >
-                    <Root view={view} size={size} ref={setRef}>
+                    <Root view={view} size={size} ref={setRef} className={className} style={style}>
                         <TooltipRoot
                             ref={outerRef}
                             id={id}
