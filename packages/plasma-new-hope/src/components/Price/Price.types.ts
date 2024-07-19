@@ -31,7 +31,7 @@ export interface PriceProps extends React.HTMLAttributes<HTMLSpanElement>, AsPro
      * Указывает регулярность платежа, идет после цены.
      * Например - 990Р / день.
      */
-    periodicity?: '/ день' | '/ неделя' | '/ месяц' | '/ год' | React.ReactNode;
+    periodicity?: React.ReactNode;
     /**
      * Перечеркнутый текст (старая цена, например).
      * @deprecated
