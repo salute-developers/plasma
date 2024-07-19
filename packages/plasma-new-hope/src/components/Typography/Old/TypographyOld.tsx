@@ -6,11 +6,11 @@ import { classes } from '../tokens';
 import type { FontProps } from '../Typography.types';
 import { cx } from '../../../utils';
 
-export type TypographyOldProps = Omit<FontProps, 'bold'>;
+export type TypographyOldProps = Omit<FontProps, 'bold'> & { color?: string };
 
 export const typographyOldRoot = (Root: RootProps<HTMLDivElement, TypographyOldProps>) =>
     forwardRef<HTMLDivElement, TypographyOldProps>((props, ref) => {
-        const { size, children, breakWord, className, style, ...rest } = props;
+        const { size, children, breakWord, color, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
@@ -19,7 +19,7 @@ export const typographyOldRoot = (Root: RootProps<HTMLDivElement, TypographyOldP
                 size={size}
                 ref={ref}
                 className={cx(withBreakWord, className)}
-                style={{ ...style, ...applySpacing(rest) }}
+                style={{ color, ...style, ...applySpacing(rest) }}
                 {...rest}
             >
                 {children}

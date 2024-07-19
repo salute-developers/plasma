@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 describe('plasma-core: Typography', () => {
+    const DsplS = getComponent('DsplS');
     const Body1 = getComponent('Body1');
     const Body2 = getComponent('Body2');
     const Button1 = getComponent('Button1');
@@ -39,6 +40,24 @@ describe('plasma-core: Typography', () => {
                 <ParagraphText1>Hello ParagraphText 1</ParagraphText1>
                 <ParagraphText2>Hello ParagraphText 2</ParagraphText2>
                 <Underline>Hello Underline</Underline>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('Typography with color', () => {
+        mount(
+            <CypressTestDecorator>
+                <style>{`
+                    body {
+                        font-family: "SB Sans Text", sans-serif;
+                    }
+                `}</style>
+                <Body1 color="#3CB371">Green</Body1>
+                <Body2 color="#F0E68C">Yellow</Body2>
+                <DsplS color="#FF7F50">Red</DsplS>
+                <DsplS color={undefined}>Undefined</DsplS>
             </CypressTestDecorator>,
         );
 
