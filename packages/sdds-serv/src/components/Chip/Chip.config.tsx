@@ -154,7 +154,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${chipTokens.focusColor}: var(--plasma-colors-accent);
+                ${chipTokens.focusColor}: var(--text-accent);
             `,
         },
         pilled: {
