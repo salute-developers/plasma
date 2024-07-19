@@ -9,27 +9,27 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${tabsTokens.arrowColor}: var(--plasma-colors-secondary);
+                ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.tabsBackgroundColor}: tranparent;
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: tranparent;
                 ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             filled: css`
-                ${tabsTokens.arrowColor}: var(--plasma-colors-secondary);
+                ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.tabsBackgroundColor}: var(--surface-transparent-primary);
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: tranparent;
                 ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             divider: css`
-                ${tabsTokens.arrowColor}: var(--plasma-colors-secondary);
+                ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.tabsBackgroundColor}: tranparent;
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
                 ${tabsTokens.tabsDividerColor}: var(--surface-transparent-secondary);

@@ -35,7 +35,7 @@ export const config = {
                 ${tokens.focusColor}: var(--text-accent);
             `,
             positive: css`
-                ${tokens.color}: var(--plasma-colors-primary);
+                ${tokens.color}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
                 ${tokens.caretColor}: var(--text-accent);
@@ -61,7 +61,7 @@ export const config = {
                 ${tokens.focusColor}: var(--text-accent);
             `,
             warning: css`
-                ${tokens.color}: var(--plasma-colors-primary);
+                ${tokens.color}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
                 ${tokens.caretColor}: var(--text-accent);
@@ -87,7 +87,7 @@ export const config = {
                 ${tokens.focusColor}: var(--text-accent);
             `,
             negative: css`
-                ${tokens.color}: var(--plasma-colors-primary);
+                ${tokens.color}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.caretColor}: var(--text-accent);
@@ -333,7 +333,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--text-secondary)));
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);

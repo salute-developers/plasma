@@ -6,7 +6,9 @@
 
 /// <reference types="react" />
 
+import { AccordionItem } from '@salutejs/plasma-new-hope/styled-components';
 import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
+import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
 import { AnchorHTMLAttributes } from 'react';
 import { AsProps } from '@salutejs/plasma-new-hope/types/types';
@@ -29,6 +31,7 @@ import { bodyXSBold } from '@salutejs/sdds-themes/tokens';
 import { bodyXXS } from '@salutejs/sdds-themes/tokens';
 import { bodyXXSBold } from '@salutejs/sdds-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
+import { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
@@ -46,6 +49,7 @@ import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
+import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-new-hope/styled-components';
 import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
@@ -85,7 +89,7 @@ import { dsplM } from '@salutejs/sdds-themes/tokens';
 import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
-import type { FC } from 'react';
+import { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
@@ -113,6 +117,9 @@ import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
+import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -138,10 +145,12 @@ import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
+import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactFragment } from 'react';
 import { ReactNode } from 'react';
 import { ReactPortal } from 'react';
+import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
 import { Row } from '@salutejs/plasma-new-hope/styled-components';
@@ -156,6 +165,8 @@ import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonGradientProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -180,6 +191,7 @@ import { textM } from '@salutejs/sdds-themes/tokens';
 import { textMBold } from '@salutejs/sdds-themes/tokens';
 import { textS } from '@salutejs/sdds-themes/tokens';
 import { textSBold } from '@salutejs/sdds-themes/tokens';
+import { TextSkeletonBaseProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/TextSkeleton/TextSkeleton.types';
 import { textXS } from '@salutejs/sdds-themes/tokens';
 import { textXSBold } from '@salutejs/sdds-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
@@ -192,8 +204,37 @@ import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
+import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
+
+// @public (undocumented)
+export const Accordion: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+clear: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & {
+view: string;
+size?: string | undefined;
+singleActive?: boolean | undefined;
+defaultActiveEventKey?: number[] | undefined;
+disabled?: boolean | undefined;
+stretching?: "filled" | "fixed" | undefined;
+onChange?: ((index?: number | undefined, value?: boolean | undefined) => void) | undefined;
+children?: ReactNode;
+className?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { AccordionItem }
 
 export { addFocus }
+
+export { addNotification }
 
 // @public (undocumented)
 export const Autocomplete: FunctionComponent<PropsType<    {
@@ -437,6 +478,8 @@ value?: undefined;
 contentRight?: ReactNode;
 } & RefAttributes<HTMLButtonElement>))>;
 
+export { ButtonBase }
+
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
 view: {
@@ -638,6 +681,8 @@ true: PolymorphicClassName;
 }> & ChipProps & RefAttributes<HTMLButtonElement>>;
 
 export { ChipProps }
+
+export { closeNotification }
 
 export { ClosePlacementType }
 
@@ -1143,6 +1188,32 @@ view: string;
 
 export { IndicatorProps }
 
+// @public (undocumented)
+export const LineSkeleton: FunctionComponent<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement>>;
+
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
@@ -1177,6 +1248,22 @@ export const Modal: ForwardRefExoticComponent<ModalProps & RefAttributes<HTMLDiv
 export { modalClasses }
 
 export { ModalProps }
+
+// @public (undocumented)
+const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
+export { Notification_2 as Notification }
+
+export { NotificationIconPlacement }
+
+export { NotificationLayout }
+
+export { NotificationProps }
+
+// @public (undocumented)
+export const NotificationsProvider: React_2.FC<{
+    children: ReactNode;
+    frame?: string;
+}>;
 
 export { Overlay }
 
@@ -1427,6 +1514,8 @@ export { RangeProps }
 export { rangeTokens }
 
 export { Ratio }
+
+export { RectSkeleton }
 
 export { Row }
 
@@ -1896,6 +1985,32 @@ export { textS }
 export { textSBold }
 
 // @public (undocumented)
+export const TextSkeleton: FC<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement> & TextSkeletonBaseProps>;
+
+// @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
 size: {
 xs: PolymorphicClassName;
@@ -1970,6 +2085,8 @@ export { usePopupContext }
 export { useSegment }
 
 export { useToast }
+
+export { withSkeleton }
 
 
 export * from "@salutejs/sdds-themes/tokens/sdds_serv";

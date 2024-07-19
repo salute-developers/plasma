@@ -1,13 +1,14 @@
+import type { FC } from 'react';
 import {
-    boundCalendar,
-    withRange,
+    component,
     calendarBaseConfig,
     calendarDoubleConfig,
-    component,
+    withRange,
     mergeConfig,
+    boundCalendar,
+    CalendarStateType,
 } from '@salutejs/plasma-new-hope/styled-components';
 import type { CalendarBaseProps, CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { FC } from 'react';
 
 import { config as baseConfig } from './CalendarBase.config';
 import { config as doubleConfig } from './CalendarDouble.config';
@@ -26,3 +27,5 @@ export const Calendar = boundCalendar({
     double: CalendarDouble as FC<CalendarDoubleProps>,
     doubleRange: CalendarDoubleRange,
 });
+
+export type { CalendarStateType };
