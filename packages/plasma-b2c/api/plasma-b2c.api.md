@@ -193,8 +193,8 @@ import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PreviewGallery } from '@salutejs/plasma-hope';
 import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
 import { PreviewGalleryProps } from '@salutejs/plasma-hope';
-import { Price } from '@salutejs/plasma-hope';
-import { PriceProps } from '@salutejs/plasma-hope';
+import { priceClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { PriceProps } from '@salutejs/plasma-new-hope/types/components/Price/Price.types';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Props } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
@@ -1717,9 +1717,12 @@ export { PreviewGalleryItemProps }
 
 export { PreviewGalleryProps }
 
-export { Price }
+// @public
+export const Price: FunctionComponent<PropsType<    {
+view: {};
+}> & PriceProps & RefAttributes<HTMLSpanElement>>;
 
-export { PriceProps }
+export { priceClasses }
 
 // @public (undocumented)
 export const Progress: FunctionComponent<PropsType<    {
