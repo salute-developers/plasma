@@ -7,14 +7,14 @@ import type { FontProps } from '../../Typography.types';
 
 import { base } from './Subtitle.styles';
 
-export type SubtitleProps = Omit<FontProps, 'bold' | 'breakWord'>;
+export type SubtitleProps = Omit<FontProps, 'bold' | 'breakWord'> & { color?: string };
 
 export const subtitleRoot = (Root: RootProps<HTMLDivElement, SubtitleProps>) =>
     forwardRef<HTMLDivElement, SubtitleProps>((props, ref) => {
-        const { size, children, style, ...rest } = props;
+        const { size, children, color, style, ...rest } = props;
 
         return (
-            <Root size={size} ref={ref} style={{ ...style, ...applySpacing(rest) }} {...rest}>
+            <Root size={size} ref={ref} style={{ color, ...style, ...applySpacing(rest) }} {...rest}>
                 {children}
             </Root>
         );
