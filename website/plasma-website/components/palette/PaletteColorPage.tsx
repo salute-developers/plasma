@@ -218,7 +218,7 @@ export const PaletteColorPage: React.FC<{
     const rgb = convertHexToRgb(selectedColor);
     const colorIndex = colorCodes.findIndex((code) => paletteColor[code] === selectedColor);
     const colorText =
-        Math.round(checker.getContrastRatioByHex(paletteColors[color][colorCode], '#FFFFFF') * 100) / 100 > 3.5;
+        Math.round(checker.getContrastRatioByHex(paletteColors[color][colorCode], '#FFFFFF') * 100) / 100 > 3;
 
     const windowWidth = window.innerWidth;
     const item = windowWidth / 15;
@@ -226,7 +226,7 @@ export const PaletteColorPage: React.FC<{
 
     return (
         <ColorWrapper background={selectedColor}>
-            <Header text={`${color} ${colorCode}`} link="/palette/" />
+            <Header text={`${color[0].toUpperCase() + color.slice(1)} ${colorCode}`} link="/palette/" />
             <ColorPalette>
                 {colorCodes.map((code) => (
                     <ColorItem
