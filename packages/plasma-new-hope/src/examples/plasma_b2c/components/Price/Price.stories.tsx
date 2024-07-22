@@ -6,7 +6,7 @@ import { WithTheme } from '../../../_helpers';
 
 import { Price } from './Price';
 
-const currencies = ['rub', 'usd', 'eur'];
+const currencies = ['rub', 'usd', 'eur', 'inr'];
 
 const meta: Meta<typeof Price> = {
     title: 'plasma_b2c/Price',

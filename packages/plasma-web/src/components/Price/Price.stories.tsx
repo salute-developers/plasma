@@ -9,7 +9,7 @@ const meta: Meta<typeof Price> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         currency: {
-            options: ['rub', 'usd', 'eur'],
+            options: ['rub', 'usd', 'eur', 'inr'],
             control: {
                 type: 'inline-radio',
             },

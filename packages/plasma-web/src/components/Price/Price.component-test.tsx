@@ -58,6 +58,10 @@ describe('plasma-web: Price', () => {
                 <BodyM>
                     <Price currency="eur">12345.67</Price>
                 </BodyM>
+                <PadMe />
+                <BodyM>
+                    <Price currency="inr">12345.67</Price>
+                </BodyM>
             </CypressTestDecoratorWithTypo>,
         );
 

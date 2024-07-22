@@ -16,7 +16,7 @@ export interface PriceProps extends React.HTMLAttributes<HTMLSpanElement>, AsPro
      * Валюта.
      * @default `rub`
      */
-    currency?: 'rub' | 'usd' | 'eur';
+    currency?: 'rub' | 'usd' | 'eur' | 'inr';
     /**
      * Перечеркнутый текст (старая цена, например).
      * @default false

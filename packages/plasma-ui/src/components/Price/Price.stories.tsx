@@ -15,7 +15,7 @@ const meta: Meta<StoryPriceProps> = {
     decorators: [InSpacing],
     argTypes: {
         currency: {
-            options: ['rub', 'usd', 'eur'],
+            options: ['rub', 'usd', 'eur', 'inr'],
             control: {
                 type: 'inline-radio',
             },
