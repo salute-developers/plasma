@@ -133,15 +133,15 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             );
 
             useEffect(() => {
-                if (prevType !== type) {
+                if (prevType !== calendarState) {
                     dispatch({
                         type: ActionType.UPDATE_CALENDAR_STATE,
-                        payload: { calendarState: type, size: sizeMap[type].double },
+                        payload: { calendarState, size: sizeMap[calendarState].double },
                     });
 
-                    setPrevType(type);
+                    setPrevType(calendarState);
                 }
-            }, [type]);
+            }, [calendarState]);
 
             useEffect(() => {
                 if (!prevValue) {
