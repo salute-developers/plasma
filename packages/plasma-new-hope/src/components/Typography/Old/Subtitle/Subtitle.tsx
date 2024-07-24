@@ -7,7 +7,7 @@ import type { FontProps } from '../../Typography.types';
 
 import { base } from './Subtitle.styles';
 
-export type SubtitleProps = Omit<FontProps, 'bold' | 'breakWord'> & { color?: string };
+export type SubtitleProps = Omit<FontProps, 'bold' | 'breakWord'>;
 
 export const subtitleRoot = (Root: RootProps<HTMLDivElement, SubtitleProps>) =>
     forwardRef<HTMLDivElement, SubtitleProps>((props, ref) => {

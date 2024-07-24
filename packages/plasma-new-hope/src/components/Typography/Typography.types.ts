@@ -14,6 +14,7 @@ export type BoldProps = {
 };
 export type FontProps = {
     breakWord?: boolean;
+    color?: string;
 } & SpacingProps &
     BoldProps &
     HTMLAttributes<HTMLDivElement>;

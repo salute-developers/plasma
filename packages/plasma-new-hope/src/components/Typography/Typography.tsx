@@ -8,7 +8,7 @@ import { classes } from './tokens';
 import { FontProps } from './Typography.types';
 
 export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean }) => (
-    Root: RootProps<HTMLDivElement, FontProps & { color?: string }>,
+    Root: RootProps<HTMLDivElement, FontProps>,
 ) =>
     forwardRef<HTMLDivElement, FontProps>((props, ref) => {
         const { size, children, breakWord, bold = defaultArgs?.defaultBold, color, className, style, ...rest } = props;
