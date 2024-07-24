@@ -7,6 +7,7 @@ export * from './utils';
 export * from './components/Button';
 export * from './components/IconButton';
 export * from './components/ButtonGroup';
+export * from './components/Breadcrumbs';
 export * from './components/Chip';
 export * from './components/Cell';
 export * from './components/Link';

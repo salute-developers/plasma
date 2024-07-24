@@ -1,30 +1,45 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
-type BreadcrumbsItem =
+export type BreadcrumbsItem =
     | {
-          // Ссылка на страницу ( если не указана, то ссылка не кликабельна )
+          /**
+           * Ссылка на страницу ( если не указана, то ссылка не кликабельна )
+           */
           href?: string;
 
-          // Элемент крошки
+          /**
+           * Элемент крошки
+           */
           title: string;
       }
     | {
-          // Функция рендера элемента
+          /**
+           * Функция рендера элемента)
+           */
           renderItem: () => ReactNode;
       };
 
 type Breadcrumbs = {
-    // Стандартный размер текста элементов
-    size: 'xs' | 's' | 'm' | 'l';
+    view?: string;
+    /**
+     * Стандартный размер текста элементов
+     */
+    size?: 'xs' | 's' | 'm' | 'l';
 
-    // Элемент разделителя
+    /**
+     * Элемент разделителя
+     */
     separator?: ReactNode;
 
-    // Элементы крошек
+    /**
+     * Элементы крошек
+     */
     items: BreadcrumbsItem[];
 
-    // Количество показываемых элементов - все оставльные сокращаются
-    showItems: number;
+    /**
+     * Количество показываемых элементов - все оставльные сокращаются
+     */
+    showItems?: number;
 };
 
 export type BreadcrumbsProps = HTMLAttributes<HTMLDivElement> & Breadcrumbs;
