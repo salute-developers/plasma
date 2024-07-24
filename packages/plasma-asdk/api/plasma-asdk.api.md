@@ -14,7 +14,6 @@ import { ButtonHTMLAttributes } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ComponentProps } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
-import { FontProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
@@ -27,7 +26,9 @@ import { RefAttributes } from 'react';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
+import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 
 // @public (undocumented)
 export const Body1: FunctionComponent<PropsType<    {
@@ -36,6 +37,7 @@ body1: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -45,6 +47,7 @@ body2: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -54,6 +57,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -63,6 +67,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -72,6 +77,7 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -81,6 +87,7 @@ xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -90,6 +97,7 @@ xxs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public
@@ -178,18 +186,14 @@ export const Button1: FunctionComponent<PropsType<    {
 size: {
 button1: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Button2: FunctionComponent<PropsType<    {
 size: {
 button2: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
 //
@@ -201,9 +205,7 @@ export const Caption: FunctionComponent<PropsType<    {
 size: {
 m: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Checkbox: FunctionComponent<PropsType<    {
@@ -234,6 +236,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -243,6 +246,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -252,6 +256,7 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -259,18 +264,14 @@ export const Footnote1: FunctionComponent<PropsType<    {
 size: {
 footnote1: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Footnote2: FunctionComponent<PropsType<    {
 size: {
 footnote2: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const H1: FunctionComponent<PropsType<    {
@@ -279,6 +280,7 @@ h1: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -288,6 +290,7 @@ h2: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -297,6 +300,7 @@ h3: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -306,6 +310,7 @@ h4: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -315,6 +320,7 @@ h5: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -322,45 +328,35 @@ export const Headline1: FunctionComponent<PropsType<    {
 size: {
 headline1: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline2: FunctionComponent<PropsType<    {
 size: {
 headline2: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline3: FunctionComponent<PropsType<    {
 size: {
 headline3: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline4: FunctionComponent<PropsType<    {
 size: {
 headline4: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline5: FunctionComponent<PropsType<    {
 size: {
 headline5: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Link: FunctionComponent<PropsType<    {
@@ -381,18 +377,14 @@ export const P1: FunctionComponent<PropsType<    {
 size: {
 paragraph1: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const P2: FunctionComponent<PropsType<    {
 size: {
 paragraph2: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Radiobox: FunctionComponent<PropsType<    {
@@ -457,9 +449,7 @@ export const Subtitle: FunctionComponent<PropsType<    {
 size: {
 m: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold" | "breakWord"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
@@ -493,6 +483,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -502,6 +493,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -511,6 +503,7 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -520,6 +513,7 @@ xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -527,9 +521,7 @@ export const Underline: FunctionComponent<PropsType<    {
 size: {
 m: PolymorphicClassName;
 };
-}> & Omit<FontProps, "bold"> & {
-color?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // (No @packageDocumentation comment for this package)
 

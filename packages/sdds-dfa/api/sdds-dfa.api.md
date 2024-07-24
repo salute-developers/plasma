@@ -299,6 +299,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyL }
@@ -312,6 +313,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyM }
@@ -325,6 +327,7 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyS }
@@ -338,6 +341,7 @@ xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyXS }
@@ -351,6 +355,7 @@ xxs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyXXS }
@@ -913,6 +918,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplL }
@@ -926,6 +932,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplM }
@@ -939,6 +946,7 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplS }
@@ -971,6 +979,7 @@ h1: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h1 }
@@ -984,6 +993,7 @@ h2: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h2 }
@@ -997,6 +1007,7 @@ h3: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h3 }
@@ -1010,6 +1021,7 @@ h4: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h4 }
@@ -1023,6 +1035,7 @@ h5: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h5 }
@@ -1857,6 +1870,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textL }
@@ -1870,6 +1884,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textM }
@@ -1883,6 +1898,7 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textS }
@@ -1896,6 +1912,7 @@ xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textXS }

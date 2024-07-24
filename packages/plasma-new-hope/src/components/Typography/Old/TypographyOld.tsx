@@ -6,7 +6,7 @@ import { classes } from '../tokens';
 import type { FontProps } from '../Typography.types';
 import { cx } from '../../../utils';
 
-export type TypographyOldProps = Omit<FontProps, 'bold'> & { color?: string };
+export type TypographyOldProps = Omit<FontProps, 'bold'>;
 
 export const typographyOldRoot = (Root: RootProps<HTMLDivElement, TypographyOldProps>) =>
     forwardRef<HTMLDivElement, TypographyOldProps>((props, ref) => {
