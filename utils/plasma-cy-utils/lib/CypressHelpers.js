@@ -84,20 +84,20 @@ exports.getComponent = function (componentName) {
     }
     throw new Error("Library " + pkgName + " is not required in plasma-core/CypressHelpers:getComponent");
 };
+var SSRProvider = exports.getComponent('SSRProvider');
+var SSR = function (_a) {
+    var _noSSR = _a.noSSR, children = _a.children;
+    if (_noSSR) {
+        return react_1.default.createElement(react_1.default.Fragment, null, children);
+    }
+    return react_1.default.createElement(SSRProvider, null, children);
+};
 exports.CypressTestDecorator = function (_a) {
     var noSSR = _a.noSSR, children = _a.children;
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var pkgName = Cypress.env('package');
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var tokens = Cypress.env('tokens');
-    var SSRProvider = exports.getComponent('SSRProvider');
-    var SSR = function (_a) {
-        var _noSSR = _a.noSSR, children = _a.children;
-        if (_noSSR) {
-            return react_1.default.createElement(react_1.default.Fragment, null, children);
-        }
-        return react_1.default.createElement(SSRProvider, null, children);
-    };
     if (pkgName === 'plasma-ui') {
         var DeviceThemeProvider = exports.getComponent('DeviceThemeProvider');
         return (react_1.default.createElement(DeviceThemeProvider, null,

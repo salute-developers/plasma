@@ -56,7 +56,7 @@ export const accordionRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Accord
                     view={view}
                     className={cx(stretchingClass, classes.accordionRoot, className)}
                 >
-                    {getChildren(childrenArray, activeIndex, disabled, updateValue)}
+                    {getChildren(childrenArray, activeIndex, view, disabled, updateValue)}
                 </Root>
             );
         },

@@ -14,6 +14,7 @@ const meta: Meta<typeof Accordion> = {
         size: 'm',
         stretching: 'filled',
         type: 'arrow',
+        alignWithTitle: false,
         title: 'Как оплатить заправку бонусами СберСпасибо?',
         body:
             'После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива',
@@ -43,13 +44,13 @@ export const Default: StoryObj<ComponentProps<typeof Accordion>> = {
 
         return (
             <Accordion {...args}>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
+                <AccordionItem alignWithTitle={args.alignWithTitle} type={args.type} pin={args.pin} title={args.title}>
                     {args.body}
                 </AccordionItem>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
+                <AccordionItem alignWithTitle={args.alignWithTitle} type={args.type} pin={args.pin} title={args.title}>
                     {args.body}
                 </AccordionItem>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
+                <AccordionItem alignWithTitle={args.alignWithTitle} type={args.type} pin={args.pin} title={args.title}>
                     {args.body}
                 </AccordionItem>
             </Accordion>

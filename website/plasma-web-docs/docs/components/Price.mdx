@@ -7,7 +7,7 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 # Price
 <Description name="Price" />
-<PropsTable name="Price" />
+<PropsTable name="Price" exclude={['css']} />
 <StorybookLink name="Price" />
 
 ```tsx live
@@ -16,7 +16,10 @@ import { Price } from '@salutejs/plasma-web';
 
 export function App() {
     return (
-        <Price currency="rub" stroke={false} minimumFractionDigits={2}>12345.67</Price>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Price currency="rub" minimumFractionDigits={3}>12345.67</Price>
+            <Price locale="en" currency="rub" minimumFractionDigits={3} stroked>12345.67</Price>
+        </div>
     );
 }
 ```

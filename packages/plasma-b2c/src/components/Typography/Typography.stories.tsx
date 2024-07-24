@@ -44,6 +44,11 @@ const meta: Meta<SpacingProps> = {
     component: DsplL,
     argTypes: {
         ...disableProps(['size']),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
     },
     decorators: [InSpacingDecorator],
 };

@@ -1,1 +1,0 @@
-../../../../plasma-web/src/components/Calendar/Calendar.component-test.tsx

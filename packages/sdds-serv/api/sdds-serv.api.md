@@ -6,7 +6,9 @@
 
 /// <reference types="react" />
 
+import { AccordionItem } from '@salutejs/plasma-new-hope/styled-components';
 import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
+import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
 import { AnchorHTMLAttributes } from 'react';
 import { AsProps } from '@salutejs/plasma-new-hope/types/types';
@@ -16,6 +18,8 @@ import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
+import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -27,8 +31,16 @@ import { bodyXSBold } from '@salutejs/sdds-themes/tokens';
 import { bodyXXS } from '@salutejs/sdds-themes/tokens';
 import { bodyXXSBold } from '@salutejs/sdds-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
+import { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
+import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarBaseProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarConfigProps } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarRange } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarStateType } from '@salutejs/plasma-new-hope/styled-components';
 import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
@@ -37,6 +49,7 @@ import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
+import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-new-hope/styled-components';
 import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
@@ -50,8 +63,8 @@ import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
-import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
-import { DatePickerCalendarProps as DatePickerCalendarProps_2 } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
+import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerdVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { DatePickerPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -76,6 +89,7 @@ import { dsplM } from '@salutejs/sdds-themes/tokens';
 import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
+import { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
@@ -103,6 +117,9 @@ import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
+import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -116,18 +133,24 @@ import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { Portal } from '@salutejs/plasma-new-hope/styled-components';
 import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
+import { priceClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { PriceProps } from '@salutejs/plasma-new-hope/types/components/Price/Price.types';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Props } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
+import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactFragment } from 'react';
 import { ReactNode } from 'react';
 import { ReactPortal } from 'react';
+import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
 import { Row } from '@salutejs/plasma-new-hope/styled-components';
@@ -142,6 +165,8 @@ import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonGradientProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -158,6 +183,7 @@ import { TextAreaPropsExtends } from '@salutejs/plasma-new-hope/types/components
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TextFieldPropsBase } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { textFieldTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { textL } from '@salutejs/sdds-themes/tokens';
 import { textLBold } from '@salutejs/sdds-themes/tokens';
@@ -165,6 +191,7 @@ import { textM } from '@salutejs/sdds-themes/tokens';
 import { textMBold } from '@salutejs/sdds-themes/tokens';
 import { textS } from '@salutejs/sdds-themes/tokens';
 import { textSBold } from '@salutejs/sdds-themes/tokens';
+import { TextSkeletonBaseProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/TextSkeleton/TextSkeleton.types';
 import { textXS } from '@salutejs/sdds-themes/tokens';
 import { textXSBold } from '@salutejs/sdds-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
@@ -177,8 +204,63 @@ import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
+import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
+
+// @public (undocumented)
+export const Accordion: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+clear: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & {
+view: string;
+size?: string | undefined;
+singleActive?: boolean | undefined;
+defaultActiveEventKey?: number[] | undefined;
+disabled?: boolean | undefined;
+stretching?: "filled" | "fixed" | undefined;
+onChange?: ((index?: number | undefined, value?: boolean | undefined) => void) | undefined;
+children?: ReactNode;
+className?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { AccordionItem }
 
 export { addFocus }
+
+export { addNotification }
+
+// @public (undocumented)
+export const Autocomplete: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & BaseProps & Omit<TextFieldPropsBase, "enumerationType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -258,6 +340,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyL }
@@ -271,6 +354,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyM }
@@ -284,6 +368,7 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyS }
@@ -297,6 +382,7 @@ xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyXS }
@@ -310,6 +396,7 @@ xxs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyXXS }
@@ -396,6 +483,8 @@ value?: undefined;
 contentRight?: ReactNode;
 } & RefAttributes<HTMLButtonElement>))>;
 
+export { ButtonBase }
+
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
 view: {
@@ -446,6 +535,49 @@ export { ButtonGroupProps }
 //
 // @public (undocumented)
 export type ButtonProps = typeof ButtonComponent;
+
+// @public (undocumented)
+export const Calendar: FC<CalendarProps>;
+
+// @public (undocumented)
+export const CalendarBase: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & Calendar_2 & CalendarConfigProps & RefAttributes<HTMLDivElement>>;
+
+export { CalendarBaseProps }
+
+// @public (undocumented)
+export const CalendarBaseRange: ({ value, min, max, disabledList, eventList, eventMonthList, disabledMonthList, eventYearList, disabledYearList, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | JSXElementConstructor<any>>;
+
+// @public (undocumented)
+export const CalendarDouble: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & Calendar_2 & CalendarConfigProps & RefAttributes<HTMLDivElement>>;
+
+export { CalendarDoubleProps }
+
+// @public (undocumented)
+export const CalendarDoubleRange: ({ value, min, max, disabledList, eventList, eventMonthList, disabledMonthList, eventYearList, disabledYearList, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
+
+export { CalendarProps }
+
+export { CalendarStateType }
 
 // @public
 export const Cell: FunctionComponent<PropsType<    {
@@ -554,6 +686,8 @@ true: PolymorphicClassName;
 }> & ChipProps & RefAttributes<HTMLButtonElement>>;
 
 export { ChipProps }
+
+export { closeNotification }
 
 export { ClosePlacementType }
 
@@ -696,8 +830,8 @@ true: PolymorphicClassName;
 }> & DatePickerdVariationProps & {
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
-onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined) => void) | undefined;
-onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined) => void) | undefined;
+onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
+onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
 } & {
 label?: string | undefined;
 view?: string | undefined;
@@ -729,7 +863,7 @@ onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undef
 onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-} & DatePickerCalendarProps_2 & Omit<DatePickerPopoverProps, "placement"> & {
+} & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
 placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
 isDoubleCalendar?: boolean | undefined;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>>;
@@ -835,6 +969,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplL }
@@ -848,6 +983,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplM }
@@ -861,11 +997,22 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplS }
 
 export { dsplSBold }
+
+// @public (undocumented)
+export const EmptyState: FunctionComponent<PropsType<    {
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & Props & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Grid: FunctionComponent<PropsType<    {
@@ -883,6 +1030,7 @@ h1: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h1 }
@@ -896,6 +1044,7 @@ h2: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h2 }
@@ -909,6 +1058,7 @@ h3: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h3 }
@@ -922,6 +1072,7 @@ h4: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h4 }
@@ -935,6 +1086,7 @@ h5: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h5 }
@@ -1049,6 +1201,32 @@ view: string;
 
 export { IndicatorProps }
 
+// @public (undocumented)
+export const LineSkeleton: FunctionComponent<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement>>;
+
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
@@ -1084,6 +1262,22 @@ export { modalClasses }
 
 export { ModalProps }
 
+// @public (undocumented)
+const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
+export { Notification_2 as Notification }
+
+export { NotificationIconPlacement }
+
+export { NotificationLayout }
+
+export { NotificationProps }
+
+// @public (undocumented)
+export const NotificationsProvider: React_2.FC<{
+    children: ReactNode;
+    frame?: string;
+}>;
+
 export { Overlay }
 
 export { OverlayProps }
@@ -1091,9 +1285,9 @@ export { OverlayProps }
 // @public
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
+default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-default: PolymorphicClassName;
 };
 viewCurrentPage: {
 default: PolymorphicClassName;
@@ -1140,10 +1334,16 @@ export { PopupProps }
 
 export { PopupProvider }
 
-// @public (undocumented)
-export const Portal: FunctionComponent<PropsType<Variants> & PortalProps & RefAttributes<HTMLDivElement>>;
+export { Portal }
 
 export { PortalProps }
+
+// @public
+export const Price: FunctionComponent<PropsType<    {
+view: {};
+}> & PriceProps & RefAttributes<HTMLSpanElement>>;
+
+export { priceClasses }
 
 // @public (undocumented)
 export const Progress: FunctionComponent<PropsType<    {
@@ -1328,6 +1528,8 @@ export { rangeTokens }
 
 export { Ratio }
 
+export { RectSkeleton }
+
 export { Row }
 
 export { ScreenConfig }
@@ -1406,6 +1608,85 @@ export { SegmentItemProps }
 export { SegmentProvider }
 
 export { SegmentProviderProps }
+
+// @public (undocumented)
+export const Select: FunctionComponent<PropsType<    {
+size: {
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
+};
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+}> & ((BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactNode;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "textfield-like" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactNode;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+multiselect: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
 
 // @public
 export const Sheet: FunctionComponent<PropsType<    {
@@ -1684,6 +1965,7 @@ l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textL }
@@ -1697,6 +1979,7 @@ m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textM }
@@ -1710,11 +1993,38 @@ s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textS }
 
 export { textSBold }
+
+// @public (undocumented)
+export const TextSkeleton: FC<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement> & TextSkeletonBaseProps>;
 
 // @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
@@ -1723,6 +2033,7 @@ xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
+color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textXS }
@@ -1791,6 +2102,8 @@ export { usePopupContext }
 export { useSegment }
 
 export { useToast }
+
+export { withSkeleton }
 
 
 export * from "@salutejs/sdds-themes/tokens/sdds_serv";

@@ -1,13 +1,15 @@
 import type { ReactNode } from 'react';
 
-import type { DatePickerCalendarProps, DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
+import type { DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
+import type { DateInfo } from '../../../Calendar/Calendar.types';
+import type { DatePickerCalendarProps } from '../../DatePickerBase.types';
 
 export type RangeDatePopoverProps = DatePickerCalendarProps &
     DatePickerPopoverProps & {
         /**
          * Обработчик изменения значения.
          */
-        onChangeValue: (values: [Date, Date?]) => void;
+        onChangeValue: (values: [Date, Date?], dateInfo?: DateInfo) => void;
         /**
          * Выбранное значение.
          */
@@ -23,7 +25,7 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         /**
          * Обработчик для выбора стартового значения в диапазоне.
          */
-        onChangeStartOfRange?: (value: Date) => void;
+        onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
         /**
          * Размер контрола.
          */

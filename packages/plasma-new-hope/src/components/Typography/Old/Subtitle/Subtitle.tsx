@@ -11,10 +11,10 @@ export type SubtitleProps = Omit<FontProps, 'bold' | 'breakWord'>;
 
 export const subtitleRoot = (Root: RootProps<HTMLDivElement, SubtitleProps>) =>
     forwardRef<HTMLDivElement, SubtitleProps>((props, ref) => {
-        const { size, children, style, ...rest } = props;
+        const { size, children, color, style, ...rest } = props;
 
         return (
-            <Root size={size} ref={ref} style={{ ...style, ...applySpacing(rest) }} {...rest}>
+            <Root size={size} ref={ref} style={{ color, ...style, ...applySpacing(rest) }} {...rest}>
                 {children}
             </Root>
         );

@@ -45,6 +45,12 @@ export const datePickerRoot = (
                 includeEdgeDates = false,
                 eventList,
                 disabledList,
+                eventMonthList,
+                disabledMonthList,
+                eventQuarterList,
+                disabledQuarterList,
+                eventYearList,
+                disabledYearList,
                 type = 'Days',
 
                 placement = ['top', 'bottom'],
@@ -141,11 +147,17 @@ export const datePickerRoot = (
                             type={type}
                             eventList={eventList}
                             disabledList={disabledList}
+                            eventMonthList={eventMonthList}
+                            disabledMonthList={disabledMonthList}
+                            eventQuarterList={eventQuarterList}
+                            disabledQuarterList={disabledQuarterList}
+                            eventYearList={eventYearList}
+                            disabledYearList={disabledYearList}
                             min={min}
                             max={max}
                             includeEdgeDates={includeEdgeDates}
                             isRange={false}
-                            onChangeValue={(date) => handleCommitDate(date, false, true)}
+                            onChangeValue={(date, dateInfo) => handleCommitDate(date, false, true, dateInfo)}
                         />
                     </StyledPopover>
                     {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}

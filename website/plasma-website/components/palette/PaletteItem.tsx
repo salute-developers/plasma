@@ -182,7 +182,7 @@ export const PaletteItem: React.FC<{
                         <StyledNameColor
                             className={classes.nameColor}
                             color={
-                                paletteColor.colors[index].ratio > 3.5
+                                paletteColor.colors[index].ratio > 3
                                     ? 'rgba(255, 255, 255, 0.56)'
                                     : 'rgba(0, 0, 0, 0.56)'
                             }

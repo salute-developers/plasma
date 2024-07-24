@@ -77,19 +77,20 @@ interface CYTDec {
     noSSR?: boolean;
 }
 
+const SSRProvider = getComponent('SSRProvider');
+
+const SSR: React.FC<PropsWithChildren<CYTDec>> = ({ noSSR: _noSSR, children }) => {
+    if (_noSSR) {
+        return <>{children}</>;
+    }
+    return <SSRProvider>{children}</SSRProvider>;
+};
+
 export const CypressTestDecorator: React.FC<PropsWithChildren<CYTDec>> = ({ noSSR, children }) => {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const pkgName = Cypress.env('package') as string;
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const tokens = Cypress.env('tokens') as string;
-    const SSRProvider = getComponent('SSRProvider');
-
-    const SSR: React.FC<PropsWithChildren<CYTDec>> = ({ noSSR: _noSSR, children }) => {
-        if (_noSSR) {
-            return <>{children}</>;
-        }
-        return <SSRProvider>{children}</SSRProvider>;
-    };
 
     if (pkgName === 'plasma-ui') {
         const DeviceThemeProvider = getComponent('DeviceThemeProvider');

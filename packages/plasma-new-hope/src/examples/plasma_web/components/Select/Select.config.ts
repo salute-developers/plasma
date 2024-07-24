@@ -1,339 +1,394 @@
 import { css } from '@linaria/core';
 
-import { selectTokens } from '../../../../components/Select';
+import { selectTokens } from '../../../..';
 
 export const config = {
     defaults: {
-        target: 'button-like',
         view: 'default',
+        chipView: 'default',
         size: 'm',
     },
     variations: {
-        target: {
-            'textField-like': css`
-                ${selectTokens.targetColor}: var(--text-primary);
-                ${selectTokens.targetLabelColor}: var(--text-secondary);
-                ${selectTokens.targetArrowColor}: var(--text-secondary);
-                ${selectTokens.targetBorderColor}: var(--text-tertiary);
-                ${selectTokens.targetBorderColorHover}: var(--text-tertiary-hover);
-                ${selectTokens.targetBorderColorActive}: var(--text-tertiary-active);
-                ${selectTokens.targetBorderColorOpen}: var(--text-accent);
-            `,
-            'button-like': css`
-                ${selectTokens.targetColor}: var(--text-primary);
-                ${selectTokens.targetLabelColor}: var(--text-primary);
-                ${selectTokens.targetArrowColor}: var(--text-secondary);
-                ${selectTokens.targetBackgroundColor}: var(--surface-transparent-secondary);
-                ${selectTokens.targetBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${selectTokens.targetBackgroundColorActive}: var(--surface-transparent-secondary-active);
-                ${selectTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
-                ${selectTokens.targetFontWeight}: 600 !important; /* TODO: Переделать когда появится возможность пересечения свойств */
-            `,
-        },
         size: {
             xs: css`
-                ${selectTokens.width}: 100%;
-                ${selectTokens.height}: auto;
+                ${selectTokens.padding}: 0.125rem;
                 ${selectTokens.borderRadius}: 0.5rem;
-                ${selectTokens.paddingTop}: 0.125rem;
-                ${selectTokens.paddingRight}: 0.125rem;
-                ${selectTokens.paddingBottom}: 0.125rem;
-                ${selectTokens.paddingLeft}: 0.125rem;
+                ${selectTokens.focusOffset}: 0.125rem;
 
-                ${selectTokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${selectTokens.dividerHeight}: 0.063rem;
-                ${selectTokens.dividerMarginTop}: 0;
-                ${selectTokens.dividerMarginRight}: 0.5rem;
-                ${selectTokens.dividerMarginBottom}: 0;
-                ${selectTokens.dividerMarginLeft}: 0.375rem;
-
-                ${selectTokens.itemWidth}: auto;
                 ${selectTokens.itemHeight}: 1rem;
-                ${selectTokens.itemPaddingTop}: 0.5rem;
-                ${selectTokens.itemPaddingRight}: 0.5rem;
-                ${selectTokens.itemPaddingBottom}: 0.5rem;
-                ${selectTokens.itemPaddingLeft}: 0.375rem;
+                ${selectTokens.itemPadding}: 0.5rem 0.5rem 0.5rem 0.375rem;
+                ${selectTokens.itemPaddingTight}: 0.25rem 0.5rem 0.25rem 0.375rem;
                 ${selectTokens.itemBorderRadius}: 0.375rem;
-                ${selectTokens.itemContentLeftWidth}: 1.25rem;
-                ${selectTokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.itemFontWeightBold}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${selectTokens.itemIconSize}: 1rem;
+                ${selectTokens.itemIconSizeTight}: 1rem;
+                ${selectTokens.itemIconMargin}: 0 0.25rem 0 0;
+
+                ${selectTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectTokens.checkboxTriggerSize}: 0.875rem;
+                ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${selectTokens.checkboxTriggerBorderRadius}: 0.25rem;
+                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
+                ${selectTokens.checkboxFillColor}: var(--text-accent);
+                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectTokens.indicatorSize}: 0.375rem;
 
                 ${selectTokens.chipGap}: 0.25rem;
                 ${selectTokens.chipBorderRadius}: 0.125rem;
-                ${selectTokens.chipWidth}: auto;
                 ${selectTokens.chipHeight}: 1.25rem;
                 ${selectTokens.chipPaddingRight}: 0.375rem;
                 ${selectTokens.chipPaddingLeft}: 0.625rem;
                 ${selectTokens.chipClearContentMarginLeft}: 0.25rem;
                 ${selectTokens.chipClearContentMarginRight}: 0rem;
                 ${selectTokens.chipCloseIconSize}: 0.75rem;
-                ${selectTokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${selectTokens.targetArrowRight}: 0.5rem;
+                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.25rem;
+                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.375rem;
                 ${selectTokens.targetHeight}: 2rem;
-                ${selectTokens.targetWidth}: 100%;
-                ${selectTokens.targetRadius}: 0.5rem;
-                ${selectTokens.targetPadding}: 0 2.5rem 0 0.75rem;
-                ${selectTokens.targetPaddingHasChips}: 0 2.625rem 0 0.375rem;
-                ${selectTokens.targetPaddingWithInput}: 0 2.625rem 0 0.625rem;
-                ${selectTokens.targetInnerTop}: 0.5rem;
-                ${selectTokens.targetLabelInnerTop}: 0.375rem;
-                ${selectTokens.targetFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.targetFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.targetFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.targetFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.targetLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.targetLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${selectTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${selectTokens.targetButtonPadding}: 0.75rem 0 0.75rem;
+                ${selectTokens.targetTextfieldPadding}: 0.5rem 0 0.625rem;
+                ${selectTokens.targetTextfieldChipPadding}: 0.5rem 0 0.25rem;
+
+                ${selectTokens.labelOffset}: 0.375rem;
+
+                ${selectTokens.innerLabelGap}: 0;
+
+                ${selectTokens.helperTextOffset}: 0.25rem;
+
+                ${selectTokens.spinnerSize}: 1rem;
+                ${selectTokens.spinnerSizeTight}: 1rem;
             `,
             s: css`
-                ${selectTokens.width}: 100%;
-                ${selectTokens.height}: auto;
+                ${selectTokens.padding}: 0.125rem;
                 ${selectTokens.borderRadius}: 0.625rem;
-                ${selectTokens.paddingTop}: 0.125rem;
-                ${selectTokens.paddingRight}: 0.125rem;
-                ${selectTokens.paddingBottom}: 0.125rem;
-                ${selectTokens.paddingLeft}: 0.125rem;
+                ${selectTokens.focusOffset}: 0.125rem;
 
-                ${selectTokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${selectTokens.dividerHeight}: 0.063rem;
-                ${selectTokens.dividerMarginTop}: 0;
-                ${selectTokens.dividerMarginRight}: 0.75rem;
-                ${selectTokens.dividerMarginBottom}: 0;
-                ${selectTokens.dividerMarginLeft}: 0.75rem;
-
-                ${selectTokens.itemWidth}: auto;
                 ${selectTokens.itemHeight}: 1.5rem;
-                ${selectTokens.itemPaddingTop}: 0.5rem;
-                ${selectTokens.itemPaddingRight}: 0.75rem;
-                ${selectTokens.itemPaddingBottom}: 0.5rem;
-                ${selectTokens.itemPaddingLeft}: 0.75rem;
+                ${selectTokens.itemPadding}: 0.5rem 0.75rem 0.5rem 0.675rem;
+                ${selectTokens.itemPaddingTight}: 0.25rem 0.75rem 0.25rem 0.675rem;
                 ${selectTokens.itemBorderRadius}: 0.5rem;
-                ${selectTokens.itemContentLeftWidth}: 1.75rem;
-                ${selectTokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${selectTokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${selectTokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${selectTokens.itemFontWeightBold}: var(--plasma-typo-body-s-font-weight);
-                ${selectTokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${selectTokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${selectTokens.itemIconSize}: 1.5rem;
+                ${selectTokens.itemIconSizeTight}: 1rem;
+                ${selectTokens.itemIconMargin}: 0 0.375rem 0 0;
+
+                ${selectTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectTokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${selectTokens.checkboxTriggerSize}: 1.25rem;
+                ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
+                ${selectTokens.checkboxFillColor}: var(--text-accent);
+                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectTokens.indicatorSize}: 0.375rem;
 
                 ${selectTokens.chipGap}: 0.25rem;
                 ${selectTokens.chipBorderRadius}: 0.25rem;
-                ${selectTokens.chipWidth}: auto;
                 ${selectTokens.chipHeight}: 1.75rem;
                 ${selectTokens.chipPaddingRight}: 0.5rem;
                 ${selectTokens.chipPaddingLeft}: 0.75rem;
                 ${selectTokens.chipClearContentMarginLeft}: 0.375rem;
                 ${selectTokens.chipClearContentMarginRight}: 0rem;
                 ${selectTokens.chipCloseIconSize}: 0.75rem;
-                ${selectTokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${selectTokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${selectTokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${selectTokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${selectTokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${selectTokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${selectTokens.targetArrowRight}: 0.75rem;
+                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.25rem;
+                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.375rem;
                 ${selectTokens.targetHeight}: 2.5rem;
-                ${selectTokens.targetWidth}: 100%;
-                ${selectTokens.targetRadius}: 0.625rem;
-                ${selectTokens.targetPadding}: 0 3rem 0 1rem;
-                ${selectTokens.targetPaddingHasChips}: 0 3.125rem 0 0.375rem;
-                ${selectTokens.targetPaddingWithInput}: 0 3.125rem 0 0.625rem;
-                ${selectTokens.targetInnerTop}: 0.5rem;
-                ${selectTokens.targetLabelInnerTop}: 0.375rem;
-                ${selectTokens.targetFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${selectTokens.targetFontSize}: var(--plasma-typo-body-s-font-size);
-                ${selectTokens.targetFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${selectTokens.targetFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${selectTokens.targetLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${selectTokens.targetLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${selectTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${selectTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${selectTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${selectTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${selectTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${selectTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${selectTokens.targetButtonPadding}: 1rem 0 1rem;
+                ${selectTokens.targetTextfieldPadding}: 0.75rem 0 0.875rem;
+                ${selectTokens.targetTextfieldChipPadding}: 0.75rem 0 0.25rem;
+
+                ${selectTokens.labelOffset}: 0.5rem;
+
+                ${selectTokens.innerLabelGap}: 0;
+
+                ${selectTokens.helperTextOffset}: 0.25rem;
+
+                ${selectTokens.spinnerSize}: 1.5rem;
+                ${selectTokens.spinnerSizeTight}: 1rem;
             `,
             m: css`
-                ${selectTokens.width}: 100%;
-                ${selectTokens.height}: auto;
+                ${selectTokens.padding}: 0.125rem;
                 ${selectTokens.borderRadius}: 0.75rem;
-                ${selectTokens.paddingTop}: 0.125rem;
-                ${selectTokens.paddingRight}: 0.125rem;
-                ${selectTokens.paddingBottom}: 0.125rem;
-                ${selectTokens.paddingLeft}: 0.125rem;
+                ${selectTokens.focusOffset}: 0.125rem;
 
-                ${selectTokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${selectTokens.dividerHeight}: 0.063rem;
-                ${selectTokens.dividerMarginTop}: 0;
-                ${selectTokens.dividerMarginRight}: 0.875rem;
-                ${selectTokens.dividerMarginBottom}: 0;
-                ${selectTokens.dividerMarginLeft}: 0.875rem;
-
-                ${selectTokens.itemWidth}: auto;
                 ${selectTokens.itemHeight}: 1.5rem;
-                ${selectTokens.itemPaddingTop}: 0.75rem;
-                ${selectTokens.itemPaddingRight}: 0.875rem;
-                ${selectTokens.itemPaddingBottom}: 0.75rem;
-                ${selectTokens.itemPaddingLeft}: 0.875rem;
+                ${selectTokens.itemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
+                ${selectTokens.itemPaddingTight}: 0.5rem 0.75rem 0.5rem 0.75rem;
                 ${selectTokens.itemBorderRadius}: 0.625rem;
-                ${selectTokens.itemContentLeftWidth}: 1.75rem;
-                ${selectTokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${selectTokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${selectTokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${selectTokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
-                ${selectTokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${selectTokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${selectTokens.itemIconMargin}: 0 0.375rem 0 0;
+                ${selectTokens.itemIconSize}: 1.5rem;
+                ${selectTokens.itemIconSizeTight}: 1.5rem;
+
+                ${selectTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${selectTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${selectTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${selectTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${selectTokens.checkboxTriggerSize}: 1.25rem;
+                ${selectTokens.checkboxTriggerSizeTight}: 1.25rem;
+                ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${selectTokens.checkboxFillColor}: var(--text-accent);
+                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectTokens.indicatorSize}: 0.375rem;
 
                 ${selectTokens.chipGap}: 0.25rem;
                 ${selectTokens.chipBorderRadius}: 0.375rem;
-                ${selectTokens.chipWidth}: auto;
                 ${selectTokens.chipHeight}: 2.25rem;
                 ${selectTokens.chipPaddingRight}: 0.875rem;
                 ${selectTokens.chipPaddingLeft}: 0.625rem;
                 ${selectTokens.chipClearContentMarginLeft}: 0.5rem;
                 ${selectTokens.chipClearContentMarginRight}: 0rem;
                 ${selectTokens.chipCloseIconSize}: 1rem;
-                ${selectTokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${selectTokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${selectTokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${selectTokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${selectTokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${selectTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${selectTokens.targetArrowRight}: 0.875rem;
+                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.375rem;
+                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.625rem;
                 ${selectTokens.targetHeight}: 3rem;
-                ${selectTokens.targetWidth}: 100%;
-                ${selectTokens.targetRadius}: 0.75rem;
-                ${selectTokens.targetPadding}: 0 3.25rem 0 1.25rem;
-                ${selectTokens.targetPaddingHasChips}: 0 3.375rem 0 0.375rem;
-                ${selectTokens.targetPaddingWithInput}: 0 3.375rem 0 0.625rem;
-                ${selectTokens.targetInnerTop}: 0.5rem;
-                ${selectTokens.targetLabelInnerTop}: 0.375rem;
-                ${selectTokens.targetFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${selectTokens.targetFontSize}: var(--plasma-typo-body-m-font-size);
-                ${selectTokens.targetFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${selectTokens.targetFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${selectTokens.targetLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${selectTokens.targetLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${selectTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${selectTokens.targetButtonPadding}: 1.25rem 0 1.25rem;
+                ${selectTokens.targetTextfieldPadding}: 0.875rem 0 1rem;
+                ${selectTokens.targetTextfieldChipPadding}: 0.875rem 0 0.25rem;
+
+                ${selectTokens.labelOffset}: 0.625rem;
+
+                ${selectTokens.innerLabelGap}: 0.125rem;
+
+                ${selectTokens.helperTextOffset}: 0.25rem;
+
+                ${selectTokens.spinnerSize}: 1.5rem;
+                ${selectTokens.spinnerSizeTight}: 1.5rem;
             `,
             l: css`
-                ${selectTokens.width}: 100%;
-                ${selectTokens.height}: auto;
+                ${selectTokens.padding}: 0.125rem;
                 ${selectTokens.borderRadius}: 0.875rem;
-                ${selectTokens.paddingTop}: 0.125rem;
-                ${selectTokens.paddingRight}: 0.125rem;
-                ${selectTokens.paddingBottom}: 0.125rem;
-                ${selectTokens.paddingLeft}: 0.125rem;
+                ${selectTokens.focusOffset}: 0.125rem;
 
-                ${selectTokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${selectTokens.dividerHeight}: 0.063rem;
-                ${selectTokens.dividerMarginTop}: 0;
-                ${selectTokens.dividerMarginRight}: 1rem;
-                ${selectTokens.dividerMarginBottom}: 0;
-                ${selectTokens.dividerMarginLeft}: 1rem;
-
-                ${selectTokens.itemWidth}: auto;
                 ${selectTokens.itemHeight}: 1.5rem;
-                ${selectTokens.itemPaddingTop}: 1rem;
-                ${selectTokens.itemPaddingRight}: 1rem;
-                ${selectTokens.itemPaddingBottom}: 1rem;
-                ${selectTokens.itemPaddingLeft}: 1rem;
+                ${selectTokens.itemPadding}: 1rem 1rem 1rem 0.875rem;
+                ${selectTokens.itemPaddingTight}: 0.75rem 1rem 0.75rem 0.875rem;
                 ${selectTokens.itemBorderRadius}: 0.75rem;
-                ${selectTokens.itemContentLeftWidth}: 1.875rem;
-                ${selectTokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${selectTokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${selectTokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${selectTokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
-                ${selectTokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${selectTokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${selectTokens.itemIconMargin}: 0 0.5rem 0 0;
+                ${selectTokens.itemIconSize}: 1.5rem;
+                ${selectTokens.itemIconSizeTight}: 1.5rem;
+
+                ${selectTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${selectTokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${selectTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${selectTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${selectTokens.checkboxTriggerSize}: 1.25rem;
+                ${selectTokens.checkboxTriggerSizeTight}: 1.25rem;
+                ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${selectTokens.checkboxFillColor}: var(--text-accent);
+                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectTokens.indicatorSize}: 0.375rem;
 
                 ${selectTokens.chipGap}: 0.25rem;
                 ${selectTokens.chipBorderRadius}: 0.5rem;
-                ${selectTokens.chipWidth}: auto;
                 ${selectTokens.chipHeight}: 2.75rem;
                 ${selectTokens.chipPaddingRight}: 0.75rem;
                 ${selectTokens.chipPaddingLeft}: 1rem;
                 ${selectTokens.chipClearContentMarginLeft}: 0.625rem;
                 ${selectTokens.chipClearContentMarginRight}: 0rem;
                 ${selectTokens.chipCloseIconSize}: 1rem;
-                ${selectTokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${selectTokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${selectTokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${selectTokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${selectTokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${selectTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${selectTokens.targetArrowRight}: 1rem;
+                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.5rem;
+                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.75rem;
                 ${selectTokens.targetHeight}: 3.5rem;
-                ${selectTokens.targetWidth}: 100%;
-                ${selectTokens.targetRadius}: 0.875rem;
-                ${selectTokens.targetPadding}: 0 3.5rem 0 1.5rem;
-                ${selectTokens.targetPaddingHasChips}: 0 3.625rem 0 0.375rem;
-                ${selectTokens.targetPaddingWithInput}: 0 3.625rem 0 0.625rem;
-                ${selectTokens.targetInnerTop}: 0.5rem;
-                ${selectTokens.targetLabelInnerTop}: 0.375rem;
-                ${selectTokens.targetFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${selectTokens.targetFontSize}: var(--plasma-typo-body-l-font-size);
-                ${selectTokens.targetFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${selectTokens.targetFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${selectTokens.targetLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${selectTokens.targetLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${selectTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${selectTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-s-font-size);
-                ${selectTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${selectTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${selectTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${selectTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${selectTokens.targetButtonPadding}: 1.5rem 0 1.5rem;
+                ${selectTokens.targetTextfieldPadding}: 1rem 0 1.125rem;
+                ${selectTokens.targetTextfieldChipPadding}: 1rem 0 0.25rem;
+
+                ${selectTokens.labelOffset}: 0.75rem;
+
+                ${selectTokens.innerLabelGap}: 0.125rem;
+
+                ${selectTokens.helperTextOffset}: 0.25rem;
+
+                ${selectTokens.spinnerSize}: 1.5rem;
+                ${selectTokens.spinnerSizeTight}: 1.5rem;
             `,
         },
         view: {
             default: css`
-                ${selectTokens.background}: var(--surface-solid-card);
-                ${selectTokens.boxShadow}: var(--shadow-down-soft-s);
-
-                ${selectTokens.itemBackground}: var(--plasma-colors-transparent);
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.itemBackgroundSelectedHover}: var(--surface-transparent-secondary);
-                ${selectTokens.itemColor}: var(--text-primary);
-                ${selectTokens.itemContentLeftColor}: var(--text-accent);
-
-                ${selectTokens.chipCloseIconColor}: var(--text-secondary);
+                ${selectTokens.helperTextColor}: var(--text-secondary);
+                ${selectTokens.targetButtonColor}: var(--inverse-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--inverse-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--inverse-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--inverse-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--inverse-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--inverse-text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColor}: var(--surface-solid-default);
+                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-solid-default-hover);
+                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBorderColor}: var(--surface-transparent-tertiary);
+            `,
+            positive: css`
+                ${selectTokens.helperTextColor}: var(--text-positive);
+                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColor}:var(--surface-positive);
+                ${selectTokens.targetButtonBackgroundColorHover}:var(--surface-positive-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}:var(--surface-positive-active);
+                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBorderColor}: var(--surface-positive);
+            `,
+            warning: css`
+                ${selectTokens.helperTextColor}: var(--text-warning);
+                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColor}:var(--surface-warning);
+                ${selectTokens.targetButtonBackgroundColorHover}:var(--surface-warning-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}:var(--surface-warning-active);
+                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBorderColor}: var(--surface-warning);
+            `,
+            negative: css`
+                ${selectTokens.helperTextColor}: var(--text-negative);
+                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColor}:var(--surface-negative);
+                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-negative-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}:var(--surface-negative-active);
+                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
+                ${selectTokens.targetTextfieldBorderColor}: var(--surface-negative);
+            `,
+            accent: css`
+                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColor}: var(--surface-accent);
+                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-accent-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-accent-active);
+            `,
+            secondary: css`
+                ${selectTokens.targetButtonColor}: var(--text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+            `,
+            clear: css`
+                ${selectTokens.targetButtonColor}: var(--text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-active);
+                ${selectTokens.targetButtonBackgroundColor}: var(--surface-clear);
+                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-clear);
+                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-clear);
+            `,
+            dark: css`
+                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-active);
+                ${selectTokens.targetButtonBackgroundColor}:var(--on-light-surface-transparent-deep);
+                ${selectTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+            `,
+            black: css`
+                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-active);
+                ${selectTokens.targetButtonBackgroundColor}:var(--on-light-surface-solid-default);
+                ${selectTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+            `,
+            white: css`
+                ${selectTokens.targetButtonColor}: var(--on-light-text-primary);
+                ${selectTokens.targetButtonColorHover}: var(--on-light-text-primary-hover);
+                ${selectTokens.targetButtonColorActive}: var(--on-light-text-primary-active);
+                ${selectTokens.targetButtonArrowColor}: var(--on-light-text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--on-light-text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--on-light-text-secondary-active);
+                ${selectTokens.targetButtonBackgroundColor}:var(--on-dark-surface-solid-default);
+                ${selectTokens.targetButtonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+            `,
+        },
+        chipView: {
+            default: css`
+                ${selectTokens.chipColor}: var(--inverse-text-primary);
+                ${selectTokens.chipBackground}: var(--surface-solid-default);
+                ${selectTokens.chipBackgroundHover}: var(--surface-solid-default-hover);
+                ${selectTokens.chipBackgroundActive}: var(--surface-solid-default-active);
+            `,
+            secondary: css`
                 ${selectTokens.chipColor}: var(--text-primary);
                 ${selectTokens.chipBackground}: var(--surface-transparent-secondary);
-                ${selectTokens.chipColorHover}: var(--text-primary);
                 ${selectTokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${selectTokens.chipColorActive}: var(--text-primary);
                 ${selectTokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${selectTokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${selectTokens.chipColorReadOnly}: var(--text-primary);
-                ${selectTokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${selectTokens.chipColorReadOnlyHover}: var(--text-primary);
-                ${selectTokens.chipOpacityReadonly}: 0.72;
-
-                ${selectTokens.disabledOpacity}: 0.4;
-                ${selectTokens.focusColor}: var(--surface-accent);
+            `,
+            accent: css`
+                ${selectTokens.chipColor}: var(--on-dark-text-primary);
+                ${selectTokens.chipBackground}: var(--surface-accent);
+                ${selectTokens.chipBackgroundHover}: var(--surface-accent-hover);
+                ${selectTokens.chipBackgroundActive}: var(--surface-accent-active);
             `,
         },
     },

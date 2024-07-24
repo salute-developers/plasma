@@ -1,17 +1,34 @@
 export const classes = {
     dayOfWeek: 'day-of-week',
-    dayDisabled: 'day-disabled',
-    dayDisabledCurrent: 'day-disabled-current',
-    daySideInRange: 'day-side-in-range',
-    dayInRange: 'day-in-range',
-    daySideLeft: 'day-side-left',
-    daySideRight: 'day-side-right',
+    dayInCurrentMonth: 'day-in-current-month',
+    disabled: 'item-disabled',
+    disabledCurrent: 'item-disabled-current',
+    sideInRange: 'item-side-in-range',
+    inRange: 'item-in-range',
+    sideLeft: 'item-side-left',
+    sideRight: 'item-side-right',
     selectableItem: 'item-selectable',
     selectedItem: 'item-selected',
     currentItem: 'item-current',
     hoveredItem: 'item-hovered',
     doubleHeaderDate: 'double-header-date',
     doubleHeaderLastDateWrapper: 'double-header--last-date-wrapper',
+};
+
+export const innerTokens = {
+    dateStructureFontFamily: '--plasma-calendar-date-structure-font-family',
+    dateStructureFontSize: '--plasma-calendar-date-structure-font-size',
+    dateStructureFontStyle: '--plasma-calendar-date-structure-font-style',
+    dateStructureFontWeight: '--plasma-calendar-date-structure-font-weight',
+    dateStructureFontLetterSpacing: '--plasma-calendar-date-structure-font-letter-spacing',
+    dateStructureFontLineHeight: '--plasma-calendar-date-structure-line-height',
+
+    dateStructureSelectedFontWeight: '--plasma-calendar-date-structure-selected-font-weight',
+
+    dateStructureWidth: '--plasma-calendar-date-structure-width',
+    dateStructureHeight: '--plasma-calendar-date-structure-height',
+
+    dateStructureBorderRadius: '--plasma-calendar-date-structure-border-radius',
 };
 
 export const tokens = {
@@ -31,6 +48,20 @@ export const tokens = {
     calendarYearFontLineHeight: '--plasma-calendar-year-line-height',
     calendarYearFontWeight: '--plasma-calendar-year-font-weight',
     calendarYearSelectedFontWeight: '--plasma-calendar-year-selected-font-weight',
+
+    /* Токены размера сетки дней */
+    calendarQuartersPadding: '--plasma-calendar-quarters-padding',
+    calendarQuarterItemBorderRadius: '--plasma-calendar-quarter-item-border-radius',
+    calendarQuarterItemWidth: '--plasma-calendar-quarter-item-width',
+    calendarQuarterItemHeight: '--plasma-calendar-quarter-item-height',
+
+    calendarQuarterFontFamily: '--plasma-calendar-quarter-font-family',
+    calendarQuarterFontSize: '--plasma-calendar-quarter-font-size',
+    calendarQuarterFontStyle: '--plasma-calendar-quarter-font-style',
+    calendarQuarterFontLetterSpacing: '--plasma-calendar-quarter-font-letter-spacing',
+    calendarQuarterFontLineHeight: '--plasma-calendar-quarter-line-height',
+    calendarQuarterFontWeight: '--plasma-calendar-quarter-font-weight',
+    calendarQuarterSelectedFontWeight: '--plasma-calendar-quarter-selected-font-weight',
 
     /* Токены размера сетки месяцев */
     calendarMonthsPadding: '--plasma-calendar-months-padding',

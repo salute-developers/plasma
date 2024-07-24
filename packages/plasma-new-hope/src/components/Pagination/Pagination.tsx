@@ -51,6 +51,8 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                 leftContent,
                 rightContent,
 
+                listWidth,
+
                 onChangePageValue,
                 onChangePerPageValue,
                 ...rest
@@ -71,7 +73,11 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             const disabled = disabledPages.map((el) => (isNumber(el) ? Number(el) : null));
 
             const handlerSetPages = (newPerPage?: number) => {
-                setPagesValue(Math.ceil(count / (newPerPage || (hasPerPage ? defaultValues.perPage : 1))));
+                if (newPerPage) {
+                    setPagesValue(Math.ceil(count / newPerPage));
+                } else {
+                    setPagesValue(Math.ceil(count / (hasPerPage ? defaultValues.perPage : 1)));
+                }
             };
 
             const handlerSetPage = (newPageValue?: number) => {
@@ -175,9 +181,11 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                             {hasPerPage && (
                                 <PaginationSelectPerPage
                                     textPerPage={textPerPage}
-                                    value={perPageValue}
-                                    valuesList={perPageList}
+                                    perPageValue={perPageValue}
+                                    perPageList={perPageList}
                                     onChangeValue={handlerSetPerPage}
+                                    size={size}
+                                    listWidth={listWidth}
                                 />
                             )}
                         </PaginationActions>

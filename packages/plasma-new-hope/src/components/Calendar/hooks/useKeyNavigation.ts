@@ -1,18 +1,22 @@
 import React, { KeyboardEvent, useCallback, useLayoutEffect, useRef, useState } from 'react';
 
-import type { DaysMetaDescription, KeyboardArrowKey, UseKeyNavigationProps } from '../Calendar.types';
+import type { DaysMetaDescription, KeyboardArrowKey } from '../Calendar.types';
 import { Keys } from '../Calendar.types';
-import { ROW_STEP } from '../utils';
+import { offsetMap } from '../utils';
+import type { CalendarStateType } from '../store/types';
+import { sizeMap } from '../store/reducer';
+
+import type { UseKeyNavigationArgs } from './types';
 
 /**
  * Метод для получения стороны двойного календаря.
  */
-const getDoubleCalendarSide = (currentIndexWeek: number) => {
-    if (currentIndexWeek >= 0 && currentIndexWeek < ROW_STEP) {
+const getDoubleCalendarSide = (currentIndex: number, calendarState: CalendarStateType) => {
+    if (currentIndex >= 0 && currentIndex < offsetMap[calendarState]) {
         return 'first';
     }
 
-    if (currentIndexWeek >= ROW_STEP && currentIndexWeek < ROW_STEP * 2) {
+    if (currentIndex >= offsetMap[calendarState] && currentIndex < offsetMap[calendarState] * 2) {
         return 'second';
     }
 
@@ -166,6 +170,7 @@ const getCorrectIndexes = (
     columnSize: number,
     withShift: boolean,
     defaultState: number[],
+    calendarState: CalendarStateType,
 ) => {
     let newRowIndex = rowIndex;
     let newColumnIndex = columnIndex;
@@ -193,7 +198,7 @@ const getCorrectIndexes = (
     }
 
     if (newRowIndex === minColumnIndex - 1) {
-        newRowIndex = ROW_STEP - 1;
+        newRowIndex = offsetMap[calendarState] - 1;
 
         while (newRowIndex > minRowIndex && !isVisible(refs, newRowIndex, newColumnIndex)) {
             newRowIndex--;
@@ -201,7 +206,7 @@ const getCorrectIndexes = (
     }
 
     if (newRowIndex === rowSize + 1) {
-        newRowIndex = rowSize + 1 - ROW_STEP;
+        newRowIndex = rowSize + 1 - offsetMap[calendarState];
 
         while (newRowIndex <= maxRowIndex && !isVisible(refs, newRowIndex, newColumnIndex)) {
             newRowIndex++;
@@ -231,7 +236,7 @@ const getCorrectIndexes = (
 /**
  * Хук для осуществления возможности клавиатурной навигации по матрице.
  */
-export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: UseKeyNavigationProps) => {
+export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calendarState }: UseKeyNavigationArgs) => {
     const [rowSize, columnSize] = size;
     const [selectIndexes, setSelectIndexes] = useState<number[]>([0, 0]);
     const [isOutOfMinMaxRange, setIsOutOfMinMaxRange] = useState<boolean>(false);
@@ -258,11 +263,13 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
             const isSecond = isDouble && isNext;
             const isFirst = isDouble && !isNext;
 
+            const firstEndIndex = Math.floor(sizeMap[calendarState].double[0] / 2);
+
             // Определяем какую часть сдвоенного календаря взять
             if (isFirst) {
-                refs = outerRefs.current.slice(0, 5);
+                refs = outerRefs.current.slice(0, firstEndIndex);
             } else if (isSecond) {
-                refs = outerRefs.current.slice(5, 12);
+                refs = outerRefs.current.slice(firstEndIndex, sizeMap[calendarState].double[1]);
             }
 
             const refsList = refs?.flatMap((items) => items.filter(Boolean));
@@ -313,6 +320,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
             columnSize,
             withShiftState.current,
             currentIndexes.current,
+            calendarState,
         );
 
         /**
@@ -330,7 +338,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
         if (item) {
             item.focus();
         }
-    }, [selectIndexes]);
+    }, [selectIndexes, outerRefs]);
 
     const onKeyDown = useCallback(
         (event: KeyboardEvent<HTMLDivElement>) => {
@@ -364,6 +372,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
 
             switch (keyCode) {
                 case Keys.pageUp: {
+                    event.preventDefault();
+
                     const isDisabledPreviousMonth = hasDisabledMonths({
                         item: outerRefs.current[currentRowIndex][currentColumnIndex],
                         key: 'previous',
@@ -380,6 +390,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     break;
                 }
                 case Keys.pageDown: {
+                    event.preventDefault();
+
                     const isDisabledNextMonth = hasDisabledMonths({
                         item: outerRefs.current[currentRowIndex][currentColumnIndex],
                         key: 'next',
@@ -396,6 +408,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     break;
                 }
                 case Keys.home: {
+                    event.preventDefault();
+
                     newColumnIndex = minColumnIndex;
 
                     if (isVisible(outerRefs, newRowIndex, newColumnIndex)) {
@@ -407,6 +421,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     break;
                 }
                 case Keys.end: {
+                    event.preventDefault();
+
                     newColumnIndex = columnSize;
 
                     if (isVisible(outerRefs, newRowIndex, newColumnIndex)) {
@@ -419,6 +435,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                 }
 
                 case Keys.left: {
+                    event.preventDefault();
+
                     newRowIndex = prevColumnIndex < minColumnIndex ? prevRowIndex : currentRowIndex;
                     newColumnIndex = prevColumnIndex < minColumnIndex ? columnSize : prevColumnIndex;
 
@@ -459,7 +477,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'first') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'first') {
                         if (isCurrentDateDisabledArrowLeft) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;
@@ -475,6 +493,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     break;
                 }
                 case Keys.up: {
+                    event.preventDefault();
+
                     newRowIndex = prevRowIndex < minRowIndex ? rowSize : prevRowIndex;
 
                     withShiftState.current = withShift;
@@ -525,7 +545,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'first') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'first') {
                         if (isCurrentDateDisabledArrowUp) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;
@@ -542,6 +562,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                 }
 
                 case Keys.right: {
+                    event.preventDefault();
+
                     newRowIndex = nextColumnIndex > columnSize ? nextRowIndex : currentRowIndex;
                     newColumnIndex = nextColumnIndex > columnSize ? minColumnIndex : nextColumnIndex;
 
@@ -581,7 +603,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'second') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'second') {
                         if (isCurrentDateDisabledArrowRight) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;
@@ -597,6 +619,8 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     break;
                 }
                 case Keys.down: {
+                    event.preventDefault();
+
                     newRowIndex = nextRowIndex > rowSize ? minRowIndex : nextRowIndex;
 
                     withShiftState.current = withShift;
@@ -647,7 +671,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                         break;
                     }
 
-                    if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'second') {
+                    if (!isDouble || getDoubleCalendarSide(currentRowIndex, calendarState) === 'second') {
                         if (isCurrentDateDisabledArrowDown) {
                             newRowIndex = currentRowIndex;
                             newColumnIndex = currentColumnIndex;

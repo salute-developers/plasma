@@ -1,25 +1,27 @@
-import React, { useState, useCallback, useMemo, forwardRef, HTMLAttributes, useEffect } from 'react';
+import React, {
+    useState,
+    useCallback,
+    useMemo,
+    forwardRef,
+    HTMLAttributes,
+    KeyboardEvent,
+    useEffect,
+    useReducer,
+} from 'react';
 
-import type { Calendar, DateObject } from '../Calendar.types';
-import { getDateFromValue, getNextDate, getPrevDate, isValueUpdate } from '../utils';
-import { useKeyNavigation } from '../hooks';
-import { CalendarDays, CalendarHeader } from '../ui';
+import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
+import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate } from '../utils';
+import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
+import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines/types';
+import { getInitialState, reducer, sizeMap } from '../store/reducer';
+import { ActionType, CalendarState } from '../store/types';
+import { IsOutOfRange } from '../CalendarBase/CalendarBase.styles';
 
 import { base as viewCSS } from './variations/_view/base';
 import { StyledCalendar, StyledSeparator, StyledWrapper } from './CalendarDouble.styles';
 
-export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> &
-    Calendar & {
-        /**
-         * Размер календаря.
-         */
-        size?: string;
-        /**
-         * Вид календаря.
-         */
-        view?: string;
-    };
+export type CalendarDoubleProps = Calendar & CalendarConfigProps;
 
 /**
  * Компонент двойного календаря.
@@ -27,7 +29,23 @@ export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> &
 export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
     forwardRef<HTMLDivElement, CalendarDoubleProps>(
         (
-            { value: externalValue, min, max, includeEdgeDates, eventList, disabledList, onChangeValue, ...rest },
+            {
+                value: externalValue,
+                min,
+                max,
+                includeEdgeDates,
+                type = 'Days',
+                eventList,
+                disabledList,
+                eventMonthList,
+                disabledMonthList,
+                eventQuarterList,
+                disabledQuarterList,
+                eventYearList,
+                disabledYearList,
+                onChangeValue,
+                ...rest
+            },
             outerRootRef,
         ) => {
             const [firstValue, secondValue] = useMemo(
@@ -35,154 +53,303 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                 [externalValue],
             );
             const value = secondValue || firstValue;
-            const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
 
-            const [date, setDate] = useState<DateObject>(getDateFromValue(value));
+            const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
+            const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
-            const [doubleDate, setMonths] = useState(() => {
-                const nextDate = getDateFromValue(firstValue);
-                const [initialYear, initialMonth] = getNextDate(nextDate.year, nextDate.monthIndex);
+            const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
 
-                return {
-                    monthIndex: [nextDate.monthIndex, initialMonth],
-                    year: [nextDate.year, initialYear],
-                };
+            const [state, dispatch] = useReducer(reducer, getInitialState(value, type, true));
+
+            const { date, calendarState, startYear, size } = state;
+
+            const [firstDate, setFirstDate] = useState<DateObject>(date);
+            const [secondDate, setSecondDate] = useState<DateObject>(date);
+
+            const { handleNext, handlePrev } = useCalendarNavigation({
+                calendarState,
+                date,
+                dispatch,
             });
 
-            const handleMonth = useCallback(
-                (getDate: (currentYear: number, currentMonth: number) => number[]) => {
-                    const [newCurrentYear, newCurrentMonth] = getDate(doubleDate.year[0], doubleDate.monthIndex[0]);
-                    const [newNextYear, newNextMonth] = getDate(doubleDate.year[1], doubleDate.monthIndex[1]);
-
-                    setMonths({
-                        monthIndex: [newCurrentMonth, newNextMonth],
-                        year: [newCurrentYear, newNextYear],
-                    });
-                },
-                [doubleDate],
-            );
-
-            const handlePrev = useCallback(() => {
-                handleMonth(getPrevDate);
-            }, [handleMonth]);
-
-            const handleNext = useCallback(() => {
-                handleMonth(getNextDate);
-            }, [handleMonth]);
-
-            const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs] = useKeyNavigation({
+            const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
                 isDouble: true,
-                size: [11, 6],
+                size,
+                calendarState,
                 onNext: handleNext,
                 onPrev: handlePrev,
             });
 
-            const handleOnChangeDay = useCallback(
-                (newDate: DateObject, coord: number[]) => {
-                    const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
-                    onChangeValue?.(newDay);
+            const {
+                handleOnChangeDay,
+                handleOnChangeMonth,
+                handleOnChangeQuarter,
+                handleOnChangeYear,
+                handleUpdateCalendarState,
+            } = useCalendarDateChange({ type, onChangeValue, onSelectIndexes, dispatch });
 
-                    onSelectIndexes(coord);
-                },
-                [onChangeValue, onSelectIndexes],
-            );
-
-            const firstDate = useMemo(
-                () => ({
-                    day: date.day,
-                    year: doubleDate.year[0],
-                    monthIndex: doubleDate.monthIndex[0],
-                }),
-                [date, doubleDate],
-            );
-
-            const secondDate = useMemo(
-                () => ({
-                    day: date.day,
-                    year: doubleDate.year[1],
-                    monthIndex: doubleDate.monthIndex[1],
-                }),
-                [date, doubleDate],
-            );
-
-            if (value && prevValue && isValueUpdate(value, prevValue)) {
-                const newDate = getDateFromValue(value);
-
-                const { year, monthIndex } = newDate;
-
-                const {
-                    monthIndex: [, prevMonthIndex],
-                    year: [, prevYear],
-                } = doubleDate;
-
-                if (prevMonthIndex !== monthIndex || prevYear !== year) {
-                    const [nextYear, nextMonthIndex] = getNextDate(year, monthIndex);
-
-                    setDate(newDate);
-
-                    setMonths({
-                        monthIndex: [monthIndex, nextMonthIndex],
-                        year: [year, nextYear],
-                    });
+            const updateSecondDate = () => {
+                if (calendarState === CalendarState.Days) {
+                    const [nextYear, nextMonthIndex] = getNextDate(date.year, date.monthIndex);
+                    setSecondDate({ year: nextYear, monthIndex: nextMonthIndex, day: date.day });
                 }
 
-                setPrevValue(value);
-            }
+                if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarters) {
+                    setSecondDate({ year: date.year + 1, monthIndex: date.monthIndex, day: date.day });
+                }
+
+                if (calendarState === CalendarState.Years) {
+                    setSecondDate({ year: startYear + YEAR_RENDER_COUNT, monthIndex: date.monthIndex, day: date.day });
+                }
+            };
+
+            const getBoundaryDates = () => {
+                // NOTE: Если установить индекс дня равным "0", то берется последнее число предыдущего месяца
+                if (calendarState === CalendarState.Days) {
+                    return [
+                        new Date(firstDate.year, firstDate.monthIndex, 1),
+                        new Date(secondDate.year, secondDate.monthIndex + 1, 0),
+                    ];
+                }
+
+                if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarters) {
+                    return [new Date(firstDate.year, 0), new Date(secondDate.year, 12, 0)];
+                }
+
+                const endVisibleYear = startYear + YEAR_RENDER_COUNT * 2 - 1;
+                return [new Date(startYear, 0), new Date(endVisibleYear, 11)];
+            };
+
+            // Изменяем ключ каждый раз как пытаемся перейти на даты которые находятся за пределами min/max ограничений.
+            // Это необходимо для того чтобы screen-reader корректно озвучивал уведомление aria-live="assertive"
+            // о том что нет доступных дат
+            const handleKeyDown = useCallback(
+                (event: KeyboardEvent<HTMLDivElement>) => {
+                    setOutOfRangeKey((previousState) => Number(!previousState));
+
+                    onKeyDown(event);
+                },
+                [onKeyDown],
+            );
+
+            useEffect(() => {
+                if (prevType !== calendarState) {
+                    dispatch({
+                        type: ActionType.UPDATE_CALENDAR_STATE,
+                        payload: { calendarState, size: sizeMap[calendarState].double },
+                    });
+
+                    setPrevType(calendarState);
+                }
+            }, [calendarState]);
 
             useEffect(() => {
                 if (!prevValue) {
                     setPrevValue(value);
                 }
+
+                if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
+                    const [minVisibleDate, maxVisibleDate] = getBoundaryDates();
+
+                    if (value > maxVisibleDate || value < minVisibleDate) {
+                        dispatch({
+                            type: ActionType.UPDATE_DATE,
+                            payload: { value },
+                        });
+                    }
+
+                    setPrevValue(value);
+                }
             }, [value, prevValue]);
+
+            useEffect(() => {
+                setFirstDate(date);
+
+                updateSecondDate();
+            }, [date, calendarState]);
 
             return (
                 <Root ref={outerRootRef} aria-label="Выбор даты" {...rest}>
+                    {isOutOfRange && (
+                        <IsOutOfRange
+                            key={outOfRangeKey}
+                            aria-atomic="true"
+                            role="alert"
+                            aria-live="assertive"
+                            aria-relevant="additions"
+                        >
+                            Далее нет доступных дат.
+                        </IsOutOfRange>
+                    )}
                     <CalendarHeader
                         isDouble
                         size={rest.size}
                         firstDate={firstDate}
                         secondDate={secondDate}
+                        startYear={startYear}
+                        type={calendarState}
                         onPrev={handlePrev}
                         onNext={handleNext}
+                        onUpdateCalendarState={handleUpdateCalendarState}
                     />
 
                     <StyledWrapper>
-                        <CalendarDays
-                            isDouble
-                            eventList={eventList}
-                            disabledList={disabledList}
-                            min={min}
-                            max={max}
-                            includeEdgeDates={includeEdgeDates}
-                            value={externalValue}
-                            date={firstDate}
-                            hoveredDay={hoveredDay}
-                            selectIndexes={selectIndexes}
-                            onChangeDay={handleOnChangeDay}
-                            onHoverDay={setHoveredDay}
-                            onSetSelected={onSelectIndexes}
-                            onKeyDown={onKeyDown}
-                            outerRefs={outerRefs}
-                        />
-                        <StyledSeparator />
-                        <CalendarDays
-                            isDouble
-                            isSecond
-                            eventList={eventList}
-                            disabledList={disabledList}
-                            min={min}
-                            max={max}
-                            includeEdgeDates={includeEdgeDates}
-                            value={externalValue}
-                            date={secondDate}
-                            hoveredDay={hoveredDay}
-                            selectIndexes={selectIndexes}
-                            onChangeDay={handleOnChangeDay}
-                            onHoverDay={setHoveredDay}
-                            onSetSelected={onSelectIndexes}
-                            onKeyDown={onKeyDown}
-                            outerRefs={outerRefs}
-                        />
+                        {calendarState === CalendarState.Days && (
+                            <>
+                                <CalendarDays
+                                    value={externalValue}
+                                    date={firstDate}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventList}
+                                    disabledList={disabledList}
+                                    includeEdgeDates={includeEdgeDates}
+                                    hoveredDay={hoveredItem}
+                                    selectIndexes={selectIndexes}
+                                    onChangeDay={handleOnChangeDay}
+                                    onHoverDay={setHoveredItem}
+                                    onSetSelected={onSelectIndexes}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                />
+                                <StyledSeparator />
+                                <CalendarDays
+                                    value={externalValue}
+                                    date={secondDate}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventList}
+                                    disabledList={disabledList}
+                                    includeEdgeDates={includeEdgeDates}
+                                    hoveredDay={hoveredItem}
+                                    selectIndexes={selectIndexes}
+                                    onChangeDay={handleOnChangeDay}
+                                    onHoverDay={setHoveredItem}
+                                    onSetSelected={onSelectIndexes}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                    isSecond
+                                />
+                            </>
+                        )}
+                        {calendarState === CalendarState.Months && (
+                            <>
+                                <CalendarMonths
+                                    value={externalValue}
+                                    date={firstDate}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventMonthList}
+                                    disabledList={disabledMonthList}
+                                    hoveredMonth={hoveredItem}
+                                    selectIndexes={selectIndexes}
+                                    onChangeMonth={handleOnChangeMonth}
+                                    onSetSelected={onSelectIndexes}
+                                    onHoverMonth={setHoveredItem}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                />
+                                <StyledSeparator />
+                                <CalendarMonths
+                                    value={externalValue}
+                                    date={secondDate}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventMonthList}
+                                    disabledList={disabledMonthList}
+                                    hoveredMonth={hoveredItem}
+                                    selectIndexes={selectIndexes}
+                                    onChangeMonth={handleOnChangeMonth}
+                                    onSetSelected={onSelectIndexes}
+                                    onHoverMonth={setHoveredItem}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                    isSecond
+                                />
+                            </>
+                        )}
+                        {calendarState === CalendarState.Quarters && (
+                            <>
+                                <CalendarQuarters
+                                    value={externalValue}
+                                    date={firstDate}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventQuarterList}
+                                    disabledList={disabledQuarterList}
+                                    hoveredQuarter={hoveredItem}
+                                    selectIndexes={selectIndexes}
+                                    onChangeQuarter={handleOnChangeQuarter}
+                                    onSetSelected={onSelectIndexes}
+                                    onHoverQuarter={setHoveredItem}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                />
+                                <StyledSeparator />
+                                <CalendarQuarters
+                                    value={externalValue}
+                                    date={secondDate}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventQuarterList}
+                                    disabledList={disabledQuarterList}
+                                    hoveredQuarter={hoveredItem}
+                                    selectIndexes={selectIndexes}
+                                    onChangeQuarter={handleOnChangeQuarter}
+                                    onSetSelected={onSelectIndexes}
+                                    onHoverQuarter={setHoveredItem}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                    isSecond
+                                />
+                            </>
+                        )}
+                        {calendarState === CalendarState.Years && (
+                            <>
+                                <CalendarYears
+                                    value={externalValue}
+                                    date={firstDate}
+                                    startYear={startYear}
+                                    selectIndexes={selectIndexes}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventYearList}
+                                    disabledList={disabledYearList}
+                                    hoveredYear={hoveredItem}
+                                    onChangeYear={handleOnChangeYear}
+                                    onSetSelected={onSelectIndexes}
+                                    onHoverYear={setHoveredItem}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                />
+                                <StyledSeparator />
+                                <CalendarYears
+                                    value={externalValue}
+                                    date={secondDate}
+                                    startYear={startYear + YEAR_RENDER_COUNT}
+                                    selectIndexes={selectIndexes}
+                                    min={min}
+                                    max={max}
+                                    eventList={eventYearList}
+                                    disabledList={disabledYearList}
+                                    hoveredYear={hoveredItem}
+                                    onChangeYear={handleOnChangeYear}
+                                    onSetSelected={onSelectIndexes}
+                                    onHoverYear={setHoveredItem}
+                                    onKeyDown={handleKeyDown}
+                                    outerRefs={outerRefs}
+                                    isDouble
+                                    isSecond
+                                />
+                            </>
+                        )}
                     </StyledWrapper>
                 </Root>
             );

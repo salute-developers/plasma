@@ -3,6 +3,7 @@ import { ChangeEvent, SyntheticEvent } from 'react';
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
 import { formatCalendarValue, formatInputValue, getDateFromFormat, getMaskedDateOnInput } from '../utils/dateHelper';
+import type { DateInfo } from '../../Calendar/Calendar.types';
 
 export const useDatePicker = ({
     currentValue,
@@ -48,13 +49,23 @@ export const useDatePicker = ({
             ? getMaskedDateOnInput(value, format, dateFormatDelimiter(), currentValue)
             : value;
 
-        setCalendarValue(formatCalendarValue(newValue, format));
+        if (!format) {
+            setCalendarValue(formatCalendarValue(newValue));
+        } else if (newValue?.length === format.length) {
+            setCalendarValue(formatCalendarValue(newValue, format));
+        }
+
         setInputValue(formatInputValue(newValue, format));
 
         onChangeValue?.(event, newValue);
     };
 
-    const handleCommitDate = (date?: Date | string, applyFormat?: boolean, isCalendarValue?: boolean) => {
+    const handleCommitDate = (
+        date?: Date | string,
+        applyFormat?: boolean,
+        isCalendarValue?: boolean,
+        dateInfo?: DateInfo,
+    ) => {
         if (disabled || readOnly) {
             return;
         }
@@ -70,7 +81,7 @@ export const useDatePicker = ({
             setCalendarValue(formatCalendarValue(date, format));
             setInputValue(formatInputValue(date, format));
 
-            return onCommitDate?.(date, false, true);
+            return onCommitDate?.(date, false, true, dateInfo);
         }
 
         const formatString = applyFormat ? format : undefined;

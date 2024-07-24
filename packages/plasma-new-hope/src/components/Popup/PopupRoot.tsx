@@ -37,7 +37,6 @@ export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
                 className={classes.root}
                 ref={innerRef}
                 placement={placement}
-                frame={frame}
                 offset={offset}
                 zIndex={zIndex}
                 onAnimationEnd={handleAnimationEnd}

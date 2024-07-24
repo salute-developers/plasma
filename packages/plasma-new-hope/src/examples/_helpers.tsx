@@ -2,7 +2,7 @@ import React from 'react';
 import type { ArgTypes, StoryContext, Decorator } from '@storybook/react';
 
 import { ComponentConfig } from '../engines';
-import type { HTMLAttributesOmitOnChange, HTMLTagList, PropsType, Variants } from '../engines/types';
+import type { HTMLAttributesWithoutOnChange, HTMLTagList, PropsType, Variants } from '../engines/types';
 
 import { ThemeType, themes } from './themes';
 
@@ -14,7 +14,7 @@ export const WithTheme: Decorator = (Story, context: StoryContext) => {
         <div
             id="theme-root"
             className={themes?.[themeName]?.[themeType]}
-            style={{ padding: '1rem', height: '100vh', boxSizing: 'border-box' }}
+            style={{ padding: '1rem', minHeight: '100vh', boxSizing: 'border-box' }}
         >
             <Story />
         </div>
@@ -25,7 +25,7 @@ export function argTypesFromConfig<
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
-    LayoutProps extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange
+    LayoutProps extends React.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement>
 >(config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>, exclude: string[] = []) {
     const { defaults, variations } = config;
 

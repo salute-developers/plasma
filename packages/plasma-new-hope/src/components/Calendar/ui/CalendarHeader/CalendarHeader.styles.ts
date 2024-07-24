@@ -84,6 +84,7 @@ export const StyledNavigation = styled.div`
 export const StyledDoubleHeaderWrapper = styled.div`
     width: 100%;
     display: grid;
+    align-items: center;
     grid-template-columns: var(${tokens.iconButtonWidth}) 1fr var(${tokens.iconButtonWidth});
     grid-template-areas: 'a b c';
 
@@ -96,13 +97,20 @@ export const StyledDoubleHeaderWrapper = styled.div`
     }
 `;
 
-export const StyledHeaderDouble = styled.h4`
+export const StyledHeaderDouble = styled.button`
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+
     font-family: var(${tokens.calendarHeaderFontFamily});
     font-size: var(${tokens.calendarHeaderFontSize});
     font-style: var(${tokens.calendarHeaderFontStyle});
     font-weight: var(${tokens.calendarHeaderFontWeightBold});
     letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
     line-height: var(${tokens.calendarHeaderFontLineHeight});
+
+    color: var(${tokens.calendarContentPrimaryColor});
 
     grid-area: b;
     justify-self: center;
@@ -112,6 +120,14 @@ export const StyledHeaderDouble = styled.h4`
     justify-content: space-between;
     align-items: center;
     margin: 0;
+    height: fit-content;
 
     ${String(flexCenter)};
+
+    ${addFocus({
+        outlineSize: '0.063rem',
+        outlineOffset: '-0.125rem',
+        outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
+        outlineRadius: '0.563rem',
+    })};
 `;

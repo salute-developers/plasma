@@ -1,12 +1,12 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { styled } from '@linaria/react';
 
+import { Heading } from '../../../typograpy/components/Heading/Heading';
 import { WithTheme } from '../../../_helpers';
-import { Popover } from '../Popover/Popover';
-import { Button } from '../Button/Button';
+import { Tabs } from '../Tabs/Tabs';
+import { TabItem } from '../Tabs/TabItem';
 
 import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from './Calendar';
 
@@ -39,50 +39,40 @@ export default meta;
 
 type CalendarProps = ComponentProps<typeof Calendar>;
 type CalendarBaseProps = ComponentProps<typeof CalendarBase>;
-type CalendarDoubleProps = ComponentProps<typeof CalendarDouble>;
 type CalendarBaseRangeProps = ComponentProps<typeof CalendarBaseRange>;
 
-const StyledCalendar = styled(Calendar)`
-    background-color: var(--background-primary);
-    box-shadow: 0 0.063rem 0.25rem -0.063rem rgba(0, 0, 0, 0.04), 0 0.375rem 0.75rem -0.125rem rgba(8, 8, 8, 0.1);
-    border-radius: 0.75rem;
-`;
+const eventColors = ['red', 'green', 'blue', 'purple'];
+const defaultMinDate = new Date(2016, 6, 1);
+const defaultMaxDate = new Date(2030, 11, 24);
 
-const StyledArrow = styled.div`
-    visibility: hidden;
+const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumber = 2) => {
+    const baseDate = {
+        day: 10,
+        monthIndex: 6,
+        year: 2023,
+    };
 
-    &,
-    &::before {
-        position: absolute;
-        width: 0.5rem;
-        height: 0.5rem;
-        background: var(--surface-solid-tertiary);
-    }
+    const colorIndex = Math.floor(Math.random() * eventColors.length);
 
-    &::before {
-        visibility: visible;
-        content: '';
-        transform: rotate(45deg);
-    }
-`;
+    const events = [...new Array(datesNumber)].map((_, index) => {
+        const eventNumber = Math.floor(Math.random() * 3 + 1);
+        const day = type === 'days' ? baseDate.day + index : 1;
+        const month =
+            // eslint-disable-next-line no-nested-ternary
+            type === 'months' || type === 'quarters'
+                ? baseDate.monthIndex + index
+                : type === 'days'
+                ? baseDate.monthIndex
+                : 0;
+        const year = type === 'years' ? baseDate.year + index : baseDate.year;
 
-const baseEvents = [
-    {
-        date: new Date(2023, 10, 6),
-    },
-    {
-        date: new Date(2023, 10, 16),
-        color: 'red',
-    },
-    {
-        date: new Date(2023, 10, 16),
-        color: 'green',
-    },
-    {
-        date: new Date(2023, 10, 16),
-        color: 'blue',
-    },
-];
+        return [...new Array(eventNumber)].map(() => {
+            return { date: new Date(year, month, day), color: eventColors[colorIndex] };
+        });
+    });
+
+    return events.flat();
+};
 
 const StoryDefault = (args: CalendarProps) => {
     const { isRange, isDouble, min, max, date, includeEdgeDates, size } = args;
@@ -97,15 +87,6 @@ const StoryDefault = (args: CalendarProps) => {
         setValueRange(newValue);
     }, []);
 
-    const eventsRange = [...new Array(10)].map((_, day) => ({
-        date: new Date(2023, 10, 10 + day),
-        color: 'purple',
-    }));
-
-    const disabledDays = [...new Array(5)].map((_, day) => ({
-        date: new Date(2023, 10, 23 + day),
-    }));
-
     return (
         <Calendar
             size={size}
@@ -113,8 +94,6 @@ const StoryDefault = (args: CalendarProps) => {
             isDouble={isDouble}
             date={date}
             value={(isRange ? valueRange : value) as Date & [Date, Date?]}
-            eventList={[...baseEvents, ...eventsRange]}
-            disabledList={disabledDays}
             min={min}
             max={max}
             includeEdgeDates={includeEdgeDates}
@@ -135,254 +114,170 @@ export const Default: StoryObj<CalendarProps> = {
     render: (args) => <StoryDefault {...args} />,
 };
 
-const StoryBase = (args: CalendarBaseProps) => {
-    const { min, max, type, includeEdgeDates, size } = args;
-    const [value, setValue] = useState(new Date(2023, 10, 16));
+const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
+    const { min, max, includeEdgeDates, size, displayDouble } = args;
+    const [value, setValue] = useState(new Date(2023, 6, 7));
+    const [currentState, setCurrentState] = useState('Days');
 
-    const handleOnChange = useCallback((newValue: Date) => {
+    const handleOnChange = useCallback((newValue: Date, dateInfo?: unknown) => {
         setValue(newValue);
-        onChangeValue(newValue);
+        onChangeValue(newValue, dateInfo);
     }, []);
 
-    const eventsRange = [...new Array(10)].map((_, day) => ({
-        date: new Date(2023, 10, 10 + day),
-        color: 'purple',
-    }));
+    const eventList = useRef(getBaseEvents('days', 5));
+    const eventMonthList = useRef(getBaseEvents('months', 5));
+    const eventQuarterList = useRef(getBaseEvents('quarters'));
+    const eventYearList = useRef(getBaseEvents('years'));
 
     const disabledDays = [...new Array(5)].map((_, day) => ({
-        date: new Date(2023, 10, 23 + day),
+        date: new Date(2023, 6, 23 + day),
     }));
 
+    const getCalendarComponent = ({ type, ...rest }) => {
+        return displayDouble ? (
+            <CalendarDouble
+                size={size}
+                value={value}
+                min={min}
+                max={max}
+                includeEdgeDates={includeEdgeDates}
+                type={type}
+                onChangeValue={handleOnChange}
+                {...rest}
+            />
+        ) : (
+            <CalendarBase
+                size={size}
+                value={value}
+                min={min}
+                max={max}
+                includeEdgeDates={includeEdgeDates}
+                type={type}
+                onChangeValue={handleOnChange}
+                {...rest}
+            />
+        );
+    };
+
+    const calendarMap = {
+        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays }),
+        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current }),
+        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current }),
+        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current }),
+    };
+
     return (
-        <CalendarBase
-            size={size}
-            value={value}
-            eventList={eventsRange}
-            disabledList={disabledDays}
-            min={min}
-            max={max}
-            includeEdgeDates={includeEdgeDates}
-            type={type}
-            onChangeValue={handleOnChange}
-        />
+        <>
+            <Heading size="h3">Тип календаря</Heading>
+            <Tabs view="default" size="m">
+                {Object.keys(calendarMap).map((state, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view="divider"
+                        selected={state === currentState}
+                        onClick={() => setCurrentState(state)}
+                        size="m"
+                    >
+                        {state}
+                    </TabItem>
+                ))}
+            </Tabs>
+            <div style={{ marginTop: '1rem' }}>{calendarMap[currentState]}</div>
+        </>
     );
 };
 
-export const Base: StoryObj<CalendarBaseProps> = {
-    argTypes: {
-        type: {
-            options: ['Days', 'Months', 'Years'],
-            control: {
-                type: 'select',
-            },
-        },
-    },
+export const Base: StoryObj<CalendarBaseProps & { displayDouble: boolean }> = {
     args: {
         size: 'm',
-        min: new Date(2023, 10, 1),
-        max: new Date(2023, 11, 24),
+        min: defaultMinDate,
+        max: defaultMaxDate,
         includeEdgeDates: false,
-        type: 'Days',
+        displayDouble: false,
     },
     render: (args) => <StoryBase {...args} />,
 };
 
-const StoryDouble = (args: CalendarDoubleProps) => {
-    const { min, max, includeEdgeDates, size } = args;
-    const [value, setValue] = useState(new Date(2023, 10, 16));
-    const handleOnChange = useCallback((newValue: Date) => {
-        setValue(newValue);
-        onChangeValue(newValue);
-    }, []);
+const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) => {
+    const { min, max, includeEdgeDates, size, displayDouble } = args;
+    const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 6, 1), new Date(2023, 6, 16)]);
+    const [currentState, setCurrentState] = useState('Days');
 
-    const eventsRange = [...new Array(15)].map((_, day) => ({
-        date: new Date(2023, 10, 10 + day),
-        color: 'purple',
-    }));
+    const handleOnChange = (newValue: [Date, Date?], dateInfo) => {
+        onChangeValue(newValue, dateInfo);
+        setValue(newValue);
+    };
+
+    const eventList = useRef(getBaseEvents('days', 5));
+    const eventMonthList = useRef(getBaseEvents('months', 5));
+    const eventQuarterList = useRef(getBaseEvents('quarters'));
+    const eventYearList = useRef(getBaseEvents('years'));
 
     const disabledDays = [...new Array(5)].map((_, day) => ({
-        date: new Date(2023, 10, 23 + day),
+        date: new Date(2023, 6, 23 + day),
     }));
 
-    return (
-        <CalendarDouble
-            size={size}
-            value={value}
-            eventList={eventsRange}
-            disabledList={disabledDays}
-            min={min}
-            max={max}
-            includeEdgeDates={includeEdgeDates}
-            onChangeValue={handleOnChange}
-        />
-    );
-};
-
-export const Double: StoryObj<CalendarDoubleProps> = {
-    args: {
-        size: 'm',
-        min: new Date(2023, 10, 1),
-        max: new Date(2023, 11, 24),
-        includeEdgeDates: false,
-    },
-    render: (args) => <StoryDouble {...args} />,
-};
-
-const StoryRange = (args: CalendarBaseRangeProps) => {
-    const { min, max, type, includeEdgeDates, size } = args;
-    const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 10, 15), new Date(2023, 10, 24)]);
-    const handleOnChange = useCallback((newValue: [Date, Date?]) => {
-        onChangeValue(newValue);
-        setValue(newValue);
-    }, []);
-
-    const eventsRange = [...new Array(10)].map((_, day) => ({
-        date: new Date(2023, 10, 16 + day),
-        color: 'purple',
-    }));
-
-    const disabledDays = [...new Array(5)].map((_, day) => ({
-        date: new Date(2023, 10, 1 + day),
-    }));
-
-    const eventList = useMemo(() => [...baseEvents, ...eventsRange], [eventsRange]);
-    const disabledList = useMemo(() => [{ date: new Date(2023, 10, 1) }, ...disabledDays], [disabledDays]);
-
-    return (
-        <CalendarBaseRange
-            size={size}
-            value={values}
-            eventList={eventList}
-            disabledList={disabledList}
-            min={min}
-            max={max}
-            includeEdgeDates={includeEdgeDates}
-            type={type}
-            onChangeValue={handleOnChange}
-        />
-    );
-};
-
-export const Range: StoryObj<CalendarBaseRangeProps> = {
-    argTypes: {
-        type: {
-            options: ['Days', 'Months', 'Years'],
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    args: {
-        size: 'm',
-        min: new Date(2023, 10, 1),
-        max: new Date(2023, 11, 24),
-        includeEdgeDates: false,
-        type: 'Days',
-    },
-    render: (args) => <StoryRange {...args} />,
-};
-
-const StoryRangeDouble = (args: CalendarBaseRangeProps) => {
-    const { min, max, includeEdgeDates, size } = args;
-    const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 10, 15), new Date(2023, 10, 24)]);
-    const handleOnChange = useCallback((newValue: [Date, Date?]) => {
-        onChangeValue(newValue);
-        setValue(newValue);
-    }, []);
-
-    const eventsRange = [...new Array(10)].map((_, day) => ({
-        date: new Date(2023, 10, 16 + day),
-        color: 'purple',
-    }));
-
-    const disabledDays = [...new Array(5)].map((_, day) => ({
-        date: new Date(2023, 10, 1 + day),
-    }));
-
-    const eventList = useMemo(() => [...baseEvents, ...eventsRange], [eventsRange]);
-    const disabledList = useMemo(() => [{ date: new Date(2023, 10, 1) }, ...disabledDays], [disabledDays]);
-
-    return (
-        <CalendarDoubleRange
-            size={size}
-            value={values}
-            eventList={eventList}
-            disabledList={disabledList}
-            min={min}
-            max={max}
-            includeEdgeDates={includeEdgeDates}
-            onChangeValue={handleOnChange}
-        />
-    );
-};
-
-export const RangeDouble: StoryObj<CalendarBaseRangeProps> = {
-    args: {
-        size: 'm',
-        min: new Date(2023, 10, 1),
-        max: new Date(2023, 11, 24),
-        includeEdgeDates: false,
-    },
-    render: (args) => <StoryRangeDouble {...args} />,
-};
-
-const StoryWithPopover = (args: CalendarProps) => {
-    const { isDouble, min, max, includeEdgeDates, size } = args;
-    const [isOpen, setIsOpen] = useState(false);
-    const [textValue, setTextValue] = useState('2023-10-16');
-    const [value, setValue] = useState(new Date(textValue));
-
-    const handleOnChange = useCallback((newValue: Date) => {
-        setValue(newValue);
-        setTextValue(new Date(newValue).toLocaleDateString('en-CA'));
-        setIsOpen(false);
-        onChangeValue(newValue);
-    }, []);
-
-    const eventsRange = [...new Array(10)].map((_, day) => ({
-        date: new Date(2023, 10, 10 + day),
-        color: 'purple',
-    }));
-
-    const disabledDays = [...new Array(5)].map((_, day) => ({
-        date: new Date(2023, 10, 23 + day),
-    }));
-
-    return (
-        <Popover
-            isOpen={isOpen}
-            onToggle={(is) => setIsOpen(is)}
-            role="presentation"
-            id="popover"
-            target={<Button onClick={() => setIsOpen(true)}>{textValue}</Button>}
-            arrow={<StyledArrow />}
-            offset={[0, 6]}
-            closeOnEsc
-            closeOnOverlayClick
-        >
-            <StyledCalendar
+    const getCalendarComponent = ({ type, ...rest }) => {
+        return displayDouble ? (
+            <CalendarBaseRange
                 size={size}
-                value={value}
-                eventList={[...baseEvents, ...eventsRange]}
-                disabledList={disabledDays}
+                value={values}
                 min={min}
                 max={max}
                 includeEdgeDates={includeEdgeDates}
-                isDouble={isDouble}
-                isRange={false}
+                type={type}
                 onChangeValue={handleOnChange}
+                {...rest}
             />
-        </Popover>
+        ) : (
+            <CalendarDoubleRange
+                size={size}
+                value={values}
+                min={min}
+                max={max}
+                includeEdgeDates={includeEdgeDates}
+                type={type}
+                onChangeValue={handleOnChange}
+                {...rest}
+            />
+        );
+    };
+
+    const calendarMap = {
+        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays }),
+        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current }),
+        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current }),
+        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current }),
+    };
+
+    return (
+        <>
+            <Heading size="h3">Тип календаря</Heading>
+            <Tabs view="default" size="m">
+                {Object.keys(calendarMap).map((state, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view="divider"
+                        selected={state === currentState}
+                        onClick={() => setCurrentState(state)}
+                        size="m"
+                    >
+                        {state}
+                    </TabItem>
+                ))}
+            </Tabs>
+            <div style={{ marginTop: '1rem' }}>{calendarMap[currentState]}</div>
+        </>
     );
 };
 
-export const WithPopover: StoryObj<CalendarProps> = {
+export const Range: StoryObj<CalendarBaseRangeProps & { displayDouble: boolean }> = {
     args: {
         size: 'm',
-        min: new Date(2023, 9, 1),
-        max: new Date(2023, 11, 24),
-        isDouble: false,
+        min: defaultMinDate,
+        max: defaultMaxDate,
         includeEdgeDates: false,
+        displayDouble: false,
     },
-    render: (args) => <StoryWithPopover {...args} />,
+    render: (args) => <StoryRange {...args} />,
 };
