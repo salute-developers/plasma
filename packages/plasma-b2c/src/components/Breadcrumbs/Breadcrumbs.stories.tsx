@@ -2,6 +2,8 @@ import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
+import { Dropdown } from '../Dropdown';
+
 import { Breadcrumbs } from '.';
 
 type BreadcrumbsProps = ComponentProps<typeof Breadcrumbs>;
@@ -12,6 +14,13 @@ const meta: Meta<BreadcrumbsProps> = {
     args: {
         view: 'default',
         size: 'm',
+    },
+};
+
+export default meta;
+
+export const Default: StoryObj<BreadcrumbsProps> = {
+    args: {
         showItems: 2,
         items: [
             { title: 'Home', href: '/' },
@@ -20,13 +29,51 @@ const meta: Meta<BreadcrumbsProps> = {
             { title: 'Contacts' },
         ],
     },
-};
-
-export default meta;
-
-export const Default: StoryObj<BreadcrumbsProps> = {
     render: (props: BreadcrumbsProps) => {
         const args = { ...props };
+
+        return <Breadcrumbs {...args} />;
+    },
+};
+
+export const CustomShorter: StoryObj<BreadcrumbsProps> = {
+    args: {
+        view: 'default',
+        size: 'm',
+    },
+    render: (props: BreadcrumbsProps) => {
+        const items = [
+            { title: 'Home', href: '/' },
+            { title: 'About as', href: '/' },
+            {
+                renderItem: () => {
+                    const itemsDropdown = [
+                        {
+                            value: 'Custom Item 1',
+                            label: 'Custom Item 1',
+                        },
+                        {
+                            value: 'Custom Item 2',
+                            label: 'Custom Item 2',
+                        },
+                    ];
+                    return (
+                        <Dropdown
+                            variant="tight"
+                            placement="bottom"
+                            items={itemsDropdown}
+                            trigger="hover"
+                            size={args.size}
+                        >
+                            <span>...</span>
+                        </Dropdown>
+                    );
+                },
+            },
+            { title: 'Contacts' },
+        ];
+
+        const args = { ...props, items };
 
         return <Breadcrumbs {...args} />;
     },
