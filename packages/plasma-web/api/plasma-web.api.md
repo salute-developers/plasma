@@ -2022,7 +2022,7 @@ export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_
 
 export { SelectGroup }
 
-// @public (undocumented)
+// @public
 export const SelectNew: FunctionComponent<PropsType<    {
 size: {
 xs: PolymorphicClassName;
