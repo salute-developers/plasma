@@ -1,5 +1,7 @@
 import React, { HTMLAttributes, ReactNode, useState, KeyboardEvent } from 'react';
 
+import { addSeparator } from '../../utils';
+
 import { StyledHidden, StyledRoot, StyledShorter } from './BreadcrumbShorter.styles';
 import { BreadcrumbShorterProps } from './BreadcrumbShorter.types';
 
@@ -9,9 +11,7 @@ export const BreadcrumbShorter: React.FC<HTMLAttributes<HTMLDivElement> & Breadc
 }) => {
     const [openShorter, setOpenShorter] = useState(false);
 
-    const renderItems: ReactNode[] = children.flatMap((item, idx) =>
-        idx < children.length - 1 ? [item, separator] : [item],
-    );
+    const renderItems: ReactNode[] = addSeparator(children, separator);
 
     const onKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
         event.persist();
