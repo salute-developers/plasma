@@ -1,3 +1,183 @@
+# v0.114.0 (Thu Jul 25 2024)
+
+### Release Notes
+
+#### Release by 24.07.2024 ([#1319](https://github.com/salute-developers/plasma/pull/1319))
+
+## Components
+
+### Portal/Popup
+
+* убрана зависимость от свойства `frame` в элементе `PopupRootContainer`
+* переделан компонент `Portal` из конфигурируемого в обычный функциональный компонент
+
+ 
+fix(plasma-new-hope): `Popup` and `Portal` improvements (https://github.com/salute-developers/plasma/pull/1299)
+
+### Chip
+
+- добавлено новое свойство `hasClear`
+- добавлен тест и обновлена документация
+ 
+plasma-*: Add prop `hasClear` for Chip (https://github.com/salute-developers/plasma/pull/1312)
+
+### DatePicker
+
+- добавлена поддержка выбора кварталов
+- добавлены 4ре варианта работы с календарем (выбор дней, месяцев, календарей, лет)
+- добавлена поддержка кварталов в datepicker
+- добавлена возможность задавать события для каждой календарной сетки
+- добавлена возможность задавать неактивные элементы для каждой календарной сетки
+
+**Before:**
+<div style="display: flex">
+<img src="https://github.com/user-attachments/assets/2208459a-92ee-493c-974e-b01f216e268b" width="200" height="200">
+<img src="https://github.com/user-attachments/assets/c765d898-bfbb-42a2-be30-8982f27031bb" width="200" height="200">
+<img src="https://github.com/user-attachments/assets/bc61edf5-0a18-47a8-b34e-672f2eb0379e" width="200" height="200">
+</div>
+
+**After:**
+<div style="display: flex">
+<img src="https://github.com/user-attachments/assets/0b42d119-8964-4a52-b9e0-564b0f1a8141" width="200" height="200">
+<img src="https://github.com/user-attachments/assets/1e2cb981-4a16-475d-ba07-51a774130349" width="200" height="200">
+<img src="https://github.com/user-attachments/assets/30f898e9-06c5-47ae-bf66-b4c29f4eb9a0" width="200" height="200">
+<img src="https://github.com/user-attachments/assets/0236ddcc-4473-4b46-a200-ae088f960b50" width="200" height="200">
+</div>
+
+
+plasma-*: Datepicker improvements (https://github.com/salute-developers/plasma/pull/1302)
+
+### Autocomplete
+
+- добавлен в поставку во все клиентские библиотеки  
+
+feat: Autocomplete (https://github.com/salute-developers/plasma/pull/1292)
+
+### Price, Portal
+
+- компонент `Price` добавлен в `plasma-new-hope`, портирован в `plasma-{web, b2c}`, `sdds-{serv, dfa}`
+- для `Price` обновлены тесты и документация
+- исправлена ошибка отсутствующего `PropsTable` в документации `Portal`
+
+ 
+plasma-*: add `Price` component (https://github.com/salute-developers/plasma/pull/1307)
+
+### Select
+
+- добавлен новый компонент с поддержкой вложенных списков
+- поставлен во все клиентские библиотеки   
+
+ 
+feat: Select (https://github.com/salute-developers/plasma/pull/1233)
+
+### SDDS-SERV
+
+- добавлены компоненты:
+  - Calendar
+  - Notification
+  - ButtonBase
+  - Skeleton
+  - Accordion
+
+### SDDS-{SERV, DFA}
+
+- заменены старые токены с префиксом `--plasma-colors...` на корректные.
+
+ 
+Sdds-serv & sdds-dfa sync (https://github.com/salute-developers/plasma/pull/1314)
+
+### Accordion
+
+- добавлен новый view (b2c)
+- добавлена возможность добавить класс в accordionItem
+- исправлена работы disabled
+- добавлен флаг startLeftPosition
+- переделаны новые отступы из нового дизайна
+
+ 
+Add functional to accordion (https://github.com/salute-developers/plasma/pull/1301)
+
+### Typography
+
+-   добавлен пропс color
+-   в секции plasma-web storybook добавлен color picker
+
+ 
+feat: Add color prop in Typography (https://github.com/salute-developers/plasma/pull/1308)
+
+
+## Tokens
+
+* Добавлена новая темая `sdds_cs` в библиотеку `@salutejs/sdds-themes` с учётом обновленных токенов типографики.
+
+ 
+feat(sdds-themes): Add `sdds_cs` theme (https://github.com/salute-developers/plasma/pull/1309)
+
+
+## Docs
+
+### AudioPlayer
+
+- изменен `cdn` в примерах`https://vc-static.sberdevices.ru/smartmarket-video-news/` на `https://cdn1.newsback.sberdevices.ru/p-newsback/`
+
+ 
+plasma-{b2c,web}: Fix vc cdn url (https://github.com/salute-developers/plasma/pull/1298)
+
+
+## Misc
+
+### Tooltip
+
+- исправлен проброс стилей в Tooltip
+
+ 
+plasma-new-hope:  forward styles and className to Tooltip root (https://github.com/salute-developers/plasma/pull/1311)
+
+### Textarea
+
+- исправлена логика при использовании свойства `autoResize` (теперь ширина автоматически растягивается)
+
+Результат с включенным `autoResize` после изменения ширины
+
+**До:**
+![](https://github.com/salute-developers/plasma/assets/38344415/70ad8513-353e-477f-a0fe-e4d3ee5cfd55)
+
+**После:**
+![](https://github.com/salute-developers/plasma/assets/38344415/84306373-b4fb-4f13-8a77-b2fd05c08721)
+
+ 
+plasma-*: Fix width autoresize prop in textarea (https://github.com/salute-developers/plasma/pull/1297)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 24.07.2024 [#1319](https://github.com/salute-developers/plasma/pull/1319) ([@Yeti-or](https://github.com/Yeti-or) [@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@simashova](https://github.com/simashova) [@TitanKuzmich](https://github.com/TitanKuzmich) [@iljs](https://github.com/iljs) [@shuga2704](https://github.com/shuga2704) [@denivladislav](https://github.com/denivladislav) [@vadim-kudr](https://github.com/vadim-kudr) [@Yakutoc](https://github.com/Yakutoc))
+- feat: Add color prop to Typography, code review fixes [#1308](https://github.com/salute-developers/plasma/pull/1308) ([@vadim-kudr](https://github.com/vadim-kudr))
+- feat: Add color prop to Typography, fixes ([@vadim-kudr](https://github.com/vadim-kudr))
+
+#### 🐛 Bug Fix
+
+- Merge remote-tracking branch 'origin/dev' into release_2024-07-24 ([@Yakutoc](https://github.com/Yakutoc))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 10
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Anastasia Simashova ([@simashova](https://github.com/simashova))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+- Vladislav Denisov ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # v0.108.0 (Thu Jul 11 2024)
 
 ### Release Notes
