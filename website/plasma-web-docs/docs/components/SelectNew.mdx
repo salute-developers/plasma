@@ -1,13 +1,13 @@
 ---
-id: select
-title: Select
+id: selectNew
+title: SelectNew
 ---
 
 import { PropsTable, Description, StorybookLink } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Select
+# SelectNew
 
 <Description name="SelectNew" />
 <PropsTable name="SelectNew" />
@@ -60,13 +60,9 @@ type Items = Array<{
 ```
 
 Тип выбора селекта - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.
-
-[//]: # (Селект может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\)
-
-[//]: # (Есть возможность прокидывать компонент `SelectNotFoundContent` в пропс `notFoundContent` для изменения содержимого выпадающего окна.)
-
-[//]: # (Это нужно в случаях, когда произошла ошибка при загрузке `items`, либо когда `items` пустой. Более подробно в примерах.)
-
+Селект может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\
+Есть возможность прокидывать компонент `EmptyState` в пропс `renderList` для изменения содержимого выпадающего окна.\
+Это нужно в случаях, когда произошла ошибка при загрузке `items`, либо когда `items` пустой. Более подробно в примерах.
 
 ## Примеры
 
@@ -76,7 +72,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { SelectNew as Select } from '@salutejs/plasma-web';
+        import { SelectNew } from '@salutejs/plasma-web';
 
         export function App() {
             const [singleValue, setSingleValue] = useState('');
@@ -106,11 +102,11 @@ type Items = Array<{
             return (
                 <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Single" value={singleValue} onChange={setSingleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
+                        <SelectNew items={items} label="Single" value={singleValue} onChange={setSingleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
                     </div>
 
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Multiple" value={multipleValue} onChange={setMultipleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
+                        <SelectNew multiselect items={items} label="Multiple" value={multipleValue} onChange={setMultipleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
                     </div>
                 </div>
             );
@@ -122,7 +118,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { SelectNew as Select } from '@salutejs/plasma-web';
+        import { SelectNew } from '@salutejs/plasma-web';
 
         export function App() {
             const [singleValue, setSingleValue] = useState('');
@@ -152,11 +148,11 @@ type Items = Array<{
             return (
                 <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Single" target="button" value={singleValue} onChange={setSingleValue} />
+                        <SelectNew items={items} label="Single" target="button-like" value={singleValue} onChange={setSingleValue} />
                     </div>
 
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Multiple" target="button" value={multipleValue} onChange={setMultipleValue} />
+                        <SelectNew multiselect items={items} label="Multiple" target="button-like" value={multipleValue} onChange={setMultipleValue} />
                     </div>
                 </div>
             );
@@ -168,7 +164,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { SelectNew as Select, Button } from '@salutejs/plasma-web';
+        import { SelectNew, Button } from '@salutejs/plasma-web';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
@@ -197,31 +193,10 @@ type Items = Array<{
             return (
                 <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" target="button" value={multipleValue} onChange={setMultipleValue} />
+                        <SelectNew items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} />
                     </div>
 
                     <Button onClick={() => setMultipleValue([])}>Очистить</Button>
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="emptyList" label="Empty list">
-        ```tsx live
-        import React from 'react';
-        import { Select, SelectNotFoundContent } from '@salutejs/plasma-web';
-        import { IconEdit } from '@salutejs/plasma-icons';
-
-        export function App() {
-            const [multipleValue, setMultipleValue] = useState([]);
-
-            const items = [];
-
-            return (
-                <div style={{ height: '300px' }}>
-                    <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" target="button" value={multipleValue} onChange={setMultipleValue} notFoundContent={<SelectNotFoundContent icon={<IconEdit size='s' color="inherit" />} description="Ошибка" buttonText="Обновить" />} />
-                    </div>
                 </div>
             );
         }
@@ -232,7 +207,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { SelectNew as Select } from '@salutejs/plasma-web';
+        import { SelectNew } from '@salutejs/plasma-web';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState([]);
@@ -265,7 +240,7 @@ type Items = Array<{
             return (
                 <div style={{ height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderValue={renderValue} />
+                        <SelectNew items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderValue={renderValue} />
                     </div>
                 </div>
             );
@@ -278,7 +253,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { SelectNew as Select, Cell } from '@salutejs/plasma-web';
+        import { SelectNew, Cell } from '@salutejs/plasma-web';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState([]);
@@ -309,7 +284,7 @@ type Items = Array<{
             return (
                 <div style={{ height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderItem={renderItem} />
+                        <SelectNew items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderItem={renderItem} />
                     </div>
                 </div>
             );
@@ -323,7 +298,7 @@ type Items = Array<{
 
         ```tsx live
         import React, { useRef } from 'react';
-        import { SelectNew as Select } from '@salutejs/plasma-web';
+        import { SelectNew } from '@salutejs/plasma-web';
 
         export function App() {
             const [value, setValue] = useState('');
@@ -354,7 +329,7 @@ type Items = Array<{
             return (
                 <div style={{ height: '300px' }} ref={ref}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" value={value} onChange={setValue} portal={ref} listWidth="300px" />
+                        <SelectNew items={items} label="Label" placeholder="Placeholder" value={value} onChange={setValue} portal={ref} listWidth="300px" />
                     </div>
                 </div>
             );
@@ -366,7 +341,7 @@ type Items = Array<{
 
        ```tsx live
         import React from 'react';
-        import { SelectNew as Select } from '@salutejs/plasma-web';
+        import { SelectNew } from '@salutejs/plasma-web';
 
         export function App() {
             const items = [
@@ -393,7 +368,7 @@ type Items = Array<{
             return (
                 <div style={{ height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" />
+                        <SelectNew items={items} label="Label" placeholder="Placeholder" />
                     </div>
                 </div>
             );

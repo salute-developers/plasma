@@ -269,7 +269,7 @@ type SuggestionItem = {
                         listMaxHeight="250px"
                         onScroll={onScroll}
                         threshold={0}
-                        renderListEnd={() => <Cell contentLeft={<Spinner view="primary" />} title="Загрузка" stretching="auto" />}
+                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="primary" />} title="Загрузка" stretching="auto" /> : undefined}
                         label="Label"
                         placeholder="Placeholder"
                         leftHelper="Введите имя Алексей"
