@@ -13,7 +13,7 @@ const meta: Meta<DatePickerProps> = {
     title: 'Controls/Pickers',
     decorators: [InSpacingDecorator],
     argTypes: {
-        ...disableProps(['initialValue', 'minDate', 'maxDate']),
+        ...disableProps(['initialValue', 'minDate', 'maxDate', 'initialTimeValue', 'minTimeDate', 'maxTimeDate']),
     },
 };
 
@@ -23,6 +23,9 @@ type StoryDefaultProps = DatePickerProps & {
     initialValue: string;
     minDate: string;
     maxDate: string;
+    initialTimeValue: string;
+    minTimeDate: string;
+    maxTimeDate: string;
     DatePickerSize: string;
     TimePickerSize: string;
     TimePickerStep: number;
@@ -86,6 +89,9 @@ const StoryDefault = ({ disableScrollSnapAlign, ...args }: StoryDefaultProps) =>
     const [value, setValue] = useState(parseDateTime(args.initialValue));
     const min = useMemo(() => parseDateTime(args.minDate), [args.minDate]);
     const max = useMemo(() => parseDateTime(args.maxDate), [args.maxDate]);
+    const [timeValue, setTimeValue] = useState(parseDateTime(args.initialTimeValue));
+    const minTime = useMemo(() => parseDateTime(args.minTimeDate), [args.minTimeDate]);
+    const maxTime = useMemo(() => parseDateTime(args.maxTimeDate), [args.maxTimeDate]);
     const years = args.optionsYears;
     const months = args.optionsMonths;
     const days = args.optionsDays;
@@ -137,9 +143,9 @@ const StoryDefault = ({ disableScrollSnapAlign, ...args }: StoryDefaultProps) =>
             <TimePicker
                 key={`time-${args.TimePickerSize}-${args.TimePickerVisibleItems}`}
                 id="timepicker"
-                value={value}
-                min={min}
-                max={max}
+                value={timeValue}
+                min={minTime}
+                max={maxTime}
                 step={args.TimePickerStep}
                 size={args.TimePickerSize as 's'}
                 visibleItems={args.TimePickerVisibleItems as 3}
@@ -147,7 +153,7 @@ const StoryDefault = ({ disableScrollSnapAlign, ...args }: StoryDefaultProps) =>
                 options={timeOptions}
                 disabled={args.disabled}
                 controls={args.controls}
-                onChange={setValue}
+                onChange={setTimeValue}
                 enableNativeControl={args.TimePickerNativeControl}
                 secondsAriaLabel="секунды"
                 minutesAriaLabel="минуты"
@@ -195,6 +201,9 @@ export const Default: StoryObj<StoryDefaultProps> = {
         initialValue: '01.09.1980 00:28:59',
         minDate: '01.01.1975 01:15:29',
         maxDate: '31.12.1985 12:45:50',
+        initialTimeValue: '01.01.1975 00:28:59',
+        minTimeDate: '01.01.1975 00:15:29',
+        maxTimeDate: '01.01.1975 23:45:50',
         optionsYears: true,
         optionsMonths: true,
         optionsDays: true,
@@ -227,7 +236,7 @@ const StoryDatePicker = ({
     optionsDays,
     optionsShortMonthName,
     ...rest
-}: StoryDatePickerProps) => {
+}: Omit<StoryDatePickerProps, 'value' | 'min' | 'max'>) => {
     const [value, setValue] = useState(parseDateTime(initialValue));
     const min = useMemo(() => parseDateTime(minDate), [minDate]);
     const max = useMemo(() => parseDateTime(maxDate), [maxDate]);
@@ -312,7 +321,7 @@ const StoryTimePicker = ({
     optionsMinutes,
     optionsSeconds,
     ...rest
-}: StoryTimePickerProps) => {
+}: Omit<StoryTimePickerProps, 'value' | 'min' | 'max'>) => {
     const [value, setValue] = useState(parseDateTime(initialValue));
     const min = useMemo(() => parseDateTime(minDate), [minDate]);
     const max = useMemo(() => parseDateTime(maxDate), [maxDate]);
@@ -359,9 +368,9 @@ export const Time_Picker: StoryObj<StoryTimePickerProps> = {
         },
     },
     args: {
-        initialValue: '01.09.1980 00:28:59',
+        initialValue: '01.09.1980 00:16:59',
         minDate: '01.09.1980 00:15:29',
-        maxDate: '01.09.1980 12:30:30',
+        maxDate: '02.09.1980 12:30:30',
         optionsHours: true,
         optionsMinutes: true,
         optionsSeconds: true,

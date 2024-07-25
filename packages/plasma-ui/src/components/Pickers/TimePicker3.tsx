@@ -4,7 +4,7 @@ import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { whiteTertiary, footnote1 } from '@salutejs/plasma-tokens';
 
 import { PickerDots } from './PickerDots';
-import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker';
+import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker3';
 import { getNewDate, getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
 import type { PickerItem, TimeType, PickerSize } from './types';
 import { DEFAULT_PICKER_SIZE } from './types';
