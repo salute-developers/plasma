@@ -42,7 +42,7 @@ const customItems = [
     { title: 'Contacts' },
 ];
 
-describe('plasma-web: Breadcrumbs', () => {
+describe('plasma-b2c: Breadcrumbs', () => {
     const Breadcrumbs = getComponent('Breadcrumbs') as typeof BreadcrumbsComponent;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
