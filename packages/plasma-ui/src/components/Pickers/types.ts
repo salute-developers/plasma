@@ -9,6 +9,7 @@ export interface SizeProps {
 export type PickerItem = {
     value: string | number | Date;
     label: string | number;
+    date?: Date;
     isVirtual?: boolean;
 };
 
