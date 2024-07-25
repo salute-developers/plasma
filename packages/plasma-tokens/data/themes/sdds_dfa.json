@@ -1559,9 +1559,9 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(36, 178, 62, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3266",
@@ -1572,9 +1572,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": "rgba(255, 112, 36, 0.2",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0566",
@@ -1585,9 +1585,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 61, 81, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E66",
@@ -2052,9 +2052,9 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(36, 178, 62, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3266",
@@ -2065,9 +2065,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": "rgba(255, 112, 36, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0566",
@@ -2078,9 +2078,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 61, 81, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E66",
@@ -2542,9 +2542,9 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(26, 158, 50, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3266",
@@ -2555,9 +2555,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": "rgba(250, 95, 5, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0566",
@@ -2568,7 +2568,7 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 41, 62, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
                     "enabled": false
                 },
@@ -3032,9 +3032,9 @@
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола информация"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(26, 158, 50, 0.12)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3266",
@@ -3045,9 +3045,9 @@
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": "rgba(250, 95, 5, 0.12)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0566",
@@ -3058,9 +3058,9 @@
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 41, 62, 0.12)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E66",
@@ -6650,9 +6650,9 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(26, 158, 50, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3233",
@@ -6663,9 +6663,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": "rgba(250, 95, 5, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0533",
@@ -6676,9 +6676,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 41, 62, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E33",
@@ -7143,9 +7143,9 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(36, 178, 62, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3233",
@@ -7156,9 +7156,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": " rgba(255, 112, 36, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0533",
@@ -7169,9 +7169,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 61, 81, 0.2)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E33",
@@ -7633,9 +7633,9 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(26, 158, 50, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3233",
@@ -7646,9 +7646,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": "rgba(250, 95, 5, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0533",
@@ -7659,9 +7659,9 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 41, 62, 0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E33",
@@ -8123,9 +8123,9 @@
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола информация"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.72]",
+                    "value": "rgba(36, 178, 62, 0.2)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveHover": {
                     "value": "#1A9E3233",
@@ -8136,9 +8136,9 @@
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentWarning": {
-                    "value": "[general.orange.500][-0.72]",
+                    "value": "rgba(255, 112, 36, 0.2)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
                     "value": "#FA5F0533",
@@ -8149,9 +8149,9 @@
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentNegative": {
-                    "value": "[general.red.500][-0.72]",
+                    "value": "rgba(255, 61, 81, 0.2)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E33",
