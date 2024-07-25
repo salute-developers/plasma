@@ -63,7 +63,7 @@ export const config = {
             default: css`
                 ${tooltipTokens.backgroundColor}: var(--surface-solid-card);
                 ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
-                ${tooltipTokens.color}: var(--plasma-colors-primary);
+                ${tooltipTokens.color}: var(--text-primary);
             `,
         },
     },

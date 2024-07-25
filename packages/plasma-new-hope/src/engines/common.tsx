@@ -7,7 +7,7 @@ import type {
     HTMLTagList,
     PropsType,
     Variants,
-    HTMLAttributesOmitOnChange,
+    HTMLAttributesWithoutOnChange,
 } from './types';
 
 //
@@ -53,8 +53,11 @@ export const mergeConfig = <
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
-    LayoutPropsBase extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange,
-    LayoutPropsUser extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange | undefined = undefined
+    LayoutPropsBase extends React.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement>,
+    LayoutPropsUser extends
+        | React.HTMLAttributes<HTMLElement>
+        | HTMLAttributesWithoutOnChange<HTMLElement>
+        | undefined = undefined
 >(
     baseConfig: ComponentConfig<Tag, Variants, PropsType & LayoutPropsBase, LayoutPropsBase>,
     userConfig?: Partial<ComponentConfig<Tag, VariantList, VariantsProps, LayoutPropsUser>>,
@@ -98,7 +101,7 @@ export function component<
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
-    LayoutProps extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange
+    LayoutProps extends React.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement>
 >(
     config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>,
 ): React.FunctionComponent<VariantsProps & LayoutProps> {

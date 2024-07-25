@@ -12,7 +12,7 @@ export const PopupView = styled.div`
 `;
 
 export const PopupRootContainer = styled.div<PopupRootContainerProps>`
-    position: ${({ frame }) => (frame === 'document' ? 'fixed' : 'absolute')};
+    position: absolute;
     z-index: ${({ zIndex }) => zIndex || DEFAULT_Z_INDEX};
     left: ${({ position }) => position.left || ''};
     right: ${({ position }) => position.right || ''};

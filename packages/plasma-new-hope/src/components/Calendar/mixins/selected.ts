@@ -1,7 +1,5 @@
 import { classes } from '../Calendar.tokens';
 
-import { addActive } from './active';
-
 export type SelectedProps = {
     /**
      * Минимальная ширина дочернего дива.
@@ -50,8 +48,6 @@ export const addSelected = (args: SelectedProps) => {
         selectedColor,
         selectableBackgroundHover,
         currentBorderColor,
-        activeBackground,
-        activeColor,
     } = args;
 
     return `
@@ -77,12 +73,6 @@ export const addSelected = (args: SelectedProps) => {
             cursor: default;
             font-weight: ${selectedFontWeight};
         };
-        
-        ${addActive({
-            activeBackground,
-            activeColor,
-            activeFontWeight: selectedFontWeight,
-        })};
 
         &.${classes.currentItem} {
             border: 0.063rem solid ${currentBorderColor};

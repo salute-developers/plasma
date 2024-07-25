@@ -6,8 +6,7 @@ import { styled } from '@linaria/react';
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
 import { Body } from '../../../typograpy/components/Body/Body';
-
-import { Portal } from './Portal';
+import { Portal } from '../../../../components/Portal';
 
 const meta: Meta<typeof Portal> = {
     title: 'plasma_web/Portal',

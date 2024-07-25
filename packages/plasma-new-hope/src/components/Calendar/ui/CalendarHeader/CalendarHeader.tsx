@@ -5,6 +5,7 @@ import { CalendarState } from '../../store/types';
 import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../utils';
 import type { DateObject } from '../../Calendar.types';
 import { classes } from '../../Calendar.tokens';
+import { sizeMap } from '../../store/reducer';
 
 import type { CalendarHeaderProps } from './CalendarHeader.types';
 import {
@@ -33,17 +34,19 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     onUpdateCalendarState,
 }) => {
     const handleCalendarState = useCallback(() => {
+        const newSize: [number, number] = isDouble ? sizeMap.Months.double : sizeMap.Months.single;
+
         if (type === CalendarState.Days) {
-            onUpdateCalendarState?.(CalendarState.Months, [3, 2]);
+            onUpdateCalendarState?.(CalendarState.Months, newSize);
         }
 
-        if (type === CalendarState.Months) {
-            onUpdateCalendarState?.(CalendarState.Years, [3, 2]);
+        if (type === CalendarState.Months || type === CalendarState.Quarters) {
+            onUpdateCalendarState?.(CalendarState.Years, newSize);
         }
     }, [type, onUpdateCalendarState]);
 
     const getHeaderContent = useCallback(
-        (date?: DateObject) => {
+        (date?: DateObject, secondPart?: boolean) => {
             if (!date) {
                 return '';
             }
@@ -60,7 +63,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 );
             }
 
-            if (type === CalendarState.Months) {
+            if (type === CalendarState.Months || type === CalendarState.Quarters) {
                 return (
                     <StyledHeaderDate>
                         {date.year}
@@ -70,9 +73,11 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             }
 
             if (type === CalendarState.Years) {
+                const yearValue = secondPart ? startYear + 12 : startYear;
+
                 return (
                     <StyledHeaderDate>
-                        {startYear}—{startYear + YEAR_RENDER_COUNT - 1}
+                        {yearValue}—{yearValue + YEAR_RENDER_COUNT - 1}
                         <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                     </StyledHeaderDate>
                 );
@@ -83,7 +88,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         [type, startYear, size],
     );
 
-    const currentCalendarType = getCalendarType(isDouble ? CalendarState.Days : type);
+    const currentCalendarType = getCalendarType(type);
 
     const PreviousButton = useMemo(
         () => (
@@ -109,10 +114,14 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 <StyledNavigation>
                     <StyledDoubleHeaderWrapper>
                         {PreviousButton}
-                        <StyledHeaderDouble aria-live="polite">{getHeaderContent(firstDate)}</StyledHeaderDouble>
+                        <StyledHeaderDouble onClick={handleCalendarState} aria-live="polite">
+                            {getHeaderContent(firstDate)}
+                        </StyledHeaderDouble>
                     </StyledDoubleHeaderWrapper>
                     <StyledDoubleHeaderWrapper className={classes.doubleHeaderLastDateWrapper}>
-                        <StyledHeaderDouble aria-live="polite">{getHeaderContent(secondDate)}</StyledHeaderDouble>
+                        <StyledHeaderDouble onClick={handleCalendarState} aria-live="polite">
+                            {getHeaderContent(secondDate, true)}
+                        </StyledHeaderDouble>
                         {NextButton}
                     </StyledDoubleHeaderWrapper>
                 </StyledNavigation>

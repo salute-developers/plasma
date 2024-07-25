@@ -22,6 +22,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             contentLeft,
             contentRight,
             contentClearButton,
+            hasClear = true,
             size,
             className,
             onClear,
@@ -70,7 +71,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                 {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
                 {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
-                {ClearContent}
+                {hasClear && ClearContent}
             </Root>
         );
     });

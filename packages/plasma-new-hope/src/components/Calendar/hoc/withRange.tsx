@@ -1,17 +1,22 @@
-import React, { useMemo, useState, useCallback, ReactElement } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
+import type { ReactElement, FC } from 'react';
 
-import type { Calendar, CalendarRange } from '../Calendar.types';
+import type { Calendar, CalendarRange, DateInfo } from '../Calendar.types';
 import { getSortedValues, isValueUpdate } from '../utils';
 
 /**
  * HOC для календаря, дающий возможность выбора диапазона даты
  */
-export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => ({
+export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
     value,
-    disabledList,
-    eventList,
     min,
     max,
+    disabledList,
+    eventList,
+    eventMonthList,
+    disabledMonthList,
+    eventYearList,
+    disabledYearList,
     onChangeValue,
     onChangeStartOfRange,
     ...rest
@@ -27,11 +32,11 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
     }
 
     const handleOnChangeDay = useCallback(
-        (newDay: Date) => {
+        (newDay: Date, dateInfo?: DateInfo) => {
             if (endValue) {
                 setValues([newDay, undefined]);
 
-                onChangeStartOfRange?.(newDay);
+                onChangeStartOfRange?.(newDay, dateInfo);
 
                 return;
             }
@@ -41,7 +46,7 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
             const [first, second] = getSortedValues([startValue, newDay]);
 
             if (first) {
-                onChangeValue([first, second]);
+                onChangeValue([first, second], dateInfo);
             }
         },
         [onChangeValue, onChangeStartOfRange, startValue, endValue],
@@ -53,6 +58,10 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
             onChangeValue={handleOnChangeDay}
             disabledList={disabledList}
             eventList={eventList}
+            eventMonthList={eventMonthList}
+            disabledMonthList={disabledMonthList}
+            eventYearList={eventYearList}
+            disabledYearList={disabledYearList}
             min={min}
             max={max}
             {...rest}

@@ -1,0 +1,395 @@
+---
+id: select
+title: Select
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Select
+<Description name="Select" />
+<PropsTable name="Select" />
+
+## Использование
+Обязательным параметром являются: `items`, `value` и `onChange`. Внутри items может быть такой же вложенный массив items. Формат следующий:
+
+```tsx
+type Items = Array<{
+        /**
+         *  Значение у item
+         */
+        value: string;
+        /**
+         * Метка-подпись к item
+         */
+        label: string;
+        /**
+         * Список дочерних items.
+         */
+        items?: Array<ItemOption>;
+        /**
+         * Item не активен
+         */
+        disabled?: boolean;
+        /**
+         * Слот для контента слева
+         */
+        contentLeft?: ReactNode;
+        /**
+         * Слот для контента справа
+         */
+        contentRight?: ReactNode;
+        /**
+         * Выбранный item.
+         * @deprecated
+         */
+        isActive?: boolean;
+        /**
+         * Кастомный цвет текста
+         * @deprecated
+         */
+        color?: string;
+        /**
+         * Айтем не активен
+         * @deprecated использовать disabled
+         */
+        isDisabled?: boolean;
+    }>;
+```
+
+Тип выбора селекта - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.
+Селект может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\
+Есть возможность прокидывать компонент `EmptyState` в пропс `renderList` для изменения содержимого выпадающего окна.\
+Это нужно в случаях, когда произошла ошибка при загрузке `items`, либо когда `items` пустой. Более подробно в примерах.
+
+## Примеры
+
+<Tabs>
+    <TabItem value="textfield" label="Textfield" default>
+        В режиме `textfield` доступны только следующие варианты `view`: `default`, `warning`, `positive` и `negative`.
+
+        ```tsx live
+        import React from 'react';
+        import { Select } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const [singleValue, setSingleValue] = useState('');
+            const [multipleValue, setMultipleValue] = useState([]);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Single" value={singleValue} onChange={setSingleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
+                    </div>
+
+                    <div style={{width: '300px'}}>
+                        <Select multiselect items={items} label="Multiple" value={multipleValue} onChange={setMultipleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="button" label="Button">
+        В режиме `button` недоступны следующие пропсы: `contentLeft`, `label`, `labelPlacement`, `placeholder` и `helperText`.
+
+        ```tsx live
+        import React from 'react';
+        import { Select } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const [singleValue, setSingleValue] = useState('');
+            const [multipleValue, setMultipleValue] = useState([]);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Single" target="button-like" value={singleValue} onChange={setSingleValue} />
+                    </div>
+
+                    <div style={{width: '300px'}}>
+                        <Select multiselect items={items} label="Multiple" target="button-like" value={multipleValue} onChange={setMultipleValue} />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="predefined" label="Predefined">
+        Есть возможность задать значения по дефолту (главное, чтобы они находились в `items`). Также можно управлять состоянием снаружи селекта.
+
+        ```tsx live
+        import React from 'react';
+        import { SelectNew, Button } from '@salutejs/plasma-web';
+
+        export function App() {
+            const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} />
+                    </div>
+
+                    <Button onClick={() => setMultipleValue([])}>Очистить</Button>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="renderValue" label="Render value">
+        Пропс `renderValue` для кастомной настройки `value` внутри таргета. Принимает коллбэк с двумя параметрами: `value` и `label`.
+
+        ```tsx live
+        import React from 'react';
+        import { Select } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const [multipleValue, setMultipleValue] = useState([]);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const renderValue = (value, label) => {
+                return `${value} - ${label}`
+            }
+
+            return (
+                <div style={{ height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderValue={renderValue} />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="renderItem" label="Render item">
+        Пропс `renderItem` для кастомной настройки айтема в выпадающем списке. Принимает коллбэк с двумя параметрами: `value` и `label`.
+        В примере использован другой наш компонент - Cell.
+
+        ```tsx live
+        import React from 'react';
+        import { SelectNew, Cell } from '@salutejs/plasma-web';
+
+        export function App() {
+            const [multipleValue, setMultipleValue] = useState([]);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const renderItem = (value, label) => <Cell title={value} label={label} />;
+
+            return (
+                <div style={{ height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderItem={renderItem} />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="portal" label="Portal">
+        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется скролл, и список будет обрезаться, чего хотелось бы избежать.\
+        Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.\
+        Также нужно прокинуть проп `listWidth`, чтобы явно задать ширину списку. Если этого не сделать, то будет взята ширина 100% от блока, на который ведет ссылка портала.
+
+        ```tsx live
+        import React, { useRef } from 'react';
+        import { Select } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const [value, setValue] = useState('');
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const ref = useRef(null)
+
+            return (
+                <div style={{ height: '300px' }} ref={ref}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Label" placeholder="Placeholder" value={value} onChange={setValue} portal={ref} listWidth="300px" />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Uncontrolled">
+        `value` и `onChange` - опциональные параметры. Если вы хотите `uncontrolled` вариант компонента - их пробрасывать необязательно.
+
+       ```tsx live
+        import React from 'react';
+        import { Select } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Label" placeholder="Placeholder" />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Клавиатурная навигация
+
+Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+
+- `Tab` - закрывает дропдаун. Перемещает фокус на следующий элемент на странице;
+- `Enter` - открывает/закрывает дропдаун. Если на элементе - выбирает его. Если у элемента есть дочерний дропдаун - открывает его, выбор элемента не происходит;
+- `Space` - открывает/закрывает дропдаун. Если на элементе - выбирает его и все дочерние элементы.
+- `Home` - открывает дропдаун и перемещает фокус на первый элемент;
+- `End` - открывает дропдаун и перемещает фокус на последний элемент;
+- `PageUp` - перемещает фокус на 10 элементов выше либо в начало списка;
+- `PageDown` - перемещает фокус на 10 элементов ниже либо в конце списка;
+- `ArrowUp` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент выше;
+- `ArrowDown` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент ниже;
+- `ArrowRight` - если фокус на элементе вложенного списка - открывает его и перемещает фокус на первый элемент; Если фокус на таргете - переходит в режим выбора чипа.
+- `ArrowLeft` - закрывает текущий список и перемещает фокус на предыдущий; Если фокус на таргете - переходит в режим выбора чипа.
+- `Backspace` - только если фокус на чипе - снимает выбор с текущего значения;
+

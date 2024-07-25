@@ -1,0 +1,24 @@
+---
+id: price
+title: Price
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Price
+<Description name="Price" />
+<PropsTable name="Price" exclude={['css']} />
+
+```tsx live
+import React from 'react';
+import { Price } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Price currency="rub" minimumFractionDigits={3}>12345.67</Price>
+            <Price locale="en" currency="rub" minimumFractionDigits={3} stroked>12345.67</Price>
+        </div>
+    );
+}
+```

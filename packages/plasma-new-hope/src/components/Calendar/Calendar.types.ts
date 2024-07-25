@@ -2,6 +2,7 @@ import { HTMLAttributes, MutableRefObject } from 'react';
 
 import type { CalendarBaseProps } from './CalendarBase/CalendarBase';
 import type { CalendarDoubleProps } from './CalendarDouble/CalendarDouble';
+import type { CalendarStateType } from './store/types';
 
 export enum Keys {
     pageUp = 33,
@@ -28,32 +29,52 @@ export interface ItemProps {
 }
 
 export interface DateItem extends ItemProps {
-    isDayInCurrentMonth: boolean;
-    inRange?: boolean;
     date: DateObject;
+    isDayInCurrentMonth?: boolean;
+    inRange?: boolean;
     events?: EventDay[];
     disabled?: boolean;
     isOutOfMinMaxRange?: boolean;
     disabledArrowKey?: string;
     disabledMonths?: string;
+    disabledDates?: string;
+    disabledYears?: string;
+    monthName?: string;
+    monthIndex?: number;
+    monthFullName?: string;
+    yearValue?: number;
+    quarterName?: string;
 }
 
-export interface DayProps extends Partial<ItemProps> {
+export type DateBasePorps = {
     isDouble?: boolean;
-    isDayInCurrentMonth?: boolean;
     isHovered?: boolean;
     inRange?: boolean;
     sideInRange?: 'left' | 'right';
     disabled?: boolean;
+};
+
+export interface DateStructureProps extends Partial<ItemProps>, DateBasePorps {
+    isDayInCurrentMonth?: boolean;
     dayOfWeek?: boolean;
 }
 
-export interface MonthsProps extends ItemProps {}
+export type QuarterPartialDate = {
+    monthIndex: number;
+    day: number;
+};
+
+export interface QuarterProps extends Partial<ItemProps>, DateBasePorps {
+    quarterName: number;
+    quarterIndex: number;
+}
+
+export interface MonthsProps extends Partial<ItemProps>, DateBasePorps {}
 
 export interface MonthsItem extends ItemProps {
     monthName: string;
-    monthFullName?: string;
     monthIndex: number;
+    monthFullName?: string;
 }
 
 export interface YearsProps extends ItemProps {}
@@ -71,20 +92,22 @@ export interface DisabledDay {
     date: Date;
 }
 
-export interface UseKeyNavigationProps {
-    size: [number, number];
-    isDouble?: boolean;
-    onPrev: (withShift?: boolean) => void;
-    onNext: (withShift?: boolean) => void;
-}
-
 export type CalendarValueType = Date | undefined | [Date | undefined, Date?];
+
+export type DateInfo = {
+    name: string;
+    fullValue: CalendarValueType;
+};
 
 export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     /**
      * Выбранное значение.
      */
     value: CalendarValueType;
+    /**
+     * Обработчик изменения значения.
+     */
+    onChangeValue: (value: Date, dateInfo?: DateInfo) => void;
     /**
      * Состояние календаря, отвечающее за отображение.
      */
@@ -110,10 +133,45 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      */
     disabledList?: DisabledDay[];
     /**
-     * Обработчик изменения значения.
+     * Список событий по месяцам.
      */
-    onChangeValue: (value: Date) => void;
+    eventMonthList?: EventDay[];
+    /**
+     * Список отключенных месяцев.
+     */
+    disabledMonthList?: DisabledDay[];
+    /**
+     * Список событий по кварталам.
+     */
+    eventQuarterList?: EventDay[];
+    /**
+     * Список отключенных кварталов.
+     */
+    disabledQuarterList?: DisabledDay[];
+    /**
+     * Список событий по годам.
+     */
+    eventYearList?: EventDay[];
+    /**
+     * Список отключенных годов.
+     */
+    disabledYearList?: DisabledDay[];
+    /**
+     * Конечный тип отображения календаря: дни, месяца, года, кварталы.
+     */
+    type?: CalendarStateType;
 }
+
+export type CalendarConfigProps = {
+    /**
+     * Размер календаря.
+     */
+    size?: string;
+    /**
+     * Вид календаря.
+     */
+    view?: string;
+};
 
 export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
     /**
@@ -123,11 +181,11 @@ export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue: (values: [Date, Date?]) => void;
+    onChangeValue: (values: [Date, Date?], dateInfo?: DateInfo) => void;
     /**
      * Обработчик для выбора стартового значения в диапазоне.
      */
-    onChangeStartOfRange?: (value: Date) => void;
+    onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
 };
 
 export interface DaysMetaDescription {
@@ -144,31 +202,35 @@ export type KeyboardArrowKey = 'left' | 'right' | 'up' | 'down';
 
 type BaseProps = {
     /**
-     * Режим отображения: двойной или одинарный.
+     * Выбранное значение.
      */
-    isDouble?: false;
+    value: Date;
     /**
      * Режим выбора: диапазон или одинарный.
      */
     isRange?: false;
     /**
-     * Выбранное значение.
+     * Режим отображения: двойной или одинарный.
      */
-    value: Date;
+    isDouble?: false;
 } & CalendarBaseProps;
 
 type BaseRangeProps = {
     /**
-     * Режим отображения: двойной или одинарный.
-     */
-    isDouble?: false;
-    /**
      * Режим выбора: диапазон или одинарный.
      */
     isRange: true;
+    /**
+     * Режим отображения: двойной или одинарный.
+     */
+    isDouble?: false;
 } & CalendarRange<CalendarBaseProps>;
 
 type DoubleProps = {
+    /**
+     * Выбранное значение.
+     */
+    value: Date;
     /**
      * Режим отображения: двойной или одинарный.
      */
@@ -177,21 +239,17 @@ type DoubleProps = {
      * Режим выбора: диапазон или одинарный.
      */
     isRange?: false;
-    /**
-     * Выбранное значение.
-     */
-    value: Date;
 } & CalendarDoubleProps;
 
 type DoubleRangeProps = {
     /**
-     * Режим отображения: двойной или одинарный.
-     */
-    isDouble?: true;
-    /**
      * Режим выбора: диапазон или одинарный.
      */
     isRange: true;
+    /**
+     * Режим отображения: двойной или одинарный.
+     */
+    isDouble?: true;
 } & CalendarRange<CalendarDoubleProps>;
 
 export type ComponentVariation = {

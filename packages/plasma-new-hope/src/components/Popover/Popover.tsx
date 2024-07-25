@@ -3,10 +3,9 @@ import type { CSSProperties } from 'react';
 import { usePopper } from 'react-popper';
 import { useFocusTrap, useForkRef } from '@salutejs/plasma-core';
 
-import { component, mergeConfig } from '../../engines';
 import type { RootProps } from '../../engines/types';
 import { cx } from '../../utils';
-import { portalConfig } from '../Portal';
+import { Portal } from '../Portal';
 
 import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
@@ -15,9 +14,6 @@ import { classes } from './Popover.tokens';
 
 export const ESCAPE_KEYCODE = 27;
 export const POPOVER_PORTAL_ID = 'plasma-popover-root';
-
-const mergedPortalConfig = mergeConfig(portalConfig);
-const Portal = component(mergedPortalConfig);
 
 /**
  * Всплывающее окно с возможностью позиционирования

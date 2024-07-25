@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Price } from '.';
-import type { PriceProps } from '.';
 
-const meta: Meta<PriceProps> = {
+const meta: Meta<typeof Price> = {
     title: 'Content/Price',
-    component: Price,
     decorators: [InSpacingDecorator],
     argTypes: {
         currency: {
-            options: ['rub', 'usd', 'eur'],
+            options: ['rub', 'usd', 'eur', 'inr'],
             control: {
                 type: 'inline-radio',
             },
@@ -22,10 +20,13 @@ const meta: Meta<PriceProps> = {
 
 export default meta;
 
-export const Default: StoryObj<PriceProps & { priceLabel: number }> = {
+type StoryPriceProps = ComponentProps<typeof Price> & { priceLabel: number };
+
+export const Default: StoryObj<StoryPriceProps> = {
     args: {
+        locale: 'ru',
         currency: 'rub',
-        stroke: false,
+        stroked: false,
         minimumFractionDigits: 0,
         priceLabel: 12345.67,
     },

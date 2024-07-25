@@ -3,6 +3,12 @@ import { InputHTMLAttributes } from '@salutejs/plasma-core';
 
 import { DropdownPlacement, DropdownPlacementBasic } from '../Dropdown/Dropdown.types';
 
+export type ComponentType = 'select' | 'combobox';
+
+export type SelectPrimitiveValue = string | number | boolean;
+
+export type SelectValue = SelectPrimitiveValue | Array<SelectPrimitiveValue>;
+
 export type ComboboxPrimitiveValue = string | number | boolean;
 
 export type ComboboxValue = ComboboxPrimitiveValue | Array<ComboboxPrimitiveValue>;
@@ -115,4 +121,24 @@ export interface UseFocusControllerProps {
     updateSearch?: (value?: string, opened?: boolean) => void;
     updateFocused: (value: boolean) => void;
     onChipClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface ControlledSelectRefs {
+    targetRef: MutableRefObject<HTMLButtonElement | HTMLInputElement | null>;
+    chipsRefs: MutableRefObject<Array<HTMLButtonElement>>;
+    selectRef: MutableRefObject<HTMLDivElement | null>;
+    itemsRefs: MutableRefObject<Array<HTMLDivElement>>;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
+}
+
+export interface UseKeyNavigationProps {
+    controlledRefs: ControlledSelectRefs;
+    opened: boolean;
+    valueType?: ValueType;
+    componentType?: ComponentType;
+    value?: ComboboxPrimitiveValue | ComboboxPrimitiveValue[];
+    search?: string;
+    enumerationType?: EnumerationType;
+    updateValue: (item: HTMLElement, event: SyntheticEvent | Event) => void;
+    updateOpened: (value: boolean, event: SyntheticEvent | Event) => void;
 }

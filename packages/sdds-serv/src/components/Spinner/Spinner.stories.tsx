@@ -50,7 +50,7 @@ const StyledWrapper = styled.div<{ $loading?: boolean }>`
 
         content: '';
         display: none;
-        background: var(--plasma-colors-surface-liquid01);
+        background: var(--surface-transparent-primary);
     }
 
     ${({ $loading }) =>

@@ -1,276 +1,825 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import { mergeConfig } from '../../../../engines';
-import { Checkbox } from '../Checkbox/Checkbox';
-import { Button } from '../Button/Button';
-import { SelectPrimitiveValue, selectConfig } from '../../../../components/Select';
-import { WithTheme, argTypesFromConfig } from '../../../_helpers';
-import { IconDone, IconClose } from '../../../../components/_Icon';
+import './style.css';
 
-import { Select, SelectDivider, SelectItem } from './Select';
-import { config } from './Select.config';
+import { WithTheme } from '../../../_helpers';
+import { IconDone } from '../../../../components/_Icon';
 
-const placements: Array<string> = ['top', 'bottom', 'right', 'left', 'auto'];
-const enumerations: Array<string> = ['comma', 'chip'];
+import { Select } from './Select';
 
-type StorySelectPropsCustom = {
-    skidding?: number;
-    distance?: number;
+type StorySelectProps = ComponentProps<typeof Select> & {
+    enableContentLeft?: boolean;
 };
 
-type StorySelectProps = ComponentProps<typeof Select> & StorySelectPropsCustom;
+const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
+const size = ['xs', 's', 'm', 'l'];
+const labelPlacement = ['inner', 'outer'];
+const chip = ['default', 'secondary', 'accent'];
+const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
     title: 'plasma_b2c/Select',
     decorators: [WithTheme],
     component: Select,
     argTypes: {
-        placement: {
-            options: placements,
+        target: {
+            options: ['button-like', 'textfield-like'],
             control: {
                 type: 'select',
             },
         },
-        enumerationType: {
-            options: enumerations,
+        size: {
+            options: size,
             control: {
                 type: 'select',
             },
         },
-        ...argTypesFromConfig(mergeConfig(selectConfig, config)),
+        view: {
+            options: view,
+            control: {
+                type: 'select',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacement,
+            control: {
+                type: 'select',
+            },
+        },
+        chipView: {
+            options: chip,
+            control: {
+                type: 'select',
+            },
+        },
+        variant: {
+            options: variant,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
-        usePortal: false,
-        disabled: false,
-        readOnly: false,
+        multiselect: false,
+        target: 'textfield-like',
         label: 'Label',
-        target: 'button-like',
-        enumerationType: 'comma',
+        labelPlacement: 'outer',
+        placeholder: 'Placeholder',
+        helperText: 'Helper text',
         size: 'm',
         view: 'default',
-        placement: 'bottom',
+        chipView: 'default',
+        enableContentLeft: false,
+        isTargetAmount: false,
+        variant: 'normal',
+        disabled: false,
+        separator: '',
     },
 };
 
 export default meta;
 
-const onChangeAction = action('onChange');
+const items = [
+    {
+        value: 'north_america',
+        label: 'Северная Америка',
+    },
+    {
+        value: 'south_america',
+        label: 'Южная Америка',
+        items: [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+            {
+                value: 'argentina',
+                label: 'Аргентина',
+                items: [
+                    {
+                        value: 'buenos_aires',
+                        label: 'Буэнос-Айрес',
+                    },
+                    {
+                        value: 'cordoba',
+                        label: 'Кордова',
+                    },
+                ],
+            },
+            {
+                value: 'colombia',
+                label: 'Колумбия',
+                items: [
+                    {
+                        value: 'bogota',
+                        label: 'Богота',
+                    },
+                    {
+                        value: 'medellin',
+                        label: 'Медельин',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'europe',
+        label: 'Европа',
+        items: [
+            {
+                value: 'france',
+                label: 'Франция',
+                items: [
+                    {
+                        value: 'paris',
+                        label: 'Париж',
+                    },
+                    {
+                        value: 'lyon',
+                        label: 'Лион',
+                    },
+                ],
+            },
+            {
+                value: 'germany',
+                label: 'Германия',
+                items: [
+                    {
+                        value: 'berlin',
+                        label: 'Берлин',
+                    },
+                    {
+                        value: 'munich',
+                        label: 'Мюнхен',
+                    },
+                ],
+            },
+            {
+                value: 'italy',
+                label: 'Италия',
+                items: [
+                    {
+                        value: 'rome',
+                        label: 'Рим',
+                    },
+                    {
+                        value: 'milan',
+                        label: 'Милан',
+                    },
+                ],
+            },
+            {
+                value: 'spain',
+                label: 'Испания',
+                items: [
+                    {
+                        value: 'madrid',
+                        label: 'Мадрид',
+                    },
+                    {
+                        value: 'barcelona',
+                        label: 'Барселона',
+                    },
+                ],
+            },
+            {
+                value: 'united_kingdom',
+                label: 'Великобритания',
+                items: [
+                    {
+                        value: 'london',
+                        label: 'Лондон',
+                    },
+                    {
+                        value: 'manchester',
+                        label: 'Манчестер',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'asia',
+        label: 'Азия',
+        items: [
+            {
+                value: 'china',
+                label: 'Китай',
+                items: [
+                    {
+                        value: 'beijing',
+                        label: 'Пекин',
+                    },
+                    {
+                        value: 'shanghai',
+                        label: 'Шанхай',
+                    },
+                ],
+            },
+            {
+                value: 'japan',
+                label: 'Япония',
+                items: [
+                    {
+                        value: 'tokyo',
+                        label: 'Токио',
+                    },
+                    {
+                        value: 'osaka',
+                        label: 'Осака',
+                    },
+                ],
+            },
+            {
+                value: 'india',
+                label: 'Индия',
+                items: [
+                    {
+                        value: 'delhi',
+                        label: 'Дели',
+                    },
+                    {
+                        value: 'mumbai',
+                        label: 'Мумбаи',
+                    },
+                ],
+            },
+            {
+                value: 'south_korea',
+                label: 'Южная Корея',
+                items: [
+                    {
+                        value: 'seoul',
+                        label: 'Сеул',
+                    },
+                    {
+                        value: 'busan',
+                        label: 'Пусан',
+                    },
+                ],
+            },
+            {
+                value: 'thailand',
+                label: 'Таиланд',
+                items: [
+                    {
+                        value: 'bangkok',
+                        label: 'Бангкок',
+                    },
+                    {
+                        value: 'phuket',
+                        label: 'Пхукет',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'africa',
+        label: 'Африка',
+        isDisabled: true,
+    },
+];
 
-const iconDoneToSelectSizeMap: Record<string, 'xs' | 's'> = {
-    xs: 'xs',
-    s: 's',
-    m: 's',
-    l: 's',
-};
-
-const checkboxToSelectSizeMap: Record<string, 's' | 'm'> = {
-    xs: 's',
-    s: 'm',
-    m: 'm',
-    l: 'm',
-};
-
-const getSelectItems = (slug: string, elemCount: number) =>
-    [...Array(elemCount).keys()].map((num) => ({
-        value: `${slug}_${num}`,
-        child: `${slug} ${num}`,
-    }));
-
-const StorySingle = (args: StorySelectProps) => {
-    const { usePortal, placement, label, readOnly, disabled, size = 'm', view, target } = args;
-
-    const [value, setValue] = useState<SelectPrimitiveValue | undefined>('item_0');
-
-    const onChangeValue = (newValue?: SelectPrimitiveValue) => {
-        setValue(newValue);
-        onChangeAction(newValue);
-    };
+const SingleStory = (args: StorySelectProps) => {
+    const [value, setValue] = useState('');
 
     return (
-        <div style={{ width: '50%' }} id="portal-test">
+        <div style={{ width: '300px' }}>
             <Select
-                frame="theme-root"
-                usePortal={usePortal}
-                valueType="single"
+                {...args}
+                items={items}
                 value={value}
-                placement={placement}
-                label={label}
-                size={size}
-                view={view}
-                target={target}
-                disabled={disabled}
-                readOnly={readOnly}
-                onChangeValue={onChangeValue}
-            >
-                <SelectItem value={undefined} text="Clear" />
-                {getSelectItems('item', 6).map((item) => (
-                    <SelectItem
-                        key={item.value}
-                        contentLeft={
-                            item.value === value ? (
-                                <IconDone size={iconDoneToSelectSizeMap[size]} color="inherit" />
-                            ) : undefined
-                        }
-                        value={item.value}
-                        text={item.child}
-                    />
-                ))}
-            </Select>
+                onChange={setValue}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+            />
         </div>
     );
 };
 
 export const Single: StoryObj<StorySelectProps> = {
-    render: (args) => <StorySingle {...args} />,
+    render: (args) => <SingleStory {...args} />,
 };
 
-const StoryMultiple = (args: StorySelectProps) => {
-    const { usePortal, placement, label, readOnly, disabled, enumerationType, size = 'm', view, target } = args;
-
-    const [value, setValue] = useState<Array<SelectPrimitiveValue> | undefined>(['item_2', 'item_3']);
-
-    const onChangeValue = (newValue?: Array<SelectPrimitiveValue>) => {
-        setValue(newValue);
-        onChangeAction(newValue);
-    };
+const MultiselectStory = (args: StorySelectProps) => {
+    const [value, setValue] = useState<Array<string>>([]);
 
     return (
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '300px' }}>
             <Select
-                frame="theme-root"
-                usePortal={usePortal}
-                valueType="multiple"
+                {...args}
+                items={items}
                 value={value}
-                placement={placement}
-                label={label}
-                size={size}
-                view={view}
-                target={target}
-                enumerationType={enumerationType}
-                disabled={disabled}
-                readOnly={readOnly}
-                onChangeValue={onChangeValue}
-            >
-                {getSelectItems('item', 6).map((item) => (
-                    <SelectItem
-                        key={item.value}
-                        contentLeft={<Checkbox size={checkboxToSelectSizeMap[size]} />}
-                        value={item.value}
-                        text={item.child}
-                    />
-                ))}
-            </Select>
+                onChange={setValue}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+            />
         </div>
     );
 };
 
-export const Multiple: StoryObj<StorySelectProps> = {
-    render: (args) => <StoryMultiple {...args} />,
+export const Multiselect: StoryObj<StorySelectProps> = {
+    args: {
+        multiselect: true,
+    },
+    render: (args) => <MultiselectStory {...args} />,
 };
 
-const StoryNative = (args: StorySelectProps) => {
-    const { usePortal, placement, label, readOnly, disabled, size = 'm', view, target } = args;
-
-    const [value, setValue] = useState<SelectPrimitiveValue | undefined>('item_0');
-
-    const onChangeValue = (newValue?: SelectPrimitiveValue) => {
-        setValue(newValue);
-        onChangeAction(newValue);
-    };
+const PredefinedStory = (args: StorySelectProps) => {
+    const [valueSingle, setValueSingle] = useState('paris');
+    const [valueMultiple, setValueMultiple] = useState(['paris', 'north_america']);
 
     return (
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '300px' }}>
             <Select
-                frame="theme-root"
-                usePortal={usePortal}
-                valueType="native"
-                value={value}
-                placement={placement}
-                label={label}
-                size={size}
-                view={view}
-                target={target}
-                disabled={disabled}
-                readOnly={readOnly}
-                onChangeValue={onChangeValue}
-            >
-                {getSelectItems('item', 6).map((item) => (
-                    <option key={item.value} value={item.value}>
-                        {item.child}
-                    </option>
-                ))}
-            </Select>
+                {...args}
+                items={items}
+                value={valueSingle}
+                onChange={setValueSingle}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+            />
+
+            <br />
+
+            <Select
+                {...args}
+                multiselect
+                items={items}
+                value={valueMultiple}
+                onChange={setValueMultiple}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+            />
         </div>
     );
 };
 
-export const Native: StoryObj<StorySelectProps> = {
-    render: (args) => <StoryNative {...args} />,
+export const Predefined: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            exclude: ['multiselect'],
+        },
+    },
+    render: (args) => <PredefinedStory {...args} />,
 };
 
-const StoryControlledOpen = (args: StorySelectProps) => {
-    const { usePortal, placement, label, readOnly, disabled, size = 'm', view, target } = args;
+const CommonStory = (args: StorySelectProps) => {
+    const [value, setValue] = useState('');
+    const [valueMultiple, setValueMultiple] = useState<Array<string>>([]);
 
-    const [opened, setOpened] = useState(true);
-    const [iconColor, setIconColor] = useState('green');
-    const [value, setV] = useState<string | number | boolean | undefined>('item_0');
-
-    const onChangeValue = (newValue?: SelectPrimitiveValue) => {
-        setV(newValue);
-        onChangeAction(newValue);
-    };
-    const onToggle = (openValue: boolean) => setOpened(openValue);
-    const onOpen = () => setOpened((v) => !v);
-    const onMouseEnter = () => setIconColor('red');
-    const onMouseLeave = () => setIconColor('green');
+    const { enableContentLeft } = args;
 
     return (
-        <>
-            <Button onClick={onOpen}>Open select</Button>
-            <div style={{ width: '50%' }}>
-                <Select
-                    frame="theme-root"
-                    usePortal={usePortal}
-                    value={value}
-                    opened={opened}
-                    onToggle={onToggle}
-                    placement={placement}
-                    label={label}
-                    size={size}
-                    view={view}
-                    target={target}
-                    disabled={disabled}
-                    readOnly={readOnly}
-                    onChangeValue={onChangeValue}
-                >
-                    {getSelectItems('item', 6).map((item) => (
-                        <SelectItem
-                            key={item.value}
-                            contentLeft={
-                                item.value === value ? (
-                                    <IconDone size={iconDoneToSelectSizeMap[size]} color="inherit" />
-                                ) : undefined
-                            }
-                            value={item.value}
-                            text={item.child}
-                        />
-                    ))}
-                    <SelectDivider />
-                    <SelectItem value="custom">
-                        <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                            <IconClose color={iconColor} />
-                        </div>
-                        <div>Custom item element</div>
-                    </SelectItem>
-                </Select>
-            </div>
-        </>
+        <div className="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>View &#8595;</th>
+                        <th>Single Button</th>
+                        <th>Multiple Button</th>
+                        <th>Single Textfield</th>
+                        <th>Multiple Textfield</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Default</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="default"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="default"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="default"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="default"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Accent</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="accent"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="accent"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Secondary</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="secondary"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="secondary"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Clear</td>
+
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="clear"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="clear"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Positive</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="positive"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="positive"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="positive"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="positive"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Warning</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="warning"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="warning"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="warning"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="warning"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Negative</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="negative"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="negative"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="negative"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="negative"
+                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dark</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="dark"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="dark"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Black</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="black"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="black"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>White</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="white"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <Select
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="white"
+                                    target="button-like"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     );
 };
 
-export const ControlledOpen: StoryObj<StorySelectProps> = {
-    render: (args) => <StoryControlledOpen {...args} />,
+export const Common: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            include: [
+                'size',
+                'enableContentLeft',
+                'chipView',
+                'label',
+                'labelPlacement',
+                'placeholder',
+                'helperText',
+                'isTargetAmount',
+                'variant',
+                'disabled',
+                'separator',
+            ],
+        },
+    },
+    argTypes: {
+        size: {
+            options: size,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    args: {
+        size: 'm',
+    },
+    render: (args) => <CommonStory {...args} />,
 };

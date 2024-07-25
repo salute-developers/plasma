@@ -1,17 +1,20 @@
 import { useMemo } from 'react';
 
 import {
-    getDateFromValue,
+    getDatesWithModifications,
     getDaysInMonth,
     getMatrix,
     getNextDate,
     getOffsetDayInWeek,
     getPrevDate,
     IsCurrentDay,
-    isDayInRange,
+    isDateInRange,
     isSelectedDay,
 } from '../utils';
-import type { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../Calendar.types';
+import type { CalendarValueType, DateItem, DateObject } from '../Calendar.types';
+import { CalendarState } from '../store/types';
+
+import type { UseDaysArgs } from './types';
 
 /**
  * Метод возвращающий массив дней в предыдущем месяце.
@@ -25,7 +28,7 @@ const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: Ca
         isSelected: false,
         isDayInCurrentMonth: false,
         inRange: Array.isArray(value)
-            ? isDayInRange(prevYear, prevMonth, daysInPrevMonth - (offsetDayInWeek - i) + 1, value)
+            ? isDateInRange(prevYear, prevMonth, daysInPrevMonth - (offsetDayInWeek - i) + 1, value)
             : false,
         date: {
             day: daysInPrevMonth - (offsetDayInWeek - i) + 1,
@@ -45,7 +48,7 @@ const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: Cal
             ? Boolean(value.find((v) => isSelectedDay(date, i + 1, v)))
             : isSelectedDay(date, i + 1, value),
         isDayInCurrentMonth: true,
-        inRange: Array.isArray(value) ? isDayInRange(date.year, date.monthIndex, i + 1, value) : false,
+        inRange: Array.isArray(value) ? isDateInRange(date.year, date.monthIndex, i + 1, value) : false,
         date: {
             day: i + 1,
             monthIndex: date.monthIndex,
@@ -71,7 +74,7 @@ const getDaysInNextMonth = (
         isCurrent: false,
         isSelected: false,
         isDayInCurrentMonth: false,
-        inRange: Array.isArray(value) ? isDayInRange(nextYear, nextMonthIndex, i + 1, value) : false,
+        inRange: Array.isArray(value) ? isDateInRange(nextYear, nextMonthIndex, i + 1, value) : false,
         date: {
             day: i + 1,
             monthIndex: nextMonthIndex,
@@ -80,181 +83,10 @@ const getDaysInNextMonth = (
     }));
 };
 
-const isDisabledArrowLeft = (date: Date, min?: Date) => {
-    const currentDate = new Date(date);
-
-    currentDate.setDate(currentDate.getDate() - 1);
-
-    return (min && min >= currentDate) || (min && min >= date);
-};
-
-const isDisabledArrowRight = (date: Date, max?: Date) => {
-    const currentDate = new Date(date);
-
-    currentDate.setDate(currentDate.getDate() + 1);
-
-    return (max && max <= currentDate) || (max && max <= date);
-};
-
-const isDisabledArrowUp = (date: Date, min?: Date) => {
-    const currentDate = new Date(date);
-
-    currentDate.setDate(date.getDate() - 7);
-
-    return min && min >= currentDate;
-};
-
-const isDisabledArrowDown = (date: Date, max?: Date) => {
-    const currentDate = new Date(date);
-
-    currentDate.setDate(date.getDate() + 7);
-
-    return max && max <= currentDate;
-};
-
-const isDisabledNextMonth = ({ year, monthIndex, day }: DateObject, max?: Date) => {
-    if (!max) {
-        return false;
-    }
-
-    const currentDate = new Date(year, monthIndex, day);
-
-    currentDate.setDate(currentDate.getDate() + 1);
-
-    let isOut = true;
-
-    while (isOut && currentDate <= max) {
-        isOut = max <= currentDate;
-
-        currentDate.setDate(currentDate.getDate() + 1);
-    }
-
-    return isOut;
-};
-
-const isDisabledPreviousMonth = ({ year, monthIndex, day }: DateObject, min?: Date) => {
-    if (!min) {
-        return false;
-    }
-
-    const currentDate = new Date(year, monthIndex, day);
-
-    currentDate.setDate(currentDate.getDate() - 1);
-
-    let isOut = true;
-
-    while (isOut && currentDate >= min) {
-        isOut = min >= currentDate;
-
-        currentDate.setDate(currentDate.getDate() - 1);
-    }
-
-    return isOut;
-};
-
-const getDisabledArrowKey = (currentDate: Date, min?: Date, max?: Date) => {
-    const disabledArrowKey = [];
-
-    if (isDisabledArrowLeft(currentDate, min)) {
-        disabledArrowKey.push('left');
-    }
-
-    if (isDisabledArrowRight(currentDate, max)) {
-        disabledArrowKey.push('right');
-    }
-
-    if (isDisabledArrowDown(currentDate, max)) {
-        disabledArrowKey.push('down');
-    }
-
-    if (isDisabledArrowUp(currentDate, min)) {
-        disabledArrowKey.push('up');
-    }
-
-    return disabledArrowKey.join(',');
-};
-
-const getDisabledMonths = (list: DateObject[], min?: Date, max?: Date) => {
-    const disabledMonth = [];
-
-    if (isDisabledPreviousMonth(list[0], min)) {
-        disabledMonth.push('previous');
-    }
-
-    if (isDisabledNextMonth(list[list.length - 1], max)) {
-        disabledMonth.push('next');
-    }
-
-    return disabledMonth.join(',');
-};
-
-/**
- * Метод для получения набора неповторяющихся дат.
- */
-const getPropsMap = <T extends EventDay | DisabledDay>(props: T[]) =>
-    props.reduce((acc, prop) => {
-        const { year, monthIndex, day } = getDateFromValue(prop.date);
-
-        const key = `${year}-${monthIndex}-${day}`;
-
-        const propList = acc.get(key) || [];
-        propList.push(prop);
-
-        return acc.set(key, propList);
-    }, new Map<string, T[]>());
-
-/**
- * Метод модифицирующий дни (добавляющий свойства events и disabled).
- */
-const getDaysWithModifications = (
-    days: DateItem[],
-    eventList: EventDay[] = [],
-    disabledList: DisabledDay[] = [],
-    min?: Date,
-    max?: Date,
-    includeEdgeDates?: boolean,
-) => {
-    const eventsMap = getPropsMap(eventList);
-    const disabledDaysMap = getPropsMap(disabledList);
-
-    const daysList = days.filter(({ isDayInCurrentMonth }) => isDayInCurrentMonth).map(({ date }) => date);
-
-    const disabledMonths = getDisabledMonths(daysList, min, max);
-
-    return days.map((dayItem) => {
-        const { date } = dayItem;
-        const { year, monthIndex, day } = date;
-
-        const keyDay = `${year}-${monthIndex}-${day}`;
-        const currentDate = new Date(year, monthIndex, day);
-
-        const minValue = min && (includeEdgeDates ? min > currentDate : min >= currentDate);
-        const maxValue = max && (includeEdgeDates ? max < currentDate : max <= currentDate);
-        const isOutOfMinMaxRange = minValue || maxValue;
-
-        dayItem.events = eventsMap.get(keyDay);
-        dayItem.disabled = disabledDaysMap.has(keyDay) || isOutOfMinMaxRange;
-
-        dayItem.isOutOfMinMaxRange = isOutOfMinMaxRange;
-        dayItem.disabledArrowKey = getDisabledArrowKey(currentDate, min, max);
-        dayItem.disabledMonths = disabledMonths;
-
-        return dayItem;
-    });
-};
-
 /**
  * Хук для получения списка дней.
  */
-export const useDays = (
-    date: DateObject,
-    value: CalendarValueType,
-    eventList?: EventDay[],
-    disabledList?: DisabledDay[],
-    min?: Date,
-    max?: Date,
-    includeEdgeDates?: boolean,
-) =>
+export const useDays = ({ date, value, eventList, disabledList, min, max, includeEdgeDates }: UseDaysArgs) =>
     useMemo(() => {
         const { monthIndex, year } = date;
         const daysInMonth = getDaysInMonth(monthIndex, year);
@@ -267,7 +99,15 @@ export const useDays = (
         ];
 
         if (eventList?.length || disabledList?.length || max || min) {
-            const modifiedDays = getDaysWithModifications(days, eventList, disabledList, min, max, includeEdgeDates);
+            const modifiedDays = getDatesWithModifications({
+                dates: days,
+                type: CalendarState.Days,
+                includeEdgeDates,
+                min,
+                max,
+                eventList,
+                disabledList,
+            });
             return getMatrix<DateItem>(modifiedDays);
         }
 

@@ -9,33 +9,19 @@ import React, {
     useEffect,
 } from 'react';
 
-import type { Calendar, DateObject, UseKeyNavigationProps } from '../Calendar.types';
-import type { CalendarStateType } from '../store/types';
-import { getInitialState, reducer } from '../store/reducer';
+import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
+import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
-import { isValueUpdate, YEAR_RENDER_COUNT } from '../utils';
-import { useKeyNavigation } from '../hooks';
-import { CalendarDays, CalendarHeader, CalendarMonths, CalendarYears } from '../ui';
+import { isValueUpdate } from '../utils';
+import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
+import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
-export type CalendarBaseProps = Calendar & {
-    /**
-     * Тип отображения календаря: дни, месяца, года.
-     */
-    type?: CalendarStateType;
-    /**
-     * Размер календаря.
-     */
-    size?: string;
-    /**
-     * Вид календаря.
-     */
-    view?: string;
-};
+export type CalendarBaseProps = Calendar & CalendarConfigProps;
 
 /**
  * Компонент календаря.
@@ -51,6 +37,12 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 type = 'Days',
                 eventList,
                 disabledList,
+                eventMonthList,
+                disabledMonthList,
+                eventQuarterList,
+                disabledQuarterList,
+                eventYearList,
+                disabledYearList,
                 onChangeValue,
                 ...rest
             },
@@ -61,138 +53,35 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 [externalValue],
             );
             const value = secondValue || firstValue;
-            const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
+
+            const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
             const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
 
-            const [state, dispatch] = useReducer(reducer, getInitialState(value, [5, 6], type));
+            const [state, dispatch] = useReducer(reducer, getInitialState(value, type));
 
             const { date, calendarState, startYear, size } = state;
 
-            const handlePrev = useCallback<UseKeyNavigationProps['onPrev']>(
-                (withShift = false) => {
-                    if (calendarState === CalendarState.Days) {
-                        if (withShift) {
-                            dispatch({
-                                type: ActionType.PREVIOUS_YEAR,
-                                payload: { step: 1 },
-                            });
-
-                            return;
-                        }
-
-                        dispatch({
-                            type: ActionType.PREVIOUS_MONTH,
-                            payload: { monthIndex: date.monthIndex, year: date.year },
-                        });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Months) {
-                        dispatch({ type: ActionType.PREVIOUS_YEAR, payload: { step: 1 } });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Years) {
-                        dispatch({ type: ActionType.PREVIOUS_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
-                    }
-                },
-                [date, calendarState],
-            );
-
-            const handleNext = useCallback<UseKeyNavigationProps['onNext']>(
-                (withShift = false) => {
-                    if (calendarState === CalendarState.Days) {
-                        if (withShift) {
-                            dispatch({
-                                type: ActionType.NEXT_YEAR,
-                                payload: { step: 1 },
-                            });
-
-                            return;
-                        }
-
-                        dispatch({
-                            type: ActionType.NEXT_MONTH,
-                            payload: { monthIndex: date.monthIndex, year: date.year },
-                        });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Months) {
-                        dispatch({ type: ActionType.NEXT_YEAR, payload: { step: 1 } });
-
-                        return;
-                    }
-
-                    if (calendarState === CalendarState.Years) {
-                        dispatch({ type: ActionType.NEXT_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
-                    }
-                },
-                [date, calendarState],
-            );
-
+            const { handleNext, handlePrev } = useCalendarNavigation({
+                calendarState,
+                date,
+                dispatch,
+            });
             const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
                 size,
+                calendarState,
                 onNext: handleNext,
                 onPrev: handlePrev,
             });
 
-            const handleOnChangeDay = useCallback(
-                (newDate: DateObject, coord: number[]) => {
-                    const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
-                    onChangeValue?.(newDay);
-
-                    onSelectIndexes(coord);
-                },
-                [onChangeValue, onSelectIndexes],
-            );
-
-            const handleOnChangeMonth = useCallback((monthIndex: number) => {
-                dispatch({
-                    type: ActionType.UPDATE_MONTH,
-                    payload: { calendarState: CalendarState.Days, monthIndex, size: [5, 6] },
-                });
-            }, []);
-
-            const handleOnChangeYear = useCallback((year: number) => {
-                dispatch({
-                    type: ActionType.UPDATE_YEAR,
-                    payload: { calendarState: CalendarState.Months, year },
-                });
-            }, []);
-
-            const handleUpdateCalendarState = useCallback(
-                (newCalendarState: CalendarStateType, newSize: [number, number]) => {
-                    dispatch({
-                        type: ActionType.UPDATE_CALENDAR_STATE,
-                        payload: { calendarState: newCalendarState, size: newSize },
-                    });
-                },
-                [],
-            );
-
-            if (value && prevValue && isValueUpdate(value, prevValue)) {
-                dispatch({
-                    type: ActionType.UPDATE_DATE,
-                    payload: { value },
-                });
-
-                setPrevValue(value);
-            }
-
-            if (prevType !== type) {
-                dispatch({
-                    type: ActionType.UPDATE_CALENDAR_STATE,
-                    payload: { calendarState: type },
-                });
-
-                setPrevType(type);
-            }
+            const {
+                handleOnChangeDay,
+                handleOnChangeMonth,
+                handleOnChangeQuarter,
+                handleOnChangeYear,
+                handleUpdateCalendarState,
+            } = useCalendarDateChange({ type, onChangeValue, onSelectIndexes, dispatch });
 
             // Изменяем ключ каждый раз как пытаемся перейти на даты которые находятся за пределами min/max ограничений.
             // Это необходимо для того чтобы screen-reader корректно озвучивал уведомление aria-live="assertive"
@@ -207,7 +96,27 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             );
 
             useEffect(() => {
+                if (prevType !== calendarState) {
+                    dispatch({
+                        type: ActionType.UPDATE_CALENDAR_STATE,
+                        payload: { calendarState, size: sizeMap[calendarState].single },
+                    });
+
+                    setPrevType(calendarState);
+                }
+            }, [calendarState]);
+
+            useEffect(() => {
                 if (!prevValue) {
+                    setPrevValue(value);
+                }
+
+                if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
+                    dispatch({
+                        type: ActionType.UPDATE_DATE,
+                        payload: { value },
+                    });
+
                     setPrevValue(value);
                 }
             }, [value, prevValue]);
@@ -236,39 +145,70 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                     />
                     {calendarState === CalendarState.Days && (
                         <CalendarDays
-                            eventList={eventList}
-                            disabledList={disabledList}
-                            min={min}
-                            max={max}
-                            includeEdgeDates={includeEdgeDates}
                             value={externalValue}
                             date={date}
-                            hoveredDay={hoveredDay}
+                            min={min}
+                            max={max}
+                            eventList={eventList}
+                            disabledList={disabledList}
+                            includeEdgeDates={includeEdgeDates}
+                            hoveredDay={hoveredItem}
                             selectIndexes={selectIndexes}
                             onChangeDay={handleOnChangeDay}
-                            onHoverDay={setHoveredDay}
                             onSetSelected={onSelectIndexes}
+                            onHoverDay={setHoveredItem}
                             onKeyDown={handleKeyDown}
                             outerRefs={outerRefs}
                         />
                     )}
                     {calendarState === CalendarState.Months && (
                         <CalendarMonths
+                            value={externalValue}
                             date={date}
+                            min={min}
+                            max={max}
+                            eventList={eventMonthList}
+                            disabledList={disabledMonthList}
+                            hoveredMonth={hoveredItem}
                             selectIndexes={selectIndexes}
                             onChangeMonth={handleOnChangeMonth}
                             onSetSelected={onSelectIndexes}
+                            onHoverMonth={setHoveredItem}
+                            onKeyDown={onKeyDown}
+                            outerRefs={outerRefs}
+                        />
+                    )}
+                    {calendarState === CalendarState.Quarters && (
+                        <CalendarQuarters
+                            value={externalValue}
+                            date={date}
+                            min={min}
+                            max={max}
+                            eventList={eventQuarterList}
+                            disabledList={disabledQuarterList}
+                            hoveredQuarter={hoveredItem}
+                            selectIndexes={selectIndexes}
+                            onChangeQuarter={handleOnChangeQuarter}
+                            onSetSelected={onSelectIndexes}
+                            onHoverQuarter={setHoveredItem}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
                         />
                     )}
                     {calendarState === CalendarState.Years && (
                         <CalendarYears
+                            value={externalValue}
                             date={date}
                             startYear={startYear}
                             selectIndexes={selectIndexes}
+                            min={min}
+                            max={max}
+                            eventList={eventYearList}
+                            disabledList={disabledYearList}
+                            hoveredYear={hoveredItem}
                             onChangeYear={handleOnChangeYear}
                             onSetSelected={onSelectIndexes}
+                            onHoverYear={setHoveredItem}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
                         />

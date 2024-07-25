@@ -1,10 +1,9 @@
 import type { HTMLAttributes } from 'react';
 
-import type { CalendarStateType } from '../../Calendar';
-import type { DisabledDay, EventDay } from '../../Calendar/Calendar.types';
 import type { RangeInnerProps } from '../../Range/Range.types';
-import type { DatePickerdVariationProps } from '../DatePickerBase.types';
-import { DatePickerPopoverProps } from '../SingleDate/SingleDate.types';
+import type { DatePickerCalendarProps, DatePickerdVariationProps } from '../DatePickerBase.types';
+import type { DatePickerPopoverProps } from '../SingleDate/SingleDate.types';
+import type { DateInfo } from '../../Calendar/Calendar.types';
 
 export type DatePickerRangePlacement = 'top' | 'bottom';
 
@@ -25,48 +24,12 @@ export type DatePickerRangeFieldProps = {
     /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
      */
-    onCommitFirstDate?: (value: Date | string, error?: boolean, success?: boolean) => void;
+    onCommitFirstDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
     /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
      */
-    onCommitSecondDate?: (value: Date | string, error?: boolean, success?: boolean) => void;
+    onCommitSecondDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
 } & BaseRangeProps;
-
-export type DatePickerCalendarProps = {
-    /**
-     * Формат даты.
-     * @default `DD.MM.YYYY`
-     */
-    format?: string;
-    /**
-     * Формат применяется в качестве маски ввода.
-     */
-    maskWithFormat?: boolean;
-    /**
-     * Минимальное значение даты.
-     */
-    min?: Date;
-    /**
-     * Максимальное значение даты.
-     */
-    max?: Date;
-    /**
-     * Должны ли значения минимального и максимального дня включаться в диапазон.
-     */
-    includeEdgeDates?: boolean;
-    /**
-     * Список событий.
-     */
-    eventList?: EventDay[];
-    /**
-     * Список отключенных дней.
-     */
-    disabledList?: DisabledDay[];
-    /**
-     * Тип отображения календаря: дни, месяца, года.
-     */
-    type?: CalendarStateType;
-};
 
 export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placement'> & {
     /**

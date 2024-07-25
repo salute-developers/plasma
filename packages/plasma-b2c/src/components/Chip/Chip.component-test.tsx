@@ -2,15 +2,27 @@ import React from 'react';
 import { IconDownload } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
+import { Chip as ChipB2C } from '.';
+
 const Icon = () => <IconDownload color="inherit" />;
 
-describe('plasma-web: Chip', () => {
-    const Chip = getComponent('Chip');
+describe('plasma-b2c: Chip', () => {
+    const Chip = getComponent('Chip') as typeof ChipB2C;
 
     it('simple', () => {
         mount(
             <CypressTestDecorator>
                 <Chip>Hello Plasma</Chip>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('without Clear', () => {
+        mount(
+            <CypressTestDecorator>
+                <Chip hasClear={false}>Hello Plasma</Chip>
             </CypressTestDecorator>,
         );
 

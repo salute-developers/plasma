@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { Button } from '../Button/Button';
 import { BodyM } from '../Typography';
 
-import { Portal } from './Portal';
+import { Portal } from '.';
 
 const meta: Meta<typeof Portal> = {
     title: 'Controls/Portal',
