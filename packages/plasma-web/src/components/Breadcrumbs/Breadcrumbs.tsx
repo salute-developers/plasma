@@ -6,6 +6,6 @@ const mergedConfig = mergeConfig(breadcrumbsConfig, config);
 const BreadcrumbsComponent = component(mergedConfig);
 
 /**
- * Accordion
+ * Breadcrumbs
  */
 export const Breadcrumbs = BreadcrumbsComponent;
