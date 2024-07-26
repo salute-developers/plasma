@@ -11,9 +11,9 @@ describe('plasma-ui: TimePicker', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
-                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    value={new Date(1975, 1, 1, 0, 28, 59)}
                     min={new Date(1975, 1, 1, 0, 15, 29)}
-                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    max={new Date(1975, 1, 1, 12, 30, 30)}
                 />
             </CypressTestDecorator>,
         );
@@ -23,9 +23,9 @@ describe('plasma-ui: TimePicker', () => {
 
     it('_size', () => {
         const props = {
-            value: new Date(1980, 8, 1, 1, 28, 58),
+            value: new Date(1975, 1, 1, 1, 28, 58),
             min: new Date(1975, 1, 1, 0, 15, 29),
-            max: new Date(1985, 10, 30, 12, 30, 30),
+            max: new Date(1975, 1, 1, 12, 30, 30),
             infiniteScroll: false,
             visibleItems: 3,
         };
@@ -63,9 +63,9 @@ describe('plasma-ui: TimePicker', () => {
             <CypressTestDecorator>
                 <TimePicker
                     infiniteScroll={false}
-                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    value={new Date(1975, 1, 1, 0, 28, 59)}
                     min={new Date(1975, 1, 1, 0, 15, 29)}
-                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    max={new Date(1975, 1, 1, 12, 30, 30)}
                 />
             </CypressTestDecorator>,
         );
@@ -80,9 +80,9 @@ describe('plasma-ui: TimePicker', () => {
                     scrollSnapType="none"
                     step={2}
                     onChange={noop}
-                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    value={new Date(1975, 1, 1, 0, 28, 59)}
                     min={new Date(1975, 1, 1, 0, 15, 29)}
-                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    max={new Date(1975, 1, 1, 12, 30, 30)}
                 />
             </CypressTestDecorator>,
         );
@@ -101,36 +101,33 @@ describe('plasma-ui: TimePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('should error', () => {
+    it('should accept closest date', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
                     scrollSnapType="none"
                     step={9}
                     onChange={noop}
-                    value={new Date(1980, 8, 1, 0, 28, 25)}
-                    max={new Date(1975, 1, 1, 0, 15, 29)}
-                    min={new Date(1985, 10, 30, 12, 30, 30)}
+                    value={new Date(1975, 1, 1, 0, 28, 25)}
+                    min={new Date(1975, 1, 1, 0, 15, 29)}
+                    max={new Date(1975, 1, 1, 12, 30, 30)}
                 />
             </CypressTestDecorator>,
         );
 
-        cy.on('fail', (err) => {
-            const errorMessage = err.toString().match(/Passed value/);
-            if (errorMessage?.length) {
-                expect('Passed value').to.equal(errorMessage[0]);
-                return false;
-            }
-        });
+        cy.wait(1000);
+
+        cy.matchImageSnapshot();
     });
 
     it('label', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
-                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    value={new Date(1975, 1, 1, 0, 28, 25)}
                     min={new Date(1975, 1, 1, 0, 15, 29)}
-                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    max={new Date(1975, 1, 1, 12, 30, 30)}
+                    onChange={noop}
                     hasLabel
                 />
             </CypressTestDecorator>,
@@ -143,9 +140,9 @@ describe('plasma-ui: TimePicker', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
-                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    value={new Date(1975, 1, 1, 0, 28, 25)}
                     min={new Date(1975, 1, 1, 0, 15, 29)}
-                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    max={new Date(1975, 1, 1, 12, 30, 30)}
                     hasLabel
                     onChange={noop}
                     controls
@@ -173,11 +170,11 @@ describe('plasma-ui: TimePicker update value', () => {
     const Button = getComponent('Button');
 
     function Demo({ data, type }: { data: Date; type: 'valueChange' | 'minChange' }) {
-        const [state, setState] = React.useState(new Date(1980, 8, 1, 0, 28, 25));
+        const [state, setState] = React.useState(new Date(1975, 1, 1, 0, 28, 25));
 
         const min = type === 'minChange' ? state : new Date(1975, 1, 1, 0, 15, 29);
-        const value = type === 'valueChange' ? state : new Date(1980, 8, 1, 0, 28, 25);
-        const max = new Date(1985, 10, 30, 12, 30, 30);
+        const value = type === 'valueChange' ? state : new Date(1975, 1, 1, 0, 28, 25);
+        const max = new Date(1975, 1, 1, 12, 30, 35);
 
         const onClick = React.useCallback(() => {
             setState(data);
@@ -185,7 +182,15 @@ describe('plasma-ui: TimePicker update value', () => {
 
         return (
             <>
-                <TimePicker scrollSnapType="none" step={1} onChange={noop} value={value} min={min} max={max} />
+                <TimePicker
+                    style={{ transition: 'unset', animation: 'none', scrollSnapType: 'none' }}
+                    scrollSnapType="none"
+                    step={1}
+                    onChange={noop}
+                    value={value}
+                    min={min}
+                    max={max}
+                />
                 <Button onClick={onClick}>Изменить значение</Button>
             </>
         );
@@ -194,7 +199,7 @@ describe('plasma-ui: TimePicker update value', () => {
     it('change values', () => {
         mount(
             <CypressTestDecorator>
-                <Demo data={new Date(1980, 8, 1, 3, 30, 35)} type="valueChange" />
+                <Demo data={new Date(1975, 1, 1, 3, 30, 35)} type="valueChange" />
             </CypressTestDecorator>,
         );
 
@@ -206,7 +211,7 @@ describe('plasma-ui: TimePicker update value', () => {
     it('change values with max', () => {
         mount(
             <CypressTestDecorator>
-                <Demo data={new Date(1980, 8, 1, 12, 30, 25)} type="valueChange" />
+                <Demo data={new Date(1975, 1, 1, 12, 30, 25)} type="valueChange" />
             </CypressTestDecorator>,
         );
 
@@ -218,7 +223,7 @@ describe('plasma-ui: TimePicker update value', () => {
     it('change values with min', () => {
         mount(
             <CypressTestDecorator>
-                <Demo data={new Date(1980, 8, 1, 0, 15, 25)} type="valueChange" />
+                <Demo data={new Date(1975, 1, 1, 0, 15, 25)} type="valueChange" />
             </CypressTestDecorator>,
         );
 
@@ -230,7 +235,7 @@ describe('plasma-ui: TimePicker update value', () => {
     it('change min value', () => {
         mount(
             <CypressTestDecorator>
-                <Demo data={new Date(1980, 8, 1, 0, 28, 50)} type="minChange" />
+                <Demo data={new Date(1975, 1, 1, 0, 28, 50)} type="minChange" />
             </CypressTestDecorator>,
         );
 
@@ -243,9 +248,9 @@ describe('plasma-ui: TimePicker update value', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
-                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    value={new Date(1975, 1, 1, 0, 28, 59)}
                     min={new Date(1975, 1, 1, 0, 15, 29)}
-                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    max={new Date(1975, 1, 1, 12, 30, 30)}
                     controls
                     autofocus
                 />
@@ -260,15 +265,15 @@ describe('plasma-ui: TimePicker update value', () => {
             <CypressTestDecorator>
                 <>
                     <TimePicker
-                        value={new Date(1980, 8, 1, 0, 28, 59)}
+                        value={new Date(1975, 1, 1, 0, 28, 59)}
                         min={new Date(1975, 1, 1, 0, 15, 29)}
-                        max={new Date(1985, 10, 30, 0, 30, 30)}
+                        max={new Date(1975, 1, 1, 0, 30, 30)}
                         controls
                     />
                     <TimePicker
-                        value={new Date(1980, 8, 1, 0, 28, 59)}
+                        value={new Date(1975, 1, 1, 0, 28, 59)}
                         min={new Date(1975, 1, 1, 0, 28, 59)}
-                        max={new Date(1985, 10, 30, 0, 28, 59)}
+                        max={new Date(1975, 1, 1, 0, 28, 59)}
                         visibleItems={3}
                         controls
                     />
