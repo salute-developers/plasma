@@ -29,6 +29,8 @@ import { bodyXSBold } from '@salutejs/sdds-themes/tokens';
 import { bodyXXS } from '@salutejs/sdds-themes/tokens';
 import { bodyXXSBold } from '@salutejs/sdds-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
+import { BreadcrumbsItem } from '@salutejs/plasma-new-hope/types/components/Breadcrumbs/Breadcrumbs.types';
+import { BreadcrumbsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
@@ -361,6 +363,27 @@ color?: string | undefined;
 export { bodyXXS }
 
 export { bodyXXSBold }
+
+// @public
+export const Breadcrumbs: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+view?: string | undefined;
+size?: "s" | "m" | "l" | "xs" | undefined;
+separator?: ReactNode;
+items: BreadcrumbsItem[];
+showItems?: number | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { BreadcrumbsProps }
 
 // @public
 export const Button: FunctionComponent<PropsType<    {

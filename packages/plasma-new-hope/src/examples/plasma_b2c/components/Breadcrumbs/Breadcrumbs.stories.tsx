@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
@@ -28,6 +29,7 @@ const meta: Meta<BreadcrumbsProps> = {
     },
     argTypes: {
         ...argTypesFromConfig(mergeConfig(accordionConfig, config)),
+        ...disableProps(['separator']),
     },
 };
 
@@ -35,8 +37,6 @@ export default meta;
 
 export const Default: StoryObj<BreadcrumbsProps> = {
     render: (props: BreadcrumbsProps) => {
-        const args = { ...props };
-
-        return <Breadcrumbs {...args} />;
+        return <Breadcrumbs {...props} />;
     },
 };

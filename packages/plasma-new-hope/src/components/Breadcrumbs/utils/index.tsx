@@ -21,11 +21,8 @@ export const shortItems = (items: ReactNode[], renderSeparator: ReactNode, showI
 export const convertIconSize = (size?: 'xs' | 's' | 'm' | 'l') => {
     switch (size) {
         case 's':
+        case 'xs':
             return 'xs';
-        case 'm':
-            return 's';
-        case 'l':
-            return 's';
         default:
             return 's';
     }
@@ -38,7 +35,7 @@ export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactN
                 return item.renderItem();
             }
             return (
-                <StyledLink tabIndex={0} href={item.href} isHref={!!item.href}>
+                <StyledLink tabIndex={0} href={item.href} isHref={Boolean(item.href)}>
                     {item.title}
                 </StyledLink>
             );

@@ -12,7 +12,7 @@ import { PropsTable } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { Breadcrumbs } from '@salutejs/plasma-web';
+import { Breadcrumbs } from '@salutejs/{{ package }}';
 
 export function App() {
     const items = [
@@ -32,7 +32,7 @@ export function App() {
 # Использование с shorter
 ```tsx live
 import React from 'react';
-import { Breadcrumbs } from '@salutejs/plasma-web';
+import { Breadcrumbs } from '@salutejs/{{ package }}';
 
 export function App() {
     const items = [
@@ -43,7 +43,7 @@ export function App() {
     ];
 
     return (
-        <div style={{"flexDirection": 'column'}}>
+        <div style=\{{"flexDirection": 'column'}}>
             <div>
                 <Breadcrumbs items={items} showItems={2} />
             </div>
@@ -58,7 +58,7 @@ export function App() {
 # Использование с кастомным элементом
 ```tsx live
 import React from 'react';
-import { Breadcrumbs, Dropdown } from '@salutejs/plasma-web';
+import { Breadcrumbs, Dropdown } from '@salutejs/{{ package }}';
 
 export function App() {
     const items = [
@@ -88,7 +88,7 @@ export function App() {
 
 
     return (
-        <div style={{height: '200px'}}>
+        <div style=\{{height: '200px'}}>
             <Breadcrumbs items={items} />
         </div>
     );

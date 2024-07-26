@@ -8,13 +8,13 @@ export type BreadcrumbsItem =
           href?: string;
 
           /**
-           * Элемент крошки
+           * Элемент заголовка
            */
           title: string;
       }
     | {
           /**
-           * Функция рендера элемента)
+           * Функция рендера элемента
            */
           renderItem: () => ReactNode;
       };
@@ -22,7 +22,7 @@ export type BreadcrumbsItem =
 type Breadcrumbs = {
     view?: string;
     /**
-     * Стандартный размер текста элементов
+     * Размер компонента
      */
     size?: 'xs' | 's' | 'm' | 'l';
 
@@ -32,12 +32,12 @@ type Breadcrumbs = {
     separator?: ReactNode;
 
     /**
-     * Элементы крошек
+     * Элементы Breadcrumbs
      */
     items: BreadcrumbsItem[];
 
     /**
-     * Количество показываемых элементов - все оставльные сокращаются
+     * Количество показываемых элементов - все остальные сокращаются
      */
     showItems?: number;
 };

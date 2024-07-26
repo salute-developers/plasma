@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Dropdown } from '../Dropdown';
 
@@ -14,6 +15,9 @@ const meta: Meta<BreadcrumbsProps> = {
     args: {
         view: 'default',
         size: 'm',
+    },
+    argTypes: {
+        ...disableProps(['separator']),
     },
 };
 
@@ -30,9 +34,7 @@ export const Default: StoryObj<BreadcrumbsProps> = {
         ],
     },
     render: (props: BreadcrumbsProps) => {
-        const args = { ...props };
-
-        return <Breadcrumbs {...args} />;
+        return <Breadcrumbs {...props} />;
     },
 };
 
