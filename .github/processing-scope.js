@@ -42,7 +42,7 @@ module.exports = () => {
     /**
      * Processed data - packages name without "@salutejs/"
      * @example
-     * ["plasma-web", "plasma-ui", "caldera-online"]
+     * ["plasma-web", "plasma-ui", "sdds-serv"]
      */
     const PROCESSED_DATA = rawData.map((item) => item.replace('@salutejs/', ''));
 

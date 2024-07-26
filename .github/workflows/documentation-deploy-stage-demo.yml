@@ -47,12 +47,7 @@ jobs:
         run: |
           npm run build --prefix="./website/sdds-dfa-docs"
           cp -R ./website/sdds-dfa-docs/build ./s3_build/sdds-dfa
-
-      - name: CALDERA-ONLINE Docs
-        run: |
-          npm run build --prefix="./website/caldera-online-docs"
-          cp -R ./website/caldera-online-docs/build ./s3_build/caldera-online
-          
+ 
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
@@ -78,11 +73,6 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-new-hope"
           cp -R ./packages/plasma-new-hope/build-sb ./s3_build/new-hope-storybook
         
-      - name: Plasma "Caldera-online" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/caldera-online"
-          cp -R ./packages/caldera-online/build-sb ./s3_build/caldera-online-storybook
-      
       - name: Plasma "SDDS SERV" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-serv"
