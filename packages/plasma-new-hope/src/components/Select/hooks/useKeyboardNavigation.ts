@@ -51,7 +51,7 @@ interface Props {
     dispatchFocusedChipIndex: Dispatch<FocusedChipIndexAction>;
     value: string | string[];
     valueToItemMap: ValueToItemMapType;
-    multiselect: boolean;
+    multiselect: SelectProps['multiselect'];
     isTargetAmount: SelectProps['isTargetAmount'];
 }
 

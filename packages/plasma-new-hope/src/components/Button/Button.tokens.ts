@@ -33,7 +33,9 @@ export const tokens = {
     buttonLineHeight: '--plasma-button-line-height',
 
     buttonLeftContentMargin: '--plasma-button-left-content-margin',
+    buttonLeftContentAlignSelf: '--plasma-button-left-content-align-self',
     buttonRightContentMargin: '--plasma-button-right-content-margin',
+    buttonRightContentAlignSelf: '--plasma-button-right-content-align-self',
     buttonValueMargin: '--plasma-button-value-margin',
 
     buttonDisabledOpacity: '--plasma-button-disabled-opacity',

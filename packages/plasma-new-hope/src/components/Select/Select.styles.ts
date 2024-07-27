@@ -25,7 +25,7 @@ export const Ul = styled.ul<{
     box-sizing: border-box;
 
     background: var(${constants.background});
-    box-shadow: var(${constants.boxShadow});
+    box-shadow: ${constants.boxShadow};
 
     border-radius: var(${tokens.borderRadius});
     width: ${({ listWidth }) => listWidth || '100%'};

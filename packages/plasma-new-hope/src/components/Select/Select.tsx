@@ -23,7 +23,6 @@ export const Context = createContext<ItemContext>({} as ItemContext);
 export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 'items'>>) =>
     forwardRef<HTMLButtonElement, SelectProps>((props, ref) => {
         const {
-            multiselect = false,
             value: outerValue,
             onChange: outerOnChange,
             target = 'textfield-like',
@@ -33,7 +32,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             labelPlacement = 'outer',
             placeholder,
             helperText,
-            isTargetAmount = false,
             disabled = false,
             view,
             size,
@@ -50,7 +48,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             ...rest
         } = props;
 
-        const [internalValue, setInternalValue] = useState<string | string[]>(outerValue || multiselect ? [] : '');
+        const [internalValue, setInternalValue] = useState<string | string[]>(
+            outerValue || props.multiselect ? [] : '',
+        );
 
         const value = outerValue || internalValue;
 
@@ -88,28 +88,30 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
         };
 
         const handleCheckboxChange = (item: ItemOptionTransformed) => {
-            const checkedCopy = new Map(checked);
+            if (props.multiselect) {
+                const checkedCopy = new Map(checked);
 
-            if (!checkedCopy.get(item.value.toString())) {
-                checkedCopy.set(item.value.toString(), true);
-                updateDescendants(item, checkedCopy, true);
-            } else {
-                checkedCopy.set(item.value.toString(), false);
-                updateDescendants(item, checkedCopy, false);
-            }
-
-            updateAncestors(item, checkedCopy);
-
-            const newValues: Array<string> = [];
-
-            valueToItemMap.forEach((item, key) => {
-                if (checkedCopy.get(key)) {
-                    newValues.push(item.value.toString());
+                if (!checkedCopy.get(item.value)) {
+                    checkedCopy.set(item.value, true);
+                    updateDescendants(item, checkedCopy, true);
+                } else {
+                    checkedCopy.set(item.value, false);
+                    updateDescendants(item, checkedCopy, false);
                 }
-            });
 
-            if (onChange) {
-                onChange(newValues as any);
+                updateAncestors(item, checkedCopy);
+
+                const newValues: Array<string> = [];
+
+                valueToItemMap.forEach((item, key) => {
+                    if (checkedCopy.get(key)) {
+                        newValues.push(item.value);
+                    }
+                });
+
+                if (onChange) {
+                    onChange(newValues);
+                }
             }
         };
 
@@ -118,7 +120,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                 return;
             }
 
-            if (multiselect) {
+            if (props.multiselect) {
                 handleCheckboxChange(item);
             } else {
                 if (e) {
@@ -139,7 +141,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                 }
 
                 if (onChange) {
-                    onChange((isCurrentChecked ? '' : item.value) as any);
+                    onChange(isCurrentChecked ? '' : item.value);
                 }
             }
         };
@@ -151,7 +153,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
         const handlePressDown = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
             if (isEmpty(item.items)) {
                 handleItemClick(item, e);
-            } else if (multiselect) {
+            } else if (props.multiselect) {
                 handleCheckboxChange(item);
             }
         };
@@ -170,6 +172,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
         };
 
         const { onKeyDown } = useKeyNavigation({
+            value,
             focusedPath,
             dispatchFocusedPath,
             path,
@@ -180,10 +183,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             handlePressDown,
             focusedChipIndex,
             dispatchFocusedChipIndex,
-            value,
             valueToItemMap,
-            multiselect,
-            isTargetAmount,
+            multiselect: props.multiselect,
+            isTargetAmount: props.isTargetAmount,
         });
 
         const isCurrentListOpen = Boolean(path[0]);
@@ -219,7 +221,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                     value={{
                         focusedPath,
                         checked,
-                        multiselect,
+                        multiselect: props.multiselect,
                         size,
                         handleCheckboxChange,
                         handleItemClick,
@@ -238,10 +240,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                         target={
                             <Target
                                 opened={isCurrentListOpen}
-                                target={target}
                                 value={value}
-                                isTargetAmount={isTargetAmount}
-                                multiselect={multiselect}
                                 valueToItemMap={valueToItemMap}
                                 focusedPath={focusedPath}
                                 focusedToValueMap={focusedToValueMap}
@@ -251,6 +250,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                                 onKeyDown={onKeyDown}
                                 focusedChipIndex={focusedChipIndex}
                                 labelPlacement={labelPlacement}
+                                selectProps={props}
                                 size={size}
                                 contentLeft={contentLeft}
                                 disabled={disabled}
