@@ -56,11 +56,13 @@ export const StyledSpinner = styled(Spinner)`
 export const StyledContentLeft = styled.div`
     display: flex;
     margin: var(${tokens.buttonLeftContentMargin});
+    align-self: var(${tokens.buttonLeftContentAlignSelf});
 `;
 
 export const StyledContentRight = styled.div`
     display: flex;
     margin: var(${tokens.buttonRightContentMargin});
+    align-self: var(${tokens.buttonRightContentAlignSelf});
 `;
 
 export const base = css`

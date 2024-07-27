@@ -9,7 +9,7 @@ import { tokens, classes, constants } from '../../../../Select.tokens';
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
-export const StyledButton = styled(Button)`
+export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
     ${buttonTokens.buttonColor}: var(${tokens.targetButtonColor});
     ${buttonTokens.buttonColorHover}: var(${tokens.targetButtonColorHover});
     ${buttonTokens.buttonColorActive}: var(${tokens.targetButtonColorActive});
@@ -17,7 +17,7 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.targetButtonBackgroundColorHover});
     ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetButtonBackgroundColorActive});
     ${buttonTokens.buttonRightContentMargin}: var(${tokens.targetButtonArrowMargin});
-    ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
+    ${buttonTokens.buttonHeight}: ${({ renderTarget }) => (renderTarget ? 'auto' : `var(${tokens.targetHeight})`)};
     ${buttonTokens.buttonWidth}: 100%;
     ${buttonTokens.buttonPadding}: var(${tokens.targetButtonPadding});
     ${buttonTokens.buttonRadius}: var(${tokens.borderRadius});
@@ -29,6 +29,7 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
     ${buttonTokens.buttonDisabledOpacity}: ${constants.opacity};
     ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
+    text-align: left;
 `;
 
 export const IconArrowWrapper = styled.div`
@@ -56,6 +57,10 @@ export const ButtonWrapper = styled.div`
     .${classes.selectWithoutBoxShadow}::before {
         box-shadow: none !important;
     }
+
+    .${classes.arrowInverse} {
+        transform: rotate(-180deg);
+    }
 `;
 
 export const Label = styled.div`
@@ -64,8 +69,4 @@ export const Label = styled.div`
     text-align: left;
 
     ${applyEllipsis()}
-
-    .${classes.arrowInverse} {
-        transform: rotate(-180deg);
-    }
 `;

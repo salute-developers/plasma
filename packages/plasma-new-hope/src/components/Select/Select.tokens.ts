@@ -91,7 +91,7 @@ export const constants = {
     focusColor: '--surface-accent',
     focusSize: '0.0625rem',
     background: '--surface-solid-card',
-    boxShadow: '--shadow-down-soft-s',
+    boxShadow: '0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04)',
     disclosureIconColor: '--text-secondary',
     disclosureIconColorHover: '--text-secondary-hover',
     itemBackground: '--plasma-colors-transparent',

@@ -79,8 +79,6 @@ const getLabel = ({
 export const Textfield: React.FC<TextfieldProps> = ({
     opened,
     value,
-    isTargetAmount,
-    multiselect,
     valueToItemMap,
     onChipClick,
     label,
@@ -94,6 +92,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
     renderValue,
     focusedPath,
     focusedToValueMap,
+    selectProps,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
@@ -117,26 +116,33 @@ export const Textfield: React.FC<TextfieldProps> = ({
                 aria-expanded={opened}
                 aria-activedescendant={getActiveDescendant()}
                 aria-label={label}
+                renderTarget={Boolean(selectProps.renderTarget)}
             >
                 <Wrapper>
-                    {contentLeft && (!multiselect || isEmpty(value)) && (
-                        <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>
-                    )}
+                    {selectProps?.renderTarget ? (
+                        selectProps.renderTarget(value as any)
+                    ) : (
+                        <>
+                            {contentLeft && (!selectProps.multiselect || isEmpty(value)) && (
+                                <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>
+                            )}
 
-                    <ChipWrapper>
-                        {getLabel({
-                            value,
-                            isTargetAmount,
-                            valueToItemMap,
-                            onChipClick,
-                            label,
-                            placeholder,
-                            focusedChipIndex,
-                            labelPlacement,
-                            size,
-                            renderValue,
-                        })}
-                    </ChipWrapper>
+                            <ChipWrapper>
+                                {getLabel({
+                                    value,
+                                    valueToItemMap,
+                                    onChipClick,
+                                    focusedChipIndex,
+                                    label,
+                                    labelPlacement,
+                                    placeholder,
+                                    isTargetAmount: selectProps.isTargetAmount,
+                                    renderValue,
+                                    size,
+                                })}
+                            </ChipWrapper>
+                        </>
+                    )}
 
                     <IconArrowWrapper>
                         <StyledArrow

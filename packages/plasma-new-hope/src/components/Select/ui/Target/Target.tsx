@@ -5,9 +5,6 @@ import { Button, Textfield } from './ui';
 
 export const Target: React.FC<TargetProps> = ({
     value,
-    multiselect,
-    isTargetAmount,
-    target,
     opened,
     valueToItemMap,
     onChipClick,
@@ -22,13 +19,12 @@ export const Target: React.FC<TargetProps> = ({
     renderValue,
     focusedPath,
     focusedToValueMap,
+    selectProps,
 }) => {
-    return target === 'button-like' ? (
+    return selectProps.target === 'button-like' ? (
         <Button
             opened={opened}
             value={value}
-            isTargetAmount={isTargetAmount}
-            multiselect={multiselect}
             valueToItemMap={valueToItemMap}
             onKeyDown={onKeyDown}
             label={label}
@@ -37,13 +33,12 @@ export const Target: React.FC<TargetProps> = ({
             renderValue={renderValue}
             focusedPath={focusedPath}
             focusedToValueMap={focusedToValueMap}
+            selectProps={selectProps}
         />
     ) : (
         <Textfield
             opened={opened}
             value={value}
-            isTargetAmount={isTargetAmount}
-            multiselect={multiselect}
             valueToItemMap={valueToItemMap}
             onChipClick={onChipClick}
             label={label}
@@ -57,6 +52,7 @@ export const Target: React.FC<TargetProps> = ({
             renderValue={renderValue}
             focusedPath={focusedPath}
             focusedToValueMap={focusedToValueMap}
+            selectProps={selectProps}
         />
     );
 };
