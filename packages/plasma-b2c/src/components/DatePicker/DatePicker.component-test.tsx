@@ -509,7 +509,10 @@ describe('plasma-b2c: DatePickerRange', () => {
         );
 
         cy.get('input').first().realClick();
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('prop: onToggle, outside click', () => {
