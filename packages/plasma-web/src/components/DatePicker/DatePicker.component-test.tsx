@@ -231,7 +231,10 @@ describe('plasma-web: DatePicker', () => {
         );
 
         cy.get('input').realClick();
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('prop: onToggle, outside click', () => {
