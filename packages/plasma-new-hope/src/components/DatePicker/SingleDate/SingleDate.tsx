@@ -24,6 +24,7 @@ export const datePickerRoot = (
                 isOpen = false,
 
                 label,
+                labelPlacement = 'outer',
                 placeholder,
                 leftHelper,
                 contentLeft,
@@ -73,6 +74,8 @@ export const datePickerRoot = (
             const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format));
             const [inputValue, setInputValue] = useState(formatInputValue(defaultDate, format));
 
+            const innerLabelPlacement = labelPlacement === 'inner';
+
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
             const {
@@ -104,6 +107,7 @@ export const datePickerRoot = (
                     ref={inputRef}
                     className={cx(datePickerErrorClass, datePickerSuccessClass)}
                     value={inputValue}
+                    size={size}
                     readOnly={readOnly}
                     disabled={disabled}
                     placeholder={placeholder}
@@ -115,6 +119,7 @@ export const datePickerRoot = (
                     onSearch={(date) => handleCommitDate(date, true, false)}
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    {...(innerLabelPlacement && { label, labelPlacement })}
                 />
             );
 
@@ -128,7 +133,7 @@ export const datePickerRoot = (
                     ref={ref}
                     {...rest}
                 >
-                    {label && <StyledLabel>{label}</StyledLabel>}
+                    {!innerLabelPlacement && label && <StyledLabel>{label}</StyledLabel>}
                     <StyledPopover
                         isOpen={isOpen || isInnerOpen}
                         usePortal={false}

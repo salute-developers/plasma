@@ -24,6 +24,10 @@ export type DatePickerTextFieldProps = {
      */
     label?: string;
     /**
+     * Расположение лейбла.
+     */
+    labelPlacement?: 'inner' | 'outer';
+    /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
     leftHelper?: string;
