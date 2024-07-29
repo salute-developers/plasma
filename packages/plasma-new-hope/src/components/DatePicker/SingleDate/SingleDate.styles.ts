@@ -39,6 +39,14 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.borderRadius}: var(${tokens.textFieldBorderRadius});
 
     ${textFieldTokens.padding}: var(${tokens.textFieldPadding});
+    ${textFieldTokens.labelInnerPadding}: var(${tokens.labelInnerPadding});
+    ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.contentLabelInnerPadding});
+    ${textFieldTokens.labelInnerFontFamily}: var(${tokens.labelInnerFontFamily});
+    ${textFieldTokens.labelInnerFontSize}: var(${tokens.labelInnerFontSize});
+    ${textFieldTokens.labelInnerFontStyle}: var(${tokens.labelInnerFontStyle});
+    ${textFieldTokens.labelInnerFontWeight}: var(${tokens.labelInnerFontWeight});
+    ${textFieldTokens.labelInnerLetterSpacing}: var(${tokens.labelInnerLetterSpacing});
+    ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
 
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});

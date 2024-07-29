@@ -19,6 +19,7 @@ const onChangeSecondValue = action('onChangeSecondValue');
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
+const labelPlacements = ['outer', 'inner'];
 
 const meta: Meta = {
     title: 'plasma_web/DatePicker',
@@ -93,6 +94,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
         defaultDate: {
             control: {
                 type: 'date',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
             },
         },
     },

@@ -19,6 +19,7 @@ const onChangeSecondValue = action('onChangeSecondValue');
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
+const labelPlacements = ['outer', 'inner'];
 
 const meta: Meta = {
     title: 'plasma_b2c/DatePicker',
@@ -95,6 +96,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
                 type: 'date',
             },
         },
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
     },
     args: {
         label: 'Лейбл',
@@ -102,6 +109,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         placeholder: '30.05.2024',
         size: 'l',
         view: 'default',
+        labelPlacement: 'outer',
         defaultDate: new Date(2024, 5, 14),
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),

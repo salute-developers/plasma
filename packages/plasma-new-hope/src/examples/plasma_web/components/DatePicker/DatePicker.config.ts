@@ -25,6 +25,13 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
                 ${tokens.textFieldBorderColorError}: var(--surface-negative);
                 ${tokens.textFieldBorderColorErrorFocus}: var(--surface-accent);
@@ -82,6 +89,8 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.75rem 0;
+                ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
 
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -206,6 +215,8 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.625rem 0;
+                ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -329,6 +340,8 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.5rem 0;
+                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -452,6 +465,8 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.375rem 0;
+                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
