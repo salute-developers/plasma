@@ -15,6 +15,7 @@ import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '.
 import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
+import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
 
 import type { DatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -180,6 +181,11 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen(isCalendarOpen);
             };
 
+            const { onKeyDown } = useKeyNavigation({
+                isCalendarOpen: isInnerOpen,
+                onToggle: handleToggle,
+            });
+
             const RangeComponent = (
                 <>
                     {/* TODO https://github.com/salute-developers/plasma/issues/1227
@@ -227,6 +233,7 @@ export const datePickerRangeRoot = (
                         onFocusSecondTextfield={onFocusSecondTextfield}
                         onBlurFirstTextfield={onBlurFirstTextfield}
                         onBlurSecondTextfield={onBlurSecondTextfield}
+                        onKeyDown={onKeyDown}
                     />
                 </>
             );
@@ -235,6 +242,10 @@ export const datePickerRangeRoot = (
                 setFirstInputRef(rangeRef.current?.firstTextField());
                 setSecondInputRef(rangeRef.current?.secondTextField());
             }, [rangeRef.current]);
+
+            useEffect(() => {
+                setIsInnerOpen((prevOpen) => prevOpen !== isOpen && isOpen);
+            }, [isOpen]);
 
             return (
                 <Root
@@ -250,7 +261,7 @@ export const datePickerRangeRoot = (
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         target={RangeComponent}
-                        isOpen={isOpen || isInnerOpen}
+                        isOpen={isInnerOpen}
                         includeEdgeDates={includeEdgeDates}
                         eventList={eventList}
                         disabledList={disabledList}

@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 
 import type { RootProps } from '../../../engines';
 import { cx, getPlacements } from '../../../utils';
@@ -6,6 +6,7 @@ import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '.
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
 import { StyledCalendar } from '../DatePickerBase.styles';
+import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
 
 import type { DatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -102,6 +103,11 @@ export const datePickerRoot = (
                 onCommitDate,
             });
 
+            const { onKeyDown } = useKeyNavigation({
+                isCalendarOpen: isInnerOpen,
+                onToggle: handleToggle,
+            });
+
             const DatePickerInput = (
                 <StyledInput
                     ref={inputRef}
@@ -119,9 +125,14 @@ export const datePickerRoot = (
                     onSearch={(date) => handleCommitDate(date, true, false)}
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    onKeyDown={onKeyDown}
                     {...(innerLabelPlacement && { label, labelPlacement })}
                 />
             );
+
+            useEffect(() => {
+                setIsInnerOpen((prevOpen) => prevOpen !== isOpen && isOpen);
+            }, [isOpen]);
 
             return (
                 <Root
@@ -135,7 +146,7 @@ export const datePickerRoot = (
                 >
                     {!innerLabelPlacement && label && <StyledLabel>{label}</StyledLabel>}
                     <StyledPopover
-                        isOpen={isOpen || isInnerOpen}
+                        isOpen={isInnerOpen}
                         usePortal={false}
                         onToggle={handleToggle}
                         offset={offset}
