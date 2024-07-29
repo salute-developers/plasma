@@ -17,6 +17,7 @@ const onChangeSecondValue = action('onChangeSecondValue');
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
+const labelPlacements = ['outer', 'inner'];
 
 const meta: Meta = {
     title: 'Controls/DatePicker',
@@ -93,9 +94,16 @@ export const Default: StoryObj<StoryPropsDefault> = {
                 type: 'date',
             },
         },
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
     },
     args: {
         label: 'Лейбл',
+        labelPlacement: 'outer',
         leftHelper: 'Подсказка к полю',
         placeholder: '30.05.2024',
         size: 'l',
