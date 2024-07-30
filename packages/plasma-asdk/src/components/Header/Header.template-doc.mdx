@@ -1,0 +1,78 @@
+---
+id: header
+title: Header
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+## Компоненты для собственной сборки шапки
+Рекомендуется использовать компонент `Header`.
+Если вам нужно больше контроля за версткой шапки,
+используйте составные части, где корневым узлом будет `HeaderRoot`.
+
+### HeaderRoot
+<Description name="HeaderRoot" />
+<PropsTable name="HeaderRoot" />
+
+### HeaderArrow
+<Description name="HeaderArrow" />
+<PropsTable name="HeaderArrow" />
+
+### HeaderLogo
+<Description name="HeaderLogo" />
+<PropsTable name="HeaderLogo" />
+
+### Пример
+
+```tsx live
+import React from 'react';
+import {
+    HeaderRoot,
+    HeaderLogo,
+    HeaderTitle,
+    HeaderContent,
+    HeaderArrow,
+} from '@salutejs/{{ package }}';
+
+export function App() {
+    const [isBack, setIsBack] = useState(true);
+
+    const onBackClick = () => {
+        setIsBack(false);
+    };
+
+    const onMinimizeClick = () => {
+        setIsBack(true);
+    };
+
+    const props = {
+        view: 'default',
+        size: 'm',
+        title: 'Header title text',
+        subtitle: 'Subtitle text',
+        label: 'Label text',
+        gradientColor: '#F69555',
+        contentItemsNumber: 3,
+        enableIcons: true,
+    };
+
+    return (
+       <div style=\{{ position: 'relative', display: 'block', padding: '0 16px' }}>
+            <HeaderRoot {...props} style=\{{ marginLeft: '40px' }}>
+                {isBack ? (
+                    <HeaderArrow onClick={onBackClick} />
+                ) : (
+                    <HeaderArrow arrow="minimize" onClick={onMinimizeClick} />
+                )}
+                <HeaderLogo src="/{{ package }}/images/320_320_12.jpg" alt="Logo" />
+                <HeaderTitle>{props.title}</HeaderTitle>
+                <HeaderContent>
+                    <div>This is content</div>
+                </HeaderContent>
+            </HeaderRoot>
+        </div>
+    );
+}
+```
+
+  
