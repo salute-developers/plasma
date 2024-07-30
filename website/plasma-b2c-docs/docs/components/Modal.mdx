@@ -1,0 +1,57 @@
+---
+id: modal
+title: Modal
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Modal
+<Description name="Modal" />
+<PropsTable name="Modal" />
+<StorybookLink name="Modal" />
+
+## Использование
+
+### Провайдер контекста
+Поместите `ModalsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна:
+
+```tsx title="index.ts"
+import ReactDOM from 'react-dom';
+import { ModalsProvider } from '@salutejs/plasma-b2c';
+
+import { App } from './App';
+
+ReactDOM.render(
+    <ModalsProvider>
+        <App />
+    </ModalsProvider>,
+    document.getElementById('root')
+);
+```
+
+### Вызов модального окна
+После подключения `ModalsProvider` поместите компонент `Modal` туда, где необходимо применить модальное окно:
+
+```tsx live
+import React, { useCallback, useState } from 'react';
+import { Modal, Headline3, P1, Button } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const close = useCallback(() => {
+      setIsOpen(false);
+    });
+
+    return (
+        <div>
+            <Button text="Открыть модальное окно" onClick={() => setIsOpen(!isOpen)} />
+            <Modal isOpen={isOpen} onClose={close}>
+                <Headline3 mb={10}>Модальное окно</Headline3>
+                <P1>Содержимое модального окна.</P1>
+                <Button text="Закрыть" onClick={close} />
+            </Modal>
+        </div>
+    );
+}
+```

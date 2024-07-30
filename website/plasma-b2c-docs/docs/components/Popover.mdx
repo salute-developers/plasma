@@ -1,0 +1,55 @@
+---
+id: popover
+title: Popover
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Popover
+<Description name="Popover" />
+<PropsTable name="Popover" />
+<StorybookLink name="Popover" />
+
+```tsx live
+import React from 'react';
+import styled from "styled-components";
+import { surfaceSolid03 } from "@salutejs/plasma-tokens-b2c";
+import { Popover, Button } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const StyledContent = styled.div`
+        background: ${surfaceSolid03};
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `;
+
+    return (
+        <section style={{width: '20rem', height: '15rem'}}>
+            <Popover
+                isOpen={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                role="presentation"
+                id="popover"
+                target={<Button>Target</Button>}
+                offset={[0, 6]}
+                hasArrow
+                placement='bottom'
+                trigger='click'
+                closeOnOverlayClick
+                closeOnEsc
+                isFocusTrapped
+            >
+                <StyledContent>
+                    <>Content</>
+                    <Button onClick={() => setIsOpen(false)}>close</Button>
+                </StyledContent>
+            </Popover>
+        </section>
+    );
+}
+```

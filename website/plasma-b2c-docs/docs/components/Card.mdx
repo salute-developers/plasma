@@ -1,0 +1,135 @@
+---
+id: card
+title: Card
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Card
+Набор компонентов для создания карточек.
+
+<StorybookLink name="Card" />
+
+## Card
+<Description name="Card" />
+<PropsTable name="Card" />
+
+## CardBody
+<Description name="CardBody" />
+
+## CardContent
+<Description name="CardContent" />
+<PropsTable name="CardContent" />
+
+## CardMedia
+<Description name="CardMedia" />
+<PropsTable name="CardMedia" />
+
+## Примеры
+
+### Простая карточка
+Представляет собой ответ в виде карточки, которая может содержать ячейку с изображением.
+Включает в себя класс карточек нескольких видов.
+
+```tsx live
+import React from 'react';
+import { 
+    Card, 
+    CardBody, 
+    CardMedia, 
+    CardBadge, 
+    CardContent,
+    BodyM,
+    H4
+} from '@salutejs/plasma-b2c';
+
+export function App() {
+    const src = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+
+    return (
+        <div>
+            <Card style={{ width: '22.5rem' }} tabIndex={0} outlined scaleOnFocus>
+                <CardBody>
+                    <CardMedia src={src} placeholder={src} ratio="1/1" />
+                    <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
+                    <CardContent>
+                        <BodyM>Label</BodyM>
+                        <H4>Tittle</H4>
+                        <BodyM>description</BodyM>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        </div>
+    );
+}
+```
+
+### Карточка с подложкой
+
+```tsx live
+import React from 'react';
+import { 
+    Card, 
+    CardBody, 
+    CardMedia, 
+    CardBadge, 
+    CardContent,
+    BodyM,
+    H4
+} from '@salutejs/plasma-b2c';
+
+export function App() {
+    const src = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+
+    return (
+        <div>
+            <Card style={{ width: '22.5rem' }} background="cadetblue" tabIndex={0} outlined scaleOnFocus>
+                <CardBody>
+                    <CardMedia src={src} placeholder={src} ratio="1/1" />
+                    <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
+                    <CardContent>
+                        <BodyM>Label</BodyM>
+                        <H4>Tittle</H4>
+                        <BodyM>description</BodyM>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        </div>
+    );
+}
+```
+
+### Карточка с текстом на изображении
+
+```tsx live
+import React from 'react';
+import { 
+    Card, 
+    CardBody, 
+    CardMedia, 
+    CardBadge, 
+    CardContent,
+    BodyM,
+    H4
+} from '@salutejs/plasma-b2c';
+
+export function App() {
+    const src = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+
+    return (
+        <div>
+            <Card style={{ width: '22.5rem', color: 'white' }} tabIndex={0} outlined scaleOnFocus>
+                <CardBody>
+                    <CardMedia src={src} placeholder={src} ratio="1/1" />
+                    <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
+                    <CardContent cover>
+                        <BodyM>Label</BodyM>
+                        <H4>Tittle</H4>
+                        <BodyM>description</BodyM>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        </div>
+    );
+}
+```
