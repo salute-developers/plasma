@@ -1,0 +1,65 @@
+---
+id: hooks
+title: Hooks
+---
+
+# Hooks
+
+## `useFocusTrap`
+
+Захватывает фокус внутри одного DOM элемента. 
+
+На данный момент уже подключен в компоненте [Modal](../components/Modal).
+
+```tsx live
+import React, { useState } from "react";
+import { useFocusTrap, Button } from "@salutejs/plasma-b2c";
+
+export function App() {
+    const ref = useFocusTrap();
+    const [showButtons, setShowButtons] = useState(false);
+    return (
+        <>
+            <Button onClick={() => setShowButtons(true)}>Показать кнопки</Button>
+            {showButtons && (
+                <div style={{ margin: "1rem 0" }} ref={ref}>
+                    <Button>Первый для фокуса</Button>
+                    <Button>Кнопка</Button>
+                    <Button onClick={() => setShowButtons(false)}>Закрыть</Button>
+                </div>
+            )}
+        </>
+    );
+}
+```
+
+Принимает параметры `active`(по умолчанию `true`), `firstFocusSelector?: string | React.RefObject<HTMLElement>` - selector или RefObject, который должен быть в фокусе при открытии,
+а также `focusAfterNode?: React.RefObject<HTMLElement>` - элемент для фокуса после закрытия(по умолчанию фокус на последнем перед открытием активном элементе).
+
+```tsx live
+import React, { useState } from "react";
+import { useFocusTrap, Button } from "@salutejs/plasma-b2c";
+
+export function App() {
+    const ref = useFocusTrap(true, "#focus-first");
+
+    const [showButtons, setShowButtons] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setShowButtons(true)}>Показать кнопки</Button>
+            {showButtons && (
+                <div style={{ margin: "1rem 0" }} ref={ref}>
+                    <Button>
+                        Не первый
+                    </Button>
+                    <Button id="focus-first">
+                        Первый для фокуса
+                    </Button>
+                    <Button onClick={() => setShowButtons(false)}>Закрыть</Button>
+                </div>
+            )}
+        </>
+    );
+}
+```
