@@ -25,7 +25,6 @@ export * from './components/Modal';
 export * from './components/Notification';
 export * from './components/Drawer';
 export * from './components/Dropdown';
-export * from './components/Header';
 export * from './components/Tooltip';
 export * from './components/Segment';
 export * from './components/Skeleton';
