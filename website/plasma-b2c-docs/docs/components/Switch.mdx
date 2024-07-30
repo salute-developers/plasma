@@ -1,0 +1,25 @@
+---
+id: switch
+title: Switch
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Switch
+<Description name="Switch" />
+<PropsTable name="Switch" include={['defaultChecked']} />
+<StorybookLink name="Switch" />
+
+## Использование
+Компонент `Switch` может содержать лейбл.
+
+```tsx live
+import React from 'react';
+import { Switch } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <Switch label="Переключатель" defaultChecked />
+    );
+}
+```

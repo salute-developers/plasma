@@ -1,0 +1,22 @@
+---
+id: spinner
+title: Spinner
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Spinner
+<Description name="Spinner" />
+<PropsTable name="Spinner" exclude={['css', 'focused']}/>
+<StorybookLink name="Spinner" />
+
+```tsx live
+import React from 'react';
+import { Spinner } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <Spinner size={32} />
+    );
+}
+```

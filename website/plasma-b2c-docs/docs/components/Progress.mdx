@@ -1,0 +1,35 @@
+---
+id: progress
+title: Progress
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Progress
+<Description name="Progress" />
+<PropsTable name="Progress" exclude={['css']} />
+<StorybookLink name="Progress" />
+
+##Примеры
+
+### Вид прогресса
+Вид прогресса задается с помощью свойства `view`. Возможные значения свойства `view`:
+
++ `"default"` – по умолчанию;
++ `"primary"` – основная;
++ `"secondary"` – вторичная;
++ `"accent"` – акцентная;
++ `"success"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"error"` – ошибка;
+
+```tsx live
+import React from 'react';
+import { Progress } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <Progress value={25} view="success" displayValue />
+    );
+}
+```

@@ -1,0 +1,147 @@
+---
+id: avatar
+title: Avatar
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Avatar
+<Description name="Avatar" />
+<PropsTable name="Avatar" exclude={['css', 'focused']} />
+<StorybookLink name="Avatar" />
+
+## Примеры
+
+### Размер аватара
+Размер задается с помощью свойства `size`. Возможные значения свойства: `"xxl"`, `"l"`, `"m"`, `"s"`, `"fit"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+            <Avatar size="l" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+            <Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+            <Avatar size="s" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+        </>
+    );
+}
+```
+
+### Инициалы вместо фотографии
+Инициалы можно задать с помощью свойства `name`. Желательный формат строки - "Имя Фамилия". Также не должно быть свойства url.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Avatar name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
+### Статус аватара
+Статус задается с помощью свойства `status`. Возможные значения: `"active"`, `"inactive"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Avatar status="active" name="Иван Фадеев" />
+            <Avatar status="inactive" name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
+### Увеличение при наведении
+Опциональное свойство `"isScalable"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Avatar isScalable name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
+### Доступность
+
+#### Avatar c использованием изображения
+
+В данном случае руководствуемся принципом универсального дизайна, т.е. незрячий должен получить ту же информацию, что и зрячий.
+
+Поэтому добавляем/используем свойства: `role`, `tabIndex` и `aria-label`.
+
+Примечание:
+- если указано свойство `name` то `aria-label` можно опустить;
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Avatar role="button" tabIndex={0} name="Иван Фадеев" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+        </>
+    );
+}
+```
+
+#### Avatar c текстом
+
+В этом случае достаточно указать свойство `name`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Avatar role="button" tabIndex={0} name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
+#### Avatar и статус
+
+Если указано свойство `status` его значение будет так же озвучено в комбинации со свойством `name` или `aria-label`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Avatar role="button" tabIndex={0} name="Иван Фадеев" status="inactive" />
+        </>
+    );
+}
+```
+
+Озвучит как `ИФ. Неактивен`. (В данном примере озвучиваются инициалы, производное от ФИО)
+
+#### Свойство statusLabels
+
+Опциональное свойство для корректной озвучки значений свойства `status`.
+
+По-умолчанию стоит значение для русскоговорящих `{ active: 'Активен', inactive: 'Неактивен' }`.

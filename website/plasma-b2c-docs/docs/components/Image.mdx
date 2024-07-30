@@ -1,0 +1,27 @@
+---
+id: image
+title: Image
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Image
+<Description name="Image" />
+<PropsTable name="Image" />
+<StorybookLink name="Image" />
+
+```tsx live
+import React from 'react';
+import { Image } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <Image
+            src="/b2c/images/320_320_9.jpg"
+            width="320px"
+            height="320px"
+            alt="Картинка для примера фоном"
+        />
+    );
+}
+```
