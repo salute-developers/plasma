@@ -3,7 +3,6 @@ import { css } from '@linaria/core';
 
 import { component, mergeConfig } from '../../engines';
 import { textFieldConfig, textFieldTokens } from '../TextField';
-import { popoverClasses } from '../Popover';
 
 import { classes, tokens } from './Range.tokens';
 
@@ -12,6 +11,8 @@ const TextField = component(mergedConfig);
 
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
+    width: 100%;
+    
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
@@ -75,15 +76,7 @@ export const StyledInput = styled(TextField)`
 `;
 
 export const base = css`
-    .${String(popoverClasses.wrapper)} {
-        display: block;
-        flex: 1;
-    }
-
-    .${String(popoverClasses.target)} {
-        display: flex;
-        flex-direction: column;
-    }
+    width: fit-content;
 `;
 
 export const StyledLabel = styled.label``;
