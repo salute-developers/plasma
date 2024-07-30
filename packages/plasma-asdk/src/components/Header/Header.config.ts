@@ -1,4 +1,6 @@
-import { css, headerTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css } from '@salutejs/plasma-new-hope/styled-components';
+
+import { tokens as headerTokens } from './Header.tokens';
 
 export const config = {
     defaults: {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -30,6 +30,8 @@ type CustomAssemblyProps = {
     gradientColor: string;
 };
 
+type StoryPropsCustomAssembly = ComponentProps<typeof HeaderRoot> & CustomAssemblyProps & ContentComponentProps;
+
 const StyledContentGrid = styled.div<{ $colCount: number }>`
     display: grid;
     grid-template-columns: ${({ $colCount }) => `repeat(${$colCount}, max-content)`};
@@ -54,14 +56,7 @@ const Content = ({ contentItemsNumber, enableIcons }: ContentComponentProps) => 
     );
 };
 
-const StoryCustomAssembly = ({
-    variant,
-    title,
-    subtitle,
-    label,
-    gradientColor,
-    ...rest
-}: CustomAssemblyProps & ContentComponentProps) => {
+const StoryCustomAssembly = ({ variant, title, subtitle, label, gradientColor, ...rest }: StoryPropsCustomAssembly) => {
     const [isBack, setIsBack] = useState(true);
 
     const onBackClick = () => {
@@ -100,7 +95,7 @@ const StoryCustomAssembly = ({
     );
 };
 
-export const CustomAssembly: StoryObj<CustomAssemblyProps & ContentComponentProps> = {
+export const CustomAssembly: StoryObj<StoryPropsCustomAssembly> = {
     argTypes: {
         variant: {
             options: ['title+subtitle', 'label+title', 'title'],
