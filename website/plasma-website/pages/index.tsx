@@ -97,7 +97,7 @@ const products = [
         name: '@salutejs/plasma-b2c',
         support: 'https://t.me/+mAruh4Kpwq9kNDVi',
         links: [
-            { text: 'Документация', href: `${basePath}/web/` },
+            { text: 'Документация', href: `${basePath}/b2c/` },
             { text: 'Сторибук', href: `${basePath}/b2c-storybook/` },
         ],
     },
