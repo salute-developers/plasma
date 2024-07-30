@@ -16,11 +16,14 @@ import { ComponentProps } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
+import { HtmlHTMLAttributes } from 'react';
+import { ImageProps } from '@salutejs/plasma-new-hope';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
+import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -29,6 +32,7 @@ import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
+import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 
 // @public (undocumented)
 export const Body1: FunctionComponent<PropsType<    {
@@ -154,7 +158,7 @@ size?: string | undefined;
 outlined?: boolean | undefined;
 shiftLeft?: boolean | undefined;
 shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+blur?: "small" | "large" | "medium" | undefined;
 } & {
 value?: string | number | undefined;
 contentRight?: undefined;
@@ -175,7 +179,7 @@ size?: string | undefined;
 outlined?: boolean | undefined;
 shiftLeft?: boolean | undefined;
 shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+blur?: "small" | "large" | "medium" | undefined;
 } & {
 value?: undefined;
 contentRight?: ReactNode;
@@ -322,6 +326,50 @@ h5: PolymorphicClassName;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const HeaderArrow: FunctionComponent<PropsType<Variants> & ButtonHTMLAttributes<HTMLButtonElement> & {
+arrow?: "back" | "minimize" | undefined;
+iconSize?: "s" | "m" | "xxs" | "xs" | "l" | "xl" | "xxl" | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const HeaderContent: ({ children, ...rest }: React_2.HTMLAttributes<HTMLDivElement>) => JSX.Element;
+
+// Warning: (ae-forgotten-export) The symbol "HeaderLogoProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const HeaderLogo: FunctionComponent<PropsType<Variants> & HeaderLogoProps & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const HeaderRoot: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+primary: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
+}> & HtmlHTMLAttributes<HTMLDivElement> & {
+size?: string | undefined;
+gradientColor?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const HeaderTitle: ({ children, ...rest }: React_2.HTMLAttributes<HTMLDivElement>) => JSX.Element;
+
+// @public (undocumented)
+export const HeaderTitleWrapper: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+label?: string | undefined;
+title?: string | undefined;
+subTitle?: string | undefined;
+caption?: string | undefined;
+children?: ReactNode;
+withBigTitle?: boolean | undefined;
+} & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline1: FunctionComponent<PropsType<    {
