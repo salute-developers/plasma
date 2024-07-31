@@ -29,7 +29,7 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
                 ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
