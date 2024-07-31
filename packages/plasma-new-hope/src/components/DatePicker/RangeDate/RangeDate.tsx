@@ -247,6 +247,16 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen((prevOpen) => prevOpen !== isOpen && isOpen);
             }, [isOpen]);
 
+            useEffect(() => {
+                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format));
+                setInputFirstValue(formatInputValue(defaultFirstDate, format));
+            }, [defaultFirstDate]);
+
+            useEffect(() => {
+                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format));
+                setInputSecondValue(formatInputValue(defaultSecondDate, format));
+            }, [defaultSecondDate]);
+
             return (
                 <Root
                     ref={rootRef}
