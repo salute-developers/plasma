@@ -134,6 +134,11 @@ export const datePickerRoot = (
                 setIsInnerOpen((prevOpen) => prevOpen !== isOpen && isOpen);
             }, [isOpen]);
 
+            useEffect(() => {
+                setCalendarValue(formatCalendarValue(defaultDate, format));
+                setInputValue(formatInputValue(defaultDate, format));
+            }, [defaultDate]);
+
             return (
                 <Root
                     view={view}
