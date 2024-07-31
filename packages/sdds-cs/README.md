@@ -1,4 +1,4 @@
-# Библиотека компонентов SDDS SERV
+# Библиотека компонентов SDDS CS
 
 Реализация компонентов для создания веб-приложений.
 
@@ -16,7 +16,7 @@
 
 ```bash
 $ npm install --save react react-dom
-$ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-cs @salutejs/plasma-typo @salutejs/sdds-themes
 ```
 
 Так же надо установить пакет styled-components
@@ -38,9 +38,9 @@ $ npm install --save @emotion/styled @emotion/react @emotion/css
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
 import { standard } from '@salutejs/plasma-typo';
-import { sdds_serv__light } from '@salutejs/sdds-themes';
+import { sdds_cs__light } from '@salutejs/sdds-themes';
 
-const ThemeStyle = createGlobalStyle(sdds_serv__light);
+const ThemeStyle = createGlobalStyle(sdds_cs__light);
 const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
@@ -58,9 +58,9 @@ export const GlobalStyle = () => (
 ```jsx title="GlobalStyle.tsx"
 import { Global, css } from '@emotion/react';
 import { standard } from '@salutejs/plasma-typo';
-import { sdds_serv__light } from '@salutejs/sdds-themes';
+import { sdds_cs__light } from '@salutejs/sdds-themes';
 
-const themeStyle = css(sdds_serv__light);
+const themeStyle = css(sdds_cs__light);
 const typoStyle = css(standard);
 
 export const GlobalStyle = () => (
@@ -78,7 +78,7 @@ export const GlobalStyle = () => (
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-serv);
+Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-cs);
 
 ### Использование компонентов
 
@@ -86,8 +86,8 @@ export const GlobalStyle = () => (
 
 ```jsx
 // App.tsx
-import { Button } from '@salutejs/sdds-serv';
-import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-serv';
+import { Button } from '@salutejs/sdds-cs';
+import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-cs';
 
 export const App = () => {
     return (
@@ -106,8 +106,8 @@ export const App = () => {
 
 ```jsx
 // App.tsx
-import { Button } from '@salutejs/sdds-serv/emotion';
-import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-serv';
+import { Button } from '@salutejs/sdds-cs/emotion';
+import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-cs';
 
 export const App = () => {
     return (

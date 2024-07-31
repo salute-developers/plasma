@@ -54,6 +54,9 @@ packages/sdds-serv/*
 packages/sdds-dfa/*
 !packages/sdds-dfa/src
 
+packages/sdds-cs/*
+!packages/sdds-cs/src
+
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 
