@@ -2,7 +2,7 @@ import { Meta } from "@storybook/addon-docs";
 
 <Meta title="About" />
 
-# Библиотека компонентов SDDS SERV
+# Библиотека компонентов SDDS CS
 
 Реализация компонентов для создания веб-приложений.
 
@@ -20,7 +20,7 @@ import { Meta } from "@storybook/addon-docs";
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components@5.1.1
-$ npm install --save @salutejs/sdds-serv @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-cs @salutejs/sdds-themes
 ```
 
 ## Настройка
@@ -29,9 +29,9 @@ $ npm install --save @salutejs/sdds-serv @salutejs/sdds-themes
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { sdds_serv__light } from '@salutejs/sdds-themes';
+import { sdds_cs__light } from '@salutejs/sdds-themes';
 
-const ThemeStyle = createGlobalStyle(sdds_serv__light);
+const ThemeStyle = createGlobalStyle(sdds_cs__light);
 
 export const GlobalStyle = () => (
     <>
@@ -47,7 +47,7 @@ export const GlobalStyle = () => (
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-serv);
+Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-cs);
 
 ### Использование компонентов
 
@@ -55,12 +55,12 @@ export const GlobalStyle = () => (
 
 ```jsx
 // App.tsx
-import { Button } from '@salutejs/sdds-serv';
-import { textAccent } from '@salutejs/sdds-themes/tokens/sdds-serv';
+import { Button } from '@salutejs/sdds-cs';
+import { textAccent } from '@salutejs/sdds-themes/tokens/sdds-cs';
 
 export const App = () => {
     return (
-        <Button>Hello, SDDS SERV!</Button>
+        <Button>Hello, SDDS CS!</Button>
 
         <p style={{color: textAccent}}>
             Token usage example
