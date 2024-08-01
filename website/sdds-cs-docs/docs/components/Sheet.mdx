@@ -1,0 +1,143 @@
+---
+id: sheet
+title: Sheet
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Sheet
+<Description name="Sheet" />
+<PropsTable name="Sheet" />
+
+## Использование
+Компонент `Sheet` может содержать любой контент напрямую через `children`.
+
+Также есть возможность добавить любой контент в заголовок и футер с помощью свойств `contentHeader` и `contentFooter`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Sheet } from '@salutejs/sdds-cs';
+import { Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+
+            <Sheet opened={opened}
+                onClose={() => setOpened(false)}
+                contentHeader={
+                    <div>
+                        <h4>header</h4>
+                    </div>
+                }
+                contentFooter={
+                    <div>
+                        <p>footer</p>
+                    </div>
+                }
+            >
+                <div style={{ 'padding-bottom': '300px' }}>body</div>
+            </Sheet>
+        </>
+    );
+}
+```
+
+## Примеры
+
+### Закрепление заголовка и футера
+
+С помощью свойств `isHeaderFixed` и `isFooterFixed` можно закрепить заголовок и футер. 
+В этом случае при появлении прокрутки контент будет скроллиться под них.
+
+```tsx live
+import React, { useState } from 'react';
+import { Sheet } from '@salutejs/sdds-cs';
+import { Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+            <Sheet opened={opened}
+                onClose={() => setOpened(false)}
+                contentHeader={
+                    <div>
+                        <h4>header</h4>
+                    </div>
+                }
+                contentFooter={
+                    <div>
+                        <p>footer</p>
+                    </div>
+                }
+                isFooterFixed
+                isHeaderFixed
+            >
+                <div style={{ 'padding-bottom': '300px' }}>body</div>
+            </Sheet>
+        </>
+    );
+}
+```
+
+### Подложка
+
+Наличие или отсутствие подложки задается с помощью свойства `withOverlay`.
+
+В случае, когда подложка отсутствует, у пользователя появляется возможность взаимодействовать с контентом вне шторки.
+
+```tsx live
+import React, { useState } from 'react';
+import { Sheet } from '@salutejs/sdds-cs';
+import { Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(!opened)}>
+                {opened ? 'Закрыть' : 'Открыть'}
+            </Button>
+            <Sheet opened={opened}
+                onClose={() => setOpened(false)}
+                withOverlay={false}
+            >
+                <div style={{ 'padding-bottom': '300px' }}>body</div>
+            </Sheet>
+        </>
+    );
+}
+```
+
+К подложке можно добавить эффект размытия при помощи свойства `withBlur`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Sheet } from '@salutejs/sdds-cs';
+import { Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(!opened)}>
+                {opened ? 'Закрыть' : 'Открыть'}
+            </Button>
+            <Sheet opened={opened}
+                onClose={() => setOpened(false)}
+                withBlur
+            >
+                <div style={{ 'padding-bottom': '300px' }}>body</div>
+            </Sheet>
+        </>
+    );
+}
+```

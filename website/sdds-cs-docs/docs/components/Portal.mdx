@@ -1,0 +1,66 @@
+---
+id: portal
+title: Portal
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Portal
+<Description name="Portal" />
+<PropsTable name="Portal" exclude={['css']} />
+
+## Использование
+
+```tsx live
+import React, { useState, useRef } from 'react';
+import { Portal, Button, BodyM } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [show, setShow] = useState(false);
+    const containerRef = useRef(null);
+
+    return (
+        <>
+            <Button onClick={() => setShow(!show)}>{show ? 'Скрыть' : 'Показать'}</Button>
+            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}}>
+                <BodyM style={{ marginBottom: '1.25rem' }}>Содержимое портала появится в нижнем блоке.</BodyM>
+                {show && containerRef.current && (
+                    <Portal container={containerRef.current}>
+                        <BodyM bold>Содержимое портала</BodyM>
+                    </Portal>
+                )}
+            </div>
+            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}} ref={containerRef} />
+        </>
+    );
+}
+```
+
+### Disabled
+Отключить портал можно с помощью свойства `disabled`.
+В этом случае содержимое портала добавится внутрь родительского элемента.
+
+```tsx live
+import React, { useState, useRef } from 'react';
+import { Portal, Button, BodyM } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [show, setShow] = useState(false);
+    const containerRef = useRef(null);
+
+    return (
+        <>
+            <Button onClick={() => setShow(!show)}>{show ? 'Скрыть' : 'Показать'}</Button>
+            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}}>
+                <BodyM style={{ marginBottom: '1.25rem' }}>Содержимое портала появится в данном блоке.</BodyM>
+                {show && containerRef.current && (
+                    <Portal disabled container={containerRef.current}>
+                        <BodyM bold>Содержимое портала</BodyM>
+                    </Portal>
+                )}
+            </div>
+            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}} ref={containerRef} />
+        </>
+    );
+}
+```

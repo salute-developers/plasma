@@ -1,0 +1,169 @@
+---
+id: TextField
+title: TextField
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TextField
+<Description name="TextField" />
+<PropsTable name="TextField" exclude={['css']} />
+
+## Использование
+Компонент `TextField` может содержать иконку (или кнопку) слева и справа.
+Для этого используйте свойства `contentLeft` и `contentRight`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-cs';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Положение иконки"
+                defaultValue="Слева"
+                size="m"
+                contentLeft={<IconDownload />}
+            />
+            <TextField
+                placeholder="Положение иконки"
+                defaultValue="Справа"
+                size="m"
+                contentRight={<IconDownload />}
+            />
+        </div>
+    );
+}
+```
+
+## Клавиатурная навигация
+
+Данный компонент может полностью управляться с помощью клавиатуры, используя следующие клавиши:
+-  по нажатию `Tab` фокусируемся на input
+-  если enumeratinType=`chip` после ввода текста, по нажатию `Enter`, input очистится и появится Chip
+-  если введен текст в input по нажатию `ArrowLeft` или `ArrowRight` каретка передвигается по тексту
+-  при достижении левой границы текста или отсутствии текста в input, при нажатии `Backspace` удаляем последний Chip, если он есть
+-  при достижении левой границы текста или отсутствии текста в input, при нажатии `ArrowLeft` переключаемся на последний Chip, если он есть
+-  при фокусе на Chip работает переключение фокуса на другие Chip по нажатию `ArrowLeft`, `ArrowRight`; если же Chip крайний правый, при нажатии `ArrowRight` фокус переходит на input
+
+### Размер поля
+Размер поля задаётся с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Размер"
+                size="l"
+                defaultValue="L56"
+            />
+            <TextField
+                placeholder="Размер"
+                size="m"
+                defaultValue="M48"
+            />
+            <TextField
+                placeholder="Размер"
+                size="s"
+                defaultValue="S32"
+            />
+            <TextField
+                placeholder="Размер"
+                size="xs"
+                defaultValue="XS24"
+            />
+        </div>
+    );
+}
+```
+
+### Вид поля
+Вид поля задается с помощью свойства `view`.
+Возможные значения свойства: `default`, `positive`, `warning` и `negative`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Статус"
+                view="default"
+                size="m"
+                defaultValue="Обычное состояние"
+            />
+            <TextField
+                placeholder="Статус"
+                view="positive"
+                size="m"
+                defaultValue="Успех"
+            />
+            <TextField
+                placeholder="Статус"
+                view="warning"
+                size="m"
+                defaultValue="Предупреждение"
+            />
+            <TextField
+                placeholder="Статус"
+                view="negative"
+                size="m"
+                defaultValue="Ошибка"
+            />
+        </div>
+    );
+}
+```
+
+### Подсказка
+Для вывода подсказки снизу от поля используйте свойство `leftHelper`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                leftHelper="Подсказка снизу"
+            />
+        </div>
+    );
+}
+```
+
+### Режим ввода
+С помощью свойства `enumarationType` можно вводить элементы как теги. 
+По нажатию Enter, после ввода нужного текста, он преобразуется в Chip:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                enumerationType="chip"
+                helperText="Подсказка снизу"
+                chips={["Значение 1"]}
+            />
+        </div>
+    );
+}
+```

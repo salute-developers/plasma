@@ -1,0 +1,103 @@
+---
+id: skeleton
+title: Skeleton
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Skeleton
+Набор компонентов для создания скелетов загрузки (placeholders).
+
+## LineSkeleton
+<Description name="LineSkeleton" />
+<PropsTable name="LineSkeleton" />
+
+```tsx live
+import React from 'react';
+import { LineSkeleton } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <LineSkeleton size="h3" />
+    );
+}
+```
+
+## RectSkeleton
+<Description name="RectSkeleton" />
+<PropsTable name="RectSkeleton" />
+
+```tsx live
+import React from 'react';
+import { RectSkeleton } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <RectSkeleton width="12rem" height="8rem" />
+    );
+}
+```
+
+## TextSkeleton
+<Description name="TextSkeleton" />
+<PropsTable name="TextSkeleton" />
+
+```tsx live
+import React from 'react';
+import { TextSkeleton } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <TextSkeleton size="textM" lines={4} />
+    );
+}
+```
+## На примере карточки
+
+```tsx live
+import React from 'react';
+import { Button, withSkeleton } from '@salutejs/sdds-cs';
+
+export function App() {
+    const ButtonSkeleton = withSkeleton(Button);
+
+    return (
+        <ButtonSkeleton
+            fullWidth
+            text="Загрузка..."
+            view="primary"
+            size="s"
+            scaleOnInteraction={false}
+            outlined={false}
+            skeleton={true}
+            tabIndex={-1}
+        />
+    );
+}
+```
+
+## Доступность
+При использовании hook `withSkeleton` необходимо воспользоваться атрибутами WAI ARIA. Пример с кнопкой:
+
+```tsx
+import React, { useState } from 'react';
+import { Button } from '@salutejs/sdds-cs';
+
+const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(Button);
+
+export default function App () {
+    const [skeleton, setSkeleton] = useState(false);
+
+    return (
+        <ButtonSkeleton
+            type="button"
+            text={skeleton ? 'Загрузка' : 'Нажмите'}
+            skeleton={skeleton}
+            aria-busy={skeleton}
+            onClick={() => setSkeleton((prevValue) => !prevValue)}
+        />
+    );
+}
+```
+
+Таким образом, при `skeleton=true` и `aria-busy=true` screen-reader будет оповещать о соответствующем статусе компонента.
