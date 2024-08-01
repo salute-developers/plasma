@@ -58,6 +58,11 @@ jobs:
           npm run build --prefix="./website/sdds-serv-docs"
           cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv
 
+      - name: SDDS-CS Docs
+        run: |
+          npm run build --prefix="./website/sdds-cs-docs"
+          cp -R ./website/sdds-cs-docs/build ./s3_build/next-${{ github.sha }}/sdds-cs
+
       - name: SDDS-DFA Docs
         run: |
           npm run build --prefix="./website/sdds-dfa-docs"
