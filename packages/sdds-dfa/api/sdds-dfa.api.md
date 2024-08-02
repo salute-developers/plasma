@@ -1747,16 +1747,17 @@ export { TabItemRefs }
 
 // @public
 export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLDivElement> & {
+    clip?: "scroll" | "showAll" | undefined;
     disabled?: boolean | undefined;
     stretch?: boolean | undefined;
     pilled?: boolean | undefined;
     size?: string | undefined;
     view?: string | undefined;
+    index?: number | undefined;
     outsideScroll?: boolean | {
         left?: string | undefined;
         right?: string | undefined;
     } | undefined;
-    index?: number | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 export { TabsContext }
