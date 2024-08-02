@@ -36,4 +36,30 @@ describe('plasma-web: Tabs', () => {
         cy.get('div > button:nth-child(2)').focus();
         cy.matchImageSnapshot();
     });
+
+    it('Clicking on arrows scrolls to previous or next tab', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tabs size="m" style={{ width: '10.5rem' }}>
+                    {items.map((item, i) => (
+                        <TabItem pilled key={i} isActive={i === 1}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').contains('Athena').should('not.be.visible');
+        cy.get('[aria-label="Следующий таб"]').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(1000);
+        cy.get('button').contains('Athena').should('be.visible');
+
+        cy.get('[aria-label="Предыдущий таб"]').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(1000);
+        cy.get('button').contains('Sber').should('be.visible');
+        cy.get('button').contains('Joy').should('not.be.visible');
+    });
 });
