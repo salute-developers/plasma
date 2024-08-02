@@ -23,6 +23,9 @@ const defaultComponentProps = {
     initialValue: '01.09.1980 00:28:59',
     minDate: '01.01.1975 01:15:29',
     maxDate: '31.12.1985 12:45:50',
+    initialTimeValue: '01.01.1975 00:28:59',
+    minTimeDate: '01.01.1975 00:15:29',
+    maxTimeDate: '01.01.1975 23:45:50',
     optionsYears: true,
     optionsMonths: true,
     optionsDays: true,
@@ -48,6 +51,9 @@ export const Default = () => {
     const [value, setValue] = React.useState(parseDateTime(args.initialValue));
     const min = React.useMemo(() => parseDateTime(args.minDate), [args.minDate]);
     const max = React.useMemo(() => parseDateTime(args.maxDate), [args.maxDate]);
+    const [timeValue, setTimeValue] = React.useState(parseDateTime(args.initialTimeValue));
+    const minTime = React.useMemo(() => parseDateTime(args.minTimeDate), [args.minTimeDate]);
+    const maxTime = React.useMemo(() => parseDateTime(args.maxTimeDate), [args.maxTimeDate]);
     const years = args.optionsYears;
     const months = args.optionsMonths;
     const days = args.optionsDays;
@@ -97,9 +103,9 @@ export const Default = () => {
             <TimePickerComponent
                 key={`time-${args.TimePickerSize}-${args.TimePickerVisibleItems}`}
                 id="timepicker"
-                value={value}
-                min={min}
-                max={max}
+                value={timeValue}
+                min={minTime}
+                max={maxTime}
                 step={args.TimePickerStep}
                 size={args.TimePickerSize as 's'}
                 visibleItems={args.TimePickerVisibleItems as 3}
@@ -107,7 +113,7 @@ export const Default = () => {
                 options={timeOptions}
                 disabled={args.disabled}
                 controls={args.controls}
-                onChange={setValue}
+                onChange={setTimeValue}
                 enableNativeControl={args.TimePickerNativeControl}
                 secondsAriaLabel="секунды"
                 minutesAriaLabel="минуты"
