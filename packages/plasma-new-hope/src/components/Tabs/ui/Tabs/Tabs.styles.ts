@@ -2,10 +2,11 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { addFocus } from '../../../../mixins';
-import { tokens } from '../../tokens';
+import { classes, tokens } from '../../tokens';
 
 export const base = css`
     display: flex;
+    gap: 0.125rem;
     align-items: center;
     position: relative;
 `;
@@ -22,19 +23,26 @@ export const StyledContentWrapper = styled.div`
     padding: 0.25rem;
 
     box-sizing: content-box;
-    overflow: scroll;
     position: relative;
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
 
-    scrollbar-width: none;
-    ::-webkit-scrollbar {
-        display: none;
+    &.${classes.tabsClipScroll} {
+        overflow: scroll;
+        scroll-padding: 0.25rem;
+        overscroll-behavior: contain;
+
+        scrollbar-width: none;
+        ::-webkit-scrollbar {
+            display: none;
+        }
     }
 
-    overscroll-behavior: contain;
+    &.${classes.tabsClipShowAll} {
+        overflow: visible;
+    }
 `;
 
 export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boolean }>`

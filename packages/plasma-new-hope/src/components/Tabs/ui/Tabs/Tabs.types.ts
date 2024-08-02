@@ -5,6 +5,14 @@ import type { AsProps } from '../../../../types';
 export type TabsProps = AsProps &
     HTMLAttributes<HTMLDivElement> & {
         /**
+         * Как ведет себя компонент при ограничении ширины
+         * @default 'scroll'
+         * @description
+         * scroll - появляется горизонтальная прокрутка
+         * showAll - становится виден контент, выходящий за пределы компонента
+         */
+        clip?: 'scroll' | 'showAll';
+        /**
          * Табы неактивны
          * @default false
          */
@@ -28,13 +36,12 @@ export type TabsProps = AsProps &
          */
         view?: string;
         /**
+         * Индекс активного элемента, необходим для клавиатурной навигации
+         */
+        index?: number;
+        /**
          * Уберет скругление с выбранной стороны и подвинет контейнер
          * @deprecated
          */
         outsideScroll?: boolean | { left?: string; right?: string };
-        /**
-         *
-         * Индекс активного элемента, необходим для клавиатурной навигации
-         */
-        index?: number;
     };
