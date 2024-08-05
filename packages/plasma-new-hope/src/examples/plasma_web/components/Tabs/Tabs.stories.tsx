@@ -25,7 +25,6 @@ type CustomStoryTabsProps = {
     itemQuantity: number;
     contentLeft: string;
     contentRight: string;
-    stretch?: boolean;
 };
 
 const contentLeftOptions = ['none', 'icon'];
@@ -72,7 +71,7 @@ const meta: Meta<StoryTabsProps> = {
                 type: 'select',
             },
         },
-        ...disableProps(['itemsNumber', 'pilled', 'animated', 'stretch', 'view']),
+        ...disableProps(['itemsNumber', 'pilled', 'animated', 'view']),
     },
 };
 
@@ -86,12 +85,13 @@ const StoryDefault = (props: StoryTabsProps) => {
         contentLeft: contentLeftOption,
         contentRight: contentRightOption,
         hasDivider,
+        stretch,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size}>
+        <Tabs view={hasDivider ? 'divider' : 'clear'} stretch={stretch} disabled={disabled} size={size}>
             {items.map((_, i) => (
                 <TabItem
                     key={`item:${i}`}
@@ -230,6 +230,7 @@ export const Default: StoryObj<StoryTabsProps> = {
             control: {
                 type: 'select',
             },
+            if: { arg: 'stretch', truthy: false },
         },
         size: {
             options: sizes,
@@ -248,58 +249,6 @@ export const Default: StoryObj<StoryTabsProps> = {
                 return <StoryDefault {...args} />;
         }
     },
-};
-
-const StoryStretch = (props: StoryTabsProps) => {
-    const {
-        disabled,
-        size,
-        contentLeft: contentLeftOption,
-        contentRight: contentRightOption,
-        hasDivider,
-        stretch,
-        itemQuantity,
-    } = props;
-    const items = Array(itemQuantity).fill(0);
-    const [index, setIndex] = useState(0);
-
-    return (
-        <Tabs view={hasDivider ? 'divider' : 'clear'} stretch={stretch} disabled={disabled} size={size}>
-            {items.map((_, i) => (
-                <TabItem
-                    key={`item:${i}`}
-                    view="divider"
-                    selected={i === index}
-                    onClick={() => !disabled && setIndex(i)}
-                    tabIndex={!disabled ? 0 : -1}
-                    disabled={disabled}
-                    contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                    contentRight={getContentRight(contentRightOption, size as Size)}
-                    size={size}
-                >
-                    {`Label${i + 1}`}
-                </TabItem>
-            ))}
-        </Tabs>
-    );
-};
-
-export const Stretch: StoryObj<StoryTabsProps> = {
-    args: {
-        size: 'xs',
-        stretch: true,
-        disabled: false,
-        hasDivider: true,
-    },
-    argTypes: {
-        size: {
-            options: sizes,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    render: (args) => <StoryStretch {...args} />,
 };
 
 const StoryHeaderTabs = (props: StoryTabsProps) => {
@@ -340,6 +289,7 @@ export const HeaderTabs: StoryObj<StoryTabsProps> = {
         size: 'h5',
         disabled: false,
         hasDivider: true,
+        itemQuantity: 4,
     },
     argTypes: {
         size: {
