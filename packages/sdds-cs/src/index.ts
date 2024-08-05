@@ -1,6 +1,7 @@
 export * from './components/Avatar';
 export * from './components/AvatarGroup';
 export * from './components/Badge';
+export * from './components/Breadcrumbs';
 export * from './components/Button';
 export * from './components/ButtonGroup';
 export * from './components/Divider';

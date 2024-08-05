@@ -569,7 +569,7 @@ xs: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 view?: string | undefined;
-size?: "m" | "s" | "l" | "xs" | undefined;
+size?: string | undefined;
 separator?: ReactNode;
 items: BreadcrumbsItem[];
 showItems?: number | undefined;

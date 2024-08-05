@@ -28,13 +28,7 @@ export const BreadcrumbShorter: React.FC<HTMLAttributes<HTMLDivElement> & Breadc
                     ...
                 </StyledShorter>
             )}
-            {openShorter && (
-                <StyledHidden>
-                    {renderItems.map((item) => {
-                        return item;
-                    })}
-                </StyledHidden>
-            )}
+            {openShorter && <StyledHidden>{renderItems.map((item) => item)}</StyledHidden>}
         </StyledRoot>
     );
 };
