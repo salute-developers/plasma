@@ -18,7 +18,7 @@ export const shortItems = (items: ReactNode[], renderSeparator: ReactNode, showI
     return items;
 };
 
-export const convertIconSize = (size?: 'xs' | 's' | 'm' | 'l') => {
+export const convertIconSize = (size?: string) => {
     switch (size) {
         case 's':
         case 'xs':
@@ -29,7 +29,7 @@ export const convertIconSize = (size?: 'xs' | 's' | 'm' | 'l') => {
 };
 
 export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactNode, showItems?: number) => {
-    return shortItems(
+    const renderItems = shortItems(
         items.map((item: BreadcrumbsItem) => {
             if ('renderItem' in item) {
                 return item.renderItem();
@@ -43,6 +43,8 @@ export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactN
         renderSeparator,
         showItems,
     );
+
+    return renderItems;
 };
 
 export const addSeparator = (items: ReactNode[], renderSeparator: ReactNode) => {
