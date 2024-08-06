@@ -12,9 +12,9 @@ export const config = {
                 ${chipTokens.color}: var(--inverse-text-primary);
                 ${chipTokens.background}: var(--surface-solid-default);
                 ${chipTokens.colorHover}: var(--inverse-text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-solid-default-hover);
+                ${chipTokens.backgroundHover}: var(--surface-solid-default);
                 ${chipTokens.colorActive}: var(--inverse-text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-solid-default-active);
+                ${chipTokens.backgroundActive}: var(--surface-solid-default);
                 ${chipTokens.backgroundReadOnly}: var(--surface-solid-default);
                 ${chipTokens.colorReadOnly}: var(--inverse-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-default);
@@ -24,21 +24,21 @@ export const config = {
                 ${chipTokens.color}: var(--text-primary);
                 ${chipTokens.background}: var(--surface-solid-primary);
                 ${chipTokens.colorHover}: var(--text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
+                ${chipTokens.backgroundHover}: var(--surface-solid-primary);
                 ${chipTokens.colorActive}: var(--text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
+                ${chipTokens.backgroundActive}: var(--surface-solid-primary);
+                ${chipTokens.backgroundReadOnly}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
             `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
                 ${chipTokens.background}: var(--surface-accent);
                 ${chipTokens.colorHover}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-accent-hover);
+                ${chipTokens.backgroundHover}: var(--surface-accent);
                 ${chipTokens.colorActive}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-accent-active);
+                ${chipTokens.backgroundActive}: var(--surface-accent);
                 ${chipTokens.backgroundReadOnly}: var(--surface-accent);
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
