@@ -23,7 +23,7 @@
     "@salutejs/plasma-web": "1.360.0-dev.0",
     "@types/marked": "3.0.1",
     "codesandbox": "2.2.3",
-    "marked": "3.0.7",
+    "marked": "4.0.10",
     "qs": "6.10.1",
     "react-docgen-typescript": "2.1.1"
   },
