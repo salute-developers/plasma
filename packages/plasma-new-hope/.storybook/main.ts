@@ -49,6 +49,7 @@ const config: StorybookConfig = {
             plugins: [
                 linaria({
                     exclude: ['../../../'],
+                    displayName: true,
                     babelOptions: {
                         presets: ['@babel/preset-typescript', '@babel/preset-react'],
                     },
