@@ -25,7 +25,7 @@ export const tokens = {
     accordionItemFocus: '--plasma-accordion-item-focus',
     accordionItemBorder: '--plasma-accordion-item-border',
     accordionItemBorderBottom: '--plasma-accordion-item-border-bottom',
-    accordionItemIconColor: '--plasma-accordion-item-icon-color',
+    accordionItemIconColor: '--plasma-accordion-item-color-icon',
 
     accordionItemTitleColor: '--plasma-accordion-item-title-color',
     accordionItemTitleFontFamily: '--plasma-accordion-item-title-font-family',
