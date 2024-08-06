@@ -5,6 +5,7 @@ import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
+import { TextField } from '../TextField';
 import { PopupProvider, popupClasses } from '../Popup';
 
 import { Modal, modalClasses } from '.';
@@ -168,4 +169,115 @@ export const ModalDemo: StoryObj<StoryModalProps> = {
         offsetY: 0,
     },
     render: (args) => <StoryModalDemo {...args} />,
+};
+
+const StyledModalAnimation = styled(Modal)`
+    /* stylelint-disable */
+    && .${popupClasses.root} {
+        animation: fadeIn 1s forwards;
+    }
+
+    &&.${popupClasses.endAnimation} .${popupClasses.root} {
+        animation: fadeOut 1s forwards;
+    }
+
+    && .${modalClasses.overlay} {
+        animation: overlayFadeIn 1s forwards;
+    }
+
+    &&.${popupClasses.endAnimation} .${modalClasses.overlay} {
+        animation: overlayFadeOut 1s forwards;
+    }
+    /* stylelint-enable */
+
+    @keyframes overlayFadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes overlayFadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, 100%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+
+        to {
+            opacity: 0;
+            transform: translate(-50%, 100%);
+        }
+    }
+`;
+
+const StoryModalAnimationDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalProps) => {
+    const ref = useRef(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const close = useCallback(() => {
+        setIsOpen(false);
+    }, []);
+
+    return (
+        <SSRProvider>
+            <PopupProvider>
+                <Button view="default" text="Открыть новое модальное окно" onClick={() => setIsOpen(!isOpen)} />
+                <StyledModalAnimation
+                    id="modal"
+                    frame="theme-root"
+                    withAnimation
+                    onClose={() => setIsOpen(false)}
+                    isOpen={isOpen}
+                    placement={placement}
+                    offset={[offsetX, offsetY]}
+                    initialFocusRef={ref}
+                    {...rest}
+                >
+                    <Content>
+                        <TextField value="Text" onChange={() => {}} />
+                        <TextField ref={ref} value="Text2" onChange={() => {}} />
+                        <Button text="Закрыть" onClick={close} />
+                    </Content>
+                </StyledModalAnimation>
+            </PopupProvider>
+        </SSRProvider>
+    );
+};
+
+export const ModalBottomAnimation: StoryObj<StoryModalProps> = {
+    args: {
+        placement: 'bottom',
+        withAnimation: true,
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        offsetX: 0,
+        offsetY: 0,
+    },
+    render: (args) => <StoryModalAnimationDemo {...args} />,
 };

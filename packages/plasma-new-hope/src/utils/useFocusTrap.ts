@@ -57,7 +57,7 @@ export const useFocusTrap = (
     active = true,
     firstFocusSelector?: string | React.RefObject<HTMLElement>,
     focusAfterNode?: React.RefObject<HTMLElement>,
-    focusAfterAnimation?: boolean,
+    activeAfterAnimation?: boolean,
 ): ((instance: HTMLElement | null) => void) => {
     const ref = useRef<HTMLElement | null>();
 
@@ -74,7 +74,7 @@ export const useFocusTrap = (
 
                 // Delay processing the HTML node by a frame. This ensures focus is assigned correctly.
                 setTimeout(() => {
-                    if (ref?.current && node.ownerDocument && focusAfterAnimation) {
+                    if (ref?.current && node.ownerDocument && activeAfterAnimation) {
                         ref.current.addEventListener('animationend', () => {
                             processNode(node, firstFocusSelector, ref);
                         });
