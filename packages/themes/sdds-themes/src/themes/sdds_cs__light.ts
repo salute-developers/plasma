@@ -8,7 +8,7 @@ export const sdds_cs__light = ([
   --text-accent: #108210;
   --text-negative: #E31227;
   --text-positive: #108210;
-  --on-dark-text-primary: #7B868E;
+  --on-dark-text-primary: #F7F9FB;
   --on-dark-text-secondary: #7B868E;
   --on-dark-text-accent: #15B015;
   --on-dark-text-accent-minor: #94FF94;
