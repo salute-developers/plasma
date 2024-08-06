@@ -215,10 +215,7 @@ default: PolymorphicClassName;
 clear: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 }> & {
 view: string;
@@ -270,8 +267,6 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-xxl: PolymorphicClassName;
-l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
 fit: PolymorphicClassName;
@@ -305,14 +300,9 @@ view: {
 default: PolymorphicClassName;
 accent: PolymorphicClassName;
 positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
-dark: PolymorphicClassName;
-light: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
 };
 pilled: {
@@ -608,8 +598,6 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
@@ -692,10 +680,7 @@ secondary: PolymorphicClassName;
 accent: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -786,14 +771,10 @@ view: {
 default: PolymorphicClassName;
 accent: PolymorphicClassName;
 positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
-dark: PolymorphicClassName;
-light: PolymorphicClassName;
 };
 size: {
-xs: PolymorphicClassName;
-xxs: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 count: number;
@@ -1207,10 +1188,7 @@ default: PolymorphicClassName;
 accent: PolymorphicClassName;
 inactive: PolymorphicClassName;
 positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
-black: PolymorphicClassName;
-white: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;

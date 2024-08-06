@@ -313,6 +313,8 @@ import { WithSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 export const Accordion: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+outlined: PolymorphicClassName;
 clear: PolymorphicClassName;
 };
 size: {

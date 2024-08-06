@@ -16,6 +16,7 @@ export const config = {
                 ${accordionTokens.accordionItemBackground}: var(--surface-solid-card);
                 ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
+                ${accordionTokens.accordionItemIconColor}: var(--text-primary);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
                 ${accordionTokens.accordionItemBorder}: none;
@@ -29,6 +30,7 @@ export const config = {
                 ${accordionTokens.accordionItemBackground}: var(--surface-clear);
                 ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
+                ${accordionTokens.accordionItemIconColor}: var(--text-primary);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
                 ${accordionTokens.accordionBackground}: var(--surface-clear);

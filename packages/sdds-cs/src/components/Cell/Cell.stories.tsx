@@ -15,7 +15,7 @@ type StoryProps = ComponentProps<typeof Cell> & {
 };
 type Story = StoryObj<StoryProps>;
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['s', 'xs'];
 const stretchingValues = ['fixed', 'filled', 'auto'];
 const alignLeft = ['top', 'center', 'bottom'];
 const alignRight = ['top', 'center', 'bottom'];
@@ -69,7 +69,7 @@ export default meta;
 
 export const Default: Story = {
     args: {
-        size: 'm',
+        size: 's',
         stretching: 'filled',
         disableLeftContent: false,
         disableRightContent: false,
@@ -96,7 +96,7 @@ export const Default: Story = {
 
 export const WithContentTextboxCustom: Story = {
     args: {
-        size: 'm',
+        size: 's',
         stretching: 'filled',
     },
     render: ({ ...args }: StoryProps) => {

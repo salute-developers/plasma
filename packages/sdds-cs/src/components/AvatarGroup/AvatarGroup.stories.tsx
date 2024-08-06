@@ -22,7 +22,7 @@ export const Default: Story = {
                 {Array(5)
                     .fill(true)
                     .map(() => (
-                        <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                        <Avatar size="s" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
                     ))}
             </AvatarGroup>
         );
@@ -39,11 +39,11 @@ export const DynamicSize: Story = {
                 {Array(args.visibleCount)
                     .fill(true)
                     .map((_, index) => (
-                        <Avatar size="xxl" customText={index + 1} />
+                        <Avatar size="s" customText={index + 1} />
                     ))}
 
                 {itemLength > args.visibleCount && (
-                    <Avatar size="xxl" customText={`+${itemLength - args.visibleCount}`} />
+                    <Avatar size="s" customText={`+${itemLength - args.visibleCount}`} />
                 )}
             </AvatarGroup>
         );
@@ -61,7 +61,7 @@ export const Accessibility: Story = {
                             role="button"
                             tabIndex={0}
                             focused
-                            size="xxl"
+                            size="s"
                             url="https://avatars.githubusercontent.com/u/1813468?v=4"
                         />
                     ))}

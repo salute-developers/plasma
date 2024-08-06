@@ -116,13 +116,13 @@ export const StyledAccordionBody = styled.div`
 export const StyledArrow = styled(IconChevronDownFill)`
     pointer-events: none;
     user-select: none;
-    color: var(${tokens.accordionItemTextColor});
+    color: var(${tokens.accordionItemIconColor});
 `;
 
 export const StyledMinus = styled(IconMinus)`
     pointer-events: none;
     user-select: none;
-    color: var(${tokens.accordionItemTextColor});
+    color: var(${tokens.accordionItemIconColor});
     display: flex;
     align-items: center;
     position: absolute;

@@ -5,8 +5,8 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Chip } from '.';
 
-const views = ['default', 'secondary', 'positive', 'accent'];
-const sizes = ['l', 'm', 's', 'xs'];
+const views = ['default', 'secondary', 'accent'];
+const sizes = ['s'];
 
 const onClear = action('onClear');
 
@@ -50,7 +50,7 @@ export const Default: Story = {
     args: {
         text: 'This is chip',
         view: 'default',
-        size: 'm',
+        size: 's',
         hasClear: true,
         disabled: false,
         focused: true,
