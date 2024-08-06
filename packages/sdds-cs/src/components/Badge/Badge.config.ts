@@ -12,19 +12,19 @@ export const config = {
                 ${badgeTokens.background}: var(--surface-solid-default);
             `,
             accent: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.color}: var(--inverse-text-primary);
                 ${badgeTokens.background}: var(--surface-accent);
 
                 ${badgeTokens.colorTransparent}: var(--text-accent);
             `,
             positive: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.color}: var(--inverse-text-primary);
                 ${badgeTokens.background}: var(--surface-positive);
 
                 ${badgeTokens.colorTransparent}: var(--text-positive);
             `,
             negative: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.color}: var(--inverse-text-primary);
                 ${badgeTokens.background}: var(--surface-negative);
 
                 ${badgeTokens.colorTransparent}: var(--text-negative);
