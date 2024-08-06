@@ -10,13 +10,13 @@ const meta: Meta<typeof Counter> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
-            options: ['xs', 'xxs'],
+            options: ['s'],
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
+            options: ['default', 'accent', 'positive', 'negative'],
             control: {
                 type: 'select',
             },
@@ -34,6 +34,6 @@ export const Default: Story = {
         count: 25,
         maxCount: 100,
         view: 'default',
-        size: 'xs',
+        size: 's',
     },
 };

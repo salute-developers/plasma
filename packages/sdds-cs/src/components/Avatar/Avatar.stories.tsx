@@ -9,7 +9,7 @@ const meta: Meta<typeof Avatar> = {
     component: Avatar,
     argTypes: {
         view: { control: 'inline-radio', options: ['default'] },
-        size: { control: 'select', options: ['xxl', 'l', 'm', 's', 'fit'] },
+        size: { control: 'select', options: ['m', 's', 'fit'] },
         status: { control: 'select', options: ['active', 'inactive'] },
     },
 };
@@ -21,7 +21,7 @@ type Story = StoryObj<ComponentProps<typeof Avatar>>;
 export const Default: Story = {
     args: {
         view: 'default',
-        size: 'xxl',
+        size: 's',
         name: 'Иван Фадеев',
         url: 'https://avatars.githubusercontent.com/u/1813468?v=4',
         status: 'active',
@@ -37,7 +37,7 @@ export const Accessibility: Story = {
         role: 'button',
         tabIndex: 0,
         view: 'default',
-        size: 'xxl',
+        size: 's',
         name: 'Иван Фадеев',
         status: 'active',
     },

@@ -14,22 +14,13 @@ export const config = {
                 ${tokens.color}: var(--surface-accent);
             `,
             inactive: css`
-                ${tokens.color}: var(--surface-solid-tertiary);
+                ${tokens.color}: var(--surface-solid-primary);
             `,
             positive: css`
                 ${tokens.color}: var(--surface-positive);
             `,
-            warning: css`
-                ${tokens.color}: var(--surface-warning);
-            `,
             negative: css`
                 ${tokens.color}: var(--surface-negative);
-            `,
-            black: css`
-                ${tokens.color}: var(--on-light-surface-solid-default);
-            `,
-            white: css`
-                ${tokens.color}: var(--on-dark-surface-solid-default);
             `,
         },
         size: {

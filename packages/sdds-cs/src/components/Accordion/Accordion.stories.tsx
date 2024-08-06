@@ -28,7 +28,7 @@ const meta: Meta<AccordionProps> = {
     args: {
         singleActive: false,
         view: 'default',
-        size: 'm',
+        size: 's',
         stretching: 'filled',
         disabled: false,
         type: 'arrow',
@@ -46,7 +46,7 @@ const meta: Meta<AccordionProps> = {
             },
         },
         size: {
-            options: ['xs', 's', 'm', 'l'],
+            options: ['s'],
             control: {
                 type: 'select',
             },

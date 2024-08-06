@@ -10,13 +10,13 @@ const meta: Meta<typeof Badge> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
-            options: ['s', 'm', 'l'],
+            options: ['s'],
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
+            options: ['default', 'accent', 'positive', 'negative'],
             control: {
                 type: 'select',
             },
@@ -42,7 +42,7 @@ export const Default: Story = {
     args: {
         text: 'Hello',
         view: 'default',
-        size: 'm',
+        size: 's',
         pilled: false,
         transparent: false,
     },
