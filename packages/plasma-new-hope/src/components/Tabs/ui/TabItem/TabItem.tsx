@@ -86,7 +86,7 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
         );
 
         const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-            event.currentTarget.scrollIntoView();
+            event.currentTarget.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 
             if (!onClick) {
                 return;
