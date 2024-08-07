@@ -43,7 +43,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
     if (item?.items) {
         return (
             <StyledPopover
-                isOpen={isCurrentListOpen}
+                opened={isCurrentListOpen}
                 usePortal={false}
                 placement="right-start"
                 trigger={trigger}

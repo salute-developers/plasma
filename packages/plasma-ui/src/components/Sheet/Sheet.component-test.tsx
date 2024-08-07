@@ -10,7 +10,7 @@ describe('plasma-ui: Sheet', () => {
     it('simple', () => {
         mount(
             <CypressTestDecorator>
-                <Sheet isOpen>
+                <Sheet opened>
                     <Body1>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                         consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
@@ -31,7 +31,7 @@ describe('plasma-ui: Sheet', () => {
         return (
             <>
                 <div>Content</div>
-                <Sheet id="sheet" isOpen={open} withOverlay={withOverlay} onClose={() => setOpen(false)}>
+                <Sheet id="sheet" opened={open} withOverlay={withOverlay} onClose={() => setOpen(false)}>
                     <Body1>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                         consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel

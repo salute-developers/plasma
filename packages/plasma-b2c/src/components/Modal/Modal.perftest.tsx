@@ -13,7 +13,7 @@ export const LiveDemo = () => {
     const { withBlur } = liveDemoProps;
     return (
         <ModalsProvider>
-            <Modal id="modalA" isOpen onClose={func} withBlur={withBlur}>
+            <Modal id="modalA" opened onClose={func} withBlur={withBlur}>
                 <Button text="Close" onClick={func} />
             </Modal>
         </ModalsProvider>

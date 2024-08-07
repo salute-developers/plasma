@@ -174,7 +174,7 @@ const StoryWithModal = ({ timeout }: StoryWithModalProps) => {
         <NotificationsProvider>
             <PopupBaseProvider>
                 <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
-                <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <Modal opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <div>Hello!</div>
                     <Button view="primary" text="Add notification" onClick={handleClick} />
                 </Modal>

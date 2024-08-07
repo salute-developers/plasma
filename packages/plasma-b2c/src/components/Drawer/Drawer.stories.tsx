@@ -152,7 +152,7 @@ const StoryDrawerDemo = ({
                         <Button text="Открыть панель" onClick={() => setIsOpen(true)} />
                     </StyledSection>
                     <StyledContentWrapper>
-                        <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)} offset={[offsetX, offsetY]} {...rest}>
+                        <Drawer opened={isOpen} onClose={() => setIsOpen(false)} offset={[offsetX, offsetY]} {...rest}>
                             <DrawerHeader
                                 hasClose={hasClose}
                                 closePlacement={closePlacement as ClosePlacementType}

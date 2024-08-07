@@ -157,7 +157,7 @@ const meta: Meta<SelectProps> = {
                 type: 'select',
             },
         },
-        ...disableProps(['value', 'items', 'onItemClick', 'separator', 'onChange', 'onItemSelect', 'isOpen']),
+        ...disableProps(['value', 'items', 'onItemClick', 'separator', 'onChange', 'onItemSelect', 'opened', 'isOpen']),
     },
 };
 

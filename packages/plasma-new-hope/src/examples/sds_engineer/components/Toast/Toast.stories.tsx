@@ -194,7 +194,7 @@ const StoryComplex = ({
         <NotificationsProvider>
             <PopupProvider>
                 <Button text="Открыть модальное окно" onClick={() => setIsModalOpen(true)} />
-                <Modal frame="theme-root" isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <div>Hello!</div>
                     <Button view="default" text="Add notification" onClick={handleShowNotification} />
                 </Modal>

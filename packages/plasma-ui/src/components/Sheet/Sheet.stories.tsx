@@ -24,7 +24,7 @@ const StoryDefault = ({ withOverlay, withTransition }: SheetProps) => {
         <>
             <Button onClick={() => setIsOpen(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={isOpen}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
                 onClose={() => setIsOpen(false)}
@@ -74,7 +74,7 @@ const StoryWithoutOverlay = () => {
     return (
         <>
             <Button onClick={() => setIsOpen(true)}>Открыть</Button>
-            <Sheet isOpen={isOpen} withOverlay={false} onClose={() => setIsOpen(false)}>
+            <Sheet opened={isOpen} withOverlay={false} onClose={() => setIsOpen(false)}>
                 <Body1>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                     consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel illum ea
@@ -98,7 +98,7 @@ const StoryWithScroll = ({ withOverlay, withTransition }: SheetProps) => {
         <>
             <Button onClick={() => setIsOpen(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={isOpen}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
                 onClose={() => setIsOpen(false)}
@@ -137,7 +137,7 @@ const StoryWithInsideScroll = ({ withOverlay, withTransition }: SheetProps) => {
         <>
             <Button onClick={() => setIsOpen(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={isOpen}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
                 onClose={() => setIsOpen(false)}
@@ -182,7 +182,7 @@ const StoryWithDoubleScroll = ({ withOverlay, withTransition }: SheetProps) => {
         <>
             <Button onClick={() => setIsOpen(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={isOpen}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
                 onClose={() => setIsOpen(false)}

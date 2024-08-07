@@ -111,7 +111,7 @@ const StoryModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModal
                         id="modalA"
                         withAnimation
                         onClose={() => setIsOpenA(false)}
-                        isOpen={isOpenA}
+                        opened={isOpenA}
                         placement={placement}
                         offset={[offsetX, offsetY]}
                         {...rest}
@@ -124,7 +124,7 @@ const StoryModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModal
                             <ModalBase
                                 id="modalB"
                                 onClose={() => setIsOpenB(false)}
-                                isOpen={isOpenB}
+                                opened={isOpenB}
                                 placement="left"
                                 offset={[offsetX, offsetY]}
                                 {...rest}
@@ -139,7 +139,7 @@ const StoryModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModal
                                     <ModalBase
                                         id="modalC"
                                         onClose={() => setIsOpenC(false)}
-                                        isOpen={isOpenC}
+                                        opened={isOpenC}
                                         placement="top"
                                         offset={[offsetX, offsetY]}
                                         {...rest}
@@ -254,7 +254,7 @@ const StoryModalAnimationDemo = ({ placement, offsetX, offsetY, ...rest }: Story
                     frame="theme-root"
                     withAnimation
                     onClose={() => setIsOpen(false)}
-                    isOpen={isOpen}
+                    opened={isOpen}
                     placement={placement}
                     offset={[offsetX, offsetY]}
                     initialFocusRef={ref}

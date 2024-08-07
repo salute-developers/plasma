@@ -36,7 +36,7 @@ export function App() {
                     <ModalBase
                         id="modalA"
                         onClose={() => setIsOpenA(false)}
-                        isOpen={isOpenA}
+                        opened={isOpenA}
                         placement="center"
                         offset={[0, 0]}
                     >
@@ -48,7 +48,7 @@ export function App() {
                         <ModalBase
                             id="modalB"
                             onClose={() => setIsOpenB(false)}
-                            isOpen={isOpenB}
+                            opened={isOpenB}
                             placement="right"
                             offset={[0, 0]}
                         >

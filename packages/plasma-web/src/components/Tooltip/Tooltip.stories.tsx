@@ -50,24 +50,24 @@ const StoryDefault = (props: Pick<TooltipProps, 'hasArrow' | 'size' | 'usePortal
     return (
         <StyledGrid>
             <Tooltip
-                target={<Tooltip target={<Button>Btn</Button>} placement="left" isOpen text="left" {...props} />}
+                target={<Tooltip target={<Button>Btn</Button>} placement="left" opened text="left" {...props} />}
                 placement="top-start"
-                isOpen
+                opened
                 text="top-start"
                 view="default"
                 {...props}
             />
-            <Tooltip target={<Button>Btn</Button>} placement="top" isOpen text="top" {...props} />
+            <Tooltip target={<Button>Btn</Button>} placement="top" opened text="top" {...props} />
             <Tooltip
-                target={<Tooltip target={<Button>Btn</Button>} placement="right" isOpen text="right" {...props} />}
+                target={<Tooltip target={<Button>Btn</Button>} placement="right" opened text="right" {...props} />}
                 placement="top-end"
-                isOpen
+                opened
                 text="top-end"
                 {...props}
             />
-            <Tooltip target={<Button>Btn</Button>} placement="bottom-start" isOpen text="bottom-start" {...props} />
-            <Tooltip target={<Button>Btn</Button>} placement="bottom" isOpen text="bottom" {...props} />
-            <Tooltip target={<Button>Btn</Button>} placement="bottom-end" isOpen text="bottom-end" {...props} />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom-start" opened text="bottom-start" {...props} />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom" opened text="bottom" {...props} />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom-end" opened text="bottom-end" {...props} />
         </StyledGrid>
     );
 };
@@ -84,6 +84,7 @@ export const Default: StoryObj<TooltipProps> = {
             'target',
             'children',
             'text',
+            'opened',
             'isOpen',
             'isVisible',
             'placement',
@@ -133,7 +134,7 @@ const StoryLive = (args: TooltipProps) => {
                     {...args}
                     id="example-tooltip-firstname"
                     text={text}
-                    isOpen
+                    opened
                 />
             </StyledRow>
         </>
@@ -159,6 +160,7 @@ export const Live: StoryObj<TooltipProps> = {
             'target',
             'children',
             'text',
+            'opened',
             'isOpen',
             'isVisible',
             'offset',

@@ -27,6 +27,7 @@ export const dropdownOldRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) 
                 onToggle,
                 isFocusTrapped = true,
                 isOpen = false,
+                opened = false,
                 placement = 'auto',
                 trigger = 'click',
                 offset = [0, 6],
@@ -37,6 +38,8 @@ export const dropdownOldRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) 
             },
             outerRootRef,
         ) => {
+            const innerIsOpen = Boolean(isOpen || opened);
+
             const uniqId = useUniqId();
             const innerId = id || uniqId;
 
@@ -44,14 +47,14 @@ export const dropdownOldRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) 
             const dropdownRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
 
-            const trapRef = useFocusTrap(isOpen && isFocusTrapped);
+            const trapRef = useFocusTrap(innerIsOpen && isFocusTrapped);
 
             const dropdownForkRef = useForkRef<HTMLDivElement>(dropdownRef, trapRef);
 
             return (
                 <StyledPopover
                     role={role}
-                    isOpen={isOpen}
+                    opened={innerIsOpen}
                     usePortal={false}
                     onToggle={(is, event) => onToggle?.(is, event)}
                     id={innerId}

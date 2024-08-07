@@ -35,7 +35,7 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
     return (
         <PopupProvider>
             {notifications.length > 0 && (
-                <StyledPopup isOpen frame={frame} placement="bottom-right" zIndex="9100">
+                <StyledPopup opened frame={frame} placement="bottom-right" zIndex="9100">
                     <StyledRoot>
                         {notifications.map(({ id, isHidden, ...rest }) => (
                             <StyledItemWrapper

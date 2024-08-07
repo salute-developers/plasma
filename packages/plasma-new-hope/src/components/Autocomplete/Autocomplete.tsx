@@ -112,7 +112,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
             return (
                 <Root view={view} size={size} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
                     <StyledPopover
-                        isOpen={isOpen}
+                        opened={isOpen}
                         offset={[0, 0]}
                         placement={getPlacements('bottom')}
                         isFocusTrapped={false}

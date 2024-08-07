@@ -142,7 +142,7 @@ const StoryDrawerDemo = ({ showHeader, showFooter, showActions, closePlacement, 
                         <Button text="Открыть панель" onClick={() => setIsOpen(true)} />
                     </StyledSection>
                     <StyledContentWrapper>
-                        <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)} {...rest}>
+                        <Drawer opened={isOpen} onClose={() => setIsOpen(false)} {...rest}>
                             <DrawerHeader
                                 closePlacement={closePlacement as ClosePlacementType}
                                 actions={
