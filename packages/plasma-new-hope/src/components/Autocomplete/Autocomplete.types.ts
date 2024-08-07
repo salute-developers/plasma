@@ -41,7 +41,10 @@ export type BaseProps = {
      * Компонент неактивен.
      */
     disabled?: boolean;
-
+    /**
+     * Портал для выпадающего списка. Принимает id контейнера или ref.
+     */
+    portal?: string | React.RefObject<HTMLElement>;
     /**
      * Значение инпута.
      */
