@@ -12,8 +12,14 @@ import { ModalView, ModalViewProps } from './ModalView';
 export interface ModalProps extends ModalViewProps {
     /**
      * Отображение модального окна.
+     * @deprecated
      */
-    isOpen: boolean;
+    isOpen?: boolean;
+
+    /**
+     * Отображение модального окна.
+     */
+    opened?: boolean;
 
     /**
      * Нужно ли применять blur для подложки.
@@ -144,6 +150,7 @@ const NoScroll = createGlobalStyle`
 export const Modal: FC<ModalProps> = ({
     id,
     isOpen,
+    opened,
     onClose,
     onOverlayClick,
     onEscKeyDown,
@@ -154,6 +161,8 @@ export const Modal: FC<ModalProps> = ({
     focusAfterRef,
     ...rest
 }) => {
+    const innerIsOpen = Boolean(isOpen || opened);
+
     const uniqId = useUniqId();
     const innerId = id || uniqId;
 
@@ -233,7 +242,7 @@ export const Modal: FC<ModalProps> = ({
         };
     }, [onClose, onEscKeyDown, closeOnEsc]);
 
-    if (isOpen) {
+    if (innerIsOpen) {
         controller.register(innerId);
     } else {
         controller.unregister(innerId);

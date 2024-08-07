@@ -127,7 +127,7 @@ const StoryPopup = ({ placement, offsetX, offsetY }: StoryPopupProps) => {
                         id="popupA"
                         withAnimation
                         frame={ref}
-                        isOpen={isOpenA}
+                        opened={isOpenA}
                         placement={placement}
                         offset={[offsetX, offsetY]}
                     >
@@ -143,7 +143,7 @@ const StoryPopup = ({ placement, offsetX, offsetY }: StoryPopupProps) => {
                         id="popupB"
                         withAnimation
                         frame="document"
-                        isOpen={isOpenB}
+                        opened={isOpenB}
                         placement={placement}
                         offset={[offsetX, offsetY]}
                     >

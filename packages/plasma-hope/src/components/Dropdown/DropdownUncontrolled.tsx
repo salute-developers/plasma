@@ -11,15 +11,16 @@ export interface DropdownUncontrolledProps
         Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>,
         PickOptional<
             DropdownPopupProps,
-            'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'
+            'opened' | 'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'
         > {}
 
 /**
- * Выпадающий список с внешнего контроля видимости через props: `isOpen` и `onToggle`.
+ * Выпадающий список с внешнего контроля видимости через props: `opened` и `onToggle`.
  */
 export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
     id,
     isOpen,
+    opened,
     items,
     children,
     offsetTop,
@@ -36,6 +37,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
     onHover,
     ...rest
 }) => {
+    const innerIsOpen = Boolean(isOpen || opened);
     const hasItems = Array.isArray(items) && items.length > 0;
 
     const onToggle = useCallback<NonNullable<DropdownPopupProps['onToggle']>>(
@@ -51,7 +53,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
 
     return (
         <DropdownPopup
-            isOpen={isOpen}
+            opened={innerIsOpen}
             trigger={trigger}
             placement={placement}
             disclosure={children}

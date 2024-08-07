@@ -71,7 +71,7 @@ const StoryDefault = ({
 
     return (
         <DatePicker
-            isOpen={isOpen}
+            opened={isOpen}
             size={size}
             valueError={valueError}
             valueSuccess={valueSuccess}
@@ -178,7 +178,7 @@ const StoryRange = ({
         <DatePickerRange
             size={size}
             ref={rangeRef}
-            isOpen={isOpen}
+            opened={isOpen}
             firstValueError={firstValueError}
             firstValueSuccess={firstValueSuccess}
             secondValueError={secondValueError}
@@ -289,7 +289,7 @@ const StoryDeferred = ({
             <h3>Асинхронная установка даты по умолчанию</h3>
             <DatePicker
                 defaultDate={defVal}
-                isOpen={isOpen}
+                opened={isOpen}
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}

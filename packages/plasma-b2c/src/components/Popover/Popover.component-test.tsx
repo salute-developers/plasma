@@ -20,7 +20,7 @@ describe('plasma-b2c: Popover', () => {
 
         return (
             <Popover
-                isOpen={isOpen}
+                opened={isOpen}
                 onToggle={(is) => setIsOpen(is)}
                 role="presentation"
                 id="popover"

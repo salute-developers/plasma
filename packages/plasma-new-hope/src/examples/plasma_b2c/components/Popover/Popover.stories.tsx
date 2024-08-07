@@ -94,7 +94,7 @@ const StoryDefault = (args: StoryPopoverProps) => {
 
     return (
         <Popover
-            isOpen={isOpen}
+            opened={isOpen}
             onToggle={(is) => setIsOpen(is)}
             frame="theme-root"
             usePortal={false}

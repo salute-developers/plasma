@@ -25,7 +25,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
     if (!isEmpty(item?.items)) {
         return (
             <StyledPopover
-                isOpen={isCurrentListOpen}
+                opened={isCurrentListOpen}
                 usePortal={false}
                 placement="right-start"
                 trigger="click"

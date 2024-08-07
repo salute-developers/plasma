@@ -52,18 +52,18 @@ const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
             <ModalsProvider>
                 <Button text="Open modal" onClick={() => setIsOpenA(true)} />
 
-                <Modal id="modalA" isOpen={isOpenA} onClose={onCloseA} withBlur={withBlur} {...rest}>
+                <Modal id="modalA" opened={isOpenA} onClose={onCloseA} withBlur={withBlur} {...rest}>
                     <StyledHeadline3>Modal A</StyledHeadline3>
                     <StyledButton view="primary" text="Open modal B" onClick={() => setIsOpenB(true)} />
                     <Button text="Close" onClick={onCloseA} />
                 </Modal>
 
-                <Modal id="modalB" isOpen={isOpenB} onClose={onCloseB} {...rest}>
+                <Modal id="modalB" opened={isOpenB} onClose={onCloseB} {...rest}>
                     <StyledHeadline3>Modal B</StyledHeadline3>
                     <StyledButton view="primary" text="Open modal C" onClick={() => setIsOpenC(true)} />
                     <Button text="Close" onClick={onCloseB} />
 
-                    <Modal id="modalC" isOpen={isOpenC} onClose={onCloseC} {...rest}>
+                    <Modal id="modalC" opened={isOpenC} onClose={onCloseC} {...rest}>
                         <StyledHeadline3>Modal C</StyledHeadline3>
                         <Button text="Close" onClick={onCloseC} />
                     </Modal>

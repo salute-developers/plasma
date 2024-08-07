@@ -134,7 +134,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
 
     return (
         <StyledToken enabled={enabled}>
-            <Tooltip placement="top-start" isOpen={Boolean(comment) && visible} hasArrow text={comment}>
+            <Tooltip placement="top-start" opened={Boolean(comment) && visible} hasArrow text={comment}>
                 <TokenName
                     disable={enabled === false}
                     onClick={onTokenEditClick}

@@ -39,7 +39,7 @@ describe('plasma-web: ModalBase', () => {
         return (
             <PopupBaseProvider>
                 <Button text="Open modal" onClick={() => setIsOpen(true)} />
-                <ModalBase isOpen={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur} placement={placement}>
+                <ModalBase opened={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur} placement={placement}>
                     <Content id="modal-content">
                         <Headline3>Modal</Headline3>
                         <Button text="Close" onClick={() => setIsOpen(false)} />
@@ -56,12 +56,12 @@ describe('plasma-web: ModalBase', () => {
         return (
             <PopupBaseProvider>
                 <Button text="Open modal A" onClick={() => setIsOpenA(true)} />
-                <ModalBase isOpen={isOpenA} onClose={() => setIsOpenA(false)}>
+                <ModalBase opened={isOpenA} onClose={() => setIsOpenA(false)}>
                     <Content id="modalA-content">
                         <Headline3>ModalA</Headline3>
                         <Button text="Close A" onClick={() => setIsOpenA(false)} />
                         <Button text="Open modal B" onClick={() => setIsOpenB(true)} />
-                        <ModalBase isOpen={isOpenB} onClose={() => setIsOpenB(false)} placement="left">
+                        <ModalBase opened={isOpenB} onClose={() => setIsOpenB(false)} placement="left">
                             <Content id="modalB-content">
                                 <Headline3>ModalB</Headline3>
                                 <Button text="Close B" onClick={() => setIsOpenB(false)} />

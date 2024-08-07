@@ -153,7 +153,7 @@ const StoryDrawerDemo = ({
                     <StyledContentWrapper>
                         <Drawer
                             frame="theme-root"
-                            isOpen={isOpen}
+                            opened={isOpen}
                             offset={[offsetX, offsetY]}
                             onClose={() => setIsOpen(false)}
                             {...rest}

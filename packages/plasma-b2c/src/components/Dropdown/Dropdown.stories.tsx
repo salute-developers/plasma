@@ -297,7 +297,7 @@ export const CompositionDeprecated = () => {
             }}
         >
             <DropdownPopup
-                isOpen={isOpen}
+                opened={isOpen}
                 trigger="click"
                 placement="bottom"
                 onToggle={(is) => setIsOpen(is)}

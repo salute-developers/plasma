@@ -17,14 +17,14 @@ export const PreviewGalleryItemWithTooltip: FC<PropsWithChildren<PreviewGalleryI
     children,
     tooltip,
 }) => {
-    const [visible, setVisible] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const onMouseOver = useCallback(() => {
-        setVisible(true);
+        setIsOpen(true);
     }, []);
 
     const onMouseOut = useCallback(() => {
-        setVisible(false);
+        setIsOpen(false);
     }, []);
 
     return tooltip ? (
@@ -34,7 +34,7 @@ export const PreviewGalleryItemWithTooltip: FC<PropsWithChildren<PreviewGalleryI
             onFocus={onMouseOver}
             onMouseOut={onMouseOut}
             onBlur={onMouseOut}
-            isVisible={visible}
+            opened={isOpen}
             {...tooltip}
         >
             {children}

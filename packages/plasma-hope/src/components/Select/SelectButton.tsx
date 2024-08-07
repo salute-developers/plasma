@@ -31,11 +31,11 @@ export interface SelectButtonProps
      */
     value?: string | number | null;
     hasItems?: boolean;
-    isOpen?: boolean;
+    opened?: boolean;
     children?: never;
 }
 
-export interface StyledButtonProps extends Pick<SelectButtonProps, 'status' | 'hasItems' | 'isOpen'> {
+export interface StyledButtonProps extends Pick<SelectButtonProps, 'status' | 'hasItems' | 'opened'> {
     focused?: boolean;
 }
 
@@ -129,8 +129,8 @@ const StyledButton = styled.button<StyledButtonProps & Design>`
             }
         `}
 
-    ${({ isOpen }) =>
-        isOpen &&
+    ${({ opened }) =>
+        opened &&
         css`
             ${StyledArrow} {
                 transform: rotate(-180deg);
