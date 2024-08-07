@@ -21,7 +21,7 @@ const meta: Meta<typeof Badge> = {
                 type: 'select',
             },
         },
-        ...disableProps(['contentLeft', 'contentRight']),
+        ...disableProps(['contentLeft', 'contentRight', 'size', 'transparent']),
     },
 };
 

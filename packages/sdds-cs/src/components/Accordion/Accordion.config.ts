@@ -35,8 +35,8 @@ export const config = {
         },
         size: {
             s: css`
-                ${accordionTokens.accordionItemPaddingVertical}: 0.6875rem;
-                ${accordionTokens.accordionItemPaddingHorizontal}: 0.875rem;
+                ${accordionTokens.accordionItemPaddingVertical}: 0.5rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 0.75rem;
 
                 ${accordionTokens.accordionItemGap}: 0.375rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.625rem;

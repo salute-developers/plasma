@@ -50,7 +50,7 @@ export const config = {
                 ${chipTokens.borderRadius}: 0.5rem;
                 ${chipTokens.pilledBorderRadius}: 1rem;
                 ${chipTokens.width}: auto;
-                ${chipTokens.height}: 2.25rem;
+                ${chipTokens.height}: 2.5rem;
                 ${chipTokens.paddingRight}: 1rem;
                 ${chipTokens.paddingLeft}: 1rem;
 
@@ -69,7 +69,7 @@ export const config = {
                 ${chipTokens.scaleHover}: 1.02;
                 ${chipTokens.scaleActive}: 0.98;
 
-                ${chipTokens.closeIconSize}: 1rem;
+                ${chipTokens.closeIconSize}: 1.5rem;
             `,
         },
         disabled: {

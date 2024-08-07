@@ -11,7 +11,7 @@ export const config = {
                 ${tokens.color}: var(--text-accent);
                 ${tokens.backgroundColor}: var(--surface-accent);
                 ${tokens.statusOnlineColor}: var(--surface-positive);
-                ${tokens.statusOfflineColor}: var(--surface-solid-tertiary);
+                ${tokens.statusOfflineColor}: var(--on-light-surface-solid-primary);
                 ${tokens.scaleHover}: 1.02;
                 ${tokens.fontFamily}: var(--plasma-typo-text-font-family);
             `,

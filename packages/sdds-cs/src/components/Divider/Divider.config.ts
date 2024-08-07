@@ -19,7 +19,7 @@ export const config = {
             `,
             // TODO поменять на корректный токен --inverse-surface-transparent-tertiary когда он появится
             inverse: css`
-                ${dividerTokens.background}: var(--inverse-text-solid-primary);
+                ${dividerTokens.background}: var(--inverse-surface-solid-primary);
             `,
         },
         size: {

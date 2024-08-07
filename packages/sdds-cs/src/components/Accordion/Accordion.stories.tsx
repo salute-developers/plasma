@@ -38,15 +38,9 @@ const meta: Meta<AccordionProps> = {
             'После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива',
     },
     argTypes: {
-        ...disableProps(['text']),
+        ...disableProps(['text', 'size']),
         view: {
             options: ['default', 'clear'],
-            control: {
-                type: 'select',
-            },
-        },
-        size: {
-            options: ['s'],
             control: {
                 type: 'select',
             },

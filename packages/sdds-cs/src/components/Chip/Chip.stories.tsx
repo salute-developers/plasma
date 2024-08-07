@@ -27,7 +27,7 @@ const meta: Meta<typeof Chip> = {
                 type: 'select',
             },
         },
-        ...disableProps(['readOnly', 'onClear', 'contentLeft', 'contentRight', 'contentClearButton', 'text']),
+        ...disableProps(['readOnly', 'onClear', 'contentLeft', 'contentRight', 'contentClearButton', 'text', 'size']),
     },
 };
 
@@ -63,10 +63,7 @@ export const WithIcon: Story = {
     args: { ...Default.args },
     render: (args) => {
         const iconSizeMapper = {
-            l: '1.5rem',
-            m: '1.25rem',
-            s: '1rem',
-            xs: '0.75rem',
+            s: '1.5rem',
         };
         const iconSize = args.size || 'm';
 
