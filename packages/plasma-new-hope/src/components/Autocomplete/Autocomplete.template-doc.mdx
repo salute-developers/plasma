@@ -42,7 +42,7 @@ type SuggestionItem = {
     <TabItem value="default" label="Default" default>
         ```tsx live
         import React from 'react';
-        import { Autocomplete } from '@salutejs/sdds-cs';
+        import { Autocomplete } from '@salutejs/{{ package }}';
 
         export function App() {
             const mockData = [
@@ -99,7 +99,7 @@ type SuggestionItem = {
             ];
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
                 </div>
             );
@@ -109,7 +109,7 @@ type SuggestionItem = {
     <TabItem value="controlled" label="Controlled">
         ```tsx live
         import React from 'react';
-        import { Autocomplete } from '@salutejs/sdds-cs';
+        import { Autocomplete } from '@salutejs/{{ package }}';
 
         export function App() {
             const mockData = [
@@ -168,7 +168,7 @@ type SuggestionItem = {
             const [value, setValue] = useState('')
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete value={value} onChange={(e) => setValue(e.target.value)} onSuggestionSelect={(e) => setValue(e.label)} suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
                 </div>
             );
@@ -180,7 +180,7 @@ type SuggestionItem = {
 
         ```tsx live
         import React from 'react';
-        import { Autocomplete, Cell, Spinner } from '@salutejs/sdds-cs';
+        import { Autocomplete, Cell, Spinner } from '@salutejs/{{ package }}';
 
         export function App() {
             const mockData = [
@@ -261,7 +261,7 @@ type SuggestionItem = {
             };
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete
                         suggestions={suggestions.data}
                         listMaxHeight="250px"
@@ -282,7 +282,7 @@ type SuggestionItem = {
 
         ```tsx live
         import React from 'react';
-        import { Autocomplete } from '@salutejs/sdds-cs';
+        import { Autocomplete } from '@salutejs/{{ package }}';
 
         export function App() {
             const mockData = [
@@ -355,7 +355,7 @@ type SuggestionItem = {
             }, [value])
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
@@ -377,7 +377,7 @@ type SuggestionItem = {
 
         ```tsx live
         import React from 'react';
-        import { Autocomplete, EmptyState, Spinner } from '@salutejs/sdds-cs';
+        import { Autocomplete, EmptyState, Spinner } from '@salutejs/{{ package }}';
         import { IconRefresh } from '@salutejs/plasma-icons';
 
         export function App() {
@@ -458,7 +458,7 @@ type SuggestionItem = {
             }
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
@@ -481,7 +481,7 @@ type SuggestionItem = {
         Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.
         ```tsx live
         import React from 'react';
-        import { Autocomplete } from '@salutejs/sdds-cs';
+        import { Autocomplete } from '@salutejs/{{ package }}';
 
         export function App() {
             const mockData = [
@@ -540,7 +540,7 @@ type SuggestionItem = {
             const ref = useRef(null);
 
             return (
-                <div style={{ position: 'relative', display: 'block', height: "400px" }} ref={ref}>
+                <div style=\{{ position: 'relative', display: 'block', height: "400px" }} ref={ref}>
                     <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" portal={ref} />
                 </div>
             );
