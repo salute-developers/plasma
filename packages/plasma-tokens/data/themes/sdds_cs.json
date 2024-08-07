@@ -5858,7 +5858,7 @@
                     "enabled": false
                 },
                 "textPrimary": {
-                    "value": "[general.coolGray.500]",
+                    "value": "[general.coolGray.50]",
                     "comment": "Основной цвет текста на темном фоне",
                     "enabled": true
                 },
