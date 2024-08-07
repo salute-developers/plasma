@@ -14,7 +14,7 @@ export const config = {
                 ${tokens.color}: var(--surface-accent);
             `,
             inactive: css`
-                ${tokens.color}: var(--surface-solid-primary);
+                ${tokens.color}: var(--on-light-surface-solid-primary);
             `,
             positive: css`
                 ${tokens.color}: var(--surface-positive);

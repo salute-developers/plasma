@@ -3,10 +3,11 @@ import type { StoryObj, Meta } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import { IconChevronRight } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Avatar } from '../Avatar';
 
-import { Cell, CellTextbox, CellTextboxTitle } from '.';
+import { Cell } from '.';
 
 type StoryProps = ComponentProps<typeof Cell> & {
     itemsCount?: number;
@@ -62,6 +63,7 @@ const meta: Meta<typeof Cell> = {
                 type: 'select',
             },
         },
+        ...disableProps(['size']),
     },
 };
 
@@ -87,39 +89,9 @@ export const Default: Story = {
                         <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
                     )
                 }
-                contentRight={!args.disableRightContent && <ChevronRight color="inherit" size="xs" />}
+                contentRight={!args.disableRightContent && <ChevronRight color="inherit" size="s" />}
                 {...args}
             />
-        );
-    },
-};
-
-export const WithContentTextboxCustom: Story = {
-    args: {
-        size: 's',
-        stretching: 'filled',
-    },
-    render: ({ ...args }: StoryProps) => {
-        const MyStyledText = styled.div`
-            font-size: 12px;
-            font-weight: 600;
-            opacity: 0.5;
-        `;
-        return (
-            <Cell
-                contentLeft={
-                    <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
-                }
-                contentRight={<ChevronRight color="inheart" size="xs" />}
-                view="default"
-                size={args.size}
-                stretching={args.stretching}
-            >
-                <CellTextbox>
-                    <CellTextboxTitle>Title</CellTextboxTitle>
-                    <MyStyledText>My styled Text</MyStyledText>
-                </CellTextbox>
-            </Cell>
         );
     },
 };
