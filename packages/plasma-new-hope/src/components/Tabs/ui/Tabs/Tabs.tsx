@@ -78,7 +78,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                     return tabStartX < scrollLeft;
                 });
 
-            firstOverflowingTab?.current?.scrollIntoView();
+            firstOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
         }, [disabled, scrollRef, refs]);
 
         const onNext = useCallback(() => {
@@ -96,7 +96,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                 return tabEndX > scrollRight;
             });
 
-            lastOverflowingTab?.current?.scrollIntoView();
+            lastOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
         }, [disabled, scrollRef, refs]);
 
         const PreviousButton = useMemo(
