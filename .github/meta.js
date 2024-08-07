@@ -16,7 +16,7 @@ module.exports = {
             'plasma-tokens-web',
             'plasma-typo',
         ],
-        required: ['plasma-new-hope', 'plasma-core'],
+        required: ['plasma-new-hope', 'plasma-core', 'plasma-icons'],
         themes: '',
     },
     'plasma-new-hope': {

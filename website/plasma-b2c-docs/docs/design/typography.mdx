@@ -1,0 +1,154 @@
+---
+id: typography
+title: Типографика
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Типографическая система
+Текст – основа интерфейса. Типографическая система Plasma разработана, чтобы текст выглядел одинаково во всей экосистеме Salute.
+Типографическая система представляет собой набор констант ([_токенов_](../tokens)) и [компонентов](../../components/typography).
+Компоненты заменяют обычные HTML-теги, такие, как `h1`, `h2`, `h3`, `h4`, `p` и некоторые другие.
+
+## Использование
+
+```tsx
+import { BodyL } from '@salutejs/plasma-b2c';
+import { bodyL } from '@salutejs/plasma-typo';
+
+export default function App() {
+    return (
+        <>
+            {/* как компонент */}
+            <BodyL>Hello, World!</BodyL>
+
+            {/* как стилевой токен */}
+            <div style={bodyL}>This is Plasma.</div>
+        </>
+    );
+}
+```
+
+## Состав
+Типографика дизайн-системы Plasma включает в себя следующие компоненты:
+
+- [Hero Unit](../../components/typography#hero-unit):
+  - DsplL
+  - DsplM
+  - DsplS
+- [Заголовки](../../components/typography#заголовки):
+  - H1
+  - H2
+  - H3
+  - H4
+  - H5
+- [Интерфейсы](../../components/typography#интерфейсы):
+  - BodyL
+  - BodyM
+  - BodyS
+  - BodyXS
+  - BodyXXS
+- [Текст](../../components/typography#текст):
+  - TextL
+  - TextM
+  - TextS
+  - TextXS
+
+### Размеры
+Размер текста в объектах стилей, которые предоставляет типографическая система, задан в единицах измерения `rem`.
+
+```js
+export const bodyL = {
+    fontFamily: 'var(--plasma-typo-body-l-font-family)',
+    fontSize: 'var(--plasma-typo-body-l-font-size)',
+    fontStyle: 'var(--plasma-typo-body-l-font-style)',
+    fontWeight: 'var(--plasma-typo-body-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-l-line-height)'
+};
+```
+
+Это позволяет масштабировать весь интерфейс за счёт указания `font-size` на теге `<html>`.
+
+Значение по умолчанию — `16px`.
+
+```css
+html {
+    font-size: 16px;
+}
+```
+
+> При использовании стандартной типографики устанавливать размер шрифта на теге `<html>` не обязательно, это уже предусмотрено в глобальных стилях.
+
+## Установка шрифта
+Типографическая система основана на фирменных шрифтах **SB Sans Display** (для заголовков) и **SB Sans Text** (для текста и компонентов).
+
+Для подключения в веб-приложения, шрифт загружен в [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
+
+Чтобы использовать типографическую систему, достаточно указать один CSS-файл внутри тега `<head>`.
+
++ Если вы используете [Create React App](https://create-react-app.dev), подключите систему в файле `public/index.html`.
++ Если вы используете [Next.js](https://nextjs.org/), создайте файл [`pages/_document.tsx`](https://nextjs.org/docs/advanced-features/custom-document) и подключите систему в нем.
+
+<Tabs
+  defaultValue="cra"
+  values={[
+    { label: 'Create React App', value: 'cra', },
+    { label: 'Next.js', value: 'next', },
+  ]
+}>
+<TabItem value="cra">
+
+```html {3-6} title="public/index.html"
+<html>
+    <head>
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
+        />
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+```
+</TabItem>
+<TabItem value="next">
+
+```tsx {8-11} title="pages/_document.tsx"
+import BaseDocument, { Html, Head, Main, NextScript } from 'next/document';
+
+export default class Document extends BaseDocument {
+    render() {
+        return (
+            <Html>
+                <Head>
+                    <link
+                        rel="stylesheet"
+                        href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+                    />
+                    <link
+                        rel="stylesheet"
+                        href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
+                    />
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        );
+    }
+}
+```
+</TabItem>
+</Tabs>
+
+## Типографика, совместимая со старыми версиями
+См. на странице [Совместимая типографика](../typography-legacy).

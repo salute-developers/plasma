@@ -1,0 +1,144 @@
+---
+id: intro
+title: Введение
+sidebar_position: 1
+slug: /
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Введение
+Plasma B2C – библиотека с открытым исходным кодом, в которую входят _компоненты_ дизайн-системы Plasma
+и вспомогательные _утилиты_ для создания веб-приложений на [React](https://reactjs.org/).
+
+Библиотека написана на [Typescript](https://www.typescriptlang.org/), а компоненты реализованы с применением [styled-components](https://styled-components.com/).
+
+## Установка
+
+Plasma B2C поддерживает версии **React 16.8+** и **styled-components ^5.3.1** (на данный момент 6-я версия **не поддерживается** из-за [отсутствия необходимых типов](https://github.com/styled-components/styled-components/issues/4062)).
+
+Ее можно использовать в существующем проекте.
+
+Установите **React**, **ReactDOM** и **styled-components**:
+
+```bash
+npm install react react-dom styled-components@5.3.1
+```
+
+> Использовать **styled-components** и **typescript** в проекте не обязательно.
+
+Установите библиотеку компонентов, библиотеку токенов и библиотеку иконок:
+
+```bash
+npm install @salutejs/plasma-b2c @salutejs/plasma-icons
+```
+
+## Настройка
+Создайте компонент для подключения глобальных стилей:
+
+```jsx title="GlobalStyle.tsx"
+import { createGlobalStyle } from 'styled-components';
+import { standard } from '@salutejs/plasma-typo';
+import { light } from '@salutejs/plasma-tokens-b2c/themes';
+import {
+    text, // Цвет текста
+    background, // Цвет подложки
+    gradient, // Градиент
+} from '@salutejs/plasma-tokens-b2c';
+
+const DocumentStyle = createGlobalStyle`
+    html {
+        color: ${text};
+        background-color: ${background};
+        background-image: ${gradient};
+    }
+`;
+const ThemeStyle = createGlobalStyle(light);
+const TypoStyle = createGlobalStyle(standard);
+
+export const GlobalStyle = () => (
+    <>
+        <DocumentStyle />
+        <ThemeStyle />
+        <TypoStyle />
+    </>
+);
+```
+
+### Корень приложения
+В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
+
++ Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
++ Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+
+Для корректной работы server side rendering приложение нужно обернуть `SSRProvider`;
+
+<Tabs
+defaultValue="cra"
+values={[
+{ label: 'Create React App', value: 'cra', },
+{ label: 'Next.js', value: 'next', },
+]
+}>
+<TabItem value="cra">
+
+```jsx title="index.tsx"
+import { SSRProvider } from '@salutejs/plasma-b2c';
+import { GlobalStyle } from './GlobalStyle';
+import { App } from './App';
+
+ReactDOM.render(
+    <SSRProvider>
+        <App />
+        <GlobalStyle />
+    </SSRProvider>,
+    document.getElementById('root'),
+);
+```
+
+</TabItem>
+<TabItem value="next">
+
+```tsx title="pages/_app.tsx"
+import type { AppProps } from 'next/app';
+import { SSRProvider } from '@salutejs/plasma-b2c';
+import { GlobalStyle } from './GlobalStyle';
+
+function MyApp({ Component, pageProps }: AppProps) {
+    return (
+        <SSRProvider>
+            <Component {...pageProps} />
+            <GlobalStyle />
+        </SSRProvider>
+    );
+}
+
+export default MyApp;
+```
+
+</TabItem>
+</Tabs>
+
+## Использование
+Несмотря на то, что все компоненты доступны из папки `components`,
+**рекомендуется** использовать их напрямую из пакета.
+Таким образом, обеспечивается работа [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+
+```jsx title="App.tsx"
+import { Container, Button } from '@salutejs/plasma-b2c';
+
+export default function App() {
+    return (
+        <Container>
+            <Button>Hello, Plasma!</Button>
+        </Container>
+    );
+}
+```
+
+Библиотека предоставляет вспомогательную функциональность (`utils`, `mixins`, `hocs`),
+доступную в соответствующих директориях.
+
+Подробную информацию ищите в документации по 
+[hocs](./functions/hocs), [mixins](./functions/mixins) и [utils](./functions/utils).

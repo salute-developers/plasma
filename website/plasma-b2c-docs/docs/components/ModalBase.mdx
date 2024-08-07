@@ -1,0 +1,107 @@
+---
+id: modalBase
+title: ModalBase
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# ModalBase
+<Description name="ModalBase" />
+<PropsTable name="ModalBase" />
+<StorybookLink name="ModalBase" />
+
+### Использование
+
+Перед использованием убедитесь, что `PopupBaseProvider` подключен.
+Компонент ModalBase во многом схож с `PopupBase`, добавляет при этом подложку(`overlay`), а также блокирует scroll и фокус.
+
+```tsx live
+import React from 'react';
+import { surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
+import { SSRProvider, Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpenA, setIsOpenA] = React.useState(false);
+    const [isOpenB, setIsOpenB] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{ height: "300px" }}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button text="Открыть A" onClick={() => setIsOpenA(true)} />
+                    </div>
+                    <ModalBase
+                        id="modalA"
+                        onClose={() => setIsOpenA(false)}
+                        isOpen={isOpenA}
+                        placement="center"
+                        offset={[0, 0]}
+                    >
+                        <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
+                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                            <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
+                            Content
+                        </div>
+                        <ModalBase
+                            id="modalB"
+                            onClose={() => setIsOpenB(false)}
+                            isOpen={isOpenB}
+                            placement="right"
+                            offset={[0, 0]}
+                        >
+                            <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
+                                <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                                Content
+                            </div>
+                        </ModalBase>
+                    </ModalBase>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
+    );
+}
+```
+
+## Подключение анимации
+
+Подключение анимации аналогично тому, как это происходит в `PopupBase` - через свойство `withAnimation`(управление через `popupBaseClasses`, `modalBaseClasses`).
+Для добавления анимации в оверлей необходимо использовать класс `.modal-base-overlay` через переменную `modalBaseClasses.overlay` из пакета.
+
+Пример:
+
+```tsx
+const StyledModal = styled(ModalBase)`
+    && > .${popupBaseClasses.root}, .${modalBaseClasses.overlay} {
+        animation: fadeIn 1s forwards;
+    }
+
+    &&.${popupBaseClasses.endAnimation} .${popupBaseClasses.root} {
+        animation: fadeOut 1s forwards;
+    }
+
+    &&.${popupBaseClasses.endAnimation} .${modalBaseClasses.overlay} {
+        animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+`;
+```
