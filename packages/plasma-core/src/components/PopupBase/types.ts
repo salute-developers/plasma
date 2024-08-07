@@ -16,8 +16,13 @@ export interface PopupContextType {
 export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Отображение PopupBase.
+     * @deprecated
      */
-    isOpen: boolean;
+    isOpen?: boolean;
+    /**
+     * Отображение PopupBase.
+     */
+    opened: boolean;
     /* Позиция на экране
      * center - по умолчанию
      * left, right, top, bottom и их комбинации
@@ -60,7 +65,7 @@ export interface PopupAnimationInfo {
     setEndTransition: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
+export interface PopupRootProps extends Omit<PopupBaseProps, 'opened' | 'isOpen' | 'overlay'> {
     id: string;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
     /**
@@ -69,11 +74,12 @@ export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay
     animationInfo: PopupAnimationInfo;
 }
 
-export interface PopupHookArgs extends Pick<PopupBaseProps, 'isOpen' | 'popupInfo' | 'withAnimation'> {
+export interface PopupHookArgs extends Pick<PopupBaseProps, 'popupInfo' | 'withAnimation'> {
     id: string;
+    isOpen: boolean;
 }
 
-export interface PopupRootContainerProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
+export interface PopupRootContainerProps extends Omit<PopupBaseProps, 'opened' | 'overlay'> {
     endTransition?: boolean;
     endAnimation?: boolean;
 }

@@ -867,9 +867,11 @@ export type PopupBasePlacement = BasicPopupBasePlacement | MixedPopupBasePlaceme
 export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode;
     frame?: 'document' | string | React.RefObject<HTMLElement>;
-    isOpen: boolean;
+    // @deprecated
+    isOpen?: boolean;
     // (undocumented)
     offset?: [number, number] | [string, string];
+    opened: boolean;
     overlay?: React.ReactNode;
     // (undocumented)
     placement?: PopupBasePlacement;
@@ -906,8 +908,10 @@ export interface PopupInfo {
 export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
     disclosure?: ReactNode;
+    // @deprecated
     isOpen?: boolean;
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    opened?: boolean;
     // Warning: (ae-forgotten-export) The symbol "PopupPlacement" needs to be exported by the entry point index.d.ts
     // Warning: (ae-forgotten-export) The symbol "PopupBasicPlacement" needs to be exported by the entry point index.d.ts
     placement?: PopupPlacement | Array<PopupBasicPlacement>;
@@ -915,7 +919,7 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 // @public (undocumented)
-export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
+export interface PopupRootProps extends Omit<PopupBaseProps, 'opened' | 'isOpen' | 'overlay'> {
     // Warning: (ae-forgotten-export) The symbol "PopupAnimationInfo" needs to be exported by the entry point index.d.ts
     animationInfo: PopupAnimationInfo;
     // (undocumented)

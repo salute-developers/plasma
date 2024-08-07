@@ -15,7 +15,7 @@ describe('plasma-web: Popover', () => {
 
         return (
             <Popover
-                isOpen={isOpen}
+                opened={isOpen}
                 onToggle={(is) => setIsOpen(is)}
                 role="presentation"
                 id="popover"

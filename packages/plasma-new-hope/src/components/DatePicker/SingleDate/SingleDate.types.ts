@@ -60,8 +60,13 @@ export type DatePickerTextFieldProps = {
 export type DatePickerPopoverProps = {
     /**
      * Видимость календаря.
+     * @deprecated
      */
     isOpen?: boolean;
+    /**
+     * Видимость календаря.
+     */
+    opened?: boolean;
     /**
      * Сторона открытия календаря относительно поля ввода.
      * @default

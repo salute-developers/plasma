@@ -67,7 +67,7 @@ describe('plasma-b2c: Drawer', () => {
                 <Button text="Open drawer" onClick={() => setIsOpen(true)} />
                 <Drawer
                     className="plasma-drawer"
-                    isOpen={isOpen}
+                    opened={isOpen}
                     onClose={() => setIsOpen(false)}
                     placement={placement}
                     asModal={asModal}

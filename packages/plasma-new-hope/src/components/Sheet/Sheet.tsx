@@ -27,6 +27,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
         (
             {
                 opened,
+                isOpen,
                 children,
                 onClose,
                 hasHandle = true,
@@ -44,26 +45,28 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             },
             rootRef,
         ) => {
+            const innerIsOpen = Boolean(isOpen || opened);
+
             const contentWrapperRef = useRef<HTMLDivElement>(null);
             const contentRef = useRef<HTMLDivElement>(null);
             const handleRef = useRef<HTMLDivElement>(null);
 
-            useOverflow({ opened });
+            useOverflow({ opened: innerIsOpen });
             useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, onClose });
 
             const hasHeader = Boolean(contentHeader);
             const hasFooter = Boolean(contentFooter);
 
-            const closedClass = opened ? undefined : `${classes.closed}`;
+            const closedClass = innerIsOpen ? undefined : `${classes.closed}`;
 
             const overlayBackgroundToken = withBlur
                 ? `var(${tokens.sheetOverlayWithBlurColor})`
                 : `var(${tokens.sheetOverlayColor})`;
 
             return (
-                <Root opened={opened} onClose={onClose} view={view} ref={rootRef}>
+                <Root opened={innerIsOpen} onClose={onClose} view={view} ref={rootRef}>
                     <StyledContentWrapper
-                        opened={opened}
+                        opened={innerIsOpen}
                         withTransition={withTransition}
                         className={cx(closedClass, className)}
                         ref={contentWrapperRef}
@@ -80,7 +83,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                             )}
                         </StyledSheetContent>
                     </StyledContentWrapper>
-                    {withOverlay && opened && (
+                    {withOverlay && innerIsOpen && (
                         <Overlay
                             zIndex={DEFAULT_Z_INDEX}
                             backgroundColorProperty={overlayBackgroundToken}

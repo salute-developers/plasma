@@ -26,7 +26,7 @@ import { LeftHelper, StyledLabel, StyledRange, base } from './RangeDate.styles';
 import { RangeDatePopover } from './RangeDatePopover/RangeDatePopover';
 
 export const datePickerRangeRoot = (
-    Root: RootProps<HTMLDivElement, Omit<DatePickerRangeProps, 'isOpen' | 'defaultValue' | 'onChangeValue'>>,
+    Root: RootProps<HTMLDivElement, Omit<DatePickerRangeProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
 ) =>
     forwardRef<RangeInputRefs, DatePickerRangeProps>(
         (
@@ -34,7 +34,7 @@ export const datePickerRangeRoot = (
                 className,
 
                 isDoubleCalendar = false,
-                isOpen = false,
+                opened = false,
 
                 label,
                 leftHelper,
@@ -111,7 +111,7 @@ export const datePickerRangeRoot = (
             const [secondInputRef, setSecondInputRef] = useState<MutableRefObject<HTMLInputElement | null> | undefined>(
                 rangeRef?.current?.secondTextField(),
             );
-            const [isInnerOpen, setIsInnerOpen] = useState(isOpen);
+            const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const [calendarFirstValue, setCalendarFirstValue] = useState(formatCalendarValue(defaultFirstDate, format));
             const [inputFirstValue, setInputFirstValue] = useState(formatInputValue(defaultFirstDate, format));
@@ -244,8 +244,8 @@ export const datePickerRangeRoot = (
             }, [rangeRef.current]);
 
             useEffect(() => {
-                setIsInnerOpen((prevOpen) => prevOpen !== isOpen && isOpen);
-            }, [isOpen]);
+                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
+            }, [opened]);
 
             useEffect(() => {
                 setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format));
@@ -271,7 +271,7 @@ export const datePickerRangeRoot = (
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         target={RangeComponent}
-                        isOpen={isInnerOpen}
+                        opened={isInnerOpen}
                         includeEdgeDates={includeEdgeDates}
                         eventList={eventList}
                         disabledList={disabledList}

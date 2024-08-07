@@ -90,7 +90,7 @@ export function App() {
                     <Popup
                         id="popupA"
                         frame={ref}
-                        isOpen={isOpenA}
+                        opened={isOpenA}
                         placement="center"
                         offset={[0, 0]}
                     >
@@ -105,7 +105,7 @@ export function App() {
                     <Popup
                         id="popupB"
                         frame="document"
-                        isOpen={isOpenB}
+                        opened={isOpenB}
                         placement="center"
                         offset={[0, 0]}
                     >
@@ -191,7 +191,7 @@ const StyledPopupAnimation = styled(Popup)`
                 id="popup-id"
                 withAnimation
                 frame="document"
-                isOpen={isOpen}
+                opened={isOpen}
                 placement="center"
                 offset={[0, 0]}
             >

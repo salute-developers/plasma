@@ -30,7 +30,7 @@ export function App() {
     return (
         <section style=\{{width: '20rem', height: '15rem'}}>
             <Popover
-                isOpen={isOpen}
+                opened={isOpen}
                 onToggle={(is) => setIsOpen(is)}
                 role="presentation"
                 id="popover"

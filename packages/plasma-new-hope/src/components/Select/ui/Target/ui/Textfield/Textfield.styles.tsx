@@ -11,12 +11,12 @@ import type { SelectProps } from '../../../../Select.types';
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
-export const TextfieldWrapper = styled.div<{ opened: boolean; value: SelectProps['value'] }>`
+export const TextfieldWrapper = styled.div<{ isOpen: boolean; value: SelectProps['value'] }>`
     display: inline;
 
     .${classes.textfieldTarget} {
-        background: ${({ opened }) =>
-            opened
+        background: ${({ isOpen }) =>
+            isOpen
                 ? `var(${tokens.targetTextfieldBackgroundColorOpened})`
                 : `var(${tokens.targetTextfieldBackgroundColor})`};
         padding: ${({ value }) =>

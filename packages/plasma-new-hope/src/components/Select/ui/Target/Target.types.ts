@@ -10,6 +10,7 @@ export type TargetProps = Pick<
 > & {
     value: string | string[];
     opened: boolean;
+    isOpen?: boolean;
     valueToItemMap: ValueToItemMapType;
     onChipClick: (value: string) => void;
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;

@@ -282,7 +282,7 @@ export const Confirm = (props: ConfirmProps) => {
         <PopupBaseProvider>
             <ModalOverlayVariables />
             <StyledModal
-                isOpen={visible}
+                opened={visible}
                 withAnimation
                 onOverlayClick={onDismissClick}
                 zIndex="1000"

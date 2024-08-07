@@ -36,13 +36,13 @@ const StyledPopover = styled(Popover)`
  * Компонент для текстовых подсказок. Основное предназначение — подписи к блокам.
  */
 
-export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, 'isOpen' | 'text'>>) =>
+export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, 'opened' | 'text'>>) =>
     forwardRef<HTMLDivElement, TooltipProps>(
         (
             {
                 id,
                 text,
-                isOpen,
+                opened,
                 isVisible,
                 hasArrow = true,
                 arrow,
@@ -68,7 +68,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
             const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
             // TODO убрать после отказа от старого API
-            const innerIsOpen = isVisible || isOpen;
+            const innerIsOpen = isVisible || opened;
             const innerHasArrow = arrow || hasArrow;
             const showTooltip = innerIsOpen && Boolean(text?.length);
 
@@ -92,7 +92,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
 
             return (
                 <StyledPopover
-                    isOpen={showTooltip}
+                    opened={showTooltip}
                     placement={placement}
                     offset={offset}
                     zIndex={zIndex}

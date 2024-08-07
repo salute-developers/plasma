@@ -134,7 +134,7 @@ export const withAssistiveDropdown = <P extends object>(
                     role={menuRole}
                     itemRole={menuItemRole}
                     aria-labelledby={id ? `${id}-disclosure` : undefined}
-                    isOpen={isOpen}
+                    opened={isOpen}
                     items={items}
                     placement={placement}
                     trigger={trigger}
@@ -151,7 +151,7 @@ export const withAssistiveDropdown = <P extends object>(
                         {...(rest as P)}
                         ref={ref}
                         id={id ? `${id}-disclosure` : undefined}
-                        isOpen={isOpen}
+                        opened={isOpen}
                         disabled={disabled}
                         aria-activedescendant={id && index >= 0 ? `${id}-item-${index}` : undefined}
                         aria-controls={id}

@@ -46,7 +46,7 @@ export function App() {
     return (
         <div>
             <Button text="Открыть модальное окно" onClick={() => setIsOpen(!isOpen)} />
-            <Modal isOpen={isOpen} onClose={close}>
+            <Modal opened={isOpen} onClose={close}>
                 <Headline3 mb={10}>Модальное окно</Headline3>
                 <P1>Содержимое модального окна.</P1>
                 <Button text="Закрыть" onClick={close} />

@@ -102,7 +102,7 @@ export function App() {
             <ModalsProvider>
                 <Button text="Open modal" onClick={() => setIsOpenA(true)} />
 
-                <Modal style={{ "height": "20rem" }} id="modalA" isOpen={isOpenA} onClose={onCloseA}>
+                <Modal style={{ "height": "20rem" }} id="modalA" opened={isOpenA} onClose={onCloseA}>
                     <H3>Фильтр</H3>
                     <Select
                         value={value}

@@ -138,7 +138,7 @@ const StoryPopupDemo = ({ placement, offsetX, offsetY }: StoryPopupProps) => {
                         id="popupA"
                         frame={ref}
                         withAnimation
-                        isOpen={isOpenA}
+                        opened={isOpenA}
                         placement={placement}
                         offset={[offsetX, offsetY]}
                     >
@@ -154,7 +154,7 @@ const StoryPopupDemo = ({ placement, offsetX, offsetY }: StoryPopupProps) => {
                         id="popupB"
                         frame="theme-root"
                         withAnimation
-                        isOpen={isOpenB}
+                        opened={isOpenB}
                         placement={placement}
                         offset={[offsetX, offsetY]}
                     >

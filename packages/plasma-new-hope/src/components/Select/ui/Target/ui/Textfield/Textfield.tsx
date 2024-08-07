@@ -102,7 +102,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
     };
 
     return (
-        <TextfieldWrapper opened={opened} value={value}>
+        <TextfieldWrapper isOpen={opened} value={value}>
             <StyledButton
                 stretching="filled"
                 className={cx(

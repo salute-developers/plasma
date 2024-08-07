@@ -60,7 +60,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
             const handleRef = useForkRef<HTMLInputElement>(targetRef, outerRootRef);
             const controlledRefs = { targetRef, chipsRefs, selectRef: comboboxRef, itemsRefs, inputRef };
 
-            const [innerOpened, setInnerOpened] = useState(opened);
+            const [isVisible, setIsVisible] = useState(opened);
             const [search, setSearch] = useState<string | undefined>('');
             const [filterValue, setFilterValue] = useState(search);
 
@@ -79,7 +79,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                     return;
                 }
 
-                setInnerOpened(opened);
+                setIsVisible(opened);
             }, [opened, disabled, readOnly]);
 
             useEffect(() => {
@@ -95,7 +95,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                 }
 
                 // INFO: Для кейсов, когда значение выбрано и нужно вывести весь список
-                if (!innerOpened) {
+                if (!isVisible) {
                     setFilterValue('');
                 }
 
@@ -105,7 +105,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                     return;
                 }
 
-                setInnerOpened(openValue);
+                setIsVisible(openValue);
             };
 
             const closedWithoutChanges = useRef(true);
@@ -150,7 +150,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
 
             const { onKeyDownTarget, onKeyDownSelect } = useKeyNavigation({
                 controlledRefs,
-                opened: innerOpened,
+                opened: isVisible,
                 enumerationType,
                 valueType,
                 componentType: 'combobox',
@@ -175,7 +175,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
             const onSearch = (newSearch?: string, newOpened?: boolean) => {
                 setSearch(newSearch);
                 setFilterValue(newSearch);
-                setInnerOpened(newOpened ?? true);
+                setIsVisible(newOpened ?? true);
             };
 
             const onKeyDownHandle = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -197,11 +197,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                     />
                     <StyledPopover
                         role={role}
-                        isOpen={innerOpened}
+                        opened={isVisible}
                         onToggle={onInnerToggle}
                         target={
                             <ComboboxTarget
-                                opened={innerOpened}
+                                opened={isVisible}
                                 values={values}
                                 label={label}
                                 placeholder={placeholder}

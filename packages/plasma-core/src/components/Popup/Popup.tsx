@@ -12,8 +12,13 @@ export type PopupPlacement = PopupBasicPlacement | 'auto';
 export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Всплывающее окно раскрыто или нет.
+     * @deprecated
      */
     isOpen?: boolean;
+    /**
+     * Всплывающее окно раскрыто или нет.
+     */
+    opened?: boolean;
     /**
      * Способо всплывающего окна - наведение или клик мышью.
      */
@@ -64,7 +69,9 @@ const getAutoPlacements = (placements?: PopupPlacement[]) => {
  */
 export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
     React.forwardRef<HTMLDivElement, PopupProps>(
-        ({ disclosure, children, isOpen, trigger, placement = 'auto', onToggle, ...rest }, outerRootRef) => {
+        ({ disclosure, children, isOpen, opened, trigger, placement = 'auto', onToggle, ...rest }, outerRootRef) => {
+            const innerIsOpen = Boolean(isOpen || opened);
+
             const rootRef = useRef<HTMLDivElement | null>(null);
             const popupRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
@@ -106,11 +113,11 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                         const rootHasTarget = popupRef.current?.contains(event.target as Element);
 
                         if (!targetIsPopup && !rootHasTarget) {
-                            onToggle?.(!isOpen, event);
+                            onToggle?.(!innerIsOpen, event);
                         }
                     }
                 },
-                [trigger, isOpen, onToggle],
+                [trigger, innerIsOpen, onToggle],
             );
 
             const onMouseEnter = useCallback<React.MouseEventHandler>(
@@ -155,7 +162,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
             }, []);
 
             useEffect(() => {
-                if (!isOpen || !forceUpdate) {
+                if (!innerIsOpen || !forceUpdate) {
                     return;
                 }
 
@@ -166,7 +173,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                  * вызов метода в очередь микрозадач.
                  */
                 Promise.resolve().then(forceUpdate);
-            }, [isOpen, forceUpdate]);
+            }, [innerIsOpen, forceUpdate]);
 
             return (
                 <StyledRoot
@@ -183,7 +190,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                         <StyledPopup
                             {...attributes.popper}
                             ref={popupRef}
-                            style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
+                            style={{ ...styles.popper, ...{ display: innerIsOpen ? 'block' : 'none' } }}
                         >
                             {children}
                         </StyledPopup>

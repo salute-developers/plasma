@@ -16,13 +16,13 @@ import { base as readOnlyCSS } from './variations/_readonly/base';
 import { LeftHelper, StyledInput, StyledLabel, StyledPopover, base } from './SingleDate.styles';
 
 export const datePickerRoot = (
-    Root: RootProps<HTMLDivElement, Omit<DatePickerProps, 'isOpen' | 'defaultValue' | 'onChangeValue'>>,
+    Root: RootProps<HTMLDivElement, Omit<DatePickerProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
 ) =>
     forwardRef<HTMLInputElement, DatePickerProps>(
         (
             {
                 className,
-                isOpen = false,
+                opened = false,
 
                 label,
                 labelPlacement = 'outer',
@@ -70,7 +70,7 @@ export const datePickerRoot = (
             ref,
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
-            const [isInnerOpen, setIsInnerOpen] = useState(isOpen);
+            const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format));
             const [inputValue, setInputValue] = useState(formatInputValue(defaultDate, format));
@@ -131,8 +131,8 @@ export const datePickerRoot = (
             );
 
             useEffect(() => {
-                setIsInnerOpen((prevOpen) => prevOpen !== isOpen && isOpen);
-            }, [isOpen]);
+                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
+            }, [opened]);
 
             useEffect(() => {
                 setCalendarValue(formatCalendarValue(defaultDate, format));
@@ -151,7 +151,7 @@ export const datePickerRoot = (
                 >
                     {!innerLabelPlacement && label && <StyledLabel>{label}</StyledLabel>}
                     <StyledPopover
-                        isOpen={isInnerOpen}
+                        opened={isInnerOpen}
                         usePortal={false}
                         onToggle={handleToggle}
                         offset={offset}

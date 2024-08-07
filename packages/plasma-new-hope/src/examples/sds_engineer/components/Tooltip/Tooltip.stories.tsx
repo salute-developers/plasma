@@ -57,7 +57,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                         target={<Button>Btn</Button>}
                         placement="left"
                         size={size}
-                        isOpen
+                        opened
                         hasArrow
                         text="left"
                         frame="theme-root"
@@ -65,7 +65,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                 }
                 placement="top-start"
                 size={size}
-                isOpen
+                opened
                 hasArrow
                 text="top-start"
                 frame="theme-root"
@@ -74,7 +74,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                 target={<Button>Btn</Button>}
                 placement="top"
                 size={size}
-                isOpen
+                opened
                 hasArrow
                 text="top"
                 frame="theme-root"
@@ -85,7 +85,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                         target={<Button>Btn</Button>}
                         placement="right"
                         size={size}
-                        isOpen
+                        opened
                         hasArrow
                         text="right"
                         frame="theme-root"
@@ -93,7 +93,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                 }
                 placement="top-end"
                 size={size}
-                isOpen
+                opened
                 hasArrow
                 text="top-end"
                 frame="theme-root"
@@ -102,7 +102,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                 target={<Button>Btn</Button>}
                 placement="bottom-start"
                 size={size}
-                isOpen
+                opened
                 hasArrow
                 text="bottom-start"
                 frame="theme-root"
@@ -111,7 +111,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                 target={<Button>Btn</Button>}
                 placement="bottom"
                 size={size}
-                isOpen
+                opened
                 hasArrow
                 text="bottom"
                 frame="theme-root"
@@ -120,7 +120,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                 target={<Button>Btn</Button>}
                 placement="bottom-end"
                 size={size}
-                isOpen
+                opened
                 hasArrow
                 text="bottom-end"
                 frame="theme-root"
@@ -170,7 +170,7 @@ const StoryLive = (args: TooltipProps) => {
                     {...args}
                     id="example-tooltip-firstname"
                     text={text}
-                    isOpen
+                    opened
                     frame="theme-root"
                 />
             </StyledRow>

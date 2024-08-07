@@ -36,6 +36,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 width,
                 height,
                 isOpen,
+                opened,
                 initialFocusRef,
                 focusAfterRef,
                 className,
@@ -53,6 +54,8 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
             },
             outerRef,
         ) => {
+            const innerIsOpen = Boolean(isOpen || opened);
+
             const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef);
             const popupController = usePopupContext();
 
@@ -68,7 +71,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
 
             const { drawerInfo } = useDrawer({
                 id: innerId,
-                isOpen,
+                isOpen: innerIsOpen,
                 closeOnEsc,
                 onEscKeyDown,
                 onClose,
@@ -95,7 +98,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 <StyledPopup
                     id={innerId}
                     ref={asModal ? innerRef : outerRef}
-                    isOpen={isOpen}
+                    opened={innerIsOpen}
                     zIndex={zIndex}
                     placement={placement}
                     popupInfo={drawerInfo}
