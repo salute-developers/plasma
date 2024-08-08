@@ -1,3 +1,185 @@
+# v0.94.0 (Thu Aug 08 2024)
+
+### Release Notes
+
+#### Release by 07.08.2024 ([#1348](https://github.com/salute-developers/plasma/pull/1348))
+
+## Components
+
+### DatePicker
+
+- добавлена возможность задавать labelPlacement
+- добавлен тест на данное свойство
+
+ 
+plasma-*: add datepicker inner label support (https://github.com/salute-developers/plasma/pull/1327)
+
+### DatePicker
+
+- добавлена возможность открытия календаря в DatePicker по нажатию Space
+
+ 
+plasma-new-hope: add DatePicker open by space (https://github.com/salute-developers/plasma/pull/1326)
+
+### TimePicker
+
+- добавлена привязка времени к датам
+- добавлена возможность задавать промежуток больший, чем 1 сутки
+
+**Before**
+<img src="https://github.com/user-attachments/assets/b867f5d2-2814-433e-ba21-e93aa5fd691f" width="550">
+
+**After**
+<img src="https://github.com/user-attachments/assets/3d6e6ac5-d5e6-4adb-b985-9606a31d8335" width="550">
+
+ 
+plasma-ui: range timepicker (https://github.com/salute-developers/plasma/pull/1323)
+
+### Components
+
+Добавлена библиотека компонентов `@salutejs/sdds-cs`
+
+ 
+feat(package): Add sdds-cs (https://github.com/salute-developers/plasma/pull/1334)
+
+### DatePicker
+
+- изменен токен default состояния для поля ввода
+- обновлены скриншоты для DatePicker
+-  исправлено поведение, связанное с шириной поля ввода
+- добавлена поддержка асинхронной установки defaultDate
+
+**Before**
+<img src="https://github.com/user-attachments/assets/a4a4962a-c214-4c07-ba32-d7a80d2f9099">
+<img src="https://github.com/user-attachments/assets/38f4d5be-2519-4777-817e-5ca901724a7f">
+
+**After**
+![image](https://github.com/user-attachments/assets/564b6610-2fee-475e-8b5e-af223f11a069)
+![image](https://github.com/user-attachments/assets/8ad60d1d-8ed9-405e-89f3-e35934bff1c3)
+
+
+ 
+plasma-*: fix datepicker  focus token  (https://github.com/salute-developers/plasma/pull/1332)
+
+### Breadcrumbs
+
+- добавлен в поставку `plasma-{b2c, web}, sdds-{serv,dfa}`
+- добавлен примеры в storybook и документация
+
+#### Навигация по родительским страницам
+<img width="609" src="https://github.com/user-attachments/assets/b35f60a5-0d18-4ea4-9f62-716365079e4f" />
+
+#### Используя `shorter`
+
+<img width="659" src="https://github.com/user-attachments/assets/462f80e8-42a3-4538-b85e-1228a08df58e" />
+
+#### Используя custom элемент
+
+<img width="596" src="https://github.com/user-attachments/assets/3d780e04-0419-4bdf-a81b-8b3c2f73c9d9" />
+
+ 
+plasma-*: Add Breadcrumbs (https://github.com/salute-developers/plasma/pull/1310)
+
+### Select
+
+* Добавлен новый проп renderTarget в компонент Select
+
+RenderTarget in Select (https://github.com/salute-developers/plasma/pull/1328)
+
+### Tokens
+
+- В пакете `sdds-cs` были изменены конфиги в компонентах: `Accordion`, `Avatar`, `Badge`, `Cell`, `Counter`, `Chip`, `Divider`, `Indicator`
+- В `Accordion` добавлен токен цвета иконки
+- В `plasma-web` добавлены новые view
+
+ 
+fix(sdds-serv): Update configs for components in sdds-cs (https://github.com/salute-developers/plasma/pull/1344)
+
+### Tabs
+- при нажатии на таб, который не виден целиком, происходит прокрутка до конца этого таба
+- при нажатии на стрелки влево/вправо происходит прокрутка до следующего таба
+- исправлена ошибка `disabled=true` в конфигурациях
+- исправлены примеры `Storybook`, тесты и документация
+
+ 
+plasma-*, sdds-*: redesign Tabs (https://github.com/salute-developers/plasma/pull/1333)
+
+
+## Docs
+
+### Add docs SDDS CS
+
+* добавлена документация для пакета `sdds-cs`
+
+ 
+Add docs SDDS CS (https://github.com/salute-developers/plasma/pull/1336)
+
+
+## Misc
+
+### Docs
+
+* Поправлено описание подключения темы для `sdds` вертикали
+
+ 
+fix(sdds-serv-docs,sdd-dfa-docs): Fix introducing page (https://github.com/salute-developers/plasma/pull/1338)
+
+### Fix useFocusTrap in Modal
+
+- Теперь фокус при открытии `modal` работает после анимации
+
+ 
+Fix useFocusTrap in Modal (https://github.com/salute-developers/plasma/pull/1345)
+
+### Контейнер в NotificationProvider
+
+Добавил `overflow: hidden` на контейнер используемого Popup
+
+ 
+fix: fix Notification animation overflow (https://github.com/salute-developers/plasma/pull/1339)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 07.08.2024 [#1348](https://github.com/salute-developers/plasma/pull/1348) ([@Yakutoc](https://github.com/Yakutoc) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@iljs](https://github.com/iljs) [@neretin-trike](https://github.com/neretin-trike) [@shuga2704](https://github.com/shuga2704) [@vadim-kudr](https://github.com/vadim-kudr) [@denivladislav](https://github.com/denivladislav))
+- feat(sdds-cs/plasma-web): add view for accordion and edit configs sdds-cs ([@iljs](https://github.com/iljs))
+- feat(plasma-new-hope): added renderTarget prop in Select [#1328](https://github.com/salute-developers/plasma/pull/1328) ([@shuga2704](https://github.com/shuga2704))
+- feat(new-hope/sdds-cs): add to sdds-cs and edits [#1310](https://github.com/salute-developers/plasma/pull/1310) ([@iljs](https://github.com/iljs))
+- feat(*): add to libs and final edits ([@iljs](https://github.com/iljs))
+- feat(new-hope): add example to storybook with custom shorter ([@iljs](https://github.com/iljs))
+- feat(new-hope): add component breadcrumbs in new-hope ([@iljs](https://github.com/iljs))
+- feat(plasma-web/b2c,sdds-serv/dfa): add DatePicker deferred stories [#1332](https://github.com/salute-developers/plasma/pull/1332) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(sdds-serv/dfa): update DatePicker focus token ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(package): edit doc [#1334](https://github.com/salute-developers/plasma/pull/1334) ([@iljs](https://github.com/iljs))
+- feat(package): add git ci ([@iljs](https://github.com/iljs))
+- feat(package): add sdds-cs ([@iljs](https://github.com/iljs))
+- feat(sdds-serv/dfa): update DatePicker configs & stories ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-*, sdds-*): stretch turned into conditional control ([@denivladislav](https://github.com/denivladislav))
+- docs(plasma-*, sdds-*): api reports regenerated ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-{b2c, web}, sdds-*): storybooks and tests updated ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-*, sdds-*): configs fixed ([@denivladislav](https://github.com/denivladislav))
+- fix(core): edit focus trap and add animation example to modal [#1345](https://github.com/salute-developers/plasma/pull/1345) ([@iljs](https://github.com/iljs))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 8
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vladislav Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # v0.85.0 (Thu Jul 25 2024)
 
 ### Release Notes
