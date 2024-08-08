@@ -6,8 +6,8 @@
         "plasma-ui",
         "plasma-new-hope",
         "plasma-asdk",
-        "caldera-online",
         "sdds-serv",
-        "sdds-dfa"
+        "sdds-dfa",
+        "sdds-cs"
     ]
 }

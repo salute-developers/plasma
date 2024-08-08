@@ -30,11 +30,11 @@ export const TextfieldWrapper = styled.div<{ opened: boolean; value: SelectProps
     }
 `;
 
-export const StyledButton = styled(Button)`
+export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
     ${buttonTokens.buttonColor}: var(${constants.textfieldTargetColor});
     ${buttonTokens.buttonColorHover}: var(${constants.textfieldTargetColor});
     ${buttonTokens.buttonColorActive}: var(${constants.textfieldTargetColor});
-    ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
+    ${buttonTokens.buttonHeight}: ${({ renderTarget }) => (renderTarget ? 'auto' : `var(${tokens.targetHeight})`)};
     ${buttonTokens.buttonWidth}: 100%;
     ${buttonTokens.buttonPadding}: var(${tokens.targetTextfieldPadding});
     ${buttonTokens.buttonRadius}: var(${tokens.borderRadius});
@@ -47,6 +47,7 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonDisabledOpacity}: ${constants.opacity};
     ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
     box-shadow: inset 0 0 0 ${constants.textfieldBorderSize} var(${tokens.targetTextfieldBorderColor});
+    text-align: left;
 
     ${addFocus({
         outlineOffset: constants.textfieldBorderSize,

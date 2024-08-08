@@ -4,7 +4,7 @@ import { css } from '@linaria/core';
 import { component, mergeConfig } from '../../../engines';
 import { textFieldConfig, textFieldTokens } from '../../TextField';
 import { classes, tokens } from '../DatePicker.tokens';
-import { popoverConfig } from '../../Popover';
+import { popoverClasses, popoverConfig } from '../../Popover';
 
 const mergedTextFieldConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedTextFieldConfig);
@@ -15,7 +15,9 @@ const Popover = component(mergedPopoverConfig);
 export const StyledPopover = styled(Popover)``;
 
 // NOTE: переопределение токенов TextField
-export const StyledInput = styled(TextField)`        
+export const StyledInput = styled(TextField)`
+    width: 100%;
+
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
@@ -39,6 +41,14 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.borderRadius}: var(${tokens.textFieldBorderRadius});
 
     ${textFieldTokens.padding}: var(${tokens.textFieldPadding});
+    ${textFieldTokens.labelInnerPadding}: var(${tokens.labelInnerPadding});
+    ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.contentLabelInnerPadding});
+    ${textFieldTokens.labelInnerFontFamily}: var(${tokens.labelInnerFontFamily});
+    ${textFieldTokens.labelInnerFontSize}: var(${tokens.labelInnerFontSize});
+    ${textFieldTokens.labelInnerFontStyle}: var(${tokens.labelInnerFontStyle});
+    ${textFieldTokens.labelInnerFontWeight}: var(${tokens.labelInnerFontWeight});
+    ${textFieldTokens.labelInnerLetterSpacing}: var(${tokens.labelInnerLetterSpacing});
+    ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
 
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
@@ -80,6 +90,10 @@ export const StyledInput = styled(TextField)`
 
 export const base = css`
     display: inline-block;
+
+    .${String(popoverClasses.wrapper)}, .${String(popoverClasses.target)} {
+        width: inherit;
+    }
 `;
 
 export const StyledLabel = styled.label``;

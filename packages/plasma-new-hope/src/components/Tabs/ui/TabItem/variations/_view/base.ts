@@ -18,6 +18,10 @@ export const base = css`
         }
     }
 
+    &:active {
+        color: var(${tokens.itemColorActive});
+    }
+
     &.${String(classes.tabItemAnimated)} {
         transition: var(${tokens.itemBackgroundTransition});
     }

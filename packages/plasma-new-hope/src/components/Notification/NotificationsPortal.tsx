@@ -1,5 +1,7 @@
 import React, { FC, ForwardRefExoticComponent, RefAttributes, useMemo } from 'react';
 import { useStoreon } from 'storeon/react';
+import { styled } from '@linaria/react';
+import { popupBaseRootClass } from '@salutejs/plasma-core';
 
 import { PopupProvider, popupConfig } from '../Popup';
 import { component } from '../../engines';
@@ -12,6 +14,12 @@ import { classes } from './Notification.tokens';
 
 // issue #823
 const Popup = component(popupConfig);
+
+const StyledPopup = styled(Popup)`
+    & > .${popupBaseRootClass} {
+        overflow: hidden;
+    }
+`;
 
 /**
  * Обертка для визуального представления уведомлений.
@@ -27,7 +35,7 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
     return (
         <PopupProvider>
             {notifications.length > 0 && (
-                <Popup isOpen frame={frame} placement="bottom-right" zIndex="9100">
+                <StyledPopup isOpen frame={frame} placement="bottom-right" zIndex="9100">
                     <StyledRoot>
                         {notifications.map(({ id, isHidden, ...rest }) => (
                             <StyledItemWrapper
@@ -46,7 +54,7 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
                             </StyledItemWrapper>
                         ))}
                     </StyledRoot>
-                </Popup>
+                </StyledPopup>
             )}
         </PopupProvider>
     );

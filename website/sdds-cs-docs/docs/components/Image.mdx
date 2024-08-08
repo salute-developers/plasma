@@ -1,0 +1,26 @@
+---
+id: image
+title: Image
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Image
+<Description name="Image" />
+<PropsTable name="Image" />
+
+```tsx live
+import React from 'react';
+import { Image } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <Image
+            src="/sdds-cs/images/320_320_9.jpg"
+            width="320px"
+            height="320px"
+            alt="Картинка для примера фоном"
+        />
+    );
+}
+```

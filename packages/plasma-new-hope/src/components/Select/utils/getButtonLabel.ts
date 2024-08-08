@@ -1,7 +1,11 @@
 import { GetButtonLabelProps } from '../ui/Target/ui/Button/Button.types';
 import { isEmpty } from '../../../utils';
 
-const getLabel = ({ renderValue, value, valueToItemMap }: GetButtonLabelProps) => {
+const getLabel = ({
+    value,
+    valueToItemMap,
+    renderValue,
+}: Omit<GetButtonLabelProps, 'label' | 'selectProps'>): string => {
     const { label } = valueToItemMap.get(value?.toString())!;
 
     return renderValue ? renderValue(value as string, label) : label;
@@ -9,27 +13,26 @@ const getLabel = ({ renderValue, value, valueToItemMap }: GetButtonLabelProps) =
 
 export const getButtonLabel = ({
     value,
-    label,
-    isTargetAmount,
-    multiselect,
     valueToItemMap,
+    label,
     renderValue,
-}: GetButtonLabelProps) => {
+    selectProps,
+}: GetButtonLabelProps): string => {
     if (isEmpty(value)) {
-        return label;
+        return label || '';
     }
 
-    if (multiselect && isTargetAmount) {
+    if (selectProps.multiselect && selectProps.isTargetAmount) {
         return `Выбрано: ${value.length}`;
     }
 
-    if (multiselect && Array.isArray(value)) {
+    if (selectProps.multiselect && Array.isArray(value)) {
         return value
-            .map((itemValue) =>
+            ?.map((itemValue) =>
                 getLabel({
-                    renderValue,
                     value: itemValue,
                     valueToItemMap,
+                    renderValue,
                 }),
             )
             .join(', ');

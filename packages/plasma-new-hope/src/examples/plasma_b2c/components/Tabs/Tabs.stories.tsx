@@ -1,26 +1,54 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { styled } from '@linaria/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { tabsConfig } from '../../../../components/Tabs';
 import { mergeConfig } from '../../../../engines';
 import { argTypesFromConfig, WithTheme } from '../../../_helpers';
 import { IconMic } from '../../../../components/_Icon';
+import { Dropdown } from '../Dropdown/Dropdown';
+import { Counter } from '../Counter/Counter';
 
 import { config } from './Tabs.config';
 import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';
 
-const tabItemViews = ['clear', 'default', 'divider', 'secondary'];
+const clips = ['none', 'scroll', 'showAll'];
+const sizes = ['xs', 's', 'm', 'l'] as const;
+const headerSizes = ['h5', 'h4', 'h3', 'h2', 'h1'] as const;
+
+type Size = typeof sizes[number];
 
 type CustomStoryTabsProps = {
-    tabItemView: string;
-    itemsNumber?: number;
-    animated?: boolean;
-    label?: string;
-    showLeftContent: boolean;
-    showRightContent: boolean;
+    hasDivider: boolean;
+    itemQuantity: number;
+    contentLeft: string;
+    contentRight: string;
+};
+
+const contentLeftOptions = ['none', 'icon'];
+const contentRightOptions = ['none', 'text', 'counter', 'icon'];
+
+const getContentLeft = (contentLeftOption: string, size: Size) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    return contentLeftOption === 'icon' ? <IconMic size={iconSize} color="inherit" /> : undefined;
+};
+
+const getContentRight = (contentRightOption: string, size: Size) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    const counterSize = size === 'xs' ? 'xxs' : 'xs';
+
+    switch (contentRightOption) {
+        case 'icon':
+            return <IconMic size={iconSize} color="inherit" />;
+        case 'counter':
+            return <Counter size={counterSize} count={1} view="positive" />;
+        case 'text':
+            return <div>Text</div>;
+        default:
+            return undefined;
+    }
 };
 
 type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
@@ -31,12 +59,19 @@ const meta: Meta<StoryTabsProps> = {
     decorators: [WithTheme],
     argTypes: {
         ...argTypesFromConfig(mergeConfig(tabsConfig, config)),
-        tabItemView: {
-            options: tabItemViews,
+        contentLeft: {
+            options: contentLeftOptions,
             control: {
                 type: 'select',
             },
         },
+        contentRight: {
+            options: contentRightOptions,
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(['itemsNumber', 'pilled', 'animated', 'view']),
     },
 };
 
@@ -44,219 +79,225 @@ export default meta;
 
 const StoryDefault = (props: StoryTabsProps) => {
     const {
-        itemsNumber,
-        label,
-        view,
         disabled,
-        stretch,
-        pilled,
-        animated,
-        tabItemView,
+        itemQuantity,
         size,
-        showLeftContent,
-        showRightContent,
+        contentLeft: contentLeftOption,
+        contentRight: contentRightOption,
+        hasDivider,
+        stretch,
     } = props;
-    const items = Array(itemsNumber).fill(0);
-    const secondItems = Array(10).fill(0);
+    const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
-    const [secondIndex, setSecondIndex] = useState(0);
-    const [thirdIndex, setThirdIndex] = useState(0);
 
     return (
-        <>
-            <h3>Tabs with auto width</h3>
-            <Tabs view={view} stretch={stretch} pilled={pilled} disabled={disabled} size={size}>
-                {items.map((_, i) => (
-                    <TabItem
-                        key={`item:${i}`}
-                        view={tabItemView}
-                        selected={i === index}
-                        onClick={() => !disabled && setIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        pilled={pilled}
-                        animated={animated}
-                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
-                        contentRight={showRightContent && <div>Text</div>}
-                        size={size}
-                    >
-                        {label}
-                    </TabItem>
-                ))}
-            </Tabs>
+        <Tabs view={hasDivider ? 'divider' : 'clear'} stretch={stretch} disabled={disabled} size={size}>
+            {items.map((_, i) => (
+                <TabItem
+                    key={`item:${i}`}
+                    view="divider"
+                    selected={i === index}
+                    onClick={() => !disabled && setIndex(i)}
+                    tabIndex={!disabled ? 0 : -1}
+                    disabled={disabled}
+                    contentLeft={getContentLeft(contentLeftOption, size as Size)}
+                    contentRight={getContentRight(contentRightOption, size as Size)}
+                    size={size}
+                >
+                    {`Label${i + 1}`}
+                </TabItem>
+            ))}
+        </Tabs>
+    );
+};
 
-            <h3>Tabs with fixed width</h3>
-            <Tabs
-                view={view}
-                stretch={stretch}
-                pilled={pilled}
-                disabled={disabled}
-                size={size}
-                style={{ width: '28.5rem' }}
-            >
-                {secondItems.map((_, i) => (
-                    <TabItem
-                        key={`item:${i}`}
-                        view={tabItemView}
-                        selected={i === secondIndex}
-                        onClick={() => !disabled && setSecondIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        pilled={pilled}
-                        animated={animated}
-                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
-                        contentRight={showRightContent && <div>Text</div>}
-                        size={size}
-                    >
-                        {label}
-                    </TabItem>
-                ))}
-            </Tabs>
+const StoryScroll = (props: StoryTabsProps) => {
+    const {
+        disabled,
+        itemQuantity,
+        clip,
+        size,
+        contentLeft: contentLeftOption,
+        contentRight: contentRightOption,
+        hasDivider,
+    } = props;
+    const items = Array(itemQuantity).fill(0);
+    const [index, setIndex] = useState(0);
 
-            <h3>Tabs with arrow navigation</h3>
-            <Tabs view={view} index={thirdIndex} stretch={stretch} pilled={pilled} disabled={disabled} size={size}>
-                {items.map((_, i) => (
-                    <TabItem
-                        key={`item:${i}`}
-                        view={tabItemView}
-                        selected={i === thirdIndex}
-                        itemIndex={i}
-                        onIndexChange={(i) => setThirdIndex(i)}
-                        onClick={() => !disabled && setThirdIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        pilled={pilled}
-                        animated={animated}
-                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
-                        contentRight={showRightContent && <div>Text</div>}
-                        size={size}
+    return (
+        <Tabs
+            clip={clip}
+            view={hasDivider ? 'divider' : 'clear'}
+            disabled={disabled}
+            size={size}
+            style={{ width: '15rem' }}
+        >
+            {items.map((_, i) => (
+                <TabItem
+                    key={`item:${i}`}
+                    view="divider"
+                    selected={i === index}
+                    onClick={() => !disabled && setIndex(i)}
+                    tabIndex={!disabled ? 0 : -1}
+                    disabled={disabled}
+                    contentLeft={getContentLeft(contentLeftOption, size as Size)}
+                    contentRight={getContentRight(contentRightOption, size as Size)}
+                    size={size}
+                >
+                    {`Label${i + 1}`}
+                </TabItem>
+            ))}
+        </Tabs>
+    );
+};
+
+const StoryShowAll = (props: StoryTabsProps) => {
+    const {
+        disabled,
+        itemQuantity,
+        clip,
+        size,
+        contentLeft: contentLeftOption,
+        contentRight: contentRightOption,
+        hasDivider,
+    } = props;
+    const maxItemQuantity = 3;
+    const items = Array(itemQuantity).fill(0);
+    const [index, setIndex] = useState(0);
+
+    const visibleItems = items.slice(0, maxItemQuantity);
+    const otherItems = items.slice(maxItemQuantity);
+
+    const dropdownItems = otherItems.map((_, i) => {
+        const itemIndex = maxItemQuantity + i;
+
+        return {
+            label: `Label${itemIndex + 1}`,
+            value: itemIndex,
+        };
+    });
+
+    return (
+        <Tabs clip={clip} view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size}>
+            {visibleItems.map((_, i) => (
+                <TabItem
+                    key={`item:${i}`}
+                    view="divider"
+                    selected={i === index}
+                    onClick={() => !disabled && setIndex(i)}
+                    tabIndex={!disabled ? 0 : -1}
+                    disabled={disabled}
+                    contentLeft={getContentLeft(contentLeftOption, size as Size)}
+                    contentRight={getContentRight(contentRightOption, size as Size)}
+                    size={size}
+                >
+                    {`Label${i + 1}`}
+                </TabItem>
+            ))}
+            {dropdownItems.length > 0 && (
+                <div style={{ marginLeft: '1.75rem' }}>
+                    <Dropdown
+                        size={size as Size}
+                        items={dropdownItems}
+                        onItemSelect={(item) => setIndex(item.value as number)}
                     >
-                        {label}
-                    </TabItem>
-                ))}
-            </Tabs>
-        </>
+                        <TabItem
+                            key="item:ShowAll"
+                            view="divider"
+                            tabIndex={!disabled ? 0 : -1}
+                            disabled={disabled}
+                            size={size}
+                        >
+                            ShowAll
+                        </TabItem>
+                    </Dropdown>
+                </div>
+            )}
+        </Tabs>
     );
 };
 
 export const Default: StoryObj<StoryTabsProps> = {
     args: {
         size: 'xs',
-        itemsNumber: 4,
-        tabItemView: 'default',
         disabled: false,
-        stretch: false,
-        pilled: false,
-        animated: true,
-        view: 'filled',
-        label: 'Label',
-        showLeftContent: false,
-        showRightContent: false,
+        hasDivider: true,
+        itemQuantity: 8,
     },
-    render: (args) => <StoryDefault {...args} />,
+    argTypes: {
+        clip: {
+            options: clips,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'stretch', truthy: false },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    render: (args) => {
+        switch (args.clip) {
+            case 'scroll':
+                return <StoryScroll {...args} />;
+            case 'showAll':
+                return <StoryShowAll {...args} />;
+            default:
+                return <StoryDefault {...args} />;
+        }
+    },
 };
 
-const StyledMultipleContainer = styled.div`
-    display: flex;
-    align-items: center;
-    column-gap: 1rem;
-`;
-
-const StoryMultiple = ({
-    itemsNumber,
-    label,
-    view,
-    disabled,
-    stretch,
-    pilled,
-    animated,
-    tabItemView,
-    size,
-    showLeftContent,
-    showRightContent,
-}: StoryTabsProps) => {
-    const items = Array(itemsNumber).fill(0);
-
-    const [index1, setIndex1] = useState(0);
-    const [index2, setIndex2] = useState(0);
+const StoryHeaderTabs = (props: StoryTabsProps) => {
+    const {
+        disabled,
+        itemQuantity,
+        size,
+        contentLeft: contentLeftOption,
+        contentRight: contentRightOption,
+        hasDivider,
+    } = props;
+    const items = Array(itemQuantity).fill(0);
+    const [index, setIndex] = useState(0);
 
     return (
-        <StyledMultipleContainer>
-            <Tabs
-                view={view}
-                index={index1}
-                stretch={stretch}
-                pilled={pilled}
-                disabled={disabled}
-                size={size}
-                style={{ width: '12rem' }}
-            >
-                {items.map((_, i) => (
-                    <TabItem
-                        key={`item:${i}`}
-                        view={tabItemView}
-                        selected={i === index1}
-                        itemIndex={i}
-                        onIndexChange={(i) => setIndex1(i)}
-                        onClick={() => !disabled && setIndex1(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        pilled={pilled}
-                        animated={animated}
-                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
-                        contentRight={showRightContent && <div>Text</div>}
-                        size={size}
-                    >
-                        {label}
-                    </TabItem>
-                ))}
-            </Tabs>
-            <Tabs
-                view={view}
-                index={index2}
-                stretch={stretch}
-                pilled={pilled}
-                disabled={disabled}
-                size={size}
-                style={{ width: '12rem' }}
-            >
-                {items.map((_, i) => (
-                    <TabItem
-                        key={`item:${i}`}
-                        view={tabItemView}
-                        selected={i === index2}
-                        itemIndex={i}
-                        onIndexChange={(i) => setIndex2(i)}
-                        onClick={() => !disabled && setIndex2(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        pilled={pilled}
-                        animated={animated}
-                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
-                        contentRight={showRightContent && <div>Text</div>}
-                        size={size}
-                    >
-                        {label}
-                    </TabItem>
-                ))}
-            </Tabs>
-        </StyledMultipleContainer>
+        <Tabs view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size}>
+            {items.map((_, i) => (
+                <TabItem
+                    key={`item:${i}`}
+                    view="divider"
+                    selected={i === index}
+                    onClick={() => !disabled && setIndex(i)}
+                    tabIndex={!disabled ? 0 : -1}
+                    disabled={disabled}
+                    contentLeft={getContentLeft(contentLeftOption, size as Size)}
+                    contentRight={getContentRight(contentRightOption, size as Size)}
+                    size={size}
+                >
+                    {`Label${i + 1}`}
+                </TabItem>
+            ))}
+        </Tabs>
     );
 };
 
-export const Multiple: StoryObj<StoryTabsProps> = {
+export const HeaderTabs: StoryObj<StoryTabsProps> = {
     args: {
-        size: 'xs',
-        itemsNumber: 6,
-        tabItemView: 'secondary',
+        size: 'h5',
         disabled: false,
-        stretch: false,
-        pilled: false,
-        animated: true,
-        view: 'filled',
-        label: 'Label',
-        showLeftContent: false,
-        showRightContent: false,
+        hasDivider: true,
+        itemQuantity: 4,
     },
-    render: (args) => <StoryMultiple {...args} />,
+    argTypes: {
+        size: {
+            options: headerSizes,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    render: (args) => <StoryHeaderTabs {...args} />,
 };

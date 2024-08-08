@@ -43,6 +43,8 @@ import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Se
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
+import { BreadcrumbsItem } from '@salutejs/plasma-new-hope/types/components/Breadcrumbs/Breadcrumbs.types';
+import { BreadcrumbsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
 import { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
@@ -553,6 +555,27 @@ xxs: PolymorphicClassName;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const Breadcrumbs: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+view?: string | undefined;
+size?: string | undefined;
+separator?: ReactNode;
+items: BreadcrumbsItem[];
+showItems?: number | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { BreadcrumbsProps }
 
 export { Breakpoint }
 
@@ -2052,11 +2075,11 @@ multiselect?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
+renderTarget?: ((value: string) => ReactNode) | undefined;
 } & {
 target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactNode;
-label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
@@ -2065,11 +2088,11 @@ multiselect?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
+renderTarget?: ((value: string) => ReactNode) | undefined;
 } & {
 target?: "button-like" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
 contentLeft?: undefined;
-label?: undefined;
 labelPlacement?: undefined;
 placeholder?: undefined;
 helperText?: undefined;
@@ -2078,11 +2101,11 @@ multiselect: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
 isTargetAmount?: boolean | undefined;
+renderTarget?: ((value: string[]) => ReactNode) | undefined;
 } & {
 target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactNode;
-label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
@@ -2091,11 +2114,11 @@ multiselect: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
 isTargetAmount?: boolean | undefined;
+renderTarget?: ((value: string[]) => ReactNode) | undefined;
 } & {
 target?: "button-like" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
 contentLeft?: undefined;
-label?: undefined;
 labelPlacement?: undefined;
 placeholder?: undefined;
 helperText?: undefined;
@@ -2225,16 +2248,17 @@ export { TabItemRefs }
 
 // @public
 export const Tabs: ForwardRefExoticComponent<AsProps_2<any> & HTMLAttributes<HTMLDivElement> & {
+    clip?: "scroll" | "showAll" | undefined;
     disabled?: boolean | undefined;
     stretch?: boolean | undefined;
     pilled?: boolean | undefined;
     size?: string | undefined;
     view?: string | undefined;
+    index?: number | undefined;
     outsideScroll?: boolean | {
         left?: string | undefined;
         right?: string | undefined;
     } | undefined;
-    index?: number | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 export { TabsContext }

@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 
 import type { RootProps } from '../../../engines';
 import { cx, getPlacements } from '../../../utils';
@@ -6,6 +6,7 @@ import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '.
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
 import { StyledCalendar } from '../DatePickerBase.styles';
+import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
 
 import type { DatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -24,6 +25,7 @@ export const datePickerRoot = (
                 isOpen = false,
 
                 label,
+                labelPlacement = 'outer',
                 placeholder,
                 leftHelper,
                 contentLeft,
@@ -73,6 +75,8 @@ export const datePickerRoot = (
             const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format));
             const [inputValue, setInputValue] = useState(formatInputValue(defaultDate, format));
 
+            const innerLabelPlacement = labelPlacement === 'inner';
+
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
             const {
@@ -99,11 +103,17 @@ export const datePickerRoot = (
                 onCommitDate,
             });
 
+            const { onKeyDown } = useKeyNavigation({
+                isCalendarOpen: isInnerOpen,
+                onToggle: handleToggle,
+            });
+
             const DatePickerInput = (
                 <StyledInput
                     ref={inputRef}
                     className={cx(datePickerErrorClass, datePickerSuccessClass)}
                     value={inputValue}
+                    size={size}
                     readOnly={readOnly}
                     disabled={disabled}
                     placeholder={placeholder}
@@ -115,8 +125,19 @@ export const datePickerRoot = (
                     onSearch={(date) => handleCommitDate(date, true, false)}
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    onKeyDown={onKeyDown}
+                    {...(innerLabelPlacement && { label, labelPlacement })}
                 />
             );
+
+            useEffect(() => {
+                setIsInnerOpen((prevOpen) => prevOpen !== isOpen && isOpen);
+            }, [isOpen]);
+
+            useEffect(() => {
+                setCalendarValue(formatCalendarValue(defaultDate, format));
+                setInputValue(formatInputValue(defaultDate, format));
+            }, [defaultDate]);
 
             return (
                 <Root
@@ -128,9 +149,9 @@ export const datePickerRoot = (
                     ref={ref}
                     {...rest}
                 >
-                    {label && <StyledLabel>{label}</StyledLabel>}
+                    {!innerLabelPlacement && label && <StyledLabel>{label}</StyledLabel>}
                     <StyledPopover
-                        isOpen={isOpen || isInnerOpen}
+                        isOpen={isInnerOpen}
                         usePortal={false}
                         onToggle={handleToggle}
                         offset={offset}

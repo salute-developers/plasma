@@ -54,8 +54,8 @@ packages/sdds-serv/*
 packages/sdds-dfa/*
 !packages/sdds-dfa/src
 
-packages/caldera-online/*
-!packages/caldera-online/src
+packages/sdds-cs/*
+!packages/sdds-cs/src
 
 packages/plasma-b2c/*
 !packages/plasma-b2c/src

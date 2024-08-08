@@ -48,6 +48,17 @@ export const tokens = {
     labelLetterSpacing: '--plasma-date-picker__label-letter-spacing',
     labelLineHeight: '--plasma-date-picker__label-line-height',
 
+    /* label-placement-inner */
+    labelInnerFontFamily: '--plasma-date-picker-placement_inner__label-font-family',
+    labelInnerFontStyle: '--plasma-date-picker-placement_inner__label-font-style',
+    labelInnerFontSize: '--plasma-date-picker-placement_inner__label-font-size',
+    labelInnerFontWeight: '--plasma-date-picker-placement_inner__label-font-weight',
+    labelInnerLetterSpacing: '--plasma-date-picker-placement_inner__label-letter-spacing',
+    labelInnerLineHeight: '--plasma-date-picker-placement_inner__label-line-height',
+
+    labelInnerPadding: '--plasma-date-picker-placement_inner__label-padding',
+    contentLabelInnerPadding: '--plasma-date-picker-placement_inner__content-padding',
+
     /** Токены вспомогательного текста */
     leftHelperColor: '--plasma-date-picker__left-helper-color',
     leftHelperColorReadOnly: '--plasma-date-picker__left-helper-color-readonly',

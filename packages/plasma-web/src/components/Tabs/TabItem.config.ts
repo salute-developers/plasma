@@ -10,7 +10,8 @@ export const config = {
             clear: css`
                 ${tabsTokens.itemColor}: var(--plasma-colors-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--plasma-colors-primary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
@@ -35,7 +36,8 @@ export const config = {
             secondary: css`
                 ${tabsTokens.itemColor}: var(--plasma-colors-primary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--plasma-colors-primary);
                 ${tabsTokens.itemSelectedBackgroundColor}: var(--plasma-colors-surface-card);
@@ -60,7 +62,8 @@ export const config = {
             divider: css`
                 ${tabsTokens.itemColor}: var(--plasma-colors-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--plasma-colors-primary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
@@ -86,7 +89,8 @@ export const config = {
             default: css`
                 ${tabsTokens.itemColor}: var(--plasma-colors-primary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--plasma-colors-inverse);
                 ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
@@ -113,7 +117,7 @@ export const config = {
             xs: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 1.5rem;
+                ${tabsTokens.itemHeight}: 2rem;
                 ${tabsTokens.itemPadding}: 0 0.5rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.375rem;
                 ${tabsTokens.itemMarginLeft}: 1.75rem;
@@ -130,7 +134,7 @@ export const config = {
             s: css`
                 ${tabsTokens.itemBorderRadius}: 0.5rem;
                 ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 2rem;
+                ${tabsTokens.itemHeight}: 2.5rem;
                 ${tabsTokens.itemPadding}: 0 0.625rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
                 ${tabsTokens.itemMarginLeft}: 1.75rem;
@@ -147,11 +151,11 @@ export const config = {
             m: css`
                 ${tabsTokens.itemBorderRadius}: 0.625rem;
                 ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 2.5rem;
+                ${tabsTokens.itemHeight}: 3rem;
                 ${tabsTokens.itemPadding}: 0 0.625rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
                 ${tabsTokens.itemMarginLeft}: 1.75rem;
-                ${tabsTokens.itemContentGap}: 0.5rem;
+                ${tabsTokens.itemContentGap}: 0.375rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
@@ -164,7 +168,7 @@ export const config = {
             l: css`
                 ${tabsTokens.itemBorderRadius}: 0.75rem;
                 ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3rem;
+                ${tabsTokens.itemHeight}: 3.5rem;
                 ${tabsTokens.itemPadding}: 0 0.875rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.75rem;
                 ${tabsTokens.itemMarginLeft}: 1.75rem;

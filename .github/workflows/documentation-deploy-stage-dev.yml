@@ -46,6 +46,11 @@ jobs:
           npm run build --prefix="./website/sdds-serv-docs"
           cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv
 
+      - name: Plasma SDDS CS Docs
+        run: |
+          npm run build --prefix="./website/sdds-cs-docs"
+          cp -R ./website/sdds-cs-docs/build ./s3_build/next-${{ github.sha }}/sdds-cs
+
       - name: Plasma SDDS DFA Docs
         run: |
           npm run build --prefix="./website/sdds-dfa-docs"
@@ -76,15 +81,15 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-new-hope"
           cp -R ./packages/plasma-new-hope/build-sb ./s3_build_sb/new-hope-storybook
         
-      - name: Plasma "Caldera-online" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/caldera-online"
-          cp -R ./packages/caldera-online/build-sb ./s3_build_sb/caldera-online-storybook
-      
       - name: Plasma "SDDS SERV" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-serv"
           cp -R ./packages/sdds-serv/build-sb ./s3_build_sb/sdds-serv-storybook
+
+      - name: Plasma "SDDS CS" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-cs"
+          cp -R ./packages/sdds-cs/build-sb ./s3_build_sb/sdds-cs-storybook
 
       - name: Plasma "SDDS DFA" Storybook
         run: |
@@ -184,21 +189,6 @@ jobs:
           ./s3_build_sb/new-hope-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/new-hope-storybook/
           
-      - name: Upload to S3 storybook "Caldera-online"
-        run: >
-          s3cmd
-          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
-          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          --host ${{ secrets.AWS_ENDPOINT }}
-          --host-bucket ${{ secrets.AWS_ENDPOINT }}
-          --bucket-location ${{ secrets.AWS_REGION }}
-          --signature-v2
-          --delete-removed
-          --no-mime-magic
-          sync
-          ./s3_build_sb/caldera-online-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/caldera-online-storybook/
-      
       - name: Upload to S3 storybook "SDDS SERV"
         run: >
           s3cmd

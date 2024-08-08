@@ -10,6 +10,8 @@ export const classes = {
     tabLeftContent: 'tab-item-left-content',
     tabsHasLeftArrow: 'tabs-has-left-arrow',
     tabsHasRightArrow: 'tabs-has-right-arrow',
+    tabsClipScroll: 'tabs-clip-scroll',
+    tabsClipShowAll: 'tabs-clip-show-all',
 };
 
 export const tokens = {
@@ -31,7 +33,7 @@ export const tokens = {
     arrowColor: '--plasma-tabs-arrow-color',
     tabsFilledBackgroundColor: '--plasma-tabs-filled-background-color',
 
-    tabsBackgroundColor: '--plasma-tabs-backgorund-color',
+    tabsBackgroundColor: '--plasma-tabs-background-color',
     tabsBorderRadius: '--plasma-tabs-border-radius',
     tabsWidth: '--plasma-tabs-width',
     tabsHeight: '--plasma-tabs-height',
@@ -59,6 +61,7 @@ export const tokens = {
     itemColor: '--plasma-tab-item-color',
     itemBackgroundColor: '--plasma-tab-item-background-color',
     itemColorHover: '--plasma-tab-item-color-hover',
+    itemColorActive: '--plasma-tab-item-color-active',
     itemBackgroundColorHover: '--plasma-tab-item-background-color-hover',
 
     itemSelectedColor: '--plasma-tab-item-selected-color',

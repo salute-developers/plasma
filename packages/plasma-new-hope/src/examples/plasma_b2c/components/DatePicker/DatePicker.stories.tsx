@@ -1,4 +1,4 @@
-import React, { ComponentProps, useRef, useState } from 'react';
+import React, { ComponentProps, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
@@ -19,6 +19,7 @@ const onChangeSecondValue = action('onChangeSecondValue');
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
+const labelPlacements = ['outer', 'inner'];
 
 const meta: Meta = {
     title: 'plasma_b2c/DatePicker',
@@ -95,6 +96,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
                 type: 'date',
             },
         },
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
     },
     args: {
         label: 'Лейбл',
@@ -102,6 +109,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         placeholder: '30.05.2024',
         size: 'l',
         view: 'default',
+        labelPlacement: 'outer',
         defaultDate: new Date(2024, 5, 14),
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
@@ -254,4 +262,83 @@ export const Range: StoryObj<StoryPropsRange> = {
         secondValueSuccess: false,
     },
     render: (args) => <StoryRange {...args} />,
+};
+
+const StoryDeferred = ({
+    enableContentLeft,
+    enableContentRight,
+    valueError,
+    valueSuccess,
+    size,
+    ...rest
+}: StoryPropsDefault) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const [defVal, setDefVal] = useState<Date | undefined>(undefined);
+
+    const iconSize = size === 'xs' ? 'xs' : 's';
+
+    useEffect(() => {
+        setTimeout(() => {
+            setDefVal(new Date(2024, 5, 14));
+        }, 5000);
+    }, []);
+
+    return (
+        <>
+            <h3>Асинхронная установка даты по умолчанию</h3>
+            <DatePicker
+                defaultDate={defVal}
+                isOpen={isOpen}
+                size={size}
+                valueError={valueError}
+                valueSuccess={valueSuccess}
+                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                onToggle={(is) => setIsOpen(is)}
+                onChangeValue={(e, currentValue) => {
+                    onChangeValue(e, currentValue);
+                }}
+                onCommitDate={() => setIsOpen(false)}
+                {...rest}
+            />
+        </>
+    );
+};
+
+export const Deferred: StoryObj<StoryPropsDefault> = {
+    argTypes: {
+        defaultDate: {
+            control: {
+                type: 'date',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
+    args: {
+        label: 'Лейбл',
+        leftHelper: 'Подсказка к полю',
+        placeholder: '30.05.2024',
+        size: 'l',
+        view: 'default',
+        labelPlacement: 'outer',
+        min: new Date(2024, 1, 1),
+        max: new Date(2024, 12, 29),
+        maskWithFormat: false,
+        disabled: false,
+        readOnly: false,
+        textBefore: '',
+        enableContentLeft: true,
+        enableContentRight: true,
+        valueError: false,
+        valueSuccess: false,
+    },
+    render: (args) => <StoryDeferred {...args} />,
 };

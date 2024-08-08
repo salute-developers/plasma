@@ -6,16 +6,7 @@ import { FocusedChipIndexState, FocusedPathState } from '../../reducers';
 
 export type TargetProps = Pick<
     SelectProps,
-    | 'size'
-    | 'multiselect'
-    | 'isTargetAmount'
-    | 'target'
-    | 'label'
-    | 'labelPlacement'
-    | 'placeholder'
-    | 'contentLeft'
-    | 'disabled'
-    | 'renderValue'
+    'size' | 'label' | 'labelPlacement' | 'placeholder' | 'contentLeft' | 'disabled' | 'renderValue'
 > & {
     value: string | string[];
     opened: boolean;
@@ -25,4 +16,5 @@ export type TargetProps = Pick<
     focusedChipIndex: FocusedChipIndexState;
     focusedPath: FocusedPathState;
     focusedToValueMap: FocusedToValueMapType;
+    selectProps: SelectProps;
 };

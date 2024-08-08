@@ -1344,7 +1344,7 @@ export type UseCarouselOptions = Pick<CarouselProps, 'index' | 'axis' | 'detectA
 export function useDebouncedFunction(func: (...args: any) => any, delay: number, cleanUp?: boolean): (...args: any[]) => void;
 
 // @public
-export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined) => (instance: HTMLElement | null) => void;
+export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined, focusAfterAnimation?: boolean | undefined) => (instance: HTMLElement | null) => void;
 
 // Warning: (ae-forgotten-export) The symbol "UseForkRefHook" needs to be exported by the entry point index.d.ts
 //

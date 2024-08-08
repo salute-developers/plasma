@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/sdds-dfa @salutejs/plasma-typo @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-dfa @salutejs/sdds-themes
 ```
 
 ## Настройка
@@ -38,16 +38,13 @@ $ npm install --save @salutejs/sdds-dfa @salutejs/plasma-typo @salutejs/sdds-the
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { standard } from '@salutejs/plasma-typo';
 import { sdds_dfa__light } from '@salutejs/sdds-themes';
 
 const ThemeStyle = createGlobalStyle(sdds_dfa__light);
-const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
     <>
         <ThemeStyle />
-        <TypoStyle />
     </>
 );
 ```

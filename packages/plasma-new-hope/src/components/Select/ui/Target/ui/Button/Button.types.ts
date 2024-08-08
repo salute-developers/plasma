@@ -2,10 +2,10 @@ import { TargetProps } from '../../Target.types';
 
 export type ButtonProps = Omit<
     TargetProps,
-    'target' | 'onChipClick' | 'labelPlacement' | 'helperText' | 'focusedChipIndex' | 'contentLeft'
+    'target' | 'onChipClick' | 'labelPlacement' | 'helperText' | 'focusedChipIndex' | 'contentLeft' | 'placeholder'
 >;
 
-export type GetButtonLabelProps = Omit<
+export type GetButtonLabelProps = Pick<
     ButtonProps,
-    'opened' | 'onKeyDown' | 'size' | 'focusedToValueMap' | 'focusedPath'
+    'value' | 'valueToItemMap' | 'label' | 'renderValue' | 'selectProps'
 >;

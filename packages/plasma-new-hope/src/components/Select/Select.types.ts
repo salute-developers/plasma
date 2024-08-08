@@ -21,10 +21,6 @@ type Target =
            */
           contentLeft?: React.ReactNode;
           /**
-           * Метка-подпись к элементу.
-           */
-          label?: string;
-          /**
            * Расположение лейбла.
            * @default outer
            */
@@ -52,7 +48,6 @@ type Target =
               | 'black'
               | 'white';
           contentLeft?: never;
-          label?: never;
           labelPlacement?: never;
           placeholder?: never;
           helperText?: never;
@@ -68,12 +63,17 @@ type IsMultiselect =
            * @default false
            */
           isTargetAmount?: never | false;
+          /**
+           * Callback для кастомной настройки таргета целиком.
+           */
+          renderTarget?: (value: string) => React.ReactNode;
       }
     | {
           multiselect: true;
           value?: Array<string>;
           onChange?: (value: Array<string>) => void;
           isTargetAmount?: boolean;
+          renderTarget?: (value: Array<string>) => React.ReactNode;
       };
 
 export interface BasicProps {
@@ -86,6 +86,10 @@ export interface BasicProps {
      * @default bottom
      */
     placement?: SelectPlacement | Array<SelectPlacementBasic>;
+    /**
+     * Метка-подпись к элементу.
+     */
+    label?: string;
     /**
      * Компонент неактивен.
      * @default false
@@ -120,11 +124,11 @@ export interface BasicProps {
      */
     portal?: string | React.RefObject<HTMLElement>;
     /**
-     * Callback для кастомной настройки значения в селекте
+     * Callback для кастомной настройки значения в селекте.
      */
     renderValue?: (value: ItemOption['value'], label: ItemOption['label']) => string;
     /**
-     * Callback для кастомной настройки айтема в выпадающем списке
+     * Callback для кастомной настройки айтема в выпадающем списке.
      */
     renderItem?: (value: ItemOption['value'], label: ItemOption['label']) => React.ReactNode;
 
@@ -150,7 +154,7 @@ export type SelectProps = BasicProps &
 export type ItemContext = {
     focusedPath: FocusedPathState;
     checked: ValueToCheckedMapType;
-    multiselect: boolean;
+    multiselect: SelectProps['multiselect'];
     size: SelectProps['size'];
     handleCheckboxChange: (item: ItemOptionTransformed) => void;
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;

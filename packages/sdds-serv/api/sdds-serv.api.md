@@ -31,6 +31,8 @@ import { bodyXSBold } from '@salutejs/sdds-themes/tokens';
 import { bodyXXS } from '@salutejs/sdds-themes/tokens';
 import { bodyXXSBold } from '@salutejs/sdds-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
+import { BreadcrumbsItem } from '@salutejs/plasma-new-hope/types/components/Breadcrumbs/Breadcrumbs.types';
+import { BreadcrumbsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
@@ -402,6 +404,27 @@ color?: string | undefined;
 export { bodyXXS }
 
 export { bodyXXSBold }
+
+// @public
+export const Breadcrumbs: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+view?: string | undefined;
+size?: string | undefined;
+separator?: ReactNode;
+items: BreadcrumbsItem[];
+showItems?: number | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { BreadcrumbsProps }
 
 // @public
 export const Button: FunctionComponent<PropsType<    {
@@ -1639,11 +1662,11 @@ multiselect?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
+renderTarget?: ((value: string) => ReactNode) | undefined;
 } & {
 target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactNode;
-label?: string | undefined;
 labelPlacement?: "inner" | "outer" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
@@ -1652,11 +1675,11 @@ multiselect?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
+renderTarget?: ((value: string) => ReactNode) | undefined;
 } & {
 target?: "button-like" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
 contentLeft?: undefined;
-label?: undefined;
 labelPlacement?: undefined;
 placeholder?: undefined;
 helperText?: undefined;
@@ -1665,11 +1688,11 @@ multiselect: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
 isTargetAmount?: boolean | undefined;
+renderTarget?: ((value: string[]) => ReactNode) | undefined;
 } & {
 target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactNode;
-label?: string | undefined;
 labelPlacement?: "inner" | "outer" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
@@ -1678,11 +1701,11 @@ multiselect: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
 isTargetAmount?: boolean | undefined;
+renderTarget?: ((value: string[]) => ReactNode) | undefined;
 } & {
 target?: "button-like" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
 contentLeft?: undefined;
-label?: undefined;
 labelPlacement?: undefined;
 placeholder?: undefined;
 helperText?: undefined;
@@ -1819,16 +1842,17 @@ export { TabItemRefs }
 
 // @public
 export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLDivElement> & {
+    clip?: "scroll" | "showAll" | undefined;
     disabled?: boolean | undefined;
     stretch?: boolean | undefined;
     pilled?: boolean | undefined;
     size?: string | undefined;
     view?: string | undefined;
+    index?: number | undefined;
     outsideScroll?: boolean | {
         left?: string | undefined;
         right?: string | undefined;
     } | undefined;
-    index?: number | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 export { TabsContext }

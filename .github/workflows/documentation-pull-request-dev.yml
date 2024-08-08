@@ -80,15 +80,15 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
           
-      - name: Plasma "Caldera-online" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/caldera-online"
-          cp -R ./packages/caldera-online/build-sb ./s3_build/${PR_NAME}/caldera-online-storybook
-      
       - name: Plasma "SDDS SERV" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-serv"
           cp -R ./packages/sdds-serv/build-sb ./s3_build/${PR_NAME}/sdds-serv-storybook
+
+      - name: Plasma "SDDS CS" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-cs"
+          cp -R ./packages/sdds-cs/build-sb ./s3_build/${PR_NAME}/sdds-cs-storybook
 
       - name: Plasma "SDDS DFA" Storybook
         run: |
@@ -134,8 +134,8 @@ jobs:
               ui storybook: http://plasma.sberdevices.ru/pr/pr-${number}/ui-storybook/
               new-hope storybook: http://plasma.sberdevices.ru/pr/pr-${number}/new-hope-storybook/
               asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/
-              caldera-online storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-online-storybook/
               sdds-serv storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-serv-storybook/
+              sdds-cs storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-cs-storybook/
               sdds-dfa storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-dfa-storybook/
               `
             });

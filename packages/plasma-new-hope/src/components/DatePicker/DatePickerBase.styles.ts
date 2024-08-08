@@ -110,5 +110,6 @@ export const baseCalendarTokens = `
 
 // NOTE: переопределение токенов Calendar
 export const StyledCalendar = styled(Calendar)`
+    width: var(${tokens.width});
     ${baseCalendarTokens}
 `;

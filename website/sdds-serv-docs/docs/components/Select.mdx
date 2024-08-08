@@ -163,7 +163,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { SelectNew, Button } from '@salutejs/plasma-web';
+        import { Select, Button } from '@salutejs/sdds-serv';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
@@ -247,15 +247,16 @@ type Items = Array<{
         ```
     </TabItem>
     <TabItem value="renderItem" label="Render item">
+        `renderTarget` - для кастомной настройки таргета в Select. Принимает коллбэк с один параметром: `value`.
         Пропс `renderItem` для кастомной настройки айтема в выпадающем списке. Принимает коллбэк с двумя параметрами: `value` и `label`.
         В примере использован другой наш компонент - Cell.
 
         ```tsx live
         import React from 'react';
-        import { SelectNew, Cell } from '@salutejs/plasma-web';
+        import { Select, Cell } from '@salutejs/sdds-serv';
 
         export function App() {
-            const [multipleValue, setMultipleValue] = useState([]);
+            const [singleValue, setSingleValue] = useState('north_america');
 
             const items = [
                 {
@@ -265,25 +266,25 @@ type Items = Array<{
                 {
                     value: 'south_america',
                     label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
                 },
             ];
 
-            const renderItem = (value, label) => <Cell title={value} label={label} />;
+            const renderTarget = (value) => {
+                const item = items.find((item) => item.value === value);
+
+                return (
+                    <div style={{padding: '0.5rem 0'}}>
+                        <Cell title={item && item.label} subtitle="Subtitle" label="Label" />
+                    </div>
+                )
+            };
+
+            const renderItem = (value, label) => <Cell title={label} label="Top left" contentRight={<Cell title="Bottom right" label="Top right" />} />;
 
             return (
                 <div style={{ height: '300px' }}>
-                    <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderItem={renderItem} />
+                    <div style={{width: '400px'}}>
+                        <Select items={items} value={singleValue} onChange={setSingleValue} renderTarget={renderTarget} renderItem={renderItem} />
                     </div>
                 </div>
             );

@@ -10,8 +10,6 @@ import { StyledButton, StyledArrow, Label, ButtonWrapper, IconArrowWrapper } fro
 export const Button: React.FC<ButtonProps> = ({
     opened,
     value,
-    isTargetAmount,
-    multiselect,
     valueToItemMap,
     onKeyDown,
     label,
@@ -20,6 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
     renderValue,
     focusedPath,
     focusedToValueMap,
+    selectProps,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
@@ -49,17 +48,21 @@ export const Button: React.FC<ButtonProps> = ({
                 aria-expanded={opened}
                 aria-activedescendant={getActiveDescendant()}
                 aria-label={label}
+                renderTarget={Boolean(selectProps.renderTarget)}
             >
-                <Label>
-                    {getButtonLabel({
-                        value,
-                        isTargetAmount,
-                        multiselect,
-                        valueToItemMap,
-                        label,
-                        renderValue,
-                    })}
-                </Label>
+                {selectProps.renderTarget ? (
+                    selectProps.renderTarget(value as any)
+                ) : (
+                    <Label>
+                        {getButtonLabel({
+                            value,
+                            valueToItemMap,
+                            label,
+                            renderValue,
+                            selectProps,
+                        })}
+                    </Label>
+                )}
             </StyledButton>
         </ButtonWrapper>
     );

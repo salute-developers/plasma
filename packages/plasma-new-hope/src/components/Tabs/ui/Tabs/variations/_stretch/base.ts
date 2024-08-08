@@ -9,6 +9,7 @@ export const base = css`
 
         ${StyledContentWrapper}, ${StyledContent}, ${StyledContent} > button {
             width: 100%;
+            margin-left: 0;
         }
     }
 `;
