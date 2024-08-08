@@ -17,8 +17,13 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
     text: string;
     /**
      * Видимость тултипа.
+     * @deprecated
      */
-    isVisible: boolean;
+    isVisible?: boolean;
+    /**
+     * Видимость тултипа.
+     */
+    opened: boolean;
     /**
      * Направление раскрытия тултипа.
      */
@@ -62,7 +67,7 @@ const StyledArrow = styled.div`
     }
 `;
 
-const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
+const StyledTooltip = styled.span<Pick<TooltipProps, 'opened' | 'animated'>>`
     ${caption};
 
     position: absolute;
@@ -106,9 +111,9 @@ const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
             transition: opacity 200ms ease-in-out;
         `}
 
-    ${({ isVisible }) =>
+    ${({ opened }) =>
         css`
-            opacity: ${Number(isVisible)};
+            opacity: ${Number(opened)};
         `}
 `;
 
@@ -117,9 +122,22 @@ const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
  */
 export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
     (
-        { id, text, isVisible, arrow = true, animated = true, placement = 'bottom', children, onDismiss, ...rest },
+        {
+            id,
+            text,
+            opened,
+            isVisible,
+            arrow = true,
+            animated = true,
+            placement = 'bottom',
+            children,
+            onDismiss,
+            ...rest
+        },
         outerRef,
     ) => {
+        const innerIsOpen = Boolean(isVisible || opened);
+
         const tooltipElement = useRef<HTMLSpanElement>(null);
         const ref = useForkRef(outerRef, tooltipElement);
 
@@ -150,7 +168,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
         }, []);
 
         useEffect(() => {
-            if (!isVisible || !forceUpdate) {
+            if (!innerIsOpen || !forceUpdate) {
                 return;
             }
 
@@ -161,7 +179,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
              * вызов метода в очередь микрозадач.
              */
             Promise.resolve().then(forceUpdate);
-        }, [isVisible, forceUpdate, text]);
+        }, [innerIsOpen, forceUpdate, text]);
 
         return (
             <>
@@ -169,12 +187,12 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
                     {...attributes.popper}
                     ref={ref}
                     id={id}
-                    isVisible={isVisible && Boolean(text?.length)}
+                    opened={innerIsOpen && Boolean(text?.length)}
                     animated={animated}
                     style={styles.popper}
                     role="tooltip"
                     aria-live="polite"
-                    aria-hidden={!isVisible}
+                    aria-hidden={!innerIsOpen}
                 >
                     {arrow && <StyledArrow ref={setArrowElement} style={styles.arrow} {...attributes.arrow} />}
                     {text}

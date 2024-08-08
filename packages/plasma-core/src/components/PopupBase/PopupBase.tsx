@@ -26,6 +26,7 @@ export const PopupBase = forwardRef<HTMLDivElement, PopupBaseProps>(
         {
             id,
             isOpen,
+            opened,
             placement = 'center',
             offset = [0, 0],
             frame = 'document',
@@ -40,10 +41,17 @@ export const PopupBase = forwardRef<HTMLDivElement, PopupBaseProps>(
         },
         ref,
     ) => {
+        const innerIsOpen = Boolean(isOpen || opened);
+
         const uniqId = useUniqId();
         const innerId = id || uniqId;
 
-        const { isVisible, animationInfo, setVisible } = usePopup({ isOpen, id: innerId, popupInfo, withAnimation });
+        const { isVisible, animationInfo, setVisible } = usePopup({
+            isOpen: innerIsOpen,
+            id: innerId,
+            popupInfo,
+            withAnimation,
+        });
 
         const portalRef = useRef<HTMLElement | null>(null);
         const contentRef = useRef<HTMLDivElement | null>(null);
@@ -79,7 +87,7 @@ export const PopupBase = forwardRef<HTMLDivElement, PopupBaseProps>(
             forceRender(true);
         }, []);
 
-        if (!isVisible && !isOpen) {
+        if (!isVisible && !innerIsOpen) {
             return null;
         }
 

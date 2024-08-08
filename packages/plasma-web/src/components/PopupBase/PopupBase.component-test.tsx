@@ -46,7 +46,7 @@ describe('plasma-web: PopupBase', () => {
         return (
             <>
                 <Button text="Open popup" onClick={() => setIsOpen(true)} />
-                <PopupBase isOpen={isOpen} onClose={() => setIsOpen(false)} placement={placement}>
+                <PopupBase opened={isOpen} onClose={() => setIsOpen(false)} placement={placement}>
                     <Content id="popup-content">
                         <Headline3>Popup</Headline3>
                         <Button text="Close" onClick={() => setIsOpen(false)} />
@@ -59,7 +59,7 @@ describe('plasma-web: PopupBase', () => {
     function Placement({ placement, offset }: { placement?: string; offset?: [number, number] }) {
         return (
             <>
-                <PopupBase isOpen placement={placement} offset={offset}>
+                <PopupBase opened placement={placement} offset={offset}>
                     <Content>
                         <Headline3>{placement}</Headline3>
                         <Button text="Close" />
@@ -78,7 +78,7 @@ describe('plasma-web: PopupBase', () => {
             <>
                 <Button text="Open popup A" onClick={() => setIsOpenA(true)} />
                 <Button text="Open popup B" onClick={() => setIsOpenB(true)} />
-                <PopupBase isOpen={isOpenA} frame={ref}>
+                <PopupBase opened={isOpenA} frame={ref}>
                     <Content>
                         <Headline3>Popup A</Headline3>
                         <Button text="Close A" onClick={() => setIsOpenA(false)} />
@@ -87,7 +87,7 @@ describe('plasma-web: PopupBase', () => {
                 <OtherContent ref={ref}>
                     <Headline3>Frame</Headline3>
                 </OtherContent>
-                <PopupBase isOpen={isOpenB}>
+                <PopupBase opened={isOpenB}>
                     <Content>
                         <Headline3>Popup B</Headline3>
                         <Button text="Close B" onClick={() => setIsOpenB(false)} />

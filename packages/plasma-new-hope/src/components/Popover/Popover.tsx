@@ -26,6 +26,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 target,
                 children,
                 isOpen,
+                opened,
                 trigger = 'click',
                 hasArrow,
                 frame = 'document',
@@ -44,12 +45,14 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             },
             outerRootRef,
         ) => {
+            const innerIsOpen = Boolean(isOpen || opened);
+
             const rootRef = useRef<HTMLDivElement | null>(null);
             const popoverRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
             const portalRef = useRef<HTMLElement | null>(null);
 
-            const trapRef = useFocusTrap(isOpen && isFocusTrapped);
+            const trapRef = useFocusTrap(innerIsOpen && isFocusTrapped);
 
             const popoverForkRef = useForkRef<HTMLDivElement>(popoverRef, trapRef);
 
@@ -61,8 +64,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
 
             const initialStyles = {
-                visibility: isOpen ? 'visible' : 'hidden',
-                opacity: isOpen ? 1 : 0,
+                visibility: innerIsOpen ? 'visible' : 'hidden',
+                opacity: innerIsOpen ? 1 : 0,
             } as CSSProperties;
 
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
@@ -99,16 +102,16 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const onEscape = useCallback(
                 (event: KeyboardEvent) => {
-                    if (isOpen && closeOnEsc && event.keyCode === ESCAPE_KEYCODE) {
+                    if (innerIsOpen && closeOnEsc && event.keyCode === ESCAPE_KEYCODE) {
                         onToggle?.(false, event);
                     }
                 },
-                [closeOnEsc, isOpen, onToggle],
+                [closeOnEsc, innerIsOpen, onToggle],
             );
 
             const onDocumentClick = useCallback(
                 (event: MouseEvent) => {
-                    if (isOpen && closeOnOverlayClick && onToggle) {
+                    if (innerIsOpen && closeOnOverlayClick && onToggle) {
                         const targetIsRoot = event.target === rootRef.current;
                         const rootHasTarget = rootRef.current?.contains(event.target as Element);
                         const popoverRootHasTarget = popoverRef.current?.contains(event.target as Element);
@@ -118,7 +121,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                         }
                     }
                 },
-                [closeOnOverlayClick, isOpen, onToggle],
+                [closeOnOverlayClick, innerIsOpen, onToggle],
             );
 
             const onClick = useCallback<React.MouseEventHandler>(
@@ -128,11 +131,11 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                         const rootHasTarget = popoverRef.current?.contains(event.target as Element);
 
                         if (!targetIsPopover && !rootHasTarget) {
-                            onToggle?.(!isOpen, event);
+                            onToggle?.(!innerIsOpen, event);
                         }
                     }
                 },
-                [trigger, isOpen, onToggle],
+                [trigger, innerIsOpen, onToggle],
             );
 
             const onMouseEnter = useCallback<React.MouseEventHandler>(
@@ -174,12 +177,12 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             useEffect(() => {
                 document.addEventListener('click', onDocumentClick);
                 return () => document.removeEventListener('click', onDocumentClick);
-            }, [isOpen, onToggle]);
+            }, [innerIsOpen, onToggle]);
 
             useEffect(() => {
                 window.addEventListener('keydown', onEscape);
                 return () => window.removeEventListener('keydown', onEscape);
-            }, [closeOnEsc, isOpen, onToggle]);
+            }, [closeOnEsc, innerIsOpen, onToggle]);
 
             useEffect(() => {
                 let portal = document.getElementById(POPOVER_PORTAL_ID);
@@ -213,7 +216,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             }, []);
 
             useEffect(() => {
-                if (!isOpen || !forceUpdate) {
+                if (!innerIsOpen || !forceUpdate) {
                     return;
                 }
 
@@ -224,7 +227,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                  * вызов метода в очередь микрозадач.
                  */
                 Promise.resolve().then(forceUpdate);
-            }, [isOpen, children, forceUpdate]);
+            }, [innerIsOpen, children, forceUpdate]);
 
             return (
                 <StyledWrapper className={classes.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -246,7 +249,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                     ref={popoverForkRef}
                                     style={{
                                         ...styles.popper,
-                                        ...{ display: isOpen ? 'block' : 'none' },
+                                        ...{ display: innerIsOpen ? 'block' : 'none' },
                                         ...initialStyles,
                                     }}
                                     zIndex={zIndex}

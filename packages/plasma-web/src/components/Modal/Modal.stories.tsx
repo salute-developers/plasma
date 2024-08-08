@@ -120,7 +120,7 @@ const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
 
                     <Modal
                         id="modalA"
-                        isOpen={isOpenA}
+                        opened={isOpenA}
                         onClose={onCloseA}
                         aria-labelledby="example-modalA-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
@@ -136,7 +136,7 @@ const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
 
                     <Modal
                         id="modalB"
-                        isOpen={isOpenB}
+                        opened={isOpenB}
                         onClose={onCloseB}
                         aria-labelledby="example-modalB-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
@@ -150,7 +150,7 @@ const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
 
                         <Modal
                             id="modalC"
-                            isOpen={isOpenC}
+                            opened={isOpenC}
                             onClose={onCloseC}
                             aria-labelledby="example-modalC-title"
                             closeButtonAriaLabel="Закрыть (кнопка-крестик)"
@@ -169,7 +169,7 @@ const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
 
                     <StyledModalFullHeight
                         id="modalFullHeightA"
-                        isOpen={isOpenFullHeightA}
+                        opened={isOpenFullHeightA}
                         onClose={onCloseFullHeightA}
                         aria-labelledby="example-modalFullHeightA-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
@@ -188,7 +188,7 @@ const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
 
                     <StyledModalFullHeight
                         id="modalFullHeightB"
-                        isOpen={isOpenFullHeightB}
+                        opened={isOpenFullHeightB}
                         onClose={onCloseFullHeightB}
                         aria-labelledby="example-modalFullHeightB-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
@@ -206,7 +206,7 @@ const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
 
                         <StyledModalFullHeight
                             id="modalFullHeightC"
-                            isOpen={isOpenFullHeightC}
+                            opened={isOpenFullHeightC}
                             onClose={onCloseFullHeightC}
                             aria-labelledby="example-modalFullHeightC-title"
                             closeButtonAriaLabel="Закрыть (кнопка-крестик)"

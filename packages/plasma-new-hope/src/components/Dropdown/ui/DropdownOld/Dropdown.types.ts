@@ -8,10 +8,17 @@ export type DropdownTrigger = 'hover' | 'click';
 export type CustomDropdownProps = {
     /**
      * Дропдаун открыт или нет.
+     * @deprecated
      * @default
      *  false
      */
     isOpen?: boolean;
+    /**
+     * Дропдаун открыт или нет.
+     * @default
+     *  false
+     */
+    opened?: boolean;
     /**
      * Способ открытия дропдауна окна - наведение или клик мышью.
      * @default

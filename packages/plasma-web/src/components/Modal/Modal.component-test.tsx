@@ -37,7 +37,7 @@ describe('plasma-web: Modal', () => {
         return (
             <>
                 <Button text="Открыть модальное окно" onClick={() => setIsOpen(true)} />
-                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur}>
+                <Modal opened={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur}>
                     <Headline3>{heading}</Headline3>
                     <P1>{text}</P1>
                     <Button text="Закрыть" onClick={() => setIsOpen(false)} />
@@ -53,13 +53,13 @@ describe('plasma-web: Modal', () => {
         return (
             <>
                 <Button text="Open modal A" onClick={() => setIsOpenA(true)} />
-                <Modal id="modalA" isOpen={isOpenA} onClose={() => setIsOpenA(false)}>
+                <Modal id="modalA" opened={isOpenA} onClose={() => setIsOpenA(false)}>
                     <Headline3>Modal A</Headline3>
                     <P1>{text}</P1>
                     <Button text="Open modal B" onClick={() => setIsOpenB(true)} />
                     <Button text="Close-A" onClick={() => setIsOpenA(false)} />
                 </Modal>
-                <Modal id="modalB" isOpen={isOpenB} onClose={() => setIsOpenB(false)}>
+                <Modal id="modalB" opened={isOpenB} onClose={() => setIsOpenB(false)}>
                     <Headline3>Modal B</Headline3>
                     <P1>{text}</P1>
                     <Button text="Close-B" onClick={() => setIsOpenB(false)} />
@@ -86,7 +86,7 @@ describe('plasma-web: Modal', () => {
                 />
                 <Modal
                     id="modalA"
-                    isOpen={isOpenA}
+                    opened={isOpenA}
                     onClose={() => setIsOpenA(false)}
                     initialFocusRef={closeBtnRef}
                     focusAfterRef={otherButton}
@@ -102,7 +102,7 @@ describe('plasma-web: Modal', () => {
                         onClick={() => setIsOpenA(false)}
                     />
                 </Modal>
-                <Modal id="modalB" isOpen={isOpenB} onClose={() => setIsOpenB(false)} {...props}>
+                <Modal id="modalB" opened={isOpenB} onClose={() => setIsOpenB(false)} {...props}>
                     <Headline3>Modal B</Headline3>
                     <P1>{text}</P1>
                     <Button text="Close-B" onClick={() => setIsOpenB(false)} />

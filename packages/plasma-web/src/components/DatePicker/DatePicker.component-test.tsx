@@ -48,7 +48,7 @@ describe('plasma-web: DatePicker', () => {
 
         return (
             <DatePicker
-                isOpen={isOpen}
+                opened={isOpen}
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
@@ -323,7 +323,7 @@ describe('plasma-web: DatePickerRange', () => {
 
         return (
             <DatePickerRange
-                isOpen={isOpen}
+                opened={isOpen}
                 size={size}
                 contentLeft={enableContentLeft ? <IconSber size={iconSize} /> : undefined}
                 contentRight={enableContentRight ? <ActionButton /> : undefined}

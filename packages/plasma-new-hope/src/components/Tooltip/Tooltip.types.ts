@@ -10,7 +10,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Видимость тултипа.
      */
-    isOpen: boolean;
+    opened?: boolean;
     /**
      * Видимость тултипа.
      * @deprecated

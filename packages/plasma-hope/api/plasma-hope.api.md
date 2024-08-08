@@ -463,7 +463,7 @@ export interface DropdownPopupProps extends PopupProps {
 }
 
 // @public (undocumented)
-export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'>, DropdownListCssProperties {
+export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'opened' | 'isOpen' | 'hoverIndex'>, DropdownListCssProperties {
     closeOnSelect?: boolean;
     // Warning: (ae-forgotten-export) The symbol "OnItemSelect" needs to be exported by the entry point index.d.ts
     //
@@ -477,7 +477,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps>;
 // Warning: (ae-forgotten-export) The symbol "DropdownMenuProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export interface DropdownUncontrolledProps extends DisabledProps, Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>, PickOptional<DropdownPopupProps, 'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'> {
+export interface DropdownUncontrolledProps extends DisabledProps, Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>, PickOptional<DropdownPopupProps, 'opened' | 'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'> {
 }
 
 export { DsplL }
@@ -741,9 +741,11 @@ export interface ModalProps extends ModalViewProps {
     closeOnOverlayClick?: boolean;
     focusAfterRef?: React_2.RefObject<HTMLElement>;
     initialFocusRef?: React_2.RefObject<HTMLElement>;
-    isOpen: boolean;
+    // @deprecated
+    isOpen?: boolean;
     onEscKeyDown?: (event: KeyboardEvent) => void;
     onOverlayClick?: (event: React_2.MouseEvent<HTMLDivElement>) => void;
+    opened?: boolean;
     withBlur?: boolean;
 }
 

@@ -112,7 +112,7 @@ interface MainProps {
 }
 
 export const Main = ({ onGenerateTheme, onSetToken }: MainProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [opened, setIsOpen] = useState(false);
     const [token, getToken, getAuth] = useGithubAuth();
 
     const onBackwardClick = useCallback(() => {
@@ -140,7 +140,7 @@ export const Main = ({ onGenerateTheme, onSetToken }: MainProps) => {
     return (
         <StyledMain>
             <BackwardButton onBackwardClick={onBackwardClick} />
-            <AuthRequestModal isOpen={isOpen} onClose={onAuthRequestModalClose} onGetAuth={getAuth} />
+            <AuthRequestModal opened={opened} onClose={onAuthRequestModalClose} onGetAuth={getAuth} />
             <Display bold>Темы</Display>
             {themeKindItems.map(({ name, description, supportedPlatforms }, index) => (
                 <ThemeKindItem

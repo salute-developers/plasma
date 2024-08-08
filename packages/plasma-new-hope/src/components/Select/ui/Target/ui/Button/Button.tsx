@@ -8,7 +8,7 @@ import { ButtonProps } from './Button.types';
 import { StyledButton, StyledArrow, Label, ButtonWrapper, IconArrowWrapper } from './Button.styles';
 
 export const Button: React.FC<ButtonProps> = ({
-    opened,
+    isOpen,
     value,
     valueToItemMap,
     onKeyDown,
@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
     focusedToValueMap,
     selectProps,
 }) => {
-    const withArrowInverse = opened ? classes.arrowInverse : undefined;
+    const withArrowInverse = isOpen ? classes.arrowInverse : undefined;
 
     const getActiveDescendant = () => {
         const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
@@ -32,7 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
             <StyledButton
                 stretching="filled"
                 onKeyDown={onKeyDown}
-                className={opened ? classes.selectWithoutBoxShadow : undefined}
+                className={isOpen ? classes.selectWithoutBoxShadow : undefined}
                 disabled={disabled}
                 contentRight={
                     <IconArrowWrapper>
@@ -45,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
                 }
                 role="combobox"
                 aria-controls="tree_level_1"
-                aria-expanded={opened}
+                aria-expanded={isOpen}
                 aria-activedescendant={getActiveDescendant()}
                 aria-label={label}
                 renderTarget={Boolean(selectProps.renderTarget)}

@@ -7,7 +7,7 @@ import { applyDropdownListCssProperties } from './DropdownList';
 import type { DropdownListCssProperties } from './DropdownList';
 
 export interface DropdownProps
-    extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'>,
+    extends Omit<DropdownUncontrolledProps, 'opened' | 'isOpen' | 'hoverIndex'>,
         DropdownListCssProperties {
     /**
      * Закрыть выпадающий список после выбора.
@@ -61,7 +61,7 @@ export const Dropdown: FC<DropdownProps> = ({
     return (
         <StyledDropdownUncontrolled
             {...rest}
-            isOpen={isOpen}
+            opened={isOpen}
             disabled={disabled}
             onToggle={onToggle}
             onItemSelect={onItemSelect}

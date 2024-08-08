@@ -231,7 +231,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                 >
                     <StyledPopover
                         ref={targetRef}
-                        isOpen={isCurrentListOpen}
+                        opened={isCurrentListOpen}
                         placement={getPlacements(placement)}
                         usePortal={Boolean(portal)}
                         frame={portal}
