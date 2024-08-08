@@ -49,5 +49,11 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
         setVisible(false);
     }, [isOpen, isVisible, animationInfo]);
 
+    useEffect(() => {
+        return () => {
+            popupController.unregister(id);
+        };
+    }, [id]);
+
     return { isVisible, setVisible, animationInfo, withAnimation };
 };
