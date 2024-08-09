@@ -5,23 +5,23 @@ import { isEmpty, getPlacements } from '../../utils';
 import { useOutsideClick } from '../../hooks';
 
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
-import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors } from './utils';
+import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
 import { Inner, Target } from './ui';
 import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base, OuterLabel, HelperText } from './Select.styles';
-import type { SelectProps, ItemContext } from './Select.types';
+import type { ItemContext, MergedSelectProps } from './Select.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
+import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 
 export const Context = createContext<ItemContext>({} as ItemContext);
 
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
  */
-export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 'items'>>) =>
-    forwardRef<HTMLButtonElement, SelectProps>((props, ref) => {
+export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectProps, 'items'>>) =>
+    forwardRef<HTMLButtonElement, MergedSelectProps>((props, ref) => {
         const {
             value: outerValue,
             onChange: outerOnChange,
@@ -45,16 +45,19 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             portal,
             renderValue,
             renderItem,
+            status,
+            onItemSelect,
+            separator,
             ...rest
         } = props;
 
-        const [internalValue, setInternalValue] = useState<string | string[]>(
+        const [internalValue, setInternalValue] = useState<string | number | Array<string | number>>(
             outerValue || props.multiselect ? [] : '',
         );
 
         const value = outerValue || internalValue;
 
-        const onChange = (e: string | string[]) => {
+        const onChange = (e: string | number | Array<string | number>) => {
             if (outerOnChange) {
                 outerOnChange(e as any);
             }
@@ -62,7 +65,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             setInternalValue(e);
         };
 
-        const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
+        const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
 
@@ -87,7 +90,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             }
         };
 
-        const handleCheckboxChange = (item: ItemOptionTransformed) => {
+        const handleCheckboxChange = (item: MergedDropdownNodeTransformed) => {
             if (props.multiselect) {
                 const checkedCopy = new Map(checked);
 
@@ -101,7 +104,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
 
                 updateAncestors(item, checkedCopy);
 
-                const newValues: Array<string> = [];
+                const newValues: Array<string | number> = [];
 
                 valueToItemMap.forEach((item, key) => {
                     if (checkedCopy.get(key)) {
@@ -115,7 +118,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             }
         };
 
-        const handleItemClick = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+        const handleItemClick = (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => {
             if (!isEmpty(item?.items)) {
                 return;
             }
@@ -143,6 +146,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                 if (onChange) {
                     onChange(isCurrentChecked ? '' : item.value);
                 }
+
+                if (onItemSelect) {
+                    onItemSelect(item, e!);
+                }
             }
         };
 
@@ -150,7 +157,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             handleCheckboxChange(valueToItemMap.get(currentValue)!);
         };
 
-        const handlePressDown = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+        const handlePressDown = (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => {
             if (isEmpty(item.items)) {
                 handleItemClick(item, e);
             } else if (props.multiselect) {
@@ -198,7 +205,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                 checkedCopy.set(key, false);
             });
 
-            if (!isEmpty(value)) {
+            if (!isEmpty(value) || typeof value === 'number') {
                 if (Array.isArray(value)) {
                     value.forEach((val) => {
                         checkedCopy.set(val, true);
@@ -206,8 +213,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                         updateAncestors(valueToItemMap.get(val)!, checkedCopy);
                     });
                 } else {
-                    checkedCopy.set(value as string, 'done');
-                    updateSingleAncestors(valueToItemMap.get(value as string)!, checkedCopy, 'dot');
+                    checkedCopy.set(value, 'done');
+                    updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
                 }
             }
 
@@ -215,7 +222,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
         }, [value]);
 
         return (
-            <Root ref={ref} size={size} view={view} chipView={chipView} {...(rest as any)}>
+            <Root ref={ref} size={size} view={status ? getView(status) : view} chipView={chipView} {...(rest as any)}>
                 {label && labelPlacement === 'outer' && target !== 'button-like' && <OuterLabel>{label}</OuterLabel>}
                 <Context.Provider
                     value={{
@@ -227,6 +234,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                         handleItemClick,
                         variant,
                         renderItem,
+                        valueToItemMap,
                     }}
                 >
                     <StyledPopover
@@ -259,29 +267,32 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                         }
                         preventOverflow={false}
                         closeOnOverlayClick
+                        listWidth={listWidth}
                     >
-                        <Root size={size} {...(rest as any)}>
-                            <Ul
-                                role="tree"
-                                id="tree_level_1"
-                                listHeight={listHeight}
-                                listOverflow={listOverflow}
-                                onScroll={handleScroll}
-                                listWidth={listWidth}
-                            >
-                                {transformedItems.map((item, index) => (
-                                    <Inner
-                                        key={`${index}/0`}
-                                        item={item}
-                                        currentLevel={0}
-                                        path={path}
-                                        dispatchPath={dispatchPath}
-                                        index={index}
-                                        listWidth={listWidth}
-                                    />
-                                ))}
-                            </Ul>
-                        </Root>
+                        {items && (
+                            <Root size={size} {...(rest as any)}>
+                                <Ul
+                                    role="tree"
+                                    id="tree_level_1"
+                                    listHeight={listHeight}
+                                    listOverflow={listOverflow}
+                                    onScroll={handleScroll}
+                                    listWidth={listWidth}
+                                >
+                                    {transformedItems.map((item, index) => (
+                                        <Inner
+                                            key={`${index}/0`}
+                                            item={item}
+                                            currentLevel={0}
+                                            path={path}
+                                            dispatchPath={dispatchPath}
+                                            index={index}
+                                            listWidth={listWidth}
+                                        />
+                                    ))}
+                                </Ul>
+                            </Root>
+                        )}
                     </StyledPopover>
                 </Context.Provider>
                 {helperText && target === 'textfield-like' && <HelperText>{helperText}</HelperText>}

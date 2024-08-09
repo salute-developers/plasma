@@ -60,9 +60,23 @@ const meta: Meta<StorySelectProps> = {
                 type: 'select',
             },
         },
+        listWidth: {
+            control: {
+                type: 'text',
+            },
+        },
+        listOverflow: {
+            control: {
+                type: 'text',
+            },
+        },
+        listHeight: {
+            control: {
+                type: 'text',
+            },
+        },
     },
     args: {
-        multiselect: false,
         target: 'textfield-like',
         label: 'Label',
         labelPlacement: 'outer',
@@ -75,7 +89,27 @@ const meta: Meta<StorySelectProps> = {
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
-        separator: '',
+    },
+    parameters: {
+        controls: {
+            include: [
+                'target',
+                'size',
+                'view',
+                'chipView',
+                'enableContentLeft',
+                'label',
+                'labelPlacement',
+                'placeholder',
+                'helperText',
+                'isTargetAmount',
+                'variant',
+                'disabled',
+                'listWidth',
+                'listOverflow',
+                'listHeight',
+            ],
+        },
     },
 };
 
@@ -354,8 +388,8 @@ const PredefinedStory = (args: StorySelectProps) => {
 
             <Select
                 {...args}
-                multiselect
                 items={items}
+                multiselect
                 value={valueMultiple}
                 onChange={setValueMultiple}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
@@ -365,11 +399,6 @@ const PredefinedStory = (args: StorySelectProps) => {
 };
 
 export const Predefined: StoryObj<StorySelectProps> = {
-    parameters: {
-        controls: {
-            exclude: ['multiselect'],
-        },
-    },
     render: (args) => <PredefinedStory {...args} />,
 };
 
@@ -795,19 +824,7 @@ const CommonStory = (args: StorySelectProps) => {
 export const Common: StoryObj<StorySelectProps> = {
     parameters: {
         controls: {
-            include: [
-                'size',
-                'enableContentLeft',
-                'chipView',
-                'label',
-                'labelPlacement',
-                'placeholder',
-                'helperText',
-                'isTargetAmount',
-                'variant',
-                'disabled',
-                'separator',
-            ],
+            exclude: ['target', 'view'],
         },
     },
     argTypes: {

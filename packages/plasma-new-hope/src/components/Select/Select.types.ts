@@ -1,12 +1,16 @@
-import type { CSSProperties, ButtonHTMLAttributes } from 'react';
+import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent } from 'react';
 import React from 'react';
 
 import { FocusedPathState } from './reducers';
-import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType } from './hooks/usePathMaps';
+import {
+    ItemOption,
+    MergedDropdownNode as DropdownNode,
+    MergedDropdownNodeTransformed,
+} from './ui/Inner/ui/Item/Item.types';
+import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/usePathMaps';
 
-export type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-export type SelectPlacement = SelectPlacementBasic | 'auto';
+type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
+type SelectPlacement = SelectPlacementBasic | 'auto';
 
 type Target =
     | {
@@ -146,6 +150,7 @@ export interface BasicProps {
     chipView?: string;
 }
 
+// Тип нового селекта
 export type SelectProps = BasicProps &
     IsMultiselect &
     Target &
@@ -154,10 +159,152 @@ export type SelectProps = BasicProps &
 export type ItemContext = {
     focusedPath: FocusedPathState;
     checked: ValueToCheckedMapType;
-    multiselect: SelectProps['multiselect'];
-    size: SelectProps['size'];
-    handleCheckboxChange: (item: ItemOptionTransformed) => void;
-    handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
-    variant: SelectProps['variant'];
-    renderItem: SelectProps['renderItem'];
+    multiselect: MergedSelectProps['multiselect'];
+    size: MergedSelectProps['size'];
+    handleCheckboxChange: (item: MergedDropdownNodeTransformed) => void;
+    handleItemClick: (item: MergedDropdownNodeTransformed, e: React.MouseEvent<HTMLElement>) => void;
+    variant: MergedSelectProps['variant'];
+    renderItem: MergedSelectProps['renderItem'];
+    valueToItemMap: ValueToItemMapType;
 };
+
+// Тип старого селекта
+export type SelectPropsOld<T = any> = (
+    | {
+          multiselect?: false;
+          separator?: never;
+      }
+    | {
+          multiselect?: true;
+          separator?: string;
+      }
+) & {
+    value: T;
+    onChange?: (value: T) => void;
+    listOverflow?: CSSProperties['overflow'];
+    listHeight?: number | CSSProperties['height'];
+    status?: 'success' | 'warning' | 'error';
+    placeholder?: string;
+    helperText?: string;
+    disabled?: boolean;
+    items?: DropdownNodeOld[];
+    onItemSelect?: any;
+    hasItems?: boolean;
+    children?: never;
+    isOpen?: boolean;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+
+type DropdownNodeOld = {
+    value: string | number;
+    label: string;
+    items?: DropdownNodeOld[];
+    isActive?: boolean;
+    isDisabled?: boolean;
+    color?: string;
+    contentLeft?: React.ReactNode;
+};
+
+// Тип, объединенный для старого и нового селекта для поддержки обратной совместимости.
+// В plasma-2.0 удалим MergedSelectProps и оставим только SelectProps.
+export type MergedSelectProps<T = any> = Target &
+    (
+        | {
+              multiselect?: false;
+              separator?: never;
+          }
+        | {
+              multiselect?: true;
+              separator?: string;
+          }
+    ) & {
+        value: T;
+        onChange?: (value: T) => void;
+        /**
+         * Значение css overflow для выпадающего меню.
+         * @example listOverflow="scroll"
+         */
+        listOverflow?: CSSProperties['overflow'];
+        /**
+         * Значение css height для выпадающего меню.
+         * @example listHeight="11", listHeight="auto", listHeight={11}
+         */
+        listHeight?: number | CSSProperties['height'];
+        status?: 'success' | 'warning' | 'error';
+        /**
+         * Placeholder.
+         */
+        placeholder?: string;
+        /**
+         * Вспомогательный текст снизу слева для поля ввода.
+         */
+        helperText?: string;
+        /**
+         * Компонент неактивен.
+         * @default false
+         */
+        disabled?: boolean;
+        /**
+         * Список элементов.
+         */
+        items?: DropdownNode[];
+        onItemSelect?: (e: DropdownNode, event: SyntheticEvent) => void;
+        hasItems?: boolean;
+        children?: never;
+        isOpen?: boolean;
+        /**
+         * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+         * @default false
+         */
+        isTargetAmount?: boolean;
+        /**
+         * Callback для кастомной настройки таргета целиком.
+         */
+        renderTarget?: (item: DropdownNode | DropdownNode[]) => React.ReactNode;
+        /**
+         * Сторона открытия дропдауна относительно target элемента.
+         * @default bottom
+         */
+        placement?: SelectPlacement | Array<SelectPlacementBasic>;
+        /**
+         * Метка-подпись к элементу.
+         */
+        label?: string;
+        /**
+         * Коллбэк для определения достижения скроллом конца списка.
+         */
+        onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+        /**
+         * Вариант: обычный или сжатый
+         * @default normal
+         */
+        variant?: 'normal' | 'tight';
+        /**
+         * Значение css width для выпадающего списка.
+         * @example width="200px"
+         */
+        listWidth?: CSSProperties['width'];
+        /**
+         * Портал для выпадающего списка. Принимает id контейнера или ref.
+         */
+        portal?: string | React.RefObject<HTMLElement>;
+        /**
+         * Callback для кастомной настройки значения в селекте.
+         */
+        renderValue?: (item: DropdownNode) => string;
+        /**
+         * Callback для кастомной настройки айтема в выпадающем списке.
+         */
+        renderItem?: (item: DropdownNode) => React.ReactNode;
+        /**
+         * Размер компонента.
+         */
+        size?: string;
+        /**
+         * Вид компонента.
+         */
+        view?: string;
+        /**
+         * Внешний вид чипа в варианте textfield-like multiselect.
+         */
+        chipView?: string;
+    } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;

@@ -51,7 +51,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
             const [isOpen, setIsOpen] = useState(false);
 
             const listId = safeUseId();
-            const value = outerValue || innerValue;
+            const value = outerValue ?? innerValue;
+
             const helperTextId = safeUseId();
 
             const targetRef = useOutsideClick<HTMLDivElement>(() => {

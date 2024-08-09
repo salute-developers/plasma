@@ -33,7 +33,7 @@ const getLabel = ({
     size,
     renderValue,
 }: GetTextfieldLabelProps) => {
-    if (isEmpty(value)) {
+    if (isEmpty(value) && typeof value !== 'number') {
         if (!label || labelPlacement === 'outer') {
             return <Placeholder>{placeholder}</Placeholder>;
         }
@@ -51,7 +51,7 @@ const getLabel = ({
 
             return (
                 <Chip
-                    text={renderValue ? renderValue(currentValue, itemLabel) : itemLabel}
+                    text={renderValue ? renderValue(valueToItemMap.get(currentValue)!) : itemLabel}
                     onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.stopPropagation();
                         onChipClick(currentValue);
@@ -65,13 +65,13 @@ const getLabel = ({
     const itemLabel = valueToItemMap.get(value)!.label;
 
     if (!label || labelPlacement === 'outer') {
-        return <Value>{renderValue ? renderValue(value, itemLabel) : itemLabel}</Value>;
+        return <Value>{renderValue ? renderValue(valueToItemMap.get(value)!) : itemLabel}</Value>;
     }
 
     return (
         <InnerLabelWrapper>
             {size !== 'xs' && <InnerLabel>{label}</InnerLabel>}
-            <Value>{renderValue ? renderValue(value, itemLabel) : itemLabel}</Value>
+            <Value>{renderValue ? renderValue(valueToItemMap.get(value)!) : itemLabel}</Value>
         </InnerLabelWrapper>
     );
 };
@@ -120,7 +120,11 @@ export const Textfield: React.FC<TextfieldProps> = ({
             >
                 <Wrapper>
                     {selectProps?.renderTarget ? (
-                        selectProps.renderTarget(value as any)
+                        selectProps.renderTarget(
+                            Array.isArray(value)
+                                ? value.map((value) => valueToItemMap.get(value)!)
+                                : valueToItemMap.get(value)!,
+                        )
                     ) : (
                         <>
                             {contentLeft && (!selectProps.multiselect || isEmpty(value)) && (

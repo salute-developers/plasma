@@ -29,7 +29,7 @@ export const Item: FC<ItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, contentLeft, contentRight } = item;
+    const { value, label, disabled, isDisabled, color, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
     const {
@@ -41,9 +41,12 @@ export const Item: FC<ItemProps> = ({
         handleItemClick,
         variant,
         renderItem,
+        valueToItemMap,
     } = useContext(Context);
 
-    const isDisabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
+    const itemDisabled = Boolean(disabled || isDisabled);
+
+    const isDisabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
             ? classes.dropdownItemIsFocused
@@ -61,7 +64,7 @@ export const Item: FC<ItemProps> = ({
     }, [focusedClass]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (disabled) return;
+        if (itemDisabled) return;
 
         e.stopPropagation();
 
@@ -69,7 +72,10 @@ export const Item: FC<ItemProps> = ({
     };
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        if (disabled) return;
+        if (itemDisabled) {
+            e.stopPropagation();
+            return;
+        }
 
         handleItemClick(item, e);
     };
@@ -108,7 +114,7 @@ export const Item: FC<ItemProps> = ({
 
             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
 
-            <StyledText>{(renderItem && renderItem(value, label)) || label}</StyledText>
+            <StyledText color={color}>{(renderItem && renderItem(valueToItemMap.get(value)!)) || label}</StyledText>
 
             {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
 
