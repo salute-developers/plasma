@@ -2,11 +2,11 @@ import type { CSSProperties, ButtonHTMLAttributes } from 'react';
 import React from 'react';
 
 import { FocusedPathState } from './reducers';
-import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
+import { ItemOption, MergedDropdownNode, MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
-export type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-export type SelectPlacement = SelectPlacementBasic | 'auto';
+type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
+type SelectPlacement = SelectPlacementBasic | 'auto';
 
 type Target =
     | {
@@ -146,6 +146,7 @@ export interface BasicProps {
     chipView?: string;
 }
 
+// Тип нового селекта
 export type SelectProps = BasicProps &
     IsMultiselect &
     Target &
@@ -154,10 +155,87 @@ export type SelectProps = BasicProps &
 export type ItemContext = {
     focusedPath: FocusedPathState;
     checked: ValueToCheckedMapType;
-    multiselect: SelectProps['multiselect'];
-    size: SelectProps['size'];
-    handleCheckboxChange: (item: ItemOptionTransformed) => void;
-    handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
-    variant: SelectProps['variant'];
-    renderItem: SelectProps['renderItem'];
+    multiselect: MergedSelectProps['multiselect'];
+    size: MergedSelectProps['size'];
+    handleCheckboxChange: (item: MergedDropdownNodeTransformed) => void;
+    handleItemClick: (item: MergedDropdownNodeTransformed, e: React.MouseEvent<HTMLElement>) => void;
+    variant: MergedSelectProps['variant'];
+    renderItem: MergedSelectProps['renderItem'];
 };
+
+// Тип старого селекта
+export type SelectPropsOld<T = any> = (
+    | {
+          multiselect?: false;
+          separator?: never;
+      }
+    | {
+          multiselect?: true;
+          separator?: string;
+      }
+) & {
+    value: T;
+    onChange?: (value: T) => void;
+    listOverflow?: CSSProperties['overflow']; // ок
+    listHeight?: number | CSSProperties['height']; // ок
+    status?: 'success' | 'warning' | 'error'; // ок
+    placeholder?: string; // ок
+    helperText?: string; // ок
+    disabled?: boolean; // ок
+    items?: DropdownNodeOld[];
+    onItemSelect?: any; // лишено смысла
+    hasItems?: boolean; // лишено смысла
+    children?: never; // ок
+    isOpen?: boolean; // не работало
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+
+type DropdownNodeOld = {
+    value: string | number;
+    label: string;
+    items?: DropdownNodeOld[];
+    isActive?: boolean;
+    isDisabled?: boolean;
+    color?: string;
+    contentLeft?: React.ReactNode;
+};
+
+// Тип, объединенный для старого и нового селекта для поддержки обратной совместимости.
+export type MergedSelectProps<T = any> = Target &
+    (
+        | {
+              multiselect?: false;
+              separator?: never;
+          }
+        | {
+              multiselect?: true;
+              separator?: string;
+          }
+    ) & {
+        value: T;
+        onChange?: (value: T) => void;
+        listOverflow?: CSSProperties['overflow'];
+        listHeight?: number | CSSProperties['height'];
+        status?: 'success' | 'warning' | 'error';
+        placeholder?: string;
+        helperText?: string;
+        disabled?: boolean;
+        items?: MergedDropdownNode[];
+        onItemSelect?: (e: MergedDropdownNode) => void;
+        hasItems?: boolean;
+        children?: never;
+        isOpen?: boolean;
+
+        isTargetAmount?: boolean;
+        renderTarget?: (value: T) => React.ReactNode;
+        placement?: SelectPlacement | Array<SelectPlacementBasic>;
+        label?: string;
+        onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+        variant?: 'normal' | 'tight';
+        listWidth?: CSSProperties['width'];
+        portal?: string | React.RefObject<HTMLElement>;
+        renderValue?: (value: ItemOption['value'], label: ItemOption['label']) => string;
+        renderItem?: (value: ItemOption['value'], label: ItemOption['label']) => React.ReactNode;
+        size?: string;
+        view?: string;
+        chipView?: string;
+    } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;

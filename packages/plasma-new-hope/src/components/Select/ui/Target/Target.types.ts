@@ -1,11 +1,11 @@
 import type { KeyboardEvent } from 'react';
 
 import type { ValueToItemMapType, FocusedToValueMapType } from '../../hooks/usePathMaps';
-import type { SelectProps } from '../../Select.types';
 import { FocusedChipIndexState, FocusedPathState } from '../../reducers';
+import type { MergedSelectProps } from '../../Select.types';
 
 export type TargetProps = Pick<
-    SelectProps,
+    MergedSelectProps,
     'size' | 'label' | 'labelPlacement' | 'placeholder' | 'contentLeft' | 'disabled' | 'renderValue'
 > & {
     value: string | string[];
@@ -16,5 +16,6 @@ export type TargetProps = Pick<
     focusedChipIndex: FocusedChipIndexState;
     focusedPath: FocusedPathState;
     focusedToValueMap: FocusedToValueMapType;
-    selectProps: SelectProps;
+    selectProps: MergedSelectProps;
+    separator?: string;
 };

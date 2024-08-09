@@ -17,6 +17,7 @@ export const getButtonLabel = ({
     label,
     renderValue,
     selectProps,
+    separator,
 }: GetButtonLabelProps): string => {
     if (isEmpty(value)) {
         return label || '';
@@ -35,7 +36,7 @@ export const getButtonLabel = ({
                     renderValue,
                 }),
             )
-            .join(', ');
+            .join(separator || ', ');
     }
 
     return getLabel({

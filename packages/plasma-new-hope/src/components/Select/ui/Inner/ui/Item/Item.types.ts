@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import React from 'react';
 
 import type { PathState } from '../../../../reducers';
 
@@ -32,7 +33,7 @@ export type ItemOption = {
 export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };
 
 export interface ItemProps {
-    item: ItemOptionTransformed;
+    item: MergedDropdownNodeTransformed;
     currentLevel: number;
     index: number;
     path: PathState;
@@ -41,3 +42,18 @@ export interface ItemProps {
     ariaLevel?: React.AriaAttributes['aria-level'];
     ariaLabel?: React.AriaAttributes['aria-label'];
 }
+
+export type MergedDropdownNode = {
+    value: string | number;
+    label: string;
+    items?: MergedDropdownNode[];
+    isActive?: boolean;
+    isDisabled?: boolean;
+    color?: string;
+    contentLeft?: React.ReactNode;
+
+    disabled?: boolean;
+    contentRight?: ReactNode;
+};
+
+export type MergedDropdownNodeTransformed = MergedDropdownNode & { parent?: MergedDropdownNode | null };

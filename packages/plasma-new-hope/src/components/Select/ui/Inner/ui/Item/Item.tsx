@@ -108,7 +108,7 @@ export const Item: FC<ItemProps> = ({
 
             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
 
-            <StyledText>{(renderItem && renderItem(value, label)) || label}</StyledText>
+            <StyledText>{(renderItem && renderItem(value.toString(), label)) || label}</StyledText>
 
             {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
 

@@ -7,5 +7,5 @@ export type ButtonProps = Omit<
 
 export type GetButtonLabelProps = Pick<
     ButtonProps,
-    'value' | 'valueToItemMap' | 'label' | 'renderValue' | 'selectProps'
+    'value' | 'valueToItemMap' | 'label' | 'renderValue' | 'selectProps' | 'separator'
 >;
