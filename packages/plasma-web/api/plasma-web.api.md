@@ -39,7 +39,6 @@ import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
-import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
@@ -159,6 +158,7 @@ import { ListItem } from '@salutejs/plasma-hope';
 import { MaxLinesProps } from '@salutejs/plasma-core';
 import { mediaQuery } from '@salutejs/plasma-hope';
 import { MediaQueryFunction } from '@salutejs/plasma-hope';
+import { MergedDropdownNode } from '@salutejs/plasma-new-hope/types/components/Select/ui/Inner/ui/Item/Item.types';
 import { Modal } from '@salutejs/plasma-hope';
 import { modalClasses as modalBaseClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps as ModalBaseProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -201,6 +201,7 @@ import { PreviewGalleryProps } from '@salutejs/plasma-hope';
 import { priceClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PriceProps } from '@salutejs/plasma-new-hope/types/components/Price/Price.types';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Property } from 'csstype';
 import { Props } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
@@ -230,7 +231,8 @@ import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectGroup } from '@salutejs/plasma-hope';
-import { SelectProps } from '@salutejs/plasma-hope';
+import { MergedSelectProps as SelectProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectProps as SelectPropsHope } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
@@ -259,6 +261,7 @@ import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { SyntheticEvent } from 'react';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -285,6 +288,7 @@ import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
+import { UIEvent as UIEvent_2 } from 'react';
 import { Upload } from '@salutejs/plasma-hope';
 import { UploadAudio } from '@salutejs/plasma-hope';
 import { UploadAudioProps } from '@salutejs/plasma-hope';
@@ -2044,13 +2048,8 @@ export { SegmentProvider }
 
 export { SegmentProviderProps }
 
-// @public
-export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
-
-export { SelectGroup }
-
-// @public
-export const SelectNew: FunctionComponent<PropsType<    {
+// @public (undocumented)
+export const Select: FunctionComponent<PropsType<    {
 size: {
 xs: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2074,61 +2073,161 @@ default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 accent: PolymorphicClassName;
 };
-}> & ((BasicProps & {
-multiselect?: false | undefined;
-value?: string | undefined;
-onChange?: ((value: string) => void) | undefined;
-isTargetAmount?: false | undefined;
-renderTarget?: ((value: string) => ReactNode) | undefined;
-} & {
+}> & (({
 target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactNode;
 labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+} & {
 multiselect?: false | undefined;
-value?: string | undefined;
-onChange?: ((value: string) => void) | undefined;
-isTargetAmount?: false | undefined;
-renderTarget?: ((value: string) => ReactNode) | undefined;
+separator?: undefined;
 } & {
-target?: "button-like" | undefined;
-view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
-contentLeft?: undefined;
-labelPlacement?: undefined;
-placeholder?: undefined;
-helperText?: undefined;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
-multiselect: true;
-value?: string[] | undefined;
-onChange?: ((value: string[]) => void) | undefined;
+value: any;
+onChange?: ((value: any) => void) | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+status?: "warning" | "success" | "error" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+disabled?: boolean | undefined;
+items?: MergedDropdownNode[] | undefined;
+onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
+hasItems?: boolean | undefined;
+children?: undefined;
+isOpen?: boolean | undefined;
 isTargetAmount?: boolean | undefined;
-renderTarget?: ((value: string[]) => ReactNode) | undefined;
-} & {
+renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
+placement?: ("auto" | ("top" | "bottom" | "right" | "left")) | ("top" | "bottom" | "right" | "left")[] | undefined;
+label?: string | undefined;
+onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
+variant?: "normal" | "tight" | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: string | RefObject<HTMLElement> | undefined;
+renderValue?: ((item: MergedDropdownNode) => string) | undefined;
+renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+chipView?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | ({
 target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactNode;
 labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
-multiselect: true;
-value?: string[] | undefined;
-onChange?: ((value: string[]) => void) | undefined;
-isTargetAmount?: boolean | undefined;
-renderTarget?: ((value: string[]) => ReactNode) | undefined;
 } & {
+multiselect?: true | undefined;
+separator?: string | undefined;
+} & {
+value: any;
+onChange?: ((value: any) => void) | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+status?: "warning" | "success" | "error" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+disabled?: boolean | undefined;
+items?: MergedDropdownNode[] | undefined;
+onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
+hasItems?: boolean | undefined;
+children?: undefined;
+isOpen?: boolean | undefined;
+isTargetAmount?: boolean | undefined;
+renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
+placement?: ("auto" | ("top" | "bottom" | "right" | "left")) | ("top" | "bottom" | "right" | "left")[] | undefined;
+label?: string | undefined;
+onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
+variant?: "normal" | "tight" | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: string | RefObject<HTMLElement> | undefined;
+renderValue?: ((item: MergedDropdownNode) => string) | undefined;
+renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+chipView?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | ({
 target?: "button-like" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
 contentLeft?: undefined;
 labelPlacement?: undefined;
 placeholder?: undefined;
 helperText?: undefined;
+} & {
+multiselect?: false | undefined;
+separator?: undefined;
+} & {
+value: any;
+onChange?: ((value: any) => void) | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+status?: "warning" | "success" | "error" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+disabled?: boolean | undefined;
+items?: MergedDropdownNode[] | undefined;
+onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
+hasItems?: boolean | undefined;
+children?: undefined;
+isOpen?: boolean | undefined;
+isTargetAmount?: boolean | undefined;
+renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
+placement?: ("auto" | ("top" | "bottom" | "right" | "left")) | ("top" | "bottom" | "right" | "left")[] | undefined;
+label?: string | undefined;
+onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
+variant?: "normal" | "tight" | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: string | RefObject<HTMLElement> | undefined;
+renderValue?: ((item: MergedDropdownNode) => string) | undefined;
+renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+chipView?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | ({
+target?: "button-like" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
+contentLeft?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & {
+multiselect?: true | undefined;
+separator?: string | undefined;
+} & {
+value: any;
+onChange?: ((value: any) => void) | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+status?: "warning" | "success" | "error" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+disabled?: boolean | undefined;
+items?: MergedDropdownNode[] | undefined;
+onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
+hasItems?: boolean | undefined;
+children?: undefined;
+isOpen?: boolean | undefined;
+isTargetAmount?: boolean | undefined;
+renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
+placement?: ("auto" | ("top" | "bottom" | "right" | "left")) | ("top" | "bottom" | "right" | "left")[] | undefined;
+label?: string | undefined;
+onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
+variant?: "normal" | "tight" | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: string | RefObject<HTMLElement> | undefined;
+renderValue?: ((item: MergedDropdownNode) => string) | undefined;
+renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+chipView?: string | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
 
+export { SelectGroup }
+
 export { SelectProps }
+
+export { SelectPropsHope }
 
 export { selectText }
 

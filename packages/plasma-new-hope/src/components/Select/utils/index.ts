@@ -5,3 +5,4 @@ export { updateSingleAncestors } from './updateSingleAncestors';
 export { sizeToIconSize } from './sizeToIconSize';
 export { getCorrectHeight } from './getCorrectHeight';
 export { getButtonLabel } from './getButtonLabel';
+export { getView } from './getView';

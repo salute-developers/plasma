@@ -192,7 +192,7 @@ type Items = Array<{
             return (
                 <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} />
+                        <Select multiselect items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} />
                     </div>
 
                     <Button onClick={() => setMultipleValue([])}>Очистить</Button>
@@ -209,7 +209,7 @@ type Items = Array<{
         import { Select } from '@salutejs/sdds-dfa';
 
         export function App() {
-            const [multipleValue, setMultipleValue] = useState([]);
+            const [singleValue, setSingleValue] = useState('');
 
             const items = [
                 {
@@ -232,14 +232,25 @@ type Items = Array<{
                 },
             ];
 
-            const renderValue = (value, label) => {
-                return `${value} - ${label}`
-            }
+            const renderValue = (itemData): string => {
+                if (!Array.isArray(itemData)) {
+                    return `${itemData.value} - ${itemData.label}`;
+                }
+
+                return '';
+            };
 
             return (
                 <div style={{ height: '300px' }}>
-                    <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderValue={renderValue} />
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            value={singleValue}
+                            onChange={setSingleValue}
+                            renderValue={renderValue}
+                        />
                     </div>
                 </div>
             );
@@ -256,7 +267,7 @@ type Items = Array<{
         import { Select, Cell } from '@salutejs/sdds-dfa';
 
         export function App() {
-            const [singleValue, setSingleValue] = useState('north_america');
+            const [multipleValue, setMultipleValue] = useState([]);
 
             const items = [
                 {
@@ -269,22 +280,51 @@ type Items = Array<{
                 },
             ];
 
-            const renderTarget = (value) => {
-                const item = items.find((item) => item.value === value);
+            const renderTarget = (itemData) => {
+                if (Array.isArray(itemData)) {
+                    if (itemData.length === 0) {
+                        return (
+                            <div style={{ padding: '0.5rem 0' }}>
+                                <Cell
+                                    view="default"
+                                    title="Выберите страну"
+                                    subtitle="Subtitle"
+                                    label="Label"
+                                />
+                            </div>
+                        );
+                    }
 
-                return (
-                    <div style={{padding: '0.5rem 0'}}>
-                        <Cell title={item && item.label} subtitle="Subtitle" label="Label" />
-                    </div>
-                )
-            };
+                    const title = itemData.map((item) => item.label).join(', ');
 
-            const renderItem = (value, label) => <Cell title={label} label="Top left" contentRight={<Cell title="Bottom right" label="Top right" />} />;
+                    return (
+                        <div style={{ padding: '0.5rem 0.75rem' }}>
+                            <Cell view="default" title={title} subtitle="Subtitle" label="Label" />
+                        </div>
+                    );
+                }
+            }
+
+            const renderItem = ({ value, label }) => (
+                <Cell
+                    view="default"
+                    title={label}
+                    label="Top left"
+                    contentRight={<Cell view="default" title="Bottom right" label="Top right" />}
+                />
+            )
 
             return (
                 <div style={{ height: '300px' }}>
-                    <div style={{width: '400px'}}>
-                        <Select items={items} value={singleValue} onChange={setSingleValue} renderTarget={renderTarget} renderItem={renderItem} />
+                   <div style={{ width: '400px' }}>
+                        <Select
+                            items={items}
+                            value={multipleValue}
+                            onChange={setMultipleValue}
+                            multiselect
+                            renderTarget={renderTarget}
+                            renderItem={renderItem}
+                        />
                     </div>
                 </div>
             );

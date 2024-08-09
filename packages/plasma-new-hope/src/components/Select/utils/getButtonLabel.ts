@@ -5,10 +5,10 @@ const getLabel = ({
     value,
     valueToItemMap,
     renderValue,
-}: Omit<GetButtonLabelProps, 'label' | 'selectProps'>): string => {
-    const { label } = valueToItemMap.get(value?.toString())!;
+}: Omit<GetButtonLabelProps, 'label' | 'selectProps' | 'value'> & { value: any }): string => {
+    const { label } = valueToItemMap.get(value)!;
 
-    return renderValue ? renderValue(value as string, label) : label;
+    return renderValue ? renderValue(valueToItemMap.get(value)!) : label;
 };
 
 export const getButtonLabel = ({
@@ -18,7 +18,7 @@ export const getButtonLabel = ({
     renderValue,
     selectProps,
 }: GetButtonLabelProps): string => {
-    if (isEmpty(value)) {
+    if (isEmpty(value) && typeof value !== 'number') {
         return label || '';
     }
 
@@ -39,8 +39,8 @@ export const getButtonLabel = ({
     }
 
     return getLabel({
-        renderValue,
         value,
         valueToItemMap,
+        renderValue,
     });
 };

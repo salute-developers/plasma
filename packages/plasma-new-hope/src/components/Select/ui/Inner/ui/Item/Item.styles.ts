@@ -64,9 +64,10 @@ export const IconWrapper = styled.div<{ variant: SelectProps['variant'] }>`
     }
 `;
 
-export const StyledText = styled.div`
+export const StyledText = styled.div<{ color?: string }>`
     ${applyEllipsis()};
     flex: 1;
+    color: ${({ color }) => color || 'inherit'};
 `;
 
 export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
