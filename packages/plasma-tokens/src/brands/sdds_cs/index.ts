@@ -9,6 +9,9 @@ export const textSecondary = 'var(--text-secondary, rgba(255, 255, 255, 0.56))';
 /** Акцентный цвет */
 export const textAccent = 'var(--text-accent, #0C9C0C)';
 
+/** Акцентный минорный цвет */
+export const textAccentMinor = 'var(--text-accent-minor, #94FF94)';
+
 /** Цвет успеха */
 export const textPositive = 'var(--text-positive, #1A9E32)';
 
@@ -32,6 +35,24 @@ export const onDarkTextPositive = 'var(--on-dark-text-positive, #1A9E32)';
 
 /** Цвет ошибки на темном фоне */
 export const onDarkTextNegative = 'var(--on-dark-text-negative, #FF293E)';
+
+/** Основной цвет текста на светлом фоне */
+export const onLightTextPrimary = 'var(--on-light-text-primary, #060A0CF5)';
+
+/** Вторичный цвет текста на светлом фоне */
+export const onLightTextSecondary = 'var(--on-light-text-secondary, #060A0C8F)';
+
+/** Акцентный цвет на светлом фоне */
+export const onLightTextAccent = 'var(--on-light-text-accent, #108210)';
+
+/** Акцентный минорный цвет на светлом фоне */
+export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #082B08)';
+
+/** Цвет успеха на светлом фоне */
+export const onLightTextPositive = 'var(--on-light-text-positive, #108E26)';
+
+/** Цвет ошибки на светлом фоне */
+export const onLightTextNegative = 'var(--on-light-text-negative, #F31B31)';
 
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, #060A0CF5)';
@@ -63,6 +84,9 @@ export const surfaceSolidDefault = 'var(--surface-solid-default, #F7F9FB)';
 /** Акцентный фон поверхности/контрола */
 export const surfaceAccent = 'var(--surface-accent, #0C9C0C)';
 
+/** Прозрачный акцентный фон поверхности/контрола */
+export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #0C9C0C47)';
+
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositive = 'var(--surface-positive, #1A9E32)';
 
@@ -83,6 +107,9 @@ export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #
 
 /** Акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #0C9C0C)';
+
+/** Прозрачный акцентный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #0C9C0C47)';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositive = 'var(--on-dark-surface-positive, #1A9E32)';
@@ -105,6 +132,9 @@ export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default,
 /** Акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #108210)';
 
+/** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #10821047)';
+
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositive = 'var(--on-light-surface-positive, #1A9E32)';
 
@@ -125,6 +155,9 @@ export const inverseSurfaceSolidDefault = 'var(--inverse-surface-solid-default, 
 
 /** Инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #108210)';
+
+/** Прозрачный инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #10821047)';
 
 /** Инвертированный цвет фона поверхности/контрола успех */
 export const inverseSurfacePositive = 'var(--inverse-surface-positive, #1A9E32)';
@@ -230,6 +263,12 @@ export const whitePrimary = 'var(--plasma-colors-white-primary, var(--on-dark-te
 
 /** @deprecated instead use onDarkTextSecondary */
 export const whiteSecondary = 'var(--plasma-colors-white-secondary, var(--on-dark-text-secondary))';
+
+/** @deprecated instead use onLightTextPrimary */
+export const blackPrimary = 'var(--plasma-colors-black-primary, var(--on-light-text-primary))';
+
+/** @deprecated instead use onLightTextSecondary */
+export const blackSecondary = 'var(--plasma-colors-black-secondary, var(--on-light-text-secondary))';
 
 /** @deprecated instead use onLightSurfaceSolidDefault */
 export const buttonBlack = 'var(--plasma-colors-button-black, var(--on-light-surface-solid-default))';
