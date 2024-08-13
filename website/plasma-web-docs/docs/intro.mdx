@@ -5,141 +5,326 @@ sidebar_position: 1
 slug: /
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Библиотека компонентов "PLASMA-WEB"
 
-# Введение
-Plasma Web – библиотека с открытым исходным кодом,
-в которую входят _компоненты_ дизайн-системы Plasma
-и вспомогательные _утилиты_ для создания веб-приложений на [React](https://reactjs.org/).
+Реализация компонентов для создания веб-приложений.
 
-Библиотека написана на [Typescript](https://www.typescriptlang.org/),
-а компоненты реализованы с применением [styled-components](https://styled-components.com/).
+## Использование
 
-## Установка
-Plasma Web поддерживает версии **React 16.8+** и **styled-components ^5.1.1** (на данный момент 6-я версия **не поддерживается** из-за [отсутствия необходимых типов](https://github.com/styled-components/styled-components/issues/4062)).
-Ее можно использовать в существующем проекте.
+:::caution
+Данный раздел описывает новый способ подключения и использования токенов. Если вы новый пользователь библиотеки, то для вас этот вариант будет наиболее актуальным.
+:::
 
-Установите **React**, **ReactDOM** и **styled-components**:
+Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) и [styled-components](https://styled-components.com/);
 
-```bash
-npm install react react-dom styled-components@5.1.1
-```
+Использование данного пакета предполагает установку зависимостей: `react` & `react-dom`;
 
-> Использовать **styled-components** и **typescript** в проекте не обязательно.
+Использование `styled-components` на проект необязательно, так же как и использование `typescript`.
 
-Установите библиотеку компонентов, библиотеку токенов и библиотеку иконок:
+Но для того чтобы компоненты работали корректно необходимо установить styled-components.
+
+### Установка зависимостей
 
 ```bash
-npm install @salutejs/plasma-web @salutejs/plasma-icons
+$ npm install --save react react-dom
+$ npm install --save @salutejs/plasma-web @salutejs/plasma-themes
 ```
 
-## Настройка
-Создайте компонент для подключения глобальных стилей:
+Так же надо установить пакет styled-components. Примечание: Важно использовать версию пакета 5.3.1
 
-```jsx title="GlobalStyle.tsx"
+```bash
+$ npm install --save styled-components@5.3.1
+```
+
+### Подключение тем
+
+Типографическая система основана на фирменных шрифтах. Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
+
+Для использования типографической системы необходимо загрузить два `css` файла в зависимости от [используемых шрифтов](##Конфигурация-пакета) в теме.
+Их необходимо добавить внутрь тега `head`. Если в качестве основы web-приложения вы используете [create-react-app](https://create-react-app.dev), вам необходимо изменить файл `./public/index.html`.
+
+```html
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+        />
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+```
+
+#### С помощью `styled-component`
+
+```jsx
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { standard } from '@salutejs/plasma-typo';
-import { light } from '@salutejs/plasma-tokens-web/themes';
-import {
-    text, // Цвет текста
-    background, // Цвет подложки
-    gradient, // Градиент
-} from '@salutejs/plasma-tokens-web';
+import { Button, BodyL } from '@salutejs/plasma-web';
+import { plasma_web__light } from '@salutejs/plasma-themes';
 
-const DocumentStyle = createGlobalStyle`
-    html {
-        color: ${text};
-        background-color: ${background};
-        background-image: ${gradient};
-    }
-`;
-const ThemeStyle = createGlobalStyle(light);
-const TypoStyle = createGlobalStyle(standard);
+const Theme = createGlobalStyle(plasma_web__light);
 
-export const GlobalStyle = () => (
-    <>
-        <DocumentStyle />
-        <ThemeStyle />
-        <TypoStyle />
-    </>
-);
+const App = () => {
+    return (
+        <>
+            <Theme />
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+#### С помощью `emotion`
+
+```jsx
+import React from 'react';
+import { Global, css } from '@emotion/react';
+import { Button, BodyL } from '@salutejs/plasma-web';
+import { plasma_web__light } from '@salutejs/plasma-themes';
+
+const themeStyle = css(plasma_web__light);
+
+const App = () => {
+    return (
+        <>
+            <Global styles={themeStyle} />
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+#### С помощью импорта `css` файла
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/plasma-web';
+
+import '@salutejs/plasma-themes/css/plasma_web__dark.css';
+
+const App = () => {
+    return (
+        <>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+#### С помощью импорта модульного `css` файла
+
+:::caution
+Потребуется дополнительно настроить TypeScript
+:::
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/plasma-web';
+
+import styles from '@salutejs/plasma-themes/css/plasma_web.module.css';
+
+const App = () => {
+    return (
+        <div className={styles.dark}>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </div>
+    );
+};
+
+export default App;
 ```
 
 ### Корень приложения
+
 В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
 
-+ Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
-+ Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+-   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
+-   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-Для корректной работы server side rendering приложение нужно обернуть `SSRProvider`;
+Для корректной работы `SSR - server side rendering` приложение нужно обернуть `SSRProvider`;
 
-<Tabs
-defaultValue="cra"
-values={[
-{ label: 'Create React App', value: 'cra', },
-{ label: 'Next.js', value: 'next', },
-]
-}>
-<TabItem value="cra">
+### Использование токенов
 
-```jsx title="index.tsx"
-import { SSRProvider } from '@salutejs/plasma-web';
-import { GlobalStyle } from './GlobalStyle';
-import { App } from './App';
+Все `css` токены завернуты в `js` переменные для более удобного доступа:
 
-ReactDOM.render(
-    <SSRProvider>
-        <App />
-        <GlobalStyle />
-    </SSRProvider>,
-    document.getElementById('root'),
-);
+```js
+/** Основной цвет текста */
+export const textPrimary = 'var(--text-primary, #F5F5F5)';
+/** Основной фон */
+export const backgroundPrimary = 'var(--background-primary, #000000)';
 ```
 
-</TabItem>
-<TabItem value="next">
+Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
 
-```tsx title="pages/_app.tsx"
-import type { AppProps } from 'next/app';
-import { SSRProvider } from '@salutejs/plasma-web';
-import { GlobalStyle } from './GlobalStyle';
+```js
+/** Токены типографики для компонента DsplL */
+export const dsplL = ({
+    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
+} as unknown) as CSSObject;
+```
 
-function MyApp({ Component, pageProps }: AppProps) {
+Есть два пути импорта токенов:
+
+* Из вертикали `@salutejs/plasma-themes/tokens` - подходит в большинстве случаев, т.к. там лежит весь базовый набор токенов.
+* Непосредственно из темы `@salutejs/plasma-themes/tokens/plasma_web` - следует использовать, когда необходимо импортировать уникальные токены, которые лежат только в этой теме.
+
+Пример использования:
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { textAccent, backgroundPrimary, textL } from '@salutejs/plasma-themes/tokens';
+
+const AppStyled = styled.div`
+    padding: 2rem;
+    color: ${textAccent};
+    background-color: ${backgroundPrimary};
+`;
+
+const Container = styled.div`
+    ${textL};
+    margin: 1rem;
+`;
+
+const App = () => {
     return (
-        <SSRProvider>
-            <Component {...pageProps} />
-            <GlobalStyle />
-        </SSRProvider>
+        <AppStyled>
+            <Container>
+                <span>Hello world</span>
+            </Container>
+        </AppStyled>
     );
-}
+};
 
-export default MyApp;
+export default App;
 ```
 
-</TabItem>
-</Tabs>
+### Использование компонентов
 
-## Использование
-Несмотря на то, что все компоненты доступны из папки `components`,
-**рекомендуется** использовать их напрямую из пакета.
-Таким образом, обеспечивается работа [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+Все компоненты доступны из папки `components` или напрямую из пакета:
 
-```jsx title="App.tsx"
-import { Container } from '@salutejs/plasma-web/components/Grid';
+```jsx
+import React from 'react';
+import styled from 'styled-components';
 import { Button } from '@salutejs/plasma-web';
+import { textAccent } from '@salutejs/plasma-themes/tokens';
+
+export const App = () => {
+    const StyledP = styled.p`
+        color: ${textAccent};
+    `;
+
+    return (
+        <>
+            <Button>Hello, Plasma!</Button>
+
+            <StyledP>
+                Token usage example
+            </StyledP>
+        </>
+    );
+};
+```
+
+## Использование (legacy)
+
+:::caution
+Данные способы являются устаревшими, нежелательны к использованию и скоро перестанут поддерживаться.
+:::
+
+В данных способах подключения используется приемущественно устаревшая система токенизации (то есть токены с префиксом `plasma-colors`). Для сохранения обратной совместимости были добавлены новые токены, т.к. они используются в компонентах.
+
+Для поддержки [новой типографики](design/typography) необходимо импортировать объекты `compatible` и `standard` из пакета `@salutejs/plasma-typo` и добавить их в качестве глобальных стилей.
+
+### Подключение темы с помощью библиотеки plasma-tokens-web / b2b
+
+В зависимости от макетов, может использоваться пакет `@salutejs/plasma-tokens-web` или `@salutejs/plasma-tokens-b2b`. Чаще всего `@salutejs/plasma-tokens-b2b` является наиболее актуальным.
+
+```jsx
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { bodyM } from '@salutejs/plasma-web';
+import { dark as b2bDark } from '@salutejs/plasma-tokens-b2b';
+import { surfaceAccent, textPrimary } from '@salutejs/plasma-tokens-b2b/new';
+import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
+
+const Theme = createGlobalStyle(b2bDark);
+const TypoStyle = createGlobalStyle(standardTypo);
+const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
+
+const AppStyled = styled.div`
+    ${bodyM}
+    background-color: ${surfaceAccent};
+`;
+
+const HeaderStyeld = styled.h2`
+    color: ${textPrimary};
+`
 
 export default function App() {
     return (
-        <Container>
-            <Button>Hello, Plasma!</Button>
-        </Container>
+        <AppStyled>
+            <Theme />
+            <TypoStyle />
+            <CompatibleTypoStyle />
+            <HeaderStyeld>Hello Plasma</HeaderStyeld>
+        </AppStyled>
     );
 }
 ```
 
-Библиотека предоставляет вспомогательную функциональность (`utils`, `mixins`, `hocs`),
-доступную в соответствующих директориях.
+### Подключение темы с помощью библиотеки plasma-tokens
 
-Подробную информацию ищите в документации по 
-[hocs](./functions/hocs), [mixins](./functions/mixins) и [utils](./functions/utils).
+В пакете `@salutejs/plasma-tokens` есть набор продуктовых тем, из которых также можно брать токены с новой системой именования.
+
+```jsx
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { bodyM } from '@salutejs/plasma-web';
+import { darkSbermarket } from '@salutejs/plasma-tokens';
+import { surfaceAccent, textPrimary } from '@salutejs/plasma-tokens/brands/plasma_web';
+import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
+
+const Theme = createGlobalStyle(darkSbermarket);
+const TypoStyle = createGlobalStyle(standardTypo);
+const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
+
+const AppStyled = styled.div`
+    ${bodyM}
+    background-color: ${surfaceAccent};
+`;
+
+const HeaderStyeld = styled.h2`
+    color: ${textPrimary};
+`
+
+export default function App() {
+    return (
+        <AppStyled>
+            <Theme />
+            <TypoStyle />
+            <CompatibleTypoStyle />
+            <HeaderStyeld>Hello Plasma</HeaderStyeld>
+        </AppStyled>
+    );
+}
+```
