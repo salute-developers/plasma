@@ -95,7 +95,7 @@ export const config = {
                 ${dropdownTokens.background}: var(--surface-solid-card);
                 ${dropdownTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${dropdownTokens.disclosureIconColor}: var(--text-secondary);
-                ${dropdownTokens.itemBackground}: var(--plasma-colors-transparent);
+                ${dropdownTokens.itemBackground}: var(--surface-clear);
                 ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${dropdownTokens.itemColor}: var(--text-primary);
             `,
