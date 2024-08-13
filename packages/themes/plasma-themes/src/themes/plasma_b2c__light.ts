@@ -242,6 +242,39 @@ export const plasma_b2c__light = ([
   --on-light-overlay-blur: #F9F9F947;
   color: var(--text-primary);
   background-color: var(--background-primary);
+  --plasma-colors-white-primary: var(--on-dark-text-primary);
+  --plasma-colors-white-secondary: var(--on-dark-text-secondary);
+  --plasma-colors-white-tertiary: var(--on-dark-text-tertiary);
+  --plasma-colors-black-primary: var(--on-light-text-primary);
+  --plasma-colors-black-secondary: var(--on-light-text-secondary);
+  --plasma-colors-black-tertiary: var(--on-light-text-tertiary);
+  --plasma-colors-button-black: var(--on-light-surface-solid-default);
+  --plasma-colors-button-black-secondary: var(--on-light-surface-transparent-secondary);
+  --plasma-colors-button-white: var(--on-dark-surface-solid-default);
+  --plasma-colors-button-white-secondary: var(--on-dark-surface-transparent-secondary);
+  --plasma-colors-text: var(--text-primary);
+  --plasma-colors-primary: var(--text-primary);
+  --plasma-colors-secondary: var(--text-secondary);
+  --plasma-colors-tertiary: var(--text-tertiary);
+  --plasma-colors-paragraph: var(--text-paragraph);
+  --plasma-colors-background: var(--background-primary);
+  --plasma-colors-accent: var(--text-accent);
+  --plasma-colors-success: var(--text-positive);
+  --plasma-colors-warning: var(--text-warning);
+  --plasma-colors-critical: var(--text-negative);
+  --plasma-colors-overlay: var(--overlay-soft);
+  --plasma-colors-surface-liquid01: var(--surface-transparent-primary);
+  --plasma-colors-surface-liquid02: var(--surface-transparent-secondary);
+  --plasma-colors-surface-liquid03: var(--surface-transparent-tertiary);
+  --plasma-colors-surface-solid01: var(--surface-solid-primary);
+  --plasma-colors-surface-solid02: var(--surface-solid-secondary);
+  --plasma-colors-surface-solid03: var(--surface-solid-tertiary);
+  --plasma-colors-surface-card: var(--surface-transparent-card);
+  --plasma-colors-button-secondary: var(--surface-transparent-secondary);
+  --plasma-colors-button-accent: var(--text-accent);
+  --plasma-colors-button-success: var(--surface-positive);
+  --plasma-colors-button-warning: var(--surface-warning);
+  --plasma-colors-button-critical: var(--surface-negative);
 }
 
 :root {
