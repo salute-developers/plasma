@@ -59,8 +59,8 @@ export const base = css`
 
             height: var(${tokens.height});
 
-            padding-top: calc(var(${tokens.height}) / 4);
-            padding-bottom: calc(var(${tokens.height}) / 4);
+            padding-top: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
+            padding-bottom: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
         }
     }
 `;
