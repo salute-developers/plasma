@@ -32,6 +32,8 @@ export { sdds_serv__dark, darkSdds_serv } from './sdds_serv__dark';
 export { sdds_serv__light, lightSdds_serv } from './sdds_serv__light';
 export { stylesSalute__dark, darkStylesSalute } from './stylesSalute__dark';
 export { stylesSalute__light, lightStylesSalute } from './stylesSalute__light';
+export { testilya__dark, darkTestilya } from './testilya__dark';
+export { testilya__light, lightTestilya } from './testilya__light';
 export { salutejs_sber__dark, darkSber } from './salutejs_sber__dark';
 export { salutejs_eva__dark, darkEva } from './salutejs_eva__dark';
 export { salutejs_joy__dark, darkJoy } from './salutejs_joy__dark';
