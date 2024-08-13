@@ -12,7 +12,7 @@ export const config = {
             clear: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: transparent;
@@ -21,7 +21,7 @@ export const config = {
             filled: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.tabsBackgroundColor}: var(--surface-transparent-primary);
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: transparent;
@@ -30,7 +30,7 @@ export const config = {
             divider: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
                 ${tabsTokens.tabsDividerColor}: var(--surface-transparent-tertiary);

@@ -24,7 +24,7 @@ export const config = {
                 ${tabsTokens.itemPaddingClear}: 0;
                 ${tabsTokens.itemContentPaddingClear}: 0;
 
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
@@ -49,7 +49,7 @@ export const config = {
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
@@ -75,7 +75,7 @@ export const config = {
                 ${tabsTokens.itemPaddingClear}: 0;
                 ${tabsTokens.itemContentPaddingClear}: 0;
 
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
@@ -100,7 +100,7 @@ export const config = {
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
