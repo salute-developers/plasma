@@ -16,7 +16,7 @@ import {
     generateThemes,
     generateTokens,
 } from './generators';
-import { getMetaGrouped, readTheme } from './utils';
+import { getMetaGrouped, readTheme, fallbackCreateColorTokensWrapper } from './utils';
 
 export const generate = async (themes: ThemeRequest[]) => {
     const themeDir = 'src';
@@ -29,8 +29,14 @@ export const generate = async (themes: ThemeRequest[]) => {
         const { meta, variations } = themeSource;
         const metaGrouped = getMetaGrouped(themeSource.meta);
 
-        const colorCSSVariables = createColorTokens(variations.color, metaGrouped.color);
-        const colorJSVariables = createColorTokens(variations.color, metaGrouped.color, isJS);
+        // TODO: Использовать createColorTokens: https://github.com/salute-developers/plasma/issues/1363
+        const colorCSSVariables = fallbackCreateColorTokensWrapper(theme.name, variations.color, metaGrouped.color);
+        const colorJSVariables = fallbackCreateColorTokensWrapper(
+            theme.name,
+            variations.color,
+            metaGrouped.color,
+            isJS,
+        );
 
         const gradientCSSVariables = createGradientTokens(variations.gradient, metaGrouped.gradient);
         const gradientJSVariables = createGradientTokens(variations.gradient, metaGrouped.gradient, isJS);
