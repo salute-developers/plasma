@@ -215,6 +215,8 @@ export const Theme = ({
 
     const { accentColor, grayscale, name } = themeData.config;
 
+    console.log(JSON.stringify(themeData));
+
     return (
         <StyledTheme>
             <BackwardButton onBackwardClick={onBackwardClick} />
