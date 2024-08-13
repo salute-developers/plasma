@@ -24,7 +24,7 @@ export const base = css`
         }
 
         ${Input}:focus ~ ${Label}, ${Input}:not(:placeholder-shown) ~ ${Label} {
-            height: auto;
+            align-items: flex-start;
             padding: var(${tokens.labelInnerPadding});
 
             font-family: var(${tokens.labelInnerFontFamily});
@@ -56,8 +56,6 @@ export const base = css`
             align-items: center;
 
             box-sizing: border-box;
-
-            transition: padding 0.1s ease-in-out, height 0s;
 
             height: var(${tokens.height});
 
