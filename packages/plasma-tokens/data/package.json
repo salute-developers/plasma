@@ -1,0 +1,14 @@
+{
+  "name": "data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "addBrightness.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@salutejs/plasma-tokens-utils": "^0.43.0"
+  }
+}
