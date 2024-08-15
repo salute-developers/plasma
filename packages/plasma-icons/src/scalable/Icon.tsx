@@ -1075,4 +1075,12 @@ export const iconSectionsSet = {
         weatherFill: 'WeatherFill',
         weatherOutline: 'WeatherOutline',
     },
+    Table: {
+        rowHeightFill: 'RowHeightFill',
+        rowHeightMaxFill: 'RowHeightMaxFill',
+        rowHeightMaxOutline: 'RowHeightMaxOutline',
+        rowHeightMinFill: 'RowHeightMinFill',
+        rowHeightMinOutline: 'RowHeightMinOutline',
+        rowHeightOutline: 'RowHeightOutline',
+    },
 };
