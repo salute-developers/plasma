@@ -294,7 +294,7 @@ export const config = {
                 ${comboboxTokens.targetBackgroundColorActive}: var(--surface-transparent-primary-active);
                 ${comboboxTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
 
-                ${comboboxTokens.background}: var(--surface-solid-card);
+                ${comboboxTokens.background}: var(--surface-solid-card-brightness);
                 ${comboboxTokens.boxShadow}: var(--shadow-down-soft-s);
 
                 ${comboboxTokens.itemBackground}: var(--surface-clear);

@@ -62,7 +62,7 @@ export const config = {
         },
         view: {
             default: css`
-                ${tooltipTokens.backgroundColor}: var(--surface-solid-card);
+                ${tooltipTokens.backgroundColor}: var(--surface-solid-card-brightness);
                 ${tooltipTokens.boxShadow}: var(--shadow-down-hard-s);
                 ${tooltipTokens.color}: var(--text-primary);
             `,
