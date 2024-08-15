@@ -1,6 +1,7 @@
 interface Operation {
     hover: (value: number) => number;
     active: (value: number) => number;
+    brightness?: (value: number) => number;
 }
 
 interface ConditionHSL {
