@@ -11,21 +11,21 @@ export const config = {
         view: {
             default: css`
                 ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card);
+                ${toastTokens.background}: var(--surface-solid-card-brightness);
 
                 ${toastTokens.closeIconColor}: var(--text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
             `,
             dark: css`
                 ${toastTokens.color}: var(--on-dark-text-primary);
-                ${toastTokens.background}: var(--on-dark-surface-solid-primary);
+                ${toastTokens.background}: var(--on-dark-surface-solid-brightness);
 
                 ${toastTokens.closeIconColor}: var(--on-dark-text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-secondary);
             `,
             light: css`
                 ${toastTokens.color}: var(--on-light-text-primary);
-                ${toastTokens.background}: var(--on-light-surface-solid-primary);
+                ${toastTokens.background}: var(--on-light-surface-solid-primary-brightness);
 
                 ${toastTokens.closeIconColor}: var(--on-light-text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--on-light-text-secondary);

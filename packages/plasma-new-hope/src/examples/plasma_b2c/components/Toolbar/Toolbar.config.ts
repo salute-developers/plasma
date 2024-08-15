@@ -11,7 +11,7 @@ export const config = {
         view: {
             default: css`
                 ${toolbarTokens.boxShadow}: var(--shadow-down-soft-s);
-                ${toolbarTokens.background}: var(--surface-solid-card);
+                ${toolbarTokens.background}: var(--surface-solid-card-brightness);
 
                 ${toolbarTokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
