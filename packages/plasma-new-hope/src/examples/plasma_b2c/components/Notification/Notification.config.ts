@@ -10,7 +10,7 @@ export const config = {
         view: {
             default: css`
                 ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card-brightness);
+                ${notificationTokens.background}: var(--surface-transparent-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
