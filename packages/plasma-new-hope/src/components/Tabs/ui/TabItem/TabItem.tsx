@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useContext, useEffect, useCallback } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 
-import { ComponentConfig, RootProps } from '../../../../engines';
+import { RootProps } from '../../../../engines';
 import { classes } from '../../tokens';
 import { cx } from '../../../../utils';
 import { TabsContext } from '../../TabsContext';
@@ -118,7 +118,7 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
         );
     });
 
-export const tabItemConfig: ComponentConfig = {
+export const tabItemConfig = {
     name: 'TabItem',
     tag: 'button',
     layout: tabItemRoot,
