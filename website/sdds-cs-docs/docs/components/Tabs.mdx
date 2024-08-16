@@ -9,11 +9,6 @@ import { PropsTable, Description } from '@site/src/components';
 Набор компонентов для создания вкладок.
 Структура для вкладок похожа на структуру маркированных списков.
 
-## TabsController
-
-<Description name="TabsController" />
-<PropsTable name="TabsController" />
-
 ## Tabs
 
 <Description name="Tabs" />
@@ -24,6 +19,11 @@ import { PropsTable, Description } from '@site/src/components';
 <Description name="TabItem" />
 <PropsTable name="TabItem" />
 
+## TabsController (deprecated)
+Вместо этого используйте Tabs, TabItem, указав параметры index, itemIndex, onIndexChange.
+
+<Description name="TabsController" />
+<PropsTable name="TabsController" />
 
 ## Использование
 
@@ -51,9 +51,95 @@ export function App() {
                         contentLeft={<IconClock size="xs" color="inherit" />}
                         onClick={() => setIndex(i)}
                     >
-                        Label
+                        {`Label${i + 1}`}
                     </TabItem>
                 ))}
+            </Tabs>
+        </div>
+    );
+}
+```
+
+### Пример с прокруткой
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem } from '@salutejs/sdds-cs';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(8).fill(0);
+    const [index, setIndex] = useState(0);
+
+    return (
+        <div>
+            <Tabs view="divider" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <TabItem
+                        view="divider"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        contentLeft={<IconClock size="xs" color="inherit" />}
+                        onClick={() => setIndex(i)}
+                    >
+                        {`Label${i + 1}`}
+                    </TabItem>
+                ))}
+            </Tabs>
+        </div>
+    );
+}
+```
+
+### Пример с Dropdown
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem, Dropdown } from '@salutejs/sdds-cs';
+
+export function App() {
+    const items = Array(8).fill(0);
+    const [index, setIndex] = useState(0);
+
+    const maxItemQuantity = 3;
+    const visibleItems = items.slice(0, maxItemQuantity);
+    const otherItems = items.slice(maxItemQuantity);
+
+    const dropdownItems = otherItems.map((_, i) => {
+        const itemIndex = maxItemQuantity + i;
+
+        return {
+            label: `Label${itemIndex + 1}`,
+            value: itemIndex,
+        };
+    });
+
+    return (
+        <div style={{ height: '15rem', alignItems: 'flex-start' }}>
+            <Tabs clip="showAll" view="divider" size="xs">
+                {visibleItems.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view="divider"
+                        selected={i === index}
+                        onClick={() => setIndex(i)}
+                        tabIndex={0}
+                        size="xs"
+                    >
+                        {`Label${i + 1}`}
+                    </TabItem>
+                ))}
+                {dropdownItems.length > 0 && (
+                    <div style={{ marginLeft: '1.75rem' }}>
+                        <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
+                            <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
+                                ShowAll
+                            </TabItem>
+                        </Dropdown>
+                    </div>
+                )}
             </Tabs>
         </div>
     );
@@ -88,7 +174,7 @@ export function App() {
                         contentLeft={<IconClock size="xs" color="inherit" />}
                         onClick={() => setIndex(i)}
                     >
-                        Label
+                        {`Label${i + 1}`}
                     </TabItem>
                 ))}
             </Tabs>
