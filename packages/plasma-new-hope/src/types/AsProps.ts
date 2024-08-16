@@ -1,3 +1,5 @@
+// INFO: Issue об этом решении - https://github.com/salute-developers/plasma/issues/1219
+
 /**
  * Работает только со styled-components
  */
