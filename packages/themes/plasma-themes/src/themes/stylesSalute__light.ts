@@ -6,6 +6,7 @@ export const stylesSalute__light = ([
   --text-primary-hover: #08080893;
   --text-primary-active: #080808C4;
   --text-primary: #080808F5;
+  --text-primary-brightness: #171717FF;
   --text-secondary-hover: #080808FF;
   --text-secondary-active: #080808AB;
   --text-secondary: #0808088F;
@@ -42,6 +43,7 @@ export const stylesSalute__light = ([
   --on-dark-text-primary-hover: #FFFFFF93;
   --on-dark-text-primary-active: #FFFFFFC4;
   --on-dark-text-primary: #FFFFFFF5;
+  --on-dark-text-primary-brightness: #FFFFF6FF;
   --on-dark-text-secondary-hover: #FFFFFFFF;
   --on-dark-text-secondary-active: #FFFFFFAB;
   --on-dark-text-secondary: #FFFFFF8F;
@@ -78,6 +80,7 @@ export const stylesSalute__light = ([
   --on-light-text-primary-hover: #08080893;
   --on-light-text-primary-active: #080808C4;
   --on-light-text-primary: #080808F5;
+  --on-light-text-primary-brightness: #171717FF;
   --on-light-text-secondary-hover: #080808FF;
   --on-light-text-secondary-active: #080808AB;
   --on-light-text-secondary: #0808088F;
@@ -114,6 +117,7 @@ export const stylesSalute__light = ([
   --inverse-text-primary-hover: #FFFFFF93;
   --inverse-text-primary-active: #FFFFFFC4;
   --inverse-text-primary: #FFFFFFF5;
+  --inverse-text-primary-brightness: #FFFFF6FF;
   --inverse-text-secondary-hover: #FFFFFFFF;
   --inverse-text-secondary-active: #FFFFFFAB;
   --inverse-text-secondary: #FFFFFF8F;
@@ -126,6 +130,7 @@ export const stylesSalute__light = ([
   --surface-solid-primary-hover: #FAFAFAFF;
   --surface-solid-primary-active: #F0F0F0FF;
   --surface-solid-primary: #F5F5F5;
+  --surface-solid-primary-brightness: #F6F6F6FF;
   --surface-solid-secondary-hover: #F7F7F7FF;
   --surface-solid-secondary-active: #E8E8E8FF;
   --surface-solid-secondary: #ECECEC;
@@ -135,6 +140,7 @@ export const stylesSalute__light = ([
   --surface-solid-card-hover: #FFFFFFFF;
   --surface-solid-card-active: #FFFFFFFF;
   --surface-solid-card: #FFFFFFFF;
+  --surface-solid-card-brightness: #FFFFFFFF;
   --surface-solid-default-hover: #262626FF;
   --surface-solid-default-active: #030303FF;
   --surface-solid-default: #080808;
@@ -150,6 +156,7 @@ export const stylesSalute__light = ([
   --surface-transparent-card-hover: #FFFFFFFF;
   --surface-transparent-card-active: #FFFFFFFF;
   --surface-transparent-card: #FFFFFFFF;
+  --surface-transparent-card-brightness: #FFFFFFFF;
   --surface-clear-hover: #00000000;
   --surface-clear-active: #00000000;
   --surface-clear: #00000000;
@@ -188,6 +195,7 @@ export const stylesSalute__light = ([
   --on-dark-surface-solid-primary-hover: #363636FF;
   --on-dark-surface-solid-primary-active: #0D0D0DFF;
   --on-dark-surface-solid-primary: #171717;
+  --on-dark-surface-solid-primary-brightness: #252525FF;
   --on-dark-surface-solid-secondary-hover: #3B3B3BFF;
   --on-dark-surface-solid-secondary-active: #1C1C1CFF;
   --on-dark-surface-solid-secondary: #262626;
@@ -197,6 +205,7 @@ export const stylesSalute__light = ([
   --on-dark-surface-solid-card-hover: #363636FF;
   --on-dark-surface-solid-card-active: #0D0D0DFF;
   --on-dark-surface-solid-card: #171717;
+  --on-dark-surface-solid-card-brightness: #252525FF;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #FFFFFFFF;
   --on-dark-surface-solid-default: #FFFFFFFF;
@@ -212,6 +221,7 @@ export const stylesSalute__light = ([
   --on-dark-surface-transparent-card-hover: #FFFFFF05;
   --on-dark-surface-transparent-card-active: #FFFFFF1A;
   --on-dark-surface-transparent-card: #FFFFFF0F;
+  --on-dark-surface-transparent-card-brightness: #FFFFFFFF;
   --on-dark-surface-positive-hover: #1EB83AFF;
   --on-dark-surface-positive-active: #178C2CFF;
   --on-dark-surface-positive: #1A9E32;
@@ -239,6 +249,7 @@ export const stylesSalute__light = ([
   --on-light-surface-solid-primary-hover: #FAFAFAFF;
   --on-light-surface-solid-primary-active: #F0F0F0FF;
   --on-light-surface-solid-primary: #F5F5F5;
+  --on-light-surface-solid-primary-brightness: #F6F6F6FF;
   --on-light-surface-solid-secondary-hover: #F7F7F7FF;
   --on-light-surface-solid-secondary-active: #E8E8E8FF;
   --on-light-surface-solid-secondary: #ECECEC;
@@ -248,6 +259,7 @@ export const stylesSalute__light = ([
   --on-light-surface-solid-card-hover: #FFFFFFFF;
   --on-light-surface-solid-card-active: #FFFFFFFF;
   --on-light-surface-solid-card: #FFFFFFFF;
+  --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-default-hover: #262626FF;
   --on-light-surface-solid-default-active: #030303FF;
   --on-light-surface-solid-default: #080808;
@@ -266,6 +278,7 @@ export const stylesSalute__light = ([
   --on-light-surface-transparent-card-hover: #FFFFFFFF;
   --on-light-surface-transparent-card-active: #FFFFFFFF;
   --on-light-surface-transparent-card: #FFFFFFFF;
+  --on-light-surface-transparent-card-brightness: #FFFFFFFF;
   --on-light-surface-positive-hover: #1EB83AFF;
   --on-light-surface-positive-active: #178C2CFF;
   --on-light-surface-positive: #1A9E32;
@@ -291,6 +304,7 @@ export const stylesSalute__light = ([
   --on-light-surface-accent-main-active: #178C2CFF;
   --on-light-surface-accent-main: #1A9E32;
   --background-primary: #F2F2F2FF;
+  --background-primary-brightness: #F3F3F3FF;
   --background-secondary: #FFFFFFFF;
   --on-dark-overlay-soft: #0000008F;
   --on-dark-overlay-hard: #000000EB;
