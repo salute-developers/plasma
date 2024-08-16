@@ -60,6 +60,8 @@ import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
+import { CustomTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/TabItem/TabItem.types';
+import { CustomTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/Tabs/Tabs.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
@@ -1739,30 +1741,44 @@ true: PolymorphicClassName;
 pilled: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLElement>>;
+}> & ButtonHTMLAttributes<HTMLButtonElement> & AsProps<any> & CustomTabItemProps & RefAttributes<HTMLDivElement>>;
 
 export { TabItemProps }
 
 export { TabItemRefs }
 
 // @public
-export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLDivElement> & {
-    clip?: "scroll" | "showAll" | undefined;
-    disabled?: boolean | undefined;
-    stretch?: boolean | undefined;
-    pilled?: boolean | undefined;
-    size?: string | undefined;
-    view?: string | undefined;
-    index?: number | undefined;
-    outsideScroll?: boolean | {
-        left?: string | undefined;
-        right?: string | undefined;
-    } | undefined;
-} & RefAttributes<HTMLDivElement>>;
+export const Tabs: FunctionComponent<PropsType<    {
+view: {
+clear: PolymorphicClassName;
+filled: PolymorphicClassName;
+divider: PolymorphicClassName;
+};
+size: {
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
+h5: PolymorphicClassName;
+h4: PolymorphicClassName;
+h3: PolymorphicClassName;
+h2: PolymorphicClassName;
+h1: PolymorphicClassName;
+};
+stretch: {
+true: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+pilled: {
+true: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & AsProps<any> & CustomTabsProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsContext }
 
-// @public @deprecated (undocumented)
+// @public
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }

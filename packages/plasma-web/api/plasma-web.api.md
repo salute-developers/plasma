@@ -99,6 +99,8 @@ import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomComboboxProps } from '@salutejs/plasma-new-hope/types/components/Combobox/Combobox.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
+import { CustomTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/TabItem/TabItem.types';
+import { CustomTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/Tabs/Tabs.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
@@ -2230,42 +2232,18 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 export { syntheticFocus }
 
 // @public
-export const TabItem: ForwardRefExoticComponent<AsProps<any> & ButtonHTMLAttributes<HTMLButtonElement> & {
-    isActive?: boolean | undefined;
-    selected?: boolean | undefined;
-    disabled?: boolean | undefined;
-    pilled?: boolean | undefined;
-    animated?: boolean | undefined;
-    contentLeft?: ReactNode;
-    contentRight?: ReactNode;
-    onIndexChange?: ((index: number) => void) | undefined;
-    itemIndex?: number | undefined;
-    size?: string | undefined;
-    view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+export const TabItem: ForwardRefExoticComponent<ButtonHTMLAttributes<HTMLButtonElement> & AsProps_2<any> & CustomTabItemProps & RefAttributes<HTMLDivElement>>;
 
 export { TabItemProps }
 
 export { TabItemRefs }
 
 // @public
-export const Tabs: ForwardRefExoticComponent<AsProps_2<any> & HTMLAttributes<HTMLDivElement> & {
-    clip?: "scroll" | "showAll" | undefined;
-    disabled?: boolean | undefined;
-    stretch?: boolean | undefined;
-    pilled?: boolean | undefined;
-    size?: string | undefined;
-    view?: string | undefined;
-    index?: number | undefined;
-    outsideScroll?: boolean | {
-        left?: string | undefined;
-        right?: string | undefined;
-    } | undefined;
-} & RefAttributes<HTMLDivElement>>;
+export const Tabs: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & AsProps_2<any> & CustomTabsProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsContext }
 
-// @public @deprecated (undocumented)
+// @public
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }
