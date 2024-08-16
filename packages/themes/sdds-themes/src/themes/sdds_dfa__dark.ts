@@ -32,6 +32,7 @@ export const sdds_dfa__dark = ([
   --text-info-minor-hover: #94D4FFFF;
   --text-info-minor-active: #B3E0FFFF;
   --text-primary: #F5F5F5F5;
+  --text-primary-brightness: #F6F6F6FF;
   --text-secondary: #F5F5F58F;
   --text-tertiary: #F5F5F547;
   --text-paragraph: #F5F5F5CC;
@@ -68,6 +69,7 @@ export const sdds_dfa__dark = ([
   --on-dark-text-info-minor-hover: #94D4FFFF;
   --on-dark-text-info-minor-active: #B3E0FFFF;
   --on-dark-text-primary: #F5F5F5F5;
+  --on-dark-text-primary-brightness: #F6F6F6FF;
   --on-dark-text-secondary: #F5F5F58F;
   --on-dark-text-tertiary: #F5F5F547;
   --on-dark-text-paragraph: #F5F5F5CC;
@@ -104,6 +106,7 @@ export const sdds_dfa__dark = ([
   --on-light-text-info-minor-hover: #174B6EFF;
   --on-light-text-info-minor-active: #113A55FF;
   --on-light-text-primary: #171717F5;
+  --on-light-text-primary-brightness: #252525FF;
   --on-light-text-secondary: #1717178F;
   --on-light-text-tertiary: #17171747;
   --on-light-text-paragraph: #171717CC;
@@ -140,6 +143,7 @@ export const sdds_dfa__dark = ([
   --inverse-text-info-minor-hover: #174B6EFF;
   --inverse-text-info-minor-active: #113A55FF;
   --inverse-text-primary: #171717F5;
+  --inverse-text-primary-brightness: #252525FF;
   --inverse-text-secondary: #1717178F;
   --inverse-text-tertiary: #17171747;
   --inverse-text-paragraph: #171717CC;
@@ -201,7 +205,9 @@ export const sdds_dfa__dark = ([
   --surface-transparent-info-active: #118CDF38;
   --surface-clear: #FFFFFF00;
   --surface-solid-card: #262626;
+  --surface-solid-card-brightness: #333333FF;
   --surface-solid-primary: #171717;
+  --surface-solid-primary-brightness: #252525FF;
   --surface-solid-secondary: #262626;
   --surface-solid-tertiary: #363636;
   --surface-solid-default: #F9F9F9;
@@ -210,6 +216,7 @@ export const sdds_dfa__dark = ([
   --surface-warning: #FF7024;
   --surface-negative: #FF3D51;
   --surface-transparent-card: #FFFFFF1F;
+  --surface-transparent-card-brightness: #FFFFFFFF;
   --surface-transparent-primary: #FFFFFF0F;
   --surface-transparent-secondary: #FFFFFF1F;
   --surface-transparent-tertiary: #FFFFFF33;
@@ -271,15 +278,18 @@ export const sdds_dfa__dark = ([
   --on-dark-surface-transparent-info-active: #118CDF38;
   --on-dark-surface-clear: #FFFFFF00;
   --on-dark-surface-solid-primary: #171717;
+  --on-dark-surface-solid-primary-brightness: #252525FF;
   --on-dark-surface-solid-secondary: #262626;
   --on-dark-surface-solid-tertiary: #363636;
   --on-dark-surface-solid-card: #262626;
+  --on-dark-surface-solid-card-brightness: #333333FF;
   --on-dark-surface-solid-default: #F9F9F9;
   --on-dark-surface-accent: #00AC7B;
   --on-dark-surface-positive: #24B23E;
   --on-dark-surface-warning: #FF7024;
   --on-dark-surface-negative: #FF3D51;
   --on-dark-surface-transparent-card: #FFFFFF1F;
+  --on-dark-surface-transparent-card-brightness: #FFFFFFFF;
   --on-dark-surface-transparent-primary: #FFFFFF0F;
   --on-dark-surface-transparent-secondary: #FFFFFF1F;
   --on-dark-surface-transparent-tertiary: #FFFFFF33;
@@ -340,9 +350,11 @@ export const sdds_dfa__dark = ([
   --on-light-surface-transparent-info-hover: #118CDF66;
   --on-light-surface-transparent-info-active: #118CDF38;
   --on-light-surface-solid-primary: #F5F5F5;
+  --on-light-surface-solid-primary-brightness: #F6F6F6FF;
   --on-light-surface-solid-secondary: #DDDDDD;
   --on-light-surface-solid-tertiary: #C7C7C7;
   --on-light-surface-solid-card: #FFFFFFFF;
+  --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-default: #080808;
   --on-light-surface-clear: #FFFFFF00;
   --on-light-surface-accent: #05996F;
@@ -350,6 +362,7 @@ export const sdds_dfa__dark = ([
   --on-light-surface-warning: #FA5F05;
   --on-light-surface-negative: #FF293E;
   --on-light-surface-transparent-card: #FFFFFFFF;
+  --on-light-surface-transparent-card-brightness: #FFFFFFFF;
   --on-light-surface-transparent-primary: #08080805;
   --on-light-surface-transparent-secondary: #0808080F;
   --on-light-surface-transparent-tertiary: #0808081F;
@@ -410,9 +423,11 @@ export const sdds_dfa__dark = ([
   --inverse-surface-transparent-info-hover: #118CDF66;
   --inverse-surface-transparent-info-active: #118CDF38;
   --inverse-surface-solid-primary: #F5F5F5;
+  --inverse-surface-solid-primary-brightness: #F6F6F6FF;
   --inverse-surface-solid-secondary: #DDDDDD;
   --inverse-surface-solid-tertiary: #C7C7C7;
   --inverse-surface-solid-card: #FFFFFFFF;
+  --inverse-surface-solid-card-brightness: #FFFFFFFF;
   --inverse-surface-solid-default: #080808;
   --inverse-surface-clear: #FFFFFF00;
   --inverse-surface-accent: #05996F;
@@ -420,6 +435,7 @@ export const sdds_dfa__dark = ([
   --inverse-surface-warning: #FA5F05;
   --inverse-surface-negative: #FF293E;
   --inverse-surface-transparent-card: #FFFFFFFF;
+  --inverse-surface-transparent-card-brightness: #FFFFFFFF;
   --inverse-surface-transparent-primary: #08080805;
   --inverse-surface-transparent-secondary: #0808080F;
   --inverse-surface-transparent-tertiary: #0808081F;
@@ -428,9 +444,11 @@ export const sdds_dfa__dark = ([
   --inverse-surface-transparent-warning: #FA5F051F;
   --inverse-surface-transparent-negative: #FF293E1F;
   --background-primary: #171717;
+  --background-primary-brightness: #252525FF;
   --dark-background-primary: #171717;
   --light-background-primary: #F5F5F5;
   --inverse-background-primary: #F5F5F5;
+  --inverse-background-primary-brightness: #F6F6F6FF;
   --overlay-soft: #0808088F;
   --overlay-hard: #080808F5;
   --overlay-blur: #08080833;

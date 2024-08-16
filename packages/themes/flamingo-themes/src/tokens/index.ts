@@ -4,6 +4,9 @@
 export const textPrimary = 'var(--text-primary)';
 
 /** Основной цвет текста */
+export const textPrimaryBrightness = 'var(--text-primary-brightness)';
+
+/** Основной цвет текста */
 export const textPrimaryHover = 'var(--text-primary-hover)';
 
 /** Основной цвет текста */
@@ -128,6 +131,9 @@ export const textInfoMinorActive = 'var(--text-info-minor-active)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimary = 'var(--on-dark-text-primary)';
+
+/** Основной цвет текста на темном фоне */
+export const onDarkTextPrimaryBrightness = 'var(--on-dark-text-primary-brightness)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover)';
@@ -256,6 +262,9 @@ export const onDarkTextInfoMinorActive = 'var(--on-dark-text-info-minor-active)'
 export const onLightTextPrimary = 'var(--on-light-text-primary)';
 
 /** Основной цвет текста на светлом фоне */
+export const onLightTextPrimaryBrightness = 'var(--on-light-text-primary-brightness)';
+
+/** Основной цвет текста на светлом фоне */
 export const onLightTextPrimaryHover = 'var(--on-light-text-primary-hover)';
 
 /** Основной цвет текста на светлом фоне */
@@ -380,6 +389,9 @@ export const onLightTextInfoMinorActive = 'var(--on-light-text-info-minor-active
 
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary)';
+
+/** Инвертированный основной цвет текста */
+export const inverseTextPrimaryBrightness = 'var(--inverse-text-primary-brightness)';
 
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover)';
@@ -508,6 +520,9 @@ export const inverseTextInfoMinorActive = 'var(--inverse-text-info-minor-active)
 export const surfaceSolidPrimary = 'var(--surface-solid-primary)';
 
 /** Основной непрозрачный фон поверхности/контрола */
+export const surfaceSolidPrimaryBrightness = 'var(--surface-solid-primary-brightness)';
+
+/** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover)';
 
 /** Основной непрозрачный фон поверхности/контрола */
@@ -533,6 +548,9 @@ export const surfaceSolidTertiaryActive = 'var(--surface-solid-tertiary-active)'
 
 /** Основной фон для карточек */
 export const surfaceSolidCard = 'var(--surface-solid-card)';
+
+/** Основной фон для карточек */
+export const surfaceSolidCardBrightness = 'var(--surface-solid-card-brightness)';
 
 /** Основной фон для карточек */
 export const surfaceSolidCardHover = 'var(--surface-solid-card-hover)';
@@ -587,6 +605,9 @@ export const surfaceTransparentDeepActive = 'var(--surface-transparent-deep-acti
 
 /** Прозрачный фон для карточек */
 export const surfaceTransparentCard = 'var(--surface-transparent-card)';
+
+/** Прозрачный фон для карточек */
+export const surfaceTransparentCardBrightness = 'var(--surface-transparent-card-brightness)';
 
 /** Прозрачный фон для карточек */
 export const surfaceTransparentCardHover = 'var(--surface-transparent-card-hover)';
@@ -742,6 +763,9 @@ export const surfaceTransparentInfoActive = 'var(--surface-transparent-info-acti
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary)';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidPrimaryBrightness = 'var(--on-dark-surface-solid-primary-brightness)';
+
+/** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover)';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
@@ -767,6 +791,9 @@ export const onDarkSurfaceSolidTertiaryActive = 'var(--on-dark-surface-solid-ter
 
 /** Основной фон для карточек на темном фоне */
 export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card)';
+
+/** Основной фон для карточек на темном фоне */
+export const onDarkSurfaceSolidCardBrightness = 'var(--on-dark-surface-solid-card-brightness)';
 
 /** Основной фон для карточек на темном фоне */
 export const onDarkSurfaceSolidCardHover = 'var(--on-dark-surface-solid-card-hover)';
@@ -821,6 +848,9 @@ export const onDarkSurfaceTransparentDeepActive = 'var(--on-dark-surface-transpa
 
 /** Прозрачный фон для карточек на темном фоне */
 export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card)';
+
+/** Прозрачный фон для карточек на темном фоне */
+export const onDarkSurfaceTransparentCardBrightness = 'var(--on-dark-surface-transparent-card-brightness)';
 
 /** Прозрачный фон для карточек на темном фоне */
 export const onDarkSurfaceTransparentCardHover = 'var(--on-dark-surface-transparent-card-hover)';
@@ -976,6 +1006,9 @@ export const onDarkSurfaceTransparentInfoActive = 'var(--on-dark-surface-transpa
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidPrimaryBrightness = 'var(--on-light-surface-solid-primary-brightness)';
+
+/** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
@@ -1001,6 +1034,9 @@ export const onLightSurfaceSolidTertiaryActive = 'var(--on-light-surface-solid-t
 
 /** Основной фон для карточек на светлом фоне */
 export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card)';
+
+/** Основной фон для карточек на светлом фоне */
+export const onLightSurfaceSolidCardBrightness = 'var(--on-light-surface-solid-card-brightness)';
 
 /** Основной фон для карточек на светлом фоне */
 export const onLightSurfaceSolidCardHover = 'var(--on-light-surface-solid-card-hover)';
@@ -1055,6 +1091,9 @@ export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-trans
 
 /** Прозрачный фон для карточек на светлом фоне */
 export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card)';
+
+/** Прозрачный фон для карточек на светлом фоне */
+export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-transparent-card-brightness)';
 
 /** Прозрачный фон для карточек на светлом фоне */
 export const onLightSurfaceTransparentCardHover = 'var(--on-light-surface-transparent-card-hover)';
@@ -1210,6 +1249,9 @@ export const onLightSurfaceTransparentInfoActive = 'var(--on-light-surface-trans
 export const inverseSurfaceSolidPrimary = 'var(--inverse-surface-solid-primary)';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidPrimaryBrightness = 'var(--inverse-surface-solid-primary-brightness)';
+
+/** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover)';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
@@ -1235,6 +1277,9 @@ export const inverseSurfaceSolidTertiaryActive = 'var(--inverse-surface-solid-te
 
 /** Инвертированный основной фон для карточек */
 export const inverseSurfaceSolidCard = 'var(--inverse-surface-solid-card)';
+
+/** Инвертированный основной фон для карточек */
+export const inverseSurfaceSolidCardBrightness = 'var(--inverse-surface-solid-card-brightness)';
 
 /** Инвертированный основной фон для карточек */
 export const inverseSurfaceSolidCardHover = 'var(--inverse-surface-solid-card-hover)';
@@ -1289,6 +1334,9 @@ export const inverseSurfaceTransparentDeepActive = 'var(--inverse-surface-transp
 
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card)';
+
+/** Инвертированный прозрачный фон для карточек */
+export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-transparent-card-brightness)';
 
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCardHover = 'var(--inverse-surface-transparent-card-hover)';
@@ -1443,6 +1491,9 @@ export const inverseSurfaceTransparentInfoActive = 'var(--inverse-surface-transp
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary)';
 
+/** Основной фон */
+export const backgroundPrimaryBrightness = 'var(--background-primary-brightness)';
+
 /** Основной фон на темном фоне */
 export const darkBackgroundPrimary = 'var(--dark-background-primary)';
 
@@ -1451,6 +1502,9 @@ export const lightBackgroundPrimary = 'var(--light-background-primary)';
 
 /** Инвертированный основной фон */
 export const inverseBackgroundPrimary = 'var(--inverse-background-primary)';
+
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimaryBrightness = 'var(--inverse-background-primary-brightness)';
 
 /** Цвет фона паранжи светлый */
 export const overlaySoft = 'var(--overlay-soft)';
