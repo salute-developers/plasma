@@ -55,9 +55,6 @@ jobs:
       - name: API Report
         run: npm run api:report
         
-      - name: Build "@auto-it" plugins
-        run: npm run auto-plugins:build
-      
       - name: Release Info
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
       
