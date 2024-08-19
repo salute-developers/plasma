@@ -13,7 +13,7 @@ type StorySelectProps = ComponentProps<typeof Select> & {
 };
 
 const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
-const size = ['xs', 's', 'm', 'l'];
+const size = ['s'];
 const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
@@ -81,7 +81,7 @@ const meta: Meta<StorySelectProps> = {
         labelPlacement: 'outer',
         placeholder: 'Placeholder',
         helperText: 'Helper text',
-        size: 'm',
+        size: 's',
         view: 'default',
         chipView: 'default',
         enableContentLeft: false,
@@ -835,7 +835,7 @@ export const Common: StoryObj<StorySelectProps> = {
         },
     },
     args: {
-        size: 'm',
+        size: 's',
     },
     render: (args) => <CommonStory {...args} />,
 };

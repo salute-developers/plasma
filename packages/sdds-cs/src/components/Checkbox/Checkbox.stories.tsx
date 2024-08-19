@@ -53,8 +53,8 @@ const propsToDisable = [
     'onBlur',
 ];
 
-const sizes = ['m', 's'];
-const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+const sizes = ['s'];
+const views = ['accent'];
 
 const englishDescription = (
     <div>
@@ -151,7 +151,7 @@ export const Default: Story = {
         description: 'Description',
         disabled: false,
         singleLine: false,
-        size: 'm',
+        size: 's',
         view: 'accent',
         focused: true,
     },
@@ -226,7 +226,7 @@ const StoryLive = (args) => {
 
 export const Live: Story = {
     args: {
-        size: 'm',
+        size: 's',
         view: 'accent',
         singleLine: false,
         focused: true,

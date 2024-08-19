@@ -9,8 +9,8 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const sizes = ['m', 's'];
-const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+const sizes = ['s'];
+const views = ['accent'];
 
 const meta: Meta<RadioboxProps> = {
     title: 'Controls/Radiobox',
@@ -92,7 +92,7 @@ export const Default: Story = {
         description: 'Description',
         disabled: false,
         singleLine: false,
-        size: 'm',
+        size: 's',
         view: 'accent',
     },
     render: (args) => <StoryDefault {...args} />,
@@ -129,7 +129,7 @@ const StoryLive = (props: RadioboxProps) => {
 
 export const Live: Story = {
     args: {
-        size: 'm',
+        size: 's',
         view: 'accent',
         singleLine: false,
         focused: true,

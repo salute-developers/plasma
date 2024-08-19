@@ -12,7 +12,7 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['s'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const labelPlacements = ['outer', 'inner'];
 
@@ -119,7 +119,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         id: 'example-text-field',
-        size: 'm',
+        size: 's',
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',

@@ -8,7 +8,7 @@ import { SegmentItem, SegmentGroup } from './Segment';
 import { SegmentProvider } from '.';
 
 const views = ['clear', 'filled'];
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['s'];
 const segmentItemViews = ['clear', 'default', 'secondary'];
 
 type CustomStorySegmentProps = {
@@ -93,11 +93,11 @@ const StoryDefault = ({ contentItemsNumber, selectionMode, view, segmentItemView
 export const Default: StoryObj<StorySegmentProps> = {
     args: {
         view: 'clear',
-        size: 'xs',
+        size: 's',
         segmentItemView: 'clear',
         selectionMode: 'single',
         contentItemsNumber: 11,
-        pilled: false,
+        pilled: true,
         filledBackground: false,
         disabled: false,
         stretch: false,
