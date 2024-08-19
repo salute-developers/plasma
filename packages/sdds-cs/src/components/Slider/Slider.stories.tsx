@@ -6,8 +6,8 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Slider } from './Slider';
 
-const sizes = ['l', 'm', 's'];
-const views = ['default', 'accent', 'gradient'];
+const sizes = ['s'];
+const views = ['default', 'accent'];
 const labelPlacements = ['outer', 'inner'];
 const rangeValuesPlacement = ['outer', 'inner'];
 
@@ -88,7 +88,7 @@ export const Default: StorySingle = {
     },
     args: {
         view: 'default',
-        size: 'm',
+        size: 's',
         min: 0,
         max: 100,
         disabled: false,
@@ -154,7 +154,7 @@ const StoryMultipleValues = (args: StoryProps) => {
 export const MultipleValues: StoryDouble = {
     args: {
         view: 'default',
-        size: 'm',
+        size: 's',
         min: 0,
         max: 100,
         disabled: false,

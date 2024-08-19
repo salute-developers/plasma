@@ -14,7 +14,7 @@ const onFocus = action('onFocus');
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['s'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
@@ -65,7 +65,7 @@ const StoryDefault = ({
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const iconSize = size === 'xs' ? 'xs' : 's';
+    const iconSize = 's';
 
     return (
         <DatePicker
@@ -105,7 +105,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         label: 'Лейбл',
         leftHelper: 'Подсказка к полю',
         placeholder: '30.05.2024',
-        size: 'l',
+        size: 's',
         view: 'default',
         labelPlacement: 'outer',
         defaultDate: new Date(2024, 5, 14),
@@ -163,7 +163,7 @@ const StoryRange = ({
     const [isOpen, setIsOpen] = useState(false);
     const [firstDate, setFirstDate] = useState<string | Date>('');
 
-    const iconSize = size === 'xs' ? 'xs' : 's';
+    const iconSize = 's';
     const showDividerIcon = dividerVariant === 'icon';
     const showDefaultTextBefore = dividerVariant === 'none';
 
@@ -238,7 +238,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         secondTextfieldTextBefore: '',
         firstTextfieldTextAfter: '',
         secondTextfieldTextAfter: '',
-        size: 'l',
+        size: 's',
         view: 'default',
         isDoubleCalendar: false,
         dividerVariant: 'dash',

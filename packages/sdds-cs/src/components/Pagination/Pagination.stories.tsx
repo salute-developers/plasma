@@ -11,7 +11,7 @@ const meta: Meta<typeof Pagination> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
-            options: ['xs', 's', 'm', 'l'],
+            options: ['s'],
             control: {
                 type: 'select',
             },
@@ -57,7 +57,7 @@ export const Default: Story = {
         type: 'default',
         view: 'clear',
         viewCurrentPage: 'secondary',
-        size: 'xs',
+        size: 's',
         hasQuickJump: true,
         hasPerPage: true,
         pilled: false,
@@ -123,7 +123,7 @@ export const Content: Story = {
         type: 'default',
         view: 'clear',
         viewCurrentPage: 'secondary',
-        size: 'xs',
+        size: 's',
         hasQuickJump: true,
         hasPerPage: true,
         pilled: false,

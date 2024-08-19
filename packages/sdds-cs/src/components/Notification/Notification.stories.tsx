@@ -57,13 +57,7 @@ const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIc
             title={title}
             icon={showLeftIcon ? <IconDisclosureRight /> : ''}
             iconPlacement={iconPlacement}
-            actions={
-                <Button
-                    text="text"
-                    size={layout === 'horizontal' ? 'xs' : size}
-                    stretch={layout === 'vertical' && size === 'xs'}
-                />
-            }
+            actions={<Button text="text" size="s" stretch={layout === 'vertical' && size === 'xs'} />}
             size={size}
             layout={layout}
             {...rest}
@@ -88,7 +82,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
             },
         },
         layout: {
-            options: ['vertical', 'horizontal'],
+            options: ['vertical'],
             control: {
                 type: 'select',
             },
@@ -130,7 +124,7 @@ const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
 export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
     argTypes: {
         layout: {
-            options: ['vertical', 'horizontal'],
+            options: ['vertical'],
             control: {
                 type: 'select',
             },
@@ -162,7 +156,7 @@ const StoryWithModal = ({ timeout }: StoryWithModalProps) => {
                 <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
                 <Modal opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <div>Hello!</div>
-                    <Button view="default" text="Add notification" onClick={handleClick} />
+                    <Button view="default" size="s" text="Add notification" onClick={handleClick} />
                 </Modal>
             </PopupProvider>
         </NotificationsProvider>

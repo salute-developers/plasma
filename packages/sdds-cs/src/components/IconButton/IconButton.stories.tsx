@@ -7,8 +7,8 @@ import { IconButton } from './IconButton';
 
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
-const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
-const sizes = ['l', 'm', 's', 'xs'];
+const views = ['accent', 'secondary', 'clear'];
+const sizes = ['s'];
 const pins = [
     'square-square',
     'square-clear',
@@ -68,8 +68,8 @@ const getSizeForIcon = (size) => {
 export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     args: {
         children: <IconClose />,
-        view: 'default',
-        size: 'm',
+        view: 'accent',
+        size: 's',
         disabled: false,
         focused: true,
         isLoading: false,
