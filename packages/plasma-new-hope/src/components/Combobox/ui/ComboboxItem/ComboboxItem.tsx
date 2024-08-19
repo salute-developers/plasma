@@ -39,7 +39,7 @@ export const comboboxItemRoot = (Root: RootProps<HTMLDivElement, ComboboxItemPro
             const uniqId = safeUseId();
             const innerId = id || uniqId;
 
-            const withComboboxItemIsSelected = checked || isSelected ? classes.comboboxItemIsDisabled : undefined;
+            const withComboboxItemIsSelected = checked || isSelected ? classes.comboboxItemIsSelected : undefined;
             const withComboboxItemIsDisabled = disabled ? classes.comboboxItemIsDisabled : undefined;
 
             const handleOnClick = useCallback(
