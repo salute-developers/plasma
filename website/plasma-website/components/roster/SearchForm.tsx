@@ -66,7 +66,7 @@ const StyledHiddenEl = styled.span`
 const StyledSearchInput = styled.input<{ width: number | 'auto' }>`
     padding: 0;
 
-    width: ${({ width }) => `${width !== 'auto' ? `${width}px` : width}`};
+    width: ${({ width }) => `${width !== 'auto' ? `calc(${width}px + 1rem)` : width}`};
     max-width: calc(100% - var(--page-padding-y) - var(--page-padding-y) * 0.5);
     height: 7.125rem;
 
@@ -102,8 +102,6 @@ const StyleIconClose = styled.span`
 
     width: var(--icon-size);
     height: var(--icon-size);
-
-    margin-left: 1rem;
 
     ${StyledActionIcon};
 
