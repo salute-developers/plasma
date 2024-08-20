@@ -15,3 +15,5 @@ perftest
 s3_build
 temp
 **/.DS_Store
+playwright-results
+.cache/

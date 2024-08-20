@@ -47,7 +47,8 @@
     "prepare": "test ! -n \"$CI\" && husky install || echo skip husky",
     "bootstrap": "npx lerna bootstrap",
     "bootstrap:since": "npm run bootstrap -- --since=$(git merge-base --fork-point origin/dev)",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "run-ct:b2c": "playwright test -c packages/plasma-b2c/playwright-b2c-ct.config.ts"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",
@@ -63,6 +64,8 @@
     "@cypress/react": "5.9.2",
     "@cypress/webpack-dev-server": "1.4.0",
     "@cypress/webpack-preprocessor": "5.9.1",
+    "@playwright/experimental-ct-react": "1.46.1",
+    "@playwright/test": "1.46.1",
     "@salutejs/eslint-config": "1.2.0",
     "@salutejs/eslint-config-base": "0.4.0",
     "@salutejs/perftool": "0.29.0",
