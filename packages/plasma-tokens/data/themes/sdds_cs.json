@@ -3494,9 +3494,7 @@
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "overlay": {
             "default": {
@@ -6274,7 +6272,7 @@
                 "textPrimaryBrightness": {
                     "value": "#30363A",
                     "comment": "Основной цвет текста на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textSecondary": {
                     "value": "[general.coolGray.500]",
@@ -8858,9 +8856,7 @@
                     "comment": "Инвертированный основной фон",
                     "enabled": true
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "overlay": {
             "default": {

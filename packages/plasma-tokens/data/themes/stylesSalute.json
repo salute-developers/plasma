@@ -5191,9 +5191,7 @@
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "overlay": {
             "default": {
@@ -12250,9 +12248,7 @@
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "overlay": {
             "default": {

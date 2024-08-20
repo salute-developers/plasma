@@ -55,10 +55,7 @@ describe('plasma-web: Combobox', () => {
 
         cy.get('body').focus();
 
-        cy.matchImageSnapshot({
-            failureThreshold: 0.0001,
-            failureThresholdType: 'percent',
-        });
+        cy.matchImageSnapshot();
     });
 
     it('multiple', () => {
@@ -103,10 +100,7 @@ describe('plasma-web: Combobox', () => {
 
         cy.get('body').focus();
 
-        cy.matchImageSnapshot({
-            failureThreshold: 0.0001,
-            failureThresholdType: 'percent',
-        });
+        cy.matchImageSnapshot();
     });
 
     it('sizes', () => {
@@ -148,10 +142,7 @@ describe('plasma-web: Combobox', () => {
 
         cy.get('body').focus();
 
-        cy.matchImageSnapshot({
-            failureThreshold: 0.0001,
-            failureThresholdType: 'percent',
-        });
+        cy.matchImageSnapshot();
     });
 
     it('views', () => {
@@ -189,10 +180,7 @@ describe('plasma-web: Combobox', () => {
 
         cy.get('body').focus();
 
-        cy.matchImageSnapshot({
-            failureThreshold: 0.0001,
-            failureThresholdType: 'percent',
-        });
+        cy.matchImageSnapshot();
     });
 });
 

@@ -5563,9 +5563,7 @@
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "banners": {
             "default": {
@@ -11141,9 +11139,7 @@
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "banner": {
             "default": {
