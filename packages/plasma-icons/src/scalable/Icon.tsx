@@ -255,6 +255,8 @@ export const iconSectionsSet = {
         swapVert: 'SwapVert',
         swapVertCircFill: 'SwapVertCircFill',
         swapVertCircOutline: 'SwapVertCircOutline',
+        doubleDisclosureDown: 'DoubleDisclosureDown',
+        doubleDisclosureUp: 'DoubleDisclosureUp',
     },
     Data: {
         chartDistributionFill: 'ChartDistributionFill',
