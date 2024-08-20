@@ -195,14 +195,14 @@
                     "comment": "Цвет ошибки"
                 },
                 "textInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#A3C3FFFF",
                     "comment": "Цвет информации",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#337AFFFF",
                     "comment": "Цвет информации",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPositiveMinorHover": {
                     "value": "#0F9527FF",
@@ -235,14 +235,14 @@
                     "enabled": false
                 },
                 "textInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Минорный цвет информации",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
                     "comment": "Минорный цвет информации",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textAccent": {
                     "value": "[general.electricBlue.400]",
@@ -270,11 +270,6 @@
                     "comment": "Минорный цвет успеха",
                     "enabled": true
                 },
-                "textInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": "Цвет информации",
-                    "enabled": true
-                },
                 "textWarningMinor": {
                     "value": "[general.orange.800]",
                     "comment": "Минорный цвет предупреждения",
@@ -285,8 +280,13 @@
                     "comment": "Минорный цвет ошибки",
                     "enabled": true
                 },
+                "textInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": "Цвет информации",
+                    "enabled": true
+                },
                 "textInfoMinor": {
-                    "value": "[general.blue.800]",
+                    "value": "[general.electricBlue.800]",
                     "comment": "Минорный цвет информации",
                     "enabled": true
                 }
@@ -474,12 +474,12 @@
                     "comment": "Цвет ошибки на темном фоне"
                 },
                 "textInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#A3C3FFFF",
                     "comment": "Цвет информации на темном фоне",
                     "enabled": true
                 },
                 "textInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#337AFFFF",
                     "comment": "Цвет информации на темном фоне",
                     "enabled": true
                 },
@@ -514,12 +514,12 @@
                     "enabled": true
                 },
                 "textInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Минорный цвет информации на темном фоне",
                     "enabled": true
                 },
                 "textInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
                     "comment": "Минорный цвет информации на темном фоне",
                     "enabled": true
                 },
@@ -540,11 +540,6 @@
                     "value": "[general.red.400]",
                     "comment": "Цвет ошибки на темном фоне"
                 },
-                "textInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": "Цвет информации на темном фоне",
-                    "enabled": true
-                },
                 "textPositiveMinor": {
                     "value": "[general.green.800]",
                     "comment": "Минорный цвет успеха на темном фоне",
@@ -560,8 +555,13 @@
                     "comment": "Минорный цвет ошибки на темном фоне",
                     "enabled": true
                 },
+                "textInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": "Цвет информации на темном фоне",
+                    "enabled": true
+                },
                 "textInfoMinor": {
-                    "value": "[general.blue.800]",
+                    "value": "[general.electricBlue.800]",
                     "comment": "Минорный цвет информации на темном фоне",
                     "enabled": true
                 }
@@ -749,12 +749,12 @@
                     "comment": "Цвет ошибки на светлом фоне"
                 },
                 "textInfoHover": {
-                    "value": "#34A7F4FF",
+                    "value": "#79A7FBFF",
                     "comment": "Цвет информации на светлом фоне",
                     "enabled": true
                 },
                 "textInfoActive": {
-                    "value": "#096CAEFF",
+                    "value": "#0D5FF8FF",
                     "comment": "Цвет информации на светлом фоне",
                     "enabled": true
                 },
@@ -789,11 +789,11 @@
                     "enabled": true
                 },
                 "textInfoMinorHover": {
-                    "value": "#A3DAFFFF",
+                    "value": "#DCE8FEFF",
                     "comment": "Минорный цвет информации на светлом фоне"
                 },
                 "textInfoMinorActive": {
-                    "value": "#33ADFFFF",
+                    "value": "#6FA0FBFF",
                     "comment": "Минорный цвет информации на светлом фоне"
                 },
                 "textAccentMinor": {
@@ -813,11 +813,6 @@
                     "value": "[general.red.600]",
                     "comment": "Цвет ошибки на светлом фоне"
                 },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет информации на светлом фоне",
-                    "enabled": true
-                },
                 "textPositiveMinor": {
                     "value": "[general.green.300]",
                     "comment": "Минорный цвет успеха на светлом фоне",
@@ -833,8 +828,13 @@
                     "comment": "Минорный цвет ошибки на светлом фоне",
                     "enabled": true
                 },
+                "textInfo": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": "Цвет информации на светлом фоне",
+                    "enabled": true
+                },
                 "textInfoMinor": {
-                    "value": "[general.blue.300]",
+                    "value": "[general.electricBlue.300]",
                     "comment": "Минорный цвет информации на светлом фоне"
                 }
             },
@@ -1313,14 +1313,12 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#3F82FD3D",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола",
-                    "enabled": true
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#3F82FD0F",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола",
-                    "enabled": true
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentGradientHover": {
                     "value": "#FFFFFFFF",
@@ -1464,12 +1462,12 @@
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": "Цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": "Цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
@@ -1504,12 +1502,12 @@
                     "enabled": true
                 },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": "Минорный цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#071F4BFF",
                     "comment": "Минорный цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
@@ -1568,18 +1566,9 @@
                     "comment": "Прозрачный фон поверхности/контрола по умолчанию",
                     "enabled": false
                 },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(63,129,253,0.12)",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола"
-                },
                 "surfaceAccentMinor": {
                     "value": "[general.electricBlue.900]",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола",
-                    "enabled": true
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
                 "surfacePositiveMinor": {
@@ -1595,19 +1584,6 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.900]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка",
-                    "enabled": true
-                },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": "Минорный цвет фона поверхности/контрола информация",
-                    "enabled": true
-                },
-                "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": "Прозрачный цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
                 "surfaceTransparentPositive": {
@@ -1632,6 +1608,31 @@
                         "backgroundColor": "rgba(255, 41, 62, 0.20)"
                     },
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
+                    "enabled": true
+                },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": "Цвет фона поверхности/контрола информация",
+                    "enabled": true
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": "Минорный цвет фона поверхности/контрола информация",
+                    "enabled": true
+                },
+                "surfaceTransparentAccent": {
+                    "value": {
+                        "origin": "rgba(63, 129, 253, 0.20)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
+                    },
+                    "comment": "Прозрачный акцентный фон поверхности/контрола"
+                },
+                "surfaceTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(63, 129, 253, 0.20)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
+                    },
+                    "comment": "Прозрачный цвет фона поверхности/контрола информация",
                     "enabled": true
                 }
             },
@@ -1972,12 +1973,12 @@
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": "Цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": "Цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
                 },
@@ -2012,12 +2013,12 @@
                     "enabled": true
                 },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#071F4BFF",
                     "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
                 },
@@ -2089,11 +2090,6 @@
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне",
                     "enabled": true
                 },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация на темном фоне",
-                    "enabled": true
-                },
                 "surfacePositiveMinor": {
                     "value": "[general.green.900]",
                     "comment": "Минорный цвет фона поверхности/контрола успех на темном фоне",
@@ -2107,11 +2103,6 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.900]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": true
-                },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
                 },
                 "surfaceTransparentPositive": {
@@ -2138,10 +2129,20 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
                     "enabled": true
                 },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": "Цвет фона поверхности/контрола информация на темном фоне",
+                    "enabled": true
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне",
+                    "enabled": true
+                },
                 "surfaceTransparentInfo": {
                     "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
+                        "origin": "rgba(63, 129, 253, 0.20)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
                     },
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
@@ -2472,12 +2473,12 @@
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceInfoHover": {
-                    "value": "#0C8ADFFF",
+                    "value": "#4886F9FF",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": true
                 },
                 "surfaceInfoActive": {
-                    "value": "#0A78C2FF",
+                    "value": "#206CF8FF",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": true
                 },
@@ -2512,12 +2513,12 @@
                     "enabled": true
                 },
                 "surfaceInfoMinorHover": {
-                    "value": "#DBF1FFFF",
+                    "value": "#EBF1FFFF",
                     "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": true
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#D6E4FFFF",
                     "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": true
                 },
@@ -2601,11 +2602,6 @@
                     "value": "[general.red.600]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
-                "surfaceInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет фона поверхности/контрола информация на светлом фоне",
-                    "enabled": true
-                },
                 "surfacePositiveMinor": {
                     "value": "[general.green.150]",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
@@ -2619,11 +2615,6 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.150]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": true
-                },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": true
                 },
                 "surfaceTransparentPositive": {
@@ -2650,10 +2641,20 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
                     "enabled": true
                 },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": "Цвет фона поверхности/контрола информация на светлом фоне",
+                    "enabled": true
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне",
+                    "enabled": true
+                },
                 "surfaceTransparentInfo": {
                     "value": {
-                        "origin": "rgba(11, 126, 203, 0.12)",
-                        "backgroundColor": "rgba(11, 126, 203, 0.12)"
+                        "origin": "rgba(42, 114, 248, 0.12)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.12)"
                     },
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": true
@@ -3583,12 +3584,12 @@
                     "enabled": true
                 },
                 "outlineInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#A3C3FFFF",
                     "comment": "Цвет обводки информация",
                     "enabled": true
                 },
                 "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#337AFFFF",
                     "comment": "Цвет обводки информация",
                     "enabled": true
                 },
@@ -3623,12 +3624,12 @@
                     "enabled": true
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Минорный цвет обводки информация",
                     "enabled": true
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
                     "comment": "Минорный цвет обводки информация",
                     "enabled": true
                 },
@@ -3764,11 +3765,6 @@
                     "comment": "Цвет обводки ошибка",
                     "enabled": true
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": "Цвет обводки информация",
-                    "enabled": true
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.800]",
                     "comment": "Минорный цвет обводки успех",
@@ -3782,11 +3778,6 @@
                 "outlineNegativeMinor": {
                     "value": "[general.red.800]",
                     "comment": "Минорный цвет обводки ошибка",
-                    "enabled": true
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": "Минорный цвет обводки информация",
                     "enabled": true
                 },
                 "outlineTransparentPositive": {
@@ -3813,10 +3804,20 @@
                     "comment": "Прозрачный цвет обводки предупреждение",
                     "enabled": true
                 },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": "Цвет обводки информация",
+                    "enabled": true
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": "Минорный цвет обводки информация",
+                    "enabled": true
+                },
                 "outlineTransparentInfo": {
                     "value": {
-                        "origin": "rgba(25, 154, 240, 0.28)",
-                        "backgroundColor": "rgba(25, 154, 240, 0.28)"
+                        "origin": "rgba(82, 142, 255, 0.28)",
+                        "backgroundColor": "rgba(82, 142, 255, 0.28)"
                     },
                     "comment": "Прозрачный цвет обводки информация",
                     "enabled": true
@@ -4079,12 +4080,12 @@
                     "enabled": true
                 },
                 "outlineInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#A3C3FFFF",
                     "comment": "Цвет обводки информация на темном фоне",
                     "enabled": true
                 },
                 "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#337AFFFF",
                     "comment": "Цвет обводки информация на темном фоне",
                     "enabled": true
                 },
@@ -4119,12 +4120,12 @@
                     "enabled": true
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Минорный цвет обводки информация на темном фоне",
                     "enabled": true
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
                     "comment": "Минорный цвет обводки информация на темном фоне",
                     "enabled": true
                 },
@@ -4252,11 +4253,6 @@
                     "comment": "Цвет обводки ошибка на темном фоне",
                     "enabled": true
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": "Цвет обводки информация на темном фоне",
-                    "enabled": true
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.800]",
                     "comment": "Минорный цвет обводки успех на темном фоне",
@@ -4270,11 +4266,6 @@
                 "outlineNegativeMinor": {
                     "value": "[general.red.800]",
                     "comment": "Минорный цвет обводки ошибка на темном фоне",
-                    "enabled": true
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": "Минорный цвет обводки информация на темном фоне",
                     "enabled": true
                 },
                 "outlineTransparentPositive": {
@@ -4301,10 +4292,20 @@
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне",
                     "enabled": true
                 },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": "Цвет обводки информация на темном фоне",
+                    "enabled": true
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": "Минорный цвет обводки информация на темном фоне",
+                    "enabled": true
+                },
                 "outlineTransparentInfo": {
                     "value": {
-                        "origin": "rgba(25, 154, 240, 0.28)",
-                        "backgroundColor": "rgba(25, 154, 240, 0.28)"
+                        "origin": "rgba(82, 142, 255, 0.28)",
+                        "backgroundColor": "rgba(82, 142, 255, 0.28)"
                     },
                     "comment": "Прозрачный цвет обводки информация на темном фоне",
                     "enabled": true
@@ -4567,12 +4568,12 @@
                     "enabled": true
                 },
                 "outlineInfoHover": {
-                    "value": "#34A7F4FF",
+                    "value": "#79A7FBFF",
                     "comment": "Цвет обводки информация на светлом фоне",
                     "enabled": true
                 },
                 "outlineInfoActive": {
-                    "value": "#096CAEFF",
+                    "value": "#0D5FF8FF",
                     "comment": "Цвет обводки информация на светлом фоне",
                     "enabled": true
                 },
@@ -4607,12 +4608,12 @@
                     "enabled": true
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#A3DAFFFF",
+                    "value": "#DCE8FEFF",
                     "comment": "Минорный цвет обводки информация на светлом фоне",
                     "enabled": true
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#33ADFFFF",
+                    "value": "#6FA0FBFF",
                     "comment": "Минорный цвет обводки информация на светлом фоне",
                     "enabled": true
                 },
@@ -4740,11 +4741,6 @@
                     "comment": "Цвет обводки ошибка на светлом фоне",
                     "enabled": true
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет обводки информация на светлом фоне",
-                    "enabled": true
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.300]",
                     "comment": "Минорный цвет обводки успех на светлом фоне",
@@ -4758,11 +4754,6 @@
                 "outlineNegativeMinor": {
                     "value": "[general.red.300]",
                     "comment": "Минорный цвет обводки ошибка на светлом фоне",
-                    "enabled": true
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": "Минорный цвет обводки информация на светлом фоне",
                     "enabled": true
                 },
                 "outlineTransparentPositive": {
@@ -4789,10 +4780,20 @@
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне",
                     "enabled": true
                 },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": "Цвет обводки информация на светлом фоне",
+                    "enabled": true
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": "Минорный цвет обводки информация на светлом фоне",
+                    "enabled": true
+                },
                 "outlineTransparentInfo": {
                     "value": {
-                        "origin": "rgba(11, 126, 203, 0.20)",
-                        "backgroundColor": "rgba(11, 126, 203, 0.20)"
+                        "origin": "rgba(42, 114, 248, 0.20)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.20)"
                     },
                     "comment": "Прозрачный цвет обводки информация на светлом фоне",
                     "enabled": true
