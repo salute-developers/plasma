@@ -128,7 +128,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
 
     const canDelete = defaultData && !defaultData['dark'][section]?.[subsection][name];
 
-    if (name.endsWith('Hover') || name.endsWith('Active') || name.endsWith('Brightness')) {
+    if (name.endsWith('Hover') || name.endsWith('Active')) {
         return null;
     }
 

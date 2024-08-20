@@ -1,82 +1,28 @@
 {
     "config": {
         "name": "default",
-        "accentColor": {
-            "light": "[general.green.600]",
-            "dark": "[general.green.500]"
-        },
-        "grayscale": {
-            "light": "gray",
-            "dark": "gray"
-        }
+        "accentColor": { "light": "[general.green.600]", "dark": "[general.green.500]" },
+        "grayscale": { "light": "gray", "dark": "gray" }
     },
     "dark": {
         "text": {
             "default": {
-                "textPrimary": {
-                    "value": "rgba(255, 255, 255, 0.96)",
-                    "comment": "Основной цвет текста"
-                },
-                "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
-                    "comment": "Основной цвет текста"
-                },
-                "textPrimaryHover": {
-                    "value": "#FFFFFF93",
-                    "comment": "Основной цвет текста"
-                },
-                "textPrimaryActive": {
-                    "value": "#FFFFFFC4",
-                    "comment": "Основной цвет текста"
-                },
-                "textSecondary": {
-                    "value": "rgba(255, 255, 255, 0.56)",
-                    "comment": "Вторичный цвет текста"
-                },
-                "textSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Вторичный цвет текста"
-                },
-                "textSecondaryActive": {
-                    "value": "#FFFFFFAB",
-                    "comment": "Вторичный цвет текста"
-                },
-                "textTertiary": {
-                    "value": "rgba(255, 255, 255, 0.28)",
-                    "comment": "Третичный цвет текста"
-                },
-                "textTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Третичный цвет текста"
-                },
-                "textTertiaryActive": {
-                    "value": "#FFFFFF56",
-                    "comment": "Третичный цвет текста"
-                },
-                "textParagraph": {
-                    "value": "rgba(255, 255, 255, 0.8)",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textParagraphHover": {
-                    "value": "#FFFFFF7A",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textParagraphActive": {
-                    "value": "#FFFFFFA3",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Акцентный цвет"
-                },
-                "textAccentHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Акцентный цвет"
-                },
-                "textAccentActive": {
-                    "value": "#15842AFF",
-                    "comment": "Акцентный цвет"
-                },
+                "textPrimary": { "value": "rgba(255, 255, 255, 0.96)", "comment": "Основной цвет текста" },
+                "textPrimaryBrightness": { "value": "#FFFFFF", "comment": "Основной цвет текста" },
+                "textPrimaryHover": { "value": "#FFFFFF93", "comment": "Основной цвет текста" },
+                "textPrimaryActive": { "value": "#FFFFFFC4", "comment": "Основной цвет текста" },
+                "textSecondary": { "value": "rgba(255, 255, 255, 0.56)", "comment": "Вторичный цвет текста" },
+                "textSecondaryHover": { "value": "#FFFFFFFF", "comment": "Вторичный цвет текста" },
+                "textSecondaryActive": { "value": "#FFFFFFAB", "comment": "Вторичный цвет текста" },
+                "textTertiary": { "value": "rgba(255, 255, 255, 0.28)", "comment": "Третичный цвет текста" },
+                "textTertiaryHover": { "value": "#FFFFFFFF", "comment": "Третичный цвет текста" },
+                "textTertiaryActive": { "value": "#FFFFFF56", "comment": "Третичный цвет текста" },
+                "textParagraph": { "value": "rgba(255, 255, 255, 0.8)", "comment": "Сплошной наборный текст" },
+                "textParagraphHover": { "value": "#FFFFFF7A", "comment": "Сплошной наборный текст" },
+                "textParagraphActive": { "value": "#FFFFFFA3", "comment": "Сплошной наборный текст" },
+                "textAccent": { "value": "[general.green.500]", "comment": "Акцентный цвет" },
+                "textAccentHover": { "value": "#1EB83AFF", "comment": "Акцентный цвет" },
+                "textAccentActive": { "value": "#15842AFF", "comment": "Акцентный цвет" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет с градиентом",
@@ -92,18 +38,9 @@
                     "comment": "Акцентный цвет с градиентом",
                     "enabled": false
                 },
-                "textAccentMinor": {
-                    "value": "[general.green.150]",
-                    "comment": "Акцентный минорный цвет"
-                },
-                "textAccentMinorHover": {
-                    "value": "#64F77FFF",
-                    "comment": "Акцентный минорный цвет"
-                },
-                "textAccentMinorActive": {
-                    "value": "#81F897FF",
-                    "comment": "Акцентный минорный цвет"
-                },
+                "textAccentMinor": { "value": "[general.green.150]", "comment": "Акцентный минорный цвет" },
+                "textAccentMinorHover": { "value": "#64F77FFF", "comment": "Акцентный минорный цвет" },
+                "textAccentMinorActive": { "value": "#81F897FF", "comment": "Акцентный минорный цвет" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный минорный цвет с градиентом",
@@ -119,26 +56,10 @@
                     "comment": "Акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
-                "textPromoGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет с градиентом",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Промо цвет", "enabled": false },
+                "textPromoHover": { "value": "#CCCCCCFF", "comment": "Промо цвет", "enabled": false },
+                "textPromoActive": { "value": "#E6E6E6FF", "comment": "Промо цвет", "enabled": false },
+                "textPromoGradient": { "value": "#FFFFFF", "comment": "Промо цвет с градиентом", "enabled": false },
                 "textPromoGradientHover": {
                     "value": "#CCCCCCFF",
                     "comment": "Промо цвет с градиентом",
@@ -149,21 +70,9 @@
                     "comment": "Промо цвет с градиентом",
                     "enabled": false
                 },
-                "textPromoMinor": {
-                    "value": "#FFFFFF",
-                    "comment": "Минорный промо цвет",
-                    "enabled": false
-                },
-                "textPromoMinorHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Минорный промо цвет",
-                    "enabled": false
-                },
-                "textPromoMinorActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Минорный промо цвет",
-                    "enabled": false
-                },
+                "textPromoMinor": { "value": "#FFFFFF", "comment": "Минорный промо цвет", "enabled": false },
+                "textPromoMinorHover": { "value": "#CCCCCCFF", "comment": "Минорный промо цвет", "enabled": false },
+                "textPromoMinorActive": { "value": "#E6E6E6FF", "comment": "Минорный промо цвет", "enabled": false },
                 "textPromoMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Минорный промо цвет с градиентом",
@@ -179,168 +88,60 @@
                     "comment": "Минорный промо цвет с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Цвет успеха"
-                },
-                "textPositiveHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Цвет успеха"
-                },
-                "textPositiveActive": {
-                    "value": "#15842AFF",
-                    "comment": "Цвет успеха"
-                },
-                "textWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": "Цвет предупреждения"
-                },
-                "textWarningHover": {
-                    "value": "#FB7223FF",
-                    "comment": "Цвет предупреждения"
-                },
-                "textWarningActive": {
-                    "value": "#DC5304FF",
-                    "comment": "Цвет предупреждения"
-                },
-                "textNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет ошибки"
-                },
-                "textNegativeHover": {
-                    "value": "#FF475AFF",
-                    "comment": "Цвет ошибки"
-                },
-                "textNegativeActive": {
-                    "value": "#FF0A23FF",
-                    "comment": "Цвет ошибки"
-                },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет информации"
-                },
-                "textInfoHover": {
-                    "value": "#50B1F2FF",
-                    "comment": "Цвет информации"
-                },
-                "textInfoActive": {
-                    "value": "#0F7BC2FF",
-                    "comment": "Цвет информации"
-                },
-                "textPositiveMinor": {
-                    "value": "[general.green.150]",
-                    "comment": "Минорный цвет успеха"
-                },
-                "textPositiveMinorHover": {
-                    "value": "#64F77FFF",
-                    "comment": "Минорный цвет успеха"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#81F897FF",
-                    "comment": "Минорный цвет успеха"
-                },
-                "textWarningMinor": {
-                    "value": "[general.orange.150]",
-                    "comment": "Минорный цвет предупреждения"
-                },
-                "textWarningMinorHover": {
-                    "value": "#FDBC96FF",
-                    "comment": "Минорный цвет предупреждения"
-                },
-                "textWarningMinorActive": {
-                    "value": "#FDCFB4FF",
-                    "comment": "Минорный цвет предупреждения"
-                },
-                "textNegativeMinor": {
-                    "value": "[general.red.150]",
-                    "comment": "Минорный цвет ошибки"
-                },
-                "textNegativeMinorHover": {
-                    "value": "#FFA3ACFF",
-                    "comment": "Минорный цвет ошибки"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#FFC2C8FF",
-                    "comment": "Минорный цвет ошибки"
-                },
-                "textInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": "Минорный цвет информации"
-                },
-                "textInfoMinorHover": {
-                    "value": "#94D4FFFF",
-                    "comment": "Минорный цвет информации"
-                },
-                "textInfoMinorActive": {
-                    "value": "#B3E0FFFF",
-                    "comment": "Минорный цвет информации"
-                }
+                "textPositive": { "value": "[general.green.500]", "comment": "Цвет успеха" },
+                "textPositiveHover": { "value": "#1EB83AFF", "comment": "Цвет успеха" },
+                "textPositiveActive": { "value": "#15842AFF", "comment": "Цвет успеха" },
+                "textWarning": { "value": "[general.orange.500]", "comment": "Цвет предупреждения" },
+                "textWarningHover": { "value": "#FB7223FF", "comment": "Цвет предупреждения" },
+                "textWarningActive": { "value": "#DC5304FF", "comment": "Цвет предупреждения" },
+                "textNegative": { "value": "[general.red.500]", "comment": "Цвет ошибки" },
+                "textNegativeHover": { "value": "#FF475AFF", "comment": "Цвет ошибки" },
+                "textNegativeActive": { "value": "#FF0A23FF", "comment": "Цвет ошибки" },
+                "textInfo": { "value": "[general.blue.500]", "comment": "Цвет информации" },
+                "textInfoHover": { "value": "#50B1F2FF", "comment": "Цвет информации" },
+                "textInfoActive": { "value": "#0F7BC2FF", "comment": "Цвет информации" },
+                "textPositiveMinor": { "value": "[general.green.150]", "comment": "Минорный цвет успеха" },
+                "textPositiveMinorHover": { "value": "#64F77FFF", "comment": "Минорный цвет успеха" },
+                "textPositiveMinorActive": { "value": "#81F897FF", "comment": "Минорный цвет успеха" },
+                "textWarningMinor": { "value": "[general.orange.150]", "comment": "Минорный цвет предупреждения" },
+                "textWarningMinorHover": { "value": "#FDBC96FF", "comment": "Минорный цвет предупреждения" },
+                "textWarningMinorActive": { "value": "#FDCFB4FF", "comment": "Минорный цвет предупреждения" },
+                "textNegativeMinor": { "value": "[general.red.150]", "comment": "Минорный цвет ошибки" },
+                "textNegativeMinorHover": { "value": "#FFA3ACFF", "comment": "Минорный цвет ошибки" },
+                "textNegativeMinorActive": { "value": "#FFC2C8FF", "comment": "Минорный цвет ошибки" },
+                "textInfoMinor": { "value": "[general.blue.150]", "comment": "Минорный цвет информации" },
+                "textInfoMinorHover": { "value": "#94D4FFFF", "comment": "Минорный цвет информации" },
+                "textInfoMinorActive": { "value": "#B3E0FFFF", "comment": "Минорный цвет информации" }
             },
             "onDark": {
                 "textPrimary": {
                     "value": "rgba(255, 255, 255, 0.96)",
                     "comment": "Основной цвет текста на темном фоне"
                 },
-                "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
-                    "comment": "Основной цвет текста на темном фоне"
-                },
-                "textPrimaryHover": {
-                    "value": "#FFFFFF93",
-                    "comment": "Основной цвет текста на темном фоне"
-                },
-                "textPrimaryActive": {
-                    "value": "#FFFFFFC4",
-                    "comment": "Основной цвет текста на темном фоне"
-                },
+                "textPrimaryBrightness": { "value": "#FFFFFF", "comment": "Основной цвет текста на темном фоне" },
+                "textPrimaryHover": { "value": "#FFFFFF93", "comment": "Основной цвет текста на темном фоне" },
+                "textPrimaryActive": { "value": "#FFFFFFC4", "comment": "Основной цвет текста на темном фоне" },
                 "textSecondary": {
                     "value": "rgba(255, 255, 255, 0.56)",
                     "comment": "Вторичный цвет текста на темном фоне"
                 },
-                "textSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Вторичный цвет текста на темном фоне"
-                },
-                "textSecondaryActive": {
-                    "value": "#FFFFFFAB",
-                    "comment": "Вторичный цвет текста на темном фоне"
-                },
+                "textSecondaryHover": { "value": "#FFFFFFFF", "comment": "Вторичный цвет текста на темном фоне" },
+                "textSecondaryActive": { "value": "#FFFFFFAB", "comment": "Вторичный цвет текста на темном фоне" },
                 "textTertiary": {
                     "value": "rgba(255, 255, 255, 0.28)",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
-                "textTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Третичный цвет текста на темном фоне"
-                },
-                "textTertiaryActive": {
-                    "value": "#FFFFFF56",
-                    "comment": "Третичный цвет текста на темном фоне"
-                },
+                "textTertiaryHover": { "value": "#FFFFFFFF", "comment": "Третичный цвет текста на темном фоне" },
+                "textTertiaryActive": { "value": "#FFFFFF56", "comment": "Третичный цвет текста на темном фоне" },
                 "textParagraph": {
                     "value": "rgba(255, 255, 255, 0.8)",
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
-                "textParagraphHover": {
-                    "value": "#FFFFFF7A",
-                    "comment": "Сплошной наборный текст на темном фоне"
-                },
-                "textParagraphActive": {
-                    "value": "#FFFFFFA3",
-                    "comment": "Сплошной наборный текст на темном фоне"
-                },
-                "textAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccentHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccentActive": {
-                    "value": "#15842AFF",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
+                "textParagraphHover": { "value": "#FFFFFF7A", "comment": "Сплошной наборный текст на темном фоне" },
+                "textParagraphActive": { "value": "#FFFFFFA3", "comment": "Сплошной наборный текст на темном фоне" },
+                "textAccent": { "value": "[general.green.500]", "comment": "Акцентный цвет на темном фоне" },
+                "textAccentHover": { "value": "#1EB83AFF", "comment": "Акцентный цвет на темном фоне" },
+                "textAccentActive": { "value": "#15842AFF", "comment": "Акцентный цвет на темном фоне" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет с градиентом на темном фоне",
@@ -360,14 +161,8 @@
                     "value": "[general.green.150]",
                     "comment": "Акцентный минорный цвет на темном фоне"
                 },
-                "textAccentMinorHover": {
-                    "value": "#64F77FFF",
-                    "comment": "Акцентный минорный цвет на темном фоне"
-                },
-                "textAccentMinorActive": {
-                    "value": "#81F897FF",
-                    "comment": "Акцентный минорный цвет на темном фоне"
-                },
+                "textAccentMinorHover": { "value": "#64F77FFF", "comment": "Акцентный минорный цвет на темном фоне" },
+                "textAccentMinorActive": { "value": "#81F897FF", "comment": "Акцентный минорный цвет на темном фоне" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный минорный цвет с градиентом на темном фоне",
@@ -383,21 +178,9 @@
                     "comment": "Акцентный минорный цвет с градиентом на темном фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Промо цвет на темном фоне", "enabled": false },
+                "textPromoHover": { "value": "#CCCCCCFF", "comment": "Промо цвет на темном фоне", "enabled": false },
+                "textPromoActive": { "value": "#E6E6E6FF", "comment": "Промо цвет на темном фоне", "enabled": false },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Промо цвет на темном фоне с градиентом",
@@ -443,66 +226,24 @@
                     "comment": "Минорный промо цвет на темном фоне с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Цвет успеха на темном фоне"
-                },
-                "textPositiveHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Цвет успеха на темном фоне"
-                },
-                "textPositiveActive": {
-                    "value": "#15842AFF",
-                    "comment": "Цвет успеха на темном фоне"
-                },
-                "textWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": "Цвет предупреждения на темном фоне"
-                },
-                "textWarningHover": {
-                    "value": "#FB7223FF",
-                    "comment": "Цвет предупреждения на темном фоне"
-                },
-                "textWarningActive": {
-                    "value": "#DC5304FF",
-                    "comment": "Цвет предупреждения на темном фоне"
-                },
-                "textNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет ошибки на темном фоне"
-                },
-                "textNegativeHover": {
-                    "value": "#FF475AFF",
-                    "comment": "Цвет ошибки на темном фоне"
-                },
-                "textNegativeActive": {
-                    "value": "#FF0A23FF",
-                    "comment": "Цвет ошибки на темном фоне"
-                },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет информации на темном фоне"
-                },
-                "textInfoHover": {
-                    "value": "#50B1F2FF",
-                    "comment": "Цвет информации на темном фоне"
-                },
-                "textInfoActive": {
-                    "value": "#0F7BC2FF",
-                    "comment": "Цвет информации на темном фоне"
-                },
+                "textPositive": { "value": "[general.green.500]", "comment": "Цвет успеха на темном фоне" },
+                "textPositiveHover": { "value": "#1EB83AFF", "comment": "Цвет успеха на темном фоне" },
+                "textPositiveActive": { "value": "#15842AFF", "comment": "Цвет успеха на темном фоне" },
+                "textWarning": { "value": "[general.orange.500]", "comment": "Цвет предупреждения на темном фоне" },
+                "textWarningHover": { "value": "#FB7223FF", "comment": "Цвет предупреждения на темном фоне" },
+                "textWarningActive": { "value": "#DC5304FF", "comment": "Цвет предупреждения на темном фоне" },
+                "textNegative": { "value": "[general.red.500]", "comment": "Цвет ошибки на темном фоне" },
+                "textNegativeHover": { "value": "#FF475AFF", "comment": "Цвет ошибки на темном фоне" },
+                "textNegativeActive": { "value": "#FF0A23FF", "comment": "Цвет ошибки на темном фоне" },
+                "textInfo": { "value": "[general.blue.500]", "comment": "Цвет информации на темном фоне" },
+                "textInfoHover": { "value": "#50B1F2FF", "comment": "Цвет информации на темном фоне" },
+                "textInfoActive": { "value": "#0F7BC2FF", "comment": "Цвет информации на темном фоне" },
                 "textPositiveMinor": {
                     "value": "[general.green.150]",
                     "comment": "Минорный цвет успеха на темном фоне"
                 },
-                "textPositiveMinorHover": {
-                    "value": "#64F77FFF",
-                    "comment": "Минорный цвет успеха на темном фоне"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#81F897FF",
-                    "comment": "Минорный цвет успеха на темном фоне"
-                },
+                "textPositiveMinorHover": { "value": "#64F77FFF", "comment": "Минорный цвет успеха на темном фоне" },
+                "textPositiveMinorActive": { "value": "#81F897FF", "comment": "Минорный цвет успеха на темном фоне" },
                 "textWarningMinor": {
                     "value": "[general.orange.150]",
                     "comment": "Минорный цвет предупреждения на темном фоне"
@@ -515,96 +256,45 @@
                     "value": "#FDCFB4FF",
                     "comment": "Минорный цвет предупреждения на темном фоне"
                 },
-                "textNegativeMinor": {
-                    "value": "[general.red.150]",
-                    "comment": "Минорный цвет ошибки на темном фоне"
-                },
-                "textNegativeMinorHover": {
-                    "value": "#FFA3ACFF",
-                    "comment": "Минорный цвет ошибки на темном фоне"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#FFC2C8FF",
-                    "comment": "Минорный цвет ошибки на темном фоне"
-                },
+                "textNegativeMinor": { "value": "[general.red.150]", "comment": "Минорный цвет ошибки на темном фоне" },
+                "textNegativeMinorHover": { "value": "#FFA3ACFF", "comment": "Минорный цвет ошибки на темном фоне" },
+                "textNegativeMinorActive": { "value": "#FFC2C8FF", "comment": "Минорный цвет ошибки на темном фоне" },
                 "textInfoMinor": {
                     "value": "[general.blue.150]",
                     "comment": "Минорный цвет информации на темном фоне"
                 },
-                "textInfoMinorHover": {
-                    "value": "#94D4FFFF",
-                    "comment": "Минорный цвет информации на темном фоне"
-                },
-                "textInfoMinorActive": {
-                    "value": "#B3E0FFFF",
-                    "comment": "Минорный цвет информации на темном фоне"
-                }
+                "textInfoMinorHover": { "value": "#94D4FFFF", "comment": "Минорный цвет информации на темном фоне" },
+                "textInfoMinorActive": { "value": "#B3E0FFFF", "comment": "Минорный цвет информации на темном фоне" }
             },
             "onLight": {
                 "textPrimary": {
                     "value": "[general.gray.1000][-0.0400]",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
-                "textPrimaryBrightness": {
-                    "value": "#1717F6",
-                    "comment": "Основной цвет текста на светлом фоне"
-                },
-                "textPrimaryHover": {
-                    "value": "#08080893",
-                    "comment": "Основной цвет текста на светлом фоне"
-                },
-                "textPrimaryActive": {
-                    "value": "#080808C4",
-                    "comment": "Основной цвет текста на светлом фоне"
-                },
+                "textPrimaryBrightness": { "value": "#1717F6", "comment": "Основной цвет текста на светлом фоне" },
+                "textPrimaryHover": { "value": "#08080893", "comment": "Основной цвет текста на светлом фоне" },
+                "textPrimaryActive": { "value": "#080808C4", "comment": "Основной цвет текста на светлом фоне" },
                 "textSecondary": {
                     "value": "[general.gray.1000][-0.440]",
                     "comment": "Вторичный цвет текста на светлом фоне"
                 },
-                "textSecondaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Вторичный цвет текста на светлом фоне"
-                },
-                "textSecondaryActive": {
-                    "value": "#080808AB",
-                    "comment": "Вторичный цвет текста на светлом фоне"
-                },
+                "textSecondaryHover": { "value": "#080808FF", "comment": "Вторичный цвет текста на светлом фоне" },
+                "textSecondaryActive": { "value": "#080808AB", "comment": "Вторичный цвет текста на светлом фоне" },
                 "textTertiary": {
                     "value": "[general.gray.1000][-0.720]",
                     "comment": "Третичный цвет текста на светлом фоне"
                 },
-                "textTertiaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Третичный цвет текста на светлом фоне"
-                },
-                "textTertiaryActive": {
-                    "value": "#08080856",
-                    "comment": "Третичный цвет текста на светлом фоне"
-                },
+                "textTertiaryHover": { "value": "#080808FF", "comment": "Третичный цвет текста на светлом фоне" },
+                "textTertiaryActive": { "value": "#08080856", "comment": "Третичный цвет текста на светлом фоне" },
                 "textParagraph": {
                     "value": "[general.gray.1000][-0.200]",
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
-                "textParagraphHover": {
-                    "value": "#0808087A",
-                    "comment": "Сплошной наборный текст на светлом фоне"
-                },
-                "textParagraphActive": {
-                    "value": "#080808A3",
-                    "comment": "Сплошной наборный текст на светлом фоне"
-                },
-                "textAccent": {
-                    "value": "[general.green.600]",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
-                "textAccentHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
-                "textAccentActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
+                "textParagraphHover": { "value": "#0808087A", "comment": "Сплошной наборный текст на светлом фоне" },
+                "textParagraphActive": { "value": "#080808A3", "comment": "Сплошной наборный текст на светлом фоне" },
+                "textAccent": { "value": "[general.green.600]", "comment": "Акцентный цвет на светлом фоне" },
+                "textAccentHover": { "value": "#13AA2CFF", "comment": "Акцентный цвет на светлом фоне" },
+                "textAccentActive": { "value": "#0D731EFF", "comment": "Акцентный цвет на светлом фоне" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет с градиентом на светлом фоне",
@@ -624,14 +314,8 @@
                     "value": "[general.green.900]",
                     "comment": "Акцентный минорный цвет на светлом фоне"
                 },
-                "textAccentMinorHover": {
-                    "value": "#155B22FF",
-                    "comment": "Акцентный минорный цвет на светлом фоне"
-                },
-                "textAccentMinorActive": {
-                    "value": "#104219FF",
-                    "comment": "Акцентный минорный цвет на светлом фоне"
-                },
+                "textAccentMinorHover": { "value": "#155B22FF", "comment": "Акцентный минорный цвет на светлом фоне" },
+                "textAccentMinorActive": { "value": "#104219FF", "comment": "Акцентный минорный цвет на светлом фоне" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный минорный цвет с градиентом на светлом фоне",
@@ -647,21 +331,9 @@
                     "comment": "Акцентный минорный цвет с градиентом на светлом фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Промо цвет на светлом фоне", "enabled": false },
+                "textPromoHover": { "value": "#CCCCCCFF", "comment": "Промо цвет на светлом фоне", "enabled": false },
+                "textPromoActive": { "value": "#E6E6E6FF", "comment": "Промо цвет на светлом фоне", "enabled": false },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Промо цвет на светлом фоне с градиентом",
@@ -707,66 +379,24 @@
                     "comment": "Минорный промо цвет на светлом фоне с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
-                "textPositiveHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
-                "textPositiveActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
-                "textWarning": {
-                    "value": "[general.orange.600]",
-                    "comment": "Цвет предупреждения на светлом фоне"
-                },
-                "textWarningHover": {
-                    "value": "#FD650DFF",
-                    "comment": "Цвет предупреждения на светлом фоне"
-                },
-                "textWarningActive": {
-                    "value": "#CA4B02FF",
-                    "comment": "Цвет предупреждения на светлом фоне"
-                },
-                "textNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет ошибки на светлом фоне"
-                },
-                "textNegativeHover": {
-                    "value": "#F5384BFF",
-                    "comment": "Цвет ошибки на светлом фоне"
-                },
-                "textNegativeActive": {
-                    "value": "#E40C22FF",
-                    "comment": "Цвет ошибки на светлом фоне"
-                },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет информации на светлом фоне"
-                },
-                "textInfoHover": {
-                    "value": "#34A7F4FF",
-                    "comment": "Цвет информации на светлом фоне"
-                },
-                "textInfoActive": {
-                    "value": "#096CAEFF",
-                    "comment": "Цвет информации на светлом фоне"
-                },
+                "textPositive": { "value": "[general.green.600]", "comment": "Цвет успеха на светлом фоне" },
+                "textPositiveHover": { "value": "#13AA2CFF", "comment": "Цвет успеха на светлом фоне" },
+                "textPositiveActive": { "value": "#0D731EFF", "comment": "Цвет успеха на светлом фоне" },
+                "textWarning": { "value": "[general.orange.600]", "comment": "Цвет предупреждения на светлом фоне" },
+                "textWarningHover": { "value": "#FD650DFF", "comment": "Цвет предупреждения на светлом фоне" },
+                "textWarningActive": { "value": "#CA4B02FF", "comment": "Цвет предупреждения на светлом фоне" },
+                "textNegative": { "value": "[general.red.600]", "comment": "Цвет ошибки на светлом фоне" },
+                "textNegativeHover": { "value": "#F5384BFF", "comment": "Цвет ошибки на светлом фоне" },
+                "textNegativeActive": { "value": "#E40C22FF", "comment": "Цвет ошибки на светлом фоне" },
+                "textInfo": { "value": "[general.blue.600]", "comment": "Цвет информации на светлом фоне" },
+                "textInfoHover": { "value": "#34A7F4FF", "comment": "Цвет информации на светлом фоне" },
+                "textInfoActive": { "value": "#096CAEFF", "comment": "Цвет информации на светлом фоне" },
                 "textPositiveMinor": {
                     "value": "[general.green.900]",
                     "comment": "Минорный цвет успеха на светлом фоне"
                 },
-                "textPositiveMinorHover": {
-                    "value": "#155B22FF",
-                    "comment": "Минорный цвет успеха на светлом фоне"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#104219FF",
-                    "comment": "Минорный цвет успеха на светлом фоне"
-                },
+                "textPositiveMinorHover": { "value": "#155B22FF", "comment": "Минорный цвет успеха на светлом фоне" },
+                "textPositiveMinorActive": { "value": "#104219FF", "comment": "Минорный цвет успеха на светлом фоне" },
                 "textWarningMinor": {
                     "value": "[general.orange.900]",
                     "comment": "Минорный цвет предупреждения на светлом фоне"
@@ -783,92 +413,44 @@
                     "value": "[general.red.900]",
                     "comment": "Минорный цвет ошибки на светлом фоне"
                 },
-                "textNegativeMinorHover": {
-                    "value": "#7E1621FF",
-                    "comment": "Минорный цвет ошибки на светлом фоне"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#64121AFF",
-                    "comment": "Минорный цвет ошибки на светлом фоне"
-                },
+                "textNegativeMinorHover": { "value": "#7E1621FF", "comment": "Минорный цвет ошибки на светлом фоне" },
+                "textNegativeMinorActive": { "value": "#64121AFF", "comment": "Минорный цвет ошибки на светлом фоне" },
                 "textInfoMinor": {
                     "value": "[general.blue.900]",
                     "comment": "Минорный цвет информации на светлом фоне"
                 },
-                "textInfoMinorHover": {
-                    "value": "#174B6EFF",
-                    "comment": "Минорный цвет информации на светлом фоне"
-                },
-                "textInfoMinorActive": {
-                    "value": "#113A55FF",
-                    "comment": "Минорный цвет информации на светлом фоне"
-                }
+                "textInfoMinorHover": { "value": "#174B6EFF", "comment": "Минорный цвет информации на светлом фоне" },
+                "textInfoMinorActive": { "value": "#113A55FF", "comment": "Минорный цвет информации на светлом фоне" }
             },
             "inverse": {
                 "textPrimary": {
                     "value": "[general.gray.1000][-0.0400]",
                     "comment": "Инвертированный основной цвет текста"
                 },
-                "textPrimaryBrightness": {
-                    "value": "#1717F6",
-                    "comment": "Инвертированный основной цвет текста"
-                },
-                "textPrimaryHover": {
-                    "value": "#08080893",
-                    "comment": "Инвертированный основной цвет текста"
-                },
-                "textPrimaryActive": {
-                    "value": "#080808C4",
-                    "comment": "Инвертированный основной цвет текста"
-                },
+                "textPrimaryBrightness": { "value": "#1717F6", "comment": "Инвертированный основной цвет текста" },
+                "textPrimaryHover": { "value": "#08080893", "comment": "Инвертированный основной цвет текста" },
+                "textPrimaryActive": { "value": "#080808C4", "comment": "Инвертированный основной цвет текста" },
                 "textSecondary": {
                     "value": "[general.gray.1000][-0.440]",
                     "comment": "Инвертированный вторичный цвет текста"
                 },
-                "textSecondaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Инвертированный вторичный цвет текста"
-                },
-                "textSecondaryActive": {
-                    "value": "#080808AB",
-                    "comment": "Инвертированный вторичный цвет текста"
-                },
+                "textSecondaryHover": { "value": "#080808FF", "comment": "Инвертированный вторичный цвет текста" },
+                "textSecondaryActive": { "value": "#080808AB", "comment": "Инвертированный вторичный цвет текста" },
                 "textTertiary": {
                     "value": "[general.gray.1000][-0.720]",
                     "comment": "Инвертированный третичный цвет текста"
                 },
-                "textTertiaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Инвертированный третичный цвет текста"
-                },
-                "textTertiaryActive": {
-                    "value": "#08080856",
-                    "comment": "Инвертированный третичный цвет текста"
-                },
+                "textTertiaryHover": { "value": "#080808FF", "comment": "Инвертированный третичный цвет текста" },
+                "textTertiaryActive": { "value": "#08080856", "comment": "Инвертированный третичный цвет текста" },
                 "textParagraph": {
                     "value": "[general.gray.1000][-0.200]",
                     "comment": "Инвертированный сплошной наборный текст"
                 },
-                "textParagraphHover": {
-                    "value": "#0808087A",
-                    "comment": "Инвертированный сплошной наборный текст"
-                },
-                "textParagraphActive": {
-                    "value": "#080808A3",
-                    "comment": "Инвертированный сплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "[general.green.600]",
-                    "comment": "Инвертированный акцентный цвет"
-                },
-                "textAccentHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Инвертированный акцентный цвет"
-                },
-                "textAccentActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Инвертированный акцентный цвет"
-                },
+                "textParagraphHover": { "value": "#0808087A", "comment": "Инвертированный сплошной наборный текст" },
+                "textParagraphActive": { "value": "#080808A3", "comment": "Инвертированный сплошной наборный текст" },
+                "textAccent": { "value": "[general.green.600]", "comment": "Инвертированный акцентный цвет" },
+                "textAccentHover": { "value": "#13AA2CFF", "comment": "Инвертированный акцентный цвет" },
+                "textAccentActive": { "value": "#0D731EFF", "comment": "Инвертированный акцентный цвет" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный акцентный цвет с градиентом",
@@ -888,14 +470,8 @@
                     "value": "[general.green.900]",
                     "comment": "Инвертированный минорный акцентный цвет"
                 },
-                "textAccentMinorHover": {
-                    "value": "#155B22FF",
-                    "comment": "Инвертированный минорный акцентный цвет"
-                },
-                "textAccentMinorActive": {
-                    "value": "#104219FF",
-                    "comment": "Инвертированный минорный акцентный цвет"
-                },
+                "textAccentMinorHover": { "value": "#155B22FF", "comment": "Инвертированный минорный акцентный цвет" },
+                "textAccentMinorActive": { "value": "#104219FF", "comment": "Инвертированный минорный акцентный цвет" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный акцентный минорный цвет с градиентом",
@@ -911,21 +487,9 @@
                     "comment": "Инвертированный акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Инвертированный промо цвет", "enabled": false },
+                "textPromoHover": { "value": "#CCCCCCFF", "comment": "Инвертированный промо цвет", "enabled": false },
+                "textPromoActive": { "value": "#E6E6E6FF", "comment": "Инвертированный промо цвет", "enabled": false },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный промо цвет с градиентом",
@@ -971,66 +535,24 @@
                     "comment": "Инвертированный минорный промо цвет с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Инвертированный цвет успеха"
-                },
-                "textPositiveHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Инвертированный цвет успеха"
-                },
-                "textPositiveActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Инвертированный цвет успеха"
-                },
-                "textWarning": {
-                    "value": "[general.orange.600]",
-                    "comment": "Инвертированный цвет предупреждения"
-                },
-                "textWarningHover": {
-                    "value": "#FD650DFF",
-                    "comment": "Инвертированный цвет предупреждения"
-                },
-                "textWarningActive": {
-                    "value": "#CA4B02FF",
-                    "comment": "Инвертированный цвет предупреждения"
-                },
-                "textNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Инвертированный цвет ошибки"
-                },
-                "textNegativeHover": {
-                    "value": "#F5384BFF",
-                    "comment": "Инвертированный цвет ошибки"
-                },
-                "textNegativeActive": {
-                    "value": "#E40C22FF",
-                    "comment": "Инвертированный цвет ошибки"
-                },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Инвертированный цвет информации"
-                },
-                "textInfoHover": {
-                    "value": "#34A7F4FF",
-                    "comment": "Инвертированный цвет информации"
-                },
-                "textInfoActive": {
-                    "value": "#096CAEFF",
-                    "comment": "Инвертированный цвет информации"
-                },
+                "textPositive": { "value": "[general.green.600]", "comment": "Инвертированный цвет успеха" },
+                "textPositiveHover": { "value": "#13AA2CFF", "comment": "Инвертированный цвет успеха" },
+                "textPositiveActive": { "value": "#0D731EFF", "comment": "Инвертированный цвет успеха" },
+                "textWarning": { "value": "[general.orange.600]", "comment": "Инвертированный цвет предупреждения" },
+                "textWarningHover": { "value": "#FD650DFF", "comment": "Инвертированный цвет предупреждения" },
+                "textWarningActive": { "value": "#CA4B02FF", "comment": "Инвертированный цвет предупреждения" },
+                "textNegative": { "value": "[general.red.600]", "comment": "Инвертированный цвет ошибки" },
+                "textNegativeHover": { "value": "#F5384BFF", "comment": "Инвертированный цвет ошибки" },
+                "textNegativeActive": { "value": "#E40C22FF", "comment": "Инвертированный цвет ошибки" },
+                "textInfo": { "value": "[general.blue.600]", "comment": "Инвертированный цвет информации" },
+                "textInfoHover": { "value": "#34A7F4FF", "comment": "Инвертированный цвет информации" },
+                "textInfoActive": { "value": "#096CAEFF", "comment": "Инвертированный цвет информации" },
                 "textPositiveMinor": {
                     "value": "[general.green.900]",
                     "comment": "Инвертированный минорный цвет успеха"
                 },
-                "textPositiveMinorHover": {
-                    "value": "#155B22FF",
-                    "comment": "Инвертированный минорный цвет успеха"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#104219FF",
-                    "comment": "Инвертированный минорный цвет успеха"
-                },
+                "textPositiveMinorHover": { "value": "#155B22FF", "comment": "Инвертированный минорный цвет успеха" },
+                "textPositiveMinorActive": { "value": "#104219FF", "comment": "Инвертированный минорный цвет успеха" },
                 "textWarningMinor": {
                     "value": "[general.orange.900]",
                     "comment": "Инвертированный минорный цвет предупреждения"
@@ -1047,26 +569,14 @@
                     "value": "[general.red.900]",
                     "comment": "Инвертированный минорный цвет ошибки"
                 },
-                "textNegativeMinorHover": {
-                    "value": "#7E1621FF",
-                    "comment": "Инвертированный минорный цвет ошибки"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#64121AFF",
-                    "comment": "Инвертированный минорный цвет ошибки"
-                },
+                "textNegativeMinorHover": { "value": "#7E1621FF", "comment": "Инвертированный минорный цвет ошибки" },
+                "textNegativeMinorActive": { "value": "#64121AFF", "comment": "Инвертированный минорный цвет ошибки" },
                 "textInfoMinor": {
                     "value": "[general.blue.900]",
                     "comment": "Инвертированный минорный цвет информации"
                 },
-                "textInfoMinorHover": {
-                    "value": "#174B6EFF",
-                    "comment": "Инвертированный минорный цвет информации"
-                },
-                "textInfoMinorActive": {
-                    "value": "#113A55FF",
-                    "comment": "Инвертированный минорный цвет информации"
-                }
+                "textInfoMinorHover": { "value": "#174B6EFF", "comment": "Инвертированный минорный цвет информации" },
+                "textInfoMinorActive": { "value": "#113A55FF", "comment": "Инвертированный минорный цвет информации" }
             }
         },
         "surface": {
@@ -1111,22 +621,10 @@
                     "value": "#303030FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
-                "surfaceSolidCard": {
-                    "value": "[general.gray.950]",
-                    "comment": "Основной фон для карточек"
-                },
-                "surfaceSolidCardBrightness": {
-                    "value": "#252525",
-                    "comment": "Основной фон для карточек"
-                },
-                "surfaceSolidCardHover": {
-                    "value": "#1C1C1CFF",
-                    "comment": "Основной фон для карточек"
-                },
-                "surfaceSolidCardActive": {
-                    "value": "#121212FF",
-                    "comment": "Основной фон для карточек"
-                },
+                "surfaceSolidCard": { "value": "[general.gray.950]", "comment": "Основной фон для карточек" },
+                "surfaceSolidCardBrightness": { "value": "#252525", "comment": "Основной фон для карточек" },
+                "surfaceSolidCardHover": { "value": "#1C1C1CFF", "comment": "Основной фон для карточек" },
+                "surfaceSolidCardActive": { "value": "#121212FF", "comment": "Основной фон для карточек" },
                 "surfaceSolidDefault": {
                     "value": "[general.gray.50]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
@@ -1191,42 +689,15 @@
                     "value": "[general.gray.50][-0.940]",
                     "comment": "Прозрачный фон для карточек"
                 },
-                "surfaceTransparentCardBrightness": {
-                    "value": "#F9F91D",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceTransparentCardHover": {
-                    "value": "#FAFAFA1F",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceTransparentCardActive": {
-                    "value": "#FAFAFA0A",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки"
-                },
-                "surfaceClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки"
-                },
-                "surfaceClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки"
-                },
-                "surfaceAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentHover": {
-                    "value": "#1DAF37FF",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentActive": {
-                    "value": "#18952FFF",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
+                "surfaceTransparentCardBrightness": { "value": "#F9F91D", "comment": "Прозрачный фон для карточек" },
+                "surfaceTransparentCardHover": { "value": "#FAFAFA1F", "comment": "Прозрачный фон для карточек" },
+                "surfaceTransparentCardActive": { "value": "#FAFAFA0A", "comment": "Прозрачный фон для карточек" },
+                "surfaceClear": { "value": "#FFFFFF00", "comment": "Фон поверхности/контрола без заливки" },
+                "surfaceClearHover": { "value": "#FFFFFF00", "comment": "Фон поверхности/контрола без заливки" },
+                "surfaceClearActive": { "value": "#FFFFFF00", "comment": "Фон поверхности/контрола без заливки" },
+                "surfaceAccent": { "value": "[general.green.500]", "comment": "Акцентный фон поверхности/контрола" },
+                "surfaceAccentHover": { "value": "#1DAF37FF", "comment": "Акцентный фон поверхности/контрола" },
+                "surfaceAccentActive": { "value": "#18952FFF", "comment": "Акцентный фон поверхности/контрола" },
                 "surfaceAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
@@ -1296,11 +767,7 @@
                     "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом",
                     "enabled": false
                 },
-                "surfacePromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо фон поверхности/контрола",
-                    "enabled": false
-                },
+                "surfacePromo": { "value": "#FFFFFF", "comment": "Промо фон поверхности/контрола", "enabled": false },
                 "surfacePromoHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Промо фон поверхности/контрола",
@@ -1390,14 +857,8 @@
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех"
                 },
-                "surfacePositiveHover": {
-                    "value": "#1DAF37FF",
-                    "comment": "Цвет фона поверхности/контрола успех"
-                },
-                "surfacePositiveActive": {
-                    "value": "#18952FFF",
-                    "comment": "Цвет фона поверхности/контрола успех"
-                },
+                "surfacePositiveHover": { "value": "#1DAF37FF", "comment": "Цвет фона поверхности/контрола успех" },
+                "surfacePositiveActive": { "value": "#18952FFF", "comment": "Цвет фона поверхности/контрола успех" },
                 "surfaceWarning": {
                     "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
@@ -1410,30 +871,15 @@
                     "value": "#F05B05FF",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
-                "surfaceNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceNegativeHover": {
-                    "value": "#FF475AFF",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceNegativeActive": {
-                    "value": "#FF1F35FF",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
+                "surfaceNegative": { "value": "[general.red.500]", "comment": "Цвет фона поверхности/контрола ошибка" },
+                "surfaceNegativeHover": { "value": "#FF475AFF", "comment": "Цвет фона поверхности/контрола ошибка" },
+                "surfaceNegativeActive": { "value": "#FF1F35FF", "comment": "Цвет фона поверхности/контрола ошибка" },
                 "surfaceInfo": {
                     "value": "[general.blue.500]",
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
-                "surfaceInfoHover": {
-                    "value": "#1798EEFF",
-                    "comment": "Цвет фона поверхности/контрола информация"
-                },
-                "surfaceInfoActive": {
-                    "value": "#1086D5FF",
-                    "comment": "Цвет фона поверхности/контрола информация"
-                },
+                "surfaceInfoHover": { "value": "#1798EEFF", "comment": "Цвет фона поверхности/контрола информация" },
+                "surfaceInfoActive": { "value": "#1086D5FF", "comment": "Цвет фона поверхности/контрола информация" },
                 "surfacePositiveMinor": {
                     "value": "[general.green.900]",
                     "comment": "Минорный цвет фона поверхности/контрола успех"
@@ -2033,10 +1479,7 @@
                     "value": "#D9D9D9FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceSolidCard": {
-                    "value": "#FFFFFF",
-                    "comment": "Основной фон для карточек на светлом фоне"
-                },
+                "surfaceSolidCard": { "value": "#FFFFFF", "comment": "Основной фон для карточек на светлом фоне" },
                 "surfaceSolidCardBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Основной фон для карточек на светлом фоне"
@@ -2494,10 +1937,7 @@
                     "value": "#D9D9D9FF",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола"
                 },
-                "surfaceSolidCard": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный основной фон для карточек"
-                },
+                "surfaceSolidCard": { "value": "#FFFFFF", "comment": "Инвертированный основной фон для карточек" },
                 "surfaceSolidCardBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный основной фон для карточек"
@@ -2917,30 +2357,13 @@
         },
         "background": {
             "default": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Основной фон"
-                },
-                "backgroundPrimaryBrightness": {
-                    "value": "#171717",
-                    "comment": "Основной фон"
-                },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон",
-                    "enabled": false
-                },
-                "backgroundTertiary": {
-                    "value": "#FFFFFF",
-                    "comment": "Третичный фон",
-                    "enabled": false
-                }
+                "backgroundPrimary": { "value": "[general.gray.1000]", "comment": "Основной фон" },
+                "backgroundPrimaryBrightness": { "value": "#171717", "comment": "Основной фон" },
+                "backgroundSecondary": { "value": "#FFFFFF", "comment": "Вторичный фон", "enabled": false },
+                "backgroundTertiary": { "value": "#FFFFFF", "comment": "Третичный фон", "enabled": false }
             },
             "dark": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Основной фон на темном фоне"
-                },
+                "backgroundPrimary": { "value": "[general.gray.1000]", "comment": "Основной фон на темном фоне" },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на темном фоне",
@@ -2953,10 +2376,7 @@
                 }
             },
             "light": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Основной фон на светлом фоне"
-                },
+                "backgroundPrimary": { "value": "[general.gray.50]", "comment": "Основной фон на светлом фоне" },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на светлом фоне",
@@ -2969,14 +2389,8 @@
                 }
             },
             "inverse": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Инвертированный основной фон"
-                },
-                "backgroundPrimaryBrightness": {
-                    "value": "#F9F9F9",
-                    "comment": "Инвертированный основной фон"
-                },
+                "backgroundPrimary": { "value": "[general.gray.50]", "comment": "Инвертированный основной фон" },
+                "backgroundPrimaryBrightness": { "value": "#F9F9F9", "comment": "Инвертированный основной фон" },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный вторичный фон",
@@ -2987,22 +2401,15 @@
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
                 }
-            }
+            },
+            "onDark": {},
+            "onLight": {}
         },
         "overlay": {
             "default": {
-                "overlaySoft": {
-                    "value": "[general.gray.1000][-0.440]",
-                    "comment": "Цвет фона паранжи светлый"
-                },
-                "overlayHard": {
-                    "value": "[general.gray.1000][-0.0400]",
-                    "comment": "Цвет фона паранжи темный"
-                },
-                "overlayBlur": {
-                    "value": "[general.gray.1000][-0.800]",
-                    "comment": "Цвет фона паранжи размытый"
-                }
+                "overlaySoft": { "value": "[general.gray.1000][-0.440]", "comment": "Цвет фона паранжи светлый" },
+                "overlayHard": { "value": "[general.gray.1000][-0.0400]", "comment": "Цвет фона паранжи темный" },
+                "overlayBlur": { "value": "[general.gray.1000][-0.800]", "comment": "Цвет фона паранжи размытый" }
             },
             "onDark": {
                 "overlaySoft": {
@@ -3053,14 +2460,8 @@
                     "value": "[general.gray.900]",
                     "comment": "Основной непрозрачный цвет обводки"
                 },
-                "outlineSolidPrimaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Основной непрозрачный цвет обводки"
-                },
-                "outlineSolidPrimaryActive": {
-                    "value": "#ADADADFF",
-                    "comment": "Основной непрозрачный цвет обводки"
-                },
+                "outlineSolidPrimaryHover": { "value": "#FFFFFFFF", "comment": "Основной непрозрачный цвет обводки" },
+                "outlineSolidPrimaryActive": { "value": "#ADADADFF", "comment": "Основной непрозрачный цвет обводки" },
                 "outlineSolidSecondary": {
                     "value": "[general.gray.850]",
                     "comment": "Вторичный непрозрачный цвет обводки"
@@ -3077,10 +2478,7 @@
                     "value": "[general.gray.800]",
                     "comment": "Третичный непрозрачный цвет обводки"
                 },
-                "outlineSolidTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Третичный непрозрачный цвет обводки"
-                },
+                "outlineSolidTertiaryHover": { "value": "#FFFFFFFF", "comment": "Третичный непрозрачный цвет обводки" },
                 "outlineSolidTertiaryActive": {
                     "value": "#8C8C8CFF",
                     "comment": "Третичный непрозрачный цвет обводки"
@@ -3133,30 +2531,12 @@
                     "value": "#FAFAFA56",
                     "comment": "Третичный прозрачный цвет обводки"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка"
-                },
-                "outlineAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Акцентный цвет обводки"
-                },
-                "outlineAccentHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Акцентный цвет обводки"
-                },
-                "outlineAccentActive": {
-                    "value": "#15842AFF",
-                    "comment": "Акцентный цвет обводки"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Бесцветная обводка" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Бесцветная обводка" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Бесцветная обводка" },
+                "outlineAccent": { "value": "[general.green.500]", "comment": "Акцентный цвет обводки" },
+                "outlineAccentHover": { "value": "#1EB83AFF", "comment": "Акцентный цвет обводки" },
+                "outlineAccentActive": { "value": "#15842AFF", "comment": "Акцентный цвет обводки" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет обводки с градиентом",
@@ -3226,21 +2606,9 @@
                     "comment": "Прозрачный акцентный цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет обводки",
-                    "enabled": false
-                },
-                "outlinePromoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет обводки",
-                    "enabled": false
-                },
-                "outlinePromoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Промо цвет обводки",
-                    "enabled": false
-                },
+                "outlinePromo": { "value": "#FFFFFF", "comment": "Промо цвет обводки", "enabled": false },
+                "outlinePromoHover": { "value": "#CCCCCCFF", "comment": "Промо цвет обводки", "enabled": false },
+                "outlinePromoActive": { "value": "#E6E6E6FF", "comment": "Промо цвет обводки", "enabled": false },
                 "outlinePromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Промо цвет обводки с градиентом",
@@ -3256,11 +2624,7 @@
                     "comment": "Промо цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePromoMinor": {
-                    "value": "#FFFFFF",
-                    "comment": "Минорный промо цвет обводки",
-                    "enabled": false
-                },
+                "outlinePromoMinor": { "value": "#FFFFFF", "comment": "Минорный промо цвет обводки", "enabled": false },
                 "outlinePromoMinorHover": {
                     "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки",
@@ -3286,110 +2650,41 @@
                     "comment": "Минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Цвет обводки успех"
-                },
-                "outlinePositiveHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Цвет обводки успех"
-                },
-                "outlinePositiveActive": {
-                    "value": "#15842AFF",
-                    "comment": "Цвет обводки успех"
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": "Цвет обводки предупреждение"
-                },
-                "outlineWarningHover": {
-                    "value": "#FB7223FF",
-                    "comment": "Цвет обводки предупреждение"
-                },
-                "outlineWarningActive": {
-                    "value": "#DC5304FF",
-                    "comment": "Цвет обводки предупреждение"
-                },
-                "outlineNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет обводки ошибка"
-                },
-                "outlineNegativeHover": {
-                    "value": "#FF475AFF",
-                    "comment": "Цвет обводки ошибка"
-                },
-                "outlineNegativeActive": {
-                    "value": "#FF0A23FF",
-                    "comment": "Цвет обводки ошибка"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет обводки информация"
-                },
-                "outlineInfoHover": {
-                    "value": "#50B1F2FF",
-                    "comment": "Цвет обводки информация"
-                },
-                "outlineInfoActive": {
-                    "value": "#0F7BC2FF",
-                    "comment": "Цвет обводки информация"
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.green.850]",
-                    "comment": "Минорный цвет обводки успех"
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#137725FF",
-                    "comment": "Минорный цвет обводки успех"
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#0E5D1DFF",
-                    "comment": "Минорный цвет обводки успех"
-                },
+                "outlinePositive": { "value": "[general.green.500]", "comment": "Цвет обводки успех" },
+                "outlinePositiveHover": { "value": "#1EB83AFF", "comment": "Цвет обводки успех" },
+                "outlinePositiveActive": { "value": "#15842AFF", "comment": "Цвет обводки успех" },
+                "outlineWarning": { "value": "[general.orange.500]", "comment": "Цвет обводки предупреждение" },
+                "outlineWarningHover": { "value": "#FB7223FF", "comment": "Цвет обводки предупреждение" },
+                "outlineWarningActive": { "value": "#DC5304FF", "comment": "Цвет обводки предупреждение" },
+                "outlineNegative": { "value": "[general.red.500]", "comment": "Цвет обводки ошибка" },
+                "outlineNegativeHover": { "value": "#FF475AFF", "comment": "Цвет обводки ошибка" },
+                "outlineNegativeActive": { "value": "#FF0A23FF", "comment": "Цвет обводки ошибка" },
+                "outlineInfo": { "value": "[general.blue.500]", "comment": "Цвет обводки информация" },
+                "outlineInfoHover": { "value": "#50B1F2FF", "comment": "Цвет обводки информация" },
+                "outlineInfoActive": { "value": "#0F7BC2FF", "comment": "Цвет обводки информация" },
+                "outlinePositiveMinor": { "value": "[general.green.850]", "comment": "Минорный цвет обводки успех" },
+                "outlinePositiveMinorHover": { "value": "#137725FF", "comment": "Минорный цвет обводки успех" },
+                "outlinePositiveMinorActive": { "value": "#0E5D1DFF", "comment": "Минорный цвет обводки успех" },
                 "outlineWarningMinor": {
                     "value": "[general.orange.850]",
                     "comment": "Минорный цвет обводки предупреждение"
                 },
-                "outlineWarningMinorHover": {
-                    "value": "#95400FFF",
-                    "comment": "Минорный цвет обводки предупреждение"
-                },
+                "outlineWarningMinorHover": { "value": "#95400FFF", "comment": "Минорный цвет обводки предупреждение" },
                 "outlineWarningMinorActive": {
                     "value": "#79340CFF",
                     "comment": "Минорный цвет обводки предупреждение"
                 },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.850]",
-                    "comment": "Минорный цвет обводки ошибка"
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#A01825FF",
-                    "comment": "Минорный цвет обводки ошибка"
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#85141FFF",
-                    "comment": "Минорный цвет обводки ошибка"
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.850]",
-                    "comment": "Минорный цвет обводки информация"
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#145E8FFF",
-                    "comment": "Минорный цвет обводки информация"
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#114C74FF",
-                    "comment": "Минорный цвет обводки информация"
-                },
+                "outlineNegativeMinor": { "value": "[general.red.850]", "comment": "Минорный цвет обводки ошибка" },
+                "outlineNegativeMinorHover": { "value": "#A01825FF", "comment": "Минорный цвет обводки ошибка" },
+                "outlineNegativeMinorActive": { "value": "#85141FFF", "comment": "Минорный цвет обводки ошибка" },
+                "outlineInfoMinor": { "value": "[general.blue.850]", "comment": "Минорный цвет обводки информация" },
+                "outlineInfoMinorHover": { "value": "#145E8FFF", "comment": "Минорный цвет обводки информация" },
+                "outlineInfoMinorActive": { "value": "#114C74FF", "comment": "Минорный цвет обводки информация" },
                 "outlineTransparentPositive": {
                     "value": "[general.green.500][-0.72]",
                     "comment": "Прозрачный цвет обводки успех"
                 },
-                "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
-                    "comment": "Прозрачный цвет обводки успех"
-                },
+                "outlineTransparentPositiveHover": { "value": "#1A9E32FF", "comment": "Прозрачный цвет обводки успех" },
                 "outlineTransparentPositiveActive": {
                     "value": "#1A9E3256",
                     "comment": "Прозрачный цвет обводки успех"
@@ -3516,30 +2811,12 @@
                     "value": "#FAFAFA56",
                     "comment": "Третичный прозрачный цвет обводки на темном фоне"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на темном фоне"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на темном фоне"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на темном фоне"
-                },
-                "outlineAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
-                "outlineAccentHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
-                "outlineAccentActive": {
-                    "value": "#15842AFF",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на темном фоне" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на темном фоне" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на темном фоне" },
+                "outlineAccent": { "value": "[general.green.500]", "comment": "Акцентный цвет обводки на темном фоне" },
+                "outlineAccentHover": { "value": "#1EB83AFF", "comment": "Акцентный цвет обводки на темном фоне" },
+                "outlineAccentActive": { "value": "#15842AFF", "comment": "Акцентный цвет обводки на темном фоне" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет обводки с градиентом на темном фоне",
@@ -3669,18 +2946,9 @@
                     "comment": "Минорный промо цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Цвет обводки успех на темном фоне"
-                },
-                "outlinePositiveHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Цвет обводки успех на темном фоне"
-                },
-                "outlinePositiveActive": {
-                    "value": "#15842AFF",
-                    "comment": "Цвет обводки успех на темном фоне"
-                },
+                "outlinePositive": { "value": "[general.green.500]", "comment": "Цвет обводки успех на темном фоне" },
+                "outlinePositiveHover": { "value": "#1EB83AFF", "comment": "Цвет обводки успех на темном фоне" },
+                "outlinePositiveActive": { "value": "#15842AFF", "comment": "Цвет обводки успех на темном фоне" },
                 "outlineWarning": {
                     "value": "[general.orange.500]",
                     "comment": "Цвет обводки предупреждение на темном фоне"
@@ -3693,30 +2961,12 @@
                     "value": "#DC5304FF",
                     "comment": "Цвет обводки предупреждение на темном фоне"
                 },
-                "outlineNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет обводки ошибка на темном фоне"
-                },
-                "outlineNegativeHover": {
-                    "value": "#FF475AFF",
-                    "comment": "Цвет обводки ошибка на темном фоне"
-                },
-                "outlineNegativeActive": {
-                    "value": "#FF0A23FF",
-                    "comment": "Цвет обводки ошибка на темном фоне"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет обводки информация на темном фоне"
-                },
-                "outlineInfoHover": {
-                    "value": "#50B1F2FF",
-                    "comment": "Цвет обводки информация на темном фоне"
-                },
-                "outlineInfoActive": {
-                    "value": "#0F7BC2FF",
-                    "comment": "Цвет обводки информация на темном фоне"
-                },
+                "outlineNegative": { "value": "[general.red.500]", "comment": "Цвет обводки ошибка на темном фоне" },
+                "outlineNegativeHover": { "value": "#FF475AFF", "comment": "Цвет обводки ошибка на темном фоне" },
+                "outlineNegativeActive": { "value": "#FF0A23FF", "comment": "Цвет обводки ошибка на темном фоне" },
+                "outlineInfo": { "value": "[general.blue.500]", "comment": "Цвет обводки информация на темном фоне" },
+                "outlineInfoHover": { "value": "#50B1F2FF", "comment": "Цвет обводки информация на темном фоне" },
+                "outlineInfoActive": { "value": "#0F7BC2FF", "comment": "Цвет обводки информация на темном фоне" },
                 "outlinePositiveMinor": {
                     "value": "[general.green.850]",
                     "comment": "Минорный цвет обводки успех на темном фоне"
@@ -3899,30 +3149,15 @@
                     "value": "#080808AB",
                     "comment": "Третичный прозрачный цвет обводки на светлом фоне"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на светлом фоне"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на светлом фоне"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на светлом фоне"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на светлом фоне" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на светлом фоне" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на светлом фоне" },
                 "outlineAccent": {
                     "value": "[general.green.600]",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
-                "outlineAccentHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Акцентный цвет обводки на светлом фоне"
-                },
-                "outlineAccentActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Акцентный цвет обводки на светлом фоне"
-                },
+                "outlineAccentHover": { "value": "#13AA2CFF", "comment": "Акцентный цвет обводки на светлом фоне" },
+                "outlineAccentActive": { "value": "#0D731EFF", "comment": "Акцентный цвет обводки на светлом фоне" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
@@ -4052,18 +3287,9 @@
                     "comment": "Минорный промо цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Цвет обводки успех на светлом фоне"
-                },
-                "outlinePositiveHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Цвет обводки успех на светлом фоне"
-                },
-                "outlinePositiveActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Цвет обводки успех на светлом фоне"
-                },
+                "outlinePositive": { "value": "[general.green.600]", "comment": "Цвет обводки успех на светлом фоне" },
+                "outlinePositiveHover": { "value": "#13AA2CFF", "comment": "Цвет обводки успех на светлом фоне" },
+                "outlinePositiveActive": { "value": "#0D731EFF", "comment": "Цвет обводки успех на светлом фоне" },
                 "outlineWarning": {
                     "value": "[general.orange.600]",
                     "comment": "Цвет обводки предупреждение на светлом фоне"
@@ -4076,30 +3302,12 @@
                     "value": "#CA4B02FF",
                     "comment": "Цвет обводки предупреждение на светлом фоне"
                 },
-                "outlineNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет обводки ошибка на светлом фоне"
-                },
-                "outlineNegativeHover": {
-                    "value": "#F5384BFF",
-                    "comment": "Цвет обводки ошибка на светлом фоне"
-                },
-                "outlineNegativeActive": {
-                    "value": "#E40C22FF",
-                    "comment": "Цвет обводки ошибка на светлом фоне"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет обводки информация на светлом фоне"
-                },
-                "outlineInfoHover": {
-                    "value": "#34A7F4FF",
-                    "comment": "Цвет обводки информация на светлом фоне"
-                },
-                "outlineInfoActive": {
-                    "value": "#096CAEFF",
-                    "comment": "Цвет обводки информация на светлом фоне"
-                },
+                "outlineNegative": { "value": "[general.red.600]", "comment": "Цвет обводки ошибка на светлом фоне" },
+                "outlineNegativeHover": { "value": "#F5384BFF", "comment": "Цвет обводки ошибка на светлом фоне" },
+                "outlineNegativeActive": { "value": "#E40C22FF", "comment": "Цвет обводки ошибка на светлом фоне" },
+                "outlineInfo": { "value": "[general.blue.600]", "comment": "Цвет обводки информация на светлом фоне" },
+                "outlineInfoHover": { "value": "#34A7F4FF", "comment": "Цвет обводки информация на светлом фоне" },
+                "outlineInfoActive": { "value": "#096CAEFF", "comment": "Цвет обводки информация на светлом фоне" },
                 "outlinePositiveMinor": {
                     "value": "[general.green.250]",
                     "comment": "Минорный цвет обводки успех на светлом фоне"
@@ -4282,30 +3490,15 @@
                     "value": "#080808AB",
                     "comment": "Инвертированный третичный прозрачный цвет обводки"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированная бесцветная обводка"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированная бесцветная обводка"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированная бесцветная обводка"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Инвертированная бесцветная обводка" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Инвертированная бесцветная обводка" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Инвертированная бесцветная обводка" },
                 "outlineAccent": {
                     "value": "[general.green.600]",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
-                "outlineAccentHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Инвертированный акцентный цвет обводки"
-                },
-                "outlineAccentActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Инвертированный акцентный цвет обводки"
-                },
+                "outlineAccentHover": { "value": "#13AA2CFF", "comment": "Инвертированный акцентный цвет обводки" },
+                "outlineAccentActive": { "value": "#0D731EFF", "comment": "Инвертированный акцентный цвет обводки" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный акцентный цвет обводки с градиентом",
@@ -4435,18 +3628,9 @@
                     "comment": "Инвертированный минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Инвертированный цвет обводки успех"
-                },
-                "outlinePositiveHover": {
-                    "value": "#13AA2CFF",
-                    "comment": "Инвертированный цвет обводки успех"
-                },
-                "outlinePositiveActive": {
-                    "value": "#0D731EFF",
-                    "comment": "Инвертированный цвет обводки успех"
-                },
+                "outlinePositive": { "value": "[general.green.600]", "comment": "Инвертированный цвет обводки успех" },
+                "outlinePositiveHover": { "value": "#13AA2CFF", "comment": "Инвертированный цвет обводки успех" },
+                "outlinePositiveActive": { "value": "#0D731EFF", "comment": "Инвертированный цвет обводки успех" },
                 "outlineWarning": {
                     "value": "[general.orange.600]",
                     "comment": "Инвертированный цвет обводки предупреждение"
@@ -4459,30 +3643,12 @@
                     "value": "#CA4B02FF",
                     "comment": "Инвертированный цвет обводки предупреждение"
                 },
-                "outlineNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Инвертированный цвет обводки ошибка"
-                },
-                "outlineNegativeHover": {
-                    "value": "#F5384BFF",
-                    "comment": "Инвертированный цвет обводки ошибка"
-                },
-                "outlineNegativeActive": {
-                    "value": "#E40C22FF",
-                    "comment": "Инвертированный цвет обводки ошибка"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Инвертированный цвет обводки информация"
-                },
-                "outlineInfoHover": {
-                    "value": "#34A7F4FF",
-                    "comment": "Инвертированный цвет обводки информация"
-                },
-                "outlineInfoActive": {
-                    "value": "#096CAEFF",
-                    "comment": "Инвертированный цвет обводки информация"
-                },
+                "outlineNegative": { "value": "[general.red.600]", "comment": "Инвертированный цвет обводки ошибка" },
+                "outlineNegativeHover": { "value": "#F5384BFF", "comment": "Инвертированный цвет обводки ошибка" },
+                "outlineNegativeActive": { "value": "#E40C22FF", "comment": "Инвертированный цвет обводки ошибка" },
+                "outlineInfo": { "value": "[general.blue.600]", "comment": "Инвертированный цвет обводки информация" },
+                "outlineInfoHover": { "value": "#34A7F4FF", "comment": "Инвертированный цвет обводки информация" },
+                "outlineInfoActive": { "value": "#096CAEFF", "comment": "Инвертированный цвет обводки информация" },
                 "outlinePositiveMinor": {
                     "value": "[general.green.250]",
                     "comment": "Инвертированный минорный цвет обводки успех"
@@ -4585,70 +3751,22 @@
     "light": {
         "text": {
             "default": {
-                "textPrimary": {
-                    "value": "[general.gray.1000][-0.0400]",
-                    "comment": "Основной цвет текста"
-                },
-                "textPrimaryBrightness": {
-                    "value": "#1717F6",
-                    "comment": "Основной цвет текста"
-                },
-                "textPrimaryHover": {
-                    "value": "#08080893",
-                    "comment": "Основной цвет текста"
-                },
-                "textPrimaryActive": {
-                    "value": "#080808C4",
-                    "comment": "Основной цвет текста"
-                },
-                "textSecondary": {
-                    "value": "[general.gray.1000][-0.440]",
-                    "comment": "Вторичный цвет текста"
-                },
-                "textSecondaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Вторичный цвет текста"
-                },
-                "textSecondaryActive": {
-                    "value": "#080808AB",
-                    "comment": "Вторичный цвет текста"
-                },
-                "textTertiary": {
-                    "value": "[general.gray.1000][-0.720]",
-                    "comment": "Третичный цвет текста"
-                },
-                "textTertiaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Третичный цвет текста"
-                },
-                "textTertiaryActive": {
-                    "value": "#08080856",
-                    "comment": "Третичный цвет текста"
-                },
-                "textParagraph": {
-                    "value": "[general.gray.1000][-0.200]",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textParagraphHover": {
-                    "value": "#0808087A",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textParagraphActive": {
-                    "value": "#080808A3",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "[general.green.600]",
-                    "comment": "Акцентный цвет"
-                },
-                "textAccentHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Акцентный цвет"
-                },
-                "textAccentActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Акцентный цвет"
-                },
+                "textPrimary": { "value": "[general.gray.1000][-0.0400]", "comment": "Основной цвет текста" },
+                "textPrimaryBrightness": { "value": "#1717F6", "comment": "Основной цвет текста" },
+                "textPrimaryHover": { "value": "#08080893", "comment": "Основной цвет текста" },
+                "textPrimaryActive": { "value": "#080808C4", "comment": "Основной цвет текста" },
+                "textSecondary": { "value": "[general.gray.1000][-0.440]", "comment": "Вторичный цвет текста" },
+                "textSecondaryHover": { "value": "#080808FF", "comment": "Вторичный цвет текста" },
+                "textSecondaryActive": { "value": "#080808AB", "comment": "Вторичный цвет текста" },
+                "textTertiary": { "value": "[general.gray.1000][-0.720]", "comment": "Третичный цвет текста" },
+                "textTertiaryHover": { "value": "#080808FF", "comment": "Третичный цвет текста" },
+                "textTertiaryActive": { "value": "#08080856", "comment": "Третичный цвет текста" },
+                "textParagraph": { "value": "[general.gray.1000][-0.200]", "comment": "Сплошной наборный текст" },
+                "textParagraphHover": { "value": "#0808087A", "comment": "Сплошной наборный текст" },
+                "textParagraphActive": { "value": "#080808A3", "comment": "Сплошной наборный текст" },
+                "textAccent": { "value": "[general.green.600]", "comment": "Акцентный цвет" },
+                "textAccentHover": { "value": "#14B32EFF", "comment": "Акцентный цвет" },
+                "textAccentActive": { "value": "#0C6A1BFF", "comment": "Акцентный цвет" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет с градиентом",
@@ -4664,18 +3782,9 @@
                     "comment": "Акцентный цвет с градиентом",
                     "enabled": false
                 },
-                "textAccentMinor": {
-                    "value": "[general.green.900]",
-                    "comment": "Акцентный минорный цвет"
-                },
-                "textAccentMinorHover": {
-                    "value": "#196B28FF",
-                    "comment": "Акцентный минорный цвет"
-                },
-                "textAccentMinorActive": {
-                    "value": "#114A1CFF",
-                    "comment": "Акцентный минорный цвет"
-                },
+                "textAccentMinor": { "value": "[general.green.900]", "comment": "Акцентный минорный цвет" },
+                "textAccentMinorHover": { "value": "#196B28FF", "comment": "Акцентный минорный цвет" },
+                "textAccentMinorActive": { "value": "#114A1CFF", "comment": "Акцентный минорный цвет" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный минорный цвет с градиентом",
@@ -4691,26 +3800,10 @@
                     "comment": "Акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#000000FF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
-                "textPromoGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет с градиентом",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Промо цвет", "enabled": false },
+                "textPromoHover": { "value": "#000000FF", "comment": "Промо цвет", "enabled": false },
+                "textPromoActive": { "value": "#CCCCCCFF", "comment": "Промо цвет", "enabled": false },
+                "textPromoGradient": { "value": "#FFFFFF", "comment": "Промо цвет с градиентом", "enabled": false },
                 "textPromoGradientHover": {
                     "value": "#000000FF",
                     "comment": "Промо цвет с градиентом",
@@ -4721,21 +3814,9 @@
                     "comment": "Промо цвет с градиентом",
                     "enabled": false
                 },
-                "textPromoMinor": {
-                    "value": "#FFFFFF",
-                    "comment": "Минорный промо цвет",
-                    "enabled": false
-                },
-                "textPromoMinorHover": {
-                    "value": "#000000FF",
-                    "comment": "Минорный промо цвет",
-                    "enabled": false
-                },
-                "textPromoMinorActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Минорный промо цвет",
-                    "enabled": false
-                },
+                "textPromoMinor": { "value": "#FFFFFF", "comment": "Минорный промо цвет", "enabled": false },
+                "textPromoMinorHover": { "value": "#000000FF", "comment": "Минорный промо цвет", "enabled": false },
+                "textPromoMinorActive": { "value": "#CCCCCCFF", "comment": "Минорный промо цвет", "enabled": false },
                 "textPromoMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Минорный промо цвет с градиентом",
@@ -4751,168 +3832,60 @@
                     "comment": "Минорный промо цвет с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Цвет успеха"
-                },
-                "textPositiveHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Цвет успеха"
-                },
-                "textPositiveActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Цвет успеха"
-                },
-                "textWarning": {
-                    "value": "[general.orange.600]",
-                    "comment": "Цвет предупреждения"
-                },
-                "textWarningHover": {
-                    "value": "#FD6B17FF",
-                    "comment": "Цвет предупреждения"
-                },
-                "textWarningActive": {
-                    "value": "#C04802FF",
-                    "comment": "Цвет предупреждения"
-                },
-                "textNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет ошибки"
-                },
-                "textNegativeHover": {
-                    "value": "#F54254FF",
-                    "comment": "Цвет ошибки"
-                },
-                "textNegativeActive": {
-                    "value": "#DA0B20FF",
-                    "comment": "Цвет ошибки"
-                },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет информации"
-                },
-                "textInfoHover": {
-                    "value": "#0D96F2FF",
-                    "comment": "Цвет информации"
-                },
-                "textInfoActive": {
-                    "value": "#0966A5FF",
-                    "comment": "Цвет информации"
-                },
-                "textPositiveMinor": {
-                    "value": "[general.green.900]",
-                    "comment": "Минорный цвет успеха"
-                },
-                "textPositiveMinorHover": {
-                    "value": "#196B28FF",
-                    "comment": "Минорный цвет успеха"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#114A1CFF",
-                    "comment": "Минорный цвет успеха"
-                },
-                "textWarningMinor": {
-                    "value": "[general.orange.900]",
-                    "comment": "Минорный цвет предупреждения"
-                },
-                "textWarningMinorHover": {
-                    "value": "#843E15FF",
-                    "comment": "Минорный цвет предупреждения"
-                },
-                "textWarningMinorActive": {
-                    "value": "#602D10FF",
-                    "comment": "Минорный цвет предупреждения"
-                },
-                "textNegativeMinor": {
-                    "value": "[general.red.900]",
-                    "comment": "Минорный цвет ошибки"
-                },
-                "textNegativeMinorHover": {
-                    "value": "#8F1925FF",
-                    "comment": "Минорный цвет ошибки"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#6C131CFF",
-                    "comment": "Минорный цвет ошибки"
-                },
-                "textInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": "Минорный цвет информации"
-                },
-                "textInfoMinorHover": {
-                    "value": "#1A577FFF",
-                    "comment": "Минорный цвет информации"
-                },
-                "textInfoMinorActive": {
-                    "value": "#13405DFF",
-                    "comment": "Минорный цвет информации"
-                }
+                "textPositive": { "value": "[general.green.600]", "comment": "Цвет успеха" },
+                "textPositiveHover": { "value": "#14B32EFF", "comment": "Цвет успеха" },
+                "textPositiveActive": { "value": "#0C6A1BFF", "comment": "Цвет успеха" },
+                "textWarning": { "value": "[general.orange.600]", "comment": "Цвет предупреждения" },
+                "textWarningHover": { "value": "#FD6B17FF", "comment": "Цвет предупреждения" },
+                "textWarningActive": { "value": "#C04802FF", "comment": "Цвет предупреждения" },
+                "textNegative": { "value": "[general.red.600]", "comment": "Цвет ошибки" },
+                "textNegativeHover": { "value": "#F54254FF", "comment": "Цвет ошибки" },
+                "textNegativeActive": { "value": "#DA0B20FF", "comment": "Цвет ошибки" },
+                "textInfo": { "value": "[general.blue.600]", "comment": "Цвет информации" },
+                "textInfoHover": { "value": "#0D96F2FF", "comment": "Цвет информации" },
+                "textInfoActive": { "value": "#0966A5FF", "comment": "Цвет информации" },
+                "textPositiveMinor": { "value": "[general.green.900]", "comment": "Минорный цвет успеха" },
+                "textPositiveMinorHover": { "value": "#196B28FF", "comment": "Минорный цвет успеха" },
+                "textPositiveMinorActive": { "value": "#114A1CFF", "comment": "Минорный цвет успеха" },
+                "textWarningMinor": { "value": "[general.orange.900]", "comment": "Минорный цвет предупреждения" },
+                "textWarningMinorHover": { "value": "#843E15FF", "comment": "Минорный цвет предупреждения" },
+                "textWarningMinorActive": { "value": "#602D10FF", "comment": "Минорный цвет предупреждения" },
+                "textNegativeMinor": { "value": "[general.red.900]", "comment": "Минорный цвет ошибки" },
+                "textNegativeMinorHover": { "value": "#8F1925FF", "comment": "Минорный цвет ошибки" },
+                "textNegativeMinorActive": { "value": "#6C131CFF", "comment": "Минорный цвет ошибки" },
+                "textInfoMinor": { "value": "[general.blue.900]", "comment": "Минорный цвет информации" },
+                "textInfoMinorHover": { "value": "#1A577FFF", "comment": "Минорный цвет информации" },
+                "textInfoMinorActive": { "value": "#13405DFF", "comment": "Минорный цвет информации" }
             },
             "onDark": {
                 "textPrimary": {
                     "value": "rgba(255, 255, 255, 0.96)",
                     "comment": "Основной цвет текста на темном фоне"
                 },
-                "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
-                    "comment": "Основной цвет текста на темном фоне"
-                },
-                "textPrimaryHover": {
-                    "value": "#FFFFFF93",
-                    "comment": "Основной цвет текста на темном фоне"
-                },
-                "textPrimaryActive": {
-                    "value": "#FFFFFFC4",
-                    "comment": "Основной цвет текста на темном фоне"
-                },
+                "textPrimaryBrightness": { "value": "#FFFFFF", "comment": "Основной цвет текста на темном фоне" },
+                "textPrimaryHover": { "value": "#FFFFFF93", "comment": "Основной цвет текста на темном фоне" },
+                "textPrimaryActive": { "value": "#FFFFFFC4", "comment": "Основной цвет текста на темном фоне" },
                 "textSecondary": {
                     "value": "rgba(255, 255, 255, 0.56)",
                     "comment": "Вторичный цвет текста на темном фоне"
                 },
-                "textSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Вторичный цвет текста на темном фоне"
-                },
-                "textSecondaryActive": {
-                    "value": "#FFFFFFAB",
-                    "comment": "Вторичный цвет текста на темном фоне"
-                },
+                "textSecondaryHover": { "value": "#FFFFFFFF", "comment": "Вторичный цвет текста на темном фоне" },
+                "textSecondaryActive": { "value": "#FFFFFFAB", "comment": "Вторичный цвет текста на темном фоне" },
                 "textTertiary": {
                     "value": "rgba(255, 255, 255, 0.28)",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
-                "textTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Третичный цвет текста на темном фоне"
-                },
-                "textTertiaryActive": {
-                    "value": "#FFFFFF56",
-                    "comment": "Третичный цвет текста на темном фоне"
-                },
+                "textTertiaryHover": { "value": "#FFFFFFFF", "comment": "Третичный цвет текста на темном фоне" },
+                "textTertiaryActive": { "value": "#FFFFFF56", "comment": "Третичный цвет текста на темном фоне" },
                 "textParagraph": {
                     "value": "rgba(255, 255, 255, 0.8)",
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
-                "textParagraphHover": {
-                    "value": "#FFFFFF7A",
-                    "comment": "Сплошной наборный текст на темном фоне"
-                },
-                "textParagraphActive": {
-                    "value": "#FFFFFFA3",
-                    "comment": "Сплошной наборный текст на темном фоне"
-                },
-                "textAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccentHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccentActive": {
-                    "value": "#147B27FF",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
+                "textParagraphHover": { "value": "#FFFFFF7A", "comment": "Сплошной наборный текст на темном фоне" },
+                "textParagraphActive": { "value": "#FFFFFFA3", "comment": "Сплошной наборный текст на темном фоне" },
+                "textAccent": { "value": "[general.green.500]", "comment": "Акцентный цвет на темном фоне" },
+                "textAccentHover": { "value": "#1FC13DFF", "comment": "Акцентный цвет на темном фоне" },
+                "textAccentActive": { "value": "#147B27FF", "comment": "Акцентный цвет на темном фоне" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет с градиентом на темном фоне",
@@ -4932,14 +3905,8 @@
                     "value": "[general.green.150]",
                     "comment": "Акцентный минорный цвет на темном фоне"
                 },
-                "textAccentMinorHover": {
-                    "value": "#C5FCCFFF",
-                    "comment": "Акцентный минорный цвет на темном фоне"
-                },
-                "textAccentMinorActive": {
-                    "value": "#77F88FFF",
-                    "comment": "Акцентный минорный цвет на темном фоне"
-                },
+                "textAccentMinorHover": { "value": "#C5FCCFFF", "comment": "Акцентный минорный цвет на темном фоне" },
+                "textAccentMinorActive": { "value": "#77F88FFF", "comment": "Акцентный минорный цвет на темном фоне" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный минорный цвет с градиентом на темном фоне",
@@ -4955,21 +3922,9 @@
                     "comment": "Акцентный минорный цвет с градиентом на темном фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#000000FF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Промо цвет на темном фоне", "enabled": false },
+                "textPromoHover": { "value": "#000000FF", "comment": "Промо цвет на темном фоне", "enabled": false },
+                "textPromoActive": { "value": "#CCCCCCFF", "comment": "Промо цвет на темном фоне", "enabled": false },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Промо цвет на темном фоне с градиентом",
@@ -5015,66 +3970,24 @@
                     "comment": "Минорный промо цвет на темном фоне с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Цвет успеха на темном фоне"
-                },
-                "textPositiveHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Цвет успеха на темном фоне"
-                },
-                "textPositiveActive": {
-                    "value": "#147B27FF",
-                    "comment": "Цвет успеха на темном фоне"
-                },
-                "textWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": "Цвет предупреждения на темном фоне"
-                },
-                "textWarningHover": {
-                    "value": "#FB782DFF",
-                    "comment": "Цвет предупреждения на темном фоне"
-                },
-                "textWarningActive": {
-                    "value": "#D25004FF",
-                    "comment": "Цвет предупреждения на темном фоне"
-                },
-                "textNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет ошибки на темном фоне"
-                },
-                "textNegativeHover": {
-                    "value": "#FF5263FF",
-                    "comment": "Цвет ошибки на темном фоне"
-                },
-                "textNegativeActive": {
-                    "value": "#FF001AFF",
-                    "comment": "Цвет ошибки на темном фоне"
-                },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет информации на темном фоне"
-                },
-                "textInfoHover": {
-                    "value": "#2AA0EFFF",
-                    "comment": "Цвет информации на темном фоне"
-                },
-                "textInfoActive": {
-                    "value": "#0E75B9FF",
-                    "comment": "Цвет информации на темном фоне"
-                },
+                "textPositive": { "value": "[general.green.500]", "comment": "Цвет успеха на темном фоне" },
+                "textPositiveHover": { "value": "#1FC13DFF", "comment": "Цвет успеха на темном фоне" },
+                "textPositiveActive": { "value": "#147B27FF", "comment": "Цвет успеха на темном фоне" },
+                "textWarning": { "value": "[general.orange.500]", "comment": "Цвет предупреждения на темном фоне" },
+                "textWarningHover": { "value": "#FB782DFF", "comment": "Цвет предупреждения на темном фоне" },
+                "textWarningActive": { "value": "#D25004FF", "comment": "Цвет предупреждения на темном фоне" },
+                "textNegative": { "value": "[general.red.500]", "comment": "Цвет ошибки на темном фоне" },
+                "textNegativeHover": { "value": "#FF5263FF", "comment": "Цвет ошибки на темном фоне" },
+                "textNegativeActive": { "value": "#FF001AFF", "comment": "Цвет ошибки на темном фоне" },
+                "textInfo": { "value": "[general.blue.500]", "comment": "Цвет информации на темном фоне" },
+                "textInfoHover": { "value": "#2AA0EFFF", "comment": "Цвет информации на темном фоне" },
+                "textInfoActive": { "value": "#0E75B9FF", "comment": "Цвет информации на темном фоне" },
                 "textPositiveMinor": {
                     "value": "[general.green.150]",
                     "comment": "Минорный цвет успеха на темном фоне"
                 },
-                "textPositiveMinorHover": {
-                    "value": "#C5FCCFFF",
-                    "comment": "Минорный цвет успеха на темном фоне"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#77F88FFF",
-                    "comment": "Минорный цвет успеха на темном фоне"
-                },
+                "textPositiveMinorHover": { "value": "#C5FCCFFF", "comment": "Минорный цвет успеха на темном фоне" },
+                "textPositiveMinorActive": { "value": "#77F88FFF", "comment": "Минорный цвет успеха на темном фоне" },
                 "textWarningMinor": {
                     "value": "[general.orange.150]",
                     "comment": "Минорный цвет предупреждения на темном фоне"
@@ -5087,96 +4000,45 @@
                     "value": "#FDC9AAFF",
                     "comment": "Минорный цвет предупреждения на темном фоне"
                 },
-                "textNegativeMinor": {
-                    "value": "[general.red.150]",
-                    "comment": "Минорный цвет ошибки на темном фоне"
-                },
-                "textNegativeMinorHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Минорный цвет ошибки на темном фоне"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#FFB8BFFF",
-                    "comment": "Минорный цвет ошибки на темном фоне"
-                },
+                "textNegativeMinor": { "value": "[general.red.150]", "comment": "Минорный цвет ошибки на темном фоне" },
+                "textNegativeMinorHover": { "value": "#FFFFFFFF", "comment": "Минорный цвет ошибки на темном фоне" },
+                "textNegativeMinorActive": { "value": "#FFB8BFFF", "comment": "Минорный цвет ошибки на темном фоне" },
                 "textInfoMinor": {
                     "value": "[general.blue.150]",
                     "comment": "Минорный цвет информации на темном фоне"
                 },
-                "textInfoMinorHover": {
-                    "value": "#FAFDFFFF",
-                    "comment": "Минорный цвет информации на темном фоне"
-                },
-                "textInfoMinorActive": {
-                    "value": "#A8DCFFFF",
-                    "comment": "Минорный цвет информации на темном фоне"
-                }
+                "textInfoMinorHover": { "value": "#FAFDFFFF", "comment": "Минорный цвет информации на темном фоне" },
+                "textInfoMinorActive": { "value": "#A8DCFFFF", "comment": "Минорный цвет информации на темном фоне" }
             },
             "onLight": {
                 "textPrimary": {
                     "value": "[general.gray.1000][-0.0400]",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
-                "textPrimaryBrightness": {
-                    "value": "#1717F6",
-                    "comment": "Основной цвет текста на светлом фоне"
-                },
-                "textPrimaryHover": {
-                    "value": "#08080893",
-                    "comment": "Основной цвет текста на светлом фоне"
-                },
-                "textPrimaryActive": {
-                    "value": "#080808C4",
-                    "comment": "Основной цвет текста на светлом фоне"
-                },
+                "textPrimaryBrightness": { "value": "#1717F6", "comment": "Основной цвет текста на светлом фоне" },
+                "textPrimaryHover": { "value": "#08080893", "comment": "Основной цвет текста на светлом фоне" },
+                "textPrimaryActive": { "value": "#080808C4", "comment": "Основной цвет текста на светлом фоне" },
                 "textSecondary": {
                     "value": "[general.gray.1000][-0.440]",
                     "comment": "Вторичный цвет текста на светлом фоне"
                 },
-                "textSecondaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Вторичный цвет текста на светлом фоне"
-                },
-                "textSecondaryActive": {
-                    "value": "#080808AB",
-                    "comment": "Вторичный цвет текста на светлом фоне"
-                },
+                "textSecondaryHover": { "value": "#080808FF", "comment": "Вторичный цвет текста на светлом фоне" },
+                "textSecondaryActive": { "value": "#080808AB", "comment": "Вторичный цвет текста на светлом фоне" },
                 "textTertiary": {
                     "value": "[general.gray.1000][-0.720]",
                     "comment": "Третичный цвет текста на светлом фоне"
                 },
-                "textTertiaryHover": {
-                    "value": "#080808FF",
-                    "comment": "Третичный цвет текста на светлом фоне"
-                },
-                "textTertiaryActive": {
-                    "value": "#08080856",
-                    "comment": "Третичный цвет текста на светлом фоне"
-                },
+                "textTertiaryHover": { "value": "#080808FF", "comment": "Третичный цвет текста на светлом фоне" },
+                "textTertiaryActive": { "value": "#08080856", "comment": "Третичный цвет текста на светлом фоне" },
                 "textParagraph": {
                     "value": "[general.gray.1000][-0.200]",
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
-                "textParagraphHover": {
-                    "value": "#0808087A",
-                    "comment": "Сплошной наборный текст на светлом фоне"
-                },
-                "textParagraphActive": {
-                    "value": "#080808A3",
-                    "comment": "Сплошной наборный текст на светлом фоне"
-                },
-                "textAccent": {
-                    "value": "[general.green.600]",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
-                "textAccentHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
-                "textAccentActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
+                "textParagraphHover": { "value": "#0808087A", "comment": "Сплошной наборный текст на светлом фоне" },
+                "textParagraphActive": { "value": "#080808A3", "comment": "Сплошной наборный текст на светлом фоне" },
+                "textAccent": { "value": "[general.green.600]", "comment": "Акцентный цвет на светлом фоне" },
+                "textAccentHover": { "value": "#14B32EFF", "comment": "Акцентный цвет на светлом фоне" },
+                "textAccentActive": { "value": "#0C6A1BFF", "comment": "Акцентный цвет на светлом фоне" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет с градиентом на светлом фоне",
@@ -5196,14 +4058,8 @@
                     "value": "[general.green.900]",
                     "comment": "Акцентный минорный цвет на светлом фоне"
                 },
-                "textAccentMinorHover": {
-                    "value": "#196B28FF",
-                    "comment": "Акцентный минорный цвет на светлом фоне"
-                },
-                "textAccentMinorActive": {
-                    "value": "#114A1CFF",
-                    "comment": "Акцентный минорный цвет на светлом фоне"
-                },
+                "textAccentMinorHover": { "value": "#196B28FF", "comment": "Акцентный минорный цвет на светлом фоне" },
+                "textAccentMinorActive": { "value": "#114A1CFF", "comment": "Акцентный минорный цвет на светлом фоне" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный минорный цвет с градиентом на светлом фоне",
@@ -5219,21 +4075,9 @@
                     "comment": "Акцентный минорный цвет с градиентом на светлом фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#000000FF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Промо цвет на светлом фоне", "enabled": false },
+                "textPromoHover": { "value": "#000000FF", "comment": "Промо цвет на светлом фоне", "enabled": false },
+                "textPromoActive": { "value": "#CCCCCCFF", "comment": "Промо цвет на светлом фоне", "enabled": false },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Промо цвет на светлом фоне с градиентом",
@@ -5279,66 +4123,24 @@
                     "comment": "Минорный промо цвет на светлом фоне с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
-                "textPositiveHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
-                "textPositiveActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
-                "textWarning": {
-                    "value": "[general.orange.600]",
-                    "comment": "Цвет предупреждения на светлом фоне"
-                },
-                "textWarningHover": {
-                    "value": "#FD6B17FF",
-                    "comment": "Цвет предупреждения на светлом фоне"
-                },
-                "textWarningActive": {
-                    "value": "#C04802FF",
-                    "comment": "Цвет предупреждения на светлом фоне"
-                },
-                "textNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет ошибки на светлом фоне"
-                },
-                "textNegativeHover": {
-                    "value": "#F54254FF",
-                    "comment": "Цвет ошибки на светлом фоне"
-                },
-                "textNegativeActive": {
-                    "value": "#DA0B20FF",
-                    "comment": "Цвет ошибки на светлом фоне"
-                },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет информации на светлом фоне"
-                },
-                "textInfoHover": {
-                    "value": "#0D96F2FF",
-                    "comment": "Цвет информации на светлом фоне"
-                },
-                "textInfoActive": {
-                    "value": "#0966A5FF",
-                    "comment": "Цвет информации на светлом фоне"
-                },
+                "textPositive": { "value": "[general.green.600]", "comment": "Цвет успеха на светлом фоне" },
+                "textPositiveHover": { "value": "#14B32EFF", "comment": "Цвет успеха на светлом фоне" },
+                "textPositiveActive": { "value": "#0C6A1BFF", "comment": "Цвет успеха на светлом фоне" },
+                "textWarning": { "value": "[general.orange.600]", "comment": "Цвет предупреждения на светлом фоне" },
+                "textWarningHover": { "value": "#FD6B17FF", "comment": "Цвет предупреждения на светлом фоне" },
+                "textWarningActive": { "value": "#C04802FF", "comment": "Цвет предупреждения на светлом фоне" },
+                "textNegative": { "value": "[general.red.600]", "comment": "Цвет ошибки на светлом фоне" },
+                "textNegativeHover": { "value": "#F54254FF", "comment": "Цвет ошибки на светлом фоне" },
+                "textNegativeActive": { "value": "#DA0B20FF", "comment": "Цвет ошибки на светлом фоне" },
+                "textInfo": { "value": "[general.blue.600]", "comment": "Цвет информации на светлом фоне" },
+                "textInfoHover": { "value": "#0D96F2FF", "comment": "Цвет информации на светлом фоне" },
+                "textInfoActive": { "value": "#0966A5FF", "comment": "Цвет информации на светлом фоне" },
                 "textPositiveMinor": {
                     "value": "[general.green.900]",
                     "comment": "Минорный цвет успеха на светлом фоне"
                 },
-                "textPositiveMinorHover": {
-                    "value": "#196B28FF",
-                    "comment": "Минорный цвет успеха на светлом фоне"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#114A1CFF",
-                    "comment": "Минорный цвет успеха на светлом фоне"
-                },
+                "textPositiveMinorHover": { "value": "#196B28FF", "comment": "Минорный цвет успеха на светлом фоне" },
+                "textPositiveMinorActive": { "value": "#114A1CFF", "comment": "Минорный цвет успеха на светлом фоне" },
                 "textWarningMinor": {
                     "value": "[general.orange.900]",
                     "comment": "Минорный цвет предупреждения на светлом фоне"
@@ -5355,92 +4157,44 @@
                     "value": "[general.red.900]",
                     "comment": "Минорный цвет ошибки на светлом фоне"
                 },
-                "textNegativeMinorHover": {
-                    "value": "#8F1925FF",
-                    "comment": "Минорный цвет ошибки на светлом фоне"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#6C131CFF",
-                    "comment": "Минорный цвет ошибки на светлом фоне"
-                },
+                "textNegativeMinorHover": { "value": "#8F1925FF", "comment": "Минорный цвет ошибки на светлом фоне" },
+                "textNegativeMinorActive": { "value": "#6C131CFF", "comment": "Минорный цвет ошибки на светлом фоне" },
                 "textInfoMinor": {
                     "value": "[general.blue.900]",
                     "comment": "Минорный цвет информации на светлом фоне"
                 },
-                "textInfoMinorHover": {
-                    "value": "#1A577FFF",
-                    "comment": "Минорный цвет информации на светлом фоне"
-                },
-                "textInfoMinorActive": {
-                    "value": "#13405DFF",
-                    "comment": "Минорный цвет информации на светлом фоне"
-                }
+                "textInfoMinorHover": { "value": "#1A577FFF", "comment": "Минорный цвет информации на светлом фоне" },
+                "textInfoMinorActive": { "value": "#13405DFF", "comment": "Минорный цвет информации на светлом фоне" }
             },
             "inverse": {
                 "textPrimary": {
                     "value": "rgba(255, 255, 255, 0.96)",
                     "comment": "Инвертированный основной цвет текста"
                 },
-                "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный основной цвет текста"
-                },
-                "textPrimaryHover": {
-                    "value": "#FFFFFF93",
-                    "comment": "Инвертированный основной цвет текста"
-                },
-                "textPrimaryActive": {
-                    "value": "#FFFFFFC4",
-                    "comment": "Инвертированный основной цвет текста"
-                },
+                "textPrimaryBrightness": { "value": "#FFFFFF", "comment": "Инвертированный основной цвет текста" },
+                "textPrimaryHover": { "value": "#FFFFFF93", "comment": "Инвертированный основной цвет текста" },
+                "textPrimaryActive": { "value": "#FFFFFFC4", "comment": "Инвертированный основной цвет текста" },
                 "textSecondary": {
                     "value": "rgba(255, 255, 255, 0.56)",
                     "comment": "Инвертированный вторичный цвет текста"
                 },
-                "textSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Инвертированный вторичный цвет текста"
-                },
-                "textSecondaryActive": {
-                    "value": "#FFFFFFAB",
-                    "comment": "Инвертированный вторичный цвет текста"
-                },
+                "textSecondaryHover": { "value": "#FFFFFFFF", "comment": "Инвертированный вторичный цвет текста" },
+                "textSecondaryActive": { "value": "#FFFFFFAB", "comment": "Инвертированный вторичный цвет текста" },
                 "textTertiary": {
                     "value": "rgba(255, 255, 255, 0.28)",
                     "comment": "Инвертированный третичный цвет текста"
                 },
-                "textTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Инвертированный третичный цвет текста"
-                },
-                "textTertiaryActive": {
-                    "value": "#FFFFFF56",
-                    "comment": "Инвертированный третичный цвет текста"
-                },
+                "textTertiaryHover": { "value": "#FFFFFFFF", "comment": "Инвертированный третичный цвет текста" },
+                "textTertiaryActive": { "value": "#FFFFFF56", "comment": "Инвертированный третичный цвет текста" },
                 "textParagraph": {
                     "value": "rgba(255, 255, 255, 0.8)",
                     "comment": "Инвертированный сплошной наборный текст"
                 },
-                "textParagraphHover": {
-                    "value": "#FFFFFF7A",
-                    "comment": "Инвертированный сплошной наборный текст"
-                },
-                "textParagraphActive": {
-                    "value": "#FFFFFFA3",
-                    "comment": "Инвертированный сплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Инвертированный акцентный цвет"
-                },
-                "textAccentHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Инвертированный акцентный цвет"
-                },
-                "textAccentActive": {
-                    "value": "#147B27FF",
-                    "comment": "Инвертированный акцентный цвет"
-                },
+                "textParagraphHover": { "value": "#FFFFFF7A", "comment": "Инвертированный сплошной наборный текст" },
+                "textParagraphActive": { "value": "#FFFFFFA3", "comment": "Инвертированный сплошной наборный текст" },
+                "textAccent": { "value": "[general.green.500]", "comment": "Инвертированный акцентный цвет" },
+                "textAccentHover": { "value": "#1FC13DFF", "comment": "Инвертированный акцентный цвет" },
+                "textAccentActive": { "value": "#147B27FF", "comment": "Инвертированный акцентный цвет" },
                 "textAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный акцентный цвет с градиентом",
@@ -5460,14 +4214,8 @@
                     "value": "[general.green.150]",
                     "comment": "Инвертированный минорный акцентный цвет"
                 },
-                "textAccentMinorHover": {
-                    "value": "#C5FCCFFF",
-                    "comment": "Инвертированный минорный акцентный цвет"
-                },
-                "textAccentMinorActive": {
-                    "value": "#77F88FFF",
-                    "comment": "Инвертированный минорный акцентный цвет"
-                },
+                "textAccentMinorHover": { "value": "#C5FCCFFF", "comment": "Инвертированный минорный акцентный цвет" },
+                "textAccentMinorActive": { "value": "#77F88FFF", "comment": "Инвертированный минорный акцентный цвет" },
                 "textAccentMinorGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный акцентный минорный цвет с градиентом",
@@ -5483,21 +4231,9 @@
                     "comment": "Инвертированный акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
-                "textPromoHover": {
-                    "value": "#000000FF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
-                "textPromoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
+                "textPromo": { "value": "#FFFFFF", "comment": "Инвертированный промо цвет", "enabled": false },
+                "textPromoHover": { "value": "#000000FF", "comment": "Инвертированный промо цвет", "enabled": false },
+                "textPromoActive": { "value": "#CCCCCCFF", "comment": "Инвертированный промо цвет", "enabled": false },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный промо цвет с градиентом",
@@ -5543,66 +4279,24 @@
                     "comment": "Инвертированный минорный промо цвет с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Инвертированный цвет успеха"
-                },
-                "textPositiveHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Инвертированный цвет успеха"
-                },
-                "textPositiveActive": {
-                    "value": "#147B27FF",
-                    "comment": "Инвертированный цвет успеха"
-                },
-                "textWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": "Инвертированный цвет предупреждения"
-                },
-                "textWarningHover": {
-                    "value": "#FB782DFF",
-                    "comment": "Инвертированный цвет предупреждения"
-                },
-                "textWarningActive": {
-                    "value": "#D25004FF",
-                    "comment": "Инвертированный цвет предупреждения"
-                },
-                "textNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Инвертированный цвет ошибки"
-                },
-                "textNegativeHover": {
-                    "value": "#FF5263FF",
-                    "comment": "Инвертированный цвет ошибки"
-                },
-                "textNegativeActive": {
-                    "value": "#FF001AFF",
-                    "comment": "Инвертированный цвет ошибки"
-                },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Инвертированный цвет информации"
-                },
-                "textInfoHover": {
-                    "value": "#2AA0EFFF",
-                    "comment": "Инвертированный цвет информации"
-                },
-                "textInfoActive": {
-                    "value": "#0E75B9FF",
-                    "comment": "Инвертированный цвет информации"
-                },
+                "textPositive": { "value": "[general.green.500]", "comment": "Инвертированный цвет успеха" },
+                "textPositiveHover": { "value": "#1FC13DFF", "comment": "Инвертированный цвет успеха" },
+                "textPositiveActive": { "value": "#147B27FF", "comment": "Инвертированный цвет успеха" },
+                "textWarning": { "value": "[general.orange.500]", "comment": "Инвертированный цвет предупреждения" },
+                "textWarningHover": { "value": "#FB782DFF", "comment": "Инвертированный цвет предупреждения" },
+                "textWarningActive": { "value": "#D25004FF", "comment": "Инвертированный цвет предупреждения" },
+                "textNegative": { "value": "[general.red.500]", "comment": "Инвертированный цвет ошибки" },
+                "textNegativeHover": { "value": "#FF5263FF", "comment": "Инвертированный цвет ошибки" },
+                "textNegativeActive": { "value": "#FF001AFF", "comment": "Инвертированный цвет ошибки" },
+                "textInfo": { "value": "[general.blue.500]", "comment": "Инвертированный цвет информации" },
+                "textInfoHover": { "value": "#2AA0EFFF", "comment": "Инвертированный цвет информации" },
+                "textInfoActive": { "value": "#0E75B9FF", "comment": "Инвертированный цвет информации" },
                 "textPositiveMinor": {
                     "value": "[general.green.150]",
                     "comment": "Инвертированный минорный цвет успеха"
                 },
-                "textPositiveMinorHover": {
-                    "value": "#C5FCCFFF",
-                    "comment": "Инвертированный минорный цвет успеха"
-                },
-                "textPositiveMinorActive": {
-                    "value": "#77F88FFF",
-                    "comment": "Инвертированный минорный цвет успеха"
-                },
+                "textPositiveMinorHover": { "value": "#C5FCCFFF", "comment": "Инвертированный минорный цвет успеха" },
+                "textPositiveMinorActive": { "value": "#77F88FFF", "comment": "Инвертированный минорный цвет успеха" },
                 "textWarningMinor": {
                     "value": "[general.orange.150]",
                     "comment": "Инвертированный минорный цвет предупреждения"
@@ -5619,26 +4313,14 @@
                     "value": "[general.red.150]",
                     "comment": "Инвертированный минорный цвет ошибки"
                 },
-                "textNegativeMinorHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Инвертированный минорный цвет ошибки"
-                },
-                "textNegativeMinorActive": {
-                    "value": "#FFB8BFFF",
-                    "comment": "Инвертированный минорный цвет ошибки"
-                },
+                "textNegativeMinorHover": { "value": "#FFFFFFFF", "comment": "Инвертированный минорный цвет ошибки" },
+                "textNegativeMinorActive": { "value": "#FFB8BFFF", "comment": "Инвертированный минорный цвет ошибки" },
                 "textInfoMinor": {
                     "value": "[general.blue.150]",
                     "comment": "Инвертированный минорный цвет информации"
                 },
-                "textInfoMinorHover": {
-                    "value": "#FAFDFFFF",
-                    "comment": "Инвертированный минорный цвет информации"
-                },
-                "textInfoMinorActive": {
-                    "value": "#A8DCFFFF",
-                    "comment": "Инвертированный минорный цвет информации"
-                }
+                "textInfoMinorHover": { "value": "#FAFDFFFF", "comment": "Инвертированный минорный цвет информации" },
+                "textInfoMinorActive": { "value": "#A8DCFFFF", "comment": "Инвертированный минорный цвет информации" }
             }
         },
         "surface": {
@@ -5683,22 +4365,10 @@
                     "value": "#D4D4D4FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
-                "surfaceSolidCard": {
-                    "value": "#FFFFFF",
-                    "comment": "Основной фон для карточек"
-                },
-                "surfaceSolidCardBrightness": {
-                    "value": "#FFFFFF",
-                    "comment": "Основной фон для карточек"
-                },
-                "surfaceSolidCardHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Основной фон для карточек"
-                },
-                "surfaceSolidCardActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Основной фон для карточек"
-                },
+                "surfaceSolidCard": { "value": "#FFFFFF", "comment": "Основной фон для карточек" },
+                "surfaceSolidCardBrightness": { "value": "#FFFFFF", "comment": "Основной фон для карточек" },
+                "surfaceSolidCardHover": { "value": "#FFFFFFFF", "comment": "Основной фон для карточек" },
+                "surfaceSolidCardActive": { "value": "#FFFFFFFF", "comment": "Основной фон для карточек" },
                 "surfaceSolidDefault": {
                     "value": "[general.gray.1000]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
@@ -5763,42 +4433,15 @@
                     "value": "[general.gray.1000][-0.940]",
                     "comment": "Прозрачный фон для карточек"
                 },
-                "surfaceTransparentCardBrightness": {
-                    "value": "#17171D",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceTransparentCardHover": {
-                    "value": "#08080805",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceTransparentCardActive": {
-                    "value": "#0808081A",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки"
-                },
-                "surfaceClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки"
-                },
-                "surfaceClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки"
-                },
-                "surfaceAccent": {
-                    "value": "[general.green.600]",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentHover": {
-                    "value": "#12A12AFF",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentActive": {
-                    "value": "#0E7C20FF",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
+                "surfaceTransparentCardBrightness": { "value": "#17171D", "comment": "Прозрачный фон для карточек" },
+                "surfaceTransparentCardHover": { "value": "#08080805", "comment": "Прозрачный фон для карточек" },
+                "surfaceTransparentCardActive": { "value": "#0808081A", "comment": "Прозрачный фон для карточек" },
+                "surfaceClear": { "value": "#FFFFFF00", "comment": "Фон поверхности/контрола без заливки" },
+                "surfaceClearHover": { "value": "#FFFFFF00", "comment": "Фон поверхности/контрола без заливки" },
+                "surfaceClearActive": { "value": "#FFFFFF00", "comment": "Фон поверхности/контрола без заливки" },
+                "surfaceAccent": { "value": "[general.green.600]", "comment": "Акцентный фон поверхности/контрола" },
+                "surfaceAccentHover": { "value": "#12A12AFF", "comment": "Акцентный фон поверхности/контрола" },
+                "surfaceAccentActive": { "value": "#0E7C20FF", "comment": "Акцентный фон поверхности/контрола" },
                 "surfaceAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
@@ -5868,11 +4511,7 @@
                     "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом",
                     "enabled": false
                 },
-                "surfacePromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо фон поверхности/контрола",
-                    "enabled": false
-                },
+                "surfacePromo": { "value": "#FFFFFF", "comment": "Промо фон поверхности/контрола", "enabled": false },
                 "surfacePromoHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Промо фон поверхности/контрола",
@@ -5962,14 +4601,8 @@
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех"
                 },
-                "surfacePositiveHover": {
-                    "value": "#1EB83AFF",
-                    "comment": "Цвет фона поверхности/контрола успех"
-                },
-                "surfacePositiveActive": {
-                    "value": "#178C2CFF",
-                    "comment": "Цвет фона поверхности/контрола успех"
-                },
+                "surfacePositiveHover": { "value": "#1EB83AFF", "comment": "Цвет фона поверхности/контрола успех" },
+                "surfacePositiveActive": { "value": "#178C2CFF", "comment": "Цвет фона поверхности/контрола успех" },
                 "surfaceWarning": {
                     "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
@@ -5982,30 +4615,15 @@
                     "value": "#E65705FF",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
-                "surfaceNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceNegativeHover": {
-                    "value": "#FF5263FF",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceNegativeActive": {
-                    "value": "#FF142CFF",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
+                "surfaceNegative": { "value": "[general.red.500]", "comment": "Цвет фона поверхности/контрола ошибка" },
+                "surfaceNegativeHover": { "value": "#FF5263FF", "comment": "Цвет фона поверхности/контрола ошибка" },
+                "surfaceNegativeActive": { "value": "#FF142CFF", "comment": "Цвет фона поверхности/контрола ошибка" },
                 "surfaceInfo": {
                     "value": "[general.blue.500]",
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
-                "surfaceInfoHover": {
-                    "value": "#1798EEFF",
-                    "comment": "Цвет фона поверхности/контрола информация"
-                },
-                "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
-                    "comment": "Цвет фона поверхности/контрола информация"
-                },
+                "surfaceInfoHover": { "value": "#1798EEFF", "comment": "Цвет фона поверхности/контрола информация" },
+                "surfaceInfoActive": { "value": "#0F81CCFF", "comment": "Цвет фона поверхности/контрола информация" },
                 "surfacePositiveMinor": {
                     "value": "[general.green.200]",
                     "comment": "Минорный цвет фона поверхности/контрола успех"
@@ -6605,10 +5223,7 @@
                     "value": "#D4D4D4FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceSolidCard": {
-                    "value": "#FFFFFF",
-                    "comment": "Основной фон для карточек на светлом фоне"
-                },
+                "surfaceSolidCard": { "value": "#FFFFFF", "comment": "Основной фон для карточек на светлом фоне" },
                 "surfaceSolidCardBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Основной фон для карточек на светлом фоне"
@@ -7489,30 +6104,13 @@
         },
         "background": {
             "default": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Основной фон"
-                },
-                "backgroundPrimaryBrightness": {
-                    "value": "#F9F9F9",
-                    "comment": "Основной фон"
-                },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон",
-                    "enabled": false
-                },
-                "backgroundTertiary": {
-                    "value": "#FFFFFF",
-                    "comment": "Третичный фон",
-                    "enabled": false
-                }
+                "backgroundPrimary": { "value": "[general.gray.50]", "comment": "Основной фон" },
+                "backgroundPrimaryBrightness": { "value": "#F9F9F9", "comment": "Основной фон" },
+                "backgroundSecondary": { "value": "#FFFFFF", "comment": "Вторичный фон", "enabled": false },
+                "backgroundTertiary": { "value": "#FFFFFF", "comment": "Третичный фон", "enabled": false }
             },
             "dark": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Основной фон на темном фоне"
-                },
+                "backgroundPrimary": { "value": "[general.gray.1000]", "comment": "Основной фон на темном фоне" },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на темном фоне",
@@ -7525,10 +6123,7 @@
                 }
             },
             "light": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Основной фон на светлом фоне"
-                },
+                "backgroundPrimary": { "value": "[general.gray.50]", "comment": "Основной фон на светлом фоне" },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на светлом фоне",
@@ -7541,14 +6136,8 @@
                 }
             },
             "inverse": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Инвертированный основной фон"
-                },
-                "backgroundPrimaryBrightness": {
-                    "value": "#171717",
-                    "comment": "Инвертированный основной фон"
-                },
+                "backgroundPrimary": { "value": "[general.gray.1000]", "comment": "Инвертированный основной фон" },
+                "backgroundPrimaryBrightness": { "value": "#171717", "comment": "Инвертированный основной фон" },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный вторичный фон",
@@ -7559,22 +6148,15 @@
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
                 }
-            }
+            },
+            "onDark": {},
+            "onLight": {}
         },
         "overlay": {
             "default": {
-                "overlaySoft": {
-                    "value": "[general.gray.50][-0.440]",
-                    "comment": "Цвет фона паранжи светлый"
-                },
-                "overlayHard": {
-                    "value": "[general.gray.50][-0.0400]",
-                    "comment": "Цвет фона паранжи темный"
-                },
-                "overlayBlur": {
-                    "value": "[general.gray.50][-0.800]",
-                    "comment": "Цвет фона паранжи размытый"
-                }
+                "overlaySoft": { "value": "[general.gray.50][-0.440]", "comment": "Цвет фона паранжи светлый" },
+                "overlayHard": { "value": "[general.gray.50][-0.0400]", "comment": "Цвет фона паранжи темный" },
+                "overlayBlur": { "value": "[general.gray.50][-0.800]", "comment": "Цвет фона паранжи размытый" }
             },
             "onDark": {
                 "overlaySoft": {
@@ -7625,14 +6207,8 @@
                     "value": "[general.gray.200]",
                     "comment": "Основной непрозрачный цвет обводки"
                 },
-                "outlineSolidPrimaryHover": {
-                    "value": "#000000FF",
-                    "comment": "Основной непрозрачный цвет обводки"
-                },
-                "outlineSolidPrimaryActive": {
-                    "value": "#B3B3B3FF",
-                    "comment": "Основной непрозрачный цвет обводки"
-                },
+                "outlineSolidPrimaryHover": { "value": "#000000FF", "comment": "Основной непрозрачный цвет обводки" },
+                "outlineSolidPrimaryActive": { "value": "#B3B3B3FF", "comment": "Основной непрозрачный цвет обводки" },
                 "outlineSolidSecondary": {
                     "value": "[general.gray.300]",
                     "comment": "Вторичный непрозрачный цвет обводки"
@@ -7649,10 +6225,7 @@
                     "value": "[general.gray.700]",
                     "comment": "Третичный непрозрачный цвет обводки"
                 },
-                "outlineSolidTertiaryHover": {
-                    "value": "#000000FF",
-                    "comment": "Третичный непрозрачный цвет обводки"
-                },
+                "outlineSolidTertiaryHover": { "value": "#000000FF", "comment": "Третичный непрозрачный цвет обводки" },
                 "outlineSolidTertiaryActive": {
                     "value": "#595959FF",
                     "comment": "Третичный непрозрачный цвет обводки"
@@ -7705,30 +6278,12 @@
                     "value": "#080808AB",
                     "comment": "Третичный прозрачный цвет обводки"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка"
-                },
-                "outlineAccent": {
-                    "value": "[general.green.600]",
-                    "comment": "Акцентный цвет обводки"
-                },
-                "outlineAccentHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Акцентный цвет обводки"
-                },
-                "outlineAccentActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Акцентный цвет обводки"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Бесцветная обводка" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Бесцветная обводка" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Бесцветная обводка" },
+                "outlineAccent": { "value": "[general.green.600]", "comment": "Акцентный цвет обводки" },
+                "outlineAccentHover": { "value": "#14B32EFF", "comment": "Акцентный цвет обводки" },
+                "outlineAccentActive": { "value": "#0C6A1BFF", "comment": "Акцентный цвет обводки" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет обводки с градиентом",
@@ -7798,21 +6353,9 @@
                     "comment": "Прозрачный акцентный цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет обводки",
-                    "enabled": false
-                },
-                "outlinePromoHover": {
-                    "value": "#000000FF",
-                    "comment": "Промо цвет обводки",
-                    "enabled": false
-                },
-                "outlinePromoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Промо цвет обводки",
-                    "enabled": false
-                },
+                "outlinePromo": { "value": "#FFFFFF", "comment": "Промо цвет обводки", "enabled": false },
+                "outlinePromoHover": { "value": "#000000FF", "comment": "Промо цвет обводки", "enabled": false },
+                "outlinePromoActive": { "value": "#CCCCCCFF", "comment": "Промо цвет обводки", "enabled": false },
                 "outlinePromoGradient": {
                     "value": "#FFFFFF",
                     "comment": "Промо цвет обводки с градиентом",
@@ -7828,11 +6371,7 @@
                     "comment": "Промо цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePromoMinor": {
-                    "value": "#FFFFFF",
-                    "comment": "Минорный промо цвет обводки",
-                    "enabled": false
-                },
+                "outlinePromoMinor": { "value": "#FFFFFF", "comment": "Минорный промо цвет обводки", "enabled": false },
                 "outlinePromoMinorHover": {
                     "value": "#000000FF",
                     "comment": "Минорный промо цвет обводки",
@@ -7858,110 +6397,41 @@
                     "comment": "Минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Цвет обводки успех"
-                },
-                "outlinePositiveHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Цвет обводки успех"
-                },
-                "outlinePositiveActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Цвет обводки успех"
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.600]",
-                    "comment": "Цвет обводки предупреждение"
-                },
-                "outlineWarningHover": {
-                    "value": "#FD6B17FF",
-                    "comment": "Цвет обводки предупреждение"
-                },
-                "outlineWarningActive": {
-                    "value": "#C04802FF",
-                    "comment": "Цвет обводки предупреждение"
-                },
-                "outlineNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет обводки ошибка"
-                },
-                "outlineNegativeHover": {
-                    "value": "#F54254FF",
-                    "comment": "Цвет обводки ошибка"
-                },
-                "outlineNegativeActive": {
-                    "value": "#DA0B20FF",
-                    "comment": "Цвет обводки ошибка"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет обводки информация"
-                },
-                "outlineInfoHover": {
-                    "value": "#0D96F2FF",
-                    "comment": "Цвет обводки информация"
-                },
-                "outlineInfoActive": {
-                    "value": "#0966A5FF",
-                    "comment": "Цвет обводки информация"
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.green.250]",
-                    "comment": "Минорный цвет обводки успех"
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#68E880FF",
-                    "comment": "Минорный цвет обводки успех"
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#21DE44FF",
-                    "comment": "Минорный цвет обводки успех"
-                },
+                "outlinePositive": { "value": "[general.green.600]", "comment": "Цвет обводки успех" },
+                "outlinePositiveHover": { "value": "#14B32EFF", "comment": "Цвет обводки успех" },
+                "outlinePositiveActive": { "value": "#0C6A1BFF", "comment": "Цвет обводки успех" },
+                "outlineWarning": { "value": "[general.orange.600]", "comment": "Цвет обводки предупреждение" },
+                "outlineWarningHover": { "value": "#FD6B17FF", "comment": "Цвет обводки предупреждение" },
+                "outlineWarningActive": { "value": "#C04802FF", "comment": "Цвет обводки предупреждение" },
+                "outlineNegative": { "value": "[general.red.600]", "comment": "Цвет обводки ошибка" },
+                "outlineNegativeHover": { "value": "#F54254FF", "comment": "Цвет обводки ошибка" },
+                "outlineNegativeActive": { "value": "#DA0B20FF", "comment": "Цвет обводки ошибка" },
+                "outlineInfo": { "value": "[general.blue.600]", "comment": "Цвет обводки информация" },
+                "outlineInfoHover": { "value": "#0D96F2FF", "comment": "Цвет обводки информация" },
+                "outlineInfoActive": { "value": "#0966A5FF", "comment": "Цвет обводки информация" },
+                "outlinePositiveMinor": { "value": "[general.green.250]", "comment": "Минорный цвет обводки успех" },
+                "outlinePositiveMinorHover": { "value": "#68E880FF", "comment": "Минорный цвет обводки успех" },
+                "outlinePositiveMinorActive": { "value": "#21DE44FF", "comment": "Минорный цвет обводки успех" },
                 "outlineWarningMinor": {
                     "value": "[general.orange.250]",
                     "comment": "Минорный цвет обводки предупреждение"
                 },
-                "outlineWarningMinorHover": {
-                    "value": "#FFCDB3FF",
-                    "comment": "Минорный цвет обводки предупреждение"
-                },
+                "outlineWarningMinorHover": { "value": "#FFCDB3FF", "comment": "Минорный цвет обводки предупреждение" },
                 "outlineWarningMinorActive": {
                     "value": "#FF9861FF",
                     "comment": "Минорный цвет обводки предупреждение"
                 },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.250]",
-                    "comment": "Минорный цвет обводки ошибка"
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#FEDCDFFF",
-                    "comment": "Минорный цвет обводки ошибка"
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#FD8B97FF",
-                    "comment": "Минорный цвет обводки ошибка"
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.250]",
-                    "comment": "Минорный цвет обводки информация"
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#ADDEFFFF",
-                    "comment": "Минорный цвет обводки информация"
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#5CBEFFFF",
-                    "comment": "Минорный цвет обводки информация"
-                },
+                "outlineNegativeMinor": { "value": "[general.red.250]", "comment": "Минорный цвет обводки ошибка" },
+                "outlineNegativeMinorHover": { "value": "#FEDCDFFF", "comment": "Минорный цвет обводки ошибка" },
+                "outlineNegativeMinorActive": { "value": "#FD8B97FF", "comment": "Минорный цвет обводки ошибка" },
+                "outlineInfoMinor": { "value": "[general.blue.250]", "comment": "Минорный цвет обводки информация" },
+                "outlineInfoMinorHover": { "value": "#ADDEFFFF", "comment": "Минорный цвет обводки информация" },
+                "outlineInfoMinorActive": { "value": "#5CBEFFFF", "comment": "Минорный цвет обводки информация" },
                 "outlineTransparentPositive": {
                     "value": "[general.green.600][-0.72]",
                     "comment": "Прозрачный цвет обводки успех"
                 },
-                "outlineTransparentPositiveHover": {
-                    "value": "#108E25FF",
-                    "comment": "Прозрачный цвет обводки успех"
-                },
+                "outlineTransparentPositiveHover": { "value": "#108E25FF", "comment": "Прозрачный цвет обводки успех" },
                 "outlineTransparentPositiveActive": {
                     "value": "#108E2556",
                     "comment": "Прозрачный цвет обводки успех"
@@ -8088,30 +6558,12 @@
                     "value": "#FAFAFA56",
                     "comment": "Третичный прозрачный цвет обводки на темном фоне"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на темном фоне"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на темном фоне"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на темном фоне"
-                },
-                "outlineAccent": {
-                    "value": "[general.green.500]",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
-                "outlineAccentHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
-                "outlineAccentActive": {
-                    "value": "#147B27FF",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на темном фоне" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на темном фоне" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на темном фоне" },
+                "outlineAccent": { "value": "[general.green.500]", "comment": "Акцентный цвет обводки на темном фоне" },
+                "outlineAccentHover": { "value": "#1FC13DFF", "comment": "Акцентный цвет обводки на темном фоне" },
+                "outlineAccentActive": { "value": "#147B27FF", "comment": "Акцентный цвет обводки на темном фоне" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет обводки с градиентом на темном фоне",
@@ -8241,18 +6693,9 @@
                     "comment": "Минорный промо цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Цвет обводки успех на темном фоне"
-                },
-                "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Цвет обводки успех на темном фоне"
-                },
-                "outlinePositiveActive": {
-                    "value": "#147B27FF",
-                    "comment": "Цвет обводки успех на темном фоне"
-                },
+                "outlinePositive": { "value": "[general.green.500]", "comment": "Цвет обводки успех на темном фоне" },
+                "outlinePositiveHover": { "value": "#1FC13DFF", "comment": "Цвет обводки успех на темном фоне" },
+                "outlinePositiveActive": { "value": "#147B27FF", "comment": "Цвет обводки успех на темном фоне" },
                 "outlineWarning": {
                     "value": "[general.orange.500]",
                     "comment": "Цвет обводки предупреждение на темном фоне"
@@ -8265,30 +6708,12 @@
                     "value": "#D25004FF",
                     "comment": "Цвет обводки предупреждение на темном фоне"
                 },
-                "outlineNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет обводки ошибка на темном фоне"
-                },
-                "outlineNegativeHover": {
-                    "value": "#FF5263FF",
-                    "comment": "Цвет обводки ошибка на темном фоне"
-                },
-                "outlineNegativeActive": {
-                    "value": "#FF001AFF",
-                    "comment": "Цвет обводки ошибка на темном фоне"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет обводки информация на темном фоне"
-                },
-                "outlineInfoHover": {
-                    "value": "#2AA0EFFF",
-                    "comment": "Цвет обводки информация на темном фоне"
-                },
-                "outlineInfoActive": {
-                    "value": "#0E75B9FF",
-                    "comment": "Цвет обводки информация на темном фоне"
-                },
+                "outlineNegative": { "value": "[general.red.500]", "comment": "Цвет обводки ошибка на темном фоне" },
+                "outlineNegativeHover": { "value": "#FF5263FF", "comment": "Цвет обводки ошибка на темном фоне" },
+                "outlineNegativeActive": { "value": "#FF001AFF", "comment": "Цвет обводки ошибка на темном фоне" },
+                "outlineInfo": { "value": "[general.blue.500]", "comment": "Цвет обводки информация на темном фоне" },
+                "outlineInfoHover": { "value": "#2AA0EFFF", "comment": "Цвет обводки информация на темном фоне" },
+                "outlineInfoActive": { "value": "#0E75B9FF", "comment": "Цвет обводки информация на темном фоне" },
                 "outlinePositiveMinor": {
                     "value": "[general.green.850]",
                     "comment": "Минорный цвет обводки успех на темном фоне"
@@ -8471,30 +6896,15 @@
                     "value": "#080808AB",
                     "comment": "Третичный прозрачный цвет обводки на светлом фоне"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на светлом фоне"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на светлом фоне"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на светлом фоне"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на светлом фоне" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на светлом фоне" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Бесцветная обводка на светлом фоне" },
                 "outlineAccent": {
                     "value": "[general.green.600]",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
-                "outlineAccentHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Акцентный цвет обводки на светлом фоне"
-                },
-                "outlineAccentActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Акцентный цвет обводки на светлом фоне"
-                },
+                "outlineAccentHover": { "value": "#14B32EFF", "comment": "Акцентный цвет обводки на светлом фоне" },
+                "outlineAccentActive": { "value": "#0C6A1BFF", "comment": "Акцентный цвет обводки на светлом фоне" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
@@ -8624,18 +7034,9 @@
                     "comment": "Минорный промо цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.600]",
-                    "comment": "Цвет обводки успех на светлом фоне"
-                },
-                "outlinePositiveHover": {
-                    "value": "#14B32EFF",
-                    "comment": "Цвет обводки успех на светлом фоне"
-                },
-                "outlinePositiveActive": {
-                    "value": "#0C6A1BFF",
-                    "comment": "Цвет обводки успех на светлом фоне"
-                },
+                "outlinePositive": { "value": "[general.green.600]", "comment": "Цвет обводки успех на светлом фоне" },
+                "outlinePositiveHover": { "value": "#14B32EFF", "comment": "Цвет обводки успех на светлом фоне" },
+                "outlinePositiveActive": { "value": "#0C6A1BFF", "comment": "Цвет обводки успех на светлом фоне" },
                 "outlineWarning": {
                     "value": "[general.orange.600]",
                     "comment": "Цвет обводки предупреждение на светлом фоне"
@@ -8648,30 +7049,12 @@
                     "value": "#C04802FF",
                     "comment": "Цвет обводки предупреждение на светлом фоне"
                 },
-                "outlineNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет обводки ошибка на светлом фоне"
-                },
-                "outlineNegativeHover": {
-                    "value": "#F54254FF",
-                    "comment": "Цвет обводки ошибка на светлом фоне"
-                },
-                "outlineNegativeActive": {
-                    "value": "#DA0B20FF",
-                    "comment": "Цвет обводки ошибка на светлом фоне"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет обводки информация на светлом фоне"
-                },
-                "outlineInfoHover": {
-                    "value": "#0D96F2FF",
-                    "comment": "Цвет обводки информация на светлом фоне"
-                },
-                "outlineInfoActive": {
-                    "value": "#0966A5FF",
-                    "comment": "Цвет обводки информация на светлом фоне"
-                },
+                "outlineNegative": { "value": "[general.red.600]", "comment": "Цвет обводки ошибка на светлом фоне" },
+                "outlineNegativeHover": { "value": "#F54254FF", "comment": "Цвет обводки ошибка на светлом фоне" },
+                "outlineNegativeActive": { "value": "#DA0B20FF", "comment": "Цвет обводки ошибка на светлом фоне" },
+                "outlineInfo": { "value": "[general.blue.600]", "comment": "Цвет обводки информация на светлом фоне" },
+                "outlineInfoHover": { "value": "#0D96F2FF", "comment": "Цвет обводки информация на светлом фоне" },
+                "outlineInfoActive": { "value": "#0966A5FF", "comment": "Цвет обводки информация на светлом фоне" },
                 "outlinePositiveMinor": {
                     "value": "[general.green.250]",
                     "comment": "Минорный цвет обводки успех на светлом фоне"
@@ -8854,30 +7237,15 @@
                     "value": "#FAFAFA56",
                     "comment": "Инвертированный третичный прозрачный цвет обводки"
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированная бесцветная обводка"
-                },
-                "outlineClearHover": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированная бесцветная обводка"
-                },
-                "outlineClearActive": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированная бесцветная обводка"
-                },
+                "outlineClear": { "value": "#FFFFFF00", "comment": "Инвертированная бесцветная обводка" },
+                "outlineClearHover": { "value": "#FFFFFF00", "comment": "Инвертированная бесцветная обводка" },
+                "outlineClearActive": { "value": "#FFFFFF00", "comment": "Инвертированная бесцветная обводка" },
                 "outlineAccent": {
                     "value": "[general.green.500]",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
-                "outlineAccentHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Инвертированный акцентный цвет обводки"
-                },
-                "outlineAccentActive": {
-                    "value": "#147B27FF",
-                    "comment": "Инвертированный акцентный цвет обводки"
-                },
+                "outlineAccentHover": { "value": "#1FC13DFF", "comment": "Инвертированный акцентный цвет обводки" },
+                "outlineAccentActive": { "value": "#147B27FF", "comment": "Инвертированный акцентный цвет обводки" },
                 "outlineAccentGradient": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный акцентный цвет обводки с градиентом",
@@ -9007,18 +7375,9 @@
                     "comment": "Инвертированный минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
-                "outlinePositive": {
-                    "value": "[general.green.500]",
-                    "comment": "Инвертированный цвет обводки успех"
-                },
-                "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
-                    "comment": "Инвертированный цвет обводки успех"
-                },
-                "outlinePositiveActive": {
-                    "value": "#147B27FF",
-                    "comment": "Инвертированный цвет обводки успех"
-                },
+                "outlinePositive": { "value": "[general.green.500]", "comment": "Инвертированный цвет обводки успех" },
+                "outlinePositiveHover": { "value": "#1FC13DFF", "comment": "Инвертированный цвет обводки успех" },
+                "outlinePositiveActive": { "value": "#147B27FF", "comment": "Инвертированный цвет обводки успех" },
                 "outlineWarning": {
                     "value": "[general.orange.500]",
                     "comment": "Инвертированный цвет обводки предупреждение"
@@ -9031,30 +7390,12 @@
                     "value": "#D25004FF",
                     "comment": "Инвертированный цвет обводки предупреждение"
                 },
-                "outlineNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Инвертированный цвет обводки ошибка"
-                },
-                "outlineNegativeHover": {
-                    "value": "#FF5263FF",
-                    "comment": "Инвертированный цвет обводки ошибка"
-                },
-                "outlineNegativeActive": {
-                    "value": "#FF001AFF",
-                    "comment": "Инвертированный цвет обводки ошибка"
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Инвертированный цвет обводки информация"
-                },
-                "outlineInfoHover": {
-                    "value": "#2AA0EFFF",
-                    "comment": "Инвертированный цвет обводки информация"
-                },
-                "outlineInfoActive": {
-                    "value": "#0E75B9FF",
-                    "comment": "Инвертированный цвет обводки информация"
-                },
+                "outlineNegative": { "value": "[general.red.500]", "comment": "Инвертированный цвет обводки ошибка" },
+                "outlineNegativeHover": { "value": "#FF5263FF", "comment": "Инвертированный цвет обводки ошибка" },
+                "outlineNegativeActive": { "value": "#FF001AFF", "comment": "Инвертированный цвет обводки ошибка" },
+                "outlineInfo": { "value": "[general.blue.500]", "comment": "Инвертированный цвет обводки информация" },
+                "outlineInfoHover": { "value": "#2AA0EFFF", "comment": "Инвертированный цвет обводки информация" },
+                "outlineInfoActive": { "value": "#0E75B9FF", "comment": "Инвертированный цвет обводки информация" },
                 "outlinePositiveMinor": {
                     "value": "[general.green.850]",
                     "comment": "Инвертированный минорный цвет обводки успех"
@@ -9159,132 +7500,54 @@
             "soft": {
                 "s": {
                     "value": [
-                        {
-                            "origin": "0px 4px 14px -4px rgba(8, 8, 8, 0.08)"
-                        },
-                        {
-                            "origin": "0px 1px 4px -1px rgba(0, 0, 0, 0.04)"
-                        }
+                        { "origin": "0px 4px 14px -4px rgba(8, 8, 8, 0.08)" },
+                        { "origin": "0px 1px 4px -1px rgba(0, 0, 0, 0.04)" }
                     ]
                 },
-                "m": {
-                    "value": [
-                        {
-                            "origin": "0px 24px 48px -8px rgba(0, 0, 0, 0.08)"
-                        }
-                    ]
-                },
-                "l": {
-                    "value": [
-                        {
-                            "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.08)"
-                        }
-                    ]
-                }
+                "m": { "value": [{ "origin": "0px 24px 48px -8px rgba(0, 0, 0, 0.08)" }] },
+                "l": { "value": [{ "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.08)" }] }
             },
             "hard": {
                 "s": {
                     "value": [
-                        {
-                            "origin": "0px 4px 12px -3px rgba(8, 8, 8, 0.16)"
-                        },
-                        {
-                            "origin": "0px 1px 4px -2px rgba(0, 0, 0, 0.08)"
-                        }
+                        { "origin": "0px 4px 12px -3px rgba(8, 8, 8, 0.16)" },
+                        { "origin": "0px 1px 4px -2px rgba(0, 0, 0, 0.08)" }
                     ]
                 },
-                "m": {
-                    "value": [
-                        {
-                            "origin": "0px 16px 32px -8px rgba(0, 0, 0, 0.24)"
-                        }
-                    ]
-                },
-                "l": {
-                    "value": [
-                        {
-                            "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.40)"
-                        }
-                    ]
-                }
+                "m": { "value": [{ "origin": "0px 16px 32px -8px rgba(0, 0, 0, 0.24)" }] },
+                "l": { "value": [{ "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.40)" }] }
             }
         },
         "up": {
             "soft": {
                 "s": {
                     "value": [
-                        {
-                            "origin": "0px -4px 14px -4px rgba(8, 8, 8, 0.08)"
-                        },
-                        {
-                            "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)"
-                        }
+                        { "origin": "0px -4px 14px -4px rgba(8, 8, 8, 0.08)" },
+                        { "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)" }
                     ]
                 },
-                "m": {
-                    "value": [
-                        {
-                            "origin": "0px -24px 48px -8px rgba(0, 0, 0, 0.08)"
-                        }
-                    ]
-                },
-                "l": {
-                    "value": [
-                        {
-                            "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.08)"
-                        }
-                    ]
-                }
+                "m": { "value": [{ "origin": "0px -24px 48px -8px rgba(0, 0, 0, 0.08)" }] },
+                "l": { "value": [{ "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.08)" }] }
             },
             "hard": {
                 "s": {
                     "value": [
-                        {
-                            "origin": "0px -4px 12px -3px rgba(8, 8, 8, 0.20)"
-                        },
-                        {
-                            "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)"
-                        }
+                        { "origin": "0px -4px 12px -3px rgba(8, 8, 8, 0.20)" },
+                        { "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)" }
                     ]
                 },
-                "m": {
-                    "value": [
-                        {
-                            "origin": "0px -16px 32px -8px rgba(0, 0, 0, 0.24)"
-                        }
-                    ]
-                },
-                "l": {
-                    "value": [
-                        {
-                            "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.40)"
-                        }
-                    ]
-                }
+                "m": { "value": [{ "origin": "0px -16px 32px -8px rgba(0, 0, 0, 0.24)" }] },
+                "l": { "value": [{ "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.40)" }] }
             }
         }
     },
     "borderRadius": {
-        "xxs": {
-            "value": "4px"
-        },
-        "xs": {
-            "value": "6px"
-        },
-        "s": {
-            "value": "8px"
-        },
-        "m": {
-            "value": "12px"
-        },
-        "l": {
-            "value": "16px"
-        },
-        "xl": {
-            "value": "20px"
-        },
-        "xxl": {
-            "value": "40px"
-        }
+        "xxs": { "value": "4px" },
+        "xs": { "value": "6px" },
+        "s": { "value": "8px" },
+        "m": { "value": "12px" },
+        "l": { "value": "16px" },
+        "xl": { "value": "20px" },
+        "xxl": { "value": "40px" }
     }
 }
