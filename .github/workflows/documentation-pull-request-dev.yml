@@ -54,6 +54,12 @@ jobs:
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
+          
+      - name: Plasma B2C Docs
+        run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
+          npm run build --prefix="./website/plasma-b2c-docs"
+          cp -R ./website/plasma-b2c-docs/build ./s3_build/${PR_NAME}/b2c
       
       - name: Plasma UI Storybook
         run: |

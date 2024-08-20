@@ -52,6 +52,11 @@ jobs:
         run: |
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
+          
+      - name: Plasma B2C Docs
+        run: |
+          npm run build --prefix="./website/plasma-b2c-docs"
+          cp -R ./website/plasma-b2c-docs/build ./s3_build/next-${{ github.sha }}/b2c
       
       - name: SDDS-SERV Docs
         run: |
