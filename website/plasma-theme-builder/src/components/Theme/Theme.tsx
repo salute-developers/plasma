@@ -150,6 +150,10 @@ export const Theme = ({
             if (themeData[themeMode][section][subsection][`${key}Hover`]) {
                 themeData[themeMode][section][subsection][`${key}Hover`].enabled = enabled;
             }
+
+            if (themeData[themeMode][section][subsection][`${key}Brightness`]) {
+                themeData[themeMode][section][subsection][`${key}Brightness`].enabled = enabled;
+            }
         },
         [],
     );
@@ -259,7 +263,7 @@ export const Theme = ({
                     <TokenForm
                         themeMode={themeMode}
                         defaultThemeData={defaultData}
-                        opened={isFormTokenOpen}
+                        isOpen={isFormTokenOpen}
                         inputData={inputData}
                         themeData={themeData}
                         onTokenFormShow={onTokenFormShow}
@@ -276,7 +280,7 @@ export const Theme = ({
                     />
                 </ThemeControls>
                 <AddTokenSection
-                    opened={isAddTokenSectionOpen}
+                    isOpen={isAddTokenSectionOpen}
                     themeData={themeData}
                     onAddTokenSectionShow={onAddTokenSectionShow}
                     onThemeDataChange={onThemeDataChange}
