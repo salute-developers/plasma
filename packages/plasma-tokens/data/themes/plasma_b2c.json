@@ -200,16 +200,12 @@
                     "value": "#FF1F35FF",
                     "comment": ""
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": ""
-                },
                 "outlineInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#A3C3FFFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#337AFFFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -248,16 +244,12 @@
                     "value": "#83111CFF",
                     "comment": ""
                 },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "outlineInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
@@ -306,13 +298,6 @@
                     },
                     "comment": ""
                 },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.28)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.28)"
-                    },
-                    "comment": ""
-                },
                 "outlineTransparentNegative": {
                     "value": {
                         "origin": "rgba(243, 27, 49, 0.20)",
@@ -326,6 +311,21 @@
                 },
                 "outlineTransparentNegativeActive": {
                     "value": "#E6E6E6FF",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(63, 129, 253, 0.28)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.28)"
+                    },
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
                     "comment": ""
                 }
             },
@@ -435,11 +435,11 @@
                     "comment": ""
                 },
                 "outlineInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#A3C3FFFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#337AFFFF",
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
@@ -467,11 +467,11 @@
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
@@ -570,20 +570,12 @@
                     "value": "[general.red.400]",
                     "comment": ""
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": ""
-                },
                 "outlineWarningMinor": {
                     "value": "[general.orange.800]",
                     "comment": ""
                 },
                 "outlineNegativeMinor": {
                     "value": "[general.red.800]",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -607,15 +599,23 @@
                     },
                     "comment": ""
                 },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.28)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.28)"
-                    },
-                    "comment": ""
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.800]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(63, 129, 253, 0.28)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.28)"
+                    },
                     "comment": ""
                 }
             },
@@ -780,16 +780,12 @@
                     "value": "#E40C22FF",
                     "comment": ""
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "outlineInfoHover": {
-                    "value": "#50B1F2FF",
+                    "value": "#90B6FEFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#0F7BC2FF",
+                    "value": "#216EFDFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -828,16 +824,12 @@
                     "value": "#FF707EFF",
                     "comment": ""
                 },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
                 "outlineInfoMinorHover": {
-                    "value": "#A3DAFFFF",
+                    "value": "#DCE8FEFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#33ADFFFF",
+                    "value": "#6FA0FBFF",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -893,19 +885,27 @@
                     "value": "#E6E6E6FF",
                     "comment": ""
                 },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": ""
-                },
                 "outlinePrimary": {
                     "value": "[general.gray.200]",
                     "comment": ""
                 },
                 "outlineSecondary": {
                     "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(42, 114, 248, 0.20)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.20)"
+                    },
                     "comment": ""
                 }
             },
@@ -1035,16 +1035,12 @@
                     "value": "#1C62E3FF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#50B1F2FF",
+                    "value": "#90B6FEFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0F7BC2FF",
+                    "value": "#216EFDFF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -1083,16 +1079,20 @@
                     "value": "#83111CFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "textInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.800]",
                     "comment": ""
                 }
             },
@@ -1178,11 +1178,11 @@
                     "comment": ""
                 },
                 "textInfoHover": {
-                    "value": "#50B1F2FF",
+                    "value": "#90B6FEFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0F7BC2FF",
+                    "value": "#216EFDFF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -1221,20 +1221,20 @@
                     "value": "#83111CFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.800]",
                     "comment": ""
                 },
                 "textInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "[general.electricBlue.500]",
                     "comment": ""
                 }
             },
@@ -1283,16 +1283,12 @@
                     "value": "#6FA0FBFF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#34A7F4FF",
+                    "value": "#79A7FBFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#096CAEFF",
+                    "value": "#0D5FF8FF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -1331,16 +1327,12 @@
                     "value": "#FF707EFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#A3DAFFFF",
+                    "value": "#DCE8FEFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#33ADFFFF",
+                    "value": "#6FA0FBFF",
                     "comment": ""
                 },
                 "textNegativeHover": {
@@ -1354,6 +1346,14 @@
                 "textNegative": {
                     "value": "[general.red.600]",
                     "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textInfo": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -1505,16 +1505,12 @@
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -1553,16 +1549,12 @@
                     "value": "#410B11FF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#071F4BFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
@@ -1618,13 +1610,6 @@
                     },
                     "comment": ""
                 },
-                "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": ""
-                },
                 "surfaceSolidDefault": {
                     "value": "[general.gray.50]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
@@ -1636,6 +1621,21 @@
                 "surfaceSolidDefaultActive": {
                     "value": "#F5F5F5FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "surfaceTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(63, 129, 253, 0.20)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
+                    },
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -1743,16 +1743,12 @@
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
-                "surfaceSurfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "surfaceSurfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "surfaceSurfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -1791,16 +1787,12 @@
                     "value": "#410B11FF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#071F4BFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
@@ -1856,13 +1848,6 @@
                     },
                     "comment": ""
                 },
-                "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": ""
-                },
                 "surfaceSolidDefault": {
                     "value": "[general.gray.50]",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на тем. фоне"
@@ -1874,6 +1859,21 @@
                 "surfaceSolidDefaultActive": {
                     "value": "#F5F5F5FF",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на тем. фоне"
+                },
+                "surfaceSurfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "surfaceTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(63, 129, 253, 0.20)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
+                    },
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -1974,16 +1974,12 @@
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -2022,16 +2018,12 @@
                     "value": "#FFD6DAFF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#DBF1FFFF",
+                    "value": "#EBF1FFFF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#D6E4FFFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
@@ -2087,10 +2079,18 @@
                     },
                     "comment": ""
                 },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": ""
+                },
                 "surfaceTransparentInfo": {
                     "value": {
-                        "origin": "rgba(17, 140, 223, 0.12)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.12)"
+                        "origin": "rgba(42, 114, 248, 0.12)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.12)"
                     },
                     "comment": ""
                 }
@@ -2354,11 +2354,11 @@
                     "comment": ""
                 },
                 "outlineInfoHover": {
-                    "value": "#2AA0EFFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#0E75B9FF",
+                    "value": "#1767FDFF",
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
@@ -2386,11 +2386,11 @@
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#B4CEFDFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#29A9FFFF",
+                    "value": "#6599FBFF",
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
@@ -2504,10 +2504,6 @@
                     "value": "[general.red.600]",
                     "comment": ""
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.300]",
                     "comment": ""
@@ -2518,10 +2514,6 @@
                 },
                 "outlineNegativeMinor": {
                     "value": "[general.red.300]",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.300]",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -2538,13 +2530,6 @@
                     },
                     "comment": ""
                 },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": ""
-                },
                 "outlineTransparentNegative": {
                     "value": {
                         "origin": "rgba(243, 27, 49, 0.20)",
@@ -2558,6 +2543,21 @@
                 },
                 "outlineTransparentNegativeActive": {
                     "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(42, 114, 248, 0.20)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.20)"
+                    },
                     "comment": ""
                 }
             },
@@ -2706,16 +2706,12 @@
                     "value": "#FF142CFF",
                     "comment": ""
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": ""
-                },
                 "outlineInfoHover": {
-                    "value": "#3FABF3FF",
+                    "value": "#7AA9FFFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#0D84D3FF",
+                    "value": "#2974FFFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -2754,16 +2750,12 @@
                     "value": "#7A101AFF",
                     "comment": ""
                 },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "outlineInfoMinorHover": {
-                    "value": "#1483CCFF",
+                    "value": "#000000FF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#116BA7FF",
+                    "value": "#113B88FF",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -2811,13 +2803,6 @@
                     "value": "#CCCCCCFF",
                     "comment": ""
                 },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.28)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.28)"
-                    },
-                    "comment": ""
-                },
                 "outlineTransparentInfoHover": {
                     "value": "#000000FF",
                     "comment": ""
@@ -2848,6 +2833,21 @@
                 },
                 "outlineDefault": {
                     "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": {
+                        "origin": "rgba(63, 129, 253, 0.28)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.28)"
+                    },
                     "comment": ""
                 }
             },
@@ -3000,16 +3000,12 @@
                     "value": "#DA0B20FF",
                     "comment": ""
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "outlineInfoHover": {
-                    "value": "#2AA0EFFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#0E75B9FF",
+                    "value": "#1767FDFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -3048,16 +3044,12 @@
                     "value": "#FF6675FF",
                     "comment": ""
                 },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
                 "outlineInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#B4CEFDFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#29A9FFFF",
+                    "value": "#6599FBFF",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -3133,10 +3125,18 @@
                     "value": "[general.gray.700]",
                     "comment": ""
                 },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
                 "outlineTransparentInfo": {
                     "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
+                        "origin": "rgba(42, 114, 248, 0.20)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.20)"
                     },
                     "comment": ""
                 }
@@ -3263,16 +3263,12 @@
                     "value": "#6599FBFF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#2AA0EFFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0E75B9FF",
+                    "value": "#1767FDFF",
                     "comment": ""
                 },
                 "textPositiveMinorHover": {
@@ -3300,11 +3296,11 @@
                     "comment": ""
                 },
                 "textInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#B4CEFDFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#29A9FFFF",
+                    "value": "#6599FBFF",
                     "comment": ""
                 },
                 "textAccentMinor": {
@@ -3323,8 +3319,12 @@
                     "value": "[general.red.300]",
                     "comment": ""
                 },
+                "textInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
                 "textInfoMinor": {
-                    "value": "[general.blue.300]",
+                    "value": "[general.electricBlue.300]",
                     "comment": ""
                 }
             },
@@ -3410,11 +3410,11 @@
                     "comment": ""
                 },
                 "textInfoHover": {
-                    "value": "#2AA0EFFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0E75B9FF",
+                    "value": "#1767FDFF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -3453,20 +3453,20 @@
                     "value": "#7A101AFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#1483CCFF",
+                    "value": "#000000FF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#116BA7FF",
+                    "value": "#113B88FF",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.800]",
                     "comment": ""
                 },
                 "textInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "[general.electricBlue.500]",
                     "comment": ""
                 }
             },
@@ -3515,16 +3515,12 @@
                     "value": "#6599FBFF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#0D96F2FF",
+                    "value": "#528DFAFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0966A5FF",
+                    "value": "#075AF2FF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -3563,16 +3559,12 @@
                     "value": "#FF6675FF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#B4CEFDFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#29A9FFFF",
+                    "value": "#6599FBFF",
                     "comment": ""
                 },
                 "textNegative": {
@@ -3586,6 +3578,14 @@
                 "textNegativeActive": {
                     "value": "#DA0B20FF",
                     "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textInfo": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -3719,16 +3719,12 @@
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinorHover": {
@@ -3756,11 +3752,11 @@
                     "comment": ""
                 },
                 "surfaceInfoMinorHover": {
-                    "value": "#E5F5FFFF",
+                    "value": "#F5F8FFFF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#D6E4FFFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
@@ -3818,10 +3814,6 @@
                     "value": "[general.red.150]",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": ""
-                },
                 "surfaceTransparentPositive": {
                     "value": {
                         "origin": "rgba(26, 158, 50, 0.12)",
@@ -3843,10 +3835,18 @@
                     },
                     "comment": ""
                 },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": ""
+                },
                 "surfaceTransparentInfo": {
                     "value": {
-                        "origin": "rgba(17, 140, 223, 0.12)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.12)"
+                        "origin": "rgba(42, 114, 248, 0.12)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.12)"
                     },
                     "comment": ""
                 }
@@ -3929,16 +3929,12 @@
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
-                "surfaceSurfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "surfaceSurfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "surfaceSurfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -3977,16 +3973,12 @@
                     "value": "#380A0FFF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#091D2AFF",
+                    "value": "#061B41FF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
@@ -4111,10 +4103,18 @@
                     },
                     "comment": ""
                 },
+                "surfaceSurfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
                 "surfaceTransparentInfo": {
                     "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
+                        "origin": "rgba(63, 129, 253, 0.20)",
+                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
                     },
                     "comment": ""
                 }
@@ -4217,16 +4217,12 @@
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -4265,16 +4261,12 @@
                     "value": "#FFD6DAFF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#E5F5FFFF",
+                    "value": "#F5F8FFFF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#D6E4FFFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
@@ -4330,10 +4322,18 @@
                     },
                     "comment": ""
                 },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": ""
+                },
                 "surfaceTransparentInfo": {
                     "value": {
-                        "origin": "rgba(17, 140, 223, 0.12)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.12)"
+                        "origin": "rgba(42, 114, 248, 0.12)",
+                        "backgroundColor": "rgba(42, 114, 248, 0.12)"
                     },
                     "comment": ""
                 }
