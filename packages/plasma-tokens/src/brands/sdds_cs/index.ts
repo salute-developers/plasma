@@ -81,6 +81,9 @@ export const surfaceSolidCard = 'var(--surface-solid-card, #13181B)';
 /** Непрозрачный фон поверхности/контрола по умолчанию */
 export const surfaceSolidDefault = 'var(--surface-solid-default, #F7F9FB)';
 
+/** Фон поверхности/контрола без заливки */
+export const surfaceClear = 'var(--surface-clear, #FFFFFF00)';
+
 /** Акцентный фон поверхности/контрола */
 export const surfaceAccent = 'var(--surface-accent, #0C9C0C)';
 
@@ -105,11 +108,17 @@ export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #13181B
 /** Непрозрачный фон поверхности/контрола по умолчанию на темном фоне */
 export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #F7F9FB)';
 
+/** Фон поверхности/контрола без заливки на темном фоне */
+export const onDarkSurfaceClear = 'var(--on-dark-surface-clear, #FFFFFF00)';
+
 /** Акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #0C9C0C)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #0C9C0C47)';
+
+/** Промо фон поверхности/контрола на темном фоне */
+export const onDarkSurfacePromo = 'var(--on-dark-surface-promo, #FFFFFF)';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositive = 'var(--on-dark-surface-positive, #1A9E32)';
@@ -128,6 +137,9 @@ export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, #FFFF
 
 /** Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне */
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #060A0C)';
+
+/** Фон поверхности/контрола без заливки на светлом фоне */
+export const onLightSurfaceClear = 'var(--on-light-surface-clear, #FFFFFF00)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #108210)';
@@ -152,6 +164,9 @@ export const inverseSurfaceSolidCard = 'var(--inverse-surface-solid-card, #FFFFF
 
 /** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
 export const inverseSurfaceSolidDefault = 'var(--inverse-surface-solid-default, #060A0C)';
+
+/** Инвертированный фон поверхности/контрола без заливки */
+export const inverseSurfaceClear = 'var(--inverse-surface-clear, #FFFFFF00)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #108210)';
@@ -186,6 +201,9 @@ export const outlineDefaultOutlineSolidPrimary = 'var(--outline-default-outline-
 /** Вторичный непрозрачный цвет обводки */
 export const outlineDefaultOutlineSolidSecondary = 'var(--outline-default-outline-solid-secondary, #30373C)';
 
+/** Бесцветная обводка */
+export const outlineDefaultOutlineClear = 'var(--outline-default-outline-clear, #FFFFFF00)';
+
 /** Акцентный цвет обводки */
 export const outlineDefaultOutlineAccent = 'var(--outline-default-outline-accent, #0C9C0C)';
 
@@ -203,6 +221,9 @@ export const outlineOnDarkOutlineSolidPrimary = 'var(--outline-on-dark-outline-s
 
 /** Вторичный непрозрачный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineSolidSecondary = 'var(--outline-on-dark-outline-solid-secondary, #30373C)';
+
+/** Бесцветная обводка на темном фоне */
+export const outlineOnDarkOutlineClear = 'var(--outline-on-dark-outline-clear, #FFFFFF00)';
 
 /** Акцентный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineAccent = 'var(--outline-on-dark-outline-accent, #0C9C0C)';
@@ -222,6 +243,9 @@ export const outlineOnLightOutlineSolidPrimary = 'var(--outline-on-light-outline
 /** Вторичный непрозрачный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineSolidSecondary = 'var(--outline-on-light-outline-solid-secondary, #ADB9C2)';
 
+/** Бесцветная обводка на светлом фоне */
+export const outlineOnLightOutlineClear = 'var(--outline-on-light-outline-clear, #FFFFFF00)';
+
 /** Акцентный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineAccent = 'var(--outline-on-light-outline-accent, #108210)';
 
@@ -239,6 +263,9 @@ export const outlineInverseOutlineSolidPrimary = 'var(--outline-inverse-outline-
 
 /** Инвертированный вторичный непрозрачный цвет обводки */
 export const outlineInverseOutlineSolidSecondary = 'var(--outline-inverse-outline-solid-secondary, #ADB9C2)';
+
+/** Инвертированная бесцветная обводка */
+export const outlineInverseOutlineClear = 'var(--outline-inverse-outline-clear, #FFFFFF00)';
 
 /** Инвертированный акцентный цвет обводки */
 export const outlineInverseOutlineAccent = 'var(--outline-inverse-outline-accent, #108210)';

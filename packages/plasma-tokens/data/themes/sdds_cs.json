@@ -1376,7 +1376,7 @@
                 "surfaceClear": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
@@ -1903,7 +1903,7 @@
                 "surfaceClear": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
@@ -2008,7 +2008,7 @@
                 "surfacePromo": {
                     "value": "#FFFFFF",
                     "comment": "Промо фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfacePromoHover": {
                     "value": "#FFFFFFFF",
@@ -2430,7 +2430,7 @@
                 "surfaceClear": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
@@ -2957,7 +2957,7 @@
                 "surfaceClear": {
                     "value": "#FFFFFF00",
                     "comment": "Инвертированный фон поверхности/контрола без заливки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
@@ -3581,7 +3581,7 @@
                 "outlineClear": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
@@ -4033,7 +4033,7 @@
                 "outlineClear": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
@@ -4485,7 +4485,7 @@
                 "outlineClear": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
@@ -4937,7 +4937,7 @@
                 "outlineClear": {
                     "value": "#FFFFFF00",
                     "comment": "Инвертированная бесцветная обводка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
@@ -6630,20 +6630,15 @@
                     "comment": "Прозрачный фон для карточек",
                     "enabled": false
                 },
-                "surfaceClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки",
-                    "enabled": false
-                },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentHover": {
                     "value": "#0DA00DFF",
@@ -7019,6 +7014,11 @@
                     "value": "rgba(11,140,11,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола",
                     "enabled": true
+                },
+                "surfaceClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Фон поверхности/контрола без заливки",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -7157,20 +7157,15 @@
                     "comment": "Прозрачный фон для карточек на темном фоне",
                     "enabled": false
                 },
-                "surfaceClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки на темном фоне",
-                    "enabled": false
-                },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentHover": {
                     "value": "#0DAF0DFF",
@@ -7252,20 +7247,15 @@
                     "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": false
                 },
-                "surfacePromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо фон поверхности/контрола на темном фоне",
-                    "enabled": false
-                },
                 "surfacePromoHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Промо фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfacePromoActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Промо фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfacePromoGradient": {
                     "value": "#FFFFFF",
@@ -7546,6 +7536,16 @@
                     "value": "[general.coolGray.50]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне",
                     "enabled": true
+                },
+                "surfacePromo": {
+                    "value": "#FFFFFF",
+                    "comment": "Промо фон поверхности/контрола на темном фоне",
+                    "enabled": true
+                },
+                "surfaceClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Фон поверхности/контрола без заливки на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -7684,20 +7684,15 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне",
                     "enabled": false
                 },
-                "surfaceClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Фон поверхности/контрола без заливки на светлом фоне",
-                    "enabled": false
-                },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentHover": {
                     "value": "#0DA00DFF",
@@ -8073,6 +8068,11 @@
                     "value": "rgba(11,140,11,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне",
                     "enabled": true
+                },
+                "surfaceClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Фон поверхности/контрола без заливки на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -8211,20 +8211,15 @@
                     "comment": "Инвертированный прозрачный фон для карточек",
                     "enabled": false
                 },
-                "surfaceClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированный фон поверхности/контрола без заливки",
-                    "enabled": false
-                },
                 "surfaceClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Инвертированный фон поверхности/контрола без заливки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Инвертированный фон поверхности/контрола без заливки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentHover": {
                     "value": "#0DAF0DFF",
@@ -8600,6 +8595,11 @@
                     "value": "[general.coolGray.50]",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
                     "enabled": true
+                },
+                "surfaceClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Инвертированный фон поверхности/контрола без заливки",
+                    "enabled": true
                 }
             }
         },
@@ -8840,20 +8840,15 @@
                     "comment": "Третичный прозрачный цвет обводки",
                     "enabled": false
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка",
-                    "enabled": false
-                },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentHover": {
                     "value": "#19CC19FF",
@@ -9194,6 +9189,11 @@
                     "value": "[general.coolGray.150]",
                     "comment": "Вторичный непрозрачный цвет обводки",
                     "enabled": true
+                },
+                "outlineClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Бесцветная обводка",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -9292,20 +9292,15 @@
                     "comment": "Третичный прозрачный цвет обводки на темном фоне",
                     "enabled": false
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на темном фоне",
-                    "enabled": false
-                },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentHover": {
                     "value": "#0FC20FFF",
@@ -9646,6 +9641,11 @@
                     "value": "[general.coolGray.950]",
                     "comment": "Вторичный непрозрачный цвет обводки на темном фоне",
                     "enabled": true
+                },
+                "outlineClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Бесцветная обводка на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -9744,20 +9744,15 @@
                     "comment": "Третичный прозрачный цвет обводки на светлом фоне",
                     "enabled": false
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Бесцветная обводка на светлом фоне",
-                    "enabled": false
-                },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentHover": {
                     "value": "#19CC19FF",
@@ -10098,6 +10093,11 @@
                     "value": "[general.coolGray.150]",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
                     "enabled": true
+                },
+                "outlineClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Бесцветная обводка на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -10196,20 +10196,15 @@
                     "comment": "Инвертированный третичный прозрачный цвет обводки",
                     "enabled": false
                 },
-                "outlineClear": {
-                    "value": "#FFFFFF00",
-                    "comment": "Инвертированная бесцветная обводка",
-                    "enabled": false
-                },
                 "outlineClearHover": {
                     "value": "#FFFFFF00",
                     "comment": "Инвертированная бесцветная обводка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Инвертированная бесцветная обводка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentHover": {
                     "value": "#0FC20FFF",
@@ -10549,6 +10544,11 @@
                 "outlineSolidSecondary": {
                     "value": "[general.coolGray.950]",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки",
+                    "enabled": true
+                },
+                "outlineClear": {
+                    "value": "#FFFFFF00",
+                    "comment": "Инвертированная бесцветная обводка",
                     "enabled": true
                 }
             }
