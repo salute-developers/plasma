@@ -50,7 +50,8 @@ export const PopupProvider: FC<PropsWithChildren> = ({ children }) => {
                 document.body.style.overflowY = prevBodyOverflowY.current;
             }
 
-            return prevItems;
+            // при return prevItems не обновится контекст
+            return [...prevItems];
         });
     };
 

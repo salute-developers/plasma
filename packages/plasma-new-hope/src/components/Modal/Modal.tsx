@@ -11,7 +11,7 @@ import { classes, tokens } from './Modal.tokens';
 import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
-import { getIdFirstModal } from './ModalContext';
+import { getIdLastModal } from './ModalContext';
 
 // issue #823
 const Popup = component(popupConfig);
@@ -65,7 +65,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 popupInfo,
             });
 
-            const transparent = useMemo(() => getIdFirstModal(popupController.items) !== innerId, [
+            const transparent = useMemo(() => getIdLastModal(popupController.items) !== innerId, [
                 innerId,
                 popupController.items,
             ]);
