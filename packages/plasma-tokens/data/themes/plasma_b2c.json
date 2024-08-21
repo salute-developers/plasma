@@ -15,967 +15,6 @@
         }
     },
     "dark": {
-        "outline": {
-            "default": {
-                "outlinePrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
-                "outlinePrimaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#ADADADFF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.800]",
-                    "comment": ""
-                },
-                "outlineSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineSecondaryActive": {
-                    "value": "#8C8C8CFF",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineTertiaryActive": {
-                    "value": "#737373FF",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
-                "outlineDefaultHover": {
-                    "value": "#C7C7C7FF",
-                    "comment": ""
-                },
-                "outlineDefaultActive": {
-                    "value": "#E0E0E0FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.12)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.12)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.20)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.40)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.40)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentClear": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.00)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.00)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentClearHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentClearActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": ""
-                },
-                "outlineAccentHover": {
-                    "value": "#90B6FEFF",
-                    "comment": ""
-                },
-                "outlineAccentActive": {
-                    "value": "#216EFDFF",
-                    "comment": ""
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineAccentMinorActive": {
-                    "value": "#1C62E3FF",
-                    "comment": ""
-                },
-                "outlineTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(63, 129, 253, 0.28)",
-                        "backgroundColor": "rgba(63, 129, 253, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentAccentHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlinePositive": {
-                    "value": "[general.green.400]",
-                    "comment": ""
-                },
-                "outlinePositiveHover": {
-                    "value": "#2ACB47FF",
-                    "comment": ""
-                },
-                "outlinePositiveActive": {
-                    "value": "#1F9835FF",
-                    "comment": ""
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.400]",
-                    "comment": ""
-                },
-                "outlineWarningHover": {
-                    "value": "#FF8442FF",
-                    "comment": ""
-                },
-                "outlineWarningActive": {
-                    "value": "#FF5D05FF",
-                    "comment": ""
-                },
-                "outlineNegative": {
-                    "value": "[general.red.400]",
-                    "comment": ""
-                },
-                "outlineNegativeHover": {
-                    "value": "#FF5C6CFF",
-                    "comment": ""
-                },
-                "outlineNegativeActive": {
-                    "value": "#FF1F35FF",
-                    "comment": ""
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": ""
-                },
-                "outlineInfoHover": {
-                    "value": "#66BCF5FF",
-                    "comment": ""
-                },
-                "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
-                    "comment": ""
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.green.800]",
-                    "comment": ""
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#0F9527FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#0C7920FF",
-                    "comment": ""
-                },
-                "outlineWarningMinor": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "outlineWarningMinorHover": {
-                    "value": "#BB4F11FF",
-                    "comment": ""
-                },
-                "outlineWarningMinorActive": {
-                    "value": "#9F440FFF",
-                    "comment": ""
-                },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.800]",
-                    "comment": ""
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#B91828FF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#83111CFF",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#1277BAFF",
-                    "comment": ""
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#10659EFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.28)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.28)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.28)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(243, 27, 49, 0.20)",
-                        "backgroundColor": "rgba(243, 27, 49, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentNegativeHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentNegativeActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                }
-            },
-            "onDark": {
-                "outlinePrimaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#ADADADFF",
-                    "comment": ""
-                },
-                "outlineSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineSecondaryActive": {
-                    "value": "#8C8C8CFF",
-                    "comment": ""
-                },
-                "outlineTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineTertiaryActive": {
-                    "value": "#737373FF",
-                    "comment": ""
-                },
-                "outlineDefaultHover": {
-                    "value": "#C7C7C7FF",
-                    "comment": ""
-                },
-                "outlineDefaultActive": {
-                    "value": "#E0E0E0FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineAccentHover": {
-                    "value": "#90B6FEFF",
-                    "comment": ""
-                },
-                "outlineAccentActive": {
-                    "value": "#216EFDFF",
-                    "comment": ""
-                },
-                "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineAccentMinorActive": {
-                    "value": "#1C62E3FF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlinePositiveHover": {
-                    "value": "#2ACB47FF",
-                    "comment": ""
-                },
-                "outlinePositiveActive": {
-                    "value": "#1F9835FF",
-                    "comment": ""
-                },
-                "outlineWarningHover": {
-                    "value": "#FF8442FF",
-                    "comment": ""
-                },
-                "outlineWarningActive": {
-                    "value": "#FF5D05FF",
-                    "comment": ""
-                },
-                "outlineNegativeHover": {
-                    "value": "#FF5C6CFF",
-                    "comment": ""
-                },
-                "outlineNegativeActive": {
-                    "value": "#FF1F35FF",
-                    "comment": ""
-                },
-                "outlineInfoHover": {
-                    "value": "#66BCF5FF",
-                    "comment": ""
-                },
-                "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#0F9527FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#0C7920FF",
-                    "comment": ""
-                },
-                "outlineWarningMinorHover": {
-                    "value": "#BB4F11FF",
-                    "comment": ""
-                },
-                "outlineWarningMinorActive": {
-                    "value": "#9F440FFF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#B91828FF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#83111CFF",
-                    "comment": ""
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#1277BAFF",
-                    "comment": ""
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#10659EFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlinePrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.800]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
-                "outlineTransparentPrimary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.12)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.12)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentSecondary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.20)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentTertiary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.40)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.40)"
-                    },
-                    "comment": ""
-                },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": ""
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "outlineTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(63, 129, 253, 0.28)",
-                        "backgroundColor": "rgba(63, 129, 253, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlinePositive": {
-                    "value": "[general.green.400]",
-                    "comment": ""
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.400]",
-                    "comment": ""
-                },
-                "outlineNegative": {
-                    "value": "[general.red.400]",
-                    "comment": ""
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": ""
-                },
-                "outlineWarningMinor": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.800]",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
-                "outlineTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.28)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.28)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineNegativeTransparent": {
-                    "value": {
-                        "origin": "rgba(255, 41, 62, 0.28)",
-                        "backgroundColor": "rgba(255, 41, 62, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.28)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.green.800]",
-                    "comment": ""
-                }
-            },
-            "onLight": {
-                "outlinePrimaryHover": {
-                    "value": "#ABABABFF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#C4C4C4FF",
-                    "comment": ""
-                },
-                "outlineSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineSecondaryActive": {
-                    "value": "#575757FF",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineTertiaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineTertiaryActive": {
-                    "value": "#737373FF",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
-                "outlineDefaultHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineDefaultActive": {
-                    "value": "#C7C7C7FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.20)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.40)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.40)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.56)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.56)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": ""
-                },
-                "outlineAccentHover": {
-                    "value": "#79A7FBFF",
-                    "comment": ""
-                },
-                "outlineAccentActive": {
-                    "value": "#0D5FF8FF",
-                    "comment": ""
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": ""
-                },
-                "outlineAccentMinorHover": {
-                    "value": "#DCE8FEFF",
-                    "comment": ""
-                },
-                "outlineAccentMinorActive": {
-                    "value": "#6FA0FBFF",
-                    "comment": ""
-                },
-                "outlineTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(42, 114, 248, 0.20)",
-                        "backgroundColor": "rgba(42, 114, 248, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentAccentHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlinePositive": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
-                "outlinePositiveHover": {
-                    "value": "#1EB83AFF",
-                    "comment": ""
-                },
-                "outlinePositiveActive": {
-                    "value": "#15842AFF",
-                    "comment": ""
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
-                },
-                "outlineWarningHover": {
-                    "value": "#FB7223FF",
-                    "comment": ""
-                },
-                "outlineWarningActive": {
-                    "value": "#DC5304FF",
-                    "comment": ""
-                },
-                "outlineNegative": {
-                    "value": "[general.red.600]",
-                    "comment": ""
-                },
-                "outlineNegativeHover": {
-                    "value": "#F5384BFF",
-                    "comment": ""
-                },
-                "outlineNegativeActive": {
-                    "value": "#E40C22FF",
-                    "comment": ""
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
-                "outlineInfoHover": {
-                    "value": "#50B1F2FF",
-                    "comment": ""
-                },
-                "outlineInfoActive": {
-                    "value": "#0F7BC2FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.green.300]",
-                    "comment": ""
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#3EDA5BFF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#23B83EFF",
-                    "comment": ""
-                },
-                "outlineWarningMinor": {
-                    "value": "[general.orange.300]",
-                    "comment": ""
-                },
-                "outlineWarningMinorHover": {
-                    "value": "#FDB086FF",
-                    "comment": ""
-                },
-                "outlineWarningMinorActive": {
-                    "value": "#FC884AFF",
-                    "comment": ""
-                },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.300]",
-                    "comment": ""
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#FFADB6FF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#FF707EFF",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#A3DAFFFF",
-                    "comment": ""
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#33ADFFFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.20)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentPositiveHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(232, 87, 2, 0.20)",
-                        "backgroundColor": "rgba(232, 87, 2, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentWarningHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparent": {
-                    "value": {
-                        "origin": "rgba(243, 27, 49, 0.20)",
-                        "backgroundColor": "rgba(243, 27, 49, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineNegativeTransparentHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlinePrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                }
-            },
-            "inverse": {
-                "outlinePrimaryHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": ""
-                }
-            }
-        },
-        "overlay": {
-            "default": {
-                "overlaySoft": {
-                    "value": "rgba(8, 8, 8, 0.56)",
-                    "comment": "Цвет фона паранжи светлый"
-                },
-                "overlayHard": {
-                    "value": "rgba(8, 8, 8, 0.96)",
-                    "comment": "Цвет фона паранжи темный"
-                },
-                "overlayBlur": {
-                    "value": "rgba(8, 8, 8, 0.28)",
-                    "comment": ""
-                }
-            },
-            "onDark": {
-                "overlaySoft": {
-                    "value": "rgba(8, 8, 8, 0.56)",
-                    "comment": "Цвет фона паранжи светлый на темном фоне"
-                },
-                "overlayHard": {
-                    "value": "rgba(8, 8, 8, 0.96)",
-                    "comment": "Цвет фона паранжи темный на темном фоне"
-                },
-                "overlayBlur": {
-                    "value": "rgba(8, 8, 8, 0.28)",
-                    "comment": ""
-                }
-            },
-            "onLight": {
-                "overlaySoft": {
-                    "value": "rgba(249, 249, 249, 0.56)",
-                    "comment": "Цвет фона паранжи светлый на светлом фоне"
-                },
-                "overlayHard": {
-                    "value": "rgba(249, 249, 249, 0.96)",
-                    "comment": "Цвет фона паранжи темный на светлом фоне"
-                },
-                "overlayBlur": {
-                    "value": "rgba(249, 249, 249, 0.28)",
-                    "comment": ""
-                }
-            },
-            "inverse": {
-                "overlaySoft": {
-                    "value": "rgba(0, 0, 0, 0.56)",
-                    "comment": "Инвертированный цвет фона паранжи светлый",
-                    "enabled": false
-                },
-                "overlayHard": {
-                    "value": "rgba(0, 0, 0, 0.9)",
-                    "comment": "Инвертированный цвет фона паранжи темный",
-                    "enabled": false
-                }
-            }
-        },
         "text": {
             "default": {
                 "textPrimary": {
@@ -1035,16 +74,12 @@
                     "value": "#1C62E3FF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#50B1F2FF",
+                    "value": "#90B6FEFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0F7BC2FF",
+                    "value": "#216EFDFF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -1083,16 +118,20 @@
                     "value": "#83111CFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "textInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.800]",
                     "comment": ""
                 }
             },
@@ -1133,38 +172,6 @@
                     "value": "[general.red.500]",
                     "comment": "Цвет ошибки на темном фоне"
                 },
-                "textTextAccentMinorHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "textTextAccentMinorActive": {
-                    "value": "#1C62E3FF",
-                    "comment": ""
-                },
-                "textTextInfoHover": {
-                    "value": "#66BCF5FF",
-                    "comment": ""
-                },
-                "textTextInfoActive": {
-                    "value": "#0E8ADDFF",
-                    "comment": ""
-                },
-                "texttextAccentMinorHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "texttextAccentMinorActive": {
-                    "value": "#1C62E3FF",
-                    "comment": ""
-                },
-                "texttextInfoHover": {
-                    "value": "#66BCF5FF",
-                    "comment": ""
-                },
-                "texttextInfoActive": {
-                    "value": "#0E8ADDFF",
-                    "comment": ""
-                },
                 "textAccentMinor": {
                     "value": "[general.electricBlue.800]",
                     "comment": ""
@@ -1178,11 +185,11 @@
                     "comment": ""
                 },
                 "textInfoHover": {
-                    "value": "#50B1F2FF",
+                    "value": "#90B6FEFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0F7BC2FF",
+                    "value": "#216EFDFF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -1221,20 +228,20 @@
                     "value": "#83111CFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.800]",
                     "comment": ""
                 },
                 "textInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "[general.electricBlue.500]",
                     "comment": ""
                 }
             },
@@ -1283,16 +290,12 @@
                     "value": "#6FA0FBFF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#34A7F4FF",
+                    "value": "#79A7FBFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#096CAEFF",
+                    "value": "#0D5FF8FF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -1331,16 +334,12 @@
                     "value": "#FF707EFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#A3DAFFFF",
+                    "value": "#DCE8FEFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#33ADFFFF",
+                    "value": "#6FA0FBFF",
                     "comment": ""
                 },
                 "textNegativeHover": {
@@ -1354,6 +353,14 @@
                 "textNegative": {
                     "value": "[general.red.600]",
                     "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textInfo": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -1464,18 +471,15 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceTransparentDeep": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.64)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.64)"
-                    },
+                    "value": "rgba(255, 255, 255, 0.64)",
                     "comment": ""
                 },
                 "surfaceTransparentDeepHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFFC2",
                     "comment": ""
                 },
                 "surfaceTransparentDeepActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF94",
                     "comment": ""
                 },
                 "surfaceAccentMinor": {
@@ -1491,30 +495,23 @@
                     "comment": ""
                 },
                 "surfaceTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(63, 129, 253, 0.20)",
-                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
-                    },
+                    "value": "rgba(63, 129, 253, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD52",
                     "comment": ""
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "#3F82FD24",
                     "comment": ""
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -1553,76 +550,56 @@
                     "value": "#410B11FF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#071F4BFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E3252",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E3224",
                     "comment": ""
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F0552",
                     "comment": ""
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F0524",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E52",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E24",
                     "comment": ""
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD52",
                     "comment": ""
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD24",
                     "comment": ""
                 },
                 "surfaceTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.20)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.20)"
-                    },
+                    "value": "rgba(26, 158, 50, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.20)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.20)"
-                    },
+                    "value": "rgba(250, 95, 5, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(255, 41, 62, 0.20)",
-                        "backgroundColor": "rgba(255, 41, 62, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
+                    "value": "rgba(255, 41, 62, 0.20)",
                     "comment": ""
                 },
                 "surfaceSolidDefault": {
@@ -1636,6 +613,18 @@
                 "surfaceSolidDefaultActive": {
                     "value": "#F5F5F5FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "surfaceTransparentInfo": {
+                    "value": "rgba(63, 129, 253, 0.20)",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -1702,18 +691,15 @@
                     "enabled": false
                 },
                 "surfaceTransparentDeep": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.64)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.64)"
-                    },
+                    "value": "rgba(255, 255, 255, 0.64)",
                     "comment": ""
                 },
                 "surfaceTransparentDeepHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFFC2",
                     "comment": ""
                 },
                 "surfaceTransparentDeepActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF94",
                     "comment": ""
                 },
                 "surfaceAccentMinor": {
@@ -1729,30 +715,23 @@
                     "comment": ""
                 },
                 "surfaceTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(63, 129, 253, 0.20)",
-                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
-                    },
+                    "value": "rgba(63, 129, 253, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD52",
                     "comment": ""
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceSurfaceInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "#3F82FD24",
                     "comment": ""
                 },
                 "surfaceSurfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "surfaceSurfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -1791,76 +770,56 @@
                     "value": "#410B11FF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#071F4BFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E3252",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E3224",
                     "comment": ""
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F0552",
                     "comment": ""
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F0524",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E52",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E24",
                     "comment": ""
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD52",
                     "comment": ""
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD24",
                     "comment": ""
                 },
                 "surfaceTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.20)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.20)"
-                    },
+                    "value": "rgba(26, 158, 50, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.20)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.20)"
-                    },
+                    "value": "rgba(250, 95, 5, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(255, 41, 62, 0.20)",
-                        "backgroundColor": "rgba(255, 41, 62, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
+                    "value": "rgba(255, 41, 62, 0.20)",
                     "comment": ""
                 },
                 "surfaceSolidDefault": {
@@ -1874,6 +833,18 @@
                 "surfaceSolidDefaultActive": {
                     "value": "#F5F5F5FF",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на тем. фоне"
+                },
+                "surfaceSurfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "surfaceTransparentInfo": {
+                    "value": "rgba(63, 129, 253, 0.20)",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -1960,30 +931,23 @@
                     "comment": ""
                 },
                 "surfaceTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(42, 114, 248, 0.12)",
-                        "backgroundColor": "rgba(42, 114, 248, 0.12)"
-                    },
+                    "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F83D",
                     "comment": ""
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "#2A72F80F",
                     "comment": ""
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -2022,76 +986,68 @@
                     "value": "#FFD6DAFF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#DBF1FFFF",
+                    "value": "#EBF1FFFF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#D6E4FFFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E323D",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E320F",
                     "comment": ""
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F053D",
                     "comment": ""
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F050F",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B313D",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B310F",
                     "comment": ""
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F83D",
                     "comment": ""
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F80F",
                     "comment": ""
                 },
                 "surfaceTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.12)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.12)"
-                    },
+                    "value": "rgba(26, 158, 50, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.12)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.12)"
-                    },
+                    "value": "rgba(250, 95, 5, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(243, 27, 49, 0.12)",
-                        "backgroundColor": "rgba(243, 27, 49, 0.12)"
-                    },
+                    "value": "rgba(243, 27, 49, 0.12)",
+                    "comment": ""
+                },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.150]",
                     "comment": ""
                 },
                 "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.12)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.12)"
-                    },
+                    "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
                 }
             },
@@ -2244,926 +1200,19 @@
                     "enabled": false
                 }
             }
-        }
-    },
-    "light": {
-        "outline": {
-            "default": {
-                "outlineSecondaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineSecondaryActive": {
-                    "value": "#757575FF",
-                    "comment": ""
-                },
-                "outlineTertiaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTertiaryActive": {
-                    "value": "#595959FF",
-                    "comment": ""
-                },
-                "outlineDefaultHover": {
-                    "value": "#595959FF",
-                    "comment": ""
-                },
-                "outlineDefaultActive": {
-                    "value": "#303030FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentClearHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentClearActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineAccentHover": {
-                    "value": "#528DFAFF",
-                    "comment": ""
-                },
-                "outlineAccentActive": {
-                    "value": "#075AF2FF",
-                    "comment": ""
-                },
-                "outlineAccentMinorHover": {
-                    "value": "#B4CEFDFF",
-                    "comment": ""
-                },
-                "outlineAccentMinorActive": {
-                    "value": "#6599FBFF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
-                    "comment": ""
-                },
-                "outlinePositiveActive": {
-                    "value": "#147B27FF",
-                    "comment": ""
-                },
-                "outlineWarningHover": {
-                    "value": "#FB782DFF",
-                    "comment": ""
-                },
-                "outlineWarningActive": {
-                    "value": "#D25004FF",
-                    "comment": ""
-                },
-                "outlineNegativeHover": {
-                    "value": "#F54254FF",
-                    "comment": ""
-                },
-                "outlineNegativeActive": {
-                    "value": "#DA0B20FF",
-                    "comment": ""
-                },
-                "outlineInfoHover": {
-                    "value": "#2AA0EFFF",
-                    "comment": ""
-                },
-                "outlineInfoActive": {
-                    "value": "#0E75B9FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#21B03CFF",
-                    "comment": ""
-                },
-                "outlineWarningMinorHover": {
-                    "value": "#FDB790FF",
-                    "comment": ""
-                },
-                "outlineWarningMinorActive": {
-                    "value": "#FC8240FF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#FFB8BFFF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#FF6675FF",
-                    "comment": ""
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#7ACAFFFF",
-                    "comment": ""
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#29A9FFFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlinePrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
-                "outlinePrimaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#B3B3B3FF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
-                "outlineTransparentPrimary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.20)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentSecondary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.40)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.40)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentTertiary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.56)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.56)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentClear": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.00)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.00)"
-                    },
-                    "comment": ""
-                },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": ""
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": ""
-                },
-                "outlineTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(42, 114, 248, 0.20)",
-                        "backgroundColor": "rgba(42, 114, 248, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlinePositive": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
-                },
-                "outlineNegative": {
-                    "value": "[general.red.600]",
-                    "comment": ""
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.green.300]",
-                    "comment": ""
-                },
-                "outlineWarningMinor": {
-                    "value": "[general.orange.300]",
-                    "comment": ""
-                },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.300]",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
-                "outlineTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.20)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.20)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(243, 27, 49, 0.20)",
-                        "backgroundColor": "rgba(243, 27, 49, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentNegativeHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentNegativeActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                }
-            },
-            "onDark": {
-                "outlineSecondaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineSecondaryActive": {
-                    "value": "#404040FF",
-                    "comment": ""
-                },
-                "outlineTertiaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTertiaryActive": {
-                    "value": "#595959FF",
-                    "comment": ""
-                },
-                "outlineDefaultHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineDefaultActive": {
-                    "value": "#C7C7C7FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.12)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.12)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.20)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.40)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.40)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": ""
-                },
-                "outlineAccentHover": {
-                    "value": "#689CFDFF",
-                    "comment": ""
-                },
-                "outlineAccentActive": {
-                    "value": "#1767FDFF",
-                    "comment": ""
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "outlineAccentMinorHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineAccentMinorActive": {
-                    "value": "#113B88FF",
-                    "comment": ""
-                },
-                "outlineTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(63, 129, 253, 0.28)",
-                        "backgroundColor": "rgba(63, 129, 253, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentAccentHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlinePositive": {
-                    "value": "[general.green.400]",
-                    "comment": ""
-                },
-                "outlinePositiveHover": {
-                    "value": "#2BD44AFF",
-                    "comment": ""
-                },
-                "outlinePositiveActive": {
-                    "value": "#1D9032FF",
-                    "comment": ""
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.400]",
-                    "comment": ""
-                },
-                "outlineWarningHover": {
-                    "value": "#FF8B4DFF",
-                    "comment": ""
-                },
-                "outlineWarningActive": {
-                    "value": "#FA5700FF",
-                    "comment": ""
-                },
-                "outlineNegative": {
-                    "value": "[general.red.400]",
-                    "comment": ""
-                },
-                "outlineNegativeHover": {
-                    "value": "#FF6675FF",
-                    "comment": ""
-                },
-                "outlineNegativeActive": {
-                    "value": "#FF142CFF",
-                    "comment": ""
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": ""
-                },
-                "outlineInfoHover": {
-                    "value": "#3FABF3FF",
-                    "comment": ""
-                },
-                "outlineInfoActive": {
-                    "value": "#0D84D3FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#CD5713FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#A84710FF",
-                    "comment": ""
-                },
-                "outlineWarningMinor": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "outlineWarningMinorHover": {
-                    "value": "#CD5713FF",
-                    "comment": ""
-                },
-                "outlineWarningMinorActive": {
-                    "value": "#A84710FF",
-                    "comment": ""
-                },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.800]",
-                    "comment": ""
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#C2192AFF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#7A101AFF",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#1483CCFF",
-                    "comment": ""
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#116BA7FF",
-                    "comment": ""
-                },
-                "outlineTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.28)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentPositiveHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.28)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentWarningHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparent": {
-                    "value": {
-                        "origin": "rgba(255, 41, 62, 0.28)",
-                        "backgroundColor": "rgba(255, 41, 62, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineNegativeTransparentHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.28)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.28)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentInfoHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlinePrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
-                "outlinePrimaryHover": {
-                    "value": "#787878FF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#4F4F4FFF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.800]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                }
-            },
-            "onLight": {
-                "outlineSecondaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineSecondaryActive": {
-                    "value": "#757575FF",
-                    "comment": ""
-                },
-                "outlineTertiaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTertiaryActive": {
-                    "value": "#595959FF",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
-                "outlineDefaultHover": {
-                    "value": "#595959FF",
-                    "comment": ""
-                },
-                "outlineDefaultActive": {
-                    "value": "#303030FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.20)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.40)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.40)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiary": {
-                    "value": {
-                        "origin": "rgba(8, 8, 8, 0.56)",
-                        "backgroundColor": "rgba(8, 8, 8, 0.56)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentTertiaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": ""
-                },
-                "outlineAccentHover": {
-                    "value": "#528DFAFF",
-                    "comment": ""
-                },
-                "outlineAccentActive": {
-                    "value": "#075AF2FF",
-                    "comment": ""
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": ""
-                },
-                "outlineAccentMinorHover": {
-                    "value": "#B4CEFDFF",
-                    "comment": ""
-                },
-                "outlineAccentMinorActive": {
-                    "value": "#6599FBFF",
-                    "comment": ""
-                },
-                "outlineTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(42, 114, 248, 0.20)",
-                        "backgroundColor": "rgba(42, 114, 248, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentAccentHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentAccentActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlinePositive": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
-                "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
-                    "comment": ""
-                },
-                "outlinePositiveActive": {
-                    "value": "#147B27FF",
-                    "comment": ""
-                },
-                "outlineWarning": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
-                },
-                "outlineWarningHover": {
-                    "value": "#FB782DFF",
-                    "comment": ""
-                },
-                "outlineWarningActive": {
-                    "value": "#D25004FF",
-                    "comment": ""
-                },
-                "outlineNegative": {
-                    "value": "[general.red.600]",
-                    "comment": ""
-                },
-                "outlineNegativeHover": {
-                    "value": "#F54254FF",
-                    "comment": ""
-                },
-                "outlineNegativeActive": {
-                    "value": "#DA0B20FF",
-                    "comment": ""
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
-                "outlineInfoHover": {
-                    "value": "#2AA0EFFF",
-                    "comment": ""
-                },
-                "outlineInfoActive": {
-                    "value": "#0E75B9FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinor": {
-                    "value": "[general.green.300]",
-                    "comment": ""
-                },
-                "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
-                    "comment": ""
-                },
-                "outlinePositiveMinorActive": {
-                    "value": "#21B03CFF",
-                    "comment": ""
-                },
-                "outlineWarningMinor": {
-                    "value": "[general.orange.300]",
-                    "comment": ""
-                },
-                "outlineWarningMinorHover": {
-                    "value": "#FDB790FF",
-                    "comment": ""
-                },
-                "outlineWarningMinorActive": {
-                    "value": "#FC8240FF",
-                    "comment": ""
-                },
-                "outlineNegativeMinor": {
-                    "value": "[general.red.300]",
-                    "comment": ""
-                },
-                "outlineNegativeMinorHover": {
-                    "value": "#FFB8BFFF",
-                    "comment": ""
-                },
-                "outlineNegativeMinorActive": {
-                    "value": "#FF6675FF",
-                    "comment": ""
-                },
-                "outlineInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
-                "outlineInfoMinorHover": {
-                    "value": "#7ACAFFFF",
-                    "comment": ""
-                },
-                "outlineInfoMinorActive": {
-                    "value": "#29A9FFFF",
-                    "comment": ""
-                },
-                "outlineTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.20)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentPositiveHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentPositiveActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(232, 87, 2, 0.20)",
-                        "backgroundColor": "rgba(232, 87, 2, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineTransparentWarningHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentWarningActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparent": {
-                    "value": {
-                        "origin": "rgba(243, 27, 49, 0.20)",
-                        "backgroundColor": "rgba(243, 27, 49, 0.20)"
-                    },
-                    "comment": ""
-                },
-                "outlineNegativeTransparentHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineNegativeTransparentActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlineTransparentInfoActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                },
-                "outlinePrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
-                "outlinePrimaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#B3B3B3FF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
-                    "comment": ""
-                }
-            },
-            "inverse": {
-                "outlinePrimaryHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "outlinePrimaryActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": ""
-                }
-            }
         },
         "overlay": {
             "default": {
                 "overlaySoft": {
-                    "value": "rgba(249, 249, 249, 0.56)",
+                    "value": "rgba(8, 8, 8, 0.56)",
                     "comment": "Цвет фона паранжи светлый"
                 },
                 "overlayHard": {
-                    "value": "rgba(249, 249, 249, 0.96)",
+                    "value": "rgba(8, 8, 8, 0.96)",
                     "comment": "Цвет фона паранжи темный"
                 },
                 "overlayBlur": {
-                    "value": "rgba(249, 249, 249, 0.28)",
+                    "value": "rgba(8, 8, 8, 0.28)",
                     "comment": ""
                 }
             },
@@ -3208,6 +1257,838 @@
                 }
             }
         },
+        "outline": {
+            "default": {
+                "outlinePrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlinePrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#ADADADFF",
+                    "comment": ""
+                },
+                "outlineSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSecondaryActive": {
+                    "value": "#8C8C8CFF",
+                    "comment": ""
+                },
+                "outlineTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTertiaryActive": {
+                    "value": "#737373FF",
+                    "comment": ""
+                },
+                "outlineDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineDefaultHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineDefaultActive": {
+                    "value": "#E0E0E0FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimary": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryActive": {
+                    "value": "#FFFFFF25",
+                    "comment": ""
+                },
+                "outlineTransparentSecondary": {
+                    "value": "rgba(255, 255, 255, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryActive": {
+                    "value": "#FFFFFF3D",
+                    "comment": ""
+                },
+                "outlineTransparentTertiary": {
+                    "value": "rgba(255, 255, 255, 0.40)",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryActive": {
+                    "value": "#FFFFFF7A",
+                    "comment": ""
+                },
+                "outlineTransparentClear": {
+                    "value": "rgba(255, 255, 255, 0.00)",
+                    "comment": ""
+                },
+                "outlineTransparentClearHover": {
+                    "value": "#FFFFFF00",
+                    "comment": ""
+                },
+                "outlineTransparentClearActive": {
+                    "value": "#FFFFFF00",
+                    "comment": ""
+                },
+                "outlineAccent": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineAccentHover": {
+                    "value": "#90B6FEFF",
+                    "comment": ""
+                },
+                "outlineAccentActive": {
+                    "value": "#216EFDFF",
+                    "comment": ""
+                },
+                "outlineAccentMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineAccentMinorHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineAccentMinorActive": {
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(63, 129, 253, 0.28)",
+                    "comment": ""
+                },
+                "outlineTransparentAccentHover": {
+                    "value": "#3F82FDFF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentActive": {
+                    "value": "#3F82FD56",
+                    "comment": ""
+                },
+                "outlinePositive": {
+                    "value": "[general.green.400]",
+                    "comment": ""
+                },
+                "outlinePositiveHover": {
+                    "value": "#2ACB47FF",
+                    "comment": ""
+                },
+                "outlinePositiveActive": {
+                    "value": "#1F9835FF",
+                    "comment": ""
+                },
+                "outlineWarning": {
+                    "value": "[general.orange.400]",
+                    "comment": ""
+                },
+                "outlineWarningHover": {
+                    "value": "#FF8442FF",
+                    "comment": ""
+                },
+                "outlineWarningActive": {
+                    "value": "#FF5D05FF",
+                    "comment": ""
+                },
+                "outlineNegative": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                },
+                "outlineNegativeHover": {
+                    "value": "#FF5C6CFF",
+                    "comment": ""
+                },
+                "outlineNegativeActive": {
+                    "value": "#FF1F35FF",
+                    "comment": ""
+                },
+                "outlineInfoHover": {
+                    "value": "#A3C3FFFF",
+                    "comment": ""
+                },
+                "outlineInfoActive": {
+                    "value": "#337AFFFF",
+                    "comment": ""
+                },
+                "outlinePositiveMinor": {
+                    "value": "[general.green.800]",
+                    "comment": ""
+                },
+                "outlinePositiveMinorHover": {
+                    "value": "#0F9527FF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorActive": {
+                    "value": "#0C7920FF",
+                    "comment": ""
+                },
+                "outlineWarningMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "outlineWarningMinorHover": {
+                    "value": "#BB4F11FF",
+                    "comment": ""
+                },
+                "outlineWarningMinorActive": {
+                    "value": "#9F440FFF",
+                    "comment": ""
+                },
+                "outlineNegativeMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "outlineNegativeMinorHover": {
+                    "value": "#B91828FF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorActive": {
+                    "value": "#83111CFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorActive": {
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveHover": {
+                    "value": "#1A9E32FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveActive": {
+                    "value": "#1A9E3256",
+                    "comment": ""
+                },
+                "outlineTransparentWarningHover": {
+                    "value": "#FA5F05FF",
+                    "comment": ""
+                },
+                "outlineTransparentWarningActive": {
+                    "value": "#FA5F0556",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoHover": {
+                    "value": "#3F82FDFF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoActive": {
+                    "value": "#3F82FD56",
+                    "comment": ""
+                },
+                "outlineTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.28)",
+                    "comment": ""
+                },
+                "outlineTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.28)",
+                    "comment": ""
+                },
+                "outlineTransparentNegative": {
+                    "value": "rgba(243, 27, 49, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentNegativeHover": {
+                    "value": "#F31B31FF",
+                    "comment": ""
+                },
+                "outlineTransparentNegativeActive": {
+                    "value": "#F31B313D",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": "rgba(63, 129, 253, 0.28)",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": ""
+                }
+            },
+            "onDark": {
+                "outlinePrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#ADADADFF",
+                    "comment": ""
+                },
+                "outlineSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSecondaryActive": {
+                    "value": "#8C8C8CFF",
+                    "comment": ""
+                },
+                "outlineTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTertiaryActive": {
+                    "value": "#737373FF",
+                    "comment": ""
+                },
+                "outlineDefaultHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineDefaultActive": {
+                    "value": "#E0E0E0FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryActive": {
+                    "value": "#FFFFFF25",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryActive": {
+                    "value": "#FFFFFF3D",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryActive": {
+                    "value": "#FFFFFF7A",
+                    "comment": ""
+                },
+                "outlineAccentHover": {
+                    "value": "#90B6FEFF",
+                    "comment": ""
+                },
+                "outlineAccentActive": {
+                    "value": "#216EFDFF",
+                    "comment": ""
+                },
+                "outlineAccentMinorHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineAccentMinorActive": {
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentHover": {
+                    "value": "#3F82FDFF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentActive": {
+                    "value": "#3F82FD56",
+                    "comment": ""
+                },
+                "outlinePositiveHover": {
+                    "value": "#2ACB47FF",
+                    "comment": ""
+                },
+                "outlinePositiveActive": {
+                    "value": "#1F9835FF",
+                    "comment": ""
+                },
+                "outlineWarningHover": {
+                    "value": "#FF8442FF",
+                    "comment": ""
+                },
+                "outlineWarningActive": {
+                    "value": "#FF5D05FF",
+                    "comment": ""
+                },
+                "outlineNegativeHover": {
+                    "value": "#FF5C6CFF",
+                    "comment": ""
+                },
+                "outlineNegativeActive": {
+                    "value": "#FF1F35FF",
+                    "comment": ""
+                },
+                "outlineInfoHover": {
+                    "value": "#A3C3FFFF",
+                    "comment": ""
+                },
+                "outlineInfoActive": {
+                    "value": "#337AFFFF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorHover": {
+                    "value": "#0F9527FF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorActive": {
+                    "value": "#0C7920FF",
+                    "comment": ""
+                },
+                "outlineWarningMinorHover": {
+                    "value": "#BB4F11FF",
+                    "comment": ""
+                },
+                "outlineWarningMinorActive": {
+                    "value": "#9F440FFF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorHover": {
+                    "value": "#B91828FF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorActive": {
+                    "value": "#83111CFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorActive": {
+                    "value": "#1C62E3FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveHover": {
+                    "value": "#1A9E32FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveActive": {
+                    "value": "#1A9E3256",
+                    "comment": ""
+                },
+                "outlineTransparentWarningHover": {
+                    "value": "#FA5F05FF",
+                    "comment": ""
+                },
+                "outlineTransparentWarningActive": {
+                    "value": "#FA5F0556",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentHover": {
+                    "value": "#FF293EFF",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentActive": {
+                    "value": "#FF293E56",
+                    "comment": ""
+                },
+                "outlineTransparentInfoHover": {
+                    "value": "#3F82FDFF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoActive": {
+                    "value": "#3F82FD56",
+                    "comment": ""
+                },
+                "outlinePrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlineSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineTransparentPrimary": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": ""
+                },
+                "outlineTransparentSecondary": {
+                    "value": "rgba(255, 255, 255, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentTertiary": {
+                    "value": "rgba(255, 255, 255, 0.40)",
+                    "comment": ""
+                },
+                "outlineAccent": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineAccentMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(63, 129, 253, 0.28)",
+                    "comment": ""
+                },
+                "outlinePositive": {
+                    "value": "[general.green.400]",
+                    "comment": ""
+                },
+                "outlineWarning": {
+                    "value": "[general.orange.400]",
+                    "comment": ""
+                },
+                "outlineNegative": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                },
+                "outlineWarningMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "outlineNegativeMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "outlineTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.28)",
+                    "comment": ""
+                },
+                "outlineTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.28)",
+                    "comment": ""
+                },
+                "outlineNegativeTransparent": {
+                    "value": "rgba(255, 41, 62, 0.28)",
+                    "comment": ""
+                },
+                "outlinePositiveMinor": {
+                    "value": "[general.green.800]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": "rgba(63, 129, 253, 0.28)",
+                    "comment": ""
+                }
+            },
+            "onLight": {
+                "outlinePrimaryHover": {
+                    "value": "#ABABABFF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#C4C4C4FF",
+                    "comment": ""
+                },
+                "outlineSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSecondaryActive": {
+                    "value": "#575757FF",
+                    "comment": ""
+                },
+                "outlineTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTertiaryActive": {
+                    "value": "#737373FF",
+                    "comment": ""
+                },
+                "outlineDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineDefaultActive": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimary": {
+                    "value": "rgba(8, 8, 8, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryActive": {
+                    "value": "#0808083D",
+                    "comment": ""
+                },
+                "outlineTransparentSecondary": {
+                    "value": "rgba(8, 8, 8, 0.40)",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryActive": {
+                    "value": "#0808087A",
+                    "comment": ""
+                },
+                "outlineTransparentTertiary": {
+                    "value": "rgba(8, 8, 8, 0.56)",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryActive": {
+                    "value": "#080808AB",
+                    "comment": ""
+                },
+                "outlineAccent": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": ""
+                },
+                "outlineAccentHover": {
+                    "value": "#79A7FBFF",
+                    "comment": ""
+                },
+                "outlineAccentActive": {
+                    "value": "#0D5FF8FF",
+                    "comment": ""
+                },
+                "outlineAccentMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineAccentMinorHover": {
+                    "value": "#DCE8FEFF",
+                    "comment": ""
+                },
+                "outlineAccentMinorActive": {
+                    "value": "#6FA0FBFF",
+                    "comment": ""
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentAccentHover": {
+                    "value": "#2A72F8FF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentActive": {
+                    "value": "#2A72F83D",
+                    "comment": ""
+                },
+                "outlinePositive": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "outlinePositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "outlinePositiveActive": {
+                    "value": "#15842AFF",
+                    "comment": ""
+                },
+                "outlineWarning": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "outlineWarningHover": {
+                    "value": "#FB7223FF",
+                    "comment": ""
+                },
+                "outlineWarningActive": {
+                    "value": "#DC5304FF",
+                    "comment": ""
+                },
+                "outlineNegative": {
+                    "value": "[general.red.600]",
+                    "comment": ""
+                },
+                "outlineNegativeHover": {
+                    "value": "#F5384BFF",
+                    "comment": ""
+                },
+                "outlineNegativeActive": {
+                    "value": "#E40C22FF",
+                    "comment": ""
+                },
+                "outlineInfoHover": {
+                    "value": "#90B6FEFF",
+                    "comment": ""
+                },
+                "outlineInfoActive": {
+                    "value": "#216EFDFF",
+                    "comment": ""
+                },
+                "outlinePositiveMinor": {
+                    "value": "[general.green.300]",
+                    "comment": ""
+                },
+                "outlinePositiveMinorHover": {
+                    "value": "#3EDA5BFF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorActive": {
+                    "value": "#23B83EFF",
+                    "comment": ""
+                },
+                "outlineWarningMinor": {
+                    "value": "[general.orange.300]",
+                    "comment": ""
+                },
+                "outlineWarningMinorHover": {
+                    "value": "#FDB086FF",
+                    "comment": ""
+                },
+                "outlineWarningMinorActive": {
+                    "value": "#FC884AFF",
+                    "comment": ""
+                },
+                "outlineNegativeMinor": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                },
+                "outlineNegativeMinorHover": {
+                    "value": "#FFADB6FF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorActive": {
+                    "value": "#FF707EFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorHover": {
+                    "value": "#DCE8FEFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorActive": {
+                    "value": "#6FA0FBFF",
+                    "comment": ""
+                },
+                "outlineTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveHover": {
+                    "value": "#1A9E32FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveActive": {
+                    "value": "#1A9E323D",
+                    "comment": ""
+                },
+                "outlineTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentWarningHover": {
+                    "value": "#E85702FF",
+                    "comment": ""
+                },
+                "outlineTransparentWarningActive": {
+                    "value": "#E857023D",
+                    "comment": ""
+                },
+                "outlineNegativeTransparent": {
+                    "value": "rgba(243, 27, 49, 0.20)",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentHover": {
+                    "value": "#F31B31FF",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentActive": {
+                    "value": "#F31B313D",
+                    "comment": ""
+                },
+                "outlineTransparentInfoHover": {
+                    "value": "#2A72F8FF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoActive": {
+                    "value": "#2A72F83D",
+                    "comment": ""
+                },
+                "outlinePrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlineSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                }
+            },
+            "inverse": {
+                "outlinePrimaryHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
+                }
+            }
+        }
+    },
+    "light": {
         "text": {
             "default": {
                 "textPrimary": {
@@ -3263,16 +2144,12 @@
                     "value": "#6599FBFF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#2AA0EFFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0E75B9FF",
+                    "value": "#1767FDFF",
                     "comment": ""
                 },
                 "textPositiveMinorHover": {
@@ -3300,11 +2177,11 @@
                     "comment": ""
                 },
                 "textInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#B4CEFDFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#29A9FFFF",
+                    "value": "#6599FBFF",
                     "comment": ""
                 },
                 "textAccentMinor": {
@@ -3323,8 +2200,12 @@
                     "value": "[general.red.300]",
                     "comment": ""
                 },
+                "textInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
                 "textInfoMinor": {
-                    "value": "[general.blue.300]",
+                    "value": "[general.electricBlue.300]",
                     "comment": ""
                 }
             },
@@ -3365,38 +2246,6 @@
                     "value": "[general.red.500]",
                     "comment": "Цвет ошибки на темном фоне"
                 },
-                "textTextAccentMinorHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "textTextAccentMinorActive": {
-                    "value": "#113B88FF",
-                    "comment": ""
-                },
-                "textTextInfoHover": {
-                    "value": "#3FABF3FF",
-                    "comment": ""
-                },
-                "textTextInfoActive": {
-                    "value": "#0D84D3FF",
-                    "comment": ""
-                },
-                "texttextAccentMinorHover": {
-                    "value": "#000000FF",
-                    "comment": ""
-                },
-                "texttextAccentMinorActive": {
-                    "value": "#113B88FF",
-                    "comment": ""
-                },
-                "texttextInfoHover": {
-                    "value": "#3FABF3FF",
-                    "comment": ""
-                },
-                "texttextInfoActive": {
-                    "value": "#0D84D3FF",
-                    "comment": ""
-                },
                 "textAccentMinor": {
                     "value": "[general.electricBlue.800]",
                     "comment": ""
@@ -3410,11 +2259,11 @@
                     "comment": ""
                 },
                 "textInfoHover": {
-                    "value": "#2AA0EFFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0E75B9FF",
+                    "value": "#1767FDFF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -3453,20 +2302,20 @@
                     "value": "#7A101AFF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#1483CCFF",
+                    "value": "#000000FF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#116BA7FF",
+                    "value": "#113B88FF",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.800]",
                     "comment": ""
                 },
                 "textInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "[general.electricBlue.500]",
                     "comment": ""
                 }
             },
@@ -3515,16 +2364,12 @@
                     "value": "#6599FBFF",
                     "comment": ""
                 },
-                "textInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": ""
-                },
                 "textInfoHover": {
-                    "value": "#0D96F2FF",
+                    "value": "#528DFAFF",
                     "comment": ""
                 },
                 "textInfoActive": {
-                    "value": "#0966A5FF",
+                    "value": "#075AF2FF",
                     "comment": ""
                 },
                 "textPositiveMinor": {
@@ -3563,16 +2408,12 @@
                     "value": "#FF6675FF",
                     "comment": ""
                 },
-                "textInfoMinor": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
                 "textInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#B4CEFDFF",
                     "comment": ""
                 },
                 "textInfoMinorActive": {
-                    "value": "#29A9FFFF",
+                    "value": "#6599FBFF",
                     "comment": ""
                 },
                 "textNegative": {
@@ -3586,6 +2427,14 @@
                 "textNegativeActive": {
                     "value": "#DA0B20FF",
                     "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textInfo": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": ""
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -3712,23 +2561,19 @@
                     "comment": ""
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F80A",
                     "comment": ""
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "#2A72F829",
                     "comment": ""
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinorHover": {
@@ -3756,43 +2601,43 @@
                     "comment": ""
                 },
                 "surfaceInfoMinorHover": {
-                    "value": "#E5F5FFFF",
+                    "value": "#F5F8FFFF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#D6E4FFFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E320A",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E3229",
                     "comment": ""
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F050A",
                     "comment": ""
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F0529",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B310A",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B3129",
                     "comment": ""
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F80A",
                     "comment": ""
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F829",
                     "comment": ""
                 },
                 "surfaceAccentMinor": {
@@ -3800,10 +2645,7 @@
                     "comment": ""
                 },
                 "surfaceTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(42, 114, 248, 0.12)",
-                        "backgroundColor": "rgba(42, 114, 248, 0.12)"
-                    },
+                    "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -3818,36 +2660,28 @@
                     "value": "[general.red.150]",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": ""
-                },
                 "surfaceTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.12)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.12)"
-                    },
+                    "value": "rgba(26, 158, 50, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.12)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.12)"
-                    },
+                    "value": "rgba(250, 95, 5, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(243, 27, 49, 0.12)",
-                        "backgroundColor": "rgba(243, 27, 49, 0.12)"
-                    },
+                    "value": "rgba(243, 27, 49, 0.12)",
+                    "comment": ""
+                },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.150]",
                     "comment": ""
                 },
                 "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.12)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.12)"
-                    },
+                    "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
                 }
             },
@@ -3915,30 +2749,23 @@
                     "comment": ""
                 },
                 "surfaceTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(63, 129, 253, 0.20)",
-                        "backgroundColor": "rgba(63, 129, 253, 0.20)"
-                    },
+                    "value": "rgba(63, 129, 253, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD1F",
                     "comment": ""
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceSurfaceInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "#3F82FD3D",
                     "comment": ""
                 },
                 "surfaceSurfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "surfaceSurfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -3977,48 +2804,44 @@
                     "value": "#380A0FFF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2A67FF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#091D2AFF",
+                    "value": "#061B41FF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E321F",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E323D",
                     "comment": ""
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F051F",
                     "comment": ""
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F053D",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E1F",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E3D",
                     "comment": ""
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD1F",
                     "comment": ""
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#3F82FD3D",
                     "comment": ""
                 },
                 "surfaceSolidDefault": {
@@ -4034,48 +2857,39 @@
                     "comment": "Непр. фон поверхности/контрола по умолчанию на темном фоне"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.06)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.06)"
-                    },
+                    "value": "rgba(255, 255, 255, 0.06)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF05",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF1A",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.12)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.12)"
-                    },
+                    "value": "rgba(255, 255, 255, 0.12)",
                     "comment": "Втор. прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF0A",
                     "comment": "Втор. прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF29",
                     "comment": "Втор. прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": {
-                        "origin": "rgba(255, 255, 255, 0.20)",
-                        "backgroundColor": "rgba(255, 255, 255, 0.20)"
-                    },
+                    "value": "rgba(255, 255, 255, 0.20)",
                     "comment": "Трет. прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF1F",
                     "comment": "Трет. прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentTertiaryActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF3D",
                     "comment": "Трет. прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentCard": {
@@ -4091,31 +2905,27 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.20)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.20)"
-                    },
+                    "value": "rgba(26, 158, 50, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.20)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.20)"
-                    },
+                    "value": "rgba(250, 95, 5, 0.20)",
                     "comment": ""
                 },
                 "surfaceTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(255, 41, 62, 0.20)",
-                        "backgroundColor": "rgba(255, 41, 62, 0.20)"
-                    },
+                    "value": "rgba(255, 41, 62, 0.20)",
+                    "comment": ""
+                },
+                "surfaceSurfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.900]",
                     "comment": ""
                 },
                 "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.20)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.20)"
-                    },
+                    "value": "rgba(63, 129, 253, 0.20)",
                     "comment": ""
                 }
             },
@@ -4203,30 +3013,23 @@
                     "comment": ""
                 },
                 "surfaceTransparentAccent": {
-                    "value": {
-                        "origin": "rgba(42, 114, 248, 0.12)",
-                        "backgroundColor": "rgba(42, 114, 248, 0.12)"
-                    },
+                    "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F80A",
                     "comment": ""
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
+                    "value": "#2A72F829",
                     "comment": ""
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#689CFDFF",
                     "comment": ""
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "surfacePositiveMinor": {
@@ -4265,76 +3068,68 @@
                     "value": "#FFD6DAFF",
                     "comment": ""
                 },
-                "surfaceInfoMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": ""
-                },
                 "surfaceInfoMinorHover": {
-                    "value": "#E5F5FFFF",
+                    "value": "#F5F8FFFF",
                     "comment": ""
                 },
                 "surfaceInfoMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#D6E4FFFF",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E320A",
                     "comment": ""
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E3229",
                     "comment": ""
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F050A",
                     "comment": ""
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F0529",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B310A",
                     "comment": ""
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B3129",
                     "comment": ""
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F80A",
                     "comment": ""
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2A72F829",
                     "comment": ""
                 },
                 "surfaceTransparentPositive": {
-                    "value": {
-                        "origin": "rgba(26, 158, 50, 0.12)",
-                        "backgroundColor": "rgba(26, 158, 50, 0.12)"
-                    },
+                    "value": "rgba(26, 158, 50, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentWarning": {
-                    "value": {
-                        "origin": "rgba(250, 95, 5, 0.12)",
-                        "backgroundColor": "rgba(250, 95, 5, 0.12)"
-                    },
+                    "value": "rgba(250, 95, 5, 0.12)",
                     "comment": ""
                 },
                 "surfaceTransparentNegative": {
-                    "value": {
-                        "origin": "rgba(243, 27, 49, 0.12)",
-                        "backgroundColor": "rgba(243, 27, 49, 0.12)"
-                    },
+                    "value": "rgba(243, 27, 49, 0.12)",
+                    "comment": ""
+                },
+                "surfaceInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "surfaceInfoMinor": {
+                    "value": "[general.electricBlue.150]",
                     "comment": ""
                 },
                 "surfaceTransparentInfo": {
-                    "value": {
-                        "origin": "rgba(17, 140, 223, 0.12)",
-                        "backgroundColor": "rgba(17, 140, 223, 0.12)"
-                    },
+                    "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
                 }
             },
@@ -4485,6 +3280,892 @@
                     "value": "[general.gray.950]",
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
+                }
+            }
+        },
+        "overlay": {
+            "default": {
+                "overlaySoft": {
+                    "value": "rgba(249, 249, 249, 0.56)",
+                    "comment": "Цвет фона паранжи светлый"
+                },
+                "overlayHard": {
+                    "value": "rgba(249, 249, 249, 0.96)",
+                    "comment": "Цвет фона паранжи темный"
+                },
+                "overlayBlur": {
+                    "value": "rgba(249, 249, 249, 0.28)",
+                    "comment": ""
+                }
+            },
+            "onDark": {
+                "overlaySoft": {
+                    "value": "rgba(8, 8, 8, 0.56)",
+                    "comment": "Цвет фона паранжи светлый на темном фоне"
+                },
+                "overlayHard": {
+                    "value": "rgba(8, 8, 8, 0.96)",
+                    "comment": "Цвет фона паранжи темный на темном фоне"
+                },
+                "overlayBlur": {
+                    "value": "rgba(8, 8, 8, 0.28)",
+                    "comment": ""
+                }
+            },
+            "onLight": {
+                "overlaySoft": {
+                    "value": "rgba(249, 249, 249, 0.56)",
+                    "comment": "Цвет фона паранжи светлый на светлом фоне"
+                },
+                "overlayHard": {
+                    "value": "rgba(249, 249, 249, 0.96)",
+                    "comment": "Цвет фона паранжи темный на светлом фоне"
+                },
+                "overlayBlur": {
+                    "value": "rgba(249, 249, 249, 0.28)",
+                    "comment": ""
+                }
+            },
+            "inverse": {
+                "overlaySoft": {
+                    "value": "rgba(0, 0, 0, 0.56)",
+                    "comment": "Инвертированный цвет фона паранжи светлый",
+                    "enabled": false
+                },
+                "overlayHard": {
+                    "value": "rgba(0, 0, 0, 0.9)",
+                    "comment": "Инвертированный цвет фона паранжи темный",
+                    "enabled": false
+                }
+            }
+        },
+        "outline": {
+            "default": {
+                "outlineSecondaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineSecondaryActive": {
+                    "value": "#757575FF",
+                    "comment": ""
+                },
+                "outlineTertiaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineTertiaryActive": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineDefaultHover": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineDefaultActive": {
+                    "value": "#303030FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryActive": {
+                    "value": "#0808083D",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryActive": {
+                    "value": "#0808087A",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryActive": {
+                    "value": "#080808AB",
+                    "comment": ""
+                },
+                "outlineTransparentClearHover": {
+                    "value": "#FFFFFF00",
+                    "comment": ""
+                },
+                "outlineTransparentClearActive": {
+                    "value": "#FFFFFF00",
+                    "comment": ""
+                },
+                "outlineAccentHover": {
+                    "value": "#528DFAFF",
+                    "comment": ""
+                },
+                "outlineAccentActive": {
+                    "value": "#075AF2FF",
+                    "comment": ""
+                },
+                "outlineAccentMinorHover": {
+                    "value": "#B4CEFDFF",
+                    "comment": ""
+                },
+                "outlineAccentMinorActive": {
+                    "value": "#6599FBFF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentHover": {
+                    "value": "#2A72F8FF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentActive": {
+                    "value": "#2A72F83D",
+                    "comment": ""
+                },
+                "outlinePositiveHover": {
+                    "value": "#1FC13DFF",
+                    "comment": ""
+                },
+                "outlinePositiveActive": {
+                    "value": "#147B27FF",
+                    "comment": ""
+                },
+                "outlineWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "outlineWarningActive": {
+                    "value": "#D25004FF",
+                    "comment": ""
+                },
+                "outlineNegativeHover": {
+                    "value": "#F54254FF",
+                    "comment": ""
+                },
+                "outlineNegativeActive": {
+                    "value": "#DA0B20FF",
+                    "comment": ""
+                },
+                "outlineInfoHover": {
+                    "value": "#689CFDFF",
+                    "comment": ""
+                },
+                "outlineInfoActive": {
+                    "value": "#1767FDFF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorHover": {
+                    "value": "#47DC62FF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorActive": {
+                    "value": "#21B03CFF",
+                    "comment": ""
+                },
+                "outlineWarningMinorHover": {
+                    "value": "#FDB790FF",
+                    "comment": ""
+                },
+                "outlineWarningMinorActive": {
+                    "value": "#FC8240FF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorHover": {
+                    "value": "#FFB8BFFF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorActive": {
+                    "value": "#FF6675FF",
+                    "comment": ""
+                },
+                "outlineInfoMinorHover": {
+                    "value": "#B4CEFDFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorActive": {
+                    "value": "#6599FBFF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveHover": {
+                    "value": "#1A9E32FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveActive": {
+                    "value": "#1A9E323D",
+                    "comment": ""
+                },
+                "outlineTransparentWarningHover": {
+                    "value": "#FA5F05FF",
+                    "comment": ""
+                },
+                "outlineTransparentWarningActive": {
+                    "value": "#FA5F053D",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentActive": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoHover": {
+                    "value": "#2A72F8FF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoActive": {
+                    "value": "#2A72F83D",
+                    "comment": ""
+                },
+                "outlinePrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlinePrimaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#B3B3B3FF",
+                    "comment": ""
+                },
+                "outlineSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineTransparentPrimary": {
+                    "value": "rgba(8, 8, 8, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentSecondary": {
+                    "value": "rgba(8, 8, 8, 0.40)",
+                    "comment": ""
+                },
+                "outlineTransparentTertiary": {
+                    "value": "rgba(8, 8, 8, 0.56)",
+                    "comment": ""
+                },
+                "outlineTransparentClear": {
+                    "value": "rgba(255, 255, 255, 0.00)",
+                    "comment": ""
+                },
+                "outlineAccent": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": ""
+                },
+                "outlineAccentMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                },
+                "outlinePositive": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "outlineWarning": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "outlineNegative": {
+                    "value": "[general.red.600]",
+                    "comment": ""
+                },
+                "outlinePositiveMinor": {
+                    "value": "[general.green.300]",
+                    "comment": ""
+                },
+                "outlineWarningMinor": {
+                    "value": "[general.orange.300]",
+                    "comment": ""
+                },
+                "outlineNegativeMinor": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                },
+                "outlineTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentNegative": {
+                    "value": "rgba(243, 27, 49, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentNegativeHover": {
+                    "value": "#F31B31FF",
+                    "comment": ""
+                },
+                "outlineTransparentNegativeActive": {
+                    "value": "#F31B313D",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                }
+            },
+            "onDark": {
+                "outlineSecondaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineSecondaryActive": {
+                    "value": "#404040FF",
+                    "comment": ""
+                },
+                "outlineTertiaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineTertiaryActive": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineDefaultHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineDefaultActive": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimary": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryActive": {
+                    "value": "#FFFFFF25",
+                    "comment": ""
+                },
+                "outlineTransparentSecondary": {
+                    "value": "rgba(255, 255, 255, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryActive": {
+                    "value": "#FFFFFF3D",
+                    "comment": ""
+                },
+                "outlineTransparentTertiary": {
+                    "value": "rgba(255, 255, 255, 0.40)",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryActive": {
+                    "value": "#FFFFFF7A",
+                    "comment": ""
+                },
+                "outlineAccent": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineAccentHover": {
+                    "value": "#689CFDFF",
+                    "comment": ""
+                },
+                "outlineAccentActive": {
+                    "value": "#1767FDFF",
+                    "comment": ""
+                },
+                "outlineAccentMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineAccentMinorHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineAccentMinorActive": {
+                    "value": "#113B88FF",
+                    "comment": ""
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(63, 129, 253, 0.28)",
+                    "comment": ""
+                },
+                "outlineTransparentAccentHover": {
+                    "value": "#3F82FDFF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentActive": {
+                    "value": "#3F82FD56",
+                    "comment": ""
+                },
+                "outlinePositive": {
+                    "value": "[general.green.400]",
+                    "comment": ""
+                },
+                "outlinePositiveHover": {
+                    "value": "#2BD44AFF",
+                    "comment": ""
+                },
+                "outlinePositiveActive": {
+                    "value": "#1D9032FF",
+                    "comment": ""
+                },
+                "outlineWarning": {
+                    "value": "[general.orange.400]",
+                    "comment": ""
+                },
+                "outlineWarningHover": {
+                    "value": "#FF8B4DFF",
+                    "comment": ""
+                },
+                "outlineWarningActive": {
+                    "value": "#FA5700FF",
+                    "comment": ""
+                },
+                "outlineNegative": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                },
+                "outlineNegativeHover": {
+                    "value": "#FF6675FF",
+                    "comment": ""
+                },
+                "outlineNegativeActive": {
+                    "value": "#FF142CFF",
+                    "comment": ""
+                },
+                "outlineInfoHover": {
+                    "value": "#7AA9FFFF",
+                    "comment": ""
+                },
+                "outlineInfoActive": {
+                    "value": "#2974FFFF",
+                    "comment": ""
+                },
+                "outlinePositiveMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "outlinePositiveMinorHover": {
+                    "value": "#CD5713FF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorActive": {
+                    "value": "#A84710FF",
+                    "comment": ""
+                },
+                "outlineWarningMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "outlineWarningMinorHover": {
+                    "value": "#CD5713FF",
+                    "comment": ""
+                },
+                "outlineWarningMinorActive": {
+                    "value": "#A84710FF",
+                    "comment": ""
+                },
+                "outlineNegativeMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "outlineNegativeMinorHover": {
+                    "value": "#C2192AFF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorActive": {
+                    "value": "#7A101AFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineInfoMinorActive": {
+                    "value": "#113B88FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.28)",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveHover": {
+                    "value": "#1A9E32FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveActive": {
+                    "value": "#1A9E3256",
+                    "comment": ""
+                },
+                "outlineTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.28)",
+                    "comment": ""
+                },
+                "outlineTransparentWarningHover": {
+                    "value": "#FA5F05FF",
+                    "comment": ""
+                },
+                "outlineTransparentWarningActive": {
+                    "value": "#FA5F0556",
+                    "comment": ""
+                },
+                "outlineNegativeTransparent": {
+                    "value": "rgba(255, 41, 62, 0.28)",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentHover": {
+                    "value": "#FF293EFF",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentActive": {
+                    "value": "#FF293E56",
+                    "comment": ""
+                },
+                "outlineTransparentInfoHover": {
+                    "value": "#3F82FDFF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoActive": {
+                    "value": "#3F82FD56",
+                    "comment": ""
+                },
+                "outlinePrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlinePrimaryHover": {
+                    "value": "#787878FF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#4F4F4FFF",
+                    "comment": ""
+                },
+                "outlineSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": "rgba(63, 129, 253, 0.28)",
+                    "comment": ""
+                }
+            },
+            "onLight": {
+                "outlineSecondaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineSecondaryActive": {
+                    "value": "#757575FF",
+                    "comment": ""
+                },
+                "outlineTertiaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlineTertiaryActive": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineDefaultHover": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineDefaultActive": {
+                    "value": "#303030FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimary": {
+                    "value": "rgba(8, 8, 8, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentPrimaryActive": {
+                    "value": "#0808083D",
+                    "comment": ""
+                },
+                "outlineTransparentSecondary": {
+                    "value": "rgba(8, 8, 8, 0.40)",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryActive": {
+                    "value": "#0808087A",
+                    "comment": ""
+                },
+                "outlineTransparentTertiary": {
+                    "value": "rgba(8, 8, 8, 0.56)",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryHover": {
+                    "value": "#080808FF",
+                    "comment": ""
+                },
+                "outlineTransparentTertiaryActive": {
+                    "value": "#080808AB",
+                    "comment": ""
+                },
+                "outlineAccent": {
+                    "value": "[general.electricBlue.600]",
+                    "comment": ""
+                },
+                "outlineAccentHover": {
+                    "value": "#528DFAFF",
+                    "comment": ""
+                },
+                "outlineAccentActive": {
+                    "value": "#075AF2FF",
+                    "comment": ""
+                },
+                "outlineAccentMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineAccentMinorHover": {
+                    "value": "#B4CEFDFF",
+                    "comment": ""
+                },
+                "outlineAccentMinorActive": {
+                    "value": "#6599FBFF",
+                    "comment": ""
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentAccentHover": {
+                    "value": "#2A72F8FF",
+                    "comment": ""
+                },
+                "outlineTransparentAccentActive": {
+                    "value": "#2A72F83D",
+                    "comment": ""
+                },
+                "outlinePositive": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "outlinePositiveHover": {
+                    "value": "#1FC13DFF",
+                    "comment": ""
+                },
+                "outlinePositiveActive": {
+                    "value": "#147B27FF",
+                    "comment": ""
+                },
+                "outlineWarning": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "outlineWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "outlineWarningActive": {
+                    "value": "#D25004FF",
+                    "comment": ""
+                },
+                "outlineNegative": {
+                    "value": "[general.red.600]",
+                    "comment": ""
+                },
+                "outlineNegativeHover": {
+                    "value": "#F54254FF",
+                    "comment": ""
+                },
+                "outlineNegativeActive": {
+                    "value": "#DA0B20FF",
+                    "comment": ""
+                },
+                "outlineInfoHover": {
+                    "value": "#689CFDFF",
+                    "comment": ""
+                },
+                "outlineInfoActive": {
+                    "value": "#1767FDFF",
+                    "comment": ""
+                },
+                "outlinePositiveMinor": {
+                    "value": "[general.green.300]",
+                    "comment": ""
+                },
+                "outlinePositiveMinorHover": {
+                    "value": "#47DC62FF",
+                    "comment": ""
+                },
+                "outlinePositiveMinorActive": {
+                    "value": "#21B03CFF",
+                    "comment": ""
+                },
+                "outlineWarningMinor": {
+                    "value": "[general.orange.300]",
+                    "comment": ""
+                },
+                "outlineWarningMinorHover": {
+                    "value": "#FDB790FF",
+                    "comment": ""
+                },
+                "outlineWarningMinorActive": {
+                    "value": "#FC8240FF",
+                    "comment": ""
+                },
+                "outlineNegativeMinor": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                },
+                "outlineNegativeMinorHover": {
+                    "value": "#FFB8BFFF",
+                    "comment": ""
+                },
+                "outlineNegativeMinorActive": {
+                    "value": "#FF6675FF",
+                    "comment": ""
+                },
+                "outlineInfoMinorHover": {
+                    "value": "#B4CEFDFF",
+                    "comment": ""
+                },
+                "outlineInfoMinorActive": {
+                    "value": "#6599FBFF",
+                    "comment": ""
+                },
+                "outlineTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveHover": {
+                    "value": "#1A9E32FF",
+                    "comment": ""
+                },
+                "outlineTransparentPositiveActive": {
+                    "value": "#1A9E323D",
+                    "comment": ""
+                },
+                "outlineTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.20)",
+                    "comment": ""
+                },
+                "outlineTransparentWarningHover": {
+                    "value": "#E85702FF",
+                    "comment": ""
+                },
+                "outlineTransparentWarningActive": {
+                    "value": "#E857023D",
+                    "comment": ""
+                },
+                "outlineNegativeTransparent": {
+                    "value": "rgba(243, 27, 49, 0.20)",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentHover": {
+                    "value": "#F31B31FF",
+                    "comment": ""
+                },
+                "outlineNegativeTransparentActive": {
+                    "value": "#F31B313D",
+                    "comment": ""
+                },
+                "outlineTransparentInfoHover": {
+                    "value": "#2A72F8FF",
+                    "comment": ""
+                },
+                "outlineTransparentInfoActive": {
+                    "value": "#2A72F83D",
+                    "comment": ""
+                },
+                "outlinePrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlinePrimaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#B3B3B3FF",
+                    "comment": ""
+                },
+                "outlineSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineInfo": {
+                    "value": "[general.electricBlue.500]",
+                    "comment": ""
+                },
+                "outlineInfoMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "outlineTransparentInfo": {
+                    "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                }
+            },
+            "inverse": {
+                "outlinePrimaryHover": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "outlinePrimaryActive": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
                 }
             }
         }
