@@ -8,6 +8,7 @@ export const base = css`
         ${buttonTokens.buttonColor}: var(${tokens.buttonColor});
         ${buttonTokens.buttonValueColor}: var(${tokens.buttonValueColor});
         ${buttonTokens.buttonBackgroundColor}: var(${tokens.buttonBackgroundColor});
+        ${buttonTokens.buttonLoadingBackgroundColor}: var(${tokens.buttonLoadingBackgroundColor});
         ${buttonTokens.buttonColorHover}: var(${tokens.buttonColorHover});
         ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.buttonBackgroundColorHover});
         ${buttonTokens.buttonColorActive}: var(${tokens.buttonColorActive});

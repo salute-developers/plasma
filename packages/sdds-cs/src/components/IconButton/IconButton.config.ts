@@ -11,24 +11,25 @@ export const config = {
             accent: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
-            // лоудинг с ховерной подлжкой
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-primary);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            // убрать минор добавить подложку для лоудинга
             clear: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-accent);
                 ${iconButtonTokens.iconButtonColorHover}: var(--text-accent);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-accent);
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-accent);

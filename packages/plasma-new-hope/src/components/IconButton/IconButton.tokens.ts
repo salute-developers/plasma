@@ -1,6 +1,7 @@
 export const tokens = {
     iconButtonColor: '--plasma-icon-button-color',
     iconButtonBackgroundColor: '--plasma-icon-button-background-color',
+    iconButtonLoadingBackgroundColor: '--plasma-icon-button-loading-background-color',
     iconButtonColorHover: '--plasma-icon-button-color-hover',
     iconButtonBackgroundColorHover: '--plasma-icon-button-background-color-hover',
     iconButtonColorActive: '--plasma-icon-button-color-active',

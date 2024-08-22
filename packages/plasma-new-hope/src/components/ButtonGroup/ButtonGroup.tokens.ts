@@ -22,6 +22,7 @@ export const tokens = {
     buttonColor: '--plasma-button-group-item-color',
     buttonValueColor: '--plasma-button-group-item-value-color',
     buttonBackgroundColor: '--plasma-button-group-item-background-color',
+    buttonLoadingBackgroundColor: '--plasma-button-group-loading-item-background-color',
     buttonColorHover: '--plasma-button-group-item-color-hover',
     buttonBackgroundColorHover: '--plasma-button-group-item-background-color-hover',
     buttonColorActive: '--plasma-button-group-item-color-active',
