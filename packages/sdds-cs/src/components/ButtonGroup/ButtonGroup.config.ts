@@ -11,26 +11,27 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-light-text-accent-minor);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
-            // лоудинг с ховерной подлжкой
             secondary: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-primary);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            // убрать минор добавить подложку для лоудинга
             clear: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-accent);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-accent);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);
                 ${buttonGroupTokens.buttonColorHover}: var(--text-accent);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-accent);
                 ${buttonGroupTokens.buttonColorActive}: var(--text-accent);

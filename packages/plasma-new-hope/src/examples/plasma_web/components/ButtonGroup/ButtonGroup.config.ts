@@ -13,6 +13,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--inverse-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--inverse-text-primary);
@@ -22,6 +23,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
@@ -31,6 +33,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--text-primary);
@@ -40,6 +43,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--text-primary-hover);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-clear);
                 ${buttonGroupTokens.buttonColorActive}: var(--text-primary-active);
@@ -49,6 +53,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-positive);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
@@ -58,6 +63,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-warning);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
@@ -67,6 +73,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-negative);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
@@ -76,6 +83,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
@@ -85,6 +93,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
@@ -94,6 +103,7 @@ export const config = {
                 ${buttonGroupTokens.buttonColor}: var(--on-light-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-light-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--on-light-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-light-text-primary);

@@ -6,6 +6,7 @@ export const classes = {
     contentRelaxed: 'button-content-relaxed',
     buttonSquare: 'button-square',
     buttonItem: 'button-item',
+    buttonLoading: 'button-loading',
 };
 
 export const tokens = {
@@ -16,6 +17,7 @@ export const tokens = {
     buttonBackgroundColorHover: '--plasma-button-background-color-hover',
     buttonColorActive: '--plasma-button-color-active',
     buttonBackgroundColorActive: '--plasma-button-background-color-active',
+    buttonLoadingBackgroundColor: '--plasma-button-loading-background-color',
 
     buttonScaleHover: '--plasma-button-scale-hover',
     buttonScaleActive: '---plasma-button-scale-active',

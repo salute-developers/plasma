@@ -13,6 +13,7 @@ export const config = {
             default: css`
                 ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary);
@@ -21,6 +22,7 @@ export const config = {
             accent: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
@@ -29,6 +31,7 @@ export const config = {
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-primary);
@@ -37,6 +40,7 @@ export const config = {
             clear: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--text-primary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-primary-active);
@@ -45,6 +49,7 @@ export const config = {
             success: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-positive-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
@@ -53,6 +58,7 @@ export const config = {
             warning: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-warning);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-warning-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
@@ -61,6 +67,7 @@ export const config = {
             critical: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-negative-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
@@ -69,6 +76,7 @@ export const config = {
             dark: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
@@ -77,6 +85,7 @@ export const config = {
             black: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
@@ -85,6 +94,7 @@ export const config = {
             white: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary);
