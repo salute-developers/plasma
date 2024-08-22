@@ -4,6 +4,4 @@
 # review when someone opens a pull request.
 * @Yeti-or @neretin-trike @Yakutoc @TitanKuzmich @shuga2704
 
-native/* @malilex @Yeti-or
-
-.github/* @Yakutoc @Yeti-or @malilex
+.github/* @Yakutoc @Yeti-or @TitanKuzmich
