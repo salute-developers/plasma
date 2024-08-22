@@ -21,9 +21,7 @@ npm run scaffold:docs --package="plasma-asdk" --vertical="plasma-themes" --theme
 ##### Список доступных вертикалей:
 
 -   plasma-themes
--   caldera-online-themes
 -   sdds-themes
--   flamingo-themes
 
 #### `--theme`
 
@@ -61,10 +59,10 @@ npm run scaffold:docs --package="plasma-asdk" --vertical="plasma-themes" --theme
 
 Есть отдельная команда - `npm run scaffold:update-components-docs`.
 
-Например, для пакета `caldera-online`:
+Например, для пакета `sdds-serv`:
 
 ```console
-npm run scaffold:update-components-docs --vertical="caldera-online-themes" --package="caldera-online" --exclude="sheet"
+npm run scaffold:update-components-docs --vertical="sdds-themes" --package="sdds-serv" --exclude="sheet"
 ```
 
 Обновит/добавит/синхронизирует список компонентов документации и библиотеки, при этом **исключит** компонент `Sheet`.
