@@ -30,6 +30,7 @@ export const tokens = {
     iconColor: '--plasma-checkbox-icon-color',
     descriptionColor: '--plasma-checkbox-description-color',
     triggerBorderColor: '--plasma-checkbox-trigger-border-color',
+    triggerBackgroundColor: '--plasma-checkbox-trigger-background-color',
 
     focusColor: '--plasma-checkbox-focus-color',
     disabledOpacity: '--plasma-checkbox-disabled-opacity',
