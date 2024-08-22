@@ -1,13 +1,11 @@
 name: Perftest (base branch cache)
 
 on:
-  push:
-    branches:
-      - master
-      - dev
+  workflow_dispatch:
 
 jobs:
   perftest:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
