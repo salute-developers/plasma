@@ -11,7 +11,6 @@ import { Checkbox } from '.';
 import type { CheckboxProps } from '.';
 
 const propsToDisable = [
-    'view',
     'name',
     'indeterminate',
     'id',
@@ -33,6 +32,9 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const sizes = ['m', 's'];
+const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+
 const meta: Meta<CheckboxProps> = {
     title: 'Controls/Checkbox',
     component: Checkbox,
@@ -48,12 +50,23 @@ const meta: Meta<CheckboxProps> = {
                 type: 'text',
             },
         },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        ...disableProps(propsToDisable),
     },
 };
 
 export default meta;
-
-const sizes = ['m', 's'];
 
 const name = 'languages';
 
@@ -167,23 +180,14 @@ const StoryDefault = (args: CheckboxProps) => {
 };
 
 export const Default: StoryObj<CheckboxProps> = {
-    argTypes: {
-        ...disableProps(propsToDisable),
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-    },
     args: {
+        view: 'accent',
+        size: 'm',
         name: 'checkbox',
         label: 'Label',
         description: 'Description',
         disabled: false,
         singleLine: false,
-        size: 'm',
-        view: 'accent',
         focused: true,
     },
     render: (args) => <StoryDefault {...args} />,
@@ -244,17 +248,11 @@ const StoryLive = (args: CheckboxProps) => {
 
 export const Live: StoryObj<CheckboxProps> = {
     argTypes: {
-        ...disableProps([...propsToDisable, 'label', 'description']),
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
+        ...disableProps(['label', 'description', 'disabled']),
     },
     args: {
-        size: 'm',
         view: 'accent',
+        size: 'm',
         singleLine: false,
         focused: true,
     },
