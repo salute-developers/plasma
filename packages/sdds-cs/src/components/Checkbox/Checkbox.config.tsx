@@ -35,6 +35,7 @@ export const config = {
                 ${checkboxTokens.fillColor}: var(--text-accent);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBackgroundColor}: var(--surface-solid-card);
                 ${checkboxTokens.triggerBorderColor}: var(--outline-accent);
             `,
         },

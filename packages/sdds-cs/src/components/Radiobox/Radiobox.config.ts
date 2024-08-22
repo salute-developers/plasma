@@ -42,6 +42,7 @@ export const config = {
                 ${radioboxTokens.fillColor}: var(--text-accent);
                 ${radioboxTokens.ellipseColor}: var(--on-dark-text-primary);
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBackgroundColor}: var(--surface-solid-card);
                 ${radioboxTokens.triggerBorderColor}: var(--outline-accent);
             `,
         },
