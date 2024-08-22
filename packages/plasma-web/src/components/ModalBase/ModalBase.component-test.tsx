@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
@@ -39,7 +39,7 @@ describe('plasma-web: ModalBase', () => {
         return (
             <PopupBaseProvider>
                 <Button text="Open modal" onClick={() => setIsOpen(true)} />
-                <ModalBase isOpen={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur} placement={placement}>
+                <ModalBase opened={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur} placement={placement}>
                     <Content id="modal-content">
                         <Headline3>Modal</Headline3>
                         <Button text="Close" onClick={() => setIsOpen(false)} />
@@ -56,12 +56,12 @@ describe('plasma-web: ModalBase', () => {
         return (
             <PopupBaseProvider>
                 <Button text="Open modal A" onClick={() => setIsOpenA(true)} />
-                <ModalBase isOpen={isOpenA} onClose={() => setIsOpenA(false)}>
+                <ModalBase opened={isOpenA} onClose={() => setIsOpenA(false)}>
                     <Content id="modalA-content">
                         <Headline3>ModalA</Headline3>
                         <Button text="Close A" onClick={() => setIsOpenA(false)} />
                         <Button text="Open modal B" onClick={() => setIsOpenB(true)} />
-                        <ModalBase isOpen={isOpenB} onClose={() => setIsOpenB(false)} placement="left">
+                        <ModalBase opened={isOpenB} onClose={() => setIsOpenB(false)} placement="left">
                             <Content id="modalB-content">
                                 <Headline3>ModalB</Headline3>
                                 <Button text="Close B" onClick={() => setIsOpenB(false)} />
@@ -72,6 +72,30 @@ describe('plasma-web: ModalBase', () => {
             </PopupBaseProvider>
         );
     }
+
+    function ManualMount() {
+        const [isOpen, setIsOpen] = useState(false);
+        const [isMounted, setIsMounted] = useState(false);
+
+        return (
+            <>
+                <PopupBaseProvider>
+                    {isMounted && (
+                        <ModalBase isOpen={isOpen}>
+                            <Headline3>Test modal</Headline3>
+                        </ModalBase>
+                    )}
+                </PopupBaseProvider>
+                <Button text="Toggle Modal open" onClick={() => setIsOpen(!isOpen)} />
+                <Button text="Toggle Modal mount" onClick={() => setIsMounted(!isMounted)} />
+            </>
+        );
+    }
+
+    afterEach(() => {
+        // некоторые тесты оставляют открытые модалки и не сбрасывают overflowY у body
+        document.body.style.overflowY = 'unset';
+    });
 
     it('simple', () => {
         mount(
@@ -164,5 +188,25 @@ describe('plasma-web: ModalBase', () => {
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal A');
         });
+    });
+
+    it('check document.body overflow-y style', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <ManualMount />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('body').should('not.have.css', 'overflow-y', 'hidden');
+        cy.get('button').contains('Toggle Modal mount').click();
+        cy.get('button').contains('Toggle Modal open').click();
+
+        cy.contains('Test modal').should('be.visible');
+        cy.get('body').should('have.css', 'overflow-y', 'hidden');
+
+        // размонтируем без выставления isOpen = false
+        cy.get('button').contains('Toggle Modal mount').click({ force: true });
+        cy.get('Test modal').should('not.exist');
+        cy.get('body').should('not.have.css', 'overflow-y', 'hidden');
     });
 });

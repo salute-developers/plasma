@@ -10,8 +10,12 @@ import { tokens, constants } from './Select.tokens';
 
 const Popover = component(popoverConfig);
 
-export const StyledPopover = styled(Popover)`
-    .${String(popoverClasses.root)}, .${String(popoverClasses.target)} {
+export const StyledPopover = styled(Popover)<{ listWidth?: SelectProps['listWidth'] }>`
+    .${String(popoverClasses.root)} {
+        width: ${({ listWidth }) => listWidth || '100%'};
+    }
+
+    .${String(popoverClasses.target)} {
         width: 100%;
     }
 `;

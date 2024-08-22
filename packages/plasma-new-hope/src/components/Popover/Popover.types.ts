@@ -8,9 +8,13 @@ export type PopoverTrigger = 'hover' | 'click';
 
 export type CustomPopoverProps = {
     /**
-     * Всплывающее окно раскрыто или нет.
+     * @deprecated Всплывающее окно раскрыто или нет.
      */
     isOpen?: boolean;
+    /**
+     * Всплывающее окно раскрыто или нет.
+     */
+    opened?: boolean;
     /**
      * Способ открытия всплывающего окна - наведение или клик мышью.
      * @default

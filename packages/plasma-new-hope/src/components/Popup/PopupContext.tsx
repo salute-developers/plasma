@@ -1,4 +1,6 @@
-import React, { createContext, useEffect, useState, useContext, FC, PropsWithChildren } from 'react';
+import React, { createContext, useEffect, useState, useContext, FC, PropsWithChildren, useRef } from 'react';
+
+import { hasModals } from '../Modal/ModalContext';
 
 import type { PopupContextType, PopupInfo } from './Popup.types';
 
@@ -19,21 +21,38 @@ const PopupContext = createContext<PopupContextType>({
 export const usePopupContext = () => useContext(PopupContext);
 
 export const PopupProvider: FC<PropsWithChildren> = ({ children }) => {
+    const prevBodyOverflowY = useRef(document.body.style.overflowY);
     const [items, setItems] = useState<PopupInfo[]>([]);
 
     const register = (info: PopupInfo) => {
-        setItems([...items, info]);
+        setItems((prevItems) => {
+            if (info.info?.isModal && !hasModals(prevItems)) {
+                prevBodyOverflowY.current = document.body.style.overflowY;
+                document.body.style.overflowY = 'hidden';
+            }
+
+            return [...prevItems, info];
+        });
     };
 
     const unregister = (id: string) => {
-        const index = items.findIndex((item: PopupInfo) => id === item.id);
+        setItems((prevItems) => {
+            const index = prevItems.findIndex((item: PopupInfo) => id === item.id);
 
-        if (index === -1) {
-            return;
-        }
+            if (index === -1) {
+                return prevItems;
+            }
 
-        items.splice(index, 1);
-        setItems([...items]);
+            const prevHasModals = hasModals(prevItems);
+            prevItems.splice(index, 1);
+
+            if (prevHasModals && !hasModals(prevItems)) {
+                document.body.style.overflowY = prevBodyOverflowY.current;
+            }
+
+            // при return prevItems не обновится контекст
+            return [...prevItems];
+        });
     };
 
     const context = {

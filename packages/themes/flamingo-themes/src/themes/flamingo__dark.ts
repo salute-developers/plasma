@@ -6,6 +6,7 @@ export const flamingo__dark = ([
   --text-primary-hover: #CCCCCCFF;
   --text-primary-active: #E6E6E6FF;
   --text-primary: #FFFFFFFF;
+  --text-primary-brightness: #FFFFFFFF;
   --text-secondary-hover: #FFFFFFFF;
   --text-secondary-active: #3D3D3DFF;
   --text-secondary: #B3B3B3;
@@ -30,6 +31,7 @@ export const flamingo__dark = ([
   --on-dark-text-primary-hover: #CCCCCCFF;
   --on-dark-text-primary-active: #E6E6E6FF;
   --on-dark-text-primary: #FFFFFFFF;
+  --on-dark-text-primary-brightness: #FFFFFFFF;
   --on-dark-text-secondary-hover: #FFFFFFFF;
   --on-dark-text-secondary-active: #3D3D3DFF;
   --on-dark-text-secondary: #B3B3B3;
@@ -39,6 +41,7 @@ export const flamingo__dark = ([
   --on-light-text-primary-hover: #FFFFFFFF;
   --on-light-text-primary-active: #ADADADFF;
   --on-light-text-primary: #262626;
+  --on-light-text-primary-brightness: #333333FF;
   --on-light-text-secondary-hover: #FFFFFFFF;
   --on-light-text-secondary-active: #8C8C8CFF;
   --on-light-text-secondary: #4E4E4E;
@@ -48,6 +51,7 @@ export const flamingo__dark = ([
   --inverse-text-primary-hover: #FFFFFFFF;
   --inverse-text-primary-active: #ADADADFF;
   --inverse-text-primary: #262626;
+  --inverse-text-primary-brightness: #333333FF;
   --inverse-text-secondary-hover: #FFFFFFFF;
   --inverse-text-secondary-active: #8C8C8CFF;
   --inverse-text-secondary: #4E4E4E;
@@ -72,6 +76,7 @@ export const flamingo__dark = ([
   --surface-solid-primary-hover: #303030FF;
   --surface-solid-primary-active: #212121FF;
   --surface-solid-primary: #262626;
+  --surface-solid-primary-brightness: #333333FF;
   --surface-solid-secondary-hover: #404040FF;
   --surface-solid-secondary-active: #303030FF;
   --surface-solid-secondary: #363636;
@@ -81,6 +86,7 @@ export const flamingo__dark = ([
   --surface-solid-card-hover: #303030FF;
   --surface-solid-card-active: #212121FF;
   --surface-solid-card: #262626;
+  --surface-solid-card-brightness: #333333FF;
   --surface-solid-default-hover: #0D0D0DFF;
   --surface-solid-default-active: #030303FF;
   --surface-solid-default: #080808;
@@ -138,6 +144,7 @@ export const flamingo__dark = ([
   --on-dark-surface-solid-primary-hover: #FAFAFAFF;
   --on-dark-surface-solid-primary-active: #F0F0F0FF;
   --on-dark-surface-solid-primary: #F5F5F5;
+  --on-dark-surface-solid-primary-brightness: #F6F6F6FF;
   --on-dark-surface-solid-secondary-hover: #F7F7F7FF;
   --on-dark-surface-solid-secondary-active: #E8E8E8FF;
   --on-dark-surface-solid-secondary: #ECECEC;
@@ -159,9 +166,11 @@ export const flamingo__dark = ([
   --on-dark-surface-transparent-card-hover: #FFFFFF1F;
   --on-dark-surface-transparent-card-active: #FFFFFF0A;
   --on-dark-surface-transparent-card: #FFFFFF0F;
+  --on-dark-surface-transparent-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-primary-hover: #303030FF;
   --on-light-surface-solid-primary-active: #212121FF;
   --on-light-surface-solid-primary: #262626;
+  --on-light-surface-solid-primary-brightness: #333333FF;
   --on-light-surface-solid-secondary-hover: #404040FF;
   --on-light-surface-solid-secondary-active: #303030FF;
   --on-light-surface-solid-secondary: #363636;
@@ -171,6 +180,7 @@ export const flamingo__dark = ([
   --inverse-surface-solid-primary-hover: #FAFAFAFF;
   --inverse-surface-solid-primary-active: #F0F0F0FF;
   --inverse-surface-solid-primary: #F5F5F5;
+  --inverse-surface-solid-primary-brightness: #F6F6F6FF;
   --inverse-surface-solid-secondary-hover: #F7F7F7FF;
   --inverse-surface-solid-secondary-active: #E8E8E8FF;
   --inverse-surface-solid-secondary: #ECECEC;
@@ -178,6 +188,7 @@ export const flamingo__dark = ([
   --inverse-surface-solid-default-active: #FFFFFFFF;
   --inverse-surface-solid-default: #FFFFFFFF;
   --background-primary: #080808;
+  --background-primary-brightness: #171717FF;
   --overlay-soft: #0808088F;
   --overlay-hard: #080808F5;
   --overlay-blur: #08080833;

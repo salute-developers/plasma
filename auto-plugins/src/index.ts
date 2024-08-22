@@ -1,1 +1,0 @@
-import './upload-assets-extend';

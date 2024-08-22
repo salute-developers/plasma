@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { FC, PropsWithChildren } from 'react';
+import { useRef } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
@@ -68,6 +69,16 @@ describe('plasma-web: Autocomplete', () => {
             {children}
         </CypressTestDecorator>
     );
+
+    function DemoWithPortal() {
+        const portalRef = useRef(null);
+
+        return (
+            <div id="parentId" ref={portalRef}>
+                <Autocomplete label="Label" leftHelper="Helper Text" suggestions={suggestions} portal={portalRef} />
+            </div>
+        );
+    }
 
     it('default', () => {
         cy.viewport(1000, 500);
@@ -447,6 +458,17 @@ describe('plasma-web: Autocomplete', () => {
         cy.get('input').click();
         cy.focused().type('е');
         cy.get('.popover-root').should('be.visible');
+    });
+
+    it('prop: portal', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <DemoWithPortal />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        // Проверяем, что Popover лежит выше в DOM, чем без portal
+        cy.get('[id=parentId] > div').eq(1).find('div').and('have.class', 'popover-root');
     });
 
     it('keyboard interactions', () => {

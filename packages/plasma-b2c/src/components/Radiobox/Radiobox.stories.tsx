@@ -97,7 +97,7 @@ export const Live: Story = {
     render: (args) => <StoryLive {...args} />,
 };
 
-const StoryDefault = ({ name, label, description, disabled, singleLine, size }: RadioboxProps) => {
+const StoryDefault = ({ view, name, label, description, disabled, singleLine, size }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
@@ -109,6 +109,7 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size }: 
             description={description}
             disabled={disabled}
             checked={checked}
+            view={view}
             singleLine={singleLine}
             size={size}
             onChange={(event) => {
@@ -125,6 +126,7 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size }: 
 
 export const Default: Story = {
     args: {
+        view: 'default',
         name: 'Radiobox',
         label: 'Label',
         description: 'Description',

@@ -8,9 +8,14 @@ import { useSheetSwipe } from './useSheetSwipe';
 
 export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
-     * Состояние шторки, открыта или скрыта
+     * @deprecated Состояние шторки, открыта или скрыта
      */
     isOpen: boolean;
+
+    /**
+     * Состояние шторки, открыта или скрыта
+     */
+    opened: boolean;
 
     /**
      * Обработчик закрытия шторки. Вызывается при клике по оверлею или смахиванию шторки вниз
@@ -35,11 +40,11 @@ export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
     throttleMs?: number;
 }
 
-type CommonProps = Pick<SheetProps, 'withTransition' | 'isOpen'> & {
+type CommonProps = Pick<SheetProps, 'withTransition' | 'opened'> & {
     theme: ThemeProviderContext;
 };
 
-type HandleTransitionProps = Omit<CommonProps, 'isOpen'>;
+type HandleTransitionProps = Omit<CommonProps, 'opened'>;
 
 const handleTransition = (transition: string) => (props: HandleTransitionProps): string => {
     const {
@@ -66,8 +71,8 @@ const StyledWrapper = styled.div<CommonProps>`
     transition: ${handleTransition('all 0.5s 0.1s')};
     z-index: 1000;
 
-    ${({ isOpen }) =>
-        !isOpen &&
+    ${({ opened }) =>
+        !opened &&
         css`
             opacity: 0;
             visibility: hidden;
@@ -88,8 +93,8 @@ const StyledContentWrapper = styled.div<CommonProps>`
 
     transition: ${handleTransition('transform 0.5s')};
 
-    ${({ isOpen }) =>
-        !isOpen &&
+    ${({ opened }) =>
+        !opened &&
         css`
             transform: translateY(100%);
         `}
@@ -141,6 +146,7 @@ const StyledSheetHandle = styled.div`
  */
 export const Sheet = ({
     isOpen,
+    opened,
     children,
     onClose,
     withOverlay = true,
@@ -148,6 +154,8 @@ export const Sheet = ({
     throttleMs,
     ...restProps
 }: SheetProps) => {
+    const innerIsOpen = Boolean(isOpen || opened);
+
     const contentWrapperRef = React.useRef<HTMLDivElement>(null);
     const contentRef = React.useRef<HTMLDivElement>(null);
     const handleRef = React.useRef<HTMLDivElement>(null);
@@ -155,9 +163,9 @@ export const Sheet = ({
     useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, onClose });
 
     return (
-        <StyledWrapper isOpen={isOpen} withTransition={withTransition} {...restProps}>
+        <StyledWrapper opened={innerIsOpen} withTransition={withTransition} {...restProps}>
             {isOpen && <NoScroll />}
-            <StyledContentWrapper isOpen={isOpen} withTransition={withTransition} ref={contentWrapperRef}>
+            <StyledContentWrapper opened={innerIsOpen} withTransition={withTransition} ref={contentWrapperRef}>
                 <StyledSheetHandle ref={handleRef} />
                 <StyledSheetContent ref={contentRef}>{children}</StyledSheetContent>
             </StyledContentWrapper>

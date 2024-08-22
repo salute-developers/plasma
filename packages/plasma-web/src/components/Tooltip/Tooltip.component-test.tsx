@@ -23,7 +23,7 @@ describe('plasma-web: Tooltip', () => {
         return (
             <div>
                 <div style={{ marginLeft: '100px', marginBottom: '35px' }}>
-                    <Tooltip target={<Button text="hello" />} text={inputValue} isOpen />
+                    <Tooltip target={<Button text="hello" />} text={inputValue} opened />
                 </div>
                 <label
                     htmlFor="tooltip-input"
@@ -48,7 +48,7 @@ describe('plasma-web: Tooltip', () => {
                 <Tooltip
                     target={<Button text="hello" />}
                     text="Высокое качество воспроизведения"
-                    isOpen
+                    opened
                     placement="right"
                 />
             </CypressTestDecoratorWithTypo>,
@@ -78,35 +78,35 @@ describe('plasma-web: Tooltip', () => {
                 <Container>
                     <Tooltip
                         target={
-                            <Tooltip target={<Button text="hello" />} placement="left" isOpen hasArrow text="Left" />
+                            <Tooltip target={<Button text="hello" />} placement="left" opened hasArrow text="Left" />
                         }
                         placement="top-start"
-                        isOpen
+                        opened
                         hasArrow
                         text="Top start"
                     />
-                    <Tooltip target={<Button text="hello" />} placement="top" isOpen hasArrow text="Top" />
+                    <Tooltip target={<Button text="hello" />} placement="top" opened hasArrow text="Top" />
                     <Tooltip
                         target={
-                            <Tooltip target={<Button text="hello" />} placement="right" isOpen hasArrow text="Right" />
+                            <Tooltip target={<Button text="hello" />} placement="right" opened hasArrow text="Right" />
                         }
                         placement="top-end"
-                        isOpen
+                        opened
                         hasArrow
                         text="Top end"
                     />
                     <Tooltip
                         target={<Button text="hello" />}
                         placement="bottom-start"
-                        isOpen
+                        opened
                         hasArrow
                         text="Bottom start"
                     />
-                    <Tooltip target={<Button text="hello" />} placement="bottom" isOpen hasArrow text="Bottom" />
+                    <Tooltip target={<Button text="hello" />} placement="bottom" opened hasArrow text="Bottom" />
                     <Tooltip
                         target={<Button text="hello" />}
                         placement="bottom-end"
-                        isOpen
+                        opened
                         hasArrow
                         text="Bottom end"
                     />
@@ -133,14 +133,14 @@ describe('plasma-web: Tooltip', () => {
                                 placement="right-start"
                                 maxWidth="7rem"
                                 text="Right start: very long looong text, really long"
-                                isOpen
+                                opened
                                 hasArrow
                             />
                         }
                         placement="left-start"
                         maxWidth="7rem"
                         text="Left start: very long looong text, really long"
-                        isOpen
+                        opened
                         hasArrow
                     />
                 </div>
@@ -156,14 +156,14 @@ describe('plasma-web: Tooltip', () => {
                                 placement="right-end"
                                 text="Right end: very long looong text, really long"
                                 maxWidth="7rem"
-                                isOpen
+                                opened
                                 hasArrow
                             />
                         }
                         placement="left-end"
                         text="Left end: very long looong text, really long"
                         maxWidth="7rem"
-                        isOpen
+                        opened
                         hasArrow
                     />
                 </div>
@@ -175,7 +175,7 @@ describe('plasma-web: Tooltip', () => {
 
     it('interaction', () => {
         function Demo() {
-            const [isOpen, setVisible] = React.useState(false);
+            const [isOpen, setIsOpen] = React.useState(false);
 
             return (
                 <>
@@ -184,11 +184,11 @@ describe('plasma-web: Tooltip', () => {
                             <Button
                                 text="Toggle"
                                 onClick={() => {
-                                    setVisible((isVis) => !isVis);
+                                    setIsOpen((isVis) => !isVis);
                                 }}
                             />
                         }
-                        isOpen={isOpen}
+                        opened={isOpen}
                         placement="bottom"
                         text="Hello there"
                     />
@@ -227,14 +227,14 @@ describe('plasma-web: Tooltip', () => {
                     <Tooltip
                         target={<Button text="hello" />}
                         placement={['left', 'right']}
-                        isOpen
+                        opened
                         hasArrow
                         text="Left"
                     />
                     <Tooltip
                         target={<Button text="hello" />}
                         placement={['top', 'bottom']}
-                        isOpen
+                        opened
                         hasArrow
                         text="Top"
                     />
@@ -251,7 +251,7 @@ describe('plasma-web: Tooltip', () => {
                 <Tooltip
                     target={<Button text="hello" />}
                     placement="bottom"
-                    isOpen
+                    opened
                     hasArrow
                     maxWidth="10rem"
                     text="It is not very long text for example. It is not very long text for example. It is not very long text for example. It is not very long text for example."
@@ -279,7 +279,7 @@ describe('plasma-web: Tooltip', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Container>
-                    <Tooltip target={<Button text="hello" />} placement="bottom-end" isOpen hasArrow text="Toggle" />
+                    <Tooltip target={<Button text="hello" />} placement="bottom-end" opened hasArrow text="Toggle" />
                 </Container>
             </CypressTestDecoratorWithTypo>,
         );
@@ -287,13 +287,13 @@ describe('plasma-web: Tooltip', () => {
         cy.matchImageSnapshot();
     });
 
-    it('isOpen false', () => {
+    it('opened false', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Tooltip
                     target={<Button text="hello" />}
                     text="Высокое качество воспроизведения"
-                    isOpen={false}
+                    opened={false}
                     placement="right"
                 />
             </CypressTestDecoratorWithTypo>,

@@ -87,7 +87,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
 
             return (
                 <StyledPopover
-                    isOpen={isCurrentListOpen}
+                    opened={isCurrentListOpen}
                     onToggle={handleGlobalToggle}
                     offset={offset}
                     placement={getPlacements(placement)}

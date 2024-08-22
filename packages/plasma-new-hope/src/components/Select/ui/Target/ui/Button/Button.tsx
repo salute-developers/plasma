@@ -51,7 +51,11 @@ export const Button: React.FC<ButtonProps> = ({
                 renderTarget={Boolean(selectProps.renderTarget)}
             >
                 {selectProps.renderTarget ? (
-                    selectProps.renderTarget(value as any)
+                    selectProps.renderTarget(
+                        Array.isArray(value)
+                            ? value.map((value) => valueToItemMap.get(value)!)
+                            : valueToItemMap.get(value)!,
+                    )
                 ) : (
                     <Label>
                         {getButtonLabel({

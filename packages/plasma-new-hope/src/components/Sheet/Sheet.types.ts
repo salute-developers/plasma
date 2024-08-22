@@ -4,7 +4,7 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Состояние шторки, открыта или скрыта
      */
-    opened: boolean;
+    opened?: boolean;
 
     /**
      * Обработчик закрытия шторки. Вызывается при клике по оверлею или смахиванию шторки вниз

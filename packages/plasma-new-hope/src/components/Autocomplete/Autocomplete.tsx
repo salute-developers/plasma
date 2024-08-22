@@ -35,6 +35,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 onScroll,
                 listMaxHeight,
                 listWidth,
+                portal,
                 filter,
                 onSuggestionSelect,
                 threshold = 2,
@@ -50,7 +51,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
             const [isOpen, setIsOpen] = useState(false);
 
             const listId = safeUseId();
-            const value = outerValue || innerValue;
+            const value = outerValue ?? innerValue;
+
             const helperTextId = safeUseId();
 
             const targetRef = useOutsideClick<HTMLDivElement>(() => {
@@ -111,10 +113,12 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
             return (
                 <Root view={view} size={size} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
                     <StyledPopover
-                        isOpen={isOpen}
+                        opened={isOpen}
                         offset={[0, 0]}
                         placement={getPlacements('bottom')}
                         isFocusTrapped={false}
+                        usePortal={Boolean(portal)}
+                        frame={portal}
                         target={
                             <StyledTextField
                                 value={value}
@@ -148,25 +152,35 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                     >
                         {(renderList && renderList(finalResults)) ||
                             (Boolean(finalResults.length) && (
-                                <Ul
-                                    id={listId}
-                                    role="listbox"
-                                    aria-label={label}
-                                    onScroll={onScroll}
-                                    listMaxHeight={listMaxHeight}
+                                <Root
+                                    view={view}
+                                    size={size}
+                                    labelPlacement={labelPlacement}
+                                    disabled={disabled}
+                                    readOnly={readOnly}
                                 >
-                                    {finalResults.map((suggestion, index) => (
-                                        <SuggestionItem
-                                            key={index}
-                                            item={suggestion}
-                                            onClick={handleItemClick}
-                                            id={`${listId}/${index}`}
-                                            focused={focused === index}
-                                        />
-                                    ))}
+                                    <Ul
+                                        id={listId}
+                                        role="listbox"
+                                        aria-label={label}
+                                        onScroll={onScroll}
+                                        listMaxHeight={listMaxHeight}
+                                    >
+                                        {finalResults.map((suggestion, index) => (
+                                            <SuggestionItem
+                                                key={index}
+                                                item={suggestion}
+                                                onClick={handleItemClick}
+                                                id={`${listId}/${index}`}
+                                                focused={focused === index}
+                                            />
+                                        ))}
 
-                                    {renderListEnd && <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>}
-                                </Ul>
+                                        {renderListEnd && (
+                                            <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>
+                                        )}
+                                    </Ul>
+                                </Root>
                             ))}
                     </StyledPopover>
 

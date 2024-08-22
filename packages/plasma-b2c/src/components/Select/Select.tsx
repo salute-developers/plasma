@@ -1,15 +1,8 @@
-import React, { forwardRef } from 'react';
-import type { SelectProps, SelectRefElement } from '@salutejs/plasma-hope';
-import { Select as SelectHope } from '@salutejs/plasma-hope';
+import { selectConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-// TODO: Удалить Select из hope с внедрением компонента SelectNested в new-hope
+import { config } from './Select.config';
 
-const SelectBase = SelectHope({ design: 'b2c' });
+const mergedConfig = mergeConfig(selectConfig, config);
+const Select = component(mergedConfig);
 
-/**
- * Выпадающий список для использования в формах.
- * Поддерживает выбор одного или нескольких значений.
- */
-export const Select = forwardRef<SelectRefElement, SelectProps>((props, ref) => {
-    return <SelectBase {...props} ref={ref} />;
-});
+export { Select };

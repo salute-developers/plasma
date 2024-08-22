@@ -15,9 +15,13 @@ export interface PopupContextType {
 
 export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
-     * Отображение Popup.
+     * @deprecated Отображение Popup.
      */
     isOpen?: boolean;
+    /**
+     * Отображение Popup.
+     */
+    opened?: boolean;
     /* Позиция на экране
      * center - по умолчанию
      * left, right, top, bottom и их комбинации
@@ -68,7 +72,7 @@ export interface PopupPositionType {
     transform?: string;
 }
 
-export interface PopupRootProps extends Omit<PopupProps, 'isOpen' | 'overlay'> {
+export interface PopupRootProps extends Omit<PopupProps, 'opened' | 'isOpen' | 'overlay'> {
     id: string;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
     position: PopupPositionType;
@@ -78,11 +82,12 @@ export interface PopupRootProps extends Omit<PopupProps, 'isOpen' | 'overlay'> {
     animationInfo: PopupAnimationInfo;
 }
 
-export interface PopupHookArgs extends Pick<PopupProps, 'isOpen' | 'popupInfo' | 'withAnimation'> {
+export interface PopupHookArgs extends Pick<PopupProps, 'popupInfo' | 'withAnimation'> {
     id: string;
+    isOpen: boolean;
 }
 
-export interface PopupRootContainerProps extends Omit<PopupProps, 'isOpen' | 'overlay'> {
+export interface PopupRootContainerProps extends Omit<PopupProps, 'opened' | 'isOpen' | 'overlay'> {
     endTransition?: boolean;
     endAnimation?: boolean;
     position: PopupPositionType;

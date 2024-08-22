@@ -53,27 +53,27 @@ export function App() {
             <PopupBaseProvider>
                 <div style={{height: "500px"}}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button 
+                        <Button
                             style={{
                                 marginTop: "1rem",
                                 width: "15rem"
-                            }} 
-                            text="Открыть в document" 
-                            onClick={() => setIsOpenB(true)} 
+                            }}
+                            text="Открыть в document"
+                            onClick={() => setIsOpenB(true)}
                         />
-                        <Button 
+                        <Button
                             style={{
                                 marginTop: "1rem",
                                 width: "15rem"
-                            }} 
-                            text="Открыть во Frame" 
-                            onClick={() => setIsOpenA(true)} 
+                            }}
+                            text="Открыть во Frame"
+                            onClick={() => setIsOpenA(true)}
                         />
                     </div>
                     <PopupBase
                         id="popupA"
                         frame={ref}
-                        isOpen={isOpenA}
+                        opened={isOpenA}
                         placement="center"
                         offset={[0, 0]}
                     >
@@ -82,8 +82,8 @@ export function App() {
                             <>Content</>
                         </div>
                     </PopupBase>
-                    <div 
-                        ref={ref} 
+                    <div
+                        ref={ref}
                         style={{
                             marginTop: "1rem",
                             width: "400px",
@@ -105,7 +105,7 @@ export function App() {
                     <PopupBase
                         id="popupB"
                         frame="document"
-                        isOpen={isOpenB}
+                        opened={isOpenB}
                         placement="center"
                         offset={[0, 0]}
                     >
@@ -185,20 +185,20 @@ const StyledPopupAnimation = styled(PopupBase)`
     return (
         <>
             <div>
-                <Button 
+                <Button
                     style={{
                         marginTop: "1rem",
                         width: "15rem"
-                    }} 
-                    text="Открыть" 
-                    onClick={() => setIsOpen(true)} 
+                    }}
+                    text="Открыть"
+                    onClick={() => setIsOpen(true)}
                 />
             </div>
             <StyledPopupAnimation
                 id="popup-id"
                 withAnimation
                 frame="document"
-                isOpen={isOpen}
+                opened={isOpen}
                 placement="center"
                 offset={[0, 0]}
             >

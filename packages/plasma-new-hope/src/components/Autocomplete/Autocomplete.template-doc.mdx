@@ -1,0 +1,561 @@
+---
+id: autocomplete
+title: Autocomplete
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Autocomplete
+Поле ввода с подсказками в выпадающем списке.
+
+<Description name="Autocomplete" />
+<PropsTable name="Autocomplete" />
+
+## Использование
+Расширенная версия компонента `TextField`. Добавилась возможность использования выпадающего списка с подсказками.\
+По умолчанию подсказки фильтруются вне зависимости от регистра. Но это можно изменить, прокинув свой коллбэк `filter`.\
+Все пропсы, которые поддерживает компонент `TextField` также поддерживаются и здесь.
+Формат подсказок `suggestions` следующий:
+
+```tsx
+type SuggestionItem = {
+    /**
+     * Метка-подпись к подсказке
+     */
+    label: string;
+    /**
+     * Слот для контента слева
+     */
+    contentLeft?: ReactNode;
+    /**
+     * Слот для контента справа
+     */
+    contentRight?: ReactNode;
+};
+```
+
+## Примеры
+
+<Tabs>
+    <TabItem value="default" label="Default" default>
+        ```tsx live
+        import React from 'react';
+        import { Autocomplete } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+                { label: 'Ольга Васильева' },
+                { label: 'Сергей Сидоров' },
+                { label: 'Мария Кузнецова' },
+                { label: 'Андрей Попов' },
+                { label: 'Анна Николаева' },
+                { label: 'Иван Федоров' },
+                { label: 'Наталья Морозова' },
+                { label: 'Михаил Павлов' },
+                { label: 'Елена Романова' },
+                { label: 'Владимир Киселев' },
+                { label: 'Татьяна Захарова' },
+                { label: 'Николай Семенов' },
+                { label: 'Юлия Белова' },
+                { label: 'Александр Гусев' },
+                { label: 'Оксана Яковлева' },
+                { label: 'Игорь Егорова' },
+                { label: 'Вера Тихомирова' },
+                { label: 'Артем Григорьев' },
+                { label: 'Евгения Козлова' },
+                { label: 'Максим Лебедев' },
+                { label: 'Виктория Калашникова' },
+                { label: 'Константин Абрамов' },
+                { label: 'Светлана Новикова' },
+                { label: 'Юрий Волков' },
+                { label: 'Валентина Воробьева' },
+                { label: 'Павел Сергеев' },
+                { label: 'Людмила Виноградова' },
+                { label: 'Антон Соловьев' },
+                { label: 'Маргарита Цветкова' },
+                { label: 'Роман Трофимов' },
+                { label: 'Лариса Зайцева' },
+                { label: 'Евгений Никитин' },
+                { label: 'Галина Михайлова' },
+                { label: 'Владислав Антонов' },
+                { label: 'Дарья Филатова' },
+                { label: 'Олег Буров' },
+                { label: 'Инна Медведева' },
+                { label: 'Вячеслав Крылов' },
+                { label: 'Тамара Беляева' },
+                { label: 'Кирилл Марков' },
+                { label: 'Марина Пономарева' },
+                { label: 'Борис Захаров' },
+                { label: 'Жанна Савельева' },
+                { label: 'Федор Жуков' },
+                { label: 'Елизавета Логинова' },
+                { label: 'Виктор Рыбаков' },
+                { label: 'Лилия Макарова' },
+            ];
+
+            return (
+                <div style=\{{ display: 'block', height:"400px" }}>
+                    <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controlled" label="Controlled">
+        ```tsx live
+        import React from 'react';
+        import { Autocomplete } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+                { label: 'Ольга Васильева' },
+                { label: 'Сергей Сидоров' },
+                { label: 'Мария Кузнецова' },
+                { label: 'Андрей Попов' },
+                { label: 'Анна Николаева' },
+                { label: 'Иван Федоров' },
+                { label: 'Наталья Морозова' },
+                { label: 'Михаил Павлов' },
+                { label: 'Елена Романова' },
+                { label: 'Владимир Киселев' },
+                { label: 'Татьяна Захарова' },
+                { label: 'Николай Семенов' },
+                { label: 'Юлия Белова' },
+                { label: 'Александр Гусев' },
+                { label: 'Оксана Яковлева' },
+                { label: 'Игорь Егорова' },
+                { label: 'Вера Тихомирова' },
+                { label: 'Артем Григорьев' },
+                { label: 'Евгения Козлова' },
+                { label: 'Максим Лебедев' },
+                { label: 'Виктория Калашникова' },
+                { label: 'Константин Абрамов' },
+                { label: 'Светлана Новикова' },
+                { label: 'Юрий Волков' },
+                { label: 'Валентина Воробьева' },
+                { label: 'Павел Сергеев' },
+                { label: 'Людмила Виноградова' },
+                { label: 'Антон Соловьев' },
+                { label: 'Маргарита Цветкова' },
+                { label: 'Роман Трофимов' },
+                { label: 'Лариса Зайцева' },
+                { label: 'Евгений Никитин' },
+                { label: 'Галина Михайлова' },
+                { label: 'Владислав Антонов' },
+                { label: 'Дарья Филатова' },
+                { label: 'Олег Буров' },
+                { label: 'Инна Медведева' },
+                { label: 'Вячеслав Крылов' },
+                { label: 'Тамара Беляева' },
+                { label: 'Кирилл Марков' },
+                { label: 'Марина Пономарева' },
+                { label: 'Борис Захаров' },
+                { label: 'Жанна Савельева' },
+                { label: 'Федор Жуков' },
+                { label: 'Елизавета Логинова' },
+                { label: 'Виктор Рыбаков' },
+                { label: 'Лилия Макарова' },
+            ];
+
+            const [value, setValue] = useState('')
+
+            return (
+                <div style=\{{ display: 'block', height:"400px" }}>
+                    <Autocomplete value={value} onChange={(e) => setValue(e.target.value)} onSuggestionSelect={(e) => setValue(e.label)} suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="infinite" label="Infinite Loading">
+        Это пример с бесконечным лоадингом подсказок в списке. Для удобства порог для открытия списка подсказок понижен до 0 (открываться будет сразу при фокусе).
+
+        ```tsx live
+        import React from 'react';
+        import { Autocomplete, Cell, Spinner } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+                { label: 'Ольга Васильева' },
+                { label: 'Сергей Сидоров' },
+                { label: 'Мария Кузнецова' },
+                { label: 'Андрей Попов' },
+                { label: 'Анна Николаева' },
+                { label: 'Иван Федоров' },
+                { label: 'Наталья Морозова' },
+                { label: 'Михаил Павлов' },
+                { label: 'Елена Романова' },
+                { label: 'Владимир Киселев' },
+                { label: 'Татьяна Захарова' },
+                { label: 'Николай Семенов' },
+                { label: 'Юлия Белова' },
+                { label: 'Александр Гусев' },
+                { label: 'Оксана Яковлева' },
+                { label: 'Игорь Егорова' },
+                { label: 'Вера Тихомирова' },
+                { label: 'Артем Григорьев' },
+                { label: 'Евгения Козлова' },
+                { label: 'Максим Лебедев' },
+                { label: 'Виктория Калашникова' },
+                { label: 'Константин Абрамов' },
+                { label: 'Светлана Новикова' },
+                { label: 'Юрий Волков' },
+                { label: 'Валентина Воробьева' },
+                { label: 'Павел Сергеев' },
+                { label: 'Людмила Виноградова' },
+                { label: 'Антон Соловьев' },
+                { label: 'Маргарита Цветкова' },
+                { label: 'Роман Трофимов' },
+                { label: 'Лариса Зайцева' },
+                { label: 'Евгений Никитин' },
+                { label: 'Галина Михайлова' },
+                { label: 'Владислав Антонов' },
+                { label: 'Дарья Филатова' },
+                { label: 'Олег Буров' },
+                { label: 'Инна Медведева' },
+                { label: 'Вячеслав Крылов' },
+                { label: 'Тамара Беляева' },
+                { label: 'Кирилл Марков' },
+                { label: 'Марина Пономарева' },
+                { label: 'Борис Захаров' },
+                { label: 'Жанна Савельева' },
+                { label: 'Федор Жуков' },
+                { label: 'Елизавета Логинова' },
+                { label: 'Виктор Рыбаков' },
+                { label: 'Лилия Макарова' },
+            ];
+
+            const getData = async (data, page, pageSize = 10) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({page, data: data.slice(page * pageSize - 1, page * pageSize - 1 + pageSize)})
+                    }, 1500)
+                })
+            }
+
+            const [suggestions, setSuggestions] = useState({ page: 1, data: mockData.slice(0, 10) })
+            const [isInfiniteLoading, setIsInfiniteLoading] = useState(false)
+
+            const onScroll = async (e) => {
+                if (isInfiniteLoading) return
+
+                if (e.target.scrollTop + e.target.offsetHeight + 10 > e.target.scrollHeight) {
+                    setIsInfiniteLoading(true)
+
+                    const res = await getData(mockData, suggestions.page + 1, 10)
+                    setSuggestions({page: res.page, data: [...suggestions.data, ...res.data]})
+
+                    setIsInfiniteLoading(false)
+                }
+            };
+
+            return (
+                <div style=\{{ display: 'block', height:"400px" }}>
+                    <Autocomplete
+                        suggestions={suggestions.data}
+                        listMaxHeight="250px"
+                        onScroll={onScroll}
+                        threshold={0}
+                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="primary" />} title="Загрузка" stretching="auto" /> : undefined}
+                        label="Label"
+                        placeholder="Placeholder"
+                        leftHelper="Введите имя Алексей"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="filter" label="Custom Filter">
+        Пример кастомной фильтрации на бекенде. Не забываем отключить дефолтную фильтрацию.
+
+        ```tsx live
+        import React from 'react';
+        import { Autocomplete } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+                { label: 'Ольга Васильева' },
+                { label: 'Сергей Сидоров' },
+                { label: 'Мария Кузнецова' },
+                { label: 'Андрей Попов' },
+                { label: 'Анна Николаева' },
+                { label: 'Иван Федоров' },
+                { label: 'Наталья Морозова' },
+                { label: 'Михаил Павлов' },
+                { label: 'Елена Романова' },
+                { label: 'Владимир Киселев' },
+                { label: 'Татьяна Захарова' },
+                { label: 'Николай Семенов' },
+                { label: 'Юлия Белова' },
+                { label: 'Александр Гусев' },
+                { label: 'Оксана Яковлева' },
+                { label: 'Игорь Егорова' },
+                { label: 'Вера Тихомирова' },
+                { label: 'Артем Григорьев' },
+                { label: 'Евгения Козлова' },
+                { label: 'Максим Лебедев' },
+                { label: 'Виктория Калашникова' },
+                { label: 'Константин Абрамов' },
+                { label: 'Светлана Новикова' },
+                { label: 'Юрий Волков' },
+                { label: 'Валентина Воробьева' },
+                { label: 'Павел Сергеев' },
+                { label: 'Людмила Виноградова' },
+                { label: 'Антон Соловьев' },
+                { label: 'Маргарита Цветкова' },
+                { label: 'Роман Трофимов' },
+                { label: 'Лариса Зайцева' },
+                { label: 'Евгений Никитин' },
+                { label: 'Галина Михайлова' },
+                { label: 'Владислав Антонов' },
+                { label: 'Дарья Филатова' },
+                { label: 'Олег Буров' },
+                { label: 'Инна Медведева' },
+                { label: 'Вячеслав Крылов' },
+                { label: 'Тамара Беляева' },
+                { label: 'Кирилл Марков' },
+                { label: 'Марина Пономарева' },
+                { label: 'Борис Захаров' },
+                { label: 'Жанна Савельева' },
+                { label: 'Федор Жуков' },
+                { label: 'Елизавета Логинова' },
+                { label: 'Виктор Рыбаков' },
+                { label: 'Лилия Макарова' },
+            ];
+
+            const [value, setValue] = useState('')
+            const [suggestions, setSuggestions] = useState(mockData)
+
+
+            const getData = async (value) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(mockData.filter(({ label }) => label.toLowerCase().includes(value.toString().toLowerCase())))
+                    }, 200)
+                })
+            }
+
+            useEffect(() => {
+                getData(value).then(setSuggestions)
+            }, [value])
+
+            return (
+                <div style=\{{ display: 'block', height:"400px" }}>
+                    <Autocomplete
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        onSuggestionSelect={(e) => setValue(e.label)}
+                        suggestions={suggestions}
+                        listMaxHeight="250px"
+                        filter={() => true} // Отключаем дефолтную фильтрацию
+                        label="Label"
+                        placeholder="Placeholder"
+                        leftHelper="Введите имя Алексей"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="emptyState" label="Empty State">
+        Если произошла ошибка, или же к примеру нужно показать некую информацию пользователю, то для этой цели можно использовать компонент `EmptyState`.
+
+        ```tsx live
+        import React from 'react';
+        import { Autocomplete, EmptyState, Spinner } from '@salutejs/{{ package }}';
+        import { IconRefresh } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+                { label: 'Ольга Васильева' },
+                { label: 'Сергей Сидоров' },
+                { label: 'Мария Кузнецова' },
+                { label: 'Андрей Попов' },
+                { label: 'Анна Николаева' },
+                { label: 'Иван Федоров' },
+                { label: 'Наталья Морозова' },
+                { label: 'Михаил Павлов' },
+                { label: 'Елена Романова' },
+                { label: 'Владимир Киселев' },
+                { label: 'Татьяна Захарова' },
+                { label: 'Николай Семенов' },
+                { label: 'Юлия Белова' },
+                { label: 'Александр Гусев' },
+                { label: 'Оксана Яковлева' },
+                { label: 'Игорь Егорова' },
+                { label: 'Вера Тихомирова' },
+                { label: 'Артем Григорьев' },
+                { label: 'Евгения Козлова' },
+                { label: 'Максим Лебедев' },
+                { label: 'Виктория Калашникова' },
+                { label: 'Константин Абрамов' },
+                { label: 'Светлана Новикова' },
+                { label: 'Юрий Волков' },
+                { label: 'Валентина Воробьева' },
+                { label: 'Павел Сергеев' },
+                { label: 'Людмила Виноградова' },
+                { label: 'Антон Соловьев' },
+                { label: 'Маргарита Цветкова' },
+                { label: 'Роман Трофимов' },
+                { label: 'Лариса Зайцева' },
+                { label: 'Евгений Никитин' },
+                { label: 'Галина Михайлова' },
+                { label: 'Владислав Антонов' },
+                { label: 'Дарья Филатова' },
+                { label: 'Олег Буров' },
+                { label: 'Инна Медведева' },
+                { label: 'Вячеслав Крылов' },
+                { label: 'Тамара Беляева' },
+                { label: 'Кирилл Марков' },
+                { label: 'Марина Пономарева' },
+                { label: 'Борис Захаров' },
+                { label: 'Жанна Савельева' },
+                { label: 'Федор Жуков' },
+                { label: 'Елизавета Логинова' },
+                { label: 'Виктор Рыбаков' },
+                { label: 'Лилия Макарова' },
+            ];
+
+            const getData = async () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(mockData)
+                    }, 1500)
+                })
+            }
+
+            const [isError, setIsError] = useState(true)
+            const [isLoading, setIsLoading] = useState(false)
+            const [value, setValue] = useState('')
+            const [suggestions, setSuggestions] = useState([])
+
+            const handleGetData = async () => {
+                setIsLoading(true)
+
+                const res = await getData()
+
+                setIsLoading(false)
+                setIsError(false)
+                setSuggestions(res)
+            }
+
+            return (
+                <div style=\{{ display: 'block', height:"400px" }}>
+                    <Autocomplete
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        onSuggestionSelect={(e) => setValue(e.label)}
+                        suggestions={suggestions}
+                        listMaxHeight="250px"
+                        renderList={isError ? () => <EmptyState icon={<IconRefresh />} description="Произошла ошибка. Попробуйте обновить." buttonText="Обновить" buttonAction={handleGetData} /> : undefined}
+                        contentRight={isLoading ? <Spinner view="primary" /> : undefined}
+                        label="Label"
+                        placeholder="Placeholder"
+                        leftHelper="Введите имя Алексей"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="portal" label="Portal">
+        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется скролл, и список будет обрезаться, чего хотелось бы избежать.\
+        Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.
+        ```tsx live
+        import React from 'react';
+        import { Autocomplete } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+                { label: 'Ольга Васильева' },
+                { label: 'Сергей Сидоров' },
+                { label: 'Мария Кузнецова' },
+                { label: 'Андрей Попов' },
+                { label: 'Анна Николаева' },
+                { label: 'Иван Федоров' },
+                { label: 'Наталья Морозова' },
+                { label: 'Михаил Павлов' },
+                { label: 'Елена Романова' },
+                { label: 'Владимир Киселев' },
+                { label: 'Татьяна Захарова' },
+                { label: 'Николай Семенов' },
+                { label: 'Юлия Белова' },
+                { label: 'Александр Гусев' },
+                { label: 'Оксана Яковлева' },
+                { label: 'Игорь Егорова' },
+                { label: 'Вера Тихомирова' },
+                { label: 'Артем Григорьев' },
+                { label: 'Евгения Козлова' },
+                { label: 'Максим Лебедев' },
+                { label: 'Виктория Калашникова' },
+                { label: 'Константин Абрамов' },
+                { label: 'Светлана Новикова' },
+                { label: 'Юрий Волков' },
+                { label: 'Валентина Воробьева' },
+                { label: 'Павел Сергеев' },
+                { label: 'Людмила Виноградова' },
+                { label: 'Антон Соловьев' },
+                { label: 'Маргарита Цветкова' },
+                { label: 'Роман Трофимов' },
+                { label: 'Лариса Зайцева' },
+                { label: 'Евгений Никитин' },
+                { label: 'Галина Михайлова' },
+                { label: 'Владислав Антонов' },
+                { label: 'Дарья Филатова' },
+                { label: 'Олег Буров' },
+                { label: 'Инна Медведева' },
+                { label: 'Вячеслав Крылов' },
+                { label: 'Тамара Беляева' },
+                { label: 'Кирилл Марков' },
+                { label: 'Марина Пономарева' },
+                { label: 'Борис Захаров' },
+                { label: 'Жанна Савельева' },
+                { label: 'Федор Жуков' },
+                { label: 'Елизавета Логинова' },
+                { label: 'Виктор Рыбаков' },
+                { label: 'Лилия Макарова' },
+            ];
+
+            const ref = useRef(null);
+
+            return (
+                <div style=\{{ position: 'relative', display: 'block', height: "400px" }} ref={ref}>
+                    <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" portal={ref} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Клавиатурная навигация
+
+Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/).
+
+- `Tab, Escape` - закрывает автокомплит. Перемещает фокус на следующий элемент на странице;
+- `Enter` - выбираем подсказку из списка;
+- `Home` - перемещает фокус на первый элемент;
+- `End` - перемещает фокус на последний элемент;
+- `ArrowUp` - перемещает фокус на один элемент выше;
+- `ArrowDown` - перемещает фокус на один элемент ниже;

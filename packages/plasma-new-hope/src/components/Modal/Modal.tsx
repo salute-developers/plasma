@@ -38,11 +38,13 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 popupInfo,
                 children,
                 view,
+                opened,
                 isOpen,
                 ...rest
             },
             outerRootRef,
         ) => {
+            const innerIsOpen = Boolean(isOpen || opened);
             const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef, true);
             const popupController = usePopupContext();
 
@@ -54,7 +56,15 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 ? `var(${tokens.modalOverlayWithBlurColor})`
                 : `var(${tokens.modalOverlayColor})`;
 
-            const { modalInfo } = useModal({ id: innerId, isOpen, closeOnEsc, onEscKeyDown, onClose, popupInfo });
+            const { modalInfo } = useModal({
+                id: innerId,
+                isOpen: innerIsOpen,
+                closeOnEsc,
+                onEscKeyDown,
+                onClose,
+                popupInfo,
+            });
+
             const transparent = useMemo(() => getIdLastModal(popupController.items) !== innerId, [
                 innerId,
                 popupController.items,
@@ -77,7 +87,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
             return (
                 <Popup
                     id={innerId}
-                    isOpen={isOpen}
+                    opened={innerIsOpen}
                     ref={innerRef}
                     popupInfo={modalInfo}
                     withAnimation={withAnimation}

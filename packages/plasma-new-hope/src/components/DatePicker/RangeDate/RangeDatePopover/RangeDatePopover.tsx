@@ -10,6 +10,7 @@ export const RangeDatePopover = ({
     target,
 
     isOpen,
+    opened,
     isDoubleCalendar,
 
     calendarValue,
@@ -36,10 +37,12 @@ export const RangeDatePopover = ({
 
     onToggle,
 }: RangeDatePopoverProps) => {
+    const innerIsOpen = Boolean(isOpen || opened);
+
     if (isDoubleCalendar) {
         return (
             <StyledPopover
-                isOpen={isOpen}
+                opened={innerIsOpen}
                 usePortal={false}
                 onToggle={onToggle}
                 offset={offset}
@@ -73,7 +76,7 @@ export const RangeDatePopover = ({
 
     return (
         <StyledPopover
-            isOpen={isOpen}
+            opened={innerIsOpen}
             usePortal={false}
             onToggle={onToggle}
             offset={offset}

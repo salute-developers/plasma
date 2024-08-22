@@ -87,6 +87,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             {
                 id,
                 isOpen = false,
+                opened = false,
                 placement = 'center',
                 offset = [0, 0],
                 frame = 'document',
@@ -101,11 +102,13 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             },
             outerRootRef,
         ) => {
+            const innerIsOpen = isOpen || opened;
+
             const uniqId = safeUseId();
             const innerId = id || uniqId;
 
             const { isVisible, animationInfo, setVisible } = usePopup({
-                isOpen,
+                isOpen: innerIsOpen,
                 id: innerId,
                 popupInfo,
                 withAnimation,
@@ -150,7 +153,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 forceRender(true);
             }, []);
 
-            if (!isVisible && !isOpen) {
+            if (!isVisible && !innerIsOpen) {
                 return null;
             }
 

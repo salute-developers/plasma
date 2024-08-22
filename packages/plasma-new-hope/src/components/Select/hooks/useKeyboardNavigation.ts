@@ -10,7 +10,7 @@ import {
     FocusedChipIndexAction,
 } from '../reducers';
 import { SelectProps } from '../Select.types';
-import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
+import type { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './usePathMaps';
 
@@ -38,7 +38,7 @@ const getFurtherPath = (focusedPath: FocusedPathState, focusedToValueMap: Focuse
     return focusedToValueMap.get(focusedPathAsString);
 };
 
-interface Props {
+type Props = {
     focusedPath: FocusedPathState;
     dispatchFocusedPath: Dispatch<FocusedPathAction>;
     path: PathState;
@@ -46,18 +46,18 @@ interface Props {
     pathMap: PathMapType;
     focusedToValueMap: FocusedToValueMapType;
     handleToggle: (opened: boolean) => void;
-    handlePressDown: (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => void;
+    handlePressDown: (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => void;
     focusedChipIndex: FocusedChipIndexState;
     dispatchFocusedChipIndex: Dispatch<FocusedChipIndexAction>;
     value: string | string[];
     valueToItemMap: ValueToItemMapType;
     multiselect: SelectProps['multiselect'];
     isTargetAmount: SelectProps['isTargetAmount'];
-}
+};
 
-interface ReturnedProps {
+type ReturnedProps = {
     onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
-}
+};
 
 export const useKeyNavigation = ({
     focusedPath,

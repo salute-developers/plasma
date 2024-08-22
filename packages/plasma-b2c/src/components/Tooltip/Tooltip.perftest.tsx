@@ -22,50 +22,50 @@ export const All = () => {
                     <Tooltip
                         target={<Button contentLeft={<IconDownload />} />}
                         placement="left"
-                        isOpen
+                        opened
                         hasArrow
                         text="Left"
                     />
                 }
                 placement="top-start"
-                isOpen
+                opened
                 hasArrow
                 text="Top start"
             />
-            <Tooltip target={<Button contentLeft={<IconDownload />} />} placement="top" isOpen hasArrow text="Top" />
+            <Tooltip target={<Button contentLeft={<IconDownload />} />} placement="top" opened hasArrow text="Top" />
             <Tooltip
                 target={
                     <Tooltip
                         target={<Button contentLeft={<IconDownload />} />}
                         placement="right"
-                        isOpen
+                        opened
                         hasArrow
                         text="Right"
                     />
                 }
                 placement="top-end"
-                isOpen
+                opened
                 hasArrow
                 text="Top end"
             />
             <Tooltip
                 target={<Button contentLeft={<IconDownload />} />}
                 placement="bottom-start"
-                isOpen
+                opened
                 hasArrow
                 text="Bottom start"
             />
             <Tooltip
                 target={<Button contentLeft={<IconDownload />} />}
                 placement="bottom"
-                isOpen
+                opened
                 hasArrow
                 text="Bottom"
             />
             <Tooltip
                 target={<Button contentLeft={<IconDownload />} />}
                 placement="bottom-end"
-                isOpen
+                opened
                 hasArrow
                 text="Bottom end"
             />

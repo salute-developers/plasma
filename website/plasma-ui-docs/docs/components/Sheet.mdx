@@ -20,7 +20,7 @@ export function App() {
     return (
         <>
             <Button onClick={() => setIsOpen(true)}>Открыть</Button>
-            <Sheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <Sheet opened={isOpen} onClose={() => setIsOpen(false)}>
                 <Body1>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                     consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel illum ea

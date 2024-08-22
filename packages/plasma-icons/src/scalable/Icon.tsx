@@ -255,6 +255,8 @@ export const iconSectionsSet = {
         swapVert: 'SwapVert',
         swapVertCircFill: 'SwapVertCircFill',
         swapVertCircOutline: 'SwapVertCircOutline',
+        doubleDisclosureDown: 'DoubleDisclosureDown',
+        doubleDisclosureUp: 'DoubleDisclosureUp',
     },
     Data: {
         chartDistributionFill: 'ChartDistributionFill',
@@ -1074,5 +1076,13 @@ export const iconSectionsSet = {
         umbrellaOutline: 'UmbrellaOutline',
         weatherFill: 'WeatherFill',
         weatherOutline: 'WeatherOutline',
+    },
+    Table: {
+        rowHeightFill: 'RowHeightFill',
+        rowHeightMaxFill: 'RowHeightMaxFill',
+        rowHeightMaxOutline: 'RowHeightMaxOutline',
+        rowHeightMinFill: 'RowHeightMinFill',
+        rowHeightMinOutline: 'RowHeightMinOutline',
+        rowHeightOutline: 'RowHeightOutline',
     },
 };

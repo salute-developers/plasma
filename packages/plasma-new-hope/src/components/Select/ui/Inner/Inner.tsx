@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { isEmpty } from '../../../../utils';
 import { Ul, StyledPopover } from '../../Select.styles';
 
-import type { ItemOptionTransformed } from './ui/Item/Item.types';
+import type { MergedDropdownNodeTransformed } from './ui/Item/Item.types';
 import { Item } from './ui';
 import { InnerProps } from './Inner.type';
 
@@ -25,7 +25,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
     if (!isEmpty(item?.items)) {
         return (
             <StyledPopover
-                isOpen={isCurrentListOpen}
+                opened={isCurrentListOpen}
                 usePortal={false}
                 placement="right-start"
                 trigger="click"
@@ -46,7 +46,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                 preventOverflow={false}
             >
                 <Ul role="group" id={listId} isInnerUl listWidth={listWidth}>
-                    {item.items?.map((innerItem: ItemOptionTransformed, innerIndex: number) => (
+                    {item.items?.map((innerItem: MergedDropdownNodeTransformed, innerIndex: number) => (
                         <Inner
                             key={`${innerIndex}/${currentLevel}`}
                             item={innerItem}

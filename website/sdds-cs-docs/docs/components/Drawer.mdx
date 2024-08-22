@@ -35,8 +35,8 @@ Drawer можно использовать как и на всем окне, т�
 
 Само позиционирование можно указать с помощью свойства `placement`(left - по умолчанию, right, top, bottom),
  а также определить отступы от точки с помощью `offset`.
- 
-У компонента Drawer есть 2 режима отображения: 
+
+У компонента Drawer есть 2 режима отображения:
 модальный - добавляет при этом подложку(`overlay`), а также блокирует scroll и фокус;
 немодальный - нет подложки, scroll и фокус не заблокированы.
 
@@ -67,16 +67,16 @@ export function App() {
             <PopupProvider>
                 <div style={{height: "500px"}}>
                     <div style={{ display: "flex", flexDirection: "column" }}>
-                        <Button 
-                            text="Открыть в document" 
+                        <Button
+                            text="Открыть в document"
                             onClick={() => setIsOpenA(true)}
                             style={{
                                 marginTop: "1rem",
                                 width: "15rem"
                             }}
                         />
-                        <Button 
-                            text="Открыть во Frame" 
+                        <Button
+                            text="Открыть во Frame"
                             onClick={() => setIsOpenB(true)}
                             style={{
                                 marginTop: "1rem",
@@ -86,7 +86,7 @@ export function App() {
                     </div>
                     <Drawer
                         id="drawerA"
-                        isOpen={isOpenA} 
+                        opened={isOpenA}
                         onClose={() => setIsOpenA(false)}
                         placement="right"
                         withBlur={false}
@@ -114,13 +114,13 @@ export function App() {
                             </DrawerHeader>
 
                             <DrawerContent>Content</DrawerContent>
-                            
+
                             <DrawerFooter>
                                 <H3>Footer</H3>
                             </DrawerFooter>
                         </Drawer>
-                    <div 
-                        ref={ref} 
+                    <div
+                        ref={ref}
                         style={{
                             marginTop: "1rem",
                             width: "400px",
@@ -139,10 +139,10 @@ export function App() {
                     >
                         <>Frame</>
                     </div>
-                    
+
                     <Drawer
                         id="drawerB"
-                        isOpen={isOpenB} 
+                        opened={isOpenB}
                         onClose={() => setIsOpenB(false)}
                         placement="right"
                         asModal={false}
@@ -168,7 +168,7 @@ export function App() {
                             </DrawerHeader>
 
                             <DrawerContent>Content</DrawerContent>
-                            
+
                             <DrawerFooter>
                                 <H3>Footer</H3>
                             </DrawerFooter>

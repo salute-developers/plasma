@@ -39,7 +39,6 @@ export * from './components/Radiobox';
 export * from './components/Range';
 export * from './components/Segment';
 export * from './components/Select';
-export * from './components/SelectNew';
 export * from './components/Sheet';
 export * from './components/Skeleton';
 export * from './components/Slider';
