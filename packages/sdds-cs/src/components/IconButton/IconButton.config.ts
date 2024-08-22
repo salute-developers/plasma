@@ -22,9 +22,9 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-primary);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-primary-active);
             `,
             clear: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);

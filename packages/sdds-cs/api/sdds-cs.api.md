@@ -622,14 +622,7 @@ size: {
 s: PolymorphicClassName;
 };
 view: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-tertiary: PolymorphicClassName;
-paragraph: PolymorphicClassName;
 accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -1063,16 +1056,9 @@ export { h5Bold }
 // @public
 export const IconButton: FunctionComponent<PropsType<    {
 view: {
-default: PolymorphicClassName;
 accent: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-success: PolymorphicClassName;
-warning: PolymorphicClassName;
-critical: PolymorphicClassName;
-dark: PolymorphicClassName;
-black: PolymorphicClassName;
-white: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
@@ -1330,14 +1316,7 @@ size: {
 s: PolymorphicClassName;
 };
 view: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-tertiary: PolymorphicClassName;
-paragraph: PolymorphicClassName;
 accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -1661,7 +1640,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "clear" | "secondary" | "positive" | "warning" | "negative" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
@@ -1698,7 +1677,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "clear" | "secondary" | "positive" | "warning" | "negative" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
@@ -1808,7 +1787,7 @@ export { SSRProvider }
 // @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
 size: {
-m: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;

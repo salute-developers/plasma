@@ -8,13 +8,13 @@ import {
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 's',
         labelPosition: 'before',
         focused: 'true',
     },
     variations: {
         size: {
-            m: css`
+            s: css`
                 ${switchTokens.fontFamily}: var(--plasma-typo-body1-font-family);
                 ${switchTokens.fontStyle}: var(--plasma-typo-body1-font-style);
                 ${switchTokens.fontWeight}: var(--plasma-typo-body1-font-weight);
