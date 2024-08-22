@@ -12,30 +12,10 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const meta: Meta<CheckboxProps> = {
-    title: 'Controls/Checkbox',
-    component: Checkbox,
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        label: {
-            control: {
-                type: 'text',
-            },
-        },
-        description: {
-            control: {
-                type: 'text',
-            },
-        },
-    },
-};
-
-export default meta;
-
-type Story = StoryObj<CheckboxProps>;
+const sizes = ['m', 's'];
+const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
 
 const propsToDisable = [
-    'view',
     'name',
     'indeterminate',
     'id',
@@ -53,8 +33,40 @@ const propsToDisable = [
     'onBlur',
 ];
 
-const sizes = ['m', 's'];
-const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+const meta: Meta<CheckboxProps> = {
+    title: 'Controls/Checkbox',
+    component: Checkbox,
+    decorators: [InSpacingDecorator],
+    argTypes: {
+        label: {
+            control: {
+                type: 'text',
+            },
+        },
+        description: {
+            control: {
+                type: 'text',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(propsToDisable),
+    },
+};
+
+export default meta;
+
+type Story = StoryObj<CheckboxProps>;
 
 const englishDescription = (
     <div>
@@ -155,21 +167,6 @@ export const Default: Story = {
         view: 'accent',
         focused: true,
     },
-    argTypes: {
-        ...disableProps(propsToDisable),
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
-    },
     render: (args) => <StoryDefault {...args} />,
 };
 
@@ -233,19 +230,7 @@ export const Live: Story = {
         disabled: false,
     },
     argTypes: {
-        ...disableProps([...propsToDisable, 'label', 'description']),
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
+        ...disableProps(['label', 'description']),
     },
     render: (args) => <StoryLive {...args} />,
 };
