@@ -23,9 +23,9 @@ export const config = {
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
             `,
             clear: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-accent);

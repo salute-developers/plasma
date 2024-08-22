@@ -79,7 +79,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 disabled={disabled}
                 focused={focused || outlined}
                 contentPlacing={contentPlacing}
-                className={cx(squareClass, stretchingClass, classes.buttonItem, className, isLoadingClass)}
+                className={cx(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
                 style={
                     {
                         ...style,
