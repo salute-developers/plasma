@@ -35,7 +35,7 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
         };
 
         resizeHandler();
-    }, [labelPlacement, rangeValuesPlacement, ref.current]);
+    }, [labelPlacement, rangeValuesPlacement]);
 
     const onHandleChange: MouseEventHandler<HTMLDivElement> = (e) => {
         if (!onChange || disabled) {
@@ -66,7 +66,7 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
         window.addEventListener('resize', resizeHandler);
 
         return () => window.removeEventListener('resize', resizeHandler);
-    }, [min, max, setStepSize, ref.current, gap, labelPlacement, rangeValuesPlacement]);
+    }, [min, max, setStepSize, gap, labelPlacement, rangeValuesPlacement]);
 
     const fillStyle = { left: `${railFillXPosition}px`, width: `${railFillWidth}px` };
 
