@@ -1,3 +1,197 @@
+# v0.129.0 (Thu Aug 22 2024)
+
+### Release Notes
+
+#### Release by 21.08.2024 ([#1382](https://github.com/salute-developers/plasma/pull/1382))
+
+## Components
+
+### Autocomplete
+- добавлено свойство `portal`
+- обновлена документация
+
+ 
+plasma-new-hope: add portal prop to Autocomplete (https://github.com/salute-developers/plasma/pull/1347)
+
+### Tabs
+- исправлены типы и описание компонента для корректной генерации документации
+- добавлены недостающие примеры в документацию `sdds-cs`
+
+ 
+fix(plasma-*): Tabs types and documentation (https://github.com/salute-developers/plasma/pull/1362)
+
+###  Props `isOpen`/`isVisible` to `opened`
+
+- публичные свойства `opened`/`isVisible` помечаны как `deprecated`
+- изменены `types` , от которых зависят дочерние компоненты
+
+ 
+plasma-*: Deprecate isOpen/isVisible public props, change to opened (https://github.com/salute-developers/plasma/pull/1335)
+
+### Textfield
+
+- исправлено "дергание" `label` в `inner` режиме
+
+ 
+fix(new-hope): Textfield label bug (https://github.com/salute-developers/plasma/pull/1359)
+
+### Radiobox
+
+- добавлены параметры `view` для примеров в storybook в `plasma-b2c` 
+
+ 
+plasma-b2c: Add view props into radiobox stories (https://github.com/salute-developers/plasma/pull/1358)
+
+### Select
+
+- компоненты `SelectNew` и `Select` объединены в `Select`. `SelectNew` больше не существует.
+- исправлен баг в `Autocomplete`, связанный с очисткой внешнего значения в `contolled`-варианте
+
+ 
+feat: Getting rid of SelectNew in web/b2c (https://github.com/salute-developers/plasma/pull/1349)
+
+### Popup
+
+- исправлена логика регистрации `popups`
+
+ 
+plasma-*: Fix Modal Overlay & Popup registration logic (https://github.com/salute-developers/plasma/pull/1380)
+
+
+### Modal
+
+- исправлена логика выставления `overflow-y` для `body`
+
+ 
+plasma-*: Fix `Modal` overflow-y side effect (https://github.com/salute-developers/plasma/pull/1325)
+
+## Icons
+
+### Icons Table
+
+- добавлен набор иконок `RowHeight` 
+
+ 
+plasma-icons: Add new icons (https://github.com/salute-developers/plasma/pull/1360)
+
+### Icons DoubleDisclosure
+
+- добавлены набор иконок `DoubleDisclosure_{Down,Up}`
+
+ 
+feat(plasma-icons): Add new icons DoubleDisclosure_{Down,Up} (https://github.com/salute-developers/plasma/pull/1373)
+
+### Icons  SearchForm
+
+- Исправлено смещение текста при наборе в поиск
+
+ 
+plasma-website: fix searchForm input text shifting (https://github.com/salute-developers/plasma/pull/1378)
+
+
+## Infra
+
+### Packages
+
+- удалён пакет `@salutejs/plasma-tokens-native`, больше не нужен
+- удалён пакет `@auto-it/upload-assets`, т.к. больше не нужно прикреплять `assets` к релизу или `pull request`
+
+ 
+chore: Remove `plasma-tokens-native` package (https://github.com/salute-developers/plasma/pull/1305)
+
+
+## Tokens
+
+### Генерация старых токенов
+
+* Добавлены методы генерации старых токенов в библиотеку `core-themes`
+* Добавлены токены со старым неймингом (префиксом `plasma-colors`) в вертикаль `plasma-themes` для тем `plasma-web`  и `plasma-b2c`
+
+ 
+feat(plasma-themes): Add fallback tokens for `plasma-themes` (https://github.com/salute-developers/plasma/pull/1355)
+
+### Токены высветления
+
+* Добавлены токены высветления для библиотек `plasma-themes`, `caldera-online-themes`, `sdds-themes`, `flamingo-themes`. 
+
+ 
+feat(*-themes): Add brightness tokens to all themes (https://github.com/salute-developers/plasma/pull/1367)
+
+### Tabs, Dropdown, Popover, Switch, TextField
+
+- заменены токены `plasma-colors`
+ 
+plasma-{new-hope, b2c, web}: `plasma-colors` tokens changed (https://github.com/salute-developers/plasma/pull/1351)
+
+
+## Docs
+
+### Enabling themes 
+
+* обновлено описание способов подключения и использования `theme` и токенов для всех поднятых пакетов с документацией, а также в шаблонах.
+
+ 
+refator(*-docs): Update introducing docs (https://github.com/salute-developers/plasma/pull/1356)
+
+### Tabs
+- исправлены типы и описание компонента для корректной генерации документации
+- добавлены недостающие примеры в документацию `sdds-cs`
+
+ 
+fix(plasma-*): Tabs types and documentation (https://github.com/salute-developers/plasma/pull/1362)
+
+
+## Misc
+
+### Tests
+-   изменены тесты plasma-b2c компонентов Button и Range
+-   обновлены скриншоты
+
+ 
+test(plasma-b2c): update tests and snapshots for Button and Range (https://github.com/salute-developers/plasma/pull/1340)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 21.08.2024 [#1382](https://github.com/salute-developers/plasma/pull/1382) ([@denivladislav](https://github.com/denivladislav) [@Salute-Eva](https://github.com/Salute-Eva) [@IgorYar](https://github.com/IgorYar) [@neretin-trike](https://github.com/neretin-trike) [@vadim-kudr](https://github.com/vadim-kudr) [@simashova](https://github.com/simashova) [@iljs](https://github.com/iljs) [@Yakutoc](https://github.com/Yakutoc) [@shuga2704](https://github.com/shuga2704) [@luizasok](https://github.com/luizasok) VAnaKudryavtsev@sberbank.ru)
+- feat: Deprecate isOpen/isVisible public props, change to opened [#1335](https://github.com/salute-developers/plasma/pull/1335) ([@vadim-kudr](https://github.com/vadim-kudr))
+- feat(plasma-new-hope): portal prop added to Autocomplete ([@denivladislav](https://github.com/denivladislav))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix: Fix Modal overflow-y side effect [#1380](https://github.com/salute-developers/plasma/pull/1380) (VAnaKudryavtsev@sberbank.ru)
+- fix: Fix Modal overflow-y side effect [#1325](https://github.com/salute-developers/plasma/pull/1325) ([@vadim-kudr](https://github.com/vadim-kudr))
+- feat(web, b2c): Select and SelectNew are merged. SelectNew is gone. [#1349](https://github.com/salute-developers/plasma/pull/1349) ([@shuga2704](https://github.com/shuga2704))
+- fix(new-hope): remove label bug [#1358](https://github.com/salute-developers/plasma/pull/1358) ([@iljs](https://github.com/iljs))
+- fix(new-hope): remove label bug [#1359](https://github.com/salute-developers/plasma/pull/1359) ([@iljs](https://github.com/iljs))
+- docs(plasma-{new-hope, b2c, web}, sdds-*): docs updated; missing examples aded to sdds-cs ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-new-hope): Tabs and TabItem types and PropsTable fixed ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-{new-hope, b2c, web}): TextField --plasma-colors tokens changed ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-{new-hope, b2c, web}): Popover --plasma-colors tokens changed ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-{new-hope, b2c, web): Dropdown --plasma-tokens changed ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-{new-hope, b2c, web): Tabs --plasma-tokens changed ([@denivladislav](https://github.com/denivladislav))
+- docs(plasma-{new-hope, web}, sdds-{cs, dfa, serv): docs updated ([@denivladislav](https://github.com/denivladislav))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 11
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Anastasia Simashova ([@simashova](https://github.com/simashova))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Igor Yaroslavtsev ([@IgorYar](https://github.com/IgorYar))
+- Luiza_Sok ([@luizasok](https://github.com/luizasok))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vladislav Denisov  ([@denivladislav](https://github.com/denivladislav))
+- Кудрявцев Вадим Анатольевич (VAnaKudryavtsev@sberbank.ru)
+
+---
+
 # v0.120.0 (Thu Aug 08 2024)
 
 ### Release Notes
