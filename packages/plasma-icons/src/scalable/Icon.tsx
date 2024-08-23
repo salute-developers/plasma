@@ -891,6 +891,8 @@ export const iconSectionsSet = {
         volumeLevel1Outline: 'VolumeLevel1Outline',
         volumeLevel2Fill: 'VolumeLevel2Fill',
         volumeLevel2Outline: 'VolumeLevel2Outline',
+        cameraVideoAddFill: 'CameraVideoAddFill',
+        cameraVideoAddOutline: 'CameraVideoAddOutline',
     },
     Navigation: {
         arrowsMove: 'ArrowsMove',
