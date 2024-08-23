@@ -103,6 +103,7 @@ const meta: Meta<StorySelectProps> = {
                 'placeholder',
                 'helperText',
                 'isTargetAmount',
+                'closeAfterSelect',
                 'variant',
                 'disabled',
                 'listWidth',
@@ -345,6 +346,9 @@ const SingleStory = (args: StorySelectProps) => {
 
 export const Single: StoryObj<StorySelectProps> = {
     render: (args) => <SingleStory {...args} />,
+    args: {
+        closeAfterSelect: true,
+    },
 };
 
 const MultiselectStory = (args: StorySelectProps) => {
@@ -366,6 +370,7 @@ const MultiselectStory = (args: StorySelectProps) => {
 export const Multiselect: StoryObj<StorySelectProps> = {
     args: {
         multiselect: true,
+        closeAfterSelect: false,
     },
     render: (args) => <MultiselectStory {...args} />,
 };

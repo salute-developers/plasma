@@ -152,6 +152,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 updateChips,
                 onSearch,
                 onChange,
+                onEnterDisabled: (rest as any).onEnterDisabled,
             });
 
             const onChipClick = (event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation();
@@ -224,7 +225,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                             {optionalTextNode}
                         </Label>
                     )}
-                    <InputWrapper className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}>
+                    <InputWrapper
+                        // Рефка для внутреннего использования. Не отдается наружу.
+                        ref={(rest as any).inputWrapperRef}
+                        className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}
+                    >
                         {!hasOuterLabel && required && (
                             <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
                         )}

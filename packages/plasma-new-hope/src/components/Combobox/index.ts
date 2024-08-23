@@ -1,4 +1,25 @@
-export { comboboxRoot, comboboxConfig } from './Combobox';
-export { classes as comboboxClasses, tokens as comboboxTokens } from './Combobox.tokens';
-export * from './ui';
-export type { ComboboxProps, ComboboxPrimitiveValue, ComboboxValue } from './Combobox.types';
+export {
+    comboboxRoot as comboboxOldRoot,
+    comboboxConfig as comboboxOldConfig,
+    comboboxDividerRoot,
+    comboboxDividerConfig,
+    comboboxFooterRoot,
+    comboboxFooterConfig,
+    comboboxGroupRoot,
+    comboboxGroupConfig,
+    comboboxHeaderRoot,
+    comboboxHeaderConfig,
+    comboboxItemRoot,
+    comboboxItemConfig,
+    ComboboxTarget,
+    comboboxClasses as comboboxOldClasses,
+    comboboxTokens as comboboxOldTokens,
+} from './ComboboxOld';
+
+export type { ComboboxProps as ComboboxOldProps } from './ComboboxOld';
+
+export {
+    comboboxTokens as comboboxNewTokens,
+    comboboxRoot as comboboxNewRoot,
+    comboboxConfig as comboboxNewConfig,
+} from './ComboboxNew';

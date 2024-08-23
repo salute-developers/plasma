@@ -17,6 +17,7 @@ import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
+import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxNew/Combobox.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -53,8 +54,6 @@ import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
 import { ColOffsetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
-import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
-import { ComponentClass } from 'react';
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
@@ -146,9 +145,7 @@ import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
-import { ReactFragment } from 'react';
 import { ReactNode } from 'react';
-import { ReactPortal } from 'react';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
 import { Row } from '@salutejs/plasma-new-hope/styled-components';
@@ -227,7 +224,7 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BaseProps & Omit<TextFieldPropsBase, "required" | "enumerationType" | "chips" | "onChangeChips" | "optional" | "requiredPlacement"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>>;
+}> & BaseProps & Omit<TextFieldPropsBase, "required" | "chips" | "onChangeChips" | "enumerationType" | "optional" | "requiredPlacement"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -680,60 +677,40 @@ export { ColProps }
 export { ColSizeProps }
 
 // @public (undocumented)
-export const Combobox: ForwardRefExoticComponent<ComboboxProps & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const ComboboxDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const ComboboxFooter: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const ComboboxGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-labelClassName?: string | undefined;
-groupClassName?: string | undefined;
-label?: ReactNode;
-role?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const ComboboxHeader: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const ComboboxItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
-id?: string | undefined;
-disabled?: boolean | undefined;
-label?: ReactNode;
-role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-name?: string | undefined;
-checked?: boolean | undefined;
-text?: string | undefined;
-value?: string | number | boolean | undefined;
-isSelected?: boolean | undefined;
-onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-onSelect?: ((value?: any, text?: any) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { ComboboxProps }
+export const Combobox: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & ((BasicProps & {
+multiple?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+multiple: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>))>;
 
 // @public
 export const Counter: FunctionComponent<PropsType<    {
@@ -1572,7 +1549,7 @@ accent: PolymorphicClassName;
     target?: "textfield-like" | undefined;
     view?: "default" | "positive" | "warning" | "negative" | undefined;
     contentLeft?: React_2.ReactNode;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     placeholder?: string | undefined;
     helperText?: string | undefined;
 } & {
@@ -1602,6 +1579,7 @@ accent: PolymorphicClassName;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderValue?: ((item: MergedDropdownNode) => string) | undefined;
     renderItem?: ((item: MergedDropdownNode) => React_2.ReactNode) | undefined;
+    closeAfterSelect?: boolean | undefined;
     size?: string | undefined;
     view?: string | undefined;
     chipView?: string | undefined;
@@ -1609,7 +1587,7 @@ accent: PolymorphicClassName;
     target?: "textfield-like" | undefined;
     view?: "default" | "positive" | "warning" | "negative" | undefined;
     contentLeft?: React_2.ReactNode;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     placeholder?: string | undefined;
     helperText?: string | undefined;
 } & {
@@ -1639,6 +1617,7 @@ accent: PolymorphicClassName;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderValue?: ((item: MergedDropdownNode) => string) | undefined;
     renderItem?: ((item: MergedDropdownNode) => React_2.ReactNode) | undefined;
+    closeAfterSelect?: boolean | undefined;
     size?: string | undefined;
     view?: string | undefined;
     chipView?: string | undefined;
@@ -1676,6 +1655,7 @@ accent: PolymorphicClassName;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderValue?: ((item: MergedDropdownNode) => string) | undefined;
     renderItem?: ((item: MergedDropdownNode) => React_2.ReactNode) | undefined;
+    closeAfterSelect?: boolean | undefined;
     size?: string | undefined;
     view?: string | undefined;
     chipView?: string | undefined;
@@ -1713,6 +1693,7 @@ accent: PolymorphicClassName;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderValue?: ((item: MergedDropdownNode) => string) | undefined;
     renderItem?: ((item: MergedDropdownNode) => React_2.ReactNode) | undefined;
+    closeAfterSelect?: boolean | undefined;
     size?: string | undefined;
     view?: string | undefined;
     chipView?: string | undefined;
@@ -1906,7 +1887,7 @@ true: PolymorphicClassName;
 }> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -1933,7 +1914,7 @@ cols?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -1960,7 +1941,7 @@ cols?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -1987,7 +1968,7 @@ width?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2014,7 +1995,7 @@ cols?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2041,7 +2022,7 @@ cols?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2098,7 +2079,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2122,7 +2103,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2146,7 +2127,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2170,7 +2151,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;

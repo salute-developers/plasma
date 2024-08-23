@@ -21,7 +21,8 @@ export const useKeyNavigation = ({
     updateChips,
     onChange,
     onSearch,
-}: UseKeyNavigationProps) => {
+    onEnterDisabled = false,
+}: UseKeyNavigationProps & { onEnterDisabled: boolean }) => {
     const [activeChipIndex, setActiveChipIndex] = useState(-1);
 
     const handleInputKeydown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
@@ -31,19 +32,21 @@ export const useKeyNavigation = ({
             return;
         }
 
-        if (event.key === Keys.Enter && enumerationType === 'chip' && value) {
-            const nextIndex = chips?.length || 0;
+        if (event.key === Keys.Enter && !onEnterDisabled) {
+            if (enumerationType === 'chip' && value) {
+                const nextIndex = chips?.length || 0;
 
-            const newChips = [...chips, { id: `${nextIndex}_${value}`, text: value }];
-            const newValues = newChips.map(({ text }) => text);
+                const newChips = [...chips, { id: `${nextIndex}_${value}`, text: value }];
+                const newValues = newChips.map(({ text }) => text);
 
-            updateChips(newChips, newValues);
-            event.target.value = '';
-            onChange?.(event);
-        }
+                updateChips(newChips, newValues);
+                event.target.value = '';
+                onChange?.(event);
+            }
 
-        if (event.key === Keys.Enter && onSearch) {
-            onSearch(value, event);
+            if (onSearch) {
+                onSearch(value, event);
+            }
         }
 
         if (event.key === Keys.Backspace && chips.length && inputRef?.current?.selectionStart === 0) {
