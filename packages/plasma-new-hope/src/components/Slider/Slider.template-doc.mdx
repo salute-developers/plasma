@@ -1,0 +1,78 @@
+---
+id: slider
+title: Slider
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Slider
+
+<Description name="Slider" />
+<PropsTable name="Slider" />
+
+## Использование
+
+```tsx live
+import React from 'react';
+import { Slider  } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <section>
+            <Slider onChangeCommitted={() => {}} min={0} max={100} value={30} />
+        </section>
+    );
+}
+```
+
+Можно использовать диапазон значений.
+
+```tsx live
+import React, { useState } from 'react';
+import { Slider  } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [value, setValue] = useState([10, 80]);
+    const sortValues = (values) => {
+        return values
+            .map((val) => {
+                if (val < 0) {
+                    return 0;
+                }
+                if (val > 100) {
+                    return 100;
+                }
+                return val;
+            })
+            .sort((a, b) => a - b);
+    };
+
+    const onChangeHandle = (values) => {
+        setValue(sortValues(values));
+    };
+
+    const onChangeCommitedHandle = (values) => {
+        setValue(sortValues(values));
+    };
+
+    const onBlurTextField = (values) => {
+        setValue(sortValues(values));
+    };
+
+    const onKeyDownTextField = (values, event) => {
+        if (event.key === 'Enter') {
+            setValue(sortValues(values));
+        }
+    };
+
+    return (
+        <section>
+            <Slider value={value}
+                onKeyDownTextField={onKeyDownTextField}
+                onBlurTextField={onBlurTextField}
+                onChangeCommitted={onChangeCommitedHandle}
+                onChange={onChangeHandle} min={0} max={100} />
+        </section>
+    );
+}
+```
