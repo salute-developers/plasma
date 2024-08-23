@@ -1071,6 +1071,7 @@ export const iconSectionsSet = {
         plusSquareOutline: 'PlusSquareOutline',
         verificationFill: 'VerificationFill',
         verificationOutline: 'VerificationOutline',
+        attention: 'Attention',
     },
     Weather: {
         beachUmbrellaFill: 'BeachUmbrellaFill',
