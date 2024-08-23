@@ -135,6 +135,11 @@ export interface BasicProps {
      * Callback для кастомной настройки айтема в выпадающем списке.
      */
     renderItem?: (value: ItemOption['value'], label: ItemOption['label']) => React.ReactNode;
+    /**
+     * Закрывать ли выпадающий список после выбора элемента.
+     * @default если single, то true; если multiple, то false
+     */
+    closeAfterSelect?: boolean;
 
     /**
      * Размер компонента.
@@ -295,6 +300,12 @@ export type MergedSelectProps<T = any> = Target &
          * Callback для кастомной настройки айтема в выпадающем списке.
          */
         renderItem?: (item: DropdownNode) => React.ReactNode;
+        /**
+         * Закрывать ли выпадающий список после выбора элемента.
+         * @default если single, то true; если multiple, то false
+         */
+        closeAfterSelect?: boolean;
+
         /**
          * Размер компонента.
          */

@@ -48,6 +48,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             status,
             onItemSelect,
             separator,
+            closeAfterSelect: outerCloseAfterSelect,
             ...rest
         } = props;
 
@@ -73,6 +74,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
         const [focusedChipIndex, dispatchFocusedChipIndex] = useReducer(focusedChipIndexReducer, null);
         const [checked, setChecked] = useState(valueToCheckedMap);
+
+        const closeAfterSelect = outerCloseAfterSelect ?? !props.multiselect;
 
         const targetRef = useOutsideClick<HTMLDivElement>(() => {
             if (focusedChipIndex != null) {
@@ -112,6 +115,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                     }
                 });
 
+                if (closeAfterSelect) {
+                    dispatchPath({ type: 'reset' });
+                    dispatchFocusedPath({ type: 'reset' });
+                }
+
                 if (onChange) {
                     onChange(newValues);
                 }
@@ -141,6 +149,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 if (!isCurrentChecked) {
                     checkedCopy.set(item.value, 'done');
                     updateSingleAncestors(item, checkedCopy, 'dot');
+                }
+
+                if (closeAfterSelect) {
+                    dispatchPath({ type: 'reset' });
+                    dispatchFocusedPath({ type: 'reset' });
                 }
 
                 if (onChange) {

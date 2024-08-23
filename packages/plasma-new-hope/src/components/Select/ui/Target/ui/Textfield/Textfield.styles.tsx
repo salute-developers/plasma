@@ -85,11 +85,14 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const ChipWrapper = styled.div`
+export const ChipWrapper = styled.div<{ multiselect: SelectProps['multiselect']; value: SelectProps['value'] }>`
     width: 100%;
     display: flex;
     min-width: 0;
-    padding: calc(${constants.focusSize} + var(${tokens.focusOffset}));
+    padding: ${({ multiselect, value }) =>
+        `calc(${constants.focusSize} + ${
+            multiselect && value && value.length > 0 ? `var(${tokens.focusOffset})` : 0
+        })`};
     gap: 0.25rem;
     overflow-x: scroll;
     border-top-right-radius: var(${tokens.chipBorderRadius});

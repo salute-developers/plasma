@@ -131,7 +131,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
                                 <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>
                             )}
 
-                            <ChipWrapper>
+                            <ChipWrapper multiselect={selectProps.multiselect} value={value}>
                                 {getLabel({
                                     value,
                                     valueToItemMap,

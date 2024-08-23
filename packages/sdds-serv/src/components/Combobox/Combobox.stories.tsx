@@ -1,264 +1,367 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 
-import { Checkbox } from '../Checkbox/Checkbox';
+import { Combobox } from './Combobox';
 
-import { Combobox, ComboboxDivider, ComboboxItem } from './Combobox';
-
-const placements: Array<string> = ['top', 'bottom', 'right', 'left', 'auto'];
-const enumerations: Array<string> = ['comma', 'chip'];
-const sizes: Array<string> = ['xs', 's', 'm', 'l'];
-const views: Array<string> = ['default'];
-
-type StorySelectPropsCustom = {
-    skidding?: number;
-    distance?: number;
+type StorySelectProps = ComponentProps<typeof Combobox> & {
+    enableContentLeft?: boolean;
 };
 
-type ComboboxPrimitiveValue = string | number | boolean;
-
-type StorySelectProps = ComponentProps<typeof Combobox> & StorySelectPropsCustom;
+const view = ['default', 'positive', 'warning', 'negative'];
+const size = ['xs', 's', 'm', 'l'];
+const labelPlacement = ['inner', 'outer'];
+const chip = ['default', 'secondary', 'accent'];
+const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/Combobox',
+    title: 'Controls/ComboboxNew',
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {
-        placement: {
-            options: placements,
-            control: {
-                type: 'select',
-            },
-        },
-        enumerationType: {
-            options: enumerations,
-            control: {
-                type: 'select',
-            },
-        },
         size: {
-            options: sizes,
+            options: size,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: views,
+            options: view,
             control: {
                 type: 'select',
             },
         },
+        labelPlacement: {
+            options: labelPlacement,
+            control: {
+                type: 'select',
+            },
+        },
+        chipView: {
+            options: chip,
+            control: {
+                type: 'select',
+            },
+        },
+        variant: {
+            options: variant,
+            control: {
+                type: 'select',
+            },
+        },
+        listWidth: {
+            control: {
+                type: 'text',
+            },
+        },
+        listOverflow: {
+            control: {
+                type: 'text',
+            },
+        },
+        listHeight: {
+            control: {
+                type: 'text',
+            },
+        },
     },
     args: {
-        usePortal: false,
-        disabled: false,
-        readOnly: false,
         label: 'Label',
+        labelPlacement: 'outer',
         placeholder: 'Placeholder',
-        enumerationType: 'comma',
+        helperText: 'Helper text',
         size: 'm',
         view: 'default',
-        placement: 'bottom',
+        chipView: 'default',
+        enableContentLeft: false,
+        isTargetAmount: false,
+        variant: 'normal',
+        disabled: false,
+        readOnly: false,
+    },
+    parameters: {
+        controls: {
+            include: [
+                'size',
+                'view',
+                'chipView',
+                'enableContentLeft',
+                'label',
+                'labelPlacement',
+                'placeholder',
+                'helperText',
+                'isTargetAmount',
+                'variant',
+                'disabled',
+                'readOnly',
+                'listWidth',
+                'listOverflow',
+                'listHeight',
+            ],
+        },
     },
 };
 
 export default meta;
 
-const onChangeAction = action('onChange');
+const items = [
+    {
+        value: 'north_america',
+        label: 'Северная Америка',
+    },
+    {
+        value: 'south_america',
+        label: 'Южная Америка',
+        items: [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+            {
+                value: 'argentina',
+                label: 'Аргентина',
+                items: [
+                    {
+                        value: 'buenos_aires',
+                        label: 'Буэнос-Айрес',
+                    },
+                    {
+                        value: 'cordoba',
+                        label: 'Кордова',
+                    },
+                ],
+            },
+            {
+                value: 'colombia',
+                label: 'Колумбия',
+                items: [
+                    {
+                        value: 'bogota',
+                        label: 'Богота',
+                    },
+                    {
+                        value: 'medellin',
+                        label: 'Медельин',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'europe',
+        label: 'Европа',
+        items: [
+            {
+                value: 'france',
+                label: 'Франция',
+                items: [
+                    {
+                        value: 'paris',
+                        label: 'Париж',
+                    },
+                    {
+                        value: 'lyon',
+                        label: 'Лион',
+                    },
+                ],
+            },
+            {
+                value: 'germany',
+                label: 'Германия',
+                items: [
+                    {
+                        value: 'berlin',
+                        label: 'Берлин',
+                    },
+                    {
+                        value: 'munich',
+                        label: 'Мюнхен',
+                    },
+                ],
+            },
+            {
+                value: 'italy',
+                label: 'Италия',
+                items: [
+                    {
+                        value: 'rome',
+                        label: 'Рим',
+                    },
+                    {
+                        value: 'milan',
+                        label: 'Милан',
+                    },
+                ],
+            },
+            {
+                value: 'spain',
+                label: 'Испания',
+                items: [
+                    {
+                        value: 'madrid',
+                        label: 'Мадрид',
+                    },
+                    {
+                        value: 'barcelona',
+                        label: 'Барселона',
+                    },
+                ],
+            },
+            {
+                value: 'united_kingdom',
+                label: 'Великобритания',
+                items: [
+                    {
+                        value: 'london',
+                        label: 'Лондон',
+                    },
+                    {
+                        value: 'manchester',
+                        label: 'Манчестер',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'asia',
+        label: 'Азия',
+        items: [
+            {
+                value: 'china',
+                label: 'Китай',
+                items: [
+                    {
+                        value: 'beijing',
+                        label: 'Пекин',
+                    },
+                    {
+                        value: 'shanghai',
+                        label: 'Шанхай',
+                    },
+                ],
+            },
+            {
+                value: 'japan',
+                label: 'Япония',
+                items: [
+                    {
+                        value: 'tokyo',
+                        label: 'Токио',
+                    },
+                    {
+                        value: 'osaka',
+                        label: 'Осака',
+                    },
+                ],
+            },
+            {
+                value: 'india',
+                label: 'Индия',
+                items: [
+                    {
+                        value: 'delhi',
+                        label: 'Дели',
+                    },
+                    {
+                        value: 'mumbai',
+                        label: 'Мумбаи',
+                    },
+                ],
+            },
+            {
+                value: 'south_korea',
+                label: 'Южная Корея',
+                items: [
+                    {
+                        value: 'seoul',
+                        label: 'Сеул',
+                    },
+                    {
+                        value: 'busan',
+                        label: 'Пусан',
+                    },
+                ],
+            },
+            {
+                value: 'thailand',
+                label: 'Таиланд',
+                items: [
+                    {
+                        value: 'bangkok',
+                        label: 'Бангкок',
+                    },
+                    {
+                        value: 'phuket',
+                        label: 'Пхукет',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'africa',
+        label: 'Африка',
+        isDisabled: true,
+    },
+];
 
-const iconDoneToSelectSizeMap: Record<string, 'xs' | 's'> = {
-    xs: 'xs',
-    s: 's',
-    m: 's',
-    l: 's',
-};
-
-const checkboxToSelectSizeMap: Record<string, 's' | 'm'> = {
-    xs: 's',
-    s: 'm',
-    m: 'm',
-    l: 'm',
-};
-
-const getSelectItems = (slug: string, elemCount: number) =>
-    [...Array(elemCount).keys()].map((num) => ({
-        value: `${slug}_${num}`,
-        child: `${slug} ${num}`,
-    }));
-
-const StorySingle = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, size = 'm', view } = args;
-
-    const [value, setValue] = useState<ComboboxPrimitiveValue | undefined>('item_0');
-
-    const onChangeValue = (newValue?: ComboboxPrimitiveValue) => {
-        setValue(newValue);
-        onChangeAction(newValue);
-    };
+const SingleStory = (args: StorySelectProps) => {
+    const [value, setValue] = useState('');
 
     return (
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '400px' }}>
             <Combobox
-                frame="theme-root"
-                usePortal={usePortal}
-                valueType="single"
+                {...args}
+                items={items}
                 value={value}
-                placement={placement}
-                label={label}
-                placeholder={placeholder}
-                size={size}
-                view={view}
-                disabled={disabled}
-                readOnly={readOnly}
-                onChangeValue={onChangeValue}
-            >
-                <ComboboxItem value={undefined} text="Clear" />
-                {getSelectItems('item', 6).map((item) => (
-                    <ComboboxItem
-                        key={item.value}
-                        contentLeft={
-                            item.value === value ? (
-                                <IconDone size={iconDoneToSelectSizeMap[size]} color="inherit" />
-                            ) : undefined
-                        }
-                        value={item.value}
-                        text={item.child}
-                    />
-                ))}
-            </Combobox>
+                onChange={setValue}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                autoComplete="off"
+            />
         </div>
     );
 };
 
 export const Single: StoryObj<StorySelectProps> = {
-    render: (args) => <StorySingle {...args} />,
+    render: (args) => <SingleStory {...args} />,
+    parameters: {
+        controls: {
+            exclude: ['isTargetAmount'],
+        },
+    },
 };
 
-const StoryMultiple = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, enumerationType, size = 'm', view } = args;
-
-    const [value, setValue] = useState<Array<ComboboxPrimitiveValue> | undefined>(['item_2', 'item_3']);
-
-    const onChangeValue = (newValue?: Array<ComboboxPrimitiveValue>) => {
-        setValue(newValue);
-        onChangeAction(newValue);
-    };
+const MultipleStory = (args: StorySelectProps) => {
+    const [value, setValue] = useState([]);
 
     return (
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '400px' }}>
             <Combobox
-                frame="theme-root"
-                usePortal={usePortal}
-                valueType="multiple"
-                enumerationType={enumerationType}
+                {...args}
+                multiple
+                items={items}
                 value={value}
-                placement={placement}
-                label={label}
-                placeholder={placeholder}
-                size={size}
-                view={view}
-                disabled={disabled}
-                readOnly={readOnly}
-                onChangeValue={onChangeValue}
-            >
-                <ComboboxItem value={undefined} text="Clear" />
-                {getSelectItems('item', 6).map((item) => (
-                    <ComboboxItem
-                        key={item.value}
-                        contentLeft={<Checkbox size={checkboxToSelectSizeMap[size]} />}
-                        value={item.value}
-                        text={item.child}
-                    />
-                ))}
-            </Combobox>
+                onChange={setValue}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                autoComplete="off"
+            />
         </div>
     );
 };
 
 export const Multiple: StoryObj<StorySelectProps> = {
-    render: (args) => <StoryMultiple {...args} />,
-};
-
-const StoryAddCustomItem = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, size = 'm', view } = args;
-
-    const [opened, setOpened] = useState(false);
-    const [items, setItems] = useState(getSelectItems('item', 1));
-    const [value, setValue] = useState<ComboboxPrimitiveValue | undefined>('item_0');
-
-    const onChangeValue = (newValue?: ComboboxPrimitiveValue) => {
-        setValue(newValue);
-        onChangeAction(newValue);
-    };
-
-    const onToggle = (openValue: boolean) => setOpened(openValue);
-
-    const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        const { code } = event;
-
-        if (code === 'Enter') {
-            const newValue = (event.target as HTMLInputElement).value;
-            const newItems = [...items];
-
-            if (newItems.find((item) => item.child === newValue)) {
-                return;
-            }
-
-            newItems.push({
-                value: `${newValue}_`,
-                child: (newValue || '').toString(),
-            });
-
-            setOpened(false);
-            setItems(newItems);
-        }
-    };
-
-    const filterFunction = () => true;
-
-    return (
-        <div style={{ width: '50%' }}>
-            <Combobox
-                frame="theme-root"
-                usePortal={usePortal}
-                valueType="single"
-                value={value}
-                placement={placement}
-                label={label}
-                placeholder={placeholder}
-                size={size}
-                view={view}
-                disabled={disabled}
-                readOnly={readOnly}
-                opened={opened}
-                onToggle={onToggle}
-                onChangeValue={onChangeValue}
-                onKeyDown={onKeyDown}
-                filterFunction={filterFunction}
-            >
-                <ComboboxItem value={undefined} text="Clear" />
-                <ComboboxDivider />
-                {items.map((item) => (
-                    <ComboboxItem
-                        key={item.value}
-                        contentLeft={
-                            item.value === value ? (
-                                <IconDone size={iconDoneToSelectSizeMap[size]} color="inherit" />
-                            ) : undefined
-                        }
-                        value={item.value}
-                        text={item.child}
-                    />
-                ))}
-            </Combobox>
-        </div>
-    );
-};
-
-export const AddCustomItem: StoryObj<StorySelectProps> = {
-    render: (args) => <StoryAddCustomItem {...args} />,
+    render: (args) => <MultipleStory {...args} />,
 };
