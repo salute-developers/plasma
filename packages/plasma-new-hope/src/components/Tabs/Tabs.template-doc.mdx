@@ -69,7 +69,7 @@ export function App() {
 
     return (
         <div>
-            <Tabs view="divider" size="xs" style={{ width: '15rem' }}>
+            <Tabs view="divider" size="xs" style=\{{ width: '15rem' }}>
                 {items.map((_, i) => (
                     <TabItem
                         view="divider"
@@ -113,7 +113,7 @@ export function App() {
     });
 
     return (
-        <div style={{ height: '15rem', alignItems: 'flex-start' }}>
+        <div style=\{{ height: '15rem', alignItems: 'flex-start' }}>
             <Tabs clip="showAll" view="divider" size="xs">
                 {visibleItems.map((_, i) => (
                     <TabItem
@@ -128,7 +128,7 @@ export function App() {
                     </TabItem>
                 ))}
                 {dropdownItems.length > 0 && (
-                    <div style={{ marginLeft: '1.75rem' }}>
+                    <div style=\{{ marginLeft: '1.75rem' }}>
                         <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
                             <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
                                 ShowAll
