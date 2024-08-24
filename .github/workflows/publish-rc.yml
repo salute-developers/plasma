@@ -84,6 +84,8 @@ jobs:
     if: ${{ always() && contains(needs.*.result, 'failure') }}
     env:
       FAILED_JOB_NAME: ${{ contains(needs.change-state.result, 'failure') && 'State' || 'Publish RC version / publish' }}
+      TITLE: ${{ fromJSON(needs.state.outputs.PR).pr }}
+      USER: ${{ fromJSON(needs.state.outputs.PR).user }}
     steps:
       - name: Get failed job information
         id: job
@@ -109,25 +111,13 @@ jobs:
             
             return { job: html_url, name }
       
-      - name: Create message
-        env:
-          PR: ${{ fromJSON(needs.state.outputs.PR).pr }}
-          USER: ${{ fromJSON(needs.state.outputs.PR).user }}
-          FAILURE_STEP: ${{ fromJSON(steps.job.outputs.result).name }}
-          JOB: ${{ fromJSON(steps.job.outputs.result).job }}
-        run: |
-          step="**Failure step**: ${{ env.FAILURE_STEP }}"
-          message='@${{ env.USER }}\nПосмотри пожалуйста, упала публикация твоего pull request: [${{ env.PR }}](${{ env.JOB }})'
-          
-          echo "NOTIFICATION="$step\\n\\n$message"" >> $GITHUB_ENV
-      
-      - name: Create the Mattermost Message
-        run: |
-          echo "{\"text\":\" ${{ env.NOTIFICATION }}\"}" > mattermost.json
-      
-      - name: Send notification
+      - name: Send notification about failure state
         uses: mattermost/action-mattermost-notify@master
-        env:
+        with:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.WEBHOOKS_NOTIFICATIONS_MM }}
-
-
+          TEXT: |
+            Публикация RC 💀
+            
+            **PR**: ${{ env.TITLE }}
+            **Failure step**: [${{ fromJSON(steps.job.outputs.result).name }}](${{ fromJSON(steps.job.outputs.result).job }})
+            **Автор**: @${{ env.USER }}
