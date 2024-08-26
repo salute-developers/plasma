@@ -48,6 +48,12 @@ export const config = {
                 ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-caption-font-weight);
                 ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-caption-letter-spacing);
                 ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-caption-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
             `,
             s: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -90,6 +96,12 @@ export const config = {
                 ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-caption-font-weight);
                 ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-caption-letter-spacing);
                 ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-caption-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
             `,
             m: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -132,6 +144,12 @@ export const config = {
                 ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-caption-font-weight);
                 ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-caption-letter-spacing);
                 ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-caption-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.4375rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.1875rem -0.625rem auto auto;
             `,
             l: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -174,6 +192,12 @@ export const config = {
                 ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-caption-font-weight);
                 ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-caption-letter-spacing);
                 ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-caption-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
             `,
         },
         view: {
@@ -189,6 +213,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             /**
              * @deprecated
@@ -206,6 +232,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             positive: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-positive);
@@ -219,6 +247,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-positive);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             warning: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-warning);
@@ -232,6 +262,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-warning);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             negative: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-negative);
@@ -245,6 +277,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
         },
         disabled: {

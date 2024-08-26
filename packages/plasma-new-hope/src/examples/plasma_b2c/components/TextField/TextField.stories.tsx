@@ -22,6 +22,24 @@ const meta: Meta<typeof TextField> = {
     component: TextField,
     decorators: [WithTheme],
     argTypes: {
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
         view: {
             options: views,
             control: {
@@ -113,6 +131,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
         readOnly: false,
         enableContentLeft: true,
         enableContentRight: true,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
     },
     render: (args) => <StoryDemo {...args} />,
 };
@@ -133,7 +154,6 @@ type StoryPropsChips = Omit<
     | 'checked'
     | 'maxLength'
     | 'minLength'
-    | 'required'
     | 'enumerationType'
 > & {
     enableContentLeft: boolean;

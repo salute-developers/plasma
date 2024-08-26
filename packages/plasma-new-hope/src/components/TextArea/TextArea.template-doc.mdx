@@ -32,7 +32,7 @@ export function App() {
 ```
 
 ### Размеры компонента
-Высоту и ширину можно регулировать с помощью свойств `height` и `width`, 
+Высоту и ширину можно регулировать с помощью свойств `height` и `width`,
 указав значения в `rem` или соответствующие свойствам css значения.
 `height` и `width` отвечают за **всю** высоту и ширину компонента.
 
@@ -76,7 +76,7 @@ export function App() {
 
 ### Autoresize
 Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра `value`).
-Для этого необходимо использовать свойство `autoResize`. 
+Для этого необходимо использовать свойство `autoResize`.
 
 Свойства `minAuto`, `maxAuto` указываются в абсолютных единицах и отвечают за минимальное и максимальное количество строк.
 
@@ -119,6 +119,32 @@ export function App() {
                 defaultValue="Значение"
                 leftHelper="Подсказка снизу слева"
                 rightHelper="Подсказка снизу справа"
+            />
+        </div>
+    );
+}
+```
+
+
+### Обязательность поля
+Обязательность поля задаётся с помощью свойств `required` и `requiredPlacement`. Где `requiredPlacement` отвечает за выравнивание и принимает значения `"left"` и `"right"`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                required
+            />
+            <TextArea
+                placeholder="Введите значение"
+                label="Заголовок"
+                required
+                requiredPlacement="right"
             />
         </div>
     );

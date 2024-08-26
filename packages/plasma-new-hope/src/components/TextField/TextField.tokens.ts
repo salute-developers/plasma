@@ -1,5 +1,6 @@
 export const classes = {
     hasChips: 'has-chips',
+    hasValue: 'has-value',
     hasEmptyContentLeft: 'has-empty-content-left',
     hasEmptyContentRight: 'has-empty-content-right',
     innerLabelPlacement: 'label-placement-inner',
@@ -28,6 +29,7 @@ export const tokens = {
     /** Цвет каретки */
     caretColor: '--plasma-textfield__caret-color',
     placeholderColor: '--plasma-textfield__placeholder-color',
+    optionalColor: '--plasma-textfield__optional-color',
 
     height: '--plasma-textfield-height',
     borderWidth: '--plasma-textfield-border-width',
@@ -127,4 +129,12 @@ export const tokens = {
     chipOpacityReadonly: '--plasma-textfield__chip-opacity-readonly',
 
     focusColor: '--plasma-textfield-focus-color',
+
+    indicatorColor: '--plasma-textfield__indicator-color',
+    indicatorSizeInner: '--plasma-textfield__indicator-size-inner',
+    indicatorSizeOuter: '--plasma-textfield__indicator-size-outer',
+    indicatorLabelPlacementInner: '--plasma-textfield__indicator-placement-inner',
+    indicatorLabelPlacementOuter: '--plasma-textfield__indicator-placement-outer',
+    indicatorLabelPlacementInnerRight: '--plasma-textfield__indicator-placement-inner-right',
+    indicatorLabelPlacementOuterRight: '--plasma-textfield__indicator-placement-outer-right',
 };

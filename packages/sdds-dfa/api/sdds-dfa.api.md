@@ -176,7 +176,6 @@ import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
-import { TextAreaPropsExtends } from '@salutejs/plasma-new-hope/types/components/TextArea/TextArea.types';
 import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
@@ -228,7 +227,7 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BaseProps & Omit<TextFieldPropsBase, "enumerationType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>>;
+}> & BaseProps & Omit<TextFieldPropsBase, "required" | "enumerationType" | "chips" | "onChangeChips" | "optional" | "requiredPlacement"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -1904,7 +1903,24 @@ negative: PolymorphicClassName;
 disabled: {
 true: PolymorphicClassName;
 };
-}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
 autoResize?: boolean | undefined;
 maxAuto?: number | undefined;
 minAuto?: number | undefined;
@@ -1914,7 +1930,24 @@ width?: undefined;
 } & {
 rows?: undefined;
 cols?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
 height?: string | number | undefined;
 width?: string | number | undefined;
 } & {
@@ -1924,7 +1957,105 @@ minAuto?: undefined;
 } & {
 rows?: undefined;
 cols?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
+rows?: number | undefined;
+cols?: number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
+autoResize?: boolean | undefined;
+maxAuto?: number | undefined;
+minAuto?: number | undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
+height?: string | number | undefined;
+width?: string | number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
 rows?: number | undefined;
 cols?: number | undefined;
 } & {
@@ -1975,11 +2106,16 @@ textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 } & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
 chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -1994,11 +2130,64 @@ textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 } & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
 enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public
 export const TextFieldGroup: FunctionComponent<PropsType<    {
