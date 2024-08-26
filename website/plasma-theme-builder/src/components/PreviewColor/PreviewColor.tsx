@@ -11,4 +11,5 @@ export const PreviewColor = styled.div<PreviewColorProps>`
     height: ${({ size }) => size};
     border-radius: ${({ borderRadius }) => borderRadius};
     background: ${({ background }) => background};
+    margin-right: 0.5rem;
 `;
