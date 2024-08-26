@@ -46,14 +46,14 @@ const getDataByThemeMode = (themeMode: ThemeMode, themeData: ThemeType, value: s
 const validate = (str: string | null) => str?.match(/^[a-z0-9]*$/g);
 
 interface AddTokenSectionProps {
-    isOpen: boolean;
+    opened: boolean;
     themeData: ThemeType;
     onAddTokenSectionShow: (value: boolean) => void;
     onThemeDataChange: (data?: ThemeType) => void;
 }
 
 export const AddTokenSection = ({
-    isOpen,
+    opened,
     themeData,
     onAddTokenSectionShow,
     onThemeDataChange,
@@ -98,9 +98,9 @@ export const AddTokenSection = ({
         if (ref.current) {
             ref.current.focus();
         }
-    }, [isOpen]);
+    }, [opened]);
 
-    if (!isOpen) {
+    if (!opened) {
         return null;
     }
 

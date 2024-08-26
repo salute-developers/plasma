@@ -17,14 +17,14 @@ const Description = styled(BodyM)`
 `;
 
 interface AuthRequestProps {
-    isOpen: boolean;
+    opened: boolean;
     onClose: () => void;
     onGetAuth: () => void;
 }
 
-export const AuthRequestModal = ({ isOpen, onClose, onGetAuth }: AuthRequestProps) => {
+export const AuthRequestModal = ({ opened, onClose, onGetAuth }: AuthRequestProps) => {
     return (
-        <StyledTokenForm isOpen={isOpen} onClose={onClose}>
+        <StyledTokenForm opened={opened} onClose={onClose}>
             <H3>Запрос учетной записи</H3>
             <Description>
                 Для продолжения необходима авторизация в GitHub. Вы будете перенаправлены на страницу логина
