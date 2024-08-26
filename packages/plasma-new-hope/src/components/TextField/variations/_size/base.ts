@@ -1,10 +1,25 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, InputWrapper, Label, LeftHelper, StyledTextAfter, StyledTextBefore } from '../../TextField.styles';
+import {
+    Input,
+    InputContainer,
+    InputWrapper,
+    Label,
+    LeftHelper,
+    StyledTextAfter,
+    StyledTextBefore,
+} from '../../TextField.styles';
 
 export const base = css`
     ${Input} {
+        width: 100%;
+        font: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+    }
+
+    ${InputContainer} {
         width: 100%;
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});

@@ -1,29 +1,29 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, Label, StyledTextAfter, StyledTextBefore } from '../../TextField.styles';
+import { Input, InputContainer, Label, StyledTextAfter, StyledTextBefore } from '../../TextField.styles';
 
 export const base = css`
     &.${classes.outerLabelPlacement} {
         ${Label} {
-            display: block;
+            position: relative;
+            display: inline-block;
             margin-bottom: var(${tokens.labelOffset});
             color: var(${tokens.labelColor});
         }
     }
 
     &.${classes.innerLabelPlacement} {
-        &:not(.${classes.hideLabel}) {
-            ${Input} {
-                padding: var(${tokens.contentLabelInnerPadding});
-            }
-
-            ${StyledTextAfter}, ${StyledTextBefore} {
-                padding: var(${tokens.contentLabelInnerPadding});
-            }
+        ${InputContainer} {
+            padding: var(${tokens.contentLabelInnerPadding});
         }
 
-        ${Input}:focus ~ ${Label}, ${Input}:not(:placeholder-shown) ~ ${Label} {
+        ${StyledTextAfter}, ${StyledTextBefore} {
+            padding: var(${tokens.contentLabelInnerPadding});
+        }
+
+        /* поднимает label вверх при фокусе, наличии значения */
+        ${Input}:focus ~ ${Label}, ${Input}.${classes.hasValue} ~ ${Label} {
             align-items: flex-start;
             padding: var(${tokens.labelInnerPadding});
 
@@ -33,16 +33,6 @@ export const base = css`
             font-weight: var(${tokens.labelInnerFontWeight});
             letter-spacing: var(${tokens.labelInnerLetterSpacing});
             line-height: var(${tokens.labelInnerLineHeight});
-        }
-
-        &:not(.${classes.hideLabel}) {
-            ${Input}:not(:focus)::placeholder {
-                color: transparent;
-            }
-
-            ${Input}:focus::placeholder {
-                color: transparent;
-            }
         }
 
         ${Label} {

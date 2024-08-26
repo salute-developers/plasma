@@ -35,6 +35,8 @@ export const config = {
                 ${tokens.chipOpacityReadonly}: 0.72;
 
                 ${tokens.focusColor}: var(--text-accent);
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
             `,
             positive: css`
                 ${tokens.color}: var(--text-primary);
@@ -61,6 +63,8 @@ export const config = {
                 ${tokens.chipOpacityReadonly}: 0.72;
 
                 ${tokens.focusColor}: var(--text-accent);
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
             `,
             warning: css`
                 ${tokens.color}: var(--text-primary);
@@ -87,6 +91,8 @@ export const config = {
                 ${tokens.chipOpacityReadonly}: 0.72;
 
                 ${tokens.focusColor}: var(--text-accent);
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
@@ -113,6 +119,8 @@ export const config = {
                 ${tokens.chipOpacityReadonly}: 0.72;
 
                 ${tokens.focusColor}: var(--text-accent);
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
             `,
         },
         size: {
@@ -121,12 +129,10 @@ export const config = {
                 ${tokens.padding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -169,18 +175,23 @@ export const config = {
                 ${tokens.chipFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tokens.chipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.chipLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.indicatorSizeInner}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
             `,
             m: css`
                 ${tokens.height}: 3rem;
                 ${tokens.padding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -223,18 +234,23 @@ export const config = {
                 ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.indicatorSizeInner}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
                 ${tokens.padding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -277,18 +293,23 @@ export const config = {
                 ${tokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.indicatorSizeInner}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
                 ${tokens.padding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
@@ -331,6 +352,13 @@ export const config = {
                 ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.indicatorSizeInner}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
             `,
         },
         labelPlacement: {

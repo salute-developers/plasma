@@ -47,6 +47,14 @@ export const config = {
                 ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                /* stylelint-disable-next-line number-max-precision */
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
             `,
         },
         view: {
@@ -66,6 +74,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             /**
              * @deprecated
@@ -87,6 +97,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             positive: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-positive);
@@ -104,6 +116,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-positive);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             warning: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-warning);
@@ -121,6 +135,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-warning);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
             negative: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-negative);
@@ -138,6 +154,8 @@ export const config = {
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
             `,
         },
         disabled: {

@@ -417,7 +417,7 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BaseProps & Omit<TextFieldPropsBase, "enumerationType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>>;
+}> & BaseProps & Omit<TextFieldPropsBase, "required" | "requiredPlacement" | "optional" | "enumerationType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -2354,77 +2354,17 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<H
 
 export { TextareaHTMLAttributes }
 
+// Warning: (ae-forgotten-export) The symbol "RequiredProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export interface TextAreaProps extends TextAreaProps_2 {
-    // @deprecated (undocumented)
+export type TextAreaProps = TextAreaProps_2 & {
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-}
+} & RequiredProps;
 
 export { TextareaResize }
 
 // @public
-export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps_2 & Pick<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & (({
-    size?: string | undefined;
-    view?: string | undefined;
-    readOnly?: boolean | undefined;
-    disabled?: boolean | undefined;
-} & {
-    label?: string | undefined;
-    labelPlacement?: "outer" | "inner" | undefined;
-    leftHelper?: string | undefined;
-    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
-    contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
-    textBefore?: string | undefined;
-    textAfter?: string | undefined;
-    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-    chips?: undefined;
-    onChangeChips?: undefined;
-    enumerationType?: "plain" | undefined;
-    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLInputElement>) | ({
-    size?: string | undefined;
-    view?: string | undefined;
-    readOnly?: boolean | undefined;
-    disabled?: boolean | undefined;
-} & {
-    label?: string | undefined;
-    labelPlacement?: "outer" | "inner" | undefined;
-    leftHelper?: string | undefined;
-    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
-    contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
-    textBefore?: string | undefined;
-    textAfter?: string | undefined;
-    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-    enumerationType: "chip";
-    onSearch?: undefined;
-    chips?: TextFieldPrimitiveValue[] | undefined;
-    onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLInputElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public
 export const TextFieldGroup: FunctionComponent<PropsType<    {
@@ -2472,9 +2412,10 @@ shape?: "default" | undefined;
 export { TextFieldGroupProps }
 
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "RequiredProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>;
+export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>) & RequiredProps_2;
 
 export { TextFieldView }
 
