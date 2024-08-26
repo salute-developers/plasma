@@ -76,7 +76,7 @@ const TokenValue = styled.div`
 
 interface TokenFormProps {
     themeMode: ThemeMode;
-    isOpen: boolean;
+    opened: boolean;
     inputData: InputData;
     themeData: ThemeType;
     defaultThemeData?: ThemeType;
@@ -86,7 +86,7 @@ interface TokenFormProps {
 
 export const TokenForm = ({
     themeMode,
-    isOpen,
+    opened,
     inputData,
     themeData,
     defaultThemeData,
@@ -249,7 +249,7 @@ export const TokenForm = ({
     );
 
     return (
-        <StyledTokenForm id="modalA" isOpen={isOpen} onClose={onCancel}>
+        <StyledTokenForm id="modalA" opened={opened} onClose={onCancel}>
             <StyledHeader bold={false}>Редактирование токена</StyledHeader>
             <Form onSubmit={onSubmit}>
                 <FormField label="Название">
