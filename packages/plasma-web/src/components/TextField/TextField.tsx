@@ -58,16 +58,15 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         _label = placeholder;
         _labelPlacement = 'inner';
     }
-    const _size = size === 'xs' ? 's' : size;
 
     if (enumerationType === 'chip') {
         return (
             <TextFieldComponent
                 {...rest}
                 view={_view}
-                size={_size}
                 labelPlacement={_labelPlacement}
                 label={_label}
+                size={size}
                 placeholder={placeholder}
                 leftHelper={helperText}
                 ref={ref}
@@ -82,9 +81,9 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         <TextFieldComponent
             {...rest}
             view={_view}
-            size={_size}
             labelPlacement={_labelPlacement}
             label={_label}
+            size={size}
             placeholder={placeholder}
             leftHelper={helperText}
             ref={ref}
