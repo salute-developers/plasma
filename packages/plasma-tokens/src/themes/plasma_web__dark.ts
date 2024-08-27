@@ -509,7 +509,7 @@ export const plasma_web__dark = {
         '--outline-on-dark-outline-solid-tertiary': '#707070',
         '--outline-on-dark-outline-default': '#F9F9F9',
         '--outline-on-dark-outline-transparent-primary': 'rgba(255, 255, 255, 0.12)',
-        '--outline-on-dark-outline-transparent-secondary': 'rgba(255, 255, 255, 0.20))',
+        '--outline-on-dark-outline-transparent-secondary': 'rgba(255, 255, 255, 0.20)',
         '--outline-on-dark-outline-transparent-tertiary': 'rgba(255, 255, 255, 0.40)',
         '--outline-on-dark-outline-accent': '#3F81FD',
         '--outline-on-dark-outline-accent-minor': '#1549AB',
