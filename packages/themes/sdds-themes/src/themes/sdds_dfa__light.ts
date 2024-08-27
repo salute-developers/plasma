@@ -837,7 +837,7 @@ export const sdds_dfa__light = ([
   --outline-promo-gradient-active: #CCCCCCFF;
   --outline-promo-minor-gradient-hover: #000000FF;
   --outline-promo-minor-gradient-active: #CCCCCCFF;
-  --outline-accent-gradient: linear-gradient(45.00deg, #00AC7BFF 0.763%);
+  --outline-accent-gradient: linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%);
   --on-dark-outline-accent-gradient-hover: #000000FF;
   --on-dark-outline-accent-gradient-active: #CCCCCCFF;
   --on-dark-outline-accent-minor-gradient-hover: #000000FF;
@@ -848,7 +848,7 @@ export const sdds_dfa__light = ([
   --on-dark-outline-promo-gradient-active: #CCCCCCFF;
   --on-dark-outline-promo-minor-gradient-hover: #000000FF;
   --on-dark-outline-promo-minor-gradient-active: #CCCCCCFF;
-  --on-dark-outline-accent-gradient: rgb(33, 202, 154) 0%,rgb(74, 214, 252) 100%);
+  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, #21CA9AFF 0%, #4AD6FCFF 100%);
   --on-light-outline-accent-gradient-hover: #000000FF;
   --on-light-outline-accent-gradient-active: #CCCCCCFF;
   --on-light-outline-accent-minor-gradient-hover: #000000FF;
@@ -859,7 +859,7 @@ export const sdds_dfa__light = ([
   --on-light-outline-promo-gradient-active: #CCCCCCFF;
   --on-light-outline-promo-minor-gradient-hover: #000000FF;
   --on-light-outline-promo-minor-gradient-active: #CCCCCCFF;
-  --on-light-outline-accent-gradient: linear-gradient(45.00deg, #00AC7BFF 0.763%);
+  --on-light-outline-accent-gradient: linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%);
   --inverse-outline-accent-gradient-hover: #000000FF;
   --inverse-outline-accent-gradient-active: #CCCCCCFF;
   --inverse-outline-accent-minor-gradient-hover: #000000FF;
@@ -870,7 +870,7 @@ export const sdds_dfa__light = ([
   --inverse-outline-promo-gradient-active: #CCCCCCFF;
   --inverse-outline-promo-minor-gradient-hover: #000000FF;
   --inverse-outline-promo-minor-gradient-active: #CCCCCCFF;
-  --inverse-outline-accent-gradient: rgb(33, 202, 154) 0%,rgb(74, 214, 252) 100%);
+  --inverse-outline-accent-gradient: linear-gradient(45.00deg, #21CA9AFF 0%, #4AD6FCFF 100%);
 }
 
 :root {

@@ -780,19 +780,19 @@ export const sdds_serv__light = ([
 :root {
   --text-accent-gradient-hover: #000000FF;
   --text-accent-gradient-active: #CCCCCCFF;
-  --text-accent-gradient: linear-gradient(45deg, #0D8523FF 0%, #0DA8ABFF 100%);
+  --text-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --on-dark-text-accent-gradient-hover: #000000FF;
   --on-dark-text-accent-gradient-active: #CCCCCCFF;
-  --on-dark-text-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --on-dark-text-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
   --on-light-text-accent-gradient-hover: #000000FF;
   --on-light-text-accent-gradient-active: #CCCCCCFF;
-  --on-light-text-accent-gradient: linear-gradient(45deg, #0D8523FF 0%, #0DA8ABFF 100%);
+  --on-light-text-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --inverse-text-accent-gradient-hover: #000000FF;
   --inverse-text-accent-gradient-active: #CCCCCCFF;
-  --inverse-text-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --inverse-text-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
   --surface-accent-gradient-hover: #FFFFFFFF;
   --surface-accent-gradient-active: #FFFFFFFF;
-  --surface-accent-gradient: linear-gradient(45deg, #0D8523FF 0%, #0DA8ABFF 100%);
+  --surface-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --surface-skeleton-gradient-hover: #FFFFFFFF;
   --surface-skeleton-gradient-active: #FFFFFFFF;
@@ -801,7 +801,7 @@ export const sdds_serv__light = ([
   --surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-dark-surface-accent-gradient-hover: #FFFFFFFF;
   --on-dark-surface-accent-gradient-active: #FFFFFFFF;
-  --on-dark-surface-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --on-dark-surface-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%);
   --on-dark-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --on-dark-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-dark-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -810,7 +810,7 @@ export const sdds_serv__light = ([
   --on-dark-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-light-surface-accent-gradient-hover: #FFFFFFFF;
   --on-light-surface-accent-gradient-active: #FFFFFFFF;
-  --on-light-surface-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --on-light-surface-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --on-light-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --on-light-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-light-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -819,7 +819,7 @@ export const sdds_serv__light = ([
   --on-light-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
-  --inverse-surface-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --inverse-surface-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%);
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -836,9 +836,9 @@ export const sdds_serv__light = ([
   --outline-promo-gradient-active: #CCCCCCFF;
   --outline-promo-minor-gradient-hover: #000000FF;
   --outline-promo-minor-gradient-active: #CCCCCCFF;
-  --outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%);
-  --on-dark-outline-accent-gradient-hover: #525252FF;
-  --on-dark-outline-accent-gradient-active: #292929FF;
+  --outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
+  --on-dark-outline-accent-gradient-hover: #000000FF;
+  --on-dark-outline-accent-gradient-active: #CCCCCCFF;
   --on-dark-outline-accent-minor-gradient-hover: #000000FF;
   --on-dark-outline-accent-minor-gradient-active: #CCCCCCFF;
   --on-dark-outline-transparent-accent-gradient-hover: #000000FF;
@@ -847,7 +847,7 @@ export const sdds_serv__light = ([
   --on-dark-outline-promo-gradient-active: #CCCCCCFF;
   --on-dark-outline-promo-minor-gradient-hover: #000000FF;
   --on-dark-outline-promo-minor-gradient-active: #CCCCCCFF;
-  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, rgb(26 undefined, 158 undefined, 50 undefined),rgb(4, 198, 201) 99.688%);
+  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
   --on-light-outline-accent-gradient-hover: #000000FF;
   --on-light-outline-accent-gradient-active: #CCCCCCFF;
   --on-light-outline-accent-minor-gradient-hover: #000000FF;
@@ -858,7 +858,7 @@ export const sdds_serv__light = ([
   --on-light-outline-promo-gradient-active: #CCCCCCFF;
   --on-light-outline-promo-minor-gradient-hover: #000000FF;
   --on-light-outline-promo-minor-gradient-active: #CCCCCCFF;
-  --on-light-outline-accent-gradient: rgb(13, 133, 35) 0%,rgb(13, 168, 171) 100%);
+  --on-light-outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --inverse-outline-accent-gradient-hover: #000000FF;
   --inverse-outline-accent-gradient-active: #CCCCCCFF;
   --inverse-outline-accent-minor-gradient-hover: #000000FF;
@@ -869,7 +869,7 @@ export const sdds_serv__light = ([
   --inverse-outline-promo-gradient-active: #CCCCCCFF;
   --inverse-outline-promo-minor-gradient-hover: #000000FF;
   --inverse-outline-promo-minor-gradient-active: #CCCCCCFF;
-  --inverse-outline-accent-gradient: linear-gradient(45.00deg,rgb(26,158,50),rgb(4,198,201)99.688%);
+  --inverse-outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
 }
 
 :root {

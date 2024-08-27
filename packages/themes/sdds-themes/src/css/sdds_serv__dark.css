@@ -778,19 +778,19 @@
 :root {
   --text-accent-gradient-hover: #CCCCCCFF;
   --text-accent-gradient-active: #E6E6E6FF;
-  --text-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --text-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
   --on-dark-text-accent-gradient-hover: #CCCCCCFF;
   --on-dark-text-accent-gradient-active: #E6E6E6FF;
-  --on-dark-text-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --on-dark-text-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
   --on-light-text-accent-gradient-hover: #CCCCCCFF;
   --on-light-text-accent-gradient-active: #E6E6E6FF;
-  --on-light-text-accent-gradient: linear-gradient(45deg, #0D8523FF 0%, #0DA8ABFF 100%);
+  --on-light-text-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --inverse-text-accent-gradient-hover: #CCCCCCFF;
   --inverse-text-accent-gradient-active: #E6E6E6FF;
-  --inverse-text-accent-gradient: linear-gradient(45deg, #0D8523FF 0%, #0DA8ABFF 100%);
+  --inverse-text-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --surface-accent-gradient-hover: #FFFFFFFF;
   --surface-accent-gradient-active: #FFFFFFFF;
-  --surface-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --surface-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%);
   --surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --surface-skeleton-gradient-hover: #FFFFFFFF;
   --surface-skeleton-gradient-active: #FFFFFFFF;
@@ -799,7 +799,7 @@
   --surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-dark-surface-accent-gradient-hover: #FFFFFFFF;
   --on-dark-surface-accent-gradient-active: #FFFFFFFF;
-  --on-dark-surface-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --on-dark-surface-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%);
   --on-dark-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --on-dark-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-dark-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -808,7 +808,7 @@
   --on-dark-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-light-surface-accent-gradient-hover: #FFFFFFFF;
   --on-light-surface-accent-gradient-active: #FFFFFFFF;
-  --on-light-surface-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --on-light-surface-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --on-light-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --on-light-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-light-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -817,15 +817,15 @@
   --on-light-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
-  --inverse-surface-accent-gradient: linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%);
+  --inverse-surface-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
   --inverse-surface-skeleton-deep-gradient: linear-gradient(90deg, #0808085C 0%, #08080852 6.25%, #08080833 12.5%, #0808080A 25%, #08080833 37.5%, #08080852 43.75%, #0808085C 50%, #08080814 56.25%, #08080833 62.5%, #0808080A 75%, #08080833 87.5%, #08080852 93.75%, #0808085C 100%);
   --inverse-surface-skeleton-deep-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-deep-gradient-active: #FFFFFFFF;
-  --outline-accent-gradient-hover: #FFFFFFFF;
-  --outline-accent-gradient-active: #CCCCCCFF;
+  --outline-accent-gradient-hover: #CCCCCCFF;
+  --outline-accent-gradient-active: #E6E6E6FF;
   --outline-accent-minor-gradient-hover: #CCCCCCFF;
   --outline-accent-minor-gradient-active: #E6E6E6FF;
   --outline-transparent-accent-gradient-hover: #CCCCCCFF;
@@ -834,9 +834,9 @@
   --outline-promo-gradient-active: #E6E6E6FF;
   --outline-promo-minor-gradient-hover: #CCCCCCFF;
   --outline-promo-minor-gradient-active: #E6E6E6FF;
-  --outline-accent-gradient: linear-gradient(45.00deg, rgb(26 undefined, 158 undefined, 50 undefined),rgb(4, 198, 201) 99.688%);
-  --on-dark-outline-accent-gradient-hover: #FFFFFFFF;
-  --on-dark-outline-accent-gradient-active: #CCCCCCFF;
+  --outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
+  --on-dark-outline-accent-gradient-hover: #CCCCCCFF;
+  --on-dark-outline-accent-gradient-active: #E6E6E6FF;
   --on-dark-outline-accent-minor-gradient-hover: #CCCCCCFF;
   --on-dark-outline-accent-minor-gradient-active: #E6E6E6FF;
   --on-dark-outline-transparent-accent-gradient-hover: #CCCCCCFF;
@@ -845,7 +845,7 @@
   --on-dark-outline-promo-gradient-active: #E6E6E6FF;
   --on-dark-outline-promo-minor-gradient-hover: #CCCCCCFF;
   --on-dark-outline-promo-minor-gradient-active: #E6E6E6FF;
-  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, rgb(26 undefined, 158 undefined, 50 undefined),rgb(4, 198, 201) 99.688%);
+  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
   --on-light-outline-accent-gradient-hover: #CCCCCCFF;
   --on-light-outline-accent-gradient-active: #E6E6E6FF;
   --on-light-outline-accent-minor-gradient-hover: #CCCCCCFF;
@@ -856,7 +856,7 @@
   --on-light-outline-promo-gradient-active: #E6E6E6FF;
   --on-light-outline-promo-minor-gradient-hover: #CCCCCCFF;
   --on-light-outline-promo-minor-gradient-active: #E6E6E6FF;
-  --on-light-outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%);
+  --on-light-outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --inverse-outline-accent-gradient-hover: #CCCCCCFF;
   --inverse-outline-accent-gradient-active: #E6E6E6FF;
   --inverse-outline-accent-minor-gradient-hover: #CCCCCCFF;
@@ -867,7 +867,7 @@
   --inverse-outline-promo-gradient-active: #E6E6E6FF;
   --inverse-outline-promo-minor-gradient-hover: #CCCCCCFF;
   --inverse-outline-promo-minor-gradient-active: #E6E6E6FF;
-  --inverse-outline-accent-gradient: linear-gradient(45.00deg,rgb(13,133,35)0%,rgb(13,168,171)100%);
+  --inverse-outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
 }
 
 :root {

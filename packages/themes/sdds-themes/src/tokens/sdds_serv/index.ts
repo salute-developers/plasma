@@ -2321,7 +2321,8 @@ export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #CCCCC
 export const textAccentGradientActive = 'var(--text-accent-gradient-active, #E6E6E6FF)';
 
 /** Акцентный цвет с градиентом */
-export const textAccentGradient = 'var(--text-accent-gradient, linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%))';
+export const textAccentGradient =
+    'var(--text-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
 
 /** Акцентный цвет с градиентом на темном фоне */
 export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #CCCCCCFF)';
@@ -2331,7 +2332,7 @@ export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradien
 
 /** Акцентный цвет с градиентом на темном фоне */
 export const onDarkTextAccentGradient =
-    'var(--on-dark-text-accent-gradient, linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%))';
+    'var(--on-dark-text-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
 
 /** Акцентный цвет с градиентом на светлом фоне */
 export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradient-hover, #CCCCCCFF)';
@@ -2341,7 +2342,7 @@ export const onLightTextAccentGradientActive = 'var(--on-light-text-accent-gradi
 
 /** Акцентный цвет с градиентом на светлом фоне */
 export const onLightTextAccentGradient =
-    'var(--on-light-text-accent-gradient, linear-gradient(45deg, #0D8523FF 0%, #0DA8ABFF 100%))';
+    'var(--on-light-text-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%))';
 
 /** Инвертированный акцентный цвет с градиентом */
 export const inverseTextAccentGradientHover = 'var(--inverse-text-accent-gradient-hover, #CCCCCCFF)';
@@ -2351,7 +2352,7 @@ export const inverseTextAccentGradientActive = 'var(--inverse-text-accent-gradie
 
 /** Инвертированный акцентный цвет с градиентом */
 export const inverseTextAccentGradient =
-    'var(--inverse-text-accent-gradient, linear-gradient(45deg, #0D8523FF 0%, #0DA8ABFF 100%))';
+    'var(--inverse-text-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%))';
 
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
@@ -2361,7 +2362,7 @@ export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active
 
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradient =
-    'var(--surface-accent-gradient, linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%))';
+    'var(--surface-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%))';
 
 /** Фон для скелетона */
 export const surfaceSkeletonGradient =
@@ -2391,7 +2392,7 @@ export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-g
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
 export const onDarkSurfaceAccentGradient =
-    'var(--on-dark-surface-accent-gradient, linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%))';
+    'var(--on-dark-surface-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%))';
 
 /** Фон для скелетона */
 export const onDarkSurfaceSkeletonGradient =
@@ -2422,7 +2423,7 @@ export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
 export const onLightSurfaceAccentGradient =
-    'var(--on-light-surface-accent-gradient, linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%))';
+    'var(--on-light-surface-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%))';
 
 /** Фон для скелетона */
 export const onLightSurfaceSkeletonGradient =
@@ -2454,7 +2455,7 @@ export const inverseSurfaceAccentGradientActive = 'var(--inverse-surface-accent-
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
 export const inverseSurfaceAccentGradient =
-    'var(--inverse-surface-accent-gradient, linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%))';
+    'var(--inverse-surface-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%))';
 
 /** Фон для скелетона */
 export const inverseSurfaceSkeletonGradient =
@@ -2478,10 +2479,10 @@ export const inverseSurfaceSkeletonDeepGradientActive =
     'var(--inverse-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
 
 /** Акцентный цвет обводки с градиентом */
-export const outlineAccentGradientHover = 'var(--outline-accent-gradient-hover, #FFFFFFFF)';
+export const outlineAccentGradientHover = 'var(--outline-accent-gradient-hover, #CCCCCCFF)';
 
 /** Акцентный цвет обводки с градиентом */
-export const outlineAccentGradientActive = 'var(--outline-accent-gradient-active, #CCCCCCFF)';
+export const outlineAccentGradientActive = 'var(--outline-accent-gradient-active, #E6E6E6FF)';
 
 /** Акцентный минорный цвет обводки с градиентом */
 export const outlineAccentMinorGradientHover = 'var(--outline-accent-minor-gradient-hover, #CCCCCCFF)';
@@ -2509,13 +2510,13 @@ export const outlinePromoMinorGradientActive = 'var(--outline-promo-minor-gradie
 
 /** Акцентный цвет обводки с градиентом */
 export const outlineAccentGradient =
-    'var(--outline-accent-gradient, linear-gradient(45.00deg, rgb(26 undefined, 158 undefined, 50 undefined),rgb(4, 198, 201) 99.688%))';
+    'var(--outline-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
 
 /** Акцентный цвет обводки с градиентом на темном фоне */
-export const onDarkOutlineAccentGradientHover = 'var(--on-dark-outline-accent-gradient-hover, #FFFFFFFF)';
+export const onDarkOutlineAccentGradientHover = 'var(--on-dark-outline-accent-gradient-hover, #CCCCCCFF)';
 
 /** Акцентный цвет обводки с градиентом на темном фоне */
-export const onDarkOutlineAccentGradientActive = 'var(--on-dark-outline-accent-gradient-active, #CCCCCCFF)';
+export const onDarkOutlineAccentGradientActive = 'var(--on-dark-outline-accent-gradient-active, #E6E6E6FF)';
 
 /** Акцентный минорный цвет обводки с градиентом на темном фоне */
 export const onDarkOutlineAccentMinorGradientHover = 'var(--on-dark-outline-accent-minor-gradient-hover, #CCCCCCFF)';
@@ -2545,7 +2546,7 @@ export const onDarkOutlinePromoMinorGradientActive = 'var(--on-dark-outline-prom
 
 /** Акцентный цвет обводки с градиентом на темном фоне */
 export const onDarkOutlineAccentGradient =
-    'var(--on-dark-outline-accent-gradient, linear-gradient(45.00deg, rgb(26 undefined, 158 undefined, 50 undefined),rgb(4, 198, 201) 99.688%))';
+    'var(--on-dark-outline-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
 
 /** Акцентный цвет обводки с градиентом на светлом фоне */
 export const onLightOutlineAccentGradientHover = 'var(--on-light-outline-accent-gradient-hover, #CCCCCCFF)';
@@ -2582,7 +2583,7 @@ export const onLightOutlinePromoMinorGradientActive = 'var(--on-light-outline-pr
 
 /** Акцентный цвет обводки с градиентом на светлом фоне */
 export const onLightOutlineAccentGradient =
-    'var(--on-light-outline-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%))';
+    'var(--on-light-outline-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%))';
 
 /** Инвертированный акцентный цвет обводки с градиентом */
 export const inverseOutlineAccentGradientHover = 'var(--inverse-outline-accent-gradient-hover, #CCCCCCFF)';
@@ -2618,7 +2619,7 @@ export const inverseOutlinePromoMinorGradientActive = 'var(--inverse-outline-pro
 
 /** Инвертированный акцентный цвет обводки с градиентом */
 export const inverseOutlineAccentGradient =
-    'var(--inverse-outline-accent-gradient, linear-gradient(45.00deg,rgb(13,133,35)0%,rgb(13,168,171)100%))';
+    'var(--inverse-outline-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%))';
 
 /** shadow down soft s */
 export const shadowDownSoftS = 'var(--shadow-down-soft-s, 0px 4px 14px -4px #08080814,0px 1px 4px -1px #0000000A)';
