@@ -4130,7 +4130,7 @@
                     "enabled": true
                 },
                 "outlineTransparentSecondary": {
-                    "value": "rgba(255, 255, 255, 0.20))",
+                    "value": "rgba(255, 255, 255, 0.20)",
                     "comment": "Вторичный прозрачный цвет обводки на темном фоне",
                     "enabled": true
                 },
