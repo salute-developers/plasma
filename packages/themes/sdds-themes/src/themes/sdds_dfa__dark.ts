@@ -807,7 +807,7 @@ export const sdds_dfa__dark = ([
   --on-dark-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-light-surface-accent-gradient-hover: #FFFFFFFF;
   --on-light-surface-accent-gradient-active: #FFFFFFFF;
-  --on-light-surface-accent-gradient: linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%);
+  --on-light-surface-accent-gradient: linear-gradient(45.00deg, #00AC7BFF 0.763%, #27C6E5FF 100%);
   --on-light-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --on-light-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-light-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -816,7 +816,7 @@ export const sdds_dfa__dark = ([
   --on-light-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
-  --inverse-surface-accent-gradient: linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%);
+  --inverse-surface-accent-gradient: linear-gradient(45.00deg, #00AC7BFF 0.763%, #27C6E5FF 100%);
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -833,7 +833,7 @@ export const sdds_dfa__dark = ([
   --outline-promo-gradient-active: #E6E6E6FF;
   --outline-promo-minor-gradient-hover: #CCCCCCFF;
   --outline-promo-minor-gradient-active: #E6E6E6FF;
-  --outline-accent-gradient: linear-gradient(45.00deg, #00AC7BFF 0.763%);
+  --outline-accent-gradient: linear-gradient(45.00deg, #21CA9AFF 0%, #4AD6FCFF 100%);
   --on-dark-outline-accent-gradient-hover: #CCCCCCFF;
   --on-dark-outline-accent-gradient-active: #E6E6E6FF;
   --on-dark-outline-accent-minor-gradient-hover: #CCCCCCFF;
@@ -844,7 +844,7 @@ export const sdds_dfa__dark = ([
   --on-dark-outline-promo-gradient-active: #E6E6E6FF;
   --on-dark-outline-promo-minor-gradient-hover: #CCCCCCFF;
   --on-dark-outline-promo-minor-gradient-active: #E6E6E6FF;
-  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, #21CA9AFF 0%);
+  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, #21CA9AFF 0%, #4AD6FCFF 100%);
   --on-light-outline-accent-gradient-hover: #CCCCCCFF;
   --on-light-outline-accent-gradient-active: #E6E6E6FF;
   --on-light-outline-accent-minor-gradient-hover: #CCCCCCFF;
@@ -855,7 +855,7 @@ export const sdds_dfa__dark = ([
   --on-light-outline-promo-gradient-active: #E6E6E6FF;
   --on-light-outline-promo-minor-gradient-hover: #CCCCCCFF;
   --on-light-outline-promo-minor-gradient-active: #E6E6E6FF;
-  --on-light-outline-accent-gradient: linear-gradient(45.00deg, #00AC7BFF 0.763%);
+  --on-light-outline-accent-gradient: linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%);
   --inverse-outline-accent-gradient-hover: #CCCCCCFF;
   --inverse-outline-accent-gradient-active: #E6E6E6FF;
   --inverse-outline-accent-minor-gradient-hover: #CCCCCCFF;
@@ -866,7 +866,7 @@ export const sdds_dfa__dark = ([
   --inverse-outline-promo-gradient-active: #E6E6E6FF;
   --inverse-outline-promo-minor-gradient-hover: #CCCCCCFF;
   --inverse-outline-promo-minor-gradient-active: #E6E6E6FF;
-  --inverse-outline-accent-gradient: linear-gradient(45.00deg, #00AC7BFF 0.763%);
+  --inverse-outline-accent-gradient: linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%);
 }
 
 :root {

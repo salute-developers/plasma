@@ -1466,8 +1466,7 @@ export const onDarkOutlineDefault = 'var(--on-dark-outline-default, #F9F9F9)';
 export const onDarkOutlineTransparentPrimary = 'var(--on-dark-outline-transparent-primary, #FFFFFF1F)';
 
 /** Вторичный прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentSecondary =
-    'var(--on-dark-outline-transparent-secondary, rgba(255, 255, 255, 0.20)))';
+export const onDarkOutlineTransparentSecondary = 'var(--on-dark-outline-transparent-secondary, #FFFFFF33)';
 
 /** Третичный прозрачный цвет обводки на темном фоне */
 export const onDarkOutlineTransparentTertiary = 'var(--on-dark-outline-transparent-tertiary, #FFFFFF66)';
