@@ -35,7 +35,9 @@ export const config = {
         view: {
             default: css`
                 ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
+                ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
                 ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-default);
+                ${switchTokens.trackBackgroundColorOffHover}: var(--surface-solid-default-hover);
                 ${switchTokens.thumbBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,

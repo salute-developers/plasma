@@ -17,7 +17,7 @@ export const tokens = {
     trackHeight: '--plasma-switch__track-height',
     trackBorderRadius: '--plasma-switch__track-border-radius',
     // NOTE: could be intersection with checked
-    trackBackgroundColorOn: '--plasma-switch__track_cheched_true-bg-color',
+    trackBackgroundColorOn: '--plasma-switch__track_checked_true-bg-color',
     trackBackgroundColorOnHover: '--plasma-switch__track_checked_true_hovered_true-bg-color',
     trackBackgroundColorOff: '--plasma-switch__track_checked_false-bg-color',
     trackBackgroundColorOffHover: '--plasma-switch__track_checked_false_hovered_true-bg-color',
