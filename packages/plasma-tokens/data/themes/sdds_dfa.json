@@ -3452,9 +3452,7 @@
                     "value": "#F6F6F6",
                     "comment": "Инвертированный основной фон"
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "overlay": {
             "default": {
@@ -8861,9 +8859,7 @@
                     "value": "#252525",
                     "comment": "Инвертированный основной фон"
                 }
-            },
-            "onDark": {},
-            "onLight": {}
+            }
         },
         "overlay": {
             "default": {
