@@ -113,6 +113,8 @@ export const iconSectionsSet = {
         zoomMinusOutline: 'ZoomMinusOutline',
         zoomPlusFill: 'ZoomPlusFill',
         zoomPlusOutline: 'ZoomPlusOutline',
+        loginFill: 'LoginFill',
+        logoutFill: 'LogoutFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -789,6 +791,8 @@ export const iconSectionsSet = {
         postcardOutline: 'PostcardOutline',
         sendFill: 'SendFill',
         sendOutline: 'SendOutline',
+        messageDraftFill: 'MessageDraftFill',
+        messageDraftOutline: 'MessageDraftOutline',
     },
     Media: {
         cameraDashFill: 'CameraDashFill',
@@ -891,6 +895,8 @@ export const iconSectionsSet = {
         volumeLevel1Outline: 'VolumeLevel1Outline',
         volumeLevel2Fill: 'VolumeLevel2Fill',
         volumeLevel2Outline: 'VolumeLevel2Outline',
+        cameraVideoAddFill: 'CameraVideoAddFill',
+        cameraVideoAddOutline: 'CameraVideoAddOutline',
     },
     Navigation: {
         arrowsMove: 'ArrowsMove',
@@ -1065,6 +1071,7 @@ export const iconSectionsSet = {
         plusSquareOutline: 'PlusSquareOutline',
         verificationFill: 'VerificationFill',
         verificationOutline: 'VerificationOutline',
+        attention: 'Attention',
     },
     Weather: {
         beachUmbrellaFill: 'BeachUmbrellaFill',

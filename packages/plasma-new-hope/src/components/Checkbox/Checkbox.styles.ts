@@ -46,7 +46,7 @@ export const StyledTrigger = styled.div`
     align-items: center;
     justify-content: center;
 
-    background: transparent;
+    background: var(${tokens.triggerBackgroundColor});
     border: 0.125rem solid var(${tokens.triggerBorderColor});
     box-sizing: border-box;
 

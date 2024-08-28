@@ -9,7 +9,7 @@ import { Button } from '../Button';
 import { Toolbar, ToolbarDivider } from './Toolbar';
 
 const orientations: Array<string> = ['vertical', 'horizontal'];
-const size: Array<string> = ['xs', 's', 'm', 'l'];
+const size: Array<string> = ['s'];
 
 const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
     return (
@@ -50,7 +50,7 @@ const meta: Meta<typeof Toolbar> = {
     args: {
         orientation: 'vertical',
         hasShadow: true,
-        size: 'm',
+        size: 's',
     },
 };
 

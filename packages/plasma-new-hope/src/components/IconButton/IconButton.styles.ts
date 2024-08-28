@@ -18,6 +18,7 @@ export const mappingOverride = `
     ${buttonTokens.buttonColorActive}: var(${tokens.iconButtonColorActive});
     ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.iconButtonBackgroundColorActive});
 
+    ${buttonTokens.buttonLoadingBackgroundColor}: var(${tokens.iconButtonLoadingBackgroundColor});
 
     ${buttonTokens.buttonFontFamily}: var(${tokens.iconButtonFontFamily});
     ${buttonTokens.buttonFontSize}: var(${tokens.iconButtonFontSize});

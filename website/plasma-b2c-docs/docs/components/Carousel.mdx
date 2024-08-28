@@ -1,0 +1,182 @@
+---
+id: carousel
+title: Carousel
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Carousel
+Набор компонентов для создания списков с прокруткой (галерей).
+
+<StorybookLink name="Carousel" />
+
+## Состав
+При сборке карусели используйте структуру, в которой корневым элементом
+является `Carousel` со вложенными в него `CarouselItem` или `CarouselCol`.
+При необходимости отображения элементов карусели в [сетке](../grid), оборачивайте карусель в `CarouselGridWrapper`.
+
+### Carousel
+<Description name="Carousel" />
+<PropsTable name="Carousel" />
+
+### CarouselGridWrapper
+<Description name="CarouselGridWrapper" />
+
+### CarouselItem
+<Description name="CarouselItem" />
+<PropsTable name="CarouselItem" />
+
+### CarouselCol
+<Description name="CarouselCol" />
+<PropsTable name="CarouselCol" />
+
+## Использование
+
+### CSS Scroll Snap
+
+1. В компоненте `Carousel` укажите свойство `scrollSnapType`:
+
+```tsx title="MyGallery.tsx"
+import React from 'react';
+import { Carousel } from '@salutejs/plasma-b2c';
+
+export const MyGallery = () = (
+    <Carousel scrollSnapType="mandatory">
+        // Элементы карусели помещаются здесь
+    </Carousel>
+);
+```
+
+2. Также укажите свойство `scrollSnapAlign` для элемента карусели:
+
+```tsx title="MyGallery.tsx"
+import React from 'react';
+import { CarouselItem } from '@salutejs/plasma-b2c';
+
+export const MyGalleryItem = ({ children }) => (
+    <CarouselItem scrollSnapAlign="center">{children}</CarouselItem>
+);
+```
+
+### Определение центрального элемента
+Карусель может определять активный элемент при прокрутке.
+Для этого укажите свойства `detectActive`, `detectThreshold` и обработчик `onIndexChange`:
+
+```tsx title="MyGallery.tsx"
+import React from 'react';
+import { Carousel } from '@salutejs/plasma-b2c';
+
+export const MyGallery = () = (
+    <Carousel detectActive detectThreshold={0.5} onIndexChange={(index) => console.log(index)}>
+        // Элементы карусели помещаются здесь
+    </Carousel>
+);
+```
+
+### Стилизация центрального элемента
+Элементы видимой части (`viewport`) можно стилизовать, например, **увеличивать** или менять **прозрачность*.
+
+В момент прокрутки карусели (с помощью колесика мыши, стрелок пульта или касанием)
+с определенной периодичностью вызывается обработчик скролла,
+который на основании положения элемента относительно `viewport` 
+(внутренние границы карусели) вызывает тот или иной коллбек:
+
+| Название             | Описание                                                                                                                          | Аргументы                             | Возвращаемое значение |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------------------|
+| `scaleCallback`      | Обработчик для элементов внутри `viewport`. Callback вызывается для видимого элемента, к нему применяется необходимая стилизация. | `itemEl: HTMLElement`, `slot: number` | `void`                |
+| `scaleResetCallback` | Обработчик для элементов вне `viewport`. Элемент невидим, стилизация сбрасывается.                                                | `itemEl: HTMLElement`                 | `void`                |
+
+Для обозначения позиции элемента внутри `viewport`, карусель использует значение `slot`:
+* `0` равен центральному элементу;
+* `-1` и `1` первый слева и справа от центрального;
+* `-2` и `2` и т.д., соответственно, для второго и далее.
+
+```tsx title="MyGallery.tsx"
+import React from 'react';
+import { Carousel } from '@salutejs/plasma-b2c';
+
+/**
+ * Функция увеличения центрального элемента.
+ * Предположим, что у нас 5 элементов во `viewport`.
+ * Тогда ряд slots будет таким: -2 -1 0 1 2.
+ * Центральный элемент примет opacity = 1, боковые - opacity = 0.5, а крайние слева и справа - opacity = 0
+ */
+const scaleCallback = (itemEl: HTMLElement, slot: number) => {
+    itemEl.style.opacity = `${1 - Math.abs(slot) / 2}`;
+};
+
+/**
+ * Функция сброса стилей элементов вне `viewport`.
+ */
+const scaleResetCallback = (itemEl: HTMLElement) => {
+    itemEl.style.opacity = '';
+};
+
+export const MyGallery = () = (
+    <Carousel scaleCallback={stylingCallback} scaleResetCallback={stylingResetCallback}>
+        // Элементы карусели помещаются здесь
+    </Carousel>
+);
+```
+
+* В данном примере используются `Grid` и `CSS Scroll Snap`.
+* В качестве основного блока разметки контейнер ([Container](../grid/#container)),
+а колонки ([Col](../grid/#col)) помещаются в строки ([Row](../grid/#row)).
+* Карусель поддерживает определение (`detectActive`) активного элемента.
+
+```tsx live
+import React from 'react';
+import { Carousel, CarouselItem } from '@salutejs/plasma-b2c';
+import styled from 'styled-components';
+
+export function App() {
+    const items = [{ title: 'Item 1' }, { title: 'Item 2' }, { title: 'Item 3' }, { title: 'Item 4' }];
+
+    const StyledCard = styled.div`
+        position: relative;
+        border-radius: 8px;
+        width: 350px;
+        height: 50px;
+        padding: 8px;
+        background-color: lightblue;
+    `;
+
+    const [index, setIndex] = React.useState(0);
+    const align = 'center';
+
+    return (
+        <Carousel
+            style={{ margin: '0 -0.5rem' }}
+            index={index}
+            detectActive
+            onIndexChange={(i) => setIndex(i)}
+            scrollAlign={align}
+        >
+            {items.map((item, i) => (
+                <CarouselItem key={`item:${i}`} style={{ display: 'flex', alignItems: 'center', padding: '0 0.5rem' }} scrollSnapAlign={align}>
+                    <StyledCard>
+                        {item.title}
+                    </StyledCard>
+                </CarouselItem>
+            ))}
+        </Carousel>
+    );
+}
+```
+
+## Доступность
+Для достижения доступности карусели необходимо выполнить следующие условия:
+
+1. в элемент карусели добавьте атрибут `aria-label`, со значением, обозначающим текущую позицию в списке;
+2. разместите кнопки "назад" и "вперед" для навигации по карусели;
+3. укажите корректный атрибут `id` для секции карусели.
+
+```tsx
+<section id="carousel-example">
+    <Button text="Prev" aria-controls="carousel-example" />
+    <Button text="Next" aria-controls="carousel-example" />
+    <Carousel>
+        {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} />)}
+    </Carousel>
+</section>
+```

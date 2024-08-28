@@ -11,6 +11,6 @@ generate([
     },
     {
         name: 'sdds_cs',
-        version: 'latest',
+        version: '0.2.0',
     },
 ]);

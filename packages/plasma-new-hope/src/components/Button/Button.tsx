@@ -57,6 +57,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             : classes[`${stretching}Stretching` as keyof typeof classes];
         const contentRelaxedClass = contentPlacing === 'relaxed' ? classes.contentRelaxed : undefined;
         const squareClass = square ? classes.buttonSquare : undefined;
+        const isLoadingClass = isLoading ? classes.buttonLoading : undefined;
         const buttonBorderRadius = pin
             ? convertRoundnessMatrix(pin, `var(${tokens.buttonRadius})`, `var(${tokens.buttonHeight})`)
             : `var(${tokens.buttonRadius}, calc(var(${tokens.buttonHeight}) / 4))`;
@@ -78,7 +79,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 disabled={disabled}
                 focused={focused || outlined}
                 contentPlacing={contentPlacing}
-                className={cx(squareClass, stretchingClass, classes.buttonItem, className)}
+                className={cx(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
                 style={
                     {
                         ...style,

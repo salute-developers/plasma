@@ -1562,7 +1562,7 @@ export const outlineOnDarkOutlineTransparentPrimary =
 
 /** Вторичный прозрачный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineTransparentSecondary =
-    'var(--outline-on-dark-outline-transparent-secondary, rgba(255, 255, 255, 0.20)))';
+    'var(--outline-on-dark-outline-transparent-secondary, rgba(255, 255, 255, 0.20))';
 
 /** Третичный прозрачный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineTransparentTertiary =

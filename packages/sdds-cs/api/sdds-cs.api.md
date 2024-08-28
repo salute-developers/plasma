@@ -248,10 +248,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 labelPlacement: {
 inner: PolymorphicClassName;
@@ -423,27 +420,13 @@ export { BreadcrumbsProps }
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
-default: PolymorphicClassName;
 accent: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-success: PolymorphicClassName;
-warning: PolymorphicClassName;
-critical: PolymorphicClassName;
-dark: PolymorphicClassName;
-black: PolymorphicClassName;
-white: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-lr: PolymorphicClassName;
-m: PolymorphicClassName;
-mr: PolymorphicClassName;
 s: PolymorphicClassName;
 sr: PolymorphicClassName;
-xs: PolymorphicClassName;
-xsr: PolymorphicClassName;
-xxs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -505,27 +488,13 @@ export { ButtonBase }
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
 view: {
-default: PolymorphicClassName;
 accent: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-success: PolymorphicClassName;
-warning: PolymorphicClassName;
-critical: PolymorphicClassName;
-dark: PolymorphicClassName;
-black: PolymorphicClassName;
-white: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-lr: PolymorphicClassName;
-m: PolymorphicClassName;
-mr: PolymorphicClassName;
 s: PolymorphicClassName;
 sr: PolymorphicClassName;
-xs: PolymorphicClassName;
-xsr: PolymorphicClassName;
-xxs: PolymorphicClassName;
 };
 orientation: {
 horizontal: PolymorphicClassName;
@@ -651,17 +620,9 @@ export { CellTextboxTitle }
 export const Checkbox: FunctionComponent<PropsType<    {
 size: {
 s: PolymorphicClassName;
-m: PolymorphicClassName;
 };
 view: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-tertiary: PolymorphicClassName;
-paragraph: PolymorphicClassName;
 accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -797,10 +758,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -824,10 +782,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -958,10 +913,7 @@ export { DrawerProps }
 // @public (undocumented)
 export const Dropdown: FunctionComponent<PropsType<    {
 size: {
-xs: PolymorphicClassName;
 s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
@@ -1104,16 +1056,9 @@ export { h5Bold }
 // @public
 export const IconButton: FunctionComponent<PropsType<    {
 view: {
-default: PolymorphicClassName;
 accent: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-success: PolymorphicClassName;
-warning: PolymorphicClassName;
-critical: PolymorphicClassName;
-dark: PolymorphicClassName;
-black: PolymorphicClassName;
-white: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
@@ -1300,10 +1245,7 @@ secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 type: {
 compact: PolymorphicClassName;
@@ -1372,17 +1314,9 @@ export { ProgressProps }
 export const Radiobox: FunctionComponent<PropsType<    {
 size: {
 s: PolymorphicClassName;
-m: PolymorphicClassName;
 };
 view: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-tertiary: PolymorphicClassName;
-paragraph: PolymorphicClassName;
 accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -1405,10 +1339,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -1587,10 +1518,7 @@ default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 };
 size: {
-xs: PolymorphicClassName;
 s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -1617,10 +1545,7 @@ export { SegmentProviderProps }
 // @public (undocumented)
 export const Select: React_2.ForwardRefExoticComponent<Omit<SelectProps, "view" | "size" | "chipView"> & Pick<PropsType<    {
 size: {
-xs: PolymorphicClassName;
 s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
@@ -1715,7 +1640,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "clear" | "secondary" | "positive" | "warning" | "negative" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
@@ -1752,7 +1677,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "clear" | "secondary" | "positive" | "warning" | "negative" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
@@ -1807,11 +1732,8 @@ export const Slider: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
 accent: PolymorphicClassName;
-gradient: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
 };
 disabled: {
@@ -1865,7 +1787,7 @@ export { SSRProvider }
 // @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
 size: {
-m: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
@@ -1896,15 +1818,7 @@ divider: PolymorphicClassName;
 default: PolymorphicClassName;
 };
 size: {
-xs: PolymorphicClassName;
 s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
-h5: PolymorphicClassName;
-h4: PolymorphicClassName;
-h3: PolymorphicClassName;
-h2: PolymorphicClassName;
-h1: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -1959,10 +1873,7 @@ export { TabsProps }
 // @public
 export const TextArea: FunctionComponent<PropsType<    {
 size: {
-xs: PolymorphicClassName;
 s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
@@ -2015,10 +1926,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 labelPlacement: {
 inner: PolymorphicClassName;
@@ -2188,10 +2096,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-xs: PolymorphicClassName;
 s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 children: ReactNode;

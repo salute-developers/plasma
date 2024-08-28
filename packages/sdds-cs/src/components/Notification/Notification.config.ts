@@ -60,10 +60,6 @@ export const config = {
             `,
         },
         layout: {
-            horizontal: css`
-                ${notificationTokens.width}: 25rem;
-                ${notificationTokens.horizontalLayoutPadding}: 1rem 0.5rem 1rem 0.875rem;
-            `,
             vertical: css`
                 ${notificationTokens.width}: 15rem;
                 ${notificationTokens.padding}: 0.375rem;

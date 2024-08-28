@@ -1,10 +1,14 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../Button.tokens';
+import { tokens, classes } from '../../Button.tokens';
 
 export const base = css`
     color: var(${tokens.buttonColor});
     background-color: var(${tokens.buttonBackgroundColor});
+
+    &.${classes.buttonLoading} {
+        background-color: var(${tokens.buttonLoadingBackgroundColor});
+    }
 
     :hover {
         color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));

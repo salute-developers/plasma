@@ -8,13 +8,13 @@ import {
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 's',
         labelPosition: 'before',
         focused: 'true',
     },
     variations: {
         size: {
-            m: css`
+            s: css`
                 ${switchTokens.fontFamily}: var(--plasma-typo-body1-font-family);
                 ${switchTokens.fontStyle}: var(--plasma-typo-body1-font-style);
                 ${switchTokens.fontWeight}: var(--plasma-typo-body1-font-weight);
@@ -35,8 +35,8 @@ export const config = {
         view: {
             default: css`
                 ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
-                ${switchTokens.trackBackgroundColorOff}: var(--surface-transparent-secondary);
-                ${switchTokens.thumbBackgroundColor}: var(--on-dark-text-primary);
+                ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-default);
+                ${switchTokens.thumbBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },

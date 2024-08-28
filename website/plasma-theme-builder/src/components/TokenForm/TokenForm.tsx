@@ -23,16 +23,18 @@ const StyledHeader = styled(H3)`
     ${SBSansTextMono}
 `;
 
-const StyledTokenName = styled(TextField)``;
+const StyledTokenName = styled(TextField)`
+    width: 100%;
 
-/* TODO: Убрать это когда появится возможность стилизовать компонент */
-const StyledCommentWrapper = styled.div`
-    label {
-        width: 35rem;
+    div {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
     }
 `;
 
-const StyledTextField = styled(TextField)``;
+const StyledTextField = styled(TextField)`
+    width: 35rem;
+`;
 
 const StyledButtons = styled.div`
     display: flex;
@@ -58,16 +60,6 @@ const StyledTokenPrefix = styled.span`
 const TokenName = styled.div`
     width: 35rem;
     display: flex;
-
-    /* TODO: Убрать это когда появится возможность стилизовать компонент */
-    label {
-        width: 100% !important;
-    }
-
-    div {
-        border-top-left-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
-    }
 `;
 
 const TokenValue = styled.div`
@@ -76,7 +68,7 @@ const TokenValue = styled.div`
 
 interface TokenFormProps {
     themeMode: ThemeMode;
-    isOpen: boolean;
+    opened: boolean;
     inputData: InputData;
     themeData: ThemeType;
     defaultThemeData?: ThemeType;
@@ -86,7 +78,7 @@ interface TokenFormProps {
 
 export const TokenForm = ({
     themeMode,
-    isOpen,
+    opened,
     inputData,
     themeData,
     defaultThemeData,
@@ -249,7 +241,7 @@ export const TokenForm = ({
     );
 
     return (
-        <StyledTokenForm id="modalA" isOpen={isOpen} onClose={onCancel}>
+        <StyledTokenForm id="modalA" opened={opened} onClose={onCancel}>
             <StyledHeader bold={false}>Редактирование токена</StyledHeader>
             <Form onSubmit={onSubmit}>
                 <FormField label="Название">
@@ -282,17 +274,15 @@ export const TokenForm = ({
                     </TokenValue>
                 </FormField>
                 <FormField label="Комментарий">
-                    <StyledCommentWrapper>
-                        <StyledTextField
-                            size="s"
-                            name="comment"
-                            readOnly={canRename}
-                            value={comment?.value}
-                            status={comment?.status}
-                            helperText={comment?.helpText}
-                            onChange={onChangeComment}
-                        />
-                    </StyledCommentWrapper>
+                    <StyledTextField
+                        size="s"
+                        name="comment"
+                        readOnly={canRename}
+                        value={comment?.value}
+                        status={comment?.status}
+                        helperText={comment?.helpText}
+                        onChange={onChangeComment}
+                    />
                 </FormField>
                 <FormField label="Отображать токен">
                     <Switch

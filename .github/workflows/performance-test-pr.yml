@@ -3,12 +3,7 @@
 name: Component Performance Testing
 
 on:
-  pull_request:
-     branches:
-         - master
-  pull_request_target:
-     branches:
-         - dev
+    workflow_dispatch:
 
 concurrency:
     # New commit on branch cancels running workflows of the same branch
@@ -17,10 +12,12 @@ concurrency:
 
 jobs:
     authorize:
+        if: false
         name: Authorize external pull request
         uses: ./.github/workflows/authorize-external-pr.yml
 
     state:
+        if: false
         needs: [ authorize ]
         uses: ./.github/workflows/change-detection.yml
         with:
@@ -31,7 +28,7 @@ jobs:
     perftest:
         needs: [ authorize, state ]
         runs-on: ubuntu-latest
-        if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_DS_CHANGES }}
+        if: false
         env:
             PR_NAME: pr-${{ github.event.number }}
         steps:

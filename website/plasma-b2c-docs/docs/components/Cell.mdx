@@ -1,0 +1,72 @@
+---
+id: cell
+title: Cell
+---
+
+import { PropsTable, StorybookLink } from '@site/src/components';
+
+# Cell
+Компонент ячейки.
+<StorybookLink name="Cell" />
+<PropsTable name="Cell" />
+
+Компонент представляет собой стилизованные слоты для контента.
+
+Также имеются вспомогательные компоненты (Textbox, TextTitle, TextSubtitle, TextLabel).
+Они представляют собой стилизованный текст и слот для них.
+
+## Примеры
+
+### Базовое использование
+```tsx live
+import React from 'react';
+import { Cell } from '@salutejs/plasma-b2c';
+import { Avatar } from '@salutejs/plasma-b2c';
+import { IconChevronRight } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Cell
+                contentLeft={
+                    <Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                }
+                size="m"
+                contentRight={<IconChevronRight color="inheart" size="xs" />}
+                title="Title"
+                subtitle="Subtitle"
+                label="Label"
+            />
+        </div>
+    );
+}
+```
+
+### С использованием своих стилей или встроеных компонентов
+```tsx live
+import React from 'react';
+import { Cell , CellTextboxLabel , CellTextboxTitle , CellTextboxSubtitle, CellTextbox } from '@salutejs/plasma-b2c';
+import { Avatar } from '@salutejs/plasma-b2c';
+import { IconChevronRight } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Cell
+                contentLeft={
+                    <Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                }
+                size="m"
+                contentRight={<IconChevronRight color="inheart" size="xs" />}
+            >
+                <CellTextbox>
+                    <CellTextboxLabel>Label</CellTextboxLabel>
+                    <CellTextboxTitle>Title</CellTextboxTitle>
+                    <CellTextboxSubtitle>Subtitle</CellTextboxSubtitle>
+                    <div style={{'font-size': '12px', opacity: 0.4}}>Caption</div>
+                </CellTextbox>
+            </Cell>
+        </div>
+    );
+}
+```

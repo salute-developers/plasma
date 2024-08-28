@@ -11,7 +11,7 @@ import { Combobox, ComboboxDivider, ComboboxItem } from './Combobox';
 
 const placements: Array<string> = ['top', 'bottom', 'right', 'left', 'auto'];
 const enumerations: Array<string> = ['comma', 'chip'];
-const sizes: Array<string> = ['xs', 's', 'm', 'l'];
+const sizes: Array<string> = ['s'];
 const views: Array<string> = ['default'];
 
 type StorySelectPropsCustom = {
@@ -60,7 +60,7 @@ const meta: Meta<StorySelectProps> = {
         label: 'Label',
         placeholder: 'Placeholder',
         enumerationType: 'comma',
-        size: 'm',
+        size: 's',
         view: 'default',
         placement: 'bottom',
     },

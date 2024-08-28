@@ -1,0 +1,172 @@
+---
+id: drawer
+title: Drawer
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Drawer
+<Description name="Drawer" />
+<PropsTable name="Drawer" />
+<StorybookLink name="Drawer" />
+
+### Использование
+
+Перед использованием убедитесь, что `PopupBaseProvider` подключен.
+
+```tsx title="index.ts"
+import ReactDOM from 'react-dom';
+import { PopupBaseProvider } from '@salutejs/plasma-b2c';
+
+import { App } from './App';
+
+ReactDOM.render(
+    <PopupBaseProvider>
+        <App />
+    </PopupBaseProvider>,
+    document.getElementById('root')
+);
+```
+
+### Отображения Drawer
+
+Drawer можно использовать как и на всем окне, так и в отдельном фрейме - свойство `frame`.
+Также это свойство поддерживает передачу id элемента, в котором будет использоваться компонент.
+Само позиционирование можно указать с помощью свойства `placement`(left - по умолчанию, right, top, bottom),
+ а также определить отступы от точки с помощью `offset`.
+ 
+У компонента Drawer есть 2 режима отображения: 
+модальный - добавляет при этом подложку(`overlay`), а также блокирует scroll и фокус;
+немодальный - нет подложки, scroll и фокус не заблокированы.
+
+```tsx live
+import React, { useRef } from 'react';
+import { IconDone } from '@salutejs/plasma-icons';
+import { surfaceSolid03 } from '@salutejs/plasma-tokens-b2c';
+
+import { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+
+export function App() {
+
+    const [isOpenA, setIsOpenA] = React.useState(false);
+    const [isOpenB, setIsOpenB] = React.useState(false);
+
+    const ref = useRef();
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{height: "500px"}}>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                        <Button 
+                            text="Открыть в document" 
+                            onClick={() => setIsOpenA(true)}
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                        />
+                        <Button 
+                            text="Открыть во Frame" 
+                            onClick={() => setIsOpenB(true)}
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                        />
+                    </div>
+                    <Drawer
+                        id="drawerA"
+                        isOpen={isOpenA} 
+                        onClose={() => setIsOpenA(false)}
+                        placement="right"
+                        withBlur={false}
+                        closeOnEsc={true}
+                        closeOnOverlayClick={true}
+                        asModal={true}
+                        width="25vw"
+                        height="100vh"
+                    >
+                            <DrawerHeader
+                                hasClose={true}
+                                closePlacement="right"
+                                actions={(
+                                    <Button size="s" view="clear" style={{
+                                        position: "relative",
+                                        width: "1.5rem",
+                                        height: "1.5rem"
+                                    }}>
+                                        <IconDone size="s" />
+                                    </Button>
+                                )}
+                                onClose={() => setIsOpenA(false)}
+                            >
+                                <H3>Header</H3>
+                            </DrawerHeader>
+
+                            <DrawerContent>Content</DrawerContent>
+                            
+                            <DrawerFooter>
+                                <H3>Footer</H3>
+                            </DrawerFooter>
+                        </Drawer>
+                    <div 
+                        ref={ref} 
+                        style={{
+                            marginTop: "1rem",
+                            width: "400px",
+                            height: "500px",
+                            background: surfaceSolid03,
+                            position: "absolute",
+
+                            display: "flex",
+                            alignItems: "flex-start",
+                            justifyContent: "center",
+                            padding: "1rem",
+
+                            bottom: 0,
+                            right: 0
+                        }}
+                    >
+                        <>Frame</>
+                    </div>
+                    
+                    <Drawer
+                        id="drawerB"
+                        isOpen={isOpenB} 
+                        onClose={() => setIsOpenB(false)}
+                        placement="right"
+                        asModal={false}
+                        frame={ref}
+                        width="250px"
+                        height="100%"
+                    >
+                            <DrawerHeader
+                                hasClose={true}
+                                closePlacement="right"
+                                actions={(
+                                    <Button size="s" view="clear" style={{
+                                        position: "relative",
+                                        width: "1.5rem",
+                                        height: "1.5rem"
+                                    }}>
+                                        <IconDone size="s" />
+                                    </Button>
+                                )}
+                                onClose={() => setIsOpenB(false)}
+                            >
+                                <H3>Header</H3>
+                            </DrawerHeader>
+
+                            <DrawerContent>Content</DrawerContent>
+                            
+                            <DrawerFooter>
+                                <H3>Footer</H3>
+                            </DrawerFooter>
+                        </Drawer>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
+    );
+}
+```

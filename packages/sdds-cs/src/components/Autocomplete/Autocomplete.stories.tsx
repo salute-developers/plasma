@@ -6,7 +6,7 @@ import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Autocomplete } from './Autocomplete';
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['s'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const labelPlacements = ['outer', 'inner'];
 
@@ -94,7 +94,7 @@ const meta: Meta<StoryProps> = {
     },
     args: {
         view: 'default',
-        size: 'l',
+        size: 's',
         labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
@@ -116,7 +116,7 @@ export default meta;
 const DefaultStory = (args: StoryProps) => {
     const { enableContentLeft, enableContentRight } = args;
 
-    const iconSize = args.size === 'xs' ? 'xs' : 's';
+    const iconSize = 's';
 
     return (
         <Autocomplete
