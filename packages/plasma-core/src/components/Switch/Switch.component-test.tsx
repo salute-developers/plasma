@@ -54,23 +54,6 @@ describe('plasma-core: Switch', () => {
         cy.matchImageSnapshot();
     });
 
-    // TODO: https://github.com/salute-developers/plasma/issues/886
-    it.skip('_pressed', () => {
-        mount(
-            <CypressTestDecorator>
-                <Switch label="Переключатель" />
-                <PadMe />
-                <Switch pressed label="Переключатель" />
-                <PadMe />
-                <Switch checked label="Переключатель" />
-                <PadMe />
-                <Switch pressed checked label="Переключатель" />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
     it('onClick', () => {
         mount(
             <CypressTestDecorator>
@@ -79,7 +62,19 @@ describe('plasma-core: Switch', () => {
         );
 
         cy.matchImageSnapshot();
-        cy.get('#switch').click({ force: true });
+        cy.get('#switch').realClick();
         cy.matchImageSnapshot('clicked');
+    });
+
+    it('onMouseDown', () => {
+        mount(
+            <CypressTestDecorator>
+                <Switch id="switch" label="Переключатель" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+        cy.get('#switch').realMouseDown();
+        cy.matchImageSnapshot('mouseDown_pressed');
     });
 });
