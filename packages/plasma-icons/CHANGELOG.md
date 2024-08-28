@@ -1,3 +1,153 @@
+# v1.203.0 (Wed Aug 28 2024)
+
+### Release Notes
+
+#### Release by 28.08.2024 ([#1403](https://github.com/salute-developers/plasma/pull/1403))
+
+## Components
+
+### Slider
+
+- удалена лишняя зависимость `ref.current` в hooks 
+- исправлена документация в `plasma-web`
+- для `plasma-new-hope` и `sdds-dfa` добавлены недостающие файлы документации
+
+ 
+plasma-{new-hope, web}, sdds-dfa: removed redundant dependencies from `Slider` hooks; docs fixed (https://github.com/salute-developers/plasma/pull/1386)
+
+### TextField
+- добавлен размер `xs` в `plasma-web` 
+
+ 
+plasma-web: size `xs` added to `TextField` (https://github.com/salute-developers/plasma/pull/1395)
+
+### SDDS-CS
+
+- изменены конфигурации компонентов для `sdds-cs`
+
+### Radiobox/Checkbox
+
+- добавлен фон через токены для `trigger`
+
+### Button
+
+- добавлен отдельный фон через токены в состоянии `loading`
+
+ 
+sdds-cs: Edit components config (https://github.com/salute-developers/plasma/pull/1368)
+
+
+## Icons
+
+### Disclosure group 
+
+- обновлен набор для `Disclosure`
+
+<img width="371" alt="Disclosure" src="https://github.com/user-attachments/assets/37024761-5185-46fc-9a24-8285839c1776" />
+
+
+ 
+feat(plasma-icons): Update `Disclosure` icons group (https://github.com/salute-developers/plasma/pull/1384)
+
+### Update icons list
+
+#### Video
+<img width="171" src="https://github.com/user-attachments/assets/5138f0d2-bc5a-427f-b5c3-161702b80cc5" />
+
+#### Attention
+<img width="58" src="https://github.com/user-attachments/assets/425b34f8-6744-44ad-8670-70fbb7f2aed7" />
+
+#### Message
+<img width="409" src="https://github.com/user-attachments/assets/b23057c1-b8e3-4c2a-a052-570a61570242" />
+
+#### Zoom
+<img width="128" src="https://github.com/user-attachments/assets/ac37d878-b25d-4215-9a05-84a4db8a4f1e" />
+
+ 
+feat(plasma-icons): Update icons pack (https://github.com/salute-developers/plasma/pull/1390)
+
+## Tokens
+
+* исправлены опечатки в `tokens` для `theme`: `plasma_web`, `sdds_dfa`, `sdds_serv`
+
+fix(plasma-tokens): Fix tokens misprint in themes  (https://github.com/salute-developers/plasma/pull/1402)
+
+### Theme-Builder
+
+* исправлена обработка свойств `opened` для модальных окон
+* исправлено отображение полей для ввода в модальном окне редактирования token
+* исправлена генерация токенов `active` и `hover` состояний при изменении отключении / включении token
+
+ 
+fix(plasma-theme-builder): Fix bugs in Theme Builder (https://github.com/salute-developers/plasma/pull/1397)
+
+
+## Infra
+
+### Plasma-B2C
+
+- поднята документацию для пакета `plasma-b2c`
+
+
+ 
+plasma-docs: Setup package for `plasma-b2c` (https://github.com/salute-developers/plasma/pull/1330)
+
+
+## Misc
+
+### Tests
+-   изменены тесты plasma-b2c компонентов Breadcrumbs и Price
+
+ 
+test(plasma-b2c): update tests for Breadcrumbs and Price (https://github.com/salute-developers/plasma/pull/1353)
+
+### Tests
+-   изменены тесты plasma-b2c компонентов Badge и Chip
+
+ 
+test(plasma-b2c): update tests for Badge and Chip (https://github.com/salute-developers/plasma/pull/1366)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 28.08.2024 [#1403](https://github.com/salute-developers/plasma/pull/1403) ([@Yakutoc](https://github.com/Yakutoc) [@simashova](https://github.com/simashova) [@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@IgorYar](https://github.com/IgorYar) [@denivladislav](https://github.com/denivladislav) [@iljs](https://github.com/iljs))
+- feat(plasma-icons): update icons attention [36x36] [#1390](https://github.com/salute-developers/plasma/pull/1390) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons attetion [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons attetion [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons zoom [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons zoom [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons zoom [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons login [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons login [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons login [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons message [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons message [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons message [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons camera video [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons camera video [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update icons camera video [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update Disclosure icons group [36x36] [#1384](https://github.com/salute-developers/plasma/pull/1384) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update Disclosure icons group [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): update Disclosure icons group [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 7
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Anastasia Simashova ([@simashova](https://github.com/simashova))
+- Igor Yaroslavtsev ([@IgorYar](https://github.com/IgorYar))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vladislav Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # v1.201.0 (Thu Aug 22 2024)
 
 ### Release Notes
