@@ -263,7 +263,7 @@ export const Theme = ({
                     <TokenForm
                         themeMode={themeMode}
                         defaultThemeData={defaultData}
-                        isOpen={isFormTokenOpen}
+                        opened={isFormTokenOpen}
                         inputData={inputData}
                         themeData={themeData}
                         onTokenFormShow={onTokenFormShow}
@@ -280,7 +280,7 @@ export const Theme = ({
                     />
                 </ThemeControls>
                 <AddTokenSection
-                    isOpen={isAddTokenSectionOpen}
+                    opened={isAddTokenSectionOpen}
                     themeData={themeData}
                     onAddTokenSectionShow={onAddTokenSectionShow}
                     onThemeDataChange={onThemeDataChange}
