@@ -5,6 +5,7 @@ export const classes = {
     innerLabelPlacement: 'label-placement-inner',
     outerLabelPlacement: 'label-placement-outer',
     hideLabel: 'hide-label',
+    inputGroupItem: 'input-group-item',
 };
 
 export const tokens = {
