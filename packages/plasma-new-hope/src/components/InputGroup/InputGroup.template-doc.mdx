@@ -1,0 +1,126 @@
+---
+id: inputGroup
+title: InputGroup
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# InputGroup
+<Description name="InputGroup" />
+<PropsTable name="InputGroup" exclude={['css']} />
+
+## Использование
+Компонент `InputGroup` - это обертка для Input. Принимает в себя группу input.
+
+```tsx live
+import React from 'react';
+import { InputGroup, TextField } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <InputGroup>
+            {Array(5)
+                .fill(true)
+                .map((_, i) => (
+                    <TextField placeholder={`input #${i}`} />
+                ))}
+        </InputGroup>
+    );
+}
+```
+
+## Примеры
+
+### Размер группы input
+Размер InputGroup задается с помощью свойства `size`.
+С помощью свойства `isCommonInputStyles` можно отключить переопределение стилей для всех input внутри группы. 
+Тогда каждкаждый input будет иметь настраиваемый размер. 
+
+```tsx live
+import React from 'react';
+import { InputGroup, TextField } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <InputGroup size="s" view="secondary">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </InputGroup>
+            
+            <InputGroup isCommonInputStyles={false}>
+                <TextField placeholder="Размер l" size="l" />
+                <TextField placeholder="Размер m" size="m" />
+                <TextField placeholder="Размер s" size="s" />
+                <TextField placeholder="Размер xs" size="xs" />
+            </InputGroup>
+        </div>
+    );
+}
+```
+
+### Границы input
+Границы input задаются с помощью свойства `shape`.
+
+```tsx live
+import React from 'react';
+import { InputGroup, TextField } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <InputGroup size="xs" shape="segmented">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </InputGroup>
+
+            <InputGroup size="xs" shape="default">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </InputGroup>
+        </div>
+    );
+}
+```
+
+### Ориентация InputGroup и отступы между input
+
+InputGroup может располагаться вертикально или горизонтально и иметь два вида отступов, в зависимости от shape.
+При `shape='default'`, `gap` может принимать значения `dense` и `wide`;
+При `shape='segmented'`, `gap` может принимать значения `none` и `dense`;
+
+```tsx live
+import React from 'react';
+import { InputGroup, TextField } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <InputGroup size="xs" orientation="vertical" shape="segmented" gap="none">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </InputGroup>
+
+            <InputGroup size="xs" orientation="horizontal" gap="wide">
+                {Array(4)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </InputGroup>
+        </div>
+    );
+}
+```
