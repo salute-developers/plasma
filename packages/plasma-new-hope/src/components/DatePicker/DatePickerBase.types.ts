@@ -3,6 +3,8 @@ import type { Dispatch, MutableRefObject, SetStateAction, SyntheticEvent, Change
 import type { CalendarStateType } from '../Calendar';
 import type { DateInfo, DisabledDay, EventDay } from '../Calendar/Calendar.types';
 
+import type { Langs } from './utils/dateHelper';
+
 export type DatePickerCalendarProps = {
     /**
      * Формат даты.
@@ -61,6 +63,11 @@ export type DatePickerCalendarProps = {
      * Тип отображения календаря: дни, месяца, года.
      */
     type?: CalendarStateType;
+
+    /**
+     * Язык в маске ввода
+     */
+    lang?: Langs;
 };
 
 export type DatePickerdVariationProps = {
@@ -89,6 +96,7 @@ export type UseDatePickerProps = {
     setIsInnerOpen: Dispatch<SetStateAction<boolean>>;
     dateFormatDelimiter: () => string;
     format?: string;
+    lang?: Langs;
     disabled?: boolean;
     readOnly?: boolean;
     maskWithFormat?: boolean;

@@ -45,6 +45,18 @@ const meta: Meta = {
                 type: 'date',
             },
         },
+        lang: {
+            options: ['ru', 'en'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        format: {
+            options: ['DD.MM.YYYY', 'DD MMMM YYYY'],
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
@@ -107,6 +119,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         placeholder: '30.05.2024',
         size: 's',
         view: 'default',
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
         labelPlacement: 'outer',
         defaultDate: new Date(2024, 5, 14),
         min: new Date(2024, 1, 1),
@@ -240,6 +254,8 @@ export const Range: StoryObj<StoryPropsRange> = {
         secondTextfieldTextAfter: '',
         size: 's',
         view: 'default',
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
         isDoubleCalendar: false,
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
