@@ -171,6 +171,7 @@ import { MouseEvent as MouseEvent_2 } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Orientation } from '@salutejs/plasma-new-hope/types/components/TextFieldGroup/TextFieldGroup.types';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -271,6 +272,7 @@ import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
+import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import type { TextFieldProps as TextFieldProps_2 } from '@salutejs/plasma-hope';
@@ -2423,6 +2425,51 @@ true: PolymorphicClassName;
     chips?: TextFieldPrimitiveValue[] | undefined;
     onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 } & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLInputElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLInputElement>>;
+
+// @public
+export const TextFieldGroup: FunctionComponent<PropsType<    {
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+orientation: {
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
+};
+gap: {
+none: PolymorphicClassName;
+dense: PolymorphicClassName;
+wide: PolymorphicClassName;
+};
+shape: {
+segmented: PolymorphicClassName;
+default: PolymorphicClassName;
+};
+stretching: {
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
+orientation?: Orientation | undefined;
+stretching?: ("auto" | "filled") | undefined;
+size?: string | undefined;
+isCommonTextFieldStyles?: boolean | undefined;
+} & {
+gap?: "none" | "dense" | undefined;
+shape?: "segmented" | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+orientation?: Orientation | undefined;
+stretching?: ("auto" | "filled") | undefined;
+size?: string | undefined;
+isCommonTextFieldStyles?: boolean | undefined;
+} & {
+gap?: "dense" | "wide" | undefined;
+shape?: "default" | undefined;
+} & RefAttributes<HTMLDivElement>))>;
+
+export { TextFieldGroupProps }
 
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 //
