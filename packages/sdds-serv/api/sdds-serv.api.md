@@ -111,6 +111,7 @@ import { HTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
+import { InputGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { JSXElementConstructor } from 'react';
@@ -124,6 +125,7 @@ import { MouseEvent as MouseEvent_2 } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Orientation } from '@salutejs/plasma-new-hope/types/components/InputGroup/InputGroup.types';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1227,6 +1229,51 @@ view: string;
 } & RefAttributes<HTMLDivElement>>;
 
 export { IndicatorProps }
+
+// @public
+export const InputGroup: FunctionComponent<PropsType<    {
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+orientation: {
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
+};
+gap: {
+none: PolymorphicClassName;
+dense: PolymorphicClassName;
+wide: PolymorphicClassName;
+};
+shape: {
+segmented: PolymorphicClassName;
+default: PolymorphicClassName;
+};
+stretching: {
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
+orientation?: Orientation | undefined;
+stretching?: ("auto" | "filled") | undefined;
+size?: string | undefined;
+isCommonInputStyles?: boolean | undefined;
+} & {
+gap?: "none" | "dense" | undefined;
+shape?: "segmented" | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+orientation?: Orientation | undefined;
+stretching?: ("auto" | "filled") | undefined;
+size?: string | undefined;
+isCommonInputStyles?: boolean | undefined;
+} & {
+gap?: "dense" | "wide" | undefined;
+shape?: "default" | undefined;
+} & RefAttributes<HTMLDivElement>))>;
+
+export { InputGroupProps }
 
 // @public (undocumented)
 export const LineSkeleton: FunctionComponent<PropsType<    {
