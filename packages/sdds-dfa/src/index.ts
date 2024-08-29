@@ -18,6 +18,7 @@ export * from './components/Dropdown';
 export * from './components/IconButton';
 export * from './components/Image';
 export * from './components/Indicator';
+export * from './components/InputGroup';
 export * from './components/Link';
 export * from './components/Modal';
 export * from './components/Overlay';
