@@ -180,7 +180,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                     readOnly={!disabled && readOnly}
                     labelPlacement={innerLabelPlacementValue}
                     onClick={handleInputFocus}
-                    className={cx(labelPlacementClass, hideLabelClass, className)}
+                    className={cx(labelPlacementClass, hideLabelClass, classes.inputGroupItem, className)}
                     style={style}
                 >
                     {labelInside ||
