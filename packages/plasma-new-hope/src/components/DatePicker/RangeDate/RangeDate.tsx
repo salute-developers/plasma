@@ -66,6 +66,7 @@ export const datePickerRangeRoot = (
                 secondTextfieldTextAfter,
 
                 format = 'DD.MM.YYYY',
+                lang = 'ru',
                 maskWithFormat,
                 min,
                 max,
@@ -113,13 +114,15 @@ export const datePickerRangeRoot = (
             );
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
-            const [calendarFirstValue, setCalendarFirstValue] = useState(formatCalendarValue(defaultFirstDate, format));
-            const [inputFirstValue, setInputFirstValue] = useState(formatInputValue(defaultFirstDate, format));
+            const [calendarFirstValue, setCalendarFirstValue] = useState(
+                formatCalendarValue(defaultFirstDate, format, lang),
+            );
+            const [inputFirstValue, setInputFirstValue] = useState(formatInputValue(defaultFirstDate, format, lang));
 
             const [calendarSecondValue, setCalendarSecondValue] = useState(
-                formatCalendarValue(defaultSecondDate, format),
+                formatCalendarValue(defaultSecondDate, format, lang),
             );
-            const [inputSecondValue, setInputSecondValue] = useState(formatInputValue(defaultSecondDate, format));
+            const [inputSecondValue, setInputSecondValue] = useState(formatInputValue(defaultSecondDate, format, lang));
 
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
@@ -133,6 +136,7 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen,
                 dateFormatDelimiter,
                 format,
+                lang,
                 disabled,
                 readOnly,
                 maskWithFormat,
@@ -153,6 +157,7 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen,
                 dateFormatDelimiter,
                 format,
+                lang,
                 disabled,
                 readOnly,
                 maskWithFormat,
@@ -248,14 +253,22 @@ export const datePickerRangeRoot = (
             }, [opened]);
 
             useEffect(() => {
-                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format));
-                setInputFirstValue(formatInputValue(defaultFirstDate, format));
+                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
+                setInputFirstValue(formatInputValue(defaultFirstDate, format, lang));
             }, [defaultFirstDate]);
 
             useEffect(() => {
-                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format));
-                setInputSecondValue(formatInputValue(defaultSecondDate, format));
+                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
+                setInputSecondValue(formatInputValue(defaultSecondDate, format, lang));
             }, [defaultSecondDate]);
+
+            useEffect(() => {
+                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
+                setInputFirstValue(formatInputValue(defaultFirstDate, format, lang));
+
+                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
+                setInputSecondValue(formatInputValue(defaultSecondDate, format, lang));
+            }, [format, lang]);
 
             return (
                 <Root
