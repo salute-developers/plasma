@@ -115,6 +115,8 @@ export const iconSectionsSet = {
         zoomPlusOutline: 'ZoomPlusOutline',
         loginFill: 'LoginFill',
         logoutFill: 'LogoutFill',
+        windowMaximize: 'WindowMaximize',
+        windowMinimize: 'WindowMinimize',
     },
     Animal: {
         animalFill: 'AnimalFill',
