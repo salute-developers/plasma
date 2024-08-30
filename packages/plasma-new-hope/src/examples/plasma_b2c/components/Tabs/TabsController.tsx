@@ -1,6 +1,8 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
-import { createTabsController, TabItemProps, TabsProps } from '../../../../components/Tabs';
+import { createTabsController } from '../../../../components/Tabs';
+import { TabsProps } from '../../../../components/Tabs/Tabs.types';
+import { TabItemProps } from '../../../../components/Tabs/TabItem.types';
 
 import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';
