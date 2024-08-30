@@ -117,6 +117,7 @@ export const iconSectionsSet = {
         logoutFill: 'LogoutFill',
         windowMaximize: 'WindowMaximize',
         windowMinimize: 'WindowMinimize',
+        filterOff: 'FilterOff',
     },
     Animal: {
         animalFill: 'AnimalFill',
