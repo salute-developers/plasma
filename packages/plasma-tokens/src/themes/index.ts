@@ -24,6 +24,8 @@ export { sdds_cs__dark, darkSdds_cs } from './sdds_cs__dark';
 export { sdds_cs__light, lightSdds_cs } from './sdds_cs__light';
 export { sdds_dfa__dark, darkSdds_dfa } from './sdds_dfa__dark';
 export { sdds_dfa__light, lightSdds_dfa } from './sdds_dfa__light';
+export { sdds_finportal__dark, darkSdds_finportal } from './sdds_finportal__dark';
+export { sdds_finportal__light, lightSdds_finportal } from './sdds_finportal__light';
 export { sdds_serv__dark, darkSdds_serv } from './sdds_serv__dark';
 export { sdds_serv__light, lightSdds_serv } from './sdds_serv__light';
 export { stylesSalute__dark, darkStylesSalute } from './stylesSalute__dark';
