@@ -66,7 +66,17 @@ const meta: Meta<StoryTabsProps> = {
                 type: 'select',
             },
         },
-        ...disableProps(['pilled', 'animated', 'view', 'as', 'forwardedAs', 'outsideScroll', 'index']),
+        ...disableProps([
+            'orientation',
+            'tabItemContentLeft',
+            'pilled',
+            'animated',
+            'view',
+            'as',
+            'forwardedAs',
+            'outsideScroll',
+            'index',
+        ]),
     },
 };
 
@@ -135,8 +145,8 @@ const StoryScroll = (props: StoryTabsProps) => {
                     onClick={() => !disabled && setIndex(i)}
                     tabIndex={!disabled ? 0 : -1}
                     disabled={disabled}
-                    contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                    contentRight={getContentRight(contentRightOption, size as Size)}
+                    contentLeft={getContentLeft(contentLeftOption)}
+                    contentRight={getContentRight(contentRightOption)}
                     size={size}
                 >
                     {`Label${i + 1}`}

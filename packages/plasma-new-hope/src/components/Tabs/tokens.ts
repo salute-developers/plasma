@@ -10,6 +10,8 @@ export const classes = {
     tabLeftContent: 'tab-item-left-content',
     tabsHasLeftArrow: 'tabs-has-left-arrow',
     tabsHasRightArrow: 'tabs-has-right-arrow',
+    tabsHasTopArrow: 'tabs-has-top-arrow',
+    tabsHasBottomArrow: 'tabs-has-bottom-arrow',
     tabsClipScroll: 'tabs-clip-scroll',
     tabsClipShowAll: 'tabs-clip-show-all',
 };
@@ -17,6 +19,7 @@ export const classes = {
 export const tokens = {
     disabledOpacity: '--plasma-tabs-disabled-opacity',
     containerWidth: '--plasma-tabs-container-width',
+    containerHeight: '--plasma-tabs-container-height',
     cursor: '--plasma-tabs-cursor',
     color: '--plasma-tabs-color',
     colorHover: '--plasma-tabs-color-hover',

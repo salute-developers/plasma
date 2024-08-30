@@ -1,14 +1,15 @@
 import React, { forwardRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
-import { TabsProps, TabItemProps } from '.';
+import { TabsProps } from './Tabs.types';
+import { TabItemProps } from './TabItem.types';
 
-export interface TabsControllerProps extends TabsProps {
+export type TabsControllerProps = TabsProps & {
     items: Array<{ label: string } & TabItemProps>;
     index: number;
     onIndexChange: (index: number) => void;
     children?: never;
     autoscroll?: boolean;
-}
+};
 
 /**
  * @deprecated
@@ -22,7 +23,10 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
     ItemComponent: ForwardRefExoticComponent<TabItemProps & RefAttributes<HTMLDivElement>>,
 ) {
     // eslint-disable-next-line prefer-arrow-callback
-    return forwardRef<T, P>(function TabsController({ items, index, autoscroll, onIndexChange, ...rest }, ref) {
+    return forwardRef<T, P>(function TabsController(
+        { items, index, autoscroll, onIndexChange, orientation: _orientation, ...rest },
+        ref,
+    ) {
         const { disabled } = rest;
 
         return (

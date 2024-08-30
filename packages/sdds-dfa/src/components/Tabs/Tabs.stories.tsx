@@ -67,7 +67,17 @@ const meta: Meta<StoryTabsProps> = {
                 type: 'select',
             },
         },
-        ...disableProps(['pilled', 'animated', 'view', 'as', 'forwardedAs', 'outsideScroll', 'index']),
+        ...disableProps([
+            'orientation',
+            'tabItemContentLeft',
+            'pilled',
+            'animated',
+            'view',
+            'as',
+            'forwardedAs',
+            'outsideScroll',
+            'index',
+        ]),
     },
 };
 
