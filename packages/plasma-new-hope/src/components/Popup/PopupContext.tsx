@@ -21,7 +21,7 @@ const PopupContext = createContext<PopupContextType>({
 export const usePopupContext = () => useContext(PopupContext);
 
 export const PopupProvider: FC<PropsWithChildren> = ({ children }) => {
-    const prevBodyOverflowY = useRef(document.body.style.overflowY);
+    const prevBodyOverflowY = useRef(typeof document !== 'undefined' ? document.body.style.overflowY : '');
     const [items, setItems] = useState<PopupInfo[]>([]);
 
     const register = (info: PopupInfo) => {
