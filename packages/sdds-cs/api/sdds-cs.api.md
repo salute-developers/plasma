@@ -1566,7 +1566,7 @@ accent: PolymorphicClassName;
 };
 }> & (({
     target?: "textfield-like" | undefined;
-    view?: "default" | "positive" | "negative" | "warning" | undefined;
+    view?: "default" | "positive" | "warning" | "negative" | undefined;
     contentLeft?: React_2.ReactNode;
     labelPlacement?: "inner" | "outer" | undefined;
     placeholder?: string | undefined;
@@ -1603,7 +1603,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "textfield-like" | undefined;
-    view?: "default" | "positive" | "negative" | "warning" | undefined;
+    view?: "default" | "positive" | "warning" | "negative" | undefined;
     contentLeft?: React_2.ReactNode;
     labelPlacement?: "inner" | "outer" | undefined;
     placeholder?: string | undefined;
