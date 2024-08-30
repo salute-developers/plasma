@@ -4,6 +4,7 @@ export const sdds_cs__dark = ([
     `
 :root {
   --text-primary: #FFFFFFF5;
+  --text-primary-brightness: #FFFFFFFF;
   --text-primary-hover: #FFFFFF93;
   --text-primary-active: #FFFFFFC4;
   --text-secondary: #FFFFFF8F;
@@ -22,6 +23,7 @@ export const sdds_cs__dark = ([
   --text-negative-hover: #FF475AFF;
   --text-negative-active: #FF0A23FF;
   --on-dark-text-primary: #FFFFFFF5;
+  --on-dark-text-primary-brightness: #FFFFFFFF;
   --on-dark-text-primary-hover: #FFFFFF93;
   --on-dark-text-primary-active: #FFFFFFC4;
   --on-dark-text-secondary: #FFFFFF8F;
@@ -40,6 +42,7 @@ export const sdds_cs__dark = ([
   --on-dark-text-negative-hover: #FF475AFF;
   --on-dark-text-negative-active: #FF0A23FF;
   --on-light-text-primary: #060A0CF5;
+  --on-light-text-primary-brightness: #191BF6FF;
   --on-light-text-primary-hover: #070B0E93;
   --on-light-text-primary-active: #070B0EC4;
   --on-light-text-secondary: #060A0C8F;
@@ -58,6 +61,7 @@ export const sdds_cs__dark = ([
   --on-light-text-negative-hover: #F5384BFF;
   --on-light-text-negative-active: #E40C22FF;
   --inverse-text-primary: #060A0CF5;
+  --inverse-text-primary-brightness: #191BF6FF;
   --inverse-text-primary-hover: #070B0E93;
   --inverse-text-primary-active: #070B0EC4;
   --inverse-text-secondary: #060A0C8F;
@@ -76,9 +80,11 @@ export const sdds_cs__dark = ([
   --inverse-text-negative-hover: #F5384BFF;
   --inverse-text-negative-active: #E40C22FF;
   --surface-solid-primary: #13181B;
+  --surface-solid-primary-brightness: #212629FF;
   --surface-solid-primary-hover: #171D21FF;
   --surface-solid-primary-active: #0F1315FF;
   --surface-solid-card: #13181B;
+  --surface-solid-card-brightness: #212629FF;
   --surface-solid-card-hover: #171D21FF;
   --surface-solid-card-active: #0F1315FF;
   --surface-solid-default: #F7F9FB;
@@ -103,9 +109,11 @@ export const sdds_cs__dark = ([
   --surface-info-hover: #1798EEFF;
   --surface-info-active: #1086D5FF;
   --on-dark-surface-solid-primary: #13181B;
+  --on-dark-surface-solid-primary-brightness: #212629FF;
   --on-dark-surface-solid-primary-hover: #171D21FF;
   --on-dark-surface-solid-primary-active: #0F1315FF;
   --on-dark-surface-solid-card: #13181B;
+  --on-dark-surface-solid-card-brightness: #212629FF;
   --on-dark-surface-solid-card-hover: #171D21FF;
   --on-dark-surface-solid-card-active: #0F1315FF;
   --on-dark-surface-solid-default: #F7F9FB;
@@ -133,9 +141,11 @@ export const sdds_cs__dark = ([
   --on-dark-surface-info-hover: #1798EEFF;
   --on-dark-surface-info-active: #1086D5FF;
   --on-light-surface-solid-primary: #F2F5F8;
+  --on-light-surface-solid-primary-brightness: #F3F6F8FF;
   --on-light-surface-solid-primary-hover: #F8FAFBFF;
   --on-light-surface-solid-primary-active: #EBF0F4FF;
   --on-light-surface-solid-card: #FFFFFFFF;
+  --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-card-hover: #FFFFFFFF;
   --on-light-surface-solid-card-active: #FFFFFFFF;
   --on-light-surface-solid-default: #060A0C;
@@ -160,9 +170,11 @@ export const sdds_cs__dark = ([
   --on-light-surface-info-hover: #1798EEFF;
   --on-light-surface-info-active: #1086D5FF;
   --inverse-surface-solid-primary: #F2F5F8;
+  --inverse-surface-solid-primary-brightness: #F3F6F8FF;
   --inverse-surface-solid-primary-hover: #F8FAFBFF;
   --inverse-surface-solid-primary-active: #EBF0F4FF;
   --inverse-surface-solid-card: #FFFFFFFF;
+  --inverse-surface-solid-card-brightness: #FFFFFFFF;
   --inverse-surface-solid-card-hover: #FFFFFFFF;
   --inverse-surface-solid-card-active: #FFFFFFFF;
   --inverse-surface-solid-default: #060A0C;
@@ -187,9 +199,11 @@ export const sdds_cs__dark = ([
   --inverse-surface-info-hover: #1798EEFF;
   --inverse-surface-info-active: #1086D5FF;
   --background-primary: #060A0C;
+  --background-primary-brightness: #15191BFF;
   --dark-background-primary: #060A0C;
   --light-background-primary: #F7F9FB;
   --inverse-background-primary: #F7F9FB;
+  --inverse-background-primary-brightness: #F7F9FBFF;
   --outline-solid-primary: #23292D;
   --outline-solid-primary-hover: #FFFFFFFF;
   --outline-solid-primary-active: #A0ADB6FF;

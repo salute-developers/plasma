@@ -6,6 +6,7 @@ export const sdds_serv__light = ([
   --text-primary-hover: #17171793;
   --text-primary-active: #171717C4;
   --text-primary: #171717F5;
+  --text-primary-brightness: #2525F6FF;
   --text-secondary-hover: #171717FF;
   --text-secondary-active: #171717AB;
   --text-secondary: #1717178F;
@@ -48,6 +49,7 @@ export const sdds_serv__light = ([
   --on-dark-text-primary-hover: #F5F5F593;
   --on-dark-text-primary-active: #F5F5F5C4;
   --on-dark-text-primary: #F5F5F5F5;
+  --on-dark-text-primary-brightness: #F6F6F6FF;
   --on-dark-text-secondary-hover: #F5F5F5FF;
   --on-dark-text-secondary-active: #F5F5F5AB;
   --on-dark-text-secondary: #F5F5F58F;
@@ -90,6 +92,7 @@ export const sdds_serv__light = ([
   --on-light-text-primary-hover: #17171793;
   --on-light-text-primary-active: #171717C4;
   --on-light-text-primary: #171717F5;
+  --on-light-text-primary-brightness: #2525F6FF;
   --on-light-text-secondary-hover: #171717FF;
   --on-light-text-secondary-active: #171717AB;
   --on-light-text-secondary: #1717178F;
@@ -132,6 +135,7 @@ export const sdds_serv__light = ([
   --inverse-text-primary-hover: #F5F5F593;
   --inverse-text-primary-active: #F5F5F5C4;
   --inverse-text-primary: #F5F5F5F5;
+  --inverse-text-primary-brightness: #F6F6F6FF;
   --inverse-text-secondary-hover: #F5F5F5FF;
   --inverse-text-secondary-active: #F5F5F5AB;
   --inverse-text-secondary: #F5F5F58F;
@@ -174,6 +178,7 @@ export const sdds_serv__light = ([
   --surface-solid-primary-hover: #FAFAFAFF;
   --surface-solid-primary-active: #F0F0F0FF;
   --surface-solid-primary: #F5F5F5;
+  --surface-solid-primary-brightness: #F6F6F6FF;
   --surface-solid-secondary-hover: #F7F7F7FF;
   --surface-solid-secondary-active: #E8E8E8FF;
   --surface-solid-secondary: #ECECEC;
@@ -183,6 +188,7 @@ export const sdds_serv__light = ([
   --surface-solid-card-hover: #FFFFFFFF;
   --surface-solid-card-active: #FFFFFFFF;
   --surface-solid-card: #FFFFFFFF;
+  --surface-solid-card-brightness: #FFFFFFFF;
   --surface-solid-default-hover: #262626FF;
   --surface-solid-default-active: #030303FF;
   --surface-solid-default: #080808;
@@ -201,6 +207,7 @@ export const sdds_serv__light = ([
   --surface-transparent-card-hover: #FFFFFFFF;
   --surface-transparent-card-active: #FFFFFFFF;
   --surface-transparent-card: #FFFFFFFF;
+  --surface-transparent-card-brightness: #FFFFFFFF;
   --surface-clear-hover: #00000000;
   --surface-clear-active: #00000000;
   --surface-clear: #00000000;
@@ -250,6 +257,7 @@ export const sdds_serv__light = ([
   --on-dark-surface-solid-primary-hover: #363636FF;
   --on-dark-surface-solid-primary-active: #0D0D0DFF;
   --on-dark-surface-solid-primary: #171717;
+  --on-dark-surface-solid-primary-brightness: #252525FF;
   --on-dark-surface-solid-secondary-hover: #3B3B3BFF;
   --on-dark-surface-solid-secondary-active: #1C1C1CFF;
   --on-dark-surface-solid-secondary: #262626;
@@ -259,6 +267,7 @@ export const sdds_serv__light = ([
   --on-dark-surface-solid-card-hover: #363636FF;
   --on-dark-surface-solid-card-active: #0D0D0DFF;
   --on-dark-surface-solid-card: #171717;
+  --on-dark-surface-solid-card-brightness: #252525FF;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #F5F5F5FF;
   --on-dark-surface-solid-default: #F9F9F9;
@@ -277,6 +286,7 @@ export const sdds_serv__light = ([
   --on-dark-surface-transparent-card-hover: #FFFFFF05;
   --on-dark-surface-transparent-card-active: #FFFFFF1A;
   --on-dark-surface-transparent-card: #FFFFFF0F;
+  --on-dark-surface-transparent-card-brightness: #FFFF1DFF;
   --on-dark-surface-clear-hover: #00000000;
   --on-dark-surface-clear-active: #00000000;
   --on-dark-surface-clear: #00000000;
@@ -328,6 +338,7 @@ export const sdds_serv__light = ([
   --on-light-surface-solid-primary-hover: #FAFAFAFF;
   --on-light-surface-solid-primary-active: #F0F0F0FF;
   --on-light-surface-solid-primary: #F5F5F5;
+  --on-light-surface-solid-primary-brightness: #F6F6F6FF;
   --on-light-surface-solid-secondary-hover: #F7F7F7FF;
   --on-light-surface-solid-secondary-active: #E8E8E8FF;
   --on-light-surface-solid-secondary: #ECECEC;
@@ -337,6 +348,7 @@ export const sdds_serv__light = ([
   --on-light-surface-solid-card-hover: #FFFFFFFF;
   --on-light-surface-solid-card-active: #FFFFFFFF;
   --on-light-surface-solid-card: #FFFFFFFF;
+  --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-default-hover: #262626FF;
   --on-light-surface-solid-default-active: #030303FF;
   --on-light-surface-solid-default: #080808;
@@ -355,6 +367,7 @@ export const sdds_serv__light = ([
   --on-light-surface-transparent-card-hover: #FFFFFFFF;
   --on-light-surface-transparent-card-active: #FFFFFFFF;
   --on-light-surface-transparent-card: #FFFFFFFF;
+  --on-light-surface-transparent-card-brightness: #FFFFFFFF;
   --on-light-surface-clear-hover: #00000000;
   --on-light-surface-clear-active: #00000000;
   --on-light-surface-clear: #00000000;
@@ -406,6 +419,7 @@ export const sdds_serv__light = ([
   --inverse-surface-solid-primary-hover: #363636FF;
   --inverse-surface-solid-primary-active: #0D0D0DFF;
   --inverse-surface-solid-primary: #171717;
+  --inverse-surface-solid-primary-brightness: #252525FF;
   --inverse-surface-solid-secondary-hover: #3B3B3BFF;
   --inverse-surface-solid-secondary-active: #1C1C1CFF;
   --inverse-surface-solid-secondary: #262626;
@@ -415,6 +429,7 @@ export const sdds_serv__light = ([
   --inverse-surface-solid-card-hover: #363636FF;
   --inverse-surface-solid-card-active: #0D0D0DFF;
   --inverse-surface-solid-card: #171717;
+  --inverse-surface-solid-card-brightness: #252525FF;
   --inverse-surface-solid-default-hover: #FFFFFFFF;
   --inverse-surface-solid-default-active: #F5F5F5FF;
   --inverse-surface-solid-default: #F9F9F9;
@@ -433,6 +448,7 @@ export const sdds_serv__light = ([
   --inverse-surface-transparent-card-hover: #FFFFFF05;
   --inverse-surface-transparent-card-active: #FFFFFF1A;
   --inverse-surface-transparent-card: #FFFFFF0F;
+  --inverse-surface-transparent-card-brightness: #FFFF1DFF;
   --inverse-surface-clear-hover: #00000000;
   --inverse-surface-clear-active: #00000000;
   --inverse-surface-clear: #00000000;
@@ -482,9 +498,11 @@ export const sdds_serv__light = ([
   --inverse-surface-transparent-negative: #FF293E33;
   --inverse-surface-transparent-info: #118CDF33;
   --background-primary: #F9F9F9;
+  --background-primary-brightness: #F9F9F9FF;
   --dark-background-primary: #080808;
   --light-background-primary: #F9F9F9;
   --inverse-background-primary: #080808;
+  --inverse-background-primary-brightness: #171717FF;
   --overlay-soft: #F9F9F98F;
   --overlay-hard: #F9F9F9F5;
   --overlay-blur: #F9F9F947;
