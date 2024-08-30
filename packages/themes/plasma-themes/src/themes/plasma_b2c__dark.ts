@@ -4,6 +4,7 @@ export const plasma_b2c__dark = ([
     `
 :root {
   --text-primary: #FFFFFFF5;
+  --text-primary-brightness: #FFFFFFFF;
   --text-secondary: #FFFFFF8F;
   --text-tertiary: #FFFFFF47;
   --text-paragraph: #FFFFFFCC;
@@ -30,6 +31,7 @@ export const plasma_b2c__dark = ([
   --text-info: #3F81FD;
   --text-info-minor: #1549AB;
   --on-dark-text-primary: #FFFFFFF5;
+  --on-dark-text-primary-brightness: #FFFFFFFF;
   --on-dark-text-secondary: #FFFFFF8F;
   --on-dark-text-tertiary: #FFFFFF47;
   --on-dark-text-paragraph: #FFFFFFCC;
@@ -56,6 +58,7 @@ export const plasma_b2c__dark = ([
   --on-dark-text-info-minor: #1549AB;
   --on-dark-text-info: #3F81FD;
   --on-light-text-primary: #080808F5;
+  --on-light-text-primary-brightness: #171717FF;
   --on-light-text-secondary: #0808088F;
   --on-light-text-tertiary: #08080847;
   --on-light-text-paragraph: #080808CC;
@@ -84,17 +87,21 @@ export const plasma_b2c__dark = ([
   --on-light-text-info: #2A72F8;
   --on-light-text-info-minor: #8BB2FC;
   --inverse-text-primary: #080808F5;
+  --inverse-text-primary-brightness: #171717FF;
   --inverse-text-secondary: #0808088F;
   --inverse-text-tertiary: #08080847;
   --inverse-text-paragraph: #080808CC;
   --surface-solid-primary: #171717;
+  --surface-solid-primary-brightness: #252525FF;
   --surface-solid-secondary: #262626;
   --surface-solid-tertiary: #363636;
   --surface-solid-card: #171717;
+  --surface-solid-card-brightness: #252525FF;
   --surface-transparent-primary: #FFFFFF0F;
   --surface-transparent-secondary: #FFFFFF1F;
   --surface-transparent-tertiary: #FFFFFF33;
   --surface-transparent-card: #FFFFFF1F;
+  --surface-transparent-card-brightness: #FFFFFFFF;
   --surface-accent: #3F81FD;
   --surface-positive: #1A9E32;
   --surface-warning: #FA5F05;
@@ -140,13 +147,16 @@ export const plasma_b2c__dark = ([
   --surface-info-minor: #082254;
   --surface-transparent-info: #3F81FD33;
   --on-dark-surface-solid-primary: #171717;
+  --on-dark-surface-solid-primary-brightness: #252525FF;
   --on-dark-surface-solid-secondary: #262626;
   --on-dark-surface-solid-tertiary: #363636;
   --on-dark-surface-solid-card: #171717;
+  --on-dark-surface-solid-card-brightness: #252525FF;
   --on-dark-surface-transparent-primary: #FFFFFF0F;
   --on-dark-surface-transparent-secondary: #FFFFFF1F;
   --on-dark-surface-transparent-tertiary: #FFFFFF33;
   --on-dark-surface-transparent-card: #FFFFFF1F;
+  --on-dark-surface-transparent-card-brightness: #FFFFFFFF;
   --on-dark-surface-accent: #3F81FD;
   --on-dark-surface-positive: #1A9E32;
   --on-dark-surface-warning: #FA5F05;
@@ -192,13 +202,16 @@ export const plasma_b2c__dark = ([
   --on-dark-surface-transparent-info: #3F81FD33;
   --on-light-surface-solid-default: #080808;
   --on-light-surface-solid-primary: #F5F5F5;
+  --on-light-surface-solid-primary-brightness: #F6F6F6FF;
   --on-light-surface-solid-secondary: #ECECEC;
   --on-light-surface-solid-tertiary: #DDDDDD;
   --on-light-surface-solid-card: #FFFFFFFF;
+  --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-transparent-primary: #08080808;
   --on-light-surface-transparent-secondary: #0808080F;
   --on-light-surface-transparent-tertiary: #0808081F;
   --on-light-surface-transparent-card: #FFFFFFFF;
+  --on-light-surface-transparent-card-brightness: #FFFFFFFF;
   --on-light-surface-accent: #2A72F8;
   --on-light-surface-positive: #1A9E32;
   --on-light-surface-warning: #FA5F05;
@@ -238,6 +251,7 @@ export const plasma_b2c__dark = ([
   --on-light-surface-info-minor: #DEE9FF;
   --on-light-surface-transparent-info: #2A72F81F;
   --background-primary: #080808;
+  --background-primary-brightness: #171717FF;
   --dark-background-primary: #080808;
   --light-background-primary: #F9F9F9;
   --overlay-soft: #0808088F;
