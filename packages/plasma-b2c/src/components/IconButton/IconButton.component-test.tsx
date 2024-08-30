@@ -1,1 +1,0 @@
-../../../../plasma-web/src/components/IconButton/IconButton.component-test.tsx
