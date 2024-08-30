@@ -795,6 +795,8 @@ export const iconSectionsSet = {
         sendOutline: 'SendOutline',
         messageDraftFill: 'MessageDraftFill',
         messageDraftOutline: 'MessageDraftOutline',
+        messageNewFill: 'MessageNewFill',
+        messageNewOutline: 'MessageNewOutline',
     },
     Media: {
         cameraDashFill: 'CameraDashFill',
