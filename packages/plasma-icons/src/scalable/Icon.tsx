@@ -1051,6 +1051,8 @@ export const iconSectionsSet = {
         saluteOutline: 'SaluteOutline',
         sber: 'Sber',
         visa: 'Visa',
+        linkedin: 'Linkedin',
+        whatsapp: 'Whatsapp',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
