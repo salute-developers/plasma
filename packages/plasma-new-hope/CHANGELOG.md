@@ -1,3 +1,19 @@
+# v0.133.1 (Fri Aug 30 2024)
+
+#### 🐛 Bug Fix
+
+- plasma-*: PopupProvider server rendering [HOTFIX] [#1410](https://github.com/salute-developers/plasma/pull/1410) (VAnaKudryavtsev@sberbank.ru [@vadim-kudr](https://github.com/vadim-kudr))
+- fix: Fix PopupProvider server rendering (VAnaKudryavtsev@sberbank.ru)
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Кудрявцев Вадим Анатольевич (VAnaKudryavtsev@sberbank.ru)
+
+---
+
 # v0.133.0 (Wed Aug 28 2024)
 
 ### Release Notes

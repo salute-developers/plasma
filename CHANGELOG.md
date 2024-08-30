@@ -1,3 +1,17 @@
+# (Fri Aug 30 2024)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-new-hope@0.133.1`
+  - plasma-*: PopupProvider server rendering [HOTFIX] [#1410](https://github.com/salute-developers/plasma/pull/1410) (VAnaKudryavtsev@sberbank.ru [@vadim-kudr](https://github.com/vadim-kudr))
+
+#### Authors: 2
+
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Кудрявцев Вадим Анатольевич (VAnaKudryavtsev@sberbank.ru)
+
+---
+
 # (Wed Aug 28 2024)
 
 ### Release Notes
