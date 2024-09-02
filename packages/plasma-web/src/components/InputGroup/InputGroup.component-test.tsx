@@ -25,6 +25,8 @@ describe('plasma-web: InputGroup', () => {
                 <PadMe />
             </CypressTestDecorator>,
         );
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(100);
 
         cy.viewport(1366, 768);
         cy.matchImageSnapshot();
@@ -71,6 +73,8 @@ describe('plasma-web: InputGroup', () => {
             </CypressTestDecorator>,
         );
 
+        cy.get('body').realClick();
+
         cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
@@ -96,6 +100,8 @@ describe('plasma-web: InputGroup', () => {
                 <PadMe />
             </CypressTestDecorator>,
         );
+
+        cy.get('body').realClick();
 
         cy.viewport(1366, 768);
         cy.matchImageSnapshot();
