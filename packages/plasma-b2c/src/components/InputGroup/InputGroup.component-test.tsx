@@ -47,11 +47,11 @@ describe('plasma-b2c: InputGroup', () => {
         mount(
             <CypressTestDecorator>
                 <InputGroup orientation="horizontal">
-                    <TextField placegolder="Horizontal" />
+                    <TextField placeholder="Horizontal" />
                 </InputGroup>
                 <PadMe />
                 <InputGroup orientation="vertical">
-                    <TextField placegolder="Vertical" />
+                    <TextField placeholder="Vertical" />
                 </InputGroup>
             </CypressTestDecorator>,
         );
