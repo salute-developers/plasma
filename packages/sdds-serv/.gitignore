@@ -12,8 +12,14 @@
 /index.*
 /helpers
 src-sc
+src-linaria
 styled-components/*
 src-emotion
 emotion/cjs
 emotion/es
+linaria/cjs
+linaria/es
 build-sb
+
+css/*
+!css/package.json
