@@ -57,4 +57,9 @@ module.exports = {
         required: ['plasma-core'],
         themes: 'sdds-themes',
     },
+    'sdds-finportal': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
+        required: ['plasma-core'],
+        themes: 'sdds-themes',
+    },
 };
