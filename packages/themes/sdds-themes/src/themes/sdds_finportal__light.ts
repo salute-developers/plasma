@@ -32,6 +32,7 @@ export const sdds_finportal__light = ([
   --text-info-minor-hover: #7ACAFFFF;
   --text-info-minor-active: #29A9FFFF;
   --text-primary: #13181BF5;
+  --text-primary-brightness: #212629FF;
   --text-secondary: #13181B8F;
   --text-tertiary: #13181B47;
   --text-paragraph: #13181BCC;
@@ -74,6 +75,7 @@ export const sdds_finportal__light = ([
   --on-dark-text-info-minor-hover: #1483CCFF;
   --on-dark-text-info-minor-active: #116BA7FF;
   --on-dark-text-primary: #F2F5F8F5;
+  --on-dark-text-primary-brightness: #F3F6F8FF;
   --on-dark-text-secondary: #F2F5F88F;
   --on-dark-text-tertiary: #F2F5F847;
   --on-dark-text-paragraph: #F2F5F8CC;
@@ -116,6 +118,7 @@ export const sdds_finportal__light = ([
   --on-light-text-info-minor-hover: #7ACAFFFF;
   --on-light-text-info-minor-active: #29A9FFFF;
   --on-light-text-primary: #13181BF5;
+  --on-light-text-primary-brightness: #212629FF;
   --on-light-text-secondary: #13181B8F;
   --on-light-text-tertiary: #13181B47;
   --on-light-text-paragraph: #13181BCC;
@@ -158,6 +161,7 @@ export const sdds_finportal__light = ([
   --inverse-text-info-minor-hover: #1483CCFF;
   --inverse-text-info-minor-active: #116BA7FF;
   --inverse-text-primary: #F2F5F8F5;
+  --inverse-text-primary-brightness: #F3F6F8FF;
   --inverse-text-secondary: #F2F5F88F;
   --inverse-text-tertiary: #F2F5F847;
   --inverse-text-paragraph: #F2F5F8CC;
@@ -224,7 +228,9 @@ export const sdds_finportal__light = ([
   --surface-transparent-info-hover: #118CDF0A;
   --surface-transparent-info-active: #118CDF29;
   --surface-solid-card: #FFFFFFFF;
+  --surface-solid-card-brightness: #FFFFFFFF;
   --surface-solid-primary: #F2F5F8;
+  --surface-solid-primary-brightness: #F3F6F8FF;
   --surface-solid-secondary: #E8EEF2;
   --surface-solid-tertiary: #D5DFE6;
   --surface-solid-default: #060A0C;
@@ -233,6 +239,7 @@ export const sdds_finportal__light = ([
   --surface-transparent-tertiary: #060A0C1F;
   --surface-transparent-deep: #060A0CA3;
   --surface-transparent-card: #FFFFFFFF;
+  --surface-transparent-card-brightness: #FFFFFFFF;
   --surface-clear: #FFFFFF00;
   --surface-accent: #118CDF;
   --surface-transparent-accent: #118CDF1F;
@@ -303,15 +310,18 @@ export const sdds_finportal__light = ([
   --on-dark-surface-transparent-info-hover: #118CDF1F;
   --on-dark-surface-transparent-info-active: #118CDF3D;
   --on-dark-surface-solid-primary: #13181B;
+  --on-dark-surface-solid-primary-brightness: #212629FF;
   --on-dark-surface-solid-secondary: #23292D;
   --on-dark-surface-solid-tertiary: #30373C;
   --on-dark-surface-solid-card: #13181B;
+  --on-dark-surface-solid-card-brightness: #212629FF;
   --on-dark-surface-solid-default: #F7F9FB;
   --on-dark-surface-transparent-primary: #FFFFFF0F;
   --on-dark-surface-transparent-secondary: #FFFFFF1F;
   --on-dark-surface-transparent-tertiary: #FFFFFF33;
   --on-dark-surface-transparent-deep: #FFFFFFA3;
   --on-dark-surface-transparent-card: #FFFFFF0F;
+  --on-dark-surface-transparent-card-brightness: #FFFFFFFF;
   --on-dark-surface-accent: #118CDF;
   --on-dark-surface-transparent-accent: #118CDF33;
   --on-dark-surface-accent-minor: #0C283B;
@@ -381,7 +391,9 @@ export const sdds_finportal__light = ([
   --on-light-surface-transparent-info-hover: #118CDF0A;
   --on-light-surface-transparent-info-active: #118CDF29;
   --on-light-surface-solid-card: #FFFFFFFF;
+  --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-primary: #F2F5F8;
+  --on-light-surface-solid-primary-brightness: #F3F6F8FF;
   --on-light-surface-solid-secondary: #E8EEF2;
   --on-light-surface-solid-tertiary: #D5DFE6;
   --on-light-surface-solid-default: #060A0C;
@@ -390,6 +402,7 @@ export const sdds_finportal__light = ([
   --on-light-surface-transparent-tertiary: #060A0C1F;
   --on-light-surface-transparent-deep: #060A0CA3;
   --on-light-surface-transparent-card: #FFFFFFFF;
+  --on-light-surface-transparent-card-brightness: #FFFFFFFF;
   --on-light-surface-accent: #118CDF;
   --on-light-surface-accent-minor: #CFECFF;
   --on-light-surface-transparent-accent: #118CDF1F;
@@ -459,7 +472,9 @@ export const sdds_finportal__light = ([
   --inverse-surface-transparent-info-hover: #118CDF1F;
   --inverse-surface-transparent-info-active: #118CDF3D;
   --inverse-surface-solid-card: #13181B;
+  --inverse-surface-solid-card-brightness: #212629FF;
   --inverse-surface-solid-primary: #13181B;
+  --inverse-surface-solid-primary-brightness: #212629FF;
   --inverse-surface-solid-secondary: #23292D;
   --inverse-surface-solid-tertiary: #30373C;
   --inverse-surface-solid-default: #F7F9FB;
@@ -468,6 +483,7 @@ export const sdds_finportal__light = ([
   --inverse-surface-transparent-tertiary: #FFFFFF33;
   --inverse-surface-transparent-deep: #FFFFFFA3;
   --inverse-surface-transparent-card: #FFFFFF0F;
+  --inverse-surface-transparent-card-brightness: #FFFFFFFF;
   --inverse-surface-accent: #118CDF;
   --inverse-surface-accent-minor: #0C283B;
   --inverse-surface-transparent-accent: #118CDF33;
@@ -484,9 +500,11 @@ export const sdds_finportal__light = ([
   --inverse-surface-transparent-negative: #FF293E33;
   --inverse-surface-transparent-info: #118CDF33;
   --background-primary: #F7F9FB;
+  --background-primary-brightness: #F7F9FBFF;
   --dark-background-primary: #060A0C;
   --light-background-primary: #F9F9F9;
   --inverse-background-primary: #080808;
+  --inverse-background-primary-brightness: #171717FF;
   --overlay-hard: #F7F9FBF5;
   --overlay-soft: #F7F9FB8F;
   --overlay-blur: #F7F9FB47;
