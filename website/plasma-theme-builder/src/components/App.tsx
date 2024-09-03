@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import { Footer } from './Footer/Footer';
 import { Main } from './Main/Main';
@@ -12,6 +13,12 @@ import { useDefaultThemeData, useFetchTheme } from '../hooks';
 import { multipleMediaQuery } from './mixins';
 import { getURLParams, pushHistoryState } from '../utils';
 import type { Theme as ThemeType } from '../types';
+// import { useDefaultThemeData, useFetchTheme } from '../hooks';
+// import { multipleMediaQuery } from './mixins';
+// import { getURLParams, pushHistoryState } from '../utils';
+// import type { Theme as ThemeType } from '../types';
+import { TokensEditor } from './_new/TokensEditor';
+import { ToneGenerator } from './ColorGenerator/ToneGenerator';
 
 const StyledRoot = styled.div`
     min-width: 35rem;
@@ -31,20 +38,21 @@ const StyledRoot = styled.div`
 `;
 
 const PAGE_TYPE = {
-    MAIN: 'MAIN',
-    GENERATOR: 'GENERATOR',
-    THEME: 'THEME',
-    PULL_REQUEST: 'PULL_REQUEST',
-    ERROR: 'ERROR',
+    TONE: 'TONE',
+    GRAYSCALE: 'GRAYSCALE',
+    FONT_FAMILY: 'FONT_FAMILY',
+    TOKENS_EDITOR: 'TOKENS_EDITOR',
 } as const;
 
 type PageType = typeof PAGE_TYPE[keyof typeof PAGE_TYPE];
 
 const App = () => {
-    const [state, setState] = useState<PageType>(PAGE_TYPE.MAIN);
-    const [data, setData] = useState<ThemeType>();
-    const [token, setToken] = useState<string | undefined>();
-    const defaultData = useDefaultThemeData();
+    const [state, setState] = useState<PageType>(PAGE_TYPE.TOKENS_EDITOR);
+    const navigate = useNavigate();
+
+    // const [data, setData] = useState<ThemeType>();
+    // const [token, setToken] = useState<string | undefined>();
+    // const defaultData = useDefaultThemeData();
 
     const [themeName, branchName] = getURLParams(['theme', 'branch']);
     const [themeData, errorMessage] = useFetchTheme(themeName, branchName);
@@ -89,24 +97,35 @@ const App = () => {
         setData(data);
     }, []);
 
+    const onTokensEditor = () => {
+        setState(PAGE_TYPE.TOKENS_EDITOR);
+    };
+
     return (
-        <StyledRoot>
-            {state === PAGE_TYPE.MAIN && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
-            {state === PAGE_TYPE.GENERATOR && <Generator onMain={onMain} onPreviewTheme={onPreviewTheme} />}
-            {state === PAGE_TYPE.THEME && (
-                <Theme
-                    data={data}
-                    defaultData={defaultData}
-                    themeNameFromParam={themeName}
-                    branchNameFromParam={branchName}
-                    onGenerateTheme={onGenerateTheme}
-                    onPullRequest={onPullRequest}
-                />
-            )}
-            {state === PAGE_TYPE.PULL_REQUEST && <PullRequest data={data} token={token} />}
-            {state === PAGE_TYPE.ERROR && <Error message={errorMessage} onMain={onMain} />}
-            <Footer />
-        </StyledRoot>
+        <Routes>
+            <Route path="new" element={<TokensEditor onPreviousPage={onFontFamily} onNextPage={onTone} />} />
+            <Route
+                path="test"
+                element={
+                    <ToneGenerator
+                        onPreviousPage={onTokensEditor}
+                        onNextPage={() => {
+                            navigate('/new');
+                        }}
+                    />
+                }
+            />
+            {/* {state === PAGE_TYPE.TONE && <ToneGenerator onNextPage={onGrayScale} />}
+                {state === PAGE_TYPE.GRAYSCALE && (
+                    <GrayscaleGenerator onPreviousPage={onTone} onNextPage={onFontFamily} />
+                )}
+                {state === PAGE_TYPE.FONT_FAMILY && (
+                    <FontFamilyGenerator onPreviousPage={onGrayScale} onNextPage={onTokensEditor} />
+                )}
+                {state === PAGE_TYPE.TOKENS_EDITOR && (
+                    <TokensEditor onPreviousPage={onFontFamily} onNextPage={onTone} />
+                )} */}
+        </Routes>
     );
 };
 
