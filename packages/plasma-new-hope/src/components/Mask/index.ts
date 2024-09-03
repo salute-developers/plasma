@@ -1,0 +1,1 @@
+export { composeMask } from './Mask';

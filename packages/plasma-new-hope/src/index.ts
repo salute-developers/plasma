@@ -57,3 +57,4 @@ export * from './components/Price';
 export * from './components/Autocomplete';
 export * from './components/EmptyState';
 export * from './components/Editable';
+export * from './components/Mask';
