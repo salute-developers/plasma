@@ -182,7 +182,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
 
             const handleOnKeyDown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
                 handleInputKeydown(event);
-                onKeyDown && onKeyDown(event);
+
+                if (onKeyDown) {
+                    onKeyDown(event);
+                }
             };
 
             useEffect(() => {
