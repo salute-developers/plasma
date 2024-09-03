@@ -55,6 +55,9 @@ packages/sdds-dfa/*
 packages/sdds-cs/*
 !packages/sdds-cs/src
 
+packages/sdds-finportal/*
+!packages/sdds-finportal/src
+
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 

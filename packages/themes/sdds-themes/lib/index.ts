@@ -13,4 +13,8 @@ generate([
         name: 'sdds_cs',
         version: 'latest',
     },
+    {
+        name: 'sdds_finportal',
+        version: 'latest',
+    },
 ]);

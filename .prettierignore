@@ -14,6 +14,7 @@ packages/plasma-asdk/api/
 packages/sdds-serv/api/
 packages/sdds-dfa/api/
 packages/sdds-cs/api/
+packages/sdds-finportal/api/
 
 utils/plasma-cy-utils/lib
 
