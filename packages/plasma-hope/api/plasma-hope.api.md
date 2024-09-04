@@ -964,7 +964,6 @@ export interface TextFieldProps extends Omit<InputHTMLAttributes_2<HTMLInputElem
     htmlSize?: InputHTMLAttributes_2<HTMLInputElement>['size'];
     label?: string | number;
     onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
-    required?: boolean;
     size?: 'l' | 'm' | 's' | 'xs';
     status?: 'success' | 'warning' | 'error';
     view?: TextFieldView | keyof typeof TextFieldView;
