@@ -67,3 +67,4 @@ export * from './components/Toolbar';
 export * from './components/DatePicker';
 export * from './components/Autocomplete';
 export * from './components/EmptyState';
+export * from './components/TextFieldGroup';

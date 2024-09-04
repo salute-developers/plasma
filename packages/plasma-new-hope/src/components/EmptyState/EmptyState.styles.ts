@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
 import { buttonConfig, buttonTokens } from '../Button';
 import { component, mergeConfig } from '../../engines';
@@ -7,6 +8,17 @@ import { tokens } from './EmptyState.tokens';
 
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
+
+export const base = css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--surface-solid-card);
+    box-shadow: 0 4px 14px -4px rgba(8, 8, 8, 0.08), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
+    border-radius: var(${tokens.borderRadius});
+    padding: var(${tokens.padding});
+    text-align: center;
+`;
 
 export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColor}: var(--text-primary);
@@ -23,17 +35,6 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonLetterSpacing}: var(${tokens.fontLetterSpacing});
     ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
     margin: var(${tokens.buttonMargin});
-`;
-
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--surface-solid-card);
-    box-shadow: 0 4px 14px -4px rgba(8, 8, 8, 0.08), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
-    border-radius: var(${tokens.borderRadius});
-    padding: var(${tokens.padding});
-    text-align: center;
 `;
 
 export const IconWrapper = styled.div`

@@ -55,7 +55,36 @@ export type TextAreaPropsRowsCols = {
 
 export type TextAreaDimensionsProps = OneOf<TextAreaPropsAutoResize, TextAreaPropsHeightWidth, TextAreaPropsRowsCols>;
 
-export interface TextAreaPropsBase {
+type RequiredProps = {
+    /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+} & (
+    | {
+          /**
+           * Флаг обязательности поля
+           */
+          required: true;
+          /**
+           * Флаг необязательности поля
+           */
+          optional?: never | false;
+      }
+    | {
+          /**
+           * Флаг необязательности поля
+           */
+          optional?: true;
+          /**
+           * Флаг обязательности поля
+           */
+          required?: never | false;
+      }
+);
+
+export type TextAreaPropsBase = {
     /**
      * Статус компонента: заполнен успешно / с предупреждением / с ошибкой.
      * @deprecated использовать вместо этого свойство `view`
@@ -91,9 +120,9 @@ export interface TextAreaPropsBase {
      * Вспомогательный текст снизу справа для поля ввода.
      */
     rightHelper?: string;
-}
+} & RequiredProps;
 
-export interface TextAreaPropsExtends extends TextAreaPropsBase {
+type TextAreaPropsExtends = TextAreaPropsBase & {
     /**
      * Размер контрола.
      */
@@ -102,8 +131,8 @@ export interface TextAreaPropsExtends extends TextAreaPropsBase {
      * Вид контрола.
      */
     view?: string;
-}
+};
 
-export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols'> &
+export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols' | 'required'> &
     TextAreaPropsExtends &
     TextAreaDimensionsProps;

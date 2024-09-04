@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../../TextField.tokens';
-import { Input, InputWrapper, Label, LeftHelper } from '../../TextField.styles';
+import { Input, InputPlaceholder, InputWrapper, Label, LeftHelper } from '../../TextField.styles';
 
 export const base = css`
     &[readonly] {
@@ -15,7 +15,7 @@ export const base = css`
             background-color: var(${tokens.backgroundColorReadOnly});
         }
 
-        ${Input}::placeholder {
+        ${InputPlaceholder} {
             color: var(${tokens.placeholderColorReadOnly});
         }
 

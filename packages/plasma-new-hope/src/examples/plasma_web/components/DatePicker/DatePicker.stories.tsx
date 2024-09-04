@@ -47,6 +47,12 @@ const meta: Meta = {
                 type: 'date',
             },
         },
+        lang: {
+            options: ['ru', 'en'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
     },
 };
 
@@ -63,6 +69,8 @@ const StoryDefault = ({
     valueError,
     valueSuccess,
     size,
+    lang,
+    format,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -83,6 +91,8 @@ const StoryDefault = ({
             onChangeValue={(e, currentValue) => {
                 onChangeValue(e, currentValue);
             }}
+            lang={lang}
+            format={format}
             onCommitDate={() => setIsOpen(false)}
             {...rest}
         />
@@ -102,6 +112,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
                 type: 'inline-radio',
             },
         },
+        format: {
+            options: ['DD.MM.YYYY', 'DD MMMM YYYY'],
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         label: 'Лейбл',
@@ -109,6 +125,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         placeholder: '30.05.2024',
         size: 'l',
         view: 'default',
+        labelPlacement: 'outer',
         defaultDate: new Date(2024, 5, 14),
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
@@ -120,6 +137,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         valueError: false,
         valueSuccess: false,
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -229,6 +248,12 @@ export const Range: StoryObj<StoryPropsRange> = {
                 type: 'inline-radio',
             },
         },
+        format: {
+            options: ['DD.MM.YYYY', 'DD MMMM YYYY'],
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         label: 'Лейбл',
@@ -254,6 +279,9 @@ export const Range: StoryObj<StoryPropsRange> = {
         enableFirstTextfieldContentRight: false,
         enableSecondTextfieldContentLeft: false,
         enableSecondTextfieldContentRight: false,
+
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
 
         firstValueError: false,
         firstValueSuccess: false,
@@ -318,6 +346,12 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
             options: labelPlacements,
             control: {
                 type: 'inline-radio',
+            },
+        },
+        format: {
+            options: ['DD.MM.YYYY', 'DD MMMM YYYY'],
+            control: {
+                type: 'select',
             },
         },
     },

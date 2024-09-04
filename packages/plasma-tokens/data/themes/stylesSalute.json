@@ -29,6 +29,10 @@
                     "value": "#FFFFFFF5",
                     "comment": "Основной цвет текста"
                 },
+                "textPrimaryBrightness": {
+                    "value": "#FFFFF6",
+                    "comment": "Основной цвет текста"
+                },
                 "textSecondaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Вторичный цвет текста"
@@ -578,6 +582,10 @@
                 },
                 "textPrimary": {
                     "value": "#FFFFFFF5",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textPrimaryBrightness": {
+                    "value": "#FFFFF6",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textSecondaryHover": {
@@ -1131,6 +1139,10 @@
                     "value": "rgba(8, 8, 8, 0.96)",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
+                "textPrimaryBrightness": {
+                    "value": "#171717",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
                 "textSecondaryHover": {
                     "value": "#080808FF",
                     "comment": "Вторичный цвет текста на светлом фоне"
@@ -1682,6 +1694,10 @@
                     "value": "rgba(8, 8, 8, 0.96)",
                     "comment": "Инвертированный основной цвет текста"
                 },
+                "textPrimaryBrightness": {
+                    "value": "#171717",
+                    "comment": "Инвертированный основной цвет текста"
+                },
                 "textSecondaryHover": {
                     "value": "#080808FF",
                     "comment": "Инвертированный вторичный цвет текста"
@@ -1974,6 +1990,10 @@
                     "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#252525",
+                    "comment": "Основной непрозрачный фон поверхности/контрола"
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#303030FF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола"
@@ -2008,6 +2028,10 @@
                 },
                 "surfaceSolidCard": {
                     "value": "[general.gray.950]",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceSolidCardBrightness": {
+                    "value": "#252525",
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceSolidDefaultHover": {
@@ -2083,6 +2107,10 @@
                 },
                 "surfaceTransparentCard": {
                     "value": "rgba(255,255,255,0.06)",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceTransparentCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceClearHover": {
@@ -2646,6 +2674,10 @@
                     "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#252525",
+                    "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#303030FF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на темном"
@@ -2680,6 +2712,10 @@
                 },
                 "surfaceSolidCard": {
                     "value": "[general.gray.950]",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceSolidCardBrightness": {
+                    "value": "#252525",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceSolidDefaultHover": {
@@ -2755,6 +2791,10 @@
                 },
                 "surfaceTransparentCard": {
                     "value": "rgba(255,255,255,0.06)",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceTransparentCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClearHover": {
@@ -3239,6 +3279,10 @@
                     "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом"
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#F6F6F6",
+                    "comment": "Основной непрозрачный фон поверхности/контрола на светлом"
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#F7F7F7FF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом"
@@ -3273,6 +3317,10 @@
                 },
                 "surfaceSolidCard": {
                     "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceSolidCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceSolidDefaultHover": {
@@ -3345,6 +3393,10 @@
                 },
                 "surfaceTransparentCard": {
                     "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceClearHover": {
@@ -3832,6 +3884,11 @@
                     "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
                     "enabled": false
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Инвертированный вторичный непрозрачный фон поверхности/контрола",
@@ -3873,6 +3930,11 @@
                     "enabled": false
                 },
                 "surfaceSolidCard": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный основной фон для карточек",
+                    "enabled": false
+                },
+                "surfaceSolidCardBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный основной фон для карточек",
                     "enabled": false
@@ -3963,6 +4025,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentCard": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный прозрачный фон для карточек",
+                    "enabled": false
+                },
+                "surfaceTransparentCardBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек",
                     "enabled": false
@@ -4348,6 +4415,10 @@
             "default": {
                 "backgroundPrimary": {
                     "value": "#000000FF",
+                    "comment": "Первичный фон"
+                },
+                "backgroundPrimaryBrightness": {
+                    "value": "#0F0FFF",
                     "comment": "Первичный фон"
                 },
                 "backgroundSecondary": {
@@ -5101,6 +5172,11 @@
             },
             "inverse": {
                 "backgroundPrimary": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный основной фон",
+                    "enabled": false
+                },
+                "backgroundPrimaryBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный основной фон",
                     "enabled": false
@@ -7010,6 +7086,10 @@
                     "value": "rgba(8, 8, 8, 0.96)",
                     "comment": "Основной цвет текста"
                 },
+                "textPrimaryBrightness": {
+                    "value": "#171717",
+                    "comment": "Основной цвет текста"
+                },
                 "textSecondaryHover": {
                     "value": "#080808FF",
                     "comment": "Вторичный цвет текста"
@@ -7559,6 +7639,10 @@
                 },
                 "textPrimary": {
                     "value": "#FFFFFFF5",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textPrimaryBrightness": {
+                    "value": "#FFFFF6",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textSecondaryHover": {
@@ -8112,6 +8196,10 @@
                     "value": "rgba(8, 8, 8, 0.96)",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
+                "textPrimaryBrightness": {
+                    "value": "#171717",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
                 "textSecondaryHover": {
                     "value": "#080808FF",
                     "comment": "Вторичный цвет текста на светлом фоне"
@@ -8663,6 +8751,10 @@
                     "value": "#FFFFFFF5",
                     "comment": "Инвертированный основной цвет текста"
                 },
+                "textPrimaryBrightness": {
+                    "value": "#FFFFF6",
+                    "comment": "Инвертированный основной цвет текста"
+                },
                 "textSecondaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Инвертированный вторичный цвет текста"
@@ -8955,6 +9047,10 @@
                     "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#F6F6F6",
+                    "comment": "Основной непрозрачный фон поверхности/контрола"
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#F7F7F7FF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола"
@@ -8989,6 +9085,10 @@
                 },
                 "surfaceSolidCard": {
                     "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceSolidCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceSolidDefaultHover": {
@@ -9064,6 +9164,10 @@
                 },
                 "surfaceTransparentCard": {
                     "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceTransparentCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceClearHover": {
@@ -9627,6 +9731,10 @@
                     "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#252525",
+                    "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#3B3B3BFF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на темном"
@@ -9661,6 +9769,10 @@
                 },
                 "surfaceSolidCard": {
                     "value": "[general.gray.950]",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceSolidCardBrightness": {
+                    "value": "#252525",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceSolidDefaultHover": {
@@ -9736,6 +9848,10 @@
                 },
                 "surfaceTransparentCard": {
                     "value": "rgba(255,255,255,0.06)",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceTransparentCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClearHover": {
@@ -10220,6 +10336,10 @@
                     "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом"
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#F6F6F6",
+                    "comment": "Основной непрозрачный фон поверхности/контрола на светлом"
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#F7F7F7FF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом"
@@ -10254,6 +10374,10 @@
                 },
                 "surfaceSolidCard": {
                     "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceSolidCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceSolidDefaultHover": {
@@ -10326,6 +10450,10 @@
                 },
                 "surfaceTransparentCard": {
                     "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentCardBrightness": {
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceClearHover": {
@@ -10813,6 +10941,11 @@
                     "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
                     "enabled": false
                 },
+                "surfaceSolidPrimaryBrightness": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
                 "surfaceSolidSecondaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Инвертированный вторичный непрозрачный фон поверхности/контрола",
@@ -10854,6 +10987,11 @@
                     "enabled": false
                 },
                 "surfaceSolidCard": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный основной фон для карточек",
+                    "enabled": false
+                },
+                "surfaceSolidCardBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный основной фон для карточек",
                     "enabled": false
@@ -10944,6 +11082,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentCard": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный прозрачный фон для карточек",
+                    "enabled": false
+                },
+                "surfaceTransparentCardBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек",
                     "enabled": false
@@ -11329,6 +11472,10 @@
             "default": {
                 "backgroundPrimary": {
                     "value": "#F2F2F2",
+                    "comment": "Основной фон"
+                },
+                "backgroundPrimaryBrightness": {
+                    "value": "#F3F3F3",
                     "comment": "Основной фон"
                 },
                 "backgroundSecondary": {
@@ -12082,6 +12229,11 @@
             },
             "inverse": {
                 "backgroundPrimary": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный основной фон",
+                    "enabled": false
+                },
+                "backgroundPrimaryBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный основной фон",
                     "enabled": false

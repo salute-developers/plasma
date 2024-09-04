@@ -15,6 +15,8 @@ export const classes = {
     styledPlaceholder: 'textarea-placeholder',
     /** Класс для компонента `StyledHelpers` */
     styledHelpers: 'textarea-helpers',
+    innerLabelPlacement: 'label-placement-inner',
+    outerLabelPlacement: 'label-placement-outer',
 };
 
 export const tokens = {
@@ -52,6 +54,8 @@ export const tokens = {
     placeholderColor: '--plasma-textarea-placeholder-color',
     /** Цвет элемента placeholder в состоянии focus */
     placeholderColorFocus: '--plasma-textarea-placeholder-color-focus',
+    /** Цвет элемента optional */
+    optionalColor: '--plasma-textarea__optional-color',
     /** Цвет текста для левой подписи снизу */
     leftHelperColor: '--plasma-textarea-left-helper-color',
     /** Цвет текста для правой подписи снизу */
@@ -150,4 +154,12 @@ export const tokens = {
     disabledOpacity: '--plasma-textarea-disabled-opacity',
     /** Цвет текста для элемента textarea в состоянии disabled */
     inputColorDisabled: '--plasma-textarea-input-color-disabled',
+
+    indicatorColor: '--plasma-textarea-indicator-color',
+    indicatorSizeInner: '--plasma-textarea-indicator-size-inner',
+    indicatorSizeOuter: '--plasma-textarea-indicator-size-outer',
+    indicatorLabelPlacementInner: '--plasma-textarea-indicator-placement-inner',
+    indicatorLabelPlacementOuter: '--plasma-textarea-indicator-placement-outer',
+    indicatorLabelPlacementInnerRight: '--plasma-textarea-indicator-placement-inner-right',
+    indicatorLabelPlacementOuterRight: '--plasma-textarea-indicator-placement-outer-right',
 };

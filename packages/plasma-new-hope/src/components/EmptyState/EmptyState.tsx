@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { RootProps } from '../../engines';
 
 import { Props } from './EmptyState.types';
-import { Wrapper, StyledButton, IconWrapper, Description } from './EmptyState.styles';
+import { base, StyledButton, IconWrapper, Description } from './EmptyState.styles';
 
 /**
  * Компонент для альтернативного показа содержимого выпадающего списка.
@@ -14,17 +14,15 @@ export const emptyStateRoot = (Root: RootProps<HTMLDivElement, Props>) =>
 
         return (
             <Root {...props} ref={ref}>
-                <Wrapper>
-                    {icon && <IconWrapper>{icon}</IconWrapper>}
+                {icon && <IconWrapper>{icon}</IconWrapper>}
 
-                    <Description>{description}</Description>
+                <Description>{description}</Description>
 
-                    {buttonText && (
-                        <StyledButton stretching="filled" onClick={buttonAction}>
-                            {buttonText}
-                        </StyledButton>
-                    )}
-                </Wrapper>
+                {buttonText && (
+                    <StyledButton stretching="filled" onClick={buttonAction}>
+                        {buttonText}
+                    </StyledButton>
+                )}
             </Root>
         );
     });
@@ -33,7 +31,7 @@ export const emptyStateConfig = {
     name: 'EmptyState',
     tag: 'div',
     layout: emptyStateRoot,
-    base: '',
+    base,
     defaults: {
         size: 'l',
     },

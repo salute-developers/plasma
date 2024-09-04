@@ -41,6 +41,7 @@ export const datePickerRoot = (
                 valueError,
                 valueSuccess,
                 format = 'DD.MM.YYYY',
+                lang = 'ru',
                 maskWithFormat,
                 min,
                 max,
@@ -72,8 +73,8 @@ export const datePickerRoot = (
             const inputRef = useRef<HTMLInputElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
-            const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format));
-            const [inputValue, setInputValue] = useState(formatInputValue(defaultDate, format));
+            const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format, lang));
+            const [inputValue, setInputValue] = useState(formatInputValue(defaultDate, format, lang));
 
             const innerLabelPlacement = labelPlacement === 'inner';
 
@@ -92,6 +93,7 @@ export const datePickerRoot = (
                 setIsInnerOpen,
                 dateFormatDelimiter,
                 format,
+                lang,
                 disabled,
                 readOnly,
                 maskWithFormat,
@@ -135,9 +137,14 @@ export const datePickerRoot = (
             }, [opened]);
 
             useEffect(() => {
-                setCalendarValue(formatCalendarValue(defaultDate, format));
-                setInputValue(formatInputValue(defaultDate, format));
+                setCalendarValue(formatCalendarValue(defaultDate, format, lang));
+                setInputValue(formatInputValue(defaultDate, format, lang));
             }, [defaultDate]);
+
+            useEffect(() => {
+                setCalendarValue(formatCalendarValue(defaultDate, format, lang));
+                setInputValue(formatInputValue(defaultDate, format, lang));
+            }, [format, lang]);
 
             return (
                 <Root

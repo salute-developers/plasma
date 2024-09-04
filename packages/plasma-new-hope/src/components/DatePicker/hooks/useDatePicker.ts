@@ -12,6 +12,7 @@ export const useDatePicker = ({
     setIsInnerOpen,
     dateFormatDelimiter,
     format,
+    lang = 'ru',
     disabled,
     readOnly,
     maskWithFormat,
@@ -52,10 +53,10 @@ export const useDatePicker = ({
         if (!format) {
             setCalendarValue(formatCalendarValue(newValue));
         } else if (newValue?.length === format.length) {
-            setCalendarValue(formatCalendarValue(newValue, format));
+            setCalendarValue(formatCalendarValue(newValue, format, lang));
         }
 
-        setInputValue(formatInputValue(newValue, format));
+        setInputValue(formatInputValue(newValue, format, lang));
 
         onChangeValue?.(event, newValue);
     };
@@ -78,18 +79,18 @@ export const useDatePicker = ({
         }
 
         if (isCalendarValue) {
-            setCalendarValue(formatCalendarValue(date, format));
-            setInputValue(formatInputValue(date, format));
+            setCalendarValue(formatCalendarValue(date, format, lang));
+            setInputValue(formatInputValue(date, format, lang));
 
             return onCommitDate?.(date, false, true, dateInfo);
         }
 
         const formatString = applyFormat ? format : undefined;
 
-        const { value: newDate, isError, isSuccess } = getDateFromFormat(date, formatString);
+        const { value: newDate, isError, isSuccess } = getDateFromFormat(date, formatString, lang);
 
-        setCalendarValue(formatCalendarValue(newDate, format));
-        setInputValue(formatInputValue(newDate, format));
+        setCalendarValue(formatCalendarValue(newDate, format, lang));
+        setInputValue(formatInputValue(newDate, format, lang));
 
         onCommitDate?.(newDate, isError, isSuccess);
     };

@@ -11,7 +11,7 @@ import { GradientTokenValue } from '../GradientTokenValue/GradientTokenValue';
 
 import { SBSansTextMono } from '../mixins';
 import type { MultiplatformValue, InputData, Theme as ThemeType, TokenData } from '../../types';
-import { sectionToFormulaMap, getStateToken } from '../../utils';
+import { sectionToFormulaMap, getStateToken, getBrightnessTokens } from '../../utils';
 
 const Form = styled.form``;
 
@@ -144,6 +144,7 @@ export const TokenForm = ({
 
         const getStateTokens = (section: string, themeMode: ThemeMode): Record<string, TokenData> | undefined => {
             const sectionName = sectionToFormulaMap[section];
+            const isBrightness = getBrightnessTokens.find((n) => n === tokenName);
 
             if (!sectionName) {
                 return undefined;
@@ -160,6 +161,7 @@ export const TokenForm = ({
             return {
                 [`${tokenName}Hover`]: getStateTokenFunc('hover'),
                 [`${tokenName}Active`]: getStateTokenFunc('active'),
+                ...(isBrightness ? { [`${tokenName}Brightness`]: getStateTokenFunc('brightness') } : {}),
             };
         };
 

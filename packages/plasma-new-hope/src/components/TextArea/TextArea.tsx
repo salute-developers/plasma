@@ -17,6 +17,8 @@ import {
     StyledTextArea,
     StyledTextAreaWrapper,
     StyledContainer,
+    StyledIndicator,
+    StyledOptionalText,
 } from './TextArea.styles';
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
@@ -34,6 +36,8 @@ const {
     styledPlaceholder,
     styledHelpers,
 } = classes;
+
+const optionalText = 'optional';
 
 const base = css`
     ${applyDynamicLabel};
@@ -101,6 +105,9 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             width,
             value,
             disabled,
+            required = false,
+            requiredPlacement = 'right',
+            optional = false,
             size,
             view,
             id,
@@ -118,11 +125,19 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
         const outerRef = innerRef && 'current' in innerRef ? innerRef : createRef<HTMLTextAreaElement>();
+
+        const innerOptional = required ? false : optional;
         const hasHelper = Boolean(leftHelper || rightHelper || helperText);
+        const hasOuterLabel = Boolean(label && labelPlacement === 'outer');
+        const hasInnerLabel = Boolean(label && labelPlacement === 'inner' && size !== 'xs');
+        const hasPlaceholderOptional = innerOptional && !hasOuterLabel;
+
         const overriddenView = status !== undefined ? fallbackStatusMap[status] : view;
         const textareaHelperId = id ? `${id}-helper` : undefined;
         const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
-        const placeLabel = labelPlacement === 'inner' && label && size !== 'xs' ? label : placeholder;
+        const placeholderLabel = hasInnerLabel ? label : placeholder;
+
+        const requiredPlacementClass = requiredPlacement === 'right' ? 'align-right ' : undefined;
 
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
@@ -138,6 +153,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const onFocusHandler = useCallback(() => {
             setFocused(true);
         }, []);
+
         const onBlurHandler = useCallback(() => {
             setFocused(false);
         }, []);
@@ -166,6 +182,13 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             focused,
         );
 
+        const optionalTextNode = innerOptional ? (
+            <StyledOptionalText>
+                {Boolean(hasPlaceholderOptional ? placeholderLabel : label) && '\xa0'}
+                {optionalText}
+            </StyledOptionalText>
+        ) : null;
+
         return (
             <Root
                 view={overriddenView}
@@ -175,13 +198,24 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 style={{ width: helperWidth, ...style }}
                 className={className}
             >
-                {label && labelPlacement === 'outer' && <StyledLabel>{label}</StyledLabel>}
+                {hasOuterLabel && (
+                    <StyledLabel>
+                        {required && (
+                            <StyledIndicator className={cx(classes.outerLabelPlacement, requiredPlacementClass)} />
+                        )}
+                        {label}
+                        {optionalTextNode}
+                    </StyledLabel>
+                )}
                 <StyledContainer
                     className={cx(styledContainer, ...dynamicLabelClasses)}
                     width={helperWidth}
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}
                 >
+                    {required && !hasOuterLabel && (
+                        <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
+                    )}
                     {contentRight && <StyledContent>{contentRight}</StyledContent>}
                     <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
                         <StyledTextArea
@@ -194,7 +228,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                             disabled={disabled}
                             height={autoResize ? minAuto : height}
                             width={width}
-                            placeholder={placeLabel}
+                            placeholder={placeholderLabel}
                             aria-describedby={textareaHelperId}
                             value={value}
                             readOnly={readOnly}
@@ -214,13 +248,14 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                             {rightHelper && <StyledRightHelper>{rightHelper}</StyledRightHelper>}
                         </StyledHelpers>
                     )}
-                    {placeLabel && (
+                    {placeholderLabel && (
                         <StyledPlaceholder
                             hasContentRight={Boolean(contentRight)}
                             className={styledPlaceholder}
                             htmlFor={id}
                         >
-                            {placeLabel}
+                            {placeholderLabel}
+                            {!hasOuterLabel && optionalTextNode}
                         </StyledPlaceholder>
                     )}
                 </StyledContainer>

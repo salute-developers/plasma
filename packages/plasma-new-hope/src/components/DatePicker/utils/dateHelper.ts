@@ -1,44 +1,46 @@
 import { customDayjs } from '../../../utils/datejs';
 
-export const formatInputValue = (value?: Date | string, format?: string) => {
-    if (!value) {
+export type Langs = 'ru' | 'en';
+
+export const formatInputValue = (value?: Date | string, format?: string, lang?: Langs) => {
+    if (!value || !lang) {
         return '';
     }
 
     if (format && customDayjs(value, format, true).isValid()) {
-        return customDayjs(value, format).format(format);
+        return customDayjs(value, format).locale(lang).format(format);
     }
 
     if (format && String(value).length >= 10 && String(new Date(value)) !== 'Invalid Date') {
-        return customDayjs(value).format(format);
+        return customDayjs(value).locale(lang).format(format);
     }
 
     return String(value);
 };
 
-export const formatCalendarValue = (value?: Date | string, format?: string) => {
-    if (!value) {
+export const formatCalendarValue = (value?: Date | string, format?: string, lang?: Langs) => {
+    if (!value || !lang) {
         return undefined;
     }
 
     if (format && customDayjs(value, format, true).isValid()) {
-        return customDayjs(value, format, true).toDate();
+        return customDayjs(value, format, true).locale(lang).toDate();
     }
 
     if (String(new Date(value)) !== 'Invalid Date') {
-        return customDayjs(value).toDate();
+        return customDayjs(value).locale(lang).toDate();
     }
 
     return undefined;
 };
 
-export const getDateFromFormat = (value: Date | string, format?: string) => {
-    if (format && customDayjs(value, format, true).isValid()) {
-        return { value: customDayjs(value, format, true).toDate(), isError: false, isSuccess: true };
+export const getDateFromFormat = (value: Date | string, format?: string, lang?: Langs) => {
+    if (format && customDayjs(value, format, true).isValid() && lang) {
+        return { value: customDayjs(value, format, true).locale(lang).toDate(), isError: false, isSuccess: true };
     }
 
-    if (!format && String(new Date(value)) !== 'Invalid Date') {
-        return { value: customDayjs(value).toDate(), isError: false, isSuccess: true };
+    if (!format && String(new Date(value)) !== 'Invalid Date' && lang) {
+        return { value: customDayjs(value).locale(lang).toDate(), isError: false, isSuccess: true };
     }
 
     return { value, isError: true, isSuccess: false };

@@ -26,6 +26,24 @@ const meta: Meta<StoryTextAreaProps> = {
     component: TextArea,
     argTypes: {
         ...argTypesFromConfig(mergeConfig(textAreaConfig, config)),
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
         rows: {
             control: {
                 type: 'number',
@@ -55,6 +73,9 @@ const meta: Meta<StoryTextAreaProps> = {
         autoResize: false,
         minAuto: 0,
         maxAuto: 0,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
     },
 };
 

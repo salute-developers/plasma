@@ -20,6 +20,7 @@ const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'posit
 const meta: Meta<RadioboxProps> = {
     title: 'Controls/Radiobox',
     decorators: [InSpacingDecorator],
+    component: Radiobox,
     argTypes: {
         view: {
             options: views,
@@ -95,13 +96,13 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size, vi
 
 export const Default: StoryObj<RadioboxProps> = {
     args: {
+        view: 'accent',
+        size: 'm',
         name: 'Radiobox',
         label: 'Label',
         description: 'Description',
         disabled: false,
         singleLine: false,
-        size: 'm',
-        view: 'accent',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -146,8 +147,8 @@ const StoryLive = (props: RadioboxProps) => {
 
 export const Live: StoryObj<RadioboxProps> = {
     args: {
-        size: 'm',
         view: 'accent',
+        size: 'm',
         singleLine: false,
         focused: true,
     },

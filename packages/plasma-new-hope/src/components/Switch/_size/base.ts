@@ -30,7 +30,7 @@ export const base = css`
         margin: var(--plasma_private-switch__label-offset, 0);
     }
 
-    :active ${StyledTrigger}::after {
+    :active:not([disabled]) ${StyledTrigger}::after {
         width: calc(var(${tokens.thumbSize}) * var(${tokens.thumbPressScale}, 1));
     }
 `;

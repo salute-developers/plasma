@@ -8,6 +8,7 @@
         "plasma-asdk",
         "sdds-serv",
         "sdds-dfa",
-        "sdds-cs"
+        "sdds-cs",
+        "sdds-finportal"
     ]
 }

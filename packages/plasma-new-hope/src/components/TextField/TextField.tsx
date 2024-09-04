@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import type { ChangeEventHandler, KeyboardEvent, ChangeEvent } from 'react';
+import type { FormEventHandler, ChangeEventHandler, KeyboardEvent, ChangeEvent } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
 
@@ -14,6 +14,7 @@ import { base as readOnlyCSS } from './variations/_read-only/base';
 import { base as labelPlacementCSS } from './variations/_label-placement/base';
 import {
     Input,
+    InputContainer,
     LeftHelper,
     Label,
     InputWrapper,
@@ -23,15 +24,19 @@ import {
     StyledChips,
     StyledTextBefore,
     StyledTextAfter,
+    StyledIndicator,
+    StyledOptionalText,
+    InputPlaceholder,
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip } from './ui';
 import { useKeyNavigation } from './hooks';
 
+const optionalText = 'optional';
+
 export const base = css`
     /* NOTE: Webkit не применяет opacity к inline тегам */
     display: block;
-    overflow: hidden;
 `;
 
 export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =>
@@ -52,12 +57,15 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 placeholder,
                 leftHelper,
                 enumerationType = 'plain',
+                requiredPlacement = 'right',
 
                 // variations
                 view,
                 size,
                 readOnly = false,
                 disabled = false,
+                required = false,
+                optional,
 
                 // controlled
                 chips: values,
@@ -79,6 +87,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
 
             const controlledRefs = { contentRef, inputRef, chipsRefs };
 
+            const [hasValue, setHasValue] = useState(!!rest.value);
             const [chips, setChips] = useState<Array<ChipValues>>([]);
 
             const uniqId = safeUseId();
@@ -87,19 +96,33 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             const helperTextId = safeUseId();
 
             const isChipEnumeration = enumerationType === 'chip';
-            const hideLabel = (size === 'xs' || isChipEnumeration) && labelPlacement === 'inner';
-            const labelInside = size !== 'xs' && labelPlacement === 'inner';
-            const innerLabelPlacementValue = hideLabel ? 'outer' : labelPlacement;
-            const innerPlaceholderValue = hideLabel ? label : placeholder;
-            const innerLabelValue = hideLabel ? undefined : label;
-            const hideLabelClass = hideLabel && label ? classes.hideLabel : undefined;
-            const labelPlacementClass = classes[`${labelPlacement}LabelPlacement` as keyof typeof classes];
-
-            const isChipsVisible = isChipEnumeration && chips?.length;
+            const isChipsVisible = isChipEnumeration && !!chips?.length;
             const withHasChips = isChipsVisible ? classes.hasChips : undefined;
+
+            const hasLabelValue = !!label;
+            const hasInnerLabel = size !== 'xs' && labelPlacement === 'inner' && !isChipsVisible && hasLabelValue;
+            const hasOuterLabel = labelPlacement === 'outer' && hasLabelValue;
+            const hasPlaceholder = !!placeholder && !hasInnerLabel;
+
+            const innerLabelValue = hasInnerLabel || hasOuterLabel ? label : undefined;
+            const innerLabelPlacementValue = labelPlacement === 'inner' && !hasInnerLabel ? undefined : labelPlacement;
+
+            const innerPlaceholderValue = hasPlaceholder ? placeholder : undefined;
+            const placeholderShown = !!innerPlaceholderValue && !hasValue;
+
+            const requiredPlacementClass = requiredPlacement === 'right' ? 'align-right ' : undefined;
+            const labelPlacementClass = innerLabelPlacementValue
+                ? classes[`${innerLabelPlacementValue}LabelPlacement` as keyof typeof classes]
+                : undefined;
+            const hasValueClass = hasValue ? classes.hasValue : undefined;
+
             const wrapperWithoutLeftContent = !contentLeft && isChipsVisible ? classes.hasEmptyContentLeft : undefined;
             const wrapperWithoutRightContent =
                 !contentRight && isChipsVisible ? classes.hasEmptyContentRight : undefined;
+
+            const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
+                setHasValue(!!(event.target as HTMLInputElement).value);
+            };
 
             const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
                 if (disabled || readOnly) {
@@ -129,6 +152,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 updateChips,
                 onSearch,
                 onChange,
+                onEnterDisabled: (rest as any).onEnterDisabled,
             });
 
             const onChipClick = (event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation();
@@ -172,6 +196,15 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 setChips(newChips);
             }, [isChipEnumeration, values]);
 
+            const innerOptional = Boolean(required ? false : optional);
+            const hasPlaceholderOptional = innerOptional && !innerLabelValue && !hasOuterLabel;
+            const optionalTextNode = innerOptional ? (
+                <StyledOptionalText>
+                    {Boolean(hasPlaceholderOptional ? innerPlaceholderValue : innerLabelValue) && '\xa0'}
+                    {optionalText}
+                </StyledOptionalText>
+            ) : null;
+
             return (
                 <Root
                     view={view}
@@ -180,16 +213,26 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                     readOnly={!disabled && readOnly}
                     labelPlacement={innerLabelPlacementValue}
                     onClick={handleInputFocus}
-                    className={cx(labelPlacementClass, hideLabelClass, className)}
+                    className={cx(labelPlacementClass, classes.textFieldGroupItem, className)}
                     style={style}
                 >
-                    {labelInside ||
-                        (innerLabelValue && (
-                            <Label id={labelId} htmlFor={id}>
-                                {innerLabelValue}
-                            </Label>
-                        ))}
-                    <InputWrapper className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}>
+                    {hasOuterLabel && (
+                        <Label id={labelId} htmlFor={id}>
+                            {required && (
+                                <StyledIndicator className={cx(classes.outerLabelPlacement, requiredPlacementClass)} />
+                            )}
+                            {innerLabelValue}
+                            {optionalTextNode}
+                        </Label>
+                    )}
+                    <InputWrapper
+                        // Рефка для внутреннего использования. Не отдается наружу.
+                        ref={(rest as any).inputWrapperRef}
+                        className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}
+                    >
+                        {!hasOuterLabel && required && (
+                            <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
+                        )}
                         {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                         <InputLabelWrapper
                             tabIndex={-1}
@@ -218,23 +261,34 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                                     })}
                                 </StyledChips>
                             )}
-                            <Input
-                                ref={inputForkRef}
-                                id={innerId}
-                                aria-labelledby={labelId}
-                                aria-describedby={helperTextId}
-                                placeholder={innerPlaceholderValue}
-                                disabled={disabled}
-                                readOnly={!disabled && readOnly}
-                                onChange={handleChange}
-                                onKeyDown={handleOnKeyDown}
-                                {...rest}
-                            />
-                            {labelInside && (
-                                <Label id={labelId} htmlFor={innerId}>
-                                    {innerLabelValue}
-                                </Label>
-                            )}
+                            <InputContainer>
+                                <Input
+                                    ref={inputForkRef}
+                                    id={innerId}
+                                    aria-labelledby={labelId}
+                                    aria-describedby={helperTextId}
+                                    placeholder={innerPlaceholderValue}
+                                    className={cx(hasValueClass)}
+                                    disabled={disabled}
+                                    readOnly={!disabled && readOnly}
+                                    onInput={handleInput}
+                                    onChange={handleChange}
+                                    onKeyDown={handleOnKeyDown}
+                                    {...rest}
+                                />
+                                {hasInnerLabel && (
+                                    <Label id={labelId} htmlFor={innerId}>
+                                        {innerLabelValue}
+                                        {optionalTextNode}
+                                    </Label>
+                                )}
+                                {placeholderShown && (
+                                    <InputPlaceholder>
+                                        {innerPlaceholderValue}
+                                        {hasPlaceholderOptional && optionalTextNode}
+                                    </InputPlaceholder>
+                                )}
+                            </InputContainer>
                             {textAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
                         </InputLabelWrapper>
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}

@@ -115,6 +115,9 @@ export const iconSectionsSet = {
         zoomPlusOutline: 'ZoomPlusOutline',
         loginFill: 'LoginFill',
         logoutFill: 'LogoutFill',
+        windowMaximize: 'WindowMaximize',
+        windowMinimize: 'WindowMinimize',
+        filterOff: 'FilterOff',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -537,6 +540,8 @@ export const iconSectionsSet = {
         washerOutline: 'WasherOutline',
         waveLine: 'WaveLine',
         scribbleDiagonal: 'ScribbleDiagonal',
+        poopFill: 'PoopFill',
+        poopOutline: 'PoopOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -659,6 +664,14 @@ export const iconSectionsSet = {
         ticketOutline: 'TicketOutline',
         fileErrorFill: 'FileErrorFill',
         fileErrorOutline: 'FileErrorOutline',
+        blankCsvFill: 'BlankCsvFill',
+        blankCsvOutline: 'BlankCsvOutline',
+        blankDocFill: 'BlankDocFill',
+        blankDocOutline: 'BlankDocOutline',
+        blankTxtFill: 'BlankTxtFill',
+        blankTxtOutline: 'BlankTxtOutline',
+        blankXlsFill: 'BlankXlsFill',
+        blankXlsOutline: 'BlankXlsOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
@@ -793,6 +806,8 @@ export const iconSectionsSet = {
         sendOutline: 'SendOutline',
         messageDraftFill: 'MessageDraftFill',
         messageDraftOutline: 'MessageDraftOutline',
+        messageNewFill: 'MessageNewFill',
+        messageNewOutline: 'MessageNewOutline',
     },
     Media: {
         cameraDashFill: 'CameraDashFill',
@@ -1036,6 +1051,8 @@ export const iconSectionsSet = {
         saluteOutline: 'SaluteOutline',
         sber: 'Sber',
         visa: 'Visa',
+        linkedin: 'Linkedin',
+        whatsapp: 'Whatsapp',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',

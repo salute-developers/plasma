@@ -24,6 +24,24 @@ const meta: Meta<StoryTextAreaProps> = {
     decorators: [InSpacingDecorator],
     component: TextArea,
     argTypes: {
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
         rows: {
             control: {
                 type: 'number',
@@ -64,7 +82,6 @@ const meta: Meta<StoryTextAreaProps> = {
             'minLength',
             'maxLength',
             'name',
-            'required',
             'value',
             'wrap',
             'theme',
@@ -83,6 +100,7 @@ const meta: Meta<StoryTextAreaProps> = {
     args: {
         id: 'example-textarea',
         enableContentRight: true,
+        enableContentLeft: true,
         label: 'Подсказка',
         placeholder: 'Заполните многострочное поле',
         leftHelper: 'Подсказка к полю слева',
@@ -92,6 +110,9 @@ const meta: Meta<StoryTextAreaProps> = {
         autoResize: false,
         minAuto: 0,
         maxAuto: 0,
+        required: false,
+        requiredPlacement: 'right',
+        optional: false,
     },
 };
 
