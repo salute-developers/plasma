@@ -73,6 +73,7 @@ const meta: Meta<StorySelectProps> = {
         variant: 'normal',
         disabled: false,
         readOnly: false,
+        alwaysOpened: false,
     },
     parameters: {
         controls: {
@@ -86,6 +87,7 @@ const meta: Meta<StorySelectProps> = {
                 'helperText',
                 'isTargetAmount',
                 'closeAfterSelect',
+                'alwaysOpened',
                 'variant',
                 'disabled',
                 'readOnly',

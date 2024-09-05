@@ -104,10 +104,9 @@ export interface BasicProps {
     filter?: (label: string, textValue: string) => boolean;
     /**
      * Закрывать ли выпадающий список после выбора элемента.
-     * @default если single, то true; если multiple, то false
+     * @default если single, то true; если multiple, то false; если передан alwaysOpened, то false
      */
     closeAfterSelect?: boolean;
-
     /**
      * Размер компонента.
      */
@@ -129,6 +128,10 @@ export interface BasicProps {
      * Компонент неактивен.
      */
     disabled?: boolean;
+    /**
+     * Дропдаун открыт всегда.
+     */
+    alwaysOpened?: boolean;
 }
 
 export type ComboboxProps = BasicProps &
