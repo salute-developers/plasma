@@ -16,6 +16,7 @@ export const sdds_cs__light = ([
   --text-negative-hover: #EE2F43FF;
   --text-negative-active: #BD0F21FF;
   --text-primary: #23292D;
+  --text-primary-brightness: #30363AFF;
   --text-secondary: #7B868E;
   --text-accent: #108210;
   --text-negative: #E31227;
@@ -34,6 +35,7 @@ export const sdds_cs__light = ([
   --on-dark-text-negative-hover: #FF5263FF;
   --on-dark-text-negative-active: #FF001AFF;
   --on-dark-text-primary: #F7F9FB;
+  --on-dark-text-primary-brightness: #F7F9FBFF;
   --on-dark-text-secondary: #7B868E;
   --on-dark-text-accent: #15B015;
   --on-dark-text-negative: #FF293E;
@@ -52,6 +54,7 @@ export const sdds_cs__light = ([
   --on-light-text-negative-hover: #EE2F43FF;
   --on-light-text-negative-active: #BD0F21FF;
   --on-light-text-primary: #23292D;
+  --on-light-text-primary-brightness: #30363AFF;
   --on-light-text-secondary: #7B868E;
   --on-light-text-accent: #108210;
   --on-light-text-positive: #108210;
@@ -70,6 +73,7 @@ export const sdds_cs__light = ([
   --inverse-text-negative-hover: #FF5263FF;
   --inverse-text-negative-active: #FF001AFF;
   --inverse-text-primary: #F7F9FB;
+  --inverse-text-primary-brightness: #F7F9FBFF;
   --inverse-text-secondary: #7B868E;
   --inverse-text-accent: #15B015;
   --inverse-text-positive: #15B015;
@@ -94,7 +98,9 @@ export const sdds_cs__light = ([
   --surface-info-hover: #528DFAFF;
   --surface-info-active: #1665F8FF;
   --surface-solid-primary: #E8EEF2;
+  --surface-solid-primary-brightness: #E9EFF3FF;
   --surface-solid-card: #FFFFFFFF;
+  --surface-solid-card-brightness: #FFFFFFFF;
   --surface-solid-default: #657179;
   --surface-accent: #0B8C0B;
   --surface-positive: #0B8C0B;
@@ -123,7 +129,9 @@ export const sdds_cs__light = ([
   --on-dark-surface-info-hover: #689CFDFF;
   --on-dark-surface-info-active: #2B74FDFF;
   --on-dark-surface-solid-primary: #30373C;
+  --on-dark-surface-solid-primary-brightness: #3C4348FF;
   --on-dark-surface-solid-card: #13181B;
+  --on-dark-surface-solid-card-brightness: #212629FF;
   --on-dark-surface-accent: #0C9C0C;
   --on-dark-surface-positive: #0C9C0C;
   --on-dark-surface-negative: #FF293E;
@@ -151,7 +159,9 @@ export const sdds_cs__light = ([
   --on-light-surface-info-hover: #528DFAFF;
   --on-light-surface-info-active: #1665F8FF;
   --on-light-surface-solid-primary: #E8EEF2;
+  --on-light-surface-solid-primary-brightness: #E9EFF3FF;
   --on-light-surface-solid-card: #FFFFFFFF;
+  --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-default: #657179;
   --on-light-surface-accent: #0B8C0B;
   --on-light-surface-positive: #0B8C0B;
@@ -178,7 +188,9 @@ export const sdds_cs__light = ([
   --inverse-surface-info-hover: #689CFDFF;
   --inverse-surface-info-active: #2B74FDFF;
   --inverse-surface-solid-primary: #30373C;
+  --inverse-surface-solid-primary-brightness: #3C4348FF;
   --inverse-surface-solid-card: #13181B;
+  --inverse-surface-solid-card-brightness: #212629FF;
   --inverse-surface-accent: #0C9C0C;
   --inverse-surface-positive: #0C9C0C;
   --inverse-surface-negative: #FF293E;
@@ -187,9 +199,11 @@ export const sdds_cs__light = ([
   --inverse-surface-solid-default: #F7F9FB;
   --inverse-surface-clear: #FFFFFF00;
   --background-primary: #F2F5F8;
+  --background-primary-brightness: #F3F6F8FF;
   --dark-background-primary: #060A0C;
   --light-background-primary: #F2F5F8;
   --inverse-background-primary: #060A0C;
+  --inverse-background-primary-brightness: #15191BFF;
   --outline-solid-primary-hover: #000000FF;
   --outline-solid-primary-active: #9FB6C6FF;
   --outline-solid-secondary-hover: #000000FF;

@@ -17,7 +17,7 @@ import {
 
 import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
 import type { Theme, TokenData } from '../types';
-import { sectionToFormulaMap, getStateToken } from '../utils';
+import { sectionToFormulaMap, getStateToken, getBrightnessTokens } from '../utils';
 
 const getStateTokens = (
     section: string,
@@ -31,6 +31,8 @@ const getStateTokens = (
     let inverseStateTokens = undefined;
     const sectionName = sectionToFormulaMap[section];
 
+    const isBrightness = getBrightnessTokens.find((n) => n === name);
+
     if (!sectionName || !tokens) {
         return { defaultStateTokens, onDarkStateTokens, onLightStateTokens, inverseStateTokens };
     }
@@ -39,24 +41,28 @@ const getStateTokens = (
     defaultStateTokens = {
         [`${name}Hover`]: getDefaultStateToken('hover'),
         [`${name}Active`]: getDefaultStateToken('active'),
+        ...(isBrightness ? { [`${name}Brightness`]: getDefaultStateToken('brightness') } : {}),
     };
 
     const getOnDarkStateToken = getStateToken(sectionName, mode, tokens[mode].onDark);
     onDarkStateTokens = {
         [`${name}Hover`]: getOnDarkStateToken('hover'),
         [`${name}Active`]: getOnDarkStateToken('active'),
+        ...(isBrightness ? { [`${name}Brightness`]: getOnDarkStateToken('brightness') } : {}),
     };
 
     const getOnLightStateToken = getStateToken(sectionName, mode, tokens[mode].onLight);
     onLightStateTokens = {
         [`${name}Hover`]: getOnLightStateToken('hover'),
         [`${name}Active`]: getOnLightStateToken('active'),
+        ...(isBrightness ? { [`${name}Brightness`]: getOnLightStateToken('brightness') } : {}),
     };
 
     const getInverseStateToken = getStateToken(sectionName, mode, tokens[mode].inverse);
     inverseStateTokens = {
         [`${name}Hover`]: getInverseStateToken('hover'),
         [`${name}Active`]: getInverseStateToken('active'),
+        ...(isBrightness ? { [`${name}Brightness`]: getInverseStateToken('brightness') } : {}),
     };
 
     return { defaultStateTokens, onDarkStateTokens, onLightStateTokens, inverseStateTokens };

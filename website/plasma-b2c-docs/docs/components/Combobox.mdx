@@ -4,233 +4,296 @@ title: Combobox
 ---
 
 import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Combobox
-Компонент, отвечающий за выпадающий список с возможностью фильтрации элементов и их выбора. Доступен в двух режимах: единичный и множественный выбор.  
 
-## Combobox
 <Description name="Combobox" />
-<PropsTable name="Combobox" exclude={['css', 'focused']} />
-<StorybookLink name="Combobox" />
+<PropsTable name="Combobox" />
 
 ## Использование
-Компонент `Combobox` должен содержать компоненты из следующего списка: `ComboboxDivider`, `ComboboxFooter`, `ComboboxGroup`, `ComboboxHeader`, `ComboboxItem`.
-Для управления режимом, необходимо установить свойство `valueType = 'single'` для единичного выбора и `valueType='multiple'` для множественного. 
-Так же для выбора отображения множественного режима свойство `enumerationType = 'comma'` для перечисления выбранных значений через запятую, 
-и `enumerationType = 'chip'` для перечисления выбранных значений с помощью компонента `Chip`.
+Обязательным параметром является только `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
 
-## Клавиатурная навигация
-
-Данный компонент может полностью управляться с помощью клавиатуры, используя следующие клавиши:
--  `Tab` - переход на target (input)
--  `Shift` + `tab` - выход с него (теряем фокус)
--  `Стрелка вверх` / `стрелка вниз` - открыть выпадающий список и переместиться на первый элемент
--  `Стрелка вверх` / `стрелка вниз` ходим по элементам с зацикливанием
--  `Enter` - выбираем элемент, закрываем выпадающий список и переходим фокусом снова на target (input)
--  Если мы ходим по select и нажимаем `Tab` - выпадающий список закрывается и теряем фокус
--  Если мы ходим по select и нажимаем `Escape` - выпадающий список закрывается и фокусом остаёмся на target
--  В multi-select то же самое кроме закрытия выпадающего списка при выборе элемента
--  Когда находимся на первом чипе, нажимаем `стрелку влево` / `стрелку вправо` - переходим по чипам
--  Когда оказываемся на последнем чипе и нажимаем `стрелку вправо` - переходим на target (input)
--  Когда находимся на target (input) и нажимаем `Backspace` - удаляется последний чип
--  Когда находимся на target (input) и нажимаем `стрелку влево` - переходим на последний чип
--  Нажимаем `Backspace` - удаляем выбранный чип и переходим на предыдущий
--  Если удалили последний чип, то фокусируемся на target
--  Если находимся в выборе элемента из выпадающего списка и нажимаем `стрелку влево` / `стрелку вправо` - попадаем на самый последний чип
--  Если находимся в режиме выбора элемента и нажимаем `стрелку вниз` / `стрелку вверх` находясь на последнем / первом элементе, то перескакиваем в начало / в конец
--  Если находимся в режиме выбора элемента и нажимаем любую клавишу **кроме** `стрелки вниз` / `вверх` / `влево` / `вправо` / `Escape` / `Tab` / `Enter`, то переходим на target (input) и вводим значения
--  Ввод значение в target (input) приводит к фильтрации элементов в выпадающем списке. Если значение не соответствует ни одному элементу, то отобразится сообщение "Элементы не найдены"
-
-### Single 
-
-```tsx live
-import React from 'react';
-import { Combobox, ComboboxItem } from '@salutejs/plasma-b2c';
-import { IconDone } from '@salutejs/plasma-icons';
-
-export function App() {
-    const [value, setValue] = React.useState(undefined);
-    const handleOnChange = React.useCallback((newValue) => {
-        setValue(newValue);
-    }, []);
-
-    return (
-        <div>
-            <Combobox value={value} onChangeValue={handleOnChange} frame="document" usePortal placeholder="Placeholder">
-                <ComboboxItem value={undefined} text="Clear" />
-                <ComboboxItem
-                    value="item_0"
-                    text="item 0"
-                    contentLeft={"item_0" === value ? <IconDone size="s" color="inherit" /> : undefined}
-                />
-                <ComboboxItem
-                    value="item_1"
-                    text="item 1"
-                    contentLeft={"item_1" === value ? <IconDone size="s" color="inherit" /> : undefined}
-                />
-                <ComboboxItem
-                    value="extra_item_0"
-                    text="extra item 0"
-                    contentLeft={"extra_item_0" === value ? <IconDone size="s" color="inherit" /> : undefined}
-                />
-                <ComboboxItem
-                    value="extra_item_1"
-                    text="extra item 1"
-                    contentLeft={"extra_item_1" === value ? <IconDone size="s" color="inherit" /> : undefined}
-                />
-                <ComboboxItem
-                    value="extra_item_2"
-                    text="extra item 2"
-                    contentLeft={"extra_item_2" === value ? <IconDone size="s" color="inherit" /> : undefined}
-                />
-            </Combobox>
-        </div>
-    );
-}
+```tsx
+type Items = Array<{
+        /**
+         *  Значение у item
+         */
+        value: string;
+        /**
+         * Метка-подпись к item
+         */
+        label: string;
+        /**
+         * Список дочерних items.
+         */
+        items?: Array<ItemOption>;
+        /**
+         * Item не активен
+         */
+        disabled?: boolean;
+        /**
+         * Слот для контента слева
+         */
+        contentLeft?: ReactNode;
+        /**
+         * Слот для контента справа
+         */
+        contentRight?: ReactNode;
+    }>;
 ```
 
-### Multiple
+Тип выбора комбобокса - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.\
 
-```tsx live
-import React from 'react';
-import { Combobox, ComboboxItem, Checkbox } from '@salutejs/plasma-b2c';
-
-export function App() {
-    const [value, setValue] = React.useState(['item_0']);
-    const handleOnChange = React.useCallback((newValue) => {
-        setValue(newValue);
-    }, []);
-
-    return (
-        <div>
-            <Combobox 
-                    value={value} 
-                    onChangeValue={handleOnChange} 
-                    frame="document" 
-                    usePortal 
-                    valueType="multiple"
-                    enumerationType="chip"
-                    label="Label">
-                <ComboboxItem value={undefined} text="Clear" />
-                <ComboboxItem
-                    value="item_0"
-                    text="item 0"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="item_1"
-                    text="item 1"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="extra_item_0"
-                    text="extra item 0"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="extra_item_1"
-                    text="extra item 1"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="extra_item_2"
-                    text="extra item 2"
-                    contentLeft={Checkbox}
-                />
-            </Combobox>
-        </div>
-    );
-}
-```
 
 ## Примеры
 
-### Размер Combobox
-Размер `Combobx` задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`, а также соответствующие размеры компонент `Checkbox` и `IconDone`:
+<Tabs>
+    <TabItem value="single" label="Single" default>
+        ```tsx live
+        import React from 'react';
+        import { Combobox } from '@salutejs/plasma-b2c';
 
-Для иконок верно такое соответствие размеров (`Icon = Combobox`): 
-- xs = xs,
-- s = s,
-- m = s,
-- l = s,
+        export function App() {
+            const [value, setValue] = useState('');
 
-Для `Checkbox` / `Radiobox` верно такое соответствие размеров (`Checkbox / Radiobox = Combobox`): 
-- xs = s,
-- s = m,
-- m = m,
-- l = m,
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
 
-```tsx live
-import React from 'react';
-import { Combobox } from '@salutejs/plasma-b2c';
+            return (
+                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Combobox
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="multiple" label="Multiple">
+        ```tsx live
+        import React from 'react';
+        import { Combobox } from '@salutejs/plasma-b2c';
 
-export function App() {
-    return (
-        <div style={{flexDirection: 'column'}}>
-            <Combobox usePortal frame="document" label="Label" size="xs" />
-            <Combobox usePortal frame="document" label="Label" size="s" />
-            <Combobox usePortal frame="document" label="Label" size="m" />
-            <Combobox usePortal frame="document" label="Label" size="l" />
-        </div>
-    );
-}
-```
+        export function App() {
+            const [value, setValue] = useState([]);
 
-### Применение пользовательского фильтра 
-`Combobox` поддерживает возможность создавать собственные правила для фильтрации списка элементов с помощью функции callback `filterFunction`,
-которая срабатывает на каждый элемент и если возвращает `true`, то элемент rendering, иначе нет.
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
 
-```tsx live
-import React from 'react';
-import { Combobox, Checkbox, ComboboxItem } from '@salutejs/plasma-b2c';
+            return (
+                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Combobox
+                            multiple
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="predefined" label="Predefined">
+        Есть возможность задать значения по дефолту (главное, чтобы они находились в `items`). Также можно управлять состоянием снаружи селекта.
 
-export function App() {
-    const [value, setValue] = React.useState(['item_0']);
-    const handleOnChange = React.useCallback((newValue) => {
-        setValue(newValue);
-    }, []);
+        ```tsx live
+        import React from 'react';
+        import { Combobox, Button } from '@salutejs/plasma-b2c';
 
-    const customFilterFunction = React.useCallback((childText, filterValue) => {
-        return childText.startWith(filterValue);
-    }, []);
+        export function App() {
+            const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
 
-    return (
-        <div style={{flexDirection: 'column'}}>
-             <Combobox 
-                    value={value} 
-                    onChangeValue={handleOnChange} 
-                    frame="document" 
-                    usePortal 
-                    valueType="multiple"
-                    label="Label">
-                <ComboboxItem value={undefined} text="Clear" />
-                <ComboboxItem
-                    value="item_0"
-                    text="item 0"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="item_1"
-                    text="item 1"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="extra_item_0"
-                    text="extra item 0"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="extra_item_1"
-                    text="extra item 1"
-                    contentLeft={Checkbox}
-                />
-                <ComboboxItem
-                    value="extra_item_2"
-                    text="extra item 2"
-                    contentLeft={Checkbox}
-                />
-            </Combobox>
-        </div>
-    );
-}
-```
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Combobox
+                            multiple
+                            items={items}
+                            value={multipleValue}
+                            onChange={setMultipleValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+
+                    <Button onClick={() => setMultipleValue([])}>Очистить</Button>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="portal" label="Portal">
+        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется скролл, и список будет обрезаться, чего хотелось бы избежать.\
+        Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.\
+        Также нужно прокинуть проп `listWidth`, чтобы явно задать ширину списку. Если этого не сделать, то будет взята ширина 100% от блока, на который ведет ссылка портала.
+
+        ```tsx live
+        import React, { useRef } from 'react';
+        import { Combobox } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [value, setValue] = useState('');
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const ref = useRef(null)
+
+            return (
+                <div style={{ height: '300px' }} ref={ref}>
+                    <div style={{width: '300px'}}>
+                        <Combobox
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                            portal={ref}
+                            listWidth="300px"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Uncontrolled">
+        `value` и `onChange` - опциональные параметры. Если вы хотите `uncontrolled` вариант компонента - их пробрасывать необязательно.
+
+       ```tsx live
+        import React from 'react';
+        import { Combobox } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Combobox
+                            items={items}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Клавиатурная навигация
+
+Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).

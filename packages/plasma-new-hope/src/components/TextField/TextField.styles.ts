@@ -45,11 +45,42 @@ export const Input = styled.input`
     padding: 0;
     background-color: transparent;
     outline: none;
+    width: 100%;
+    z-index: 1;
+
+    &::placeholder {
+        opacity: 0;
+    }
+`;
+
+export const InputContainer = styled.div`
+    position: relative;
     flex: 1;
     min-width: 60%;
 `;
 
-export const Label = styled.label``;
+export const InputPlaceholder = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    white-space: nowrap;
+
+    pointer-events: none;
+    user-select: none;
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+
+    color: var(${tokens.placeholderColor});
+`;
+
+export const Label = styled.label`
+    position: relative;
+    display: inline-flex;
+`;
 
 export const StyledContentLeft = styled.div`
     margin: var(${tokens.leftContentMargin});
@@ -66,3 +97,34 @@ export const LeftHelper = styled.div``;
 export const StyledTextBefore = styled.div``;
 
 export const StyledTextAfter = styled.div``;
+
+export const StyledOptionalText = styled.span`
+    color: var(${tokens.optionalColor});
+`;
+
+export const StyledIndicator = styled.div`
+    position: absolute;
+    border-radius: 50%;
+
+    background-color: var(${tokens.indicatorColor});
+
+    &.${classes.outerLabelPlacement} {
+        width: var(${tokens.indicatorSizeOuter});
+        height: var(${tokens.indicatorSizeOuter});
+        inset: var(${tokens.indicatorLabelPlacementOuter});
+
+        &.align-right {
+            inset: var(${tokens.indicatorLabelPlacementOuterRight});
+        }
+    }
+
+    &.${classes.innerLabelPlacement} {
+        width: var(${tokens.indicatorSizeInner});
+        height: var(${tokens.indicatorSizeInner});
+        inset: var(${tokens.indicatorLabelPlacementInner});
+
+        &.align-right {
+            inset: var(${tokens.indicatorLabelPlacementInnerRight});
+        }
+    }
+`;

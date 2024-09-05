@@ -269,6 +269,25 @@ describe('plasma-b2c: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: input date from calendar', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    label="Лейбл"
+                    leftHelper="Подсказка к полю"
+                    placeholder="Выберите дату"
+                    defaultDate={new Date(2023, 5, 14)}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').click().clear();
+        cy.get('body').click();
+        cy.get('input').click();
+        cy.get('body').find('[data-day="16"][data-month-index="5"]').first().click();
+        cy.matchImageSnapshot();
+    });
+
     it('prop: input masked date', () => {
         mount(
             <CypressTestDecoratorWithTypo>

@@ -18,6 +18,24 @@ const meta: Meta<TextAreaProps> = {
     component: TextArea,
     decorators: [InSpacingDecorator],
     argTypes: {
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
         status: {
             options: statuses,
             control: {
@@ -50,7 +68,6 @@ const meta: Meta<TextAreaProps> = {
             'minLength',
             'maxLength',
             'name',
-            'required',
             'value',
             'wrap',
             'theme',
@@ -105,6 +122,9 @@ export const Default: StoryObj<StoryProps> = {
         status: '' as 'success',
         disabled: false,
         readOnly: false,
+        required: false,
+        requiredPlacement: 'right',
+        optional: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

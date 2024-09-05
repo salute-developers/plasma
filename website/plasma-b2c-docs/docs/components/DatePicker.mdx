@@ -73,6 +73,38 @@ export function App() {
 }
 ```
 
+### Язык даты
+Язык даты задается с помощью свойства `lang`.
+
+| Обозначение | Отображение | Описание            |
+|-------------|-------------|---------------------|
+| ru          | June        | Английский Язык     |
+| en          | июнь        | Русский язык        |
+
+По умолчанию используется `ru`
+
+```tsx live
+import React from 'react';
+import { DatePicker } from '@salutejs/plasma-b2c';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ height: "450px" }}>
+            <DatePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                format="DD MMMM YYYY"
+                lang="en"
+                maskWithFormat
+                contentRight={<IconDone size="s" />}
+            />
+        </div>
+    );
+}
+```
+
 ### Валидация и индикация успешного ввода даты.
 За индикацию ошибки или успешного ввода отвечают `valueError`, `valueSuccess`.
 В данном примере валидация происходит при нажатии клавиши `Enter` после ввода значений:

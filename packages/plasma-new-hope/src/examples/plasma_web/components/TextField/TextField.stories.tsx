@@ -22,6 +22,24 @@ const meta: Meta<typeof TextField> = {
     component: TextField,
     decorators: [WithTheme],
     argTypes: {
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
         view: {
             options: views,
             control: {
@@ -109,6 +127,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
         leftHelper: 'Подсказка к полю',
         disabled: false,
         readOnly: false,
+        required: false,
+        requiredPlacement: 'right',
+        optional: false,
         enableContentLeft: true,
         enableContentRight: true,
     },
@@ -132,6 +153,7 @@ type StoryPropsChips = Omit<
     | 'maxLength'
     | 'minLength'
     | 'required'
+    | 'optional'
     | 'enumerationType'
 > & {
     enableContentLeft: boolean;

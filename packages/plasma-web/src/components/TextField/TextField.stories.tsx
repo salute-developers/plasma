@@ -33,7 +33,6 @@ const propsToDisable = [
     'value',
     'checked',
     'minLength',
-    'required',
     'caption',
     'values',
     'enumerationType',
@@ -45,6 +44,24 @@ const meta: Meta<TextFieldProps> = {
     component: TextField,
     decorators: [InSpacingDecorator],
     argTypes: {
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
         status: {
             options: statuses,
             control: {
@@ -72,7 +89,7 @@ const meta: Meta<TextFieldProps> = {
 
 export default meta;
 
-type StorePropsDefault = Omit<
+type StoryPropsDefault = Omit<
     TextFieldProps,
     | 'helperBlock'
     | 'contentLeft'
@@ -87,13 +104,12 @@ type StorePropsDefault = Omit<
     | 'checked'
     | 'maxLength'
     | 'minLength'
-    | 'required'
 > & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
 
-const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: StorePropsDefault) => {
+const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: StoryPropsDefault) => {
     const [value, setValue] = useState('Значение поля');
 
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
@@ -117,7 +133,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: S
     );
 };
 
-export const Default: StoryObj<StorePropsDefault> = {
+export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         id: 'example-text-field',
         size: 'l',
@@ -129,13 +145,16 @@ export const Default: StoryObj<StorePropsDefault> = {
         status: '' as 'success',
         disabled: false,
         readOnly: false,
+        required: false,
+        requiredPlacement: 'right',
+        optional: false,
         enableContentLeft: true,
         enableContentRight: true,
     },
     render: (args) => <StoryDemo {...args} />,
 };
 
-export const Chips: StoryObj<StorePropsDefault> = {
+export const Chips: StoryObj<StoryPropsDefault> = {
     args: {
         ...Default.args,
         enumerationType: 'chip',

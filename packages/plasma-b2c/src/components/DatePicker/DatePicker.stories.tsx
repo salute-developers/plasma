@@ -45,6 +45,18 @@ const meta: Meta = {
                 type: 'date',
             },
         },
+        lang: {
+            options: ['ru', 'en'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        format: {
+            options: ['DD.MM.YYYY', 'DD MMMM YYYY'],
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
@@ -108,6 +120,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         placeholder: '30.05.2024',
         size: 'l',
         view: 'default',
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
         defaultDate: new Date(2024, 5, 14),
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
@@ -244,6 +258,8 @@ export const Range: StoryObj<StoryPropsRange> = {
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
         maskWithFormat: false,
         disabled: false,
         readOnly: false,
@@ -323,6 +339,8 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
     args: {
         label: 'Лейбл',
         leftHelper: 'Подсказка к полю',
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
         placeholder: '30.05.2024',
         size: 'l',
         view: 'default',

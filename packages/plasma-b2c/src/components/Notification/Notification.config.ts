@@ -8,7 +8,7 @@ export const config = {
         view: {
             default: css`
                 ${notificationTokens.contentColor}: var(--plasma-colors-secondary);
-                ${notificationTokens.background}: var(--plasma-colors-background-primary);
+                ${notificationTokens.background}: var(--surface-solid-card-brightness);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 

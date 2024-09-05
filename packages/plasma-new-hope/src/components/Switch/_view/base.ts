@@ -8,7 +8,7 @@ export const base = css`
         background-color: var(${tokens.trackBackgroundColorOff});
     }
 
-    ${StyledTrigger}:hover {
+    ${StyledInput}:not([disabled]) ~ ${StyledTrigger}:hover {
         background-color: var(${tokens.trackBackgroundColorOffHover}, var(${tokens.trackBackgroundColorOff}));
     }
 
@@ -16,7 +16,7 @@ export const base = css`
         background-color: var(${tokens.trackBackgroundColorOn});
     }
 
-    ${StyledInput}:checked:hover ~ ${StyledTrigger} {
+    ${StyledInput}:checked:not([disabled]) ~ ${StyledTrigger}:hover  {
         background-color: var(${tokens.trackBackgroundColorOnHover}, var(${tokens.trackBackgroundColorOn}));
     }
 
