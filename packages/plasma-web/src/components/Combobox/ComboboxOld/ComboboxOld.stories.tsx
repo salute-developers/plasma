@@ -57,6 +57,7 @@ const meta: Meta<StorySelectProps> = {
         usePortal: false,
         disabled: false,
         readOnly: false,
+        alwaysOpened: false,
         label: 'Label',
         placeholder: 'Placeholder',
         enumerationType: 'comma',
@@ -91,7 +92,7 @@ const getSelectItems = (slug: string, elemCount: number) =>
     }));
 
 const StorySingle = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, size = 'm', view } = args;
+    const { usePortal, placement, label, placeholder, readOnly, disabled, alwaysOpened, size = 'm', view } = args;
 
     const [value, setValue] = useState<ComboboxPrimitiveValue | undefined>('item_0');
 
@@ -114,6 +115,7 @@ const StorySingle = (args: StorySelectProps) => {
                 view={view}
                 disabled={disabled}
                 readOnly={readOnly}
+                alwaysOpened={alwaysOpened}
                 onChangeValue={onChangeValue}
             >
                 <ComboboxItem value={undefined} text="Clear" />
@@ -139,7 +141,18 @@ export const Single: StoryObj<StorySelectProps> = {
 };
 
 const StoryMultiple = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, enumerationType, size = 'm', view } = args;
+    const {
+        usePortal,
+        placement,
+        label,
+        placeholder,
+        readOnly,
+        disabled,
+        enumerationType,
+        alwaysOpened,
+        size = 'm',
+        view,
+    } = args;
 
     const [value, setValue] = useState<Array<ComboboxPrimitiveValue> | undefined>(['item_2', 'item_3']);
 
@@ -163,6 +176,7 @@ const StoryMultiple = (args: StorySelectProps) => {
                 view={view}
                 disabled={disabled}
                 readOnly={readOnly}
+                alwaysOpened={alwaysOpened}
                 onChangeValue={onChangeValue}
             >
                 <ComboboxItem value={undefined} text="Clear" />
@@ -184,7 +198,7 @@ export const Multiple: StoryObj<StorySelectProps> = {
 };
 
 const StoryAddCustomItem = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, size = 'm', view } = args;
+    const { usePortal, placement, label, placeholder, readOnly, disabled, alwaysOpened, size = 'm', view } = args;
 
     const [opened, setOpened] = useState(false);
     const [items, setItems] = useState(getSelectItems('item', 1));
@@ -235,6 +249,7 @@ const StoryAddCustomItem = (args: StorySelectProps) => {
                 disabled={disabled}
                 readOnly={readOnly}
                 opened={opened}
+                alwaysOpened={alwaysOpened}
                 onToggle={onToggle}
                 onChangeValue={onChangeValue}
                 onKeyDown={onKeyDown}

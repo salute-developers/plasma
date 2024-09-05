@@ -13,7 +13,6 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
 const view = ['default', 'positive', 'warning', 'negative'];
 const size = ['xs', 's', 'm', 'l'];
 const labelPlacement = ['inner', 'outer'];
-const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
@@ -39,12 +38,6 @@ const meta: Meta<StorySelectProps> = {
                 type: 'select',
             },
         },
-        chipView: {
-            options: chip,
-            control: {
-                type: 'select',
-            },
-        },
         variant: {
             options: variant,
             control: {
@@ -66,6 +59,14 @@ const meta: Meta<StorySelectProps> = {
                 type: 'text',
             },
         },
+        disabled: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        readOnly: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
     },
     args: {
         label: 'Label',
@@ -74,10 +75,10 @@ const meta: Meta<StorySelectProps> = {
         helperText: 'Helper text',
         size: 'm',
         view: 'default',
-        chipView: 'default',
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
+        alwaysOpened: false,
         disabled: false,
         readOnly: false,
     },
@@ -86,13 +87,14 @@ const meta: Meta<StorySelectProps> = {
             include: [
                 'size',
                 'view',
-                'chipView',
                 'enableContentLeft',
                 'label',
                 'labelPlacement',
                 'placeholder',
                 'helperText',
                 'isTargetAmount',
+                'closeAfterSelect',
+                'alwaysOpened',
                 'variant',
                 'disabled',
                 'readOnly',
