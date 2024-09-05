@@ -68,6 +68,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 optional,
 
                 // controlled
+                value: outerValue,
                 chips: values,
 
                 // events
@@ -87,7 +88,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
 
             const controlledRefs = { contentRef, inputRef, chipsRefs };
 
-            const [hasValue, setHasValue] = useState(!!rest.value);
+            const [hasValue, setHasValue] = useState(Boolean(outerValue));
             const [chips, setChips] = useState<Array<ChipValues>>([]);
 
             const uniqId = safeUseId();
@@ -96,19 +97,19 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             const helperTextId = safeUseId();
 
             const isChipEnumeration = enumerationType === 'chip';
-            const isChipsVisible = isChipEnumeration && !!chips?.length;
+            const isChipsVisible = isChipEnumeration && Boolean(chips?.length);
             const withHasChips = isChipsVisible ? classes.hasChips : undefined;
 
-            const hasLabelValue = !!label;
+            const hasLabelValue = Boolean(label);
             const hasInnerLabel = size !== 'xs' && labelPlacement === 'inner' && !isChipsVisible && hasLabelValue;
             const hasOuterLabel = labelPlacement === 'outer' && hasLabelValue;
-            const hasPlaceholder = !!placeholder && !hasInnerLabel;
+            const hasPlaceholder = Boolean(placeholder) && !hasInnerLabel;
 
             const innerLabelValue = hasInnerLabel || hasOuterLabel ? label : undefined;
             const innerLabelPlacementValue = labelPlacement === 'inner' && !hasInnerLabel ? undefined : labelPlacement;
 
             const innerPlaceholderValue = hasPlaceholder ? placeholder : undefined;
-            const placeholderShown = !!innerPlaceholderValue && !hasValue;
+            const placeholderShown = Boolean(innerPlaceholderValue) && !hasValue;
 
             const requiredPlacementClass = requiredPlacement === 'right' ? 'align-right ' : undefined;
             const labelPlacementClass = innerLabelPlacementValue
@@ -121,7 +122,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 !contentRight && isChipsVisible ? classes.hasEmptyContentRight : undefined;
 
             const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
-                setHasValue(!!(event.target as HTMLInputElement).value);
+                setHasValue(Boolean((event.target as HTMLInputElement).value));
             };
 
             const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -196,6 +197,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 setChips(newChips);
             }, [isChipEnumeration, values]);
 
+            useEffect(() => {
+                setHasValue(Boolean(outerValue));
+            }, [outerValue]);
+
             const innerOptional = Boolean(required ? false : optional);
             const hasPlaceholderOptional = innerOptional && !innerLabelValue && !hasOuterLabel;
             const optionalTextNode = innerOptional ? (
@@ -265,6 +270,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                                 <Input
                                     ref={inputForkRef}
                                     id={innerId}
+                                    value={outerValue}
                                     aria-labelledby={labelId}
                                     aria-describedby={helperTextId}
                                     placeholder={innerPlaceholderValue}
