@@ -43,7 +43,7 @@ const PaletteWrapper = styled.div`
 `;
 
 const PaletteColors = styled.div<{ colors: BackgroundGradient }>`
-    position: absolute;
+    position: fixed;
     inset: 0;
 
     opacity: 0;
@@ -62,6 +62,17 @@ const PaletteColors = styled.div<{ colors: BackgroundGradient }>`
     padding: 2rem;
     color: #ffffff17;
     font-size: 4rem;
+`;
+
+const PaletteColors2 = styled.div`
+    position: relative;
+    height: 100vh;
+
+    padding: 2rem;
+
+    opacity: 1;
+
+    background: transparent;
 `;
 
 const GradientScrollHeight2 = styled.div<{ colors: string[] }>`
@@ -85,7 +96,8 @@ const GradientScrollHeight2 = styled.div<{ colors: string[] }>`
 
 const GradientScrollHeight = styled.div<{ colors: string[] }>`
     width: 0.25rem;
-    position: relative;
+    position: fixed;
+    z-index: 999;
 
     --private-gradient-scroll-height: calc(100vh - 4 * 2.875rem);
     top: 6.125rem;
@@ -163,18 +175,11 @@ const Pseudo = styled.div`
 // [ ] - придумать как определять мышь или трекапд и в зависимости от этого задавать velocity
 // [x] - придумать как обойти баг, когда при быстром скроле туда/сюда классы не успевают удаляться
 
-const isTrackPad = (e: any) => {
-    // console.log('e.deltaY', e);
-
-    return e.deltaY && !Number.isInteger(e.deltaY) ? false : true;
-};
-
 export const ColorGenerator2: React.FC = () => {
     const refs = useRef<HTMLDivElement[]>([]);
     const sliderRef = useRef<HTMLDivElement>(null);
     const delta = useRef<number>(0);
     const pseudoRef = useRef<HTMLDivElement>(null);
-    const velocityRef = useRef(15);
 
     const [colorIndexValue, setColorIndexValue] = useState(0);
 
@@ -193,12 +198,6 @@ export const ColorGenerator2: React.FC = () => {
 
     useEffect(() => {
         refs.current?.[0]?.classList.add('transitionOpacity');
-
-        // document.addEventListener('DOMMouseScroll', (e: any) => {
-        //     // var isTouchPad = e.wheelDeltaY ? e.wheelDeltaY === -3 * e.deltaY : e.deltaMode === 0;
-
-        //     console.log('test DOMMouseScroll', e);
-        // });
     }, []);
 
     useEffect(() => {
@@ -223,45 +222,64 @@ export const ColorGenerator2: React.FC = () => {
             }
         }
 
-        delta.current = selectShadeIndex * velocityRef.current;
+        sliderRef.current!.scrollTo({
+            top: delta.current * selectShadeIndex,
+        });
+
         setColorIndexValue(selectShadeIndex);
     };
 
     return (
         <PaletteContainer>
             <PaletteWrapper
-                onTouchStart={() => {
-                    console.log('onTouchStart');
-                }}
-                onWheel={(e: React.WheelEvent<HTMLDivElement>) => {
-                    velocityRef.current = isTrackPad(e) ? 5 : 5; // 2 - для мыши, 15 - для тачпада
-
-                    console.log('velocityRef.current', e.deltaY, velocityRef.current);
-
-                    const min = 0;
-                    const max = 15 * velocityRef.current;
-                    if (e.deltaY < 0) {
-                        if (delta.current <= min) {
-                            delta.current = min;
-                        } else {
-                            delta.current -= 1;
-                        }
-                    } else {
-                        if (delta.current >= max) {
-                            delta.current = max;
-                        } else {
-                            delta.current += 1;
-                        }
-                    }
-                    const selectShadeIndex = Math.floor(delta.current / velocityRef.current);
-
-                    if (e.deltaY > 0) {
-                        refs.current?.[selectShadeIndex]?.classList.add('transitionOpacity');
-                    } else {
-                        refs.current?.[selectShadeIndex + 1]?.classList.remove('transitionOpacity');
-                    }
-
-                    setColorIndexValue(selectShadeIndex);
+                // onWheel={() => {
+                //     sliderRef.current!.style.pointerEvents = 'auto';
+                // }}
+                onScroll={(e: React.WheelEvent<HTMLDivElement>) => {
+                    // velocityRef.current = 3; //isTrackPad(e) ? 7 : 7; // 2 - для мыши, 15 - для тачпада
+                    // const asdasd = Number(
+                    //     normalize(sliderRef.current!.getBoundingClientRect().top, 20, -4962).toFixed(3),
+                    // );
+                    // console.log('e', asdasd);
+                    // console.log('onTouchStart', asdasd);
+                    // console.log('velocityRef.current', e);
+                    // const min = 0;
+                    // const max = 15 * velocityRef.current;
+                    // if (e.deltaY < 0) {
+                    //     if (delta.current <= min) {
+                    //         delta.current = min;
+                    //     } else {
+                    //         delta.current -= 1;
+                    //     }
+                    // } else {
+                    //     if (delta.current >= max) {
+                    //         delta.current = max;
+                    //     } else {
+                    //         delta.current += 1;
+                    //     }
+                    // }
+                    // const selectShadeIndex = Math.floor(delta.current / velocityRef.current);
+                    // if (e.deltaY > 0) {
+                    //     refs.current?.[selectShadeIndex]?.classList.add('transitionOpacity');
+                    // } else {
+                    //     refs.current?.[selectShadeIndex + 1]?.classList.remove('transitionOpacity');
+                    // }
+                    // const selectShadeIndex = Math.ceil(15 * asdasd);
+                    // if (selectShadeIndex < colorIndexValue) {
+                    //     for (let a = 15; a > selectShadeIndex; a--) {
+                    //         refs.current?.[a]?.classList.remove('transitionOpacity');
+                    //     }
+                    // } else {
+                    //     for (let a = 0; a <= selectShadeIndex; a++) {
+                    //         refs.current?.[a]?.classList.add('transitionOpacity');
+                    //     }
+                    // }
+                    // pseudoRef.current!.style.transform = `translateY(calc(${asdasd} * calc(var(--private-gradient-scroll-height) - 20px) - 10px))`;
+                    // clearTimeout(scrollTimeout.current);
+                    // (scrollTimeout as any).current = setTimeout(() => {
+                    //     console.log('Wheel event has stopped.');
+                    //     setColorIndexValue(selectShadeIndex);
+                    // }, 100);
                 }}
             >
                 {gradients.map(({ colors, shade }, index) => (
@@ -277,10 +295,66 @@ export const ColorGenerator2: React.FC = () => {
                     </PaletteColors>
                 ))}
                 <GradientScrollHeight2 colors={gradients.map((item) => item.colors[500])} />
-                <GradientScrollHeight ref={sliderRef} colors={gradients.map((item) => item.colors[500])}>
+                <GradientScrollHeight colors={gradients.map((item) => item.colors[500])}>
                     <Pseudo ref={pseudoRef} />
                     <Slider type="range" value={colorIndexValue} onChange={onChangeSliderValue} min="0" max="15" />
                 </GradientScrollHeight>
+                <div
+                    style={{
+                        height: '100vh',
+                        padding: '2rem',
+                        overflow: 'scroll',
+                        scrollSnapType: 'y mandatory',
+                        scrollbarWidth: 'none',
+                        opacity: 0,
+                    }}
+                    onScroll={(e) => {
+                        // console.dir(e.currentTarget);
+
+                        // const selectShadeIndex = Math.floor(15 * asdasd);
+                        // 14 190 / 946
+
+                        delta.current = e.currentTarget.offsetHeight;
+
+                        console.log('e.currentTarget.scrollTop', e.currentTarget.scrollTop);
+
+                        const selectShadeIndex = Math.round(e.currentTarget.scrollTop / delta.current);
+
+                        if (selectShadeIndex < colorIndexValue) {
+                            for (let a = 15; a > selectShadeIndex; a--) {
+                                refs.current?.[a]?.classList.remove('transitionOpacity');
+                            }
+                        } else {
+                            for (let a = 0; a <= selectShadeIndex; a++) {
+                                refs.current?.[a]?.classList.add('transitionOpacity');
+                            }
+                        }
+
+                        console.log('test', selectShadeIndex);
+
+                        setColorIndexValue(selectShadeIndex);
+
+                        // pseudoRef.current!.style.transform = `translateY(calc(${asdasd} * calc(698px - 20px - 10px))`;
+
+                        // clearTimeout(scrollTimeout.current);
+                        // (scrollTimeout as any).current = setTimeout(() => {
+                        //     console.log('Wheel event has stopped.');
+
+                        //     sliderRef.current!.style.pointerEvents = 'none';
+                        // }, 100);
+                    }}
+                    ref={sliderRef}
+                >
+                    {gradients.map((item, index) => (
+                        <PaletteColors2
+                            style={{
+                                scrollSnapAlign: 'center',
+                            }}
+                        >
+                            {item.shade}
+                        </PaletteColors2>
+                    ))}
+                </div>
                 {/* <Header text="Палитра" link="/" /> */}
             </PaletteWrapper>
 
