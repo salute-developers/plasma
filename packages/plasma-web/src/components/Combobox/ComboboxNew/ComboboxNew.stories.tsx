@@ -13,7 +13,6 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
 const view = ['default', 'positive', 'warning', 'negative'];
 const size = ['xs', 's', 'm', 'l'];
 const labelPlacement = ['inner', 'outer'];
-const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
@@ -35,12 +34,6 @@ const meta: Meta<StorySelectProps> = {
         },
         labelPlacement: {
             options: labelPlacement,
-            control: {
-                type: 'select',
-            },
-        },
-        chipView: {
-            options: chip,
             control: {
                 type: 'select',
             },
@@ -74,25 +67,26 @@ const meta: Meta<StorySelectProps> = {
         helperText: 'Helper text',
         size: 'm',
         view: 'default',
-        chipView: 'default',
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
         readOnly: false,
+        alwaysOpened: false,
     },
     parameters: {
         controls: {
             include: [
                 'size',
                 'view',
-                'chipView',
                 'enableContentLeft',
                 'label',
                 'labelPlacement',
                 'placeholder',
                 'helperText',
                 'isTargetAmount',
+                'closeAfterSelect',
+                'alwaysOpened',
                 'variant',
                 'disabled',
                 'readOnly',
