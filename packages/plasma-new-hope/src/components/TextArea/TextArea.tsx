@@ -127,6 +127,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
         const outerRef = innerRef && 'current' in innerRef ? innerRef : createRef<HTMLTextAreaElement>();
+        const ref = innerRef ?? createRef<HTMLTextAreaElement>();
 
         const innerOptional = required ? false : optional;
         const hasHelper = Boolean(leftHelper || rightHelper || helperText);
@@ -230,7 +231,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                             hasContentRight={Boolean(contentRight)}
                             hasHelper={hasHelper}
                             applyCustomWidth={applyCustomWidth}
-                            ref={outerRef}
+                            ref={ref}
                             disabled={disabled}
                             height={autoResize || Boolean(clear) ? minAuto : height}
                             width={width}
