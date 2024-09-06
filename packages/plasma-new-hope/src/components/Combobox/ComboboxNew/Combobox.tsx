@@ -127,7 +127,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         const handleClickArrow = () => {
-            if (disabled) {
+            if (disabled || readOnly) {
                 return;
             }
 
@@ -154,7 +154,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         // Обработчик открытия/закрытия выпадающего списка
         const handleListToggle = (opened: boolean) => {
-            if (disabled) {
+            if (disabled || readOnly) {
                 return;
             }
 

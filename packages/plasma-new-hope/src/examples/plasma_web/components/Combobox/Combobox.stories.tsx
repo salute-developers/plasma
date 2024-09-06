@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { WithTheme } from '../../../../_helpers';
-import { IconDone } from '../../../../../components/_Icon';
+import { WithTheme } from '../../../_helpers';
+import { IconDone } from '../../../../components/_Icon';
 
 import { Combobox } from './Combobox';
 
@@ -17,7 +17,7 @@ const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'plasma_b2c/ComboboxNew',
+    title: 'plasma_web/Combobox',
     decorators: [WithTheme],
     component: Combobox,
     argTypes: {
@@ -60,6 +60,14 @@ const meta: Meta<StorySelectProps> = {
                 type: 'text',
             },
         },
+        disabled: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        readOnly: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
     },
     args: {
         label: 'Label',
@@ -71,9 +79,9 @@ const meta: Meta<StorySelectProps> = {
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
+        alwaysOpened: false,
         disabled: false,
         readOnly: false,
-        alwaysOpened: false,
     },
     parameters: {
         controls: {

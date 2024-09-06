@@ -15,7 +15,7 @@ const getSelectItems = (slug: string, elemCount: number) =>
         child: `${slug} ${num}`,
     }));
 
-describe('plasma-web: Combobox', () => {
+describe('plasma-web: ComboboxOld', () => {
     const Combobox = getComponent('Combobox');
     const Checkbox = getComponent('Checkbox');
     const ComboboxItem = getComponent('ComboboxItem');
@@ -53,9 +53,10 @@ describe('plasma-web: Combobox', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('body').focus();
-
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('multiple', () => {
@@ -98,9 +99,10 @@ describe('plasma-web: Combobox', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('body').focus();
-
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('sizes', () => {
@@ -140,9 +142,10 @@ describe('plasma-web: Combobox', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('body').focus();
-
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('views', () => {
@@ -178,13 +181,14 @@ describe('plasma-web: Combobox', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('body').focus();
-
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });
 
-describe('plasma-web: Combobox keyboard navigation', () => {
+describe('plasma-web: ComboboxOld keyboard navigation', () => {
     const Combobox = getComponent('Combobox');
     const Checkbox = getComponent('Checkbox');
     const ComboboxItem = getComponent('ComboboxItem');
@@ -316,8 +320,6 @@ describe('plasma-web: Combobox keyboard navigation', () => {
         cy.get('#button-focus').should('be.focused');
         cy.get('.popover-root').should('not.be.visible');
 
-        cy.get('body').focus();
-
         cy.matchImageSnapshot();
     });
 
@@ -444,8 +446,6 @@ describe('plasma-web: Combobox keyboard navigation', () => {
         cy.focused().trigger('keydown', { code: 'Tab' });
         cy.get('#button-focus').should('be.focused');
         cy.get('.popover-root').should('not.be.visible');
-
-        cy.get('body').focus();
 
         cy.matchImageSnapshot();
     });

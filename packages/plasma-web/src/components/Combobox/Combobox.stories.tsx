@@ -16,7 +16,7 @@ const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/ComboboxNew',
+    title: 'Controls/Combobox',
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {
@@ -59,6 +59,14 @@ const meta: Meta<StorySelectProps> = {
                 type: 'text',
             },
         },
+        disabled: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        readOnly: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
     },
     args: {
         label: 'Label',
@@ -70,9 +78,9 @@ const meta: Meta<StorySelectProps> = {
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
+        alwaysOpened: false,
         disabled: false,
         readOnly: false,
-        alwaysOpened: false,
     },
     parameters: {
         controls: {

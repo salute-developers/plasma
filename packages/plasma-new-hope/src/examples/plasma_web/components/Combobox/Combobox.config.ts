@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { comboboxNewTokens as tokens } from '../../../../../components/Combobox';
+import { comboboxNewTokens as tokens } from '../../../../components/Combobox';
 
 export const config = {
     defaults: {
@@ -12,8 +12,10 @@ export const config = {
         view: {
             default: css`
                 ${tokens.textFieldColor}: var(--text-primary);
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBorderColor}: var(--text-tertiary);
+                ${tokens.textFieldBorderColorHover}: var(--text-tertiary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--text-accent);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
@@ -37,8 +39,10 @@ export const config = {
             `,
             positive: css`
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBorderColor}: var(--surface-positive);
+                ${tokens.textFieldBorderColorHover}: var(--surface-positive);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
@@ -62,8 +66,10 @@ export const config = {
             `,
             warning: css`
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-warning-active);
+                ${tokens.textFieldBorderColor}: var(--surface-warning);
+                ${tokens.textFieldBorderColorHover}: var(--surface-warning);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
@@ -87,8 +93,10 @@ export const config = {
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.textFieldBorderColor}: var(--surface-negative);
+                ${tokens.textFieldBorderColorHover}: var(--surface-negative);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
@@ -117,6 +125,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
@@ -213,6 +222,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -309,6 +319,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
@@ -405,6 +416,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
@@ -517,7 +529,8 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.textFieldColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
+                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-secondary);
