@@ -1,5 +1,5 @@
-import { component, mergeConfig } from '../../../../../engines';
-import { comboboxNewConfig } from '../../../../..';
+import { component, mergeConfig } from '../../../../engines';
+import { comboboxNewConfig } from '../../../..';
 
 import { config } from './Combobox.config';
 

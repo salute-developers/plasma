@@ -25,7 +25,7 @@ type StorySelectPropsCustom = {
 type StorySelectProps = ComponentProps<typeof Combobox> & StorySelectPropsCustom;
 
 const meta: Meta<StorySelectProps> = {
-    title: 'plasma_web/ComboboxOld',
+    title: 'plasma_b2c/Combobox',
     decorators: [WithTheme],
     component: Combobox,
     argTypes: {
@@ -47,7 +47,6 @@ const meta: Meta<StorySelectProps> = {
         usePortal: false,
         disabled: false,
         readOnly: false,
-        alwaysOpened: false,
         label: 'Label',
         placeholder: 'Placeholder',
         enumerationType: 'comma',
@@ -81,8 +80,8 @@ const getSelectItems = (slug: string, elemCount: number) =>
         child: `${slug} ${num}`,
     }));
 
-const StorySingle = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, alwaysOpened, size = 'm', view } = args;
+const SingleDemo = (args: StorySelectProps) => {
+    const { usePortal, placement, label, placeholder, readOnly, disabled, size = 'm', view } = args;
 
     const [value, setValue] = useState<ComboboxPrimitiveValue | undefined>('item_0');
 
@@ -92,7 +91,8 @@ const StorySingle = (args: StorySelectProps) => {
     };
 
     return (
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '50%', margin: '3rem 0' }}>
+            <h4>Combobox с единичным выбором</h4>
             <Combobox
                 frame="theme-root"
                 usePortal={usePortal}
@@ -105,7 +105,6 @@ const StorySingle = (args: StorySelectProps) => {
                 view={view}
                 disabled={disabled}
                 readOnly={readOnly}
-                alwaysOpened={alwaysOpened}
                 onChangeValue={onChangeValue}
             >
                 <ComboboxItem value={undefined} text="Clear" />
@@ -126,23 +125,8 @@ const StorySingle = (args: StorySelectProps) => {
     );
 };
 
-export const Single: StoryObj<StorySelectProps> = {
-    render: (args) => <StorySingle {...args} />,
-};
-
-const StoryMultiple = (args: StorySelectProps) => {
-    const {
-        usePortal,
-        placement,
-        label,
-        placeholder,
-        readOnly,
-        disabled,
-        enumerationType,
-        alwaysOpened,
-        size = 'm',
-        view,
-    } = args;
+const MultipleDemo = (args: StorySelectProps) => {
+    const { usePortal, placement, label, placeholder, readOnly, disabled, enumerationType, size = 'm', view } = args;
 
     const [value, setValue] = useState<Array<ComboboxPrimitiveValue> | undefined>(['item_2', 'item_3']);
 
@@ -152,7 +136,8 @@ const StoryMultiple = (args: StorySelectProps) => {
     };
 
     return (
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '50%', marginBottom: '3rem' }}>
+            <h4>Combobox с множественным выбором</h4>
             <Combobox
                 frame="theme-root"
                 usePortal={usePortal}
@@ -166,7 +151,6 @@ const StoryMultiple = (args: StorySelectProps) => {
                 view={view}
                 disabled={disabled}
                 readOnly={readOnly}
-                alwaysOpened={alwaysOpened}
                 onChangeValue={onChangeValue}
             >
                 <ComboboxItem value={undefined} text="Clear" />
@@ -183,12 +167,8 @@ const StoryMultiple = (args: StorySelectProps) => {
     );
 };
 
-export const Multiple: StoryObj<StorySelectProps> = {
-    render: (args) => <StoryMultiple {...args} />,
-};
-
-const StoryAddCustomItem = (args: StorySelectProps) => {
-    const { usePortal, placement, label, placeholder, readOnly, disabled, alwaysOpened, size = 'm', view } = args;
+const AddCustomItemDemo = (args: StorySelectProps) => {
+    const { usePortal, placement, label, placeholder, readOnly, disabled, size = 'm', view } = args;
 
     const [opened, setOpened] = useState(false);
     const [items, setItems] = useState(getSelectItems('item', 1));
@@ -226,6 +206,7 @@ const StoryAddCustomItem = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '50%' }}>
+            <h4>Combobox с добавлением пользовательского элемента</h4>
             <Combobox
                 frame="theme-root"
                 usePortal={usePortal}
@@ -239,7 +220,6 @@ const StoryAddCustomItem = (args: StorySelectProps) => {
                 disabled={disabled}
                 readOnly={readOnly}
                 opened={opened}
-                alwaysOpened={alwaysOpened}
                 onToggle={onToggle}
                 onChangeValue={onChangeValue}
                 onKeyDown={onKeyDown}
@@ -264,6 +244,13 @@ const StoryAddCustomItem = (args: StorySelectProps) => {
     );
 };
 
-export const AddCustomItem: StoryObj<StorySelectProps> = {
-    render: (args) => <StoryAddCustomItem {...args} />,
+export const Legacy: StoryObj<StorySelectProps> = {
+    render: (args) => (
+        <>
+            <h3>Combobox на композиционной архитектуре (deprecated)</h3>
+            <SingleDemo {...args} />
+            <MultipleDemo {...args} />
+            <AddCustomItemDemo {...args} />
+        </>
+    ),
 };

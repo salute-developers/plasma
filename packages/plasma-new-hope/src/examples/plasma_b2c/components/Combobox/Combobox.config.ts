@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { comboboxNewTokens as tokens } from '../../../../../components/Combobox';
+import { comboboxNewTokens as tokens } from '../../../../components/Combobox';
 
 export const config = {
     defaults: {
@@ -14,6 +14,7 @@ export const config = {
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
@@ -39,6 +40,7 @@ export const config = {
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-positive);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-positive-active);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
@@ -64,6 +66,7 @@ export const config = {
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-warning);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-warning-active);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
@@ -87,8 +90,9 @@ export const config = {
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-negative);
+                $${tokens.textFieldBackgroundColor}: var(--surface-transparent-negative);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-negative-active);
+
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);

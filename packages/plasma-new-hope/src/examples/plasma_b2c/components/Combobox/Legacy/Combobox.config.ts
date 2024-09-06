@@ -291,12 +291,12 @@ export const config = {
                 ${comboboxTokens.targetColor}: var(--text-primary);
                 ${comboboxTokens.targetLabelColor}: var(--text-secondary);
                 ${comboboxTokens.targetArrowColor}: var(--text-secondary);
-                ${comboboxTokens.targetBorderColor}: var(--text-tertiary);
-                ${comboboxTokens.targetBorderColorHover}: var(--text-tertiary-hover);
-                ${comboboxTokens.targetBorderColorActive}: var(--text-tertiary-active);
-                ${comboboxTokens.targetBorderColorOpen}: var(--text-accent);
+                ${comboboxTokens.targetBackgroundColor}: var(--surface-transparent-primary);
+                ${comboboxTokens.targetBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${comboboxTokens.targetBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${comboboxTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
 
-                ${comboboxTokens.background}: var(--surface-solid-card-brightness);
+                ${comboboxTokens.background}: var(--surface-solid-card);
                 ${comboboxTokens.boxShadow}: var(--shadow-down-soft-s);
 
                 ${comboboxTokens.itemBackground}: var(--plasma-colors-transparent);

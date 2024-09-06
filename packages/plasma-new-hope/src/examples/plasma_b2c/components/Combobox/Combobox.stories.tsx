@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconDone } from '@salutejs/plasma-icons';
+
+import { WithTheme } from '../../../_helpers';
+import { IconDone } from '../../../../components/_Icon';
 
 import { Combobox } from './Combobox';
 
@@ -16,8 +17,8 @@ const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/ComboboxNew',
-    decorators: [InSpacingDecorator],
+    title: 'plasma_b2c/Combobox',
+    decorators: [WithTheme],
     component: Combobox,
     argTypes: {
         size: {
@@ -59,6 +60,14 @@ const meta: Meta<StorySelectProps> = {
                 type: 'text',
             },
         },
+        disabled: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        readOnly: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
     },
     args: {
         label: 'Label',
@@ -70,9 +79,9 @@ const meta: Meta<StorySelectProps> = {
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
+        alwaysOpened: false,
         disabled: false,
         readOnly: false,
-        alwaysOpened: false,
     },
     parameters: {
         controls: {
@@ -308,7 +317,7 @@ const items = [
     {
         value: 'africa',
         label: 'Африка',
-        isDisabled: true,
+        disabled: true,
     },
 ];
 
@@ -331,6 +340,9 @@ const SingleStory = (args: StorySelectProps) => {
 
 export const Single: StoryObj<StorySelectProps> = {
     render: (args) => <SingleStory {...args} />,
+    args: {
+        closeAfterSelect: true,
+    },
     parameters: {
         controls: {
             exclude: ['isTargetAmount'],
@@ -358,4 +370,7 @@ const MultipleStory = (args: StorySelectProps) => {
 
 export const Multiple: StoryObj<StorySelectProps> = {
     render: (args) => <MultipleStory {...args} />,
+    args: {
+        closeAfterSelect: false,
+    },
 };
