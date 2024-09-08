@@ -2,7 +2,7 @@ import React, { forwardRef, useState, createRef, useCallback } from 'react';
 import { css } from '@linaria/core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 
-import { cx } from '../../utils';
+import { cx, mergeRefs } from '../../utils';
 import type { RootProps } from '../../engines/types';
 
 import { applyDynamicLabel } from './mixins';
@@ -126,8 +126,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const [focused, setFocused] = useState(false);
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
-        const outerRef = innerRef && 'current' in innerRef ? innerRef : createRef<HTMLTextAreaElement>();
-        const ref = innerRef ?? createRef<HTMLTextAreaElement>();
+        const outerRef = createRef<HTMLTextAreaElement>();
 
         const innerOptional = required ? false : optional;
         const hasHelper = Boolean(leftHelper || rightHelper || helperText);
@@ -170,7 +169,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 if (value === undefined) {
                     setUncontrolledValue(event?.target.value);
                 }
-
+                console.log(event);
                 onChange?.(event);
             },
             [value, onChange],
@@ -231,7 +230,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                             hasContentRight={Boolean(contentRight)}
                             hasHelper={hasHelper}
                             applyCustomWidth={applyCustomWidth}
-                            ref={ref}
+                            ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
                             height={autoResize || Boolean(clear) ? minAuto : height}
                             width={width}
