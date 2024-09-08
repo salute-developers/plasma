@@ -5,6 +5,7 @@ export { extractTextFrom } from './extractTextFrom';
 export { getSizeValueFromProp } from './getSizeValueFromProp';
 export { IS_REACT_18, safeUseId } from './react';
 export { isNumber } from './isNumber';
+export { mergeRefs, setRefList } from './setRefList';
 export { isEmpty } from './isEmpty';
 export * as constants from './constants';
 export * from './getPopoverPlacement';
