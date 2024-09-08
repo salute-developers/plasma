@@ -9,7 +9,7 @@ import { SingleSlider, DoubleSlider } from './components';
 import type { SingleSliderProps } from './components';
 import { SliderProps } from './Slider.types';
 
-const isSingleValueProps = (props: SliderProps): props is SingleSliderProps => typeof props.value === 'number';
+const isSingleValueProps = (props: SliderProps): props is SingleSliderProps => props.type === 'single';
 
 export const sliderRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, SliderProps>) =>
     forwardRef<HTMLDivElement, SliderProps>((props, ref) => {

@@ -2,14 +2,23 @@ import type { HTMLAttributes } from 'react';
 
 import type { SliderBaseProps, SliderInternalProps } from '../SliderBase/SliderBase.types';
 
+type onChangeType = {
+    target: {
+        value: number;
+        name: string;
+    };
+};
+
 export interface SingleSliderProps
     extends SliderBaseProps,
         SliderInternalProps,
         Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+    type: 'single';
+    name: string;
     /**
      * Текущее знaчение
      */
-    value: number;
+    value?: number;
     /**
      * Вызывается при отпускании ползунка
      */
@@ -17,7 +26,7 @@ export interface SingleSliderProps
     /**
      * Вызывается при перемещении ползунка
      */
-    onChange?: (value: number) => void;
+    onChange?: (value: onChangeType) => void;
     /**
      * Ярлык, определяющий назначение ползунка, например «Минимальная цена» [a11y].
      */

@@ -36,6 +36,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     rangeValuesPlacement = 'outer',
     multipleStepSize = 10,
     size = 'm',
+    name,
     ...rest
 }) => {
     const [state, setState] = useState({
@@ -47,7 +48,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const [startOffset, setStartOffset] = useState(0);
     const [endOffset, setEndOffset] = useState(0);
 
-    const [dragValue, setDragValue] = useState(value);
+    const [dragValue, setDragValue] = useState(value ?? 0);
 
     const { stepSize } = state;
 
@@ -55,8 +56,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const labelPlacementClass = labelPlacement === 'outer' ? classes.labelPlacementOuter : classes.labelPlacementInner;
     const rangeValuesPlacementClass =
         rangeValuesPlacement === 'outer' ? classes.rangeValuesPlacementOuter : classes.rangeValuesPlacementInner;
-    const hideMinValueDiffClass = hideMinValueDiff && value - min <= hideMinValueDiff ? classes.hideMinValue : '';
-    const hideMaxValueDiffClass = hideMaxValueDiff && max - value <= hideMaxValueDiff ? classes.hideMaxValue : '';
+    const hideMinValueDiffClass = hideMinValueDiff && dragValue - min <= hideMinValueDiff ? classes.hideMinValue : '';
+    const hideMaxValueDiffClass = hideMaxValueDiff && max - dragValue <= hideMaxValueDiff ? classes.hideMaxValue : '';
 
     const startLabelRef = useRef<HTMLDivElement>(null);
     const endLabelRef = useRef<HTMLDivElement>(null);
@@ -65,7 +66,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const activeSecondValue = dragValue === max ? classes.activeRangeValue : undefined;
 
     useEffect(() => {
-        const localValue = Math.min(Math.max(value, min), max) - min;
+        const localValue = Math.min(Math.max(dragValue, min), max) - min;
 
         if (rangeValuesPlacement === 'outer') {
             const startWidth = startLabelRef.current?.offsetWidth;
@@ -109,7 +110,12 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         }));
 
         if (onChange) {
-            onChange(newValue);
+            onChange({
+                target: {
+                    value: newValue,
+                    name,
+                },
+            });
         }
 
         setDragValue(newValue);
@@ -120,6 +126,15 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
         if (onChangeCommitted) {
             onChangeCommitted(newValue);
+        }
+
+        if (onChange) {
+            onChange({
+                target: {
+                    value: newValue,
+                    name,
+                },
+            });
         }
 
         setState((prevState) => ({

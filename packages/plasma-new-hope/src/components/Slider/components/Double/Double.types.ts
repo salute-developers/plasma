@@ -6,10 +6,11 @@ export interface DoubleSliderProps
     extends SliderBaseProps,
         SliderInternalProps,
         Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+    type: 'double';
     /**
      * Текущее значение
      */
-    value: number[];
+    value?: number[];
     /**
      * Вызывается при отпускании ползунка
      */

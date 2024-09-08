@@ -69,7 +69,13 @@ const StoryDefault = (args: StorySingleProps) => {
 
     return (
         <SliderWrapper>
-            <Slider value={value} onChangeCommitted={onChangeCommittedHandle} onChange={onChangeHandle} {...args} />
+            <Slider
+                type="single"
+                value={value}
+                onChangeCommitted={onChangeCommittedHandle}
+                onChange={onChangeHandle}
+                {...args}
+            />
         </SliderWrapper>
     );
 };
