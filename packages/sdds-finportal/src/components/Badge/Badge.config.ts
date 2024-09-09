@@ -13,6 +13,8 @@ export const config = {
 
                 ${badgeTokens.colorTransparent}: var(--text-primary);
                 ${badgeTokens.backgroundTransparent}: var(--surface-transparent-secondary);
+
+                ${badgeTokens.colorClear}: var(--text-primary);
             `,
             accent: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
@@ -20,6 +22,8 @@ export const config = {
 
                 ${badgeTokens.colorTransparent}: var(--text-accent);
                 ${badgeTokens.backgroundTransparent}: var(--surface-transparent-accent);
+
+                ${badgeTokens.colorClear}: var(--text-accent);
             `,
             positive: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
@@ -27,6 +31,8 @@ export const config = {
 
                 ${badgeTokens.colorTransparent}: var(--text-positive);
                 ${badgeTokens.backgroundTransparent}: var(--surface-transparent-positive);
+
+                ${badgeTokens.colorClear}: var(--text-positive);
             `,
             warning: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
@@ -34,6 +40,8 @@ export const config = {
 
                 ${badgeTokens.colorTransparent}: var(--text-warning);
                 ${badgeTokens.backgroundTransparent}: var(--surface-transparent-warning);
+
+                ${badgeTokens.colorClear}: var(--text-warning);
             `,
             negative: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
@@ -41,6 +49,8 @@ export const config = {
 
                 ${badgeTokens.colorTransparent}: var(--text-negative);
                 ${badgeTokens.backgroundTransparent}: var(--surface-transparent-negative);
+
+                ${badgeTokens.colorClear}: var(--text-negative);
             `,
             dark: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
@@ -48,6 +58,8 @@ export const config = {
 
                 ${badgeTokens.colorTransparent}: var(--on-dark-text-primary);
                 ${badgeTokens.backgroundTransparent}: var(--on-light-surface-transparent-deep);
+
+                ${badgeTokens.colorClear}: var(--on-light-text-primary);
             `,
             light: css`
                 ${badgeTokens.color}: var(--on-light-text-primary);
@@ -55,6 +67,8 @@ export const config = {
 
                 ${badgeTokens.colorTransparent}: var(--on-dark-text-primary);
                 ${badgeTokens.backgroundTransparent}: var(--on-dark-surface-transparent-card);
+
+                ${badgeTokens.colorClear}: var(--on-dark-text-primary);
             `,
         },
         size: {
@@ -122,6 +136,9 @@ export const config = {
             `,
         },
         transparent: {
+            true: css``,
+        },
+        clear: {
             true: css``,
         },
     },
