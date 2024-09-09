@@ -88,7 +88,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
 
             const controlledRefs = { contentRef, inputRef, chipsRefs };
 
-            const [hasValue, setHasValue] = useState(Boolean(outerValue));
+            const [hasValue, setHasValue] = useState(Boolean(outerValue) || Boolean(rest?.defaultValue));
             const [chips, setChips] = useState<Array<ChipValues>>([]);
 
             const uniqId = safeUseId();
@@ -198,8 +198,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             }, [isChipEnumeration, values]);
 
             useEffect(() => {
-                setHasValue(Boolean(outerValue));
-            }, [outerValue]);
+                setHasValue(Boolean(outerValue) || Boolean(rest?.defaultValue));
+            }, [outerValue, rest.defaultValue]);
 
             const innerOptional = Boolean(required ? false : optional);
             const hasPlaceholderOptional = innerOptional && !innerLabelValue && !hasOuterLabel;
@@ -288,7 +288,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                                         {optionalTextNode}
                                     </Label>
                                 )}
-                                {placeholderShown && (
+                                {placeholderShown && !hasValue && (
                                     <InputPlaceholder>
                                         {innerPlaceholderValue}
                                         {hasPlaceholderOptional && optionalTextNode}
