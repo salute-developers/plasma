@@ -69,7 +69,7 @@ import { Badge } from '@salutejs/{{ package }}';
 export function App() {
     const Badges = ({transparent, clear}) => {
         return (
-            <div>
+            <div style=\{{ display: 'flex', gap: '0.5rem' }}>
                 <Badge text="Бейдж" size="l" view="primary" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="accent" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="positive" transparent={transparent} clear={clear} />

@@ -3,17 +3,18 @@ id: badge
 title: Badge
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 
 # Badge
 <Description name="Badge" />
 <PropsTable name="Badge"  exclude={['css']} />
-<StorybookLink name="Badge" />
 
 ## Примеры
 
-### Размер бейджа
-Размер задается с помощью свойства `size`. Возможные значения свойтсва: `"l"`, `"m"`, `"s"`.
+### Размер badge
+Размер задается с помощью свойства `size`.
+
+Возможные значения свойства: `"l"`, `"m"`, `"s"`.
 
 ```tsx live 
 import React from 'react';
@@ -30,7 +31,7 @@ export function App() {
 }
 ```
 
-### Скругленность бейджа
+### Скругленность badge
 Скругленность задается с помощью свойства `pilled`:
 
 ```tsx live 
@@ -48,59 +49,50 @@ export function App() {
 }
 ```
 
-### Вид бейджа
-Вид бейджа задается с помощью свойства `view`. Возможные значения свойства `view`:
+### Вид badge
+Вид `badge` задается с помощью свойства `view`. Возможные значения свойства `view`:
 
-+ `"default"` – основной бейдж;
++ `"primary"` – основной badge;
 + `"accent"` – бейдж акцентного цвета;
 + `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"negative"` – ошибка;
-+ `"dark"` – темный бэйдж;
-+ `"light"` – светлый бэйдж.
++ `"dark"` – темный badge;
++ `"light"` – светлый badge.
+
+Так же на вид badge влияет свойства `transparent` и `clear`.
 
 ```tsx live 
 import React from 'react';
 import { Badge } from '@salutejs/plasma-web';
 
 export function App() {
+    const Badges = ({transparent, clear}) => {
+        return (
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <Badge text="Бейдж" size="l" view="primary" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="accent" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="positive" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="warning" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="negative" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="dark" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="light" transparent={transparent} clear={clear} />
+            </div>
+        )
+    }
+
     return (
-        <div>
-            <Badge text="Бейдж" size="l" view="default" />
-            <Badge text="Бейдж" size="l" view="accent" />
-            <Badge text="Бейдж" size="l" view="positive" />
-            <Badge text="Бейдж" size="l" view="warning" />
-            <Badge text="Бейдж" size="l" view="negative" />
-            <Badge text="Бейдж" size="l" view="dark" />
-            <Badge text="Бейдж" size="l" view="light" />
-        </div>
-    );
-}
-```
-
-так же на вид бейджа влияет свойство `transparent`:
-
-```tsx live 
-import React from 'react';
-import { Badge } from '@salutejs/plasma-web';
-
-export function App() {
-    return (
-        <div>
-            <Badge text="Бейдж" size="l" view="default" transparent />
-            <Badge text="Бейдж" size="l" view="accent" transparent />
-            <Badge text="Бейдж" size="l" view="positive" transparent />
-            <Badge text="Бейдж" size="l" view="warning" transparent />
-            <Badge text="Бейдж" size="l" view="negative" transparent />
-            <Badge text="Бейдж" size="l" view="dark" transparent />
-            <Badge text="Бейдж" size="l" view="light" transparent />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <Badges />
+            <Badges transparent />
+            <Badges clear />
         </div>
     );
 }
 ```
 
 ### Иконка слева / справа
-В левой и/или правой части бейджа можно отобразить иконку:
+В левой и/или правой части badge можно отобразить иконку:
 
 ```tsx live
 import React from 'react';
@@ -113,14 +105,14 @@ export function App() {
             <Badge 
                 text="Бейдж" 
                 size="l"   
-                view="default" 
+                view="primary" 
                 contentLeft={
                     <IconEye color="inherit" size="xs" />
                 } />
             <Badge 
                 text="Бейдж" 
                 size="l"   
-                view="default" 
+                view="primary" 
                 contentRight={
                     <IconEye color="inherit" size="xs" />
                 } />
