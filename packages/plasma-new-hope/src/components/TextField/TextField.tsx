@@ -85,10 +85,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             const inputRef = useRef<HTMLInputElement>(null);
             const inputForkRef = useForkRef(inputRef, ref);
             const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
+            const valueChanged = useRef(false);
+
+            let hasValue = Boolean(outerValue) || (Boolean(rest.defaultValue) && !valueChanged.current);
 
             const controlledRefs = { contentRef, inputRef, chipsRefs };
 
-            const [hasValue, setHasValue] = useState(Boolean(outerValue));
             const [chips, setChips] = useState<Array<ChipValues>>([]);
 
             const uniqId = safeUseId();
@@ -122,7 +124,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 !contentRight && isChipsVisible ? classes.hasEmptyContentRight : undefined;
 
             const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
-                setHasValue(Boolean((event.target as HTMLInputElement).value));
+                if (!valueChanged.current) {
+                    valueChanged.current = true;
+                }
+                hasValue = Boolean((event.target as HTMLInputElement).value);
             };
 
             const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -196,10 +201,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
 
                 setChips(newChips);
             }, [isChipEnumeration, values]);
-
-            useEffect(() => {
-                setHasValue(Boolean(outerValue));
-            }, [outerValue]);
 
             const innerOptional = Boolean(required ? false : optional);
             const hasPlaceholderOptional = innerOptional && !innerLabelValue && !hasOuterLabel;
