@@ -120,21 +120,36 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: S
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
     return (
-        <TextField
-            {...rest}
-            value={value}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
-            status={status || undefined}
-            onChange={(e) => {
-                setValue(e.target.value);
-                onChange(e);
-            }}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onSearch={onSearch}
-            onChangeChips={onChipsChange}
-        />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <TextField
+                {...rest}
+                value={value}
+                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                status={status || undefined}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                    onChange(e);
+                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onSearch={onSearch}
+                onChangeChips={onChipsChange}
+            />
+
+            <TextField
+                {...rest}
+                label="Uncontrolled TextField"
+                defaultValue="Дефолтное значение"
+                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                status={status || undefined}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onSearch={onSearch}
+                onChangeChips={onChipsChange}
+            />
+        </div>
     );
 };
 
