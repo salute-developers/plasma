@@ -98,21 +98,36 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
     return (
-        <TextField
-            {...rest}
-            enumerationType="plain"
-            value={text}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
-            view={view}
-            onChange={(e) => {
-                setText(e.target.value);
-                onChange(e.target.value);
-            }}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onSearch={onSearch}
-        />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <TextField
+                {...rest}
+                enumerationType="plain"
+                value={text}
+                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                view={view}
+                onChange={(e) => {
+                    setText(e.target.value);
+                    onChange(e.target.value);
+                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onSearch={onSearch}
+            />
+
+            <TextField
+                {...rest}
+                label="Uncontrolled TextField"
+                defaultValue="Дефолтное значение"
+                enumerationType="plain"
+                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                view={view}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onSearch={onSearch}
+            />
+        </div>
     );
 };
 
