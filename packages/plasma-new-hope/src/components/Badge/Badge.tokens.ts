@@ -1,6 +1,7 @@
 export const classes = {
     badgePilled: 'badge-pilled',
     badgeTransparent: 'badge-transparent',
+    badgeClear: 'badge-clear',
 };
 
 export const tokens = {
@@ -8,6 +9,7 @@ export const tokens = {
     color: '--plasma-badge-color',
     backgroundTransparent: '--plasma-badge-background-transparent',
     colorTransparent: '--plasma-badge-color-transparent',
+    colorClear: '--plasma-badge-color-clear',
 
     borderRadius: '--plasma-badge-border-radius',
     pilledBorderRadius: '--plasma-badge-pilled-border-radius',
