@@ -166,6 +166,16 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('_defaultValue', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" defaultValue="Default value" placeholder="Placeholder" helperText="Helper text" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('content: with label', () => {
         mount(
             <CypressTestDecoratorWithTypo>
