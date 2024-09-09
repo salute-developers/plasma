@@ -321,17 +321,46 @@ true: PolymorphicClassName;
 transparent: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
+clear: {
+true: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-pilled?: boolean | undefined;
-transparent?: boolean | undefined;
 size?: string | undefined;
 view?: string | undefined;
 } & {
 children?: ReactNode;
-} & RefAttributes<HTMLDivElement>>;
+} & {
+clear?: true | undefined;
+pilled?: false | undefined;
+transparent?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: true | undefined;
+transparent?: boolean | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: boolean | undefined;
+transparent?: true | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 export { BadgeProps }
 
