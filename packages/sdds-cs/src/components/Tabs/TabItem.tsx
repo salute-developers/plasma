@@ -1,15 +1,20 @@
 import React from 'react';
 import {
     horizontalTabItemConfig,
+    verticalTabItemConfig,
     component,
     mergeConfig,
     TabItemProps,
 } from '@salutejs/plasma-new-hope/styled-components';
 
-import { config } from './horizontal/HorizontalTabItem.config';
+import { config as horizontalConfig } from './horizontal/HorizontalTabItem.config';
+import { config as verticalConfig } from './vertical/VerticalTabItem.config';
 
-const mergedHorizontalTabItemConfig = mergeConfig(horizontalTabItemConfig, config);
+const mergedHorizontalTabItemConfig = mergeConfig(horizontalTabItemConfig, horizontalConfig);
 const HorizontalTabItem = component(mergedHorizontalTabItemConfig);
+
+const mergedVerticalTabItemConfig = mergeConfig(verticalTabItemConfig, verticalConfig);
+const VerticalTabItem = component(mergedVerticalTabItemConfig);
 
 const sizes = ['s'] as const;
 type CustomTabItemProps = TabItemProps & {
@@ -19,10 +24,10 @@ type CustomTabItemProps = TabItemProps & {
 /**
  * Элемент списка, недопустимо использовать вне компонента Tabs.
  */
-export const TabItem = ({ orientation = 'horizontal', ...rest }: CustomTabItemProps) => {
-    if (orientation === 'vertical') {
-        return <div>to be implemented</div>;
+export const TabItem = (props: CustomTabItemProps) => {
+    if (props.orientation === 'vertical') {
+        return <VerticalTabItem {...props} />;
     }
 
-    return <HorizontalTabItem orientation={orientation} {...rest} />;
+    return <HorizontalTabItem {...props} />;
 };
