@@ -38,6 +38,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     onHoverDay,
     onSetSelected,
     onKeyDown,
+    locale = 'ru',
 }) => {
     const [days, selected] = useDays({ date: currentDate, value, eventList, disabledList, min, max, includeEdgeDates });
     const selectedRef = useRef(selected);
@@ -126,10 +127,10 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                 Для навигации только по доступным датам удерживайте клавишу Shift.
             </StyledCalendarDaysHint>
             <StyledFlex role="row">
-                {SHORT_DAY_NAMES.map((name) => (
+                {SHORT_DAY_NAMES[locale].map((name) => (
                     <DateStructureItem
                         role="columnheader"
-                        aria-label={FULL_DAY_NAMES[name]}
+                        aria-label={FULL_DAY_NAMES[locale][name]}
                         key={name}
                         dayOfWeek
                         day={name}

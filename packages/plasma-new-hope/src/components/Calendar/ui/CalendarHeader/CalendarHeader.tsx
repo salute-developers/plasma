@@ -32,6 +32,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     onPrev,
     onNext,
     onUpdateCalendarState,
+    locale,
 }) => {
     const handleCalendarState = useCallback(() => {
         const newSize: [number, number] = isDouble ? sizeMap.Months.double : sizeMap.Months.single;
@@ -54,7 +55,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             if (type === CalendarState.Days) {
                 return (
                     <>
-                        <StyledHeaderDate>{MONTH_NAMES[date.monthIndex]}</StyledHeaderDate>
+                        <StyledHeaderDate>{MONTH_NAMES[locale][date.monthIndex]}</StyledHeaderDate>
                         <StyledHeaderDate>
                             {date.year}
                             <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
@@ -85,7 +86,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
 
             return '';
         },
-        [type, startYear, size],
+        [type, startYear, size, locale],
     );
 
     const currentCalendarType = getCalendarType(type);
