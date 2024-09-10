@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
 
 import type { Action, CalendarStateType } from '../store/types';
-import type { CalendarValueType, DateInfo, DateObject, DisabledDay, EventDay } from '../Calendar.types';
+import type { CalendarValueType, DateInfo, DateObject, DisabledDay, EventDay, Locales } from '../Calendar.types';
 
 export interface UseKeyNavigationArgs {
     size: [number, number];
@@ -31,6 +31,7 @@ export type UseDateStructureArgs = {
     disabledList?: DisabledDay[];
     min?: Date;
     max?: Date;
+    locale?: Locales;
 };
 
 export type UseDaysArgs = {

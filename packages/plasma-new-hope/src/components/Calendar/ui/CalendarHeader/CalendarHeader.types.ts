@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-import type { DateObject } from '../../Calendar.types';
+import type { DateObject, Locales } from '../../Calendar.types';
 import type { CalendarStateType } from '../../store/types';
 
 export interface CalendarHeaderProps extends HTMLAttributes<HTMLDivElement> {
@@ -13,4 +13,5 @@ export interface CalendarHeaderProps extends HTMLAttributes<HTMLDivElement> {
     type?: CalendarStateType;
     isDouble?: boolean;
     onUpdateCalendarState?: (newType: CalendarStateType, newSize: [number, number]) => void;
+    locale: Locales;
 }

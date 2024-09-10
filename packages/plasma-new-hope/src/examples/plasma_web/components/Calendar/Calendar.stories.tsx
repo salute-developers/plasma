@@ -115,7 +115,7 @@ export const Default: StoryObj<CalendarProps> = {
 };
 
 const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
-    const { min, max, includeEdgeDates, size, displayDouble } = args;
+    const { min, max, includeEdgeDates, size, displayDouble, locale } = args;
     const [value, setValue] = useState(new Date(2023, 6, 7));
     const [currentState, setCurrentState] = useState('Days');
 
@@ -142,6 +142,7 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
                 max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
+                locale={locale}
                 onChangeValue={handleOnChange}
                 {...rest}
             />
@@ -153,6 +154,7 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
                 max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
+                locale={locale}
                 onChangeValue={handleOnChange}
                 {...rest}
             />

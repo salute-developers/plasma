@@ -17,9 +17,9 @@ import { UseMonthsArgs } from './types';
 /**
  * Хук для получения списка месяцев.
  */
-export const useMonths = ({ date, value, eventList, disabledList, min, max }: UseMonthsArgs) =>
+export const useMonths = ({ date, value, eventList, disabledList, min, max, locale = 'ru' }: UseMonthsArgs) =>
     useMemo(() => {
-        const months = SHORT_MONTH_NAME.map((monthName, monthIndex) => {
+        const months = SHORT_MONTH_NAME[locale].map((monthName, monthIndex) => {
             return {
                 monthName,
                 monthIndex,
@@ -28,7 +28,7 @@ export const useMonths = ({ date, value, eventList, disabledList, min, max }: Us
                     ? Boolean(value.find((v) => isSelectedMonth(date, monthIndex, v)))
                     : isSelectedMonth(date, monthIndex, value),
                 inRange: Array.isArray(value) ? isDateInRange(date.year, monthIndex, 1, value) : false,
-                monthFullName: MONTH_NAMES[monthIndex],
+                monthFullName: MONTH_NAMES[locale][monthIndex],
                 date: { year: date.year, monthIndex, day: 1 },
             };
         });
@@ -46,4 +46,4 @@ export const useMonths = ({ date, value, eventList, disabledList, min, max }: Us
         }
 
         return getMatrix<DateItem>(months, 3);
-    }, [date, value, eventList, disabledList, max, min]);
+    }, [date, value, eventList, disabledList, max, min, locale]);
