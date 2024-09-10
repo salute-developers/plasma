@@ -21,6 +21,10 @@ export const config = {
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
 
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -48,6 +52,10 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -77,6 +85,10 @@ export const config = {
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
 
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -104,6 +116,10 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);

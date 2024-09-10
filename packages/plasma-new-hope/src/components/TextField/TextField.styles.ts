@@ -82,14 +82,26 @@ export const Label = styled.label`
     display: inline-flex;
 `;
 
-export const StyledContentLeft = styled.div`
-    margin: var(${tokens.leftContentMargin});
+const StyledContentSlot = styled.div`
+    color: var(${tokens.contentSlotColor});
     line-height: 0;
 `;
 
-export const StyledContentRight = styled.div`
+export const StyledContentLeft = styled(StyledContentSlot)`
+    margin: var(${tokens.leftContentMargin});
+`;
+
+export const StyledContentRight = styled(StyledContentSlot)`
     margin: var(${tokens.rightContentMargin});
-    line-height: 0;
+
+    &:hover {
+        color: var(${tokens.contentSlotColorHover});
+        cursor: pointer;
+    }
+
+    &:active {
+        color: var(${tokens.contentSlotColorActive});
+    }
 `;
 
 export const LeftHelper = styled.div``;
