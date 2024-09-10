@@ -16,6 +16,10 @@ export const config = {
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
 
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
                 ${tokens.borderColor}: var(--surface-transparent-tertiary);
                 ${tokens.borderColorHover}: var(--text-secondary);
                 ${tokens.borderColorFocus}: var(--surface-accent);
@@ -47,6 +51,10 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
                 ${tokens.borderColor}: var(--surface-positive);
                 ${tokens.borderColorHover}: var(--surface-positive);
@@ -80,6 +88,10 @@ export const config = {
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
 
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
                 ${tokens.borderColor}: var(--surface-warning);
                 ${tokens.borderColorHover}: var(--surface-warning);
                 ${tokens.borderColorFocus}: var(--surface-accent);
@@ -111,6 +123,10 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
                 ${tokens.borderColor}: var(--surface-negative);
                 ${tokens.borderColorHover}: var(--surface-negative);

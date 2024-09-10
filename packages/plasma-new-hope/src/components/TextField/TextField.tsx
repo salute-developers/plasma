@@ -231,7 +231,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                         </Label>
                     )}
                     <InputWrapper
-                        // Рефка для внутреннего использования. Не отдается наружу.
+                        // Ref для внутреннего использования. Не отдается наружу.
                         ref={(rest as any).inputWrapperRef}
                         className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}
                     >

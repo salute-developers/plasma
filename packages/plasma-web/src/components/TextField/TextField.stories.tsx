@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { IconBellFill } from '@salutejs/plasma-icons';
 
-import { IconPlaceholder, InSpacingDecorator, disableProps } from '../../helpers';
+import { InSpacingDecorator, disableProps } from '../../helpers';
 
 import { TextField } from '.';
 import type { TextFieldProps } from '.';
@@ -119,8 +120,8 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: S
             <TextField
                 {...rest}
                 value={value}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
                 status={status || undefined}
                 onChange={(e) => {
                     setValue(e.target.value);
@@ -136,8 +137,8 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: S
                 {...rest}
                 label="Uncontrolled TextField"
                 defaultValue="Дефолтное значение"
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
                 status={status || undefined}
                 onFocus={onFocus}
                 onBlur={onBlur}
