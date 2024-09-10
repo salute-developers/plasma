@@ -34,6 +34,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     label,
     labelContentLeft,
     size = 'm',
+    onChangeForm,
     onChangeCommitted,
     onChangeTextField,
     onBlurTextField,
@@ -120,6 +121,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         if (onChange) {
             onChange([handleValue, value[1]]);
         }
+        onHandleFormOnChange([handleValue, value[1]]);
     };
 
     const onFirstHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = (handleValue, data) => {
@@ -144,6 +146,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
             railFillWidth: fillWidth < 0 ? 0 : fillWidth,
             railFillXPosition: newHandleXPosition,
         }));
+        onHandleFormOnChange([handleValue, value[1]]);
     };
 
     const onFirstTextfieldChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -194,6 +197,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         if (onChange) {
             onChange([value[0], handleValue]);
         }
+        onHandleFormOnChange([value[0], handleValue]);
     };
 
     const onSecondHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = (handleValue, data) => {
@@ -219,6 +223,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
             railFillWidth: fillWidth < 0 ? 0 : fillWidth,
             railFillXPosition: firstXHandleXPosition,
         }));
+
+        onHandleFormOnChange([value[0], handleValue]);
     };
 
     const onSecondTextfieldChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -249,6 +255,12 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const onTextfieldKeyDown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
         if (onKeyDownTextField) {
             onKeyDownTextField([firstValue, secondValue], event);
+        }
+    };
+
+    const onHandleFormOnChange = (value: number[]) => {
+        if (onChangeForm) {
+            onChangeForm(value);
         }
     };
 

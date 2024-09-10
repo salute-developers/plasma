@@ -4,4 +4,5 @@ export { usePreviousValue } from './usePreviousValue';
 export { useForceUpdate } from './useForceUpdate';
 export { useDidMountEffect } from './useDidMountEffect';
 export { useOutsideClick } from './useOutsideClick';
+export { useFormComponent } from './useForm';
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';

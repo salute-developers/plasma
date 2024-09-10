@@ -23,6 +23,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     max,
     value,
     disabled,
+    onChangeForm,
     onChangeCommitted,
     onChange,
     ariaLabel,
@@ -112,6 +113,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
             onChange(newValue);
         }
 
+        onHandleFormOnChange(newValue);
         setDragValue(newValue);
     };
 
@@ -128,7 +130,14 @@ export const SingleSlider: FC<SingleSliderProps> = ({
             railFillWidth: data.lastX,
         }));
 
+        onHandleFormOnChange(newValue);
         setDragValue(newValue);
+    };
+
+    const onHandleFormOnChange = (value: number) => {
+        if (onChangeForm) {
+            onChangeForm(value);
+        }
     };
 
     return (

@@ -31,6 +31,7 @@ export interface SliderBaseProps {
     disabled?: boolean;
     labelPlacement?: string;
     rangeValuesPlacement?: string;
+    name?: string;
 }
 
 export interface SliderInternalProps {

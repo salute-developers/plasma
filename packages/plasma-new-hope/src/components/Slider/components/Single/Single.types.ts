@@ -57,4 +57,5 @@ export interface SingleSliderProps
 
     view?: string;
     size?: 's' | 'm' | 'l';
+    onChangeForm?: (value: number) => void;
 }
