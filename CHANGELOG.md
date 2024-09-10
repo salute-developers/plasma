@@ -1,3 +1,16 @@
+# (Tue Sep 10 2024)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.390.0`, `@salutejs/plasma-new-hope@0.141.0`, `@salutejs/plasma-web@1.392.0`, `@salutejs/sdds-cs@0.120.0`, `@salutejs/sdds-dfa@0.118.0`, `@salutejs/sdds-finportal@0.112.0`, `@salutejs/sdds-serv@0.119.0`
+  - plasma-*: Fix `TextField` placeholder logic [HOTFIX] [#1425](https://github.com/salute-developers/plasma/pull/1425) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### Authors: 1
+
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # (Thu Sep 05 2024)
 
 ### Release Notes

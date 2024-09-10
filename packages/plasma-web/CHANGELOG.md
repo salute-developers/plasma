@@ -1,3 +1,22 @@
+# v1.392.0 (Tue Sep 10 2024)
+
+#### 🚀 Enhancement
+
+- plasma-*: Fix `TextField` placeholder logic [HOTFIX] [#1425](https://github.com/salute-developers/plasma/pull/1425) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-*/sdds-*): update TextField stories ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web/b2c): add defultValue TextField test ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v1.391.0 (Thu Sep 05 2024)
 
 ### Release Notes
