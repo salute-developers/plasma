@@ -16,12 +16,13 @@ import {
     SingleWrapper,
     SliderBaseWrapper,
     StyledRangeValue,
+    InputHidden,
 } from './Single.styles';
 
 export const SingleSlider: FC<SingleSliderProps> = ({
     min,
     max,
-    value,
+    value = min,
     disabled,
     onChangeCommitted,
     onChange,
@@ -36,6 +37,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     rangeValuesPlacement = 'outer',
     multipleStepSize = 10,
     size = 'm',
+    name,
     ...rest
 }) => {
     const [state, setState] = useState({
@@ -43,6 +45,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         stepSize: 0,
         railFillWidth: 0,
     });
+
+    const innerRef = useRef<HTMLInputElement>(null);
 
     const [startOffset, setStartOffset] = useState(0);
     const [endOffset, setEndOffset] = useState(0);
@@ -55,8 +59,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const labelPlacementClass = labelPlacement === 'outer' ? classes.labelPlacementOuter : classes.labelPlacementInner;
     const rangeValuesPlacementClass =
         rangeValuesPlacement === 'outer' ? classes.rangeValuesPlacementOuter : classes.rangeValuesPlacementInner;
-    const hideMinValueDiffClass = hideMinValueDiff && value - min <= hideMinValueDiff ? classes.hideMinValue : '';
-    const hideMaxValueDiffClass = hideMaxValueDiff && max - value <= hideMaxValueDiff ? classes.hideMaxValue : '';
+    const hideMinValueDiffClass = hideMinValueDiff && dragValue - min <= hideMinValueDiff ? classes.hideMinValue : '';
+    const hideMaxValueDiffClass = hideMaxValueDiff && max - dragValue <= hideMaxValueDiff ? classes.hideMaxValue : '';
 
     const startLabelRef = useRef<HTMLDivElement>(null);
     const endLabelRef = useRef<HTMLDivElement>(null);
@@ -65,7 +69,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const activeSecondValue = dragValue === max ? classes.activeRangeValue : undefined;
 
     useEffect(() => {
-        const localValue = Math.min(Math.max(value, min), max) - min;
+        const localValue = Math.min(Math.max(dragValue, min), max) - min;
 
         if (rangeValuesPlacement === 'outer') {
             const startWidth = startLabelRef.current?.offsetWidth;
@@ -87,7 +91,27 @@ export const SingleSlider: FC<SingleSliderProps> = ({
             xHandle: stepSize * localValue,
             railFillWidth: stepSize * localValue,
         }));
-    }, [value, labelPlacement, stepSize, rangeValuesPlacement, min, max, setStartOffset, setEndOffset]);
+    }, [dragValue, labelPlacement, stepSize, rangeValuesPlacement, min, max, setStartOffset, setEndOffset]);
+
+    useEffect(() => {
+        if (innerRef.current) {
+            innerRef.current.addEventListener('setInitValue', (e: Event) => {
+                const item = e.target as HTMLInputElement;
+                const defaultValue = Number(item.getAttribute('defaultValue'));
+                setDragValue(defaultValue);
+            });
+        }
+
+        return () => {
+            if (innerRef.current) {
+                innerRef.current.addEventListener('setInitValue', (e: Event) => {
+                    const item = e.target as HTMLInputElement;
+                    const defaultValue = Number(item.getAttribute('defaultValue'));
+                    setDragValue(defaultValue);
+                });
+            }
+        };
+    }, [innerRef]);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {
@@ -182,6 +206,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     </StyledRangeValue>
                 )}
             </SliderBaseWrapper>
+            <InputHidden name={name} type="number" datatype="slider-single" value={dragValue} ref={innerRef} />
         </SingleWrapper>
     );
 };

@@ -67,4 +67,6 @@ export interface DoubleSliderProps
 
     view?: string;
     size?: 's' | 'm' | 'l';
+    name?: string;
+    type?: 'double';
 }
