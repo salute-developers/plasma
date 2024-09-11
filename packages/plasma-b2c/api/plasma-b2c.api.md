@@ -128,8 +128,7 @@ import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
-import { Editable } from '@salutejs/plasma-hope';
-import { EditableProps } from '@salutejs/plasma-hope';
+import { EditableProps } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
@@ -291,6 +290,7 @@ import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
+import { TypographyVariants } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { UIEvent as UIEvent_2 } from 'react';
 import { Upload } from '@salutejs/plasma-hope';
 import { UploadAudio } from '@salutejs/plasma-hope';
@@ -1520,9 +1520,15 @@ breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { Editable }
-
-export { EditableProps }
+// @public (undocumented)
+export const Editable: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+m: PolymorphicClassName;
+};
+}> & EditableProps<TypographyVariants> & RefAttributes<HTMLInputElement>>;
 
 export { ElasticGrid }
 
