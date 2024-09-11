@@ -9,7 +9,7 @@ export interface SingleSliderProps
     /**
      * Текущее знaчение
      */
-    value: number;
+    value?: number;
     /**
      * Вызывается при отпускании ползунка
      */
@@ -57,4 +57,6 @@ export interface SingleSliderProps
 
     view?: string;
     size?: 's' | 'm' | 'l';
+    name?: string;
+    type?: 'single';
 }

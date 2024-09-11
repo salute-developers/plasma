@@ -169,7 +169,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 if (value === undefined) {
                     setUncontrolledValue(event?.target.value);
                 }
-                console.log(event);
                 onChange?.(event);
             },
             [value, onChange],
