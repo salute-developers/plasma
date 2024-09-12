@@ -5,14 +5,14 @@ import type { RootPropsOmitOnChange } from '../../engines';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
-import { SingleSlider, DoubleSlider } from './components';
-import type { DoubleSliderProps, SingleSliderProps } from './components';
+import { SingleSlider, DoubleUncontrolled } from './components';
+import type { SingleSliderProps, DoubleUncontrolledProps } from './components';
 import { SliderProps } from './Slider.types';
 
 const isSingleValueProps = (props: SliderProps, type: string): props is SingleSliderProps =>
     typeof props.value === 'number' || (type === 'single' && typeof props.value !== 'object');
 
-const isDoubleValueProps = (props: SliderProps, type: string): props is DoubleSliderProps =>
+const isDoubleValueProps = (props: SliderProps, type: string): props is DoubleUncontrolledProps =>
     typeof props.value === 'object' || type === 'double';
 
 export const sliderRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, SliderProps>) =>
@@ -20,7 +20,7 @@ export const sliderRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, SliderPro
         return (
             <Root {...props} ref={ref}>
                 {isSingleValueProps(props, type) && <SingleSlider {...props} />}
-                {isDoubleValueProps(props, type) && <DoubleSlider {...props} />}
+                {isDoubleValueProps(props, type) && <DoubleUncontrolled {...props} />}
             </Root>
         );
     });

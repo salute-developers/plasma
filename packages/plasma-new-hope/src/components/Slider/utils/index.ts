@@ -56,3 +56,10 @@ export const sizeData = {
         fontSizeMultiplier: 16,
     },
 };
+
+export const setInitValue = (e: Event): number => {
+    const item = e.target as HTMLInputElement;
+    const defaultValue = Number(item.getAttribute('defaultValue'));
+
+    return defaultValue;
+};

@@ -1,3 +1,3 @@
-import type { DoubleSliderProps, SingleSliderProps } from './components';
+import type { SingleSliderProps, DoubleUncontrolledProps } from './components';
 
-export type SliderProps = SingleSliderProps | DoubleSliderProps;
+export type SliderProps = SingleSliderProps | DoubleUncontrolledProps;

@@ -4,7 +4,7 @@ import type { FC, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
 import type { HandlerProps } from '../../ui';
-import { sizeData } from '../../utils';
+import { sizeData, setInitValue } from '../../utils';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
 
@@ -17,6 +17,7 @@ import {
     LabelWrapper,
     StyledInput,
     DoubleWrapper,
+    InputHidden,
 } from './Double.styles';
 
 function getXCenterHandle(handle: HTMLDivElement) {
@@ -41,6 +42,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     onChange,
     ariaLabel,
     multipleStepSize = 10,
+    name,
     ...rest
 }) => {
     const [state, setState] = useState({
@@ -66,6 +68,9 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const firstHandleValue = useRef<number>(value[0]);
     const secondHandleValue = useRef<number>(value[1]);
 
+    const innerRefFirst = useRef<HTMLInputElement>(null);
+    const innerRefSecond = useRef<HTMLInputElement>(null);
+
     const { stepSize } = state;
 
     const hasLabelContent = label || labelContentLeft;
@@ -87,6 +92,27 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
             xSecondHandle: stepSize * secondLocalValue,
         }));
     }, [value, stepSize, min, max, setFirstValue, setSecondValue]);
+
+    useEffect(() => {
+        if (innerRefSecond.current && onChangeCommitted) {
+            innerRefSecond.current.addEventListener('setInitValue', (e: Event) => {
+                const firstElement = innerRefFirst.current as HTMLInputElement;
+
+                const firstValueInit = Number(firstElement.getAttribute('defaultValue'));
+                const secondValueInit = setInitValue(e);
+
+                onChangeCommitted([firstValueInit, secondValueInit]);
+                setFirstValue(firstValueInit);
+                setSecondValue(secondValueInit);
+            });
+        }
+
+        return () => {
+            if (innerRefSecond.current && onChangeCommitted) {
+                innerRefSecond.current.addEventListener('setInitValue', () => {});
+            }
+        };
+    }, [innerRefSecond]);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {
@@ -334,6 +360,22 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     />
                 </InputsWrapper>
             </SliderWrapper>
+            <InputHidden
+                name={name}
+                type="number"
+                datatype="slider-double"
+                data-slidertype="min"
+                value={firstValue}
+                ref={innerRefFirst}
+            />
+            <InputHidden
+                name={name}
+                type="number"
+                datatype="slider-double"
+                data-slidertype="max"
+                value={secondValue}
+                ref={innerRefSecond}
+            />
         </DoubleWrapper>
     );
 };
