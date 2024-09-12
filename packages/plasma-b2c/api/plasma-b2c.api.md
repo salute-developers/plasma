@@ -997,6 +997,10 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & BasicProps & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
     multiple?: false | undefined;
     value?: string | undefined;
     onChange?: ((value: string) => void) | undefined;
@@ -1025,6 +1029,138 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & BasicProps & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<React_2.ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & React_2.RefAttributes<HTMLInputElement>, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & BasicProps & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<React_2.ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & React_2.RefAttributes<HTMLInputElement>, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & BasicProps & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<React_2.ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & React_2.RefAttributes<HTMLInputElement>, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & BasicProps & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<React_2.ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & React_2.RefAttributes<HTMLInputElement>, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & BasicProps & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
     multiple: true;
     value?: string[] | undefined;
     onChange?: ((value: string[]) => void) | undefined;
