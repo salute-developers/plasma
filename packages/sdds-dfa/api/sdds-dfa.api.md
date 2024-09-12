@@ -730,11 +730,55 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & ((BasicProps & {
+readOnly?: boolean | undefined;
+disabled?: true | undefined;
+alwaysOpened?: false | undefined;
+} & {
 multiple?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: boolean | undefined;
+disabled?: true | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: true | undefined;
+disabled?: boolean | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: true | undefined;
+disabled?: boolean | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: false | undefined;
+disabled?: false | undefined;
+alwaysOpened?: true | undefined;
+} & {
+multiple?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: false | undefined;
+disabled?: false | undefined;
+alwaysOpened?: true | undefined;
+} & {
 multiple: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
