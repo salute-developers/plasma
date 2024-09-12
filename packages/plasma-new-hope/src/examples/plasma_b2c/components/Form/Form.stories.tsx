@@ -12,6 +12,7 @@ import { Radiobox } from '../Radiobox/Radiobox';
 import { RadioGroup } from '../../../../components/Radiobox';
 import { Slider } from '../Slider/Slider';
 import { useFormPlasma } from '../../../../hooks';
+import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from '../Calendar/Calendar';
 
 type StoryDropdownProps = {};
 
@@ -34,6 +35,7 @@ const DefaultForm = () => {
         switch: true,
         radiobox: 'c',
         slider: 10,
+        sliderd: [10, 20],
     });
 
     return (
@@ -57,6 +59,7 @@ const DefaultForm = () => {
                 ))}
             </RadioGroup>
             <Slider name="slider" label="Slider" type="single" min={0} max={100} />
+            <Slider name="sliderd" label="Slider" type="double" min={0} max={100} />
             <Button type="submit">Отправить</Button>
         </form>
     );
@@ -135,6 +138,7 @@ const DefaultUseFormController = () => {
             switch: true,
             radiobox: 'c',
             slider: 10,
+            sliderd: [10, 20],
         },
     });
     const onSubmit = (data) => {
@@ -167,6 +171,11 @@ const DefaultUseFormController = () => {
                 name="slider"
                 control={control}
                 render={({ field }) => <Slider {...field} type="single" label="Slider" min={0} max={100} />}
+            />
+            <Controller
+                name="sliderd"
+                control={control}
+                render={({ field }) => <Slider {...field} type="double" label="Slider" min={0} max={100} />}
             />
             <Button type="submit">Отправить</Button>
         </form>

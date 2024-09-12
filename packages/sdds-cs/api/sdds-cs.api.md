@@ -2385,7 +2385,9 @@ s: PolymorphicClassName;
 disabled: {
 true: PolymorphicClassName;
 };
-}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (DoubleSliderProps & RefAttributes<HTMLDivElement>))>;
+}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "value"> & {
+value?: number[] | undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 export { SliderProps }
 

@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
-import { sizeData } from '../../utils';
+import { setInitValue, sizeData } from '../../utils';
 import type { HandlerProps } from '../../ui';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
@@ -95,20 +95,12 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     useEffect(() => {
         if (innerRef.current) {
-            innerRef.current.addEventListener('setInitValue', (e: Event) => {
-                const item = e.target as HTMLInputElement;
-                const defaultValue = Number(item.getAttribute('defaultValue'));
-                setDragValue(defaultValue);
-            });
+            innerRef.current.addEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
         }
 
         return () => {
             if (innerRef.current) {
-                innerRef.current.addEventListener('setInitValue', (e: Event) => {
-                    const item = e.target as HTMLInputElement;
-                    const defaultValue = Number(item.getAttribute('defaultValue'));
-                    setDragValue(defaultValue);
-                });
+                innerRef.current.addEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
             }
         };
     }, [innerRef]);
