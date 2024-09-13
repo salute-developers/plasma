@@ -44,7 +44,7 @@ module.exports = {
             'plasma-core',
             'plasma-typo',
         ],
-        required: ['plasma-icons', 'plasma-core'],
+        required: ['plasma-icons', 'plasma-core', 'plasma-new-hope', 'core-themes'],
         themes: '',
     },
     'plasma-web': {
