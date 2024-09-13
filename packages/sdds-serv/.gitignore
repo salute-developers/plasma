@@ -11,12 +11,14 @@
 /utils
 /index.*
 /helpers
+/_virtual
 src-sc
 src-linaria
-styled-components/*
 src-emotion
 emotion/cjs
 emotion/es
+styled-components/cjs
+styled-components/es
 linaria/cjs
 linaria/es
 build-sb
