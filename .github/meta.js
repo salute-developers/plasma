@@ -25,7 +25,7 @@ module.exports = {
     },
     'plasma-ui': {
         scope: [...commonScope, 'plasma-core', 'plasma-typo'],
-        required: ['plasma-icons', 'plasma-core'],
+        required: ['plasma-new-hope', 'plasma-icons', 'plasma-core'],
         themes: '',
     },
     'plasma-web': {
