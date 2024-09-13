@@ -20,6 +20,8 @@ import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
+import { BaseTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/TabItem.types';
+import { BaseTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -34,6 +36,7 @@ import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography
 import { BreadcrumbsItem } from '@salutejs/plasma-new-hope/types/components/Breadcrumbs/Breadcrumbs.types';
 import { BreadcrumbsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
+import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarBaseProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -184,7 +187,10 @@ import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
-import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { StepItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Steps.types';
+import { StyledComponent } from 'styled-components';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -686,7 +692,138 @@ showItems?: number | undefined;
 
 export { BreadcrumbsProps }
 
+// @public
+export const Button: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+lr: PolymorphicClassName;
+m: PolymorphicClassName;
+mr: PolymorphicClassName;
+s: PolymorphicClassName;
+sr: PolymorphicClassName;
+xs: PolymorphicClassName;
+xsr: PolymorphicClassName;
+xxs: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+focused: {
+true: PolymorphicClassName;
+};
+stretching: {
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
+fixed: PolymorphicClassName;
+};
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLButtonElement>))>;
+
 export { ButtonBase }
+
+// @public
+export const ButtonGroup: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+lr: PolymorphicClassName;
+m: PolymorphicClassName;
+mr: PolymorphicClassName;
+s: PolymorphicClassName;
+sr: PolymorphicClassName;
+xs: PolymorphicClassName;
+xsr: PolymorphicClassName;
+xxs: PolymorphicClassName;
+};
+orientation: {
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
+};
+gap: {
+none: PolymorphicClassName;
+dense: PolymorphicClassName;
+wide: PolymorphicClassName;
+};
+shape: {
+segmented: PolymorphicClassName;
+default: PolymorphicClassName;
+};
+stretching: {
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
+};
+}> & ButtonGroupProps & RefAttributes<HTMLDivElement>>;
+
+export { ButtonGroupProps }
+
+// Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type ButtonProps = typeof ButtonComponent;
 
 // @public (undocumented)
 export const Calendar: FC<CalendarProps>;
@@ -871,6 +1008,208 @@ export { ColOffsetProps }
 export { ColProps }
 
 export { ColSizeProps }
+
+// @public (undocumented)
+export const Combobox: <T extends ItemOption>(props: Omit<ComboboxProps<T>, "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & Pick<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & (({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>)), "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & {
+    ref?: ForwardedRef<HTMLInputElement> | undefined;
+}) => ReactElement | null;
 
 // @public
 export const Counter: FunctionComponent<PropsType<    {
@@ -1214,6 +1553,80 @@ color?: string | undefined;
 export { h5 }
 
 export { h5Bold }
+
+// @public
+export const IconButton: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+lr: PolymorphicClassName;
+m: PolymorphicClassName;
+mr: PolymorphicClassName;
+s: PolymorphicClassName;
+sr: PolymorphicClassName;
+xs: PolymorphicClassName;
+xsr: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+focused: {
+true: PolymorphicClassName;
+};
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLButtonElement>))>;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
@@ -2110,7 +2523,7 @@ accent: PolymorphicClassName;
     target?: "textfield-like" | undefined;
     view?: "default" | "positive" | "warning" | "negative" | undefined;
     contentLeft?: React_2.ReactNode;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     placeholder?: string | undefined;
     helperText?: string | undefined;
 } & {
@@ -2148,7 +2561,7 @@ accent: PolymorphicClassName;
     target?: "textfield-like" | undefined;
     view?: "default" | "positive" | "warning" | "negative" | undefined;
     contentLeft?: React_2.ReactNode;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     placeholder?: string | undefined;
     helperText?: string | undefined;
 } & {
@@ -2288,11 +2701,132 @@ s: PolymorphicClassName;
 disabled: {
 true: PolymorphicClassName;
 };
-}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (DoubleSliderProps & RefAttributes<HTMLDivElement>))>;
+}> & ((SliderBaseProps & SliderInternalProps & {
+onChange?: ((event: FormTypeNumber) => void) | undefined;
+name: string;
+value?: undefined;
+defaultValue?: number | undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+rangeValuesPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "s" | "m" | "l" | undefined;
+type?: "single" | undefined;
+} & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
+onChange?: ((value: number) => void) | undefined;
+value: number;
+name?: undefined;
+defaultValue?: undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+rangeValuesPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "s" | "m" | "l" | undefined;
+type?: "single" | undefined;
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
+onChange?: ((event: FormTypeString) => void) | undefined;
+name?: string | undefined;
+value?: undefined;
+defaultValue?: number[] | undefined;
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
+onChange?: ((values: number[]) => void) | undefined;
+name?: undefined;
+value?: number[] | undefined;
+defaultValue?: undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 export { SliderProps }
 
+// @public
+export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+tertiary: PolymorphicClassName;
+paragraph: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
+width?: undefined;
+height?: undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+width: number;
+height: number;
+size?: undefined; /**
+* @deprecated
+*/
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+width: string;
+height: string;
+size?: undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>))>, any, {}, never>;
+
+// @public (undocumented)
+export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
+    size?: string | number;
+    view?: string;
+    color?: string;
+    deviceScale?: number;
+};
+
 export { SSRProvider }
+
+export { StepItemProps }
+
+// @public (undocumented)
+export const Steps: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & StepsProps & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const Switch: FunctionComponent<PropsType<    {
+size: {
+m: PolymorphicClassName;
+};
+view: {
+default: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+focused: {
+true: PolymorphicClassName;
+};
+}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
+
+// Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 // Warning: (ae-forgotten-export) The symbol "TabItemProps" needs to be exported by the entry point index.d.ts
 //
@@ -2337,7 +2871,7 @@ true: PolymorphicClassName;
 }> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2367,7 +2901,7 @@ hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2397,7 +2931,7 @@ hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2427,7 +2961,37 @@ hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
+clear?: true | undefined;
+hasDivider?: boolean | undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2457,7 +3021,7 @@ hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2487,7 +3051,7 @@ hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
@@ -2580,7 +3144,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2607,7 +3171,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2634,7 +3198,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2646,6 +3210,9 @@ requiredPlacement?: "right" | "left" | undefined;
 } & {
 required: true;
 optional?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
 } & {
 chips?: undefined;
 onChangeChips?: undefined;
@@ -2658,7 +3225,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2670,6 +3237,9 @@ requiredPlacement?: "right" | "left" | undefined;
 } & {
 required: true;
 optional?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
 } & {
 enumerationType: "chip";
 onSearch?: undefined;
@@ -2682,7 +3252,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2694,6 +3264,9 @@ requiredPlacement?: "right" | "left" | undefined;
 } & {
 optional?: true | undefined;
 required?: false | undefined;
+} & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
 } & {
 chips?: undefined;
 onChangeChips?: undefined;
@@ -2706,7 +3279,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2718,6 +3291,63 @@ requiredPlacement?: "right" | "left" | undefined;
 } & {
 optional?: true | undefined;
 required?: false | undefined;
+} & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
 } & {
 enumerationType: "chip";
 onSearch?: undefined;
