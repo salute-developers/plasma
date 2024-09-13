@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
@@ -17,8 +17,10 @@ import type { Theme as ThemeType } from '../types';
 // import { multipleMediaQuery } from './mixins';
 // import { getURLParams, pushHistoryState } from '../utils';
 // import type { Theme as ThemeType } from '../types';
-import { TokensEditor } from './_new/TokensEditor';
 import { ToneGenerator } from './ColorGenerator/ToneGenerator';
+import { GrayscaleGenerator } from './ColorGenerator/GrayscaleGenerator';
+import { FontFamilyGenerator } from './ColorGenerator/FontFamilyGenerator';
+// import { TokensEditor } from './_new/TokensEditor';
 
 const StyledRoot = styled.div`
     min-width: 35rem;
@@ -47,64 +49,36 @@ const PAGE_TYPE = {
 type PageType = typeof PAGE_TYPE[keyof typeof PAGE_TYPE];
 
 const App = () => {
-    const [state, setState] = useState<PageType>(PAGE_TYPE.TOKENS_EDITOR);
-    const navigate = useNavigate();
-
+    const [state, setState] = useState<PageType>(PAGE_TYPE.TONE);
     // const [data, setData] = useState<ThemeType>();
     // const [token, setToken] = useState<string | undefined>();
     // const defaultData = useDefaultThemeData();
 
+    const navigate = useNavigate();
+
     const [themeName, branchName] = getURLParams(['theme', 'branch']);
     const [themeData, errorMessage] = useFetchTheme(themeName, branchName);
 
-    useEffect(() => {
-        if (!token) {
-            return;
-        }
-
-        if (themeData) {
-            setState(PAGE_TYPE.THEME);
-            setData(themeData);
-            return;
-        }
-
-        if (errorMessage) {
-            setState(PAGE_TYPE.ERROR);
-        }
-    }, [themeData, token, errorMessage]);
-
-    const onSetToken = useCallback((value: string) => {
-        setToken(value);
-    }, []);
-
-    const onMain = useCallback(() => {
-        setState(PAGE_TYPE.MAIN);
-        pushHistoryState('./');
-    }, []);
-
-    const onGenerateTheme = useCallback(() => {
-        setState(PAGE_TYPE.GENERATOR);
-        pushHistoryState('./');
-    }, []);
-
-    const onPreviewTheme = useCallback((data: ThemeType) => {
-        setState(PAGE_TYPE.THEME);
-        setData(data);
-    }, []);
-
-    const onPullRequest = useCallback((data: ThemeType) => {
-        setState(PAGE_TYPE.PULL_REQUEST);
-        setData(data);
-    }, []);
+    const onGrayScale = () => {
+        setState(PAGE_TYPE.GRAYSCALE);
+    };
 
     const onTokensEditor = () => {
         setState(PAGE_TYPE.TOKENS_EDITOR);
     };
 
+    const onTone = () => {
+        setState(PAGE_TYPE.TONE);
+    };
+
+    const onFontFamily = () => {
+        setState(PAGE_TYPE.FONT_FAMILY);
+    };
+
     return (
-        <Routes>
-            <Route path="new" element={<TokensEditor onPreviousPage={onFontFamily} onNextPage={onTone} />} />
-            <Route
+        <>
+            {/* <Route path="new" element={<TokensEditor onPreviousPage={onFontFamily} onNextPage={onTone} />} /> */}
+            {/* <Route
                 path="test"
                 element={
                     <ToneGenerator
@@ -114,18 +88,14 @@ const App = () => {
                         }}
                     />
                 }
-            />
-            {/* {state === PAGE_TYPE.TONE && <ToneGenerator onNextPage={onGrayScale} />}
-                {state === PAGE_TYPE.GRAYSCALE && (
-                    <GrayscaleGenerator onPreviousPage={onTone} onNextPage={onFontFamily} />
-                )}
-                {state === PAGE_TYPE.FONT_FAMILY && (
-                    <FontFamilyGenerator onPreviousPage={onGrayScale} onNextPage={onTokensEditor} />
-                )}
-                {state === PAGE_TYPE.TOKENS_EDITOR && (
-                    <TokensEditor onPreviousPage={onFontFamily} onNextPage={onTone} />
-                )} */}
-        </Routes>
+            /> */}
+            {state === PAGE_TYPE.TONE && <ToneGenerator onNextPage={onGrayScale} />}
+            {state === PAGE_TYPE.GRAYSCALE && <GrayscaleGenerator onPreviousPage={onTone} onNextPage={onFontFamily} />}
+            {state === PAGE_TYPE.FONT_FAMILY && (
+                <FontFamilyGenerator onPreviousPage={onGrayScale} onNextPage={onTokensEditor} />
+            )}
+            {/* {state === PAGE_TYPE.TOKENS_EDITOR && <TokensEditor onPreviousPage={onFontFamily} onNextPage={onTone} />} */}
+        </>
     );
 };
 
