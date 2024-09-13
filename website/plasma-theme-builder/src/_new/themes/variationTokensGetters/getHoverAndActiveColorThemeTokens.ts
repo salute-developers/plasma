@@ -7,7 +7,7 @@ import { Platform, PlatformsVariations } from '../../types';
 export const getHoverAndActiveColorThemeTokens = (
     token: ColorToken,
 ): PlatformsVariations['color'][Platform] | undefined => {
-    const [mode, category] = token.getName().split('.');
+    const [mode, category] = token.getName().split('.') as [ThemeMode, string];
 
     const sectionName = sectionToFormulaMap[category];
 
@@ -16,8 +16,8 @@ export const getHoverAndActiveColorThemeTokens = (
     }
 
     const value = token.getValue('web');
-    const restoredValue = getRestoredColorFromPalette(value);
-    const getDefaultStateToken = getStateColor(restoredValue, sectionName, mode as ThemeMode);
+    const restoredValue = getRestoredColorFromPalette(value, -1);
+    const getDefaultStateToken = getStateColor(restoredValue, sectionName, mode);
 
     return {
         [`${token.getName()}-hover`]: getDefaultStateToken('hover'),
