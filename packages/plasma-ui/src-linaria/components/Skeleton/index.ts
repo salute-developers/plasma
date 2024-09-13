@@ -1,0 +1,1 @@
+export { RectSkeleton } from './Skeleton';
