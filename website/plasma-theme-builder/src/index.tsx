@@ -13,8 +13,7 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 
 root.render(
-    <>
-        <GlobalStyle />
+    <GlobalStyle>
         <App />
-    </>,
+    </GlobalStyle>,
 );

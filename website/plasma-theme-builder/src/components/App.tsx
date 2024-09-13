@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import styled, { css } from 'styled-components';
 
 // import { Footer } from './Footer/Footer';
@@ -12,8 +12,9 @@ import React from 'react';
 // import { multipleMediaQuery } from './mixins';
 // import { getURLParams, pushHistoryState } from '../utils';
 // import type { Theme as ThemeType } from '../types';
-// import { ColorGenerator } from './ColorGenerator/ColorGenerator';
-import { ColorGenerator2 } from './ColorGenerator/ColorGenerator2';
+import { ToneGenerator } from './ColorGenerator/ToneGenerator';
+import { GrayscaleGenerator } from './ColorGenerator/GrayscaleGenerator';
+import { FontFamilyGenerator } from './ColorGenerator/FontFamilyGenerator';
 
 // const StyledRoot = styled.div`
 //     min-width: 35rem;
@@ -32,18 +33,16 @@ import { ColorGenerator2 } from './ColorGenerator/ColorGenerator2';
 //     flex-direction: column;
 // `;
 
-// const PAGE_TYPE = {
-//     MAIN: 'MAIN',
-//     GENERATOR: 'GENERATOR',
-//     THEME: 'THEME',
-//     PULL_REQUEST: 'PULL_REQUEST',
-//     ERROR: 'ERROR',
-// } as const;
+const PAGE_TYPE = {
+    TONE: 'TONE',
+    GRAYSCALE: 'GRAYSCALE',
+    FONT_FAMILY: 'FONT_FAMILY',
+} as const;
 
-// type PageType = typeof PAGE_TYPE[keyof typeof PAGE_TYPE];
+type PageType = typeof PAGE_TYPE[keyof typeof PAGE_TYPE];
 
 const App = () => {
-    // const [state, setState] = useState<PageType>(PAGE_TYPE.MAIN);
+    const [state, setState] = useState<PageType>(PAGE_TYPE.TONE);
     // const [data, setData] = useState<ThemeType>();
     // const [token, setToken] = useState<string | undefined>();
     // const defaultData = useDefaultThemeData();
@@ -91,7 +90,29 @@ const App = () => {
     //     setData(data);
     // }, []);
 
-    return <ColorGenerator2 />;
+    const onGrayScale = () => {
+        setState(PAGE_TYPE.GRAYSCALE);
+    };
+
+    const onTone = () => {
+        setState(PAGE_TYPE.TONE);
+    };
+
+    const onFontFamily = () => {
+        setState(PAGE_TYPE.FONT_FAMILY);
+    };
+
+    return (
+        <>
+            {state === PAGE_TYPE.TONE && <ToneGenerator onNextPage={onGrayScale} />}
+            {state === PAGE_TYPE.GRAYSCALE && <GrayscaleGenerator onPreviousPage={onTone} onNextPage={onFontFamily} />}
+            {state === PAGE_TYPE.FONT_FAMILY && (
+                <FontFamilyGenerator onPreviousPage={onGrayScale} onNextPage={onTone} />
+            )}
+        </>
+    );
+
+    // return <ToneGenerator />;
 
     // return (
     //     <StyledRoot>
