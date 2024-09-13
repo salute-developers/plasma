@@ -1,5 +1,4 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
 
 export const sizeMap = {
     xs: {
@@ -29,15 +28,6 @@ interface IconRootProps extends IconProps {
     icon: React.FC<IconProps>;
 }
 
-const StyledRoot = styled.div<{ w: string }>`
-    display: inline-flex;
-    ${({ w }) => css`
-        width: ${w};
-        height: ${w};
-        flex: 0 0 ${w};
-    `}
-`;
-
 export const getIconComponent = (
     icon16: React.FC<IconProps> | null,
     icon24: React.FC<IconProps> | null,
@@ -62,11 +52,18 @@ export const getIconComponent = (
 export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => {
     const c = color || 'var(--plasma-colors-primary)';
 
-    const w = `${sizeMap[size].scale}rem`;
+    const data = `${sizeMap[size].scale}rem`;
+
+    const RootStyle = {
+        display: 'inline-flex',
+        width: `${data}`,
+        height: `${data}`,
+        flex: `0 0 ${data}`,
+    };
 
     return (
-        <StyledRoot aria-hidden w={w} className={className}>
+        <div aria-hidden style={RootStyle} className={className}>
             <Icon color={c} size={size} />
-        </StyledRoot>
+        </div>
     );
 };
