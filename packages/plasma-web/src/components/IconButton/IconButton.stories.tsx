@@ -1,6 +1,7 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { IconClose } from '@salutejs/plasma-icons';
+import { IconClose, IconSize } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { IconButton } from './IconButton';
@@ -19,6 +20,10 @@ const pins = [
     'circle-circle',
     '',
 ];
+
+const StyledIcon = styled(IconClose)`
+    color: #f00f;
+`;
 
 const meta: Meta<StoryButtonProps> = {
     title: 'Controls/IconButton',
@@ -49,7 +54,7 @@ const meta: Meta<StoryButtonProps> = {
 
 export default meta;
 
-const getSizeForIcon = (size) => {
+const getSizeForIcon = (size: IconSize) => {
     const map = {
         mr: 's',
         lr: 's',
@@ -75,9 +80,12 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
         isLoading: false,
     },
     argTypes: { ...disableProps(['children']) },
-    render: (args) => (
-        <IconButton {...args}>
-            <IconClose color="inhert" size={getSizeForIcon(args.size)} />
-        </IconButton>
-    ),
+    render: (args) => {
+        return (
+            <>
+                <IconClose color="inhert" size={getSizeForIcon(args.size)} />
+                <StyledIcon color="inhert" size={getSizeForIcon(args.size)} />
+            </>
+        );
+    },
 };
