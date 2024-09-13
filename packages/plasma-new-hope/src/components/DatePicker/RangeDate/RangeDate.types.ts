@@ -22,6 +22,10 @@ export type DatePickerRangeFieldProps = {
      */
     defaultSecondDate?: Date;
     /**
+     * Название для формы
+     */
+    name?: string;
+    /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
      */
     onCommitFirstDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;

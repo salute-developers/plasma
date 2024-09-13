@@ -1,6 +1,6 @@
 import React, { RefObject, useEffect } from 'react';
 
-type DataType = { [name: string]: string | boolean | null | number | number[] };
+type DataType = { [name: string]: string | boolean | null | number | number[] | Date | string[] };
 
 const initData = (ref: RefObject<HTMLFormElement>, defaultValues: DataType) => {
     if (ref.current) {
@@ -37,6 +37,25 @@ const initData = (ref: RefObject<HTMLFormElement>, defaultValues: DataType) => {
                     const data = defaultValues[name] as number[];
 
                     item.setAttribute('defaultValue', String(data[isMax]));
+                    const event = new Event('setInitValue');
+                    item.dispatchEvent(event);
+                }
+            }
+
+            if (type === 'hidden') {
+                const datepickerType = item.getAttribute('datatype');
+
+                if (datepickerType === 'datepicker-single') {
+                    item.setAttribute('defaultValue', String(defaultValues[name]));
+                    const event = new Event('setInitValue');
+                    item.dispatchEvent(event);
+                }
+
+                if (datepickerType === 'datepicker-double') {
+                    const isTo = item.getAttribute('data-datepicker') === 'to' ? 1 : 0;
+                    const data = defaultValues[name] as number[];
+
+                    item.setAttribute('defaultValue', String(data[isTo]));
                     const event = new Event('setInitValue');
                     item.dispatchEvent(event);
                 }
@@ -91,6 +110,21 @@ export const useFormPlasma = (onSubmit: (data: DataType) => void, defaultValues:
                         result[name] = [Number(value)];
                     } else if (!isMin && Array.isArray(result[name])) {
                         result[name] = [...(result[name] as number[]), Number(value)];
+                    }
+                }
+            } else if (type === 'hidden' && valideParams(name)) {
+                const sliderType = item.getAttribute('datatype');
+
+                if (sliderType === 'datepicker-single') {
+                    result[name] = value;
+                }
+
+                if (sliderType === 'datepicker-double') {
+                    const isMin = item.getAttribute('data-datepicker') === 'from';
+                    if (isMin) {
+                        result[name] = [String(value)];
+                    } else if (!isMin && Array.isArray(result[name])) {
+                        result[name] = [...(result[name] as string[]), String(value)];
                     }
                 }
             }

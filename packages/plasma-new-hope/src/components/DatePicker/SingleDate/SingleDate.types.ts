@@ -12,6 +12,10 @@ export type DatePickerTextFieldProps = {
      */
     defaultDate?: Date;
     /**
+     * Название для формы
+     */
+    name?: string;
+    /**
      * Некорректное значение даты
      */
     valueError?: boolean;

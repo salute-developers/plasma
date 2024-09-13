@@ -7,13 +7,14 @@ import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
 import { StyledCalendar } from '../DatePickerBase.styles';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
+import { setInitValue } from '../utils/setInitValue';
 
 import type { DatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledInput, StyledLabel, StyledPopover, base } from './SingleDate.styles';
+import { LeftHelper, StyledInput, StyledLabel, StyledPopover, InputHidden, base } from './SingleDate.styles';
 
 export const datePickerRoot = (
     Root: RootProps<HTMLDivElement, Omit<DatePickerProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
@@ -36,6 +37,7 @@ export const datePickerRoot = (
                 size,
                 readOnly = false,
                 disabled = false,
+                name,
 
                 defaultDate = '',
                 valueError,
@@ -71,6 +73,7 @@ export const datePickerRoot = (
             ref,
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
+            const innerRef = useRef<HTMLInputElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format, lang));
@@ -146,6 +149,22 @@ export const datePickerRoot = (
                 setInputValue(formatInputValue({ value: defaultDate, format, lang }));
             }, [format, lang]);
 
+            useEffect(() => {
+                if (innerRef.current) {
+                    innerRef.current.addEventListener('setInitValue', (e: Event) =>
+                        handleCommitDate(setInitValue(e), true, false),
+                    );
+                }
+
+                return () => {
+                    if (innerRef.current) {
+                        innerRef.current.addEventListener('setInitValue', (e: Event) =>
+                            handleCommitDate(setInitValue(e), true, false),
+                        );
+                    }
+                };
+            }, [innerRef]);
+
             return (
                 <Root
                     view={view}
@@ -190,6 +209,13 @@ export const datePickerRoot = (
                         />
                     </StyledPopover>
                     {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    <InputHidden
+                        type="hidden"
+                        datatype="datepicker-single"
+                        name={name}
+                        value={inputValue}
+                        ref={innerRef}
+                    />
                 </Root>
             );
         },

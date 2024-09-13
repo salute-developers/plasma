@@ -81,4 +81,5 @@ export const InputHidden = styled.input`
     opacity: 0;
     margin: 0;
     padding: 0;
+    border: none;
 `;

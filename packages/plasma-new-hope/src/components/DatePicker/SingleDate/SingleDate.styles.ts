@@ -101,3 +101,13 @@ export const base = css`
 export const StyledLabel = styled.label``;
 
 export const LeftHelper = styled.div``;
+
+export const InputHidden = styled.input`
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+`;

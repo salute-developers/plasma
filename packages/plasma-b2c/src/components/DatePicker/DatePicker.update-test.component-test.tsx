@@ -79,7 +79,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -91,7 +91,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -103,7 +103,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -115,7 +115,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -210,7 +210,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click().type('14.06.2023');
+        cy.get('input').first().click().type('14.06.2023');
         cy.get('.popover-root').should('be.visible');
 
         matchImageSnapshotWithTreshold();
@@ -223,7 +223,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
         cy.get('.popover-root').should('be.visible');
         cy.get('button[aria-label="Следующий месяц"]').click();
         cy.get('button[aria-label="Предыдущий месяц"]').click();
@@ -239,7 +239,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
         cy.get('.popover-root').should('be.visible');
         cy.get('#id-grid-label').click();
         cy.get('[aria-label="Февраль"]').click();
@@ -254,7 +254,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
         cy.get('.popover-root').should('be.visible');
         cy.get('#id-grid-label').click();
         cy.get('button[aria-label="Предыдущий год"]').click();
@@ -271,7 +271,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
         cy.get('.popover-root').should('be.visible');
         cy.get('#id-grid-label').click();
         cy.get('#id-grid-label').click();
@@ -289,7 +289,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
         cy.get('.popover-root').should('be.visible');
         cy.get('[data-day="15"]').click();
 
@@ -305,7 +305,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('#demo input').click();
+        cy.get('#demo input').first().click();
 
         matchImageSnapshotWithTreshold();
     });
@@ -317,14 +317,14 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click().type('06');
+        cy.get('input').first().click().type('06');
         cy.get('.popover-root').should('be.visible');
-        cy.get('input').should('have.value', '06/');
-        cy.get('input').type('14');
-        cy.get('input').should('have.value', '06/14/');
-        cy.get('input').type('{backspace}');
-        cy.get('input').should('have.value', '06/1');
-        cy.get('input').type('42023');
+        cy.get('input').first().should('have.value', '06/');
+        cy.get('input').first().type('14');
+        cy.get('input').first().should('have.value', '06/14/');
+        cy.get('input').first().type('{backspace}');
+        cy.get('input').first().should('have.value', '06/1');
+        cy.get('input').first().type('42023');
 
         cy.matchImageSnapshot();
     });
@@ -354,7 +354,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
 
         matchImageSnapshotWithTreshold();
     });
@@ -373,7 +373,7 @@ describe('plasma-b2c: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').click();
+        cy.get('input').first().click();
         cy.get('#outer').click();
 
         cy.matchImageSnapshot();
