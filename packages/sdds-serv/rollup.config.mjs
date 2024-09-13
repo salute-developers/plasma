@@ -20,7 +20,7 @@ export default {
     },
     output: [{
         preserveModules: true,
-        dir: 'css/es',
+        dir: './es',
         format: 'es',
         freeze: false,
         esModule: true,
@@ -29,7 +29,7 @@ export default {
         assetFileNames: "[name][extname]",
     }, {
         preserveModules: true,
-        dir: 'css/cjs',
+        dir: './',
         format: 'cjs',
         freeze: false,
         esModule: true,
@@ -38,11 +38,10 @@ export default {
         assetFileNames: "[name][extname]",
     }],
     external: (id) => {
-        //console.log(id);
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
         }
-        //console.log('work');
+
         return !id.startsWith('.') && !path.isAbsolute(id);
     },
     plugins: [
@@ -78,7 +77,6 @@ export default {
 };
 
 function importCssPlugin() {
-    console.log('work er');
     const filter = createFilter(['**/*.css']);
     const styles = {};
 

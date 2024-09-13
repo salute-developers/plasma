@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Icons from '@salutejs/plasma-icons';
 import * as Tokens from '@salutejs/sdds-themes/tokens';
-import * as Package from '@salutejs/sdds-serv';
+import * as Package from '@salutejs/sdds-serv/styled-components';
 import { Filler } from '@salutejs/plasma-docs-ui';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
