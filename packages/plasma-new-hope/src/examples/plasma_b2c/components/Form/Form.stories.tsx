@@ -12,7 +12,7 @@ import { Radiobox } from '../Radiobox/Radiobox';
 import { RadioGroup } from '../../../../components/Radiobox';
 import { Slider } from '../Slider/Slider';
 import { useFormPlasma } from '../../../../hooks';
-import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from '../Calendar/Calendar';
+import { DatePicker, DatePickerRange } from '../DatePicker/DatePicker';
 
 type StoryDropdownProps = {};
 
@@ -36,6 +36,8 @@ const DefaultForm = () => {
         radiobox: 'c',
         slider: 10,
         sliderd: [10, 20],
+        datepicker: '12.09.2024',
+        datepickerRange: ['09.09.2024', '12.09.2024'],
     });
 
     return (
@@ -60,6 +62,8 @@ const DefaultForm = () => {
             </RadioGroup>
             <Slider name="slider" label="Slider" type="single" min={0} max={100} />
             <Slider name="sliderd" label="Slider" type="double" min={0} max={100} />
+            <DatePicker label="DatePicker" name="datepicker" />
+            <DatePickerRange label="DatePicker" name="datepickerRange" />
             <Button type="submit">Отправить</Button>
         </form>
     );
