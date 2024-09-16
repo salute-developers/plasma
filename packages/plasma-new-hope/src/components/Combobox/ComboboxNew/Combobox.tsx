@@ -63,7 +63,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             closeAfterSelect: outerCloseAfterSelect,
             ...rest
         } = props;
-        const [textValue, setTextValue] = useState('');
+        // Создаем структуры для быстрой работы с деревом
+        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(items), [items]);
+
+        const [textValue, setTextValue] = useState(valueToItemMap.get(outerValue as string)?.label || '');
         const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
 
         const value = outerValue || internalValue;
@@ -74,9 +77,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const treeId = safeUseId();
 
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
-
-        // Создаем структуры для быстрой работы с деревом
-        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(items), [items]);
 
         const filteredItems = filterItems(
             transformedItems,
