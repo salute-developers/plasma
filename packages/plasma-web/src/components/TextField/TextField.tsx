@@ -5,7 +5,7 @@ import { textFieldConfig, component, mergeConfig } from '@salutejs/plasma-new-ho
 import { config } from './TextField.config';
 
 const mergedConfig = mergeConfig(textFieldConfig, config);
-const TextFieldComponent = component(mergedConfig);
+export const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
 
