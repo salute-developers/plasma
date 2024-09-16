@@ -19,6 +19,7 @@ export * from './components/IconButton';
 export * from './components/Image';
 export * from './components/Indicator';
 export * from './components/Link';
+export * from './components/Mask';
 export * from './components/Modal';
 export * from './components/Overlay';
 export * from './components/Popover';
