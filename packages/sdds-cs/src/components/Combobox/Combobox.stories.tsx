@@ -10,9 +10,9 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
 };
 
-const view = ['default', 'positive', 'warning', 'negative'];
-const size = ['xs', 's', 'm', 'l'];
-const labelPlacement = ['inner', 'outer'];
+const view = ['default'];
+const size = ['s'];
+const labelPlacement = ['outer'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
@@ -80,7 +80,7 @@ const meta: Meta<StorySelectProps> = {
         labelPlacement: 'outer',
         placeholder: 'Placeholder',
         helperText: 'Helper text',
-        size: 'm',
+        size: 's',
         view: 'default',
         chipView: 'default',
         enableContentLeft: false,
@@ -110,6 +110,7 @@ const meta: Meta<StorySelectProps> = {
                 'listWidth',
                 'listOverflow',
                 'listHeight',
+                'labelPlacement',
             ],
         },
     },

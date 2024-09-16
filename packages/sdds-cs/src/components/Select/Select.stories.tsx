@@ -12,7 +12,7 @@ type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
 };
 
-const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
+const view = ['default'];
 const size = ['s'];
 const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
