@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconSearch, IconSber, IconArrowRight } from '@salutejs/plasma-icons';
 
-import { Button } from '../Button/Button';
+import { IconButton } from '../IconButton/IconButton';
 
 import { Range } from './Range';
 
@@ -17,7 +17,7 @@ const onFocusSecondTextfield = action('onFocusSecondTextfield');
 const onBlurFirstTextfield = action('onBlurFirstTextfield');
 const onBlurSecondTextfield = action('onBlurSecondTextfield');
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['s'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 
@@ -67,10 +67,11 @@ const getSizeForIcon = (size) => {
 };
 
 const ActionButton = ({ size }) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
     return (
-        <Button view="clear" style={{ color: 'inherit' }} size={size}>
-            <IconSearch color="inherit" size={getSizeForIcon(size)} />
-        </Button>
+        <IconButton view="clear" size={size}>
+            <IconSearch size={iconSize} color="var(--text-primary)" />
+        </IconButton>
     );
 };
 
@@ -90,7 +91,7 @@ const StoryDefault = ({
     const [firstValue, setFirstValue] = useState('');
     const [secondValue, setSecondValue] = useState('');
 
-    const iconSize = size === 'xs' ? 'xs' : 's';
+    const iconSize = 's';
     const showDividerIcon = dividerVariant === 'icon';
     const showDefaultTextBefore = dividerVariant === 'none';
 
@@ -158,7 +159,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         leftHelper: 'Подсказка к полю',
         firstPlaceholder: 'Заполните поле 1',
         secondPlaceholder: 'Заполните поле 2',
-        size: 'l',
+        size: 's',
         view: 'default',
         disabled: false,
         readOnly: false,
@@ -302,7 +303,7 @@ export const Demo: StoryObj<StoryPropsDefault> = {
         leftHelper: 'Кол-во товара не может быть меньше 1 и превышать 10',
         firstPlaceholder: '1',
         secondPlaceholder: '5',
-        size: 'l',
+        size: 's',
         view: 'default',
         disabled: false,
         readOnly: false,

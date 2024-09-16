@@ -55,6 +55,10 @@ export const tokens = {
     contentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
     contentSlotColorActive: '--plasma-textfield-content-slot-color-active',
 
+    contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
+    contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
+    contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
+
     /** Токены лейбла */
     labelColor: '--plasma-textfield__label-color',
     labelColorReadOnly: '--plasma-textfield__label-color-readonly',

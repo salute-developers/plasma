@@ -27,6 +27,7 @@ export const Ul = styled.ul<{
     height: ${({ listHeight }) => listHeight || 'auto'};
     overflow: ${({ listOverflow }) => listOverflow || 'initial'};
 
+    border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
     margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : 0)};
     padding: var(${tokens.padding}) 0;
 

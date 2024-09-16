@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { tertiary } from '@salutejs/plasma-core';
-import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { TextArea } from './TextArea';
 
@@ -16,8 +15,8 @@ type StoryTextAreaPropsCustom = {
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
-const sizes = ['xs', 's', 'm', 'l'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const sizes = ['s'];
+const views = ['default', 'negative'];
 
 const meta: Meta<StoryTextAreaProps> = {
     title: 'Controls/TextArea',
@@ -95,6 +94,7 @@ const meta: Meta<StoryTextAreaProps> = {
             'height',
             'width',
             'helperText',
+            'labelPlacement',
         ]),
     },
     args: {
@@ -112,7 +112,9 @@ const meta: Meta<StoryTextAreaProps> = {
         maxAuto: 0,
         required: false,
         requiredPlacement: 'right',
+        size: 's',
         optional: false,
+        labelPlacement: 'outer',
     },
 };
 
@@ -122,20 +124,13 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const IconPlaceholder = styled.div`
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background: ${tertiary};
-`;
-
 const StoryDefault = (props: StoryTextAreaProps) => {
     const [value, setValue] = useState('Значение поля');
 
     return (
         <TextArea
             value={value}
-            contentRight={props.enableContentRight ? <IconPlaceholder /> : undefined}
+            contentRight={props.enableContentRight ? <IconPlasma /> : undefined}
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);

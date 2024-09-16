@@ -34,6 +34,7 @@ export const Ul = styled.ul<{
     height: auto;
     max-height: ${({ listMaxHeight }) => listMaxHeight || 'none'};
     overflow-y: scroll;
+    border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
 
     margin: 0;
     padding: var(${tokens.padding});

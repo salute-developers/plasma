@@ -15,6 +15,7 @@ export const TextfieldWrapper = styled.div<{ opened: boolean; value: SelectProps
     display: inline;
 
     .${classes.textfieldTarget} {
+        transition: 100ms;
         background: ${({ opened }) =>
             opened
                 ? `var(${tokens.targetTextfieldBackgroundColorOpened})`
@@ -23,6 +24,18 @@ export const TextfieldWrapper = styled.div<{ opened: boolean; value: SelectProps
             Array.isArray(value) && !isEmpty(value)
                 ? `0 var(${tokens.targetTextfieldChipPadding})`
                 : `0 var(${tokens.targetTextfieldPadding})`};
+        border: ${({ opened }) =>
+            opened
+                ? `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderOpenedColor})`
+                : `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderColor})`};
+    }
+
+    .${classes.textfieldTarget}:hover {
+        transition: 100ms;
+        border: ${({ opened }) =>
+            opened
+                ? `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderOpenedColor})`
+                : `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderColorHover})`};
     }
 
     .${classes.selectWithoutBoxShadow}::before {
@@ -46,13 +59,13 @@ export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
     ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
     ${buttonTokens.buttonDisabledOpacity}: ${constants.opacity};
     ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
-    box-shadow: inset 0 0 0 ${constants.textfieldBorderSize} var(${tokens.targetTextfieldBorderColor});
+    box-shadow: inset 0 0 0 ${tokens.targetTextfieldBorderSize} var(${tokens.targetTextfieldBorderColor});
     text-align: left;
 
     ${addFocus({
-        outlineOffset: constants.textfieldBorderSize,
+        outlineOffset: tokens.targetTextfieldBorderSize,
         outlineSize: constants.focusSize,
-        outlineRadius: `calc(var(${tokens.borderRadius}) - ${constants.textfieldBorderSize})`,
+        outlineRadius: `calc(var(${tokens.borderRadius}) - ${tokens.targetTextfieldBorderSize})`,
         outlineColor: `var(${constants.focusColor})`,
     })}
 `;

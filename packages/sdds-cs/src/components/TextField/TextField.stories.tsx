@@ -13,8 +13,8 @@ const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
 const sizes = ['s'];
-const views = ['default', 'positive', 'warning', 'negative'];
-const labelPlacements = ['outer', 'inner'];
+const views = ['default', 'negative'];
+const labelPlacements = ['outer'];
 
 const meta: Meta<typeof TextField> = {
     title: 'Controls/TextField',

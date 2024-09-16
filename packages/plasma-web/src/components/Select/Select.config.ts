@@ -62,6 +62,9 @@ export const config = {
 
                 ${selectTokens.spinnerSize}: 1rem;
                 ${selectTokens.spinnerSizeTight}: 1rem;
+
+                ${selectTokens.targetTextfieldBorderSize}: 0.0625rem;
+                ${selectTokens.popoverBorderWidth}: 0.0625rem;
             `,
             s: css`
                 ${selectTokens.padding}: 0.125rem;
@@ -117,6 +120,8 @@ export const config = {
 
                 ${selectTokens.spinnerSize}: 1.5rem;
                 ${selectTokens.spinnerSizeTight}: 1rem;
+
+                ${selectTokens.targetTextfieldBorderSize}: 0.0625rem;
             `,
             m: css`
                 ${selectTokens.padding}: 0.125rem;
@@ -172,6 +177,8 @@ export const config = {
 
                 ${selectTokens.spinnerSize}: 1.5rem;
                 ${selectTokens.spinnerSizeTight}: 1.5rem;
+
+                ${selectTokens.targetTextfieldBorderSize}: 0.0625rem;
             `,
             l: css`
                 ${selectTokens.padding}: 0.125rem;
@@ -227,6 +234,8 @@ export const config = {
 
                 ${selectTokens.spinnerSize}: 1.5rem;
                 ${selectTokens.spinnerSizeTight}: 1.5rem;
+
+                ${selectTokens.targetTextfieldBorderSize}: 0.0625rem;
             `,
         },
         view: {
@@ -247,6 +256,8 @@ export const config = {
                 ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBorderColor}: var(--surface-transparent-tertiary);
+                ${selectTokens.targetTextfieldBorderOpenedColor}: var(--surface-transparent-tertiary);
+                ${selectTokens.targetTextfieldBorderColorHover}: var(--surface-transparent-tertiary);
             `,
             positive: css`
                 ${selectTokens.helperTextColor}: var(--text-positive);
@@ -265,6 +276,8 @@ export const config = {
                 ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBorderColor}: var(--surface-positive);
+                ${selectTokens.targetTextfieldBorderOpenedColor}: var(--surface-positive);
+                ${selectTokens.targetTextfieldBorderColorHover}: var(--surface-positive);
             `,
             warning: css`
                 ${selectTokens.helperTextColor}: var(--text-warning);
@@ -283,6 +296,8 @@ export const config = {
                 ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBorderColor}: var(--surface-warning);
+                ${selectTokens.targetTextfieldBorderOpenedColor}: var(--surface-warning);
+                ${selectTokens.targetTextfieldBorderColorHover}: var(--surface-warning);
             `,
             negative: css`
                 ${selectTokens.helperTextColor}: var(--text-negative);
@@ -301,6 +316,8 @@ export const config = {
                 ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
                 ${selectTokens.targetTextfieldBorderColor}: var(--surface-negative);
+                ${selectTokens.targetTextfieldBorderOpenedColor}: var(--surface-negative);
+                ${selectTokens.targetTextfieldBorderColorHover}: var(--surface-negative);
             `,
             accent: css`
                 ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);

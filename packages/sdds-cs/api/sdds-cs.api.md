@@ -240,9 +240,6 @@ export { addNotification }
 export const Autocomplete: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
@@ -704,15 +701,9 @@ export { ColSizeProps }
 export const Combobox: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 labelPlacement: {
 inner: PolymorphicClassName;
@@ -1257,15 +1248,12 @@ export type LinkProps = typeof LinkComponent;
 export const Mask: ForwardRefExoticComponent<(Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
 };
 labelPlacement: {
-inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
 disabled: {
@@ -1301,15 +1289,12 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
 };
 labelPlacement: {
-inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
 disabled: {
@@ -1345,15 +1330,12 @@ onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
 };
 labelPlacement: {
-inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
 disabled: {
@@ -1389,15 +1371,12 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
 };
 labelPlacement: {
-inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
 disabled: {
@@ -1778,24 +1757,16 @@ s: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-accent: PolymorphicClassName;
-secondary: PolymorphicClassName;
-clear: PolymorphicClassName;
-dark: PolymorphicClassName;
-black: PolymorphicClassName;
-white: PolymorphicClassName;
 };
 chipView: {
 default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-accent: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
 };
 }> & (({
     target?: "textfield-like" | undefined;
-    view?: "default" | "positive" | "warning" | "negative" | undefined;
+    view?: "default" | "negative" | "positive" | "warning" | undefined;
     contentLeft?: React_2.ReactNode;
     labelPlacement?: "outer" | "inner" | undefined;
     placeholder?: string | undefined;
@@ -1833,7 +1804,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "textfield-like" | undefined;
-    view?: "default" | "positive" | "warning" | "negative" | undefined;
+    view?: "default" | "negative" | "positive" | "warning" | undefined;
     contentLeft?: React_2.ReactNode;
     labelPlacement?: "outer" | "inner" | undefined;
     placeholder?: string | undefined;
@@ -1871,7 +1842,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "positive" | "warning" | "negative" | "clear" | "secondary" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "negative" | "clear" | "secondary" | "positive" | "warning" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
@@ -1909,7 +1880,7 @@ accent: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "positive" | "warning" | "negative" | "clear" | "secondary" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "negative" | "clear" | "secondary" | "positive" | "warning" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
@@ -2111,11 +2082,12 @@ s: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 primary: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
 true: PolymorphicClassName;
 };
 }> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
@@ -2286,15 +2258,12 @@ width?: undefined;
 export const TextField: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
 };
 labelPlacement: {
-inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
 disabled: {

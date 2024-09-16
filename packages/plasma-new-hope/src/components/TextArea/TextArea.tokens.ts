@@ -107,6 +107,20 @@ export const tokens = {
     rightContentRight: '--plasma-textarea-right-content-right',
     /** Высота контента справа */
     rightContentHeight: '--plasma-textarea-right-content-height',
+    /** Шрифт для элемента label, когда он внутри и уменьшен */
+    labelOuterColor: '--plasma-textarea-label-outer-color',
+    /** Шрифт для элемента label, когда он внутри и уменьшен */
+    labelOuterFontFamily: '--plasma-textarea-label-outer-font-family',
+    /** Размер шрифта для элемента label, когда он внутри и уменьшен */
+    labelOuterFontSize: '--plasma-textarea-label-outer-font-size',
+    /** Стиль шрифта для элемента label, когда он внутри и уменьшен */
+    labelOuterFontStyle: '--plasma-textarea-label-outer-font-style',
+    /** Начертание шрифта для элемента label, когда он внутри и уменьшен */
+    labelOuterFontWeight: '--plasma-textarea-label-outer-font-weight',
+    /** Межсимвольное расстояние для элемента label, когда он внутри и уменьшен */
+    labelOuterLetterSpacing: '--plasma-textarea-label-outer-letter-spacing',
+    /** Высота строки для элемента label, когда он внутри и уменьшен */
+    labelOuterLineHeight: '--plasma-textarea-label-outer-line-height',
     /** Отступ сверху для элемента label, когда он внутри и уменьшен */
     labelMarginBottom: '--plasma-textarea-label-margin-bottom',
     /** Шрифт для элемента label, когда он внутри и уменьшен */
@@ -149,6 +163,8 @@ export const tokens = {
     helpersLetterSpacing: '--plasma-textarea-helpers-letter-spacing',
     /** Высота строки для элемента блока подписей снизу */
     helpersLineHeight: '--plasma-textarea-helpers-line-height',
+
+    rightContentColor: '--plasma-textarea-right-content-color',
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-textarea-disabled-opacity',
