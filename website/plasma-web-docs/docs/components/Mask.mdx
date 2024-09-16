@@ -1,0 +1,125 @@
+---
+id: mask
+title: Mask
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Mask
+<Description name="Mask" />
+<PropsTable name="Mask" exclude={['css']} />
+
+## Использование
+Компонент `Mask` представляет собой поле ввода с возможностью маскирования значения.
+Он реализован на компоненте [TextField](https://plasma.sberdevices.ru/b2c/components/textfield/) 
+и наследует практически все его свойства (`size`, `view`, `disabled`, `label` и тд.)
+
+```tsx live
+import React from 'react';
+import { Mask } from '@salutejs/plasma-web';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Mask
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                mask="00/00/0000"
+                maskString="DD/MM/YYYY"
+                size="l"
+            />
+        </div>
+    );
+}
+```
+
+### Маска
+Маска задается с помощью свойства `mask`.
+Поддерживает следующие символы:
+
+| Обозначение | Описание                              |
+|-------------|---------------------------------------|
+| 0           | любая цифра от 0 до 9                 |
+| a (англ.)   | A-Z, a-z                              |
+| я           | А-Я, а-я, ё, Ё                        |
+| q           | буква "q"                             |
+| 2           | цифра "2"                             |
+| *           | любой символ                          |
+| \           | символ экранирования "\a" - буква "a" |
+
+
+<Tabs>
+    <TabItem value="phone" label="Маска телефона">
+        Пример маски для ввода телефона
+
+        ```tsx live
+        import React from 'react';
+        import { Mask } from '@salutejs/plasma-web';
+
+        export function App() {
+            return (
+                <div>
+                    <Mask
+                        label="Маска телефона"
+                        placeholder="Введите телефон"
+                        mask="+7 (000) 000 - 00 - 00"
+                        maskChar="_"
+                        size="l"
+                        alwaysShowMask
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="date" label="Маска даты">
+        Пример маски для ввода даты
+
+        ```tsx live
+        import React from 'react';
+        import { Mask } from '@salutejs/plasma-web';
+
+        export function App() {
+            return (
+                <div>
+                    <Mask
+                        label="Маска даты"
+                        placeholder="Введите дату"
+                        mask="00/00/0000"
+                        maskString="DD/MM/YYYY"
+                        size="l"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="time" label="Маска времени">
+        Пример маски для ввода даты
+
+        ```tsx live
+        import React from 'react';
+        import { Mask } from '@salutejs/plasma-web';
+
+        export function App() {
+            return (
+                <div>
+                    <Mask
+                        label="Маска времени"
+                        placeholder="Введите время"
+                        mask="1\0:00"
+                        maskChar="_"
+                        size="l"
+                        showPrefix
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
