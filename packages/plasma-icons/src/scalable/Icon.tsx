@@ -672,6 +672,10 @@ export const iconSectionsSet = {
         blankTxtOutline: 'BlankTxtOutline',
         blankXlsFill: 'BlankXlsFill',
         blankXlsOutline: 'BlankXlsOutline',
+        blankJpgFill: 'BlankJpgFill',
+        blankJpgOutline: 'BlankJpgOutline',
+        blankPngFill: 'BlankPngFill',
+        blankPngOutline: 'BlankPngOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
