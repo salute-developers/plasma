@@ -1030,6 +1030,8 @@ export const iconSectionsSet = {
         sberboomMiniErrorOutline: 'SberboomMiniErrorOutline',
         sberboomMiniFill: 'SberboomMiniFill',
         sberboomMiniOutline: 'SberboomMiniOutline',
+        pcMouseFill: 'PcMouseFill',
+        pcMouseOutline: 'PcMouseOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
