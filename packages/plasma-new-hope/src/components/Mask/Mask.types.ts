@@ -1,48 +1,5 @@
-import type { ChangeEvent } from 'react';
-
-import { charType } from './utils/constants';
-
-export type SelectRange = {
-    start: number;
-    end: number;
-};
-
-export type MaskInfo = {
-    str?: string;
-    regexp?: RegExp;
-    char?: string;
-};
-
-export type MaskItemsMap = {
-    [key: string]: MaskInfo;
-};
-
-export type InputValueInfo = {
-    char: string;
-    type: typeof charType[keyof typeof charType];
-};
-
-export type InputState = {
-    value: Array<InputValueInfo> | string;
-    visibleValue: string;
-    maskedValue: string;
-    selection: SelectRange;
-};
-
-export type ReformatFn = (params: {
-    value: Array<InputValueInfo> | string;
-    selection: SelectRange;
-    input?: string;
-}) => InputState;
-
-export type CreateInputArgs = {
-    value: string;
-    mask?: string;
-    maskChar?: string;
-    maskString?: string;
-    showPrefix?: boolean;
-    reformat?: ReformatFn;
-};
+import type { InputHTMLAttributes } from 'react';
+import type { IMaskItem, IInputValue, ISelectRange, IInputState } from '@salutejs/input-core';
 
 export type MaskProps = {
     /**
@@ -67,6 +24,10 @@ export type MaskProps = {
      */
     maskString?: string;
     /**
+     * Набор соответствий маски и маскируемого значения.
+     */
+    maskFormat?: Array<IMaskItem>;
+    /**
      * Отображать ли маску во время ввода.
      */
     showMask?: boolean;
@@ -77,13 +38,22 @@ export type MaskProps = {
     /**
      * Отображать ли префикс маски. Например у маски телефона "+7"
      */
-    showPrefix?: boolean;
+    showStartChars?: boolean;
+    /**
+     * Значение по умолчанию.
+     */
+    defaultValue?: string;
     /**
      * Функция форматирования, которая позволяет задать собственные правила форматирования.
      */
-    reformat?: ReformatFn;
+    reformat?: (params: { value: Array<IInputValue> | string; selection: ISelectRange; input?: string }) => IInputState;
     /**
-     * Callback при изменении значения маски
+     * Callback при изменении значения маски с дополнительной информацией.
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, params: { maskedValue: string; value: string }) => void;
+    onValueChange?: (params: { maskedValue: string; value: string }) => void;
 };
+
+export type CustomInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'size' | 'defaultValue' | 'onChange' | 'onFocus' | 'onBlur'
+>;

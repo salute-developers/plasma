@@ -62,7 +62,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 label="Маска телефона"
                 mask="+7 (000) 000 - 00 - 00"
                 maskChar="_"
-                showPrefix={false}
+                showStartChars={false}
                 view={view}
                 onChange={onChange}
                 {...rest}
