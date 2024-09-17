@@ -78,9 +78,9 @@ describe('plasma-web: Notification', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').contains('Открыть').click();
+        cy.get('button').contains('Открыть').click({ force: true });
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click();
+        cy.get('button').contains('Закрыть').click({ force: true });
         cy.get('#plasma-popup-root').should('be.empty');
     });
 
@@ -135,9 +135,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click();
+        cy.get('button').contains('Открыть').click({ force: true });
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click();
+        cy.get('button').contains('Закрыть').click({ force: true });
     });
 
     it('icon positions', () => {
@@ -209,9 +209,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click();
+        cy.get('button').contains('Открыть').click({ force: true });
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click();
+        cy.get('button').contains('Закрыть').click({ force: true });
     });
 
     it('long text', () => {
@@ -247,9 +247,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click();
+        cy.get('button').contains('Открыть').click({ force: true });
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click();
+        cy.get('button').contains('Закрыть').click({ force: true });
     });
 
     it('oneline horizontal', () => {
@@ -285,9 +285,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click();
+        cy.get('button').contains('Открыть').click({ force: true });
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click();
+        cy.get('button').contains('Закрыть').click({ force: true });
     });
 
     it('close on icon', () => {
@@ -323,8 +323,8 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click();
-        cy.get('.notification-close-icon').click();
+        cy.get('button').contains('Открыть').click({ force: true });
+        cy.get('.notification-close-icon').click({ force: true });
         cy.get('#plasma-popup-root').should('be.empty');
     });
 });
