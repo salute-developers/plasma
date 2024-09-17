@@ -303,7 +303,7 @@ export const formulas: Formula = {
                         alpha: [0, 0],
                     },
                     operation: {
-                        brightness: (l: number) => l + 6,
+                        brightness: (a: number) => a,
                         hover: () => 0,
                         active: () => 0,
                     },
@@ -313,7 +313,7 @@ export const formulas: Formula = {
                         alpha: [0.01, 0.69],
                     },
                     operation: {
-                        brightness: (l: number) => l + 6,
+                        brightness: (a: number) => a,
                         hover: () => 1,
                         active: (a: number) => a * 1.2,
                     },
@@ -335,7 +335,7 @@ export const formulas: Formula = {
                         alpha: [0, 0],
                     },
                     operation: {
-                        brightness: (l: number) => l + 6,
+                        brightness: (a: number) => a,
                         hover: () => 0,
                         active: () => 0,
                     },
@@ -345,7 +345,7 @@ export const formulas: Formula = {
                         alpha: [0.01, 0.69],
                     },
                     operation: {
-                        brightness: (l: number) => l + 6,
+                        brightness: (a: number) => a,
                         hover: () => 1,
                         active: (a: number) => a * 1.2,
                     },
@@ -1001,7 +1001,7 @@ export const formulas: Formula = {
                         alpha: [0, 0],
                     },
                     operation: {
-                        brightness: (l: number) => l + 6,
+                        brightness: (a: number) => a,
                         hover: () => 0,
                         active: () => 0,
                     },
@@ -1053,7 +1053,7 @@ export const formulas: Formula = {
                         alpha: [0, 0],
                     },
                     operation: {
-                        brightness: (l: number) => l + 6,
+                        brightness: (a: number) => a,
                         hover: () => 0,
                         active: () => 0,
                     },
