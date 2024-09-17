@@ -150,6 +150,6 @@ export const getFullThemeName = (themeName?: string, branchName?: string) =>
 // который будет указывать как применять формулы для генерации active и hover состояний
 export const sectionToFormulaMap: Record<string, FormulaMode> = {
     text: 'stroke',
-    outline: 'stroke',
+    outline: 'fill',
     surface: 'fill',
 };
