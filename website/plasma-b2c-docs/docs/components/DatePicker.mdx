@@ -3,17 +3,16 @@ id: datepicker
 title: DatePicker
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 
 # DatePicker
 <Description name="DatePicker" />
 <PropsTable name="DatePicker" exclude={['css']} />
-<StorybookLink name="DatePicker" />
 
 ## Использование
 Компонент `DatePicker` представляет собой поле ввода даты с выпадающим календарем.
 
-Размер `DatePicker` задаётся с помощью свойства `size`. 
+Размер `DatePicker` задаётся с помощью свойства `size`.
 Возможные значения свойства: `"l"`, `"m"`, `"s"`, `"xs"`.
 
 ```tsx live
@@ -38,19 +37,20 @@ export function App() {
 
 ### Формат даты
 Формат даты задается с помощью свойства `format`.
+| Обозначение | Отображение                           | Описание                         |
+|-------------|---------------------------------------|----------------------------------|
+| DD          | 01-31                                 | Дни месяца, 2 цифры              |
+| D           | 1-31                                  | Дни месяца                       |
+| MMMM        | January...December / январь...декабрь | Месяц года, полное название      |
+| MMM         | Jan...Dec / янв.-дек.                 | Месяц года, сокращенное название |
+| MM          | 01-12                                 | Месяц года, 2 цифры              |
+| M           | 1-12                                  | Месяц года                       |
+| YYYY        | 2024                                  | Год из 4 цифр                    |
+| YY          | 24                                    | Год из 2 цифр                    |
+| Q           | 1-4                                   | Квартал                          |
 
-| Обозначение | Отображение | Описание            |
-|-------------|-------------|---------------------|
-| DD          | 01-31       | Дни месяца, 2 цифры |
-| D           | 1-31        | Дни месяца          |
-| MM          | 01-12       | Месяц года, 2 цифры |
-| M           | 1-12        | Месяц года          |
-| YYYY        | 2024        | Год из 4 цифр       |
-| YY          | 24          | Год из 2 цифр       |
-| Q           | 1-4         | Квартал             |
-
-При выборе даты в календаре или вводе даты через поле ввода, дата будет приводиться к заданному формату. 
-Свойство `maskWithFormat` позволяет маскировать ввод:
+При выборе даты в календаре или вводе даты через поле ввода, дата будет приводиться к заданному формату.
+Свойство `maskWithFormat` позволяет маскировать ввод, кроме случаев когда месяц имеет формат полной записи MMMM:
 
 ```tsx live
 import React from 'react';
@@ -110,7 +110,7 @@ export function App() {
 В данном примере валидация происходит при нажатии клавиши `Enter` после ввода значений:
 
 ```tsx live
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { DatePicker } from '@salutejs/plasma-b2c';
 import { IconDone } from '@salutejs/plasma-icons';
 
@@ -135,7 +135,7 @@ export function App() {
     return (
         <div style={{ height: "450px" }}>
             <DatePicker
-                isOpen={isOpen}
+                opened={isOpen}
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
                 placeholder="Введите дату"
