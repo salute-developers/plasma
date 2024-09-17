@@ -117,12 +117,16 @@ export const datePickerRangeRoot = (
             const [calendarFirstValue, setCalendarFirstValue] = useState(
                 formatCalendarValue(defaultFirstDate, format, lang),
             );
-            const [inputFirstValue, setInputFirstValue] = useState(formatInputValue(defaultFirstDate, format, lang));
+            const [inputFirstValue, setInputFirstValue] = useState(
+                formatInputValue({ value: defaultFirstDate, format, lang }),
+            );
 
             const [calendarSecondValue, setCalendarSecondValue] = useState(
                 formatCalendarValue(defaultSecondDate, format, lang),
             );
-            const [inputSecondValue, setInputSecondValue] = useState(formatInputValue(defaultSecondDate, format, lang));
+            const [inputSecondValue, setInputSecondValue] = useState(
+                formatInputValue({ value: defaultSecondDate, format, lang }),
+            );
 
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
@@ -254,20 +258,20 @@ export const datePickerRangeRoot = (
 
             useEffect(() => {
                 setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
-                setInputFirstValue(formatInputValue(defaultFirstDate, format, lang));
+                setInputFirstValue(formatInputValue({ value: defaultFirstDate, format, lang }));
             }, [defaultFirstDate]);
 
             useEffect(() => {
                 setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
-                setInputSecondValue(formatInputValue(defaultSecondDate, format, lang));
+                setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
             }, [defaultSecondDate]);
 
             useEffect(() => {
                 setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
-                setInputFirstValue(formatInputValue(defaultFirstDate, format, lang));
+                setInputFirstValue(formatInputValue({ value: defaultFirstDate, format, lang }));
 
                 setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
-                setInputSecondValue(formatInputValue(defaultSecondDate, format, lang));
+                setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
             }, [format, lang]);
 
             return (
