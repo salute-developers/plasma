@@ -4,7 +4,7 @@
 export const textPrimary = 'var(--text-primary, rgba(255, 255, 255, 0.96))';
 
 /** Основной цвет текста */
-export const textPrimaryBrightness = 'var(--text-primary-brightness, #FFFFFF)';
+export const textPrimaryBrightness = 'var(--text-primary-brightness, #FFFFFFF5)';
 
 /** Вторичный цвет текста */
 export const textSecondary = 'var(--text-secondary, rgba(255, 255, 255, 0.56))';
@@ -66,11 +66,65 @@ export const textInfo = 'var(--text-info, #3F81FD)';
 
 export const textInfoMinor = 'var(--text-info-minor, #1549AB)';
 
+/** Основной цвет текста */
+export const textPrimaryHover = 'var(--text-primary-hover, #FFFFFF93)';
+
+/** Основной цвет текста */
+export const textPrimaryActive = 'var(--text-primary-active, #FFFFFFC4)';
+
+/** Вторичный цвет текста */
+export const textSecondaryHover = 'var(--text-secondary-hover, #FFFFFFFF)';
+
+/** Вторичный цвет текста */
+export const textSecondaryActive = 'var(--text-secondary-active, #FFFFFFAB)';
+
+/** Третичный цвет текста */
+export const textTertiaryHover = 'var(--text-tertiary-hover, #FFFFFFFF)';
+
+/** Третичный цвет текста */
+export const textTertiaryActive = 'var(--text-tertiary-active, #FFFFFF56)';
+
+/** Сплошной наборный текст */
+export const textParagraphHover = 'var(--text-paragraph-hover, #FFFFFF7A)';
+
+/** Сплошной наборный текст */
+export const textParagraphActive = 'var(--text-paragraph-active, #FFFFFFA3)';
+
+/** Акцентный цвет */
+export const textAccentHover = 'var(--text-accent-hover, #90B6FEFF)';
+
+/** Акцентный цвет */
+export const textAccentActive = 'var(--text-accent-active, #216EFDFF)';
+
+/** Акцентный цвет с градиентом */
+export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #CCCCCCFF)';
+
+/** Акцентный цвет с градиентом */
+export const textAccentGradientActive = 'var(--text-accent-gradient-active, #E6E6E6FF)';
+
+/** Цвет успеха */
+export const textPositiveHover = 'var(--text-positive-hover, #1EB83AFF)';
+
+/** Цвет успеха */
+export const textPositiveActive = 'var(--text-positive-active, #15842AFF)';
+
+/** Цвет предупреждения */
+export const textWarningHover = 'var(--text-warning-hover, #FB7223FF)';
+
+/** Цвет предупреждения */
+export const textWarningActive = 'var(--text-warning-active, #DC5304FF)';
+
+/** Цвет ошибки */
+export const textNegativeHover = 'var(--text-negative-hover, #FF475AFF)';
+
+/** Цвет ошибки */
+export const textNegativeActive = 'var(--text-negative-active, #FF0A23FF)';
+
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimary = 'var(--on-dark-text-primary, rgba(255, 255, 255, 0.96))';
 
 /** Основной цвет текста на темном фоне */
-export const onDarkTextPrimaryBrightness = 'var(--on-dark-text-primary-brightness, #FFFFFF)';
+export const onDarkTextPrimaryBrightness = 'var(--on-dark-text-primary-brightness, #FFFFFFF5)';
 
 /** Вторичный цвет текста на темном фоне */
 export const onDarkTextSecondary = 'var(--on-dark-text-secondary, rgba(255, 255, 255, 0.56))';
@@ -133,11 +187,65 @@ export const onDarkTextInfoMinor = 'var(--on-dark-text-info-minor, #1549AB)';
 
 export const onDarkTextInfo = 'var(--on-dark-text-info, #3F81FD)';
 
+/** Основной цвет текста на темном фоне */
+export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #FFFFFF93)';
+
+/** Основной цвет текста на темном фоне */
+export const onDarkTextPrimaryActive = 'var(--on-dark-text-primary-active, #FFFFFFC4)';
+
+/** Вторичный цвет текста на темном фоне */
+export const onDarkTextSecondaryHover = 'var(--on-dark-text-secondary-hover, #FFFFFFFF)';
+
+/** Вторичный цвет текста на темном фоне */
+export const onDarkTextSecondaryActive = 'var(--on-dark-text-secondary-active, #FFFFFFAB)';
+
+/** Третичный цвет текста на темном фоне */
+export const onDarkTextTertiaryHover = 'var(--on-dark-text-tertiary-hover, #FFFFFFFF)';
+
+/** Третичный цвет текста на темном фоне */
+export const onDarkTextTertiaryActive = 'var(--on-dark-text-tertiary-active, #FFFFFF56)';
+
+/** Сплошной наборный текст на темном фоне */
+export const onDarkTextParagraphHover = 'var(--on-dark-text-paragraph-hover, #FFFFFF7A)';
+
+/** Сплошной наборный текст на темном фоне */
+export const onDarkTextParagraphActive = 'var(--on-dark-text-paragraph-active, #FFFFFFA3)';
+
+/** Акцентный цвет на темном фоне */
+export const onDarkTextAccentHover = 'var(--on-dark-text-accent-hover, #90B6FEFF)';
+
+/** Акцентный цвет на темном фоне */
+export const onDarkTextAccentActive = 'var(--on-dark-text-accent-active, #216EFDFF)';
+
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #CCCCCCFF)';
+
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradient-active, #E6E6E6FF)';
+
+/** Цвет успеха на темном фоне */
+export const onDarkTextPositiveHover = 'var(--on-dark-text-positive-hover, #1EB83AFF)';
+
+/** Цвет успеха на темном фоне */
+export const onDarkTextPositiveActive = 'var(--on-dark-text-positive-active, #15842AFF)';
+
+/** Цвет предупреждения на темном фоне */
+export const onDarkTextWarningHover = 'var(--on-dark-text-warning-hover, #FB7223FF)';
+
+/** Цвет предупреждения на темном фоне */
+export const onDarkTextWarningActive = 'var(--on-dark-text-warning-active, #DC5304FF)';
+
+/** Цвет ошибки на темном фоне */
+export const onDarkTextNegativeHover = 'var(--on-dark-text-negative-hover, #FF475AFF)';
+
+/** Цвет ошибки на темном фоне */
+export const onDarkTextNegativeActive = 'var(--on-dark-text-negative-active, #FF0A23FF)';
+
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, rgba(8, 8, 8, 0.96))';
 
 /** Основной цвет текста на светлом фоне */
-export const onLightTextPrimaryBrightness = 'var(--on-light-text-primary-brightness, #171717)';
+export const onLightTextPrimaryBrightness = 'var(--on-light-text-primary-brightness, #080808F5)';
 
 /** Вторичный цвет текста на светлом фоне */
 export const onLightTextSecondary = 'var(--on-light-text-secondary, rgba(8, 8, 8, 0.56))';
@@ -206,11 +314,59 @@ export const onLightTextInfo = 'var(--on-light-text-info, #2A72F8)';
 
 export const onLightTextInfoMinor = 'var(--on-light-text-info-minor, #8BB2FC)';
 
+/** Основной цвет текста на светлом фоне */
+export const onLightTextPrimaryHover = 'var(--on-light-text-primary-hover, #08080893)';
+
+/** Основной цвет текста на светлом фоне */
+export const onLightTextPrimaryActive = 'var(--on-light-text-primary-active, #080808C4)';
+
+/** Вторичный цвет текста на светлом фоне */
+export const onLightTextSecondaryHover = 'var(--on-light-text-secondary-hover, #080808FF)';
+
+/** Вторичный цвет текста на светлом фоне */
+export const onLightTextSecondaryActive = 'var(--on-light-text-secondary-active, #080808AB)';
+
+/** Третичный цвет текста на светлом фоне */
+export const onLightTextTertiaryHover = 'var(--on-light-text-tertiary-hover, #080808FF)';
+
+/** Третичный цвет текста на светлом фоне */
+export const onLightTextTertiaryActive = 'var(--on-light-text-tertiary-active, #08080856)';
+
+/** Сплошной наборный текст на светлом фоне */
+export const onLightTextParagraphHover = 'var(--on-light-text-paragraph-hover, #0808087A)';
+
+/** Сплошной наборный текст на светлом фоне */
+export const onLightTextParagraphActive = 'var(--on-light-text-paragraph-active, #080808A3)';
+
+/** Акцентный цвет на светлом фоне */
+export const onLightTextAccentHover = 'var(--on-light-text-accent-hover, #79A7FBFF)';
+
+/** Акцентный цвет на светлом фоне */
+export const onLightTextAccentActive = 'var(--on-light-text-accent-active, #0D5FF8FF)';
+
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradient-hover, #CCCCCCFF)';
+
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradientActive = 'var(--on-light-text-accent-gradient-active, #E6E6E6FF)';
+
+/** Цвет успеха на светлом фоне */
+export const onLightTextPositiveHover = 'var(--on-light-text-positive-hover, #1EB83AFF)';
+
+/** Цвет успеха на светлом фоне */
+export const onLightTextPositiveActive = 'var(--on-light-text-positive-active, #15842AFF)';
+
+/** Цвет предупреждения на светлом фоне */
+export const onLightTextWarningHover = 'var(--on-light-text-warning-hover, #FB7223FF)';
+
+/** Цвет предупреждения на светлом фоне */
+export const onLightTextWarningActive = 'var(--on-light-text-warning-active, #DC5304FF)';
+
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, rgba(8, 8, 8, 0.96))';
 
 /** Инвертированный основной цвет текста */
-export const inverseTextPrimaryBrightness = 'var(--inverse-text-primary-brightness, #171717)';
+export const inverseTextPrimaryBrightness = 'var(--inverse-text-primary-brightness, #080808F5)';
 
 /** Инвертированный вторичный цвет текста */
 export const inverseTextSecondary = 'var(--inverse-text-secondary, rgba(8, 8, 8, 0.56))';
@@ -221,11 +377,35 @@ export const inverseTextTertiary = 'var(--inverse-text-tertiary, rgba(8, 8, 8, 0
 /** Инвертированный cплошной наборный текст */
 export const inverseTextParagraph = 'var(--inverse-text-paragraph, rgba(8, 8, 8, 0.8))';
 
+/** Инвертированный основной цвет текста */
+export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover, #08080893)';
+
+/** Инвертированный основной цвет текста */
+export const inverseTextPrimaryActive = 'var(--inverse-text-primary-active, #080808C4)';
+
+/** Инвертированный вторичный цвет текста */
+export const inverseTextSecondaryHover = 'var(--inverse-text-secondary-hover, #080808FF)';
+
+/** Инвертированный вторичный цвет текста */
+export const inverseTextSecondaryActive = 'var(--inverse-text-secondary-active, #080808AB)';
+
+/** Инвертированный третичный цвет текста */
+export const inverseTextTertiaryHover = 'var(--inverse-text-tertiary-hover, #080808FF)';
+
+/** Инвертированный третичный цвет текста */
+export const inverseTextTertiaryActive = 'var(--inverse-text-tertiary-active, #08080856)';
+
+/** Инвертированный cплошной наборный текст */
+export const inverseTextParagraphHover = 'var(--inverse-text-paragraph-hover, #0808087A)';
+
+/** Инвертированный cплошной наборный текст */
+export const inverseTextParagraphActive = 'var(--inverse-text-paragraph-active, #080808A3)';
+
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimary = 'var(--surface-solid-primary, #171717)';
 
 /** Основной непрозрачный фон поверхности/контрола */
-export const surfaceSolidPrimaryBrightness = 'var(--surface-solid-primary-brightness, #252525)';
+export const surfaceSolidPrimaryBrightness = 'var(--surface-solid-primary-brightness, #262626FF)';
 
 /** Вторичный непрозрачный фон поверхности/контрола */
 export const surfaceSolidSecondary = 'var(--surface-solid-secondary, #262626)';
@@ -237,7 +417,7 @@ export const surfaceSolidTertiary = 'var(--surface-solid-tertiary, #363636)';
 export const surfaceSolidCard = 'var(--surface-solid-card, #171717)';
 
 /** Основной фон для карточек */
-export const surfaceSolidCardBrightness = 'var(--surface-solid-card-brightness, #252525)';
+export const surfaceSolidCardBrightness = 'var(--surface-solid-card-brightness, #262626FF)';
 
 /** Основной прозрачный фон поверхности/контрола */
 export const surfaceTransparentPrimary = 'var(--surface-transparent-primary, rgba(255, 255, 255, 0.06))';
@@ -252,7 +432,7 @@ export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, r
 export const surfaceTransparentCard = 'var(--surface-transparent-card, rgba(255, 255, 255, 0.12))';
 
 /** Прозрачный фон для карточек */
-export const surfaceTransparentCardBrightness = 'var(--surface-transparent-card-brightness, #FFFFFF)';
+export const surfaceTransparentCardBrightness = 'var(--surface-transparent-card-brightness, #FFFFFF1F)';
 
 /** Акцентный фон поверхности/контрола */
 export const surfaceAccent = 'var(--surface-accent, #3F81FD)';
@@ -354,11 +534,95 @@ export const surfaceInfoMinor = 'var(--surface-info-minor, #082254)';
 
 export const surfaceTransparentInfo = 'var(--surface-transparent-info, rgba(63, 129, 253, 0.20))';
 
+/** Основной непрозрачный фон поверхности/контрола */
+export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #1C1C1CFF)';
+
+/** Основной непрозрачный фон поверхности/контрола */
+export const surfaceSolidPrimaryActive = 'var(--surface-solid-primary-active, #121212FF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidSecondaryHover = 'var(--surface-solid-secondary-hover, #303030FF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidSecondaryActive = 'var(--surface-solid-secondary-active, #212121FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiaryHover = 'var(--surface-solid-tertiary-hover, #404040FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiaryActive = 'var(--surface-solid-tertiary-active, #303030FF)';
+
+/** Основной фон для карточек */
+export const surfaceSolidCardHover = 'var(--surface-solid-card-hover, #1C1C1CFF)';
+
+/** Основной фон для карточек */
+export const surfaceSolidCardActive = 'var(--surface-solid-card-active, #121212FF)';
+
+/** Основной прозрачный фон поверхности/контрола */
+export const surfaceTransparentPrimaryHover = 'var(--surface-transparent-primary-hover, #FFFFFF1F)';
+
+/** Основной прозрачный фон поверхности/контрола */
+export const surfaceTransparentPrimaryActive = 'var(--surface-transparent-primary-active, #FFFFFF0A)';
+
+/** Вторичный прозрачный фон поверхности/контрола */
+export const surfaceTransparentSecondaryHover = 'var(--surface-transparent-secondary-hover, #FFFFFF3D)';
+
+/** Вторичный прозрачный фон поверхности/контрола */
+export const surfaceTransparentSecondaryActive = 'var(--surface-transparent-secondary-active, #FFFFFF0F)';
+
+/** Третичный прозрачный фон поверхности/контрола */
+export const surfaceTransparentTertiaryHover = 'var(--surface-transparent-tertiary-hover, #FFFFFF52)';
+
+/** Третичный прозрачный фон поверхности/контрола */
+export const surfaceTransparentTertiaryActive = 'var(--surface-transparent-tertiary-active, #FFFFFF24)';
+
+/** Прозрачный фон для карточек */
+export const surfaceTransparentCardHover = 'var(--surface-transparent-card-hover, #FFFFFF3D)';
+
+/** Прозрачный фон для карточек */
+export const surfaceTransparentCardActive = 'var(--surface-transparent-card-active, #FFFFFF0F)';
+
+/** Акцентный фон поверхности/контрола */
+export const surfaceAccentHover = 'var(--surface-accent-hover, #5D95FDFF)';
+
+/** Акцентный фон поверхности/контрола */
+export const surfaceAccentActive = 'var(--surface-accent-active, #357BFDFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Цвет фона поверхности/контрола успех */
+export const surfacePositiveHover = 'var(--surface-positive-hover, #1DAF37FF)';
+
+/** Цвет фона поверхности/контрола успех */
+export const surfacePositiveActive = 'var(--surface-positive-active, #18952FFF)';
+
+/** Цвет фона поверхности/контрола предупреждение */
+export const surfaceWarningHover = 'var(--surface-warning-hover, #FB7223FF)';
+
+/** Цвет фона поверхности/контрола предупреждение */
+export const surfaceWarningActive = 'var(--surface-warning-active, #F05B05FF)';
+
+/** Цвет фона поверхности/контрола ошибка */
+export const surfaceNegativeHover = 'var(--surface-negative-hover, #FF475AFF)';
+
+/** Цвет фона поверхности/контрола ошибка */
+export const surfaceNegativeActive = 'var(--surface-negative-active, #FF1F35FF)';
+
+/** Фон поверхности/контрола без заливки */
+export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFF00)';
+
+/** Фон поверхности/контрола без заливки */
+export const surfaceClearActive = 'var(--surface-clear-active, #FFFFFF00)';
+
 /** Осн. непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #171717)';
 
 /** Осн. непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceSolidPrimaryBrightness = 'var(--on-dark-surface-solid-primary-brightness, #252525)';
+export const onDarkSurfaceSolidPrimaryBrightness = 'var(--on-dark-surface-solid-primary-brightness, #262626FF)';
 
 /** Вторичный непр. фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidSecondary = 'var(--on-dark-surface-solid-secondary, #262626)';
@@ -370,7 +634,7 @@ export const onDarkSurfaceSolidTertiary = 'var(--on-dark-surface-solid-tertiary,
 export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #171717)';
 
 /** Основной фон для карточек на темном фоне */
-export const onDarkSurfaceSolidCardBrightness = 'var(--on-dark-surface-solid-card-brightness, #252525)';
+export const onDarkSurfaceSolidCardBrightness = 'var(--on-dark-surface-solid-card-brightness, #262626FF)';
 
 /** Основной прозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentPrimary = 'var(--on-dark-surface-transparent-primary, rgba(255, 255, 255, 0.06))';
@@ -386,7 +650,7 @@ export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transpare
 export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, rgba(255, 255, 255, 0.12))';
 
 /** Прозрачный фон для карточек на темном фоне */
-export const onDarkSurfaceTransparentCardBrightness = 'var(--on-dark-surface-transparent-card-brightness, #FFFFFF)';
+export const onDarkSurfaceTransparentCardBrightness = 'var(--on-dark-surface-transparent-card-brightness, #FFFFFF1F)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #3F81FD)';
@@ -485,6 +749,84 @@ export const onDarkSurfaceInfoMinor = 'var(--on-dark-surface-info-minor, #082254
 
 export const onDarkSurfaceTransparentInfo = 'var(--on-dark-surface-transparent-info, rgba(63, 129, 253, 0.20))';
 
+/** Осн. непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #1C1C1CFF)';
+
+/** Осн. непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidPrimaryActive = 'var(--on-dark-surface-solid-primary-active, #121212FF)';
+
+/** Вторичный непр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidSecondaryHover = 'var(--on-dark-surface-solid-secondary-hover, #303030FF)';
+
+/** Вторичный непр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidSecondaryActive = 'var(--on-dark-surface-solid-secondary-active, #212121FF)';
+
+/** Третичный непр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiaryHover = 'var(--on-dark-surface-solid-tertiary-hover, #404040FF)';
+
+/** Третичный непр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiaryActive = 'var(--on-dark-surface-solid-tertiary-active, #303030FF)';
+
+/** Основной фон для карточек на темном фоне */
+export const onDarkSurfaceSolidCardHover = 'var(--on-dark-surface-solid-card-hover, #1C1C1CFF)';
+
+/** Основной фон для карточек на темном фоне */
+export const onDarkSurfaceSolidCardActive = 'var(--on-dark-surface-solid-card-active, #121212FF)';
+
+/** Основной прозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentPrimaryHover = 'var(--on-dark-surface-transparent-primary-hover, #FFFFFF1F)';
+
+/** Основной прозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentPrimaryActive = 'var(--on-dark-surface-transparent-primary-active, #FFFFFF0A)';
+
+/** Вторичный прозр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentSecondaryHover = 'var(--on-dark-surface-transparent-secondary-hover, #FFFFFF3D)';
+
+/** Вторичный прозр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentSecondaryActive = 'var(--on-dark-surface-transparent-secondary-active, #FFFFFF0F)';
+
+/** Третичный прозр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentTertiaryHover = 'var(--on-dark-surface-transparent-tertiary-hover, #FFFFFF52)';
+
+/** Третичный прозр. фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentTertiaryActive = 'var(--on-dark-surface-transparent-tertiary-active, #FFFFFF24)';
+
+/** Прозрачный фон для карточек на темном фоне */
+export const onDarkSurfaceTransparentCardHover = 'var(--on-dark-surface-transparent-card-hover, #FFFFFF3D)';
+
+/** Прозрачный фон для карточек на темном фоне */
+export const onDarkSurfaceTransparentCardActive = 'var(--on-dark-surface-transparent-card-active, #FFFFFF0F)';
+
+/** Акцентный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #5D95FDFF)';
+
+/** Акцентный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #357BFDFF)';
+
+/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Цвет фона поверхности/контрола успех на темном фоне */
+export const onDarkSurfacePositiveHover = 'var(--on-dark-surface-positive-hover, #1DAF37FF)';
+
+/** Цвет фона поверхности/контрола успех на темном фоне */
+export const onDarkSurfacePositiveActive = 'var(--on-dark-surface-positive-active, #18952FFF)';
+
+/** Цвет фона поверхн./контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarningHover = 'var(--on-dark-surface-warning-hover, #FB7223FF)';
+
+/** Цвет фона поверхн./контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarningActive = 'var(--on-dark-surface-warning-active, #F05B05FF)';
+
+/** Цвет фона поверхности/контрола ошибка на темном фоне */
+export const onDarkSurfaceNegativeHover = 'var(--on-dark-surface-negative-hover, #FF475AFF)';
+
+/** Цвет фона поверхности/контрола ошибка на темном фоне */
+export const onDarkSurfaceNegativeActive = 'var(--on-dark-surface-negative-active, #FF1F35FF)';
+
 /** Непр. фон поверхности/контрола по умолчанию на светлом фоне */
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #080808)';
 
@@ -492,7 +834,7 @@ export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default,
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F5F5F5)';
 
 /** Осн. непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceSolidPrimaryBrightness = 'var(--on-light-surface-solid-primary-brightness, #F6F6F6)';
+export const onLightSurfaceSolidPrimaryBrightness = 'var(--on-light-surface-solid-primary-brightness, #FFFFFFFF)';
 
 /** Втор. непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidSecondary = 'var(--on-light-surface-solid-secondary, #ECECEC)';
@@ -504,7 +846,7 @@ export const onLightSurfaceSolidTertiary = 'var(--on-light-surface-solid-tertiar
 export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, rgba(255, 255, 255, 1))';
 
 /** Основной фон для карточек на светлом фоне */
-export const onLightSurfaceSolidCardBrightness = 'var(--on-light-surface-solid-card-brightness, #FFFFFF)';
+export const onLightSurfaceSolidCardBrightness = 'var(--on-light-surface-solid-card-brightness, #FFFFFFFF)';
 
 /** Основной прозр. фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transparent-primary, rgba(8, 8, 8, 0.03))';
@@ -519,7 +861,7 @@ export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transpa
 export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, rgba(255, 255, 255, 1))';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-transparent-card-brightness, #FFFFFF)';
+export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-transparent-card-brightness, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #2A72F8)';
@@ -607,6 +949,95 @@ export const onLightSurfaceInfoMinor = 'var(--on-light-surface-info-minor, #DEE9
 
 export const onLightSurfaceTransparentInfo = 'var(--on-light-surface-transparent-info, rgba(42, 114, 248, 0.12))';
 
+/** Непр. фон поверхности/контрола по умолчанию на светлом фоне */
+export const onLightSurfaceSolidDefaultHover = 'var(--on-light-surface-solid-default-hover, #0D0D0DFF)';
+
+/** Непр. фон поверхности/контрола по умолчанию на светлом фоне */
+export const onLightSurfaceSolidDefaultActive = 'var(--on-light-surface-solid-default-active, #030303FF)';
+
+/** Осн. непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #FAFAFAFF)';
+
+/** Осн. непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidPrimaryActive = 'var(--on-light-surface-solid-primary-active, #F0F0F0FF)';
+
+/** Втор. непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidSecondaryHover = 'var(--on-light-surface-solid-secondary-hover, #F7F7F7FF)';
+
+/** Втор. непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidSecondaryActive = 'var(--on-light-surface-solid-secondary-active, #E8E8E8FF)';
+
+/** Третичный непр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiaryHover = 'var(--on-light-surface-solid-tertiary-hover, #E8E8E8FF)';
+
+/** Третичный непр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiaryActive = 'var(--on-light-surface-solid-tertiary-active, #D9D9D9FF)';
+
+/** Основной фон для карточек на светлом фоне */
+export const onLightSurfaceSolidCardHover = 'var(--on-light-surface-solid-card-hover, #FFFFFFFF)';
+
+/** Основной фон для карточек на светлом фоне */
+export const onLightSurfaceSolidCardActive = 'var(--on-light-surface-solid-card-active, #FFFFFFFF)';
+
+/** Основной прозр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentPrimaryHover = 'var(--on-light-surface-transparent-primary-hover, #08080812)';
+
+/** Основной прозр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentPrimaryActive = 'var(--on-light-surface-transparent-primary-active, #08080803)';
+
+/** Вторичный прозр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentSecondaryHover = 'var(--on-light-surface-transparent-secondary-hover, #0808081F)';
+
+/** Вторичный прозр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentSecondaryActive =
+    'var(--on-light-surface-transparent-secondary-active, #0808080A)';
+
+/** Третичный прозр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentTertiaryHover = 'var(--on-light-surface-transparent-tertiary-hover, #0808083D)';
+
+/** Третичный прозр. фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentTertiaryActive = 'var(--on-light-surface-transparent-tertiary-active, #0808080F)';
+
+/** Прозрачный фон для карточек на светлом фоне */
+export const onLightSurfaceTransparentCardHover = 'var(--on-light-surface-transparent-card-hover, #FFFFFFFF)';
+
+/** Прозрачный фон для карточек на светлом фоне */
+export const onLightSurfaceTransparentCardActive = 'var(--on-light-surface-transparent-card-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #4886F9FF)';
+
+/** Акцентный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #206CF8FF)';
+
+/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Цвет фона поверхности/контрола успех на светлом фоне */
+export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hover, #1DAF37FF)';
+
+/** Цвет фона поверхности/контрола успех на светлом фоне */
+export const onLightSurfacePositiveActive = 'var(--on-light-surface-positive-active, #18952FFF)';
+
+/** Цвет фона поверхн./контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarningHover = 'var(--on-light-surface-warning-hover, #FB7223FF)';
+
+/** Цвет фона поверхн./контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarningActive = 'var(--on-light-surface-warning-active, #F05B05FF)';
+
+/** Цвет фона поверхности/контрола ошибка на светлом фоне */
+export const onLightSurfaceNegativeHover = 'var(--on-light-surface-negative-hover, #F5384BFF)';
+
+/** Цвет фона поверхности/контрола ошибка на светлом фоне */
+export const onLightSurfaceNegativeActive = 'var(--on-light-surface-negative-active, #F31228FF)';
+
+export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transparent-deep-hover, #080808C2)';
+
+export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #08080894)';
+
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #080808)';
 
@@ -645,54 +1076,54 @@ export const onLightOverlayBlur = 'var(--on-light-overlay-blur, rgba(249, 249, 2
 
 export const outlineDefaultOutlinePrimary = 'var(--outline-default-outline-primary, #262626)';
 
-export const outlineDefaultOutlinePrimaryHover = 'var(--outline-default-outline-primary-hover, #FFFFFFFF)';
+export const outlineDefaultOutlinePrimaryHover = 'var(--outline-default-outline-primary-hover, #303030FF)';
 
-export const outlineDefaultOutlinePrimaryActive = 'var(--outline-default-outline-primary-active, #ADADADFF)';
+export const outlineDefaultOutlinePrimaryActive = 'var(--outline-default-outline-primary-active, #212121FF)';
 
 export const outlineDefaultOutlineSecondary = 'var(--outline-default-outline-secondary, #4E4E4E)';
 
-export const outlineDefaultOutlineSecondaryHover = 'var(--outline-default-outline-secondary-hover, #FFFFFFFF)';
+export const outlineDefaultOutlineSecondaryHover = 'var(--outline-default-outline-secondary-hover, #595959FF)';
 
-export const outlineDefaultOutlineSecondaryActive = 'var(--outline-default-outline-secondary-active, #8C8C8CFF)';
+export const outlineDefaultOutlineSecondaryActive = 'var(--outline-default-outline-secondary-active, #4A4A4AFF)';
 
 export const outlineDefaultOutlineTertiary = 'var(--outline-default-outline-tertiary, #707070)';
 
-export const outlineDefaultOutlineTertiaryHover = 'var(--outline-default-outline-tertiary-hover, #FFFFFFFF)';
+export const outlineDefaultOutlineTertiaryHover = 'var(--outline-default-outline-tertiary-hover, #7A7A7AFF)';
 
-export const outlineDefaultOutlineTertiaryActive = 'var(--outline-default-outline-tertiary-active, #737373FF)';
+export const outlineDefaultOutlineTertiaryActive = 'var(--outline-default-outline-tertiary-active, #6B6B6BFF)';
 
 export const outlineDefaultOutlineDefault = 'var(--outline-default-outline-default, #F9F9F9)';
 
-export const outlineDefaultOutlineDefaultHover = 'var(--outline-default-outline-default-hover, #C7C7C7FF)';
+export const outlineDefaultOutlineDefaultHover = 'var(--outline-default-outline-default-hover, #FFFFFFFF)';
 
-export const outlineDefaultOutlineDefaultActive = 'var(--outline-default-outline-default-active, #E0E0E0FF)';
+export const outlineDefaultOutlineDefaultActive = 'var(--outline-default-outline-default-active, #F5F5F5FF)';
 
 export const outlineDefaultOutlineTransparentPrimary =
     'var(--outline-default-outline-transparent-primary, rgba(255, 255, 255, 0.12))';
 
 export const outlineDefaultOutlineTransparentPrimaryHover =
-    'var(--outline-default-outline-transparent-primary-hover, #FFFFFFFF)';
+    'var(--outline-default-outline-transparent-primary-hover, #FFFFFF3D)';
 
 export const outlineDefaultOutlineTransparentPrimaryActive =
-    'var(--outline-default-outline-transparent-primary-active, #FFFFFF25)';
+    'var(--outline-default-outline-transparent-primary-active, #FFFFFF0F)';
 
 export const outlineDefaultOutlineTransparentSecondary =
     'var(--outline-default-outline-transparent-secondary, rgba(255, 255, 255, 0.20))';
 
 export const outlineDefaultOutlineTransparentSecondaryHover =
-    'var(--outline-default-outline-transparent-secondary-hover, #FFFFFFFF)';
+    'var(--outline-default-outline-transparent-secondary-hover, #FFFFFF52)';
 
 export const outlineDefaultOutlineTransparentSecondaryActive =
-    'var(--outline-default-outline-transparent-secondary-active, #FFFFFF3D)';
+    'var(--outline-default-outline-transparent-secondary-active, #FFFFFF24)';
 
 export const outlineDefaultOutlineTransparentTertiary =
     'var(--outline-default-outline-transparent-tertiary, rgba(255, 255, 255, 0.40))';
 
 export const outlineDefaultOutlineTransparentTertiaryHover =
-    'var(--outline-default-outline-transparent-tertiary-hover, #FFFFFFFF)';
+    'var(--outline-default-outline-transparent-tertiary-hover, #FFFFFF85)';
 
 export const outlineDefaultOutlineTransparentTertiaryActive =
-    'var(--outline-default-outline-transparent-tertiary-active, #FFFFFF7A)';
+    'var(--outline-default-outline-transparent-tertiary-active, #FFFFFF57)';
 
 export const outlineDefaultOutlineTransparentClear =
     'var(--outline-default-outline-transparent-clear, rgba(255, 255, 255, 0.00))';
@@ -705,82 +1136,82 @@ export const outlineDefaultOutlineTransparentClearActive =
 
 export const outlineDefaultOutlineAccent = 'var(--outline-default-outline-accent, #3F81FD)';
 
-export const outlineDefaultOutlineAccentHover = 'var(--outline-default-outline-accent-hover, #90B6FEFF)';
+export const outlineDefaultOutlineAccentHover = 'var(--outline-default-outline-accent-hover, #5D95FDFF)';
 
-export const outlineDefaultOutlineAccentActive = 'var(--outline-default-outline-accent-active, #216EFDFF)';
+export const outlineDefaultOutlineAccentActive = 'var(--outline-default-outline-accent-active, #357BFDFF)';
 
 export const outlineDefaultOutlineAccentMinor = 'var(--outline-default-outline-accent-minor, #1549AB)';
 
-export const outlineDefaultOutlineAccentMinorHover = 'var(--outline-default-outline-accent-minor-hover, #FFFFFFFF)';
+export const outlineDefaultOutlineAccentMinorHover = 'var(--outline-default-outline-accent-minor-hover, #1852BFFF)';
 
-export const outlineDefaultOutlineAccentMinorActive = 'var(--outline-default-outline-accent-minor-active, #1C62E3FF)';
+export const outlineDefaultOutlineAccentMinorActive = 'var(--outline-default-outline-accent-minor-active, #1446A3FF)';
 
 export const outlineDefaultOutlineTransparentAccent =
     'var(--outline-default-outline-transparent-accent, rgba(63, 129, 253, 0.28))';
 
 export const outlineDefaultOutlineTransparentAccentHover =
-    'var(--outline-default-outline-transparent-accent-hover, #3F82FDFF)';
+    'var(--outline-default-outline-transparent-accent-hover, #3F82FD66)';
 
 export const outlineDefaultOutlineTransparentAccentActive =
-    'var(--outline-default-outline-transparent-accent-active, #3F82FD56)';
+    'var(--outline-default-outline-transparent-accent-active, #3F82FD38)';
 
 export const outlineDefaultOutlinePositive = 'var(--outline-default-outline-positive, #24B23E)';
 
-export const outlineDefaultOutlinePositiveHover = 'var(--outline-default-outline-positive-hover, #2ACB47FF)';
+export const outlineDefaultOutlinePositiveHover = 'var(--outline-default-outline-positive-hover, #28C344FF)';
 
-export const outlineDefaultOutlinePositiveActive = 'var(--outline-default-outline-positive-active, #1F9835FF)';
+export const outlineDefaultOutlinePositiveActive = 'var(--outline-default-outline-positive-active, #23A93BFF)';
 
 export const outlineDefaultOutlineWarning = 'var(--outline-default-outline-warning, #FF7024)';
 
 export const outlineDefaultOutlineWarningHover = 'var(--outline-default-outline-warning-hover, #FF8442FF)';
 
-export const outlineDefaultOutlineWarningActive = 'var(--outline-default-outline-warning-active, #FF5D05FF)';
+export const outlineDefaultOutlineWarningActive = 'var(--outline-default-outline-warning-active, #FF6A1AFF)';
 
 export const outlineDefaultOutlineNegative = 'var(--outline-default-outline-negative, #FF3D51)';
 
 export const outlineDefaultOutlineNegativeHover = 'var(--outline-default-outline-negative-hover, #FF5C6CFF)';
 
-export const outlineDefaultOutlineNegativeActive = 'var(--outline-default-outline-negative-active, #FF1F35FF)';
+export const outlineDefaultOutlineNegativeActive = 'var(--outline-default-outline-negative-active, #FF3347FF)';
 
-export const outlineDefaultOutlineInfoHover = 'var(--outline-default-outline-info-hover, #A3C3FFFF)';
+export const outlineDefaultOutlineInfoHover = 'var(--outline-default-outline-info-hover, #70A2FFFF)';
 
-export const outlineDefaultOutlineInfoActive = 'var(--outline-default-outline-info-active, #337AFFFF)';
+export const outlineDefaultOutlineInfoActive = 'var(--outline-default-outline-info-active, #4788FFFF)';
 
 export const outlineDefaultOutlinePositiveMinor = 'var(--outline-default-outline-positive-minor, #095C18)';
 
-export const outlineDefaultOutlinePositiveMinorHover = 'var(--outline-default-outline-positive-minor-hover, #0F9527FF)';
+export const outlineDefaultOutlinePositiveMinorHover = 'var(--outline-default-outline-positive-minor-hover, #0B6F1DFF)';
 
 export const outlineDefaultOutlinePositiveMinorActive =
-    'var(--outline-default-outline-positive-minor-active, #0C7920FF)';
+    'var(--outline-default-outline-positive-minor-active, #085416FF)';
 
 export const outlineDefaultOutlineWarningMinor = 'var(--outline-default-outline-warning-minor, #85380C)';
 
-export const outlineDefaultOutlineWarningMinorHover = 'var(--outline-default-outline-warning-minor-hover, #BB4F11FF)';
+export const outlineDefaultOutlineWarningMinorHover = 'var(--outline-default-outline-warning-minor-hover, #95400EFF)';
 
-export const outlineDefaultOutlineWarningMinorActive = 'var(--outline-default-outline-warning-minor-active, #9F440FFF)';
+export const outlineDefaultOutlineWarningMinorActive = 'var(--outline-default-outline-warning-minor-active, #79340BFF)';
 
 export const outlineDefaultOutlineNegativeMinor = 'var(--outline-default-outline-negative-minor, #9C1422)';
 
-export const outlineDefaultOutlineNegativeMinorHover = 'var(--outline-default-outline-negative-minor-hover, #B91828FF)';
+export const outlineDefaultOutlineNegativeMinorHover = 'var(--outline-default-outline-negative-minor-hover, #B01726FF)';
 
 export const outlineDefaultOutlineNegativeMinorActive =
-    'var(--outline-default-outline-negative-minor-active, #83111CFF)';
+    'var(--outline-default-outline-negative-minor-active, #951320FF)';
 
-export const outlineDefaultOutlineInfoMinorHover = 'var(--outline-default-outline-info-minor-hover, #FFFFFFFF)';
+export const outlineDefaultOutlineInfoMinorHover = 'var(--outline-default-outline-info-minor-hover, #1852BFFF)';
 
-export const outlineDefaultOutlineInfoMinorActive = 'var(--outline-default-outline-info-minor-active, #1C62E3FF)';
+export const outlineDefaultOutlineInfoMinorActive = 'var(--outline-default-outline-info-minor-active, #1446A3FF)';
 
 export const outlineDefaultOutlineTransparentPositiveHover =
-    'var(--outline-default-outline-transparent-positive-hover, #1A9E32FF)';
+    'var(--outline-default-outline-transparent-positive-hover, #1A9E3266)';
 
 export const outlineDefaultOutlineTransparentPositiveActive =
-    'var(--outline-default-outline-transparent-positive-active, #1A9E3256)';
+    'var(--outline-default-outline-transparent-positive-active, #1A9E3238)';
 
 export const outlineDefaultOutlineTransparentWarningHover =
-    'var(--outline-default-outline-transparent-warning-hover, #FA5F05FF)';
+    'var(--outline-default-outline-transparent-warning-hover, #FA5F0566)';
 
 export const outlineDefaultOutlineTransparentWarningActive =
-    'var(--outline-default-outline-transparent-warning-active, #FA5F0556)';
+    'var(--outline-default-outline-transparent-warning-active, #FA5F0538)';
 
 export const outlineDefaultOutlineNegativeTransparentHover =
     'var(--outline-default-outline-negative-transparent-hover, #CCCCCCFF)';
@@ -789,10 +1220,10 @@ export const outlineDefaultOutlineNegativeTransparentActive =
     'var(--outline-default-outline-negative-transparent-active, #E6E6E6FF)';
 
 export const outlineDefaultOutlineTransparentInfoHover =
-    'var(--outline-default-outline-transparent-info-hover, #3F82FDFF)';
+    'var(--outline-default-outline-transparent-info-hover, #3F82FD66)';
 
 export const outlineDefaultOutlineTransparentInfoActive =
-    'var(--outline-default-outline-transparent-info-active, #3F82FD56)';
+    'var(--outline-default-outline-transparent-info-active, #3F82FD38)';
 
 export const outlineDefaultOutlineTransparentPositive =
     'var(--outline-default-outline-transparent-positive, rgba(26, 158, 50, 0.28))';
@@ -804,10 +1235,10 @@ export const outlineDefaultOutlineTransparentNegative =
     'var(--outline-default-outline-transparent-negative, rgba(243, 27, 49, 0.20))';
 
 export const outlineDefaultOutlineTransparentNegativeHover =
-    'var(--outline-default-outline-transparent-negative-hover, #F31B31FF)';
+    'var(--outline-default-outline-transparent-negative-hover, #F31B3152)';
 
 export const outlineDefaultOutlineTransparentNegativeActive =
-    'var(--outline-default-outline-transparent-negative-active, #F31B313D)';
+    'var(--outline-default-outline-transparent-negative-active, #F31B3124)';
 
 export const outlineDefaultOutlineInfoMinor = 'var(--outline-default-outline-info-minor, #1549AB)';
 
@@ -816,111 +1247,111 @@ export const outlineDefaultOutlineTransparentInfo =
 
 export const outlineDefaultOutlineInfo = 'var(--outline-default-outline-info, #528EFF)';
 
-export const outlineOnDarkOutlinePrimaryHover = 'var(--outline-on-dark-outline-primary-hover, #FFFFFFFF)';
+export const outlineOnDarkOutlinePrimaryHover = 'var(--outline-on-dark-outline-primary-hover, #303030FF)';
 
-export const outlineOnDarkOutlinePrimaryActive = 'var(--outline-on-dark-outline-primary-active, #ADADADFF)';
+export const outlineOnDarkOutlinePrimaryActive = 'var(--outline-on-dark-outline-primary-active, #212121FF)';
 
-export const outlineOnDarkOutlineSecondaryHover = 'var(--outline-on-dark-outline-secondary-hover, #FFFFFFFF)';
+export const outlineOnDarkOutlineSecondaryHover = 'var(--outline-on-dark-outline-secondary-hover, #595959FF)';
 
-export const outlineOnDarkOutlineSecondaryActive = 'var(--outline-on-dark-outline-secondary-active, #8C8C8CFF)';
+export const outlineOnDarkOutlineSecondaryActive = 'var(--outline-on-dark-outline-secondary-active, #4A4A4AFF)';
 
-export const outlineOnDarkOutlineTertiaryHover = 'var(--outline-on-dark-outline-tertiary-hover, #FFFFFFFF)';
+export const outlineOnDarkOutlineTertiaryHover = 'var(--outline-on-dark-outline-tertiary-hover, #7A7A7AFF)';
 
-export const outlineOnDarkOutlineTertiaryActive = 'var(--outline-on-dark-outline-tertiary-active, #737373FF)';
+export const outlineOnDarkOutlineTertiaryActive = 'var(--outline-on-dark-outline-tertiary-active, #6B6B6BFF)';
 
-export const outlineOnDarkOutlineDefaultHover = 'var(--outline-on-dark-outline-default-hover, #C7C7C7FF)';
+export const outlineOnDarkOutlineDefaultHover = 'var(--outline-on-dark-outline-default-hover, #FFFFFFFF)';
 
-export const outlineOnDarkOutlineDefaultActive = 'var(--outline-on-dark-outline-default-active, #E0E0E0FF)';
+export const outlineOnDarkOutlineDefaultActive = 'var(--outline-on-dark-outline-default-active, #F5F5F5FF)';
 
 export const outlineOnDarkOutlineTransparentPrimaryHover =
-    'var(--outline-on-dark-outline-transparent-primary-hover, #FFFFFFFF)';
+    'var(--outline-on-dark-outline-transparent-primary-hover, #FFFFFF3D)';
 
 export const outlineOnDarkOutlineTransparentPrimaryActive =
-    'var(--outline-on-dark-outline-transparent-primary-active, #FFFFFF25)';
+    'var(--outline-on-dark-outline-transparent-primary-active, #FFFFFF0F)';
 
 export const outlineOnDarkOutlineTransparentSecondaryHover =
-    'var(--outline-on-dark-outline-transparent-secondary-hover, #FFFFFFFF)';
+    'var(--outline-on-dark-outline-transparent-secondary-hover, #FFFFFF52)';
 
 export const outlineOnDarkOutlineTransparentSecondaryActive =
-    'var(--outline-on-dark-outline-transparent-secondary-active, #FFFFFF3D)';
+    'var(--outline-on-dark-outline-transparent-secondary-active, #FFFFFF24)';
 
 export const outlineOnDarkOutlineTransparentTertiaryHover =
-    'var(--outline-on-dark-outline-transparent-tertiary-hover, #FFFFFFFF)';
+    'var(--outline-on-dark-outline-transparent-tertiary-hover, #FFFFFF85)';
 
 export const outlineOnDarkOutlineTransparentTertiaryActive =
-    'var(--outline-on-dark-outline-transparent-tertiary-active, #FFFFFF7A)';
+    'var(--outline-on-dark-outline-transparent-tertiary-active, #FFFFFF57)';
 
-export const outlineOnDarkOutlineAccentHover = 'var(--outline-on-dark-outline-accent-hover, #90B6FEFF)';
+export const outlineOnDarkOutlineAccentHover = 'var(--outline-on-dark-outline-accent-hover, #5D95FDFF)';
 
-export const outlineOnDarkOutlineAccentActive = 'var(--outline-on-dark-outline-accent-active, #216EFDFF)';
+export const outlineOnDarkOutlineAccentActive = 'var(--outline-on-dark-outline-accent-active, #357BFDFF)';
 
-export const outlineOnDarkOutlineAccentMinorHover = 'var(--outline-on-dark-outline-accent-minor-hover, #FFFFFFFF)';
+export const outlineOnDarkOutlineAccentMinorHover = 'var(--outline-on-dark-outline-accent-minor-hover, #1852BFFF)';
 
-export const outlineOnDarkOutlineAccentMinorActive = 'var(--outline-on-dark-outline-accent-minor-active, #1C62E3FF)';
+export const outlineOnDarkOutlineAccentMinorActive = 'var(--outline-on-dark-outline-accent-minor-active, #1446A3FF)';
 
 export const outlineOnDarkOutlineTransparentAccentHover =
-    'var(--outline-on-dark-outline-transparent-accent-hover, #3F82FDFF)';
+    'var(--outline-on-dark-outline-transparent-accent-hover, #3F82FD66)';
 
 export const outlineOnDarkOutlineTransparentAccentActive =
-    'var(--outline-on-dark-outline-transparent-accent-active, #3F82FD56)';
+    'var(--outline-on-dark-outline-transparent-accent-active, #3F82FD38)';
 
-export const outlineOnDarkOutlinePositiveHover = 'var(--outline-on-dark-outline-positive-hover, #2ACB47FF)';
+export const outlineOnDarkOutlinePositiveHover = 'var(--outline-on-dark-outline-positive-hover, #28C344FF)';
 
-export const outlineOnDarkOutlinePositiveActive = 'var(--outline-on-dark-outline-positive-active, #1F9835FF)';
+export const outlineOnDarkOutlinePositiveActive = 'var(--outline-on-dark-outline-positive-active, #23A93BFF)';
 
 export const outlineOnDarkOutlineWarningHover = 'var(--outline-on-dark-outline-warning-hover, #FF8442FF)';
 
-export const outlineOnDarkOutlineWarningActive = 'var(--outline-on-dark-outline-warning-active, #FF5D05FF)';
+export const outlineOnDarkOutlineWarningActive = 'var(--outline-on-dark-outline-warning-active, #FF6A1AFF)';
 
 export const outlineOnDarkOutlineNegativeHover = 'var(--outline-on-dark-outline-negative-hover, #FF5C6CFF)';
 
-export const outlineOnDarkOutlineNegativeActive = 'var(--outline-on-dark-outline-negative-active, #FF1F35FF)';
+export const outlineOnDarkOutlineNegativeActive = 'var(--outline-on-dark-outline-negative-active, #FF3347FF)';
 
-export const outlineOnDarkOutlineInfoHover = 'var(--outline-on-dark-outline-info-hover, #A3C3FFFF)';
+export const outlineOnDarkOutlineInfoHover = 'var(--outline-on-dark-outline-info-hover, #70A2FFFF)';
 
-export const outlineOnDarkOutlineInfoActive = 'var(--outline-on-dark-outline-info-active, #337AFFFF)';
+export const outlineOnDarkOutlineInfoActive = 'var(--outline-on-dark-outline-info-active, #4788FFFF)';
 
-export const outlineOnDarkOutlinePositiveMinorHover = 'var(--outline-on-dark-outline-positive-minor-hover, #0F9527FF)';
+export const outlineOnDarkOutlinePositiveMinorHover = 'var(--outline-on-dark-outline-positive-minor-hover, #0B6F1DFF)';
 
 export const outlineOnDarkOutlinePositiveMinorActive =
-    'var(--outline-on-dark-outline-positive-minor-active, #0C7920FF)';
+    'var(--outline-on-dark-outline-positive-minor-active, #085416FF)';
 
-export const outlineOnDarkOutlineWarningMinorHover = 'var(--outline-on-dark-outline-warning-minor-hover, #BB4F11FF)';
+export const outlineOnDarkOutlineWarningMinorHover = 'var(--outline-on-dark-outline-warning-minor-hover, #95400EFF)';
 
-export const outlineOnDarkOutlineWarningMinorActive = 'var(--outline-on-dark-outline-warning-minor-active, #9F440FFF)';
+export const outlineOnDarkOutlineWarningMinorActive = 'var(--outline-on-dark-outline-warning-minor-active, #79340BFF)';
 
-export const outlineOnDarkOutlineNegativeMinorHover = 'var(--outline-on-dark-outline-negative-minor-hover, #B91828FF)';
+export const outlineOnDarkOutlineNegativeMinorHover = 'var(--outline-on-dark-outline-negative-minor-hover, #B01726FF)';
 
 export const outlineOnDarkOutlineNegativeMinorActive =
-    'var(--outline-on-dark-outline-negative-minor-active, #83111CFF)';
+    'var(--outline-on-dark-outline-negative-minor-active, #951320FF)';
 
-export const outlineOnDarkOutlineInfoMinorHover = 'var(--outline-on-dark-outline-info-minor-hover, #FFFFFFFF)';
+export const outlineOnDarkOutlineInfoMinorHover = 'var(--outline-on-dark-outline-info-minor-hover, #1852BFFF)';
 
-export const outlineOnDarkOutlineInfoMinorActive = 'var(--outline-on-dark-outline-info-minor-active, #1C62E3FF)';
+export const outlineOnDarkOutlineInfoMinorActive = 'var(--outline-on-dark-outline-info-minor-active, #1446A3FF)';
 
 export const outlineOnDarkOutlineTransparentPositiveHover =
-    'var(--outline-on-dark-outline-transparent-positive-hover, #1A9E32FF)';
+    'var(--outline-on-dark-outline-transparent-positive-hover, #1A9E3266)';
 
 export const outlineOnDarkOutlineTransparentPositiveActive =
-    'var(--outline-on-dark-outline-transparent-positive-active, #1A9E3256)';
+    'var(--outline-on-dark-outline-transparent-positive-active, #1A9E3238)';
 
 export const outlineOnDarkOutlineTransparentWarningHover =
-    'var(--outline-on-dark-outline-transparent-warning-hover, #FA5F05FF)';
+    'var(--outline-on-dark-outline-transparent-warning-hover, #FA5F0566)';
 
 export const outlineOnDarkOutlineTransparentWarningActive =
-    'var(--outline-on-dark-outline-transparent-warning-active, #FA5F0556)';
+    'var(--outline-on-dark-outline-transparent-warning-active, #FA5F0538)';
 
 export const outlineOnDarkOutlineNegativeTransparentHover =
-    'var(--outline-on-dark-outline-negative-transparent-hover, #FF293EFF)';
+    'var(--outline-on-dark-outline-negative-transparent-hover, #FF293E66)';
 
 export const outlineOnDarkOutlineNegativeTransparentActive =
-    'var(--outline-on-dark-outline-negative-transparent-active, #FF293E56)';
+    'var(--outline-on-dark-outline-negative-transparent-active, #FF293E38)';
 
 export const outlineOnDarkOutlineTransparentInfoHover =
-    'var(--outline-on-dark-outline-transparent-info-hover, #3F82FDFF)';
+    'var(--outline-on-dark-outline-transparent-info-hover, #3F82FD66)';
 
 export const outlineOnDarkOutlineTransparentInfoActive =
-    'var(--outline-on-dark-outline-transparent-info-active, #3F82FD56)';
+    'var(--outline-on-dark-outline-transparent-info-active, #3F82FD38)';
 
 export const outlineOnDarkOutlinePrimary = 'var(--outline-on-dark-outline-primary, #262626)';
 
@@ -974,155 +1405,155 @@ export const outlineOnDarkOutlineInfo = 'var(--outline-on-dark-outline-info, #52
 export const outlineOnDarkOutlineTransparentInfo =
     'var(--outline-on-dark-outline-transparent-info, rgba(63, 129, 253, 0.28))';
 
-export const outlineOnLightOutlinePrimaryHover = 'var(--outline-on-light-outline-primary-hover, #ABABABFF)';
+export const outlineOnLightOutlinePrimaryHover = 'var(--outline-on-light-outline-primary-hover, #E8E8E8FF)';
 
-export const outlineOnLightOutlinePrimaryActive = 'var(--outline-on-light-outline-primary-active, #C4C4C4FF)';
+export const outlineOnLightOutlinePrimaryActive = 'var(--outline-on-light-outline-primary-active, #D9D9D9FF)';
 
-export const outlineOnLightOutlineSecondaryHover = 'var(--outline-on-light-outline-secondary-hover, #FFFFFFFF)';
+export const outlineOnLightOutlineSecondaryHover = 'var(--outline-on-light-outline-secondary-hover, #9E9E9EFF)';
 
-export const outlineOnLightOutlineSecondaryActive = 'var(--outline-on-light-outline-secondary-active, #575757FF)';
+export const outlineOnLightOutlineSecondaryActive = 'var(--outline-on-light-outline-secondary-active, #8F8F8FFF)';
 
 export const outlineOnLightOutlineTertiary = 'var(--outline-on-light-outline-tertiary, #707070)';
 
-export const outlineOnLightOutlineTertiaryHover = 'var(--outline-on-light-outline-tertiary-hover, #FFFFFFFF)';
+export const outlineOnLightOutlineTertiaryHover = 'var(--outline-on-light-outline-tertiary-hover, #7A7A7AFF)';
 
-export const outlineOnLightOutlineTertiaryActive = 'var(--outline-on-light-outline-tertiary-active, #737373FF)';
+export const outlineOnLightOutlineTertiaryActive = 'var(--outline-on-light-outline-tertiary-active, #6B6B6BFF)';
 
 export const outlineOnLightOutlineDefault = 'var(--outline-on-light-outline-default, #080808)';
 
-export const outlineOnLightOutlineDefaultHover = 'var(--outline-on-light-outline-default-hover, #FFFFFFFF)';
+export const outlineOnLightOutlineDefaultHover = 'var(--outline-on-light-outline-default-hover, #0D0D0DFF)';
 
-export const outlineOnLightOutlineDefaultActive = 'var(--outline-on-light-outline-default-active, #C7C7C7FF)';
+export const outlineOnLightOutlineDefaultActive = 'var(--outline-on-light-outline-default-active, #030303FF)';
 
 export const outlineOnLightOutlineTransparentPrimary =
     'var(--outline-on-light-outline-transparent-primary, rgba(8, 8, 8, 0.20))';
 
 export const outlineOnLightOutlineTransparentPrimaryHover =
-    'var(--outline-on-light-outline-transparent-primary-hover, #080808FF)';
+    'var(--outline-on-light-outline-transparent-primary-hover, #08080852)';
 
 export const outlineOnLightOutlineTransparentPrimaryActive =
-    'var(--outline-on-light-outline-transparent-primary-active, #0808083D)';
+    'var(--outline-on-light-outline-transparent-primary-active, #08080824)';
 
 export const outlineOnLightOutlineTransparentSecondary =
     'var(--outline-on-light-outline-transparent-secondary, rgba(8, 8, 8, 0.40))';
 
 export const outlineOnLightOutlineTransparentSecondaryHover =
-    'var(--outline-on-light-outline-transparent-secondary-hover, #080808FF)';
+    'var(--outline-on-light-outline-transparent-secondary-hover, #08080885)';
 
 export const outlineOnLightOutlineTransparentSecondaryActive =
-    'var(--outline-on-light-outline-transparent-secondary-active, #0808087A)';
+    'var(--outline-on-light-outline-transparent-secondary-active, #08080857)';
 
 export const outlineOnLightOutlineTransparentTertiary =
     'var(--outline-on-light-outline-transparent-tertiary, rgba(8, 8, 8, 0.56))';
 
 export const outlineOnLightOutlineTransparentTertiaryHover =
-    'var(--outline-on-light-outline-transparent-tertiary-hover, #080808FF)';
+    'var(--outline-on-light-outline-transparent-tertiary-hover, #080808AD)';
 
 export const outlineOnLightOutlineTransparentTertiaryActive =
-    'var(--outline-on-light-outline-transparent-tertiary-active, #080808AB)';
+    'var(--outline-on-light-outline-transparent-tertiary-active, #08080880)';
 
 export const outlineOnLightOutlineAccent = 'var(--outline-on-light-outline-accent, #2A72F8)';
 
-export const outlineOnLightOutlineAccentHover = 'var(--outline-on-light-outline-accent-hover, #79A7FBFF)';
+export const outlineOnLightOutlineAccentHover = 'var(--outline-on-light-outline-accent-hover, #4886F9FF)';
 
-export const outlineOnLightOutlineAccentActive = 'var(--outline-on-light-outline-accent-active, #0D5FF8FF)';
+export const outlineOnLightOutlineAccentActive = 'var(--outline-on-light-outline-accent-active, #206CF8FF)';
 
 export const outlineOnLightOutlineAccentMinor = 'var(--outline-on-light-outline-accent-minor, #8BB2FC)';
 
-export const outlineOnLightOutlineAccentMinorHover = 'var(--outline-on-light-outline-accent-minor-hover, #DCE8FEFF)';
+export const outlineOnLightOutlineAccentMinorHover = 'var(--outline-on-light-outline-accent-minor-hover, #A1C1FDFF)';
 
-export const outlineOnLightOutlineAccentMinorActive = 'var(--outline-on-light-outline-accent-minor-active, #6FA0FBFF)';
+export const outlineOnLightOutlineAccentMinorActive = 'var(--outline-on-light-outline-accent-minor-active, #83ADFCFF)';
 
 export const outlineOnLightOutlineTransparentAccent =
     'var(--outline-on-light-outline-transparent-accent, rgba(42, 114, 248, 0.20))';
 
 export const outlineOnLightOutlineTransparentAccentHover =
-    'var(--outline-on-light-outline-transparent-accent-hover, #2A72F8FF)';
+    'var(--outline-on-light-outline-transparent-accent-hover, #2A72F852)';
 
 export const outlineOnLightOutlineTransparentAccentActive =
-    'var(--outline-on-light-outline-transparent-accent-active, #2A72F83D)';
+    'var(--outline-on-light-outline-transparent-accent-active, #2A72F824)';
 
 export const outlineOnLightOutlinePositive = 'var(--outline-on-light-outline-positive, #1A9E32)';
 
-export const outlineOnLightOutlinePositiveHover = 'var(--outline-on-light-outline-positive-hover, #1EB83AFF)';
+export const outlineOnLightOutlinePositiveHover = 'var(--outline-on-light-outline-positive-hover, #1DAF37FF)';
 
-export const outlineOnLightOutlinePositiveActive = 'var(--outline-on-light-outline-positive-active, #15842AFF)';
+export const outlineOnLightOutlinePositiveActive = 'var(--outline-on-light-outline-positive-active, #18952FFF)';
 
 export const outlineOnLightOutlineWarning = 'var(--outline-on-light-outline-warning, #FA5F05)';
 
 export const outlineOnLightOutlineWarningHover = 'var(--outline-on-light-outline-warning-hover, #FB7223FF)';
 
-export const outlineOnLightOutlineWarningActive = 'var(--outline-on-light-outline-warning-active, #DC5304FF)';
+export const outlineOnLightOutlineWarningActive = 'var(--outline-on-light-outline-warning-active, #F05B05FF)';
 
 export const outlineOnLightOutlineNegative = 'var(--outline-on-light-outline-negative, #F31B31)';
 
 export const outlineOnLightOutlineNegativeHover = 'var(--outline-on-light-outline-negative-hover, #F5384BFF)';
 
-export const outlineOnLightOutlineNegativeActive = 'var(--outline-on-light-outline-negative-active, #E40C22FF)';
+export const outlineOnLightOutlineNegativeActive = 'var(--outline-on-light-outline-negative-active, #F31228FF)';
 
-export const outlineOnLightOutlineInfoHover = 'var(--outline-on-light-outline-info-hover, #90B6FEFF)';
+export const outlineOnLightOutlineInfoHover = 'var(--outline-on-light-outline-info-hover, #5D95FDFF)';
 
-export const outlineOnLightOutlineInfoActive = 'var(--outline-on-light-outline-info-active, #216EFDFF)';
+export const outlineOnLightOutlineInfoActive = 'var(--outline-on-light-outline-info-active, #357BFDFF)';
 
 export const outlineOnLightOutlinePositiveMinor = 'var(--outline-on-light-outline-positive-minor, #28D247)';
 
 export const outlineOnLightOutlinePositiveMinorHover =
-    'var(--outline-on-light-outline-positive-minor-hover, #3EDA5BFF)';
+    'var(--outline-on-light-outline-positive-minor-hover, #36D954FF)';
 
 export const outlineOnLightOutlinePositiveMinorActive =
-    'var(--outline-on-light-outline-positive-minor-active, #23B83EFF)';
+    'var(--outline-on-light-outline-positive-minor-active, #26C944FF)';
 
 export const outlineOnLightOutlineWarningMinor = 'var(--outline-on-light-outline-warning-minor, #FD9C68)';
 
-export const outlineOnLightOutlineWarningMinorHover = 'var(--outline-on-light-outline-warning-minor-hover, #FDB086FF)';
+export const outlineOnLightOutlineWarningMinorHover = 'var(--outline-on-light-outline-warning-minor-hover, #FDA97CFF)';
 
 export const outlineOnLightOutlineWarningMinorActive =
-    'var(--outline-on-light-outline-warning-minor-active, #FC884AFF)';
+    'var(--outline-on-light-outline-warning-minor-active, #FD965EFF)';
 
 export const outlineOnLightOutlineNegativeMinor = 'var(--outline-on-light-outline-negative-minor, #FF8F9A)';
 
 export const outlineOnLightOutlineNegativeMinorHover =
-    'var(--outline-on-light-outline-negative-minor-hover, #FFADB6FF)';
+    'var(--outline-on-light-outline-negative-minor-hover, #FFA3ACFF)';
 
 export const outlineOnLightOutlineNegativeMinorActive =
-    'var(--outline-on-light-outline-negative-minor-active, #FF707EFF)';
+    'var(--outline-on-light-outline-negative-minor-active, #FF8591FF)';
 
-export const outlineOnLightOutlineInfoMinorHover = 'var(--outline-on-light-outline-info-minor-hover, #DCE8FEFF)';
+export const outlineOnLightOutlineInfoMinorHover = 'var(--outline-on-light-outline-info-minor-hover, #A1C1FDFF)';
 
-export const outlineOnLightOutlineInfoMinorActive = 'var(--outline-on-light-outline-info-minor-active, #6FA0FBFF)';
+export const outlineOnLightOutlineInfoMinorActive = 'var(--outline-on-light-outline-info-minor-active, #83ADFCFF)';
 
 export const outlineOnLightOutlineTransparentPositive =
     'var(--outline-on-light-outline-transparent-positive, rgba(26, 158, 50, 0.20))';
 
 export const outlineOnLightOutlineTransparentPositiveHover =
-    'var(--outline-on-light-outline-transparent-positive-hover, #1A9E32FF)';
+    'var(--outline-on-light-outline-transparent-positive-hover, #1A9E3252)';
 
 export const outlineOnLightOutlineTransparentPositiveActive =
-    'var(--outline-on-light-outline-transparent-positive-active, #1A9E323D)';
+    'var(--outline-on-light-outline-transparent-positive-active, #1A9E3224)';
 
 export const outlineOnLightOutlineTransparentWarning =
     'var(--outline-on-light-outline-transparent-warning, rgba(232, 87, 2, 0.20))';
 
 export const outlineOnLightOutlineTransparentWarningHover =
-    'var(--outline-on-light-outline-transparent-warning-hover, #E85702FF)';
+    'var(--outline-on-light-outline-transparent-warning-hover, #E8570252)';
 
 export const outlineOnLightOutlineTransparentWarningActive =
-    'var(--outline-on-light-outline-transparent-warning-active, #E857023D)';
+    'var(--outline-on-light-outline-transparent-warning-active, #E8570224)';
 
 export const outlineOnLightOutlineNegativeTransparent =
     'var(--outline-on-light-outline-negative-transparent, rgba(243, 27, 49, 0.20))';
 
 export const outlineOnLightOutlineNegativeTransparentHover =
-    'var(--outline-on-light-outline-negative-transparent-hover, #F31B31FF)';
+    'var(--outline-on-light-outline-negative-transparent-hover, #F31B3152)';
 
 export const outlineOnLightOutlineNegativeTransparentActive =
-    'var(--outline-on-light-outline-negative-transparent-active, #F31B313D)';
+    'var(--outline-on-light-outline-negative-transparent-active, #F31B3124)';
 
 export const outlineOnLightOutlineTransparentInfoHover =
-    'var(--outline-on-light-outline-transparent-info-hover, #2A72F8FF)';
+    'var(--outline-on-light-outline-transparent-info-hover, #2A72F852)';
 
 export const outlineOnLightOutlineTransparentInfoActive =
-    'var(--outline-on-light-outline-transparent-info-active, #2A72F83D)';
+    'var(--outline-on-light-outline-transparent-info-active, #2A72F824)';
 
 export const outlineOnLightOutlinePrimary = 'var(--outline-on-light-outline-primary, #DDDDDD)';
 
