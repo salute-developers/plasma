@@ -27,6 +27,7 @@ export const cellRoot = (Root: RootProps<HTMLDivElement, CellProps>) =>
                 description,
                 content,
                 stretching = 'filled',
+                className,
             },
             outerRootRef,
         ) => {
@@ -37,7 +38,12 @@ export const cellRoot = (Root: RootProps<HTMLDivElement, CellProps>) =>
             const contentLeftDeprecated = contentLeft || content;
 
             return (
-                <Root ref={outerRootRef} size={size} view={view} className={cx(stretchingClass, classes.cellRoot)}>
+                <Root
+                    ref={outerRootRef}
+                    size={size}
+                    view={view}
+                    className={cx(stretchingClass, classes.cellRoot, className)}
+                >
                     {contentLeftDeprecated && <CellLeft align={alignContentLeft}>{contentLeftDeprecated}</CellLeft>}
                     <CellContentWrapper>
                         <CellContent>
