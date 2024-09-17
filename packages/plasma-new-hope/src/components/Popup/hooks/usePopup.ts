@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import type { PopupAnimationInfo, PopupHookArgs } from '../Popup.types';
 import { usePopupContext } from '../PopupContext';
 
-// Хук для поключения анимации
+// Хук для подключения анимации
 const usePopupAnimation = (): PopupAnimationInfo => {
     const [endAnimation, setEndAnimation] = useState<boolean>(false);
     const [endTransition, setEndTransition] = useState<boolean>(false);
