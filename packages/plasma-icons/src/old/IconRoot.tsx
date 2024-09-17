@@ -1,10 +1,20 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import type { CSSProperties } from 'react';
+import styled from 'styled-components';
 
-const sizeMap = {
-    xs: 1, // 16px
-    s: 1.5, // 24px
-    m: 2.25, // 36px
+export const sizeMap = {
+    xs: {
+        scale: 1,
+        size: 16,
+    }, // 16px
+    s: {
+        scale: 1.5,
+        size: 24,
+    }, // 24px
+    m: {
+        scale: 2.25,
+        size: 36,
+    }, // 36px
 };
 
 export type IconSize = keyof typeof sizeMap;
@@ -20,23 +30,40 @@ interface IconRootProps extends IconProps {
     icon: React.FC<IconProps>;
 }
 
-const StyledRoot = styled.div<{ w: string }>`
+const IconsRoot = styled.div`
     display: inline-flex;
-    ${({ w }) => css`
-        width: ${w};
-        height: ${w};
-        flex: 0 0 ${w};
-    `}
+    width: var(--icon-size);
+    height: var(--icon-size);
+    flex: 0 0 var(--icon-size);
 `;
 
-export const IconRoot: React.FC<IconRootProps> = ({ icon: IconComponent, size, color, className }) => {
-    const c = color || 'var(--plasma-colors-primary)';
+export const getIconComponent = (
+    icon16: React.FC<IconProps> | null,
+    icon24: React.FC<IconProps> | null,
+    icon36: React.FC<IconProps> | null,
+    size: number,
+) => {
+    if (size === 16 && icon16 !== null) {
+        return icon16;
+    }
 
-    const w = `${sizeMap[size]}rem`;
+    if (size === 24 && icon24 !== null) {
+        return icon24;
+    }
 
-    return (
-        <StyledRoot aria-hidden w={w} className={className}>
-            <IconComponent color={c} size={size} />
-        </StyledRoot>
-    );
+    if (size === 36 && icon36 !== null) {
+        return icon36;
+    }
+
+    return icon16 || icon24 || icon36;
 };
+
+export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => (
+    <IconsRoot
+        aria-hidden
+        style={{ '--icon-size': `${sizeMap[size].scale}rem` } as CSSProperties}
+        className={className || ''}
+    >
+        <Icon color={color || 'var(--plasma-colors-primary)'} size={size} />
+    </IconsRoot>
+);
