@@ -1,4 +1,6 @@
-import type { MutableRefObject, InputHTMLAttributes, KeyboardEvent, ChangeEvent } from 'react';
+import type { MutableRefObject, KeyboardEvent, ChangeEvent } from 'react';
+
+import type { InputHTMLAttributes } from '../../types';
 
 export type TextFieldPrimitiveValue = string | number | boolean;
 

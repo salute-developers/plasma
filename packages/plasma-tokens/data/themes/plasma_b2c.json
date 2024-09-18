@@ -23,7 +23,7 @@
                     "enabled": true
                 },
                 "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFF5",
                     "comment": "Основной цвет текста",
                     "enabled": true
                 },
@@ -138,6 +138,96 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.800]",
                     "comment": ""
+                },
+                "textPrimaryHover": {
+                    "value": "#FFFFFF93",
+                    "comment": "Основной цвет текста",
+                    "enabled": true
+                },
+                "textPrimaryActive": {
+                    "value": "#FFFFFFC4",
+                    "comment": "Основной цвет текста",
+                    "enabled": true
+                },
+                "textSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Вторичный цвет текста",
+                    "enabled": true
+                },
+                "textSecondaryActive": {
+                    "value": "#FFFFFFAB",
+                    "comment": "Вторичный цвет текста",
+                    "enabled": true
+                },
+                "textTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Третичный цвет текста",
+                    "enabled": true
+                },
+                "textTertiaryActive": {
+                    "value": "#FFFFFF56",
+                    "comment": "Третичный цвет текста",
+                    "enabled": true
+                },
+                "textParagraphHover": {
+                    "value": "#FFFFFF7A",
+                    "comment": "Сплошной наборный текст",
+                    "enabled": true
+                },
+                "textParagraphActive": {
+                    "value": "#FFFFFFA3",
+                    "comment": "Сплошной наборный текст",
+                    "enabled": true
+                },
+                "textAccentHover": {
+                    "value": "#90B6FEFF",
+                    "comment": "Акцентный цвет",
+                    "enabled": true
+                },
+                "textAccentActive": {
+                    "value": "#216EFDFF",
+                    "comment": "Акцентный цвет",
+                    "enabled": true
+                },
+                "textAccentGradientHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": true
+                },
+                "textAccentGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": true
+                },
+                "textPositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет успеха",
+                    "enabled": true
+                },
+                "textPositiveActive": {
+                    "value": "#15842AFF",
+                    "comment": "Цвет успеха",
+                    "enabled": true
+                },
+                "textWarningHover": {
+                    "value": "#FB7223FF",
+                    "comment": "Цвет предупреждения",
+                    "enabled": true
+                },
+                "textWarningActive": {
+                    "value": "#DC5304FF",
+                    "comment": "Цвет предупреждения",
+                    "enabled": true
+                },
+                "textNegativeHover": {
+                    "value": "#FF475AFF",
+                    "comment": "Цвет ошибки",
+                    "enabled": true
+                },
+                "textNegativeActive": {
+                    "value": "#FF0A23FF",
+                    "comment": "Цвет ошибки",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -146,7 +236,7 @@
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFF5",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textSecondary": {
@@ -252,6 +342,78 @@
                 "textInfo": {
                     "value": "[general.electricBlue.500]",
                     "comment": ""
+                },
+                "textPrimaryHover": {
+                    "value": "#FFFFFF93",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textPrimaryActive": {
+                    "value": "#FFFFFFC4",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Вторичный цвет текста на темном фоне"
+                },
+                "textSecondaryActive": {
+                    "value": "#FFFFFFAB",
+                    "comment": "Вторичный цвет текста на темном фоне"
+                },
+                "textTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textTertiaryActive": {
+                    "value": "#FFFFFF56",
+                    "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textParagraphHover": {
+                    "value": "#FFFFFF7A",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textParagraphActive": {
+                    "value": "#FFFFFFA3",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textAccentHover": {
+                    "value": "#90B6FEFF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentActive": {
+                    "value": "#216EFDFF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentGradientHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Акцентный цвет с градиентом на темном фоне"
+                },
+                "textAccentGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Акцентный цвет с градиентом на темном фоне"
+                },
+                "textPositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "textPositiveActive": {
+                    "value": "#15842AFF",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "textWarningHover": {
+                    "value": "#FB7223FF",
+                    "comment": "Цвет предупреждения на темном фоне"
+                },
+                "textWarningActive": {
+                    "value": "#DC5304FF",
+                    "comment": "Цвет предупреждения на темном фоне"
+                },
+                "textNegativeHover": {
+                    "value": "#FF475AFF",
+                    "comment": "Цвет ошибки на темном фоне"
+                },
+                "textNegativeActive": {
+                    "value": "#FF0A23FF",
+                    "comment": "Цвет ошибки на темном фоне"
                 }
             },
             "onLight": {
@@ -260,7 +422,7 @@
                     "comment": "Основной цвет текста на светлом фоне"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#171717",
+                    "value": "#080808F5",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
                 "textSecondary": {
@@ -374,6 +536,70 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.300]",
                     "comment": ""
+                },
+                "textPrimaryHover": {
+                    "value": "#08080893",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
+                "textPrimaryActive": {
+                    "value": "#080808C4",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
+                "textSecondaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Вторичный цвет текста на светлом фоне"
+                },
+                "textSecondaryActive": {
+                    "value": "#080808AB",
+                    "comment": "Вторичный цвет текста на светлом фоне"
+                },
+                "textTertiaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Третичный цвет текста на светлом фоне"
+                },
+                "textTertiaryActive": {
+                    "value": "#08080856",
+                    "comment": "Третичный цвет текста на светлом фоне"
+                },
+                "textParagraphHover": {
+                    "value": "#0808087A",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textParagraphActive": {
+                    "value": "#080808A3",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textAccentHover": {
+                    "value": "#79A7FBFF",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentActive": {
+                    "value": "#0D5FF8FF",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentGradientHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Акцентный цвет с градиентом на светлом фоне"
+                },
+                "textAccentGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Акцентный цвет с градиентом на светлом фоне"
+                },
+                "textPositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "textPositiveActive": {
+                    "value": "#15842AFF",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "textWarningHover": {
+                    "value": "#FB7223FF",
+                    "comment": "Цвет предупреждения на светлом фоне"
+                },
+                "textWarningActive": {
+                    "value": "#DC5304FF",
+                    "comment": "Цвет предупреждения на светлом фоне"
                 }
             },
             "inverse": {
@@ -382,7 +608,7 @@
                     "comment": "Инвертированный основной цвет текста"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#171717",
+                    "value": "#080808F5",
                     "comment": "Инвертированный основной цвет текста"
                 },
                 "textSecondary": {
@@ -421,6 +647,88 @@
                     "value": "#F31B30",
                     "comment": "Инвертированный цвет ошибки",
                     "enabled": false
+                },
+                "textPrimaryHover": {
+                    "value": "#08080893",
+                    "comment": "Инвертированный основной цвет текста"
+                },
+                "textPrimaryActive": {
+                    "value": "#080808C4",
+                    "comment": "Инвертированный основной цвет текста"
+                },
+                "textSecondaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Инвертированный вторичный цвет текста"
+                },
+                "textSecondaryActive": {
+                    "value": "#080808AB",
+                    "comment": "Инвертированный вторичный цвет текста"
+                },
+                "textTertiaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Инвертированный третичный цвет текста"
+                },
+                "textTertiaryActive": {
+                    "value": "#08080856",
+                    "comment": "Инвертированный третичный цвет текста"
+                },
+                "textParagraphHover": {
+                    "value": "#0808087A",
+                    "comment": "Инвертированный cплошной наборный текст"
+                },
+                "textParagraphActive": {
+                    "value": "#080808A3",
+                    "comment": "Инвертированный cплошной наборный текст"
+                },
+                "textAccentHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Инвертированный акцентный цвет",
+                    "enabled": false
+                },
+                "textAccentActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Инвертированный акцентный цвет",
+                    "enabled": false
+                },
+                "textAccentGradientHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Инвертированный акцентный цвет с градиентом",
+                    "enabled": false
+                },
+                "textAccentGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Инвертированный акцентный цвет с градиентом",
+                    "enabled": false
+                },
+                "textPositiveHover": {
+                    "value": "#13AA2CFF",
+                    "comment": "Инвертированный цвет успеха",
+                    "enabled": false
+                },
+                "textPositiveActive": {
+                    "value": "#0D731EFF",
+                    "comment": "Инвертированный цвет успеха",
+                    "enabled": false
+                },
+                "textWarningHover": {
+                    "value": "#FD650DFF",
+                    "comment": "Инвертированный цвет предупреждения",
+                    "enabled": false
+                },
+                "textWarningActive": {
+                    "value": "#CA4B02FF",
+                    "comment": "Инвертированный цвет предупреждения",
+                    "enabled": false
+                },
+                "textNegativeHover": {
+                    "value": "#F5384BFF",
+                    "comment": "Инвертированный цвет ошибки",
+                    "enabled": false
+                },
+                "textNegativeActive": {
+                    "value": "#E40C22FF",
+                    "comment": "Инвертированный цвет ошибки",
+                    "enabled": false
                 }
             }
         },
@@ -431,7 +739,7 @@
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondary": {
@@ -447,7 +755,7 @@
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceTransparentDefault": {
@@ -472,7 +780,7 @@
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFF1F",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceAccent": {
@@ -654,6 +962,128 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(63, 129, 253, 0.20)",
                     "comment": ""
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#1C1C1CFF",
+                    "comment": "Основной непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#121212FF",
+                    "comment": "Основной непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#303030FF",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#212121FF",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#404040FF",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#303030FF",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#1C1C1CFF",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#121212FF",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryHover": {
+                    "value": "#FFFFFF1F",
+                    "comment": "Основной прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentPrimaryActive": {
+                    "value": "#FFFFFF0A",
+                    "comment": "Основной прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentSecondaryHover": {
+                    "value": "#FFFFFF3D",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentSecondaryActive": {
+                    "value": "#FFFFFF0F",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentTertiaryHover": {
+                    "value": "#FFFFFF52",
+                    "comment": "Третичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentTertiaryActive": {
+                    "value": "#FFFFFF24",
+                    "comment": "Третичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentCardHover": {
+                    "value": "#FFFFFF3D",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceTransparentCardActive": {
+                    "value": "#FFFFFF0F",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceAccentHover": {
+                    "value": "#5D95FDFF",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentActive": {
+                    "value": "#357BFDFF",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfacePositiveHover": {
+                    "value": "#1DAF37FF",
+                    "comment": "Цвет фона поверхности/контрола успех"
+                },
+                "surfacePositiveActive": {
+                    "value": "#18952FFF",
+                    "comment": "Цвет фона поверхности/контрола успех"
+                },
+                "surfaceWarningHover": {
+                    "value": "#FB7223FF",
+                    "comment": "Цвет фона поверхности/контрола предупреждение"
+                },
+                "surfaceWarningActive": {
+                    "value": "#F05B05FF",
+                    "comment": "Цвет фона поверхности/контрола предупреждение"
+                },
+                "surfaceNegativeHover": {
+                    "value": "#FF475AFF",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceNegativeActive": {
+                    "value": "#FF1F35FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceClearHover": {
+                    "value": "#FFFFFF00",
+                    "comment": "Фон поверхности/контрола без заливки"
+                },
+                "surfaceClearActive": {
+                    "value": "#FFFFFF00",
+                    "comment": "Фон поверхности/контрола без заливки"
                 }
             },
             "onDark": {
@@ -662,7 +1092,7 @@
                     "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidSecondary": {
@@ -678,7 +1108,7 @@
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceTransparentDefault": {
@@ -703,7 +1133,7 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFF1F",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceAccent": {
@@ -886,6 +1316,130 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(63, 129, 253, 0.20)",
                     "comment": ""
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#1C1C1CFF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#121212FF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#303030FF",
+                    "comment": "Вторичный непр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#212121FF",
+                    "comment": "Вторичный непр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#404040FF",
+                    "comment": "Третичный непр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#303030FF",
+                    "comment": "Третичный непр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#1C1C1CFF",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#121212FF",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на темном фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на темном фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryHover": {
+                    "value": "#FFFFFF1F",
+                    "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentPrimaryActive": {
+                    "value": "#FFFFFF0A",
+                    "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentSecondaryHover": {
+                    "value": "#FFFFFF3D",
+                    "comment": "Вторичный прозр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentSecondaryActive": {
+                    "value": "#FFFFFF0F",
+                    "comment": "Вторичный прозр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentTertiaryHover": {
+                    "value": "#FFFFFF52",
+                    "comment": "Третичный прозр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentTertiaryActive": {
+                    "value": "#FFFFFF24",
+                    "comment": "Третичный прозр. фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentCardHover": {
+                    "value": "#FFFFFF3D",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceTransparentCardActive": {
+                    "value": "#FFFFFF0F",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceAccentHover": {
+                    "value": "#5D95FDFF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentActive": {
+                    "value": "#357BFDFF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцентный фон поверхн./контрола с градиентом на темном фоне"
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцентный фон поверхн./контрола с градиентом на темном фоне"
+                },
+                "surfacePositiveHover": {
+                    "value": "#1DAF37FF",
+                    "comment": "Цвет фона поверхности/контрола успех на темном фоне"
+                },
+                "surfacePositiveActive": {
+                    "value": "#18952FFF",
+                    "comment": "Цвет фона поверхности/контрола успех на темном фоне"
+                },
+                "surfaceWarningHover": {
+                    "value": "#FB7223FF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на темном фоне"
+                },
+                "surfaceWarningActive": {
+                    "value": "#F05B05FF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на темном фоне"
+                },
+                "surfaceNegativeHover": {
+                    "value": "#FF475AFF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceNegativeActive": {
+                    "value": "#FF1F35FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceClearHover": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на темном фоне",
+                    "enabled": false
+                },
+                "surfaceClearActive": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на темном фоне",
+                    "enabled": false
                 }
             },
             "onLight": {
@@ -898,7 +1452,7 @@
                     "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#F6F6F6",
+                    "value": "#FFFFFFFF",
                     "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidSecondary": {
@@ -914,7 +1468,7 @@
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentDefault": {
@@ -939,7 +1493,7 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
@@ -1102,6 +1656,146 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
+                },
+                "surfaceSolidDefaultHover": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceSolidDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#FAFAFAFF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#F0F0F0FF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#F7F7F7FF",
+                    "comment": "Втор. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#E8E8E8FF",
+                    "comment": "Втор. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#E8E8E8FF",
+                    "comment": "Третичный непр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#D9D9D9FF",
+                    "comment": "Третичный непр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryHover": {
+                    "value": "#08080812",
+                    "comment": "Основной прозр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentPrimaryActive": {
+                    "value": "#08080803",
+                    "comment": "Основной прозр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentSecondaryHover": {
+                    "value": "#0808081F",
+                    "comment": "Вторичный прозр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentSecondaryActive": {
+                    "value": "#0808080A",
+                    "comment": "Вторичный прозр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentTertiaryHover": {
+                    "value": "#0808083D",
+                    "comment": "Третичный прозр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentTertiaryActive": {
+                    "value": "#0808080F",
+                    "comment": "Третичный прозр. фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentCardHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentCardActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceAccentHover": {
+                    "value": "#4886F9FF",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentActive": {
+                    "value": "#206CF8FF",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцент. фон поверхн./контрола с градиентом на светлом фоне"
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцент. фон поверхн./контрола с градиентом на светлом фоне"
+                },
+                "surfacePositiveHover": {
+                    "value": "#1DAF37FF",
+                    "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
+                },
+                "surfacePositiveActive": {
+                    "value": "#18952FFF",
+                    "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
+                },
+                "surfaceWarningHover": {
+                    "value": "#FB7223FF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на светлом фоне"
+                },
+                "surfaceWarningActive": {
+                    "value": "#F05B05FF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на светлом фоне"
+                },
+                "surfaceNegativeHover": {
+                    "value": "#F5384BFF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceNegativeActive": {
+                    "value": "#F31228FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceClearHover": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceClearActive": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentDeepHover": {
+                    "value": "#080808C2",
+                    "comment": ""
+                },
+                "surfaceTransparentDeepActive": {
+                    "value": "#08080894",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -1116,7 +1810,7 @@
                     "enabled": false
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#171717",
+                    "value": "#080808F5",
                     "comment": "Инвертированный осн. непрозрачный фон поверхности/контрола",
                     "enabled": false
                 },
@@ -1136,7 +1830,7 @@
                     "enabled": false
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#F7F7F7",
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный основной фон для карточек",
                     "enabled": false
                 },
@@ -1166,7 +1860,7 @@
                     "enabled": false
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#F7F7F7",
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек",
                     "enabled": false
                 },
@@ -1197,6 +1891,166 @@
                 },
                 "surfaceClear": {
                     "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Инвертированный фон поверхности/контрола без заливки",
+                    "enabled": false
+                },
+                "surfaceSolidDefaultHover": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceSolidDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Инвертированный осн. непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#080808EB",
+                    "comment": "Инвертированный осн. непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#080808AD",
+                    "comment": "Инвертированный втор. непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#08080880",
+                    "comment": "Инвертированный втор. непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#08080866",
+                    "comment": "Инвертированный трет.непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#08080838",
+                    "comment": "Инвертированный трет.непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#FCFCFCFF",
+                    "comment": "Инвертированный основной фон для карточек",
+                    "enabled": false
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#F2F2F2FF",
+                    "comment": "Инвертированный основной фон для карточек",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Инвертированный прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Инвертированный прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryHover": {
+                    "value": "#FAFAFAFF",
+                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryActive": {
+                    "value": "#F0F0F0FF",
+                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentSecondaryHover": {
+                    "value": "#F7F7F7FF",
+                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentSecondaryActive": {
+                    "value": "#E8E8E8FF",
+                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentTertiaryHover": {
+                    "value": "#E8E8E8FF",
+                    "comment": "Инвертированный третичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentTertiaryActive": {
+                    "value": "#D9D9D9FF",
+                    "comment": "Инвертированный третичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentCardHover": {
+                    "value": "#FCFCFCFF",
+                    "comment": "Инвертированный прозрачный фон для карточек",
+                    "enabled": false
+                },
+                "surfaceTransparentCardActive": {
+                    "value": "#F2F2F2FF",
+                    "comment": "Инвертированный прозрачный фон для карточек",
+                    "enabled": false
+                },
+                "surfaceAccentHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceAccentActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
+                    "enabled": false
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
+                    "enabled": false
+                },
+                "surfacePositiveHover": {
+                    "value": "#12A12AFF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола успех",
+                    "enabled": false
+                },
+                "surfacePositiveActive": {
+                    "value": "#0F8523FF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола успех",
+                    "enabled": false
+                },
+                "surfaceWarningHover": {
+                    "value": "#FC5E03FF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение",
+                    "enabled": false
+                },
+                "surfaceWarningActive": {
+                    "value": "#DE5302FF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение",
+                    "enabled": false
+                },
+                "surfaceNegativeHover": {
+                    "value": "#F5384BFF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
+                    "enabled": false
+                },
+                "surfaceNegativeActive": {
+                    "value": "#F31228FF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
+                    "enabled": false
+                },
+                "surfaceClearHover": {
+                    "value": "#00000000",
+                    "comment": "Инвертированный фон поверхности/контрола без заливки",
+                    "enabled": false
+                },
+                "surfaceClearActive": {
+                    "value": "#00000000",
                     "comment": "Инвертированный фон поверхности/контрола без заливки",
                     "enabled": false
                 }
@@ -1341,11 +2195,11 @@
                     "comment": ""
                 },
                 "outlinePrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#303030FF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
-                    "value": "#ADADADFF",
+                    "value": "#212121FF",
                     "comment": ""
                 },
                 "outlineSecondary": {
@@ -1353,11 +2207,11 @@
                     "comment": ""
                 },
                 "outlineSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#595959FF",
                     "comment": ""
                 },
                 "outlineSecondaryActive": {
-                    "value": "#8C8C8CFF",
+                    "value": "#4A4A4AFF",
                     "comment": ""
                 },
                 "outlineTertiary": {
@@ -1365,11 +2219,11 @@
                     "comment": ""
                 },
                 "outlineTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#7A7A7AFF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
-                    "value": "#737373FF",
+                    "value": "#6B6B6BFF",
                     "comment": ""
                 },
                 "outlineDefault": {
@@ -1377,11 +2231,11 @@
                     "comment": ""
                 },
                 "outlineDefaultHover": {
-                    "value": "#C7C7C7FF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineDefaultActive": {
-                    "value": "#E0E0E0FF",
+                    "value": "#F5F5F5FF",
                     "comment": ""
                 },
                 "outlineTransparentPrimary": {
@@ -1389,11 +2243,11 @@
                     "comment": ""
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF3D",
                     "comment": ""
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#FFFFFF25",
+                    "value": "#FFFFFF0F",
                     "comment": ""
                 },
                 "outlineTransparentSecondary": {
@@ -1401,11 +2255,11 @@
                     "comment": ""
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF52",
                     "comment": ""
                 },
                 "outlineTransparentSecondaryActive": {
-                    "value": "#FFFFFF3D",
+                    "value": "#FFFFFF24",
                     "comment": ""
                 },
                 "outlineTransparentTertiary": {
@@ -1413,11 +2267,11 @@
                     "comment": ""
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF85",
                     "comment": ""
                 },
                 "outlineTransparentTertiaryActive": {
-                    "value": "#FFFFFF7A",
+                    "value": "#FFFFFF57",
                     "comment": ""
                 },
                 "outlineTransparentClear": {
@@ -1437,11 +2291,11 @@
                     "comment": ""
                 },
                 "outlineAccentHover": {
-                    "value": "#90B6FEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "outlineAccentActive": {
-                    "value": "#216EFDFF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "outlineAccentMinor": {
@@ -1449,11 +2303,11 @@
                     "comment": ""
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1852BFFF",
                     "comment": ""
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#1446A3FF",
                     "comment": ""
                 },
                 "outlineTransparentAccent": {
@@ -1461,11 +2315,11 @@
                     "comment": ""
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD66",
                     "comment": ""
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#3F82FD56",
+                    "value": "#3F82FD38",
                     "comment": ""
                 },
                 "outlinePositive": {
@@ -1473,11 +2327,11 @@
                     "comment": ""
                 },
                 "outlinePositiveHover": {
-                    "value": "#2ACB47FF",
+                    "value": "#28C344FF",
                     "comment": ""
                 },
                 "outlinePositiveActive": {
-                    "value": "#1F9835FF",
+                    "value": "#23A93BFF",
                     "comment": ""
                 },
                 "outlineWarning": {
@@ -1489,7 +2343,7 @@
                     "comment": ""
                 },
                 "outlineWarningActive": {
-                    "value": "#FF5D05FF",
+                    "value": "#FF6A1AFF",
                     "comment": ""
                 },
                 "outlineNegative": {
@@ -1501,15 +2355,15 @@
                     "comment": ""
                 },
                 "outlineNegativeActive": {
-                    "value": "#FF1F35FF",
+                    "value": "#FF3347FF",
                     "comment": ""
                 },
                 "outlineInfoHover": {
-                    "value": "#A3C3FFFF",
+                    "value": "#70A2FFFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#337AFFFF",
+                    "value": "#4788FFFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -1517,11 +2371,11 @@
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#0F9527FF",
+                    "value": "#0B6F1DFF",
                     "comment": ""
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#0C7920FF",
+                    "value": "#085416FF",
                     "comment": ""
                 },
                 "outlineWarningMinor": {
@@ -1529,11 +2383,11 @@
                     "comment": ""
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#BB4F11FF",
+                    "value": "#95400EFF",
                     "comment": ""
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#9F440FFF",
+                    "value": "#79340BFF",
                     "comment": ""
                 },
                 "outlineNegativeMinor": {
@@ -1541,35 +2395,35 @@
                     "comment": ""
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#B91828FF",
+                    "value": "#B01726FF",
                     "comment": ""
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#83111CFF",
+                    "value": "#951320FF",
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1852BFFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#1446A3FF",
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E3266",
                     "comment": ""
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#1A9E3256",
+                    "value": "#1A9E3238",
                     "comment": ""
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FA5F05FF",
+                    "value": "#FA5F0566",
                     "comment": ""
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#FA5F0556",
+                    "value": "#FA5F0538",
                     "comment": ""
                 },
                 "outlineNegativeTransparentHover": {
@@ -1581,11 +2435,11 @@
                     "comment": ""
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD66",
                     "comment": ""
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#3F82FD56",
+                    "value": "#3F82FD38",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -1601,11 +2455,11 @@
                     "comment": ""
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B3152",
                     "comment": ""
                 },
                 "outlineTransparentNegativeActive": {
-                    "value": "#F31B313D",
+                    "value": "#F31B3124",
                     "comment": ""
                 },
                 "outlineInfoMinor": {
@@ -1623,91 +2477,91 @@
             },
             "onDark": {
                 "outlinePrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#303030FF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
-                    "value": "#ADADADFF",
+                    "value": "#212121FF",
                     "comment": ""
                 },
                 "outlineSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#595959FF",
                     "comment": ""
                 },
                 "outlineSecondaryActive": {
-                    "value": "#8C8C8CFF",
+                    "value": "#4A4A4AFF",
                     "comment": ""
                 },
                 "outlineTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#7A7A7AFF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
-                    "value": "#737373FF",
+                    "value": "#6B6B6BFF",
                     "comment": ""
                 },
                 "outlineDefaultHover": {
-                    "value": "#C7C7C7FF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineDefaultActive": {
-                    "value": "#E0E0E0FF",
+                    "value": "#F5F5F5FF",
                     "comment": ""
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineTransparentPrimaryActive": {
-                    "value": "#FFFFFF25",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "outlineTransparentSecondaryActive": {
                     "value": "#FFFFFF3D",
                     "comment": ""
                 },
+                "outlineTransparentPrimaryActive": {
+                    "value": "#FFFFFF0F",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryHover": {
+                    "value": "#FFFFFF52",
+                    "comment": ""
+                },
+                "outlineTransparentSecondaryActive": {
+                    "value": "#FFFFFF24",
+                    "comment": ""
+                },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF85",
                     "comment": ""
                 },
                 "outlineTransparentTertiaryActive": {
-                    "value": "#FFFFFF7A",
+                    "value": "#FFFFFF57",
                     "comment": ""
                 },
                 "outlineAccentHover": {
-                    "value": "#90B6FEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "outlineAccentActive": {
-                    "value": "#216EFDFF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1852BFFF",
                     "comment": ""
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#1446A3FF",
                     "comment": ""
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD66",
                     "comment": ""
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#3F82FD56",
+                    "value": "#3F82FD38",
                     "comment": ""
                 },
                 "outlinePositiveHover": {
-                    "value": "#2ACB47FF",
+                    "value": "#28C344FF",
                     "comment": ""
                 },
                 "outlinePositiveActive": {
-                    "value": "#1F9835FF",
+                    "value": "#23A93BFF",
                     "comment": ""
                 },
                 "outlineWarningHover": {
@@ -1715,7 +2569,7 @@
                     "comment": ""
                 },
                 "outlineWarningActive": {
-                    "value": "#FF5D05FF",
+                    "value": "#FF6A1AFF",
                     "comment": ""
                 },
                 "outlineNegativeHover": {
@@ -1723,79 +2577,79 @@
                     "comment": ""
                 },
                 "outlineNegativeActive": {
-                    "value": "#FF1F35FF",
+                    "value": "#FF3347FF",
                     "comment": ""
                 },
                 "outlineInfoHover": {
-                    "value": "#A3C3FFFF",
+                    "value": "#70A2FFFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#337AFFFF",
+                    "value": "#4788FFFF",
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#0F9527FF",
+                    "value": "#0B6F1DFF",
                     "comment": ""
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#0C7920FF",
+                    "value": "#085416FF",
                     "comment": ""
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#BB4F11FF",
+                    "value": "#95400EFF",
                     "comment": ""
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#9F440FFF",
+                    "value": "#79340BFF",
                     "comment": ""
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#B91828FF",
+                    "value": "#B01726FF",
                     "comment": ""
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#83111CFF",
+                    "value": "#951320FF",
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1852BFFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#1446A3FF",
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E3266",
                     "comment": ""
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#1A9E3256",
+                    "value": "#1A9E3238",
                     "comment": ""
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FA5F05FF",
+                    "value": "#FA5F0566",
                     "comment": ""
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#FA5F0556",
+                    "value": "#FA5F0538",
                     "comment": ""
                 },
                 "outlineNegativeTransparentHover": {
-                    "value": "#FF293EFF",
+                    "value": "#FF293E66",
                     "comment": ""
                 },
                 "outlineNegativeTransparentActive": {
-                    "value": "#FF293E56",
+                    "value": "#FF293E38",
                     "comment": ""
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD66",
                     "comment": ""
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#3F82FD56",
+                    "value": "#3F82FD38",
                     "comment": ""
                 },
                 "outlinePrimary": {
@@ -1889,19 +2743,19 @@
             },
             "onLight": {
                 "outlinePrimaryHover": {
-                    "value": "#ABABABFF",
+                    "value": "#E8E8E8FF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
-                    "value": "#C4C4C4FF",
+                    "value": "#D9D9D9FF",
                     "comment": ""
                 },
                 "outlineSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#9E9E9EFF",
                     "comment": ""
                 },
                 "outlineSecondaryActive": {
-                    "value": "#575757FF",
+                    "value": "#8F8F8FFF",
                     "comment": ""
                 },
                 "outlineTertiary": {
@@ -1909,11 +2763,11 @@
                     "comment": ""
                 },
                 "outlineTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#7A7A7AFF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
-                    "value": "#737373FF",
+                    "value": "#6B6B6BFF",
                     "comment": ""
                 },
                 "outlineDefault": {
@@ -1921,11 +2775,11 @@
                     "comment": ""
                 },
                 "outlineDefaultHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#0D0D0DFF",
                     "comment": ""
                 },
                 "outlineDefaultActive": {
-                    "value": "#C7C7C7FF",
+                    "value": "#030303FF",
                     "comment": ""
                 },
                 "outlineTransparentPrimary": {
@@ -1933,11 +2787,11 @@
                     "comment": ""
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080852",
                     "comment": ""
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#0808083D",
+                    "value": "#08080824",
                     "comment": ""
                 },
                 "outlineTransparentSecondary": {
@@ -1945,11 +2799,11 @@
                     "comment": ""
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080885",
                     "comment": ""
                 },
                 "outlineTransparentSecondaryActive": {
-                    "value": "#0808087A",
+                    "value": "#08080857",
                     "comment": ""
                 },
                 "outlineTransparentTertiary": {
@@ -1957,11 +2811,11 @@
                     "comment": ""
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#080808FF",
+                    "value": "#080808AD",
                     "comment": ""
                 },
                 "outlineTransparentTertiaryActive": {
-                    "value": "#080808AB",
+                    "value": "#08080880",
                     "comment": ""
                 },
                 "outlineAccent": {
@@ -1969,11 +2823,11 @@
                     "comment": ""
                 },
                 "outlineAccentHover": {
-                    "value": "#79A7FBFF",
+                    "value": "#4886F9FF",
                     "comment": ""
                 },
                 "outlineAccentActive": {
-                    "value": "#0D5FF8FF",
+                    "value": "#206CF8FF",
                     "comment": ""
                 },
                 "outlineAccentMinor": {
@@ -1981,11 +2835,11 @@
                     "comment": ""
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#DCE8FEFF",
+                    "value": "#A1C1FDFF",
                     "comment": ""
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#6FA0FBFF",
+                    "value": "#83ADFCFF",
                     "comment": ""
                 },
                 "outlineTransparentAccent": {
@@ -1993,11 +2847,11 @@
                     "comment": ""
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F852",
                     "comment": ""
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#2A72F83D",
+                    "value": "#2A72F824",
                     "comment": ""
                 },
                 "outlinePositive": {
@@ -2005,11 +2859,11 @@
                     "comment": ""
                 },
                 "outlinePositiveHover": {
-                    "value": "#1EB83AFF",
+                    "value": "#1DAF37FF",
                     "comment": ""
                 },
                 "outlinePositiveActive": {
-                    "value": "#15842AFF",
+                    "value": "#18952FFF",
                     "comment": ""
                 },
                 "outlineWarning": {
@@ -2021,7 +2875,7 @@
                     "comment": ""
                 },
                 "outlineWarningActive": {
-                    "value": "#DC5304FF",
+                    "value": "#F05B05FF",
                     "comment": ""
                 },
                 "outlineNegative": {
@@ -2033,15 +2887,15 @@
                     "comment": ""
                 },
                 "outlineNegativeActive": {
-                    "value": "#E40C22FF",
+                    "value": "#F31228FF",
                     "comment": ""
                 },
                 "outlineInfoHover": {
-                    "value": "#90B6FEFF",
+                    "value": "#5D95FDFF",
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#216EFDFF",
+                    "value": "#357BFDFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -2049,11 +2903,11 @@
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#3EDA5BFF",
+                    "value": "#36D954FF",
                     "comment": ""
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#23B83EFF",
+                    "value": "#26C944FF",
                     "comment": ""
                 },
                 "outlineWarningMinor": {
@@ -2061,11 +2915,11 @@
                     "comment": ""
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#FDB086FF",
+                    "value": "#FDA97CFF",
                     "comment": ""
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#FC884AFF",
+                    "value": "#FD965EFF",
                     "comment": ""
                 },
                 "outlineNegativeMinor": {
@@ -2073,19 +2927,19 @@
                     "comment": ""
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#FFADB6FF",
+                    "value": "#FFA3ACFF",
                     "comment": ""
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#FF707EFF",
+                    "value": "#FF8591FF",
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#DCE8FEFF",
+                    "value": "#A1C1FDFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#6FA0FBFF",
+                    "value": "#83ADFCFF",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -2093,11 +2947,11 @@
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E3252",
                     "comment": ""
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#1A9E323D",
+                    "value": "#1A9E3224",
                     "comment": ""
                 },
                 "outlineTransparentWarning": {
@@ -2105,11 +2959,11 @@
                     "comment": ""
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#E85702FF",
+                    "value": "#E8570252",
                     "comment": ""
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#E857023D",
+                    "value": "#E8570224",
                     "comment": ""
                 },
                 "outlineNegativeTransparent": {
@@ -2117,19 +2971,19 @@
                     "comment": ""
                 },
                 "outlineNegativeTransparentHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B3152",
                     "comment": ""
                 },
                 "outlineNegativeTransparentActive": {
-                    "value": "#F31B313D",
+                    "value": "#F31B3124",
                     "comment": ""
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F852",
                     "comment": ""
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#2A72F83D",
+                    "value": "#2A72F824",
                     "comment": ""
                 },
                 "outlinePrimary": {
@@ -2174,7 +3028,7 @@
                     "enabled": true
                 },
                 "textPrimaryBrightness": {
-                    "value": "#171717",
+                    "value": "#080808F5",
                     "comment": "Основной цвет текста",
                     "enabled": true
                 },
@@ -2289,6 +3143,96 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.300]",
                     "comment": ""
+                },
+                "textPrimaryHover": {
+                    "value": "#08080893",
+                    "comment": "Основной цвет текста",
+                    "enabled": true
+                },
+                "textPrimaryActive": {
+                    "value": "#080808C4",
+                    "comment": "Основной цвет текста",
+                    "enabled": true
+                },
+                "textSecondaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Вторичный цвет текста",
+                    "enabled": true
+                },
+                "textSecondaryActive": {
+                    "value": "#080808AB",
+                    "comment": "Вторичный цвет текста",
+                    "enabled": true
+                },
+                "textTertiaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Третичный цвет текста",
+                    "enabled": true
+                },
+                "textTertiaryActive": {
+                    "value": "#08080856",
+                    "comment": "Третичный цвет текста",
+                    "enabled": true
+                },
+                "textParagraphHover": {
+                    "value": "#0808087A",
+                    "comment": "Сплошной наборный текст",
+                    "enabled": true
+                },
+                "textParagraphActive": {
+                    "value": "#080808A3",
+                    "comment": "Сплошной наборный текст",
+                    "enabled": true
+                },
+                "textAccentHover": {
+                    "value": "#528DFAFF",
+                    "comment": "Акцентный цвет",
+                    "enabled": true
+                },
+                "textAccentActive": {
+                    "value": "#075AF2FF",
+                    "comment": "Акцентный цвет",
+                    "enabled": true
+                },
+                "textAccentGradientHover": {
+                    "value": "#000000FF",
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": true
+                },
+                "textAccentGradientActive": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": true
+                },
+                "textPositiveHover": {
+                    "value": "#1FC13DFF",
+                    "comment": "Цвет успеха",
+                    "enabled": true
+                },
+                "textPositiveActive": {
+                    "value": "#147B27FF",
+                    "comment": "Цвет успеха",
+                    "enabled": true
+                },
+                "textWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Цвет предупреждения",
+                    "enabled": true
+                },
+                "textWarningActive": {
+                    "value": "#D25004FF",
+                    "comment": "Цвет предупреждения",
+                    "enabled": true
+                },
+                "textNegativeHover": {
+                    "value": "#F54254FF",
+                    "comment": "Цвет ошибки",
+                    "enabled": true
+                },
+                "textNegativeActive": {
+                    "value": "#DA0B20FF",
+                    "comment": "Цвет ошибки",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -2297,7 +3241,7 @@
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFF5",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textSecondary": {
@@ -2403,6 +3347,78 @@
                 "textInfo": {
                     "value": "[general.electricBlue.500]",
                     "comment": ""
+                },
+                "textPrimaryHover": {
+                    "value": "#FFFFFF93",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textPrimaryActive": {
+                    "value": "#FFFFFFC4",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Вторичный цвет текста на темном фоне"
+                },
+                "textSecondaryActive": {
+                    "value": "#FFFFFFAB",
+                    "comment": "Вторичный цвет текста на темном фоне"
+                },
+                "textTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textTertiaryActive": {
+                    "value": "#FFFFFF56",
+                    "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textParagraphHover": {
+                    "value": "#FFFFFF7A",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textParagraphActive": {
+                    "value": "#FFFFFFA3",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textAccentHover": {
+                    "value": "#689CFDFF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentActive": {
+                    "value": "#1767FDFF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentGradientHover": {
+                    "value": "#000000FF",
+                    "comment": "Акцентный цвет с градиентом на темном фоне"
+                },
+                "textAccentGradientActive": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Акцентный цвет с градиентом на темном фоне"
+                },
+                "textPositiveHover": {
+                    "value": "#1FC13DFF",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "textPositiveActive": {
+                    "value": "#147B27FF",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "textWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Цвет предупреждения на темном фоне"
+                },
+                "textWarningActive": {
+                    "value": "#D25004FF",
+                    "comment": "Цвет предупреждения на темном фоне"
+                },
+                "textNegativeHover": {
+                    "value": "#FF5263FF",
+                    "comment": "Цвет ошибки на темном фоне"
+                },
+                "textNegativeActive": {
+                    "value": "#FF001AFF",
+                    "comment": "Цвет ошибки на темном фоне"
                 }
             },
             "onLight": {
@@ -2411,7 +3427,7 @@
                     "comment": "Основной цвет текста на светлом фоне"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#171717",
+                    "value": "#080808F5",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
                 "textSecondary": {
@@ -2525,6 +3541,70 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.300]",
                     "comment": ""
+                },
+                "textPrimaryHover": {
+                    "value": "#08080893",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
+                "textPrimaryActive": {
+                    "value": "#080808C4",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
+                "textSecondaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Вторичный цвет текста на светлом фоне"
+                },
+                "textSecondaryActive": {
+                    "value": "#080808AB",
+                    "comment": "Вторичный цвет текста на светлом фоне"
+                },
+                "textTertiaryHover": {
+                    "value": "#080808FF",
+                    "comment": "Третичный цвет текста на светлом фоне"
+                },
+                "textTertiaryActive": {
+                    "value": "#08080856",
+                    "comment": "Третичный цвет текста на светлом фоне"
+                },
+                "textParagraphHover": {
+                    "value": "#0808087A",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textParagraphActive": {
+                    "value": "#080808A3",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textAccentHover": {
+                    "value": "#528DFAFF",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentActive": {
+                    "value": "#075AF2FF",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentGradientHover": {
+                    "value": "#000000FF",
+                    "comment": "Акцентный цвет с градиентом на светлом фоне"
+                },
+                "textAccentGradientActive": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Акцентный цвет с градиентом на светлом фоне"
+                },
+                "textPositiveHover": {
+                    "value": "#1FC13DFF",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "textPositiveActive": {
+                    "value": "#147B27FF",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "textWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Цвет предупреждения на светлом фоне"
+                },
+                "textWarningActive": {
+                    "value": "#D25004FF",
+                    "comment": "Цвет предупреждения на светлом фоне"
                 }
             },
             "inverse": {
@@ -2533,7 +3613,7 @@
                     "comment": "Инвертированный основной цвет текста"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFF5",
                     "comment": "Инвертированный основной цвет текста"
                 },
                 "textSecondary": {
@@ -2572,6 +3652,88 @@
                     "value": "[general.red.500]",
                     "comment": "Инвертированный цвет ошибки",
                     "enabled": false
+                },
+                "textPrimaryHover": {
+                    "value": "#FFFFFF93",
+                    "comment": "Инвертированный основной цвет текста"
+                },
+                "textPrimaryActive": {
+                    "value": "#FFFFFFC4",
+                    "comment": "Инвертированный основной цвет текста"
+                },
+                "textSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный вторичный цвет текста"
+                },
+                "textSecondaryActive": {
+                    "value": "#FFFFFFAB",
+                    "comment": "Инвертированный вторичный цвет текста"
+                },
+                "textTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный третичный цвет текста"
+                },
+                "textTertiaryActive": {
+                    "value": "#FFFFFF56",
+                    "comment": "Инвертированный третичный цвет текста"
+                },
+                "textParagraphHover": {
+                    "value": "#FFFFFF7A",
+                    "comment": "Инвертированный cплошной наборный текст"
+                },
+                "textParagraphActive": {
+                    "value": "#FFFFFFA3",
+                    "comment": "Инвертированный cплошной наборный текст"
+                },
+                "textAccentHover": {
+                    "value": "#000000FF",
+                    "comment": "Инвертированный акцентный цвет",
+                    "enabled": false
+                },
+                "textAccentActive": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Инвертированный акцентный цвет",
+                    "enabled": false
+                },
+                "textAccentGradientHover": {
+                    "value": "#000000FF",
+                    "comment": "Инвертированный акцентный цвет с градиентом",
+                    "enabled": false
+                },
+                "textAccentGradientActive": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Инвертированный акцентный цвет с градиентом",
+                    "enabled": false
+                },
+                "textPositiveHover": {
+                    "value": "#1FC13DFF",
+                    "comment": "Инвертированный цвет успеха",
+                    "enabled": false
+                },
+                "textPositiveActive": {
+                    "value": "#147B27FF",
+                    "comment": "Инвертированный цвет успеха",
+                    "enabled": false
+                },
+                "textWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Инвертированный цвет предупреждения",
+                    "enabled": false
+                },
+                "textWarningActive": {
+                    "value": "#D25004FF",
+                    "comment": "Инвертированный цвет предупреждения",
+                    "enabled": false
+                },
+                "textNegativeHover": {
+                    "value": "#FF5263FF",
+                    "comment": "Инвертированный цвет ошибки",
+                    "enabled": false
+                },
+                "textNegativeActive": {
+                    "value": "#FF001AFF",
+                    "comment": "Инвертированный цвет ошибки",
+                    "enabled": false
                 }
             }
         },
@@ -2586,7 +3748,7 @@
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#F6F6F6",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondary": {
@@ -2602,7 +3764,7 @@
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceTransparentDefault": {
@@ -2627,7 +3789,7 @@
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceAccent": {
@@ -2789,6 +3951,144 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
+                },
+                "surfaceSolidDefaultHover": {
+                    "value": "#262626FF",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "surfaceSolidDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#FAFAFAFF",
+                    "comment": "Основной непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#F0F0F0FF",
+                    "comment": "Основной непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#F7F7F7FF",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#E8E8E8FF",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#EDEDEDFF",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#D4D4D4FF",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#262626FF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryHover": {
+                    "value": "#08080803",
+                    "comment": "Основной прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentPrimaryActive": {
+                    "value": "#0808080D",
+                    "comment": "Основной прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentSecondaryHover": {
+                    "value": "#08080805",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentSecondaryActive": {
+                    "value": "#0808081A",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentTertiaryHover": {
+                    "value": "#0808080A",
+                    "comment": "Третичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentTertiaryActive": {
+                    "value": "#08080829",
+                    "comment": "Третичный прозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentCardHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceTransparentCardActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceAccentHover": {
+                    "value": "#528DFAFF",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentActive": {
+                    "value": "#1665F8FF",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfacePositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет успеха"
+                },
+                "surfacePositiveActive": {
+                    "value": "#178C2CFF",
+                    "comment": "Цвет успеха"
+                },
+                "surfaceWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Цвет фона поверхности/контрола предупреждение"
+                },
+                "surfaceWarningActive": {
+                    "value": "#E65705FF",
+                    "comment": "Цвет фона поверхности/контрола предупреждение"
+                },
+                "surfaceNegativeHover": {
+                    "value": "#F54254FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceNegativeActive": {
+                    "value": "#ED0C23FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceClearHover": {
+                    "value": "#FFFFFF00",
+                    "comment": "Фон поверхности/контрола без заливки"
+                },
+                "surfaceClearActive": {
+                    "value": "#FFFFFF00",
+                    "comment": "Фон поверхности/контрола без заливки"
+                },
+                "surfaceTransparentDeepHover": {
+                    "value": "#0808088F",
+                    "comment": ""
+                },
+                "surfaceTransparentDeepActive": {
+                    "value": "#080808AD",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -2797,7 +4097,7 @@
                     "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidSecondary": {
@@ -2813,7 +4113,7 @@
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceTransparentDefault": {
@@ -3011,7 +4311,7 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFF1F",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardHover": {
@@ -3045,6 +4345,106 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(63, 129, 253, 0.20)",
                     "comment": ""
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#363636FF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#3B3B3BFF",
+                    "comment": "Втор. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#1C1C1CFF",
+                    "comment": "Втор. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#4A4A4AFF",
+                    "comment": "Трет. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#2B2B2BFF",
+                    "comment": "Трет. непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#363636FF",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на темном фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на темном фоне",
+                    "enabled": false
+                },
+                "surfaceAccentHover": {
+                    "value": "#689CFDFF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentActive": {
+                    "value": "#2B74FDFF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акц. фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акц. фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfacePositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "surfacePositiveActive": {
+                    "value": "#178C2CFF",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "surfaceWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на темном фоне"
+                },
+                "surfaceWarningActive": {
+                    "value": "#E65705FF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на темном фоне"
+                },
+                "surfaceNegativeHover": {
+                    "value": "#FF5263FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceNegativeActive": {
+                    "value": "#FF142CFF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceClearHover": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на темном фоне",
+                    "enabled": false
+                },
+                "surfaceClearActive": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на темном фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentDeepHover": {
+                    "value": "#FFFFFF8F",
+                    "comment": ""
+                },
+                "surfaceTransparentDeepActive": {
+                    "value": "#FFFFFFAD",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -3057,7 +4457,7 @@
                     "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#F6F6F6",
+                    "value": "#FFFFFFFF",
                     "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidSecondary": {
@@ -3073,7 +4473,7 @@
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentDefault": {
@@ -3098,7 +4498,7 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
@@ -3261,6 +4661,146 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(42, 114, 248, 0.12)",
                     "comment": ""
+                },
+                "surfaceSolidDefaultHover": {
+                    "value": "#262626FF",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceSolidDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#FAFAFAFF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#F0F0F0FF",
+                    "comment": "Осн. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#F7F7F7FF",
+                    "comment": "Втор. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#E8E8E8FF",
+                    "comment": "Втор. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#EDEDEDFF",
+                    "comment": "Трет. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#D4D4D4FF",
+                    "comment": "Трет. непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#262626FF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#030303FF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryHover": {
+                    "value": "#08080803",
+                    "comment": "Осн. прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentPrimaryActive": {
+                    "value": "#0808080D",
+                    "comment": "Осн. прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentSecondaryHover": {
+                    "value": "#08080805",
+                    "comment": "Втор.  прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentSecondaryActive": {
+                    "value": "#0808081A",
+                    "comment": "Втор.  прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentTertiaryHover": {
+                    "value": "#0808080A",
+                    "comment": "Трет. прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentTertiaryActive": {
+                    "value": "#08080829",
+                    "comment": "Трет. прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentCardHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentCardActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceAccentHover": {
+                    "value": "#528DFAFF",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentActive": {
+                    "value": "#1665F8FF",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акц. фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Акц. фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfacePositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "surfacePositiveActive": {
+                    "value": "#178C2CFF",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "surfaceWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на светлом фоне"
+                },
+                "surfaceWarningActive": {
+                    "value": "#E65705FF",
+                    "comment": "Цвет фона поверхн./контрола предупреждение на светлом фоне"
+                },
+                "surfaceNegativeHover": {
+                    "value": "#F54254FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceNegativeActive": {
+                    "value": "#ED0C23FF",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceClearHover": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceClearActive": {
+                    "value": "#00000000",
+                    "comment": "Фон поверхности/контрола без заливки на светлом фоне",
+                    "enabled": false
+                },
+                "surfaceTransparentDeepHover": {
+                    "value": "#0808088F",
+                    "comment": ""
+                },
+                "surfaceTransparentDeepActive": {
+                    "value": "#080808AD",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -3275,7 +4815,7 @@
                     "enabled": false
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
                     "enabled": false
                 },
@@ -3295,7 +4835,7 @@
                     "enabled": false
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#252525",
+                    "value": "#262626FF",
                     "comment": "Инвертированный основной фон для карточек",
                     "enabled": false
                 },
@@ -3325,7 +4865,7 @@
                     "enabled": false
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#171717",
+                    "value": "#171717FF",
                     "comment": "Инвертированный прозрачный фон для карточек",
                     "enabled": false
                 },
@@ -3356,6 +4896,166 @@
                 },
                 "surfaceClear": {
                     "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Инвертированный фон поверхности/контрола без заливки",
+                    "enabled": false
+                },
+                "surfaceSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceSolidDefaultActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceSolidPrimaryHover": {
+                    "value": "#363636FF",
+                    "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidPrimaryActive": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidSecondaryHover": {
+                    "value": "#3B3B3BFF",
+                    "comment": "Инвертированный вторичный непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidSecondaryActive": {
+                    "value": "#1C1C1CFF",
+                    "comment": "Инвертированный вторичный непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidTertiaryHover": {
+                    "value": "#4A4A4AFF",
+                    "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidTertiaryActive": {
+                    "value": "#2B2B2BFF",
+                    "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceSolidCardHover": {
+                    "value": "#363636FF",
+                    "comment": "Инвертированный основной фон для карточек",
+                    "enabled": false
+                },
+                "surfaceSolidCardActive": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Инвертированный основной фон для карточек",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentDefaultActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный прозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryHover": {
+                    "value": "#363636FF",
+                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentPrimaryActive": {
+                    "value": "#0D0D0DFF",
+                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentSecondaryHover": {
+                    "value": "#3B3B3BFF",
+                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentSecondaryActive": {
+                    "value": "#1C1C1CFF",
+                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentTertiaryHover": {
+                    "value": "#4A4A4AFF",
+                    "comment": "Инвертированный третичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentTertiaryActive": {
+                    "value": "#2B2B2BFF",
+                    "comment": "Инвертированный третичный прозрачный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceTransparentCardHover": {
+                    "value": "#262626FF",
+                    "comment": "Инвертированный прозрачный фон для карточек",
+                    "enabled": false
+                },
+                "surfaceTransparentCardActive": {
+                    "value": "#030303FF",
+                    "comment": "Инвертированный прозрачный фон для карточек",
+                    "enabled": false
+                },
+                "surfaceAccentHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceAccentActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола",
+                    "enabled": false
+                },
+                "surfaceAccentGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
+                    "enabled": false
+                },
+                "surfaceAccentGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
+                    "enabled": false
+                },
+                "surfacePositiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Инвертированный цвет успеха",
+                    "enabled": false
+                },
+                "surfacePositiveActive": {
+                    "value": "#178C2CFF",
+                    "comment": "Инвертированный цвет успеха",
+                    "enabled": false
+                },
+                "surfaceWarningHover": {
+                    "value": "#FB782DFF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение",
+                    "enabled": false
+                },
+                "surfaceWarningActive": {
+                    "value": "#E65705FF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение",
+                    "enabled": false
+                },
+                "surfaceNegativeHover": {
+                    "value": "#FF5263FF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
+                    "enabled": false
+                },
+                "surfaceNegativeActive": {
+                    "value": "#FF142CFF",
+                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
+                    "enabled": false
+                },
+                "surfaceClearHover": {
+                    "value": "#00000000",
+                    "comment": "Инвертированный фон поверхности/контрола без заливки",
+                    "enabled": false
+                },
+                "surfaceClearActive": {
+                    "value": "#00000000",
                     "comment": "Инвертированный фон поверхности/контрола без заливки",
                     "enabled": false
                 }
@@ -3496,31 +5196,31 @@
         "outline": {
             "default": {
                 "outlineSecondaryHover": {
-                    "value": "#000000FF",
+                    "value": "#A3A3A3FF",
                     "comment": ""
                 },
                 "outlineSecondaryActive": {
-                    "value": "#757575FF",
+                    "value": "#8A8A8AFF",
                     "comment": ""
                 },
                 "outlineTertiaryHover": {
-                    "value": "#000000FF",
+                    "value": "#858585FF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
-                    "value": "#595959FF",
+                    "value": "#666666FF",
                     "comment": ""
                 },
                 "outlineDefaultHover": {
-                    "value": "#595959FF",
+                    "value": "#262626FF",
                     "comment": ""
                 },
                 "outlineDefaultActive": {
-                    "value": "#303030FF",
+                    "value": "#030303FF",
                     "comment": ""
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#080808FF",
+                    "value": "#0808081F",
                     "comment": ""
                 },
                 "outlineTransparentPrimaryActive": {
@@ -3528,19 +5228,19 @@
                     "comment": ""
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080852",
                     "comment": ""
                 },
                 "outlineTransparentSecondaryActive": {
-                    "value": "#0808087A",
+                    "value": "#08080870",
                     "comment": ""
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#080808FF",
+                    "value": "#0808087A",
                     "comment": ""
                 },
                 "outlineTransparentTertiaryActive": {
-                    "value": "#080808AB",
+                    "value": "#08080899",
                     "comment": ""
                 },
                 "outlineTransparentClearHover": {
@@ -3556,19 +5256,19 @@
                     "comment": ""
                 },
                 "outlineAccentActive": {
-                    "value": "#075AF2FF",
+                    "value": "#1665F8FF",
                     "comment": ""
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#A1C1FDFF",
                     "comment": ""
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#79A7FCFF",
                     "comment": ""
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F81F",
                     "comment": ""
                 },
                 "outlineTransparentAccentActive": {
@@ -3576,11 +5276,11 @@
                     "comment": ""
                 },
                 "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
+                    "value": "#1EB83AFF",
                     "comment": ""
                 },
                 "outlinePositiveActive": {
-                    "value": "#147B27FF",
+                    "value": "#178C2CFF",
                     "comment": ""
                 },
                 "outlineWarningHover": {
@@ -3588,7 +5288,7 @@
                     "comment": ""
                 },
                 "outlineWarningActive": {
-                    "value": "#D25004FF",
+                    "value": "#E65705FF",
                     "comment": ""
                 },
                 "outlineNegativeHover": {
@@ -3596,7 +5296,7 @@
                     "comment": ""
                 },
                 "outlineNegativeActive": {
-                    "value": "#DA0B20FF",
+                    "value": "#ED0C23FF",
                     "comment": ""
                 },
                 "outlineInfoHover": {
@@ -3604,43 +5304,43 @@
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#1767FDFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
+                    "value": "#36D954FF",
                     "comment": ""
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#21B03CFF",
+                    "value": "#25C141FF",
                     "comment": ""
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#FDB790FF",
+                    "value": "#FDA97CFF",
                     "comment": ""
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#FC8240FF",
+                    "value": "#FC8F54FF",
                     "comment": ""
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#FFB8BFFF",
+                    "value": "#FFA3ACFF",
                     "comment": ""
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#FF6675FF",
+                    "value": "#FF7A88FF",
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#A1C1FDFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#79A7FCFF",
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E321F",
                     "comment": ""
                 },
                 "outlineTransparentPositiveActive": {
@@ -3648,7 +5348,7 @@
                     "comment": ""
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FA5F05FF",
+                    "value": "#FA5F051F",
                     "comment": ""
                 },
                 "outlineTransparentWarningActive": {
@@ -3664,7 +5364,7 @@
                     "comment": ""
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F81F",
                     "comment": ""
                 },
                 "outlineTransparentInfoActive": {
@@ -3676,11 +5376,11 @@
                     "comment": ""
                 },
                 "outlinePrimaryHover": {
-                    "value": "#000000FF",
+                    "value": "#EDEDEDFF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
-                    "value": "#B3B3B3FF",
+                    "value": "#D4D4D4FF",
                     "comment": ""
                 },
                 "outlineSecondary": {
@@ -3760,7 +5460,7 @@
                     "comment": ""
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B311F",
                     "comment": ""
                 },
                 "outlineTransparentNegativeActive": {
@@ -3782,27 +5482,27 @@
             },
             "onDark": {
                 "outlineSecondaryHover": {
-                    "value": "#000000FF",
+                    "value": "#636363FF",
                     "comment": ""
                 },
                 "outlineSecondaryActive": {
-                    "value": "#404040FF",
+                    "value": "#454545FF",
                     "comment": ""
                 },
                 "outlineTertiaryHover": {
-                    "value": "#000000FF",
+                    "value": "#858585FF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
-                    "value": "#595959FF",
+                    "value": "#666666FF",
                     "comment": ""
                 },
                 "outlineDefaultHover": {
-                    "value": "#000000FF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineDefaultActive": {
-                    "value": "#C7C7C7FF",
+                    "value": "#F5F5F5FF",
                     "comment": ""
                 },
                 "outlineTransparentPrimary": {
@@ -3810,11 +5510,11 @@
                     "comment": ""
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF0A",
                     "comment": ""
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#FFFFFF25",
+                    "value": "#FFFFFF29",
                     "comment": ""
                 },
                 "outlineTransparentSecondary": {
@@ -3822,7 +5522,7 @@
                     "comment": ""
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF1F",
                     "comment": ""
                 },
                 "outlineTransparentSecondaryActive": {
@@ -3834,11 +5534,11 @@
                     "comment": ""
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF52",
                     "comment": ""
                 },
                 "outlineTransparentTertiaryActive": {
-                    "value": "#FFFFFF7A",
+                    "value": "#FFFFFF70",
                     "comment": ""
                 },
                 "outlineAccent": {
@@ -3850,7 +5550,7 @@
                     "comment": ""
                 },
                 "outlineAccentActive": {
-                    "value": "#1767FDFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "outlineAccentMinor": {
@@ -3858,11 +5558,11 @@
                     "comment": ""
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#000000FF",
+                    "value": "#1956C8FF",
                     "comment": ""
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#113B88FF",
+                    "value": "#13429AFF",
                     "comment": ""
                 },
                 "outlineTransparentAccent": {
@@ -3870,11 +5570,11 @@
                     "comment": ""
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD33",
                     "comment": ""
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#3F82FD56",
+                    "value": "#3F82FD52",
                     "comment": ""
                 },
                 "outlinePositive": {
@@ -3882,11 +5582,11 @@
                     "comment": ""
                 },
                 "outlinePositiveHover": {
-                    "value": "#2BD44AFF",
+                    "value": "#28C344FF",
                     "comment": ""
                 },
                 "outlinePositiveActive": {
-                    "value": "#1D9032FF",
+                    "value": "#21A138FF",
                     "comment": ""
                 },
                 "outlineWarning": {
@@ -3898,7 +5598,7 @@
                     "comment": ""
                 },
                 "outlineWarningActive": {
-                    "value": "#FA5700FF",
+                    "value": "#FF630FFF",
                     "comment": ""
                 },
                 "outlineNegative": {
@@ -3910,7 +5610,7 @@
                     "comment": ""
                 },
                 "outlineNegativeActive": {
-                    "value": "#FF142CFF",
+                    "value": "#FF293EFF",
                     "comment": ""
                 },
                 "outlineInfoHover": {
@@ -3918,7 +5618,7 @@
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#2974FFFF",
+                    "value": "#3D81FFFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -3926,11 +5626,11 @@
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#CD5713FF",
+                    "value": "#95400EFF",
                     "comment": ""
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#A84710FF",
+                    "value": "#70300AFF",
                     "comment": ""
                 },
                 "outlineWarningMinor": {
@@ -3938,11 +5638,11 @@
                     "comment": ""
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#CD5713FF",
+                    "value": "#95400EFF",
                     "comment": ""
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#A84710FF",
+                    "value": "#70300AFF",
                     "comment": ""
                 },
                 "outlineNegativeMinor": {
@@ -3950,19 +5650,19 @@
                     "comment": ""
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#C2192AFF",
+                    "value": "#B91828FF",
                     "comment": ""
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#7A101AFF",
+                    "value": "#8C121EFF",
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#000000FF",
+                    "value": "#1956C8FF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#113B88FF",
+                    "value": "#13429AFF",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -3970,11 +5670,11 @@
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E3233",
                     "comment": ""
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#1A9E3256",
+                    "value": "#1A9E3252",
                     "comment": ""
                 },
                 "outlineTransparentWarning": {
@@ -3982,11 +5682,11 @@
                     "comment": ""
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FA5F05FF",
+                    "value": "#FA5F0533",
                     "comment": ""
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#FA5F0556",
+                    "value": "#FA5F0552",
                     "comment": ""
                 },
                 "outlineNegativeTransparent": {
@@ -3994,19 +5694,19 @@
                     "comment": ""
                 },
                 "outlineNegativeTransparentHover": {
-                    "value": "#FF293EFF",
+                    "value": "#FF293E33",
                     "comment": ""
                 },
                 "outlineNegativeTransparentActive": {
-                    "value": "#FF293E56",
+                    "value": "#FF293E52",
                     "comment": ""
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD33",
                     "comment": ""
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#3F82FD56",
+                    "value": "#3F82FD52",
                     "comment": ""
                 },
                 "outlinePrimary": {
@@ -4014,11 +5714,11 @@
                     "comment": ""
                 },
                 "outlinePrimaryHover": {
-                    "value": "#787878FF",
+                    "value": "#3B3B3BFF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
-                    "value": "#4F4F4FFF",
+                    "value": "#1C1C1CFF",
                     "comment": ""
                 },
                 "outlineSecondary": {
@@ -4048,19 +5748,19 @@
             },
             "onLight": {
                 "outlineSecondaryHover": {
-                    "value": "#000000FF",
+                    "value": "#A3A3A3FF",
                     "comment": ""
                 },
                 "outlineSecondaryActive": {
-                    "value": "#757575FF",
+                    "value": "#8A8A8AFF",
                     "comment": ""
                 },
                 "outlineTertiaryHover": {
-                    "value": "#000000FF",
+                    "value": "#858585FF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
-                    "value": "#595959FF",
+                    "value": "#666666FF",
                     "comment": ""
                 },
                 "outlineDefault": {
@@ -4068,11 +5768,11 @@
                     "comment": ""
                 },
                 "outlineDefaultHover": {
-                    "value": "#595959FF",
+                    "value": "#262626FF",
                     "comment": ""
                 },
                 "outlineDefaultActive": {
-                    "value": "#303030FF",
+                    "value": "#030303FF",
                     "comment": ""
                 },
                 "outlineTransparentPrimary": {
@@ -4080,7 +5780,7 @@
                     "comment": ""
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#080808FF",
+                    "value": "#0808081F",
                     "comment": ""
                 },
                 "outlineTransparentPrimaryActive": {
@@ -4092,11 +5792,11 @@
                     "comment": ""
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080852",
                     "comment": ""
                 },
                 "outlineTransparentSecondaryActive": {
-                    "value": "#0808087A",
+                    "value": "#08080870",
                     "comment": ""
                 },
                 "outlineTransparentTertiary": {
@@ -4104,11 +5804,11 @@
                     "comment": ""
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#080808FF",
+                    "value": "#0808087A",
                     "comment": ""
                 },
                 "outlineTransparentTertiaryActive": {
-                    "value": "#080808AB",
+                    "value": "#08080899",
                     "comment": ""
                 },
                 "outlineAccent": {
@@ -4120,7 +5820,7 @@
                     "comment": ""
                 },
                 "outlineAccentActive": {
-                    "value": "#075AF2FF",
+                    "value": "#1665F8FF",
                     "comment": ""
                 },
                 "outlineAccentMinor": {
@@ -4128,11 +5828,11 @@
                     "comment": ""
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#A1C1FDFF",
                     "comment": ""
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#79A7FCFF",
                     "comment": ""
                 },
                 "outlineTransparentAccent": {
@@ -4140,7 +5840,7 @@
                     "comment": ""
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F81F",
                     "comment": ""
                 },
                 "outlineTransparentAccentActive": {
@@ -4152,11 +5852,11 @@
                     "comment": ""
                 },
                 "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
+                    "value": "#1EB83AFF",
                     "comment": ""
                 },
                 "outlinePositiveActive": {
-                    "value": "#147B27FF",
+                    "value": "#178C2CFF",
                     "comment": ""
                 },
                 "outlineWarning": {
@@ -4168,7 +5868,7 @@
                     "comment": ""
                 },
                 "outlineWarningActive": {
-                    "value": "#D25004FF",
+                    "value": "#E65705FF",
                     "comment": ""
                 },
                 "outlineNegative": {
@@ -4180,7 +5880,7 @@
                     "comment": ""
                 },
                 "outlineNegativeActive": {
-                    "value": "#DA0B20FF",
+                    "value": "#ED0C23FF",
                     "comment": ""
                 },
                 "outlineInfoHover": {
@@ -4188,7 +5888,7 @@
                     "comment": ""
                 },
                 "outlineInfoActive": {
-                    "value": "#1767FDFF",
+                    "value": "#2B74FDFF",
                     "comment": ""
                 },
                 "outlinePositiveMinor": {
@@ -4196,11 +5896,11 @@
                     "comment": ""
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
+                    "value": "#36D954FF",
                     "comment": ""
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#21B03CFF",
+                    "value": "#25C141FF",
                     "comment": ""
                 },
                 "outlineWarningMinor": {
@@ -4208,11 +5908,11 @@
                     "comment": ""
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#FDB790FF",
+                    "value": "#FDA97CFF",
                     "comment": ""
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#FC8240FF",
+                    "value": "#FC8F54FF",
                     "comment": ""
                 },
                 "outlineNegativeMinor": {
@@ -4220,19 +5920,19 @@
                     "comment": ""
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#FFB8BFFF",
+                    "value": "#FFA3ACFF",
                     "comment": ""
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#FF6675FF",
+                    "value": "#FF7A88FF",
                     "comment": ""
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#A1C1FDFF",
                     "comment": ""
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#79A7FCFF",
                     "comment": ""
                 },
                 "outlineTransparentPositive": {
@@ -4240,7 +5940,7 @@
                     "comment": ""
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E321F",
                     "comment": ""
                 },
                 "outlineTransparentPositiveActive": {
@@ -4252,7 +5952,7 @@
                     "comment": ""
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#E85702FF",
+                    "value": "#E857021F",
                     "comment": ""
                 },
                 "outlineTransparentWarningActive": {
@@ -4264,7 +5964,7 @@
                     "comment": ""
                 },
                 "outlineNegativeTransparentHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B311F",
                     "comment": ""
                 },
                 "outlineNegativeTransparentActive": {
@@ -4272,7 +5972,7 @@
                     "comment": ""
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F81F",
                     "comment": ""
                 },
                 "outlineTransparentInfoActive": {
@@ -4284,11 +5984,11 @@
                     "comment": ""
                 },
                 "outlinePrimaryHover": {
-                    "value": "#000000FF",
+                    "value": "#EDEDEDFF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
-                    "value": "#B3B3B3FF",
+                    "value": "#D4D4D4FF",
                     "comment": ""
                 },
                 "outlineSecondary": {

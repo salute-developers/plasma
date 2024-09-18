@@ -39,7 +39,7 @@ export const tokens = {
     padding: '--plasma-textfield-padding',
     paddingWithChips: '--plasma-textfield-padding-with-chips',
 
-    /* Токены для инпута */
+    /* Токены для input */
     leftContentMargin: '--plasma-textfield__left-content-margin',
     rightContentMargin: '--plasma-textfield__right-content-margin',
 
@@ -49,6 +49,11 @@ export const tokens = {
     fontWeight: '--plasma-textfield-font-weight',
     letterSpacing: '--plasma-textfield-letter-spacing',
     lineHeight: '--plasma-textfield-line-height',
+
+    /* Tokens for content slot */
+    contentSlotColor: '--plasma-textfield-content-slot-color',
+    contentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
+    contentSlotColorActive: '--plasma-textfield-content-slot-color-active',
 
     /** Токены лейбла */
     labelColor: '--plasma-textfield__label-color',

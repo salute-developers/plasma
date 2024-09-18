@@ -9,7 +9,7 @@ import { TextField as TextFieldB2C } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-describe('plasma-web: TextField', () => {
+describe('plasma-b2c: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldB2C;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
@@ -302,7 +302,7 @@ describe('plasma-web: TextField', () => {
     });
 });
 
-describe('plasma-web: TextField keyboard navigation', () => {
+describe('plasma-b2c: TextField keyboard navigation', () => {
     const TextField = getComponent('TextField') as typeof TextFieldB2C;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (

@@ -12,7 +12,7 @@ export const gridRoot = (Root: RootProps<HTMLDivElement, GridProps>) =>
     forwardRef<HTMLDivElement, GridProps>((props, ref) => {
         const { children, view, className, style, maxWidth, ...rest } = props;
 
-        const viewClass = getGridViewClass(view || 'deafult');
+        const viewClass = getGridViewClass(view || 'default');
         const maxWidthValue = view === 'legacy' ? '90rem' : null;
         const maxWidthToken =
             maxWidthValue || maxWidth

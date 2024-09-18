@@ -42,6 +42,12 @@ export interface CustomComboboxProps {
      */
     opened?: boolean;
     /**
+     * Дропдаун открыт всегда.
+     * @default
+     *  false
+     */
+    alwaysOpened?: boolean;
+    /**
      * Сторона открытия дропдауна относительно target элемента.
      * @default
      *  auto

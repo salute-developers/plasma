@@ -88,7 +88,9 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
 
             const controlledRefs = { contentRef, inputRef, chipsRefs };
 
-            const [hasValue, setHasValue] = useState(Boolean(outerValue) || Boolean(rest?.defaultValue));
+            const [hasValue, setHasValue] = useState(
+                Boolean(outerValue) || Boolean(inputRef?.current?.value) || Boolean(rest?.defaultValue),
+            );
             const [chips, setChips] = useState<Array<ChipValues>>([]);
 
             const uniqId = safeUseId();
@@ -198,8 +200,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             }, [isChipEnumeration, values]);
 
             useEffect(() => {
-                setHasValue(Boolean(outerValue) || Boolean(rest?.defaultValue));
-            }, [outerValue, rest.defaultValue]);
+                setHasValue(Boolean(rest?.defaultValue));
+            }, [rest.defaultValue]);
+
+            useEffect(() => {
+                setHasValue(Boolean(outerValue) || Boolean(inputRef?.current?.value));
+            }, [outerValue, inputRef?.current?.value]);
 
             const innerOptional = Boolean(required ? false : optional);
             const hasPlaceholderOptional = innerOptional && !innerLabelValue && !hasOuterLabel;
@@ -231,7 +237,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                         </Label>
                     )}
                     <InputWrapper
-                        // Рефка для внутреннего использования. Не отдается наружу.
+                        // Ref для внутреннего использования. Не отдается наружу.
                         ref={(rest as any).inputWrapperRef}
                         className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}
                     >

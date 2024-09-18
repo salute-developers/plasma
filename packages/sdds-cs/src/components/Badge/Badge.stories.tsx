@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
@@ -21,13 +21,21 @@ const meta: Meta<typeof Badge> = {
                 type: 'select',
             },
         },
-        ...disableProps(['contentLeft', 'contentRight', 'size', 'transparent']),
+        pilled: {
+            control: { type: 'boolean' },
+            if: { arg: 'clear', truthy: false },
+        },
+        ...disableProps(['contentLeft', 'contentRight', 'transparent', 'size']),
     },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Badge>;
+type StoryProps = ComponentProps<typeof Badge> & {
+    enableContentLeft: boolean;
+    enableContentRight: boolean;
+};
+type Story = StoryObj<StoryProps>;
 
 const BellIcon = (props) => (
     <svg width="100%" viewBox="0 0 24 24" fill="none" {...props}>
@@ -39,16 +47,33 @@ const BellIcon = (props) => (
 );
 
 export const Default: Story = {
+    argTypes: {
+        enableContentLeft: {
+            control: { type: 'boolean' },
+            if: { arg: 'enableContentRight', truthy: false },
+        },
+        enableContentRight: {
+            control: { type: 'boolean' },
+            if: { arg: 'enableContentLeft', truthy: false },
+        },
+    },
     args: {
         text: 'Hello',
         view: 'default',
         size: 's',
+        enableContentLeft: false,
+        enableContentRight: false,
+        clear: false,
         pilled: false,
-        transparent: false,
     },
-};
-
-export const WithIcon: Story = {
-    args: { ...Default.args },
-    render: (args) => <Badge contentLeft={<BellIcon width="1rem" height="1rem" />} {...args} />,
+    render: ({ enableContentLeft, enableContentRight, size, ...rest }: StoryProps) => {
+        return (
+            <Badge
+                contentLeft={enableContentLeft ? <BellIcon width="0.75rem" height="0.75rem" /> : undefined}
+                contentRight={enableContentRight ? <BellIcon width="0.75rem" height="0.75rem" /> : undefined}
+                size={size}
+                {...rest}
+            />
+        );
+    },
 };

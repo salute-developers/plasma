@@ -36,6 +36,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                 negativeResultContent = 'Элементы не найдены',
                 enumerationType = 'comma',
                 opened = false,
+                alwaysOpened = false,
                 placement = 'bottom',
                 onToggle,
                 onKeyDown,
@@ -60,7 +61,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
             const handleRef = useForkRef<HTMLInputElement>(targetRef, outerRootRef);
             const controlledRefs = { targetRef, chipsRefs, selectRef: comboboxRef, itemsRefs, inputRef };
 
-            const [isVisible, setIsVisible] = useState(opened);
+            const [isVisible, setIsVisible] = useState(alwaysOpened || opened);
             const [search, setSearch] = useState<string | undefined>('');
             const [filterValue, setFilterValue] = useState(search);
 
@@ -79,12 +80,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                     return;
                 }
 
-                setIsVisible(opened);
-            }, [opened, disabled, readOnly]);
+                setIsVisible(alwaysOpened || opened);
+            }, [opened, alwaysOpened, disabled, readOnly]);
 
             useEffect(() => {
                 // INFO: Для кейсов, когда значение выбрано и нужно вывести весь список
-                if (opened) {
+                if (alwaysOpened || opened) {
                     setFilterValue('');
                 }
             }, []);
@@ -100,12 +101,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                 }
 
                 if (onToggle) {
-                    onToggle(openValue, event);
+                    onToggle(alwaysOpened || openValue, event);
 
                     return;
                 }
 
-                setIsVisible(openValue);
+                setIsVisible(alwaysOpened || openValue);
             };
 
             const closedWithoutChanges = useRef(true);
@@ -126,7 +127,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
 
                 rest.onChangeValue?.(newSelected);
 
-                onInnerToggle?.(false, event);
+                onInnerToggle?.(alwaysOpened || false, event);
 
                 closedWithoutChanges.current = false;
             };
@@ -182,6 +183,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, ComboboxProps>) =
                 onKeyDown?.(event);
                 onKeyDownTarget(event);
             };
+
+            useEffect(() => {
+                if (alwaysOpened && rest.valueType === 'single') {
+                    setSearch(String(value));
+                }
+            }, [value, alwaysOpened]);
 
             return (
                 <StyledRoot ref={comboboxRef}>

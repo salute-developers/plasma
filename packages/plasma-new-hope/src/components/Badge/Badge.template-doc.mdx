@@ -60,41 +60,32 @@ export function App() {
 + `"dark"` – темный badge;
 + `"light"` – светлый badge.
 
-```tsx live 
-import React from 'react';
-import { Badge } from '@salutejs/{{ package }}';
-
-export function App() {
-    return (
-        <div>
-            <Badge text="Бейдж" size="l" view="primary" />
-            <Badge text="Бейдж" size="l" view="accent" />
-            <Badge text="Бейдж" size="l" view="positive" />
-            <Badge text="Бейдж" size="l" view="warning" />
-            <Badge text="Бейдж" size="l" view="negative" />
-            <Badge text="Бейдж" size="l" view="dark" />
-            <Badge text="Бейдж" size="l" view="light" />
-        </div>
-    );
-}
-```
-
-Так же на вид badge влияет свойство `transparent`:
+Так же на вид badge влияет свойства `transparent` и `clear`.
 
 ```tsx live 
 import React from 'react';
 import { Badge } from '@salutejs/{{ package }}';
 
 export function App() {
+    const Badges = ({transparent, clear}) => {
+        return (
+            <div style=\{{ display: 'flex', gap: '0.5rem' }}>
+                <Badge text="Бейдж" size="l" view="primary" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="accent" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="positive" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="warning" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="negative" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="dark" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="light" transparent={transparent} clear={clear} />
+            </div>
+        )
+    }
+
     return (
-        <div>
-            <Badge text="Бейдж" size="l" view="primary" transparent />
-            <Badge text="Бейдж" size="l" view="accent" transparent />
-            <Badge text="Бейдж" size="l" view="positive" transparent />
-            <Badge text="Бейдж" size="l" view="warning" transparent />
-            <Badge text="Бейдж" size="l" view="negative" transparent />
-            <Badge text="Бейдж" size="l" view="dark" transparent />
-            <Badge text="Бейдж" size="l" view="light" transparent />
+        <div style=\{{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <Badges />
+            <Badges transparent />
+            <Badges clear />
         </div>
     );
 }

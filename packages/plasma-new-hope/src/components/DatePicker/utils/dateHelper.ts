@@ -2,9 +2,29 @@ import { customDayjs } from '../../../utils/datejs';
 
 export type Langs = 'ru' | 'en';
 
-export const formatInputValue = (value?: Date | string, format?: string, lang?: Langs) => {
+type FormatInputValueArgs = {
+    value?: Date | string;
+    format?: string;
+    lang?: Langs;
+    hasMonthFullName?: boolean;
+    isValidMonth?: boolean;
+    isLengthEqual?: boolean;
+};
+
+export const formatInputValue = ({
+    value,
+    format,
+    lang,
+    hasMonthFullName,
+    isValidMonth,
+    isLengthEqual,
+}: FormatInputValueArgs) => {
     if (!value || !lang) {
         return '';
+    }
+
+    if (hasMonthFullName && (!isValidMonth || !isLengthEqual)) {
+        return String(value);
     }
 
     if (format && customDayjs(value, format, true).isValid()) {
@@ -61,7 +81,7 @@ export const getMaskedDateOnInput = (value?: string, format?: string, delimiter?
         return '';
     }
 
-    if (!format || !delimiter) {
+    if (!format || !delimiter || /M{3,4}/g.test(format)) {
         return value;
     }
 
