@@ -10,6 +10,7 @@ export * from './components/Grid';
 export * from './components/Calendar';
 export * from './components/Checkbox';
 export * from './components/Chip';
+export * from './components/ChipGroup';
 export * from './components/Cell';
 export * from './components/Combobox';
 export * from './components/Counter';
