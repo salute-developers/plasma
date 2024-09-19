@@ -1,0 +1,93 @@
+---
+id: chipGroup
+title: ChipGroup
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# ChipGroup
+<Description name="ChipGroup" />
+<PropsTable name="ChipGroup" exclude={['css']} />
+
+## Использование
+Компонент `ChipGroup` - это обертка для Chip. Принимает в себя группу элементов.
+
+```tsx live
+import React from 'react';
+import { ChipGroup, Chip } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <ChipGroup>
+            {Array(5)
+                .fill(true)
+                .map((_, i) => (
+                    <Chip text={`Chip ${i}`} />
+                ))}
+        </ChipGroup>
+    );
+}
+```
+
+## Примеры
+
+### Вид группы Chip
+Вид группы элементов задается с помощью свойства `view`.
+С помощью свойства `isCommonChipStyles` можно отключить переопределение стилей для всех элементов внутри группы. 
+Тогда каждый элемент будет иметь настраиваемый вид. 
+
+```tsx live
+import React from 'react';
+import { ChipGroup, Chip } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <ChipGroup view="secondary">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+            
+            <ChipGroup isCommonChipStyles={false}>
+                <Chip text="Default" />
+                <Chip text="Secondary" view="secondary" />
+                <Chip text="Accent" view="accent" />
+            </ChipGroup>
+        </div>
+    );
+}
+```
+
+### Отступы между Chip
+
+Группа элементов имеет два вида отступов:
+
+```tsx live
+import React from 'react';
+import { ChipGroup, Chip } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <ChipGroup gap="dense">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+
+            <ChipGroup gap="wide">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+        </div>
+    );
+}
+```
