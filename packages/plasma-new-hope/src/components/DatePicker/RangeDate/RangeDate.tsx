@@ -17,13 +17,14 @@ import type { RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { setInitValue } from '../utils/setInitValue';
+import { InputHidden } from '../../../utils/inputHidden';
 
 import type { DatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledLabel, StyledRange, InputHidden, base } from './RangeDate.styles';
+import { LeftHelper, StyledLabel, StyledRange, base } from './RangeDate.styles';
 import { RangeDatePopover } from './RangeDatePopover/RangeDatePopover';
 
 export const datePickerRangeRoot = (
@@ -200,22 +201,24 @@ export const datePickerRangeRoot = (
                 onToggle: handleToggle,
             });
 
+            const setValue = (e: Event) => {
+                const firstElement = innerRefFirst.current as HTMLInputElement;
+
+                const firstValueInit = String(firstElement.getAttribute('defaultValue'));
+                const secondValueInit = setInitValue(e);
+
+                handleCommitFirstDate(firstValueInit, true, false);
+                handleCommitSecondDate(secondValueInit, true, false);
+            };
+
             useEffect(() => {
                 if (innerRefSecond.current) {
-                    innerRefSecond.current.addEventListener('setInitValue', (e: Event) => {
-                        const firstElement = innerRefFirst.current as HTMLInputElement;
-
-                        const firstValueInit = String(firstElement.getAttribute('defaultValue'));
-                        const secondValueInit = setInitValue(e);
-
-                        handleCommitFirstDate(firstValueInit, true, false);
-                        handleCommitSecondDate(secondValueInit, true, false);
-                    });
+                    innerRefSecond.current.addEventListener('setInitValue', setValue);
                 }
 
                 return () => {
                     if (innerRefSecond.current) {
-                        innerRefSecond.current.addEventListener('setInitValue', () => {});
+                        innerRefSecond.current.removeEventListener('setInitValue', setValue);
                     }
                 };
             }, [innerRefSecond]);
