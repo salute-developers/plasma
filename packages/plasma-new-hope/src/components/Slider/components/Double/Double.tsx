@@ -7,6 +7,7 @@ import type { HandlerProps } from '../../ui';
 import { sizeData, setInitValue } from '../../utils';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
+import { InputHidden } from '../../../../utils/inputHidden';
 
 import { DoubleSliderProps } from './Double.types';
 import {
@@ -17,7 +18,6 @@ import {
     LabelWrapper,
     StyledInput,
     DoubleWrapper,
-    InputHidden,
 } from './Double.styles';
 
 function getXCenterHandle(handle: HTMLDivElement) {
@@ -77,6 +77,17 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const firstInputActiveClass = firstInputActive && !disabled ? classes.textFieldActive : undefined;
     const secondInputActiveClass = secondInputActive && !disabled ? classes.textFieldActive : undefined;
 
+    const setValue = (e: Event) => {
+        const firstElement = innerRefFirst.current as HTMLInputElement;
+
+        const firstValueInit = Number(firstElement.getAttribute('defaultValue'));
+        const secondValueInit = setInitValue(e);
+
+        onChangeCommitted && onChangeCommitted([firstValueInit, secondValueInit]);
+        setFirstValue(firstValueInit);
+        setSecondValue(secondValueInit);
+    };
+
     useEffect(() => {
         const firstLocalValue = Math.min(Math.max(value[0], min), max) - min;
         const secondLocalValue = Math.min(Math.max(value[1], min), max) - min;
@@ -95,21 +106,12 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
     useEffect(() => {
         if (innerRefSecond.current && onChangeCommitted) {
-            innerRefSecond.current.addEventListener('setInitValue', (e: Event) => {
-                const firstElement = innerRefFirst.current as HTMLInputElement;
-
-                const firstValueInit = Number(firstElement.getAttribute('defaultValue'));
-                const secondValueInit = setInitValue(e);
-
-                onChangeCommitted([firstValueInit, secondValueInit]);
-                setFirstValue(firstValueInit);
-                setSecondValue(secondValueInit);
-            });
+            innerRefSecond.current.addEventListener('setInitValue', setValue);
         }
 
         return () => {
             if (innerRefSecond.current && onChangeCommitted) {
-                innerRefSecond.current.addEventListener('setInitValue', () => {});
+                innerRefSecond.current.removeEventListener('setInitValue', setValue);
             }
         };
     }, [innerRefSecond]);

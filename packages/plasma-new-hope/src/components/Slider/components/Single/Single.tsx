@@ -7,6 +7,7 @@ import { setInitValue, sizeData } from '../../utils';
 import type { HandlerProps } from '../../ui';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
+import { InputHidden } from '../../../../utils/inputHidden';
 
 import type { SingleSliderProps } from './Single.types';
 import {
@@ -16,13 +17,12 @@ import {
     SingleWrapper,
     SliderBaseWrapper,
     StyledRangeValue,
-    InputHidden,
 } from './Single.styles';
 
 export const SingleSlider: FC<SingleSliderProps> = ({
     min,
     max,
-    value = min,
+    value,
     disabled,
     onChangeCommitted,
     onChange,
@@ -51,7 +51,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const [startOffset, setStartOffset] = useState(0);
     const [endOffset, setEndOffset] = useState(0);
 
-    const [dragValue, setDragValue] = useState(value);
+    const [dragValue, setDragValue] = useState(value ?? min);
 
     const { stepSize } = state;
 
@@ -100,7 +100,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
         return () => {
             if (innerRef.current) {
-                innerRef.current.addEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
+                innerRef.current.removeEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
             }
         };
     }, [innerRef]);

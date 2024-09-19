@@ -5,4 +5,4 @@ export { useForceUpdate } from './useForceUpdate';
 export { useDidMountEffect } from './useDidMountEffect';
 export { useOutsideClick } from './useOutsideClick';
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
-export { useFormPlasma } from './useForm';
+export { useForm } from './useForm';
