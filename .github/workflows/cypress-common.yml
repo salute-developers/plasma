@@ -47,7 +47,8 @@ jobs:
 
       - name: Save artifacts
         if: ${{ failure() || inputs.with-artifacts }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: Test Artifacts
+          name: Test_Artifacts_${{ inputs.scope }}_
           path: /home/runner/work/plasma/plasma/cypress
+          overwrite: true

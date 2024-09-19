@@ -37,6 +37,50 @@ type IsMultiselect =
           isTargetAmount?: boolean;
       };
 
+type ViewStateProps =
+    | {
+          /**
+           * Компонент доступен только для чтения.
+           */
+          readOnly?: boolean;
+          /**
+           * Компонент неактивен.
+           */
+          disabled?: true;
+          /**
+           * Дропдаун открыт всегда.
+           */
+          alwaysOpened?: false;
+      }
+    | {
+          /**
+           * Компонент доступен только для чтения.
+           */
+          readOnly?: true;
+          /**
+           * Компонент неактивен.
+           */
+          disabled?: boolean;
+          /**
+           * Дропдаун открыт всегда.
+           */
+          alwaysOpened?: false;
+      }
+    | {
+          /**
+           * Компонент доступен только для чтения.
+           */
+          readOnly?: false;
+          /**
+           * Компонент неактивен.
+           */
+          disabled?: false;
+          /**
+           * Дропдаун открыт всегда.
+           */
+          alwaysOpened?: true;
+      };
+
 export interface BasicProps {
     /**
      * Список элементов.
@@ -104,10 +148,9 @@ export interface BasicProps {
     filter?: (label: string, textValue: string) => boolean;
     /**
      * Закрывать ли выпадающий список после выбора элемента.
-     * @default если single, то true; если multiple, то false
+     * @default если single, то true; если multiple, то false; если передан alwaysOpened, то false
      */
     closeAfterSelect?: boolean;
-
     /**
      * Размер компонента.
      */
@@ -121,17 +164,10 @@ export interface BasicProps {
      * @default outer
      */
     labelPlacement?: 'outer' | 'inner';
-    /**
-     * Компонент доступен только для чтения.
-     */
-    readOnly?: boolean;
-    /**
-     * Компонент неактивен.
-     */
-    disabled?: boolean;
 }
 
 export type ComboboxProps = BasicProps &
+    ViewStateProps &
     IsMultiselect &
     Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 

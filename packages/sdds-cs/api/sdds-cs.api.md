@@ -308,17 +308,46 @@ true: PolymorphicClassName;
 transparent: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
+clear: {
+true: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-pilled?: boolean | undefined;
-transparent?: boolean | undefined;
 size?: string | undefined;
 view?: string | undefined;
 } & {
 children?: ReactNode;
-} & RefAttributes<HTMLDivElement>>;
+} & {
+clear?: true | undefined;
+pilled?: false | undefined;
+transparent?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: true | undefined;
+transparent?: boolean | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: boolean | undefined;
+transparent?: true | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 export { BadgeProps }
 
@@ -695,11 +724,55 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & ((BasicProps & {
+readOnly?: boolean | undefined;
+disabled?: true | undefined;
+alwaysOpened?: false | undefined;
+} & {
 multiple?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: boolean | undefined;
+disabled?: true | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: true | undefined;
+disabled?: boolean | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: true | undefined;
+disabled?: boolean | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: false | undefined;
+disabled?: false | undefined;
+alwaysOpened?: true | undefined;
+} & {
+multiple?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: false | undefined;
+disabled?: false | undefined;
+alwaysOpened?: true | undefined;
+} & {
 multiple: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
@@ -2074,7 +2147,7 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -2098,7 +2171,7 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -2122,7 +2195,7 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -2146,7 +2219,7 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 export { TextFieldProps }
 

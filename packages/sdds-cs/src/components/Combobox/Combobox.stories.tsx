@@ -66,6 +66,14 @@ const meta: Meta<StorySelectProps> = {
                 type: 'text',
             },
         },
+        disabled: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        readOnly: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
     },
     args: {
         label: 'Label',
@@ -78,6 +86,7 @@ const meta: Meta<StorySelectProps> = {
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
+        alwaysOpened: false,
         disabled: false,
         readOnly: false,
     },
@@ -93,6 +102,8 @@ const meta: Meta<StorySelectProps> = {
                 'placeholder',
                 'helperText',
                 'isTargetAmount',
+                'closeAfterSelect',
+                'alwaysOpened',
                 'variant',
                 'disabled',
                 'readOnly',

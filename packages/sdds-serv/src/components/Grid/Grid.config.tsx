@@ -2,7 +2,7 @@ import { css, gridTokens, getBaseGridView } from '@salutejs/plasma-new-hope/styl
 
 export const config = {
     defaults: {
-        view: 'legacy',
+        view: 'default',
     },
     variations: {
         view: {

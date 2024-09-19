@@ -58,11 +58,15 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             labelPlacement,
             readOnly = false,
             disabled = false,
+            alwaysOpened = false,
             filter,
             closeAfterSelect: outerCloseAfterSelect,
             ...rest
         } = props;
-        const [textValue, setTextValue] = useState('');
+        // Создаем структуры для быстрой работы с деревом
+        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(items), [items]);
+
+        const [textValue, setTextValue] = useState(valueToItemMap.get(outerValue as string)?.label || '');
         const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
 
         const value = outerValue || internalValue;
@@ -73,9 +77,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const treeId = safeUseId();
 
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
-
-        // Создаем структуры для быстрой работы с деревом
-        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(items), [items]);
 
         const filteredItems = filterItems(
             transformedItems,
@@ -91,7 +92,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
         const [checked, setChecked] = useState(valueToCheckedMap);
 
-        const isCurrentListOpen = Boolean(path[0]);
+        const isCurrentListOpen = alwaysOpened || Boolean(path[0]);
         const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
         const withArrowInverse = isCurrentListOpen ? classes.arrowInverse : undefined;
         const closeAfterSelect = outerCloseAfterSelect ?? !multiple;
@@ -126,7 +127,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         const handleClickArrow = () => {
-            if (disabled) {
+            if (disabled || readOnly) {
                 return;
             }
 
@@ -153,7 +154,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         // Обработчик открытия/закрытия выпадающего списка
         const handleListToggle = (opened: boolean) => {
-            if (disabled) {
+            if (disabled || readOnly) {
                 return;
             }
 
@@ -191,7 +192,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 }
             });
 
-            if (closeAfterSelect) {
+            if (!alwaysOpened && closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
             }
@@ -241,7 +242,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             setTextValue(isCurrentChecked ? '' : item.label);
 
-            if (closeAfterSelect) {
+            if (!alwaysOpened && closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
             }

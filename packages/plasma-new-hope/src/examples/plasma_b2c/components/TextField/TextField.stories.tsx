@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
+import { IconCross } from '../../../../components/_Icon';
 
 import { TextField } from './TextField';
 
@@ -103,8 +104,8 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
                 {...rest}
                 enumerationType="plain"
                 value={text}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconCross color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconCross color="inherit" size={iconSize} /> : undefined}
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);

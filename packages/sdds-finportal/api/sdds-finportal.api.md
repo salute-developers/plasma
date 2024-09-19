@@ -123,6 +123,7 @@ import { MouseEvent as MouseEvent_2 } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Orientation } from '@salutejs/plasma-new-hope/types/components/TextFieldGroup/TextFieldGroup.types';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -182,6 +183,7 @@ import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -321,17 +323,46 @@ true: PolymorphicClassName;
 transparent: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
+clear: {
+true: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-pilled?: boolean | undefined;
-transparent?: boolean | undefined;
 size?: string | undefined;
 view?: string | undefined;
 } & {
 children?: ReactNode;
-} & RefAttributes<HTMLDivElement>>;
+} & {
+clear?: true | undefined;
+pilled?: false | undefined;
+transparent?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: true | undefined;
+transparent?: boolean | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: boolean | undefined;
+transparent?: true | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 export { BadgeProps }
 
@@ -749,11 +780,55 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & ((BasicProps & {
+readOnly?: boolean | undefined;
+disabled?: true | undefined;
+alwaysOpened?: false | undefined;
+} & {
 multiple?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: boolean | undefined;
+disabled?: true | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: true | undefined;
+disabled?: boolean | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: true | undefined;
+disabled?: boolean | undefined;
+alwaysOpened?: false | undefined;
+} & {
+multiple: true;
+value?: string[] | undefined;
+onChange?: ((value: string[]) => void) | undefined;
+isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: false | undefined;
+disabled?: false | undefined;
+alwaysOpened?: true | undefined;
+} & {
+multiple?: false | undefined;
+value?: string | undefined;
+onChange?: ((value: string) => void) | undefined;
+isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+readOnly?: false | undefined;
+disabled?: false | undefined;
+alwaysOpened?: true | undefined;
+} & {
 multiple: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
@@ -2188,7 +2263,7 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -2212,7 +2287,7 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -2236,7 +2311,7 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -2260,7 +2335,52 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+
+// @public
+export const TextFieldGroup: FunctionComponent<PropsType<    {
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+orientation: {
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
+};
+gap: {
+none: PolymorphicClassName;
+dense: PolymorphicClassName;
+wide: PolymorphicClassName;
+};
+shape: {
+segmented: PolymorphicClassName;
+default: PolymorphicClassName;
+};
+stretching: {
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
+orientation?: Orientation | undefined;
+stretching?: ("auto" | "filled") | undefined;
+size?: string | undefined;
+isCommonTextFieldStyles?: boolean | undefined;
+} & {
+gap?: "none" | "dense" | undefined;
+shape?: "segmented" | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+orientation?: Orientation | undefined;
+stretching?: ("auto" | "filled") | undefined;
+size?: string | undefined;
+isCommonTextFieldStyles?: boolean | undefined;
+} & {
+gap?: "dense" | "wide" | undefined;
+shape?: "default" | undefined;
+} & RefAttributes<HTMLDivElement>))>;
+
+export { TextFieldGroupProps }
 
 export { TextFieldProps }
 

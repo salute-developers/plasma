@@ -31,6 +31,7 @@ export const Item: FC<ItemProps> = ({
     ariaLabel,
 }) => {
     const { value, label, disabled, contentLeft, contentRight } = item;
+
     const ref = useRef<HTMLLIElement | null>(null);
 
     const {

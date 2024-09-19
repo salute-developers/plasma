@@ -672,6 +672,10 @@ export const iconSectionsSet = {
         blankTxtOutline: 'BlankTxtOutline',
         blankXlsFill: 'BlankXlsFill',
         blankXlsOutline: 'BlankXlsOutline',
+        blankJpgFill: 'BlankJpgFill',
+        blankJpgOutline: 'BlankJpgOutline',
+        blankPngFill: 'BlankPngFill',
+        blankPngOutline: 'BlankPngOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
@@ -1030,6 +1034,8 @@ export const iconSectionsSet = {
         sberboomMiniErrorOutline: 'SberboomMiniErrorOutline',
         sberboomMiniFill: 'SberboomMiniFill',
         sberboomMiniOutline: 'SberboomMiniOutline',
+        pcMouseFill: 'PcMouseFill',
+        pcMouseOutline: 'PcMouseOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',

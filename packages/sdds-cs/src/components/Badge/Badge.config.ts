@@ -10,24 +10,29 @@ export const config = {
             default: css`
                 ${badgeTokens.color}: var(--inverse-text-primary);
                 ${badgeTokens.background}: var(--surface-solid-default);
+
+                ${badgeTokens.colorClear}: var(--text-primary);
             `,
             accent: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
                 ${badgeTokens.background}: var(--surface-accent);
 
                 ${badgeTokens.colorTransparent}: var(--text-accent);
+                ${badgeTokens.colorClear}: var(--text-accent);
             `,
             positive: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
                 ${badgeTokens.background}: var(--surface-positive);
 
                 ${badgeTokens.colorTransparent}: var(--text-positive);
+                ${badgeTokens.colorClear}: var(--text-positive);
             `,
             negative: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
                 ${badgeTokens.background}: var(--surface-negative);
 
                 ${badgeTokens.colorTransparent}: var(--text-negative);
+                ${badgeTokens.colorClear}: var(--text-negative);
             `,
         },
         size: {
@@ -57,6 +62,9 @@ export const config = {
             `,
         },
         transparent: {
+            true: css``,
+        },
+        clear: {
             true: css``,
         },
     },

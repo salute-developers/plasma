@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
+import { IconChevronLeft } from '../../../../components/_Icon';
 
 import { TextField } from './TextField';
 
@@ -185,7 +186,7 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             {...rest}
             enumerationType="chip"
             value={text}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconChevronLeft color="inherit" size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             view={view}
             onChange={(e) => {

@@ -1,30 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconEdit, IconSize } from '@salutejs/plasma-icons';
+import { IconEdit } from '@salutejs/plasma-icons';
 
-import * as typography from '../Typography';
+import * as typographyVariants from '../Typography/Typography';
 
-import { Editable, EditableProps } from '.';
+import { Editable } from '.';
 
-type StoryProps = EditableProps & {
-    iconSize: IconSize;
-    componentName: keyof typeof typography;
-    defaultValue: string;
-};
+const iconSizes = ['s', 'xs'] as const;
 
-const meta: Meta<StoryProps> = {
+const meta: Meta<typeof Editable> = {
     title: 'Controls/Editable',
+    decorators: [InSpacingDecorator],
     component: Editable,
     argTypes: {
-        iconSize: {
-            options: ['s', 'xs'],
-            control: { type: 'select' },
-        },
-        componentName: {
-            options: Object.keys(typography),
-            control: { type: 'select' },
-        },
         ...disableProps([
             'ref',
             'theme',
@@ -36,35 +25,54 @@ const meta: Meta<StoryProps> = {
             'onBlur',
             'onPaste',
             'value',
+            'view',
+            'size',
         ]),
     },
-    decorators: [InSpacingDecorator],
 };
 
 export default meta;
 
-const StoryDefault = ({ defaultValue, componentName, iconSize, ...rest }: StoryProps) => {
-    const [value, setValue] = useState<string>(defaultValue);
+type StoryPropsDefault = ComponentProps<typeof Editable> & {
+    iconSize: typeof iconSizes[number];
+    componentName: keyof typeof typographyVariants;
+    defaultValue: string;
+};
 
-    const handleChange = useCallback((e) => {
+const StoryDefault = ({ defaultValue, componentName, iconSize, ...rest }: StoryPropsDefault) => {
+    const [, setValue] = useState<string>(defaultValue);
+
+    const handleChange = (e) => {
         setValue(e.target.textContent);
-    }, []);
+    };
 
     return (
         <Editable
-            icon={<IconEdit size={iconSize} color="inherit" />}
-            textComponent={typography[componentName]}
-            value={value}
-            onChange={handleChange}
             {...rest}
+            icon={<IconEdit size={iconSize} color="inherit" />}
+            textComponent={typographyVariants[componentName]}
+            value={defaultValue}
+            onChange={handleChange}
         />
     );
 };
 
-export const Default: StoryObj<StoryProps> = {
+export const Default: StoryObj<StoryPropsDefault> = {
+    argTypes: {
+        iconSize: {
+            options: iconSizes,
+            control: { type: 'select' },
+        },
+        componentName: {
+            options: Object.keys(typographyVariants),
+            control: { type: 'select' },
+        },
+    },
     args: {
-        iconSize: 's',
-        componentName: 'Headline1',
+        view: 'default',
+        size: 'm',
+        iconSize: 'xs',
+        componentName: 'BodyL',
         defaultValue: 'Document 1',
         placeholder: 'Компонент с возможностью редактирования текста',
     },
