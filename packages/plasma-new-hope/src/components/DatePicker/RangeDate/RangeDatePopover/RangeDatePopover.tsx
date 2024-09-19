@@ -31,6 +31,7 @@ export const RangeDatePopover = ({
     offset,
     type,
     size,
+    lang = 'ru',
 
     onChangeValue,
     onChangeStartOfRange,
@@ -66,6 +67,7 @@ export const RangeDatePopover = ({
                     disabledYearList={disabledYearList}
                     min={min}
                     max={max}
+                    locale={lang}
                     includeEdgeDates={includeEdgeDates}
                     onChangeValue={onChangeValue}
                     onChangeStartOfRange={onChangeStartOfRange}
@@ -102,6 +104,7 @@ export const RangeDatePopover = ({
                 min={min}
                 max={max}
                 type={type}
+                locale={lang}
                 includeEdgeDates={includeEdgeDates}
                 onChangeValue={onChangeValue}
                 onChangeStartOfRange={onChangeStartOfRange}

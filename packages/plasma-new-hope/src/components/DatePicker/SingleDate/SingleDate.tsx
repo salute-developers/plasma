@@ -185,6 +185,7 @@ export const datePickerRoot = (
                             max={max}
                             includeEdgeDates={includeEdgeDates}
                             isRange={false}
+                            locale={lang}
                             onChangeValue={(date, dateInfo) => handleCommitDate(date, false, true, dateInfo)}
                         />
                     </StyledPopover>
