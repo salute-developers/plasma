@@ -169,10 +169,25 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 if (value === undefined) {
                     setUncontrolledValue(event?.target.value);
                 }
+
                 onChange?.(event);
             },
             [value, onChange],
         );
+
+        const handleTextAreaFocus = () => {
+            if (readOnly || disabled || !outerRef?.current) {
+                return;
+            }
+
+            outerRef.current.scrollTo({
+                top: 0,
+                left: outerRef.current.offsetLeft,
+                behavior: 'smooth',
+            });
+
+            outerRef.current.focus();
+        };
 
         const dynamicLabelClasses = getDynamicLabelClasses(
             {
@@ -202,6 +217,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 clear={clear}
                 style={{ width: helperWidth, ...style }}
                 className={cx(clearClass, hasDividerClass, className)}
+                onClick={handleTextAreaFocus}
             >
                 {hasOuterLabel && (
                     <StyledLabel>
