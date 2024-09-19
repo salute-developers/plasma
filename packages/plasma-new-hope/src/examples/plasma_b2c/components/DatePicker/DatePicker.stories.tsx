@@ -176,6 +176,7 @@ const StoryRange = ({
     secondValueError,
     secondValueSuccess,
     size,
+    lang,
     ...rest
 }: StoryPropsRange) => {
     const rangeRef = useRef<RangeInputRefs>(null);
@@ -234,6 +235,7 @@ const StoryRange = ({
             onCommitSecondDate={(currentValue) => {
                 firstDate && currentValue && setIsOpen(false);
             }}
+            lang={lang}
             {...dividerIconProps}
             {...rest}
         />

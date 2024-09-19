@@ -306,6 +306,7 @@ export const datePickerRangeRoot = (
                         offset={offset}
                         type={type}
                         onToggle={handleToggle}
+                        lang={lang}
                         isDoubleCalendar={isDoubleCalendar}
                         onChangeStartOfRange={(firstDate, dateInfo) => {
                             handleCommitFirstDate(firstDate, false, true, dateInfo);
