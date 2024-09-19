@@ -1,3 +1,134 @@
+# v0.156.0 (Thu Sep 19 2024)
+
+### Release Notes
+
+#### Release by 18.09.2024 ([#1442](https://github.com/salute-developers/plasma/pull/1442))
+
+## Components
+
+### Badge
+
+- добавлено свойство `clear`, которое меняет отображение `view`
+- обновлена документация и storybook
+
+**After**:
+
+<img width="328" src="https://github.com/user-attachments/assets/d44c10e8-ffe3-4137-a833-4351b7b82bdc" />
+
+ 
+feat(plasma-*): Badge add prop clear (https://github.com/salute-developers/plasma/pull/1424)
+
+### TextField
+
+- используется корректный `color token` для содержимого `contentLeft\Right` slots
+- добавлен `hover` для `contentRight` slot
+
+**Before(incorrect color token):**
+
+<img width="928" src="https://github.com/user-attachments/assets/42aa0845-54f4-45ed-8fb0-b71edac4ebf7" />
+
+**After(correct color token):**
+
+<img width="922" src="https://github.com/user-attachments/assets/e6c05099-b9fb-4959-b815-7f2307690263" />
+
+**Hover:**
+
+<img width="940" src="https://github.com/user-attachments/assets/508db157-deff-44e2-9dd9-4893184eb59a" />
+
+
+ 
+[PLASMA-3412]: TextField contentRight\Left fix UI (https://github.com/salute-developers/plasma/pull/1429)
+
+### Combobox
+
+- добавлено новое свойство `alwaysOpened`
+- обновлены токены в конфигурации компонента для `plasma-web`
+- обновлена документация 
+
+ 
+feat(plasma-*): combobox always opened (https://github.com/salute-developers/plasma/pull/1422)
+
+### Grid
+
+- исправили `view` по-умолчанию для `sdds` вертикалей 
+
+**Before:**
+<img width="1920" src="https://github.com/user-attachments/assets/6476ef70-294d-492b-b462-2e42cdb341d4" />
+ 
+**After:**
+<img width="1920" src="https://github.com/user-attachments/assets/aa004cf2-9e43-4691-84f3-fb33f94b3e5f" />
+ 
+fix(sdds-*): Use correct default view for Grid (https://github.com/salute-developers/plasma/pull/1431)
+
+### Editable
+
+- переведен на новую архитектуру и добавлен в поставки `plasma-{b2c, web}`
+- исправлена работа свойства `placeholder`
+
+<img width="276" src="https://github.com/user-attachments/assets/bdd67ba7-62f1-48f1-8f04-78a13fbb8045" />
+ 
+plasma-{web, b2c}: Editable component refactor (https://github.com/salute-developers/plasma/pull/1430)
+
+### Combobox
+
+- исправлена ошибка, когда изначальное значение в `single combobox` не отображалось
+
+ 
+plasma-*: Fixed issue with predefined value in single Combobox (https://github.com/salute-developers/plasma/pull/1436)
+
+
+## Icons
+
+### Add new icons   
+
+**pcMouse**
+<img width="71" src="https://github.com/user-attachments/assets/f2097d88-d354-404a-91af-d59af0a61c3f" />
+
+**Blank JPG/PNG**
+<img width="140" src="https://github.com/user-attachments/assets/0d3a251a-ec39-4e0d-943b-e37c8d96c22f" />
+
+ 
+[PLASMA-3502]: Add icons: Mouse, Blank JPG/PNG (https://github.com/salute-developers/plasma/pull/1435)
+
+
+## Tokens
+
+- исправлены формулы генерации `brightness` токенов
+- обновлены / добавлены `active`, `hover`, `brightness` токены для `plasma-{b2c, web}` themes
+ 
+fix(plasma-tokens): Update active, hover and brightness tokens in themes (https://github.com/salute-developers/plasma/pull/1441)
+
+
+## Misc
+
+### QA Auto test
+
+-   изменены тесты `plasma-b2c` компонентов `Slider`, `Tabs`, `DatePicker` и `Card`
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 18.09.2024 [#1442](https://github.com/salute-developers/plasma/pull/1442) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@IgorYar](https://github.com/IgorYar) [@Yakutoc](https://github.com/Yakutoc) [@shuga2704](https://github.com/shuga2704) [@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- Merge remote-tracking branch 'origin/dev' into release_2024-09-18 ([@Yakutoc](https://github.com/Yakutoc))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 6
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Igor Yaroslavtsev ([@IgorYar](https://github.com/IgorYar))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.148.0 (Tue Sep 10 2024)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,156 @@
+# (Thu Sep 19 2024)
+
+### Release Notes
+
+#### Release by 18.09.2024 ([#1442](https://github.com/salute-developers/plasma/pull/1442))
+
+## Components
+
+### Badge
+
+- добавлено свойство `clear`, которое меняет отображение `view`
+- обновлена документация и storybook
+
+**After**:
+
+<img width="328" src="https://github.com/user-attachments/assets/d44c10e8-ffe3-4137-a833-4351b7b82bdc" />
+
+ 
+feat(plasma-*): Badge add prop clear (https://github.com/salute-developers/plasma/pull/1424)
+
+### TextField
+
+- используется корректный `color token` для содержимого `contentLeft\Right` slots
+- добавлен `hover` для `contentRight` slot
+
+**Before(incorrect color token):**
+
+<img width="928" src="https://github.com/user-attachments/assets/42aa0845-54f4-45ed-8fb0-b71edac4ebf7" />
+
+**After(correct color token):**
+
+<img width="922" src="https://github.com/user-attachments/assets/e6c05099-b9fb-4959-b815-7f2307690263" />
+
+**Hover:**
+
+<img width="940" src="https://github.com/user-attachments/assets/508db157-deff-44e2-9dd9-4893184eb59a" />
+
+
+ 
+[PLASMA-3412]: TextField contentRight\Left fix UI (https://github.com/salute-developers/plasma/pull/1429)
+
+### Combobox
+
+- добавлено новое свойство `alwaysOpened`
+- обновлены токены в конфигурации компонента для `plasma-web`
+- обновлена документация 
+
+ 
+feat(plasma-*): combobox always opened (https://github.com/salute-developers/plasma/pull/1422)
+
+### Grid
+
+- исправили `view` по-умолчанию для `sdds` вертикалей 
+
+**Before:**
+<img width="1920" src="https://github.com/user-attachments/assets/6476ef70-294d-492b-b462-2e42cdb341d4" />
+ 
+**After:**
+<img width="1920" src="https://github.com/user-attachments/assets/aa004cf2-9e43-4691-84f3-fb33f94b3e5f" />
+ 
+fix(sdds-*): Use correct default view for Grid (https://github.com/salute-developers/plasma/pull/1431)
+
+### Editable
+
+- переведен на новую архитектуру и добавлен в поставки `plasma-{b2c, web}`
+- исправлена работа свойства `placeholder`
+
+<img width="276" src="https://github.com/user-attachments/assets/bdd67ba7-62f1-48f1-8f04-78a13fbb8045" />
+ 
+plasma-{web, b2c}: Editable component refactor (https://github.com/salute-developers/plasma/pull/1430)
+
+### Combobox
+
+- исправлена ошибка, когда изначальное значение в `single combobox` не отображалось
+
+ 
+plasma-*: Fixed issue with predefined value in single Combobox (https://github.com/salute-developers/plasma/pull/1436)
+
+
+## Icons
+
+### Add new icons   
+
+**pcMouse**
+<img width="71" src="https://github.com/user-attachments/assets/f2097d88-d354-404a-91af-d59af0a61c3f" />
+
+**Blank JPG/PNG**
+<img width="140" src="https://github.com/user-attachments/assets/0d3a251a-ec39-4e0d-943b-e37c8d96c22f" />
+
+ 
+[PLASMA-3502]: Add icons: Mouse, Blank JPG/PNG (https://github.com/salute-developers/plasma/pull/1435)
+
+
+## Tokens
+
+- исправлены формулы генерации `brightness` токенов
+- обновлены / добавлены `active`, `hover`, `brightness` токены для `plasma-{b2c, web}` themes
+ 
+fix(plasma-tokens): Update active, hover and brightness tokens in themes (https://github.com/salute-developers/plasma/pull/1441)
+
+
+## Misc
+
+### QA Auto test
+
+-   изменены тесты `plasma-b2c` компонентов `Slider`, `Tabs`, `DatePicker` и `Card`
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-asdk@0.156.0`, `@salutejs/plasma-b2c@1.398.0`, `@salutejs/plasma-core@1.180.0`, `@salutejs/plasma-hope@1.312.0`, `@salutejs/plasma-icons@1.205.0`, `@salutejs/plasma-new-hope@0.148.0`, `@salutejs/plasma-tokens@1.99.0`, `@salutejs/plasma-ui@1.285.0`, `@salutejs/plasma-web@1.400.0`, `@salutejs/sdds-cs@0.128.0`, `@salutejs/sdds-dfa@0.126.0`, `@salutejs/sdds-finportal@0.120.0`, `@salutejs/sdds-serv@0.127.0`, `@salutejs/plasma-themes@0.18.0`, `@salutejs/plasma-cy-utils@0.111.0`, `@salutejs/plasma-sb-utils@0.178.0`
+  - Release by 18.09.2024 [#1442](https://github.com/salute-developers/plasma/pull/1442) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@IgorYar](https://github.com/IgorYar) [@Yakutoc](https://github.com/Yakutoc) [@shuga2704](https://github.com/shuga2704) [@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-new-hope@0.148.0`
+  - feat(plasma-new-hope): fix datepicker date input formatting [#1440](https://github.com/salute-developers/plasma/pull/1440) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - feat(plasma-new-hope): Fixed issue with predefined value in single Combobox [#1436](https://github.com/salute-developers/plasma/pull/1436) ([@shuga2704](https://github.com/shuga2704))
+  - feat(plasma-new-hope): add TextField ref to deps for placeholder [#1433](https://github.com/salute-developers/plasma/pull/1433) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-icons@1.205.0`
+  - feat(plasma-icons): add icon Blank JPG/PNG [36x36] [#1435](https://github.com/salute-developers/plasma/pull/1435) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.398.0`, `@salutejs/plasma-web@1.400.0`
+  - feat(plasma-web/b2c): update Editable with tests [#1430](https://github.com/salute-developers/plasma/pull/1430) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.398.0`, `@salutejs/plasma-new-hope@0.148.0`, `@salutejs/plasma-web@1.400.0`
+  - feat(plasma-*): update Combobox configs & stories [#1422](https://github.com/salute-developers/plasma/pull/1422) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/sdds-cs@0.128.0`, `@salutejs/sdds-dfa@0.126.0`, `@salutejs/sdds-finportal@0.120.0`, `@salutejs/sdds-serv@0.127.0`
+  - feat(sdds-*): update Badge stories & configs [#1424](https://github.com/salute-developers/plasma/pull/1424) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.398.0`, `@salutejs/plasma-web@1.400.0`, `@salutejs/sdds-cs@0.128.0`, `@salutejs/sdds-dfa@0.126.0`, `@salutejs/sdds-finportal@0.120.0`, `@salutejs/sdds-serv@0.127.0`
+  - feat(plasma-*/sdds-*): update TextField stories [#1426](https://github.com/salute-developers/plasma/pull/1426) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-themes@0.18.0`
+  - fix(plasma-themes): Update active, hover and bright tokens in `plasma_web` and `plasma_b2c` themes [#1441](https://github.com/salute-developers/plasma/pull/1441) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-new-hope@0.148.0`, `@salutejs/sdds-cs@0.128.0`, `@salutejs/sdds-dfa@0.126.0`, `@salutejs/sdds-finportal@0.120.0`, `@salutejs/sdds-serv@0.127.0`
+  - fix(sdds-*): use correct default view for Grid [#1431](https://github.com/salute-developers/plasma/pull/1431) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/sdds-cs@0.128.0`, `@salutejs/sdds-dfa@0.126.0`, `@salutejs/sdds-finportal@0.120.0`, `@salutejs/sdds-serv@0.127.0`
+  - fix(api-report): update api report (InputHTMLAttributes) [#1429](https://github.com/salute-developers/plasma/pull/1429) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/sdds-finportal@0.120.0`
+  - fix(api-report): update after add TextFieldGroup [#1427](https://github.com/salute-developers/plasma/pull/1427) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.398.0`
+  - test(plasma-b2c): update tests for DatePicker and Card [#1394](https://github.com/salute-developers/plasma/pull/1394) ([@IgorYar](https://github.com/IgorYar))
+  - test(plasma-b2c): update tests for Slider and Tabs [#1423](https://github.com/salute-developers/plasma/pull/1423) ([@IgorYar](https://github.com/IgorYar))
+
+#### Authors: 6
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Igor Yaroslavtsev ([@IgorYar](https://github.com/IgorYar))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Sep 10 2024)
 
 #### 🚀 Enhancement
