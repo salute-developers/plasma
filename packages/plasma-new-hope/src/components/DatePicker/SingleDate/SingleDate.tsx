@@ -8,13 +8,14 @@ import { classes } from '../DatePicker.tokens';
 import { StyledCalendar } from '../DatePickerBase.styles';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { setInitValue } from '../utils/setInitValue';
+import { InputHidden } from '../../../utils/inputHidden';
 
 import type { DatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledInput, StyledLabel, StyledPopover, InputHidden, base } from './SingleDate.styles';
+import { LeftHelper, StyledInput, StyledLabel, StyledPopover, base } from './SingleDate.styles';
 
 export const datePickerRoot = (
     Root: RootProps<HTMLDivElement, Omit<DatePickerProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
@@ -158,7 +159,7 @@ export const datePickerRoot = (
 
                 return () => {
                     if (innerRef.current) {
-                        innerRef.current.addEventListener('setInitValue', (e: Event) =>
+                        innerRef.current.removeEventListener('setInitValue', (e: Event) =>
                             handleCommitDate(setInitValue(e), true, false),
                         );
                     }

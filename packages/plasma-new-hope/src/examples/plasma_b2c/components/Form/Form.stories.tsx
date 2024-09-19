@@ -1,17 +1,17 @@
-import { useForm, Controller } from 'react-hook-form';
-import React from 'react';
+import { useForm as useReactHookForm, Controller } from 'react-hook-form';
+import React, { useRef } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
 import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
-import { TextArea } from '../TextArea/TextArea'; // TextArea.tsx 120 строка, не работает из-за некорректного ref
+import { TextArea } from '../TextArea/TextArea';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { Switch } from '../Switch/Switch';
 import { Radiobox } from '../Radiobox/Radiobox';
 import { RadioGroup } from '../../../../components/Radiobox';
 import { Slider } from '../Slider/Slider';
-import { useFormPlasma } from '../../../../hooks';
+import { useForm } from '../../../../hooks';
 import { DatePicker, DatePickerRange } from '../DatePicker/DatePicker';
 
 type StoryDropdownProps = {};
@@ -23,12 +23,12 @@ const itemsRadiobox = [
     { langName, value: 'assembly', label: 'Assembly', disabled: false },
 ];
 
-const DefaultForm = () => {
+const PlasmaForm = () => {
     const onSubmit = (data) => {
         console.log(data);
     };
 
-    const { formRef, formData } = useFormPlasma(onSubmit, {
+    const { formRef, formData } = useForm(onSubmit, {
         textfield: 'textfield',
         textarea: 'textarea',
         checkbox: 'checkobox',
@@ -72,21 +72,71 @@ const DefaultForm = () => {
 const meta: Meta<StoryDropdownProps> = {
     title: 'plasma_b2c/Form',
     decorators: [WithTheme],
-    component: DefaultForm,
+    component: PlasmaForm,
 };
 
 export default meta;
 
 const StoryPlasmaForm = () => {
-    return <DefaultForm />;
+    return <PlasmaForm />;
 };
 
-export const Default: StoryObj<StoryDropdownProps> = {
+export const DefaultPlasmaForm: StoryObj<StoryDropdownProps> = {
     render: () => <StoryPlasmaForm />,
 };
 
+const DefaultForm = () => {
+    const onSubmit = (event) => {
+        event.preventDefault();
+
+        const fData = new FormData(event.target);
+
+        for (const p of fData) {
+            const name = p[0];
+            const value = p[1];
+
+            console.log(name, value);
+        }
+    };
+    return (
+        <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <TextField name="textfield" placeholder="Textfield" required={false} />
+            <TextArea name="textarea" autoResize placeholder="Textarea" />
+            <Checkbox name="checkbox" label="Checkbox" />
+            <Switch name="switch" label="Switch" labelPosition="after" />
+            <RadioGroup aria-labelledby="radiogroup-title-id">
+                <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
+                    Выберите язык программирования для изучения.
+                </div>
+                {itemsRadiobox.map((item) => (
+                    <Radiobox
+                        name="radiobox"
+                        key={item.value}
+                        value={item.value}
+                        label={item.label}
+                        disabled={item.disabled}
+                    />
+                ))}
+            </RadioGroup>
+            <Slider name="slider" label="Slider" type="single" min={0} max={100} />
+            <Slider name="sliderd" label="Slider" type="double" min={0} max={100} />
+            <DatePicker label="DatePicker" name="datepicker" />
+            <DatePickerRange label="DatePicker" name="datepickerRange" />
+            <Button type="submit">Отправить</Button>
+        </form>
+    );
+};
+
+const StoryDefaultForm = () => {
+    return <DefaultForm />;
+};
+
+export const FormDefault: StoryObj<StoryDropdownProps> = {
+    render: () => <StoryDefaultForm />,
+};
+
 const DefaultUseForm = () => {
-    const { register, handleSubmit } = useForm({
+    const { register, handleSubmit } = useReactHookForm({
         defaultValues: {
             textfield: 'John Doe',
             textarea: 'Default description',
@@ -134,7 +184,7 @@ export const UseHookForm: StoryObj<StoryDropdownProps> = {
 };
 
 const DefaultUseFormController = () => {
-    const { control, handleSubmit } = useForm({
+    const { control, handleSubmit } = useReactHookForm({
         defaultValues: {
             textfield: 'John Doe',
             textarea: 'Default description',
