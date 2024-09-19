@@ -1,5 +1,6 @@
 export const classes = {
     pilled: 'chip-pilled',
+    chipItem: 'chip-item',
 };
 
 export const tokens = {
