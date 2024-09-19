@@ -51,6 +51,7 @@ import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
+import { ChipGroupProps } from '@salutejs/plasma-new-hope/types/components/ChipGroup/ChipGroup.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
@@ -893,6 +894,22 @@ pilled: {
 true: PolymorphicClassName;
 };
 }> & ChipProps & RefAttributes<HTMLButtonElement>>;
+
+// @public (undocumented)
+export const ChipGroup: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+size: {
+s: PolymorphicClassName;
+};
+gap: {
+dense: PolymorphicClassName;
+wide: PolymorphicClassName;
+};
+}> & ChipGroupProps & RefAttributes<HTMLDivElement>>;
 
 export { ChipProps }
 
