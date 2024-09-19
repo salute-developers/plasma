@@ -70,7 +70,7 @@ const PlasmaForm = () => {
 };
 
 const meta: Meta<StoryDropdownProps> = {
-    title: 'plasma_b2c/Form',
+    title: 'plasma_web/Form',
     decorators: [WithTheme],
     component: PlasmaForm,
 };
