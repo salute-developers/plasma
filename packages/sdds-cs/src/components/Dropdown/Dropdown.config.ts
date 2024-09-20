@@ -20,6 +20,13 @@ export const config = {
                 ${dropdownTokens.itemPaddingTopTight}: 0.4375rem;
                 ${dropdownTokens.itemPaddingBottomTight}: 0.4375rem;
 
+                ${dropdownTokens.dividerMarginTop}: 0.375rem;
+                ${dropdownTokens.dividerMarginRight}: 0.75rem;
+                ${dropdownTokens.dividerMarginBottom}: 0.375rem;
+                ${dropdownTokens.dividerMarginLeft}: 0.75rem;
+                ${dropdownTokens.dividerMarginTopTight}: 0.25rem;
+                ${dropdownTokens.dividerMarginBottomTight}: 0.25rem;
+
                 ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
                 ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -36,8 +43,9 @@ export const config = {
                 ${dropdownTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${dropdownTokens.disclosureIconColor}: var(--text-secondary);
                 ${dropdownTokens.itemBackground}: var(--surface-clear);
-                ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${dropdownTokens.itemColor}: var(--text-primary);
+                ${dropdownTokens.dividerColor}: var(--surface-solid-primary);
             `,
         },
     },
