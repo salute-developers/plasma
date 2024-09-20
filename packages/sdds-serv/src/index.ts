@@ -51,6 +51,7 @@ export * from './components/Accordion';
 export * from './components/Select';
 export * from './components/Autocomplete';
 export * from './components/EmptyState';
+export * from './components/Attach';
 
 export * from './mixins';
 export * from './tokens';
