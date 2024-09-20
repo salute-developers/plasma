@@ -22,6 +22,13 @@ export const config = {
                 ${dropdownTokens.itemPaddingTopTight}: 0.3125rem;
                 ${dropdownTokens.itemPaddingBottomTight}: 0.3125rem;
 
+                ${dropdownTokens.dividerMarginTop}: 0.25rem;
+                ${dropdownTokens.dividerMarginRight}: 0.5rem;
+                ${dropdownTokens.dividerMarginBottom}: 0.25rem;
+                ${dropdownTokens.dividerMarginLeft}: 0.5rem;
+                ${dropdownTokens.dividerMarginTopTight}: 0.125rem;
+                ${dropdownTokens.dividerMarginBottomTight}: 0.125rem;
+
                 ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -41,6 +48,13 @@ export const config = {
                 ${dropdownTokens.itemBorderRadius}: 0.5rem;
                 ${dropdownTokens.itemPaddingTopTight}: 0.4375rem;
                 ${dropdownTokens.itemPaddingBottomTight}: 0.4375rem;
+
+                ${dropdownTokens.dividerMarginTop}: 0.375rem;
+                ${dropdownTokens.dividerMarginRight}: 0.75rem;
+                ${dropdownTokens.dividerMarginBottom}: 0.375rem;
+                ${dropdownTokens.dividerMarginLeft}: 0.75rem;
+                ${dropdownTokens.dividerMarginTopTight}: 0.25rem;
+                ${dropdownTokens.dividerMarginBottomTight}: 0.25rem;
 
                 ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
@@ -62,6 +76,13 @@ export const config = {
                 ${dropdownTokens.itemPaddingTopTight}: 0.625rem;
                 ${dropdownTokens.itemPaddingBottomTight}: 0.625rem;
 
+                ${dropdownTokens.dividerMarginTop}: 0.375rem;
+                ${dropdownTokens.dividerMarginRight}: 0.875rem;
+                ${dropdownTokens.dividerMarginBottom}: 0.375rem;
+                ${dropdownTokens.dividerMarginLeft}: 0.875rem;
+                ${dropdownTokens.dividerMarginTopTight}: 0.375rem;
+                ${dropdownTokens.dividerMarginBottomTight}: 0.375rem;
+
                 ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
                 ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -82,6 +103,13 @@ export const config = {
                 ${dropdownTokens.itemPaddingTopTight}: 0.8125rem;
                 ${dropdownTokens.itemPaddingBottomTight}: 0.8125rem;
 
+                ${dropdownTokens.dividerMarginTop}: 0.5rem;
+                ${dropdownTokens.dividerMarginRight}: 1.125rem;
+                ${dropdownTokens.dividerMarginBottom}: 0.5rem;
+                ${dropdownTokens.dividerMarginLeft}: 1.125rem;
+                ${dropdownTokens.dividerMarginTopTight}: 0.375rem;
+                ${dropdownTokens.dividerMarginBottomTight}: 0.375rem;
+
                 ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
                 ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -100,6 +128,7 @@ export const config = {
                 ${dropdownTokens.itemBackground}: var(--surface-clear);
                 ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${dropdownTokens.itemColor}: var(--text-primary);
+                ${dropdownTokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
         },
     },

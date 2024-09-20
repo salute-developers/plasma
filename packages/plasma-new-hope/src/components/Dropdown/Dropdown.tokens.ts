@@ -16,6 +16,14 @@ export const tokens = {
     disabledOpacity: '--plasma-dropdown-disabled-opacity',
     focusColor: '--plasma-dropdown-focus-color',
 
+    dividerColor: '--plasma-dropdown-divider-color',
+    dividerMarginTop: '--plasma-dropdown-divider-margin-top',
+    dividerMarginTopTight: '--plasma-dropdown-divider-margin-top-tight',
+    dividerMarginRight: '--plasma-dropdown-divider-margin-right',
+    dividerMarginBottom: '--plasma-dropdown-divider-margin-bottom',
+    dividerMarginBottomTight: '--plasma-dropdown-divider-margin-bottom-tight',
+    dividerMarginLeft: '--plasma-dropdown-divider-margin-left',
+
     itemBackground: '--plasma-dropdown-item-background',
     itemBackgroundHover: '--plasma-dropdown-item-background-hover',
     itemBackgroundSelected: '--plasma-dropdown-item-background-selected', // Old
@@ -84,13 +92,8 @@ export const tokens = {
     headerFontLetterSpacing: '--plasma-dropdown-header-line-height',
     headerFontLineHeight: '--plasma-dropdown-header-font-weight',
 
-    dividerColor: '--plasma-dropdown-divider-color',
     dividerWidth: '--plasma-dropdown-divider-width',
     dividerHeight: '--plasma-dropdown-divider-height',
-    dividerMarginTop: '--plasma-dropdown-divider-margin-top',
-    dividerMarginRight: '--plasma-dropdown-divider-margin-right',
-    dividerMarginBottom: '--plasma-dropdown-divider-margin-bottom',
-    dividerMarginLeft: '--plasma-dropdown-divider-margin-left',
 
     groupBackground: '--plasma-dropdown-group-background',
     groupWidth: '--plasma-dropdown-group-width',
