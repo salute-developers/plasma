@@ -87,6 +87,7 @@
     "commander": "10.0.0",
     "cypress": "8.0.0",
     "cypress-axe": "0.13.0",
+    "cypress-file-upload": "5.0.8",
     "cypress-image-snapshot": "4.0.1",
     "cypress-plugin-tab": "1.0.5",
     "cypress-react-unit-test": "4.17.2",
