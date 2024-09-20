@@ -80,6 +80,8 @@ const items = [
     {
         value: 'europe',
         label: 'Европа',
+        dividerBefore: true,
+        dividerAfter: true,
         items: [
             {
                 value: 'france',
