@@ -30,6 +30,14 @@ export type DropdownItemOption = {
      */
     contentRight?: ReactNode;
     /**
+     * Отобразить ли разделитель до элемента
+     */
+    dividerBefore?: boolean;
+    /**
+     * Отобразить ли разделитель после элемента
+     */
+    dividerAfter?: boolean;
+    /**
      * Выбранный item.
      * @deprecated использовать ContentLeft || ContentRight
      */

@@ -10,6 +10,7 @@ import {
     StyledText,
     Wrapper,
     DisclosureIconWrapper,
+    Divider,
 } from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
@@ -34,7 +35,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     hasArrow,
     size,
 }) => {
-    const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
+    const { value, label, disabled, isDisabled, contentLeft, contentRight, dividerBefore, dividerAfter } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -81,30 +82,34 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     };
 
     return (
-        <Wrapper
-            className={cx(isDisabledClassName, focusedClass, activeClass)}
-            id={value.toString()}
-            role={itemRole}
-            ref={ref}
-            aria-disabled={disabled || isDisabled}
-            onClick={handleClick}
-            onMouseEnter={handleHover}
-            variant={variant}
-            aria-controls={ariaControls}
-            aria-expanded={ariaExpanded}
-            aria-haspopup={ariaHasPopup}
-            aria-level={ariaLevel}
-            aria-label={ariaLabel}
-        >
-            {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-            <StyledText>{label}</StyledText>
-            {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+        <>
+            {dividerBefore && <Divider variant={variant} />}
+            <Wrapper
+                className={cx(isDisabledClassName, focusedClass, activeClass)}
+                id={value.toString()}
+                role={itemRole}
+                ref={ref}
+                aria-disabled={disabled || isDisabled}
+                onClick={handleClick}
+                onMouseEnter={handleHover}
+                variant={variant}
+                aria-controls={ariaControls}
+                aria-expanded={ariaExpanded}
+                aria-haspopup={ariaHasPopup}
+                aria-level={ariaLevel}
+                aria-label={ariaLabel}
+            >
+                {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+                <StyledText>{label}</StyledText>
+                {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
 
-            {item.items && hasArrow && (
-                <DisclosureIconWrapper>
-                    <IconDisclosureRight size={disclosureIconSize} color="inherit" />
-                </DisclosureIconWrapper>
-            )}
-        </Wrapper>
+                {item.items && hasArrow && (
+                    <DisclosureIconWrapper>
+                        <IconDisclosureRight size={disclosureIconSize} color="inherit" />
+                    </DisclosureIconWrapper>
+                )}
+            </Wrapper>
+            {dividerAfter && <Divider variant={variant} />}
+        </>
     );
 };
