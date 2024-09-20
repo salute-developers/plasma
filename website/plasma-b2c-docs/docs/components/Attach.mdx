@@ -1,0 +1,64 @@
+---
+id: attach
+title: Attach
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Attach
+<Description name="Attach" />
+<PropsTable name="Attach" />
+<StorybookLink name="Attach" />
+
+## Примеры
+
+### Вид кнопки
+С помощью свойства `buttonType` можно менять вид кнопки: обычный или с иконкой.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
+            <Attach view="accent" buttonType={'button'} />
+            <Attach view="secondary" buttonType={'iconButton'} />
+        </div>
+    );
+}
+```
+
+### Расположение элементов
+C помощью свойства `flow` можно регулировать расположение элементов в зависимости от ширины контейнера.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
+            <Attach style={{ width: "400px" }} flow="auto" />
+            <Attach style={{ width: "400px" }} flow="horizontal" />
+            <Attach style={{ width: "400px" }} flow="vertical" />
+        </div>
+    );
+}
+```
+
+### Фильтр форматов файлов
+Свойство `acceptedFileFormats` устанавливает доступные форматы файлов.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div>
+            <Attach acceptedFileFormats={['.pdf', '.doc']} />
+        </div>
+    );
+}
+```
