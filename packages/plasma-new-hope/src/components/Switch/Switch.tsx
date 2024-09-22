@@ -1,28 +1,15 @@
 import React, { forwardRef } from 'react';
-import { css } from '@linaria/core';
 
 import { RootProps } from '../../engines';
 import { base as sizeCSS } from '../Switch/_size/base';
 import { base as viewCSS } from '../Switch/_view/base';
 import { base as focusedCSS } from '../Switch/_focused/base';
 import { base as disabledCSS } from '../Switch/_disabled/base';
-import { base as labelPositionCSS } from '../Switch/_label-position/base';
+import { cx } from '../../utils';
 
-import { StyledInput, StyledLabel, StyledTrigger } from './Switch.styles';
+import { StyledInput, StyledLabel, StyledTrigger, base } from './Switch.styles';
 import { SwitchProps } from './Switch.types';
-
-const base = css`
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    &:focus {
-        outline: 0 none;
-    }
-`;
+import { classes } from './Switch.tokens';
 
 export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
     forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
@@ -60,7 +47,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                 labelPosition={labelPosition}
                 id={id}
                 style={style}
-                className={className}
+                className={cx(className, classes[`${labelPosition}SwitchLabelPosition` as keyof typeof classes])}
             >
                 <StyledInput
                     {...rest}
@@ -96,9 +83,6 @@ export const switchConfig = {
         },
         focused: {
             css: focusedCSS,
-        },
-        labelPosition: {
-            css: labelPositionCSS,
         },
     },
     defaults: {
