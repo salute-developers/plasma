@@ -2995,10 +2995,6 @@ m: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 };
-labelPosition: {
-before: PolymorphicClassName;
-after: PolymorphicClassName;
-};
 disabled: {
 true: PolymorphicClassName;
 };

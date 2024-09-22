@@ -1,6 +1,35 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
 import { applyEllipsis } from '../../mixins';
+
+import { classes, tokens } from './Switch.tokens';
+
+export const base = css`
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:focus {
+        outline: 0 none;
+    }
+
+    &.${classes.beforeSwitchLabelPosition} {
+        justify-content: space-between;
+
+        ${tokens.labelOffsetPrivate}: 0 var(${tokens.labelOffset}) 0 0;
+    }
+
+    &.${classes.afterSwitchLabelPosition} {
+        justify-content: start;
+        flex-direction: row-reverse;
+
+        ${tokens.labelOffsetPrivate}: 0 0 0 var(${tokens.labelOffset});
+    }
+`;
 
 export const StyledInput = styled.input`
     position: absolute;

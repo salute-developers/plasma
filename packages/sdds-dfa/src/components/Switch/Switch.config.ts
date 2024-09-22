@@ -1,9 +1,4 @@
-import {
-    css,
-    switchTokens,
-    Switch_LabelPosition_Before,
-    Switch_LabelPosition_After,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { css, switchTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -40,14 +35,6 @@ export const config = {
                 ${switchTokens.trackBackgroundColorOffHover}: var(--surface-transparent-tertiary-hover);
                 ${switchTokens.thumbBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
-            `,
-        },
-        labelPosition: {
-            before: css`
-                ${Switch_LabelPosition_Before}
-            `,
-            after: css`
-                ${Switch_LabelPosition_After}
             `,
         },
         disabled: {
