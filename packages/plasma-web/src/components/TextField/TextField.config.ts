@@ -14,6 +14,9 @@ export const config = {
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.clearPlaceholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
 
@@ -56,6 +59,8 @@ export const config = {
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
 
@@ -98,6 +103,8 @@ export const config = {
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
 
@@ -140,6 +147,8 @@ export const config = {
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
 

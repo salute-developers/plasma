@@ -10,10 +10,14 @@ export const config = {
         view: {
             default: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-solid-card);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColor}: var(--text-secondary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textBeforeColor}: var(--text-secondary);
                 ${tokens.textAfterColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -24,6 +28,10 @@ export const config = {
                 ${tokens.contentSlotRightColor}: var(--text-accent);
                 ${tokens.contentSlotRightColorHover}: var(--text-accent-hover);
                 ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
+
+                ${tokens.dividerColor}: var(--outline-solid-primary);
+                ${tokens.dividerColorHover}: var(--text-secondary);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -47,14 +55,22 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-negative);
                 ${tokens.backgroundColor}: var(--surface-solid-card);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.clearPlaceholderColor}: var(--text-negative);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${tokens.textBeforeColor}: var(--text-secondary);
                 ${tokens.textAfterColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+
+                ${tokens.dividerColor}: var(--surface-negative);
+                ${tokens.dividerColorHover}: var(--surface-negative);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -97,6 +113,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.5rem;
+                ${tokens.clearLabelOffset}: 0.5rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -144,6 +161,9 @@ export const config = {
         labelPlacement: {
             outer: css``,
         },
+        clear: {
+            true: css``,
+        },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
@@ -162,6 +182,7 @@ export const config = {
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },
