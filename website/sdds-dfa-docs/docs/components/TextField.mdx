@@ -1,5 +1,5 @@
 ---
-id: textfield
+id: TextField
 title: TextField
 ---
 
@@ -7,7 +7,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 # TextField
 <Description name="TextField" />
-<PropsTable name="TextField" exclude={['$isFocused']} />
+<PropsTable name="TextField" exclude={['css']} />
 
 ## Использование
 Компонент `TextField` может содержать иконку (или кнопку) слева и справа.
@@ -24,11 +24,13 @@ export function App() {
             <TextField
                 placeholder="Положение иконки"
                 defaultValue="Слева"
+                size="m"
                 contentLeft={<IconDownload color="inherit" />}
             />
             <TextField
                 placeholder="Положение иконки"
                 defaultValue="Справа"
+                size="m"
                 contentRight={<IconDownload color="inherit" />}
             />
         </div>
@@ -36,8 +38,18 @@ export function App() {
 }
 ```
 
+## Клавиатурная навигация
+
+Данный компонент может полностью управляться с помощью клавиатуры, используя следующие клавиши:
+-  по нажатию `Tab` фокусируемся на input
+-  если enumeratinType=`chip` после ввода текста, по нажатию `Enter`, input очистится и появится Chip
+-  если введен текст в input по нажатию `ArrowLeft` или `ArrowRight` каретка передвигается по тексту
+-  при достижении левой границы текста или отсутствии текста в input, при нажатии `Backspace` удаляем последний Chip, если он есть
+-  при достижении левой границы текста или отсутствии текста в input, при нажатии `ArrowLeft` переключаемся на последний Chip, если он есть
+-  при фокусе на Chip работает переключение фокуса на другие Chip по нажатию `ArrowLeft`, `ArrowRight`; если же Chip крайний правый, при нажатии `ArrowRight` фокус переходит на input
+
 ### Размер поля
-Размер поля задаётся с помощью свойства `size`. Свойство принимает значения `"l"` и `"m"`:
+Размер поля задаётся с помощью свойства `size`:
 
 ```tsx live
 import React from 'react';
@@ -56,13 +68,25 @@ export function App() {
                 size="m"
                 defaultValue="M48"
             />
+            <TextField
+                placeholder="Размер"
+                size="s"
+                defaultValue="S32"
+            />
+            <TextField
+                placeholder="Размер"
+                size="xs"
+                defaultValue="XS24"
+            />
         </div>
     );
 }
 ```
 
-### Статус поля
-Статус поля задается с помощью свойства `status`. Возможные значения свойства: `success`, `warning` и `error`:
+### Вид поля
+Вид поля задается с помощью свойства `view`.
+Возможные значения свойства: `default`, `positive`, `warning` и `negative`.
+На отображение TextField так же влияют свойства `clear` и `hasDivider`:
 
 ```tsx live
 import React from 'react';
@@ -70,29 +94,75 @@ import { TextField } from '@salutejs/sdds-dfa';
 
 export function App() {
     return (
-        <div>
-            <TextField
-                placeholder="Статус"
-                status="success"
-                defaultValue="Успех"
-            />
-            <TextField
-                placeholder="Статус"
-                status="warning"
-                defaultValue="Успех"
-            />
-            <TextField
-                placeholder="Статус"
-                status="error"
-                defaultValue="Ошибка"
-            />
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+                <TextField
+                    placeholder="Статус"
+                    view="default"
+                    size="m"
+                    defaultValue="Обычное состояние"
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="positive"
+                    size="m"
+                    defaultValue="Успех"
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="warning"
+                    size="m"
+                    defaultValue="Предупреждение"
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="negative"
+                    size="m"
+                    defaultValue="Ошибка"
+                />
+            </div>
+
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+                <TextField
+                    placeholder="Статус"
+                    view="default"
+                    size="m"
+                    defaultValue="Обычное состояние"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="positive"
+                    size="m"
+                    defaultValue="Успех"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="warning"
+                    size="m"
+                    defaultValue="Предупреждение"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="negative"
+                    size="m"
+                    defaultValue="Ошибка"
+                    clear
+                    hasDivider
+                />
+            </div>
         </div>
     );
 }
 ```
 
 ### Подсказка
-Для вывода подсказки снизу от поля используйте свойство `helperText`:
+Для вывода подсказки снизу от поля используйте свойство `leftHelper`:
 
 ```tsx live
 import React from 'react';
@@ -104,7 +174,8 @@ export function App() {
             <TextField
                 placeholder="Введите значение"
                 defaultValue="Значение"
-                helperText="Подсказка снизу"
+                size="l"
+                leftHelper="Подсказка снизу"
             />
         </div>
     );
@@ -128,7 +199,7 @@ export function App() {
                 size="l"
                 enumerationType="chip"
                 helperText="Подсказка снизу"
-                values={["Значение 1"]}
+                chips={["Значение 1"]}
             />
         </div>
     );
