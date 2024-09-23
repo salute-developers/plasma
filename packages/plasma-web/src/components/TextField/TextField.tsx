@@ -38,7 +38,29 @@ type RequiredProps = {
       }
 );
 
-type TextFieldProps = TextFieldPropsOld & RequiredProps;
+type ClearProps =
+    | {
+          /**
+           * view применяется с clear-токенами
+           */
+          clear?: boolean;
+          /**
+           * отобразить ли divider
+           */
+          hasDivider?: boolean;
+      }
+    | {
+          /**
+           * view применяется с clear-токенами
+           */
+          clear?: false;
+          /**
+           * отобразить ли divider
+           */
+          hasDivider?: never;
+      };
+
+type TextFieldProps = TextFieldPropsOld & RequiredProps & ClearProps;
 
 export type CustomTextFieldProps = TextFieldProps &
     Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>;
