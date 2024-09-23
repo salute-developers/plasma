@@ -80,6 +80,50 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it(':clear, status, hasDivider', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    clear
+                    hasDivider
+                    size="m"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="success"
+                />
+                <SpaceMe />
+                <TextField
+                    clear
+                    hasDivider
+                    size="m"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="warning"
+                />
+                <SpaceMe />
+                <TextField
+                    clear
+                    hasDivider
+                    size="m"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="error"
+                />
+                <SpaceMe />
+                <TextField clear hasDivider size="m" placeholder="Placeholder" status="success" />
+                <SpaceMe />
+                <TextField clear hasDivider size="m" placeholder="Placeholder" status="warning" />
+                <SpaceMe />
+                <TextField clear hasDivider size="m" placeholder="Placeholder" status="error" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('_maxLength', () => {
         mount(
             <CypressTestDecoratorWithTypo>

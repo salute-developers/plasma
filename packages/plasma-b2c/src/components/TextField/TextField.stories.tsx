@@ -62,6 +62,12 @@ const meta: Meta<TextFieldProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
         status: {
             options: statuses,
             control: {
@@ -171,6 +177,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         required: false,
         requiredPlacement: 'right',
         optional: false,
+        clear: false,
+        hasDivider: false,
     },
     render: (args) => <StoryDemo {...args} />,
 };
