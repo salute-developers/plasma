@@ -24,6 +24,7 @@ export const base = css`
 
         /* поднимает label вверх при фокусе, наличии значения */
         ${Input}:focus ~ ${Label}, ${Input}.${classes.hasValue} ~ ${Label} {
+            color: var(${tokens.placeholderColor});
             align-items: flex-start;
             padding: var(${tokens.labelInnerPadding});
 
@@ -51,6 +52,10 @@ export const base = css`
 
             padding-top: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
             padding-bottom: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
+        }
+
+        &.${classes.clear} ${Label} {
+            color: var(${tokens.clearPlaceholderColor});
         }
     }
 `;

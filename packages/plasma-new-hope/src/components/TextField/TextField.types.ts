@@ -80,6 +80,28 @@ type RequiredProps = {
       }
 );
 
+type ClearProps =
+    | {
+          /**
+           * view применяется с clear-токенами
+           */
+          clear?: boolean;
+          /**
+           * отобразить ли divider
+           */
+          hasDivider?: boolean;
+      }
+    | {
+          /**
+           * view применяется с clear-токенами
+           */
+          clear?: false;
+          /**
+           * отобразить ли divider
+           */
+          hasDivider?: never;
+      };
+
 export type TextFieldPropsBase = {
     /**
      * Метка-подпись к элементу
@@ -114,6 +136,7 @@ export type TextFieldPropsBase = {
      */
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
 } & RequiredProps &
+    ClearProps &
     TextFieldChipProps;
 
 export type TextFieldProps = {

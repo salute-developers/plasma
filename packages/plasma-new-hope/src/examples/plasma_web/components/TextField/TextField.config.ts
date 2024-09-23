@@ -26,6 +26,10 @@ export const config = {
                 ${tokens.borderColorHover}: var(--text-secondary);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColorHover}: var(--text-secondary);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -58,6 +62,10 @@ export const config = {
                 ${tokens.borderColor}: var(--surface-positive);
                 ${tokens.borderColorHover}: var(--surface-positive);
                 ${tokens.borderColorFocus}: var(--surface-accent);
+
+                ${tokens.dividerColor}: var(--surface-positive);
+                ${tokens.dividerColorHover}: var(--surface-positive);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -92,6 +100,10 @@ export const config = {
                 ${tokens.borderColorHover}: var(--surface-warning);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
+                ${tokens.dividerColor}: var(--surface-warning);
+                ${tokens.dividerColorHover}: var(--surface-warning);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -124,6 +136,10 @@ export const config = {
                 ${tokens.borderColor}: var(--surface-negative);
                 ${tokens.borderColorHover}: var(--surface-negative);
                 ${tokens.borderColorFocus}: var(--surface-accent);
+
+                ${tokens.dividerColor}: var(--surface-negative);
+                ${tokens.dividerColorHover}: var(--surface-negative);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -162,6 +178,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -221,6 +238,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.625rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -280,6 +298,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.labelOffset}: 0.5rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -339,6 +358,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelOffset}: 0.375rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -393,6 +413,9 @@ export const config = {
             `,
             outer: css``,
         },
+        clear: {
+            true: css``,
+        },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
@@ -400,7 +423,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.colorReadOnly}: var(--text-primary);
+                ${tokens.colorReadOnly}: var(--text-secondary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);

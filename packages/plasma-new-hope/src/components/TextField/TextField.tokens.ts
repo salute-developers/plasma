@@ -6,11 +6,14 @@ export const classes = {
     innerLabelPlacement: 'label-placement-inner',
     outerLabelPlacement: 'label-placement-outer',
     hideLabel: 'hide-label',
+    clear: 'textfield-clear',
+    hasDivider: 'textfield-has-divider',
     textFieldGroupItem: 'text-field-group-item',
 };
 
 export const tokens = {
     color: '--plasma-textfield-color',
+    clearColor: '--plasma-textfield-clear-color',
 
     backgroundColor: '--plasma-textfield-bg-color',
     backgroundColorHover: '--plasma-textfield-bg-color-hover',
@@ -20,15 +23,21 @@ export const tokens = {
     borderColorHover: '--plasma-textfield-border-color-hover',
     borderColorFocus: '--plasma-textfield-border-color-focus',
 
+    dividerColor: '--plasma-textfield-divider-color',
+    dividerColorHover: '--plasma-textfield-divider-color-hover',
+    dividerColorFocus: '--plasma-textfield-divider-color-focus',
+
     /** Цвета для read-only состояния */
     colorReadOnly: '--plasma-textfield-color-readonly',
     backgroundColorReadOnly: '--plasma-textfield-bg-color-readonly',
     borderColorReadOnly: '--plasma-textfield-border-color-readonly',
     placeholderColorReadOnly: '--plasma-textfield__placeholder-color-readonly',
+    dividerColorReadOnly: '--plasma-textfield-divider-color-readonly',
 
     /** Цвет каретки */
     caretColor: '--plasma-textfield__caret-color',
     placeholderColor: '--plasma-textfield__placeholder-color',
+    clearPlaceholderColor: '--plasma-textfield__clear-placeholder-color',
     optionalColor: '--plasma-textfield__optional-color',
 
     height: '--plasma-textfield-height',
@@ -63,6 +72,7 @@ export const tokens = {
     labelColor: '--plasma-textfield__label-color',
     labelColorReadOnly: '--plasma-textfield__label-color-readonly',
     labelOffset: '--plasma-textfield__label-offset',
+    clearLabelOffset: '--plasma-textfield__clear-label-offset',
 
     labelFontFamily: '--plasma-textfield__label-font-family',
     labelFontStyle: '--plasma-textfield__label-font-style',
