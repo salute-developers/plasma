@@ -12,6 +12,7 @@ export const config = {
         view: {
             default: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.caretColor}: var(--text-accent);
@@ -24,6 +25,10 @@ export const config = {
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColorHover}: var(--text-secondary);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -44,6 +49,8 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-positive);
+                ${tokens.clearPlaceholderColor}: var(--text-positive);
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
                 ${tokens.caretColor}: var(--text-accent);
@@ -56,6 +63,10 @@ export const config = {
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.dividerColor}: var(--surface-positive);
+                ${tokens.dividerColorHover}: var(--surface-positive);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -76,6 +87,8 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-warning);
+                ${tokens.clearPlaceholderColor}: var(--text-warning);
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
                 ${tokens.caretColor}: var(--text-accent);
@@ -88,6 +101,10 @@ export const config = {
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.dividerColor}: var(--surface-warning);
+                ${tokens.dividerColorHover}: var(--surface-warning);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -108,6 +125,8 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-negative);
+                ${tokens.clearPlaceholderColor}: var(--text-negative);
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.caretColor}: var(--text-accent);
@@ -120,6 +139,10 @@ export const config = {
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.dividerColor}: var(--surface-negative);
+                ${tokens.dividerColorHover}: var(--surface-negative);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
@@ -158,6 +181,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -217,6 +241,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.625rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -276,6 +301,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.labelOffset}: 0.5rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -335,6 +361,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelOffset}: 0.375rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -389,6 +416,9 @@ export const config = {
             `,
             outer: css``,
         },
+        clear: {
+            true: css``,
+        },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
@@ -401,6 +431,7 @@ export const config = {
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },

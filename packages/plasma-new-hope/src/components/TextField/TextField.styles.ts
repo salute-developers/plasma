@@ -82,8 +82,9 @@ export const Label = styled.label`
     display: inline-flex;
 `;
 
-const StyledContentSlot = styled.div`
-    color: var(${tokens.contentSlotColor});
+const StyledContentSlot = styled.div<{ isDefaultView: boolean; isClear: boolean }>`
+    color: ${({ isDefaultView, isClear }) =>
+        !isDefaultView && isClear ? `var(${tokens.clearColor})` : `var(${tokens.contentSlotColor})`};
     line-height: 0;
 `;
 
@@ -91,7 +92,9 @@ export const StyledContentLeft = styled(StyledContentSlot)`
     margin: var(${tokens.leftContentMargin});
 `;
 
-export const StyledContentRight = styled(StyledContentSlot)`
+export const StyledContentRight = styled.div`
+    line-height: 0;
+
     margin: var(${tokens.rightContentMargin});
     color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
 

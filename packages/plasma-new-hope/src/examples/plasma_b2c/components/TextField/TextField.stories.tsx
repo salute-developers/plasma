@@ -41,6 +41,12 @@ const meta: Meta<typeof TextField> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
         view: {
             options: views,
             control: {
@@ -149,6 +155,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         optional: false,
         required: false,
+        clear: false,
+        hasDivider: false,
         requiredPlacement: 'right',
     },
     render: (args) => <StoryDemo {...args} />,
