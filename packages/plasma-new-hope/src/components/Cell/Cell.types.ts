@@ -13,7 +13,7 @@ type CustomCellProps = {
     /**
      * Размер
      */
-    view: string;
+    view?: string;
 
     /**
      * Слот для контента слева, например `Icon`

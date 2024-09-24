@@ -93,14 +93,16 @@ export const StyledContentLeft = styled(StyledContentSlot)`
 
 export const StyledContentRight = styled(StyledContentSlot)`
     margin: var(${tokens.rightContentMargin});
+    color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
 
     &:hover {
         color: var(${tokens.contentSlotColorHover});
+        color: var(${tokens.contentSlotRightColorHover}, var(${tokens.contentSlotColorHover}));
         cursor: pointer;
     }
 
     &:active {
-        color: var(${tokens.contentSlotColorActive});
+        color: var(${tokens.contentSlotRightColorActive}, var(${tokens.contentSlotColorActive}));
     }
 `;
 

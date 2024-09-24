@@ -7,8 +7,8 @@ import { IconPlasma } from '@salutejs/plasma-icons';
 import { Autocomplete } from './Autocomplete';
 
 const sizes = ['s'];
-const views = ['default', 'positive', 'warning', 'negative'];
-const labelPlacements = ['outer', 'inner'];
+const views = ['default'];
+const labelPlacements = ['outer'];
 
 const suggestions = [
     { label: 'Алексей Смирнов' },

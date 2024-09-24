@@ -61,12 +61,16 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-autocomplete-textfield__after-text-margin',
     textFieldDisabledOpacity: '--plasma-autocomplete-textfield-disabled-opacity',
     textFieldFocusColor: '--plasma-autocomplete-textfield-focus-color',
+    textFieldContentSlotColor: '--plasma-autocomplete-content-color',
 
     // Токены для дропдауна
     background: '--plasma-autocomplete-background',
     boxShadow: '--plasma-autocomplete-box-shadow',
     borderRadius: '--plasma-autocomplete-border-radius',
     padding: '--plasma-autocomplete-padding',
+
+    dropdownBorderColor: '--plasma-select-dropdown-border-color',
+    dropdownBorderWidth: '--plasma-select-dropdown-border-width',
 
     itemPadding: '--plasma-autocomplete-item-padding',
     itemBorderRadius: '--plasma-autocomplete-item-border-radius',

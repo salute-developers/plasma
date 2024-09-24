@@ -9,12 +9,13 @@ export const StyledLabel = styled.div`
     display: inline-flex;
     margin-bottom: var(${tokens.labelMarginBottom});
 
-    font-family: var(${tokens.inputFontFamily});
-    font-size: var(${tokens.inputFontSize});
-    font-style: var(${tokens.inputFontStyle});
-    font-weight: var(${tokens.inputFontWeight});
-    letter-spacing: var(${tokens.inputLetterSpacing});
-    line-height: var(${tokens.inputLineHeight});
+    color: var(${tokens.labelOuterColor}, var(${tokens.inputColor}));
+    font-family: var(${tokens.labelOuterFontFamily}, var(${tokens.inputFontFamily}));
+    font-size: var(${tokens.labelOuterFontSize}, var(${tokens.inputFontSize}));
+    font-style: var(${tokens.labelOuterFontStyle}, var(${tokens.inputFontStyle}));
+    font-weight: var(${tokens.labelOuterFontWeight}, var(${tokens.inputFontWeight}));
+    letter-spacing: var(${tokens.labelOuterLetterSpacing}, var(${tokens.inputLetterSpacing}));
+    line-height: var(${tokens.labelOuterLineHeight}, var(${tokens.inputLineHeight}));
 `;
 
 export const StyledOptionalText = styled.span`
@@ -40,6 +41,8 @@ export const StyledContent = styled.div`
     align-items: center;
     bottom: 0;
     z-index: 1;
+
+    color: var(${tokens.rightContentColor}, var(${tokens.inputColor}));
 
     top: var(${tokens.rightContentTop});
     right: var(${tokens.rightContentRight});

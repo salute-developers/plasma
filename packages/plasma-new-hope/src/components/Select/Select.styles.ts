@@ -35,6 +35,7 @@ export const Ul = styled.ul<{
     width: ${({ listWidth }) => listWidth || '100%'};
     height: ${({ listHeight }) => (listHeight ? getCorrectHeight(listHeight) : 'auto')};
     overflow: ${({ listOverflow }) => listOverflow || 'initial'};
+    border: var(${tokens.popoverBorderWidth}) solid var(${tokens.popoverBorderColor});
 
     margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 var(${tokens.padding})` : 0)};
     padding: var(${tokens.padding});

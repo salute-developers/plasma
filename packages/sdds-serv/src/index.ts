@@ -19,6 +19,7 @@ export * from './components/IconButton';
 export * from './components/Image';
 export * from './components/Indicator';
 export * from './components/Link';
+export * from './components/Mask';
 export * from './components/Modal';
 export * from './components/Overlay';
 export * from './components/Popover';
@@ -50,6 +51,7 @@ export * from './components/Accordion';
 export * from './components/Select';
 export * from './components/Autocomplete';
 export * from './components/EmptyState';
+export * from './components/Attach';
 
 export * from './mixins';
 export * from './tokens';

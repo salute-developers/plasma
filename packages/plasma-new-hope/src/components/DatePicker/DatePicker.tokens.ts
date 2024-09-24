@@ -125,6 +125,7 @@ export const tokens = {
     textFieldTextAfterColor: '--plasma-date-picker-textfield__after-text-color',
     textFieldTextBeforeMargin: '--plasma-date-picker-textfield__before-text-margin',
     textFieldTextAfterMargin: '--plasma-date-picker-textfield__after-text-margin',
+    textFieldContentSlotColor: '--plasma-date-picker-textfield__content-color',
 
     /** Токены календаря */
     calendarPaddingTop: '--plasma-date-picker-calendar-padding-top',

@@ -24,6 +24,9 @@ export const tokens = {
     fontLetterSpacing: '--plasma-combobox-font-letter-spacing',
     fontLineHeight: '--plasma-combobox-font-line-height',
 
+    dropdownBorderColor: '--plasma-select-dropdown-border-color',
+    dropdownBorderWidth: '--plasma-select-dropdown-border-width',
+
     itemHeight: '--plasma-combobox-item-height',
     itemBorderRadius: '--plasma-combobox-item-border-radius',
     itemPadding: '--plasma-combobox-item-padding',

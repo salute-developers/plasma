@@ -58,6 +58,9 @@ export const tokens = {
     targetTextfieldBackgroundColor: '--plasma-select-target-textfield-background-color',
     targetTextfieldBackgroundColorOpened: '--plasma-select-target-textfield-background-color-opened',
     targetTextfieldBorderColor: '--plasma-select-target-textfield-border-color',
+    targetTextfieldBorderColorHover: '--plasma-select-target-textfield-border-color-hover',
+    targetTextfieldBorderOpenedColor: '--plasma-select-target-textfield-border-opened-color',
+    targetTextfieldBorderSize: '--plasma-select-target-textfield-border-size',
     targetButtonPadding: '--plasma-select-target-button-padding',
     targetTextfieldPadding: '--plasma-select-target-textfield-padding',
     targetTextfieldChipPadding: '--plasma-select-target-textfield-chip-padding',
@@ -75,6 +78,9 @@ export const tokens = {
     chipCloseIconSize: '--plasma-select-chip-close-icon-size',
     chipClearContentMarginLeft: '--plasma-select-chip-clear-content-margin-left',
     chipClearContentMarginRight: '--plasma-select-chip-clear-content-margin-right',
+
+    popoverBorderColor: '--plasma-select-popover-border-color',
+    popoverBorderWidth: '--plasma-select-popover-border-width',
 
     labelOffset: '--plasma-select-label-offset',
 
@@ -100,7 +106,6 @@ export const constants = {
     textfieldOuterLabelColor: '--text-primary',
     textfieldInnerLabelColor: '--text-secondary',
     textfieldPlaceholderColor: '--text-secondary',
-    textfieldBorderSize: '0.0625rem',
     opacity: '0.4',
     fontFamily: '--plasma-typo-body-xs-font-family',
     fontSize: '--plasma-typo-body-xs-font-size',

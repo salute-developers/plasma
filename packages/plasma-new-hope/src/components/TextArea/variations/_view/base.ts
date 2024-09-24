@@ -10,7 +10,7 @@ export const base = css`
     .${String(styledContainer)} {
         transition: box-shadow 0.1s ease-in-out;
         border-radius: var(${tokens.borderRadius});
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColor});
+        border: var(${tokens.borderSize}) solid var(${tokens.borderColor});
     }
 
     .${String(styledTextAreaWrapper)} {
@@ -24,7 +24,7 @@ export const base = css`
     }
 
     &:focus-within:not([readonly]) .${String(styledContainer)} {
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColorFocus});
+        border: var(${tokens.borderSize}) solid var(${tokens.borderColorFocus});
     }
 
     &:focus-within:not([readonly]) .${String(styledHelpers)} {
@@ -32,7 +32,7 @@ export const base = css`
     }
 
     &:hover:${exclusionSelectors} .${String(styledContainer)} {
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColorHover});
+        border: var(${tokens.borderSize}) solid var(${tokens.borderColorHover});
     }
 
     &:hover:${exclusionSelectors} .${String(styledTextAreaWrapper)} {
