@@ -1,3 +1,74 @@
+# (Tue Sep 24 2024)
+
+### Release Notes
+
+#### Release by 24.09.2024 ([#1450](https://github.com/salute-developers/plasma/pull/1450))
+
+## Components
+
+### Mask
+
+- добавлен **новый** компонент
+- включен в поставку plasma-* и sdds-* пакетов
+ 
+feat(plasma-*): add Mask  (https://github.com/salute-developers/plasma/pull/1418)
+
+### Правка токенов в SDDS CS
+
+- Изменены токены для компонентов `Autocomplite`, `Combobox`, `Datepicker`, `Range`, `Textfield`, `Textarea`, `Select` в поставке `sdds-cs`
+
+ 
+feat(sdds-cs): edit tokens (https://github.com/salute-developers/plasma/pull/1439)
+
+### Attach
+- добавлен **новый** компонент в поставку всех клиентских библиотек 
+
+<img width="554" src="https://github.com/user-attachments/assets/0ede5244-018b-4801-9816-6d3f425a1ec5" />
+
+<img width="296" src="https://github.com/user-attachments/assets/e86d1a79-13f9-430c-8c78-60da463bda6d" />
+
+### Cell
+- добавлена возможность использовать свойство `className`
+
+ 
+`plasma-*, sdds-*`: Add Attach (https://github.com/salute-developers/plasma/pull/1437)
+
+
+## Misc
+
+### Tests
+-   изменены тесты plasma-b2c компонента TextArea
+
+ 
+test(plasma-b2c): update tests for TextArea (https://github.com/salute-developers/plasma/pull/1434)
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-asdk@0.159.0`, `@salutejs/plasma-b2c@1.401.0`, `@salutejs/plasma-new-hope@0.151.0`, `@salutejs/plasma-web@1.403.0`, `@salutejs/sdds-cs@0.131.0`, `@salutejs/sdds-dfa@0.129.0`, `@salutejs/sdds-finportal@0.123.0`, `@salutejs/sdds-serv@0.130.0`
+  - Release by 24.09.2024 [#1450](https://github.com/salute-developers/plasma/pull/1450) ([@IgorYar](https://github.com/IgorYar) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@iljs](https://github.com/iljs) [@denivladislav](https://github.com/denivladislav))
+- `@salutejs/plasma-b2c@1.401.0`, `@salutejs/plasma-web@1.403.0`, `@salutejs/sdds-cs@0.131.0`, `@salutejs/sdds-dfa@0.129.0`, `@salutejs/sdds-finportal@0.123.0`, `@salutejs/sdds-serv@0.130.0`
+  - docs(): api reports regenerated [#1437](https://github.com/salute-developers/plasma/pull/1437) ([@denivladislav](https://github.com/denivladislav))
+  - feat(plasma-*): fix Mask stories prop [#1418](https://github.com/salute-developers/plasma/pull/1418) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-new-hope@0.151.0`, `@salutejs/plasma-web@1.403.0`, `@salutejs/sdds-cs@0.131.0`
+  - feat(sdds-cs): edit tokens [#1439](https://github.com/salute-developers/plasma/pull/1439) ([@iljs](https://github.com/iljs))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.401.0`
+  - test(plasma-b2c): update tests for TextArea [#1434](https://github.com/salute-developers/plasma/pull/1434) ([@IgorYar](https://github.com/IgorYar))
+
+#### Authors: 5
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Igor Yaroslavtsev ([@IgorYar](https://github.com/IgorYar))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Vladislav Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # (Thu Sep 19 2024)
 
 ### Release Notes
