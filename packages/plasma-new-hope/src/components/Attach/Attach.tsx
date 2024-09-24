@@ -10,7 +10,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base, StyledHiddenInput, StyledHiddenInputHelper } from './Attach.styles';
 import { StyledCell } from './ui/Cell/Cell';
-import { extractExtension, getFileicon, truncateFilename } from './utils';
+import { extractExtension, getFileicon, addSeparator, separator } from './utils';
 import { classes } from './Attach.tokens';
 import { AttachButton } from './components/AttachButton';
 import { StyledIconButtonCancel } from './ui/IconButton/IconButton.styles';
@@ -74,19 +74,25 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             const { width: parentWidth, left: parentLeft } = cellRef.current.parentElement.getBoundingClientRect();
             const { left: cellLeft } = cellRef.current.getBoundingClientRect();
             const leftDiff = cellLeft - parentLeft;
-
             let currentTextWidth = textWidth;
-            let currFilename = filename;
 
-            for (let i = filename.length - 1; i > 0; i -= 1) {
+            if (
+                currentTextWidth + emptyTextCellWidth.current + leftDiff <= parentWidth ||
+                currentTextWidth + emptyTextCellWidth.current < buttonWidth
+            ) {
+                setTruncatedFilename(filename);
+                return;
+            }
+
+            let currFilename = addSeparator(filename, separator);
+            for (let i = currFilename.indexOf(separator) - 1; i > 0; i -= 1) {
                 if (currentTextWidth + emptyTextCellWidth.current + leftDiff <= parentWidth) {
                     break;
                 }
 
-                const newFilename = truncateFilename({
-                    filename: inputHelperRef.current.textContent,
-                    startNameTruncationIndex: i,
-                });
+                const left = currFilename.slice(0, i);
+                const right = currFilename.slice(i + 1);
+                const newFilename = `${left}${right}`;
                 inputHelperRef.current.textContent = newFilename;
                 currentTextWidth = inputHelperRef.current.offsetWidth;
 
