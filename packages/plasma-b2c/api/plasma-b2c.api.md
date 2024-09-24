@@ -3269,11 +3269,12 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<H
 export { TextareaHTMLAttributes }
 
 // Warning: (ae-forgotten-export) The symbol "RequiredProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ClearProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
 export type TextAreaProps = TextAreaProps_2 & {
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-} & RequiredProps;
+} & RequiredProps & ClearProps;
 
 export { TextareaResize }
 
@@ -3327,10 +3328,10 @@ export { TextFieldGroupProps }
 
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "RequiredProps_2" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "ClearProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ClearProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>) & RequiredProps_2 & ClearProps;
+export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>) & RequiredProps_2 & ClearProps_2;
 
 export { TextFieldView }
 

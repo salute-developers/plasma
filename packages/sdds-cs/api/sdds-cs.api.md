@@ -2522,6 +2522,9 @@ default: PolymorphicClassName;
 primary: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
+clear: {
+true: PolymorphicClassName;
+};
 disabled: {
 true: PolymorphicClassName;
 };
@@ -2555,6 +2558,9 @@ width?: undefined;
 } & {
 rows?: undefined;
 cols?: undefined;
+} & {
+clear?: undefined;
+hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
@@ -2582,6 +2588,9 @@ minAuto?: undefined;
 } & {
 rows?: undefined;
 cols?: undefined;
+} & {
+clear?: undefined;
+hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
@@ -2602,6 +2611,39 @@ view?: string | undefined;
 } & {
 rows?: number | undefined;
 cols?: number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & {
+clear?: undefined;
+hasDivider?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
+clear?: true | undefined;
+hasDivider?: boolean | undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
 } & {
 autoResize?: undefined;
 maxAuto?: undefined;
@@ -2636,6 +2678,9 @@ width?: undefined;
 } & {
 rows?: undefined;
 cols?: undefined;
+} & {
+clear?: undefined;
+hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
@@ -2663,6 +2708,9 @@ minAuto?: undefined;
 } & {
 rows?: undefined;
 cols?: undefined;
+} & {
+clear?: undefined;
+hasDivider?: undefined;
 } & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
@@ -2683,6 +2731,39 @@ view?: string | undefined;
 } & {
 rows?: number | undefined;
 cols?: number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & {
+clear?: undefined;
+hasDivider?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+status?: "" | "warning" | "success" | "error" | undefined;
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+helperText?: string | undefined;
+leftHelper?: string | undefined;
+rightHelper?: string | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+size?: string | undefined;
+view?: string | undefined;
+} & {
+clear?: true | undefined;
+hasDivider?: boolean | undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
 } & {
 autoResize?: undefined;
 maxAuto?: undefined;

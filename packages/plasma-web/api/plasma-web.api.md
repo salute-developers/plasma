@@ -3271,11 +3271,12 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<H
 export { TextareaHTMLAttributes }
 
 // Warning: (ae-forgotten-export) The symbol "RequiredProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ClearProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
 export type TextAreaProps = TextAreaProps_2 & {
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-} & RequiredProps;
+} & RequiredProps & ClearProps;
 
 export { TextareaResize }
 
