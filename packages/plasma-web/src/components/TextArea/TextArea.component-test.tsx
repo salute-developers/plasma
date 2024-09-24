@@ -1,9 +1,21 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconEye } from '@salutejs/plasma-icons';
 
-describe('plasma-b2c: TextArea', () => {
+const StandardTypoStyle = createGlobalStyle(standardTypo);
+
+describe('plasma-web: TextArea', () => {
     const TextArea = getComponent('TextArea');
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     const propsDefault = {
         placeholder: 'Оставьте ваш комментарий [placeholder]',
@@ -25,9 +37,9 @@ describe('plasma-b2c: TextArea', () => {
 
     it('default', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -35,9 +47,9 @@ describe('plasma-b2c: TextArea', () => {
 
     it(':empty', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea placeholder="Placeholder" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -45,9 +57,9 @@ describe('plasma-b2c: TextArea', () => {
 
     it(':focused', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('textarea:first').focus();
@@ -56,9 +68,9 @@ describe('plasma-b2c: TextArea', () => {
 
     it(':disabled', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -66,13 +78,13 @@ describe('plasma-b2c: TextArea', () => {
 
     it(':success, :warning, :error', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" status="success" />
                 <SpaceMe />
                 <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" status="warning" />
                 <SpaceMe />
                 <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" status="error" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -80,7 +92,7 @@ describe('plasma-b2c: TextArea', () => {
 
     it(':clear, :success, :warning, :error', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea
                     value="Value"
                     label="Placeholder"
@@ -101,7 +113,7 @@ describe('plasma-b2c: TextArea', () => {
                     clear
                     hasDivider
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -109,7 +121,7 @@ describe('plasma-b2c: TextArea', () => {
 
     it('resize', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea
                     resize="horizontal"
                     value="horizontal"
@@ -131,7 +143,7 @@ describe('plasma-b2c: TextArea', () => {
                     helperText="Helper text"
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.root().get('textarea').last().invoke('attr', 'style', 'width: 280px; height: 140px;');
@@ -141,7 +153,7 @@ describe('plasma-b2c: TextArea', () => {
 
     it('custom width and height', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea
                     value="Value"
                     placeholder="Placeholder"
@@ -150,7 +162,7 @@ describe('plasma-b2c: TextArea', () => {
                     height={10}
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -158,7 +170,7 @@ describe('plasma-b2c: TextArea', () => {
 
     it('contentRight', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea
                     value="Value"
                     placeholder="Placeholder"
@@ -172,7 +184,7 @@ describe('plasma-b2c: TextArea', () => {
                     helperText="Helper text"
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -180,7 +192,7 @@ describe('plasma-b2c: TextArea', () => {
 
     it('leftHelper and rightHelper', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea
                     value="Value"
                     placeholder="Placeholder"
@@ -202,7 +214,7 @@ describe('plasma-b2c: TextArea', () => {
                     rightHelper="Helper text right"
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -210,9 +222,9 @@ describe('plasma-b2c: TextArea', () => {
 
     it('defaultValue', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea placeholder="Placeholder" defaultValue="Default Value" leftHelper="Helper text left" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -220,7 +232,7 @@ describe('plasma-b2c: TextArea', () => {
 
     it('placeholder with multiline', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea width={10} placeholder="Very very long placeholder" leftHelper="Helper text left" />
                 <SpaceMe />
                 <TextArea
@@ -229,7 +241,7 @@ describe('plasma-b2c: TextArea', () => {
                     leftHelper="Helper text left"
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -248,7 +260,7 @@ describe('plasma-b2c: TextArea', () => {
         sizes.forEach((size) => {
             it(`_size:${size}`, () => {
                 mount(
-                    <CypressTestDecorator>
+                    <CypressTestDecoratorWithTypo>
                         {cases.map((props) => (
                             <div style={{ margin: '0 1rem' }}>
                                 <TextArea
@@ -262,7 +274,7 @@ describe('plasma-b2c: TextArea', () => {
                                 <SpaceMe />
                             </div>
                         ))}
-                    </CypressTestDecorator>,
+                    </CypressTestDecoratorWithTypo>,
                 );
 
                 cy.matchImageSnapshot();
@@ -272,7 +284,7 @@ describe('plasma-b2c: TextArea', () => {
 
     it('_size :empty', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea size="l" {...propsDefault} />
                 <SpaceMe />
                 <TextArea size="m" {...propsDefault} />
@@ -280,7 +292,7 @@ describe('plasma-b2c: TextArea', () => {
                 <TextArea size="s" {...propsDefault} />
                 <SpaceMe />
                 <TextArea size="xs" {...propsDefault} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -293,7 +305,7 @@ describe('plasma-b2c: TextArea', () => {
         };
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -301,7 +313,7 @@ describe('plasma-b2c: TextArea', () => {
                 <TextArea size="s" {...props} />
                 <SpaceMe />
                 <TextArea size="xs" {...props} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -315,7 +327,7 @@ describe('plasma-b2c: TextArea', () => {
         };
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -323,7 +335,7 @@ describe('plasma-b2c: TextArea', () => {
                 <TextArea size="s" {...props} />
                 <SpaceMe />
                 <TextArea size="xs" {...props} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
