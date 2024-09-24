@@ -1,6 +1,6 @@
 import { TextareaHTMLAttributes } from '../../types';
 
-type Only<T, U, R> = {
+type Only<T, U, R, K> = {
     [P in keyof T]: T[P];
 } &
     {
@@ -8,9 +8,23 @@ type Only<T, U, R> = {
     } &
     {
         [P in keyof R]?: never;
+    } &
+    {
+        [P in keyof K]?: never;
     };
 
-type OneOf<T, U, R> = Only<T, U, R> | Only<U, T, R> | Only<R, T, U>;
+type OneOf<T, U, R, K> = Only<T, U, R, K> | Only<U, T, R, K> | Only<R, T, U, K> | Only<K, R, T, U>;
+
+type ClearProps = {
+    /**
+     * view применяется с clear-токенами
+     */
+    clear?: true;
+    /**
+     * отобразить ли divider
+     */
+    hasDivider?: boolean;
+};
 
 export type TextAreaPropsAutoResize = {
     /**
@@ -53,7 +67,12 @@ export type TextAreaPropsRowsCols = {
     cols?: number;
 };
 
-export type TextAreaDimensionsProps = OneOf<TextAreaPropsAutoResize, TextAreaPropsHeightWidth, TextAreaPropsRowsCols>;
+export type TextAreaDimensionsProps = OneOf<
+    TextAreaPropsAutoResize,
+    TextAreaPropsHeightWidth,
+    TextAreaPropsRowsCols,
+    ClearProps
+>;
 
 type RequiredProps = {
     /**
