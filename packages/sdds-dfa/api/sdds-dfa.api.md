@@ -13,6 +13,7 @@ import { AsProps } from '@salutejs/plasma-new-hope/types/types';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { AvatarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
+import { BaseAttachProps } from '@salutejs/plasma-new-hope/types/components/Attach/Attach.types';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
@@ -200,6 +201,228 @@ import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 
 export { addFocus }
+
+// @public
+export const Attach: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & BaseAttachProps & {
+buttonType?: "button" | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & BaseAttachProps & {
+buttonType?: "button" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & BaseAttachProps & {
+buttonType?: "iconButton" | undefined;
+icon?: ReactNode;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & BaseAttachProps & {
+buttonType?: "iconButton" | undefined;
+icon?: ReactNode;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & BaseAttachProps & {
+buttonType?: "button" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & BaseAttachProps & {
+buttonType?: "button" | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & BaseAttachProps & {
+buttonType?: "iconButton" | undefined;
+icon?: ReactNode;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & BaseAttachProps & {
+buttonType?: "iconButton" | undefined;
+icon?: ReactNode;
+} & RefAttributes<HTMLDivElement>))>;
 
 // @public (undocumented)
 export const Autocomplete: FunctionComponent<PropsType<    {
@@ -599,7 +822,7 @@ xs: PolymorphicClassName;
 };
 }> & (({
 size?: string | undefined;
-view: string;
+view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
 alignContentLeft?: AlignProp | undefined;
@@ -614,7 +837,7 @@ label?: string | undefined;
 children?: undefined;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>) | ({
 size?: string | undefined;
-view: string;
+view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
 alignContentLeft?: AlignProp | undefined;
