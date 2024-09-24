@@ -104,6 +104,35 @@ export function App() {
 }
 ```
 
+### Clear
+На отображение TextArea влияют свойства `clear` и `hasDivider`.
+При этом `hasDivider` не может использоваться без `clear`.
+Свойства `minAuto`, `maxAuto`, `autoResize`, `rows` и `cols`, `height` и `width` игнорируются.
+Высота TextArea в таком случае регулируется по длине контента внутри:
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [value, setValue] = React.useState('Значение');
+
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                clear
+                hasDivider
+            />
+        </div>
+    );
+}
+```
+
 ### Подсказка
 Для вывода подсказки снизу от поля используйте свойство `leftHelper` и/или `rightHelper`.
 
