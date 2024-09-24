@@ -4,7 +4,7 @@ import { tokens, classes } from '../../TextArea.tokens';
 
 const { styledContainer, styledTextAreaWrapper, styledHelpers } = classes;
 
-const exclusionSelectors = 'not([disabled]):not([readonly]):not(:focus-within)';
+const exclusionSelectors = `not(.${classes.clear}):not([disabled]):not([readonly]):not(:focus-within)`;
 
 export const base = css`
     .${String(styledContainer)} {
