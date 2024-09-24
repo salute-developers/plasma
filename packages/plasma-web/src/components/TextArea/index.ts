@@ -31,9 +31,32 @@ type RequiredProps = {
       }
 );
 
+type ClearProps =
+    | {
+          /**
+           * view применяется с clear-токенами
+           */
+          clear?: boolean;
+          /**
+           * отобразить ли divider
+           */
+          hasDivider?: boolean;
+      }
+    | {
+          /**
+           * view применяется с clear-токенами
+           */
+          clear?: false;
+          /**
+           * отобразить ли divider
+           */
+          hasDivider?: never;
+      };
+
 export type TextAreaProps = TextAreaPropsBase & {
     /**
      * @deprecated не используется в компоненте
      */
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-} & RequiredProps;
+} & RequiredProps &
+    ClearProps;

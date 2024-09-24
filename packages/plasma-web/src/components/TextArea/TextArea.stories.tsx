@@ -42,21 +42,29 @@ const meta: Meta<TextAreaProps> = {
                 type: 'select',
             },
         },
-        cols: {
-            control: {
-                type: 'number',
-            },
-        },
-        rows: {
-            control: {
-                type: 'number',
-            },
-        },
         labelPlacement: {
             options: ['inner', 'outer'],
             control: {
                 type: 'select',
             },
+        },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
+        cols: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
+        },
+        rows: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
         },
         ...disableProps([
             '$isFocused',
@@ -94,11 +102,13 @@ type StoryProps = TextAreaProps & { enableContentRight: boolean };
 const StoryDefault = ({ enableContentRight, status, ...rest }: StoryProps) => {
     const [value, setValue] = useState('Значение поля');
 
+    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+
     return (
         <TextArea
             resize="none"
             value={value}
-            contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             status={status || undefined}
             onChange={(e) => {
                 setValue(e.target.value);
@@ -125,6 +135,8 @@ export const Default: StoryObj<StoryProps> = {
         required: false,
         requiredPlacement: 'right',
         optional: false,
+        clear: false,
+        hasDivider: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

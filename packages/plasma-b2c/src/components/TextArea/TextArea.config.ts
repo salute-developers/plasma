@@ -19,6 +19,7 @@ export const config = {
                 ${textAreaTokens.inputPaddingBottom}: 0.563rem;
                 ${textAreaTokens.inputPaddingLeft}: 0.625rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.5rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0.625rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0.563rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0.625rem;
@@ -27,6 +28,7 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.5rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.375rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
@@ -66,6 +68,7 @@ export const config = {
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 0.875rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0.875rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0.875rem;
@@ -74,6 +77,7 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.75rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.5rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -113,6 +117,7 @@ export const config = {
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 1rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 1rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
                 ${textAreaTokens.helpersPaddingLeft}: 1rem;
@@ -121,6 +126,7 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.875rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.625rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -162,6 +168,7 @@ export const config = {
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 1.125rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 1.125rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
                 ${textAreaTokens.helpersPaddingLeft}: 1.125rem;
@@ -170,6 +177,7 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 1rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.75rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -209,6 +217,7 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -217,6 +226,10 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             positive: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-positive);
@@ -228,6 +241,8 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-positive-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-positive);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-positive);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-positive);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-positive);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -236,6 +251,10 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-positive);
+                ${textAreaTokens.dividerColorHover}: var(--surface-positive);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             /**
              * @deprecated
@@ -251,6 +270,7 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -259,6 +279,10 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             warning: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-warning);
@@ -270,6 +294,8 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-warning-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-warning);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-warning);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-warning);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-warning);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -278,6 +304,10 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-warning);
+                ${textAreaTokens.dividerColorHover}: var(--surface-warning);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             negative: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-negative);
@@ -289,6 +319,8 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-negative);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-negative);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-negative);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -297,12 +329,20 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-negative);
+                ${textAreaTokens.dividerColorHover}: var(--surface-negative);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
+        },
+        clear: {
+            true: css``,
         },
         disabled: {
             true: css`
                 ${textAreaTokens.disabledOpacity}: 0.4;
                 ${textAreaTokens.inputColorDisabled}: var(--text-secondary);
+                ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },
