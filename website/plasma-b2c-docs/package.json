@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-b2c-docs",
-  "version": "0.25.1-dev.0",
+  "version": "0.26.0-dev.0",
   "description": "Plasma Documentation.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -30,8 +30,8 @@
     "@docusaurus/preset-classic": "3.1.1",
     "@docusaurus/theme-live-codeblock": "3.1.1",
     "@mdx-js/react": "3.0.0",
-    "@salutejs/plasma-b2c": "1.402.1-dev.0",
-    "@salutejs/plasma-docs-ui": "0.315.1-dev.0",
+    "@salutejs/plasma-b2c": "1.403.0-dev.0",
+    "@salutejs/plasma-docs-ui": "0.316.0-dev.0",
     "@salutejs/plasma-icons": "1.205.0",
     "@salutejs/plasma-tokens-b2c": "0.52.0",
     "@salutejs/plasma-tokens-web": "1.57.0",
