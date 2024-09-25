@@ -24,6 +24,7 @@ const meta: Meta<DropdownProps> = {
             control: {
                 type: 'select',
             },
+            mapping: placements,
         },
         trigger: {
             options: triggers,
