@@ -29,6 +29,8 @@ export const StyledContentWrapper = styled.div`
     display: flex;
     align-items: center;
 
+    z-index: 1;
+
     &.${classes.tabsClipScroll} {
         overflow: scroll;
         scroll-padding: 0.25rem;

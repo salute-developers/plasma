@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import type { AsProps } from '../../types';
 
@@ -17,11 +17,6 @@ export interface BaseTabsProps extends HTMLAttributes<HTMLDivElement>, AsProps {
      */
     disabled?: boolean;
     /**
-     * Табы растянуты на доступную область
-     * @default false
-     */
-    stretch?: boolean;
-    /**
      * Индекс активного элемента, необходим для клавиатурной навигации
      */
     index?: number;
@@ -33,6 +28,11 @@ export type CustomHorizontalTabsProps = {
      */
     orientation?: 'horizontal';
     /**
+     * Табы растянуты на доступную область
+     * @default false
+     */
+    stretch?: boolean;
+    /**
      * Табы c округлым border-radius
      * @default false
      */
@@ -40,11 +40,11 @@ export type CustomHorizontalTabsProps = {
     /**
      * Вид табов
      */
-    view?: 'clear' | 'filled' | 'divider';
+    view?: string;
     /**
      * Размер табов
      */
-    size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 's' | 'xs' | 'm' | 'l';
+    size?: string;
     /**
      * Уберет скругление с выбранной стороны и подвинет контейнер
      * @deprecated
@@ -63,17 +63,13 @@ export type CustomVerticalTabsProps = {
      */
     hasDivider?: boolean;
     /**
-     * Контент слева, общий для всех TabItem
-     */
-    contentLeft?: ReactNode;
-    /**
      * Вид табов
      */
-    view?: 'divider';
+    view?: string;
     /**
      * Размер табов
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: string;
 };
 
 export type HorizontalTabsProps = BaseTabsProps & CustomHorizontalTabsProps;

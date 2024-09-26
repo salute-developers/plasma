@@ -2,20 +2,47 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import type { AsProps } from '../../types';
 
+type RightContent =
+    | {
+          /**
+           * Значение таба
+           */
+          value?: string | number;
+          /**
+           * Слот для контента справа, например `Icon`
+           */
+          contentRight?: never;
+      }
+    | {
+          /**
+           * Значение таба
+           */
+          value?: never;
+          /**
+           * Слот для контента справа, например `Icon`
+           */
+          contentRight?: ReactNode;
+      };
+
 export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement>, AsProps {
     /**
      * Выбран ли TabItem
      */
     selected?: boolean;
     /**
-     * Скрыт ли TabItem
+     * TabItem неактивен
      * @default false
      */
     disabled?: boolean;
     /**
+     * Контент слева
+     */
+    contentLeft?: ReactNode;
+    /**
      * Контент справа
      */
     contentRight?: ReactNode;
+
     /**
      * Callback, необходимый для клавиатурной навигации
      */
@@ -37,10 +64,6 @@ export type CustomHorizontalTabItemProps = {
      */
     pilled?: boolean;
     /**
-     * Контент слева
-     */
-    contentLeft?: ReactNode;
-    /**
      * Фон TabItem меняется с анимацией
      * @default true
      */
@@ -48,17 +71,17 @@ export type CustomHorizontalTabItemProps = {
     /**
      * Вид TabItem
      */
-    view?: 'clear' | 'secondary' | 'divider' | 'default';
+    view?: string;
     /**
      * Размер TabItem
      */
-    size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'xs' | 's' | 'm' | 'l';
+    size?: string;
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`
      */
     isActive?: boolean;
-};
+} & RightContent;
 
 export type CustomVerticalTabItemProps = {
     /**
@@ -68,12 +91,12 @@ export type CustomVerticalTabItemProps = {
     /**
      * Вид TabItem
      */
-    view?: 'divider';
+    view?: string;
     /**
      * Размер TabItem
      */
-    size?: 'xs' | 's' | 'm' | 'l';
-};
+    size?: string;
+} & RightContent;
 
 export type HorizontalTabItemProps = BaseTabItemProps & CustomHorizontalTabItemProps;
 

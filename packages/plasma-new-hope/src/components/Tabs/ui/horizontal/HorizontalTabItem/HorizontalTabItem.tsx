@@ -11,7 +11,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as disabledCSS } from './variations/_disabled/base';
-import { LeftContent, RightContent, StyledContent, base } from './HorizontalTabItem.styles';
+import { LeftContent, RightContent, StyledContent, TabItemValue, base } from './HorizontalTabItem.styles';
 
 export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, HorizontalTabItemProps>) =>
     forwardRef<HTMLDivElement, HorizontalTabItemProps>((props, outerRef) => {
@@ -23,6 +23,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             disabled = false,
             pilled = false,
             children,
+            value,
             contentLeft,
             contentRight,
             animated = true,
@@ -59,6 +60,10 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
 
         const onItemFocus = useCallback<React.FocusEventHandler>(
             (event) => {
+                if (disabled) {
+                    return;
+                }
+
                 if (!hasKeyNavigation && innerRef?.current) {
                     innerRef.current.scrollTo({
                         top: 0,
@@ -69,7 +74,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
                     return;
                 }
 
-                if (disabled || !refs) {
+                if (!refs) {
                     return;
                 }
 
@@ -112,7 +117,10 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
                 <>
                     {contentLeft && <LeftContent className={classes.tabLeftContent}>{contentLeft}</LeftContent>}
                     <StyledContent className={classes.tabContent}>{children}</StyledContent>
-                    {contentRight && <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>}
+                    {!contentRight && value && <TabItemValue>{value}</TabItemValue>}
+                    {!value && contentRight && (
+                        <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>
+                    )}
                 </>
             </Root>
         );

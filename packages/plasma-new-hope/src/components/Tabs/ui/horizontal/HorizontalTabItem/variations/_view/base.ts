@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../../../../tokens';
-import { RightContent } from '../../HorizontalTabItem.styles';
+import { TabItemValue } from '../../HorizontalTabItem.styles';
 
 export const base = css`
     color: var(${tokens.itemColor});
@@ -13,20 +13,24 @@ export const base = css`
         color: var(${tokens.itemColorHover});
         background-color: var(${tokens.itemBackgroundColorHover});
 
-        ${RightContent} {
-            color: var(${tokens.additionalContentHoverColor});
+        ${TabItemValue} {
+            color: var(${tokens.itemValueColorHover});
         }
     }
 
     &:active {
         color: var(${tokens.itemColorActive});
+
+        ${TabItemValue} {
+            color: var(${tokens.itemValueColorActive});
+        }
     }
 
-    &.${String(classes.tabItemAnimated)} {
+    &.${classes.tabItemAnimated} {
         transition: var(${tokens.itemBackgroundTransition});
     }
 
-    &.${String(classes.selectedTabsItem)} {
+    &.${classes.selectedTabsItem} {
         color: var(${tokens.itemSelectedColor});
         background-color: var(${tokens.itemSelectedBackgroundColor});
 
@@ -39,23 +43,23 @@ export const base = css`
             }
         }
 
-        ${RightContent} {
-            color: var(${tokens.additionalContentSelectedColor});
+        ${TabItemValue} {
+            color: var(${tokens.itemSelectedValueColorHover});
 
             &:hover {
-                color: var(${tokens.additionalContentSelectedHoverColor});
+                color: var(${tokens.itemSelectedValueColorHover});
             }
         }
 
         &::after {
             content: '';
             position: absolute;
-            bottom: 0px;
+            bottom: 0;
             left: 0;
             right: 0;
             background: var(${tokens.itemSelectedDividerColor});
             height: var(${tokens.itemSelectedDividerHeight});
-            border-radius: 1px;
+            border-radius: 0.063rem;
         }
     }
 `;

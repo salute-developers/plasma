@@ -9,13 +9,18 @@ export const config = {
         view: {
             clear: css`
                 ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemValueColor}: var(--text-tertiary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
                 ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
@@ -27,21 +32,21 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.additionalContentColor}: var(--text-tertiary);
-                ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-secondary);
             `,
             secondary: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
+                ${tabsTokens.itemValueColor}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
                 ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
@@ -52,21 +57,21 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.additionalContentColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-secondary);
             `,
             divider: css`
                 ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemValueColor}: var(--text-tertiary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
                 ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
@@ -78,21 +83,21 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.additionalContentColor}: var(--text-tertiary);
-                ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-secondary);
             `,
             default: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
+                ${tabsTokens.itemValueColor}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
                 ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${tabsTokens.itemSelectedValueColor}: var(--inverse-text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
                 ${tabsTokens.itemSelectedColorHover}: var(--inverse-text-primary);
+                ${tabsTokens.itemSelectedValueColorHover}: var(--inverse-text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
@@ -103,11 +108,6 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.additionalContentColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedColor}: var(--inverse-text-secondary);
-                ${tabsTokens.additionalContentSelectedHoverColor}: var(--inverse-text-secondary);
             `,
         },
         size: {

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
     horizontalTabItemConfig,
     verticalTabItemConfig,
     component,
     mergeConfig,
-    TabItemProps,
 } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config as horizontalConfig } from './horizontal/HorizontalTabItem.config';
@@ -15,6 +14,8 @@ const HorizontalTabItem = component(mergedHorizontalTabItemConfig);
 
 const mergedVerticalTabItemConfig = mergeConfig(verticalTabItemConfig, verticalConfig);
 const VerticalTabItem = component(mergedVerticalTabItemConfig);
+
+type TabItemProps = ComponentProps<typeof HorizontalTabItem> | ComponentProps<typeof VerticalTabItem>;
 
 /**
  * Элемент списка, недопустимо использовать вне компонента Tabs.

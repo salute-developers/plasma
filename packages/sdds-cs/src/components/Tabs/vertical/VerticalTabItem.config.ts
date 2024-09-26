@@ -8,14 +8,19 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemColor}: var(--text-accent);
+                ${tabsTokens.itemValueColor}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemColorHover}: var(--text-accent-hover);
+                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
+                ${tabsTokens.itemColorActive}: var(--text-accent-active);
+                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
@@ -24,14 +29,10 @@ export const config = {
 
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
+                ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.additionalContentColor}: var(--text-tertiary);
-                ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-secondary);
             `,
         },
         size: {
@@ -41,6 +42,7 @@ export const config = {
                 ${tabsTokens.itemHeight}: 2.5rem;
                 ${tabsTokens.itemPadding}: 0 0.625rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
+                ${tabsTokens.itemPaddingOrientationVertical}: 0.5rem 1rem;
                 ${tabsTokens.itemMarginLeft}: 0.75rem;
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;

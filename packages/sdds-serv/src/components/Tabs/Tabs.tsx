@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
     horizontalTabsConfig,
     verticalTabsConfig,
     component,
     mergeConfig,
-    TabsProps,
-    VerticalTabsContext,
 } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config as horizontalConfig } from './horizontal/HorizontalTabs.config';
@@ -17,16 +15,14 @@ const mergedVerticalTabsConfig = mergeConfig(verticalTabsConfig, verticalConfig)
 const HorizontalTabs = component(mergedHorizontalTabsConfig);
 const VerticalTabs = component(mergedVerticalTabsConfig);
 
+type TabsProps = ComponentProps<typeof HorizontalTabs> | ComponentProps<typeof VerticalTabs>;
+
 /**
  * Контейнер вкладок, основной компонент для пользовательской сборки вкладок.
  */
 export const Tabs = (props: TabsProps) => {
     if (props.orientation === 'vertical') {
-        return (
-            <VerticalTabsContext.Provider value={props.contentLeft}>
-                <VerticalTabs {...props} />
-            </VerticalTabsContext.Provider>
-        );
+        return <VerticalTabs {...props} />;
     }
 
     return <HorizontalTabs {...props} />;

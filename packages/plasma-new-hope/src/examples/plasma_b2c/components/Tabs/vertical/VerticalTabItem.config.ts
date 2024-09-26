@@ -11,13 +11,18 @@ export const config = {
         view: {
             divider: css`
                 ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemValueColor}: var(--text-tertiary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
                 ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
@@ -26,14 +31,10 @@ export const config = {
 
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
+                ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.additionalContentColor}: var(--text-tertiary);
-                ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-secondary);
             `,
         },
         size: {
@@ -43,6 +44,7 @@ export const config = {
                 ${tabsTokens.itemHeight}: 2rem;
                 ${tabsTokens.itemPadding}: 0 0.5rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.375rem;
+                ${tabsTokens.itemPaddingOrientationVertical}: 0.5rem 0.625rem;
                 ${tabsTokens.itemMarginLeft}: 0.625rem;
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
@@ -60,6 +62,7 @@ export const config = {
                 ${tabsTokens.itemHeight}: 2.5rem;
                 ${tabsTokens.itemPadding}: 0 0.625rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
+                ${tabsTokens.itemPaddingOrientationVertical}: 0.5rem 1rem;
                 ${tabsTokens.itemMarginLeft}: 0.75rem;
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
@@ -77,6 +80,7 @@ export const config = {
                 ${tabsTokens.itemHeight}: 3rem;
                 ${tabsTokens.itemPadding}: 0 0.625rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
+                ${tabsTokens.itemPaddingOrientationVertical}: 0.75rem 1.25rem;
                 ${tabsTokens.itemMarginLeft}: 1.125rem;
                 ${tabsTokens.itemContentGap}: 0.375rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
@@ -94,6 +98,7 @@ export const config = {
                 ${tabsTokens.itemHeight}: 3.5rem;
                 ${tabsTokens.itemPadding}: 0 0.875rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.75rem;
+                ${tabsTokens.itemPaddingOrientationVertical}: 1rem 1.5rem;
                 ${tabsTokens.itemMarginLeft}: 1.25rem;
                 ${tabsTokens.itemContentGap}: 0.5rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
