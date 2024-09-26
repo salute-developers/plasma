@@ -15,10 +15,12 @@ export const config = {
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-secondary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
@@ -63,6 +65,8 @@ export const config = {
                 ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
@@ -107,6 +111,8 @@ export const config = {
                 ${tokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
@@ -151,6 +157,8 @@ export const config = {
                 ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
@@ -212,6 +220,19 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
 
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.562rem -2.063rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.leftHelperOffset}: 0.25rem;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -249,6 +270,7 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
             `,
             m: css`
                 ${tokens.height}: 3rem;
@@ -275,6 +297,19 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.063rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.leftHelperOffset}: 0.25rem;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -313,6 +348,7 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.25rem auto auto;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
@@ -339,6 +375,19 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.063rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.leftHelperOffset}: 0.25rem;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -377,6 +426,7 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
@@ -403,6 +453,19 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.751rem -1.875rem auto auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.leftHelperOffset}: 0.25rem;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -441,6 +504,7 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.875rem auto auto;
             `,
         },
         labelPlacement: {
@@ -458,6 +522,64 @@ export const config = {
         clear: {
             true: css``,
         },
+        hintView: {
+            default: css`
+                ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.tooltipColor}: var(--text-primary);
+                ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+            `,
+        },
+        hintSize: {
+            m: css`
+                ${tokens.tooltipPaddingTop}: 0.6875rem;
+                ${tokens.tooltipPaddingRight}: 0.875rem;
+                ${tokens.tooltipPaddingBottom}: 0.6875rem;
+                ${tokens.tooltipPaddingLeft}: 0.875rem;
+
+                ${tokens.tooltipMinHeight}: 2.5rem;
+                ${tokens.tooltipBorderRadius}: 0.625rem;
+
+                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.tooltipContentLeftMargin}: 0.375rem;
+
+                ${tokens.tooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.tooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.tooltipArrowHeight}: 0.5rem;
+                ${tokens.tooltipArrowEdgeMargin}: 0.625rem;
+            `,
+            s: css`
+                ${tokens.tooltipPaddingTop}: 0.5rem;
+                ${tokens.tooltipPaddingRight}: 0.75rem;
+                ${tokens.tooltipPaddingBottom}: 0.5rem;
+                ${tokens.tooltipPaddingLeft}: 0.75rem;
+
+                ${tokens.tooltipMinHeight}: 2rem;
+                ${tokens.tooltipBorderRadius}: 0.5rem;
+
+                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.tooltipContentLeftMargin}: 0.25rem;
+
+                ${tokens.tooltipArrowMaskWidth}: 1rem;
+                ${tokens.tooltipArrowMaskHeight}: 1rem;
+                ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.tooltipArrowHeight}: 0.375rem;
+                ${tokens.tooltipArrowEdgeMargin}: 0.5625rem;
+            `,
+        },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
@@ -465,13 +587,13 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.colorReadOnly}: var(--text-primary);
+                ${tokens.colorReadOnly}: var(--text-secondary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },
