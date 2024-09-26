@@ -59,6 +59,7 @@ export type DatePickerTextFieldProps = {
      * Обработчик изменения значения.
      */
     onChangeValue?: (event: SyntheticEvent<HTMLInputElement>, value?: string) => void;
+    onChange?: (event: { target: { value?: string; name?: string } }) => void;
 };
 
 export type DatePickerPopoverProps = {

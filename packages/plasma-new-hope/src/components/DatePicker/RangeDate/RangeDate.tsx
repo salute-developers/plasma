@@ -91,6 +91,7 @@ export const datePickerRangeRoot = (
 
                 onToggle,
 
+                onChange,
                 onChangeFirstValue,
                 onChangeSecondValue,
 
@@ -134,6 +135,26 @@ export const datePickerRangeRoot = (
                 formatInputValue({ value: defaultSecondDate, format, lang }),
             );
 
+            const setFirstInputValue = (value: React.SetStateAction<string>) => {
+                setInputFirstValue(value);
+                onChange?.({
+                    target: {
+                        value: `${value} - ${inputSecondValue}`,
+                        name,
+                    },
+                });
+            };
+
+            const setSecondInputValue = (value: React.SetStateAction<string>) => {
+                setInputSecondValue(value);
+                onChange?.({
+                    target: {
+                        value: `${inputFirstValue} - ${value}`,
+                        name,
+                    },
+                });
+            };
+
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
             const {
@@ -141,7 +162,7 @@ export const datePickerRangeRoot = (
                 handleCommitDate: handleCommitFirstDate,
             } = useDatePicker({
                 currentValue: inputFirstValue,
-                setInputValue: setInputFirstValue,
+                setInputValue: setFirstInputValue,
                 setCalendarValue: setCalendarFirstValue,
                 setIsInnerOpen,
                 dateFormatDelimiter,
@@ -153,6 +174,7 @@ export const datePickerRangeRoot = (
                 valueError: firstValueError,
                 valueSuccess: firstValueSuccess,
                 inputRef: firstInputRef,
+                name,
                 onChangeValue: onChangeFirstValue,
                 onCommitDate: onCommitFirstDate,
             });
@@ -162,7 +184,7 @@ export const datePickerRangeRoot = (
                 handleCommitDate: handleCommitSecondDate,
             } = useDatePicker({
                 currentValue: inputSecondValue,
-                setInputValue: setInputSecondValue,
+                setInputValue: setSecondInputValue,
                 setCalendarValue: setCalendarSecondValue,
                 setIsInnerOpen,
                 dateFormatDelimiter,
@@ -357,6 +379,7 @@ export const datePickerRangeRoot = (
                         data-datepicker="from"
                         value={inputFirstValue}
                         ref={innerRefFirst}
+                        onChange={() => {}}
                     />
                     <InputHidden
                         name={name}
@@ -365,6 +388,7 @@ export const datePickerRangeRoot = (
                         data-datepicker="to"
                         value={inputSecondValue}
                         ref={innerRefSecond}
+                        onChange={() => {}}
                     />
                 </Root>
             );

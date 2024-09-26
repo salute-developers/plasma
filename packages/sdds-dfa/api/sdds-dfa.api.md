@@ -91,6 +91,8 @@ import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
 import type { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
+import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
+import { FormTypeString } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { GridProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -163,7 +165,8 @@ import type { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
-import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SliderBaseProps } from '@salutejs/plasma-new-hope/types/components/Slider/components/SliderBase/SliderBase.types';
+import { SliderInternalProps } from '@salutejs/plasma-new-hope/types/components/Slider/components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -1105,6 +1108,12 @@ defaultSecondDate?: Date | undefined;
 name?: string | undefined;
 onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
 onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
+onChange?: ((event: {
+target: {
+value?: string | undefined;
+name?: string | undefined;
+};
+}) => void) | undefined;
 } & {
 label?: string | undefined;
 view?: string | undefined;
@@ -2236,8 +2245,52 @@ s: PolymorphicClassName;
 disabled: {
 true: PolymorphicClassName;
 };
-}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "value"> & {
+}> & ((SliderBaseProps & SliderInternalProps & {
+onChange?: ((event: FormTypeNumber) => void) | undefined;
+name: string;
+value?: undefined;
+defaultValue?: number | undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+rangeValuesPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "s" | "m" | "l" | undefined;
+type?: "single" | undefined;
+} & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
+onChange?: ((value: number) => void) | undefined;
+value: number;
+name?: undefined;
+defaultValue?: undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+rangeValuesPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "s" | "m" | "l" | undefined;
+type?: "single" | undefined;
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "value"> & {
+onChange?: ((event: FormTypeString) => void) | undefined;
+name?: string | undefined;
+value?: undefined;
+defaultValue?: number[] | undefined;
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "value"> & {
+onChange?: ((values: number[]) => void) | undefined;
+name?: undefined;
 value?: number[] | undefined;
+defaultValue?: undefined;
 } & RefAttributes<HTMLDivElement>))>;
 
 export { SliderProps }

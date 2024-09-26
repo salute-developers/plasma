@@ -8,6 +8,7 @@ import type { HandlerProps } from '../../ui';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
 import { InputHidden } from '../../../../utils/inputHidden';
+import { FormTypeNumber } from '../../../../types/FormType';
 
 import type { SingleSliderProps } from './Single.types';
 import {
@@ -36,6 +37,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     labelPlacement = 'outer',
     rangeValuesPlacement = 'outer',
     multipleStepSize = 10,
+    defaultValue,
     size = 'm',
     name,
     ...rest
@@ -51,7 +53,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const [startOffset, setStartOffset] = useState(0);
     const [endOffset, setEndOffset] = useState(0);
 
-    const [dragValue, setDragValue] = useState(value ?? min);
+    const [dragValue, setDragValue] = useState(value ?? defaultValue ?? min);
 
     const { stepSize } = state;
 
@@ -125,7 +127,18 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         }));
 
         if (onChange) {
-            onChange(newValue);
+            if (value !== undefined) {
+                (onChange as (value: number) => void)(newValue);
+            }
+
+            if (name && !value) {
+                (onChange as (event: FormTypeNumber) => void)({
+                    target: {
+                        value: newValue,
+                        name,
+                    },
+                });
+            }
         }
 
         setDragValue(newValue);
@@ -198,7 +211,14 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     </StyledRangeValue>
                 )}
             </SliderBaseWrapper>
-            <InputHidden name={name} type="number" datatype="slider-single" value={dragValue} ref={innerRef} />
+            <InputHidden
+                name={name}
+                type="number"
+                datatype="slider-single"
+                value={dragValue}
+                ref={innerRef}
+                onChange={() => {}}
+            />
         </SingleWrapper>
     );
 };
