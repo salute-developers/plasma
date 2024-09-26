@@ -5,9 +5,10 @@ import {
     Input,
     InputPlaceholder,
     InputWrapper,
-    Label,
+    OuterLabelWrapper,
     StyledContentLeft,
     StyledContentRight,
+    StyledHintWrapper,
     StyledIndicator,
 } from '../../TextField.styles';
 
@@ -34,7 +35,7 @@ export const base = css`
         }
 
         &.${classes.outerLabelPlacement} {
-            ${Label} {
+            ${OuterLabelWrapper} {
                 margin-bottom: var(${tokens.clearLabelOffset});
             }
         }
@@ -51,8 +52,22 @@ export const base = css`
             &.${classes.innerLabelPlacement} {
                 inset: var(${tokens.clearIndicatorLabelPlacementInner});
 
-                &.align-right {
+                &.${classes.requiredAlignRight} {
                     inset: var(${tokens.clearIndicatorLabelPlacementInnerRight});
+                }
+            }
+        }
+
+        &.${classes.hasHint} {
+            ${StyledHintWrapper} {
+                &.${classes.innerLabelPlacement} {
+                    inset: var(${tokens.clearHintInnerLabelPlacementOffset});
+                }
+            }
+
+            ${StyledIndicator} {
+                &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
+                    inset: var(${tokens.clearIndicatorHintInnerRight});
                 }
             }
         }

@@ -8,7 +8,6 @@ export const base = css`
         ${Label} {
             position: relative;
             display: inline-block;
-            margin-bottom: var(${tokens.labelOffset});
             color: var(${tokens.labelColor});
         }
     }
