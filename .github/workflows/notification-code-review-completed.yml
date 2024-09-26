@@ -24,6 +24,7 @@ jobs:
                         const fs = require('fs');
                         const path = '.github/teammates.json';
                         const teammates = JSON.parse(fs.readFileSync(path, 'utf8'));
+                        const teammatesGH = Object.keys(teammates);
                         
                         const { data: reviews } = await github.rest.pulls.listReviews({
                             owner: context.repo.owner,
@@ -31,7 +32,10 @@ jobs:
                             pull_number: context.issue.number,
                         });
 
-                        const approvals = reviews.filter(({ state }) => state === 'APPROVED').length;
+                        const approvals = reviews
+                            .filter(({ user: { login } }) => teammatesGH.includes(login))
+                            .filter(({ state }) => state === 'APPROVED')
+                            .length;
 
                         return { approved: approvals >= 2, author: teammates["${{ env.AUTHOR }}"] };
 
