@@ -149,7 +149,7 @@ describe('plasma-b2c: Calendar', () => {
     );
 
     const Demo = (args) => {
-        const { min, max, includeEdgeDates, displayDouble, baseValue, size = 's', type = 'Days' } = args;
+        const { min, max, includeEdgeDates, displayDouble, baseValue, size = 's', type = 'Days', locale = 'ru' } = args;
         const [value, setValue] = useState(baseValue);
 
         const handleOnChange = useCallback((newValue: Date) => {
@@ -166,6 +166,7 @@ describe('plasma-b2c: Calendar', () => {
                     max={max}
                     includeEdgeDates={includeEdgeDates}
                     type={type}
+                    locale={locale}
                     onChangeValue={handleOnChange}
                 />
             ) : (
@@ -177,6 +178,7 @@ describe('plasma-b2c: Calendar', () => {
                     max={max}
                     includeEdgeDates={includeEdgeDates}
                     type={type}
+                    locale={locale}
                     onChangeValue={handleOnChange}
                 />
             );
@@ -358,6 +360,18 @@ describe('plasma-b2c: Calendar', () => {
                     max={new Date(2002, 0, 1)}
                     displayDouble
                 />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('locale: en', () => {
+        mount(
+            <>
+                <Demo baseValue={baseDate} locale="en" type="Days" />
+                <PadMe />
+                <Demo baseValue={baseDate} locale="en" type="Months" />
             </>,
         );
 
