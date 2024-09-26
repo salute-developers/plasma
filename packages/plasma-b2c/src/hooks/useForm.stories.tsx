@@ -1,18 +1,17 @@
-import { useForm as useReactHookForm, Controller } from 'react-hook-form';
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { WithTheme } from '../../../_helpers';
-import { Button } from '../Button/Button';
-import { TextField } from '../TextField/TextField';
-import { TextArea } from '../TextArea/TextArea';
-import { Checkbox } from '../Checkbox/Checkbox';
-import { Switch } from '../Switch/Switch';
-import { Radiobox } from '../Radiobox/Radiobox';
-import { RadioGroup } from '../../../../components/Radiobox';
-import { Slider } from '../Slider/Slider';
-import { useForm } from '../../../../hooks';
-import { DatePicker, DatePickerRange } from '../DatePicker/DatePicker';
+import { Button } from '../components/Button/Button';
+import { TextField } from '../components/TextField/TextField';
+import { TextArea } from '../components/TextArea/TextArea';
+import { Checkbox } from '../components/Checkbox/Checkbox';
+import { Switch } from '../components/Switch/Switch';
+import { Radiobox } from '../components/Radiobox/Radiobox';
+import { RadioGroup } from '../components/Radiobox';
+import { Slider } from '../components/Slider/Slider';
+import { DatePicker, DatePickerRange } from '../components/DatePicker/DatePicker';
+
+import { useForm } from './index';
 
 type StoryDropdownProps = {};
 
@@ -70,8 +69,7 @@ const PlasmaForm = () => {
 };
 
 const meta: Meta<StoryDropdownProps> = {
-    title: 'plasma_web/Form',
-    decorators: [WithTheme],
+    title: 'Hooks/useForm',
     component: PlasmaForm,
 };
 
@@ -119,7 +117,9 @@ const DefaultForm = () => {
                 ))}
             </RadioGroup>
             <Slider name="slider" label="Slider" type="single" min={0} max={100} />
+            <Slider name="sliderd" label="Slider" type="double" min={0} max={100} />
             <DatePicker label="DatePicker" name="datepicker" />
+            <DatePickerRange label="DatePicker" name="datepickerRange" />
             <Button type="submit">Отправить</Button>
         </form>
     );
@@ -131,63 +131,4 @@ const StoryDefaultForm = () => {
 
 export const FormDefault: StoryObj<StoryDropdownProps> = {
     render: () => <StoryDefaultForm />,
-};
-
-const DefaultUseForm = () => {
-    const defaultValues = {
-        textfield: 'John Doe',
-        textarea: 'Default description',
-        checkbox: true,
-        switch: true,
-        radiobox: 'c',
-        slider: 10,
-        sliderdouble: [10, 20],
-        datepicker: null,
-        datepickerrange: null,
-    };
-    const { register, handleSubmit } = useReactHookForm({
-        defaultValues,
-    });
-    const onSubmit = (data) => {
-        console.log(data);
-    };
-
-    const datepicker = register('datepicker');
-    const datepickerrange = register('datepickerrange');
-
-    return (
-        <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <TextField {...register('textfield')} placeholder="Textfield" required={false} />
-            <TextArea {...register('textarea')} autoResize placeholder="Textarea" />
-            <Checkbox {...register('checkbox')} label="Checkbox" />
-            <Switch {...register('switch')} label="Switch" labelPosition="after" />
-            <RadioGroup aria-labelledby="radiogroup-title-id">
-                <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
-                    Выберите язык программирования для изучения.
-                </div>
-                {itemsRadiobox.map((item) => (
-                    <Radiobox
-                        {...register('radiobox')}
-                        key={item.value}
-                        value={item.value}
-                        label={item.label}
-                        disabled={item.disabled}
-                    />
-                ))}
-            </RadioGroup>
-            <Slider {...register('slider')} label="Slider" type="single" min={0} max={100} />
-            <Slider {...register('sliderdouble')} label="Slider Double" type="double" min={0} max={100} />
-            <DatePicker name={datepicker.name} onChange={datepicker.onChange} label="DatePicker" />
-            <DatePickerRange name={datepickerrange.name} onChange={datepickerrange.onChange} label="DatePicker" />
-            <Button type="submit">Отправить</Button>
-        </form>
-    );
-};
-
-const StoryHookForm = () => {
-    return <DefaultUseForm />;
-};
-
-export const UseHookForm: StoryObj<StoryDropdownProps> = {
-    render: () => <StoryHookForm />,
 };

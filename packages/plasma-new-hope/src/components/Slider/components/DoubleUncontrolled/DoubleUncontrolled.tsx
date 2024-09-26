@@ -1,11 +1,13 @@
 import React, { KeyboardEvent, FC, useState } from 'react';
 
 import { DoubleSlider } from '../index';
+import { FormTypeString } from '../../../../types/FormType';
 
 import { DoubleUncontrolledProps } from './DoubleUncontrolled.types';
 
 export const DoubleUncontrolled: FC<DoubleUncontrolledProps> = (props) => {
-    const [sliderValue, setSliderValue] = useState<number[]>([props.min, props.max]);
+    const { defaultValue, min, max, value, name, onChange } = props;
+    const [sliderValue, setSliderValue] = useState<number[]>(defaultValue ?? [min, max]);
 
     const sortValues = (values: number[]) => {
         return values
@@ -22,33 +24,77 @@ export const DoubleUncontrolled: FC<DoubleUncontrolledProps> = (props) => {
     };
 
     const onChangeHandle = (values: number[]) => {
-        setSliderValue(sortValues(values));
+        const sortValue = sortValues(values);
+
+        if (onChange && !value && name) {
+            (onChange as (event: FormTypeString) => void)({
+                target: {
+                    value: sortValue.join(' - '),
+                    name,
+                },
+            });
+        }
+
+        setSliderValue(sortValue);
     };
 
     const onChangeCommitedHandle = (values: number[]) => {
-        setSliderValue(sortValues(values));
+        const sortValue = sortValues(values);
+
+        if (onChange && !value && name) {
+            (onChange as (event: FormTypeString) => void)({
+                target: {
+                    value: sortValue.join(' - '),
+                    name,
+                },
+            });
+        }
+
+        setSliderValue(sortValue);
     };
 
     const onBlurTextField = (values: number[]) => {
-        setSliderValue(sortValues(values));
+        const sortValue = sortValues(values);
+
+        if (onChange && !value && name) {
+            (onChange as (event: FormTypeString) => void)({
+                target: {
+                    value: sortValue.join(' - '),
+                    name,
+                },
+            });
+        }
+
+        setSliderValue(sortValue);
     };
 
-    const onKeyDownTextField = (values: number[], event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
-            setSliderValue(sortValues(values));
+    const onKeyDownTextField = (values: number[], e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            const sortValue = sortValues(values);
+
+            if (onChange && !value && name) {
+                (onChange as (event: FormTypeString) => void)({
+                    target: {
+                        value: sortValue.join(' - '),
+                        name,
+                    },
+                });
+            }
+
+            setSliderValue(sortValue);
         }
     };
 
-    return props.value ? (
-        <DoubleSlider {...props} value={props.value} />
+    return value ? (
+        <DoubleSlider {...props} value={value} onChange={onChange as (values: number[]) => void} />
     ) : (
         <DoubleSlider
             value={sliderValue}
             onKeyDownTextField={onKeyDownTextField}
             onBlurTextField={onBlurTextField}
             onChangeCommitted={onChangeCommitedHandle}
-            onChange={onChangeHandle}
             {...props}
+            onChange={onChangeHandle}
         />
     );
 };

@@ -68,6 +68,7 @@ export const datePickerRoot = (
                 onToggle,
                 onFocus,
                 onBlur,
+                onChange,
 
                 ...rest
             },
@@ -104,9 +105,11 @@ export const datePickerRoot = (
                 valueError,
                 valueSuccess,
                 inputRef,
+                name,
                 onToggle,
                 onChangeValue,
                 onCommitDate,
+                onChange,
             });
 
             const { onKeyDown } = useKeyNavigation({
@@ -216,6 +219,7 @@ export const datePickerRoot = (
                         name={name}
                         value={inputValue}
                         ref={innerRef}
+                        onChange={() => {}}
                     />
                 </Root>
             );

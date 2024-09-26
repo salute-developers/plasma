@@ -20,9 +20,11 @@ export const useDatePicker = ({
     valueError,
     valueSuccess,
     inputRef,
+    name,
     onToggle,
     onChangeValue,
     onCommitDate,
+    onChange,
 }: UseDatePickerProps) => {
     const datePickerErrorClass = valueError ? classes.datePickerError : undefined;
     const datePickerSuccessClass = valueSuccess ? classes.datePickerSuccess : undefined;
@@ -55,6 +57,7 @@ export const useDatePicker = ({
             setCalendarValue(formatCalendarValue(newValue));
             setInputValue(formatInputValue({ value: newValue, format, lang }));
             onChangeValue?.(event, newValue);
+            onChange?.({ target: { value: newValue, name } });
 
             return;
         }
@@ -93,6 +96,7 @@ export const useDatePicker = ({
         );
 
         onChangeValue?.(event, newValue);
+        onChange?.({ target: { value: newValue, name } });
     };
 
     const handleCommitDate = (
@@ -116,6 +120,7 @@ export const useDatePicker = ({
             setCalendarValue(formatCalendarValue(date, format, lang));
             setInputValue(formatInputValue({ value: date, format, lang }));
             onCommitDate?.(date, false, true, dateInfo);
+            onChange?.({ target: { value: formatInputValue({ value: date, format, lang }), name } });
 
             return;
         }
@@ -128,6 +133,7 @@ export const useDatePicker = ({
         setInputValue(formatInputValue({ value: newDate, format, lang }));
 
         onCommitDate?.(newDate, isError, isSuccess);
+        onChange?.({ target: { value: formatInputValue({ value: date, format }), name } });
     };
 
     return {
