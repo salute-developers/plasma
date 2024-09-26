@@ -23,7 +23,7 @@ const meta: Meta<typeof Pagination> = {
             },
         },
         view: {
-            options: ['clear', 'default', 'secondary'],
+            options: ['default'],
             control: {
                 type: 'select',
             },
@@ -36,7 +36,7 @@ const meta: Meta<typeof Pagination> = {
             },
         },
         viewCurrentPage: {
-            options: ['clear', 'default', 'secondary'],
+            options: ['default'],
             control: {
                 type: 'select',
             },
@@ -55,10 +55,11 @@ export const Default: Story = {
         value: 1,
         slots: 9,
         type: 'default',
-        view: 'clear',
-        viewCurrentPage: 'secondary',
+        view: 'default',
+        viewCurrentPage: 'default',
         size: 's',
         hasQuickJump: true,
+        disabledPages: ['2'],
         hasPerPage: true,
         pilled: false,
         square: true,
@@ -121,8 +122,8 @@ export const Content: Story = {
         value: 1,
         slots: 9,
         type: 'default',
-        view: 'clear',
-        viewCurrentPage: 'secondary',
+        view: 'default',
+        viewCurrentPage: 'default',
         size: 's',
         hasQuickJump: true,
         hasPerPage: true,

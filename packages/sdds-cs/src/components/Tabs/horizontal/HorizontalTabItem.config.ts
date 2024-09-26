@@ -121,12 +121,12 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tabsTokens.fontFamily}: var(--plasma-typo-body-m-bold-font-family);
+                ${tabsTokens.fontSize}: var(--plasma-typo-body-m-bold-font-size);
+                ${tabsTokens.fontStyle}: var(--plasma-typo-body-m-bold-font-style);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
+                ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-bold-line-height);
             `,
         },
         disabled: {
