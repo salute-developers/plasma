@@ -346,13 +346,13 @@ describe('plasma-web: TextField', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l'] as const;
 
         const cases = [
-            { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'outer' },
-            { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'inner' },
+            { labelPlacement: 'outer' },
+            { requiredPlacement: 'right', labelPlacement: 'outer' },
+            { labelPlacement: 'inner' },
+            { requiredPlacement: 'right', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -366,6 +366,7 @@ describe('plasma-web: TextField', () => {
                                     placeholder="Placeholder"
                                     label="Title"
                                     size={size}
+                                    required
                                     {...props}
                                 />
                                 <SpaceMe />
@@ -373,6 +374,39 @@ describe('plasma-web: TextField', () => {
                         ))}
                     </CypressTestDecoratorWithTypo>,
                 );
+
+                cy.matchImageSnapshot();
+            });
+        });
+    });
+
+    describe('with hint', () => {
+        const sizes = ['xs', 's', 'm', 'l'] as const;
+
+        const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
+
+        sizes.forEach((size) => {
+            it(`_size:${size}`, () => {
+                mount(
+                    <CypressTestDecoratorWithTypo>
+                        {cases.map((props) => (
+                            <div style={{ margin: '0 1rem' }}>
+                                <TextField
+                                    value="Value"
+                                    placeholder="Placeholder"
+                                    label="Title"
+                                    size={size}
+                                    hintText="Подсказка к полю"
+                                    hintTrigger="click"
+                                    {...props}
+                                />
+                                <SpaceMe />
+                            </div>
+                        ))}
+                    </CypressTestDecoratorWithTypo>,
+                );
+
+                cy.get('.popover-wrapper').first().click();
 
                 cy.matchImageSnapshot();
             });
