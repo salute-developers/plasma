@@ -6,9 +6,8 @@ import { classes } from '../../../tokens';
 import { cx } from '../../../../../utils';
 import { TabsContext } from '../../../TabsContext';
 import { VerticalTabItemProps } from '../../../TabItem.types';
-import { VerticalTabsContext } from '../VerticalTabsContext';
 
-import { base, LeftContent, RightContent, StyledContent } from './VerticalTabItem.styles';
+import { base, LeftContent, RightContent, StyledContent, TabItemValue } from './VerticalTabItem.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
@@ -21,6 +20,8 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             selected,
             disabled = false,
             children,
+            value,
+            contentLeft,
             contentRight,
             onIndexChange,
             itemIndex,
@@ -33,7 +34,6 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
         const innerRef = useRef<HTMLButtonElement>(null);
         const ref = useForkRef(outerRef, innerRef);
         const refs = useContext(TabsContext);
-        const contentLeft = useContext(VerticalTabsContext);
 
         const role = 'tab';
 
@@ -54,6 +54,10 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
 
         const onItemFocus = useCallback<React.FocusEventHandler>(
             (event) => {
+                if (disabled) {
+                    return;
+                }
+
                 if (!hasKeyNavigation && innerRef?.current) {
                     innerRef.current.scrollTo({
                         top: innerRef.current.offsetTop,
@@ -63,7 +67,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
                     return;
                 }
 
-                if (disabled || !refs) {
+                if (!refs) {
                     return;
                 }
 
@@ -105,7 +109,10 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
                 <>
                     {contentLeft && <LeftContent className={classes.tabLeftContent}>{contentLeft}</LeftContent>}
                     <StyledContent className={classes.tabContent}>{children}</StyledContent>
-                    {contentRight && <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>}
+                    {!contentRight && value && <TabItemValue>{value}</TabItemValue>}
+                    {!value && contentRight && (
+                        <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>
+                    )}
                 </>
             </Root>
         );

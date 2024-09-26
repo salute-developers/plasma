@@ -13,7 +13,6 @@ import { base, StyledArrow, StyledContent, StyledContentWrapper } from './Vertic
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
-import { base as stretchCSS } from './variations/_stretch/base';
 
 enum Keys {
     end = 35,
@@ -22,11 +21,11 @@ enum Keys {
     down = 40,
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/1474
 export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsProps>) =>
     forwardRef<HTMLDivElement, VerticalTabsProps>((props, outerRef) => {
         const {
             id,
-            stretch = false,
             disabled = false,
             clip = 'showAll',
             size,
@@ -47,9 +46,11 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
         const uniqId = safeUseId();
         const tabsId = id || uniqId;
 
-        const stretchClass = firstItemVisible && lastItemVisible && stretch ? classes.tabsStretch : undefined;
-        const clipScrollClass = !stretch && clip === 'scroll' ? classes.tabsClipScroll : undefined;
-        const clipShowAllClass = !stretch && clip === 'showAll' ? classes.tabsClipShowAll : undefined;
+        const noDividerClass = !hasDivider ? classes.tabsNoDivider : undefined;
+        const hasTopArrowClass = !firstItemVisible ? classes.tabsHasTopArrow : undefined;
+        const hasBottomArrowClass = !lastItemVisible ? classes.tabsHasBottomArrow : undefined;
+        const clipScrollClass = clip === 'scroll' ? classes.tabsClipScroll : undefined;
+        const clipShowAllClass = clip === 'showAll' ? classes.tabsClipShowAll : undefined;
 
         const scrollRef = useRef<HTMLElement | null>(null);
         const trackRef = useRef<HTMLElement | null>(null);
@@ -68,9 +69,9 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     if (!item.current || item.current.offsetTop === undefined) {
                         return;
                     }
-                    const tabStartX = item.current.offsetTop;
+                    const tabStartY = item.current.offsetTop;
 
-                    return tabStartX < scrollTop;
+                    return tabStartY < scrollTop;
                 });
 
             firstOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
@@ -86,9 +87,9 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                 if (!item.current || item.current.offsetTop === undefined) {
                     return;
                 }
-                const tabEndX = item.current.offsetTop + item.current.offsetHeight;
+                const tabEndY = item.current.offsetTop + item.current.offsetHeight;
 
-                return tabEndX > scrollBottom;
+                return tabEndY > scrollBottom;
             });
 
             lastOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
@@ -162,8 +163,8 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     event.preventDefault();
                     refs.items[nextIndex].current?.focus();
                     refs.items[nextIndex].current?.scrollIntoView({
-                        block: 'center',
-                        inline: 'center',
+                        block: 'nearest',
+                        inline: 'nearest',
                         behavior: 'smooth',
                     });
                 }
@@ -195,7 +196,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
-                    className={cx(stretchClass, className)}
+                    className={cx(hasTopArrowClass, hasBottomArrowClass, noDividerClass, className)}
                     onKeyDown={onKeyDown}
                     orientation={orientation}
                     {...rest}
@@ -206,10 +207,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                         ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
                         onScroll={handleScroll}
                     >
-                        <StyledContent
-                            hasDivider={hasDivider}
-                            ref={trackRef as MutableRefObject<HTMLDivElement | null>}
-                        >
+                        <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>
                             {children}
                         </StyledContent>
                     </StyledContentWrapper>
@@ -233,10 +231,6 @@ export const verticalTabsConfig = {
         },
         disabled: {
             css: disabledCSS,
-            attrs: true,
-        },
-        stretch: {
-            css: stretchCSS,
             attrs: true,
         },
     },

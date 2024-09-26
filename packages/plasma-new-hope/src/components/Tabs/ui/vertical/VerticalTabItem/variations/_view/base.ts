@@ -1,32 +1,34 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../../../../tokens';
-import { RightContent } from '../../VerticalTabItem.styles';
+import { TabItemValue } from '../../VerticalTabItem.styles';
 
 export const base = css`
     color: var(${tokens.itemColor});
     background-color: var(${tokens.itemBackgroundColor});
 
-    margin-left: var(${tokens.itemMarginLeftFilled}, var(${tokens.itemMarginLeft}));
-
     &:hover {
         color: var(${tokens.itemColorHover});
         background-color: var(${tokens.itemBackgroundColorHover});
 
-        ${RightContent} {
-            color: var(${tokens.additionalContentHoverColor});
+        ${TabItemValue} {
+            color: var(${tokens.itemValueColorHover});
         }
     }
 
     &:active {
         color: var(${tokens.itemColorActive});
+
+        ${TabItemValue} {
+            color: var(${tokens.itemValueColorActive});
+        }
     }
 
-    &.${String(classes.tabItemAnimated)} {
+    &.${classes.tabItemAnimated} {
         transition: var(${tokens.itemBackgroundTransition});
     }
 
-    &.${String(classes.selectedTabsItem)} {
+    &.${classes.selectedTabsItem} {
         color: var(${tokens.itemSelectedColor});
         background-color: var(${tokens.itemSelectedBackgroundColor});
 
@@ -39,22 +41,24 @@ export const base = css`
             }
         }
 
-        ${RightContent} {
-            color: var(${tokens.additionalContentSelectedColor});
+        ${TabItemValue} {
+            color: var(${tokens.itemSelectedValueColorHover});
 
             &:hover {
-                color: var(${tokens.additionalContentSelectedHoverColor});
+                color: var(${tokens.itemSelectedValueColorHover});
             }
         }
 
         &::after {
             content: '';
             position: absolute;
-            left: calc(-1 * var(${tokens.itemMarginLeft}) - 1.5px);
+            top: 0;
+            left: 0;
+            bottom: 0;
             background: var(${tokens.itemSelectedDividerColor});
-            height: 100%;
-            width: 2px;
-            border-radius: 1px;
+            width: var(${tokens.itemSelectedDividerWidth});
+
+            border-radius: 0.063rem;
         }
     }
 `;

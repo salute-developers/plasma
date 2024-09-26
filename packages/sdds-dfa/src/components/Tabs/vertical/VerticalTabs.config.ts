@@ -12,6 +12,7 @@ export const config = {
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
+                ${tabsTokens.tabsDividerWidth}: 0.0625rem;
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
                 ${tabsTokens.tabsDividerColor}: var(--surface-transparent-tertiary);
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;

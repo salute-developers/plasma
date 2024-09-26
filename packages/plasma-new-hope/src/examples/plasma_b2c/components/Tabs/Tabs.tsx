@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
-import { horizontalTabsConfig, verticalTabsConfig, VerticalTabsContext, TabsProps } from '../../../../components/Tabs';
+import { horizontalTabsConfig, verticalTabsConfig } from '../../../../components/Tabs';
 import { component, mergeConfig } from '../../../../engines';
 
 import { config as horizontalConfig } from './horizontal/HorizontalTabs.config';
@@ -12,13 +12,11 @@ const mergedVerticalTabsConfig = mergeConfig(verticalTabsConfig, verticalConfig)
 const HorizontalTabs = component(mergedHorizontalTabsConfig);
 const VerticalTabs = component(mergedVerticalTabsConfig);
 
+type TabsProps = ComponentProps<typeof HorizontalTabs> | ComponentProps<typeof VerticalTabs>;
+
 export const Tabs = (props: TabsProps) => {
     if (props.orientation === 'vertical') {
-        return (
-            <VerticalTabsContext.Provider value={props.contentLeft}>
-                <VerticalTabs {...props} />
-            </VerticalTabsContext.Provider>
-        );
+        return <VerticalTabs {...props} />;
     }
 
     return <HorizontalTabs {...props} />;

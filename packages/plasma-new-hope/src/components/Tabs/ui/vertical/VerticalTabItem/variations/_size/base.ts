@@ -13,6 +13,6 @@ export const base = css`
     --plasma_private-outline-radius: var(${tokens.itemBorderRadius});
     border-radius: var(${tokens.itemBorderRadius});
 
-    width: var(${tokens.itemWidth});
+    width: 100%;
     height: var(${tokens.itemHeight});
 `;

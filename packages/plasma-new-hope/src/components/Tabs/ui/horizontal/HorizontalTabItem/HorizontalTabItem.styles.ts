@@ -19,7 +19,7 @@ export const base = css`
     border: none;
     outline: none;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
 
     &:first-child {
         margin-left: 0;
@@ -50,12 +50,16 @@ export const StyledContent = styled.div`
     padding: 0 var(${tokens.itemContentPaddingClear}, var(${tokens.itemContentPadding}));
 `;
 
+export const TabItemValue = styled.span`
+    color: var(${tokens.itemValueColor});
+`;
+
 export const RightContent = styled.div`
     display: flex;
-    color: var(${tokens.additionalContentColor});
+    color: inherit;
 
     &:hover {
-        color: var(${tokens.additionalContentHoverColor});
+        color: inherit;
     }
 `;
 

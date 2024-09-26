@@ -16,9 +16,6 @@ export const StyledContent = styled.div<{ hasDivider?: boolean }>`
     display: inline-flex;
     flex-direction: column;
     align-items: start;
-
-    border-left: ${({ hasDivider }) => (hasDivider ? `1px solid var(${tokens.tabsDividerColor})` : '0')};
-    border-radius: var(${tokens.tabsDividerBorderRadius});
 `;
 
 export const StyledContentWrapper = styled.div`
@@ -32,6 +29,8 @@ export const StyledContentWrapper = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
+
+    z-index: 1;
 
     &.${classes.tabsClipScroll} {
         overflow: scroll;

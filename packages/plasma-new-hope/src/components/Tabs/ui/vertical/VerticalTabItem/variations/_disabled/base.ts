@@ -11,7 +11,7 @@ export const base = css`
             background-color: var(${tokens.itemBackgroundColor});
         }
 
-        &.${String(classes.selectedTabsItem)}:hover {
+        &.${classes.selectedTabsItem}:hover {
             color: var(${tokens.itemSelectedColor});
             background-color: var(${tokens.itemSelectedBackgroundColor});
         }

@@ -23,6 +23,7 @@ enum Keys {
     right = 39,
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/1474
 export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTabsProps>) =>
     forwardRef<HTMLDivElement, HorizontalTabsProps>((props, outerRef) => {
         const {
@@ -176,7 +177,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     event.preventDefault();
                     refs.items[nextIndex].current?.focus();
                     refs.items[nextIndex].current?.scrollIntoView({
-                        block: 'center',
+                        block: 'nearest',
                         inline: 'center',
                         behavior: 'smooth',
                     });

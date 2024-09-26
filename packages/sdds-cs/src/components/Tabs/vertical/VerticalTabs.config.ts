@@ -8,12 +8,13 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColor}: var(--text-accent);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
+                ${tabsTokens.tabsDividerWidth}: 0.0625rem;
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
-                ${tabsTokens.tabsDividerColor}: var(--surface-transparent-tertiary);
+                ${tabsTokens.tabsDividerColor}: var(--outline-solid-primary);
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
         },

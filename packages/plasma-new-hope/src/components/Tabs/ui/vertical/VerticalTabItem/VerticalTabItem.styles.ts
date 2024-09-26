@@ -8,18 +8,18 @@ export const base = css`
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     box-sizing: border-box;
     align-items: center;
 
     gap: var(${tokens.itemContentGap});
-    padding: var(${tokens.itemPaddingClear}, var(${tokens.itemPadding}));
+    padding: var(${tokens.itemPaddingOrientationVertical});
 
     appearance: none;
     border: none;
     outline: none;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
 
     ${addFocus({
         outlineSize: '0.063rem',
@@ -46,12 +46,16 @@ export const StyledContent = styled.div`
     padding: 0 var(${tokens.itemContentPaddingClear}, var(${tokens.itemContentPadding}));
 `;
 
+export const TabItemValue = styled.span`
+    color: var(${tokens.itemValueColor});
+`;
+
 export const RightContent = styled.div`
     display: flex;
-    color: var(${tokens.additionalContentColor});
+    color: inherit;
 
     &:hover {
-        color: var(${tokens.additionalContentHoverColor});
+        color: inherit;
     }
 `;
 

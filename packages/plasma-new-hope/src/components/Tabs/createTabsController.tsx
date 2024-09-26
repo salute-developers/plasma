@@ -1,15 +1,15 @@
 import React, { forwardRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
-import { TabsProps } from './Tabs.types';
-import { TabItemProps } from './TabItem.types';
+import { HorizontalTabItemProps } from './TabItem.types';
+import { HorizontalTabsProps } from './Tabs.types';
 
-export type TabsControllerProps = TabsProps & {
-    items: Array<{ label: string } & TabItemProps>;
+export interface TabsControllerProps extends HorizontalTabsProps {
+    items: Array<{ label: string } & HorizontalTabItemProps>;
     index: number;
     onIndexChange: (index: number) => void;
     children?: never;
     autoscroll?: boolean;
-};
+}
 
 /**
  * @deprecated
@@ -19,14 +19,11 @@ export type TabsControllerProps = TabsProps & {
  * кастомизировать стили, при этом сохраняя единый интерфейс и функционал.
  */
 export function createTabsController<T extends HTMLDivElement, P extends TabsControllerProps>(
-    ListComponent: ForwardRefExoticComponent<TabsProps & RefAttributes<HTMLDivElement>>,
-    ItemComponent: ForwardRefExoticComponent<TabItemProps & RefAttributes<HTMLDivElement>>,
+    ListComponent: ForwardRefExoticComponent<HorizontalTabsProps & RefAttributes<HTMLDivElement>>,
+    ItemComponent: ForwardRefExoticComponent<HorizontalTabItemProps & RefAttributes<HTMLDivElement>>,
 ) {
     // eslint-disable-next-line prefer-arrow-callback
-    return forwardRef<T, P>(function TabsController(
-        { items, index, autoscroll, onIndexChange, orientation: _orientation, ...rest },
-        ref,
-    ) {
+    return forwardRef<T, P>(function TabsController({ items, index, autoscroll, onIndexChange, ...rest }, ref) {
         const { disabled } = rest;
 
         return (
