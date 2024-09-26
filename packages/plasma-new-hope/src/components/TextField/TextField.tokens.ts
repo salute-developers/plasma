@@ -8,7 +8,9 @@ export const classes = {
     hideLabel: 'hide-label',
     clear: 'textfield-clear',
     hasDivider: 'textfield-has-divider',
+    hasHint: 'textfield-has-hint',
     textFieldGroupItem: 'text-field-group-item',
+    requiredAlignRight: 'required-align-right',
 };
 
 export const tokens = {
@@ -94,6 +96,17 @@ export const tokens = {
     labelInnerPadding: '--plasma-textfield-placement_inner__label-padding',
     contentLabelInnerPadding: '--plasma-textfield-placement_inner__content-padding',
 
+    titleCaptionColor: '--plasma-textfield__title-caption-color',
+    titleCaptionColorReadOnly: '--plasma-textfield__title-caption-color-readonly',
+    titleCaptionInnerLabelOffset: '--plasma-textfield__title-caption-label-inner-offset',
+
+    titleCaptionFontFamily: '--plasma-textfield__title-caption-font-family',
+    titleCaptionFontStyle: '--plasma-textfield__title-caption-font-style',
+    titleCaptionFontSize: '--plasma-textfield__title-caption-font-size',
+    titleCaptionFontWeight: '--plasma-textfield__title-caption-font-weight',
+    titleCaptionLetterSpacing: '--plasma-textfield__title-caption-letter-spacing',
+    titleCaptionLineHeight: '--plasma-textfield__title-caption-line-height',
+
     leftHelperColor: '--plasma-textfield__left-helper-color',
     leftHelperColorReadOnly: '--plasma-textfield__left-helper-color-readonly',
     leftHelperOffset: '--plasma-textfield__left-helper-offset',
@@ -113,6 +126,37 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-textfield-disabled-opacity',
+
+    /** Токены для tooltip */
+    hintMargin: '--plasma-textfield__hint-margin',
+    hintTargetSize: '--plasma-textfield__hint-target-size',
+    hintIconColor: '--plasma-textfield__hint-icon-color',
+    hintInnerLabelPlacementOffset: '--plasma-textfield__hint-inner-label-placement-offset',
+    clearHintInnerLabelPlacementOffset: '--plasma-textfield__clear-hint-inner-label-placement-offset',
+
+    tooltipBackgroundColor: '--plasma-textfield__tooltip-background-color',
+    tooltipBoxShadow: '--plasma-textfield__tooltip-box-shadow',
+    tooltipColor: '--plasma-textfield__tooltip-color',
+
+    tooltipPaddingTop: '--plasma-textfield__tooltip-padding-top',
+    tooltipPaddingRight: '--plasma-textfield__tooltip-padding-right',
+    tooltipPaddingBottom: '--plasma-textfield__tooltip-padding-bottom',
+    tooltipPaddingLeft: '--plasma-textfield__tooltip-padding-left',
+    tooltipMinHeight: '--plasma-textfield__tooltip-min-height',
+    tooltipBorderRadius: '--plasma-textfield__tooltip-border-radius',
+    tooltipTextFontFamily: '--plasma-textfield__tooltip-text-font-family',
+    tooltipTextFontSize: '--plasma-textfield__tooltip-text-font-size',
+    tooltipTextFontStyle: '--plasma-textfield__tooltip-text-font-style',
+    tooltipTextFontWeight: '--plasma-textfield__tooltip-text-font-weight',
+    tooltipTextFontLetterSpacing: '--plasma-textfield__tooltip-text-font-letter-spacing',
+    tooltipTextFontLineHeight: '--plasma-textfield__tooltip-text-font-line-height',
+    tooltipContentLeftMargin: '--plasma-textfield__tooltip-content-left-margin',
+    tooltipArrowMaskWidth: '--plasma-textfield__tooltip-arrow-mask-width',
+    tooltipArrowMaskHeight: '--plasma-textfield__tooltip-arrow-mask-height',
+    tooltipArrowMaskImage: '--plasma-textfield__tooltip-arrow-mask-image',
+    tooltipArrowHeight: '--plasma-textfield__tooltip-arrow-height',
+    tooltipArrowEdgeMargin: '--plasma-textfield__tooltip-arrow-edge-margin',
+    tooltipArrowBackground: '--plasma-textfield__tooltip-arrow-background',
 
     /** Токены чипа */
     chipHeight: '--plasma-textfield__chip-height',
@@ -160,4 +204,5 @@ export const tokens = {
     indicatorLabelPlacementOuterRight: '--plasma-textfield__indicator-placement-outer-right',
     clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
+    clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',
 };
