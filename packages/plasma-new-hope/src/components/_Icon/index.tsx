@@ -24,3 +24,4 @@ export { IconBlankOutline } from './Icons/IconBlankOutline';
 export { IconBlankPdfOutline } from './Icons/IconBlankPdfOutline';
 export { IconBlankTxtOutline } from './Icons/IconBlankTxtOutline';
 export { IconBlankXlsOutline } from './Icons/IconBlankXlsOutline';
+export { IconInfoCircleOutline } from './Icons/IconInfoCircleOutline';

@@ -1,6 +1,7 @@
-import type { MutableRefObject, KeyboardEvent, ChangeEvent } from 'react';
+import type { MutableRefObject, KeyboardEvent, ChangeEvent, ReactNode } from 'react';
 
 import type { InputHTMLAttributes } from '../../types';
+import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
 
 export type TextFieldPrimitiveValue = string | number | boolean;
 
@@ -102,6 +103,65 @@ type ClearProps =
           hasDivider?: never;
       };
 
+type HintProps =
+    | {
+          /**
+           * Текст тултипа
+           */
+          hintText: string;
+          /**
+           * Способ открытия тултипа - наведение или клик мышью
+           */
+          hintTrigger?: 'hover' | 'click';
+          /**
+           * Вид тултипа
+           */
+          hintView?: string;
+          /**
+           * Размер тултипа
+           */
+          hintSize?: string;
+          /**
+           * Иконка, рядом с которым произойдет вызов всплывающего окна.
+           * Если свойство не задано, применится иконка по умолчанию.
+           */
+          hintTargetIcon?: ReactNode;
+          /**
+           * Направление раскрытия тултипа.
+           */
+          hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+          /**
+           * Видимость стрелки (хвоста).
+           */
+          hintHasArrow?: boolean;
+          /**
+           * Отступ окна относительно элемента, у которого оно вызвано.
+           * @default
+           * [0, 8]
+           */
+          hintOffset?: [number, number];
+          /**
+           * Ширина окна (в rem).
+           */
+          hintWidth?: string;
+          /**
+           * Слот для контента слева, например `Icon`.
+           */
+          hintContentLeft?: ReactNode;
+      }
+    | {
+          hintTrigger?: never;
+          hintText?: never;
+          hintView?: never;
+          hintSize?: never;
+          hintTargetIcon?: never;
+          hintPlacement?: never;
+          hintHasArrow?: never;
+          hintOffset?: never;
+          hintWidth?: never;
+          hintContentLeft?: never;
+      };
+
 export type TextFieldPropsBase = {
     /**
      * Метка-подпись к элементу
@@ -111,6 +171,10 @@ export type TextFieldPropsBase = {
      * Расположение лейбла.
      */
     labelPlacement?: 'inner' | 'outer';
+    /**
+     * Метка-подпись к элементу справа.
+     */
+    titleCaption?: ReactNode;
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
@@ -137,6 +201,7 @@ export type TextFieldPropsBase = {
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
 } & RequiredProps &
     ClearProps &
+    HintProps &
     TextFieldChipProps;
 
 export type TextFieldProps = {
@@ -158,6 +223,17 @@ export type TextFieldProps = {
     disabled?: boolean;
 } & TextFieldPropsBase &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
+
+export type TextFieldRootProps = {
+    size?: string;
+    view?: string;
+    hintView?: string;
+    hintSize?: string;
+    clear?: boolean;
+    readOnly?: boolean;
+    disabled?: boolean;
+    labelPlacement?: 'inner' | 'outer';
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
 
 export interface ControlledRefs {
     chipsRefs: MutableRefObject<Array<HTMLButtonElement>>;
