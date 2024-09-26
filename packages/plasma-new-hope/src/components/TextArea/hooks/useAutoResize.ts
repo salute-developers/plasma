@@ -9,15 +9,13 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
     minAuto?: number,
     maxAuto?: number,
 ) => {
-    const isManualResize = useRef<boolean>(false);
     const previousHeight = useRef<number | undefined>();
 
     useEffect(() => {
-        if (active && ref && ref.current && !isManualResize.current) {
+        if (active && ref && ref.current) {
             // проверка на пользовательский resize (вручную)
             const height = ref.current.clientHeight / ROOT_FONT_SIZE;
             if (previousHeight.current !== undefined && previousHeight.current !== height) {
-                isManualResize.current = true;
                 return;
             }
 
@@ -38,5 +36,5 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
             ref.current.style.height = `${newHeight}rem`;
             previousHeight.current = newHeight;
         }
-    }, [ref, active, value]);
+    }, [ref, active, value, minAuto, maxAuto]);
 };

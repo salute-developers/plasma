@@ -333,6 +333,8 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
                 ${textAreaTokens.dividerColorHover}: var(--text-secondary);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             warning: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-warning);

@@ -2,13 +2,17 @@ import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
 import {
+    HintTargetWrapper,
     Input,
     InputContainer,
     InputWrapper,
     Label,
     LeftHelper,
+    StyledHintWrapper,
+    StyledOptionalText,
     StyledTextAfter,
     StyledTextBefore,
+    TitleCaption,
 } from '../../TextField.styles';
 
 export const base = css`
@@ -48,13 +52,33 @@ export const base = css`
         }
     }
 
-    ${Label} {
+    ${Label}, &:not(.${classes.innerLabelPlacement}) ${StyledOptionalText} {
         font-family: var(${tokens.labelFontFamily});
         font-size: var(${tokens.labelFontSize});
         font-style: var(${tokens.labelFontStyle});
         font-weight: var(${tokens.labelFontWeight});
         letter-spacing: var(${tokens.labelLetterSpacing});
         line-height: var(${tokens.labelLineHeight});
+    }
+
+    ${StyledHintWrapper} {
+        margin: var(${tokens.hintMargin});
+        width: var(${tokens.hintTargetSize});
+        height: var(${tokens.hintTargetSize});
+    }
+
+    ${HintTargetWrapper} {
+        width: var(${tokens.hintTargetSize});
+        height: var(${tokens.hintTargetSize});
+    }
+
+    ${TitleCaption} {
+        font-family: var(${tokens.titleCaptionFontFamily});
+        font-size: var(${tokens.titleCaptionFontSize});
+        font-style: var(${tokens.titleCaptionFontStyle});
+        font-weight: var(${tokens.titleCaptionFontWeight});
+        letter-spacing: var(${tokens.titleCaptionLetterSpacing});
+        line-height: var(${tokens.titleCaptionLineHeight});
     }
 
     ${LeftHelper} {

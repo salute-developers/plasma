@@ -42,6 +42,9 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 renderList,
                 renderListEnd,
                 onSearch,
+
+                hintText,
+
                 ...rest
             },
             ref,
@@ -143,6 +146,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                 aria-expanded={isOpen}
                                 aria-activedescendant={`${listId}/${focused}`}
                                 aria-describedby={helperTextId}
+                                hintText={String(hintText || '')}
                                 {...rest}
                             />
                         }
