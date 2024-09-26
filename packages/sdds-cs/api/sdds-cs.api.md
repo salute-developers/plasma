@@ -647,10 +647,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 view?: string | undefined;
@@ -2023,13 +2020,9 @@ export { OverlayProps }
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-clear: PolymorphicClassName;
 };
 viewCurrentPage: {
 default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-clear: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
@@ -2083,12 +2076,9 @@ export { priceClasses }
 export const Progress: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-primary: PolymorphicClassName;
 accent: PolymorphicClassName;
-success: PolymorphicClassName;
-warning: PolymorphicClassName;
-error: PolymorphicClassName;
+positive: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 size: {
 m: PolymorphicClassName;
@@ -2649,14 +2639,47 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 // Warning: (ae-forgotten-export) The symbol "TabItemProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const TabItem: (props: TabItemProps) => JSX.Element;
+export const TabItem: FunctionComponent<PropsType<    {
+view: {
+clear: PolymorphicClassName;
+divider: PolymorphicClassName;
+};
+size: {
+s: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+pilled: {
+true: PolymorphicClassName;
+};
+}> & ButtonHTMLAttributes<HTMLButtonElement> & AsProps<any> & CustomTabItemProps & RefAttributes<HTMLDivElement>>;
+
+export { TabItemProps }
 
 export { TabItemRefs }
 
 // Warning: (ae-forgotten-export) The symbol "TabsProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const Tabs: (props: TabsProps) => JSX.Element;
+export const Tabs: FunctionComponent<PropsType<    {
+view: {
+clear: PolymorphicClassName;
+divider: PolymorphicClassName;
+};
+size: {
+s: PolymorphicClassName;
+};
+stretch: {
+true: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+pilled: {
+true: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & AsProps<any> & CustomTabsProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsContext }
 
@@ -3259,7 +3282,7 @@ dark: PolymorphicClassName;
 light: PolymorphicClassName;
 };
 size: {
-m: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 pilled: {
 true: PolymorphicClassName;

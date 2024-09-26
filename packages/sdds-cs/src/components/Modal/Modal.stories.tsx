@@ -58,8 +58,9 @@ const StyledWrapper = styled.div`
 `;
 
 const Content = styled.div`
-    background: var(--surface-solid-secondary);
-    padding: 1rem;
+    background: var(--surface-solid-card);
+    padding: 1.5rem;
+    border-radius: 1rem;
 `;
 
 const StyledModal = styled(Modal)`

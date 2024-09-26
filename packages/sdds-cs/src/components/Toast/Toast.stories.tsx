@@ -21,7 +21,7 @@ const meta: Meta<typeof ToastController> = {
             },
         },
         size: {
-            options: ['m'],
+            options: ['s'],
             control: {
                 type: 'inline-radio',
             },
@@ -67,14 +67,14 @@ export const ToastComponent: StoryComponent = {
     args: {
         text: 'Текст всплывающего уведомления',
         view: 'default',
-        size: 'm',
+        size: 's',
         hasClose: true,
         enableContentLeft: true,
         pilled: false,
     },
     render: ({ enableContentLeft, ...args }) => (
         <ToastContainer>
-            <Toast contentLeft={enableContentLeft && <BellIcon width="1rem" height="1rem" />} {...args} />
+            <Toast contentLeft={enableContentLeft && <BellIcon width="1.5rem" height="1.5rem" />} {...args} />
         </ToastContainer>
     ),
 };
@@ -92,7 +92,7 @@ const StoryLiveDemo = ({
     enableContentLeft,
 }: StoryProps) => {
     const { showToast, hideToast } = useToast();
-    const contentLeft = enableContentLeft && <BellIcon width="1rem" height="1rem" />;
+    const contentLeft = enableContentLeft && <BellIcon width="1.5rem" height="1.5rem" />;
 
     return (
         <Container>

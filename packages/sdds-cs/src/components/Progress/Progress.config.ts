@@ -8,37 +8,23 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
+                ${progressTokens.trackBackgroundColor}: var(--surface-solid-primary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-solid-default);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
-            secondary: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-solid-tertiary);
-                ${progressTokens.valueColor}: var(--text-tertiary);
-            `,
-            primary: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
+            accent: css`
+                ${progressTokens.trackBackgroundColor}: var(--surface-solid-primary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
-            accent: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);
-                ${progressTokens.valueColor}: var(--text-tertiary);
-            `,
-            success: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
+            positive: css`
+                ${progressTokens.trackBackgroundColor}: var(--surface-solid-primary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-positive);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
-            warning: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-warning);
-                ${progressTokens.valueColor}: var(--text-tertiary);
-            `,
-            error: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
+
+            negative: css`
+                ${progressTokens.trackBackgroundColor}: var(--surface-solid-primary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-negative);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,

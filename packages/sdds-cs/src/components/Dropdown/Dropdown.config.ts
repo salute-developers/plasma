@@ -12,9 +12,9 @@ export const config = {
                 ${dropdownTokens.width}: 12.5rem;
                 ${dropdownTokens.borderRadius}: 0.625rem;
 
-                ${dropdownTokens.itemPaddingTop}: 0.6875rem;
+                ${dropdownTokens.itemPaddingTop}: 0.5rem;
                 ${dropdownTokens.itemPaddingRight}: 0.75rem;
-                ${dropdownTokens.itemPaddingBottom}: 0.6875rem;
+                ${dropdownTokens.itemPaddingBottom}: 0.5rem;
                 ${dropdownTokens.itemPaddingLeft}: 0.75rem;
                 ${dropdownTokens.itemBorderRadius}: 0.5rem;
                 ${dropdownTokens.itemPaddingTopTight}: 0.4375rem;
@@ -27,12 +27,12 @@ export const config = {
                 ${dropdownTokens.dividerMarginTopTight}: 0.25rem;
                 ${dropdownTokens.dividerMarginBottomTight}: 0.25rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-s-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
+                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
+                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
         view: {
@@ -45,7 +45,7 @@ export const config = {
                 ${dropdownTokens.itemBackground}: var(--surface-clear);
                 ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${dropdownTokens.itemColor}: var(--text-primary);
-                ${dropdownTokens.dividerColor}: var(--surface-solid-primary);
+                ${dropdownTokens.disclosureIconColor}: var(--text-accent);
             `,
         },
     },
