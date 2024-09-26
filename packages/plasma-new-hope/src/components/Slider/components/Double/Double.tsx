@@ -369,6 +369,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 data-slidertype="min"
                 value={firstValue}
                 ref={innerRefFirst}
+                onChange={() => {}}
             />
             <InputHidden
                 name={name}
@@ -377,6 +378,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 data-slidertype="max"
                 value={secondValue}
                 ref={innerRefSecond}
+                onChange={() => {}}
             />
         </DoubleWrapper>
     );

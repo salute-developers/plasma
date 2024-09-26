@@ -119,9 +119,7 @@ const DefaultForm = () => {
                 ))}
             </RadioGroup>
             <Slider name="slider" label="Slider" type="single" min={0} max={100} />
-            <Slider name="sliderd" label="Slider" type="double" min={0} max={100} />
             <DatePicker label="DatePicker" name="datepicker" />
-            <DatePickerRange label="DatePicker" name="datepickerRange" />
             <Button type="submit">Отправить</Button>
         </form>
     );
@@ -136,19 +134,26 @@ export const FormDefault: StoryObj<StoryDropdownProps> = {
 };
 
 const DefaultUseForm = () => {
+    const defaultValues = {
+        textfield: 'John Doe',
+        textarea: 'Default description',
+        checkbox: true,
+        switch: true,
+        radiobox: 'c',
+        slider: 10,
+        sliderdouble: [10, 20],
+        datepicker: null,
+        datepickerrange: null,
+    };
     const { register, handleSubmit } = useReactHookForm({
-        defaultValues: {
-            textfield: 'John Doe',
-            textarea: 'Default description',
-            checkbox: true,
-            switch: true,
-            radiobox: 'c',
-            slider: 10,
-        },
+        defaultValues,
     });
     const onSubmit = (data) => {
         console.log(data);
     };
+
+    const datepicker = register('datepicker');
+    const datepickerrange = register('datepickerrange');
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -170,6 +175,10 @@ const DefaultUseForm = () => {
                     />
                 ))}
             </RadioGroup>
+            <Slider {...register('slider')} label="Slider" type="single" min={0} max={100} />
+            <Slider {...register('sliderdouble')} label="Slider Double" type="double" min={0} max={100} />
+            <DatePicker name={datepicker.name} onChange={datepicker.onChange} label="DatePicker" />
+            <DatePickerRange name={datepickerrange.name} onChange={datepickerrange.onChange} label="DatePicker" />
             <Button type="submit">Отправить</Button>
         </form>
     );
@@ -181,65 +190,4 @@ const StoryHookForm = () => {
 
 export const UseHookForm: StoryObj<StoryDropdownProps> = {
     render: () => <StoryHookForm />,
-};
-
-const DefaultUseFormController = () => {
-    const { control, handleSubmit } = useReactHookForm({
-        defaultValues: {
-            textfield: 'John Doe',
-            textarea: 'Default description',
-            checkbox: true,
-            switch: true,
-            radiobox: 'c',
-            slider: 10,
-            sliderd: [10, 20],
-        },
-    });
-    const onSubmit = (data) => {
-        console.log(data);
-    };
-
-    return (
-        <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <Controller
-                name="textfield"
-                control={control}
-                render={({ field }) => <TextField {...field} label="TextField" />}
-            />
-            <Controller
-                name="textarea"
-                control={control}
-                render={({ field }) => <TextArea {...field} label="TextArea" />}
-            />
-            <Controller
-                name="checkbox"
-                control={control}
-                render={({ field }) => <Checkbox {...field} checked={field.value} label="Checkbox" />}
-            />
-            <Controller
-                name="switch"
-                control={control}
-                render={({ field }) => <Switch {...field} checked={field.value} labelPosition="after" label="Switch" />}
-            />
-            <Controller
-                name="slider"
-                control={control}
-                render={({ field }) => <Slider {...field} type="single" label="Slider" min={0} max={100} />}
-            />
-            <Controller
-                name="sliderd"
-                control={control}
-                render={({ field }) => <Slider {...field} type="double" label="Slider" min={0} max={100} />}
-            />
-            <Button type="submit">Отправить</Button>
-        </form>
-    );
-};
-
-const StoryHookFormController = () => {
-    return <DefaultUseFormController />;
-};
-
-export const UseHookFormController: StoryObj<StoryDropdownProps> = {
-    render: () => <StoryHookFormController />,
 };
