@@ -58,9 +58,23 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
                 ${textAreaTokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 0.813rem -1.875rem auto auto;
 
                 ${textAreaTokens.scrollbarWidth}: 0.188rem;
                 ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.751rem -1.875rem auto auto;
+                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -113,9 +127,23 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
 
                 ${textAreaTokens.scrollbarWidth}: 0.188rem;
                 ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.063rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -170,9 +198,23 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.1875rem -0.625rem auto auto;
                 ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
                 ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.25rem -2.25rem auto auto;
 
                 ${textAreaTokens.scrollbarWidth}: 0.188rem;
                 ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.063rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             l: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -225,9 +267,23 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
                 ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
 
                 ${textAreaTokens.scrollbarWidth}: 0.188rem;
                 ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.562rem -2.063rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
         view: {
@@ -263,6 +319,8 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
                 ${textAreaTokens.dividerColorHover}: var(--text-secondary);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             positive: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-positive);
@@ -276,11 +334,11 @@ export const config = {
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-positive);
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-positive);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-positive);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${textAreaTokens.leftHelperColor}: var(--text-positive);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
@@ -296,10 +354,12 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-positive);
                 ${textAreaTokens.dividerColorHover}: var(--surface-positive);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             /**
              * @deprecated
-             * использовать `default`
+             * Использовать `default`
              */
             primary: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-primary);
@@ -348,11 +408,11 @@ export const config = {
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-warning);
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-warning);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-warning);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${textAreaTokens.leftHelperColor}: var(--text-warning);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
@@ -368,6 +428,8 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-warning);
                 ${textAreaTokens.dividerColorHover}: var(--surface-warning);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             negative: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-negative);
@@ -381,11 +443,11 @@ export const config = {
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-negative);
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-negative);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
@@ -401,6 +463,66 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-negative);
                 ${textAreaTokens.dividerColorHover}: var(--surface-negative);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+            `,
+        },
+        hintView: {
+            default: css`
+                ${textAreaTokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${textAreaTokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${textAreaTokens.tooltipColor}: var(--text-primary);
+                ${textAreaTokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+            `,
+        },
+        hintSize: {
+            m: css`
+                ${textAreaTokens.tooltipPaddingTop}: 0.6875rem;
+                ${textAreaTokens.tooltipPaddingRight}: 0.875rem;
+                ${textAreaTokens.tooltipPaddingBottom}: 0.6875rem;
+                ${textAreaTokens.tooltipPaddingLeft}: 0.875rem;
+
+                ${textAreaTokens.tooltipMinHeight}: 2.5rem;
+                ${textAreaTokens.tooltipBorderRadius}: 0.625rem;
+
+                ${textAreaTokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${textAreaTokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${textAreaTokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${textAreaTokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${textAreaTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${textAreaTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${textAreaTokens.tooltipContentLeftMargin}: 0.375rem;
+
+                ${textAreaTokens.tooltipArrowMaskWidth}: 1.25rem;
+                ${textAreaTokens.tooltipArrowMaskHeight}: 1.25rem;
+                ${textAreaTokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${textAreaTokens.tooltipArrowHeight}: 0.5rem;
+                ${textAreaTokens.tooltipArrowEdgeMargin}: 0.625rem;
+            `,
+            s: css`
+                ${textAreaTokens.tooltipPaddingTop}: 0.5rem;
+                ${textAreaTokens.tooltipPaddingRight}: 0.75rem;
+                ${textAreaTokens.tooltipPaddingBottom}: 0.5rem;
+                ${textAreaTokens.tooltipPaddingLeft}: 0.75rem;
+
+                ${textAreaTokens.tooltipMinHeight}: 2rem;
+                ${textAreaTokens.tooltipBorderRadius}: 0.5rem;
+
+                ${textAreaTokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${textAreaTokens.tooltipContentLeftMargin}: 0.25rem;
+
+                ${textAreaTokens.tooltipArrowMaskWidth}: 1rem;
+                ${textAreaTokens.tooltipArrowMaskHeight}: 1rem;
+                ${textAreaTokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${textAreaTokens.tooltipArrowHeight}: 0.375rem;
+                ${textAreaTokens.tooltipArrowEdgeMargin}: 0.5625rem;
             `,
         },
         clear: {
@@ -411,6 +533,7 @@ export const config = {
                 ${textAreaTokens.disabledOpacity}: 0.4;
                 ${textAreaTokens.inputColorDisabled}: var(--text-secondary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.titleCaptionColorReadOnly}: var(--text-secondary);
             `,
         },
     },
