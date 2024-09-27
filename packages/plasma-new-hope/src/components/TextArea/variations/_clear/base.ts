@@ -5,6 +5,7 @@ import {
     StyledContainer,
     StyledContent,
     StyledHelpers,
+    StyledIndicator,
     StyledLabel,
     StyledPlaceholder,
     StyledTextArea,
@@ -28,10 +29,10 @@ export const base = css`
 
         ${StyledContent} {
             right: 0;
+            bottom: unset;
         }
 
         ${StyledTextArea}, ${StyledHelpers} {
-            padding-right: 0;
             padding-left: 0;
         }
 
@@ -39,18 +40,45 @@ export const base = css`
             background-color: unset;
             border-radius: 0;
             padding-top: var(${tokens.clearHelpersPaddingTop});
+            padding-right: 0;
         }
 
         ${StyledTextArea} {
             color: var(${tokens.clearInputColor});
+            padding-right: 0;
+
+            &.${classes.hasRightContent} {
+                padding-right: var(${tokens.clearInputPaddingRightWithRightContent});
+            }
         }
 
-        ${StyledContainer}:not(.${classes.innerPlaceholderUp}) ${StyledPlaceholder} {
-            color: var(${tokens.clearPlaceholderColor});
+        ${StyledContainer} {
+            &:not(.${classes.innerPlaceholderUp}) {
+                ${StyledPlaceholder} {
+                    color: var(${tokens.clearPlaceholderColor});
+                }
+
+                &.${classes.focusedOuterPlaceholderColor} ${StyledPlaceholder} {
+                    color: var(${tokens.clearPlaceholderColorFocus});
+                }
+            }
+
+            &.${classes.innerPlaceholderUp} {
+                color: var(${tokens.placeholderColor});
+            }
         }
-        
+
         ${StyledPlaceholder} {
             padding-left: 0;
+        }
+
+        ${StyledIndicator} {
+            &.${classes.innerLabelPlacement} {
+                inset: var(${tokens.clearIndicatorLabelPlacementInner});
+                &.align-right {
+                    inset: var(${tokens.clearIndicatorLabelPlacementInnerRight});
+                }
+            }
         }
 
         .${classes.styledContainer} {
