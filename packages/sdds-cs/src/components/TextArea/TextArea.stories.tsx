@@ -41,16 +41,6 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        rows: {
-            control: {
-                type: 'number',
-            },
-        },
-        cols: {
-            control: {
-                type: 'number',
-            },
-        },
         labelPlacement: {
             options: labelPlacements,
             control: {
@@ -69,6 +59,29 @@ const meta: Meta<StoryTextAreaProps> = {
             control: {
                 type: 'select',
             },
+        },
+        clear: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
+        cols: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
+        },
+        rows: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
         },
         ...disableProps([
             'helperBlock',
@@ -101,7 +114,7 @@ const meta: Meta<StoryTextAreaProps> = {
         id: 'example-textarea',
         enableContentRight: true,
         enableContentLeft: true,
-        label: 'Подсказка',
+        label: 'Лейбл',
         placeholder: 'Заполните многострочное поле',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
@@ -115,6 +128,8 @@ const meta: Meta<StoryTextAreaProps> = {
         size: 's',
         optional: false,
         labelPlacement: 'outer',
+        clear: false,
+        hasDivider: false,
     },
 };
 

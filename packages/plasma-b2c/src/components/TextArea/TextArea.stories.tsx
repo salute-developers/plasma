@@ -10,6 +10,9 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const statuses = ['', 'success', 'warning', 'error'];
+const sizes = ['xs', 's', 'm', 'l'];
+
 const meta: Meta<TextAreaProps> = {
     title: 'Controls/TextArea',
     component: TextArea,
@@ -34,7 +37,14 @@ const meta: Meta<TextAreaProps> = {
             if: { arg: 'required', truthy: false },
         },
         status: {
-            options: ['', 'success', 'warning', 'error'],
+            options: statuses,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            defaultValue: 'm',
             control: {
                 type: 'select',
             },
@@ -88,6 +98,7 @@ const meta: Meta<TextAreaProps> = {
         autoResize: false,
         minAuto: 0,
         maxAuto: 0,
+        size: 'm',
     },
 };
 
