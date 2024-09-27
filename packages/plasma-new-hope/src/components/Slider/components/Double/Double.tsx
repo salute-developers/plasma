@@ -35,6 +35,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     label,
     labelContentLeft,
     size = 'm',
+    pointerSize = 'small',
     onChangeCommitted,
     onChangeTextField,
     onBlurTextField,
@@ -56,8 +57,13 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         firstValue: value[0],
         secondValue: value[1],
     });
-    const [firstInputActive, setFirstInputActive] = useState(false);
-    const [secondInputActive, setSecondInputActive] = useState(false);
+    const [firstInputHovered, setFirstInputHovered] = useState(false);
+    const [firstInputFocused, setFirstInputFocused] = useState(false);
+    const [secondInputHovered, setSecondInputHovered] = useState(false);
+    const [secondInputFocused, setSecondInputFocused] = useState(false);
+
+    const firstInputActive = firstInputHovered || firstInputFocused;
+    const secondInputActive = secondInputHovered || secondInputFocused;
 
     const [firstValue, setFirstValue] = useState<number>(value[0]);
     const [secondValue, setSecondValue] = useState<number>(value[1]);
@@ -92,6 +98,19 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
             xSecondHandle: stepSize * secondLocalValue,
         }));
     }, [value, stepSize, min, max, setFirstValue, setSecondValue]);
+
+    useEffect(() => {
+        const onMouseUp = () => {
+            setFirstInputFocused(false);
+            setSecondInputFocused(false);
+        };
+
+        window.addEventListener('mouseup', onMouseUp);
+
+        return () => {
+            window.removeEventListener('mouseup', onMouseUp);
+        };
+    }, []);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {
@@ -259,6 +278,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
     const [ariaLabelLeft, ariaLabelRight] = ariaLabel || [];
     const currentFirstSliderValue = Math.max(state.firstValue, min);
+    const settings = sizeData[size][pointerSize === 'large' ? 'large' : 'small'];
 
     return (
         <DoubleWrapper>
@@ -272,15 +292,18 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 <SliderBase
                     min={min}
                     max={max}
+                    size={size}
                     disabled={disabled}
                     setStepSize={setStepSize}
                     railFillWidth={state.railFillWidth}
-                    settings={sizeData[size]}
+                    settings={settings}
                     railFillXPosition={state.railFillXPosition}
+                    orientation="horizontal"
                     {...rest}
                 >
                     <Handler
                         ref={firstHandleRef}
+                        size={pointerSize}
                         stepSize={state.stepSize}
                         multipleStepSize={multipleStepSize}
                         onChangeCommitted={onFirstHandleChangeCommitted}
@@ -290,15 +313,18 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                         disabled={disabled}
                         bounds={[min, state.secondValue]}
                         side="left"
-                        xPosition={state.xFirstHandle}
+                        orientation="horizontal"
+                        position={state.xFirstHandle}
                         zIndex={state.firstHandleZIndex}
                         value={currentFirstSliderValue}
                         ariaLabel={ariaLabelLeft}
-                        onMouseEnter={() => setFirstInputActive(true)}
-                        onMouseLeave={() => setFirstInputActive(false)}
+                        onMouseDown={() => setFirstInputFocused(true)}
+                        onMouseEnter={() => setFirstInputHovered(true)}
+                        onMouseLeave={() => setFirstInputHovered(false)}
                     />
                     <Handler
                         ref={secondHandleRef}
+                        size={pointerSize}
                         stepSize={state.stepSize}
                         multipleStepSize={multipleStepSize}
                         onChangeCommitted={onSecondHandleChangeCommitted}
@@ -309,12 +335,14 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                         disabled={disabled}
                         bounds={[state.firstValue, max]}
                         side="right"
-                        xPosition={state.xSecondHandle}
+                        orientation="horizontal"
+                        position={state.xSecondHandle}
                         zIndex={state.secondHandleZIndex}
                         value={Math.max(state.secondValue, min)}
                         ariaLabel={ariaLabelRight}
-                        onMouseEnter={() => setSecondInputActive(true)}
-                        onMouseLeave={() => setSecondInputActive(false)}
+                        onMouseDown={() => setSecondInputFocused(true)}
+                        onMouseEnter={() => setSecondInputHovered(true)}
+                        onMouseLeave={() => setSecondInputHovered(false)}
                     />
                 </SliderBase>
 

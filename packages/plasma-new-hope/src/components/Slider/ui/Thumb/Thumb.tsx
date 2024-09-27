@@ -3,7 +3,16 @@ import React from 'react';
 import type { ThumbProps } from './Thumb.types';
 import { ThumbBase } from './Thumb.styles';
 
-export const Thumb = ({ min, max, value, ariaValueMin = min, ariaLabel, disabled, ...rest }: ThumbProps) => {
+export const Thumb = ({
+    min,
+    max,
+    value,
+    ariaValueMin = min,
+    ariaLabel,
+    disabled,
+    orientation,
+    ...rest
+}: ThumbProps) => {
     return (
         <ThumbBase
             role="slider"
@@ -12,7 +21,7 @@ export const Thumb = ({ min, max, value, ariaValueMin = min, ariaLabel, disabled
             aria-valuemax={max}
             aria-valuenow={value}
             disabled={disabled}
-            aria-orientation="horizontal"
+            aria-orientation={orientation}
             {...rest}
         />
     );

@@ -8,4 +8,5 @@ export interface ThumbProps {
     ariaValueMin?: number;
     hasHoverAnimation?: boolean;
     disabled?: boolean;
+    orientation: 'horizontal' | 'vertical';
 }
