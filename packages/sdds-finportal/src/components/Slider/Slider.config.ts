@@ -70,12 +70,13 @@ export const config = {
         },
         size: {
             l: css`
-                ${sliderTokens.height}: 1.5rem;
+                ${sliderTokens.size}: 1.5rem;
                 ${sliderTokens.doubleWrapperGap}: 0.375rem;
 
                 ${sliderTokens.labelWrapperGap}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginBottom}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginRight}: 0.875rem;
+                ${sliderTokens.labelWrapperVerticalMargin}: 1rem;
 
                 ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${sliderTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
@@ -84,30 +85,25 @@ export const config = {
                 ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${sliderTokens.rangeMinValueMargin}: 0.75rem;
-                ${sliderTokens.rangeMaxValueMargin}: 0.75rem;
-                ${sliderTokens.rangeValueBottomOffset}: -1.25rem;
+                ${sliderTokens.rangeValueHorizontalMargin}: 0.75rem;
+                ${sliderTokens.rangeValueBottomOffset}: 0.875rem;
+                ${sliderTokens.rangeValueHorizontalOffset}: 0.875rem;
+                ${sliderTokens.rangeValueVerticalMargin}: 0.75rem;
 
-                ${sliderTokens.rangeValueFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${sliderTokens.rangeValueFontSize}: var(--plasma-typo-body-s-font-size);
-                ${sliderTokens.rangeValueFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${sliderTokens.rangeValueFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${sliderTokens.rangeValueLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${sliderTokens.rangeValueLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-m-font-size);
+                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${sliderTokens.thumbSize}: 1.5rem;
-                ${sliderTokens.thumbBorder}: 0.125rem solid;
+                ${sliderTokens.thumbSize}: 1rem;
+                ${sliderTokens.thumbSizeLarge}: 1.25rem;
+                ${sliderTokens.thumbBorder}: 0.0625rem solid;
 
                 ${sliderTokens.currentValueTopOffset}: 1.625rem;
 
-                ${sliderTokens.currentValueFontFamily}: var(--plasma-typo-text-s-font-family);
-                ${sliderTokens.currentValueFontSize}: var(--plasma-typo-text-s-font-size);
-                ${sliderTokens.currentValueFontStyle}: var(--plasma-typo-text-s-font-style);
-                ${sliderTokens.currentValueFontWeight}: var(--plasma-typo-text-s-font-weight);
-                ${sliderTokens.currentValueLetterSpacing}: var(--plasma-typo-text-s-letter-spacing);
-                ${sliderTokens.currentValueLineHeight}: var(--plasma-typo-text-s-line-height);
-
-                ${sliderTokens.railHeight}: 0.25rem;
+                ${sliderTokens.railThickness}: 0.25rem;
                 ${sliderTokens.railBorderRadius}: 0.125rem;
                 ${sliderTokens.railIndent}: 0.75rem;
 
@@ -124,12 +120,13 @@ export const config = {
                 ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
-                ${sliderTokens.height}: 1.5rem;
+                ${sliderTokens.size}: 1.5rem;
                 ${sliderTokens.doubleWrapperGap}: 0.375rem;
 
                 ${sliderTokens.labelWrapperGap}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginBottom}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginRight}: 0.875rem;
+                ${sliderTokens.labelWrapperVerticalMargin}: 0.75rem;
 
                 ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${sliderTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
@@ -138,30 +135,25 @@ export const config = {
                 ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${sliderTokens.rangeMinValueMargin}: 0.75rem;
-                ${sliderTokens.rangeMaxValueMargin}: 0.75rem;
-                ${sliderTokens.rangeValueBottomOffset}: -1.25rem;
+                ${sliderTokens.rangeValueHorizontalMargin}: 0.75rem;
+                ${sliderTokens.rangeValueBottomOffset}: 0.75rem;
+                ${sliderTokens.rangeValueHorizontalOffset}: 0.875rem;
+                ${sliderTokens.rangeValueVerticalMargin}: 0.625rem;
 
-                ${sliderTokens.rangeValueFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${sliderTokens.rangeValueFontSize}: var(--plasma-typo-body-s-font-size);
-                ${sliderTokens.rangeValueFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${sliderTokens.rangeValueFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${sliderTokens.rangeValueLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${sliderTokens.rangeValueLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-s-font-size);
+                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${sliderTokens.thumbSize}: 1.5rem;
-                ${sliderTokens.thumbBorder}: 0.125rem solid;
+                ${sliderTokens.thumbSize}: 1rem;
+                ${sliderTokens.thumbSizeLarge}: 1.25rem;
+                ${sliderTokens.thumbBorder}: 0.0625rem solid;
 
                 ${sliderTokens.currentValueTopOffset}: 1.75rem;
 
-                ${sliderTokens.currentValueFontFamily}: var(--plasma-typo-text-xs-font-family);
-                ${sliderTokens.currentValueFontSize}: var(--plasma-typo-text-xs-font-size);
-                ${sliderTokens.currentValueFontStyle}: var(--plasma-typo-text-xs-font-style);
-                ${sliderTokens.currentValueFontWeight}: var(--plasma-typo-text-xs-font-weight);
-                ${sliderTokens.currentValueLetterSpacing}: var(--plasma-typo-text-xs-letter-spacing);
-                ${sliderTokens.currentValueLineHeight}: var(--plasma-typo-text-xs-line-height);
-
-                ${sliderTokens.railHeight}: 0.25rem;
+                ${sliderTokens.railThickness}: 0.25rem;
                 ${sliderTokens.railBorderRadius}: 0.125rem;
                 ${sliderTokens.railIndent}: 0.75rem;
 
@@ -178,12 +170,13 @@ export const config = {
                 ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
-                ${sliderTokens.height}: 1rem;
+                ${sliderTokens.size}: 1rem;
                 ${sliderTokens.doubleWrapperGap}: 0.375rem;
 
                 ${sliderTokens.labelWrapperGap}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginBottom}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginRight}: 0.875rem;
+                ${sliderTokens.labelWrapperVerticalMargin}: 0.625rem;
 
                 ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${sliderTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
@@ -192,30 +185,25 @@ export const config = {
                 ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${sliderTokens.rangeMinValueMargin}: 0.5rem;
-                ${sliderTokens.rangeMaxValueMargin}: 0.5rem;
-                ${sliderTokens.rangeValueBottomOffset}: -1.25rem;
+                ${sliderTokens.rangeValueHorizontalMargin}: 0.5rem;
+                ${sliderTokens.rangeValueBottomOffset}: 0.625rem;
+                ${sliderTokens.rangeValueHorizontalOffset}: 0.625rem;
+                ${sliderTokens.rangeValueVerticalMargin}: 0.5rem;
 
-                ${sliderTokens.rangeValueFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${sliderTokens.rangeValueFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${sliderTokens.rangeValueFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${sliderTokens.rangeValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${sliderTokens.rangeValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${sliderTokens.rangeValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbBorder}: 0.125rem solid;
+                ${sliderTokens.thumbSizeLarge}: 1.25rem;
+                ${sliderTokens.thumbBorder}: 0.0625rem solid;
 
                 ${sliderTokens.currentValueTopOffset}: 1.25rem;
 
-                ${sliderTokens.currentValueFontFamily}: var(--plasma-typo-text-xs-font-family);
-                ${sliderTokens.currentValueFontSize}: var(--plasma-typo-text-xs-font-size);
-                ${sliderTokens.currentValueFontStyle}: var(--plasma-typo-text-xs-font-style);
-                ${sliderTokens.currentValueFontWeight}: var(--plasma-typo-text-xs-font-weight);
-                ${sliderTokens.currentValueLetterSpacing}: var(--plasma-typo-text-xs-letter-spacing);
-                ${sliderTokens.currentValueLineHeight}: var(--plasma-typo-text-xs-line-height);
-
-                ${sliderTokens.railHeight}: 0.25rem;
+                ${sliderTokens.railThickness}: 0.25rem;
                 ${sliderTokens.railBorderRadius}: 0.125rem;
                 ${sliderTokens.railIndent}: 0.75rem;
 

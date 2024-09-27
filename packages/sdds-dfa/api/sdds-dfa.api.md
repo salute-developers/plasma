@@ -3352,37 +3352,115 @@ onChange?: ((event: FormTypeNumber) => void) | undefined;
 name: string;
 value?: undefined;
 defaultValue?: number | undefined;
+} & {
+orientation?: "horizontal" | undefined;
+labelPlacement?: "none" | "top" | "left" | undefined;
+scaleAlign?: "none" | "bottom" | "side" | undefined;
+sliderAlign?: "none" | undefined;
+reversed?: undefined;
+labelReversed?: undefined;
 } & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
 onChangeCommitted?: ((value: number) => void) | undefined;
 ariaLabel?: string | undefined;
 showCurrentValue?: boolean | undefined;
 showRangeValues?: boolean | undefined;
+rangeValuesPlacement?: string | undefined;
+showScale?: boolean | undefined;
 hideMinValueDiff?: number | undefined;
 hideMaxValueDiff?: number | undefined;
-rangeValuesPlacement?: "outer" | "inner" | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
+labelContentLeft?: ReactNode;
+labelContent?: ReactNode;
 multipleStepSize?: number | undefined;
 view?: string | undefined;
 size?: "s" | "m" | "l" | undefined;
 type?: "single" | undefined;
+pointerSize?: "none" | "small" | "large" | undefined;
+} & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
+onChange?: ((event: FormTypeNumber) => void) | undefined;
+name: string;
+value?: undefined;
+defaultValue?: number | undefined;
+} & {
+orientation: "vertical";
+sliderAlign?: "none" | "center" | "right" | "left" | undefined;
+scaleAlign?: undefined;
+reversed?: boolean | undefined;
+labelReversed?: boolean | undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+rangeValuesPlacement?: string | undefined;
+showScale?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+labelContentLeft?: ReactNode;
+labelContent?: ReactNode;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "s" | "m" | "l" | undefined;
+type?: "single" | undefined;
+pointerSize?: "none" | "small" | "large" | undefined;
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
 onChange?: ((value: number) => void) | undefined;
 value: number;
 name?: undefined;
 defaultValue?: undefined;
+} & {
+orientation?: "horizontal" | undefined;
+labelPlacement?: "none" | "top" | "left" | undefined;
+scaleAlign?: "none" | "bottom" | "side" | undefined;
+sliderAlign?: "none" | undefined;
+reversed?: undefined;
+labelReversed?: undefined;
 } & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
 onChangeCommitted?: ((value: number) => void) | undefined;
 ariaLabel?: string | undefined;
 showCurrentValue?: boolean | undefined;
 showRangeValues?: boolean | undefined;
+rangeValuesPlacement?: string | undefined;
+showScale?: boolean | undefined;
 hideMinValueDiff?: number | undefined;
 hideMaxValueDiff?: number | undefined;
-rangeValuesPlacement?: "outer" | "inner" | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
+labelContentLeft?: ReactNode;
+labelContent?: ReactNode;
 multipleStepSize?: number | undefined;
 view?: string | undefined;
 size?: "s" | "m" | "l" | undefined;
 type?: "single" | undefined;
+pointerSize?: "none" | "small" | "large" | undefined;
+} & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
+onChange?: ((value: number) => void) | undefined;
+value: number;
+name?: undefined;
+defaultValue?: undefined;
+} & {
+orientation: "vertical";
+sliderAlign?: "none" | "center" | "right" | "left" | undefined;
+scaleAlign?: undefined;
+reversed?: boolean | undefined;
+labelReversed?: boolean | undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+rangeValuesPlacement?: string | undefined;
+showScale?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+labelContentLeft?: ReactNode;
+labelContent?: ReactNode;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "s" | "m" | "l" | undefined;
+type?: "single" | undefined;
+pointerSize?: "none" | "small" | "large" | undefined;
 } & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
 onChange?: ((event: FormTypeString) => void) | undefined;
 name?: string | undefined;
