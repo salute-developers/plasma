@@ -8,6 +8,7 @@ import {
     Label,
     StyledContentLeft,
     StyledContentRight,
+    StyledIndicator,
 } from '../../TextField.styles';
 
 export const base = css`
@@ -32,10 +33,6 @@ export const base = css`
             margin-right: 0;
         }
 
-        ${InputPlaceholder} {
-            color: var(${tokens.clearPlaceholderColor});
-        }
-
         &.${classes.outerLabelPlacement} {
             ${Label} {
                 margin-bottom: var(${tokens.clearLabelOffset});
@@ -44,6 +41,20 @@ export const base = css`
 
         ${Input} {
             color: var(${tokens.clearColor});
+        }
+
+        ${InputPlaceholder} {
+            color: var(${tokens.clearPlaceholderColor});
+        }
+
+        ${StyledIndicator} {
+            &.${classes.innerLabelPlacement} {
+                inset: var(${tokens.clearIndicatorLabelPlacementInner});
+
+                &.align-right {
+                    inset: var(${tokens.clearIndicatorLabelPlacementInnerRight});
+                }
+            }
         }
 
         &.${classes.hasDivider} {
@@ -74,6 +85,10 @@ export const base = css`
                     ${tokens.dividerColorFocus},
                     var(${String(tokens.dividerColor)})
                 );
+
+                ${InputPlaceholder} {
+                    color: var(${tokens.clearPlaceholderColorFocus});
+                }
             }
         }
     }

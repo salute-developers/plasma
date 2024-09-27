@@ -29,20 +29,25 @@ export const base = css`
             var(${String(tokens.backgroundColor)})
         );
     }
-    ${InputWrapper}:focus-within {
-        --plasma_private-textfield-border-color: var(${tokens.borderColorFocus}, var(${String(tokens.borderColor)}));
-        --plasma_private-textfield-bg-color: var(
-            ${tokens.backgroundColorFocus},
-            var(${String(tokens.backgroundColor)})
-        );
+
+    ${Input} {
+        color: var(${tokens.color});
     }
 
     ${InputPlaceholder} {
         color: var(${tokens.placeholderColor});
     }
 
-    ${Input} {
-        color: var(${tokens.color});
+    ${InputWrapper}:focus-within {
+        --plasma_private-textfield-border-color: var(${tokens.borderColorFocus}, var(${String(tokens.borderColor)}));
+        --plasma_private-textfield-bg-color: var(
+            ${tokens.backgroundColorFocus},
+            var(${String(tokens.backgroundColor)})
+        );
+
+        ${InputPlaceholder} {
+            color: var(${tokens.placeholderColorFocus});
+        }
     }
 
     ${LeftHelper} {

@@ -37,7 +37,9 @@ export const tokens = {
     /** Цвет каретки */
     caretColor: '--plasma-textfield__caret-color',
     placeholderColor: '--plasma-textfield__placeholder-color',
+    placeholderColorFocus: '--plasma-textfield__placeholder-color-focus',
     clearPlaceholderColor: '--plasma-textfield__clear-placeholder-color',
+    clearPlaceholderColorFocus: '--plasma-textfield__clear-placeholder-color-focus',
     optionalColor: '--plasma-textfield__optional-color',
 
     height: '--plasma-textfield-height',
@@ -156,4 +158,6 @@ export const tokens = {
     indicatorLabelPlacementOuter: '--plasma-textfield__indicator-placement-outer',
     indicatorLabelPlacementInnerRight: '--plasma-textfield__indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textfield__indicator-placement-outer-right',
+    clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
+    clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
 };
