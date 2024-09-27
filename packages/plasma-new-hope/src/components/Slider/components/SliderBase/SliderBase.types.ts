@@ -41,6 +41,8 @@ export interface SliderInternalProps {
 }
 
 export interface SliderViewProps extends SliderBaseProps, SliderInternalProps {
+    orientation: 'horizontal' | 'vertical';
+    size: string;
     railFillWidth: number;
     setStepSize(stepSize: number): void;
     railFillXPosition?: number;

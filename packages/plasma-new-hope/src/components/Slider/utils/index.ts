@@ -8,8 +8,8 @@ import { MutableRefObject } from 'react';
  * @param {number} max
  * @return {number}
  */
-export function getSliderThumbValue(handleCenterXRelative: number, stepSize: number, min: number, max: number) {
-    const newValue = Math.round(handleCenterXRelative / stepSize) + min;
+export function getSliderThumbValue(handleCenterPosRelative: number, stepSize: number, min: number, max: number) {
+    const newValue = Math.round(handleCenterPosRelative / stepSize) + min;
 
     return Math.min(Math.max(newValue, min), max);
 }
@@ -24,12 +24,13 @@ export function getSliderThumbValue(handleCenterXRelative: number, stepSize: num
 export function getOffsets(
     ref: ((instance: HTMLDivElement | null) => void) | MutableRefObject<HTMLDivElement | null> | null,
     side?: 'left' | 'right',
+    isVertical?: boolean,
 ): number[] {
     if (!ref || !('current' in ref) || !ref.current || !side) {
         return [0, 0];
     }
 
-    const size = ref.current.clientWidth;
+    const size = isVertical ? ref.current.clientHeight : ref.current.clientWidth;
 
     if (side === 'left') {
         return [0, size];
@@ -44,15 +45,33 @@ export function getOffsets(
 
 export const sizeData = {
     s: {
-        indent: 0.5,
-        fontSizeMultiplier: 16,
+        small: {
+            indent: 0.5,
+            fontSizeMultiplier: 16,
+        },
+        large: {
+            indent: 0.625,
+            fontSizeMultiplier: 16,
+        },
     },
     m: {
-        indent: 0.75,
-        fontSizeMultiplier: 16,
+        small: {
+            indent: 0.5,
+            fontSizeMultiplier: 16,
+        },
+        large: {
+            indent: 0.625,
+            fontSizeMultiplier: 16,
+        },
     },
     l: {
-        indent: 0.75,
-        fontSizeMultiplier: 16,
+        small: {
+            indent: 0.5,
+            fontSizeMultiplier: 16,
+        },
+        large: {
+            indent: 0.625,
+            fontSizeMultiplier: 16,
+        },
     },
 };
