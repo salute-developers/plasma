@@ -105,7 +105,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
             <TextField
                 {...rest}
                 enumerationType="plain"
