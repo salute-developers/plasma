@@ -51,6 +51,49 @@ const animationVariants = {
     },
 };
 
+const templateAnimationStyle = (placement: DrawerPlacement) => `
+        &.${classes[`${placement}Placement` as keyof typeof classes]} {
+            && .${popupClasses.root} {
+                animation: ${placement}ShowAnimation 0.2s forwards;
+            }
+
+            &&.${popupClasses.endAnimation} .${popupClasses.root} {
+                animation: ${placement}HideAnimation 0.2s forwards;
+            }
+
+            @keyframes ${placement}ShowAnimation {
+                0% {
+                    transform: ${animationVariants[placement].show.start};
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: ${animationVariants[placement].show.end};
+                    opacity: 1;
+                }
+            }
+
+            @keyframes ${placement}HideAnimation {
+                0% {
+                    transform: ${animationVariants[placement].hide.start};
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: ${animationVariants[placement].hide.end};
+                    opacity: 0;
+                }
+            }   
+        }
+    `;
+
+const getAnimationStyles = () => {
+    return Object.keys(animationVariants).reduce((acc, placement) => {
+        acc += templateAnimationStyle(placement as DrawerPlacement);
+        return acc;
+    }, '');
+};
+
 export const StyledPopup = styled(Popup)<{
     placement: DrawerPlacement;
     width?: number | string;
@@ -89,35 +132,5 @@ export const StyledPopup = styled(Popup)<{
         height: ${({ height }) => height};
     }
 
-    && .${popupClasses.root} {
-        animation: showAnimation 0.2s forwards;
-    }
-
-    &&.${popupClasses.endAnimation} .${popupClasses.root} {
-        animation: hideAnimation 0.2s forwards;
-    }
-
-    @keyframes showAnimation {
-        0% {
-            transform: ${({ placement }) => animationVariants[placement].show.start};
-            opacity: 0;
-        }
-
-        100% {
-            transform: ${({ placement }) => animationVariants[placement].show.end};
-            opacity: 1;
-        }
-    }
-
-    @keyframes hideAnimation {
-        0% {
-            transform: ${({ placement }) => animationVariants[placement].hide.start};
-            opacity: 1;
-        }
-
-        100% {
-            transform: ${({ placement }) => animationVariants[placement].hide.end};
-            opacity: 0;
-        }
-    }
+    ${getAnimationStyles()}
 `;

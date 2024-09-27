@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { DrawerInfo, getIdLastDrawer, hasDrawers } from '../DrawerContext';
 import { DrawerHookArgs } from '../Drawer.types';
 import { usePopupContext } from '../../Popup';
+import { canUseDOM } from '../../../utils';
 
 const ESCAPE_KEYCODE = 27;
 
@@ -16,7 +17,7 @@ export const useDrawer = ({
     disableScroll = true,
 }: DrawerHookArgs) => {
     const popupController = usePopupContext();
-    const overflow = useRef<string>(document.body.style.overflowY);
+    const overflow = useRef<string>(canUseDOM ? document.body.style.overflow : 'initial');
 
     // При ESC закрывает текущее окно, если это возможно
     const onKeyDown = useCallback(
@@ -47,15 +48,24 @@ export const useDrawer = ({
 
     // linaria не поддерживает динамический global
     useEffect(() => {
+        if (!canUseDOM) {
+            return;
+        }
+
         if (isOpen && disableScroll) {
-            overflow.current = document.body.style.overflowY;
-            document.body.style.overflowY = 'hidden';
+            overflow.current = document.body.style.overflow;
+
+            document.body.style.overflow = 'hidden';
         }
     }, [isOpen, disableScroll]);
 
     useEffect(() => {
+        if (!canUseDOM) {
+            return;
+        }
+
         if (!isOpen && !hasDrawers(popupController.items)) {
-            document.body.style.overflowY = overflow.current;
+            document.body.style.overflow = overflow.current;
         }
     }, [isOpen, popupController.items]);
 

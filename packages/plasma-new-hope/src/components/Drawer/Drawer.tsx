@@ -7,7 +7,7 @@ import { usePopupContext } from '../Popup';
 import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
 import { panelConfig } from '../Panel';
-import { getSizeValueFromProp } from '../../utils';
+import { cx, getSizeValueFromProp } from '../../utils';
 
 import { classes, tokens } from './Drawer.tokens';
 import type { DrawerProps } from './Drawer.types';
@@ -69,6 +69,8 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
             const innerWidth = width ? getSizeValueFromProp(width) : '100%';
             const innerHeight = height ? getSizeValueFromProp(height) : '100%';
 
+            const placementClass = placement ? classes[`${placement}Placement` as keyof typeof classes] : undefined;
+
             const { drawerInfo } = useDrawer({
                 id: innerId,
                 isOpen: innerIsOpen,
@@ -98,6 +100,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 <StyledPopup
                     id={innerId}
                     ref={asModal ? innerRef : outerRef}
+                    className={cx(placementClass)}
                     opened={innerIsOpen}
                     zIndex={zIndex}
                     placement={placement}

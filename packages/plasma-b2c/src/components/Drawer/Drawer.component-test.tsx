@@ -53,7 +53,7 @@ describe('plasma-b2c: Drawer', () => {
         } = props;
 
         return (
-            <>
+            <div style={{ height: '480px', width: '500px' }}>
                 <Button text="Open drawer" onClick={() => setIsOpen(true)} />
                 <Drawer
                     className="plasma-drawer"
@@ -89,7 +89,7 @@ describe('plasma-b2c: Drawer', () => {
                         </DrawerFooter>
                     )}
                 </Drawer>
-            </>
+            </div>
         );
     }
 
