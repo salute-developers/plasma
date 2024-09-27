@@ -1,30 +1,43 @@
 import { styled } from '@linaria/react';
 
 import { applyHidden } from '../../../../mixins';
-import { tokens } from '../../Slider.tokens';
-
-export const Slider = styled.div`
-    flex: 1;
-    position: relative;
-    user-select: none;
-    height: var(${tokens.height});
-`;
-
-export const RailWrap = styled.div`
-    height: 100%;
-`;
+import { classes, tokens } from '../../Slider.tokens';
 
 export const Rail = styled.div`
     position: relative;
     top: 50%;
 
-    height: var(${tokens.railHeight});
+    height: var(${tokens.railThickness});
 
     border-radius: var(${tokens.railBorderRadius});
     background-color: var(${tokens.railBackgroundColor});
 
     overflow: hidden;
     transform: translateY(-50%);
+`;
+
+export const Slider = styled.div`
+    flex: 1;
+    position: relative;
+    user-select: none;
+    height: var(${tokens.size});
+
+    &.${classes.verticalOrientation} {
+        width: var(${tokens.size});
+        height: auto;
+
+        ${Rail} {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: var(${tokens.railThickness});
+            height: 100%;
+        }
+    }
+`;
+
+export const RailWrap = styled.div`
+    height: 100%;
 `;
 
 export const Fill = styled.div`

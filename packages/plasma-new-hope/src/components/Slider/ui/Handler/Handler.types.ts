@@ -7,8 +7,10 @@ export interface HandlerProps {
     multipleStepSize: number;
     onChangeCommitted?(value: number, data: DraggableData): void;
     side?: 'left' | 'right';
+    size?: 'small' | 'large' | 'none';
+    orientation: 'horizontal' | 'vertical';
     bounds?: number[];
-    xPosition?: number;
+    position?: number;
     zIndex?: number;
     disabled?: boolean;
     value?: number;
@@ -16,9 +18,11 @@ export interface HandlerProps {
     ariaValueMin?: number;
     hasHoverAnimation?: boolean;
     showCurrentValue?: boolean;
+    valuePlacement?: 'left' | 'right';
     startOffset?: number;
     endOffset?: number;
     onChange?(value: number, data: DraggableData): void;
+    onMouseDown?(): void;
     onMouseEnter?(): void;
     onMouseLeave?(): void;
 }
