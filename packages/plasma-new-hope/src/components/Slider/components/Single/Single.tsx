@@ -3,11 +3,11 @@ import type { FC } from 'react';
 
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
-import { setInitValue, sizeData } from '../../utils';
+import { sizeData } from '../../utils';
 import type { HandlerProps } from '../../ui';
-import { cx, isNumber } from '../../../../utils';
+import { cx, isNumber, noop } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
-import { InputHidden } from '../../../../utils/inputHidden';
+import { InputHidden } from '../SliderBase/SliderBase.styles';
 import { FormTypeNumber } from '../../../../types/FormType';
 
 import type { SingleSliderProps } from './Single.types';
@@ -94,18 +94,6 @@ export const SingleSlider: FC<SingleSliderProps> = ({
             railFillWidth: stepSize * localValue,
         }));
     }, [dragValue, labelPlacement, stepSize, rangeValuesPlacement, min, max, setStartOffset, setEndOffset]);
-
-    useEffect(() => {
-        if (innerRef.current) {
-            innerRef.current.addEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
-        }
-
-        return () => {
-            if (innerRef.current) {
-                innerRef.current.removeEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
-            }
-        };
-    }, [innerRef]);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {
@@ -217,7 +205,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                 datatype="slider-single"
                 value={dragValue}
                 ref={innerRef}
-                onChange={() => {}}
+                {...noop}
             />
         </SingleWrapper>
     );

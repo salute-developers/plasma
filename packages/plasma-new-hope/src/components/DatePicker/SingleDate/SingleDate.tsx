@@ -1,14 +1,12 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 
 import type { RootProps } from '../../../engines';
-import { cx, getPlacements } from '../../../utils';
+import { cx, getPlacements, noop } from '../../../utils';
 import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
-import { StyledCalendar } from '../DatePickerBase.styles';
+import { InputHidden, StyledCalendar } from '../DatePickerBase.styles';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
-import { setInitValue } from '../utils/setInitValue';
-import { InputHidden } from '../../../utils/inputHidden';
 
 import type { DatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -153,22 +151,6 @@ export const datePickerRoot = (
                 setInputValue(formatInputValue({ value: defaultDate, format, lang }));
             }, [format, lang]);
 
-            useEffect(() => {
-                if (innerRef.current) {
-                    innerRef.current.addEventListener('setInitValue', (e: Event) =>
-                        handleCommitDate(setInitValue(e), true, false),
-                    );
-                }
-
-                return () => {
-                    if (innerRef.current) {
-                        innerRef.current.removeEventListener('setInitValue', (e: Event) =>
-                            handleCommitDate(setInitValue(e), true, false),
-                        );
-                    }
-                };
-            }, [innerRef]);
-
             return (
                 <Root
                     view={view}
@@ -219,7 +201,7 @@ export const datePickerRoot = (
                         name={name}
                         value={inputValue}
                         ref={innerRef}
-                        onChange={() => {}}
+                        {...noop}
                     />
                 </Root>
             );

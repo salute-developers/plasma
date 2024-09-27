@@ -12,7 +12,7 @@ export type DatePickerTextFieldProps = {
      */
     defaultDate?: Date;
     /**
-     * Название для формы
+     * Свойство для названия поля при работе с формой
      */
     name?: string;
     /**
@@ -59,6 +59,10 @@ export type DatePickerTextFieldProps = {
      * Обработчик изменения значения.
      */
     onChangeValue?: (event: SyntheticEvent<HTMLInputElement>, value?: string) => void;
+    /**
+     * Свойство устарело, используется формой. Вместо используйте onChangeValue и onCommitDate
+     * @deprecated
+     */
     onChange?: (event: { target: { value?: string; name?: string } }) => void;
 };
 

@@ -310,7 +310,6 @@ import { UploadVisualProps } from '@salutejs/plasma-hope';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
-import { useForm } from '@salutejs/plasma-new-hope/styled-components';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
@@ -3201,7 +3200,7 @@ onChange?: ((event: FormTypeNumber) => void) | undefined;
 name: string;
 value?: undefined;
 defaultValue?: number | undefined;
-} & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
 onChangeCommitted?: ((value: number) => void) | undefined;
 ariaLabel?: string | undefined;
 showCurrentValue?: boolean | undefined;
@@ -3219,7 +3218,7 @@ onChange?: ((value: number) => void) | undefined;
 value: number;
 name?: undefined;
 defaultValue?: undefined;
-} & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
 onChangeCommitted?: ((value: number) => void) | undefined;
 ariaLabel?: string | undefined;
 showCurrentValue?: boolean | undefined;
@@ -3232,12 +3231,12 @@ multipleStepSize?: number | undefined;
 view?: string | undefined;
 size?: "m" | "s" | "l" | undefined;
 type?: "single" | undefined;
-} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "value"> & {
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
 onChange?: ((event: FormTypeString) => void) | undefined;
 name?: string | undefined;
 value?: undefined;
 defaultValue?: number[] | undefined;
-} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "value"> & {
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
 onChange?: ((values: number[]) => void) | undefined;
 name?: undefined;
 value?: number[] | undefined;
@@ -3570,8 +3569,6 @@ export { useDebouncedFunction }
 export { useFocusTrap }
 
 export { useForkRef }
-
-export { useForm }
 
 export { useIsomorphicLayoutEffect }
 

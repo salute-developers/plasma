@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react';
 
+import { applyHidden } from '../../../../mixins';
 import { tokens } from '../../Slider.tokens';
 
 export const Slider = styled.div`
@@ -33,4 +34,8 @@ export const Fill = styled.div`
     left: 0;
     background: var(${tokens.fillColor});
     width: 0;
+`;
+
+export const InputHidden = styled.input`
+    ${applyHidden()};
 `;

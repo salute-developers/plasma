@@ -8,7 +8,7 @@ type DoubleSliderPropsUnion =
            */
           onChange?: (event: FormTypeString) => void;
           /**
-           * Название для формы
+           * Свойство для названия поля при работе с формой
            */
           name?: string;
           /**
@@ -26,7 +26,7 @@ type DoubleSliderPropsUnion =
            */
           onChange?: (values: number[]) => void;
           /**
-           * Название для формы
+           * Свойство для названия поля при работе с формой
            */
           name?: never;
           /**
@@ -39,4 +39,5 @@ type DoubleSliderPropsUnion =
           defaultValue?: never;
       };
 
-export type DoubleUncontrolledProps = Omit<DoubleSliderProps, 'value' | 'onChange'> & DoubleSliderPropsUnion;
+export type DoubleUncontrolledProps = Omit<DoubleSliderProps, 'value' | 'onChange' | 'defaultValue'> &
+    DoubleSliderPropsUnion;

@@ -18,6 +18,10 @@ export type CSS = (
 ) => PolymorphicClassName;
 
 export type HTMLAttributesWithoutOnChange<T = HTMLElement> = Omit<React.HTMLAttributes<T>, 'onChange'>;
+export type HTMLAttributesWithoutOnChangeAndDefaultValue<T = HTMLElement> = Omit<
+    React.HTMLAttributes<T>,
+    'onChange' | 'defaultValue'
+>;
 
 export type RootProps<
     RefElement extends HTMLElement,
@@ -27,6 +31,11 @@ export type RootProps<
 export type RootPropsOmitOnChange<
     RefElement extends HTMLElement,
     Element extends HTMLAttributesWithoutOnChange<HTMLElement>
+> = React.FunctionComponent<{ children?: React.ReactNode } & React.RefAttributes<RefElement> & Element>;
+
+export type RootPropsOmitOnChangeAndDefaultValue<
+    RefElement extends HTMLElement,
+    Element extends HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>
 > = React.FunctionComponent<{ children?: React.ReactNode } & React.RefAttributes<RefElement> & Element>;
 
 export type Variant = {

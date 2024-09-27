@@ -10,7 +10,7 @@ type SingleSliderPropsUnion =
            */
           onChange?: (event: FormTypeNumber) => void;
           /**
-           * Название для формы
+           * Свойство для названия поля при работе с формой
            */
           name: string;
           /**
@@ -32,7 +32,7 @@ type SingleSliderPropsUnion =
            */
           value: number;
           /**
-           * Название для формы
+           * Свойство для названия поля при работе с формой
            */
           name?: never;
           /**
@@ -44,7 +44,7 @@ type SingleSliderPropsUnion =
 export type SingleSliderProps = SliderBaseProps &
     SliderInternalProps &
     SingleSliderPropsUnion &
-    Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> & {
+    Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> & {
         /**
          * Вызывается при отпускании ползунка
          */
