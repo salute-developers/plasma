@@ -3,11 +3,11 @@ import type { FC } from 'react';
 
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
-import { setInitValue, sizeData } from '../../utils';
+import { setInitialValue, sizeData } from '../../utils';
 import type { HandlerProps } from '../../ui';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
-import { InputHidden } from '../../../../utils/inputHidden';
+import { InputHidden } from '../../../TextField/TextField.styles';
 import { FormTypeNumber } from '../../../../types/FormType';
 
 import type { SingleSliderProps } from './Single.types';
@@ -97,15 +97,15 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     useEffect(() => {
         if (innerRef.current) {
-            innerRef.current.addEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
+            innerRef.current.addEventListener('setInitialValue', (e: Event) => setDragValue(setInitialValue(e)));
         }
 
         return () => {
             if (innerRef.current) {
-                innerRef.current.removeEventListener('setInitValue', (e: Event) => setDragValue(setInitValue(e)));
+                innerRef.current.removeEventListener('setInitialValue', (e: Event) => setDragValue(setInitialValue(e)));
             }
         };
-    }, [innerRef]);
+    }, []);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {

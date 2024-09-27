@@ -1,0 +1,85 @@
+---
+id: use-form
+title: Use Form
+sidebar_position: 1
+---
+
+# Hook useForm
+
+Для работы с формами используйте hook useForm, для инициализации стартовых значений и сбора формы. Работает он на ref формы
+
+Поддерживаемые компоненты: `Button`, `TextField`, `TextArea`, `Checkbox`, `Switch`, `Radiobox`, `RadioGroup`, `Single Slider`, `Double Slider`, `DatePicker`, `DatePickerRange`
+
+Пример работы: 
+
+```tsx live
+
+import React from 'react';
+import { useForm, Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, DatePickerRange } from "@salutejs/sdds-dfa";
+
+export function App() {
+    const langName = 'language';
+    const radioboxItems = [
+        { langName, value: 'c', label: 'C', disabled: false },
+        { langName, value: 'cpp', label: 'C++', disabled: false },
+        { langName, value: 'assembly', label: 'Assembly', disabled: false },
+    ];
+
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
+    const { formRef, formData } = useForm(onSubmit, {
+        textfield: 'textfield',
+        textarea: 'textarea',
+        checkbox: 'checkbox',
+        switch: true,
+        radiobox: 'c',
+        slider: 10,
+        sliderd: [10, 20],
+        datepicker: '12.09.2024',
+        datepickerRange: ['09.09.2024', '12.09.2024'],
+    });
+
+    return (
+        <form onSubmit={formData} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} ref={formRef}>
+            <TextField name="textfield" placeholder="Textfield" />
+            <TextArea name="textarea" autoResize placeholder="Textarea" />
+            <Checkbox name="checkbox" label="Checkbox" />
+            <Switch name="switch" label="Switch" labelPosition="after" />
+            <RadioGroup aria-labelledby="radiogroup-title-id">
+                <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
+                    Выберите язык программирования для изучения.
+                </div>
+                {radioboxItems.map((item) => (
+                    <Radiobox
+                        name="radiobox"
+                        key={item.value}
+                        value={item.value}
+                        label={item.label}
+                        disabled={item.disabled}
+                    />
+                ))}
+            </RadioGroup>
+            <Slider name="slider" label="Slider" type="single" min={0} max={100} />
+            <Slider name="sliderd" label="Slider" type="double" min={0} max={100} />
+            <DatePicker label="DatePicker" name="datepicker" />
+            <DatePickerRange label="DatePicker" name="datepickerRange" />
+            <Button type="submit">Отправить</Button>
+        </form>
+    );
+}
+
+```
+
+### Хук useForm
+
+Принимает 2 параметра:
+1. Функция обработчик, вызывается при onSubmit
+2. Дефолтные значения 
+
+Возваращет
+1. Ref, которую надо вставить в форму
+2. Функция, которую надо вставить в onSubmit. 
+
+В передаваемую функцию придет объект, где ключ - name компонента, значение - value компонента 

@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, createRef, useCallback } from 'react';
+import React, { forwardRef, useState, createRef, useCallback, useEffect } from 'react';
 import { css } from '@linaria/core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 
@@ -25,6 +25,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import type { TextAreaProps } from './TextArea.types';
+import { setInitialValue } from './utils';
 
 const {
     innerPlaceholderUp,
@@ -168,6 +169,22 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             },
             [value, onChange],
         );
+
+        useEffect(() => {
+            if (outerRef.current) {
+                outerRef.current.addEventListener('setInitialValue', (e: Event) =>
+                    setUncontrolledValue(setInitialValue(e)),
+                );
+            }
+
+            return () => {
+                if (outerRef.current) {
+                    outerRef.current.removeEventListener('setInitialValue', (e: Event) =>
+                        setUncontrolledValue(setInitialValue(e)),
+                    );
+                }
+            };
+        }, []);
 
         const dynamicLabelClasses = getDynamicLabelClasses(
             {

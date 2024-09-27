@@ -1,26 +1,33 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import styled from 'styled-components';
 
-import { Button } from '../components/Button/Button';
-import { TextField } from '../components/TextField/TextField';
-import { TextArea } from '../components/TextArea/TextArea';
-import { Checkbox } from '../components/Checkbox/Checkbox';
-import { Switch } from '../components/Switch/Switch';
+import { Button } from '../components/Button';
+import { TextField } from '../components/TextField';
+import { TextArea } from '../components/TextArea';
+import { Checkbox } from '../components/Checkbox';
+import { Switch } from '../components/Switch';
 import { Radiobox } from '../components/Radiobox/Radiobox';
 import { RadioGroup } from '../components/Radiobox';
-import { Slider } from '../components/Slider/Slider';
-import { DatePicker, DatePickerRange } from '../components/DatePicker/DatePicker';
+import { Slider } from '../components/Slider';
+import { DatePicker, DatePickerRange } from '../components/DatePicker';
 
 import { useForm } from './index';
 
 type StoryDropdownProps = {};
 
 const langName = 'language';
-const itemsRadiobox = [
+const radioboxItems = [
     { langName, value: 'c', label: 'C', disabled: false },
     { langName, value: 'cpp', label: 'C++', disabled: false },
     { langName, value: 'assembly', label: 'Assembly', disabled: false },
 ];
+
+const FormStyled = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`;
 
 const PlasmaForm = () => {
     const onSubmit = (data) => {
@@ -30,7 +37,7 @@ const PlasmaForm = () => {
     const { formRef, formData } = useForm(onSubmit, {
         textfield: 'textfield',
         textarea: 'textarea',
-        checkbox: 'checkobox',
+        checkbox: 'checkbox',
         switch: true,
         radiobox: 'c',
         slider: 10,
@@ -40,8 +47,8 @@ const PlasmaForm = () => {
     });
 
     return (
-        <form onSubmit={formData} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} ref={formRef}>
-            <TextField name="textfield" placeholder="Textfield" required={false} />
+        <FormStyled onSubmit={formData} ref={formRef}>
+            <TextField name="textfield" placeholder="Textfield" />
             <TextArea name="textarea" autoResize placeholder="Textarea" />
             <Checkbox name="checkbox" label="Checkbox" />
             <Switch name="switch" label="Switch" labelPosition="after" />
@@ -49,7 +56,7 @@ const PlasmaForm = () => {
                 <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
                     Выберите язык программирования для изучения.
                 </div>
-                {itemsRadiobox.map((item) => (
+                {radioboxItems.map((item) => (
                     <Radiobox
                         name="radiobox"
                         key={item.value}
@@ -64,7 +71,7 @@ const PlasmaForm = () => {
             <DatePicker label="DatePicker" name="datepicker" />
             <DatePickerRange label="DatePicker" name="datepickerRange" />
             <Button type="submit">Отправить</Button>
-        </form>
+        </FormStyled>
     );
 };
 
@@ -87,18 +94,15 @@ const DefaultForm = () => {
     const onSubmit = (event) => {
         event.preventDefault();
 
-        const fData = new FormData(event.target);
+        const formData = new FormData(event.target);
 
-        for (const p of fData) {
-            const name = p[0];
-            const value = p[1];
-
+        for (const [name, value] of formData) {
             console.log(name, value);
         }
     };
     return (
-        <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <TextField name="textfield" placeholder="Textfield" required={false} />
+        <FormStyled onSubmit={onSubmit}>
+            <TextField name="textfield" placeholder="Textfield" />
             <TextArea name="textarea" autoResize placeholder="Textarea" />
             <Checkbox name="checkbox" label="Checkbox" />
             <Switch name="switch" label="Switch" labelPosition="after" />
@@ -106,7 +110,7 @@ const DefaultForm = () => {
                 <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
                     Выберите язык программирования для изучения.
                 </div>
-                {itemsRadiobox.map((item) => (
+                {radioboxItems.map((item) => (
                     <Radiobox
                         name="radiobox"
                         key={item.value}
@@ -121,7 +125,7 @@ const DefaultForm = () => {
             <DatePicker label="DatePicker" name="datepicker" />
             <DatePickerRange label="DatePicker" name="datepickerRange" />
             <Button type="submit">Отправить</Button>
-        </form>
+        </FormStyled>
     );
 };
 

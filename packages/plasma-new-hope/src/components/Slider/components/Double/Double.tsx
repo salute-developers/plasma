@@ -4,10 +4,10 @@ import type { FC, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
 import type { HandlerProps } from '../../ui';
-import { sizeData, setInitValue } from '../../utils';
+import { sizeData, setInitialValue } from '../../utils';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
-import { InputHidden } from '../../../../utils/inputHidden';
+import { InputHidden } from '../../../TextField/TextField.styles';
 
 import { DoubleSliderProps } from './Double.types';
 import {
@@ -81,7 +81,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         const firstElement = innerRefFirst.current as HTMLInputElement;
 
         const firstValueInit = Number(firstElement.getAttribute('defaultValue'));
-        const secondValueInit = setInitValue(e);
+        const secondValueInit = setInitialValue(e);
 
         onChangeCommitted && onChangeCommitted([firstValueInit, secondValueInit]);
         setFirstValue(firstValueInit);
@@ -106,15 +106,15 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
     useEffect(() => {
         if (innerRefSecond.current && onChangeCommitted) {
-            innerRefSecond.current.addEventListener('setInitValue', setValue);
+            innerRefSecond.current.addEventListener('setInitialValue', setValue);
         }
 
         return () => {
             if (innerRefSecond.current && onChangeCommitted) {
-                innerRefSecond.current.removeEventListener('setInitValue', setValue);
+                innerRefSecond.current.removeEventListener('setInitialValue', setValue);
             }
         };
-    }, [innerRefSecond]);
+    }, []);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {

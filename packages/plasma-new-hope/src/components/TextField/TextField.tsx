@@ -203,6 +203,18 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             }, [isChipEnumeration, values]);
 
             useEffect(() => {
+                if (inputRef.current) {
+                    inputRef.current.addEventListener('setInitialValue', () => setHasValue(true));
+                }
+
+                return () => {
+                    if (inputRef.current) {
+                        inputRef.current.removeEventListener('setInitialValue', () => setHasValue(true));
+                    }
+                };
+            }, []);
+
+            useEffect(() => {
                 setHasValue(Boolean(rest?.defaultValue));
             }, [rest.defaultValue]);
 

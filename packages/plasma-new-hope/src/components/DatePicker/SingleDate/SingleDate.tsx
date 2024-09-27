@@ -7,8 +7,8 @@ import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
 import { StyledCalendar } from '../DatePickerBase.styles';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
-import { setInitValue } from '../utils/setInitValue';
-import { InputHidden } from '../../../utils/inputHidden';
+import { setInitialValue } from '../utils/setInitialValue';
+import { InputHidden } from '../../TextField/TextField.styles';
 
 import type { DatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -155,19 +155,19 @@ export const datePickerRoot = (
 
             useEffect(() => {
                 if (innerRef.current) {
-                    innerRef.current.addEventListener('setInitValue', (e: Event) =>
-                        handleCommitDate(setInitValue(e), true, false),
+                    innerRef.current.addEventListener('setInitialValue', (e: Event) =>
+                        handleCommitDate(setInitialValue(e), true, false),
                     );
                 }
 
                 return () => {
                     if (innerRef.current) {
-                        innerRef.current.removeEventListener('setInitValue', (e: Event) =>
-                            handleCommitDate(setInitValue(e), true, false),
+                        innerRef.current.removeEventListener('setInitialValue', (e: Event) =>
+                            handleCommitDate(setInitialValue(e), true, false),
                         );
                     }
                 };
-            }, [innerRef]);
+            }, []);
 
             return (
                 <Root

@@ -16,6 +16,9 @@ const initData = (ref: RefObject<HTMLFormElement>, defaultValues: DataType) => {
 
         if ((type === 'text' || type === 'textarea') && defaultValues[name]) {
             item.value = String(defaultValues[name]);
+            item.setAttribute('defaultValue', String(defaultValues[name]));
+            const event = new Event('setInitialValue');
+            item.dispatchEvent(event);
         }
 
         if (type === 'checkbox' && defaultValues[name]) {
@@ -31,7 +34,7 @@ const initData = (ref: RefObject<HTMLFormElement>, defaultValues: DataType) => {
 
             if (sliderType === 'slider-single') {
                 item.setAttribute('defaultValue', String(defaultValues[name]));
-                const event = new Event('setInitValue');
+                const event = new Event('setInitialValue');
                 item.dispatchEvent(event);
             }
 
@@ -40,7 +43,7 @@ const initData = (ref: RefObject<HTMLFormElement>, defaultValues: DataType) => {
                 const data = defaultValues[name] as number[];
 
                 item.setAttribute('defaultValue', String(data[isMax]));
-                const event = new Event('setInitValue');
+                const event = new Event('setInitialValue');
                 item.dispatchEvent(event);
             }
         }
@@ -50,7 +53,7 @@ const initData = (ref: RefObject<HTMLFormElement>, defaultValues: DataType) => {
 
             if (datepickerType === 'datepicker-single') {
                 item.setAttribute('defaultValue', String(defaultValues[name]));
-                const event = new Event('setInitValue');
+                const event = new Event('setInitialValue');
                 item.dispatchEvent(event);
             }
 
@@ -59,7 +62,7 @@ const initData = (ref: RefObject<HTMLFormElement>, defaultValues: DataType) => {
                 const data = defaultValues[name] as number[];
 
                 item.setAttribute('defaultValue', String(data[isTo]));
-                const event = new Event('setInitValue');
+                const event = new Event('setInitialValue');
                 item.dispatchEvent(event);
             }
         }

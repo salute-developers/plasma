@@ -57,7 +57,7 @@ export const sizeData = {
     },
 };
 
-export const setInitValue = (e: Event): number => {
+export const setInitialValue = (e: Event): number => {
     const item = e.target as HTMLInputElement;
     const defaultValue = Number(item.getAttribute('defaultValue'));
 

@@ -3,3 +3,154 @@ id: react-hook-form
 title: React Hook Form
 sidebar_position: 2
 ---
+
+# React Hook Form
+
+Компоненты поддерживают работу с библиотекой `react-hook-form` [Документация по React Hook Form](https://react-hook-form.com/)
+
+Поддерживаемые компоненты: `Button`, `TextField`, `TextArea`, `Checkbox`, `Switch`, `Radiobox`, `RadioGroup`, `Single Slider`, `Double Slider`, `DatePicker`, `DatePickerRange`
+
+
+```
+
+import { useForm } from 'react-hook-form';
+import React from 'react';
+import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, DatePickerRange } from "@salutejs/plasma-web";
+
+export function App() {
+    const langName = 'language';
+    const radioboxItems = [
+        { langName, value: 'c', label: 'C', disabled: false },
+        { langName, value: 'cpp', label: 'C++', disabled: false },
+        { langName, value: 'assembly', label: 'Assembly', disabled: false },
+    ];
+
+    const { register, handleSubmit } = useForm();
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
+    const datepicker = register('datepicker');
+    const datepickerRange = register('datepickerRange');
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <TextField {...register('textfield')} placeholder="Textfield"  />
+            <TextArea {...register('textarea')} autoResize placeholder="Textarea" />
+            <Checkbox {...register('checkbox')} label="Checkbox" />
+            <Switch {...register('switch')} label="Switch" labelPosition="after" />
+            <RadioGroup aria-labelledby="radiogroup-title-id">
+                <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
+                    Выберите язык программирования для изучения.
+                </div>
+                {radioboxItems.map((item) => (
+                    <Radiobox
+                        {...register('radiobox')}
+                        key={item.value}
+                        value={item.value}
+                        label={item.label}
+                        disabled={item.disabled}
+                    />
+                ))}
+            </RadioGroup>
+            <Slider {...register('slider')} label="Slider" type="single" min={0} max={100} />
+            <Slider {...register('sliderdouble')} label="Slider Double" type="double" min={0} max={100} />
+            <DatePicker name={datepicker.name} onChange={datepicker.onChange} label="DatePicker" />
+            <DatePickerRange name={datepickerRange.name} onChange={datepickerRange.onChange} label="DatePicker" />
+            <Button type="submit">Отправить</Button>
+        </form>
+    );
+}
+
+```
+
+### Особенности работы 
+
+#### DatePicker и DatePickerRange
+
+Свойство `name` и `onChange` лучше передавать напрямую, так как типы передаваемые из `register` в параметрах `min` и `max` несовместимы.
+
+
+### Пример с валидацией
+
+```
+
+import { useForm } from "react-hook-form";
+import React from "react";
+import { Button, TextField, Switch, TextS } from "@salutejs/plasma-web";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+export function App() {
+  const schema = yup
+    .object({
+      login: yup.string().required("Заполните поле"),
+      password: yup
+        .string()
+        .required("Заполните поле")
+        .min(8, "Пароль должен быть не менее 8 символов"),
+      accept: yup
+        .boolean("Согласитесь с правилами использования")
+        .oneOf([true], "Согласитесь с правилами использования"),
+    })
+    .required();
+
+  const langName = "language";
+  const radioboxItems = [
+    { langName, value: "c", label: "C", disabled: false },
+    { langName, value: "cpp", label: "C++", disabled: false },
+    { langName, value: "assembly", label: "Assembly", disabled: false },
+  ];
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  const datepicker = register("datepicker");
+  const datepickerRange = register("datepickerRange");
+
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+    >
+      <TextField
+        {...register("login")}
+        placeholder="Логин"
+        status={!!errors.login?.message ? "error" : ""}
+        helperText={errors.login?.message}
+        required={false}
+      />
+      <TextField
+        {...register("password")}
+        type="password"
+        placeholder="Пароль"
+        status={!!errors.password?.message ? "error" : ""}
+        helperText={errors.password?.message}
+        required={false}
+      />
+      <Switch
+        {...register("accept")}
+        label="Я согласен с правилами сервиса"
+        labelPosition="after"
+      />
+      {!!errors.accept?.message && (
+        <TextS color="red">{errors.accept?.message}</TextS>
+      )}
+      <Button type="submit">Войти</Button>
+    </form>
+  );
+}
+
+
+```
+
+[Пример CodeSendBox](https://codesandbox.io/p/sandbox/762snd?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522cm1o4qnw000063w6ia282mw28%2522%252C%2522sizes%2522%253A%255B100%252C0%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522cm1o4qnw000023w6icuotjvz1%2522%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522cm1o4qnw000033w6ieevmimw9%2522%257D%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522cm1o4qnw000053w6i4dj32bgj%2522%257D%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522cm1o4qnw000023w6icuotjvz1%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cm1o4qnvz00013w6i3d6tj713%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252Fsrc%252Findex.js%2522%257D%255D%252C%2522id%2522%253A%2522cm1o4qnw000023w6icuotjvz1%2522%252C%2522activeTabId%2522%253A%2522cm1o4qnvz00013w6i3d6tj713%2522%257D%252C%2522cm1o4qnw000053w6i4dj32bgj%2522%253A%257B%2522id%2522%253A%2522cm1o4qnw000053w6i4dj32bgj%2522%252C%2522activeTabId%2522%253A%2522cm1o4raol00153w6iuo0cu7dd%2522%252C%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cm1o4qnw000043w6i3qnfu1k8%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522UNASSIGNED_PORT%2522%252C%2522port%2522%253A0%257D%252C%257B%2522type%2522%253A%2522UNASSIGNED_PORT%2522%252C%2522port%2522%253A0%252C%2522id%2522%253A%2522cm1o4raol00153w6iuo0cu7dd%2522%252C%2522mode%2522%253A%2522permanent%2522%257D%255D%257D%252C%2522cm1o4qnw000033w6ieevmimw9%2522%253A%257B%2522tabs%2522%253A%255B%255D%252C%2522id%2522%253A%2522cm1o4qnw000033w6ieevmimw9%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Afalse%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D)

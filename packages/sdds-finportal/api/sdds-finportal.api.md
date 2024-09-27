@@ -210,6 +210,7 @@ import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
+import { useForm } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
@@ -3011,6 +3012,8 @@ export { toolbarTokens }
 export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
 
 export { TooltipProps }
+
+export { useForm }
 
 export { usePopupContext }
 

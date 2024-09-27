@@ -16,8 +16,8 @@ import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
-import { setInitValue } from '../utils/setInitValue';
-import { InputHidden } from '../../../utils/inputHidden';
+import { setInitialValue } from '../utils/setInitialValue';
+import { InputHidden } from '../../TextField/TextField.styles';
 
 import type { DatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -137,22 +137,28 @@ export const datePickerRangeRoot = (
 
             const setFirstInputValue = (value: React.SetStateAction<string>) => {
                 setInputFirstValue(value);
-                onChange?.({
-                    target: {
-                        value: `${value} - ${inputSecondValue}`,
-                        name,
-                    },
-                });
+
+                if (onChange) {
+                    onChange({
+                        target: {
+                            value: `${value} - ${inputSecondValue}`,
+                            name,
+                        },
+                    });
+                }
             };
 
             const setSecondInputValue = (value: React.SetStateAction<string>) => {
                 setInputSecondValue(value);
-                onChange?.({
-                    target: {
-                        value: `${inputFirstValue} - ${value}`,
-                        name,
-                    },
-                });
+
+                if (onChange) {
+                    onChange({
+                        target: {
+                            value: `${inputFirstValue} - ${value}`,
+                            name,
+                        },
+                    });
+                }
             };
 
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
@@ -227,7 +233,7 @@ export const datePickerRangeRoot = (
                 const firstElement = innerRefFirst.current as HTMLInputElement;
 
                 const firstValueInit = String(firstElement.getAttribute('defaultValue'));
-                const secondValueInit = setInitValue(e);
+                const secondValueInit = setInitialValue(e);
 
                 handleCommitFirstDate(firstValueInit, true, false);
                 handleCommitSecondDate(secondValueInit, true, false);
@@ -235,15 +241,15 @@ export const datePickerRangeRoot = (
 
             useEffect(() => {
                 if (innerRefSecond.current) {
-                    innerRefSecond.current.addEventListener('setInitValue', setValue);
+                    innerRefSecond.current.addEventListener('setInitialValue', setValue);
                 }
 
                 return () => {
                     if (innerRefSecond.current) {
-                        innerRefSecond.current.removeEventListener('setInitValue', setValue);
+                        innerRefSecond.current.removeEventListener('setInitialValue', setValue);
                     }
                 };
-            }, [innerRefSecond]);
+            }, []);
 
             const RangeComponent = (
                 <>
