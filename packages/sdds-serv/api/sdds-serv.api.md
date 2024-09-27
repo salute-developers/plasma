@@ -2580,7 +2580,7 @@ onChange?: ((event: FormTypeNumber) => void) | undefined;
 name: string;
 value?: undefined;
 defaultValue?: number | undefined;
-} & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
 onChangeCommitted?: ((value: number) => void) | undefined;
 ariaLabel?: string | undefined;
 showCurrentValue?: boolean | undefined;
@@ -2598,7 +2598,7 @@ onChange?: ((value: number) => void) | undefined;
 value: number;
 name?: undefined;
 defaultValue?: undefined;
-} & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
 onChangeCommitted?: ((value: number) => void) | undefined;
 ariaLabel?: string | undefined;
 showCurrentValue?: boolean | undefined;
@@ -2611,12 +2611,12 @@ multipleStepSize?: number | undefined;
 view?: string | undefined;
 size?: "s" | "m" | "l" | undefined;
 type?: "single" | undefined;
-} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "value"> & {
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
 onChange?: ((event: FormTypeString) => void) | undefined;
 name?: string | undefined;
 value?: undefined;
 defaultValue?: number[] | undefined;
-} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "value"> & {
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
 onChange?: ((values: number[]) => void) | undefined;
 name?: undefined;
 value?: number[] | undefined;

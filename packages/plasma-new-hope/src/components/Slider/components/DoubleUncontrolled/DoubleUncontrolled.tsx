@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, FC, useState } from 'react';
+import React, { KeyboardEvent, FC, useState, useCallback } from 'react';
 
 import { DoubleSlider } from '../index';
 import { FormTypeString } from '../../../../types/FormType';
@@ -23,53 +23,8 @@ export const DoubleUncontrolled: FC<DoubleUncontrolledProps> = (props) => {
             .sort((a, b) => a - b);
     };
 
-    const onChangeHandle = (values: number[]) => {
-        const sortValue = sortValues(values);
-
-        if (onChange && !value && name) {
-            (onChange as (event: FormTypeString) => void)({
-                target: {
-                    value: sortValue.join(' - '),
-                    name,
-                },
-            });
-        }
-
-        setSliderValue(sortValue);
-    };
-
-    const onChangeCommitedHandle = (values: number[]) => {
-        const sortValue = sortValues(values);
-
-        if (onChange && !value && name) {
-            (onChange as (event: FormTypeString) => void)({
-                target: {
-                    value: sortValue.join(' - '),
-                    name,
-                },
-            });
-        }
-
-        setSliderValue(sortValue);
-    };
-
-    const onBlurTextField = (values: number[]) => {
-        const sortValue = sortValues(values);
-
-        if (onChange && !value && name) {
-            (onChange as (event: FormTypeString) => void)({
-                target: {
-                    value: sortValue.join(' - '),
-                    name,
-                },
-            });
-        }
-
-        setSliderValue(sortValue);
-    };
-
-    const onKeyDownTextField = (values: number[], e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') {
+    const onChangeHandle = useCallback(
+        (values: number[]) => {
             const sortValue = sortValues(values);
 
             if (onChange && !value && name) {
@@ -82,8 +37,65 @@ export const DoubleUncontrolled: FC<DoubleUncontrolledProps> = (props) => {
             }
 
             setSliderValue(sortValue);
-        }
-    };
+        },
+        [name, value, onChange, sortValues],
+    );
+
+    const onChangeCommittedHandle = useCallback(
+        (values: number[]) => {
+            const sortValue = sortValues(values);
+
+            if (onChange && !value && name) {
+                (onChange as (event: FormTypeString) => void)({
+                    target: {
+                        value: sortValue.join(' - '),
+                        name,
+                    },
+                });
+            }
+
+            setSliderValue(sortValue);
+        },
+        [name, value, onChange, sortValues],
+    );
+
+    const onBlurTextField = useCallback(
+        (values: number[]) => {
+            const sortValue = sortValues(values);
+
+            if (onChange && !value && name) {
+                (onChange as (event: FormTypeString) => void)({
+                    target: {
+                        value: sortValue.join(' - '),
+                        name,
+                    },
+                });
+            }
+
+            setSliderValue(sortValue);
+        },
+        [name, value, onChange, sortValues],
+    );
+
+    const onKeyDownTextField = useCallback(
+        (values: number[], e: KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === 'Enter') {
+                const sortValue = sortValues(values);
+
+                if (onChange && !value && name) {
+                    (onChange as (event: FormTypeString) => void)({
+                        target: {
+                            value: sortValue.join(' - '),
+                            name,
+                        },
+                    });
+                }
+
+                setSliderValue(sortValue);
+            }
+        },
+        [name, value, onChange, sortValues],
+    );
 
     return value ? (
         <DoubleSlider {...props} value={value} onChange={onChange as (values: number[]) => void} />
@@ -92,7 +104,7 @@ export const DoubleUncontrolled: FC<DoubleUncontrolledProps> = (props) => {
             value={sliderValue}
             onKeyDownTextField={onKeyDownTextField}
             onBlurTextField={onBlurTextField}
-            onChangeCommitted={onChangeCommitedHandle}
+            onChangeCommitted={onChangeCommittedHandle}
             {...props}
             onChange={onChangeHandle}
         />

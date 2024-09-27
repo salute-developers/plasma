@@ -9,6 +9,7 @@ export { mergeRefs, setRefList } from './setRefList';
 export { isEmpty } from './isEmpty';
 export * as constants from './constants';
 export * from './getPopoverPlacement';
+export { noop } from './noop';
 
 export const cx = (...classes: (string | undefined)[]) => classes.filter((classItem) => classItem).join(' ');
 

@@ -12,7 +12,9 @@ export function setRefList<T>(val: T, ...refs: MutableRefList<T>): void {
     refs.forEach((ref) => {
         if (typeof ref === 'function') {
             ref(val);
-        } else if (ref != null) {
+        }
+
+        if (ref != null && typeof ref !== 'function') {
             ref.current = val;
         }
     });

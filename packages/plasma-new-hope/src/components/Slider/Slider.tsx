@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import type { RootPropsOmitOnChange } from '../../engines';
+import type { RootPropsOmitOnChangeAndDefaultValue } from '../../engines';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -9,13 +9,15 @@ import { SingleSlider, DoubleUncontrolled } from './components';
 import type { SingleSliderProps, DoubleUncontrolledProps } from './components';
 import { SliderProps } from './Slider.types';
 
+// TODO: проверить, можно ли обойтись без каста типов
+
 const isSingleValueProps = (props: SliderProps, type: string): props is SingleSliderProps =>
     typeof props.value === 'number' || (type === 'single' && typeof props.value !== 'object');
 
 const isDoubleValueProps = (props: SliderProps, type: string): props is DoubleUncontrolledProps =>
     typeof props.value === 'object' || type === 'double';
 
-export const sliderRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, SliderProps>) =>
+export const sliderRoot = (Root: RootPropsOmitOnChangeAndDefaultValue<HTMLDivElement, SliderProps>) =>
     forwardRef<HTMLDivElement, SliderProps>(({ type = 'single', ...props }, ref) => {
         return (
             <Root {...props} ref={ref}>

@@ -4,10 +4,10 @@ import type { FC, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
 import type { HandlerProps } from '../../ui';
-import { sizeData, setInitValue } from '../../utils';
-import { cx, isNumber } from '../../../../utils';
+import { cx, isNumber, noop } from '../../../../utils';
+import { sizeData } from '../../utils';
 import { classes } from '../../Slider.tokens';
-import { InputHidden } from '../../../../utils/inputHidden';
+import { InputHidden } from '../SliderBase/SliderBase.styles';
 
 import { DoubleSliderProps } from './Double.types';
 import {
@@ -77,17 +77,6 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const firstInputActiveClass = firstInputActive && !disabled ? classes.textFieldActive : undefined;
     const secondInputActiveClass = secondInputActive && !disabled ? classes.textFieldActive : undefined;
 
-    const setValue = (e: Event) => {
-        const firstElement = innerRefFirst.current as HTMLInputElement;
-
-        const firstValueInit = Number(firstElement.getAttribute('defaultValue'));
-        const secondValueInit = setInitValue(e);
-
-        onChangeCommitted && onChangeCommitted([firstValueInit, secondValueInit]);
-        setFirstValue(firstValueInit);
-        setSecondValue(secondValueInit);
-    };
-
     useEffect(() => {
         const firstLocalValue = Math.min(Math.max(value[0], min), max) - min;
         const secondLocalValue = Math.min(Math.max(value[1], min), max) - min;
@@ -103,18 +92,6 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
             xSecondHandle: stepSize * secondLocalValue,
         }));
     }, [value, stepSize, min, max, setFirstValue, setSecondValue]);
-
-    useEffect(() => {
-        if (innerRefSecond.current && onChangeCommitted) {
-            innerRefSecond.current.addEventListener('setInitValue', setValue);
-        }
-
-        return () => {
-            if (innerRefSecond.current && onChangeCommitted) {
-                innerRefSecond.current.removeEventListener('setInitValue', setValue);
-            }
-        };
-    }, [innerRefSecond]);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {
@@ -369,7 +346,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 data-slidertype="min"
                 value={firstValue}
                 ref={innerRefFirst}
-                onChange={() => {}}
+                {...noop}
             />
             <InputHidden
                 name={name}
@@ -378,7 +355,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                 data-slidertype="max"
                 value={secondValue}
                 ref={innerRefSecond}
-                onChange={() => {}}
+                {...noop}
             />
         </DoubleWrapper>
     );

@@ -2,6 +2,7 @@ import { styled } from '@linaria/react';
 
 import { calendarBaseConfig, calendarBaseTokens } from '../Calendar';
 import { component, mergeConfig } from '../../engines';
+import { applyHidden } from '../../mixins';
 
 import { tokens } from './DatePicker.tokens';
 
@@ -112,4 +113,8 @@ export const baseCalendarTokens = `
 export const StyledCalendar = styled(Calendar)`
     width: var(${tokens.width});
     ${baseCalendarTokens}
+`;
+
+export const InputHidden = styled.input`
+    ${applyHidden()};
 `;
