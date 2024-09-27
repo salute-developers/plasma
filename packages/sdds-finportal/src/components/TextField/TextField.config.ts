@@ -198,6 +198,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
             `,
             m: css`
                 ${tokens.height}: 3rem;
@@ -259,6 +261,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
@@ -320,6 +324,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
@@ -381,6 +387,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
             `,
         },
         labelPlacement: {
