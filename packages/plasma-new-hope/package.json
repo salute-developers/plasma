@@ -123,5 +123,6 @@
     "react-draggable": "4.4.3",
     "react-popper": "2.3.0",
     "storeon": "3.1.5"
-  }
+  },
+  "sideEffects": ["*.css"]
 }
