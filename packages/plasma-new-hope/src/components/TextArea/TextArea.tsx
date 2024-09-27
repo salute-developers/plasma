@@ -140,6 +140,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const placeholderLabel = hasInnerLabel ? label : placeholder;
 
         const clearClass = clear ? classes.clear : undefined;
+        const hasRightContentClass = contentRight ? classes.hasRightContent : undefined;
         const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
         const requiredPlacementClass = requiredPlacement === 'right' ? 'align-right ' : undefined;
 
@@ -224,7 +225,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                     {contentRight && <StyledContent>{contentRight}</StyledContent>}
                     <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
                         <StyledTextArea
-                            className={styledTextArea}
+                            className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
                             hasContentRight={Boolean(contentRight)}
                             hasHelper={hasHelper}

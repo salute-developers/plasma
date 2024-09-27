@@ -18,8 +18,9 @@ export const classes = {
     innerLabelPlacement: 'label-placement-inner',
     outerLabelPlacement: 'label-placement-outer',
     /** Класс для view `clear` */
-    clear: 'textfield-clear',
-    hasDivider: 'hasDivider',
+    clear: 'textarea-clear',
+    hasRightContent: 'textarea-has-right-content',
+    hasDivider: 'textarea-has-divider',
 };
 
 export const tokens = {
@@ -56,9 +57,10 @@ export const tokens = {
     inputCaretColor: '--plasma-textarea-input-caret-color',
     /** Цвет элемента placeholder */
     placeholderColor: '--plasma-textarea-placeholder-color',
-    clearPlaceholderColor: '--plasma-textfield__clear-placeholder-color',
+    clearPlaceholderColor: '--plasma-textarea-clear-placeholder-color',
     /** Цвет элемента placeholder в состоянии focus */
     placeholderColorFocus: '--plasma-textarea-placeholder-color-focus',
+    clearPlaceholderColorFocus: '--plasma-textarea-clear-placeholder-color-focus',
     /** Цвет элемента optional */
     optionalColor: '--plasma-textarea__optional-color',
     /** Цвет текста для левой подписи снизу */
@@ -90,6 +92,7 @@ export const tokens = {
     inputPaddingRight: '--plasma-textarea-input-padding-right',
     /** Отступ справа для элемента textarea, когда есть контент справа */
     inputPaddingRightWithRightContent: '--plasma-textarea-input-padding-right-with-right-content',
+    clearInputPaddingRightWithRightContent: '--plasma-textarea-clear-input-padding-right-with-right-content',
     /** Отступ снизу для элемента textarea */
     inputPaddingBottom: '--plasma-textarea-input-padding-bottom',
     /** Отступ снизу для элемента textarea, когда есть блок подписей */
@@ -185,6 +188,8 @@ export const tokens = {
     indicatorLabelPlacementOuter: '--plasma-textarea-indicator-placement-outer',
     indicatorLabelPlacementInnerRight: '--plasma-textarea-indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textarea-indicator-placement-outer-right',
+    clearIndicatorLabelPlacementInner: '--plasma-textarea__clear-indicator-placement-inner',
+    clearIndicatorLabelPlacementInnerRight: '--plasma-textarea__clear-indicator-placement-inner-right',
 
     dividerColor: '--plasma-textfield-divider-color',
     dividerColorHover: '--plasma-textfield-divider-color-hover',
