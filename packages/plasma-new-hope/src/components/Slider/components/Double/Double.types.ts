@@ -69,4 +69,6 @@ export interface DoubleSliderProps
     size?: 's' | 'm' | 'l';
     name?: string;
     type?: 'double';
+
+    pointerSize?: 'small' | 'large';
 }
