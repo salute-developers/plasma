@@ -120,6 +120,7 @@ export const iconSectionsSet = {
         filterOff: 'FilterOff',
         settingsFilterOff: 'SettingsFilterOff',
         sum: 'Sum',
+        hierarchy: 'Hierarchy',
     },
     Animal: {
         animalFill: 'AnimalFill',
