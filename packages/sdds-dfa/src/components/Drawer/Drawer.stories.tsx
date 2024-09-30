@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import type { ComponentProps } from 'react';
-import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
+import { IconDone } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
 import { SSRProvider } from '../SSRProvider';
@@ -131,7 +132,14 @@ const StyledIconButton = styled(Button)`
     height: 1.5rem;
 `;
 
-const StoryDrawerDemo = ({ showHeader, showFooter, showActions, closePlacement, ...rest }: StoryDrawerProps) => {
+const StoryDrawerDemo = ({
+    showHeader,
+    showFooter,
+    showActions,
+    hasClose,
+    closePlacement,
+    ...rest
+}: StoryDrawerProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -144,11 +152,12 @@ const StoryDrawerDemo = ({ showHeader, showFooter, showActions, closePlacement, 
                     <StyledContentWrapper>
                         <Drawer opened={isOpen} onClose={() => setIsOpen(false)} {...rest}>
                             <DrawerHeader
+                                hasClose={hasClose}
                                 closePlacement={closePlacement as ClosePlacementType}
                                 actions={
                                     showActions && (
                                         <StyledIconButton size="s" view="clear">
-                                            <IconPlaceholder size="s" />
+                                            <IconDone size="s" color="inherit" />
                                         </StyledIconButton>
                                     )
                                 }
