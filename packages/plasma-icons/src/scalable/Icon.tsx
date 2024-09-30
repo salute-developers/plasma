@@ -1036,6 +1036,8 @@ export const iconSectionsSet = {
         sberboomMiniOutline: 'SberboomMiniOutline',
         pcMouseFill: 'PcMouseFill',
         pcMouseOutline: 'PcMouseOutline',
+        printerFill: 'PrinterFill',
+        printerOutline: 'PrinterOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
