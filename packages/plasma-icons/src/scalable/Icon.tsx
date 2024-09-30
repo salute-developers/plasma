@@ -264,6 +264,7 @@ export const iconSectionsSet = {
         swapVertCircOutline: 'SwapVertCircOutline',
         doubleDisclosureDown: 'DoubleDisclosureDown',
         doubleDisclosureUp: 'DoubleDisclosureUp',
+        swapVertOff: 'SwapVertOff',
     },
     Data: {
         chartDistributionFill: 'ChartDistributionFill',
