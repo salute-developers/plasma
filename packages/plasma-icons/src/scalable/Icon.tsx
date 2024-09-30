@@ -118,6 +118,7 @@ export const iconSectionsSet = {
         windowMaximize: 'WindowMaximize',
         windowMinimize: 'WindowMinimize',
         filterOff: 'FilterOff',
+        settingsFilterOff: 'SettingsFilterOff',
     },
     Animal: {
         animalFill: 'AnimalFill',
