@@ -15,8 +15,8 @@ export const config = {
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.placeholderColorFocus}: var(--text-secondary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
 

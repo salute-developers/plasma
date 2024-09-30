@@ -9,6 +9,7 @@ const TextField = component(mergedConfig);
 
 export const StyledTextField = styled(TextField)`
     ${textFieldTokens.color}: var(${autocompleteTokens.textFieldColor});
+    ${textFieldTokens.placeholderColorFocus}: var(${autocompleteTokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.backgroundColor}: var(${autocompleteTokens.textFieldBackgroundColor});
     ${textFieldTokens.backgroundColorHover}: var(${autocompleteTokens.textFieldBackgroundColorHover});
     ${textFieldTokens.backgroundColorFocus}: var(${autocompleteTokens.textFieldBackgroundColorFocus});

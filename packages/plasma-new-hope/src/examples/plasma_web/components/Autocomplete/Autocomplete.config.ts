@@ -12,6 +12,7 @@ export const config = {
         view: {
             default: css`
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-clear);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
@@ -35,6 +36,7 @@ export const config = {
             `,
             positive: css`
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-clear);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
@@ -58,6 +60,7 @@ export const config = {
             `,
             warning: css`
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-clear);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-warning-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
@@ -82,6 +85,7 @@ export const config = {
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-clear);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);

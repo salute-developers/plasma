@@ -79,6 +79,7 @@ export const tokens = {
 
     /** Токены полей ввода */
     textFieldColor: '--plasma-date-picker-textfield-color',
+    textFieldPlaceholderColorFocus: '--plasma-datepicker-textfield__placeholder-color-focus',
     textFieldFocusColor: '--plasma-date-picker-textfield-focus-color',
     textFieldPlaceholderColor: '--plasma-date-picker-textfield-placeholder-color',
     textFieldCaretColor: '--plasma-date-picker-textfield-caret-color',

@@ -19,6 +19,7 @@ export const config = {
 
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);

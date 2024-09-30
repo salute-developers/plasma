@@ -21,7 +21,7 @@ export const base = css`
             background-color: var(${tokens.backgroundColorReadOnly});
         }
 
-        ${InputPlaceholder} {
+        ${InputWrapper}:focus-within ${InputPlaceholder}, ${InputPlaceholder} {
             color: var(${tokens.placeholderColorReadOnly});
         }
 

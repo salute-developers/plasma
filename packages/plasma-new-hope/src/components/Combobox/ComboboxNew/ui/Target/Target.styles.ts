@@ -9,6 +9,7 @@ const TextField = component(mergedConfig);
 
 export const StyledTextField = styled(TextField)`
     ${textFieldTokens.color}: var(${comboboxTokens.textFieldColor});
+    ${textFieldTokens.placeholderColorFocus}: var(${comboboxTokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.backgroundColor}: var(${comboboxTokens.textFieldBackgroundColor});
     ${textFieldTokens.backgroundColorHover}: var(${comboboxTokens.textFieldBackgroundColorHover});
     ${textFieldTokens.backgroundColorFocus}: var(${comboboxTokens.textFieldBackgroundColorFocus});

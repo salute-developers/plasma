@@ -13,6 +13,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColor}: var(--surface-solid-card);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-card);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-secondary);
                 ${tokens.textFieldTextAfterColor}: var(--text-secondary);

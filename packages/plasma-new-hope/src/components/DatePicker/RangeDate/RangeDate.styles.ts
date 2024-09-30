@@ -32,6 +32,7 @@ export const StyledRange = styled(Range)`
 
     ${rangeTokens.textFieldColor}: var(${tokens.textFieldColor});
     ${rangeTokens.textFieldPlaceholderColor}: var(${tokens.textFieldPlaceholderColor});
+    ${rangeTokens.textFieldPlaceholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
     ${rangeTokens.textFieldCaretColor}: var(${tokens.textFieldCaretColor});
 
     ${rangeTokens.textFieldBackgroundColorFocus}: var(${tokens.textFieldBackgroundColorFocus});
