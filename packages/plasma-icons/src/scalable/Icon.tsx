@@ -119,6 +119,7 @@ export const iconSectionsSet = {
         windowMinimize: 'WindowMinimize',
         filterOff: 'FilterOff',
         settingsFilterOff: 'SettingsFilterOff',
+        sum: 'Sum',
     },
     Animal: {
         animalFill: 'AnimalFill',
