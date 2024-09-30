@@ -33,6 +33,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
 
                 ${tokens.focusColor}: var(--text-accent);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
             `,
         },
         size: {

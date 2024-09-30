@@ -12,6 +12,7 @@ export const config = {
         view: {
             default: css`
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBorderColor}: var(--text-tertiary);
                 ${tokens.textFieldBorderColorHover}: var(--text-tertiary-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--text-accent);
@@ -39,6 +40,7 @@ export const config = {
             `,
             positive: css`
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBorderColor}: var(--surface-positive);
                 ${tokens.textFieldBorderColorHover}: var(--surface-positive);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
@@ -66,6 +68,7 @@ export const config = {
             `,
             warning: css`
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBorderColor}: var(--surface-warning);
                 ${tokens.textFieldBorderColorHover}: var(--surface-warning);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
@@ -93,6 +96,7 @@ export const config = {
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--plasma-colors-primary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBorderColor}: var(--surface-negative);
                 ${tokens.textFieldBorderColorHover}: var(--surface-negative);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
