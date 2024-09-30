@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@linaria/react';
 
 import { IconChevronDownFill, IconMinus } from '../../../_Icon';
 import { classes, tokens } from '../../Accordion.tokens';
