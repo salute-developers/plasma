@@ -92,7 +92,7 @@
     "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-ui USE_COLLECT_PACKAGE_INFO=true babel ./src --out-dir . --extensions .ts,.tsx",
     "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui USE_COLLECT_PACKAGE_INFO=true babel ./src --out-dir ./es --extensions .ts,.tsx",
     "prebuild:css": "rm -rf ./css/es ./css/cjs ./src-linaria-temp && node ./scripts/replace-imports.js",
-    "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui rollup -c && node ./scripts/compose-styles.js",
+    "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui rollup -c",
     "postbuild:css": "rm -rf ./src-linaria-temp",
     "storybook": "storybook dev -p ${PORT:-6006} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb --quiet",
