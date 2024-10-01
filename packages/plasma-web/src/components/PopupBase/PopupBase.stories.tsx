@@ -14,6 +14,9 @@ const meta: Meta<PopupBaseProps> = {
     title: 'Controls/PopupBase',
     component: PopupBase,
     decorators: [InSpacingDecorator],
+    parameters: {
+        docs: { story: { inline: false, iframeHeight: '30rem' } },
+    },
     argTypes: {
         placement: {
             options: [
