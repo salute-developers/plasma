@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 
@@ -16,6 +16,9 @@ const meta: Meta<ModalBaseProps> = {
     title: 'Controls/ModalBase',
     component: ModalBase,
     decorators: [InSpacingDecorator],
+    parameters: {
+        docs: { story: { inline: false, iframeHeight: '30rem' } },
+    },
     argTypes: {
         placement: {
             options: [
@@ -175,6 +178,18 @@ export const ModalBaseDemo: StoryObj<StoryModalBaseProps> = {
 
 const StyledModalAnimation = styled(ModalBase)`
     /* stylelint-disable */
+
+    ${({ placement }) =>
+        placement !== 'center'
+            ? css`
+                  --initial-position: 0, 100%;
+                  --end-position: 0, -50%;
+              `
+            : css`
+                  --initial-position: -50%, 100%;
+                  --end-position: -50%, -50%;
+              `}
+
     && .${popupBaseClasses.root} {
         animation: fadeIn 1s forwards;
     }
@@ -215,24 +230,24 @@ const StyledModalAnimation = styled(ModalBase)`
     @keyframes fadeIn {
         from {
             opacity: 0;
-            transform: translate(-50%, 100%);
+            transform: translate(var(--initial-position));
         }
 
         to {
             opacity: 1;
-            transform: translate(-50%, -50%);
+            transform: translate(var(--end-position));
         }
     }
 
     @keyframes fadeOut {
         from {
             opacity: 1;
-            transform: translate(-50%, -50%);
+            transform: translate(var(--end-position));
         }
 
         to {
             opacity: 0;
-            transform: translate(-50%, 100%);
+            transform: translate(var(--initial-position));
         }
     }
 `;
@@ -251,7 +266,6 @@ const StoryModalAnimationDemo = ({ placement, offsetX, offsetY, ...rest }: Story
                 <Button view="default" text="Открыть новое модальное окно" onClick={() => setIsOpen(!isOpen)} />
                 <StyledModalAnimation
                     id="modal"
-                    frame="theme-root"
                     withAnimation
                     onClose={() => setIsOpen(false)}
                     opened={isOpen}

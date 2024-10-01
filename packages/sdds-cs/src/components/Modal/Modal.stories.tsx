@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
@@ -14,6 +14,9 @@ import type { ModalProps } from '.';
 const meta: Meta<ModalProps> = {
     title: 'Controls/Modal',
     decorators: [InSpacingDecorator],
+    parameters: {
+        docs: { story: { inline: false, iframeHeight: '30rem' } },
+    },
     argTypes: {
         placement: {
             options: [
@@ -173,6 +176,17 @@ export const ModalDemo: StoryObj<StoryModalProps> = {
 
 const StyledModalAnimation = styled(Modal)`
     /* stylelint-disable */
+    ${({ placement }) =>
+        placement !== 'center'
+            ? css`
+                  --initial-position: 0, 100%;
+                  --end-position: 0, -50%;
+              `
+            : css`
+                  --initial-position: -50%, 100%;
+                  --end-position: -50%, -50%;
+              `}
+
     && .${popupClasses.root} {
         animation: fadeIn 1s forwards;
     }
@@ -213,24 +227,24 @@ const StyledModalAnimation = styled(Modal)`
     @keyframes fadeIn {
         from {
             opacity: 0;
-            transform: translate(-50%, 100%);
+            transform: translate(var(--initial-position));
         }
 
         to {
             opacity: 1;
-            transform: translate(-50%, -50%);
+            transform: translate(var(--end-position));
         }
     }
 
     @keyframes fadeOut {
         from {
             opacity: 1;
-            transform: translate(-50%, -50%);
+            transform: translate(var(--end-position));
         }
 
         to {
             opacity: 0;
-            transform: translate(-50%, 100%);
+            transform: translate(var(--initial-position));
         }
     }
 `;
