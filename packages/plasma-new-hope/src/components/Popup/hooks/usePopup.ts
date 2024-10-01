@@ -55,5 +55,5 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
         };
     }, [id]);
 
-    return { isVisible, setVisible, animationInfo, withAnimation };
+    return { isVisible, setVisible, animationInfo, withAnimation, rootId: popupController.rootId };
 };
