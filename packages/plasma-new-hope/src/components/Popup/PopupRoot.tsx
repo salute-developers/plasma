@@ -11,7 +11,7 @@ import { classes } from './Popup.tokens';
  * Управляет показом/скрытием и анимацией всплывающего окна.
  */
 export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
-    ({ id, placement, offset, frame, setVisible, children, role, zIndex, animationInfo, className, ...rest }, ref) => {
+    ({ id, placement, offset, setVisible, children, role, frame, zIndex, animationInfo, ...rest }, ref) => {
         const contentRef = useRef<HTMLDivElement | null>(null);
         const innerRef = useForkRef<HTMLDivElement>(contentRef, ref);
 
@@ -39,6 +39,7 @@ export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
                 placement={placement}
                 offset={offset}
                 zIndex={zIndex}
+                frame={frame}
                 onAnimationEnd={handleAnimationEnd}
                 onTransitionEnd={handleAnimationEnd}
                 {...rest}

@@ -9,6 +9,7 @@ export interface PopupInfo {
 
 export interface PopupContextType {
     items: PopupInfo[];
+    rootId: string;
     register: (info: PopupInfo) => void;
     unregister: (id: string) => void;
 }

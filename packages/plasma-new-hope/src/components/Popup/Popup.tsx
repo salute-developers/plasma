@@ -1,13 +1,11 @@
 import React, { forwardRef, useRef } from 'react';
-import ReactDOM from 'react-dom';
 import { useForkRef, safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines/types';
-import { cx } from '../../utils';
+import { canUseDOM, cx } from '../../utils';
 import { Portal } from '../Portal';
 
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
-import { POPUP_PORTAL_ID } from './PopupContext';
 import { PopupRoot } from './PopupRoot';
 import { usePopup } from './hooks';
 import { classes } from './Popup.tokens';
@@ -110,7 +108,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             const uniqId = safeUseId();
             const innerId = id || uniqId;
 
-            const { isVisible, animationInfo, setVisible } = usePopup({
+            const { isVisible, animationInfo, setVisible, rootId } = usePopup({
                 isOpen: innerIsOpen,
                 id: innerId,
                 popupInfo,
@@ -139,8 +137,8 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         id={innerId}
                         ref={innerRef}
                         position={handlePosition(placement, offset)}
-                        frame={frame}
                         zIndex={zIndex}
+                        frame={frame}
                         animationInfo={animationInfo}
                         setVisible={setVisible}
                     >
@@ -154,22 +152,19 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             }
 
             const withFrameId = typeof frame === 'string' && frame !== 'document';
-            const containerElement = withFrameId && document.getElementById(frame as string);
+            const containerElement = withFrameId && canUseDOM && document.getElementById(frame as string);
 
             if (containerElement) {
                 return (
-                    <>
-                        {ReactDOM.createPortal(
-                            <StyledPortalContainer ref={portalRef}>
-                                {portalRef.current && <Portal container={portalRef.current}>{rootNode}</Portal>}
-                            </StyledPortalContainer>,
-                            containerElement,
-                        )}
-                    </>
+                    <Portal container={containerElement}>
+                        <StyledPortalContainer ref={portalRef}>
+                            {portalRef.current && <Portal container={portalRef.current}>{rootNode}</Portal>}
+                        </StyledPortalContainer>{' '}
+                    </Portal>
                 );
             }
 
-            const globalPortal = typeof document !== 'undefined' && document.getElementById(POPUP_PORTAL_ID);
+            const globalPortal = canUseDOM && document.getElementById(rootId);
 
             return <>{globalPortal && <Portal container={globalPortal}>{rootNode}</Portal>}</>;
         },

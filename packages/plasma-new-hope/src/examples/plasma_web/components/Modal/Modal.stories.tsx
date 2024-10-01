@@ -14,6 +14,9 @@ import { Modal, modalClasses } from './Modal';
 export default {
     title: 'plasma_web/Modal',
     decorators: [WithTheme],
+    parameters: {
+        docs: { story: { inline: false, iframeHeight: '30rem' } },
+    },
     argTypes: {
         placement: {
             options: [
