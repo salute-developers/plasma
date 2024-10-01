@@ -43,6 +43,7 @@ export * from './components/Sheet';
 export * from './components/Skeleton';
 export * from './components/Spinner';
 export * from './components/SSRProvider';
+export * from './components/Steps';
 export * from './components/Switch';
 export * from './components/Slider';
 export * from './components/Tabs';

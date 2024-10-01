@@ -171,6 +171,8 @@ import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
+import { StepItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Steps.types';
 import { StyledComponent } from 'styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -2571,6 +2573,21 @@ export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 export { SSRProvider }
+
+export { StepItemProps }
+
+// @public (undocumented)
+export const Steps: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & StepsProps & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {

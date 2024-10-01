@@ -50,6 +50,7 @@ export * from './components/Divider';
 export * from './components/Toolbar';
 export * from './components/Sheet';
 export * from './components/Slider';
+export * from './components/Steps';
 export * from './components/Range';
 export * from './components/Accordion';
 export * from './components/DatePicker';
