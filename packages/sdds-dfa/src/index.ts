@@ -36,6 +36,7 @@ export * from './components/Sheet';
 export * from './components/Spinner';
 export * from './components/Slider';
 export * from './components/SSRProvider';
+export * from './components/Steps';
 export * from './components/Switch';
 export * from './components/Tabs';
 export * from './components/TextArea';

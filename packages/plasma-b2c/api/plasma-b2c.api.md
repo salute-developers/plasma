@@ -264,6 +264,8 @@ import { SpinnerProps } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
 import { StatusType } from '@salutejs/plasma-hope';
+import { StepItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Steps.types';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
@@ -3265,6 +3267,21 @@ export { SpinnerProps }
 export { SSRProvider }
 
 export { StatusType }
+
+export { StepItemProps }
+
+// @public (undocumented)
+export const Steps: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & StepsProps & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & RefAttributes<HTMLDivElement>>;
 
 export { StyledCard }
 
