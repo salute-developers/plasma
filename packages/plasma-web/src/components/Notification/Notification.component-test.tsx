@@ -8,7 +8,7 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const NoAnimationStyle = createGlobalStyle`
     /* stylelint-disable-next-line selector-max-id, selector-max-universal */
-    #plasma-popup-root * {
+    * {
         animation: none !important;
     }
 `;
@@ -78,10 +78,10 @@ describe('plasma-web: Notification', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').contains('Открыть').click({ force: true });
+        cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click({ force: true });
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('button').contains('Закрыть').click();
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('layout', () => {
@@ -135,9 +135,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click({ force: true });
+        cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click({ force: true });
+        cy.get('button').contains('Закрыть').click();
     });
 
     it('icon positions', () => {
@@ -209,9 +209,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click({ force: true });
+        cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click({ force: true });
+        cy.get('button').contains('Закрыть').click();
     });
 
     it('long text', () => {
@@ -247,9 +247,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click({ force: true });
+        cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click({ force: true });
+        cy.get('button').contains('Закрыть').click();
     });
 
     it('oneline horizontal', () => {
@@ -285,9 +285,9 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click({ force: true });
+        cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click({ force: true });
+        cy.get('button').contains('Закрыть').click();
     });
 
     it('close on icon', () => {
@@ -323,8 +323,8 @@ describe('plasma-web: Notification', () => {
                 </NotificationsProvider>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.get('button').contains('Открыть').click({ force: true });
-        cy.get('.notification-close-icon').click({ force: true });
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('button').contains('Открыть').click();
+        cy.get('.notification-close-icon').click();
+        cy.get('.popup-base-root').should('not.exist');
     });
 });

@@ -204,7 +204,7 @@ describe('plasma-b2c: Drawer', () => {
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(300);
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('close X', () => {
@@ -222,7 +222,7 @@ describe('plasma-b2c: Drawer', () => {
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(300);
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('placement: left', () => {
