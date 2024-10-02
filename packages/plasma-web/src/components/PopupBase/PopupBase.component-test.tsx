@@ -123,7 +123,7 @@ describe('plasma-web: PopupBase', () => {
         cy.get('button').click();
         cy.get('#popup-content').should('be.visible');
         cy.get('button').contains('Close').click();
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('placement basic', () => {

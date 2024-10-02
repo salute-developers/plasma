@@ -119,7 +119,7 @@ describe('plasma-web: ModalBase', () => {
         cy.get('button').click();
         cy.get('#modal-content').should('be.visible');
         cy.get('body').type('{esc}');
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('close overlay', () => {
@@ -132,7 +132,7 @@ describe('plasma-web: ModalBase', () => {
         cy.get('button').click();
         cy.get('#modal-content').should('be.visible');
         cy.get('body').click(5, 5);
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('double close', () => {
@@ -149,7 +149,7 @@ describe('plasma-web: ModalBase', () => {
         cy.matchImageSnapshot();
         cy.get('#modalA-content').should('be.visible');
         cy.get('body').click(5, 5);
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('withBlur', () => {
