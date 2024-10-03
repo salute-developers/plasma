@@ -5,6 +5,7 @@ export const classes = {
 export const tokens = {
     // Токены для TextField
     textFieldColor: '--plasma-autocomplete-textfield-color',
+    textFieldPlaceholderColorFocus: '--plasma-autocomplete-textfield__placeholder-color-focus',
     textFieldBackgroundColor: '--plasma-autocomplete-textfield-background-color',
     textFieldBackgroundColorHover: '--plasma-autocomplete-textfield-background-color-hover',
     textFieldBackgroundColorFocus: '--plasma-autocomplete-textfield-background-color-focus',

@@ -3,21 +3,21 @@ id: dropdown
 title: Dropdown
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Dropdown
 Выпадающий многоуровневый список.
 
-<StorybookLink name="Dropdown" />
-
 <Description name="Dropdown" />
 <PropsTable name="Dropdown" />
 
 ## Использование
 Обязательным параметром является только массив `items`.
-Внутри items может быть такой же вложенный массив items. Формат следующий:
+Внутри items может быть такой же вложенный массив items.
+
+Формат следующий:
 
 ```tsx
 type Items = Array<{
@@ -45,6 +45,14 @@ type Items = Array<{
          * Слот для контента справа
          */
         contentRight?: ReactNode;
+        /**
+        * Отобразить ли разделитель до элемента
+        */
+        dividerBefore?: boolean;
+        /**
+        * Отобразить ли разделитель после элемента
+        */
+        dividerAfter?: boolean;
         /**
          * Выбранный item.
          * @deprecated использовать ContentLeft || ContentRight

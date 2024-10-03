@@ -10,6 +10,9 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const statuses = ['', 'success', 'warning', 'error'];
+const sizes = ['xs', 's', 'm', 'l'];
+
 const meta: Meta<TextAreaProps> = {
     title: 'Controls/TextArea',
     component: TextArea,
@@ -34,19 +37,16 @@ const meta: Meta<TextAreaProps> = {
             if: { arg: 'required', truthy: false },
         },
         status: {
-            options: ['', 'success', 'warning', 'error'],
+            options: statuses,
             control: {
                 type: 'select',
             },
         },
-        cols: {
+        size: {
+            options: sizes,
+            defaultValue: 'm',
             control: {
-                type: 'number',
-            },
-        },
-        rows: {
-            control: {
-                type: 'number',
+                type: 'select',
             },
         },
         labelPlacement: {
@@ -54,6 +54,24 @@ const meta: Meta<TextAreaProps> = {
             control: {
                 type: 'select',
             },
+        },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
+        cols: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
+        },
+        rows: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
         },
         ...disableProps([
             'helperBlock',
@@ -80,6 +98,7 @@ const meta: Meta<TextAreaProps> = {
         autoResize: false,
         minAuto: 0,
         maxAuto: 0,
+        size: 'm',
     },
 };
 
@@ -92,6 +111,8 @@ type Story = StoryObj<StoryProps>;
 const StoryDefault = ({ status, enableContentRight, ...rest }: StoryProps) => {
     const [value, setValue] = useState('');
 
+    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+
     const handleChange = (e) => {
         setValue(e.target.value);
         onChange(e);
@@ -101,7 +122,7 @@ const StoryDefault = ({ status, enableContentRight, ...rest }: StoryProps) => {
         <TextArea
             resize="none"
             value={value}
-            contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             status={status || undefined}
             onChange={handleChange}
             onFocus={onFocus}
@@ -125,6 +146,8 @@ export const Default: Story = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        clear: false,
+        hasDivider: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

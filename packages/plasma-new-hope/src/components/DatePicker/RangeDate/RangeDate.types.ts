@@ -22,6 +22,10 @@ export type DatePickerRangeFieldProps = {
      */
     defaultSecondDate?: Date;
     /**
+     * Свойство для названия поля при работе с формой
+     */
+    name?: string;
+    /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
      */
     onCommitFirstDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
@@ -29,6 +33,11 @@ export type DatePickerRangeFieldProps = {
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
      */
     onCommitSecondDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+    /**
+     * Свойство устарело, используется формой. Вместо используйте onCommitFirstDate и onCommitSecondDate
+     * @deprecated
+     */
+    onChange?: (event: { target: { value?: string; name?: string } }) => void;
 } & BaseRangeProps;
 
 export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placement'> & {

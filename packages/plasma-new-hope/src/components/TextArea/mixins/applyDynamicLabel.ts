@@ -10,18 +10,16 @@ const {
 } = classes;
 
 export const applyDynamicLabel = `
-    .${String(innerPlaceholderUp)} {
-        .${String(styledTextArea)} {
+    .${innerPlaceholderUp} {
+        .${styledTextArea} {
             height: calc(var(--plasma_private-textarea-input-actual-height) - var(${tokens.labelInnerTop}));
         }
 
-        .${String(styledTextAreaWrapper)} {
-            padding-top: calc(calc(var(${tokens.labelInnerTop}) + var(${tokens.labelInnerFontSize})) + var(${
-    tokens.labelInnerMarginBottom
-}));
+        .${styledTextAreaWrapper} {
+            padding-top: calc(calc(var(${tokens.labelInnerTop}) + var(${tokens.labelInnerFontSize})) + var(${tokens.labelInnerMarginBottom}));
         }
 
-        .${String(styledPlaceholder)} {
+        .${styledPlaceholder} {
             font-family: var(${tokens.labelInnerFontFamily});
             font-size: var(${tokens.labelInnerFontSize});
             font-style: var(${tokens.labelInnerFontStyle});
@@ -32,15 +30,11 @@ export const applyDynamicLabel = `
         }
     }
 
-    .${String(hidePlaceHolder)} {
-        .${String(styledPlaceholder)} {
-            display: none;
-        }
+    .${hidePlaceHolder} .${styledPlaceholder} {
+        display: none;
     }
 
-    .${String(focusedOuterPlaceholderColor)} {
-        .${String(styledPlaceholder)} {
-            color: var(${tokens.placeholderColorFocus});
-        }
+    .${focusedOuterPlaceholderColor} .${styledPlaceholder} {
+        color: var(${tokens.placeholderColorFocus});
     }
 `;

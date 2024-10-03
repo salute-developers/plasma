@@ -17,6 +17,10 @@ export const classes = {
     styledHelpers: 'textarea-helpers',
     innerLabelPlacement: 'label-placement-inner',
     outerLabelPlacement: 'label-placement-outer',
+    /** Класс для view `clear` */
+    clear: 'textarea-clear',
+    hasRightContent: 'textarea-has-right-content',
+    hasDivider: 'textarea-has-divider',
 };
 
 export const tokens = {
@@ -46,14 +50,17 @@ export const tokens = {
     helpersBackgroundColorFocus: '--plasma-textarea-helpers-background-color-focus',
     /** Цвет текста для элемента textarea */
     inputColor: '--plasma-textarea-input-color',
+    clearInputColor: '--plasma-textarea-input-clear-color',
     /** Цвет текста для элемента textarea в состоянии focus */
     inputColorFocus: '--plasma-textarea-input-color-focus',
     /** Цвет каретки для элемента textarea */
     inputCaretColor: '--plasma-textarea-input-caret-color',
     /** Цвет элемента placeholder */
     placeholderColor: '--plasma-textarea-placeholder-color',
+    clearPlaceholderColor: '--plasma-textarea-clear-placeholder-color',
     /** Цвет элемента placeholder в состоянии focus */
     placeholderColorFocus: '--plasma-textarea-placeholder-color-focus',
+    clearPlaceholderColorFocus: '--plasma-textarea-clear-placeholder-color-focus',
     /** Цвет элемента optional */
     optionalColor: '--plasma-textarea__optional-color',
     /** Цвет текста для левой подписи снизу */
@@ -85,6 +92,7 @@ export const tokens = {
     inputPaddingRight: '--plasma-textarea-input-padding-right',
     /** Отступ справа для элемента textarea, когда есть контент справа */
     inputPaddingRightWithRightContent: '--plasma-textarea-input-padding-right-with-right-content',
+    clearInputPaddingRightWithRightContent: '--plasma-textarea-clear-input-padding-right-with-right-content',
     /** Отступ снизу для элемента textarea */
     inputPaddingBottom: '--plasma-textarea-input-padding-bottom',
     /** Отступ снизу для элемента textarea, когда есть блок подписей */
@@ -93,6 +101,7 @@ export const tokens = {
     inputPaddingLeft: '--plasma-textarea-input-padding-left',
     /** Отступ сверху для блока подписей */
     helpersPaddingTop: '--plasma-textarea-helpers-padding-top',
+    clearHelpersPaddingTop: '--plasma-textarea-clear-helpers-padding-top',
     /** Отступ справа для блока подписей */
     helpersPaddingRight: '--plasma-textarea-helpers-padding-right',
     /** Отступ снизу для блока подписей */
@@ -123,6 +132,7 @@ export const tokens = {
     labelOuterLineHeight: '--plasma-textarea-label-outer-line-height',
     /** Отступ сверху для элемента label, когда он внутри и уменьшен */
     labelMarginBottom: '--plasma-textarea-label-margin-bottom',
+    clearLabelMarginBottom: '--plasma-textarea-clear-label-margin-bottom',
     /** Шрифт для элемента label, когда он внутри и уменьшен */
     labelInnerFontFamily: '--plasma-textarea-label-inner-font-family',
     /** Размер шрифта для элемента label, когда он внутри и уменьшен */
@@ -178,4 +188,11 @@ export const tokens = {
     indicatorLabelPlacementOuter: '--plasma-textarea-indicator-placement-outer',
     indicatorLabelPlacementInnerRight: '--plasma-textarea-indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textarea-indicator-placement-outer-right',
+    clearIndicatorLabelPlacementInner: '--plasma-textarea__clear-indicator-placement-inner',
+    clearIndicatorLabelPlacementInnerRight: '--plasma-textarea__clear-indicator-placement-inner-right',
+
+    dividerColor: '--plasma-textfield-divider-color',
+    dividerColorHover: '--plasma-textfield-divider-color-hover',
+    dividerColorFocus: '--plasma-textfield-divider-color-focus',
+    dividerColorReadOnly: '--plasma-textfield-divider-color-readonly',
 };

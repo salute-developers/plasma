@@ -44,6 +44,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                 eventYearList,
                 disabledYearList,
                 onChangeValue,
+                locale = 'ru',
                 ...rest
             },
             outerRootRef,
@@ -191,6 +192,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                         onPrev={handlePrev}
                         onNext={handleNext}
                         onUpdateCalendarState={handleUpdateCalendarState}
+                        locale={locale}
                     />
 
                     <StyledWrapper>
@@ -211,6 +213,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onSetSelected={onSelectIndexes}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
+                                    locale={locale}
                                     isDouble
                                 />
                                 <StyledSeparator />
@@ -229,6 +232,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onSetSelected={onSelectIndexes}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
+                                    locale={locale}
                                     isDouble
                                     isSecond
                                 />
@@ -250,6 +254,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onHoverMonth={setHoveredItem}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
+                                    locale={locale}
                                     isDouble
                                 />
                                 <StyledSeparator />
@@ -267,6 +272,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onHoverMonth={setHoveredItem}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
+                                    locale={locale}
                                     isDouble
                                     isSecond
                                 />

@@ -10,12 +10,13 @@ import React, {
 } from 'react';
 
 import type { RootProps } from '../../../engines';
-import { cx } from '../../../utils';
+import { cx, noop } from '../../../utils';
 import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
+import { InputHidden } from '../DatePickerBase.styles';
 
 import type { DatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -44,6 +45,7 @@ export const datePickerRangeRoot = (
                 size,
                 readOnly = false,
                 disabled = false,
+                name,
 
                 dividerVariant = 'dash',
                 dividerIcon,
@@ -88,6 +90,7 @@ export const datePickerRangeRoot = (
 
                 onToggle,
 
+                onChange,
                 onChangeFirstValue,
                 onChangeSecondValue,
 
@@ -105,6 +108,9 @@ export const datePickerRangeRoot = (
         ) => {
             const rangeRef = ref && 'current' in ref ? ref : createRef<RangeInputRefs>();
             const rootRef = useRef<HTMLDivElement | null>(null);
+
+            const innerRefFirst = useRef<HTMLInputElement>(null);
+            const innerRefSecond = useRef<HTMLInputElement>(null);
 
             const [firstInputRef, setFirstInputRef] = useState<MutableRefObject<HTMLInputElement | null> | undefined>(
                 rangeRef?.current?.firstTextField(),
@@ -128,6 +134,32 @@ export const datePickerRangeRoot = (
                 formatInputValue({ value: defaultSecondDate, format, lang }),
             );
 
+            const setFirstInputValue = (value: React.SetStateAction<string>) => {
+                setInputFirstValue(value);
+
+                if (onChange) {
+                    onChange({
+                        target: {
+                            value: `${value} - ${inputSecondValue}`,
+                            name,
+                        },
+                    });
+                }
+            };
+
+            const setSecondInputValue = (value: React.SetStateAction<string>) => {
+                setInputSecondValue(value);
+
+                if (onChange) {
+                    onChange({
+                        target: {
+                            value: `${inputFirstValue} - ${value}`,
+                            name,
+                        },
+                    });
+                }
+            };
+
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
             const {
@@ -135,7 +167,7 @@ export const datePickerRangeRoot = (
                 handleCommitDate: handleCommitFirstDate,
             } = useDatePicker({
                 currentValue: inputFirstValue,
-                setInputValue: setInputFirstValue,
+                setInputValue: setFirstInputValue,
                 setCalendarValue: setCalendarFirstValue,
                 setIsInnerOpen,
                 dateFormatDelimiter,
@@ -147,6 +179,7 @@ export const datePickerRangeRoot = (
                 valueError: firstValueError,
                 valueSuccess: firstValueSuccess,
                 inputRef: firstInputRef,
+                name,
                 onChangeValue: onChangeFirstValue,
                 onCommitDate: onCommitFirstDate,
             });
@@ -156,7 +189,7 @@ export const datePickerRangeRoot = (
                 handleCommitDate: handleCommitSecondDate,
             } = useDatePicker({
                 currentValue: inputSecondValue,
-                setInputValue: setInputSecondValue,
+                setInputValue: setSecondInputValue,
                 setCalendarValue: setCalendarSecondValue,
                 setIsInnerOpen,
                 dateFormatDelimiter,
@@ -226,6 +259,7 @@ export const datePickerRangeRoot = (
                         secondValueSuccess={secondValueSuccess}
                         onChangeFirstValue={handleChangeFirstValue}
                         onChangeSecondValue={handleChangeSecondValue}
+                        name={name}
                         onSearchFirstValue={(_, date) => {
                             handleCommitFirstDate(String(date), true, false);
                             if (!calendarSecondValue || secondValueError) {
@@ -306,6 +340,7 @@ export const datePickerRangeRoot = (
                         offset={offset}
                         type={type}
                         onToggle={handleToggle}
+                        lang={lang}
                         isDoubleCalendar={isDoubleCalendar}
                         onChangeStartOfRange={(firstDate, dateInfo) => {
                             handleCommitFirstDate(firstDate, false, true, dateInfo);
@@ -320,6 +355,24 @@ export const datePickerRangeRoot = (
                         }}
                     />
                     {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    <InputHidden
+                        name={name}
+                        type="hidden"
+                        datatype="datepicker-double"
+                        data-datepicker="from"
+                        value={inputFirstValue}
+                        ref={innerRefFirst}
+                        {...noop}
+                    />
+                    <InputHidden
+                        name={name}
+                        type="hidden"
+                        datatype="datepicker-double"
+                        data-datepicker="to"
+                        value={inputSecondValue}
+                        ref={innerRefSecond}
+                        {...noop}
+                    />
                 </Root>
             );
         },

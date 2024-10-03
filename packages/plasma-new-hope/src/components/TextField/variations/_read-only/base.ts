@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../TextField.tokens';
+import { classes, tokens } from '../../TextField.tokens';
 import { Input, InputPlaceholder, InputWrapper, Label, LeftHelper } from '../../TextField.styles';
 
 export const base = css`
@@ -11,11 +11,17 @@ export const base = css`
             box-shadow: inset 0 0 0 var(${String(tokens.borderWidth)}) var(${String(tokens.borderColorReadOnly)});
         }
 
+        &.${classes.hasDivider} ${InputWrapper} {
+            &:before {
+                background-color: var(${String(tokens.dividerColorReadOnly)});
+            }
+        }
+
         ${InputWrapper}:hover {
             background-color: var(${tokens.backgroundColorReadOnly});
         }
 
-        ${InputPlaceholder} {
+        ${InputWrapper}:focus-within ${InputPlaceholder}, ${InputPlaceholder} {
             color: var(${tokens.placeholderColorReadOnly});
         }
 
@@ -29,7 +35,7 @@ export const base = css`
             color: var(${tokens.leftHelperColorReadOnly});
         }
 
-        ${Label} {
+        &.${classes.outerLabelPlacement} ${Label} {
             color: var(${tokens.labelColorReadOnly});
         }
     }

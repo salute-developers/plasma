@@ -24,6 +24,7 @@ const meta: Meta<DropdownProps> = {
             control: {
                 type: 'select',
             },
+            mapping: placements,
         },
         trigger: {
             options: triggers,
@@ -58,12 +59,12 @@ const meta: Meta<DropdownProps> = {
 
 export default meta;
 
-const items = [
+const items = (dropdownSize: DropdownProps['size']) => [
     {
         value: 'north_america',
         label: 'Северная Америка',
-        contentLeft: <IconLocation color="inherit" />,
-        contentRight: <IconLocation color="inherit" />,
+        contentLeft: <IconLocation size={dropdownSize !== 'xs' ? 's' : 'xs'} color="inherit" />,
+        contentRight: <IconLocation size={dropdownSize !== 'xs' ? 's' : 'xs'} color="inherit" />,
     },
     {
         value: 'south_america',
@@ -116,6 +117,8 @@ const items = [
     {
         value: 'europe',
         label: 'Европа',
+        dividerBefore: true,
+        dividerAfter: true,
         items: [
             {
                 value: 'france',
@@ -275,7 +278,7 @@ const items = [
 const StoryNormal = (args: DropdownProps) => {
     return (
         <>
-            <Dropdown items={items} {...args}>
+            <Dropdown {...args} items={items(args.size)}>
                 <Button text="Список стран" />
             </Dropdown>
         </>

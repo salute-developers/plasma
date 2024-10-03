@@ -292,3 +292,28 @@ export function App() {
     );
 }
 ```
+
+## Выбор языка.
+Для выбора языка необходимо указать свойство `locale: 'ru' | 'en'`.
+
+По-умолчанию используется `ru`.
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+            <CalendarBase
+                type="Days"
+                locale="en"
+            />
+            <CalendarBase
+                type="Months"
+                locale="en"
+            />
+        </div>
+    );
+}
+```

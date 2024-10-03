@@ -27,7 +27,7 @@ export const base = css`
 
     ${StyledLabel} {
         /* check _label_position */
-        margin: var(--plasma_private-switch__label-offset, 0);
+        margin: var(${tokens.labelOffsetPrivate}, 0);
     }
 
     :active:not([disabled]) ${StyledTrigger}::after {

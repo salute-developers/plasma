@@ -85,7 +85,8 @@ export function App() {
 
 ### Вид поля
 Вид поля задается с помощью свойства `view`.
-Возможные значения свойства: `default`, `positive`, `warning` и `negative`:
+Возможные значения свойства: `default`, `positive`, `warning` и `negative`.
+На отображение TextField так же влияют свойства `clear` и `hasDivider`:
 
 ```tsx live
 import React from 'react';
@@ -93,31 +94,68 @@ import { TextField } from '@salutejs/sdds-serv';
 
 export function App() {
     return (
-        <div>
-            <TextField
-                placeholder="Статус"
-                view="default"
-                size="m"
-                defaultValue="Обычное состояние"
-            />
-            <TextField
-                placeholder="Статус"
-                view="positive"
-                size="m"
-                defaultValue="Успех"
-            />
-            <TextField
-                placeholder="Статус"
-                view="warning"
-                size="m"
-                defaultValue="Предупреждение"
-            />
-            <TextField
-                placeholder="Статус"
-                view="negative"
-                size="m"
-                defaultValue="Ошибка"
-            />
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+                <TextField
+                    placeholder="Статус"
+                    view="default"
+                    size="m"
+                    defaultValue="Обычное состояние"
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="positive"
+                    size="m"
+                    defaultValue="Успех"
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="warning"
+                    size="m"
+                    defaultValue="Предупреждение"
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="negative"
+                    size="m"
+                    defaultValue="Ошибка"
+                />
+            </div>
+
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+                <TextField
+                    placeholder="Статус"
+                    view="default"
+                    size="m"
+                    defaultValue="Обычное состояние"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="positive"
+                    size="m"
+                    defaultValue="Успех"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="warning"
+                    size="m"
+                    defaultValue="Предупреждение"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус"
+                    view="negative"
+                    size="m"
+                    defaultValue="Ошибка"
+                    clear
+                    hasDivider
+                />
+            </div>
         </div>
     );
 }

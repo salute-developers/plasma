@@ -99,6 +99,8 @@ export type DateInfo = {
     fullValue: CalendarValueType;
 };
 
+export type Locales = 'ru' | 'en';
+
 export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     /**
      * Выбранное значение.
@@ -160,6 +162,10 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      * Конечный тип отображения календаря: дни, месяца, года, кварталы.
      */
     type?: CalendarStateType;
+    /**
+     * Выбранный язык календаря. Влияет на название дней, месяцев
+     */
+    locale?: Locales;
 }
 
 export type CalendarConfigProps = {

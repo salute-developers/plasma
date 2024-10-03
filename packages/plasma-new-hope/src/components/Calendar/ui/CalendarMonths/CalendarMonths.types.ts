@@ -1,6 +1,6 @@
 import type { HTMLAttributes, MutableRefObject, KeyboardEvent } from 'react';
 
-import type { CalendarValueType, DateObject, DisabledDay, EventDay } from '../../Calendar.types';
+import type { CalendarValueType, DateObject, DisabledDay, EventDay, Locales } from '../../Calendar.types';
 
 export interface CalendarMonthsProps extends HTMLAttributes<HTMLDivElement> {
     date: DateObject;
@@ -20,4 +20,5 @@ export interface CalendarMonthsProps extends HTMLAttributes<HTMLDivElement> {
     onSetRefs?: (refs: HTMLDivElement[][]) => void;
     onSetSelected?: (selected: number[]) => void;
     onKeyDown?: (event: KeyboardEvent<HTMLDivElement>) => void;
+    locale: Locales;
 }

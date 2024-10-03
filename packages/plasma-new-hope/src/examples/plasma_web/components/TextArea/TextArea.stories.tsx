@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { tertiary } from '@salutejs/plasma-core';
-import { styled } from '@linaria/react';
+import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { textAreaConfig } from '../../../../components/TextArea';
 import { mergeConfig } from '../../../../engines';
@@ -48,11 +47,13 @@ const meta: Meta<StoryTextAreaProps> = {
             control: {
                 type: 'number',
             },
+            if: { arg: 'clear', truthy: false },
         },
         cols: {
             control: {
                 type: 'number',
             },
+            if: { arg: 'clear', truthy: false },
         },
         labelPlacement: {
             options: labelPlacements,
@@ -60,11 +61,20 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'select',
             },
         },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
     },
     args: {
         id: 'example-textarea',
+        view: 'default',
+        size: 's',
         enableContentRight: true,
-        label: 'Подсказка',
+        label: 'Лейбл',
+        labelPlacement: 'outer',
         placeholder: 'Заполните многострочное поле',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
@@ -73,10 +83,11 @@ const meta: Meta<StoryTextAreaProps> = {
         autoResize: false,
         minAuto: 0,
         maxAuto: 0,
-        size: 's',
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        clear: false,
+        hasDivider: false,
     },
 };
 
@@ -86,20 +97,15 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const IconPlaceholder = styled.div`
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background: ${tertiary};
-`;
-
 const StoryDefault = (props: StoryTextAreaProps) => {
     const [value, setValue] = useState('Значение поля');
+
+    const iconSize = props.size === 'xs' ? 'xs' : 's';
 
     return (
         <TextArea
             value={value}
-            contentRight={props.enableContentRight ? <IconPlaceholder /> : undefined}
+            contentRight={props.enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);

@@ -51,7 +51,7 @@ describe('plasma-b2c: CalendarRange', () => {
     );
 
     const Demo = (args) => {
-        const { min, max, displayDouble, baseValue, size = 's', type = 'Days' } = args;
+        const { min, max, displayDouble, baseValue, size = 's', type = 'Days', locale = 'ru' } = args;
         const [values, setValue] = useState<[Date, Date?]>(baseValue);
 
         const handleOnChange = useCallback((newValue: [Date, Date?]) => {
@@ -67,6 +67,7 @@ describe('plasma-b2c: CalendarRange', () => {
                     min={min}
                     max={max}
                     type={type}
+                    locale={locale}
                     onChangeValue={handleOnChange}
                 />
             ) : (
@@ -77,6 +78,7 @@ describe('plasma-b2c: CalendarRange', () => {
                     min={min}
                     max={max}
                     type={type}
+                    locale={locale}
                     onChangeValue={handleOnChange}
                 />
             );
@@ -150,5 +152,20 @@ describe('plasma-b2c: CalendarRange', () => {
         cy.get('div:nth-of-type(6) > div:nth-of-type(3)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
+    });
+
+    it('locale: en', () => {
+        mount(
+            <>
+                <Demo baseValue={[new Date(1999, 6, 7), new Date(1999, 6, 19)]} locale="en" type="Days" />
+                <PadMe />
+                <Demo baseValue={[new Date(1999, 4, 1), new Date(1999, 6, 1)]} locale="en" type="Months" />
+            </>,
+        );
+
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });

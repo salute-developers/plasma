@@ -2,7 +2,7 @@ import React, { forwardRef, useState, createRef, useCallback } from 'react';
 import { css } from '@linaria/core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 
-import { cx } from '../../utils';
+import { cx, mergeRefs } from '../../utils';
 import type { RootProps } from '../../engines/types';
 
 import { applyDynamicLabel } from './mixins';
@@ -23,6 +23,7 @@ import {
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
+import { base as clearCSS } from './variations/_clear/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import type { TextAreaProps } from './TextArea.types';
 
@@ -56,7 +57,7 @@ const fallbackStatusMap = {
 
 // TODO: Перенести этот метод в файл applyDynamicLabel.ts
 export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) => {
-    const { readOnly, label, labelPlacement, autoResize, rows, value, size } = props;
+    const { readOnly, label, labelPlacement, rows, value, size } = props;
 
     // Добавить класс отвечающий за изменение цвета плейсхолдера при фокусе
     const withFocusedOuterUpPlaceholder =
@@ -66,7 +67,6 @@ export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) =
     const withInnerPlaceholderUp =
         labelPlacement === 'inner' &&
         label &&
-        !autoResize &&
         !rows &&
         size !== 'xs' &&
         ((!readOnly && (value || focused)) || (readOnly && value))
@@ -76,7 +76,7 @@ export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) =
     // Добавить класс отвечающий за скрытие плейсхолдера
     const withHidePlaceholder =
         (value && !label) ||
-        (labelPlacement === 'inner' && ((focused && !readOnly) || value) && label && (rows || autoResize)) ||
+        (labelPlacement === 'inner' && ((focused && !readOnly) || value) && label && rows) ||
         (labelPlacement === 'outer' && value) ||
         (labelPlacement === 'inner' && size === 'xs' && value)
             ? hidePlaceHolder
@@ -108,6 +108,8 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             required = false,
             requiredPlacement = 'right',
             optional = false,
+            clear,
+            hasDivider,
             size,
             view,
             id,
@@ -124,7 +126,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const [focused, setFocused] = useState(false);
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
-        const outerRef = innerRef && 'current' in innerRef ? innerRef : createRef<HTMLTextAreaElement>();
+        const outerRef = createRef<HTMLTextAreaElement>();
 
         const innerOptional = required ? false : optional;
         const hasHelper = Boolean(leftHelper || rightHelper || helperText);
@@ -137,6 +139,9 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
         const placeholderLabel = hasInnerLabel ? label : placeholder;
 
+        const clearClass = clear ? classes.clear : undefined;
+        const hasRightContentClass = contentRight ? classes.hasRightContent : undefined;
+        const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
         const requiredPlacementClass = requiredPlacement === 'right' ? 'align-right ' : undefined;
 
         useResizeObserver(outerRef, (currentElement) => {
@@ -148,7 +153,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             }
         });
 
-        useAutoResize(autoResize, outerRef, value, minAuto, maxAuto);
+        useAutoResize(autoResize || Boolean(clear), outerRef, value, minAuto, maxAuto);
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
@@ -164,7 +169,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 if (value === undefined) {
                     setUncontrolledValue(event?.target.value);
                 }
-
                 onChange?.(event);
             },
             [value, onChange],
@@ -177,7 +181,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 label,
                 labelPlacement,
                 value: value || uncontrolledValue || defaultValue,
-                ...(rows ? { rows } : { autoResize }),
+                rows,
             },
             focused,
         );
@@ -195,8 +199,9 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 size={size}
                 disabled={disabled}
                 readOnly={readOnly}
+                clear={clear}
                 style={{ width: helperWidth, ...style }}
-                className={className}
+                className={cx(clearClass, hasDividerClass, className)}
             >
                 {hasOuterLabel && (
                     <StyledLabel>
@@ -219,14 +224,14 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                     {contentRight && <StyledContent>{contentRight}</StyledContent>}
                     <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
                         <StyledTextArea
-                            className={styledTextArea}
+                            className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
                             hasContentRight={Boolean(contentRight)}
                             hasHelper={hasHelper}
                             applyCustomWidth={applyCustomWidth}
-                            ref={outerRef}
+                            ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
-                            height={autoResize ? minAuto : height}
+                            height={autoResize || Boolean(clear) ? minAuto : height}
                             width={width}
                             placeholder={placeholderLabel}
                             aria-describedby={textareaHelperId}
@@ -274,6 +279,10 @@ export const textAreaConfig = {
         },
         view: {
             css: viewCSS,
+        },
+        clear: {
+            css: clearCSS,
+            attrs: true,
         },
         disabled: {
             css: disabledCSS,

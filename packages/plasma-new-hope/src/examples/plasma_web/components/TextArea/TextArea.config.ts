@@ -18,18 +18,21 @@ export const config = {
                 ${textAreaTokens.inputPaddingTop}: 0.5625rem;
                 ${textAreaTokens.inputPaddingRight}: 0.625rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 2.125rem;
+                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 1.5rem;
                 ${textAreaTokens.inputPaddingBottom}: 0.563rem;
                 ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.563rem;
                 ${textAreaTokens.inputPaddingLeft}: 0.625rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0rem;
                 ${textAreaTokens.helpersOffset}: 0.375rem;
                 ${textAreaTokens.rightContentTop}: 0.563rem;
                 ${textAreaTokens.rightContentRight}: 0.5rem;
-                ${textAreaTokens.rightContentHeight}: 1.25rem;
+                ${textAreaTokens.rightContentHeight}: 1rem;
                 ${textAreaTokens.labelMarginBottom}: 0.375rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
@@ -56,6 +59,8 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
                 ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
+                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
+                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
             `,
             s: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -66,10 +71,12 @@ export const config = {
                 ${textAreaTokens.inputPaddingTop}: 0.6875rem;
                 ${textAreaTokens.inputPaddingRight}: 0.875rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.125rem;
+                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2rem;
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 0.875rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0rem;
@@ -78,6 +85,7 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.75rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.5rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -104,6 +112,8 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.675rem;
                 ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
             `,
             m: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -114,10 +124,12 @@ export const config = {
                 ${textAreaTokens.inputPaddingTop}: 0.875rem;
                 ${textAreaTokens.inputPaddingRight}: 1rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.375rem;
+                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2.125rem;
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 1rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0rem;
@@ -126,6 +138,7 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.875rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.625rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -154,6 +167,8 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 /* stylelint-disable-next-line number-max-precision */
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.1875rem -0.625rem auto auto;
+                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
+                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
             `,
             l: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -164,10 +179,12 @@ export const config = {
                 ${textAreaTokens.inputPaddingTop}: 1rem;
                 ${textAreaTokens.inputPaddingRight}: 1.125rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.625rem;
+                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2.25rem;
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 1.125rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0rem;
@@ -176,6 +193,7 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 1rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.75rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -202,6 +220,8 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
                 ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
             `,
         },
         view: {
@@ -211,14 +231,21 @@ export const config = {
                 ${textAreaTokens.inputBorderColorActive}: var(--text-tertiary-hover);
                 ${textAreaTokens.inputBorderColorFocus}: var(--text-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             positive: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-positive);
@@ -226,6 +253,9 @@ export const config = {
                 ${textAreaTokens.inputBorderColorActive}: var(--text-positive-hover);
                 ${textAreaTokens.inputBorderColorFocus}: var(--text-positive);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-positive);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-positive);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-positive);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -234,6 +264,10 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-positive);
+                ${textAreaTokens.dividerColorHover}: var(--surface-positive);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             warning: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-warning);
@@ -241,6 +275,9 @@ export const config = {
                 ${textAreaTokens.inputBorderColorActive}: var(--text-warning-hover);
                 ${textAreaTokens.inputBorderColorFocus}: var(--text-warning);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-warning);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-warning);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-warning);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -249,6 +286,10 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-warning);
+                ${textAreaTokens.dividerColorHover}: var(--surface-warning);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             negative: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-negative);
@@ -256,6 +297,9 @@ export const config = {
                 ${textAreaTokens.inputBorderColorActive}: var(--text-negative-hover);
                 ${textAreaTokens.inputBorderColorFocus}: var(--text-negative);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-negative);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-negative);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
@@ -264,7 +308,14 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.dividerColor}: var(--surface-negative);
+                ${textAreaTokens.dividerColorHover}: var(--surface-negative);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
+        },
+        clear: {
+            true: css``,
         },
         disabled: {
             true: css`

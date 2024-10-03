@@ -32,6 +32,12 @@ const meta: Meta<CalendarProps> = {
                 type: 'inline-radio',
             },
         },
+        locale: {
+            options: ['ru', 'en'],
+            control: {
+                type: 'select',
+            },
+        },
         ...disableProps([
             'value',
             'onChangeValue',
@@ -90,7 +96,7 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
 };
 
 const StoryDefault = (args: CalendarProps) => {
-    const { isRange, isDouble, min, max, date, includeEdgeDates, size } = args;
+    const { isRange, isDouble, min, max, date, includeEdgeDates, size, locale } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
     const [valueRange, setValueRange] = useState<[Date, Date?]>([new Date(2023, 10, 16), new Date(2023, 10, 23)]);
 
@@ -112,6 +118,7 @@ const StoryDefault = (args: CalendarProps) => {
             min={min}
             max={max}
             includeEdgeDates={includeEdgeDates}
+            locale={locale}
             onChangeValue={(isRange ? handleOnRangeChange : handleOnChange) as (value: Date | [Date, Date?]) => void}
         />
     );
@@ -125,12 +132,13 @@ export const Default: StoryObj<CalendarProps> = {
         isRange: false,
         includeEdgeDates: false,
         size: 'm',
+        locale: 'ru',
     },
     render: (args) => <StoryDefault {...args} />,
 };
 
 const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
-    const { min, max, includeEdgeDates, size, displayDouble } = args;
+    const { min, max, includeEdgeDates, size, displayDouble, locale } = args;
     const [value, setValue] = useState(new Date(2023, 6, 7));
     const [currentState, setCurrentState] = useState('Days');
 
@@ -158,6 +166,7 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 onChangeValue={handleOnChange}
+                locale={locale}
                 {...rest}
             />
         ) : (
@@ -169,6 +178,7 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 onChangeValue={handleOnChange}
+                locale={locale}
                 {...rest}
             />
         );
@@ -212,12 +222,13 @@ export const Base: StoryObj<CalendarBaseProps & { displayDouble: boolean }> = {
         max: defaultMaxDate,
         includeEdgeDates: false,
         displayDouble: false,
+        locale: 'ru',
     },
     render: (args) => <StoryBase {...args} />,
 };
 
 const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) => {
-    const { min, max, includeEdgeDates, size, displayDouble } = args;
+    const { min, max, includeEdgeDates, size, displayDouble, locale } = args;
     const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 6, 1), new Date(2023, 6, 16)]);
     const [currentState, setCurrentState] = useState('Days');
 
@@ -245,6 +256,7 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 onChangeValue={handleOnChange}
+                locale={locale}
                 {...rest}
             />
         ) : (
@@ -256,6 +268,7 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 onChangeValue={handleOnChange}
+                locale={locale}
                 {...rest}
             />
         );
@@ -299,6 +312,7 @@ export const Range: StoryObj<CalendarBaseRangeProps & { displayDouble: boolean }
         max: defaultMaxDate,
         includeEdgeDates: false,
         displayDouble: false,
+        locale: 'ru',
     },
     render: (args) => <StoryRange {...args} />,
 };

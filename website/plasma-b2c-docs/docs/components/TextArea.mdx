@@ -3,12 +3,11 @@ id: textarea
 title: TextArea
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 
 # TextArea
 <Description name="TextArea" />
 <PropsTable name="TextArea" exclude={['$isFocused']} />
-<StorybookLink name="TextArea" />
 
 ## Использование
 Компонент `TextArea` может содержать иконку (или кнопку) справа.
@@ -99,6 +98,35 @@ export function App() {
                 autoResize
                 minAuto={3}
                 maxAuto={5}
+            />
+        </div>
+    );
+}
+```
+
+### Clear
+На отображение TextArea влияют свойства `clear` и `hasDivider`.
+При этом `hasDivider` не может использоваться без `clear`.
+Свойства `minAuto`, `maxAuto`, `autoResize`, `rows` и `cols`, `height` и `width` игнорируются.
+Высота TextArea в таком случае регулируется по длине контента внутри:
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [value, setValue] = React.useState('Значение');
+
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                clear
+                hasDivider
             />
         </div>
     );

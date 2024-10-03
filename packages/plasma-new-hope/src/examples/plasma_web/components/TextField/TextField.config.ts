@@ -12,9 +12,13 @@ export const config = {
         view: {
             default: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.clearPlaceholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
 
@@ -26,6 +30,10 @@ export const config = {
                 ${tokens.borderColorHover}: var(--text-secondary);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColorHover}: var(--text-secondary);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -39,15 +47,22 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
 
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             positive: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-positive);
+                ${tokens.clearPlaceholderColor}: var(--text-positive);
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
 
@@ -59,6 +74,10 @@ export const config = {
                 ${tokens.borderColorHover}: var(--surface-positive);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
+                ${tokens.dividerColor}: var(--surface-positive);
+                ${tokens.dividerColorHover}: var(--surface-positive);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -72,15 +91,22 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
 
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             warning: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-warning);
+                ${tokens.clearPlaceholderColor}: var(--text-warning);
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
 
@@ -92,6 +118,10 @@ export const config = {
                 ${tokens.borderColorHover}: var(--surface-warning);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
+                ${tokens.dividerColor}: var(--surface-warning);
+                ${tokens.dividerColorHover}: var(--surface-warning);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -105,15 +135,22 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
 
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-negative);
+                ${tokens.clearPlaceholderColor}: var(--text-negative);
                 ${tokens.backgroundColor}: var(--surface-clear);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
 
@@ -125,6 +162,10 @@ export const config = {
                 ${tokens.borderColorHover}: var(--surface-negative);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
+                ${tokens.dividerColor}: var(--surface-negative);
+                ${tokens.dividerColorHover}: var(--surface-negative);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
@@ -137,6 +178,9 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.chipOpacityReadonly}: 0.72;
+
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
 
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
@@ -162,6 +206,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -202,6 +247,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
             `,
             m: css`
                 ${tokens.height}: 3rem;
@@ -221,6 +268,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.625rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -261,6 +309,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
@@ -280,6 +330,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.labelOffset}: 0.5rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -320,6 +371,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
@@ -339,6 +392,7 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelOffset}: 0.375rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -379,6 +433,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
             `,
         },
         labelPlacement: {
@@ -393,6 +449,9 @@ export const config = {
             `,
             outer: css``,
         },
+        clear: {
+            true: css``,
+        },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
@@ -400,7 +459,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.colorReadOnly}: var(--text-primary);
+                ${tokens.colorReadOnly}: var(--text-secondary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);

@@ -23,6 +23,17 @@ export const StyledText = styled.div`
     flex: 1;
 `;
 
+export const Divider = styled.div<{ variant: DropdownProps['variant'] }>`
+    height: 1px;
+    margin-top: ${({ variant }) =>
+        `var(${variant === 'tight' ? tokens.dividerMarginTopTight : tokens.dividerMarginTop})`};
+    margin-right: var(${tokens.dividerMarginRight});
+    margin-bottom: ${({ variant }) =>
+        `var(${variant === 'tight' ? tokens.dividerMarginBottomTight : tokens.dividerMarginBottom})`};
+    margin-left: var(${tokens.dividerMarginLeft});
+    background: var(${tokens.dividerColor});
+`;
+
 export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     display: flex;
     align-items: center;

@@ -41,6 +41,12 @@ const meta: Meta<typeof TextField> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
         view: {
             options: views,
             control: {
@@ -99,7 +105,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
             <TextField
                 {...rest}
                 enumerationType="plain"
@@ -149,6 +155,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         optional: false,
         required: false,
+        clear: false,
+        hasDivider: false,
         requiredPlacement: 'right',
     },
     render: (args) => <StoryDemo {...args} />,

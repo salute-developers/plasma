@@ -6,6 +6,10 @@ export const classes = {
     horizontal: 'drawer-horizontal',
     hasHeader: 'drawer-has-header',
     isRightClose: 'drawer-right-close-button',
+    topPlacement: 'drawer-top-placement',
+    bottomPlacement: 'drawer-bottom-placement',
+    rightPlacement: 'drawer-right-placement',
+    leftPlacement: 'drawer-left-placement',
 };
 
 export const tokens = {

@@ -17,9 +17,16 @@ const meta: Meta<SwitchProps> = {
     title: 'plasma_b2c/Switch',
     decorators: [WithTheme],
     component: Switch,
-    argTypes: argTypesFromConfig(mergeConfig(switchConfig, config), ['size', 'view', 'focused']),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(switchConfig, config), ['size', 'view', 'focused']),
+        labelPosition: {
+            options: ['before', 'after'],
+            control: { type: 'select' },
+        },
+    },
     args: {
         label: 'Label',
+        labelPosition: 'before',
     },
 };
 

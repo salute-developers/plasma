@@ -4,9 +4,10 @@ import type { FC, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
 import type { HandlerProps } from '../../ui';
+import { cx, isNumber, noop } from '../../../../utils';
 import { sizeData } from '../../utils';
-import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
+import { InputHidden } from '../SliderBase/SliderBase.styles';
 
 import { DoubleSliderProps } from './Double.types';
 import {
@@ -41,6 +42,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     onChange,
     ariaLabel,
     multipleStepSize = 10,
+    name,
     ...rest
 }) => {
     const [state, setState] = useState({
@@ -65,6 +67,9 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
     const firstHandleValue = useRef<number>(value[0]);
     const secondHandleValue = useRef<number>(value[1]);
+
+    const innerRefFirst = useRef<HTMLInputElement>(null);
+    const innerRefSecond = useRef<HTMLInputElement>(null);
 
     const { stepSize } = state;
 
@@ -334,6 +339,24 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     />
                 </InputsWrapper>
             </SliderWrapper>
+            <InputHidden
+                name={name}
+                type="number"
+                datatype="slider-double"
+                data-slidertype="min"
+                value={firstValue}
+                ref={innerRefFirst}
+                {...noop}
+            />
+            <InputHidden
+                name={name}
+                type="number"
+                datatype="slider-double"
+                data-slidertype="max"
+                value={secondValue}
+                ref={innerRefSecond}
+                {...noop}
+            />
         </DoubleWrapper>
     );
 };

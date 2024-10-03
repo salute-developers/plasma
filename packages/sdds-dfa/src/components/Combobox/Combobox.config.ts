@@ -14,6 +14,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
@@ -39,6 +40,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-positive-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
@@ -64,6 +66,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-warning-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
@@ -89,6 +92,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);

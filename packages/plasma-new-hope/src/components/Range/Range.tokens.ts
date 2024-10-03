@@ -79,6 +79,7 @@ export const tokens = {
     textFieldBackgroundSuccessColorFocus: '--plasma-range-textfield-background-color-success-focus',
 
     textFieldBorderColor: '--plasma-range-textfield-border-color',
+    textFieldPlaceholderColorFocus: '--plasma-range-textfield__placeholder-color-focus',
     textFieldBorderColorHover: '--plasma-range-textfield-border-color-hover',
     textFieldBorderColorFocus: '--plasma-range-textfield-border-color-focus',
     textFieldBorderColorError: '--plasma-range-textfield-border-color-error',

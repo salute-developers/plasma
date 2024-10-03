@@ -17,9 +17,11 @@ export const config = {
                 ${textAreaTokens.inputPaddingTop}: 0.688rem;
                 ${textAreaTokens.inputPaddingRight}: 0.875rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.125rem;
+                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2rem;
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 0.875rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0.875rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0.875rem;
@@ -27,7 +29,9 @@ export const config = {
                 ${textAreaTokens.rightContentTop}: 0.688rem;
                 ${textAreaTokens.rightContentRight}: 0.75rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.5rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
                 ${textAreaTokens.labelOuterFontSize}: var(--plasma-typo-body-s-font-size);
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-s-font-size);
@@ -57,6 +61,8 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
             `,
         },
         view: {
@@ -73,15 +79,22 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-solid-card-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-solid-card);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+
+                ${textAreaTokens.dividerColor}: var(--outline-solid-primary);
+                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             /**
              * @deprecated
@@ -100,15 +113,22 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-solid-card-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-solid-card);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+
+                ${textAreaTokens.dividerColor}: var(--outline-solid-primary);
+                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
             negative: css`
                 ${textAreaTokens.borderColor}: var(--outline-negative);
@@ -119,16 +139,26 @@ export const config = {
                 ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
                 ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-negative);
                 ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-negative);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-negative);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+
+                ${textAreaTokens.dividerColor}: var(--surface-negative);
+                ${textAreaTokens.dividerColorHover}: var(--surface-negative);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
             `,
+        },
+        clear: {
+            true: css``,
         },
         disabled: {
             true: css`

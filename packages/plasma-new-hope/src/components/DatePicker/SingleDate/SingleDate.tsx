@@ -1,11 +1,11 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 
 import type { RootProps } from '../../../engines';
-import { cx, getPlacements } from '../../../utils';
+import { cx, getPlacements, noop } from '../../../utils';
 import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
-import { StyledCalendar } from '../DatePickerBase.styles';
+import { InputHidden, StyledCalendar } from '../DatePickerBase.styles';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
 
 import type { DatePickerProps } from './SingleDate.types';
@@ -36,6 +36,7 @@ export const datePickerRoot = (
                 size,
                 readOnly = false,
                 disabled = false,
+                name,
 
                 defaultDate = '',
                 valueError,
@@ -65,12 +66,14 @@ export const datePickerRoot = (
                 onToggle,
                 onFocus,
                 onBlur,
+                onChange,
 
                 ...rest
             },
             ref,
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
+            const innerRef = useRef<HTMLInputElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format, lang));
@@ -100,9 +103,11 @@ export const datePickerRoot = (
                 valueError,
                 valueSuccess,
                 inputRef,
+                name,
                 onToggle,
                 onChangeValue,
                 onCommitDate,
+                onChange,
             });
 
             const { onKeyDown } = useKeyNavigation({
@@ -185,10 +190,19 @@ export const datePickerRoot = (
                             max={max}
                             includeEdgeDates={includeEdgeDates}
                             isRange={false}
+                            locale={lang}
                             onChangeValue={(date, dateInfo) => handleCommitDate(date, false, true, dateInfo)}
                         />
                     </StyledPopover>
                     {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    <InputHidden
+                        type="hidden"
+                        datatype="datepicker-single"
+                        name={name}
+                        value={inputValue}
+                        ref={innerRef}
+                        {...noop}
+                    />
                 </Root>
             );
         },

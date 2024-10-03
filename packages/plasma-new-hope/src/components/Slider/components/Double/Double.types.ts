@@ -5,7 +5,7 @@ import type { SliderBaseProps, SliderInternalProps } from '../SliderBase/SliderB
 export interface DoubleSliderProps
     extends SliderBaseProps,
         SliderInternalProps,
-        Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+        Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
     /**
      * Текущее значение
      */
@@ -67,4 +67,6 @@ export interface DoubleSliderProps
 
     view?: string;
     size?: 's' | 'm' | 'l';
+    name?: string;
+    type?: 'double';
 }

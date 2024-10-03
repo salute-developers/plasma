@@ -59,7 +59,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             <Root
                 type="button"
                 ref={ref}
-                className={cx(pilledClass, className)}
+                className={cx(pilledClass, classes.chipItem, className)}
                 tabIndex={readOnly ? -1 : 0}
                 onClick={handleClick}
                 disabled={disabled}

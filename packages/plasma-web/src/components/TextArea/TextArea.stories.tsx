@@ -12,6 +12,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const statuses = ['', 'success', 'warning', 'error'];
+const sizes = ['xs', 's', 'm', 'l'];
 
 const meta: Meta<TextAreaProps> = {
     title: 'Controls/TextArea',
@@ -42,14 +43,11 @@ const meta: Meta<TextAreaProps> = {
                 type: 'select',
             },
         },
-        cols: {
+        size: {
+            options: sizes,
+            defaultValue: 'm',
             control: {
-                type: 'number',
-            },
-        },
-        rows: {
-            control: {
-                type: 'number',
+                type: 'select',
             },
         },
         labelPlacement: {
@@ -57,6 +55,24 @@ const meta: Meta<TextAreaProps> = {
             control: {
                 type: 'select',
             },
+        },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
+        cols: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
+        },
+        rows: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
         },
         ...disableProps([
             '$isFocused',
@@ -84,6 +100,7 @@ const meta: Meta<TextAreaProps> = {
         autoResize: false,
         minAuto: 0,
         maxAuto: 0,
+        size: 'm',
     },
 };
 
@@ -94,11 +111,13 @@ type StoryProps = TextAreaProps & { enableContentRight: boolean };
 const StoryDefault = ({ enableContentRight, status, ...rest }: StoryProps) => {
     const [value, setValue] = useState('Значение поля');
 
+    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+
     return (
         <TextArea
             resize="none"
             value={value}
-            contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             status={status || undefined}
             onChange={(e) => {
                 setValue(e.target.value);
@@ -125,6 +144,8 @@ export const Default: StoryObj<StoryProps> = {
         required: false,
         requiredPlacement: 'right',
         optional: false,
+        clear: false,
+        hasDivider: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

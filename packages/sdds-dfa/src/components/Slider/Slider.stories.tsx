@@ -37,6 +37,7 @@ const meta: Meta<typeof Slider> = {
             'gap',
             'settings',
             'hasHoverAnimation',
+            'type',
         ]),
     },
 };

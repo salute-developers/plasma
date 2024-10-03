@@ -5,8 +5,10 @@ import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
 import { sizeData } from '../../utils';
 import type { HandlerProps } from '../../ui';
-import { cx, isNumber } from '../../../../utils';
+import { cx, isNumber, noop } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
+import { InputHidden } from '../SliderBase/SliderBase.styles';
+import { FormTypeNumber } from '../../../../types/FormType';
 
 import type { SingleSliderProps } from './Single.types';
 import {
@@ -35,7 +37,9 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     labelPlacement = 'outer',
     rangeValuesPlacement = 'outer',
     multipleStepSize = 10,
+    defaultValue,
     size = 'm',
+    name,
     ...rest
 }) => {
     const [state, setState] = useState({
@@ -44,10 +48,12 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         railFillWidth: 0,
     });
 
+    const innerRef = useRef<HTMLInputElement>(null);
+
     const [startOffset, setStartOffset] = useState(0);
     const [endOffset, setEndOffset] = useState(0);
 
-    const [dragValue, setDragValue] = useState(value);
+    const [dragValue, setDragValue] = useState(value ?? defaultValue ?? min);
 
     const { stepSize } = state;
 
@@ -55,8 +61,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const labelPlacementClass = labelPlacement === 'outer' ? classes.labelPlacementOuter : classes.labelPlacementInner;
     const rangeValuesPlacementClass =
         rangeValuesPlacement === 'outer' ? classes.rangeValuesPlacementOuter : classes.rangeValuesPlacementInner;
-    const hideMinValueDiffClass = hideMinValueDiff && value - min <= hideMinValueDiff ? classes.hideMinValue : '';
-    const hideMaxValueDiffClass = hideMaxValueDiff && max - value <= hideMaxValueDiff ? classes.hideMaxValue : '';
+    const hideMinValueDiffClass = hideMinValueDiff && dragValue - min <= hideMinValueDiff ? classes.hideMinValue : '';
+    const hideMaxValueDiffClass = hideMaxValueDiff && max - dragValue <= hideMaxValueDiff ? classes.hideMaxValue : '';
 
     const startLabelRef = useRef<HTMLDivElement>(null);
     const endLabelRef = useRef<HTMLDivElement>(null);
@@ -65,7 +71,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const activeSecondValue = dragValue === max ? classes.activeRangeValue : undefined;
 
     useEffect(() => {
-        const localValue = Math.min(Math.max(value, min), max) - min;
+        const localValue = Math.min(Math.max(dragValue, min), max) - min;
 
         if (rangeValuesPlacement === 'outer') {
             const startWidth = startLabelRef.current?.offsetWidth;
@@ -87,7 +93,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
             xHandle: stepSize * localValue,
             railFillWidth: stepSize * localValue,
         }));
-    }, [value, labelPlacement, stepSize, rangeValuesPlacement, min, max, setStartOffset, setEndOffset]);
+    }, [dragValue, labelPlacement, stepSize, rangeValuesPlacement, min, max, setStartOffset, setEndOffset]);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {
@@ -109,7 +115,18 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         }));
 
         if (onChange) {
-            onChange(newValue);
+            if (value !== undefined) {
+                (onChange as (value: number) => void)(newValue);
+            }
+
+            if (name && !value) {
+                (onChange as (event: FormTypeNumber) => void)({
+                    target: {
+                        value: newValue,
+                        name,
+                    },
+                });
+            }
         }
 
         setDragValue(newValue);
@@ -182,6 +199,14 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     </StyledRangeValue>
                 )}
             </SliderBaseWrapper>
+            <InputHidden
+                name={name}
+                type="number"
+                datatype="slider-single"
+                value={dragValue}
+                ref={innerRef}
+                {...noop}
+            />
         </SingleWrapper>
     );
 };

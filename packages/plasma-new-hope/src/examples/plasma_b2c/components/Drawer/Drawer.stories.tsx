@@ -136,6 +136,7 @@ const StoryDrawerDemo = ({
     showHeader,
     showFooter,
     showActions,
+    hasClose,
     closePlacement,
     offsetX,
     offsetY,
@@ -159,11 +160,12 @@ const StoryDrawerDemo = ({
                             {...rest}
                         >
                             <DrawerHeader
+                                hasClose={hasClose}
                                 closePlacement={closePlacement as ClosePlacementType}
                                 actions={
                                     showActions && (
                                         <StyledIconButton size="s" view="clear">
-                                            <IconDone size="s" />
+                                            <IconDone size="s" color="inherit" />
                                         </StyledIconButton>
                                     )
                                 }

@@ -118,6 +118,9 @@ export const iconSectionsSet = {
         windowMaximize: 'WindowMaximize',
         windowMinimize: 'WindowMinimize',
         filterOff: 'FilterOff',
+        settingsFilterOff: 'SettingsFilterOff',
+        sum: 'Sum',
+        hierarchy: 'Hierarchy',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -262,6 +265,7 @@ export const iconSectionsSet = {
         swapVertCircOutline: 'SwapVertCircOutline',
         doubleDisclosureDown: 'DoubleDisclosureDown',
         doubleDisclosureUp: 'DoubleDisclosureUp',
+        swapVertOff: 'SwapVertOff',
     },
     Data: {
         chartDistributionFill: 'ChartDistributionFill',
@@ -1036,6 +1040,8 @@ export const iconSectionsSet = {
         sberboomMiniOutline: 'SberboomMiniOutline',
         pcMouseFill: 'PcMouseFill',
         pcMouseOutline: 'PcMouseOutline',
+        printerFill: 'PrinterFill',
+        printerOutline: 'PrinterOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',

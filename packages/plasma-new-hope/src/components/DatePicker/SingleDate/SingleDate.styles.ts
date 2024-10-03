@@ -20,6 +20,7 @@ export const StyledInput = styled(TextField)`
 
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
+    ${textFieldTokens.placeholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 

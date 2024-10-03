@@ -44,6 +44,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 eventYearList,
                 disabledYearList,
                 onChangeValue,
+                locale = 'ru',
                 ...rest
             },
             outerRootRef,
@@ -68,6 +69,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 date,
                 dispatch,
             });
+
             const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
                 size,
                 calendarState,
@@ -142,6 +144,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                         onPrev={handlePrev}
                         onNext={handleNext}
                         onUpdateCalendarState={handleUpdateCalendarState}
+                        locale={locale}
                     />
                     {calendarState === CalendarState.Days && (
                         <CalendarDays
@@ -159,6 +162,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             onHoverDay={setHoveredItem}
                             onKeyDown={handleKeyDown}
                             outerRefs={outerRefs}
+                            locale={locale}
                         />
                     )}
                     {calendarState === CalendarState.Months && (
@@ -176,6 +180,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             onHoverMonth={setHoveredItem}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
+                            locale={locale}
                         />
                     )}
                     {calendarState === CalendarState.Quarters && (

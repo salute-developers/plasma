@@ -9,6 +9,7 @@ import { cx } from '../../utils';
 import type { ChipValues, TextFieldPrimitiveValue, TextFieldProps } from './TextField.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as clearCSS } from './variations/_clear/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_read-only/base';
 import { base as labelPlacementCSS } from './variations/_label-placement/base';
@@ -65,7 +66,9 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 readOnly = false,
                 disabled = false,
                 required = false,
+                clear = false,
                 optional,
+                hasDivider,
 
                 // controlled
                 value: outerValue,
@@ -98,6 +101,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             const labelId = safeUseId();
             const helperTextId = safeUseId();
 
+            const isDefaultView = view === 'default' || readOnly || disabled;
+
             const isChipEnumeration = enumerationType === 'chip';
             const isChipsVisible = isChipEnumeration && Boolean(chips?.length);
             const withHasChips = isChipsVisible ? classes.hasChips : undefined;
@@ -113,6 +118,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
             const innerPlaceholderValue = hasPlaceholder ? placeholder : undefined;
             const placeholderShown = Boolean(innerPlaceholderValue) && !hasValue;
 
+            const clearClass = clear ? classes.clear : undefined;
+            const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
             const requiredPlacementClass = requiredPlacement === 'right' ? 'align-right ' : undefined;
             const labelPlacementClass = innerLabelPlacementValue
                 ? classes[`${innerLabelPlacementValue}LabelPlacement` as keyof typeof classes]
@@ -225,9 +232,16 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                     size={size}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
+                    clear={clear}
                     labelPlacement={innerLabelPlacementValue}
                     onClick={handleInputFocus}
-                    className={cx(labelPlacementClass, classes.textFieldGroupItem, className)}
+                    className={cx(
+                        labelPlacementClass,
+                        clearClass,
+                        hasDividerClass,
+                        classes.textFieldGroupItem,
+                        className,
+                    )}
                     style={style}
                 >
                     {hasOuterLabel && (
@@ -247,7 +261,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                         {!hasOuterLabel && required && (
                             <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
                         )}
-                        {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+                        {contentLeft && (
+                            <StyledContentLeft isClear={clear} isDefaultView={isDefaultView}>
+                                {contentLeft}
+                            </StyledContentLeft>
+                        )}
                         <InputLabelWrapper
                             tabIndex={-1}
                             ref={contentRef}
@@ -325,6 +343,10 @@ export const textFieldConfig = {
         },
         size: {
             css: sizeCSS,
+        },
+        clear: {
+            css: clearCSS,
+            attrs: true,
         },
         disabled: {
             css: disabledCSS,

@@ -38,6 +38,7 @@ const meta: Meta<typeof Slider> = {
             'gap',
             'settings',
             'hasHoverAnimation',
+            'type',
         ]),
     },
 };
@@ -124,7 +125,7 @@ const StoryMultipleValues = (args: StoryProps) => {
         setValue(sortValues(values));
     };
 
-    const onChangeCommitedHandle = (values) => {
+    const onChangeCommittedHandle = (values) => {
         setValue(sortValues(values));
     };
 
@@ -144,7 +145,7 @@ const StoryMultipleValues = (args: StoryProps) => {
                 value={value}
                 onKeyDownTextField={onKeyDownTextField}
                 onBlurTextField={onBlurTextField}
-                onChangeCommitted={onChangeCommitedHandle}
+                onChangeCommitted={onChangeCommittedHandle}
                 onChange={onChangeHandle}
                 {...args}
             />

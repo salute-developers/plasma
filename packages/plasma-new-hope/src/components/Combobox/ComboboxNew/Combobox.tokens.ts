@@ -62,6 +62,7 @@ export const tokens = {
 
     // Токены для TextField
     textFieldColor: '--plasma-combobox-new-textfield-color',
+    textFieldPlaceholderColorFocus: '--plasma-combobox-new-textfield__placeholder-color-focus',
     textFieldBackgroundColor: '--plasma-combobox-new-textfield-background-color',
     textFieldBackgroundColorHover: '--plasma-combobox-new-textfield-background-color-hover',
     textFieldBackgroundColorFocus: '--plasma-combobox-new-textfield-background-color-focus',

@@ -81,6 +81,7 @@ import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
+import { ChipGroupProps } from '@salutejs/plasma-new-hope/types/components/ChipGroup/ChipGroup.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -137,6 +138,8 @@ import { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-core';
 import { formatCurrency } from '@salutejs/plasma-core';
+import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
+import { FormTypeString } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { gridBreakpoints } from '@salutejs/plasma-hope';
@@ -244,10 +247,11 @@ import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
-import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SkeletonGradientProps as SkeletonGradientProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
+import { SliderBaseProps } from '@salutejs/plasma-new-hope/types/components/Slider/components/SliderBase/SliderBase.types';
+import { SliderInternalProps } from '@salutejs/plasma-new-hope/types/components/Slider/components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
@@ -260,6 +264,8 @@ import { SpinnerProps } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
 import { StatusType } from '@salutejs/plasma-hope';
+import { StepItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Steps.types';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
@@ -1179,6 +1185,25 @@ true: PolymorphicClassName;
 };
 }> & ChipProps & RefAttributes<HTMLButtonElement>>;
 
+// @public (undocumented)
+export const ChipGroup: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+gap: {
+dense: PolymorphicClassName;
+wide: PolymorphicClassName;
+};
+}> & ChipGroupProps & RefAttributes<HTMLDivElement>>;
+
 export { ChipProps }
 
 export { clearSelection }
@@ -1562,8 +1587,15 @@ true: PolymorphicClassName;
 }> & DatePickerdVariationProps & {
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
+name?: string | undefined;
 onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
 onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
+onChange?: ((event: {
+target: {
+value?: string | undefined;
+name?: string | undefined;
+};
+}) => void) | undefined;
 } & {
 label?: string | undefined;
 view?: string | undefined;
@@ -2084,6 +2116,9 @@ labelPlacement: {
 inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
+clear: {
+true: PolymorphicClassName;
+};
 disabled: {
 true: PolymorphicClassName;
 };
@@ -2109,6 +2144,9 @@ requiredPlacement?: "right" | "left" | undefined;
 } & {
 required: true;
 optional?: false | undefined;
+} & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
 } & {
 chips?: undefined;
 onChangeChips?: undefined;
@@ -2131,6 +2169,9 @@ labelPlacement: {
 inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
+clear: {
+true: PolymorphicClassName;
+};
 disabled: {
 true: PolymorphicClassName;
 };
@@ -2156,6 +2197,9 @@ requiredPlacement?: "right" | "left" | undefined;
 } & {
 required: true;
 optional?: false | undefined;
+} & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
 } & {
 enumerationType: "chip";
 onSearch?: undefined;
@@ -2178,6 +2222,9 @@ labelPlacement: {
 inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
+clear: {
+true: PolymorphicClassName;
+};
 disabled: {
 true: PolymorphicClassName;
 };
@@ -2201,8 +2248,11 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 } & {
 requiredPlacement?: "right" | "left" | undefined;
 } & {
-optional?: true | undefined;
-required?: false | undefined;
+required: true;
+optional?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
 } & {
 chips?: undefined;
 onChangeChips?: undefined;
@@ -2225,6 +2275,62 @@ labelPlacement: {
 inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
+clear: {
+true: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+required: true;
+optional?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
 disabled: {
 true: PolymorphicClassName;
 };
@@ -2250,6 +2356,168 @@ requiredPlacement?: "right" | "left" | undefined;
 } & {
 optional?: true | undefined;
 required?: false | undefined;
+} & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+requiredPlacement?: "right" | "left" | undefined;
+} & {
+optional?: true | undefined;
+required?: false | undefined;
+} & {
+clear?: false | undefined;
+hasDivider?: undefined;
 } & {
 enumerationType: "chip";
 onSearch?: undefined;
@@ -2929,7 +3197,53 @@ s: PolymorphicClassName;
 disabled: {
 true: PolymorphicClassName;
 };
-}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (DoubleSliderProps & RefAttributes<HTMLDivElement>))>;
+}> & ((SliderBaseProps & SliderInternalProps & {
+onChange?: ((event: FormTypeNumber) => void) | undefined;
+name: string;
+value?: undefined;
+defaultValue?: number | undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+rangeValuesPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "m" | "s" | "l" | undefined;
+type?: "single" | undefined;
+} & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
+onChange?: ((value: number) => void) | undefined;
+value: number;
+name?: undefined;
+defaultValue?: undefined;
+} & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
+onChangeCommitted?: ((value: number) => void) | undefined;
+ariaLabel?: string | undefined;
+showCurrentValue?: boolean | undefined;
+showRangeValues?: boolean | undefined;
+hideMinValueDiff?: number | undefined;
+hideMaxValueDiff?: number | undefined;
+rangeValuesPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+multipleStepSize?: number | undefined;
+view?: string | undefined;
+size?: "m" | "s" | "l" | undefined;
+type?: "single" | undefined;
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
+onChange?: ((event: FormTypeString) => void) | undefined;
+name?: string | undefined;
+value?: undefined;
+defaultValue?: number[] | undefined;
+} & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
+onChange?: ((values: number[]) => void) | undefined;
+name?: undefined;
+value?: number[] | undefined;
+defaultValue?: undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 export { SliderProps }
 
@@ -2954,6 +3268,21 @@ export { SSRProvider }
 
 export { StatusType }
 
+export { StepItemProps }
+
+// @public (undocumented)
+export const Steps: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & StepsProps & Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & RefAttributes<HTMLDivElement>>;
+
 export { StyledCard }
 
 export { StyledPreviewGallery }
@@ -2972,10 +3301,6 @@ m: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
-};
-labelPosition: {
-before: PolymorphicClassName;
-after: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -3017,11 +3342,12 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<H
 export { TextareaHTMLAttributes }
 
 // Warning: (ae-forgotten-export) The symbol "RequiredProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ClearProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
 export type TextAreaProps = TextAreaProps_2 & {
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-} & RequiredProps;
+} & RequiredProps & ClearProps;
 
 export { TextareaResize }
 
@@ -3075,9 +3401,10 @@ export { TextFieldGroupProps }
 
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "RequiredProps_2" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ClearProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>) & RequiredProps_2;
+export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>) & RequiredProps_2 & ClearProps_2;
 
 export { TextFieldView }
 

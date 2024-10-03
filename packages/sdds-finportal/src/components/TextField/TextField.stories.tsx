@@ -39,6 +39,12 @@ const meta: Meta<typeof TextField> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'clear', truthy: true },
+        },
         view: {
             options: views,
             control: {

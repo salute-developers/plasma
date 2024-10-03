@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.151.0",
+  "version": "0.160.0-dev.0",
   "description": "Salute Design System blueprint",
   "main": "cjs/index.js",
   "module": "es/index.js",
@@ -116,6 +116,7 @@
     "@salutejs/input-core": "2.1.2",
     "@salutejs/plasma-core": "1.180.0",
     "@salutejs/react-maskinput": "3.2.6",
+    "classnames": "2.5.1",
     "dayjs": "1.11.11",
     "focus-visible": "5.2.0",
     "lodash.throttle": "4.1.1",

@@ -10,7 +10,9 @@ const StyledText = styled.span`
 `;
 
 const sberdevicesDependencies = Object.entries(packageJson.dependencies)
-    .filter(([key]) => key.startsWith('@salutejs') && !key.includes('plasma-docs-ui'))
+    .filter(
+        ([key]) => (key.startsWith('@salutejs') && !key.includes('plasma-docs-ui')) || key.includes('react-hook-form'),
+    )
     .reduce((acc: Record<string, string>, [key, value]) => {
         acc[key] = value;
         return acc;

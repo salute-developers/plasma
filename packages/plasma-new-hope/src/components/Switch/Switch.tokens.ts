@@ -33,4 +33,11 @@ export const tokens = {
     thumbBackgroundColor: '--plasma-switch__thumb-bg-color',
     thumbBoxShadow: '--plasma-switch__thumb-box-shadow',
     thumbBoxShadowOn: '--plasma-switch__thumb-box-shadow_checked_true',
+
+    labelOffsetPrivate: '--plasma_private-switch__label-offset',
+};
+
+export const classes = {
+    beforeSwitchLabelPosition: 'switch-label-position-before',
+    afterSwitchLabelPosition: 'switch-label-position-after',
 };

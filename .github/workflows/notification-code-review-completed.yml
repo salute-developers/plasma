@@ -1,0 +1,51 @@
+name: Code review completed
+
+on:
+    pull_request_review:
+        types: [ submitted ]
+
+jobs:
+    notify:
+        if: github.event.review.state == 'approved'
+        runs-on: ubuntu-latest
+        env:
+            TITLE: ${{ github.event.pull_request.title || 'Title pr' }}
+            URL: ${{ github.event.pull_request.html_url || 'https://github.com/salute-developers/plasma/pulls' }}
+            AUTHOR: ${{ github.event.pull_request.user.login || 'Yakutoc' }}
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v4
+
+            -   name: Count approvals and author for pr
+                id: state
+                uses: actions/github-script@v7
+                with:
+                    script: |
+                        const fs = require('fs');
+                        const path = '.github/teammates.json';
+                        const teammates = JSON.parse(fs.readFileSync(path, 'utf8'));
+                        const teammatesGH = Object.keys(teammates);
+                        
+                        const { data: reviews } = await github.rest.pulls.listReviews({
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            pull_number: context.issue.number,
+                        });
+
+                        const approvals = reviews
+                            .filter(({ user: { login } }) => teammatesGH.includes(login))
+                            .filter(({ state }) => state === 'APPROVED')
+                            .length;
+
+                        return { approved: approvals >= 2, author: teammates["${{ env.AUTHOR }}"] };
+
+            -   name: Send notification
+                if: ${{ fromJSON(steps.state.outputs.result).approved }}
+                uses: mattermost/action-mattermost-notify@master
+                with:
+                    MATTERMOST_WEBHOOK_URL: ${{ secrets.WEBHOOKS_NOTIFICATIONS_MM }}
+                    TEXT: |
+                        Code review пройдено ✅
+
+                        **PR**: [${{ env.TITLE }}](${{ env.URL }})
+                        **Автор**: @${{ fromJSON(steps.state.outputs.result).author }}

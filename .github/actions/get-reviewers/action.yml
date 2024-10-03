@@ -1,0 +1,16 @@
+name: Get reviewers
+
+description: 'Выбираем участников review случайным образом'
+
+inputs:
+    token:
+        description: The GitHub token used to create an authenticated client.
+        required: true
+
+outputs:
+    reviewers:
+        description: "reviewers list"
+
+runs:
+    using: 'node20'
+    main: 'index.js'
