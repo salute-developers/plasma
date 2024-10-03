@@ -1,3 +1,141 @@
+# v1.286.0 (Thu Oct 03 2024)
+
+### Release Notes
+
+#### Release by 02.10.2024 ([#1465](https://github.com/salute-developers/plasma/pull/1465))
+
+## Components
+
+### ChipGroup
+
+- добавлен новый компонент в поставку пакетов `plasma-*` и `sdds-*`
+- написаны тесты и документация
+
+**After**:
+<img width="425" alt="image" src="https://github.com/user-attachments/assets/017e9c45-0276-43bb-b94c-d64832268ae5">
+
+ 
+feat(plasma-*, sdds-*): Add ChipGroup component (https://github.com/salute-developers/plasma/pull/1445)
+
+### Dropdown
+
+- исправлен баг с некорректной работой св-ва `placement` в storybook в новой вкладке;
+- убрана приписка `new` в названиях сторей для `combobox` в sdds-*;
+
+ 
+feat(plasma-web, b2c): Added mappings for placement prop in Dropdown (https://github.com/salute-developers/plasma/pull/1455)
+
+### Switch
+
+- Свойство `label-position` заложено в ядро компонента, а не в конфиг ( как-раньше )
+- Добавлен в поставку `web` и `b2c` в сборке с linaria
+
+ 
+plasma-*: Fix Switch Config (https://github.com/salute-developers/plasma/pull/1447)
+
+### Calendar 
+
+- добавлено новое свойство `locale` для работы с локалями отличными от `ru`
+
+ 
+[PLASMA-3484]: Calendar support `EN` local (https://github.com/salute-developers/plasma/pull/1428)
+
+### Dropdown
+
+- добавлен divider в новый Dropdown
+- обновлена документация
+
+**After**:
+<img width="229" alt="image" src="https://github.com/user-attachments/assets/8b871aa3-ad57-4461-8049-a3f3826003c8">
+
+
+ 
+feat(plasma-*,sdds-*): Add divider to Dropdown (https://github.com/salute-developers/plasma/pull/1446)
+
+### Drawer
+
+- исправлено появление горизонтального скроллбара при открытии Drawer
+- исправлено динамическое изменение placement и анимации открытия/закрытия
+
+**Before**:
+https://github.com/user-attachments/assets/4532f60a-5122-498f-a684-849c899cde1e
+
+**After**:
+https://github.com/user-attachments/assets/58c8eb93-67a7-4f45-8941-b193a996c184
+
+ 
+plasma-*: Fix Drawer positioning and overflow scrollbar (https://github.com/salute-developers/plasma/pull/1461)
+
+### TextField
+
+- добавлено **новое** отображение `clear`
+- добавлен `divider` для `clear` отображения
+- обновлены тесты и документация
+- включено в поставку `plasma-*`, `sdds-*` пакетов
+
+**After**:
+<img width="491" alt="image" src="https://github.com/user-attachments/assets/1db9b69e-d834-48d4-8a7c-1dcf3a3c1e89" />
+
+ 
+feat(plasma-*,sdds-*): add TextField clear views (https://github.com/salute-developers/plasma/pull/1449)
+
+### TextArea
+
+- добавлено отображение clear TextArea
+- добавлен divider для clear отображения
+- обновлены тесты и документация
+- включено в поставку plasma-\*, sdds-\* пакетов
+
+**After**:
+<img width="486" alt="image" src="https://github.com/user-attachments/assets/8e8eee98-efc7-4d5e-957c-b6e4defb0f05">
+
+
+ 
+feat(plasma-*,sdds-*): add TextArea clear views (https://github.com/salute-developers/plasma/pull/1451)
+
+### Form
+
+Для компонентов `TextField`, `TextArea`, `Radioboxe`, `Switch`, `Checkbox`, `Slider`, `DatePicker`, `DatepickerRange`, 
+
+- добавлена поддержка `React Hook Form`
+- добавлена поддержка работы с `html form`
+
+ 
+plasma-*: Support form  (https://github.com/salute-developers/plasma/pull/1464)
+
+### Steps
+
+- добавлен новый компонент: горизонтальный, вертикальный режим
+
+<img width="140" src="https://github.com/user-attachments/assets/44a553d4-c191-4c14-b251-18188ea7544f" />
+<img width="736" src="https://github.com/user-attachments/assets/3044c7b9-60d8-491d-993b-52b49344d352" />
+
+ 
+plasma-*: Steps (https://github.com/salute-developers/plasma/pull/1443)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 02.10.2024 [#1465](https://github.com/salute-developers/plasma/pull/1465) ([@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@iljs](https://github.com/iljs) [@IgorYar](https://github.com/IgorYar) [@vadim-kudr](https://github.com/vadim-kudr))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 7
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Igor Yaroslavtsev ([@IgorYar](https://github.com/IgorYar))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+
+---
+
 # v1.285.0 (Thu Sep 19 2024)
 
 ### Release Notes
