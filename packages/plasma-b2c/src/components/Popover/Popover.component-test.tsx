@@ -10,12 +10,7 @@ describe('plasma-b2c: Popover', () => {
     const Button = getComponent('Button');
     const P1 = getComponent('P1');
 
-    function Demo(props: {
-        trigger?: PopoverTrigger;
-        closeOnOverlayClick?: boolean;
-        closeOnBeyondTargetHover?: boolean;
-        closeOnEsc?: boolean;
-    }) {
+    const Demo = (props: { trigger?: PopoverTrigger; closeOnOverlayClick?: boolean; closeOnEsc?: boolean }) => {
         const [isOpen, setIsOpen] = React.useState(false);
 
         return (
@@ -33,7 +28,7 @@ describe('plasma-b2c: Popover', () => {
                 </div>
             </Popover>
         );
-    }
+    };
 
     it('open popover by click', () => {
         mount(
@@ -43,7 +38,7 @@ describe('plasma-b2c: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('div').contains(text).should('be.visible');
+        cy.get('p').contains(text).should('be.visible');
     });
 
     it('open popover by hover', () => {
@@ -53,8 +48,8 @@ describe('plasma-b2c: Popover', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('button').first().trigger('mouseover');
-        cy.get('div').contains(text).should('be.visible');
+        cy.get('button').first().trigger('mouseover', { force: true });
+        cy.get('p').contains(text).should('be.visible');
     });
 
     it('close popover by mouseleave a target', () => {
@@ -64,11 +59,11 @@ describe('plasma-b2c: Popover', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('button').first().trigger('mouseover');
-        cy.get('div').contains(text).should('be.visible');
+        cy.get('button').first().trigger('mouseover', { force: true });
+        cy.get('p').contains(text).should('be.visible');
 
-        cy.get('button').first().trigger('mouseout');
-        cy.get('div').contains(text).should('not.be.visible');
+        cy.get('button').first().trigger('mouseout', { force: true });
+        cy.get('.popover-root').should('not.be.visible');
     });
 
     it('close popover', () => {
@@ -79,10 +74,10 @@ describe('plasma-b2c: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('div').contains(text).should('be.visible');
+        cy.get('p').contains(text).should('be.visible');
 
         cy.get('button').contains('close').click();
-        cy.get('div').contains(text).should('not.be.visible');
+        cy.get('p').contains(text).should('not.be.visible');
     });
 
     it('close popover by overlay click', () => {
@@ -93,10 +88,10 @@ describe('plasma-b2c: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('div').contains(text).should('be.visible');
+        cy.get('p').contains(text).should('be.visible');
 
         cy.get('body').click(5, 5);
-        cy.get('div').contains(text).should('not.be.visible');
+        cy.get('p').contains(text).should('not.be.visible');
     });
 
     it('close popover by ESC', () => {
@@ -107,9 +102,9 @@ describe('plasma-b2c: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('div').contains(text).should('be.visible');
+        cy.get('p').contains(text).should('be.visible');
 
         cy.get('body').type('{esc}');
-        cy.get('div').contains(text).should('not.be.visible');
+        cy.get('p').contains(text).should('not.be.visible');
     });
 });
