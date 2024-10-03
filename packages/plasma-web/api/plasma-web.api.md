@@ -702,6 +702,7 @@ size: {
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 pilled: {
 true: PolymorphicClassName;
