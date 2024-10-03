@@ -142,6 +142,25 @@ export const config = {
                 ${badgeTokens.rightContentMarginLeft}: 0.125rem;
                 ${badgeTokens.rightContentMarginRight}: -0.0625rem;
             `,
+            xs: css`
+                ${badgeTokens.borderRadius}: 0.25rem;
+                ${badgeTokens.height}: 1rem;
+                ${badgeTokens.paddingRight}: 0.25rem;
+                ${badgeTokens.paddingLeft}: 0.25rem;
+
+                ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${badgeTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+
+                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
+                ${badgeTokens.leftContentMarginRight}: 0.125rem;
+
+                ${badgeTokens.rightContentMarginLeft}: 0.125rem;
+                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+            `,
         },
         pilled: {
             true: css`
