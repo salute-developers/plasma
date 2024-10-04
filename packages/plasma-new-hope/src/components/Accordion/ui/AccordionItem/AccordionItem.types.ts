@@ -4,7 +4,7 @@ import type { Pin } from '../../../../utils/roundness';
 
 type CustomAccordionItemProps = {
     /**
-     * Значение раскрытия аккордеона
+     * Значение раскрытия accordion
      */
     value?: boolean;
 
@@ -29,12 +29,12 @@ type CustomAccordionItemProps = {
     contentRight?: ReactNode;
 
     /**
-     * Скругление аккордеона
+     * Скругление accordion
      */
     pin?: Pin;
 
     /**
-     * Заголовок аккордеона
+     * Заголовок accordion
      */
     title: ReactNode;
 
@@ -44,7 +44,7 @@ type CustomAccordionItemProps = {
     children: ReactNode;
 
     /**
-     * @deprecated Внутренняя функция при открытии аккардеона (будет удалена в ближайшее время)
+     * @deprecated Внутренняя функция при открытии accordion (будет удалена в ближайшее время)
      */
     onChange?: (index: number, value: boolean) => void;
 
@@ -67,7 +67,10 @@ type CustomAccordionItemProps = {
      */
     index?: number;
 
-    view: string;
+    /**
+     * @deprecated Внутреннее свойство (будет удалено в ближайшее время)
+     */
+    view?: string;
 };
 
 export type AccordionItemProps = CustomAccordionItemProps;

@@ -4,7 +4,7 @@ type CustomAccordionProps = {
     /**
      * Тип аккордеона
      */
-    view: string;
+    view?: string;
 
     /**
      * Размер
