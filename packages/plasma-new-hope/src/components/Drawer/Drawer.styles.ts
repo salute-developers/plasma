@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@linaria/react';
 
 import { component } from '../../engines';
 import { popupClasses, popupConfig } from '../Popup';
@@ -83,7 +83,7 @@ const templateAnimationStyle = (placement: DrawerPlacement) => `
                     transform: ${animationVariants[placement].hide.end};
                     opacity: 0;
                 }
-            }   
+            }
         }
     `;
 
@@ -128,8 +128,8 @@ export const StyledPopup = styled(Popup)<{
     }
 
     && .${popupClasses.root}, && .${popupClasses.root} > div {
-        width: ${({ width }) => width};
-        height: ${({ height }) => height};
+        width: ${({ width }) => width || 'auto'};
+        height: ${({ height }) => height || 'auto'};
     }
 
     ${getAnimationStyles()}
