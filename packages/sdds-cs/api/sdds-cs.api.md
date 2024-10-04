@@ -22,7 +22,6 @@ import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/co
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
 import { BaseTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/TabItem.types';
 import { BaseTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
-import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxNew/Combobox.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -118,6 +117,7 @@ import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
+import { ItemOption } from '@salutejs/plasma-new-hope/styled-components';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -127,6 +127,7 @@ import { MergedDropdownNode } from '@salutejs/plasma-new-hope/types/components/S
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
+import { MutableRefObject } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -950,7 +951,27 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & ((BasicProps & {
+}> & (({
+items: ItemOption[];
+placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | undefined;
+label?: string | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+variant?: "normal" | "tight" | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: MutableRefObject<HTMLElement | null> | undefined;
+renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+closeAfterSelect?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+} & {
 readOnly?: boolean | undefined;
 disabled?: true | undefined;
 alwaysOpened?: false | undefined;
@@ -959,7 +980,27 @@ multiple?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+items: ItemOption[];
+placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | undefined;
+label?: string | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+variant?: "normal" | "tight" | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: MutableRefObject<HTMLElement | null> | undefined;
+renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+closeAfterSelect?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+} & {
 readOnly?: boolean | undefined;
 disabled?: true | undefined;
 alwaysOpened?: false | undefined;
@@ -968,7 +1009,27 @@ multiple: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
 isTargetAmount?: boolean | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+items: ItemOption[];
+placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | undefined;
+label?: string | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+variant?: "normal" | "tight" | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: MutableRefObject<HTMLElement | null> | undefined;
+renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+closeAfterSelect?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+} & {
 readOnly?: true | undefined;
 disabled?: boolean | undefined;
 alwaysOpened?: false | undefined;
@@ -977,7 +1038,27 @@ multiple?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+items: ItemOption[];
+placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | undefined;
+label?: string | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+variant?: "normal" | "tight" | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: MutableRefObject<HTMLElement | null> | undefined;
+renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+closeAfterSelect?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+} & {
 readOnly?: true | undefined;
 disabled?: boolean | undefined;
 alwaysOpened?: false | undefined;
@@ -986,7 +1067,27 @@ multiple: true;
 value?: string[] | undefined;
 onChange?: ((value: string[]) => void) | undefined;
 isTargetAmount?: boolean | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+items: ItemOption[];
+placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | undefined;
+label?: string | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+variant?: "normal" | "tight" | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: MutableRefObject<HTMLElement | null> | undefined;
+renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+closeAfterSelect?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+} & {
 readOnly?: false | undefined;
 disabled?: false | undefined;
 alwaysOpened?: true | undefined;
@@ -995,7 +1096,27 @@ multiple?: false | undefined;
 value?: string | undefined;
 onChange?: ((value: string) => void) | undefined;
 isTargetAmount?: false | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+items: ItemOption[];
+placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | undefined;
+label?: string | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+variant?: "normal" | "tight" | undefined;
+listOverflow?: Property.Overflow | undefined;
+listHeight?: Property.Height<string | number> | undefined;
+listWidth?: Property.Width<string | number> | undefined;
+portal?: MutableRefObject<HTMLElement | null> | undefined;
+renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+closeAfterSelect?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+} & {
 readOnly?: false | undefined;
 disabled?: false | undefined;
 alwaysOpened?: true | undefined;
