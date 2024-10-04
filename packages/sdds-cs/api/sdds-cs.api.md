@@ -226,7 +226,7 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
-view: string;
+view?: string | undefined;
 size?: string | undefined;
 singleActive?: boolean | undefined;
 defaultActiveEventKey?: number[] | undefined;

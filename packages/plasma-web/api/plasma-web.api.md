@@ -346,7 +346,7 @@ filled: PolymorphicClassName;
 fixed: PolymorphicClassName;
 };
 }> & {
-view: string;
+view?: string | undefined;
 size?: string | undefined;
 singleActive?: boolean | undefined;
 defaultActiveEventKey?: number[] | undefined;
@@ -1426,7 +1426,7 @@ l: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 };
-}> & Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
     valueType?: "single" | undefined;
     value?: ComboboxPrimitiveValue | undefined;
     onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
@@ -1442,7 +1442,7 @@ l: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 };
-}> & Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
     valueType: "multiple";
     value?: ComboboxPrimitiveValue[] | undefined;
     onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
