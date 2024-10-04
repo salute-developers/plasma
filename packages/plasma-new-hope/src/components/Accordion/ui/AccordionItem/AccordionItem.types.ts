@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, HTMLAttributes } from 'react';
 
 import type { Pin } from '../../../../utils/roundness';
 
-type CustomAccordionItemProps = {
+type Props = {
     /**
      * Значение раскрытия accordion
      */
@@ -73,4 +73,4 @@ type CustomAccordionItemProps = {
     view?: string;
 };
 
-export type AccordionItemProps = CustomAccordionItemProps;
+export type AccordionItemProps = Omit<HTMLAttributes<HTMLElement>, 'onChange' | 'title'> & Props;
