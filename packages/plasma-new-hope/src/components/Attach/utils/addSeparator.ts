@@ -8,7 +8,7 @@ export const addSeparator = (filename: string, separator: string) => {
     const lastChar = name[name.length - 1];
     const dotChar = '.';
 
-    return extension === name
-        ? `${name.slice(0, -1)}${separator}${lastChar}`
-        : `${name.slice(0, -1)}${separator}${lastChar}${dotChar}${extension}`;
+    const nameWithSeparator = `${name.slice(0, -1)}${separator}${lastChar}`;
+
+    return extension === name ? `${nameWithSeparator}` : `${nameWithSeparator}${dotChar}${extension}`;
 };
