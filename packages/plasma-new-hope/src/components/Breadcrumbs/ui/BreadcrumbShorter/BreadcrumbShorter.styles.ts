@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@linaria/react';
 
 import { addFocus } from '../../../../mixins';
 import { tokens } from '../../Breadcrumbs.tokens';
