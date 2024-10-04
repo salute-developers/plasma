@@ -81,11 +81,11 @@ type ViewStateProps =
           alwaysOpened?: true;
       };
 
-export interface BasicProps {
+export type ComboboxProps<T extends ItemOption = ItemOption> = {
     /**
      * Список элементов.
      */
-    items: Array<ItemOption>;
+    items: Array<T>;
     /**
      * Сторона открытия дропдауна относительно target элемента.
      * @default bottom
@@ -141,11 +141,11 @@ export interface BasicProps {
     /**
      * Callback для кастомной настройки айтема в выпадающем списке.
      */
-    renderItem?: (item: ItemOption) => React.ReactNode;
+    renderItem?: (item: T) => React.ReactNode;
     /**
      * Функция фильтрации элементов.
      */
-    filter?: (label: string, textValue: string) => boolean;
+    filter?: (item: T, textValue: string) => boolean;
     /**
      * Закрывать ли выпадающий список после выбора элемента.
      * @default если single, то true; если multiple, то false; если передан alwaysOpened, то false
@@ -164,10 +164,7 @@ export interface BasicProps {
      * @default outer
      */
     labelPlacement?: 'outer' | 'inner';
-}
-
-export type ComboboxProps = BasicProps &
-    ViewStateProps &
+} & ViewStateProps &
     IsMultiselect &
     Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
@@ -177,7 +174,7 @@ export type FloatingPopoverProps = {
     opened: boolean;
     onToggle: (opened: boolean) => void;
     placement: Placement;
-    portal?: BasicProps['portal'];
+    portal?: ComboboxProps['portal'];
     offset?: number;
 };
 

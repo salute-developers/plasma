@@ -42,7 +42,6 @@ import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/co
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
 import { BaseTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/TabItem.types';
 import { BaseTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
-import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxNew/Combobox.types';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
@@ -156,6 +155,7 @@ import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
 import { InputHTMLAttributes as InputHTMLAttributes_3 } from 'react';
+import { ItemOption } from '@salutejs/plasma-new-hope/styled-components';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1248,7 +1248,27 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BasicProps & {
+}> & {
+    items: ItemOption[];
+    placement?: ("top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: React_2.MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => React_2.ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
     readOnly?: boolean | undefined;
     disabled?: true | undefined;
     alwaysOpened?: false | undefined;
@@ -1280,7 +1300,27 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BasicProps & {
+}> & {
+    items: ItemOption[];
+    placement?: ("top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: React_2.MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => React_2.ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
     readOnly?: boolean | undefined;
     disabled?: true | undefined;
     alwaysOpened?: false | undefined;
@@ -1312,7 +1352,27 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BasicProps & {
+}> & {
+    items: ItemOption[];
+    placement?: ("top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: React_2.MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => React_2.ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
     readOnly?: true | undefined;
     disabled?: boolean | undefined;
     alwaysOpened?: false | undefined;
@@ -1344,7 +1404,27 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BasicProps & {
+}> & {
+    items: ItemOption[];
+    placement?: ("top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: React_2.MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => React_2.ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
     readOnly?: true | undefined;
     disabled?: boolean | undefined;
     alwaysOpened?: false | undefined;
@@ -1376,7 +1456,27 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BasicProps & {
+}> & {
+    items: ItemOption[];
+    placement?: ("top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: React_2.MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => React_2.ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
     readOnly?: false | undefined;
     disabled?: false | undefined;
     alwaysOpened?: true | undefined;
@@ -1408,7 +1508,27 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & BasicProps & {
+}> & {
+    items: ItemOption[];
+    placement?: ("top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: React_2.MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => React_2.ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
     readOnly?: false | undefined;
     disabled?: false | undefined;
     alwaysOpened?: true | undefined;
