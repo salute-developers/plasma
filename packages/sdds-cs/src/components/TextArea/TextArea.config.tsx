@@ -63,6 +63,9 @@ export const config = {
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+
+                ${textAreaTokens.scrollbarWidth}: 0.375rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.125rem;
             `,
         },
         view: {
@@ -91,6 +94,13 @@ export const config = {
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-solid-default);
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-solid-default-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-solid-primary);
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
 
                 ${textAreaTokens.dividerColor}: var(--outline-solid-primary);
                 ${textAreaTokens.dividerColorHover}: var(--text-secondary);
@@ -126,6 +136,13 @@ export const config = {
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
 
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-solid-default);
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-solid-default-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-solid-primary);
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
+
                 ${textAreaTokens.dividerColor}: var(--outline-solid-primary);
                 ${textAreaTokens.dividerColorHover}: var(--text-secondary);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
@@ -151,6 +168,13 @@ export const config = {
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-solid-default);
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-solid-default-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-solid-primary);
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
 
                 ${textAreaTokens.dividerColor}: var(--surface-negative);
                 ${textAreaTokens.dividerColorHover}: var(--surface-negative);
