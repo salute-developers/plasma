@@ -191,6 +191,15 @@ export const tokens = {
     clearIndicatorLabelPlacementInner: '--plasma-textarea__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textarea__clear-indicator-placement-inner-right',
 
+    scrollbarWidth: '--plasma-textarea-scrollbar-width',
+    scrollbarBorderWidth: '--plasma-textarea-scrollbar-border-width',
+    scrollbarThumbBackgroundColor: '--plasma-textarea-scrollbar-thumb-background-color',
+    scrollbarThumbBackgroundColorHover: '--plasma-textarea-scrollbar-thumb-background-color-hover',
+    scrollbarThumbBackgroundColorActive: '--plasma-textarea-scrollbar-thumb-background-color-active',
+    scrollbarTrackBackgroundColor: '--plasma-textarea-scrollbar-track-background-color',
+    scrollbarTrackBackgroundColorHover: '--plasma-textarea-scrollbar-track-background-color-hover',
+    scrollbarTrackBackgroundColorActive: '--plasma-textarea-scrollbar-track-background-color-active',
+
     dividerColor: '--plasma-textfield-divider-color',
     dividerColorHover: '--plasma-textfield-divider-color-hover',
     dividerColorFocus: '--plasma-textfield-divider-color-focus',
