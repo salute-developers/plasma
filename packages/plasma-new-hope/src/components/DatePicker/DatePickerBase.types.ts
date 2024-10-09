@@ -109,3 +109,9 @@ export type UseDatePickerProps = {
     onCommitDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
     onChange?: (event: { target: { value?: string; name?: string } }) => void;
 };
+
+export type ValidateDateArgs = {
+    currentValue: string;
+    format: string;
+    lang?: Langs;
+};
