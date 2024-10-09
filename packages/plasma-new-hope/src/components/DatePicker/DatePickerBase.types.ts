@@ -105,7 +105,7 @@ export type UseDatePickerProps = {
     inputRef?: MutableRefObject<HTMLInputElement | null>;
     name?: string;
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    onChangeValue?: (event: ChangeEvent<HTMLInputElement>, value?: string) => void;
+    onChangeValue?: (event: ChangeEvent<HTMLInputElement> | null, value?: string) => void;
     onCommitDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
     onChange?: (event: { target: { value?: string; name?: string } }) => void;
 };

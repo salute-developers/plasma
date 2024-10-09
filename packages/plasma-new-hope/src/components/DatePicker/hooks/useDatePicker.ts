@@ -117,10 +117,14 @@ export const useDatePicker = ({
         }
 
         if (isCalendarValue) {
+            const formattedInputValue = formatInputValue({ value: date, format, lang });
+
             setCalendarValue(formatCalendarValue(date, format, lang));
-            setInputValue(formatInputValue({ value: date, format, lang }));
+            setInputValue(formattedInputValue);
+
             onCommitDate?.(date, false, true, dateInfo);
-            onChange?.({ target: { value: formatInputValue({ value: date, format, lang }), name } });
+            onChangeValue?.(null, formattedInputValue);
+            onChange?.({ target: { value: formattedInputValue, name } });
 
             return;
         }
@@ -128,12 +132,14 @@ export const useDatePicker = ({
         const formatString = applyFormat ? format : undefined;
 
         const { value: newDate, isError, isSuccess } = getDateFromFormat(date, formatString, lang);
+        const formattedInputValue = formatInputValue({ value: newDate, format, lang });
 
         setCalendarValue(formatCalendarValue(newDate, format, lang));
-        setInputValue(formatInputValue({ value: newDate, format, lang }));
+        setInputValue(formattedInputValue);
 
         onCommitDate?.(newDate, isError, isSuccess);
-        onChange?.({ target: { value: formatInputValue({ value: date, format }), name } });
+        onChangeValue?.(null, formattedInputValue);
+        onChange?.({ target: { value: formattedInputValue, name } });
     };
 
     return {

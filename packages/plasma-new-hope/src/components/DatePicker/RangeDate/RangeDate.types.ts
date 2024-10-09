@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { ChangeEvent, HTMLAttributes } from 'react';
 
 import type { RangeInnerProps } from '../../Range/Range.types';
 import type { DatePickerCalendarProps, DatePickerdVariationProps } from '../DatePickerBase.types';
@@ -7,9 +7,22 @@ import type { DateInfo } from '../../Calendar/Calendar.types';
 
 export type DatePickerRangePlacement = 'top' | 'bottom';
 
+export type CallbackChangeInstance = (event: ChangeEvent<HTMLInputElement> | null, value?: string) => void;
+export type CallbackSearchInstance = (
+    value: Date | string,
+    error?: boolean,
+    success?: boolean,
+    dateInfo?: DateInfo,
+) => void;
+
 type BaseRangeProps = Omit<
     RangeInnerProps,
-    'firstValue' | 'secondValue' | 'onSearchFirstValue' | 'onSearchSecondValue'
+    | 'firstValue'
+    | 'secondValue'
+    | 'onSearchFirstValue'
+    | 'onSearchSecondValue'
+    | 'onChangeFirstValue'
+    | 'onChangeSecondValue'
 >;
 
 export type DatePickerRangeFieldProps = {
@@ -26,13 +39,21 @@ export type DatePickerRangeFieldProps = {
      */
     name?: string;
     /**
-     * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
+     * Коллбэк, вызываемый при изменении первого поля ввода
      */
-    onCommitFirstDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+    onChangeFirstValue?: CallbackChangeInstance;
+    /**
+     * Коллбэк, вызываемый при изменении второго поля ввода
+     */
+    onChangeSecondValue?: CallbackChangeInstance;
     /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
      */
-    onCommitSecondDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+    onCommitFirstDate?: CallbackSearchInstance;
+    /**
+     * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
+     */
+    onCommitSecondDate?: CallbackSearchInstance;
     /**
      * Свойство устарело, используется формой. Вместо используйте onCommitFirstDate и onCommitSecondDate
      * @deprecated
