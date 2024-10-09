@@ -25,10 +25,14 @@ export const RangeDatePopover = ({
     disabledQuarterList,
     eventYearList,
     disabledYearList,
+
+    frame = 'document',
+    usePortal = false,
     placement = ['top', 'bottom'],
     closeOnOverlayClick = true,
     closeOnEsc,
     offset,
+
     type,
     size,
     lang = 'ru',
@@ -44,7 +48,8 @@ export const RangeDatePopover = ({
         return (
             <StyledPopover
                 opened={innerIsOpen}
-                usePortal={false}
+                frame={frame}
+                usePortal={usePortal}
                 onToggle={onToggle}
                 offset={offset}
                 placement={getPlacements(placement)}
@@ -79,7 +84,8 @@ export const RangeDatePopover = ({
     return (
         <StyledPopover
             opened={innerIsOpen}
-            usePortal={false}
+            frame={frame}
+            usePortal={usePortal}
             onToggle={onToggle}
             offset={offset}
             placement={getPlacements(placement)}

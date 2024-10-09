@@ -1,4 +1,4 @@
-import type { HTMLAttributes, SyntheticEvent } from 'react';
+import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
 import type { DatePickerCalendarProps, DatePickerdVariationProps } from '../DatePickerBase.types';
 import type { DateInfo } from '../../Calendar/Calendar.types';
@@ -88,6 +88,10 @@ export type DatePickerPopoverProps = {
      */
     offset?: [number, number];
     /**
+     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
+     */
+    frame?: 'document' | string | RefObject<HTMLElement>;
+    /**
      * Закрывать календарь при нажатии вне области элемента.
      * @default true
      */
@@ -97,6 +101,12 @@ export type DatePickerPopoverProps = {
      * @default true
      */
     closeOnEsc?: boolean;
+    /**
+     * Находится ли в портале.
+     * @default
+     * false
+     */
+    usePortal?: boolean;
     /**
      * Событие сворачивания/разворачивания календаря.
      */
