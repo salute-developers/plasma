@@ -83,6 +83,8 @@ export const datePickerRangeRoot = (
                 disabledYearList,
                 type = 'Days',
 
+                frame = 'document',
+                usePortal = false,
                 placement = ['top', 'bottom'],
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
@@ -334,6 +336,8 @@ export const datePickerRangeRoot = (
                         disabledYearList={disabledYearList}
                         min={min}
                         max={max}
+                        frame={frame}
+                        usePortal={usePortal}
                         placement={placement}
                         closeOnOverlayClick={closeOnOverlayClick}
                         closeOnEsc={closeOnEsc}

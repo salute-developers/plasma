@@ -80,7 +80,7 @@ export type CustomPopoverProps = {
     /**
      * Находится ли в портале.
      * @default
-     * true
+     * false
      */
     usePortal?: boolean;
 

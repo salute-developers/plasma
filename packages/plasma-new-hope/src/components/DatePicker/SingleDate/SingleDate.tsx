@@ -57,6 +57,8 @@ export const datePickerRoot = (
                 disabledYearList,
                 type = 'Days',
 
+                frame = 'document',
+                usePortal = false,
                 placement = ['top', 'bottom'],
                 closeOnOverlayClick = true,
                 offset,
@@ -164,7 +166,8 @@ export const datePickerRoot = (
                     {!innerLabelPlacement && label && <StyledLabel>{label}</StyledLabel>}
                     <StyledPopover
                         opened={isInnerOpen}
-                        usePortal={false}
+                        usePortal={usePortal}
+                        frame={frame}
                         onToggle={handleToggle}
                         offset={offset}
                         placement={getPlacements(placement)}
