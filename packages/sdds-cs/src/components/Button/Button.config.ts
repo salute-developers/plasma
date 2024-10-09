@@ -19,13 +19,14 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
-                ${buttonTokens.buttonColor}: var(--text-primary);
+                ${buttonTokens.buttonColor}: var(--text-accent);
+                ${buttonTokens.buttonColorHover}: var(--text-accent-hover);
+                ${buttonTokens.buttonColorActive}: var(--text-accent-active);
+                
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--text-primary);
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--text-primary);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
             `,
             clear: css`
