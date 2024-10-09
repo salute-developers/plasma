@@ -1,4 +1,4 @@
-import type { Dispatch, MutableRefObject, SetStateAction, SyntheticEvent, ChangeEvent } from 'react';
+import type { Dispatch, SetStateAction, ChangeEvent } from 'react';
 
 import type { CalendarStateType } from '../Calendar';
 import type { DateInfo, DisabledDay, EventDay } from '../Calendar/Calendar.types';
@@ -70,7 +70,7 @@ export type DatePickerCalendarProps = {
     lang?: Langs;
 };
 
-export type DatePickerdVariationProps = {
+export type DatePickerVariationProps = {
     /**
      * Размер контрола.
      */
@@ -93,7 +93,6 @@ export type UseDatePickerProps = {
     currentValue: string;
     setInputValue: Dispatch<SetStateAction<string>>;
     setCalendarValue: Dispatch<SetStateAction<Date | undefined>>;
-    setIsInnerOpen: Dispatch<SetStateAction<boolean>>;
     dateFormatDelimiter: () => string;
     format?: string;
     lang?: Langs;
@@ -102,9 +101,7 @@ export type UseDatePickerProps = {
     maskWithFormat?: boolean;
     valueError?: boolean;
     valueSuccess?: boolean;
-    inputRef?: MutableRefObject<HTMLInputElement | null>;
     name?: string;
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
     onChangeValue?: (event: ChangeEvent<HTMLInputElement> | null, value?: string) => void;
     onCommitDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
     onChange?: (event: { target: { value?: string; name?: string } }) => void;

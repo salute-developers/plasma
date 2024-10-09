@@ -1,6 +1,6 @@
 import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
-import type { DatePickerCalendarProps, DatePickerdVariationProps } from '../DatePickerBase.types';
+import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
 import type { DateInfo } from '../../Calendar/Calendar.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
@@ -113,7 +113,7 @@ export type DatePickerPopoverProps = {
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
 };
 
-export type DatePickerProps = DatePickerdVariationProps &
+export type DatePickerProps = DatePickerVariationProps &
     DatePickerTextFieldProps &
     DatePickerCalendarProps &
     DatePickerPopoverProps &
