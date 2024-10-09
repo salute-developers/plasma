@@ -31,6 +31,7 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+                ${chipTokens.closeIconColor}: var(--text-accent);
             `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
