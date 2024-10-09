@@ -58,7 +58,7 @@ export type DatePickerTextFieldProps = {
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue?: (event: SyntheticEvent<HTMLInputElement>, value?: string) => void;
+    onChangeValue?: (event: SyntheticEvent<HTMLInputElement> | null, value?: string) => void;
     /**
      * Свойство устарело, используется формой. Вместо используйте onChangeValue и onCommitDate
      * @deprecated
