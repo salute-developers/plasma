@@ -18,6 +18,8 @@ import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
+import { BaseTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/TabItem.types';
+import { BaseTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxNew/Combobox.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
@@ -59,10 +61,10 @@ import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
-import { CustomTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/TabItem/TabItem.types';
-import { CustomTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/Tabs/Tabs.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
+import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -175,11 +177,9 @@ import { StepItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Steps.types';
 import { StyledComponent } from 'styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
-import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
-import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
@@ -2610,65 +2610,17 @@ true: PolymorphicClassName;
 // @public (undocumented)
 export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
+// Warning: (ae-forgotten-export) The symbol "TabItemProps" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const TabItem: FunctionComponent<PropsType<    {
-view: {
-clear: PolymorphicClassName;
-secondary: PolymorphicClassName;
-divider: PolymorphicClassName;
-default: PolymorphicClassName;
-};
-size: {
-xs: PolymorphicClassName;
-s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
-h5: PolymorphicClassName;
-h4: PolymorphicClassName;
-h3: PolymorphicClassName;
-h2: PolymorphicClassName;
-h1: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-pilled: {
-true: PolymorphicClassName;
-};
-}> & ButtonHTMLAttributes<HTMLButtonElement> & AsProps<any> & CustomTabItemProps & RefAttributes<HTMLDivElement>>;
-
-export { TabItemProps }
+export const TabItem: (props: TabItemProps) => JSX.Element;
 
 export { TabItemRefs }
 
+// Warning: (ae-forgotten-export) The symbol "TabsProps" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const Tabs: FunctionComponent<PropsType<    {
-view: {
-clear: PolymorphicClassName;
-filled: PolymorphicClassName;
-divider: PolymorphicClassName;
-};
-size: {
-xs: PolymorphicClassName;
-s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
-h5: PolymorphicClassName;
-h4: PolymorphicClassName;
-h3: PolymorphicClassName;
-h2: PolymorphicClassName;
-h1: PolymorphicClassName;
-};
-stretch: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-pilled: {
-true: PolymorphicClassName;
-};
-}> & HTMLAttributes<HTMLDivElement> & AsProps<any> & CustomTabsProps & RefAttributes<HTMLDivElement>>;
+export const Tabs: (props: TabsProps) => JSX.Element;
 
 export { TabsContext }
 
@@ -2676,8 +2628,6 @@ export { TabsContext }
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }
-
-export { TabsProps }
 
 // @public
 export const TextArea: FunctionComponent<PropsType<    {
