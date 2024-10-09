@@ -81,6 +81,7 @@ import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
+import { ChangeInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipGroupProps } from '@salutejs/plasma-new-hope/types/components/ChipGroup/ChipGroup.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -95,6 +96,7 @@ import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxOld/Combobox.types';
 import { ComboboxOldProps as ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { ComboboxProps as ComboboxProps_2 } from '@salutejs/plasma-new-hope';
+import { CommitInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { ComponentClass } from 'react';
 import { ComponentProps } from 'react';
 import { GridProps as ContainerProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -106,10 +108,8 @@ import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/compo
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
-import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
-import { DatePickerdVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { DatePickerPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerPlacementBasic } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
@@ -118,6 +118,7 @@ import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-compo
 import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1341,7 +1342,7 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & DatePickerdVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
+}> & DatePickerVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
 
 export { datePickerClasses }
 
@@ -1368,12 +1369,14 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & DatePickerdVariationProps & {
+}> & DatePickerVariationProps & {
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
 name?: string | undefined;
-onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
-onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
+onChangeFirstValue?: ChangeInstanceCallback | undefined;
+onChangeSecondValue?: ChangeInstanceCallback | undefined;
+onCommitFirstDate?: CommitInstanceCallback | undefined;
+onCommitSecondDate?: CommitInstanceCallback | undefined;
 onChange?: ((event: {
 target: {
 value?: string | undefined;
@@ -1405,8 +1408,6 @@ firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
-onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
-onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
