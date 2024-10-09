@@ -6,7 +6,7 @@ import { sdds_cs__light } from '@salutejs/sdds-themes';
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
-        background-color: var(--surface-solid-primary);
+        background-color: var(--background-primary);
     }
 
     a {
