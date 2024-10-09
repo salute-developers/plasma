@@ -1,14 +1,12 @@
-import React, {
+import React, { createRef, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import type {
     ChangeEvent,
+    KeyboardEvent,
     ChangeEventHandler,
     MutableRefObject,
     SyntheticEvent,
-    createRef,
-    forwardRef,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
+    PropsWithChildren,
+    FC,
 } from 'react';
 
 import type { RootProps } from '../../../engines';
@@ -17,7 +15,7 @@ import { formatCalendarValue, formatInputValue, getDateFormatDelimiter, getDateF
 import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
-import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
+import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
 import { getSortedValues } from '../../Calendar/utils';
 
@@ -174,7 +172,6 @@ export const datePickerRangeRoot = (
                 currentValue: inputFirstValue,
                 setInputValue: setFirstInputValue,
                 setCalendarValue: setCalendarFirstValue,
-                setIsInnerOpen,
                 dateFormatDelimiter,
                 format,
                 lang,
@@ -183,7 +180,6 @@ export const datePickerRangeRoot = (
                 maskWithFormat,
                 valueError: firstValueError,
                 valueSuccess: firstValueSuccess,
-                inputRef: firstInputRef,
                 name,
                 onChangeValue: onChangeFirstValue,
                 onCommitDate: onCommitFirstDate,
@@ -196,7 +192,6 @@ export const datePickerRangeRoot = (
                 currentValue: inputSecondValue,
                 setInputValue: setSecondInputValue,
                 setCalendarValue: setCalendarSecondValue,
-                setIsInnerOpen,
                 dateFormatDelimiter,
                 format,
                 lang,
@@ -205,7 +200,6 @@ export const datePickerRangeRoot = (
                 maskWithFormat,
                 valueError: secondValueError,
                 valueSuccess: secondValueSuccess,
-                inputRef: secondInputRef,
                 onChangeValue: onChangeSecondValue,
                 onCommitDate: onCommitSecondDate,
             });
@@ -216,10 +210,20 @@ export const datePickerRangeRoot = (
                 }
 
                 const isCalendarOpen =
-                    firstInputRef?.current?.contains((event.target as Node) || null) ||
-                    secondInputRef?.current?.contains((event.target as Node) || null)
+                    (firstInputRef?.current?.contains((event.target as Node) || null) ||
+                        secondInputRef?.current?.contains((event.target as Node) || null)) &&
+                    (event as KeyboardEvent<HTMLInputElement>).code !== keys.Escape
                         ? true
                         : opened;
+
+                if (!isCalendarOpen) {
+                    if (calendarFirstValue && !calendarSecondValue) {
+                        secondInputRef?.current?.focus();
+                    }
+                    if (calendarSecondValue || !calendarFirstValue) {
+                        firstInputRef?.current?.focus();
+                    }
+                }
 
                 if (onToggle) {
                     return onToggle(isCalendarOpen, event);
@@ -268,6 +272,7 @@ export const datePickerRangeRoot = (
             const { onKeyDown } = useKeyNavigation({
                 isCalendarOpen: isInnerOpen,
                 onToggle: handleToggle,
+                closeOnEsc,
             });
 
             const RangeComponent = (
@@ -350,6 +355,21 @@ export const datePickerRangeRoot = (
                 setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
             }, [format, lang]);
 
+            const RootWrapper = useCallback<FC<PropsWithChildren>>(
+                ({ children }) => (
+                    <Root
+                        view={view}
+                        size={size}
+                        className={cx(classes.datePickerRoot, className)}
+                        disabled={disabled}
+                        readOnly={!disabled && readOnly}
+                    >
+                        {children}
+                    </Root>
+                ),
+                [view, size, disabled, readOnly],
+            );
+
             return (
                 <Root
                     ref={rootRef}
@@ -386,6 +406,7 @@ export const datePickerRangeRoot = (
                         onToggle={handleToggle}
                         lang={lang}
                         isDoubleCalendar={isDoubleCalendar}
+                        rootWrapper={RootWrapper}
                         onChangeStartOfRange={(firstDate, dateInfo) => {
                             handleCommitFirstDate(firstDate, false, true, dateInfo);
                             handleCommitSecondDate('');

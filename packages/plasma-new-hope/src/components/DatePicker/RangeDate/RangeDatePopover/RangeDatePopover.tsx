@@ -7,6 +7,7 @@ import type { RangeDatePopoverProps } from './RangeDatePopover.types';
 import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles';
 
 export const RangeDatePopover = ({
+    rootWrapper: Root,
     target,
 
     isOpen,
@@ -59,24 +60,26 @@ export const RangeDatePopover = ({
                 target={target}
                 preventOverflow={false}
             >
-                <StyledCalendarDouble
-                    size={size}
-                    value={calendarValue}
-                    eventList={eventList}
-                    disabledList={disabledList}
-                    eventMonthList={eventMonthList}
-                    disabledMonthList={disabledMonthList}
-                    eventQuarterList={eventQuarterList}
-                    disabledQuarterList={disabledQuarterList}
-                    eventYearList={eventYearList}
-                    disabledYearList={disabledYearList}
-                    min={min}
-                    max={max}
-                    locale={lang}
-                    includeEdgeDates={includeEdgeDates}
-                    onChangeValue={onChangeValue}
-                    onChangeStartOfRange={onChangeStartOfRange}
-                />
+                <Root>
+                    <StyledCalendarDouble
+                        size={size}
+                        value={calendarValue}
+                        eventList={eventList}
+                        disabledList={disabledList}
+                        eventMonthList={eventMonthList}
+                        disabledMonthList={disabledMonthList}
+                        eventQuarterList={eventQuarterList}
+                        disabledQuarterList={disabledQuarterList}
+                        eventYearList={eventYearList}
+                        disabledYearList={disabledYearList}
+                        min={min}
+                        max={max}
+                        locale={lang}
+                        includeEdgeDates={includeEdgeDates}
+                        onChangeValue={onChangeValue}
+                        onChangeStartOfRange={onChangeStartOfRange}
+                    />
+                </Root>
             </StyledPopover>
         );
     }
@@ -96,25 +99,27 @@ export const RangeDatePopover = ({
             preventOverflow={false}
             closeOnEsc={closeOnEsc}
         >
-            <StyledCalendar
-                size={size}
-                value={calendarValue}
-                eventList={eventList}
-                disabledList={disabledList}
-                eventMonthList={eventMonthList}
-                disabledMonthList={disabledMonthList}
-                eventQuarterList={eventQuarterList}
-                disabledQuarterList={disabledQuarterList}
-                eventYearList={eventYearList}
-                disabledYearList={disabledYearList}
-                min={min}
-                max={max}
-                type={type}
-                locale={lang}
-                includeEdgeDates={includeEdgeDates}
-                onChangeValue={onChangeValue}
-                onChangeStartOfRange={onChangeStartOfRange}
-            />
+            <Root>
+                <StyledCalendar
+                    size={size}
+                    value={calendarValue}
+                    eventList={eventList}
+                    disabledList={disabledList}
+                    eventMonthList={eventMonthList}
+                    disabledMonthList={disabledMonthList}
+                    eventQuarterList={eventQuarterList}
+                    disabledQuarterList={disabledQuarterList}
+                    eventYearList={eventYearList}
+                    disabledYearList={disabledYearList}
+                    min={min}
+                    max={max}
+                    type={type}
+                    locale={lang}
+                    includeEdgeDates={includeEdgeDates}
+                    onChangeValue={onChangeValue}
+                    onChangeStartOfRange={onChangeStartOfRange}
+                />
+            </Root>
         </StyledPopover>
     );
 };

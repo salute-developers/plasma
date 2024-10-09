@@ -1,4 +1,4 @@
-import { ChangeEvent, SyntheticEvent } from 'react';
+import { ChangeEvent } from 'react';
 
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
@@ -15,7 +15,6 @@ export const useDatePicker = ({
     currentValue,
     setInputValue,
     setCalendarValue,
-    setIsInnerOpen,
     dateFormatDelimiter,
     format,
     lang = 'ru',
@@ -24,29 +23,13 @@ export const useDatePicker = ({
     maskWithFormat,
     valueError,
     valueSuccess,
-    inputRef,
     name,
-    onToggle,
     onChangeValue,
     onCommitDate,
     onChange,
 }: UseDatePickerProps) => {
     const datePickerErrorClass = valueError ? classes.datePickerError : undefined;
     const datePickerSuccessClass = valueSuccess ? classes.datePickerSuccess : undefined;
-
-    const handleToggle = (opened: boolean, event: SyntheticEvent | Event) => {
-        if (disabled || readOnly) {
-            return;
-        }
-
-        const isCalendarOpen = event.target === inputRef?.current ? true : opened;
-
-        if (onToggle) {
-            return onToggle(isCalendarOpen, event);
-        }
-
-        setIsInnerOpen(isCalendarOpen);
-    };
 
     const handleChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
         if (disabled || readOnly) {
@@ -131,7 +114,6 @@ export const useDatePicker = ({
     return {
         datePickerErrorClass,
         datePickerSuccessClass,
-        handleToggle,
         handleChangeValue,
         handleCommitDate,
     };
