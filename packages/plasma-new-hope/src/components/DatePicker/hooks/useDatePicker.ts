@@ -2,9 +2,14 @@ import { ChangeEvent, SyntheticEvent } from 'react';
 
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
-import { formatCalendarValue, formatInputValue, getDateFromFormat, getMaskedDateOnInput } from '../utils/dateHelper';
+import {
+    formatCalendarValue,
+    formatInputValue,
+    getDateFromFormat,
+    getMaskedDateOnInput,
+    validateDateWithFullMonth,
+} from '../utils/dateHelper';
 import type { DateInfo } from '../../Calendar/Calendar.types';
-import { customDayjs } from '../../../utils/datejs';
 
 export const useDatePicker = ({
     currentValue,
@@ -62,30 +67,11 @@ export const useDatePicker = ({
             return;
         }
 
-        /**
-         * NOTE: если в формате даты есть месяц в полном названии или сокращенном,
-         * нужно дополнительно проводить валидацию на полноту введенной даты.
-         * Иначе dayjs циклически будет пытаться отформатировать некорректную дату.
-         */
-        const hasMonthFullName = /M{3,4}/g.test(format);
-        let isValidMonth;
-        let isLengthEqual;
-
-        if (hasMonthFullName) {
-            customDayjs.locale(lang);
-
-            const firstIndexOfMonth = format.indexOf('M');
-            const lastIndexOfMonth = newValue.indexOf(dateFormatDelimiter(), firstIndexOfMonth);
-
-            const fullMonthName = !lastIndexOfMonth
-                ? newValue.slice(firstIndexOfMonth)
-                : newValue.slice(firstIndexOfMonth, lastIndexOfMonth);
-
-            const monthFormatting = format.replace(/[^M]/g, '');
-
-            isValidMonth = customDayjs(`01 ${fullMonthName} 1970`, `DD ${monthFormatting} YYYY`, true).isValid();
-            isLengthEqual = format.length - monthFormatting.length === newValue.length - fullMonthName.length;
-        }
+        const { hasMonthFullName, isValidMonth, isLengthEqual } = validateDateWithFullMonth({
+            currentValue: newValue,
+            format,
+            lang,
+        });
 
         if ((!hasMonthFullName && newValue?.length === format?.length) || (isValidMonth && isLengthEqual)) {
             setCalendarValue(formatCalendarValue(newValue, format, lang));

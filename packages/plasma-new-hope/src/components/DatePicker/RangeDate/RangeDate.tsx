@@ -1,4 +1,6 @@
 import React, {
+    ChangeEvent,
+    ChangeEventHandler,
     MutableRefObject,
     SyntheticEvent,
     createRef,
@@ -11,12 +13,13 @@ import React, {
 
 import type { RootProps } from '../../../engines';
 import { cx, noop } from '../../../utils';
-import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '../utils/dateHelper';
+import { formatCalendarValue, formatInputValue, getDateFormatDelimiter, getDateFromFormat } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
 import { useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
+import { getSortedValues } from '../../Calendar/utils';
 
 import type { DatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -225,6 +228,43 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen(isCalendarOpen);
             };
 
+            const handleBlur = (
+                event: ChangeEvent<HTMLInputElement>,
+                outerHandler?: ChangeEventHandler<HTMLInputElement>,
+            ) => {
+                if (!inputFirstValue || !inputSecondValue) {
+                    outerHandler?.(event);
+                    return;
+                }
+
+                const { value: firstDate, isSuccess: firstIsSuccess } = getDateFromFormat(
+                    inputFirstValue,
+                    format,
+                    lang,
+                );
+
+                const { value: secondDate, isSuccess: secondIsSuccess } = getDateFromFormat(
+                    inputSecondValue,
+                    format,
+                    lang,
+                );
+
+                if (!firstIsSuccess || !secondIsSuccess) {
+                    outerHandler?.(event);
+                    return;
+                }
+
+                const [startValue, endValue] = getSortedValues([new Date(firstDate), new Date(secondDate)]);
+
+                setFirstInputValue(formatInputValue({ value: startValue, format, lang }));
+                setSecondInputValue(formatInputValue({ value: endValue, format, lang }));
+
+                setCalendarFirstValue(formatCalendarValue(startValue, format, lang));
+                setCalendarSecondValue(formatCalendarValue(endValue, format, lang));
+
+                outerHandler?.(event);
+            };
+
             const { onKeyDown } = useKeyNavigation({
                 isCalendarOpen: isInnerOpen,
                 onToggle: handleToggle,
@@ -276,8 +316,8 @@ export const datePickerRangeRoot = (
                         }}
                         onFocusFirstTextfield={onFocusFirstTextfield}
                         onFocusSecondTextfield={onFocusSecondTextfield}
-                        onBlurFirstTextfield={onBlurFirstTextfield}
-                        onBlurSecondTextfield={onBlurSecondTextfield}
+                        onBlurFirstTextfield={(event) => handleBlur(event, onBlurFirstTextfield)}
+                        onBlurSecondTextfield={(event) => handleBlur(event, onBlurSecondTextfield)}
                         onKeyDown={onKeyDown}
                     />
                 </>

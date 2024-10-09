@@ -1,4 +1,5 @@
 import { customDayjs } from '../../../utils/datejs';
+import { ValidateDateArgs } from '../DatePickerBase.types';
 
 export type Langs = 'ru' | 'en';
 
@@ -98,4 +99,41 @@ export const getMaskedDateOnInput = (value?: string, format?: string, delimiter?
     }
 
     return value;
+};
+
+export const validateDateWithFullMonth = ({ currentValue, format, lang }: ValidateDateArgs) => {
+    /**
+     * NOTE: если в формате даты есть месяц в полном названии или сокращенном,
+     * нужно дополнительно проводить валидацию на полноту введенной даты.
+     * Иначе dayjs циклически будет пытаться отформатировать некорректную дату.
+     */
+    const hasMonthFullName = /M{3,4}/g.test(format);
+
+    if (!hasMonthFullName) {
+        return {
+            hasMonthFullName,
+            isValidMonth: false,
+            isLengthEqual: false,
+        };
+    }
+
+    customDayjs.locale(lang);
+
+    const firstIndexOfMonth = format.indexOf('M');
+    const lastIndexOfMonth = currentValue.indexOf(getDateFormatDelimiter(format), firstIndexOfMonth);
+
+    const fullMonthName = !lastIndexOfMonth
+        ? currentValue.slice(firstIndexOfMonth)
+        : currentValue.slice(firstIndexOfMonth, lastIndexOfMonth);
+
+    const monthFormatting = format.replace(/[^M]/g, '');
+
+    const isValidMonth = customDayjs(`01 ${fullMonthName} 1970`, `DD ${monthFormatting} YYYY`, true).isValid();
+    const isLengthEqual = format.length - monthFormatting.length === currentValue.length - fullMonthName.length;
+
+    return {
+        hasMonthFullName,
+        isValidMonth,
+        isLengthEqual,
+    };
 };
