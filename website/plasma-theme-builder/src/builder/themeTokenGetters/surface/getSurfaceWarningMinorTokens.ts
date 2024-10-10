@@ -4,7 +4,7 @@ import { tokensCreator } from '../../../utils';
 
 export const getSurfaceWarningMinorTokens = () => {
     const darkValue = '[general.orange.900]';
-    const lightValue = '[general.orange.200]';
+    const lightValue = '[general.orange.150]';
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Минорный цвет фона поверхности/контрола предупреждение',

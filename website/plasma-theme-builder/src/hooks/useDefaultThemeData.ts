@@ -7,8 +7,8 @@ import { createTheme } from '../builder/createTheme';
 const defaultConfig: ThemeConfig = {
     name: 'default',
     accentColor: {
-        dark: '[general.green.500]',
-        light: '[general.green.600]',
+        dark: '[general.blue.500]',
+        light: '[general.blue.500]',
     },
     grayscale: {
         dark: Grayscale.gray,

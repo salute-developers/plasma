@@ -1,20 +1,11 @@
-import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
+import { TokensByType, alphenColor } from '@salutejs/plasma-tokens-utils';
 
-import { getGreyTokenData, tokensCreator } from '../../../utils';
+import { tokensCreator } from '../../../utils';
+import { baseColors } from '../../../types';
 
-export const getSurfaceTransparentCardTokens = (config: ThemeConfig) => {
-    const { grayscale } = config;
-
-    const darkValue = getGreyTokenData({
-        saturation: 50,
-        grayscale: grayscale.dark,
-        opacity: 0.06,
-    });
-    const lightValue = getGreyTokenData({
-        saturation: 1000,
-        grayscale: grayscale.light,
-        opacity: 0.06,
-    });
+export const getSurfaceTransparentCardTokens = () => {
+    const darkValue = alphenColor(baseColors.white.value, -0.94);
+    const lightValue = baseColors.white.value;
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Прозрачный фон для карточек',

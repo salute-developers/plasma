@@ -4,7 +4,7 @@ import { tokensCreator, updateColorSaturation } from '../../../utils';
 
 export const getSurfaceAccentMinorTokens = (config: ThemeConfig) => {
     const darkValue = updateColorSaturation(config.accentColor.dark, 900);
-    const lightValue = updateColorSaturation(config.accentColor.light, 200);
+    const lightValue = updateColorSaturation(config.accentColor.light, 150);
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Акцентный минорный непрозрачный фон поверхности/контрола',

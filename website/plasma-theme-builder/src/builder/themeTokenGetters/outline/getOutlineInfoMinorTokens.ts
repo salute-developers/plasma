@@ -3,8 +3,8 @@ import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 import { tokensCreator } from '../../../utils';
 
 export const getOutlineInfoMinorTokens = () => {
-    const darkValue = '[general.blue.850]';
-    const lightValue = '[general.blue.250]';
+    const darkValue = '[general.blue.800]';
+    const lightValue = '[general.blue.300]';
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Минорный цвет обводки информация',

@@ -1,10 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, tokensCreator } from '../../../utils';
 
-export const getSurfaceNegativeTokens = () => {
-    const darkValue = '[general.red.500]';
-    const lightValue = '[general.red.500]';
+export const getSurfaceNegativeTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
+
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = `[general.red.${saturationDark}]`;
+    const lightValue = `[general.red.${saturationLight}]`;
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Цвет фона поверхности/контрола ошибка',

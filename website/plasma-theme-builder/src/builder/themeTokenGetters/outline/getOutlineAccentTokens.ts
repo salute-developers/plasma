@@ -1,10 +1,12 @@
 import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { shiftAccentColor, tokensCreator } from '../../../utils';
 
 export const getOutlineAccentTokens = (config: ThemeConfig) => {
-    const darkValue = config.accentColor.dark;
-    const lightValue = config.accentColor.light;
+    const { dark, light } = config.accentColor;
+
+    const darkValue = shiftAccentColor(dark, 'dark');
+    const lightValue = shiftAccentColor(light, 'light');
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Акцентный цвет обводки',

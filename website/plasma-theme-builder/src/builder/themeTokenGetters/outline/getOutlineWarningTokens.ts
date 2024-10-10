@@ -1,10 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, shiftAccentColor, tokensCreator } from '../../../utils';
 
-export const getOutlineWarningTokens = () => {
-    const darkValue = '[general.orange.500]';
-    const lightValue = '[general.orange.600]';
+export const getOutlineWarningTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
+
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = shiftAccentColor(`[general.orange.${saturationDark}]`, 'dark');
+    const lightValue = shiftAccentColor(`[general.orange.${saturationLight}]`, 'light');
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Цвет обводки предупреждение',
