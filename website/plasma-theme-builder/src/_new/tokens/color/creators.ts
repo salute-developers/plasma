@@ -4,11 +4,15 @@ import { AndroidColor, ColorToken, IOSColor, WebColor } from './color';
 import { colorTokens, getWebTokens, getIOSTokens, getAndroidTokens } from './default';
 import { PlatformsVariations, TokenType } from '../../types';
 
-export const createDefaultColorTokens = (config: ThemeConfig) =>
-    colorTokens.map((token) => {
-        const web = getWebTokens(config)[token.name];
-        const ios = getIOSTokens(config)[token.name];
-        const android = getAndroidTokens(config)[token.name];
+export const createDefaultColorTokens = (config: ThemeConfig): ColorToken[] => {
+    const webTokens = getWebTokens(config);
+    const iosTokens = getIOSTokens(config);
+    const androidTokens = getAndroidTokens(config);
+
+    return colorTokens.map((token) => {
+        const web = webTokens[token.name];
+        const ios = iosTokens[token.name];
+        const android = androidTokens[token.name];
 
         if (!web || !ios || !android) {
             throw new Error(`Токен '${token.name}' не найден`);
@@ -22,10 +26,10 @@ export const createDefaultColorTokens = (config: ThemeConfig) =>
 
         return new ColorToken(token, values);
     });
-
+};
 
 // INFO: Данный метод нужен для того, чтобы на момент формирования инстанса класса Theme
-// не добавлять технические токены состояний active / hover в память объекта, 
+// не добавлять технические токены состояний active / hover в память объекта,
 // т.к. они никак не используются в визуальном интефрейсе
 const removeHoverAndActiveTokens = (token: TokenType) =>
     !token.name.includes('-hover') && !token.name.includes('-active');
