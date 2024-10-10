@@ -74,7 +74,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     return tabStartY < scrollTop;
                 });
 
-            firstOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+            firstOverflowingTab?.current?.scrollIntoView({ block: 'start', inline: 'nearest' });
         }, [disabled, scrollRef, refs]);
 
         const onNext = useCallback(() => {
@@ -92,7 +92,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                 return tabEndY > scrollBottom;
             });
 
-            lastOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+            lastOverflowingTab?.current?.scrollIntoView({ block: 'end', inline: 'nearest' });
         }, [disabled, scrollRef, refs]);
 
         const PreviousButton = (
