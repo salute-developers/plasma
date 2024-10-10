@@ -4,11 +4,15 @@ import { AndroidFontFamily, FontFamilyToken, IOSFontFamily, WebFontFamily } from
 import { fontFamilyTokens, getWebTokens, getIOSTokens, getAndroidTokens } from './default';
 import { PlatformsVariations, TokenType } from '../../types';
 
-export const createDefaultFontFamilyTokens = (config: ThemeConfig) =>
-    fontFamilyTokens.map((token) => {
-        const web = getWebTokens(config)[token.name];
-        const ios = getIOSTokens(config)[token.name];
-        const android = getAndroidTokens(config)[token.name];
+export const createDefaultFontFamilyTokens = (config: ThemeConfig): FontFamilyToken[] => {
+    const webTokens = getWebTokens(config);
+    const iosTokens = getIOSTokens(config);
+    const androidTokens = getAndroidTokens(config);
+
+    return fontFamilyTokens.map((token) => {
+        const web = webTokens[token.name];
+        const ios = iosTokens[token.name];
+        const android = androidTokens[token.name];
 
         if (!web || !ios || !android) {
             throw new Error(`Токен '${token.name}' не найден`);
@@ -22,6 +26,7 @@ export const createDefaultFontFamilyTokens = (config: ThemeConfig) =>
 
         return new FontFamilyToken(token, values);
     });
+};
 
 export const createFontFamilyTokens = (tokens: Array<TokenType>, platforms: PlatformsVariations['fontFamily']) =>
     tokens.map((token) => {

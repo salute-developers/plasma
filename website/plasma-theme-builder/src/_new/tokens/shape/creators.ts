@@ -4,11 +4,15 @@ import { AndroidShape, ShapeToken, IOSShape, WebShape } from './shape';
 import { shapeTokens, getWebTokens, getIOSTokens, getAndroidTokens } from './default';
 import { PlatformsVariations, TokenType } from '../../types';
 
-export const createDefaultShapeTokens = (config: ThemeConfig) =>
-    shapeTokens.map((token) => {
-        const web = getWebTokens(config)[token.name];
-        const ios = getIOSTokens(config)[token.name];
-        const android = getAndroidTokens(config)[token.name];
+export const createDefaultShapeTokens = (config: ThemeConfig): ShapeToken[] => {
+    const webTokens = getWebTokens(config);
+    const iosTokens = getIOSTokens(config);
+    const androidTokens = getAndroidTokens(config);
+
+    return shapeTokens.map((token) => {
+        const web = webTokens[token.name];
+        const ios = iosTokens[token.name];
+        const android = androidTokens[token.name];
 
         if (!web || !ios || !android) {
             throw new Error(`Токен '${token.name}' не найден`);
@@ -22,6 +26,7 @@ export const createDefaultShapeTokens = (config: ThemeConfig) =>
 
         return new ShapeToken(token, values);
     });
+};
 
 export const createShapeTokens = (tokens: Array<TokenType>, platforms: PlatformsVariations['shape']) =>
     tokens.map((token) => {

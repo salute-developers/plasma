@@ -263,7 +263,13 @@ export const buildAndModifyMockTheme = async () => {
         },
     });
 
+    const onlyGradientTokens = mockTheme.getTokens('gradient');
+    console.log('onlyGradientTokens', onlyGradientTokens);
+
     mockTheme.setTokenValue('shadow.name', 'shadow', 'android', { color: 'red', elevation: 0 });
+
+    const allTokens = mockTheme.getTokens();
+    console.log('allTokens', allTokens);
 
     const value = mockTheme.getTokenValue('shape.name', 'shape', 'ios');
     const values = mockTheme.getTokenValue('shape.name', 'shape');

@@ -112,11 +112,11 @@ export class Theme {
     ): void {
         const token = this.getToken(name, type);
 
-        if (!token) {
+        if (!token || !value) {
             return;
         }
 
-        if (typeof platform === 'string' && value) {
+        if (typeof platform === 'string') {
             token.setValue<T, PlatformsVariations[U]>(platform, value);
             return;
         }

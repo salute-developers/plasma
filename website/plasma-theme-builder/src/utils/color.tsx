@@ -168,6 +168,10 @@ export const getTransparentColor = (color: string, type: FormulaMode, mode: Them
 
         const newAlpha = result.operation[state]?.(a);
 
+        if (!newAlpha) {
+            return '#FFFFFFFF';
+        }
+
         return hsl.alpha(newAlpha).round().hexa();
     };
 };
@@ -190,6 +194,10 @@ export const getSolidColor = (color: string, type: FormulaMode, mode: ThemeMode)
         }
 
         const newLightness = result.operation[state]?.(l);
+
+        if (!newLightness) {
+            return '#FFFFFFFF';
+        }
 
         return hsl.lightness(newLightness).round().hexa();
     };
@@ -216,5 +224,6 @@ export const shiftAccentColor = (color: ComplexValue, theme: ThemeMode, opacity?
 
     const newValue = `[general.${shade}.${Math.min(max, Math.max(min, newSaturation))}]`;
 
+    // TODO: удалить opacity - 1 и обновить использование метода в новой архитектуре
     return opacity ? `${newValue}[${(opacity - 1).toPrecision(2)}]` : newValue;
 };
