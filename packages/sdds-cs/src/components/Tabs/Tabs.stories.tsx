@@ -47,6 +47,8 @@ const getContentRight = (contentRightOption: string, size: Size) => {
 };
 
 type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
+type HorizontalStoryTabsProps = StoryTabsProps & { width: string };
+type VerticalStoryTabsProps = StoryTabsProps & { height: string };
 
 const meta: Meta<StoryTabsProps> = {
     title: 'Controls/Tabs',
@@ -82,7 +84,7 @@ const meta: Meta<StoryTabsProps> = {
 
 export default meta;
 
-const StoryHorizontalDefault = (props: StoryTabsProps) => {
+const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
     const {
         disabled,
         itemQuantity,
@@ -137,7 +139,7 @@ const StoryHorizontalDefault = (props: StoryTabsProps) => {
     );
 };
 
-const StoryHorizontalScroll = (props: StoryTabsProps) => {
+const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
     const {
         disabled,
         itemQuantity,
@@ -147,18 +149,13 @@ const StoryHorizontalScroll = (props: StoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        width,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs
-            clip={clip}
-            view={hasDivider ? 'divider' : 'clear'}
-            disabled={disabled}
-            size={size}
-            style={{ width: '15rem' }}
-        >
+        <Tabs clip={clip} view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size} style={{ width }}>
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -198,7 +195,7 @@ const StoryHorizontalScroll = (props: StoryTabsProps) => {
     );
 };
 
-const StoryHorizontalShowAll = (props: StoryTabsProps) => {
+const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
     const {
         disabled,
         itemQuantity,
@@ -285,13 +282,15 @@ const StoryHorizontalShowAll = (props: StoryTabsProps) => {
     );
 };
 
-export const HorizontalTabs: StoryObj<StoryTabsProps> = {
+export const HorizontalTabs: StoryObj<HorizontalStoryTabsProps> = {
     args: {
         size: 's',
         disabled: false,
         hasDivider: true,
         helperText: '',
         itemQuantity: 8,
+        stretch: false,
+        width: '15rem',
     },
     argTypes: {
         contentLeft: {
@@ -313,6 +312,12 @@ export const HorizontalTabs: StoryObj<StoryTabsProps> = {
             },
             if: { arg: 'stretch', truthy: false },
         },
+        width: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'clip', eq: 'scroll' },
+        },
         size: {
             options: sizes,
             control: {
@@ -332,7 +337,7 @@ export const HorizontalTabs: StoryObj<StoryTabsProps> = {
     },
 };
 
-const StoryVerticalDefault = (props: StoryTabsProps) => {
+const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
     const {
         disabled,
         itemQuantity,
@@ -388,7 +393,7 @@ const StoryVerticalDefault = (props: StoryTabsProps) => {
     );
 };
 
-const StoryVerticalScroll = (props: StoryTabsProps) => {
+const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
     const {
         disabled,
         itemQuantity,
@@ -398,6 +403,7 @@ const StoryVerticalScroll = (props: StoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        height,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
@@ -408,8 +414,8 @@ const StoryVerticalScroll = (props: StoryTabsProps) => {
             size={size as Size}
             disabled={disabled}
             clip={clip}
-            style={{ height: '10rem' }}
             hasDivider={hasDivider}
+            style={{ height }}
         >
             {items.map((_, i) => {
                 if (helperText !== '') {
@@ -452,7 +458,7 @@ const StoryVerticalScroll = (props: StoryTabsProps) => {
     );
 };
 
-const StoryVerticalShowAll = (props: StoryTabsProps) => {
+const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
     const {
         disabled,
         itemQuantity,
@@ -540,7 +546,7 @@ const StoryVerticalShowAll = (props: StoryTabsProps) => {
     );
 };
 
-export const VerticalTabs: StoryObj<StoryTabsProps> = {
+export const VerticalTabs: StoryObj<VerticalStoryTabsProps> = {
     args: {
         size: 's',
         disabled: false,
@@ -548,6 +554,7 @@ export const VerticalTabs: StoryObj<StoryTabsProps> = {
         itemQuantity: 8,
         orientation: 'vertical',
         helperText: '',
+        height: '10rem',
     },
     argTypes: {
         contentLeft: {
@@ -579,6 +586,12 @@ export const VerticalTabs: StoryObj<StoryTabsProps> = {
             table: {
                 disable: true,
             },
+        },
+        height: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'clip', eq: 'scroll' },
         },
     },
     render: (args) => {
