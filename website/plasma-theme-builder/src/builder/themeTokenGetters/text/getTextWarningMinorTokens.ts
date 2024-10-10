@@ -3,8 +3,8 @@ import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 import { tokensCreator } from '../../../utils';
 
 export const getTextWarningMinorTokens = () => {
-    const darkValue = '[general.orange.150]';
-    const lightValue = '[general.orange.900]';
+    const darkValue = '[general.orange.800]';
+    const lightValue = '[general.orange.300]';
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Минорный цвет предупреждения',

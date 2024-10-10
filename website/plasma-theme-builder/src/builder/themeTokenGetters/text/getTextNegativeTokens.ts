@@ -1,10 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, shiftAccentColor, tokensCreator } from '../../../utils';
 
-export const getTextNegativeTokens = () => {
-    const darkValue = '[general.red.500]';
-    const lightValue = '[general.red.600]';
+export const getTextNegativeTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
+
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = shiftAccentColor(`[general.red.${saturationDark}]`, 'dark');
+    const lightValue = shiftAccentColor(`[general.red.${saturationLight}]`, 'light');
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Цвет ошибки',

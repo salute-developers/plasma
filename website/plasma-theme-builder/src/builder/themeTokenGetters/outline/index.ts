@@ -3,7 +3,7 @@ import type { OutlineName, TokensGetterFn } from '@salutejs/plasma-tokens-utils'
 import { getOutlineSolidPrimaryTokens } from './getOutlineSolidPrimaryTokens';
 import { getOutlineSolidSecondaryTokens } from './getOutlineSolidSecondaryTokens';
 import { getOutlineSolidTertiaryTokens } from './getOutlineSolidTertiaryTokens';
-import { getOutlineTransparentDefaultTokens } from './getOutlineTransparentDefaultTokens';
+import { getOutlineSolidDefaultTokens } from './getOutlineSolidDefaultTokens';
 import { getOutlineTransparentPrimaryTokens } from './getOutlineTransparentPrimaryTokens';
 import { getOutlineTransparentSecondaryTokens } from './getOutlineTransparentSecondaryTokens';
 import { getOutlineTransparentTertiaryTokens } from './getOutlineTransparentTertiaryTokens';
@@ -36,7 +36,7 @@ export const outlineTokenGetters: Record<OutlineName, TokensGetterFn> = {
     outlineSolidPrimary: getOutlineSolidPrimaryTokens,
     outlineSolidSecondary: getOutlineSolidSecondaryTokens,
     outlineSolidTertiary: getOutlineSolidTertiaryTokens,
-    outlineTransparentDefault: getOutlineTransparentDefaultTokens,
+    outlineSolidDefault: getOutlineSolidDefaultTokens,
     outlineTransparentPrimary: getOutlineTransparentPrimaryTokens,
     outlineTransparentSecondary: getOutlineTransparentSecondaryTokens,
     outlineTransparentTertiary: getOutlineTransparentTertiaryTokens,

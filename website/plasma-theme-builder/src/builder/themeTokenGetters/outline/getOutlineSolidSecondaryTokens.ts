@@ -3,7 +3,7 @@ import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 import { tokensCreator } from '../../../utils';
 
 export const getOutlineSolidSecondaryTokens = (config: ThemeConfig) => {
-    const darkValue = `[general.${config.grayscale.dark}.${850}]`;
+    const darkValue = `[general.${config.grayscale.dark}.${800}]`;
     const lightValue = `[general.${config.grayscale.light}.${300}]`;
 
     const comment: Record<keyof TokensByType, string> = {

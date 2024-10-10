@@ -1,12 +1,12 @@
 import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { shiftAccentColor, tokensCreator } from '../../../utils';
 
 export const getOutlineTransparentAccentTokens = (config: ThemeConfig) => {
-    const opacityValue = -0.6;
+    const { dark, light } = config.accentColor;
 
-    const darkValue = `${config.accentColor.dark}[${opacityValue}]`;
-    const lightValue = `${config.accentColor.light}[${opacityValue}]`;
+    const darkValue = shiftAccentColor(dark, 'dark', 0.28);
+    const lightValue = shiftAccentColor(light, 'light', 0.2);
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Прозрачный акцентный цвет обводки',

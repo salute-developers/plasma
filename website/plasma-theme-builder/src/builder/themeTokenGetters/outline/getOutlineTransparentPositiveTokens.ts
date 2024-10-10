@@ -1,12 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, shiftAccentColor, tokensCreator } from '../../../utils';
 
-export const getOutlineTransparentPositiveTokens = () => {
-    const opacityValue = -0.72;
+export const getOutlineTransparentPositiveTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
 
-    const darkValue = `[general.green.500][${opacityValue}]`;
-    const lightValue = `[general.green.600][${opacityValue}]`;
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = shiftAccentColor(`[general.green.${saturationDark}]`, 'dark', 0.28);
+    const lightValue = shiftAccentColor(`[general.green.${saturationLight}]`, 'light', 0.2);
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Прозрачный цвет обводки успех',

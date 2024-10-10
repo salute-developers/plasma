@@ -1,12 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, tokensCreator } from '../../../utils';
 
-export const getSurfaceTransparentNegativeTokens = () => {
-    const opacityValue = -0.72;
+export const getSurfaceTransparentNegativeTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
 
-    const darkValue = `[general.red.500][${opacityValue}]`;
-    const lightValue = `[general.red.500][${opacityValue}]`;
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = `[general.red.${saturationDark}][-0.80]`;
+    const lightValue = `[general.red.${saturationLight}][-0.88]`;
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Прозрачный цвет фона поверхности/контрола предупреждение',

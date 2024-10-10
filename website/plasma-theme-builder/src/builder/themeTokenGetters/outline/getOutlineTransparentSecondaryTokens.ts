@@ -1,15 +1,12 @@
-import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
+import { TokensByType, ThemeConfig, alphenColor } from '@salutejs/plasma-tokens-utils';
 
 import { getGreyTokenData, tokensCreator } from '../../../utils';
+import { baseColors } from '../../../types';
 
 export const getOutlineTransparentSecondaryTokens = (config: ThemeConfig) => {
     const { grayscale } = config;
 
-    const darkValue = getGreyTokenData({
-        saturation: 50,
-        grayscale: grayscale.dark,
-        opacity: 0.2,
-    });
+    const darkValue = alphenColor(baseColors.white.value, -0.72);
     const lightValue = getGreyTokenData({
         saturation: 1000,
         grayscale: grayscale.light,

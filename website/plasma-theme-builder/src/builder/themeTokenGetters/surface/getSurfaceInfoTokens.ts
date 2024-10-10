@@ -1,10 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, tokensCreator } from '../../../utils';
 
-export const getSurfaceInfoTokens = () => {
-    const darkValue = '[general.blue.500]';
-    const lightValue = '[general.blue.500]';
+export const getSurfaceInfoTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
+
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = `[general.blue.${saturationDark}]`;
+    const lightValue = `[general.blue.${saturationLight}]`;
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Цвет фона поверхности/контрола информация',
