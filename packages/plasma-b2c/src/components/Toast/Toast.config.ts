@@ -27,7 +27,7 @@ export const config = {
             `,
             dark: css`
                 ${toastTokens.color}: var(--on-dark-text-primary);
-                ${toastTokens.background}: var(--on-dark-surface-solid-brightness);
+                ${toastTokens.background}: var(--on-dark-surface-solid-primary-brightness);
 
                 ${toastTokens.closeIconColor}: var(--on-dark-text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-secondary);
