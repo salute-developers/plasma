@@ -89,6 +89,7 @@ export const Default: StoryObj<TooltipProps> = {
             'offset',
             'frame',
             'view',
+            'size',
             'zIndex',
             'minWidth',
             'maxWidth',

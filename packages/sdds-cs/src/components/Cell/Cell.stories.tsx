@@ -21,7 +21,7 @@ const stretchingValues = ['fixed', 'filled', 'auto'];
 const alignLeft = ['top', 'center', 'bottom'];
 const alignRight = ['top', 'center', 'bottom'];
 
-type SizesCell = 'xs' | 'l' | 'm' | 's' | undefined;
+type SizesCell = 'xs' | 's' | undefined;
 type SizesAvatar = 'l' | 'm' | 's';
 
 const getSize = (size: SizesCell): SizesAvatar => {
@@ -63,7 +63,7 @@ const meta: Meta<typeof Cell> = {
                 type: 'select',
             },
         },
-        ...disableProps(['size']),
+        ...disableProps(['size', 'view']),
     },
 };
 

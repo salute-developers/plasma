@@ -45,12 +45,12 @@ export function App() {
 
     return (
         <div>
-            <Tabs view="filled" stretch size="xs">
+            <Tabs view="filled" stretch size="s">
                 {items.map((_, i) => (
                     <TabItem
                         view="secondary"
                         key={`item:${i}`}
-                        size="xs"
+                        size="s"
                         selected={i === index}
                         tabIndex={0}
                         contentLeft={<IconClock size="xs" color="inherit" />}
@@ -79,13 +79,13 @@ export function App() {
 
     return (
         <div>
-            <Tabs view="divider" orientation="vertical" size="xs" style={{ width: '15rem' }}>
+            <Tabs view="divider" orientation="vertical" size="s" style={{ width: '15rem' }}>
                 {items.map((_, i) => (
                     <TabItem
                         view="divider"
                         orientation="vertical"
                         key={`item:${i}`}
-                        size="xs"
+                        size="s"
                         selected={i === index}
                         tabIndex={0}
                         contentLeft={<IconClock size="xs" color="inherit" />}
@@ -113,12 +113,12 @@ export function App() {
 
     return (
         <div>
-            <Tabs view="divider" size="xs" style={{ width: '15rem' }}>
+            <Tabs view="divider" size="s" style={{ width: '15rem' }}>
                 {items.map((_, i) => (
                     <TabItem
                         view="divider"
                         key={`item:${i}`}
-                        size="xs"
+                        size="s"
                         selected={i === index}
                         tabIndex={0}
                         contentLeft={<IconClock size="xs" color="inherit" />}
@@ -158,7 +158,7 @@ export function App() {
 
     return (
         <div style={{ height: '15rem', alignItems: 'flex-start' }}>
-            <Tabs clip="showAll" view="divider" size="xs">
+            <Tabs clip="showAll" view="divider" size="s">
                 {visibleItems.map((_, i) => (
                     <TabItem
                         key={`item:${i}`}
@@ -166,14 +166,14 @@ export function App() {
                         selected={i === index}
                         onClick={() => setIndex(i)}
                         tabIndex={0}
-                        size="xs"
+                        size="s"
                     >
                         {`Label${i + 1}`}
                     </TabItem>
                 ))}
                 {dropdownItems.length > 0 && (
                     <div style={{ marginLeft: '1.75rem' }}>
-                        <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
+                        <Dropdown size="s" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
                             <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
                                 ShowAll
                             </TabItem>
@@ -204,12 +204,12 @@ export function App() {
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
             <div>
-                <Tabs view="divider" stretch size="xs" index={horizontalIndex}>
+                <Tabs view="divider" stretch size="s" index={horizontalIndex}>
                     {items.map((_, i) => (
                         <TabItem
                             view="divider"
                             key={`item:${i}`}
-                            size="xs"
+                            size="s"
                             itemIndex={i}
                             onIndexChange={(i) => setHorizontalIndex(i)}
                             selected={i === horizontalIndex}
@@ -224,13 +224,13 @@ export function App() {
             </div>
 
             <div>
-                <Tabs orientation="vertical" view="divider" size="xs" index={verticalIndex}>
+                <Tabs orientation="vertical" view="divider" size="s" index={verticalIndex}>
                     {items.map((_, i) => (
                         <TabItem
                             orientation="vertical"
                             view="divider"
                             key={`item:${i}`}
-                            size="xs"
+                            size="s"
                             itemIndex={i}
                             onIndexChange={(i) => setVerticalIndex(i)}
                             selected={i === verticalIndex}

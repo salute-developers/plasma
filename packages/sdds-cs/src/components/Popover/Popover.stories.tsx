@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 
@@ -64,6 +64,7 @@ const meta: Meta<typeof Popover> = {
             },
             table: { defaultValue: { summary: 6 } },
         },
+        ...disableProps(['view']),
     },
     args: {
         placement: 'bottom',

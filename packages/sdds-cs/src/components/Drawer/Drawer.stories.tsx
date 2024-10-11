@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import type { ComponentProps } from 'react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconDone } from '@salutejs/plasma-icons';
 
@@ -17,6 +17,7 @@ export default {
     title: 'Controls/Drawer',
     decorators: [InSpacingDecorator],
     argTypes: {
+        ...disableProps(['view', 'size']),
         placement: {
             options: ['top', 'bottom', 'right', 'left'],
             control: {

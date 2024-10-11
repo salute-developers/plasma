@@ -26,7 +26,7 @@ const meta: Meta<typeof ToastController> = {
                 type: 'inline-radio',
             },
         },
-        ...disableProps(['role', 'onShow', 'onHide', 'contentLeft']),
+        ...disableProps(['role', 'onShow', 'onHide', 'contentLeft', 'size']),
     },
 };
 

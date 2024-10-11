@@ -34,18 +34,18 @@ export function App() {
         <div>
             <Button text="Текст" />
 
-            <Button text="Текст" contentLeft={<IconDownload />} />
+            <Button text="Текст" contentLeft={<IconDownload color="inherit" />} />
 
-            <Button text="Текст" contentRight={<IconDownload />} />
+            <Button text="Текст" contentRight={<IconDownload color="inherit" />} />
 
-            <Button contentLeft={<IconDownload />} />
+            <Button contentLeft={<IconDownload color="inherit" />} />
 
             <Button text="Текст" isLoading />
 
             <Button text="Текст" isLoading loader={<div>Loader...</div>} />
 
             <Button>
-                <IconDownload />
+                <IconDownload color="inherit" />
                 <span>Текст</span>
             </Button>
         </div>
@@ -56,7 +56,7 @@ export function App() {
 ## Примеры
 
 ### Размер кнопки
-Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"` или `"s"`:
+Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"s"`:
 
 ```tsx live
 import React from 'react';
@@ -65,8 +65,6 @@ import { Button } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <Button text="Button" size="l" />
-            <Button text="Button" size="m" />
             <Button text="Button" size="s" />
         </div>
     );
@@ -117,12 +115,8 @@ export function App() {
 
 ### Вид кнопки
 Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
-+ `"default"` – основная;
-+ `"secondary"` – вторичная;
-+ `"success"` – успешное завершение;
-+ `"warning"` – предупреждение;
-+ `"critical"` – ошибка;
-+ `"checked"` – выбранное состояние;
++ `"secondary"` – вторичный цвет;
++ `"accent"` – акцентный цвет;
 + `"clear"` – без цветового сопровождения.
 
 ```tsx live
@@ -132,13 +126,8 @@ import { Button } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <Button text="Кнопка" size="s" view="default" />
             <Button text="Кнопка" size="s" view="secondary" />
-            <Button text="Кнопка" size="s" view="success" />
-            <Button text="Кнопка" size="s" view="warning" />
-            <Button text="Кнопка" size="s" view="critical" />
-            <Button text="Кнопка" size="s" view="checked" />
-            <Button text="Кнопка" size="s" view="overlay" />
+            <Button text="Кнопка" size="s" view="accent" />
             <Button text="Кнопка" size="s" view="clear" />
         </div>
     );

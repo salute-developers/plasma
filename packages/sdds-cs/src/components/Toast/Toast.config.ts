@@ -43,7 +43,7 @@ export const config = {
                 ${toastTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${toastTokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem 0rem;
-                ${toastTokens.closeIconMargin}: -0.0625rem 0rem -0.0625rem 0.5rem;
+                ${toastTokens.closeIconMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
             `,
         },
         pilled: {

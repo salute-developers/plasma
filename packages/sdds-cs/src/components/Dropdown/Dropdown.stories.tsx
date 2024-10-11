@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
@@ -19,6 +19,9 @@ const meta: Meta<DropdownProps> = {
         onItemSelect: (item, event) => console.log('onItemSelect', item, event),
         onToggle: (a, b) => console.log('onToggle', a, b),
         variant: 'tight',
+    },
+    argTypes: {
+        ...disableProps(['view', 'size']),
     },
 };
 

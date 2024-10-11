@@ -492,7 +492,7 @@ focused: {
 true: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
-size: "xxl" | "s" | "m" | "l" | "fit";
+size: "s" | "m" | "l" | "xxl" | "fit";
 name?: string | undefined;
 url?: string | undefined;
 customText?: string | undefined;
@@ -2639,47 +2639,14 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 // Warning: (ae-forgotten-export) The symbol "TabItemProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const TabItem: FunctionComponent<PropsType<    {
-view: {
-clear: PolymorphicClassName;
-divider: PolymorphicClassName;
-};
-size: {
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-pilled: {
-true: PolymorphicClassName;
-};
-}> & ButtonHTMLAttributes<HTMLButtonElement> & AsProps<any> & CustomTabItemProps & RefAttributes<HTMLDivElement>>;
-
-export { TabItemProps }
+export const TabItem: (props: TabItemProps) => JSX.Element;
 
 export { TabItemRefs }
 
 // Warning: (ae-forgotten-export) The symbol "TabsProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const Tabs: FunctionComponent<PropsType<    {
-view: {
-clear: PolymorphicClassName;
-divider: PolymorphicClassName;
-};
-size: {
-s: PolymorphicClassName;
-};
-stretch: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-pilled: {
-true: PolymorphicClassName;
-};
-}> & HTMLAttributes<HTMLDivElement> & AsProps<any> & CustomTabsProps & RefAttributes<HTMLDivElement>>;
+export const Tabs: (props: TabsProps) => JSX.Element;
 
 export { TabsContext }
 

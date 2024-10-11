@@ -52,9 +52,8 @@ export function App() {
             </ButtonGroup>
             
             <ButtonGroup isCommonButtonStyles={false}>
-                <Button size="m" text="Default" />
-                <Button size="s" text="Primary" view="default" />
-                <Button size="xs" text="Success" view="success" />
+                <Button size="s" text="Clear" view="clear" />
+                <Button size="s" text="Accent" view="accent" />
             </ButtonGroup>
         </div>
     );
@@ -72,7 +71,7 @@ import { ButtonGroup, Button } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <ButtonGroup size="xs" orientation="vertical" gap="none">
+            <ButtonGroup size="s" orientation="vertical" gap="none">
                 {Array(5)
                     .fill(true)
                     .map((_, i) => (
@@ -80,7 +79,7 @@ export function App() {
                     ))}
             </ButtonGroup>
 
-            <ButtonGroup size="xs" orientation="horizontal" gap="wide">
+            <ButtonGroup size="s" orientation="horizontal" gap="wide">
                 {Array(4)
                     .fill(true)
                     .map((_, i) => (
@@ -102,7 +101,7 @@ import { ButtonGroup, Button } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <ButtonGroup size="xs" shape="segmented">
+            <ButtonGroup size="s" shape="segmented">
                 {Array(3)
                     .fill(true)
                     .map((_, i) => (
@@ -110,7 +109,7 @@ export function App() {
                     ))}
             </ButtonGroup>
 
-            <ButtonGroup size="xs" shape="default">
+            <ButtonGroup size="s" shape="default">
                 {Array(3)
                     .fill(true)
                     .map((_, i) => (

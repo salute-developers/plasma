@@ -34,7 +34,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tabsTokens.disabledOpacity}: 0.4;
+                ${tabsTokens.arrowColor}: var(--text-secondary);
             `,
         },
     },
