@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
@@ -18,6 +18,7 @@ const meta: Meta<ModalProps> = {
         docs: { story: { inline: false, iframeHeight: '30rem' } },
     },
     argTypes: {
+        ...disableProps(['view']),
         placement: {
             options: [
                 'center',

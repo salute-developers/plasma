@@ -17,7 +17,7 @@ const meta: Meta<BreadcrumbsProps> = {
         size: 's',
     },
     argTypes: {
-        ...disableProps(['separator']),
+        ...disableProps(['separator', 'size', 'view']),
     },
 };
 

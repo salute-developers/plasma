@@ -3,7 +3,7 @@ import { css, autocompleteTokens as tokens } from '@salutejs/plasma-new-hope/sty
 export const config = {
     defaults: {
         view: 'default',
-        size: 'l',
+        size: 's',
         labelPlacement: 'outer',
     },
     variations: {

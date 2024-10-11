@@ -17,8 +17,8 @@ export const config = {
                 ${dropdownTokens.itemPaddingBottom}: 0.5rem;
                 ${dropdownTokens.itemPaddingLeft}: 0.75rem;
                 ${dropdownTokens.itemBorderRadius}: 0.5rem;
-                ${dropdownTokens.itemPaddingTopTight}: 0.4375rem;
-                ${dropdownTokens.itemPaddingBottomTight}: 0.4375rem;
+                ${dropdownTokens.itemPaddingTopTight}: 0.5rem;
+                ${dropdownTokens.itemPaddingBottomTight}: 0.5rem;
 
                 ${dropdownTokens.dividerMarginTop}: 0.375rem;
                 ${dropdownTokens.dividerMarginRight}: 0.75rem;

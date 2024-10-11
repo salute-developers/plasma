@@ -128,7 +128,7 @@ type Items = Array<{
 
     <TabItem value="size" label="Size">
         Размер `Dropdown` задается с помощью свойства `size`.<br />
-        Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`.
+        Возможные значения свойства: `"s"`.
 
         ```tsx live
         import React from 'react';
@@ -170,28 +170,7 @@ type Items = Array<{
                 <div style={{ height: "300px", display: "flex", gap: "50px" }}>
                     <Dropdown
                         items={items}
-                        size="l"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        size="m" // default
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
                         size="s"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        size="xs"
                     >
                         <Button text="Список стран" />
                     </Dropdown>

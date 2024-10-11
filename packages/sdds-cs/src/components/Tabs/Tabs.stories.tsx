@@ -78,6 +78,7 @@ const meta: Meta<StoryTabsProps> = {
             'forwardedAs',
             'outsideScroll',
             'index',
+            'size',
         ]),
     },
 };

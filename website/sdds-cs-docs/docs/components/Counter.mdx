@@ -28,33 +28,13 @@ export function App() {
 }
 ```
 
-### Размер числового бейджа
-Размер задается с помощью свойства `size`. Возможные значения свойства: `"xs"` или `"xxs"`.
-
-```tsx live 
-import React from 'react';
-import { Counter } from '@salutejs/sdds-cs';
-
-export function App() {
-    return (
-        <div>
-            <Counter count={10} size="xs" />
-            <Counter count={10} size="xxs" />
-        </div>
-    );
-}
-```
-
 ### Вид числового бейджа
 Вид задается с помощью свойства `view`. Возможные значения свойства `view`:
 
 + `"default"` – основной бейдж;
 + `"accent"` – бейдж акцентного цвета;
 + `"positive"` – успешное завершение;
-+ `"warning"` – предупреждение;
 + `"negative"` – ошибка;
-+ `"dark"` – темный бэйдж;
-+ `"light"` – светлый бэйдж.
 
 ```tsx live 
 import React from 'react';
@@ -66,10 +46,7 @@ export function App() {
             <Counter count={10} view="default" />
             <Counter count={10} view="accent" />
             <Counter count={10} view="positive" />
-            <Counter count={10} view="warning" />
             <Counter count={10} view="negative" />
-            <Counter count={10} view="dark" />
-            <Counter count={10} view="light" />
         </div>
     );
 }

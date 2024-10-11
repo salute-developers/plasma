@@ -6,6 +6,6 @@ const mergedConfig = mergeConfig(priceConfig, config);
 const PriceComponent = component(mergedConfig);
 
 /**
- * Компонент для отображения цены / стоимости / суммы.
+ * Компонент для отображения цены / стоимости / суммы
  */
 export const Price = PriceComponent;

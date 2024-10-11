@@ -44,17 +44,8 @@ import { IconClose } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div>
-            <IconButton size="l">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="m">
-                <IconClose color="inherit" />
-            </IconButton>
             <IconButton size="s">
                 <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="xs">
-                <IconClose color="inherit" size="xs" />
             </IconButton>
         </div>
     );
@@ -65,15 +56,9 @@ export function App() {
 Вид кнопки задается с помощью свойства `view`.
 
 Возможные значения свойства `view`:
-+ `"default"` – по умолчанию;
++ `"accent"` – по умолчанию;
 + `"secondary"` – вторичная;
-+ `"success"` – успешное завершение;
-+ `"warning"` – предупреждение;
-+ `"critical"` – ошибка;
 + `"clear"` – без цветового сопровождения;
-+ `"dark"` – темная;
-+ `"black"` – черная;
-+ `"white"` – белая.
 
 ```tsx live
 import React from 'react';
@@ -83,31 +68,13 @@ import { IconClose } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div>
-            <IconButton size="s" view="default">
+            <IconButton size="s" view="accent">
                 <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="secondary">
                 <IconClose color="inherit" />
             </IconButton>
-            <IconButton size="s" view="success">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="warning">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="critical">
-                <IconClose color="inherit" />
-            </IconButton>
             <IconButton size="s" view="clear">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="dark">
-                <IconClose  color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="black">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="white">
                 <IconClose color="inherit" />
             </IconButton>
         </div>

@@ -16,12 +16,12 @@ export const config = {
                 ${tooltipTokens.minHeight}: 2rem;
                 ${tooltipTokens.borderRadius}: 0.5rem;
 
-                ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tooltipTokens.textFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tooltipTokens.textFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tooltipTokens.textFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tooltipTokens.textFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tooltipTokens.textFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tooltipTokens.textFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tooltipTokens.textFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tooltipTokens.textFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tooltipTokens.contentLeftMargin}: 0.25rem;
 

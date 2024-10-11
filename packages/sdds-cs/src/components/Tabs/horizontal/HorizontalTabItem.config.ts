@@ -131,8 +131,15 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tabsTokens.disabledOpacity}: 0.4;
                 ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemValueColor}: var(--text-secondary);
+                ${tabsTokens.itemColorHover}: var(--text-secondary);
+                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
+                ${tabsTokens.itemColorActive}: var(--text-secondary);
+                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
+                ${tabsTokens.itemSelectedColor}: var(--text-secondary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--text-secondary);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-secondary);
             `,
         },
         pilled: {

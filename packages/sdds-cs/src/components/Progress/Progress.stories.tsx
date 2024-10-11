@@ -17,7 +17,7 @@ const meta: Meta<typeof Progress> = {
                 type: 'select',
             },
         },
-        ...disableProps(['status']),
+        ...disableProps(['status', 'size']),
     },
 };
 

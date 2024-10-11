@@ -41,7 +41,7 @@ const meta: Meta<typeof Pagination> = {
                 type: 'select',
             },
         },
-        ...disableProps(['contentLeft', 'contentRight']),
+        ...disableProps(['contentLeft', 'contentRight', 'size', 'view', 'viewCurrentPage']),
     },
 };
 

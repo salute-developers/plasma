@@ -3,7 +3,7 @@ import { css, toolbarTokens } from '@salutejs/plasma-new-hope/styled-components'
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 's',
     },
     variations: {
         view: {

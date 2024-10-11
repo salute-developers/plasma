@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconEdit } from '@salutejs/plasma-icons';
 
@@ -46,6 +46,7 @@ const meta: Meta<typeof Toolbar> = {
                 type: 'select',
             },
         },
+        ...disableProps(['view', 'size']),
     },
     args: {
         orientation: 'vertical',
