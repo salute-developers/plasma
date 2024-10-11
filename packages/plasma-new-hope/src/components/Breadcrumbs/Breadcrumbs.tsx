@@ -18,7 +18,9 @@ export const breadcrumbsRoot = (Root: RootProps<HTMLDivElement, BreadcrumbsProps
 
             return (
                 <Root ref={outerRootRef} size={size} view={view} className={cx(className)} items={items}>
-                    {itemsWithSeparator.map((item) => item)}
+                    {itemsWithSeparator.map((item, index) => (
+                        <React.Fragment key={index}>{item}</React.Fragment>
+                    ))}
                 </Root>
             );
         },
