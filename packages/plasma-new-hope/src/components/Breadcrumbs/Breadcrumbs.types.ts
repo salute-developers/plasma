@@ -3,20 +3,48 @@ import { HTMLAttributes, ReactNode } from 'react';
 export type BreadcrumbsItem =
     | {
           /**
-           * Ссылка на страницу ( если не указана, то ссылка не кликабельна )
+           * Обработчик клика на элемент
            */
-          href?: string;
-
+          onClick?: () => void;
           /**
            * Элемент заголовка
            */
           title: string;
+          /**
+           * Элемент выключен
+           */
+          disabled?: boolean;
+
+          href?: never;
+          renderItem?: never;
+      }
+    | {
+          /**
+           * Ссылка на страницу ( если не указана, то ссылка не кликабельна )
+           */
+          href?: string;
+          /**
+           * Элемент заголовка
+           */
+          title: string;
+          /**
+           * Элемент выключен
+           */
+          disabled?: boolean;
+
+          onClick?: never;
+          renderItem?: never;
       }
     | {
           /**
            * Функция рендера элемента
            */
           renderItem: () => ReactNode;
+
+          onClick?: never;
+          disabled?: never;
+          href?: never;
+          title?: never;
       };
 
 type Breadcrumbs = {

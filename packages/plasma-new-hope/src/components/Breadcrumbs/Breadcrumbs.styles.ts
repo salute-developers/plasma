@@ -13,6 +13,9 @@ const Link = component(mergedLinkConfig);
 
 export const StyledLink = styled(Link)<{ isHref: boolean }>`
     opacity: ${({ isHref }) => (isHref ? 1 : `var(${tokens.breadcrumbsOpacity})`)};
+    cursor: ${({ isHref }) => (isHref ? 'pointer' : 'auto')};
+
+    --plasma-link-disabled-opacity: var(${tokens.breadcrumbsOpacity});
 
     ${addFocus({
         outlineOffset: '0rem',
