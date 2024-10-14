@@ -1,4 +1,4 @@
-// TODO: #723 add collectPackageInfo
+// TODO: #723 Добавить collectPackageInfo
 
 export * from './mixins';
 export * from './engines';
