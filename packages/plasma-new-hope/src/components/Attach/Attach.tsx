@@ -1,4 +1,5 @@
-import React, { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import type { ChangeEvent } from 'react';
 import { useForkRef, useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
@@ -31,6 +32,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             id,
             name,
             onChange,
+            onClear,
             ...rest
         } = props;
 
@@ -133,6 +135,10 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
         const handleClear = () => {
             if (!inputRef.current) {
                 return;
+            }
+
+            if (onClear) {
+                onClear();
             }
 
             inputRef.current.value = '';
