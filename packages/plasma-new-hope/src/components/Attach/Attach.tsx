@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import type { ChangeEvent } from 'react';
 import { useForkRef, useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
@@ -28,6 +29,10 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             style,
             isLoading,
             disabled,
+            id,
+            name,
+            onChange,
+            onClear,
             ...rest
         } = props;
 
@@ -115,17 +120,25 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             inputRef.current.click();
         };
 
-        const handleChange = () => {
-            if (!inputRef.current || !inputRef.current.files) {
+        const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+            if (!e.target.files) {
                 return;
             }
 
-            setFilename(inputRef.current.files[0].name);
+            if (onChange) {
+                onChange(e);
+            }
+
+            setFilename(e.target.files[0].name);
         };
 
         const handleClear = () => {
             if (!inputRef.current) {
                 return;
+            }
+
+            if (onClear) {
+                onClear();
             }
 
             inputRef.current.value = '';
@@ -145,13 +158,11 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                     ref={inputRef}
                     accept={accept}
                     type="file"
-                    id="attachHiddenInput"
-                    name="attachHiddenInput"
+                    id={id}
+                    name={name}
                     onChange={handleChange}
                 />
-                <StyledHiddenInputHelper ref={inputHelperRef} id="attachHiddenInputHelper">
-                    {filename}
-                </StyledHiddenInputHelper>
+                <StyledHiddenInputHelper ref={inputHelperRef}>{filename}</StyledHiddenInputHelper>
 
                 <AttachButton
                     buttonType={buttonType}

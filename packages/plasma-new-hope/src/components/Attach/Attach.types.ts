@@ -27,6 +27,10 @@ export type BaseAttachProps = {
      * Вид Attach
      */
     view?: string;
+    /**
+     * Callback при удалении прикрепленного файла
+     */
+    onClear?: () => void;
 };
 
 export type AttachButtonProps = (
