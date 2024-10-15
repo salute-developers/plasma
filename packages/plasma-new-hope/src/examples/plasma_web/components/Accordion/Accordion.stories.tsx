@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { disableProps } from '@salutejs/plasma-sb-utils';
@@ -7,6 +7,8 @@ import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { accordionConfig } from '../../../../components/Accordion';
 import { Pin } from '../../../../utils/roundness';
+import { IconButton } from '../IconButton/IconButton';
+import { IconPlus } from '../../../../components/_Icon';
 
 import { config } from './Accordion.config';
 import { Accordion, AccordionItem } from './Accordion';
@@ -90,4 +92,64 @@ export const Default: StoryObj<AccordionProps> = {
             </Accordion>
         );
     },
+};
+
+const getSizeForIcon = (size) => (size === 'xs' ? 'xs' : 's');
+
+const ControlledAccordion = (props: AccordionProps) => {
+    const args = { ...props, text: undefined };
+    const [activeFirst, setActiveFirst] = useState(false);
+    const [activeSecond, setActiveSecond] = useState(false);
+    const [activeThree, setActiveThree] = useState(false);
+
+    return (
+        <Accordion {...args}>
+            <AccordionItem
+                contentRight={
+                    <IconButton view="secondary" size={args.size} onClick={() => setActiveFirst(!activeFirst)}>
+                        <IconPlus size={getSizeForIcon(args.size)} />
+                    </IconButton>
+                }
+                alignWithTitle={args.alignWithTitle}
+                type={args.type}
+                pin={args.pin}
+                title={args.title}
+                opened={activeFirst}
+            >
+                {args.body}
+            </AccordionItem>
+            <AccordionItem
+                contentRight={
+                    <IconButton view="secondary" size={args.size} onClick={() => setActiveSecond(!activeSecond)}>
+                        <IconPlus size={getSizeForIcon(args.size)} />
+                    </IconButton>
+                }
+                alignWithTitle={args.alignWithTitle}
+                type={args.type}
+                pin={args.pin}
+                title={args.title}
+                opened={activeSecond}
+            >
+                {args.body}
+            </AccordionItem>
+            <AccordionItem
+                contentRight={
+                    <IconButton view="secondary" size={args.size} onClick={() => setActiveThree(!activeThree)}>
+                        <IconPlus size={getSizeForIcon(args.size)} />
+                    </IconButton>
+                }
+                alignWithTitle={args.alignWithTitle}
+                type={args.type}
+                pin={args.pin}
+                title={args.title}
+                opened={activeThree}
+            >
+                {args.body}
+            </AccordionItem>
+        </Accordion>
+    );
+};
+
+export const Controlled: StoryObj<AccordionProps> = {
+    render: (props: AccordionProps) => ControlledAccordion(props),
 };
