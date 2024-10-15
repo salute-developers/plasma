@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
 import { addFocus, applyEllipsis } from '../../../../mixins';
-import { tokens } from '../../tokens';
+import { classes, tokens } from '../../tokens';
 
 export const base = css`
     position: relative;
@@ -10,7 +10,7 @@ export const base = css`
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    align-items: center;
+    min-width: 0;
 
     appearance: none;
     border: none;
@@ -25,9 +25,9 @@ export const base = css`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: 'var(--plasma_private-clip-outline-offset)',
         outlineColor: `var(${tokens.outlineFocusColor})`,
-        outlineRadius: 'calc(var(--plasma_private-outline-radius) + 0.063rem)',
+        outlineRadius: 'calc(var(--plasma_private-outline-radius) + var(--plasma_private-clip-outline-radius))',
         customFocusRules: `
             &.focus-visible:focus,
             &[data-focus-visible-added] {
@@ -41,8 +41,37 @@ export const base = css`
     })};
 `;
 
-export const StyledContent = styled.div`
+export const StyledContent = styled.div<{
+    hasRightMargin?: boolean;
+    hasLeftMargin?: boolean;
+    isSecondary?: boolean;
+}>`
     display: inline-block;
     width: fit-content;
+    padding: var(${tokens.itemContentPadding});
     ${applyEllipsis()};
+
+    margin-right: ${({ hasRightMargin }) => (hasRightMargin ? `var(${tokens.itemIconMargin})` : '0')};
+    margin-left: ${({ hasLeftMargin }) => (hasLeftMargin ? `var(${tokens.itemIconMargin})` : '0')};
+`;
+
+export const RightContent = styled.div`
+    display: flex;
+    margin-left: var(${tokens.itemIconMargin});
+    overflow: hidden;
+
+    color: var(${tokens.itemColor});
+
+    &.${classes.segmentAdditionalText} {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: var(${tokens.itemAdditionalColor});
+    }
+`;
+
+export const LeftContent = styled.div`
+    display: flex;
+    margin-right: var(${tokens.itemIconMargin});
+
+    color: inherit;
 `;

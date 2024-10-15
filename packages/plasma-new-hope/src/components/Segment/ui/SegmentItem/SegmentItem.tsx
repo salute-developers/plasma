@@ -12,17 +12,19 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import type { SegmentItemProps } from './SegmentItem.types';
-import { StyledContent, base } from './SegmentItem.styles';
+import { StyledContent, base, LeftContent, RightContent } from './SegmentItem.styles';
 
 export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemProps>) =>
     forwardRef<HTMLLabelElement, SegmentItemProps>((props, outerRef) => {
         const {
             size,
-            view,
+            view = 'default',
             id,
             label,
             value,
             pilled,
+            contentLeft,
+            contentRight,
             customHandleSelect,
             'aria-label': ariaLabelExternal,
             ...rest
@@ -33,8 +35,8 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
         const segmentId = id || `label-${uniqId}`;
 
         const ariaLabelDefault = useMemo(() => extractTextFrom(label), [label]);
-        const pilledAttr = view !== 'clear' && pilled;
-        const pilledClass = pilledAttr ? classes.segmentPilled : undefined;
+        const pilledClass = pilled ? classes.segmentPilled : undefined;
+        const xsSize = size === 'xs' ? classes.segmentXsSize : undefined;
 
         const isSelected = selectedSegmentItems?.includes(value || ariaLabelDefault);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
@@ -48,7 +50,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
                 customHandleSelect?.(event);
                 handleSelect?.(value || ariaLabelDefault);
             },
-            [selectionMode],
+            [selectionMode, disabledGroup],
         );
 
         return (
@@ -59,14 +61,20 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
                 ref={outerRef}
                 aria-label={ariaLabelExternal || ariaLabelDefault}
                 value={value}
-                pilled={pilledAttr}
-                className={cx(selectedClass, pilledClass)}
+                pilled={pilled}
+                className={cx(selectedClass, pilledClass, xsSize)}
                 onClick={handleSelectSegment}
                 tabIndex={disabledGroup ? -1 : 0}
                 disabled={disabledGroup}
                 {...rest}
             >
+                {contentLeft && <LeftContent>{contentLeft}</LeftContent>}
                 <StyledContent>{label || value}</StyledContent>
+                {contentRight && (
+                    <RightContent className={typeof contentRight === 'string' ? classes.segmentAdditionalText : ''}>
+                        {contentRight}
+                    </RightContent>
+                )}
             </Root>
         );
     });
@@ -93,7 +101,7 @@ export const segmentItemConfig = {
         },
     },
     defaults: {
-        view: 'clear',
+        view: 'default',
         size: 'xs',
     },
 };

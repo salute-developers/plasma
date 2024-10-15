@@ -1,23 +1,55 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { segmentGroupConfig } from '../../../../components/Segment';
 import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { SegmentProvider } from '../../../../components/Segment/SegmentProvider';
+import { Counter } from '../Counter/Counter';
+import { IconMic } from '../../../../components/_Icon';
 
 import { config } from './SegmentGroup.config';
 import { SegmentItem, SegmentGroup } from './Segment';
 
-const segmentItemViews = ['clear', 'default', 'secondary'];
+const contentLeftOptions = ['none', 'icon'];
+const contentRightOptions = ['none', 'text', 'counter', 'icon'];
 
-type CustomStorySegmentProps = {
-    segmentItemView?: string;
-    contentItemsNumber?: number;
+const segmentItemViews = ['default', 'secondary'];
+type Size = typeof sizes[number];
+
+type CustomStoryProps = {
+    itemQuantity: number;
+    contentLeft: string;
+    contentRight: string;
+    segmentItemView?: 'default' | 'secondary';
 };
 
-type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStorySegmentProps;
+type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
+
+const sizes = ['xs', 's', 'm', 'l'] as const;
+
+const getContentLeft = (contentLeftOption: string, size: Size) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    return contentLeftOption === 'icon' ? <IconMic size={iconSize} color="inherit" /> : undefined;
+};
+
+const getContentRight = (contentRightOption: string, size: Size) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    const counterSize = size === 'xs' ? 'xxs' : 'xs';
+
+    switch (contentRightOption) {
+        case 'icon':
+            return <IconMic size={iconSize} color="inherit" />;
+        case 'counter':
+            return <Counter size={counterSize} count={1} view="positive" />;
+        case 'text':
+            return 'Text';
+        default:
+            return undefined;
+    }
+};
 
 const meta: Meta<StorySegmentProps> = {
     title: 'plasma_b2c/Segment',
@@ -25,6 +57,19 @@ const meta: Meta<StorySegmentProps> = {
     component: SegmentGroup,
     argTypes: {
         ...argTypesFromConfig(mergeConfig(segmentGroupConfig, config)),
+        ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip']),
+        stretch: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'orientation', eq: 'horizontal' },
+        },
+        orientation: {
+            options: ['horizontal', 'vertical'],
+            control: {
+                type: 'select',
+            },
+        },
         selectionMode: {
             options: ['single', 'multiple'],
             control: {
@@ -37,60 +82,91 @@ const meta: Meta<StorySegmentProps> = {
                 type: 'select',
             },
         },
+        contentLeft: {
+            options: contentLeftOptions,
+            control: {
+                type: 'select',
+            },
+        },
+        contentRight: {
+            options: contentRightOptions,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
 export default meta;
 
-const StoryDefault = ({ contentItemsNumber, selectionMode, segmentItemView, view, ...args }: StorySegmentProps) => {
-    const contentItems = Array(contentItemsNumber).fill(0);
+const StoryDefault = (props: StorySegmentProps) => {
+    const {
+        disabled,
+        itemQuantity,
+        size,
+        stretch,
+        orientation,
+
+        segmentItemView,
+        contentLeft: contentLeftOption,
+        contentRight: contentRightOption,
+        ...args
+    } = props;
+    const items = Array(itemQuantity).fill(0);
+    const isVertical = orientation === 'vertical';
 
     return (
-        <>
-            <h3>Segment with auto width</h3>
-            <SegmentProvider>
-                <SegmentGroup view={view} selectionMode={selectionMode} {...args}>
-                    {contentItems.map((_, i) => (
-                        <SegmentItem
-                            view={segmentItemView}
-                            label={`Label ${i}`}
-                            value={`label_${i}`}
-                            key={`label_${i}`}
-                            {...args}
-                        />
-                    ))}
-                </SegmentGroup>
-            </SegmentProvider>
-
-            <h3>Segment with fixed width</h3>
-            <SegmentProvider>
-                <SegmentGroup view={view} style={{ width: '28.5rem' }} selectionMode={selectionMode} {...args}>
-                    {contentItems.map((_, i) => (
-                        <SegmentItem
-                            view={segmentItemView}
-                            label={`Label ${i}`}
-                            value={`label_${i}`}
-                            key={`label_${i}`}
-                            {...args}
-                        />
-                    ))}
-                </SegmentGroup>
-            </SegmentProvider>
-        </>
+        <SegmentProvider>
+            <SegmentGroup
+                stretch={stretch}
+                disabled={disabled}
+                clip={false}
+                size={size}
+                orientation={orientation}
+                {...args}
+            >
+                {items.map((_, i) => (
+                    <SegmentItem
+                        view={segmentItemView}
+                        label={`Label ${i}`}
+                        value={`label_${i}`}
+                        size={size}
+                        key={`label_${i}`}
+                        contentLeft={getContentLeft(contentLeftOption, size)}
+                        contentRight={getContentRight(contentRightOption, size)}
+                        {...args}
+                    >
+                        {`Label${i + 1}`}
+                    </SegmentItem>
+                ))}
+            </SegmentGroup>
+        </SegmentProvider>
     );
 };
 
 export const Default: StoryObj<StorySegmentProps> = {
     args: {
-        view: 'clear',
+        itemQuantity: 8,
         size: 'xs',
-        segmentItemView: 'clear',
+        segmentItemView: 'default',
         selectionMode: 'single',
-        contentItemsNumber: 11,
         pilled: false,
         filledBackground: false,
+        hasBackground: false,
         disabled: false,
         stretch: false,
+        orientation: 'horizontal',
+        contentRight: 'none',
+        contentLeft: 'none',
     },
-    render: (args) => <StoryDefault {...args} />,
+    argTypes: {
+        ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip']),
+    },
+    render: (args: StorySegmentProps) => <StoryDefault {...args} />,
 };
