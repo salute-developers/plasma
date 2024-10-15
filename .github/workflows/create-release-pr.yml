@@ -11,7 +11,7 @@ on:
 jobs:
   release-pr:
     name: Create release PR with changelog
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04.5
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       
