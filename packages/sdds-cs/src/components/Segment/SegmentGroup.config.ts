@@ -8,36 +8,20 @@ export const config = {
     variations: {
         view: {
             clear: css`
+                ${segmentTokens.arrowColor}: var(--text-accent);
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.arrowColor}: var(--text-secondary);
-
                 ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             filled: css`
+                ${segmentTokens.arrowColor}: var(--text-accent);
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.arrowColor}: var(--text-secondary);
-
                 ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
         },
         size: {
-            xs: css`
-                ${segmentTokens.groupBorderRadius}: 0.5rem;
-                ${segmentTokens.groupWidth}: auto;
-                ${segmentTokens.groupHeight}: auto;
-            `,
             s: css`
-                ${segmentTokens.groupBorderRadius}: 0.625rem;
-                ${segmentTokens.groupWidth}: auto;
-                ${segmentTokens.groupHeight}: auto;
-            `,
-            m: css`
                 ${segmentTokens.groupBorderRadius}: 0.75rem;
-                ${segmentTokens.groupWidth}: auto;
-                ${segmentTokens.groupHeight}: auto;
-            `,
-            l: css`
-                ${segmentTokens.groupBorderRadius}: 0.75rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.375rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
             `,
@@ -48,17 +32,18 @@ export const config = {
             `,
         },
         pilled: {
-            true: css`
-                ${segmentTokens.groupPilledBorderRadius}: 1.75rem;
-            `,
-        },
-        filledBackground: {
-            true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-transparent-primary);
-            `,
+            true: css``,
         },
         stretch: {
             true: css``,
+        },
+        filledBackground: {
+            true: css`
+                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-solid-primary);
+            `,
+        },
+        orientation: {
+            vertical: css``,
         },
     },
 };

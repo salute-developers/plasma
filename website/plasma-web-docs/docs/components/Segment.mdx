@@ -23,17 +23,17 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 ### Провайдер контекста
 
-Оберните в `SegmentProvider` компонент, в котором будут использованы SegmentGroup с SegmentItem. 
+Оберните в `SegmentProvider` компонент, в котором будут использованы SegmentGroup с SegmentItem.
 Внутри данного провайдера есть доступ к хуку `useSegment`.
 
 ### Выбранные по умолчанию SegmentItem
 
-Можно задать выбранные по умолчанию сегменты с помощью свойства `defaultSelected`. 
-Оно передается в `SegmentProvider`, в виде массива `value` элеметов.
+Можно задать выбранные по умолчанию сегменты с помощью свойства `defaultSelected`.
+Оно передается в `SegmentProvider`, в виде массива `value` элементов.
 
 ```tsx live
-import React, { useState } from 'react';
-import { SegmentGroup, SegmentItem, SegmentProvider } from '@salutejs/plasma-web';
+import React from 'react';
+import { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/plasma-web';
 
 export function App() {
     const items = Array(8).fill(0);
@@ -43,8 +43,9 @@ export function App() {
 
         return (
             <>
-                <div>Выбранные элементы: {selectedSegmentItems.join(', ')}</div>
-                <SegmentGroup view='filled' selectionMode='multiple' filledBackground pilled>
+                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>
+                <br />
+                <SegmentGroup hasBackground pilled clip={false}>
                     {items.map((_, i) => (
                         <SegmentItem
                             label={`Label ${i}`}
@@ -52,6 +53,48 @@ export function App() {
                             key={`label_${i}`}
                             view='default'
                             pilled
+                        />
+                    ))}
+                </SegmentGroup>
+            </>
+        )
+    }
+
+    return (
+        <div style={{ display: "block" }} >
+            <SegmentProvider defaultSelected={['label_1']}>
+                <SegmentTemplate/>
+            </SegmentProvider>
+        </div>
+    );
+}
+```
+
+### Вертикальное отображение
+
+Для смены ориентации передаем `orientation: 'vertical'`
+
+```tsx live
+import React from 'react';
+import { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/plasma-web';
+
+export function App() {
+    const items = Array(8).fill(0);
+
+    const SegmentTemplate = () => {
+        const {selectedSegmentItems} = useSegment();
+
+        return (
+            <>
+                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>
+                <br />
+                <SegmentGroup hasBackground clip={false}>
+                    {items.map((_, i) => (
+                        <SegmentItem
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            view='secondary'
                         />
                     ))}
                 </SegmentGroup>

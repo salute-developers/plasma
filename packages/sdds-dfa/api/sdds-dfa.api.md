@@ -2350,21 +2350,16 @@ true: PolymorphicClassName;
 pilled: {
 true: PolymorphicClassName;
 };
-filledBackground: {
-true: PolymorphicClassName;
-};
 stretch: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
-selectionMode?: "multiple" | "single" | undefined;
-disabled?: boolean | undefined;
-stretch?: boolean | undefined;
-pilled?: boolean | undefined;
-filledBackground?: boolean | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+filledBackground: {
+true: PolymorphicClassName;
+};
+orientation: {
+vertical: PolymorphicClassName;
+};
+}> & SegmentGroupProps & RefAttributes<HTMLDivElement>>;
 
 export { SegmentGroupProps }
 
@@ -2372,8 +2367,8 @@ export { SegmentGroupProps }
 export const SegmentItem: FunctionComponent<PropsType<    {
 view: {
 clear: PolymorphicClassName;
-default: PolymorphicClassName;
 secondary: PolymorphicClassName;
+default: PolymorphicClassName;
 };
 size: {
 xs: PolymorphicClassName;
@@ -2395,6 +2390,8 @@ pilled?: boolean | undefined;
 customHandleSelect?: ((e: MouseEvent_2<HTMLButtonElement, MouseEvent>) => void) | undefined;
 size?: string | undefined;
 view?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
 } & RefAttributes<HTMLLabelElement>>;
 
 export { SegmentItemProps }
