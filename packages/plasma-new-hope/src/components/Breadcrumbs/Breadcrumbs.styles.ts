@@ -14,10 +14,7 @@ const Link = component(mergedLinkConfig);
 export const StyledLink = styled(Link)<{ isHref: boolean }>`
     opacity: ${({ isHref }) => (isHref ? 1 : `var(${tokens.breadcrumbsOpacity})`)};
     cursor: ${({ isHref }) => (isHref ? 'pointer' : 'auto')};
-    color: ${({ isHref }) =>
-        isHref
-            ? `var(${tokens.breadcrumbsColor})`
-            : `var(${tokens.breadcrumbsColorText}, var(${tokens.breadcrumbsColor}))`};
+    color: ${({ isHref }) => (isHref ? `var(${tokens.breadcrumbsColor})` : `var(${tokens.breadcrumbsColorText})`)};
 
     --plasma-link-disabled-opacity: var(${tokens.breadcrumbsOpacity});
 
@@ -45,6 +42,6 @@ export const base = css`
 `;
 
 export const Separator = styled(IconDisclosureRight)`
-    color: var(${tokens.breadcrumbsColorSeparator}, var(${tokens.breadcrumbsColor}));
+    color: var(${tokens.breadcrumbsColorSeparator});
     opacity: var(${tokens.breadcrumbsOpacity});
 `;

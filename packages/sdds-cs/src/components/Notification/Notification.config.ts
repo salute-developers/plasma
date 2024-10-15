@@ -35,7 +35,7 @@ export const config = {
 
                 ${notificationTokens.contentLeftIconSize}: 1.5rem;
                 ${notificationTokens.contentLeftIconMargin}: 0.375rem;
-                ${notificationTokens.contentTopIconMargin}: 0.5rem;
+                ${notificationTokens.contentTopIconMargin}: 0.25rem;
 
                 ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${notificationTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
@@ -70,7 +70,7 @@ export const config = {
                 ${notificationTokens.closeIconTop}: 0.5rem;
                 ${notificationTokens.closeIconRight}: 0.5rem;
 
-                ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.padding}: 0.75rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
@@ -84,7 +84,7 @@ export const config = {
                 ${notificationTokens.closeIconTop}: 0.8125rem;
                 ${notificationTokens.closeIconRight}: 1rem;
 
-                ${notificationTokens.padding}: 0.5625rem 1rem 1rem 1rem;
+                ${notificationTokens.padding}: 0.75rem 1rem 1rem 1rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;
 
                 ${notificationTokens.contentPaddingTop}: 0.25rem;

@@ -138,8 +138,8 @@ export const config = {
                 ${tabsTokens.itemColorActive}: var(--text-secondary);
                 ${tabsTokens.itemValueColorActive}: var(--text-secondary);
                 ${tabsTokens.itemSelectedColor}: var(--text-secondary);
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-secondary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-secondary);
+                ${tabsTokens.itemSelectedDividerColor}: none;
+                ${tabsTokens.itemSelectedDividerColorHover}: none;
             `,
         },
         pilled: {

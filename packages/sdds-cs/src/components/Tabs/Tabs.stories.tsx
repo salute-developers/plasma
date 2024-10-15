@@ -32,7 +32,7 @@ const getContentLeft = (contentLeftOption: string, size: Size) => {
     return contentLeftOption === 'icon' ? <IconPlasma size={iconSize} color="inherit" /> : undefined;
 };
 
-const getContentRight = (contentRightOption: string, size: Size) => {
+const getContentRight = (contentRightOption: string, size: Size, disabled?: boolean) => {
     const iconSize = 's';
     const counterSize = 's';
 
@@ -40,7 +40,7 @@ const getContentRight = (contentRightOption: string, size: Size) => {
         case 'icon':
             return <IconPlasma size={iconSize} color="inherit" />;
         case 'counter':
-            return <Counter size={counterSize} count={1} view="positive" />;
+            return <Counter size={counterSize} count={1} view={disabled ? 'default' : 'positive'} />;
         default:
             return undefined;
     }
@@ -129,7 +129,7 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
                         tabIndex={!disabled ? 0 : -1}
                         disabled={disabled}
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                        contentRight={getContentRight(contentRightOption, size as Size)}
+                        contentRight={getContentRight(contentRightOption, size as Size, disabled)}
                         size={size as Size}
                     >
                         {`Label${i + 1}`}
