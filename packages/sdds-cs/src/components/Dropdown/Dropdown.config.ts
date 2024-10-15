@@ -46,6 +46,7 @@ export const config = {
                 ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${dropdownTokens.itemColor}: var(--text-primary);
                 ${dropdownTokens.disclosureIconColor}: var(--text-accent);
+                ${dropdownTokens.dividerColor}: var(--surface-solid-primary);
             `,
         },
     },

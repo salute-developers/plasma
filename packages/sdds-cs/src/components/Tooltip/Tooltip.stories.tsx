@@ -72,12 +72,6 @@ const StoryDefault = (props: Pick<TooltipProps, 'hasArrow' | 'size' | 'usePortal
 
 export const Default: StoryObj<TooltipProps> = {
     argTypes: {
-        size: {
-            options: ['s'],
-            control: {
-                type: 'select',
-            },
-        },
         ...disableProps([
             'target',
             'children',
@@ -140,12 +134,6 @@ export const Live: StoryObj<TooltipProps> = {
             },
             mapping: placements,
         },
-        size: {
-            options: ['s'],
-            control: {
-                type: 'select',
-            },
-        },
         ...disableProps([
             'target',
             'children',
@@ -159,6 +147,7 @@ export const Live: StoryObj<TooltipProps> = {
             'zIndex',
             'contentLeft',
             'onDismiss',
+            'size',
         ]),
     },
     args: {
