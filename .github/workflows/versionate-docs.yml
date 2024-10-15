@@ -11,7 +11,7 @@ concurrency:
 jobs:
   versionate_docs:
     name: Versionate docs
-    runs-on: ubuntu-22.04.5
+    runs-on: ubuntu-22.04
     
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
