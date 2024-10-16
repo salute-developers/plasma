@@ -1,12 +1,14 @@
 import React, { useRef, forwardRef, KeyboardEvent } from 'react';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
-import type { DraggableData } from 'react-draggable';
 
+import { cx } from '../../../../utils';
 import { getSliderThumbValue, getOffsets } from '../../utils';
 import { Thumb } from '../Thumb/Thumb';
+import { classes } from '../../Slider.tokens';
 
 import type { HandlerProps } from './Handler.types';
 import { HandlerStyled, StyledValue } from './Handler.styles';
+import { computeKeyPressData } from './computeKeyPressData';
 
 // TODO: PLASMA-1707
 declare module 'react-draggable' {
@@ -15,24 +17,15 @@ declare module 'react-draggable' {
     }
 }
 
-const KeyboardSupport = {
-    PageUp: 33,
-    PageDown: 34,
-    End: 35,
-    Home: 36,
-    ArrowLeft: 37,
-    ArrowUp: 38,
-    ArrowRight: 39,
-    ArrowDown: 40,
-};
-
 export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
     (
         {
+            size,
+            orientation,
             stepSize,
             onChangeCommitted,
             onChange,
-            xPosition = 0,
+            position = 0,
             min,
             max,
             bounds = [],
@@ -43,32 +36,36 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
             startOffset = 0,
             endOffset = 0,
             value,
+            valuePlacement,
             ...rest
         },
         ref,
     ) => {
+        const isVertical = orientation === 'vertical';
+
         const lastOnChangeValue = useRef<number>();
+        const [startClientOffset, endClientOffset] = getOffsets(ref, side, isVertical);
 
-        const [offsetLeft, offsetRight] = getOffsets(ref, side);
+        const [startValueBound, endValueBound] = bounds;
+        const startPositionBound = startValueBound ? (startValueBound - min) * stepSize : null;
+        const endPositionBound = endValueBound ? (endValueBound - min) * stepSize : null;
 
-        const [leftValueBound, rightValueBound] = bounds;
-        const leftPositionBound = leftValueBound ? (leftValueBound - min) * stepSize : null;
-        const rightPositionBound = rightValueBound ? (rightValueBound - min) * stepSize : null;
-
-        const position = typeof xPosition === 'number' ? { x: xPosition, y: 0 } : undefined;
+        const dragPosition =
+            typeof position === 'number' ? { x: isVertical ? 0 : position, y: isVertical ? position : 0 } : undefined;
         const tabIndex = disabled ? -1 : 0;
 
         const computedBounds = {
-            left: (leftPositionBound ?? 0) - (offsetLeft ? stepSize : 0),
-            right: (rightPositionBound ?? stepSize * (max - min)) - (offsetRight ? stepSize : 0),
+            [isVertical ? 'top' : 'left']: (startPositionBound ?? 0) - (startClientOffset ? stepSize : 0),
+            [isVertical ? 'bottom' : 'right']:
+                (endPositionBound ?? stepSize * (max - min)) - (endClientOffset ? stepSize : 0),
         };
 
         const showCurrentValueCondition =
             showCurrentValue &&
-            ((xPosition >= startOffset && xPosition <= max * stepSize - endOffset) || (xPosition === 0 && value !== 0));
+            ((position >= startOffset && position <= max * stepSize - endOffset) || (position === 0 && value !== 0));
 
         const onDrag: DraggableEventHandler = (_, data) => {
-            const newValue = getSliderThumbValue(data.x, stepSize, min, max);
+            const newValue = getSliderThumbValue(isVertical ? data.y : data.x, stepSize, min, max);
             if (lastOnChangeValue.current !== newValue) {
                 onChange?.(newValue, data);
                 lastOnChangeValue.current = newValue;
@@ -76,69 +73,38 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
         };
 
         const onStop: DraggableEventHandler = (_, data) => {
-            const newValue = getSliderThumbValue(data.x, stepSize, min, max);
+            const newValue = getSliderThumbValue(isVertical ? data.y : data.x, stepSize, min, max);
             onChangeCommitted && onChangeCommitted(newValue, data);
         };
 
         const onKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
             event.persist();
 
-            const { keyCode, target } = event;
+            const computedMultipleSteps = stepSize * ((rest.multipleStepSize / 100) * max);
 
-            if (!Object.values(KeyboardSupport).includes(keyCode)) {
+            const data = computeKeyPressData(event, {
+                isVertical,
+                stepSize,
+                position,
+                max,
+                computedMultipleSteps,
+            });
+
+            if (!data) {
                 return;
             }
 
-            const { ArrowUp, ArrowRight, ArrowDown, ArrowLeft, Home, End, PageDown, PageUp } = KeyboardSupport;
-
-            const computedMultipleSteps = stepSize * ((rest.multipleStepSize / 100) * max);
-
-            const data: DraggableData = {
-                x: 0,
-                deltaX: stepSize,
-                lastX: xPosition,
-                y: 0,
-                deltaY: 0,
-                lastY: 0,
-                node: target as HTMLDivElement,
-            };
-
-            switch (keyCode) {
-                case ArrowUp:
-                case ArrowRight:
-                    data.x = xPosition + stepSize;
-                    break;
-                case ArrowDown:
-                case ArrowLeft:
-                    data.x = xPosition - stepSize;
-                    data.deltaX = -stepSize;
-                    break;
-                case PageUp:
-                    data.x = xPosition + computedMultipleSteps;
-                    data.deltaX = computedMultipleSteps;
-                    break;
-                case PageDown:
-                    data.x = xPosition - computedMultipleSteps;
-                    data.deltaX = -computedMultipleSteps;
-                    break;
-                case End:
-                    data.x = max * stepSize;
-                    break;
-                case Home:
-                    data.x = 0;
-                    break;
-                default:
-                    data.x = 0;
-            }
-
-            const { left, right } = computedBounds;
+            const { left, right, top, bottom } = computedBounds;
 
             /*
              * INFO: Находим значение в диапазоне между указанными левой и правой границами.
+             * Или между верхней и нижней
              * Необходимо для правильного расчета положения SliderThumb.
              * см. функция clamp
              */
-            const boundedValue = Math.max(Math.min(right, data.x), left);
+            const boundedValue = isVertical
+                ? Math.max(Math.min(bottom, data.y), top)
+                : Math.max(Math.min(right, data.x), left);
 
             const computedValue = getSliderThumbValue(boundedValue, stepSize, min, max);
             lastOnChangeValue.current = computedValue;
@@ -148,16 +114,35 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
 
         return (
             <Draggable
-                axis="x"
+                axis={isVertical ? 'y' : 'x'}
                 bounds={computedBounds}
-                grid={[stepSize, 1]}
+                grid={isVertical ? [1, stepSize] : [stepSize, 1]}
                 onStop={onStop}
                 onDrag={onDrag}
-                position={position}
+                position={dragPosition}
                 disabled={disabled}
             >
-                <HandlerStyled ref={ref} style={{ zIndex }} onKeyDown={onKeyPress}>
-                    <Thumb tabIndex={tabIndex} min={min} max={max} value={value} disabled={disabled} {...rest} />
+                <HandlerStyled
+                    ref={ref}
+                    style={{ zIndex }}
+                    className={cx(
+                        isVertical && classes.verticalOrientation,
+                        valuePlacement === 'left' && classes.valuePlacementLeft,
+                    )}
+                    isLarge={size === 'large'}
+                    onKeyDown={onKeyPress}
+                >
+                    {size !== 'none' && (
+                        <Thumb
+                            tabIndex={tabIndex}
+                            min={min}
+                            max={max}
+                            value={value}
+                            disabled={disabled}
+                            orientation={orientation}
+                            {...rest}
+                        />
+                    )}
                     {showCurrentValueCondition && <StyledValue>{value}</StyledValue>}
                 </HandlerStyled>
             </Draggable>
