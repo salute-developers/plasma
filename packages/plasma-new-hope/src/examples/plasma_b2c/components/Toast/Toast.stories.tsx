@@ -44,6 +44,10 @@ const BellIcon = (props) => (
     </svg>
 );
 
+const StyledWrapper = styled.div`
+    height: 100vh;
+`;
+
 const ToastContainer = styled.div`
     position: fixed;
     transform: translateX(50%);
@@ -202,11 +206,13 @@ const StoryComplex = ({
     return (
         <NotificationsProvider>
             <PopupProvider>
-                <Button text="Открыть модальное окно" onClick={() => setIsModalOpen(true)} />
-                <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    <div>Hello!</div>
-                    <Button view="default" text="Add notification" onClick={handleShowNotification} />
-                </Modal>
+                <StyledWrapper>
+                    <Button text="Открыть модальное окно" onClick={() => setIsModalOpen(true)} />
+                    <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                        <div>Hello!</div>
+                        <Button view="default" text="Add notification" onClick={handleShowNotification} />
+                    </Modal>
+                </StyledWrapper>
             </PopupProvider>
         </NotificationsProvider>
     );

@@ -86,11 +86,11 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledWrapper = styled.div`
-    height: 1200px;
+    height: 100vh;
 `;
 
 const Content = styled.div`
-    background: var(--plasma-colors-surface-solid02);
+    background: var(--surface-solid-secondary);
     padding: 1rem;
 `;
 
@@ -376,26 +376,28 @@ const StoryModalAnimationDemo = ({ placement, offsetX, offsetY, ...rest }: Story
 
     return (
         <SSRProvider>
-            <PopupProvider>
-                <Button view="default" text="Открыть новое модальное окно" onClick={() => setIsOpen(!isOpen)} />
-                <StyledModalAnimation
-                    id="modal"
-                    frame="theme-root"
-                    withAnimation
-                    onClose={() => setIsOpen(false)}
-                    opened={isOpen}
-                    placement={placement}
-                    offset={[offsetX, offsetY]}
-                    initialFocusRef={ref}
-                    {...rest}
-                >
-                    <Content>
-                        <TextField value="Text" onChange={() => {}} />
-                        <TextField ref={ref} value="Text2" onChange={() => {}} />
-                        <Button text="Закрыть" onClick={close} />
-                    </Content>
-                </StyledModalAnimation>
-            </PopupProvider>
+            <StyledWrapper>
+                <PopupProvider>
+                    <Button view="default" text="Открыть новое модальное окно" onClick={() => setIsOpen(!isOpen)} />
+                    <StyledModalAnimation
+                        id="modal"
+                        frame="theme-root"
+                        withAnimation
+                        onClose={() => setIsOpen(false)}
+                        opened={isOpen}
+                        placement={placement}
+                        offset={[offsetX, offsetY]}
+                        initialFocusRef={ref}
+                        {...rest}
+                    >
+                        <Content>
+                            <TextField value="Text" onChange={() => {}} />
+                            <TextField ref={ref} value="Text2" onChange={() => {}} />
+                            <Button text="Закрыть" onClick={close} />
+                        </Content>
+                    </StyledModalAnimation>
+                </PopupProvider>
+            </StyledWrapper>
         </SSRProvider>
     );
 };

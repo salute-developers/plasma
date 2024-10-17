@@ -29,7 +29,7 @@ export const config = {
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
                 ${tokens.textFieldBorderColor}: var(--surface-transparent-tertiary);
-                ${tokens.textFieldBorderColorHover}: var(--plasma-colors-secondary);
+                ${tokens.textFieldBorderColorHover}: var(--text-secondary);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -46,8 +46,8 @@ export const config = {
 
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.itemBackground}: var(--plasma-colors-transparent);
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemBackground}: transparent;
+                ${tokens.itemBackgroundHover}: var(--surface-solid-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
@@ -90,7 +90,7 @@ export const config = {
 
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.itemBackground}: var(--plasma-colors-transparent);
+                ${tokens.itemBackground}: transparent;
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
@@ -134,7 +134,7 @@ export const config = {
 
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.itemBackground}: var(--plasma-colors-transparent);
+                ${tokens.itemBackground}: transparent;
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
@@ -178,7 +178,7 @@ export const config = {
 
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.itemBackground}: var(--plasma-colors-transparent);
+                ${tokens.itemBackground}: transparent;
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
@@ -459,7 +459,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
