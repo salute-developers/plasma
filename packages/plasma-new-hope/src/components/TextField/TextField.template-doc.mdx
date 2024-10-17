@@ -125,7 +125,8 @@ export function App() {
 ```
 
 ### Подсказка
-Для вывода подсказки снизу от поля используйте свойство `helperText`:
+Для вывода подсказки снизу от поля используйте свойство `helperText`,
+для подсказки в виде Tooltip - `hintText`, для подсказки сверху справа - `titleCaption`:
 
 ```tsx live
 import React from 'react';
@@ -138,6 +139,10 @@ export function App() {
                 placeholder="Введите значение"
                 defaultValue="Значение"
                 helperText="Подсказка снизу"
+                titleCaption="Подсказка сверху"
+                hintText="Подсказка в виде Tooltip"
+                hintView="default"
+                hintSize="m"
             />
         </div>
     );

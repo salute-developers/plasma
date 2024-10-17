@@ -1,9 +1,13 @@
+import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { textAreaConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import type { TextAreaProps } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './TextArea.config';
 
 const mergedConfig = mergeConfig(textAreaConfig, config);
-const TextAreaComponent = component(mergedConfig);
+const TextAreaComponent = component(mergedConfig) as ForwardRefExoticComponent<
+    TextAreaProps & RefAttributes<HTMLTextAreaElement>
+>;
 
 /**
  * Поле ввода многострочного текста.

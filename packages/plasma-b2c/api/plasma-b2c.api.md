@@ -160,7 +160,6 @@ import { InputHTMLAttributes as InputHTMLAttributes_3 } from 'react';
 import type { ItemOption } from '@salutejs/plasma-new-hope';
 import { ItemOption as ItemOption_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { JSXElementConstructor } from 'react';
-import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { List } from '@salutejs/plasma-hope';
@@ -197,6 +196,9 @@ import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import type { PopoverPlacement as PopoverPlacement_2 } from '@salutejs/plasma-new-hope';
+import type { PopoverPlacementBasic } from '@salutejs/plasma-new-hope';
+import type { PopoverPlacementBasic as PopoverPlacementBasic_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { PopoverProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopoverTrigger } from '@salutejs/plasma-new-hope/styled-components';
 import { Popup } from '@salutejs/plasma-hope';
@@ -286,9 +288,9 @@ import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components';
-import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import type { TextFieldProps as TextFieldProps_2 } from '@salutejs/plasma-hope';
+import type { TextFieldProps as TextFieldProps_3 } from '@salutejs/plasma-new-hope/styled-components';
 import { TextFieldPropsBase } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextFieldView } from '@salutejs/plasma-hope';
 import { TextSkeletonBaseProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/TextSkeleton/TextSkeleton.types';
@@ -1882,431 +1884,7 @@ export { List }
 export { ListItem }
 
 // @public (undocumented)
-export const Mask: ForwardRefExoticComponent<(Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref">) & RefAttributes<HTMLInputElement>>;
+export const Mask: ForwardRefExoticComponent<(TextFieldProps_3 & MaskProps) & RefAttributes<HTMLInputElement>>;
 
 export { MaxLinesProps }
 
@@ -3123,11 +2701,13 @@ export { TextareaHTMLAttributes }
 
 // Warning: (ae-forgotten-export) The symbol "RequiredProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ClearProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "HintProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
 export type TextAreaProps = TextAreaProps_2 & {
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-} & RequiredProps & ClearProps;
+    titleCaption?: ReactNode;
+} & RequiredProps & ClearProps & RequiredProps & HintProps;
 
 export { TextareaResize }
 
@@ -3182,9 +2762,10 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "RequiredProps_2" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ClearProps_2" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "HintProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>) & RequiredProps_2 & ClearProps_2;
+export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips' | 'titleCaption'>) & RequiredProps_2 & ClearProps_2 & HintProps_2;
 
 export { TextFieldView }
 

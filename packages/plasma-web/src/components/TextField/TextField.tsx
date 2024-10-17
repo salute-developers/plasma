@@ -1,11 +1,18 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react';
 import type { TextFieldProps as TextFieldPropsOld } from '@salutejs/plasma-hope';
 import { textFieldConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import type {
+    PopoverPlacement,
+    PopoverPlacementBasic,
+    TextFieldProps as NewTextFieldProps,
+} from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './TextField.config';
 
 const mergedConfig = mergeConfig(textFieldConfig, config);
-export const TextFieldComponent = component(mergedConfig);
+export const TextFieldComponent = component(mergedConfig) as ForwardRefExoticComponent<
+    NewTextFieldProps & RefAttributes<HTMLInputElement>
+>;
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
 
@@ -60,10 +67,69 @@ type ClearProps =
           hasDivider?: never;
       };
 
-type TextFieldProps = TextFieldPropsOld & RequiredProps & ClearProps;
+type HintProps =
+    | {
+          /**
+           * Текст тултипа
+           */
+          hintText: string;
+          /**
+           * Способ открытия тултипа - наведение или клик мышью
+           */
+          hintTrigger?: 'hover' | 'click';
+          /**
+           * Вид тултипа
+           */
+          hintView?: 'default' | 'onDark' | 'onLight' | 'inverse';
+          /**
+           * Размер тултипа
+           */
+          hintSize?: 's' | 'm';
+          /**
+           * Элемент, рядом с которым произойдет вызов всплывающего окна.
+           * Если свойство не задано, применится иконка по умолчанию.
+           */
+          hintTarget?: ReactNode;
+          /**
+           * Направление раскрытия тултипа.
+           */
+          hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+          /**
+           * Видимость стрелки (хвоста).
+           */
+          hintHasArrow?: boolean;
+          /**
+           * Отступ окна относительно элемента, у которого оно вызвано.
+           * @default
+           * [0, 8]
+           */
+          hintOffset?: [number, number];
+          /**
+           * Ширина окна (в rem).
+           */
+          hintWidth?: string;
+          /**
+           * Слот для контента слева, например `Icon`.
+           */
+          hintContentLeft?: ReactNode;
+      }
+    | {
+          hintTrigger?: never;
+          hintText?: never;
+          hintView?: never;
+          hintSize?: never;
+          hintTarget?: never;
+          hintPlacement?: never;
+          hintHasArrow?: never;
+          hintOffset?: never;
+          hintWidth?: never;
+          hintContentLeft?: never;
+      };
+
+type TextFieldProps = TextFieldPropsOld & RequiredProps & ClearProps & HintProps;
 
 export type CustomTextFieldProps = TextFieldProps &
-    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>;
+    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips' | 'titleCaption'>;
 
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {
     success: 'positive',
@@ -89,6 +155,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         placeholder,
         animatedHint,
         helperText,
+        hintText,
 
         enumerationType,
         chips,
@@ -127,6 +194,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
                 ref={ref}
                 enumerationType="chip"
                 chips={chips}
+                hintText={String(hintText || '')}
                 onChangeChips={onChangeChips}
             />
         );
@@ -143,6 +211,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
             leftHelper={helperText}
             ref={ref}
             enumerationType="plain"
+            hintText={String(hintText || '')}
             onSearch={onSearch}
         />
     );
