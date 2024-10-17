@@ -220,6 +220,7 @@ import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
+import { ViewContainerCustomProps } from '@salutejs/plasma-new-hope/types/components/ViewContainer/ViewContainer';
 import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 
 // @public (undocumented)
@@ -3548,6 +3549,14 @@ export { usePopupContext }
 export { useSegment }
 
 export { useToast }
+
+// @public (undocumented)
+export const ViewContainer: FunctionComponent<PropsType<    {
+view: {
+onDark: PolymorphicClassName;
+onLight: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & ViewContainerCustomProps & RefAttributes<HTMLAnchorElement>>;
 
 export { withSkeleton }
 
