@@ -38,6 +38,7 @@ const config: StorybookConfig = {
             base: '',
             resolve: {
                 dedupe: ['react', 'react-dom', 'styled-components'],
+                preserveSymlinks: true,
             },
             build: {
                 sourcemap: false,
