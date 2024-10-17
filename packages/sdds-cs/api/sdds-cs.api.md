@@ -4850,7 +4850,6 @@ export { useToast }
 // @public (undocumented)
 export const ViewContainer: FunctionComponent<PropsType<    {
 view: {
-onDark: PolymorphicClassName;
 onLight: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & ViewContainerCustomProps & RefAttributes<HTMLAnchorElement>>;
