@@ -2,6 +2,7 @@ export const classes = {
     badgePilled: 'badge-pilled',
     badgeTransparent: 'badge-transparent',
     badgeClear: 'badge-clear',
+    badgeTruncate: 'badge-truncate',
 };
 
 export const tokens = {

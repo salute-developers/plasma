@@ -47,6 +47,7 @@ export const StyledContent = styled.div`
 `;
 
 export const TabItemValue = styled.span`
+    white-space: nowrap;
     color: var(${tokens.itemValueColor});
 `;
 

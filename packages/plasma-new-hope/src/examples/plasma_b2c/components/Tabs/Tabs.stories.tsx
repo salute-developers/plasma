@@ -57,6 +57,9 @@ const meta: Meta<StoryTabsProps> = {
     title: 'plasma_b2c/Tabs',
     component: Tabs,
     decorators: [WithTheme],
+    args: {
+        truncate: false,
+    },
     argTypes: {
         ...disableProps([
             'orientation',
@@ -90,13 +93,21 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         stretch,
+        truncate,
         helperText,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs view={hasDivider ? 'divider' : 'clear'} stretch={stretch} disabled={disabled} size={size}>
+        <Tabs
+            clip="none"
+            view={hasDivider ? 'divider' : 'clear'}
+            truncate={truncate}
+            stretch={stretch}
+            disabled={disabled}
+            size={size}
+        >
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -110,6 +121,7 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            truncate={truncate}
                         >
                             {`Label${i + 1}`}
                         </TabItem>
@@ -127,6 +139,7 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        truncate={truncate}
                     >
                         {`Label${i + 1}`}
                     </TabItem>
@@ -147,12 +160,20 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
         hasDivider,
         helperText,
         width,
+        truncate,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs clip={clip} view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size} style={{ width }}>
+        <Tabs
+            truncate={truncate}
+            clip={clip}
+            view={hasDivider ? 'divider' : 'clear'}
+            disabled={disabled}
+            size={size}
+            style={{ width }}
+        >
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -166,6 +187,7 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            truncate={truncate}
                         >
                             {`Label${i + 1}`}
                         </TabItem>
@@ -183,6 +205,7 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        truncate={truncate}
                     >
                         {`Label${i + 1}`}
                     </TabItem>
@@ -202,6 +225,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        truncate,
     } = props;
     const maxItemQuantity = 3;
     const items = Array(itemQuantity).fill(0);
@@ -220,7 +244,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
     });
 
     return (
-        <Tabs clip={clip} view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size}>
+        <Tabs truncate={truncate} clip={clip} view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size}>
             {visibleItems.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -234,6 +258,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            truncate={truncate}
                         >
                             {`Label${i + 1}`}
                         </TabItem>
@@ -251,6 +276,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        truncate={truncate}
                     >
                         {`Label${i + 1}`}
                     </TabItem>
@@ -269,6 +295,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
                             tabIndex={!disabled ? 0 : -1}
                             disabled={disabled}
                             size={size as Size}
+                            truncate={false}
                         >
                             ShowAll
                         </TabItem>
@@ -343,12 +370,19 @@ const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        truncate,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs orientation="vertical" hasDivider={hasDivider} size={size as Size} disabled={disabled}>
+        <Tabs
+            orientation="vertical"
+            hasDivider={hasDivider}
+            size={size as Size}
+            disabled={disabled}
+            truncate={truncate}
+        >
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -363,6 +397,7 @@ const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            truncate={truncate}
                         >
                             {`Label${i + 1}`}
                         </TabItem>
@@ -381,6 +416,7 @@ const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        truncate={truncate}
                     >
                         {`Label${i + 1}`}
                     </TabItem>
@@ -401,6 +437,7 @@ const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
         hasDivider,
         helperText,
         height,
+        truncate,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
@@ -413,6 +450,7 @@ const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
             clip={clip}
             hasDivider={hasDivider}
             style={{ height }}
+            truncate={truncate}
         >
             {items.map((_, i) => {
                 if (helperText !== '') {
@@ -428,6 +466,7 @@ const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            truncate={truncate}
                         >
                             {`Label${i + 1}`}
                         </TabItem>
@@ -446,6 +485,7 @@ const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        truncate={truncate}
                     >
                         {`Label${i + 1}`}
                     </TabItem>
@@ -465,6 +505,7 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        truncate,
     } = props;
     const maxItemQuantity = 3;
     const items = Array(itemQuantity).fill(0);
@@ -483,7 +524,14 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
     });
 
     return (
-        <Tabs clip={clip} orientation="vertical" size={size as Size} disabled={disabled} hasDivider={hasDivider}>
+        <Tabs
+            clip={clip}
+            orientation="vertical"
+            size={size as Size}
+            disabled={disabled}
+            hasDivider={hasDivider}
+            truncate={truncate}
+        >
             {visibleItems.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -498,6 +546,7 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            truncate={truncate}
                         >
                             {`Label${i + 1}`}
                         </TabItem>
@@ -516,6 +565,7 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        truncate={truncate}
                     >
                         {`Label${i + 1}`}
                     </TabItem>
@@ -534,6 +584,7 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
                         tabIndex={!disabled ? 0 : -1}
                         disabled={disabled}
                         size={size as Size}
+                        truncate={false}
                     >
                         ShowAll
                     </TabItem>
@@ -552,6 +603,7 @@ export const VerticalTabs: StoryObj<VerticalStoryTabsProps> = {
         orientation: 'vertical',
         helperText: '',
         height: '10rem',
+        truncate: false,
     },
     argTypes: {
         contentLeft: {

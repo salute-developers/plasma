@@ -20,6 +20,11 @@ export interface BaseTabsProps extends HTMLAttributes<HTMLDivElement>, AsProps {
      * Индекс активного элемента, необходим для клавиатурной навигации
      */
     index?: number;
+    /**
+     * Обрезает не вместившийся контент и добавляет в конце ...
+     * @default false
+     */
+    truncate?: boolean;
 }
 
 export type CustomHorizontalTabsProps = {

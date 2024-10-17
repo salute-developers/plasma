@@ -14,6 +14,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as stretchCSS } from './variations/_stretch/base';
+import { base as truncateCSS } from './variations/_truncate/base';
 import { StyledArrow, StyledContent, StyledContentWrapper, base } from './HorizontalTabs.styles';
 
 enum Keys {
@@ -37,6 +38,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             pilled = false,
             index,
             className,
+            truncate = false,
             ...rest
         } = props;
         const [firstItemVisible, setFirstItemVisible] = useState(true);
@@ -51,7 +53,8 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
         const pilledAttr = view !== 'clear' && pilled;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
 
-        const stretchClass = firstItemVisible && lastItemVisible && stretch ? classes.tabsStretch : undefined;
+        const canStretch = truncate ? true : firstItemVisible && lastItemVisible;
+        const stretchClass = canStretch && stretch ? classes.tabsStretch : undefined;
         const hasLeftArrowClass = !firstItemVisible ? classes.tabsHasLeftArrow : undefined;
         const hasRightArrowClass = !lastItemVisible ? classes.tabsHasRightArrow : undefined;
         const clipScrollClass = clip === 'scroll' ? classes.tabsClipScroll : undefined;
@@ -211,7 +214,15 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
-                    className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass, className)}
+                    truncate={truncate}
+                    className={cx(
+                        pilledClass,
+                        stretchClass,
+                        hasLeftArrowClass,
+                        hasRightArrowClass,
+                        truncate && classes.tabsTruncate,
+                        className,
+                    )}
                     onKeyDown={onKeyDown}
                     {...rest}
                 >
@@ -253,6 +264,9 @@ export const horizontalTabsConfig = {
         },
         pilled: {
             css: pilledCSS,
+        },
+        truncate: {
+            css: truncateCSS,
         },
     },
     defaults: {

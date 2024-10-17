@@ -64,6 +64,11 @@ type CustomBadgeProps = {
      */
     contentRight?: ReactNode;
     /**
+     * Обрезает не вместившийся контент и добавляет в конце ...
+     * @default false
+     */
+    truncate?: boolean;
+    /**
      * Размер Badge
      * @default
      * m

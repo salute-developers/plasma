@@ -11,6 +11,7 @@ import { base, LeftContent, RightContent, StyledContent, TabItemValue } from './
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { base as truncateCSS } from './variations/_truncate/base';
 
 export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalTabItemProps>) =>
     forwardRef<HTMLButtonElement, VerticalTabItemProps>((props, outerRef) => {
@@ -28,6 +29,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             tabIndex,
             className,
             onClick,
+            truncate,
             ...rest
         } = props;
 
@@ -100,9 +102,10 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
                 role={role}
                 view={view}
                 size={size}
+                truncate={truncate}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(selectedClass, className)}
+                className={cx(selectedClass, truncate && classes.tabsTruncate, className)}
                 onClick={handleClick}
                 {...rest}
             >
@@ -133,6 +136,9 @@ export const verticalTabItemConfig = {
         disabled: {
             css: disabledCSS,
             attrs: true,
+        },
+        truncate: {
+            css: truncateCSS,
         },
     },
     defaults: {

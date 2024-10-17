@@ -31,6 +31,10 @@ const meta: Meta<typeof Badge> = {
             control: { type: 'boolean' },
             if: { arg: 'clear', truthy: false },
         },
+        maxWidth: {
+            control: { type: 'text' },
+            if: { arg: 'truncate', truthy: true },
+        },
         ...disableProps(['contentLeft', 'contentRight']),
     },
 };
@@ -64,7 +68,7 @@ export const Default: Story = {
         },
     },
     args: {
-        text: 'Hello',
+        text: 'Hello Kitty',
         view: 'default',
         size: 'm',
         enableContentLeft: false,
@@ -72,8 +76,10 @@ export const Default: Story = {
         clear: false,
         pilled: false,
         transparent: false,
+        truncate: false,
+        maxWidth: '100px',
     },
-    render: ({ enableContentLeft, enableContentRight, size, ...rest }: StoryProps) => {
+    render: ({ enableContentLeft, enableContentRight, size, maxWidth, ...rest }: StoryProps) => {
         const iconSize = size === 'l' ? '1rem' : '0.75rem';
 
         return (
@@ -81,6 +87,7 @@ export const Default: Story = {
                 contentLeft={enableContentLeft ? <BellIcon width={iconSize} height={iconSize} /> : undefined}
                 contentRight={enableContentRight ? <BellIcon width={iconSize} height={iconSize} /> : undefined}
                 size={size}
+                style={{ maxWidth }}
                 {...rest}
             />
         );
