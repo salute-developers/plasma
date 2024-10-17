@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { FC, PropsWithChildren, ReactNode } from 'react';
 
 import type { DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
 import type { DateInfo } from '../../../Calendar/Calendar.types';
@@ -6,6 +6,7 @@ import type { DatePickerCalendarProps } from '../../DatePickerBase.types';
 
 export type RangeDatePopoverProps = DatePickerCalendarProps &
     DatePickerPopoverProps & {
+        rootWrapper: FC<PropsWithChildren>;
         /**
          * Обработчик изменения значения.
          */

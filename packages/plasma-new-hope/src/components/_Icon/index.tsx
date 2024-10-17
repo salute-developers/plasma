@@ -1,6 +1,10 @@
+export { IconDisclosureLeftWithOffset } from './Icons/IconDisclosureLeftWithOffset';
 export { IconDisclosureLeft } from './Icons/IconDisclosureLeft';
 export { IconDisclosureRight } from './Icons/IconDisclosureRight';
+export { IconDisclosureRightWithOffset } from './Icons/IconDisclosureRightWithOffset';
 export { IconDisclosureDownFill } from './Icons/IconDisclosureDownFill';
+export { IconDisclosureDownWithOffset } from './Icons/IconDisclosureDownWithOffset';
+export { IconDisclosureUpWithOffset } from './Icons/IconDisclosureUpWithOffset';
 export { IconMic } from './Icons/IconMic';
 export { IconChevronLeft } from './Icons/IconChevronLeft';
 export { IconChevronDoubleLeft } from './Icons/IconChevronDoubleLeft';

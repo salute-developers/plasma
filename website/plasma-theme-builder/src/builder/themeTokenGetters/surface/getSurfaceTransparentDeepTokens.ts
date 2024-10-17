@@ -1,15 +1,12 @@
-import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
+import { alphenColor, ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
 import { getGreyTokenData, tokensCreator } from '../../../utils';
+import { baseColors } from '../../../types';
 
 export const getSurfaceTransparentDeepTokens = (config: ThemeConfig) => {
     const { grayscale } = config;
 
-    const darkValue = getGreyTokenData({
-        saturation: 50,
-        grayscale: grayscale.dark,
-        opacity: 0.64,
-    });
+    const darkValue = alphenColor(baseColors.white.value, -0.36);
     const lightValue = getGreyTokenData({
         saturation: 1000,
         grayscale: grayscale.light,

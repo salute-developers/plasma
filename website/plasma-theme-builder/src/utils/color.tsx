@@ -166,7 +166,11 @@ export const getTransparentColor = (color: string, type: FormulaMode, mode: Them
             return '#FFFFFFFF';
         }
 
-        const newAlpha = result.operation[state](a);
+        const newAlpha = result.operation[state]?.(a);
+
+        if (!newAlpha) {
+            return '#FFFFFFFF';
+        }
 
         return hsl.alpha(newAlpha).round().hexa();
     };
@@ -189,7 +193,11 @@ export const getSolidColor = (color: string, type: FormulaMode, mode: ThemeMode)
             return '#FFFFFFFF';
         }
 
-        const newLightness = result.operation[state](l);
+        const newLightness = result.operation[state]?.(l);
+
+        if (!newLightness) {
+            return '#FFFFFFFF';
+        }
 
         return hsl.lightness(newLightness).round().hexa();
     };
@@ -199,4 +207,23 @@ export const getStateColor = (color: string, type: FormulaMode, mode: ThemeMode)
     const hsl = getHSLARawColor(color);
 
     return hsl.alpha() === 1 ? getSolidColor(color, type, mode) : getTransparentColor(color, type, mode);
+};
+
+export const shiftAccentColor = (color: ComplexValue, theme: ThemeMode, opacity?: number) => {
+    const [min, max] = theme === 'dark' ? [150, 700] : [400, 800];
+    const shiftDirection = theme === 'dark' ? -1 : 1;
+    const [shade, saturation] = getPaletteColorByValue(color);
+
+    if (!shade || !saturation) {
+        return '#FFFFFF';
+    }
+
+    const shades = (Object.keys(generalColors[shade]) as unknown) as PlasmaSaturation[];
+    const colorIndex = shades.findIndex((item) => item === saturation);
+    const newSaturation = Number(shades[colorIndex + shiftDirection]);
+
+    const newValue = `[general.${shade}.${Math.min(max, Math.max(min, newSaturation))}]`;
+
+    // TODO: удалить opacity - 1 и обновить использование метода в новой архитектуре
+    return opacity ? `${newValue}[${(opacity - 1).toPrecision(2)}]` : newValue;
 };

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 
@@ -25,7 +25,7 @@ describe('plasma-web: Tabs', () => {
             <CypressTestDecoratorWithTypo>
                 <Tabs>
                     {items.map((item, i) => (
-                        <AutoFocusTabItem key={i} isActive={i === 1} autoFocus={i === 1}>
+                        <AutoFocusTabItem key={i} selected={i === 1} autoFocus={i === 1}>
                             {item.label}
                         </AutoFocusTabItem>
                     ))}
@@ -37,12 +37,43 @@ describe('plasma-web: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
+    it('_orientation', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tabs size="l" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem size="l" view="divider" key={i} selected={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
+                <Tabs size="l" orientation="vertical" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem
+                            size="l"
+                            orientation="vertical"
+                            view="divider"
+                            key={i}
+                            selected={i === 1}
+                            forwardedAs="li"
+                        >
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('Clicking on arrows scrolls to previous or next tab', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Tabs size="m" style={{ width: '10.5rem' }}>
                     {items.map((item, i) => (
-                        <TabItem pilled key={i} isActive={i === 1}>
+                        <TabItem pilled key={i} selected={i === 1}>
                             {item.label}
                         </TabItem>
                     ))}

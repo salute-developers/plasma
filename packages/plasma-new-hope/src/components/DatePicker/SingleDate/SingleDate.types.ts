@@ -1,6 +1,6 @@
-import type { HTMLAttributes, SyntheticEvent } from 'react';
+import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
-import type { DatePickerCalendarProps, DatePickerdVariationProps } from '../DatePickerBase.types';
+import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
 import type { DateInfo } from '../../Calendar/Calendar.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
@@ -58,7 +58,7 @@ export type DatePickerTextFieldProps = {
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue?: (event: SyntheticEvent<HTMLInputElement>, value?: string) => void;
+    onChangeValue?: (event: SyntheticEvent<HTMLInputElement> | null, value?: string) => void;
     /**
      * Свойство устарело, используется формой. Вместо используйте onChangeValue и onCommitDate
      * @deprecated
@@ -88,6 +88,10 @@ export type DatePickerPopoverProps = {
      */
     offset?: [number, number];
     /**
+     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
+     */
+    frame?: 'document' | string | RefObject<HTMLElement>;
+    /**
      * Закрывать календарь при нажатии вне области элемента.
      * @default true
      */
@@ -98,12 +102,18 @@ export type DatePickerPopoverProps = {
      */
     closeOnEsc?: boolean;
     /**
+     * Находится ли в портале.
+     * @default
+     * false
+     */
+    usePortal?: boolean;
+    /**
      * Событие сворачивания/разворачивания календаря.
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
 };
 
-export type DatePickerProps = DatePickerdVariationProps &
+export type DatePickerProps = DatePickerVariationProps &
     DatePickerTextFieldProps &
     DatePickerCalendarProps &
     DatePickerPopoverProps &

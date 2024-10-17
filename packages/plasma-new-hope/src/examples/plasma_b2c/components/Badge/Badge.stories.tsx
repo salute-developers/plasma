@@ -12,7 +12,7 @@ const meta: Meta<typeof Badge> = {
     decorators: [WithTheme],
     argTypes: {
         size: {
-            options: ['s', 'm', 'l'],
+            options: ['l', 'm', 's', 'xs'],
             control: {
                 type: 'select',
             },

@@ -332,7 +332,6 @@ const SingleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
-                autoComplete="off"
             />
         </div>
     );
@@ -362,7 +361,6 @@ const MultipleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
-                autoComplete="off"
             />
         </div>
     );

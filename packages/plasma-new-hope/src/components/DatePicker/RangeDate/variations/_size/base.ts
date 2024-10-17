@@ -4,8 +4,6 @@ import { tokens } from '../../../DatePicker.tokens';
 import { StyledLabel, LeftHelper } from '../../RangeDate.styles';
 
 export const base = css`
-    width: var(${tokens.width});
-
     ${StyledLabel} {
         margin: var(${tokens.labelOffset});
 

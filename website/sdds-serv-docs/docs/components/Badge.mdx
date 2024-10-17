@@ -14,7 +14,7 @@ import { PropsTable, Description } from '@site/src/components';
 ### Размер badge
 Размер задается с помощью свойства `size`.
 
-Возможные значения свойства: `"l"`, `"m"`, `"s"`.
+Возможные значения свойства: `l`, `m`, `s`, `xs`.
 
 ```tsx live 
 import React from 'react';
@@ -26,6 +26,7 @@ export function App() {
             <Badge text="Бейдж" size="l" />
             <Badge text="Бейдж" size="m" />
             <Badge text="Бейдж" size="s" />
+            <Badge text="Бейдж" size="xs" />
         </div>
     );
 }
@@ -44,6 +45,7 @@ export function App() {
             <Badge text="Бейдж" size="l" pilled />
             <Badge text="Бейдж" size="m" pilled />
             <Badge text="Бейдж" size="s" pilled />
+            <Badge text="Бейдж" size="xs" pilled />
         </div>
     );
 }

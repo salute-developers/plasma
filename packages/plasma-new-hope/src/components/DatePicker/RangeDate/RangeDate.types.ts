@@ -1,15 +1,28 @@
-import type { HTMLAttributes } from 'react';
+import type { ChangeEvent, HTMLAttributes } from 'react';
 
 import type { RangeInnerProps } from '../../Range/Range.types';
-import type { DatePickerCalendarProps, DatePickerdVariationProps } from '../DatePickerBase.types';
+import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
 import type { DatePickerPopoverProps } from '../SingleDate/SingleDate.types';
 import type { DateInfo } from '../../Calendar/Calendar.types';
 
 export type DatePickerRangePlacement = 'top' | 'bottom';
 
+export type ChangeInstanceCallback = (event: ChangeEvent<HTMLInputElement> | null, value?: string) => void;
+export type CommitInstanceCallback = (
+    value: Date | string,
+    error?: boolean,
+    success?: boolean,
+    dateInfo?: DateInfo,
+) => void;
+
 type BaseRangeProps = Omit<
     RangeInnerProps,
-    'firstValue' | 'secondValue' | 'onSearchFirstValue' | 'onSearchSecondValue'
+    | 'firstValue'
+    | 'secondValue'
+    | 'onSearchFirstValue'
+    | 'onSearchSecondValue'
+    | 'onChangeFirstValue'
+    | 'onChangeSecondValue'
 >;
 
 export type DatePickerRangeFieldProps = {
@@ -26,13 +39,21 @@ export type DatePickerRangeFieldProps = {
      */
     name?: string;
     /**
-     * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
+     * Коллбэк, вызываемый при изменении первого поля ввода
      */
-    onCommitFirstDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+    onChangeFirstValue?: ChangeInstanceCallback;
+    /**
+     * Коллбэк, вызываемый при изменении второго поля ввода
+     */
+    onChangeSecondValue?: ChangeInstanceCallback;
     /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
      */
-    onCommitSecondDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+    onCommitFirstDate?: CommitInstanceCallback;
+    /**
+     * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
+     */
+    onCommitSecondDate?: CommitInstanceCallback;
     /**
      * Свойство устарело, используется формой. Вместо используйте onCommitFirstDate и onCommitSecondDate
      * @deprecated
@@ -53,7 +74,7 @@ export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placeme
     isDoubleCalendar?: boolean;
 };
 
-export type DatePickerRangeProps = DatePickerdVariationProps &
+export type DatePickerRangeProps = DatePickerVariationProps &
     DatePickerRangeFieldProps &
     DatePickerCalendarProps &
     DatePickerDoublePopoverProps &

@@ -7,6 +7,7 @@ import type { RangeDatePopoverProps } from './RangeDatePopover.types';
 import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles';
 
 export const RangeDatePopover = ({
+    rootWrapper: Root,
     target,
 
     isOpen,
@@ -25,10 +26,14 @@ export const RangeDatePopover = ({
     disabledQuarterList,
     eventYearList,
     disabledYearList,
+
+    frame = 'document',
+    usePortal = false,
     placement = ['top', 'bottom'],
     closeOnOverlayClick = true,
     closeOnEsc,
     offset,
+
     type,
     size,
     lang = 'ru',
@@ -44,7 +49,8 @@ export const RangeDatePopover = ({
         return (
             <StyledPopover
                 opened={innerIsOpen}
-                usePortal={false}
+                frame={frame}
+                usePortal={usePortal}
                 onToggle={onToggle}
                 offset={offset}
                 placement={getPlacements(placement)}
@@ -54,7 +60,47 @@ export const RangeDatePopover = ({
                 target={target}
                 preventOverflow={false}
             >
-                <StyledCalendarDouble
+                <Root>
+                    <StyledCalendarDouble
+                        size={size}
+                        value={calendarValue}
+                        eventList={eventList}
+                        disabledList={disabledList}
+                        eventMonthList={eventMonthList}
+                        disabledMonthList={disabledMonthList}
+                        eventQuarterList={eventQuarterList}
+                        disabledQuarterList={disabledQuarterList}
+                        eventYearList={eventYearList}
+                        disabledYearList={disabledYearList}
+                        min={min}
+                        max={max}
+                        locale={lang}
+                        includeEdgeDates={includeEdgeDates}
+                        onChangeValue={onChangeValue}
+                        onChangeStartOfRange={onChangeStartOfRange}
+                    />
+                </Root>
+            </StyledPopover>
+        );
+    }
+
+    return (
+        <StyledPopover
+            opened={innerIsOpen}
+            frame={frame}
+            usePortal={usePortal}
+            onToggle={onToggle}
+            offset={offset}
+            placement={getPlacements(placement)}
+            trigger="click"
+            closeOnOverlayClick={closeOnOverlayClick}
+            isFocusTrapped={false}
+            target={target}
+            preventOverflow={false}
+            closeOnEsc={closeOnEsc}
+        >
+            <Root>
+                <StyledCalendar
                     size={size}
                     value={calendarValue}
                     eventList={eventList}
@@ -67,48 +113,13 @@ export const RangeDatePopover = ({
                     disabledYearList={disabledYearList}
                     min={min}
                     max={max}
+                    type={type}
                     locale={lang}
                     includeEdgeDates={includeEdgeDates}
                     onChangeValue={onChangeValue}
                     onChangeStartOfRange={onChangeStartOfRange}
                 />
-            </StyledPopover>
-        );
-    }
-
-    return (
-        <StyledPopover
-            opened={innerIsOpen}
-            usePortal={false}
-            onToggle={onToggle}
-            offset={offset}
-            placement={getPlacements(placement)}
-            trigger="click"
-            closeOnOverlayClick={closeOnOverlayClick}
-            isFocusTrapped={false}
-            target={target}
-            preventOverflow={false}
-            closeOnEsc={closeOnEsc}
-        >
-            <StyledCalendar
-                size={size}
-                value={calendarValue}
-                eventList={eventList}
-                disabledList={disabledList}
-                eventMonthList={eventMonthList}
-                disabledMonthList={disabledMonthList}
-                eventQuarterList={eventQuarterList}
-                disabledQuarterList={disabledQuarterList}
-                eventYearList={eventYearList}
-                disabledYearList={disabledYearList}
-                min={min}
-                max={max}
-                type={type}
-                locale={lang}
-                includeEdgeDates={includeEdgeDates}
-                onChangeValue={onChangeValue}
-                onChangeStartOfRange={onChangeStartOfRange}
-            />
+            </Root>
         </StyledPopover>
     );
 };

@@ -27,8 +27,8 @@ export function App() {
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
                 placeholder="Введите дату"
-                contentRight={<IconDone size="s" />}
-                size="l"
+                contentRight={<IconDone size="xs" />}
+                size="s"
             />
         </div>
     );
@@ -66,7 +66,7 @@ export function App() {
                 placeholder="Введите дату"
                 format="DD-MM-YYYY"
                 maskWithFormat
-                contentRight={<IconDone size="s" />}
+                contentRight={<IconDone size="xs" />}
             />
         </div>
     );
@@ -98,7 +98,7 @@ export function App() {
                 format="DD MMMM YYYY"
                 lang="en"
                 maskWithFormat
-                contentRight={<IconDone size="s" />}
+                contentRight={<IconDone size="xs" />}
             />
         </div>
     );
@@ -171,8 +171,8 @@ import { IconDone } from '@salutejs/plasma-icons';
 export function App() {
     const ActionButton = () => {
         return (
-            <IconButton view="clear" size="l">
-                <IconDone size="s" />
+            <IconButton view="clear" size="s">
+                <IconDone size="xs" />
             </IconButton>
         );
     };
@@ -180,7 +180,7 @@ export function App() {
     return (
         <div style={{ height: "500px" }}>
             <DatePickerRange
-                size="l"
+                size="s"
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
                 firstPlaceholder="Введите дату 1"

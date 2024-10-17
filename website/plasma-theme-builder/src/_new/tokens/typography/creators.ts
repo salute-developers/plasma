@@ -4,11 +4,15 @@ import { AndroidTypography, TypographyToken, IOSTypography, WebTypography } from
 import { typographyTokens, getWebTokens, getIOSTokens, getAndroidTokens } from './default';
 import { PlatformsVariations, TokenType } from '../../types';
 
-export const createDefaultTypographyTokens = (config: ThemeConfig) =>
-    typographyTokens.map((token) => {
-        const web = getWebTokens(config)[token.name];
-        const ios = getIOSTokens(config)[token.name];
-        const android = getAndroidTokens(config)[token.name];
+export const createDefaultTypographyTokens = (config: ThemeConfig): TypographyToken[] => {
+    const webTokens = getWebTokens(config);
+    const iosTokens = getIOSTokens(config);
+    const androidTokens = getAndroidTokens(config);
+
+    return typographyTokens.map((token) => {
+        const web = webTokens[token.name];
+        const ios = iosTokens[token.name];
+        const android = androidTokens[token.name];
 
         if (!web || !ios || !android) {
             throw new Error(`Токен '${token.name}' не найден`);
@@ -22,6 +26,7 @@ export const createDefaultTypographyTokens = (config: ThemeConfig) =>
 
         return new TypographyToken(token, values);
     });
+};
 
 export const createTypographyTokens = (tokens: Array<TokenType>, platforms: PlatformsVariations['typography']) =>
     tokens.map((token) => {

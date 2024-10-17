@@ -31,12 +31,21 @@ export const convertIconSize = (size?: string) => {
 export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactNode, showItems?: number) => {
     const renderItems = shortItems(
         items.map((item: BreadcrumbsItem) => {
-            if ('renderItem' in item) {
+            if (item.renderItem) {
                 return item.renderItem();
             }
+
+            const { title, disabled, href, onClick } = item;
+
             return (
-                <StyledLink tabIndex={0} href={item.href} isHref={Boolean(item.href)}>
-                    {item.title}
+                <StyledLink
+                    tabIndex={0}
+                    href={href}
+                    disabled={disabled}
+                    onClick={onClick}
+                    isHref={Boolean(href || onClick)}
+                >
+                    {title}
                 </StyledLink>
             );
         }),

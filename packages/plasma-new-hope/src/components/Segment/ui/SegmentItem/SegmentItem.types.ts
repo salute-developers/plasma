@@ -27,8 +27,17 @@ type CustomSegmentItemProps = {
     size?: string;
     /**
      * Вид сегмента
+     * @default 'default'
      */
     view?: string;
+    /**
+     * Слот для контента слева.
+     */
+    contentLeft?: React.ReactNode;
+    /**
+     * Слот для контента справа.
+     */
+    contentRight?: React.ReactNode | string;
 };
 
 export type SegmentItemProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomSegmentItemProps;

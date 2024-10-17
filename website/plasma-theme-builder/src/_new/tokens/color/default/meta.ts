@@ -1699,10 +1699,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'dark.outline.default.transparent-default',
-        tags: ['dark', 'outline', 'default', 'transparent-default'],
-        displayName: 'outlineTransparentDefault',
-        description: 'Прозрачный цвет обводки по умолчанию',
+        name: 'dark.outline.default.solid-default',
+        tags: ['dark', 'outline', 'default', 'solid-default'],
+        displayName: 'outlineSolidDefault',
+        description: 'Непрозрачный цвет обводки по умолчанию',
         enabled: true,
     },
     {
@@ -1904,10 +1904,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'dark.outline.on-dark.transparent-default',
-        tags: ['dark', 'outline', 'on-dark', 'transparent-default'],
-        displayName: 'onDarkOutlineTransparentDefault',
-        description: 'Прозрачный цвет обводки по умолчанию на темном фоне',
+        name: 'dark.outline.on-dark.solid-default',
+        tags: ['dark', 'outline', 'on-dark', 'solid-default'],
+        displayName: 'onDarkOutlineSolidDefault',
+        description: 'Непрозрачный цвет обводки по умолчанию на темном фоне',
         enabled: true,
     },
     {
@@ -2109,10 +2109,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'dark.outline.on-light.transparent-default',
-        tags: ['dark', 'outline', 'on-light', 'transparent-default'],
-        displayName: 'onLightOutlineTransparentDefault',
-        description: 'Прозрачный цвет обводки по умолчанию на светлом фоне',
+        name: 'dark.outline.on-light.solid-default',
+        tags: ['dark', 'outline', 'on-light', 'solid-default'],
+        displayName: 'onLightOutlineSolidDefault',
+        description: 'Непрозрачный цвет обводки по умолчанию на светлом фоне',
         enabled: true,
     },
     {
@@ -2314,10 +2314,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'dark.outline.inverse.transparent-default',
-        tags: ['dark', 'outline', 'inverse', 'transparent-default'],
-        displayName: 'inverseOutlineTransparentDefault',
-        description: 'Инвертированный прозрачный цвет обводки по умолчанию',
+        name: 'dark.outline.inverse.solid-default',
+        tags: ['dark', 'outline', 'inverse', 'solid-default'],
+        displayName: 'inverseOutlineSolidDefault',
+        description: 'Инвертированный непрозрачный цвет обводки по умолчанию',
         enabled: true,
     },
     {
@@ -4191,10 +4191,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'light.outline.default.transparent-default',
-        tags: ['light', 'outline', 'default', 'transparent-default'],
-        displayName: 'outlineTransparentDefault',
-        description: 'Прозрачный цвет обводки по умолчанию',
+        name: 'light.outline.default.solid-default',
+        tags: ['light', 'outline', 'default', 'solid-default'],
+        displayName: 'outlineSolidDefault',
+        description: 'Непрозрачный цвет обводки по умолчанию',
         enabled: true,
     },
     {
@@ -4396,10 +4396,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'light.outline.on-dark.transparent-default',
-        tags: ['light', 'outline', 'on-dark', 'transparent-default'],
-        displayName: 'onDarkOutlineTransparentDefault',
-        description: 'Прозрачный цвет обводки по умолчанию на темном фоне',
+        name: 'light.outline.on-dark.solid-default',
+        tags: ['light', 'outline', 'on-dark', 'solid-default'],
+        displayName: 'onDarkOutlineSolidDefault',
+        description: 'Непрозрачный цвет обводки по умолчанию на темном фоне',
         enabled: true,
     },
     {
@@ -4601,10 +4601,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'light.outline.on-light.transparent-default',
-        tags: ['light', 'outline', 'on-light', 'transparent-default'],
-        displayName: 'onLightOutlineTransparentDefault',
-        description: 'Прозрачный цвет обводки по умолчанию на светлом фоне',
+        name: 'light.outline.on-light.solid-default',
+        tags: ['light', 'outline', 'on-light', 'solid-default'],
+        displayName: 'onLightOutlineSolidDefault',
+        description: 'Непрозрачный цвет обводки по умолчанию на светлом фоне',
         enabled: true,
     },
     {
@@ -4806,10 +4806,10 @@ export const colorTokens: Array<TokenType> = [
     },
     {
         type: 'color',
-        name: 'light.outline.inverse.transparent-default',
-        tags: ['light', 'outline', 'inverse', 'transparent-default'],
-        displayName: 'inverseOutlineTransparentDefault',
-        description: 'Инвертированный прозрачный цвет обводки по умолчанию',
+        name: 'light.outline.inverse.solid-default',
+        tags: ['light', 'outline', 'inverse', 'solid-default'],
+        displayName: 'inverseOutlineSolidDefault',
+        description: 'Инвертированный непрозрачный цвет обводки по умолчанию',
         enabled: true,
     },
     {

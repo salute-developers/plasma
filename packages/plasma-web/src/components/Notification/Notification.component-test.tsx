@@ -8,7 +8,7 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const NoAnimationStyle = createGlobalStyle`
     /* stylelint-disable-next-line selector-max-id, selector-max-universal */
-    #plasma-popup-root * {
+    * {
         animation: none !important;
     }
 `;
@@ -81,7 +81,7 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
         cy.get('button').contains('Закрыть').click();
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('layout', () => {
@@ -325,6 +325,6 @@ describe('plasma-web: Notification', () => {
         );
         cy.get('button').contains('Открыть').click();
         cy.get('.notification-close-icon').click();
-        cy.get('#plasma-popup-root').should('be.empty');
+        cy.get('.popup-base-root').should('not.exist');
     });
 });

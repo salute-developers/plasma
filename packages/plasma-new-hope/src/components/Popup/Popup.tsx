@@ -1,15 +1,15 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { useForkRef, safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines/types';
-import { cx } from '../../utils';
+import { canUseDOM, cx } from '../../utils';
 import { Portal } from '../Portal';
 
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
-import { POPUP_PORTAL_ID } from './PopupContext';
 import { PopupRoot } from './PopupRoot';
 import { usePopup } from './hooks';
 import { classes } from './Popup.tokens';
+import { StyledPortalContainer } from './Popup.styles';
 
 export const handlePosition = (
     placement: PopupPlacement,
@@ -39,8 +39,8 @@ export const handlePosition = (
     let transform;
     const placements = placement.split('-') as PopupPlacementBasic[];
 
-    placements.forEach((placement: PopupPlacementBasic) => {
-        switch (placement) {
+    placements.forEach((placementValue: PopupPlacementBasic) => {
+        switch (placementValue) {
             case 'left':
                 left = x;
                 break;
@@ -79,7 +79,7 @@ export const handlePosition = (
 };
 
 /**
- * Базовый копмонент Popup.
+ * Базовый компонент Popup.
  */
 export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
     forwardRef<HTMLDivElement, PopupProps>(
@@ -93,6 +93,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 frame = 'document',
                 children,
                 overlay,
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 role,
                 zIndex,
                 popupInfo,
@@ -107,51 +108,17 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             const uniqId = safeUseId();
             const innerId = id || uniqId;
 
-            const { isVisible, animationInfo, setVisible } = usePopup({
+            const { isVisible, animationInfo, setVisible, rootId } = usePopup({
                 isOpen: innerIsOpen,
                 id: innerId,
                 popupInfo,
                 withAnimation,
             });
 
-            const portalRef = useRef<HTMLElement | null>(null);
+            const portalRef = useRef<HTMLDivElement | null>(null);
             const contentRef = useRef<HTMLDivElement | null>(null);
 
             const innerRef = useForkRef<HTMLDivElement>(contentRef, outerRootRef);
-
-            const [, forceRender] = useState(false);
-
-            useEffect(() => {
-                let portal = document.getElementById(POPUP_PORTAL_ID);
-
-                if (typeof frame !== 'string' && frame && frame.current) {
-                    portal = frame.current;
-                }
-
-                if (!portal) {
-                    portal = document.createElement('div');
-                    portal.setAttribute('id', POPUP_PORTAL_ID);
-                    /**
-                     * Нужно для того, чтобы во фрейме не происходило скачков контента
-                     * при анимации через transform, если есть элемент с шириной/высотой в 100% (Overlay)
-                     */
-                    portal.style.width = '0';
-
-                    if (typeof frame === 'string' && frame !== 'document') {
-                        document.getElementById(frame)?.appendChild(portal);
-                    } else {
-                        document.body.appendChild(portal);
-                    }
-                }
-
-                portalRef.current = portal;
-
-                /**
-                 * Изменение стейта нужно для того, чтобы Popup
-                 * отобразился после записи DOM элемента в portalRef.current
-                 */
-                forceRender(true);
-            }, []);
 
             if (!isVisible && !innerIsOpen) {
                 return null;
@@ -163,28 +130,43 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 animationInfo?.endTransition ? classes.endTransition : '',
             );
 
-            return (
-                <>
-                    {portalRef.current && (
-                        <Portal container={portalRef.current}>
-                            <Root className={cls} {...rest}>
-                                {overlay}
-                                <PopupRoot
-                                    id={innerId}
-                                    ref={innerRef}
-                                    position={handlePosition(placement, offset)}
-                                    frame={frame}
-                                    zIndex={zIndex}
-                                    animationInfo={animationInfo}
-                                    setVisible={setVisible}
-                                >
-                                    {children}
-                                </PopupRoot>
-                            </Root>
-                        </Portal>
-                    )}
-                </>
+            const rootNode = (
+                <Root className={cls} {...rest}>
+                    {overlay}
+                    <PopupRoot
+                        id={innerId}
+                        ref={innerRef}
+                        position={handlePosition(placement, offset)}
+                        zIndex={zIndex}
+                        frame={frame}
+                        animationInfo={animationInfo}
+                        setVisible={setVisible}
+                    >
+                        {children}
+                    </PopupRoot>
+                </Root>
             );
+
+            if (typeof frame !== 'string' && frame && frame.current) {
+                return <Portal container={frame.current}>{rootNode}</Portal>;
+            }
+
+            const withFrameId = typeof frame === 'string' && frame !== 'document';
+            const containerElement = withFrameId && canUseDOM && document.getElementById(frame as string);
+
+            if (containerElement) {
+                return (
+                    <Portal container={containerElement}>
+                        <StyledPortalContainer ref={portalRef}>
+                            {portalRef.current && <Portal container={portalRef.current}>{rootNode}</Portal>}
+                        </StyledPortalContainer>{' '}
+                    </Portal>
+                );
+            }
+
+            const globalPortal = canUseDOM && document.getElementById(rootId);
+
+            return <>{globalPortal && <Portal container={globalPortal}>{rootNode}</Portal>}</>;
         },
     );
 

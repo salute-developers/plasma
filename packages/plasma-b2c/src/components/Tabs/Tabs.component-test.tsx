@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];
 
@@ -15,14 +15,14 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs size="s" forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem size="s" key={i} isActive={i === 1} forwardedAs="li">
+                        <TabItem size="s" key={i} selected={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
                     ))}
                 </Tabs>
                 <Tabs size="l" forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem size="l" key={i} isActive={i === 1} forwardedAs="li">
+                        <TabItem size="l" key={i} selected={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
                     ))}
@@ -38,7 +38,38 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs pilled forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem pilled key={i} isActive={i === 1} forwardedAs="li">
+                        <TabItem pilled key={i} selected={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_orientation', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs size="l" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem size="l" view="divider" key={i} selected={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
+                <Tabs size="l" orientation="vertical" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem
+                            size="l"
+                            orientation="vertical"
+                            view="divider"
+                            key={i}
+                            selected={i === 1}
+                            forwardedAs="li"
+                        >
                             {item.label}
                         </TabItem>
                     ))}
@@ -54,7 +85,7 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs>
                     {items.map((item, i) => (
-                        <TabAutoFocus key={i} isActive={i === 1} autoFocus={i === 1}>
+                        <TabAutoFocus key={i} selected={i === 1} autoFocus={i === 1}>
                             {item.label}
                         </TabAutoFocus>
                     ))}
@@ -71,7 +102,7 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs pilled>
                     {items.map((item, i) => (
-                        <TabAutoFocus pilled key={i} isActive={i === 1} autoFocus={i === 1}>
+                        <TabAutoFocus pilled key={i} selected={i === 1} autoFocus={i === 1}>
                             {item.label}
                         </TabAutoFocus>
                     ))}
@@ -92,7 +123,7 @@ describe('plasma-b2c: Tabs', () => {
             return (
                 <Tabs>
                     {items.map((item, i) => (
-                        <TabItem key={i} tabIndex={0} isActive={i === index} onClick={() => setIndex(i)}>
+                        <TabItem key={i} tabIndex={0} selected={i === index} onClick={() => setIndex(i)}>
                             {item.label}
                         </TabItem>
                     ))}
@@ -117,7 +148,7 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs size="m" style={{ width: '10.5rem' }}>
                     {items.map((item, i) => (
-                        <TabItem pilled key={i} isActive={i === 1}>
+                        <TabItem pilled key={i} selected={i === 1}>
                             {item.label}
                         </TabItem>
                     ))}

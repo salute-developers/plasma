@@ -214,7 +214,7 @@ export type OutlineName =
     | 'outlineSolidPrimary'
     | 'outlineSolidSecondary'
     | 'outlineSolidTertiary'
-    | 'outlineTransparentDefault'
+    | 'outlineSolidDefault'
     | 'outlineTransparentPrimary'
     | 'outlineTransparentSecondary'
     | 'outlineTransparentTertiary'

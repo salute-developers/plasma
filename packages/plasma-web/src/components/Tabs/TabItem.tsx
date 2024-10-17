@@ -1,13 +1,29 @@
-import { tabItemConfig, component, mergeConfig, TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
-import { ForwardRefExoticComponent, RefAttributes } from 'react';
+import React, { ComponentProps } from 'react';
+import {
+    horizontalTabItemConfig,
+    verticalTabItemConfig,
+    component,
+    mergeConfig,
+} from '@salutejs/plasma-new-hope/styled-components';
 
-import { config } from './TabItem.config';
+import { config as horizontalConfig } from './horizontal/HorizontalTabItem.config';
+import { config as verticalConfig } from './vertical/VerticalTabItem.config';
 
-const mergedConfig = mergeConfig(tabItemConfig, config);
+const mergedHorizontalTabItemConfig = mergeConfig(horizontalTabItemConfig, horizontalConfig);
+const HorizontalTabItem = component(mergedHorizontalTabItemConfig);
+
+const mergedVerticalTabItemConfig = mergeConfig(verticalTabItemConfig, verticalConfig);
+const VerticalTabItem = component(mergedVerticalTabItemConfig);
+
+type TabItemProps = ComponentProps<typeof HorizontalTabItem> | ComponentProps<typeof VerticalTabItem>;
 
 /**
  * Элемент списка, недопустимо использовать вне компонента Tabs.
  */
-export const TabItem = component(mergedConfig) as ForwardRefExoticComponent<
-    TabItemProps & RefAttributes<HTMLDivElement>
->;
+export const TabItem = (props: TabItemProps) => {
+    if (props.orientation === 'vertical') {
+        return <VerticalTabItem {...props} />;
+    }
+
+    return <HorizontalTabItem {...props} />;
+};

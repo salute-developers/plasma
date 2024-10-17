@@ -142,6 +142,24 @@ export const StyledTextArea = styled.textarea<{
     &:focus:not(:disabled) {
         color: var(${tokens.inputColorFocus});
     }
+
+    &::-webkit-scrollbar {
+        width: var(${tokens.scrollbarWidth});
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(${tokens.scrollbarThumbBackgroundColor});
+        background-clip: content-box;
+        border: var(${tokens.scrollbarBorderWidth}) solid transparent;
+        border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(${tokens.scrollbarTrackBackgroundColor});
+        background-clip: content-box;
+        border: var(${tokens.scrollbarBorderWidth}) solid transparent;
+        border-radius: 1rem;
+    }
 `;
 
 export const StyledHelpers = styled.div`

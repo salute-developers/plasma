@@ -20,7 +20,8 @@ import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
-import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxNew/Combobox.types';
+import { BaseTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/TabItem.types';
+import { BaseTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -50,6 +51,7 @@ import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
+import { ChangeInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipGroupProps } from '@salutejs/plasma-new-hope/types/components/ChipGroup/ChipGroup.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -60,17 +62,17 @@ import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
 import { ColOffsetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
+import type { ComboboxProps } from '@salutejs/plasma-new-hope';
+import { CommitInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
-import { CustomTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/TabItem/TabItem.types';
-import { CustomTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/ui/Tabs/Tabs.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
-import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
-import { DatePickerdVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { DatePickerPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerPlacementBasic } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
@@ -79,6 +81,7 @@ import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-compo
 import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -97,6 +100,7 @@ import { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { FormTypeString } from '@salutejs/plasma-new-hope/types/types/FormType';
+import type { ForwardedRef } from 'react';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { GridProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -116,6 +120,7 @@ import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
+import type { ItemOption } from '@salutejs/plasma-new-hope';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -125,6 +130,7 @@ import { MergedDropdownNode } from '@salutejs/plasma-new-hope/types/components/S
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
+import { MutableRefObject } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -185,11 +191,9 @@ import { StepItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Steps.types';
 import { StyledComponent } from 'styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
-import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
-import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
@@ -231,7 +235,7 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
 }> & {
-view: string;
+view?: string | undefined;
 size?: string | undefined;
 singleActive?: boolean | undefined;
 defaultActiveEventKey?: number[] | undefined;
@@ -546,6 +550,7 @@ size: {
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 pilled: {
 true: PolymorphicClassName;
@@ -1005,7 +1010,7 @@ export { ColProps }
 export { ColSizeProps }
 
 // @public (undocumented)
-export const Combobox: FunctionComponent<PropsType<    {
+export const Combobox: <T extends ItemOption>(props: Omit<ComboboxProps<T>, "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & Pick<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -1028,61 +1033,183 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & ((BasicProps & {
-readOnly?: boolean | undefined;
-disabled?: true | undefined;
-alwaysOpened?: false | undefined;
+}> & (({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
 } & {
-multiple?: false | undefined;
-value?: string | undefined;
-onChange?: ((value: string) => void) | undefined;
-isTargetAmount?: false | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
-readOnly?: boolean | undefined;
-disabled?: true | undefined;
-alwaysOpened?: false | undefined;
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
 } & {
-multiple: true;
-value?: string[] | undefined;
-onChange?: ((value: string[]) => void) | undefined;
-isTargetAmount?: boolean | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
-readOnly?: true | undefined;
-disabled?: boolean | undefined;
-alwaysOpened?: false | undefined;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
 } & {
-multiple?: false | undefined;
-value?: string | undefined;
-onChange?: ((value: string) => void) | undefined;
-isTargetAmount?: false | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
-readOnly?: true | undefined;
-disabled?: boolean | undefined;
-alwaysOpened?: false | undefined;
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
 } & {
-multiple: true;
-value?: string[] | undefined;
-onChange?: ((value: string[]) => void) | undefined;
-isTargetAmount?: boolean | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
-readOnly?: false | undefined;
-disabled?: false | undefined;
-alwaysOpened?: true | undefined;
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
 } & {
-multiple?: false | undefined;
-value?: string | undefined;
-onChange?: ((value: string) => void) | undefined;
-isTargetAmount?: false | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | (BasicProps & {
-readOnly?: false | undefined;
-disabled?: false | undefined;
-alwaysOpened?: true | undefined;
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
 } & {
-multiple: true;
-value?: string[] | undefined;
-onChange?: ((value: string[]) => void) | undefined;
-isTargetAmount?: boolean | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>))>;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: boolean | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>)), "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & {
+    ref?: ForwardedRef<HTMLInputElement> | undefined;
+}) => ReactElement | null;
 
 // @public
 export const Counter: FunctionComponent<PropsType<    {
@@ -1127,7 +1254,7 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & DatePickerdVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
+}> & DatePickerVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
 
 export { datePickerClasses }
 
@@ -1154,12 +1281,14 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & DatePickerdVariationProps & {
+}> & DatePickerVariationProps & {
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
 name?: string | undefined;
-onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
-onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
+onChangeFirstValue?: ChangeInstanceCallback | undefined;
+onChangeSecondValue?: ChangeInstanceCallback | undefined;
+onCommitFirstDate?: CommitInstanceCallback | undefined;
+onCommitSecondDate?: CommitInstanceCallback | undefined;
 onChange?: ((event: {
 target: {
 value?: string | undefined;
@@ -1191,8 +1320,6 @@ firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
-onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
-onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
@@ -2317,21 +2444,16 @@ true: PolymorphicClassName;
 pilled: {
 true: PolymorphicClassName;
 };
-filledBackground: {
-true: PolymorphicClassName;
-};
 stretch: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
-selectionMode?: "multiple" | "single" | undefined;
-disabled?: boolean | undefined;
-stretch?: boolean | undefined;
-pilled?: boolean | undefined;
-filledBackground?: boolean | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+filledBackground: {
+true: PolymorphicClassName;
+};
+orientation: {
+vertical: PolymorphicClassName;
+};
+}> & SegmentGroupProps & RefAttributes<HTMLDivElement>>;
 
 export { SegmentGroupProps }
 
@@ -2339,8 +2461,8 @@ export { SegmentGroupProps }
 export const SegmentItem: FunctionComponent<PropsType<    {
 view: {
 clear: PolymorphicClassName;
-default: PolymorphicClassName;
 secondary: PolymorphicClassName;
+default: PolymorphicClassName;
 };
 size: {
 xs: PolymorphicClassName;
@@ -2362,6 +2484,8 @@ pilled?: boolean | undefined;
 customHandleSelect?: ((e: MouseEvent_2<HTMLButtonElement, MouseEvent>) => void) | undefined;
 size?: string | undefined;
 view?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
 } & RefAttributes<HTMLLabelElement>>;
 
 export { SegmentItemProps }
@@ -2704,65 +2828,17 @@ true: PolymorphicClassName;
 // @public (undocumented)
 export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
+// Warning: (ae-forgotten-export) The symbol "TabItemProps" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const TabItem: FunctionComponent<PropsType<    {
-view: {
-clear: PolymorphicClassName;
-secondary: PolymorphicClassName;
-divider: PolymorphicClassName;
-default: PolymorphicClassName;
-};
-size: {
-xs: PolymorphicClassName;
-s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
-h5: PolymorphicClassName;
-h4: PolymorphicClassName;
-h3: PolymorphicClassName;
-h2: PolymorphicClassName;
-h1: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-pilled: {
-true: PolymorphicClassName;
-};
-}> & ButtonHTMLAttributes<HTMLButtonElement> & AsProps<any> & CustomTabItemProps & RefAttributes<HTMLDivElement>>;
-
-export { TabItemProps }
+export const TabItem: (props: TabItemProps) => JSX.Element;
 
 export { TabItemRefs }
 
+// Warning: (ae-forgotten-export) The symbol "TabsProps" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const Tabs: FunctionComponent<PropsType<    {
-view: {
-clear: PolymorphicClassName;
-filled: PolymorphicClassName;
-divider: PolymorphicClassName;
-};
-size: {
-xs: PolymorphicClassName;
-s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
-h5: PolymorphicClassName;
-h4: PolymorphicClassName;
-h3: PolymorphicClassName;
-h2: PolymorphicClassName;
-h1: PolymorphicClassName;
-};
-stretch: {
-true: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-pilled: {
-true: PolymorphicClassName;
-};
-}> & HTMLAttributes<HTMLDivElement> & AsProps<any> & CustomTabsProps & RefAttributes<HTMLDivElement>>;
+export const Tabs: (props: TabsProps) => JSX.Element;
 
 export { TabsContext }
 
@@ -2770,8 +2846,6 @@ export { TabsContext }
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }
-
-export { TabsProps }
 
 // @public
 export const TextArea: FunctionComponent<PropsType<    {

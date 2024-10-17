@@ -10,7 +10,7 @@ export const getTextParagraphTokens = (config: ThemeConfig) => {
 
     const darkValue = alphenColor(baseColors.white.value, opacityValue - 1);
     const lightValue = getGreyTokenData({
-        saturation: 1000,
+        saturation: 950,
         grayscale: grayscale.light,
         opacity: opacityValue,
     });

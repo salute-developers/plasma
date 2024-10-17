@@ -3,10 +3,8 @@ import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 import { tokensCreator } from '../../../utils';
 
 export const getSurfaceTransparentAccentTokens = (config: ThemeConfig) => {
-    const opacityValue = -0.72;
-
-    const darkValue = `${config.accentColor.dark}[${opacityValue}]`;
-    const lightValue = `${config.accentColor.light}[${opacityValue}]`;
+    const darkValue = `${config.accentColor.dark}[-0.8]`;
+    const lightValue = `${config.accentColor.light}[-0.88]`;
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Прозрачный акцентный фон поверхности/контрола',

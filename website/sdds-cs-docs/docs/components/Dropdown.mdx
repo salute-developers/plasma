@@ -14,7 +14,11 @@ import TabItem from '@theme/TabItem';
 <PropsTable name="Dropdown" />
 
 ## Использование
-Обязательным параметром является только массив `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
+Обязательным параметром является только массив `items`.
+
+Внутри `items` может быть такой же вложенный массив `items`.
+
+Формат следующий:
 
 ```tsx
 type Items = Array<{
@@ -124,7 +128,7 @@ type Items = Array<{
 
     <TabItem value="size" label="Size">
         Размер `Dropdown` задается с помощью свойства `size`.<br />
-        Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`.
+        Возможные значения свойства: `"s"`.
 
         ```tsx live
         import React from 'react';
@@ -166,28 +170,7 @@ type Items = Array<{
                 <div style={{ height: "300px", display: "flex", gap: "50px" }}>
                     <Dropdown
                         items={items}
-                        size="l"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        size="m" // default
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
                         size="s"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        size="xs"
                     >
                         <Button text="Список стран" />
                     </Dropdown>
@@ -333,7 +316,7 @@ type Items = Array<{
 
         ```tsx live
         import React, { useRef } from 'react';
-        import { Select } from '@salutejs/sdds-cs';
+        import { Dropdown, Button } from '@salutejs/sdds-cs';
 
         export function App() {
             const items = [
@@ -385,14 +368,14 @@ type Items = Array<{
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
-- `Tab` - закрывает дропдаун. Перемещает фокус на следующий элемент на странице;
-- `Enter` - открывает/закрывает дропдаун. Если на элементе - выбирает его;
-- `Space` - открывает/закрывает дропдаун. Если на элементе - выбирает его;
-- `Home` - открывает дропдаун и перемещает фокус на первый элемент;
-- `End` - открывает дропдаун и перемещает фокус на последний элемент;
+- `Tab` - закрывает dropdown. Перемещает фокус на следующий элемент на странице;
+- `Enter` - открывает/закрывает dropdown. Если на элементе - выбирает его;
+- `Space` - открывает/закрывает dropdown. Если на элементе - выбирает его;
+- `Home` - открывает dropdown и перемещает фокус на первый элемент;
+- `End` - открывает dropdown и перемещает фокус на последний элемент;
 - `PageUp` - перемещает фокус на 10 элементов выше либо в начало списка;
 - `PageDown` - перемещает фокус на 10 элементов ниже либо в конце списка;
-- `ArrowUp` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент выше;
-- `ArrowDown` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент ниже;
+- `ArrowUp` - открывает dropdown и перемещает фокус на первый элемент. Перемещает фокус на один элемент выше;
+- `ArrowDown` - открывает dropdown и перемещает фокус на первый элемент. Перемещает фокус на один элемент ниже;
 - `ArrowRight` - если фокус на элементе вложенного списка - открывает его и перемещает фокус на первый элемент;
 - `ArrowLeft` - закрывает текущий список и перемещает фокус на предыдущий;

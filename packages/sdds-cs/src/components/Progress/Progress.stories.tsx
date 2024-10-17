@@ -4,7 +4,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { Progress } from '.';
 import type { ProgressProps } from '.';
 
-const views = ['default', 'secondary', 'primary', 'accent', 'success', 'warning', 'error'];
+const views = ['default', 'accent', 'positive', 'negative'];
 
 const meta: Meta<typeof Progress> = {
     title: 'Controls/Progress',
@@ -17,7 +17,7 @@ const meta: Meta<typeof Progress> = {
                 type: 'select',
             },
         },
-        ...disableProps(['status']),
+        ...disableProps(['status', 'size']),
     },
 };
 

@@ -4,7 +4,7 @@ import { getGreyTokenData, tokensCreator } from '../../../utils';
 export const getOverlayBlurTokens = (config: ThemeConfig) => {
     const { grayscale } = config;
 
-    const opacityValue = 0.2;
+    const opacityValue = 0.28;
 
     const darkValue = getGreyTokenData({
         saturation: 1000,

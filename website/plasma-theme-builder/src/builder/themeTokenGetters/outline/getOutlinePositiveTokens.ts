@@ -1,10 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, shiftAccentColor, tokensCreator } from '../../../utils';
 
-export const getOutlinePositiveTokens = () => {
-    const darkValue = '[general.green.500]';
-    const lightValue = '[general.green.600]';
+export const getOutlinePositiveTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
+
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = shiftAccentColor(`[general.green.${saturationDark}]`, 'dark');
+    const lightValue = shiftAccentColor(`[general.green.${saturationLight}]`, 'light');
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Цвет обводки успех',

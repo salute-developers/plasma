@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { IconDisclosureRight } from '@salutejs/plasma-icons';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconSber } from '@salutejs/plasma-icons';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
@@ -55,7 +55,7 @@ const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIc
     return (
         <Notification
             title={title}
-            icon={showLeftIcon ? <IconDisclosureRight /> : ''}
+            icon={showLeftIcon ? <IconSber /> : ''}
             iconPlacement={iconPlacement}
             actions={<Button text="text" size="s" stretch={layout === 'vertical' && size === 'xs'} />}
             size={size}
@@ -87,6 +87,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
                 type: 'select',
             },
         },
+        ...disableProps(['view']),
     },
     args: {
         title: 'Title',
@@ -110,7 +111,7 @@ type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
 const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
-        addNotification({ icon: <IconDisclosureRight />, ...rest, ...getNotificationProps(count.current) }, timeout);
+        addNotification({ icon: <IconSber />, ...rest, ...getNotificationProps(count.current) }, timeout);
         count.current++;
     }, [count, rest]);
 

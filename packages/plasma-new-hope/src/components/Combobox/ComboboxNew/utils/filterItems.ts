@@ -1,4 +1,4 @@
-import { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
+import { ItemOptionTransformed, ItemOption } from '../ui/Inner/ui/Item/Item.types';
 
 // Утилита, возвращающая отфильтрованное дерево items.
 // Фильтрация происходит как по названиям категорий, так и по названиям конечных элементов.
@@ -11,11 +11,11 @@ export const filterItems = (
     items: Array<ItemOptionTransformed>,
     textValue: string,
     currentLabel: string,
-    customFilter?: (label: string, value: string) => boolean,
+    customFilter?: (item: ItemOption, value: string) => boolean,
 ): Array<ItemOptionTransformed> => {
     if (!textValue || textValue === currentLabel) return items;
 
-    const defaultFilter = (label: string, value: string) => label.toLowerCase().includes(value.toLowerCase());
+    const defaultFilter = (item: ItemOption, value: string) => item.label.toLowerCase().includes(value.toLowerCase());
 
     const filter = customFilter || defaultFilter;
 
@@ -24,7 +24,7 @@ export const filterItems = (
 
         items.forEach((item) => {
             if (item.items) {
-                if (filter(item.label, textValue)) {
+                if (filter(item, textValue)) {
                     newItems.push(item);
                     return;
                 }
@@ -34,14 +34,13 @@ export const filterItems = (
                 if (res.length > 0) {
                     newItems.push({ ...item, items: res });
                 }
-            } else if (filter(item.label, textValue)) {
+            } else if (filter(item, textValue)) {
                 newItems.push(item);
             }
         });
 
         return newItems;
     };
-    dfs(items);
 
     return dfs(items);
 };

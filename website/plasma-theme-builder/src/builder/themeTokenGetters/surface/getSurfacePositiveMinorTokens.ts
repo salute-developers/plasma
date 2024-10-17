@@ -4,7 +4,7 @@ import { tokensCreator } from '../../../utils';
 
 export const getSurfacePositiveMinorTokens = () => {
     const darkValue = '[general.green.900]';
-    const lightValue = '[general.green.200]';
+    const lightValue = '[general.green.150]';
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Минорный цвет фона поверхности/контрола успех',

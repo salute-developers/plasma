@@ -13,6 +13,9 @@ const meta: Meta<PopupProps> = {
     title: 'Controls/Popup',
     component: Popup,
     decorators: [InSpacingDecorator],
+    parameters: {
+        docs: { story: { inline: false, iframeHeight: '30rem' } },
+    },
     argTypes: {
         placement: {
             options: [

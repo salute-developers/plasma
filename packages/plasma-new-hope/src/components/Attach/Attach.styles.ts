@@ -15,6 +15,7 @@ export const StyledHiddenInput = styled.input`
 export const StyledHiddenInputHelper = styled.div`
     position: absolute;
     visibility: hidden;
+    white-space: nowrap;
 
     font-family: var(${attachTokens.cellTitleFontFamily});
     font-size: var(${attachTokens.cellTitleFontSize});

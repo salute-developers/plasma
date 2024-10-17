@@ -32,7 +32,7 @@ jobs:
         needs: [ state ]
         if: ${{ fromJSON(needs.state.outputs.STATE).HAS_DEPLOY_WEBSITE }}
 
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         env:
             PR_NAME: pr-${{ github.event.number }}
             PREFIX: pr/pr-${{ github.event.number }}
@@ -115,7 +115,7 @@ jobs:
         name: Deploy artifacts
         needs: [ state, deploy-website ]
         if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_DS_CHANGES }}
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         env:
             PR_NAME: pr-${{ github.event.number }}
             PREFIX: pr/pr-${{ github.event.number }}
@@ -205,7 +205,7 @@ jobs:
         name: Attached comment
         needs: [ state, deploy-website, deploy-artifacts ]
         if: ${{ always() && (contains(needs.deploy-website.result, 'success') || contains(needs.deploy-artifacts.result, 'success')) }}
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         steps:
             -   uses: actions/checkout@v4
                 with:

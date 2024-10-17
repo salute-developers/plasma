@@ -1,9 +1,10 @@
 import React, { forwardRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
-import { TabsProps, TabItemProps } from '.';
+import { HorizontalTabItemProps } from './TabItem.types';
+import { HorizontalTabsProps } from './Tabs.types';
 
-export interface TabsControllerProps extends TabsProps {
-    items: Array<{ label: string } & TabItemProps>;
+export interface TabsControllerProps extends HorizontalTabsProps {
+    items: Array<{ label: string } & HorizontalTabItemProps>;
     index: number;
     onIndexChange: (index: number) => void;
     children?: never;
@@ -18,8 +19,8 @@ export interface TabsControllerProps extends TabsProps {
  * кастомизировать стили, при этом сохраняя единый интерфейс и функционал.
  */
 export function createTabsController<T extends HTMLDivElement, P extends TabsControllerProps>(
-    ListComponent: ForwardRefExoticComponent<TabsProps & RefAttributes<HTMLDivElement>>,
-    ItemComponent: ForwardRefExoticComponent<TabItemProps & RefAttributes<HTMLDivElement>>,
+    ListComponent: ForwardRefExoticComponent<HorizontalTabsProps & RefAttributes<HTMLDivElement>>,
+    ItemComponent: ForwardRefExoticComponent<HorizontalTabItemProps & RefAttributes<HTMLDivElement>>,
 ) {
     // eslint-disable-next-line prefer-arrow-callback
     return forwardRef<T, P>(function TabsController({ items, index, autoscroll, onIndexChange, ...rest }, ref) {

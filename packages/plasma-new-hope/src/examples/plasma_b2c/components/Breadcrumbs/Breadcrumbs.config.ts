@@ -11,6 +11,8 @@ export const config = {
         view: {
             default: css`
                 ${breadcrumbsTokens.breadcrumbsColor}: var(--text-primary);
+                ${breadcrumbsTokens.breadcrumbsColorText}: var(--text-primary);
+                ${breadcrumbsTokens.breadcrumbsColorSeparator}: var(--text-primary);
                 ${breadcrumbsTokens.breadcrumbsOpacity}: 0.4;
                 ${breadcrumbsTokens.breadcrumbsFocusOutlineColor}: var(--surface-accent);
             `,

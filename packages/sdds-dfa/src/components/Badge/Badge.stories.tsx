@@ -10,7 +10,7 @@ const meta: Meta<typeof Badge> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
-            options: ['s', 'm', 'l'],
+            options: ['l', 'm', 's', 'xs'],
             control: {
                 type: 'select',
             },

@@ -4,11 +4,15 @@ import { AndroidShadow, ShadowToken, IOSShadow, WebShadow } from './shadow';
 import { shadowTokens, getWebTokens, getIOSTokens, getAndroidTokens } from './default';
 import { PlatformsVariations, TokenType } from '../../types';
 
-export const createDefaultShadowTokens = (config: ThemeConfig) =>
-    shadowTokens.map((token) => {
-        const web = getWebTokens(config)[token.name];
-        const ios = getIOSTokens(config)[token.name];
-        const android = getAndroidTokens(config)[token.name];
+export const createDefaultShadowTokens = (config: ThemeConfig): ShadowToken[] => {
+    const webTokens = getWebTokens(config);
+    const iosTokens = getIOSTokens(config);
+    const androidTokens = getAndroidTokens(config);
+
+    return shadowTokens.map((token) => {
+        const web = webTokens[token.name];
+        const ios = iosTokens[token.name];
+        const android = androidTokens[token.name];
 
         if (!web || !ios || !android) {
             throw new Error(`Токен '${token.name}' не найден`);
@@ -22,6 +26,7 @@ export const createDefaultShadowTokens = (config: ThemeConfig) =>
 
         return new ShadowToken(token, values);
     });
+};
 
 export const createShadowTokens = (tokens: Array<TokenType>, platforms: PlatformsVariations['shadow']) =>
     tokens.map((token) => {

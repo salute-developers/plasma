@@ -1,8 +1,10 @@
-export { tabsRoot, tabsConfig } from './ui/Tabs/Tabs';
-export { tabItemRoot, tabItemConfig } from './ui/TabItem/TabItem';
+export { horizontalTabsRoot, horizontalTabsConfig } from './ui/horizontal/HorizontalTabs/HorizontalTabs';
+export { horizontalTabItemRoot, horizontalTabItemConfig } from './ui/horizontal/HorizontalTabItem/HorizontalTabItem';
+export { verticalTabsRoot, verticalTabsConfig } from './ui/vertical/VerticalTabs/VerticalTabs';
+export { verticalTabItemRoot, verticalTabItemConfig } from './ui/vertical/VerticalTabItem/VerticalTabItem';
 export { tokens as tabsTokens } from './tokens';
 export { TabItemRefs, TabsContext } from './TabsContext';
 export { createTabsController } from './createTabsController';
 export type { TabsControllerProps } from './createTabsController';
-export type { TabsProps } from './ui/Tabs/Tabs.types';
-export type { TabItemProps } from './ui/TabItem/TabItem.types';
+export type { HorizontalTabsProps } from './Tabs.types';
+export type { HorizontalTabItemProps } from './TabItem.types';

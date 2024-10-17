@@ -1,0 +1,55 @@
+import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
+
+export const config = {
+    defaults: {
+        view: 'divider',
+        size: 's',
+    },
+    variations: {
+        view: {
+            clear: css`
+                ${tabsTokens.arrowColor}: var(--text-accent);
+                ${tabsTokens.tabsBackgroundColor}: transparent;
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+
+                ${tabsTokens.tabsDividerHeight}: 0rem;
+                ${tabsTokens.tabsDividerColor}: transparent;
+                ${tabsTokens.tabsDividerBorderRadius}: 0rem;
+            `,
+            divider: css`
+                ${tabsTokens.arrowColor}: var(--text-accent);
+                ${tabsTokens.tabsBackgroundColor}: transparent;
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+
+                ${tabsTokens.tabsDividerHeight}: 0.0625rem;
+                ${tabsTokens.tabsDividerColor}: var(--outline-solid-primary);
+                ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
+            `,
+        },
+        size: {
+            s: css`
+                ${tabsTokens.tabsBorderRadius}: 0.625rem;
+                ${tabsTokens.tabsWidth}: fit-content;
+                ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.25rem;
+                ${tabsTokens.arrowOuterPadding}: 0.25rem;
+            `,
+        },
+        stretch: {
+            true: css`
+                ${tabsTokens.containerWidth}: 100%;
+            `,
+        },
+        disabled: {
+            true: css`
+                ${tabsTokens.disabledOpacity}: 1;
+                ${tabsTokens.arrowColor}: var(--text-secondary);
+            `,
+        },
+        pilled: {
+            true: css`
+                ${tabsTokens.tabsPilledBorderRadius}: 1.625rem;
+            `,
+        },
+    },
+};

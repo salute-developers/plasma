@@ -3,6 +3,7 @@ export const classes = {
     tabsPilled: 'tabs-pilled',
     tabsGroupFilledBackground: 'tabs-group-filled-background',
     tabsStretch: 'tabs-stretched',
+    tabsNoDivider: 'tabs-no-divider',
     tabItemDivider: 'tab-item-divider',
     tabItemAnimated: 'tab-item-animated',
     tabContent: 'tab-item-content',
@@ -10,6 +11,8 @@ export const classes = {
     tabLeftContent: 'tab-item-left-content',
     tabsHasLeftArrow: 'tabs-has-left-arrow',
     tabsHasRightArrow: 'tabs-has-right-arrow',
+    tabsHasTopArrow: 'tabs-has-top-arrow',
+    tabsHasBottomArrow: 'tabs-has-bottom-arrow',
     tabsClipScroll: 'tabs-clip-scroll',
     tabsClipShowAll: 'tabs-clip-show-all',
 };
@@ -17,14 +20,17 @@ export const classes = {
 export const tokens = {
     disabledOpacity: '--plasma-tabs-disabled-opacity',
     containerWidth: '--plasma-tabs-container-width',
+    containerHeight: '--plasma-tabs-container-height',
     cursor: '--plasma-tabs-cursor',
     color: '--plasma-tabs-color',
     colorHover: '--plasma-tabs-color-hover',
 
+    tabsDividerWidth: '--plasma-tabs-divider-width',
     tabsDividerHeight: '--plasma-tabs-divider-height',
     tabsDividerColor: '--plasma-tabs-divider-color',
     tabsDividerBorderRadius: '--plasma-tabs-divider-border-radius',
 
+    itemSelectedDividerWidth: '--plasma-tab-item-selected-divider-width',
     itemSelectedDividerHeight: '--plasma-tab-item-selected-divider-height',
     itemSelectedDividerColor: '--plasma-tab-item-selected-divider-color',
     itemSelectedDividerColorHover: '--plasma-tab-item-selected-hover-divider-color',
@@ -47,6 +53,7 @@ export const tokens = {
     itemPadding: '--plasma-tab-item-padding',
     itemPaddingClear: '--plasma-tab-item-padding-clear',
     itemPaddingPilled: '--plasma-tab-item-padding-pilled',
+    itemPaddingOrientationVertical: '--plasma-tab-item-padding-orientation-vertical',
     itemMarginLeft: '--plasma-tab-item-margin-left',
     itemMarginLeftFilled: '--plasma-tab-item-margin-left-filled',
     itemContentGap: '--plasma-tab-item-content-gap',
@@ -59,22 +66,22 @@ export const tokens = {
     arrowViewOuterPadding: '--plasma-tab-arrow-view-outer-padding',
 
     itemColor: '--plasma-tab-item-color',
+    itemValueColor: '--plasma-tab-item-value-color',
     itemBackgroundColor: '--plasma-tab-item-background-color',
     itemColorHover: '--plasma-tab-item-color-hover',
+    itemValueColorHover: '--plasma-tab-item-value-color-hover',
     itemColorActive: '--plasma-tab-item-color-active',
+    itemValueColorActive: '--plasma-tab-item-value-color-active',
     itemBackgroundColorHover: '--plasma-tab-item-background-color-hover',
 
     itemSelectedColor: '--plasma-tab-item-selected-color',
+    itemSelectedValueColor: '--plasma-tab-item-selected-value-color',
     itemSelectedBackgroundColor: '--plasma-tab-item-selected-background-color',
     itemSelectedColorHover: '--plasma-tab-item-selected-color-hover',
+    itemSelectedValueColorHover: '--plasma-tab-item-selected-value-color-hover',
     itemSelectedBackgroundColorHover: '--plasma-tab-item-selected-background-color-hover',
 
     itemBackgroundTransition: '--plasma-tab-item-background-transition',
-
-    additionalContentColor: '--plasma-tab-item-additional-content-color',
-    additionalContentHoverColor: '--plasma-tab-item-hover-additional-content-color',
-    additionalContentSelectedColor: '--plasma-tab-item-selected-additional-content-color',
-    additionalContentSelectedHoverColor: '--plasma-tab-item-selected-hover-additional-content-color',
 
     fontFamily: '--plasma-tab-item-font-family',
     fontSize: '--plasma-tab-item-font-size',

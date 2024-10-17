@@ -18,7 +18,7 @@ jobs:
     name: Deploy documentation
     if: ${{ startsWith(github.head_ref, 'release') }}
     
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       PR_NAME: pr-${{ github.event.number }}
       ICONS_PUBLIC_URL: /icons

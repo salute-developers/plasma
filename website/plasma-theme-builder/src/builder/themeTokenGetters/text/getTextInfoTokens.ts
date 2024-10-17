@@ -1,10 +1,15 @@
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { tokensCreator } from '../../../utils';
+import { getPaletteColorByValue, shiftAccentColor, tokensCreator } from '../../../utils';
 
-export const getTextInfoTokens = () => {
-    const darkValue = '[general.blue.500]';
-    const lightValue = '[general.blue.600]';
+export const getTextInfoTokens = (config: ThemeConfig) => {
+    const { dark, light } = config.accentColor;
+
+    const [, saturationDark] = getPaletteColorByValue(dark);
+    const [, saturationLight] = getPaletteColorByValue(light);
+
+    const darkValue = shiftAccentColor(`[general.blue.${saturationDark}]`, 'dark');
+    const lightValue = shiftAccentColor(`[general.blue.${saturationLight}]`, 'light');
 
     const comment: Record<keyof TokensByType, string> = {
         default: 'Цвет информации',

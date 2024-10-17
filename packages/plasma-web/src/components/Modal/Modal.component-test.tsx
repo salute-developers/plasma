@@ -8,7 +8,7 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const NoAnimationStyle = createGlobalStyle`
     /* stylelint-disable-next-line selector-max-id, selector-max-universal */
-    #plasma-modals-root * {
+    * {
         animation: none !important;
     }
 `;

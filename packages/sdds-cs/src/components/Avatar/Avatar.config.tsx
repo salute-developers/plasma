@@ -3,7 +3,7 @@ import { css, avatarTokens as tokens } from '@salutejs/plasma-new-hope/styled-co
 export const config = {
     defaults: {
         view: 'default',
-        size: 'xxl',
+        size: 's',
     },
     variations: {
         view: {

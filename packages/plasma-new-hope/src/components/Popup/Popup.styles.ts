@@ -5,6 +5,10 @@ import { DEFAULT_Z_INDEX } from './utils';
 
 export const StyledPortal = styled.div``;
 
+export const StyledPortalContainer = styled.div`
+    width: 0;
+`;
+
 export const PopupView = styled.div`
     position: relative;
     max-width: 100%;
@@ -12,7 +16,7 @@ export const PopupView = styled.div`
 `;
 
 export const PopupRootContainer = styled.div<PopupRootContainerProps>`
-    position: absolute;
+    position: ${({ frame }) => (frame === 'document' ? 'fixed' : 'absolute')};
     z-index: ${({ zIndex }) => zIndex || DEFAULT_Z_INDEX};
     left: ${({ position }) => position.left || ''};
     right: ${({ position }) => position.right || ''};

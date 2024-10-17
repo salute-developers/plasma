@@ -2,9 +2,9 @@ import type { ReactNode } from 'react';
 
 type CustomAccordionProps = {
     /**
-     * Тип аккордеона
+     * Тип отображения для accordion
      */
-    view: string;
+    view?: string;
 
     /**
      * Размер
@@ -12,7 +12,7 @@ type CustomAccordionProps = {
     size?: string;
 
     /**
-     * Возможность раскрытия всех элементов или только одногo
+     * Возможность раскрытия всех элементов или только одного
      */
     singleActive?: boolean;
 
@@ -32,7 +32,7 @@ type CustomAccordionProps = {
     stretching?: 'fixed' | 'filled';
 
     /**
-     * Коллбэк при открытии или закрытии элемента аккордеона
+     * Callback при открытии или закрытии элемента accordion
      */
     onChange?: (index?: number, value?: boolean) => void;
 
