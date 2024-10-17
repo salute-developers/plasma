@@ -75,7 +75,10 @@ jobs:
                       if (processedData.includes('plasma-b2c')) {
                         result.push('plasma-new-hope');
                       }
-
+                    
+                      // TOOD: Подумать, можно ли вынести это в другое место
+                      result.push('plasma-themes');
+                    
                       console.log('Result =>', result);
 
                       return `@salutejs/{${result.join(',')}}`;

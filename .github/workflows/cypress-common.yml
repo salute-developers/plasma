@@ -29,7 +29,7 @@ jobs:
       - uses: ./.github/actions/prepare-environment
 
       - name: Set default scope
-        run: echo "SCOPE={b2c,web,core,hope,new-hope,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils,ui}" >> $GITHUB_ENV
+        run: echo "SCOPE={b2c,web,core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils,ui}" >> $GITHUB_ENV
 
       - name: Install React 17
         if:  ${{ inputs.with-react-17 }}
@@ -39,7 +39,7 @@ jobs:
           npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test"
+        run: npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes"
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
