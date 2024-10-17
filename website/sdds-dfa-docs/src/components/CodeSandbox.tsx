@@ -55,7 +55,7 @@ export const CodeSandbox: FC<{ source: string }> = ({ source }) => {
                     <StyledText>Open in CodeSandbox</StyledText>
                 </>
             }
-            sandboxName="plasma-web-example"
+            sandboxName="sdds-dfa-example"
             dependencies={sberdevicesDependencies}
             indexSource={indexSource}
         />
