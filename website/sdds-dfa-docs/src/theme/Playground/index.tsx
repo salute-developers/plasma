@@ -6,7 +6,6 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import { usePrismTheme, useColorMode } from '@docusaurus/theme-common';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
 import { sdds_dfa__dark, sdds_dfa__light } from '@salutejs/sdds-themes';
-import { standard } from '@salutejs/plasma-typo';
 import Translate from '@docusaurus/Translate';
 import clsx from 'clsx';
 
@@ -28,8 +27,6 @@ const StyledWrap = styled.div`
 const StyledPlayground = styled.div`
     position: relative;
 `;
-
-const StandardTypo = createGlobalStyle(standard);
 
 /**
  * Вырезаем блок с `import` чтобы полученный source вставить в блок "LIVE EDITOR".
@@ -68,7 +65,6 @@ const ResultWithHeader: FC = () => {
     return (
         <>
             {colorMode === 'dark' ? <DarkTheme /> : <LightTheme />}
-            <StandardTypo />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
                     Result
