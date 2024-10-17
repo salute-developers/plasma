@@ -17,6 +17,7 @@ export const generateTokens = (srcDir: string, themeName: string, themeContent: 
         themeContent.shadowTokens,
         themeContent.shapeTokens,
         themeContent.typographyTokens.screenS,
+        themeContent.viewContainerTokens,
     ].join('\n');
 
     writeGeneratedToFS(themeDir, [generateCommonFile('index', 'ts', content)]);
