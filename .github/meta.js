@@ -1,4 +1,4 @@
-const commonScope = ['plasma-icons', 'plasma-sb-utils', 'plasma-tokens', 'plasma-tokens-utils'];
+const commonScope = ['plasma-icons', 'plasma-sb-utils', 'plasma-tokens', 'plasma-tokens-utils', 'plasma-themes', 'core-themes'];
 
 module.exports = {
     'plasma-asdk': {
@@ -24,7 +24,7 @@ module.exports = {
         required: ['plasma-core'],
     },
     'plasma-ui': {
-        scope: [...commonScope, 'plasma-core', 'plasma-typo'],
+        scope: ['plasma-icons', 'plasma-sb-utils', 'plasma-tokens', 'plasma-tokens-utils', 'plasma-core', 'plasma-typo'],
         required: ['plasma-icons', 'plasma-core'],
         themes: '',
     },
