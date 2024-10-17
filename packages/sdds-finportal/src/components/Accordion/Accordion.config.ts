@@ -18,6 +18,7 @@ export const config = {
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
                 ${accordionTokens.accordionItemBorderBottom}: 0;
+                ${accordionTokens.accordionItemPaddingHorizontalLeft}: var(${accordionTokens.accordionItemPaddingHorizontal});
             `,
             clear: css`
                 ${accordionTokens.accordionGap}: 0;
@@ -31,6 +32,7 @@ export const config = {
                 ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
                 ${accordionTokens.accordionItemBorderBottom}: 0.125rem solid var(--surface-solid-tertiary);
+                ${accordionTokens.accordionItemPaddingHorizontalLeft}: 0;
             `,
         },
         size: {

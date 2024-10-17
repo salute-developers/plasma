@@ -4,7 +4,7 @@ import type { Pin } from '../../../../utils/roundness';
 
 type Props = {
     /**
-     * Значение раскрытия accordion
+     * Значение раскрытия элемента accordion
      */
     value?: boolean;
 
@@ -29,17 +29,17 @@ type Props = {
     contentRight?: ReactNode;
 
     /**
-     * Скругление accordion
+     * Скругление элемента accordion
      */
     pin?: Pin;
 
     /**
-     * Заголовок accordion
+     * Заголовок элемента accordion
      */
-    title: ReactNode;
+    title?: ReactNode | string;
 
     /**
-     * Контент аккордеона
+     * Контент элемента accordion
      */
     children: ReactNode;
 
@@ -49,21 +49,31 @@ type Props = {
     onChange?: (index: number, value: boolean) => void;
 
     /**
-     * Блокировка элемента
+     * Функция при открытии accordion
+     */
+    onClick?: (index: number, value: boolean) => void;
+
+    /**
+     * Блокировка элемента accordion
      */
     disabled?: boolean;
+
+    /**
+     * Контроль элемента accordion из вне
+     */
+    opened?: boolean;
 
     //
     // Свойства которые автоматически добавляется Accordion'ом
     //
 
     /**
-     * Индекс элемента, который необходимо автоматически открыть
+     * Индекс элемента accordion, который необходимо автоматически открыть
      */
     eventKey?: number;
 
     /**
-     * @deprecated Внутреннее свойство индекс элемента (будет удалено в ближайшее время)
+     * @deprecated Внутреннее свойство индекс элемента accordion (будет удалено в ближайшее время)
      */
     index?: number;
 
