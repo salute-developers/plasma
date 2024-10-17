@@ -50,7 +50,7 @@
     "postinstall": "patch-package"
   },
   "devDependencies": {
-    "@actions/core": "1.2.7",
+    "@actions/core": "1.9.1",
     "@actions/github": "4.0.0",
     "@auto-it/conventional-commits": "11.1.1",
     "@auto-it/npm": "11.1.1",
