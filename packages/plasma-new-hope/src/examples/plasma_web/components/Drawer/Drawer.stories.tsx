@@ -103,7 +103,7 @@ type StoryDrawerProps = ComponentProps<typeof Drawer> & {
 };
 
 const StyledWrapper = styled.div`
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -188,11 +188,6 @@ const StoryDrawerDemo = ({
                     </StyledContentWrapper>
                     <StyledSection />
                 </StyledWrapper>
-                <StyledContent>
-                    <Heading style={{ margin: '2rem' }} size="h2">
-                        Some basic content
-                    </Heading>
-                </StyledContent>
             </PopupProvider>
         </SSRProvider>
     );
