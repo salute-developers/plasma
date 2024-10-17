@@ -1,3 +1,231 @@
+# v0.148.0 (Thu Oct 17 2024)
+
+### Release Notes
+
+#### Release by 16.10.2024 ([#1487](https://github.com/salute-developers/plasma/pull/1487))
+
+## Components
+
+### Accordion
+
+- свойство `view` помечено как `optional`
+- свойство `view` для AccordionItem помечено как `deprecated`      
+- свойство `title` для `AccordionItem` теперь `ReactNode` 
+
+
+ 
+[PLASMA-3591]: Fix Accordion types  (https://github.com/salute-developers/plasma/pull/1467)
+
+### TextArea
+
+- исправлен скроллбар
+- обновлены `snapshots`
+
+ 
+feat(plasma-*, sdds-*): TextArea scrollbar (https://github.com/salute-developers/plasma/pull/1471)
+
+### Popup
+
+- добавлены storybook декораторы для `Popup` и `Notification` для правильного отображения: `Drawer, Modal, Notification, Popup`
+
+ 
+plasma-*: Fix popup mount logic (https://github.com/salute-developers/plasma/pull/1412)
+
+### Tabs 
+
+- вертикальные табы добавлены в поставку всех клиентских библиотек
+- добавлено свойство `value` для горизонтальных и вертикальных табов
+- исправлены токены для всех пакетов
+
+<img width="181" alt="Снимок экрана 2024-09-24 в 14 39 29" src="https://github.com/user-attachments/assets/9889e4d1-9297-4cf9-a577-23f5d1c8c9af">
+
+<img width="163" alt="Снимок экрана 2024-09-24 в 14 38 56" src="https://github.com/user-attachments/assets/596e92aa-1136-4f41-bb29-67ce31dbff75">
+
+ 
+`plasma-*, sdds-*`: Vertical Tabs added (https://github.com/salute-developers/plasma/pull/1374)
+
+### Badge
+
+- добавлен новый размер `XS`
+
+
+ 
+[PLASMA-3598]: Badge: Add size XS   (https://github.com/salute-developers/plasma/pull/1466)
+
+### `SDDS-CS`
+
+#### Button
+
+- используется token `--text-accent` когда `view: secondary` 
+
+#### Chip
+
+- для `closeIconColor` используется token `--text-accent` когда `view: secondary` 
+
+#### Badge
+
+- изменены `padding{Right,Left}` на  `8px`
+
+ 
+[PLASMA-3611]: Правки конфигураций Button, Chip, Badge [SDDS-CS] (https://github.com/salute-developers/plasma/pull/1473)
+
+### Breadcrumbs
+
+* добавлена поддержка обработчика `onClick` при клике на ссылку
+* поправлены union типы 
+* обновлена документация с указанием типов элементов
+
+ 
+feat(plasma-new-hope, *-docs): Add onClick for item to `Breadcrumbs` component (https://github.com/salute-developers/plasma/pull/1480)
+
+### Tabs
+- исправлен скролл табов при малой ширине
+- в `storybooks` добавлены свойства `width` и `height`, доступные при условии `clip = scroll`
+
+ 
+`plasma-new-hope`: fix tabs arrow scroll (https://github.com/salute-developers/plasma/pull/1476)
+
+### Attach
+- исправлен `onChange`, `id` и `name`
+- добавлено свойство `onClear`
+- в документацию добавлен пример с использованием компонента внутри формы
+
+ 
+`plasma-new-hope`: fix Attach (https://github.com/salute-developers/plasma/pull/1481)
+
+### Combobox
+
+- добавлен дженерик для св-ва `items` в компоненте Combobox
+
+ 
+feat(plasma-b2c, web, sdds): Added generic for items in Combobox (https://github.com/salute-developers/plasma/pull/1470)
+
+### TextArea 
+
+- добавлена фокусировка по клику на дочерние элементы
+
+ 
+plasma-*: Focus TextArea by click inside (https://github.com/salute-developers/plasma/pull/1444)
+
+### SDDS CS Pack 4 ( overlay and navigation )
+
+- изменены токены для компонентов: `Autocomplie`, `Avatar`, `Breadcrumbs`, `Cell`, `Drawer`, `Dropdown`, `Modal`, `Notification`, `Pagination`, `Popover`, `Price`, `Progress`, `Segment`, `Slider`, `Tabs`, `Toast`, `Toolbar`, `Tooltip`
+- добавлена и обновлена актуальная документация
+
+ 
+fix(sdds-cs): set overlay and navigation tokens (https://github.com/salute-developers/plasma/pull/1458)
+
+### DatePicker
+
+- добавлен вызов change callback при выборе даты из календаря
+- добавлена возможность указать frame, в котором будет происходить рендер календаря
+- добавлена сортировка дат для Range DatePicker
+- исправлено поведение фокуса при закрытии календаря
+
+ 
+feat(plasma-new-hope): Datepicker improvements (https://github.com/salute-developers/plasma/pull/1475)
+
+### Segment
+
+* добавлен вертикальный режим
+* обновлен дизайн горизонтального отображения
+* обновлен CS дизайн
+
+ 
+feat: Segment redesign (https://github.com/salute-developers/plasma/pull/1392)
+
+
+## Docs
+
+### Документация `SDDS-CS`
+
+- исправлены некорректные `imports` для примеров в документации к `Dropdown`
+- добавлена страница для компонента `Tooltip`
+
+ 
+[PLASMA-3536]: Fix incorrect imports by doc (https://github.com/salute-developers/plasma/pull/1469)
+
+
+## Misc
+
+### Attach
+
+- исправлен `truncate` имени файла
+- исправлены тесты
+
+ 
+`plasma-new-hope`: fix attach truncate (https://github.com/salute-developers/plasma/pull/1454)
+
+
+feat(plasma-tokens): auto generate stylesSalute theme (https://github.com/salute-developers/plasma/pull/1472)
+
+### ThemeBuilder 
+
+* изменены методы генерации базовой темы в старом формате
+* изменены методы генерации базовой темы для новой архитектуры 
+
+ 
+feat(plasma-theme-builder): Update generating default theme (https://github.com/salute-developers/plasma/pull/1477)
+
+### Toast
+
+- исправлен токен background для view="dark"
+
+**Before**
+<img width="319" alt="image" src="https://github.com/user-attachments/assets/fea32b30-270b-48c1-87f0-d6169e2d3bd7">
+
+**After**
+<img width="128" alt="image" src="https://github.com/user-attachments/assets/f52f5174-2a52-4dd0-a964-7fbcd52fdad6">
+
+
+ 
+fix(plasma-*,sdds-*): Fix Toast background token (https://github.com/salute-developers/plasma/pull/1478)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 16.10.2024 [#1487](https://github.com/salute-developers/plasma/pull/1487) ([@shuga2704](https://github.com/shuga2704) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@denivladislav](https://github.com/denivladislav) [@luizasok](https://github.com/luizasok) [@neretin-trike](https://github.com/neretin-trike) [@vadim-kudr](https://github.com/vadim-kudr) [@TitanKuzmich](https://github.com/TitanKuzmich) [@iljs](https://github.com/iljs) [@Yeti-or](https://github.com/Yeti-or))
+- feat: SegmentGroup redesign & vertical mode [#1392](https://github.com/salute-developers/plasma/pull/1392) ([@vadim-kudr](https://github.com/vadim-kudr))
+- feat(*): add breadrumbs new tokens [#1458](https://github.com/salute-developers/plasma/pull/1458) ([@iljs](https://github.com/iljs))
+- feat(plasma-web, plasma-b2c, sdds): Interlayer in Combobox according to the new generic [#1470](https://github.com/salute-developers/plasma/pull/1470) ([@shuga2704](https://github.com/shuga2704))
+- feat(plasma-new-hope): Add generic of ItemOption in ComboboxProps ([@shuga2704](https://github.com/shuga2704))
+- feat: api report update by prop `size:xs` [#1466](https://github.com/salute-developers/plasma/pull/1466) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-*): add `size:xs` [badge] ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- docs: generate new api reports ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- fix(sdds-cs): set overlay and navigation tokens ([@iljs](https://github.com/iljs))
+- docs: regenerate api reports [#1478](https://github.com/salute-developers/plasma/pull/1478) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- test(plasma-*): update Toast tests ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- fix(plasma-*,sdds-*): fix Toast background token ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore(): added width and height to Tabs storybooks [#1476](https://github.com/salute-developers/plasma/pull/1476) ([@denivladislav](https://github.com/denivladislav))
+- docs(): api reports regenerated [#1374](https://github.com/salute-developers/plasma/pull/1374) ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-new-hope): fix tokens, styles and typos ([@denivladislav](https://github.com/denivladislav))
+- chore(plasma-*, sdds-*): Tabs ported ([@denivladislav](https://github.com/denivladislav))
+- feat(plasma-*, sdds-*): Tabs split into Horizontal and Vertical ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-*,sdds-*): fix Modal & Popup stories docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-*, sdds-*): add scrollbar to TextArea ([@denivladislav](https://github.com/denivladislav))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 10
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Luiza_Sok ([@luizasok](https://github.com/luizasok))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+- Vladislav Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # v0.139.0 (Thu Oct 03 2024)
 
 ### Release Notes
