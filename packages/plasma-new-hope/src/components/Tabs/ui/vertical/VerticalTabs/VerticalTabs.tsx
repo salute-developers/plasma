@@ -13,6 +13,7 @@ import { base, StyledArrow, StyledContent, StyledContentWrapper } from './Vertic
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { base as truncateCSS } from './variations/_truncate/base';
 
 enum Keys {
     end = 35,
@@ -35,6 +36,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
             className,
             orientation,
             hasDivider = true,
+            truncate = false,
             ...rest
         } = props;
 
@@ -196,6 +198,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
+                    truncate={truncate}
                     className={cx(hasTopArrowClass, hasBottomArrowClass, noDividerClass, className)}
                     onKeyDown={onKeyDown}
                     orientation={orientation}
@@ -231,6 +234,10 @@ export const verticalTabsConfig = {
         },
         disabled: {
             css: disabledCSS,
+            attrs: true,
+        },
+        truncate: {
+            css: truncateCSS,
             attrs: true,
         },
     },

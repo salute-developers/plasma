@@ -117,5 +117,8 @@ export const config = {
                 ${tabsTokens.tabsPilledBorderRadius}: 1.625rem;
             `,
         },
+        truncate: {
+            true: css``,
+        },
     },
 };

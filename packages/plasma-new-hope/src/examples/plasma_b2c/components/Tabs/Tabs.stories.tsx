@@ -57,6 +57,9 @@ const meta: Meta<StoryTabsProps> = {
     title: 'plasma_b2c/Tabs',
     component: Tabs,
     decorators: [WithTheme],
+    args: {
+        truncate: false,
+    },
     argTypes: {
         ...disableProps([
             'orientation',
@@ -90,13 +93,20 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         stretch,
+        truncate,
         helperText,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs view={hasDivider ? 'divider' : 'clear'} stretch={stretch} disabled={disabled} size={size}>
+        <Tabs
+            view={hasDivider ? 'divider' : 'clear'}
+            stretch={stretch}
+            disabled={disabled}
+            size={size}
+            truncate={truncate}
+        >
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -343,12 +353,19 @@ const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        truncate,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs orientation="vertical" hasDivider={hasDivider} size={size as Size} disabled={disabled}>
+        <Tabs
+            orientation="vertical"
+            hasDivider={hasDivider}
+            size={size as Size}
+            disabled={disabled}
+            truncate={truncate}
+        >
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (

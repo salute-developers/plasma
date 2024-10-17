@@ -565,6 +565,7 @@ true: PolymorphicClassName;
 text?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
+truncate?: boolean | undefined;
 size?: string | undefined;
 view?: string | undefined;
 } & {
@@ -577,6 +578,7 @@ transparent?: false | undefined;
 text?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
+truncate?: boolean | undefined;
 size?: string | undefined;
 view?: string | undefined;
 } & {
@@ -589,6 +591,7 @@ clear?: false | undefined;
 text?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
+truncate?: boolean | undefined;
 size?: string | undefined;
 view?: string | undefined;
 } & {
