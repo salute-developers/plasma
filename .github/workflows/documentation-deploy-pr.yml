@@ -77,7 +77,7 @@ jobs:
                         result.push('plasma-themes');
                         result.push('core-themes');
                       }
-
+                    
                       console.log('Result =>', result);
 
                       return `@salutejs/{${result.join(',')}}`;
