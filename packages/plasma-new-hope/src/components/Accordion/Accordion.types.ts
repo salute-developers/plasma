@@ -32,7 +32,7 @@ type CustomAccordionProps = {
     stretching?: 'fixed' | 'filled';
 
     /**
-     * Callback при открытии или закрытии элемента accordion
+     *  Callback при открытии или закрытии элемента accordion
      */
     onChange?: (index?: number, value?: boolean) => void;
 

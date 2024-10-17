@@ -1,7 +1,7 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
+import linaria from '@linaria/vite';
 
-const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 
 const storyMap = {
@@ -42,6 +42,14 @@ const config: StorybookConfig = {
             build: {
                 sourcemap: false,
             },
+            plugins: [
+                linaria({
+                    exclude: ['../../../'],
+                    babelOptions: {
+                        presets: ['@babel/preset-typescript', '@babel/preset-react'],
+                    },
+                }),
+            ],
         });
     },
 };
