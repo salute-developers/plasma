@@ -80,6 +80,22 @@ describe('plasma-b2c: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
+    it('_header', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs header size="h5" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem header size="h5" view="divider" key={i} selected={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('Handle tab focus: autoFocus', () => {
         mount(
             <CypressTestDecorator>

@@ -79,6 +79,7 @@ const meta: Meta<StoryTabsProps> = {
             'outsideScroll',
             'index',
             'size',
+            'header',
         ]),
     },
 };

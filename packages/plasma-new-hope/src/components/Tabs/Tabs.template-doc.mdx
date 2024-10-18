@@ -63,6 +63,7 @@ export function App() {
 
 ### Расположение табов
 Табы могут быть горизонтальными (по умолчанию) и вертикальными. За это отвечает свойство `orientation`.
+Также у горизонтальных табов есть свойство `header`.
 
 ```tsx live
 import React, { useState } from 'react';
@@ -71,10 +72,11 @@ import { IconClock } from '@salutejs/plasma-icons';
 
 export function App() {
     const items = Array(8).fill(0);
-    const [index, setIndex] = useState(0);
+    const [verticalIndex, setVerticalIndex] = useState(0);
+    const [horizontalIndex, setHorizontalIndex] = useState(0);
 
     return (
-        <div>
+        <div style=\{{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Tabs view="divider" orientation="vertical" size="xs" style=\{{ width: '15rem' }}>
                 {items.map((_, i) => (
                     <TabItem
@@ -82,10 +84,26 @@ export function App() {
                         orientation="vertical"
                         key={`item:${i}`}
                         size="xs"
-                        selected={i === index}
+                        selected={i === verticalIndex}
                         tabIndex={0}
                         contentLeft={<IconClock size="xs" color="inherit" />}
-                        onClick={() => setIndex(i)}
+                        onClick={() => setVerticalIndex(i)}
+                    >
+                        {`Label${i + 1}`}
+                    </TabItem>
+                ))}
+            </Tabs>
+
+            <Tabs header view="divider" size="h5" style=\{{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <TabItem
+                        header
+                        view="divider"
+                        key={`item:${i}`}
+                        size="h5"
+                        selected={i === horizontalIndex}
+                        tabIndex={0}
+                        onClick={() => setHorizontalIndex(i)}
                     >
                         {`Label${i + 1}`}
                     </TabItem>

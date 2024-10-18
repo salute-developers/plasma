@@ -64,6 +64,10 @@ export const config = {
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.75rem;
             `,
+            /**
+             * @deprecated
+             * вместо h1-h5 использовать HorizontalTabs со свойством header
+             */
             h5: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
                 ${tabsTokens.tabsWidth}: fit-content;

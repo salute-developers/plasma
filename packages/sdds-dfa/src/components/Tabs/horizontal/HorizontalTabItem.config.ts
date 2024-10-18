@@ -179,6 +179,10 @@ export const config = {
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
             `,
+            /**
+             * @deprecated
+             * вместо h1-h5 использовать HorizontalTabItem со свойством header
+             */
             h5: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemWidth}: auto;

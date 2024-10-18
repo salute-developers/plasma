@@ -3,7 +3,7 @@ import {
     horizontalTabItemConfig as horizontalBaseTabItemConfig,
     horizontalTabsConfig as horizontalBaseTabsConfig,
     HorizontalTabItemProps,
-    HorizontalTabsProps,
+    HorizontalCommonTabsProps,
     component,
     mergeConfig,
 } from '@salutejs/plasma-new-hope/styled-components';
@@ -23,6 +23,6 @@ const HorizontalTabItem = component(mergedHorizontalTabItemConfig);
  * Позволяет использовать клавиши ArrowLeft, ArrowRight, Home, End для навигации по вкладкам.
  */
 export const TabsController = createTabsController(
-    HorizontalTabs as ForwardRefExoticComponent<HorizontalTabsProps & RefAttributes<HTMLDivElement>>,
+    HorizontalTabs as ForwardRefExoticComponent<HorizontalCommonTabsProps & RefAttributes<HTMLDivElement>>,
     HorizontalTabItem as ForwardRefExoticComponent<HorizontalTabItemProps & RefAttributes<HTMLDivElement>>,
 );
