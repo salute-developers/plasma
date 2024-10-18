@@ -1,6 +1,14 @@
 import { styled } from '@linaria/react';
 
+import { component, mergeConfig } from '../../engines';
+import { tooltipConfig } from '../Tooltip';
+
 import { classes, tokens } from './TextField.tokens';
+
+const mergedConfig = mergeConfig(tooltipConfig);
+const Tooltip = component(mergedConfig);
+
+export const Hint = styled(Tooltip)``;
 
 export const InputWrapper = styled.div`
     position: relative;
@@ -77,8 +85,26 @@ export const InputPlaceholder = styled.div`
     color: var(${tokens.placeholderColor});
 `;
 
-export const Label = styled.label`
+export const OuterLabelWrapper = styled.div<{ isInnnerLabel: boolean }>`
+    display: flex;
+    align-items: center;
+
+    margin-bottom: ${({ isInnnerLabel }) =>
+        isInnnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
+`;
+
+export const TitleCaption = styled.div`
+    display: inline-block;
+    margin-left: auto;
+`;
+
+export const StyledIndicatorWrapper = styled.div`
     position: relative;
+    display: inline-flex;
+    align-items: center;
+`;
+
+export const Label = styled.label`
     display: inline-flex;
 `;
 
@@ -119,6 +145,27 @@ export const StyledOptionalText = styled.span`
     color: var(${tokens.optionalColor});
 `;
 
+export const StyledHintWrapper = styled.div`
+    display: inline-block;
+    line-height: 0;
+
+    &.${classes.innerLabelPlacement} {
+        position: absolute;
+        margin: 0;
+        inset: var(${tokens.hintInnerLabelPlacementOffset});
+    }
+`;
+
+export const HintTargetWrapper = styled.div`
+    color: var(${tokens.hintIconColor});
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const HintIconWrapper = styled.div``;
+
 export const StyledIndicator = styled.div`
     position: absolute;
     border-radius: 50%;
@@ -130,8 +177,12 @@ export const StyledIndicator = styled.div`
         height: var(${tokens.indicatorSizeOuter});
         inset: var(${tokens.indicatorLabelPlacementOuter});
 
-        &.align-right {
+        &.${classes.requiredAlignRight} {
             inset: var(${tokens.indicatorLabelPlacementOuterRight});
+
+            &.${classes.hasHint} {
+                right: calc(-1 * var(${tokens.indicatorSizeOuter}));
+            }
         }
     }
 
@@ -140,7 +191,7 @@ export const StyledIndicator = styled.div`
         height: var(${tokens.indicatorSizeInner});
         inset: var(${tokens.indicatorLabelPlacementInner});
 
-        &.align-right {
+        &.${classes.requiredAlignRight} {
             inset: var(${tokens.indicatorLabelPlacementInnerRight});
         }
     }

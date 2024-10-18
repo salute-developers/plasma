@@ -1,4 +1,6 @@
+import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { textAreaConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import type { TextAreaProps } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './TextArea.config';
 
