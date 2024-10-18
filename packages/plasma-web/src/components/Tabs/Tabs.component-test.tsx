@@ -68,6 +68,22 @@ describe('plasma-web: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
+    it('_header', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tabs header size="h5" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem header size="h5" view="divider" key={i} selected={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('Clicking on arrows scrolls to previous or next tab', () => {
         mount(
             <CypressTestDecoratorWithTypo>
