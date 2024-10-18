@@ -3,7 +3,7 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'divider',
-        size: 'l',
+        size: 'h5',
     },
     variations: {
         view: {
@@ -27,34 +27,6 @@ export const config = {
             `,
         },
         size: {
-            xs: css`
-                ${tabsTokens.tabsBorderRadius}: 0.5rem;
-                ${tabsTokens.tabsWidth}: fit-content;
-                ${tabsTokens.tabsHeight}: auto;
-                ${tabsTokens.arrowInnerPadding}: 0rem;
-                ${tabsTokens.arrowOuterPadding}: 0.125rem;
-            `,
-            s: css`
-                ${tabsTokens.tabsBorderRadius}: 0.625rem;
-                ${tabsTokens.tabsWidth}: fit-content;
-                ${tabsTokens.tabsHeight}: auto;
-                ${tabsTokens.arrowInnerPadding}: 0rem;
-                ${tabsTokens.arrowOuterPadding}: 0.25rem;
-            `,
-            m: css`
-                ${tabsTokens.tabsBorderRadius}: 0.75rem;
-                ${tabsTokens.tabsWidth}: fit-content;
-                ${tabsTokens.tabsHeight}: auto;
-                ${tabsTokens.arrowInnerPadding}: 0rem;
-                ${tabsTokens.arrowOuterPadding}: 0.625rem;
-            `,
-            l: css`
-                ${tabsTokens.tabsBorderRadius}: 0.875rem;
-                ${tabsTokens.tabsWidth}: fit-content;
-                ${tabsTokens.tabsHeight}: auto;
-                ${tabsTokens.arrowInnerPadding}: 0rem;
-                ${tabsTokens.arrowOuterPadding}: 0.75rem;
-            `,
             h5: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
                 ${tabsTokens.tabsWidth}: fit-content;
@@ -91,19 +63,9 @@ export const config = {
                 ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
         },
-        stretch: {
-            true: css`
-                ${tabsTokens.containerWidth}: 100%;
-            `,
-        },
         disabled: {
             true: css`
                 ${tabsTokens.disabledOpacity}: 0.4;
-            `,
-        },
-        pilled: {
-            true: css`
-                ${tabsTokens.tabsPilledBorderRadius}: 1.625rem;
             `,
         },
     },

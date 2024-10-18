@@ -111,6 +111,8 @@ export type CustomVerticalTabsProps = {
     size?: string;
 };
 
+export type HorizontalCommonTabsProps = BaseTabsProps & CustomHorizontalTabsProps;
+
 export type HorizontalTabsProps = BaseTabsProps & (CustomHorizontalTabsProps | CustomHeaderTabsProps);
 
 export type VerticalTabsProps = BaseTabsProps & CustomVerticalTabsProps;
