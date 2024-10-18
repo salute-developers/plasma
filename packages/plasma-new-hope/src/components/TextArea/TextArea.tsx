@@ -153,7 +153,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             }
         });
 
-        useAutoResize(autoResize || Boolean(clear), outerRef, value, minAuto, maxAuto);
+        useAutoResize(autoResize || Boolean(clear), outerRef, value, minAuto, maxAuto, defaultValue);
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
