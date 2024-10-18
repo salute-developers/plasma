@@ -35,15 +35,6 @@ export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement
      */
     disabled?: boolean;
     /**
-     * Контент слева
-     */
-    contentLeft?: ReactNode;
-    /**
-     * Контент справа
-     */
-    contentRight?: ReactNode;
-
-    /**
      * Callback, необходимый для клавиатурной навигации
      */
     onIndexChange?: (index: number) => void;
@@ -58,6 +49,14 @@ export type CustomHorizontalTabItemProps = {
      * Расположение табов
      */
     orientation?: 'horizontal';
+    /**
+     * Являются ли табы header
+     */
+    header?: false;
+    /**
+     * Контент слева
+     */
+    contentLeft?: ReactNode;
     /**
      * TabItem c округлым border-radius
      * @default false
@@ -83,11 +82,53 @@ export type CustomHorizontalTabItemProps = {
     isActive?: boolean;
 } & RightContent;
 
+export type CustomHeaderTabItemProps = {
+    /**
+     * Расположение табов
+     */
+    orientation?: 'horizontal';
+    /**
+     * Являются ли табы header
+     */
+    header: true;
+    /**
+     * Контент слева
+     */
+    contentLeft?: never;
+    /**
+     * TabItem c округлым border-radius
+     * @default false
+     */
+    pilled?: never;
+    /**
+     * Фон TabItem меняется с анимацией
+     * @default true
+     */
+    animated?: never;
+    /**
+     * Вид TabItem
+     */
+    view?: string;
+    /**
+     * Размер TabItem
+     */
+    size?: string;
+    /**
+     * Активен ли TabItem
+     * @deprecated Используйте свойство `selected`
+     */
+    isActive?: never;
+} & Extract<RightContent, { contentRight?: never }>;
+
 export type CustomVerticalTabItemProps = {
     /**
      * Расположение табов
      */
     orientation: 'vertical';
+    /**
+     * Контент слева
+     */
+    contentLeft?: ReactNode;
     /**
      * Вид TabItem
      */
@@ -98,8 +139,6 @@ export type CustomVerticalTabItemProps = {
     size?: string;
 } & RightContent;
 
-export type HorizontalTabItemProps = BaseTabItemProps & CustomHorizontalTabItemProps;
+export type HorizontalTabItemProps = BaseTabItemProps & (CustomHorizontalTabItemProps | CustomHeaderTabItemProps);
 
 export type VerticalTabItemProps = BaseTabItemProps & CustomVerticalTabItemProps;
-
-export type TabItemProps = HorizontalTabItemProps | VerticalTabItemProps;

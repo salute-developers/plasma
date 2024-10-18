@@ -2,6 +2,8 @@ export { horizontalTabsRoot, horizontalTabsConfig } from './ui/horizontal/Horizo
 export { horizontalTabItemRoot, horizontalTabItemConfig } from './ui/horizontal/HorizontalTabItem/HorizontalTabItem';
 export { verticalTabsRoot, verticalTabsConfig } from './ui/vertical/VerticalTabs/VerticalTabs';
 export { verticalTabItemRoot, verticalTabItemConfig } from './ui/vertical/VerticalTabItem/VerticalTabItem';
+export { headerTabsRoot, headerTabsConfig } from './ui/header/HeaderTabs/HeaderTabs';
+export { headerTabItemRoot, headerTabItemConfig } from './ui/header/HeaderTabItem/HeaderTabItem';
 export { tokens as tabsTokens } from './tokens';
 export { TabItemRefs, TabsContext } from './TabsContext';
 export { createTabsController } from './createTabsController';

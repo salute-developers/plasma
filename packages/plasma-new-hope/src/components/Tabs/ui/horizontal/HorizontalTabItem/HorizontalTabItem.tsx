@@ -32,6 +32,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             tabIndex,
             className,
             onClick,
+            header: _header,
             ...rest
         } = props;
 
@@ -104,10 +105,10 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             <Root
                 ref={ref}
                 disabled={disabled}
-                pilled={pilled}
                 role={role}
                 view={view}
                 size={size}
+                pilled={pilled}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
                 className={cx(pilledClass, selectedClass, animatedClass, className)}

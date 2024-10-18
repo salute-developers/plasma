@@ -37,6 +37,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             pilled = false,
             index,
             className,
+            header: _header,
             ...rest
         } = props;
         const [firstItemVisible, setFirstItemVisible] = useState(true);
@@ -207,8 +208,8 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     view={view}
                     role="tablist"
                     size={size}
-                    pilled={pilled}
                     id={tabsId}
+                    pilled={pilled}
                     ref={outerRef}
                     disabled={disabled}
                     className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass, className)}

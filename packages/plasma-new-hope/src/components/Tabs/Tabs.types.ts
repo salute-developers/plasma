@@ -28,6 +28,10 @@ export type CustomHorizontalTabsProps = {
      */
     orientation?: 'horizontal';
     /**
+     * Являются ли табы header
+     */
+    header?: false;
+    /**
      * Табы растянуты на доступную область
      * @default false
      */
@@ -52,6 +56,41 @@ export type CustomHorizontalTabsProps = {
     outsideScroll?: boolean | { left?: string; right?: string };
 };
 
+export type CustomHeaderTabsProps = {
+    /**
+     * Расположение табов
+     */
+    orientation?: 'horizontal';
+    /**
+     * Являются ли табы header
+     */
+    header: true;
+    /**
+     * Табы растянуты на доступную область
+     * @default false
+     */
+    stretch?: never;
+    /**
+     * Табы c округлым border-radius
+     * @default false
+     */
+    pilled?: never;
+    /**
+     * Вид табов
+     */
+    view?: string;
+    /**
+     * Размер табов
+     */
+    size?: string;
+    /**
+     * Уберет скругление с выбранной стороны и подвинет контейнер
+     * @deprecated
+     */
+    outsideScroll?: never;
+};
+
+// TODO: добавить свойство hasDivider в горизонтальные и хедер табы, когда будут удалены deprecated views
 export type CustomVerticalTabsProps = {
     /**
      * Расположение табов
@@ -72,8 +111,6 @@ export type CustomVerticalTabsProps = {
     size?: string;
 };
 
-export type HorizontalTabsProps = BaseTabsProps & CustomHorizontalTabsProps;
+export type HorizontalTabsProps = BaseTabsProps & (CustomHorizontalTabsProps | CustomHeaderTabsProps);
 
 export type VerticalTabsProps = BaseTabsProps & CustomVerticalTabsProps;
-
-export type TabsProps = HorizontalTabsProps | VerticalTabsProps;
