@@ -8,6 +8,7 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
     value?: string | ReadonlyArray<string> | number,
     minAuto?: number,
     maxAuto?: number,
+    defaultValue?: string | ReadonlyArray<string> | number,
 ) => {
     const isManualResize = useRef<boolean>(false);
     const previousHeight = useRef<number | undefined>();
@@ -38,5 +39,5 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
             ref.current.style.height = `${newHeight}rem`;
             previousHeight.current = newHeight;
         }
-    }, [ref, active, value]);
+    }, [ref, active, value, defaultValue]);
 };
