@@ -11,7 +11,7 @@ export * as constants from './constants';
 export * from './getPopoverPlacement';
 export { noop } from './noop';
 
-export const cx = (...classes: (string | undefined)[]) => classes.filter((classItem) => classItem).join(' ');
+export const cx = (...classes: (string | boolean | undefined)[]) => classes.filter((classItem) => classItem).join(' ');
 
 export const composableStyle = (s: TemplateStringsArray, ...expr: Array<string | number | CSSProperties>): string => {
     let res = '';
