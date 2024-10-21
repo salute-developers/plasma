@@ -21,6 +21,15 @@ export const textSecondaryHover = 'var(--text-secondary-hover, #FFFFFFFF)';
 /** Вторичный цвет текста */
 export const textSecondaryActive = 'var(--text-secondary-active, #FFFFFFAB)';
 
+/** Третичный цвет текста */
+export const textTertiary = 'var(--text-tertiary, #FFFFFF47)';
+
+/** Третичный цвет текста */
+export const textTertiaryHover = 'var(--text-tertiary-hover, #FFFFFFFF)';
+
+/** Третичный цвет текста */
+export const textTertiaryActive = 'var(--text-tertiary-active, #FFFFFF56)';
+
 /** Акцентный цвет */
 export const textAccent = 'var(--text-accent, #0C9C0C)';
 
@@ -48,6 +57,15 @@ export const textPositiveHover = 'var(--text-positive-hover, #1EB83AFF)';
 /** Цвет успеха */
 export const textPositiveActive = 'var(--text-positive-active, #15842AFF)';
 
+/** Цвет предупреждения */
+export const textWarning = 'var(--text-warning, #FA5F05)';
+
+/** Цвет предупреждения */
+export const textWarningHover = 'var(--text-warning-hover, #FB7223FF)';
+
+/** Цвет предупреждения */
+export const textWarningActive = 'var(--text-warning-active, #DC5304FF)';
+
 /** Цвет ошибки */
 export const textNegative = 'var(--text-negative, #FF293E)';
 
@@ -56,6 +74,15 @@ export const textNegativeHover = 'var(--text-negative-hover, #FF475AFF)';
 
 /** Цвет ошибки */
 export const textNegativeActive = 'var(--text-negative-active, #FF0A23FF)';
+
+/** Цвет информации */
+export const textInfo = 'var(--text-info, #118CDF)';
+
+/** Цвет информации */
+export const textInfoHover = 'var(--text-info-hover, #50B1F2FF)';
+
+/** Цвет информации */
+export const textInfoActive = 'var(--text-info-active, #0F7BC2FF)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimary = 'var(--on-dark-text-primary, #FFFFFFF5)';
@@ -77,6 +104,15 @@ export const onDarkTextSecondaryHover = 'var(--on-dark-text-secondary-hover, #FF
 
 /** Вторичный цвет текста на темном фоне */
 export const onDarkTextSecondaryActive = 'var(--on-dark-text-secondary-active, #FFFFFFAB)';
+
+/** Третичный цвет текста на темном фоне */
+export const onDarkTextTertiary = 'var(--on-dark-text-tertiary, #FFFFFF47)';
+
+/** Третичный цвет текста на темном фоне */
+export const onDarkTextTertiaryHover = 'var(--on-dark-text-tertiary-hover, #FFFFFFFF)';
+
+/** Третичный цвет текста на темном фоне */
+export const onDarkTextTertiaryActive = 'var(--on-dark-text-tertiary-active, #FFFFFF56)';
 
 /** Акцентный цвет на темном фоне */
 export const onDarkTextAccent = 'var(--on-dark-text-accent, #0C9C0C)';
@@ -105,6 +141,15 @@ export const onDarkTextPositiveHover = 'var(--on-dark-text-positive-hover, #1EB8
 /** Цвет успеха на темном фоне */
 export const onDarkTextPositiveActive = 'var(--on-dark-text-positive-active, #15842AFF)';
 
+/** Цвет предупреждения на темном фоне */
+export const onDarkTextWarning = 'var(--on-dark-text-warning, #FA5F05)';
+
+/** Цвет предупреждения на темном фоне */
+export const onDarkTextWarningHover = 'var(--on-dark-text-warning-hover, #FB7223FF)';
+
+/** Цвет предупреждения на темном фоне */
+export const onDarkTextWarningActive = 'var(--on-dark-text-warning-active, #DC5304FF)';
+
 /** Цвет ошибки на темном фоне */
 export const onDarkTextNegative = 'var(--on-dark-text-negative, #FF293E)';
 
@@ -113,6 +158,15 @@ export const onDarkTextNegativeHover = 'var(--on-dark-text-negative-hover, #FF47
 
 /** Цвет ошибки на темном фоне */
 export const onDarkTextNegativeActive = 'var(--on-dark-text-negative-active, #FF0A23FF)';
+
+/** Цвет информации на темном фоне */
+export const onDarkTextInfo = 'var(--on-dark-text-info, #118CDF)';
+
+/** Цвет информации на темном фоне */
+export const onDarkTextInfoHover = 'var(--on-dark-text-info-hover, #50B1F2FF)';
+
+/** Цвет информации на темном фоне */
+export const onDarkTextInfoActive = 'var(--on-dark-text-info-active, #0F7BC2FF)';
 
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, #060A0CF5)';
@@ -134,6 +188,15 @@ export const onLightTextSecondaryHover = 'var(--on-light-text-secondary-hover, #
 
 /** Вторичный цвет текста на светлом фоне */
 export const onLightTextSecondaryActive = 'var(--on-light-text-secondary-active, #070B0EAB)';
+
+/** Третичный цвет текста на светлом фоне */
+export const onLightTextTertiary = 'var(--on-light-text-tertiary, #060A0C47)';
+
+/** Третичный цвет текста на светлом фоне */
+export const onLightTextTertiaryHover = 'var(--on-light-text-tertiary-hover, #070B0EFF)';
+
+/** Третичный цвет текста на светлом фоне */
+export const onLightTextTertiaryActive = 'var(--on-light-text-tertiary-active, #070B0E56)';
 
 /** Акцентный цвет на светлом фоне */
 export const onLightTextAccent = 'var(--on-light-text-accent, #108210)';
@@ -162,6 +225,15 @@ export const onLightTextPositiveHover = 'var(--on-light-text-positive-hover, #13
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositiveActive = 'var(--on-light-text-positive-active, #0D731EFF)';
 
+/** Цвет предупреждения на светлом фоне */
+export const onLightTextWarning = 'var(--on-light-text-warning, #E85702)';
+
+/** Цвет предупреждения на светлом фоне */
+export const onLightTextWarningHover = 'var(--on-light-text-warning-hover, #FD650DFF)';
+
+/** Цвет предупреждения на светлом фоне */
+export const onLightTextWarningActive = 'var(--on-light-text-warning-active, #CA4B02FF)';
+
 /** Цвет ошибки на светлом фоне */
 export const onLightTextNegative = 'var(--on-light-text-negative, #F31B31)';
 
@@ -170,6 +242,15 @@ export const onLightTextNegativeHover = 'var(--on-light-text-negative-hover, #F5
 
 /** Цвет ошибки на светлом фоне */
 export const onLightTextNegativeActive = 'var(--on-light-text-negative-active, #E40C22FF)';
+
+/** Цвет информации на светлом фоне */
+export const onLightTextInfo = 'var(--on-light-text-info, #0B7ECB)';
+
+/** Цвет информации на светлом фоне */
+export const onLightTextInfoHover = 'var(--on-light-text-info-hover, #34A7F4FF)';
+
+/** Цвет информации на светлом фоне */
+export const onLightTextInfoActive = 'var(--on-light-text-info-active, #096CAEFF)';
 
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, #060A0CF5)';
@@ -191,6 +272,15 @@ export const inverseTextSecondaryHover = 'var(--inverse-text-secondary-hover, #0
 
 /** Инвертированный вторичный цвет текста */
 export const inverseTextSecondaryActive = 'var(--inverse-text-secondary-active, #070B0EAB)';
+
+/** Инвертированный третичный цвет текста */
+export const inverseTextTertiary = 'var(--inverse-text-tertiary, #060A0C47)';
+
+/** Инвертированный третичный цвет текста */
+export const inverseTextTertiaryHover = 'var(--inverse-text-tertiary-hover, #070B0EFF)';
+
+/** Инвертированный третичный цвет текста */
+export const inverseTextTertiaryActive = 'var(--inverse-text-tertiary-active, #070B0E56)';
 
 /** Инвертированный акцентный цвет */
 export const inverseTextAccent = 'var(--inverse-text-accent, #108210)';
@@ -219,6 +309,15 @@ export const inverseTextPositiveHover = 'var(--inverse-text-positive-hover, #13A
 /** Инвертированный цвет успеха */
 export const inverseTextPositiveActive = 'var(--inverse-text-positive-active, #0D731EFF)';
 
+/** Инвертированный цвет предупреждения */
+export const inverseTextWarning = 'var(--inverse-text-warning, #E85702)';
+
+/** Инвертированный цвет предупреждения */
+export const inverseTextWarningHover = 'var(--inverse-text-warning-hover, #FD650DFF)';
+
+/** Инвертированный цвет предупреждения */
+export const inverseTextWarningActive = 'var(--inverse-text-warning-active, #CA4B02FF)';
+
 /** Инвертированный цвет ошибки */
 export const inverseTextNegative = 'var(--inverse-text-negative, #F31B31)';
 
@@ -239,6 +338,15 @@ export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #171
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryActive = 'var(--surface-solid-primary-active, #0F1315FF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidSecondary = 'var(--surface-solid-secondary, #23292D)';
+
+/** Вторичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidSecondaryHover = 'var(--surface-solid-secondary-hover, #2C343AFF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidSecondaryActive = 'var(--surface-solid-secondary-active, #1F2528FF)';
 
 /** Основной фон для карточек */
 export const surfaceSolidCard = 'var(--surface-solid-card, #13181B)';
@@ -297,6 +405,15 @@ export const surfacePositiveHover = 'var(--surface-positive-hover, #1DAF37FF)';
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositiveActive = 'var(--surface-positive-active, #18952FFF)';
 
+/** Цвет фона поверхности/контрола предупреждение */
+export const surfaceWarning = 'var(--surface-warning, #FA5F05)';
+
+/** Цвет фона поверхности/контрола предупреждение */
+export const surfaceWarningHover = 'var(--surface-warning-hover, #FB7223FF)';
+
+/** Цвет фона поверхности/контрола предупреждение */
+export const surfaceWarningActive = 'var(--surface-warning-active, #F05B05FF)';
+
 /** Цвет фона поверхности/контрола ошибка */
 export const surfaceNegative = 'var(--surface-negative, #FF293E)';
 
@@ -315,6 +432,33 @@ export const surfaceInfoHover = 'var(--surface-info-hover, #1798EEFF)';
 /** Цвет фона поверхности/контрола информация */
 export const surfaceInfoActive = 'var(--surface-info-active, #1086D5FF)';
 
+/** Минорный цвет фона поверхности/контрола предупреждение */
+export const surfaceWarningMinor = 'var(--surface-warning-minor, #3D1D0A)';
+
+/** Минорный цвет фона поверхности/контрола предупреждение */
+export const surfaceWarningMinorHover = 'var(--surface-warning-minor-hover, #4F250DFF)';
+
+/** Минорный цвет фона поверхности/контрола предупреждение */
+export const surfaceWarningMinorActive = 'var(--surface-warning-minor-active, #351909FF)';
+
+/** Минорный цвет фона поверхности/контрола информация */
+export const surfaceInfoMinor = 'var(--surface-info-minor, #0C283B)';
+
+/** Минорный цвет фона поверхности/контрола информация */
+export const surfaceInfoMinorHover = 'var(--surface-info-minor-hover, #10344CFF)';
+
+/** Минорный цвет фона поверхности/контрола информация */
+export const surfaceInfoMinorActive = 'var(--surface-info-minor-active, #0A2333FF)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение */
+export const surfaceTransparentNegative = 'var(--surface-transparent-negative, #FF293E47)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение */
+export const surfaceTransparentNegativeHover = 'var(--surface-transparent-negative-hover, #FF293E66)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение */
+export const surfaceTransparentNegativeActive = 'var(--surface-transparent-negative-active, #FF293E38)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #13181B)';
 
@@ -326,6 +470,15 @@ export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-prima
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryActive = 'var(--on-dark-surface-solid-primary-active, #0F1315FF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidSecondary = 'var(--on-dark-surface-solid-secondary, #23292D)';
+
+/** Вторичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidSecondaryHover = 'var(--on-dark-surface-solid-secondary-hover, #2C343AFF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidSecondaryActive = 'var(--on-dark-surface-solid-secondary-active, #1F2528FF)';
 
 /** Основной фон для карточек на темном фоне */
 export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #13181B)';
@@ -393,6 +546,15 @@ export const onDarkSurfacePositiveHover = 'var(--on-dark-surface-positive-hover,
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositiveActive = 'var(--on-dark-surface-positive-active, #18952FFF)';
 
+/** Цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarning = 'var(--on-dark-surface-warning, #FA5F05)';
+
+/** Цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarningHover = 'var(--on-dark-surface-warning-hover, #FB7223FF)';
+
+/** Цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarningActive = 'var(--on-dark-surface-warning-active, #F05B05FF)';
+
 /** Цвет фона поверхности/контрола ошибка на темном фоне */
 export const onDarkSurfaceNegative = 'var(--on-dark-surface-negative, #FF293E)';
 
@@ -411,6 +573,33 @@ export const onDarkSurfaceInfoHover = 'var(--on-dark-surface-info-hover, #1798EE
 /** Цвет фона поверхности/контрола информация на темном фоне */
 export const onDarkSurfaceInfoActive = 'var(--on-dark-surface-info-active, #1086D5FF)';
 
+/** Минорный цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarningMinor = 'var(--on-dark-surface-warning-minor, #3D1D0A)';
+
+/** Минорный цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarningMinorHover = 'var(--on-dark-surface-warning-minor-hover, #4F250DFF)';
+
+/** Минорный цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceWarningMinorActive = 'var(--on-dark-surface-warning-minor-active, #351909FF)';
+
+/** Минорный цвет фона поверхности/контрола информация на темном фоне */
+export const onDarkSurfaceInfoMinor = 'var(--on-dark-surface-info-minor, #0C283B)';
+
+/** Минорный цвет фона поверхности/контрола информация на темном фоне */
+export const onDarkSurfaceInfoMinorHover = 'var(--on-dark-surface-info-minor-hover, #10344CFF)';
+
+/** Минорный цвет фона поверхности/контрола информация на темном фоне */
+export const onDarkSurfaceInfoMinorActive = 'var(--on-dark-surface-info-minor-active, #0A2333FF)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceTransparentNegative = 'var(--on-dark-surface-transparent-negative, #FF293E47)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceTransparentNegativeHover = 'var(--on-dark-surface-transparent-negative-hover, #FF293E66)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне */
+export const onDarkSurfaceTransparentNegativeActive = 'var(--on-dark-surface-transparent-negative-active, #FF293E38)';
+
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F2F5F8)';
 
@@ -422,6 +611,15 @@ export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-pri
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryActive = 'var(--on-light-surface-solid-primary-active, #EBF0F4FF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidSecondary = 'var(--on-light-surface-solid-secondary, #E8EEF2)';
+
+/** Вторичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidSecondaryHover = 'var(--on-light-surface-solid-secondary-hover, #F5F8F9FF)';
+
+/** Вторичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidSecondaryActive = 'var(--on-light-surface-solid-secondary-active, #E2E9EEFF)';
 
 /** Основной фон для карточек на светлом фоне */
 export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, #FFFFFFFF)';
@@ -480,6 +678,15 @@ export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hove
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositiveActive = 'var(--on-light-surface-positive-active, #18952FFF)';
 
+/** Цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarning = 'var(--on-light-surface-warning, #FA5F05)';
+
+/** Цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarningHover = 'var(--on-light-surface-warning-hover, #FB7223FF)';
+
+/** Цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarningActive = 'var(--on-light-surface-warning-active, #F05B05FF)';
+
 /** Цвет фона поверхности/контрола ошибка на светлом фоне */
 export const onLightSurfaceNegative = 'var(--on-light-surface-negative, #FF293E)';
 
@@ -498,6 +705,33 @@ export const onLightSurfaceInfoHover = 'var(--on-light-surface-info-hover, #1798
 /** Цвет фона поверхности/контрола информация на светлом фоне */
 export const onLightSurfaceInfoActive = 'var(--on-light-surface-info-active, #1086D5FF)';
 
+/** Минорный цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarningMinor = 'var(--on-light-surface-warning-minor, #FFD1B8)';
+
+/** Минорный цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarningMinorHover = 'var(--on-light-surface-warning-minor-hover, #FFDECCFF)';
+
+/** Минорный цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceWarningMinorActive = 'var(--on-light-surface-warning-minor-active, #FFCAADFF)';
+
+/** Минорный цвет фона поверхности/контрола информация на светлом фоне */
+export const onLightSurfaceInfoMinor = 'var(--on-light-surface-info-minor, #B0DFFF)';
+
+/** Минорный цвет фона поверхности/контрола информация на светлом фоне */
+export const onLightSurfaceInfoMinorHover = 'var(--on-light-surface-info-minor-hover, #C7E9FFFF)';
+
+/** Минорный цвет фона поверхности/контрола информация на светлом фоне */
+export const onLightSurfaceInfoMinorActive = 'var(--on-light-surface-info-minor-active, #A8DCFFFF)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceTransparentNegative = 'var(--on-light-surface-transparent-negative, #FF293E47)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceTransparentNegativeHover = 'var(--on-light-surface-transparent-negative-hover, #FF293E66)';
+
+/** Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне */
+export const onLightSurfaceTransparentNegativeActive = 'var(--on-light-surface-transparent-negative-active, #FF293E38)';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimary = 'var(--inverse-surface-solid-primary, #F2F5F8)';
 
@@ -509,6 +743,15 @@ export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-prim
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryActive = 'var(--inverse-surface-solid-primary-active, #EBF0F4FF)';
+
+/** Инвертированный вторичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidSecondary = 'var(--inverse-surface-solid-secondary, #E8EEF2)';
+
+/** Инвертированный вторичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidSecondaryHover = 'var(--inverse-surface-solid-secondary-hover, #F5F8F9FF)';
+
+/** Инвертированный вторичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidSecondaryActive = 'var(--inverse-surface-solid-secondary-active, #E2E9EEFF)';
 
 /** Инвертированный основной фон для карточек */
 export const inverseSurfaceSolidCard = 'var(--inverse-surface-solid-card, #FFFFFFFF)';
@@ -567,6 +810,15 @@ export const inverseSurfacePositiveHover = 'var(--inverse-surface-positive-hover
 /** Инвертированный цвет фона поверхности/контрола успех */
 export const inverseSurfacePositiveActive = 'var(--inverse-surface-positive-active, #18952FFF)';
 
+/** Инвертированный цвет фона поверхности/контрола предупреждение */
+export const inverseSurfaceWarning = 'var(--inverse-surface-warning, #FA5F05)';
+
+/** Инвертированный цвет фона поверхности/контрола предупреждение */
+export const inverseSurfaceWarningHover = 'var(--inverse-surface-warning-hover, #FB7223FF)';
+
+/** Инвертированный цвет фона поверхности/контрола предупреждение */
+export const inverseSurfaceWarningActive = 'var(--inverse-surface-warning-active, #F05B05FF)';
+
 /** Инвертированный цвет фона поверхности/контрола ошибка */
 export const inverseSurfaceNegative = 'var(--inverse-surface-negative, #FF293E)';
 
@@ -584,6 +836,33 @@ export const inverseSurfaceInfoHover = 'var(--inverse-surface-info-hover, #1798E
 
 /** Инвертированный цвет фона поверхности/контрола информация */
 export const inverseSurfaceInfoActive = 'var(--inverse-surface-info-active, #1086D5FF)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола предупреждение */
+export const inverseSurfaceWarningMinor = 'var(--inverse-surface-warning-minor, #FFD1B8)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола предупреждение */
+export const inverseSurfaceWarningMinorHover = 'var(--inverse-surface-warning-minor-hover, #FFDECCFF)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола предупреждение */
+export const inverseSurfaceWarningMinorActive = 'var(--inverse-surface-warning-minor-active, #FFCAADFF)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола ошибка */
+export const inverseSurfaceNegativeMinor = 'var(--inverse-surface-negative-minor, #FECDD2)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола ошибка */
+export const inverseSurfaceNegativeMinorHover = 'var(--inverse-surface-negative-minor-hover, #FED7DBFF)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола ошибка */
+export const inverseSurfaceNegativeMinorActive = 'var(--inverse-surface-negative-minor-active, #FEC3C9FF)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола информация */
+export const inverseSurfaceInfoMinor = 'var(--inverse-surface-info-minor, #B0DFFF)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола информация */
+export const inverseSurfaceInfoMinorHover = 'var(--inverse-surface-info-minor-hover, #C7E9FFFF)';
+
+/** Инвертированный минорный цвет фона поверхности/контрола информация */
+export const inverseSurfaceInfoMinorActive = 'var(--inverse-surface-info-minor-active, #A8DCFFFF)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #060A0C)';
@@ -854,6 +1133,15 @@ export const inverseOutlineInfoHover = 'var(--inverse-outline-info-hover, #34A7F
 
 /** Инвертированный цвет обводки информация */
 export const inverseOutlineInfoActive = 'var(--inverse-outline-info-active, #096CAEFF)';
+
+/** Инвертированный минорный промо цвет с градиентом */
+export const inverseTextPromoMinorGradient = 'var(--inverse-text-promo-minor-gradient, #FFFFFF)';
+
+/** Инвертированный минорный промо цвет с градиентом */
+export const inverseTextPromoMinorGradientHover = 'var(--inverse-text-promo-minor-gradient-hover, #CCCCCCFF)';
+
+/** Инвертированный минорный промо цвет с градиентом */
+export const inverseTextPromoMinorGradientActive = 'var(--inverse-text-promo-minor-gradient-active, #E6E6E6FF)';
 
 /** Фон для скелетона */
 export const surfaceSkeletonGradient =
