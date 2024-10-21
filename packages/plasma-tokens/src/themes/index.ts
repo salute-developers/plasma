@@ -28,6 +28,8 @@ export { sdds_finportal__dark, darkSdds_finportal } from './sdds_finportal__dark
 export { sdds_finportal__light, lightSdds_finportal } from './sdds_finportal__light';
 export { sdds_insurance__dark, darkSdds_insurance } from './sdds_insurance__dark';
 export { sdds_insurance__light, lightSdds_insurance } from './sdds_insurance__light';
+export { sdds_os__dark, darkSdds_os } from './sdds_os__dark';
+export { sdds_os__light, lightSdds_os } from './sdds_os__light';
 export { sdds_serv__dark, darkSdds_serv } from './sdds_serv__dark';
 export { sdds_serv__light, lightSdds_serv } from './sdds_serv__light';
 export { stylesSalute__dark, darkStylesSalute } from './stylesSalute__dark';
