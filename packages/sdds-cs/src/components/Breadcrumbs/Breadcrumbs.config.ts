@@ -3,7 +3,7 @@ import { css, breadcrumbsTokens } from '@salutejs/plasma-new-hope/styled-compone
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 's',
     },
     variations: {
         view: {
