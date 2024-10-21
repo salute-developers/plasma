@@ -148,12 +148,12 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                             {...rest}
                         >
                             <Ul
+                                ref={targetRef}
+                                id={`${treeId}_tree_level_1`}
+                                role="tree"
                                 listHeight={listHeight}
                                 listOverflow={listOverflow}
                                 listWidth={listWidth}
-                                role="tree"
-                                id="tree_level_1"
-                                ref={targetRef}
                             >
                                 {items.map((item, index) => (
                                     <DropdownInner
