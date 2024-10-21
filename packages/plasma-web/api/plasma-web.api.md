@@ -133,6 +133,7 @@ import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DropdownProps as DropdownProps_2 } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { EditableProps } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
@@ -1507,15 +1508,15 @@ export { DrawerProps }
 // @public (undocumented)
 export const Dropdown: FunctionComponent<PropsType<    {
 size: {
-xs: PolymorphicClassName;
-s: PolymorphicClassName;
-m: PolymorphicClassName;
 l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
 };
-}> & DropdownProps & RefAttributes<HTMLDivElement>>;
+}> & DropdownProps_2 & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const DropdownItem: React_2.ForwardRefExoticComponent<DropdownItemProps & React_2.RefAttributes<HTMLDivElement>>;
