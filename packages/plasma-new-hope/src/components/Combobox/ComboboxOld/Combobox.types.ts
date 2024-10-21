@@ -1,7 +1,8 @@
 import { MouseEvent, MutableRefObject, SyntheticEvent } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 
-import { DropdownPlacement, DropdownPlacementBasic } from '../../Dropdown/Dropdown.types';
+export type DropdownPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
+export type DropdownPlacement = DropdownPlacementBasic | 'auto';
 
 export type ComponentType = 'select' | 'combobox';
 

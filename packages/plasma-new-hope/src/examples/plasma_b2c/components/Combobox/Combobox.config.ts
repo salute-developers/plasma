@@ -179,8 +179,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.875rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1rem 1rem 1rem 0.875rem;
-                ${tokens.itemPaddingTight}: 0.75rem 1rem 0.75rem 0.875rem;
+                ${tokens.itemPadding}: 1rem 1.125rem;
+                ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
                 ${tokens.itemIconMargin}: 0 0.5rem 0 0;
                 ${tokens.itemIconSize}: 1.5rem;
@@ -275,8 +275,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.5rem 0.75rem 0.5rem 0.75rem;
+                ${tokens.itemPadding}: 0.75rem 0.875rem;
+                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
                 ${tokens.itemIconMargin}: 0 0.375rem 0 0;
                 ${tokens.itemIconSize}: 1.5rem;
@@ -371,8 +371,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.625rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.5rem 0.75rem 0.5rem 0.675rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.75rem 0.25rem 0.675rem;
+                ${tokens.itemPadding}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1rem;
@@ -467,8 +467,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.5rem;
 
                 ${tokens.itemHeight}: 1rem;
-                ${tokens.itemPadding}: 0.5rem 0.5rem 0.5rem 0.375rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.5rem 0.25rem 0.375rem;
+                ${tokens.itemPadding}: 0.5rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.375rem;
                 ${tokens.itemIconMargin}: 0 0.25rem 0 0;
                 ${tokens.itemIconSize}: 1rem;
@@ -494,10 +494,10 @@ export const config = {
                 ${tokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.checkboxTriggerSize}: 1.25rem;
-                ${tokens.checkboxTriggerSizeTight}: 1.25rem;
-                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${tokens.checkboxTriggerSize}: 0.875rem;
+                ${tokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
