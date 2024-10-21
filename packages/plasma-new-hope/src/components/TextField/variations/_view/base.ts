@@ -8,6 +8,7 @@ import {
     LeftHelper,
     StyledTextAfter,
     StyledTextBefore,
+    TitleCaption,
 } from '../../TextField.styles';
 
 export const base = css`
@@ -48,6 +49,10 @@ export const base = css`
         ${InputPlaceholder} {
             color: var(${tokens.placeholderColorFocus});
         }
+    }
+
+    ${TitleCaption} {
+        color: var(${tokens.titleCaptionColor});
     }
 
     ${LeftHelper} {

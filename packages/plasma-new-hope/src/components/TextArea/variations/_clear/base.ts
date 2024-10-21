@@ -2,11 +2,12 @@ import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextArea.tokens';
 import {
+    OuterLabelWrapper,
     StyledContainer,
     StyledContent,
     StyledHelpers,
+    StyledHintWrapper,
     StyledIndicator,
-    StyledLabel,
     StyledPlaceholder,
     StyledTextArea,
     StyledTextAreaWrapper,
@@ -23,7 +24,7 @@ export const base = css`
             padding-bottom: var(${tokens.inputPaddingTop});
         }
 
-        ${StyledLabel} {
+        ${OuterLabelWrapper} {
             margin-bottom: var(${tokens.clearLabelMarginBottom});
         }
 
@@ -75,8 +76,22 @@ export const base = css`
         ${StyledIndicator} {
             &.${classes.innerLabelPlacement} {
                 inset: var(${tokens.clearIndicatorLabelPlacementInner});
-                &.align-right {
+                &.${classes.requiredAlignRight} {
                     inset: var(${tokens.clearIndicatorLabelPlacementInnerRight});
+                }
+            }
+        }
+
+        &.${classes.hasHint} {
+            ${StyledHintWrapper} {
+                &.${classes.innerLabelPlacement} {
+                    inset: var(${tokens.clearHintInnerLabelPlacementOffset});
+                }
+            }
+
+            ${StyledIndicator} {
+                &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
+                    inset: var(${tokens.clearIndicatorHintInnerRight});
                 }
             }
         }

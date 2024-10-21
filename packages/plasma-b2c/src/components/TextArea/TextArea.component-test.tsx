@@ -328,4 +328,73 @@ describe('plasma-b2c: TextArea', () => {
 
         cy.matchImageSnapshot();
     });
+
+    describe('_required', () => {
+        const sizes = ['xs', 's', 'm', 'l'];
+
+        const cases = [
+            { required: true, labelPlacement: 'outer' },
+            { required: true, requiredPlacement: 'right', labelPlacement: 'outer' },
+            { required: true, labelPlacement: 'inner' },
+            { required: true, requiredPlacement: 'right', labelPlacement: 'inner' },
+        ];
+
+        sizes.forEach((size) => {
+            it(`_size:${size}`, () => {
+                mount(
+                    <CypressTestDecorator>
+                        {cases.map((props) => (
+                            <div style={{ margin: '0 1rem' }}>
+                                <TextArea
+                                    value="Value"
+                                    placeholder="Placeholder"
+                                    label="Title"
+                                    size={size}
+                                    height="2.5rem"
+                                    {...props}
+                                />
+                                <SpaceMe />
+                            </div>
+                        ))}
+                    </CypressTestDecorator>,
+                );
+
+                cy.matchImageSnapshot();
+            });
+        });
+    });
+
+    describe('with hint', () => {
+        const sizes = ['xs', 's', 'm', 'l'];
+
+        const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
+
+        sizes.forEach((size) => {
+            it(`_size:${size}`, () => {
+                mount(
+                    <CypressTestDecorator>
+                        {cases.map((props) => (
+                            <div style={{ margin: '0 1rem' }}>
+                                <TextArea
+                                    value="Value"
+                                    placeholder="Placeholder"
+                                    label="Title"
+                                    size={size}
+                                    height="2.5rem"
+                                    hintText="Подсказка к полю"
+                                    hintTrigger="click"
+                                    {...props}
+                                />
+                                <SpaceMe />
+                            </div>
+                        ))}
+                    </CypressTestDecorator>,
+                );
+
+                cy.get('.popover-wrapper').first().click();
+
+                cy.matchImageSnapshot();
+            });
+        });
+    });
 });

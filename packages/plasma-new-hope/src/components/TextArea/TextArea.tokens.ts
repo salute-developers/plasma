@@ -19,8 +19,10 @@ export const classes = {
     outerLabelPlacement: 'label-placement-outer',
     /** Класс для view `clear` */
     clear: 'textarea-clear',
+    hasHint: 'textarea-has-hint',
     hasRightContent: 'textarea-has-right-content',
     hasDivider: 'textarea-has-divider',
+    requiredAlignRight: 'required-align-right',
 };
 
 export const tokens = {
@@ -190,6 +192,7 @@ export const tokens = {
     indicatorLabelPlacementOuterRight: '--plasma-textarea-indicator-placement-outer-right',
     clearIndicatorLabelPlacementInner: '--plasma-textarea__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textarea__clear-indicator-placement-inner-right',
+    clearIndicatorHintInnerRight: '--plasma-textarea__clear-indicator-hint-placement-inner-right',
 
     scrollbarWidth: '--plasma-textarea-scrollbar-width',
     scrollbarBorderWidth: '--plasma-textarea-scrollbar-border-width',
@@ -200,8 +203,50 @@ export const tokens = {
     scrollbarTrackBackgroundColorHover: '--plasma-textarea-scrollbar-track-background-color-hover',
     scrollbarTrackBackgroundColorActive: '--plasma-textarea-scrollbar-track-background-color-active',
 
-    dividerColor: '--plasma-textfield-divider-color',
-    dividerColorHover: '--plasma-textfield-divider-color-hover',
-    dividerColorFocus: '--plasma-textfield-divider-color-focus',
-    dividerColorReadOnly: '--plasma-textfield-divider-color-readonly',
+    dividerColor: '--plasma-textarea-divider-color',
+    dividerColorHover: '--plasma-textarea-divider-color-hover',
+    dividerColorFocus: '--plasma-textarea-divider-color-focus',
+    dividerColorReadOnly: '--plasma-textarea-divider-color-readonly',
+
+    titleCaptionColor: '--plasma-textarea__title-caption-color',
+    titleCaptionColorReadOnly: '--plasma-textarea__title-caption-color-readonly',
+    titleCaptionInnerLabelOffset: '--plasma-textarea__title-caption-label-inner-offset',
+
+    titleCaptionFontFamily: '--plasma-textarea__title-caption-font-family',
+    titleCaptionFontStyle: '--plasma-textarea__title-caption-font-style',
+    titleCaptionFontSize: '--plasma-textarea__title-caption-font-size',
+    titleCaptionFontWeight: '--plasma-textarea__title-caption-font-weight',
+    titleCaptionLetterSpacing: '--plasma-textarea__title-caption-letter-spacing',
+    titleCaptionLineHeight: '--plasma-textarea__title-caption-line-height',
+
+    /** Токены для tooltip */
+    hintMargin: '--plasma-textarea__hint-margin',
+    hintTargetSize: '--plasma-textarea__hint-target-size',
+    hintIconColor: '--plasma-textarea__hint-icon-color',
+    hintInnerLabelPlacementOffset: '--plasma-textarea__hint-inner-label-placement-offset',
+    clearHintInnerLabelPlacementOffset: '--plasma-textarea__clear-hint-inner-label-placement-offset',
+
+    tooltipBackgroundColor: '--plasma-textarea__tooltip-background-color',
+    tooltipBoxShadow: '--plasma-textarea__tooltip-box-shadow',
+    tooltipColor: '--plasma-textarea__tooltip-color',
+
+    tooltipPaddingTop: '--plasma-textarea__tooltip-padding-top',
+    tooltipPaddingRight: '--plasma-textarea__tooltip-padding-right',
+    tooltipPaddingBottom: '--plasma-textarea__tooltip-padding-bottom',
+    tooltipPaddingLeft: '--plasma-textarea__tooltip-padding-left',
+    tooltipMinHeight: '--plasma-textarea__tooltip-min-height',
+    tooltipBorderRadius: '--plasma-textarea__tooltip-border-radius',
+    tooltipTextFontFamily: '--plasma-textarea__tooltip-text-font-family',
+    tooltipTextFontSize: '--plasma-textarea__tooltip-text-font-size',
+    tooltipTextFontStyle: '--plasma-textarea__tooltip-text-font-style',
+    tooltipTextFontWeight: '--plasma-textarea__tooltip-text-font-weight',
+    tooltipTextFontLetterSpacing: '--plasma-textarea__tooltip-text-font-letter-spacing',
+    tooltipTextFontLineHeight: '--plasma-textarea__tooltip-text-font-line-height',
+    tooltipContentLeftMargin: '--plasma-textarea__tooltip-content-left-margin',
+    tooltipArrowMaskWidth: '--plasma-textarea__tooltip-arrow-mask-width',
+    tooltipArrowMaskHeight: '--plasma-textarea__tooltip-arrow-mask-height',
+    tooltipArrowMaskImage: '--plasma-textarea__tooltip-arrow-mask-image',
+    tooltipArrowHeight: '--plasma-textarea__tooltip-arrow-height',
+    tooltipArrowEdgeMargin: '--plasma-textarea__tooltip-arrow-edge-margin',
+    tooltipArrowBackground: '--plasma-textarea__tooltip-arrow-background',
 };
