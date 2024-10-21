@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -11,7 +11,7 @@ import { Dropdown } from './Dropdown';
 
 type StoryDropdownProps = ComponentProps<typeof Dropdown>;
 
-const placements: Array<DropdownPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
+const placements: Array<DropdownPlacement> = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers: Array<DropdownTrigger> = ['click', 'hover'];
 const size = ['xs', 's', 'm', 'l'];
 const variant = ['normal', 'tight'];
@@ -47,14 +47,15 @@ const meta: Meta<StoryDropdownProps> = {
         },
     },
     args: {
+        size: 'm',
+        variant: 'normal',
+        placement: 'bottom-start',
         trigger: 'click',
         offset: [0, 0],
-        listWidth: 'auto',
+        listWidth: '',
         hasArrow: true,
         closeOnOverlayClick: true,
         closeOnSelect: true,
-        size: 'm',
-        variant: 'normal',
     },
 };
 

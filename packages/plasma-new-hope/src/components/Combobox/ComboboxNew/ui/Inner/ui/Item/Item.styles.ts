@@ -72,20 +72,12 @@ export const IconWrapper = styled.div<{ variant: ComboboxProps['variant'] }>`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: none;
     width: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemIconSizeTight : tokens.itemIconSize})`};
     height: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemIconSizeTight : tokens.itemIconSize})`};
     margin: var(${tokens.itemIconMargin});
     line-height: 0;
     color: var(${tokens.checkboxFillColor});
-
-    & .${classes.selectItemCheckbox} {
-        --plasma-checkbox-trigger-size: ${({ variant }) =>
-            `var(${variant === 'tight' ? tokens.checkboxTriggerSizeTight : tokens.checkboxTriggerSize})`};
-        --plasma-checkbox-trigger-border-radius: ${({ variant }) =>
-            `var(${
-                variant === 'tight' ? tokens.checkboxTriggerBorderRadiusTight : tokens.checkboxTriggerBorderRadius
-            })`};
-    }
 `;
 
 export const StyledText = styled.div`

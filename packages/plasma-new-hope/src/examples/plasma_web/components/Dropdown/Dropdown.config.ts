@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { dropdownTokens } from '../../../../components/Dropdown';
+import { dropdownTokens as tokens } from '../../../../components/Dropdown';
 
 export const config = {
     defaults: {
@@ -9,126 +9,158 @@ export const config = {
     },
     variations: {
         size: {
-            xs: css`
-                ${dropdownTokens.padding}: 0.125rem;
-                ${dropdownTokens.width}: 10rem;
-                ${dropdownTokens.borderRadius}: 0.5rem;
+            l: css`
+                ${tokens.padding}: 0.125rem;
+                ${tokens.width}: 17.5rem;
+                ${tokens.borderRadius}: 0.875rem;
 
-                ${dropdownTokens.itemPaddingTop}: 0.5625rem;
-                ${dropdownTokens.itemPaddingRight}: 0.5rem;
-                ${dropdownTokens.itemPaddingBottom}: 0.5625rem;
-                ${dropdownTokens.itemPaddingLeft}: 0.5rem;
-                ${dropdownTokens.itemBorderRadius}: 0.375rem;
-                ${dropdownTokens.itemPaddingTopTight}: 0.3125rem;
-                ${dropdownTokens.itemPaddingBottomTight}: 0.3125rem;
+                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemPadding}: 1rem 1.125rem;
+                ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
+                ${tokens.itemBorderRadius}: 0.75rem;
 
-                ${dropdownTokens.dividerMarginTop}: 0.25rem;
-                ${dropdownTokens.dividerMarginRight}: 0.5rem;
-                ${dropdownTokens.dividerMarginBottom}: 0.25rem;
-                ${dropdownTokens.dividerMarginLeft}: 0.5rem;
-                ${dropdownTokens.dividerMarginTopTight}: 0.125rem;
-                ${dropdownTokens.dividerMarginBottomTight}: 0.125rem;
+                ${tokens.dividerMarginTop}: 0.5rem;
+                ${tokens.dividerMarginRight}: 1.125rem;
+                ${tokens.dividerMarginBottom}: 0.5rem;
+                ${tokens.dividerMarginLeft}: 1.125rem;
+                ${tokens.dividerMarginTopTight}: 0.375rem;
+                ${tokens.dividerMarginBottomTight}: 0.375rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-xs-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-            s: css`
-                ${dropdownTokens.padding}: 0.125rem;
-                ${dropdownTokens.width}: 12.5rem;
-                ${dropdownTokens.borderRadius}: 0.625rem;
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${dropdownTokens.itemPaddingTop}: 0.6875rem;
-                ${dropdownTokens.itemPaddingRight}: 0.75rem;
-                ${dropdownTokens.itemPaddingBottom}: 0.6875rem;
-                ${dropdownTokens.itemPaddingLeft}: 0.75rem;
-                ${dropdownTokens.itemBorderRadius}: 0.5rem;
-                ${dropdownTokens.itemPaddingTopTight}: 0.4375rem;
-                ${dropdownTokens.itemPaddingBottomTight}: 0.4375rem;
-
-                ${dropdownTokens.dividerMarginTop}: 0.375rem;
-                ${dropdownTokens.dividerMarginRight}: 0.75rem;
-                ${dropdownTokens.dividerMarginBottom}: 0.375rem;
-                ${dropdownTokens.dividerMarginLeft}: 0.75rem;
-                ${dropdownTokens.dividerMarginTopTight}: 0.25rem;
-                ${dropdownTokens.dividerMarginBottomTight}: 0.25rem;
-
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-s-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
-                ${dropdownTokens.padding}: 0.125rem;
-                ${dropdownTokens.width}: 15rem;
-                ${dropdownTokens.borderRadius}: 0.75rem;
+                ${tokens.padding}: 0.125rem;
+                ${tokens.width}: 15rem;
+                ${tokens.borderRadius}: 0.75rem;
 
-                ${dropdownTokens.itemPaddingTop}: 0.875rem;
-                ${dropdownTokens.itemPaddingRight}: 0.875rem;
-                ${dropdownTokens.itemPaddingBottom}: 0.875rem;
-                ${dropdownTokens.itemPaddingLeft}: 0.875rem;
-                ${dropdownTokens.itemBorderRadius}: 0.625rem;
-                ${dropdownTokens.itemPaddingTopTight}: 0.625rem;
-                ${dropdownTokens.itemPaddingBottomTight}: 0.625rem;
+                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemPadding}: 0.75rem 0.875rem;
+                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
+                ${tokens.itemBorderRadius}: 0.625rem;
 
-                ${dropdownTokens.dividerMarginTop}: 0.375rem;
-                ${dropdownTokens.dividerMarginRight}: 0.875rem;
-                ${dropdownTokens.dividerMarginBottom}: 0.375rem;
-                ${dropdownTokens.dividerMarginLeft}: 0.875rem;
-                ${dropdownTokens.dividerMarginTopTight}: 0.375rem;
-                ${dropdownTokens.dividerMarginBottomTight}: 0.375rem;
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.875rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.875rem;
+                ${tokens.dividerMarginTopTight}: 0.375rem;
+                ${tokens.dividerMarginBottomTight}: 0.375rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
-            l: css`
-                ${dropdownTokens.padding}: 0.125rem;
-                ${dropdownTokens.width}: 17.5rem;
-                ${dropdownTokens.borderRadius}: 0.875rem;
+            s: css`
+                ${tokens.padding}: 0.125rem;
+                ${tokens.width}: 12.5rem;
+                ${tokens.borderRadius}: 0.625rem;
 
-                ${dropdownTokens.itemPaddingTop}: 1.0625rem;
-                ${dropdownTokens.itemPaddingRight}: 1rem;
-                ${dropdownTokens.itemPaddingBottom}: 1.0625rem;
-                ${dropdownTokens.itemPaddingLeft}: 1rem;
-                ${dropdownTokens.itemBorderRadius}: 0.75rem;
-                ${dropdownTokens.itemPaddingTopTight}: 0.8125rem;
-                ${dropdownTokens.itemPaddingBottomTight}: 0.8125rem;
+                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemPadding}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
+                ${tokens.itemBorderRadius}: 0.5rem;
 
-                ${dropdownTokens.dividerMarginTop}: 0.5rem;
-                ${dropdownTokens.dividerMarginRight}: 1.125rem;
-                ${dropdownTokens.dividerMarginBottom}: 0.5rem;
-                ${dropdownTokens.dividerMarginLeft}: 1.125rem;
-                ${dropdownTokens.dividerMarginTopTight}: 0.375rem;
-                ${dropdownTokens.dividerMarginBottomTight}: 0.375rem;
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.75rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.75rem;
+                ${tokens.dividerMarginTopTight}: 0.25rem;
+                ${tokens.dividerMarginBottomTight}: 0.25rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
+            `,
+            xs: css`
+                ${tokens.padding}: 0.125rem;
+                ${tokens.width}: 10rem;
+                ${tokens.borderRadius}: 0.5rem;
+
+                ${tokens.itemHeight}: 1rem;
+                ${tokens.itemPadding}: 0.5rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
+                ${tokens.itemBorderRadius}: 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.25rem;
+                ${tokens.dividerMarginRight}: 0.5rem;
+                ${tokens.dividerMarginBottom}: 0.25rem;
+                ${tokens.dividerMarginLeft}: 0.5rem;
+                ${tokens.dividerMarginTopTight}: 0.125rem;
+                ${tokens.dividerMarginBottomTight}: 0.125rem;
+
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.25rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
         view: {
             default: css`
-                ${dropdownTokens.disabledOpacity}: 0.4;
-                ${dropdownTokens.focusColor}: var(--surface-accent);
-                ${dropdownTokens.background}: var(--surface-solid-card-brightness);
-                ${dropdownTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${dropdownTokens.disclosureIconColor}: var(--text-secondary);
-                ${dropdownTokens.itemBackground}: var(--surface-clear);
-                ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${dropdownTokens.itemColor}: var(--text-primary);
-                ${dropdownTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
         },
     },

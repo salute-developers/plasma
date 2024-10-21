@@ -8,7 +8,7 @@ const mergedConfig = mergeConfig(dropdownOldConfig, config);
 const DropdownNewHope = component(mergedConfig);
 
 export const DropdownPopup = forwardRef<HTMLDivElement, DropdownPopupProps>((props, ref) => {
-    const { trigger, children, isOpen, disclosure, onToggle, placement, offsetTop, ...rest } = props;
+    const { trigger, children, opened, isOpen, disclosure, onToggle, placement, offsetTop, ...rest } = props;
 
     const offsetAtTop = typeof offsetTop === 'number' ? offsetTop : 0;
 
@@ -18,7 +18,8 @@ export const DropdownPopup = forwardRef<HTMLDivElement, DropdownPopupProps>((pro
             ref={ref}
             onToggle={onToggle}
             target={disclosure}
-            opened={isOpen}
+            opened={opened}
+            isOpen={isOpen}
             trigger={trigger}
             placement={placement}
             offset={[offsetAtTop, 0]}

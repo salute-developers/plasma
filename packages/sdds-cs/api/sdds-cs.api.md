@@ -89,7 +89,7 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { dsplL } from '@salutejs/sdds-themes/tokens';
 import { dsplLBold } from '@salutejs/sdds-themes/tokens';
 import { dsplM } from '@salutejs/sdds-themes/tokens';
@@ -1321,14 +1321,15 @@ export { DrawerProps }
 // @public (undocumented)
 export const Dropdown: FunctionComponent<PropsType<    {
 size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
 s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
 };
 }> & DropdownProps & RefAttributes<HTMLDivElement>>;
-
-export { DropdownProps }
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {

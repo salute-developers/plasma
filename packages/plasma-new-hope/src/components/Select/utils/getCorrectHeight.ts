@@ -1,6 +1,6 @@
-import type { DropdownProps } from '../../Dropdown';
+import type { CSSProperties } from 'react';
 
-export const getCorrectHeight = (listHeight: Required<DropdownProps>['listHeight']): string => {
+export const getCorrectHeight = (listHeight: NonNullable<CSSProperties['height']>): string => {
     if (Number.isNaN(Number(listHeight))) {
         return listHeight.toString();
     }
