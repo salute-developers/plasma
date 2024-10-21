@@ -1,31 +1,23 @@
 import React from 'react';
 import type { FC } from 'react';
+import { safeUseId } from '@salutejs/plasma-core';
 
 import { DropdownItem } from '..';
-import { Ul, StyledPopover } from '../../Dropdown.styles';
+import { Ul } from '../../Dropdown.styles';
+import { FloatingPopover } from '../../FloatingPopover';
 
 import { DropdownInnerProps } from './DropdownInner.type';
 
 const DropdownInner: FC<DropdownInnerProps> = ({
     item,
     currentLevel,
-    focusedPath,
     path,
     dispatchPath,
     index,
     trigger,
-    itemRole,
     listHeight,
     listOverflow,
-    handleGlobalToggle,
-    closeOnSelect,
-    onHover,
-    onItemSelect,
-    onItemClick,
     listWidth,
-    variant,
-    hasArrow,
-    size,
 }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
@@ -37,93 +29,59 @@ const DropdownInner: FC<DropdownInnerProps> = ({
 
     const isCurrentListOpen = path[currentLevel + 1] === item.value.toString();
 
-    const listId = `tree_level_${currentLevel + 2}`;
+    const treeId = safeUseId();
+    const listId = `${treeId}_tree_level_${currentLevel + 2}`;
     const nextLevel = currentLevel + 1;
 
     if (item?.items) {
         return (
-            <StyledPopover
-                opened={isCurrentListOpen}
-                usePortal={false}
+            <FloatingPopover
                 placement="right-start"
+                opened={isCurrentListOpen}
+                onToggle={handleToggle}
                 trigger={trigger}
                 target={
                     <DropdownItem
                         item={item}
                         index={index}
                         path={path}
-                        focusedPath={focusedPath}
                         currentLevel={currentLevel}
-                        itemRole={itemRole}
-                        onHover={onHover}
-                        onItemSelect={onItemSelect}
-                        onItemClick={onItemClick}
-                        variant={variant}
-                        hasArrow={hasArrow}
                         ariaControls={listId}
                         ariaExpanded={isCurrentListOpen}
                         ariaLevel={nextLevel}
                         ariaLabel={item.label}
-                        size={size}
                     />
                 }
-                onToggle={handleToggle}
-                isFocusTrapped={false}
-                preventOverflow={false}
+                isInner
             >
                 <Ul
+                    id={listId}
+                    role="group"
+                    isInnerUl
                     listHeight={listHeight}
                     listOverflow={listOverflow}
-                    role="group"
-                    id={listId}
                     listWidth={listWidth}
-                    isInnerUl
                 >
                     {item.items.map((innerItem, innerIndex) => (
                         <DropdownInner
                             key={`${innerIndex}/${currentLevel}`}
                             item={innerItem}
                             currentLevel={nextLevel}
-                            focusedPath={focusedPath}
                             path={path}
                             dispatchPath={dispatchPath}
                             index={innerIndex}
                             trigger={trigger}
-                            itemRole={itemRole}
                             listHeight={listHeight}
                             listOverflow={listOverflow}
-                            handleGlobalToggle={handleGlobalToggle}
-                            closeOnSelect={closeOnSelect}
-                            onHover={onHover}
-                            onItemSelect={onItemSelect}
-                            onItemClick={onItemClick}
                             listWidth={listWidth}
-                            variant={variant}
-                            hasArrow={hasArrow}
-                            size={size}
                         />
                     ))}
                 </Ul>
-            </StyledPopover>
+            </FloatingPopover>
         );
     }
 
-    return (
-        <DropdownItem
-            item={item}
-            index={index}
-            focusedPath={focusedPath}
-            currentLevel={currentLevel}
-            itemRole={itemRole}
-            handleGlobalToggle={handleGlobalToggle}
-            closeOnSelect={closeOnSelect}
-            onHover={onHover}
-            onItemSelect={onItemSelect}
-            onItemClick={onItemClick}
-            variant={variant}
-            size={size}
-        />
-    );
+    return <DropdownItem item={item} path={path} index={index} currentLevel={currentLevel} ariaLevel={nextLevel} />;
 };
 
 export { DropdownInner };
