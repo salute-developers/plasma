@@ -44,7 +44,7 @@ module.exports = {
     },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-core'],
+        required: ['plasma-new-hope', 'plasma-core'],
         themes: 'sdds-themes',
     },
     'sdds-dfa': {
