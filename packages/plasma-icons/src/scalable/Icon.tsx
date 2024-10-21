@@ -546,6 +546,10 @@ export const iconSectionsSet = {
         scribbleDiagonal: 'ScribbleDiagonal',
         poopFill: 'PoopFill',
         poopOutline: 'PoopOutline',
+        columnCheckboxFill: 'ColumnCheckboxFill',
+        columnCheckboxFillOff: 'ColumnCheckboxFillOff',
+        columnCheckboxOutline: 'ColumnCheckboxOutline',
+        columnCheckboxOutlineOff: 'ColumnCheckboxOutlineOff',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
