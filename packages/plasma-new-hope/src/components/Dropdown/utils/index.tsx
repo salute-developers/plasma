@@ -35,3 +35,6 @@ export const getValidComponent = (element: ElementType | ReactNode, props: objec
 
     return element;
 };
+
+export { getItemId } from './getItemId';
+export { getItemByFocused } from './getItemByFocused';

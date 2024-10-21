@@ -1,7 +1,5 @@
-import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
-import { DropdownProps } from '../../Dropdown.types';
-import type { FocusedPathState } from '../../reducers/focusedPathReducer';
 import type { PathState } from '../../reducers/pathReducer';
 
 export type DropdownItemOption = {
@@ -56,22 +54,11 @@ export type DropdownItemOption = {
 
 export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {
     item: DropdownItemOption;
-    focusedPath: FocusedPathState;
     currentLevel: number;
     index: number;
-    variant: DropdownProps['variant'];
-    size?: string;
     path?: PathState;
-    itemRole?: DropdownProps['itemRole'];
-    closeOnSelect?: DropdownProps['closeOnSelect'];
-    handleGlobalToggle?: (opened: boolean, event: Event | SyntheticEvent<Element, Event>) => void;
-    onHover?: DropdownProps['onHover'];
-    onItemSelect?: DropdownProps['onItemSelect'];
-    onItemClick?: DropdownProps['onItemClick'];
-    hasArrow?: DropdownProps['hasArrow'];
     ariaControls?: string;
     ariaExpanded?: boolean;
-    ariaHasPopup?: React.AriaAttributes['aria-haspopup'];
     ariaLevel?: React.AriaAttributes['aria-level'];
     ariaLabel?: React.AriaAttributes['aria-label'];
 }
