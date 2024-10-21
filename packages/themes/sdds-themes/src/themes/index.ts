@@ -8,3 +8,7 @@ export { sdds_cs__dark } from './sdds_cs__dark';
 export { sdds_cs__light } from './sdds_cs__light';
 export { sdds_finportal__dark } from './sdds_finportal__dark';
 export { sdds_finportal__light } from './sdds_finportal__light';
+export { sdds_os__dark } from './sdds_os__dark';
+export { sdds_os__light } from './sdds_os__light';
+export { sdds_insurance__dark } from './sdds_insurance__dark';
+export { sdds_insurance__light } from './sdds_insurance__light';
