@@ -109,6 +109,8 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
         [getSelectedDate, onHoverDay, value],
     );
 
+    const handleMouseOutGrid = () => onHoverDay?.(undefined);
+
     const getRefs = (element: HTMLDivElement, isDayInCurrentMonth: boolean, i: number, j: number) => {
         if (isDayInCurrentMonth) {
             outerRefs.current[i + offset][j] = element;
@@ -122,7 +124,12 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     }, []);
 
     return (
-        <StyledCalendarDays role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
+        <StyledCalendarDays
+            role="grid"
+            aria-labelledby="id-grid-label"
+            onKeyDown={onKeyDown}
+            onMouseLeave={handleMouseOutGrid}
+        >
             <StyledCalendarDaysHint id="withShift">
                 Для навигации только по доступным датам удерживайте клавишу Shift.
             </StyledCalendarDaysHint>

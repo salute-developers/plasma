@@ -104,6 +104,8 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
         [getSelectedDate, onHoverQuarter, value],
     );
 
+    const handleMouseOutGrid = () => onHoverQuarter?.(undefined);
+
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
             outerRefs.current[i + offset][j] = element;
@@ -118,7 +120,12 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
     }, []);
 
     return (
-        <StyledCalendarQuarters role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
+        <StyledCalendarQuarters
+            role="grid"
+            aria-labelledby="id-grid-label"
+            onKeyDown={onKeyDown}
+            onMouseLeave={handleMouseOutGrid}
+        >
             {quarters.map((quarter, i) => (
                 <StyledFlex role="row" key={i}>
                     {quarter.map(
