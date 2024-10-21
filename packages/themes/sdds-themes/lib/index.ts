@@ -17,4 +17,12 @@ generate([
         name: 'sdds_finportal',
         version: 'latest',
     },
+    {
+        name: 'sdds_os',
+        version: 'latest',
+    },
+    {
+        name: 'sdds_insurance',
+        version: 'latest',
+    },
 ]);
