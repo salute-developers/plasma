@@ -949,6 +949,9 @@ export const iconSectionsSet = {
         panelSidebarRFocusFill: 'PanelSidebarRFocusFill',
         panelSidebarRFocusOutline: 'PanelSidebarRFocusOutline',
         panelSidebarROutline: 'PanelSidebarROutline',
+        panelSidebarDFocusOutline: 'PanelSidebarDFocusOutline',
+        panelSidebarDFocusOutlineOff: 'PanelSidebarDFocusOutlineOff',
+        panelSidebarRFocusOutlineOff: 'PanelSidebarRFocusOutlineOff',
     },
     Devices: {
         antennaFill: 'AntennaFill',
