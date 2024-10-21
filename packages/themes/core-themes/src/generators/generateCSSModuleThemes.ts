@@ -19,8 +19,8 @@ export const generateCSSModuleThemes = (srcDir: string, themeName: string, theme
     ].join('\n');
 
     const lightContent = [
-        getSelector(themeContent.dark.colorTokens, lightSelector),
-        getSelector(themeContent.dark.gradientTokens, lightSelector),
+        getSelector(themeContent.light.colorTokens, lightSelector),
+        getSelector(themeContent.light.gradientTokens, lightSelector),
     ].join('\n');
 
     const breakpointContent = [

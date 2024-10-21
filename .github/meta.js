@@ -20,7 +20,7 @@ module.exports = {
         themes: '',
     },
     'plasma-new-hope': {
-        scope: [...commonScope, 'plasma-core'],
+        scope: [...commonScope, 'plasma-themes', 'plasma-core'],
         required: ['plasma-core'],
     },
     'plasma-ui': {

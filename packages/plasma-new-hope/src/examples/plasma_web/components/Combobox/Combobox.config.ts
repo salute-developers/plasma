@@ -39,7 +39,7 @@ export const config = {
                 ${tokens.textFieldChipOpacityReadonly}: 0.72;
             `,
             positive: css`
-                ${tokens.textFieldColor}: var(--plasma-colors-primary);
+                ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBorderColor}: var(--surface-positive);
                 ${tokens.textFieldBorderColorHover}: var(--surface-positive);
@@ -67,7 +67,7 @@ export const config = {
                 ${tokens.textFieldChipOpacityReadonly}: 0.72;
             `,
             warning: css`
-                ${tokens.textFieldColor}: var(--plasma-colors-primary);
+                ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBorderColor}: var(--surface-warning);
                 ${tokens.textFieldBorderColorHover}: var(--surface-warning);
@@ -95,7 +95,7 @@ export const config = {
                 ${tokens.textFieldChipOpacityReadonly}: 0.72;
             `,
             negative: css`
-                ${tokens.textFieldColor}: var(--plasma-colors-primary);
+                ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldBorderColor}: var(--surface-negative);
                 ${tokens.textFieldBorderColorHover}: var(--surface-negative);
@@ -515,7 +515,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
