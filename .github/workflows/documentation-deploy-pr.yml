@@ -74,6 +74,7 @@ jobs:
                       // INFO: Пока не починили медленный css build for b2c/web ставим plasma-new-hope
                       if (processedData.includes('plasma-b2c')) {
                         result.push('plasma-new-hope');
+                        result.push('plasma-themes');
                       }
 
                       console.log('Result =>', result);
