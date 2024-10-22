@@ -151,6 +151,8 @@ import { gridGutters } from '@salutejs/plasma-hope';
 import { gridMargins } from '@salutejs/plasma-hope';
 import { gridSizes } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
+import { HTMLAttributesWithoutOnChange } from '@salutejs/plasma-new-hope/types/engines/types';
+import { HTMLAttributesWithoutOnChangeAndDefaultValue } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -182,6 +184,7 @@ import { MouseEvent as MouseEvent_2 } from 'react';
 import { MutableRefObject } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Orientation } from '@salutejs/plasma-new-hope/types/components/TextFieldGroup/TextFieldGroup.types';
 import { OutlinedProps } from '@salutejs/plasma-core';
@@ -3078,7 +3081,7 @@ size: {
 xs: PolymorphicClassName;
 xxs: PolymorphicClassName;
 };
-}> & NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
+}> & (React_2.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement> | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>)>;
 export { Notification_2 as Notification }
 
 export { NotificationIconPlacement }
@@ -3091,6 +3094,7 @@ export { NotificationProps }
 export const NotificationsProvider: React_2.FC<{
     children: ReactNode;
     frame?: string;
+    placement?: NotificationPlacement;
 }>;
 
 export { OutlinedProps }

@@ -1,22 +1,32 @@
-import React, { ReactNode } from 'react';
+import React, { ForwardRefExoticComponent, HTMLAttributes, ReactNode } from 'react';
 
-import { noticationConfig, NotificationsProvider as Provider } from '../../../../components/Notification';
+import {
+    notificationConfig,
+    NotificationProps,
+    NotificationsProvider as Provider,
+    NotificationPlacement,
+} from '../../../../components/Notification';
 import { component, mergeConfig } from '../../../../engines';
 
 import { config } from './Notification.config';
 
 export { modalClasses } from '../../../../components/Modal';
 
-const mergedConfig = mergeConfig(noticationConfig, config);
+const mergedConfig = mergeConfig(notificationConfig, config);
 
-export const Notification = component(mergedConfig);
+export const Notification = component(mergedConfig) as ForwardRefExoticComponent<
+    NotificationProps & HTMLAttributes<HTMLDivElement>
+>;
 
-export const NotificationsProvider: React.FC<{ children: ReactNode; frame?: string }> = ({
-    children,
-    frame = 'theme-root',
-}) => {
+export type { NotificationPlacement };
+
+export const NotificationsProvider: React.FC<{
+    children: ReactNode;
+    frame?: string;
+    placement?: NotificationPlacement;
+}> = ({ children, frame = 'theme-root', placement }) => {
     return (
-        <Provider config={mergedConfig} frame={frame}>
+        <Provider config={mergedConfig} frame={frame} placement={placement}>
             {children}
         </Provider>
     );

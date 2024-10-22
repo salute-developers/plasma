@@ -2,10 +2,11 @@ import React, { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'reac
 import {
     component,
     mergeConfig,
-    noticationConfig,
+    notificationConfig,
     NotificationProps,
     NotificationsProvider as Provider,
     NotificationIconPlacement,
+    NotificationPlacement,
     NotificationLayout,
     addNotification,
     closeNotification,
@@ -15,22 +16,23 @@ import { config } from './Notification.config';
 
 export { modalClasses } from '../Modal';
 
-const mergedConfig = mergeConfig(noticationConfig, config);
+const mergedConfig = mergeConfig(notificationConfig, config);
 
 export const Notification = component(mergedConfig) as ForwardRefExoticComponent<
     NotificationProps & RefAttributes<HTMLDivElement>
 >;
 
-export const NotificationsProvider: React.FC<{ children: ReactNode; frame?: string }> = ({
-    children,
-    frame = 'document',
-}) => {
+export const NotificationsProvider: React.FC<{
+    children: ReactNode;
+    frame?: string;
+    placement?: NotificationPlacement;
+}> = ({ children, frame = 'document', placement }) => {
     return (
-        <Provider config={mergedConfig} frame={frame}>
+        <Provider config={mergedConfig} frame={frame} placement={placement}>
             {children}
         </Provider>
     );
 };
 
-export type { NotificationIconPlacement, NotificationLayout, NotificationProps };
+export type { NotificationIconPlacement, NotificationPlacement, NotificationLayout, NotificationProps };
 export { addNotification, closeNotification };
