@@ -12,6 +12,10 @@ export type DatePickerTextFieldProps = {
      */
     defaultDate?: Date;
     /**
+     * Placeholder для поля ввода
+     */
+    placeholder?: string;
+    /**
      * Свойство для названия поля при работе с формой
      */
     name?: string;
