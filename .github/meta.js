@@ -17,10 +17,10 @@ module.exports = {
             'plasma-typo',
         ],
         required: ['plasma-new-hope', 'plasma-core'],
-        themes: '',
+        themes: 'plasma-themes',
     },
     'plasma-new-hope': {
-        scope: [...commonScope, 'plasma-core'],
+        scope: [...commonScope, 'plasma-themes', 'plasma-core'],
         required: ['plasma-core'],
     },
     'plasma-ui': {
@@ -40,7 +40,7 @@ module.exports = {
             'plasma-typo',
         ],
         required: ['plasma-new-hope', 'plasma-core'],
-        themes: '',
+        themes: 'plasma-themes',
     },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
