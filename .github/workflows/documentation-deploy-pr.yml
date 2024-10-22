@@ -75,6 +75,7 @@ jobs:
                       if (processedData.includes('plasma-b2c')) {
                         result.push('plasma-new-hope');
                         result.push('plasma-themes');
+                        result.push('core-themes');
                       }
 
                       console.log('Result =>', result);
