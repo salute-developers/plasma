@@ -131,11 +131,43 @@ export const dsplL = ({
 } as unknown) as CSSObject;
 ```
 
-Пример использования:
+Пример использования со `styled-components`:
 
 ```jsx
 import React from 'react';
 import styled from 'styled-components';
+
+import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+
+const AppStyled = styled.div`
+    padding: 30px;
+    color: ${textAccent};
+    background-color: ${backgroundPrimary};
+`;
+
+const Container = styled.div`
+    ${textL};
+    margin: 15px;
+`;
+
+const App = () => {
+    return (
+        <AppStyled>
+            <Container>
+                <span>Hello world</span>
+            </Container>
+        </AppStyled>
+    );
+};
+
+export default App;
+```
+
+Пример использования с `linaria`:
+
+```jsx
+import React from 'react';
+import styled from 'linaria';
 
 import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
 

@@ -31,6 +31,40 @@ describe('plasma-web: Notification', () => {
         </CypressTestDecorator>
     );
 
+    const showNotifications = () => {
+        addNotification(
+            {
+                id: 'layout-first',
+                title: 'Title',
+                children: 'Text',
+                layout: 'vertical',
+                actions: (
+                    <ButtonsWrapper>
+                        <Button text="First" size="xs" stretching="filled" />
+                        <Button text="Second" size="xs" stretching="filled" />
+                    </ButtonsWrapper>
+                ),
+            },
+            80000,
+        );
+        addNotification(
+            {
+                id: 'layout-second',
+                title: 'Title',
+                children: 'Text',
+                layout: 'horizontal',
+                icon: <IconDisclosureRight />,
+                actions: (
+                    <ButtonsWrapper>
+                        <Button text="First" size="xxs" />
+                        <Button text="Second" size="xxs" />
+                    </ButtonsWrapper>
+                ),
+            },
+            80000,
+        );
+    };
+
     it('default', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -88,42 +122,28 @@ describe('plasma-web: Notification', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <NotificationsProvider>
+                    <Button text="Открыть" onClick={showNotifications} />
+                    <SpaceMe />
                     <Button
-                        text="Открыть"
+                        text="Закрыть"
                         onClick={() => {
-                            addNotification(
-                                {
-                                    id: 'layout-first',
-                                    title: 'Title',
-                                    children: 'Text',
-                                    layout: 'vertical',
-                                    actions: (
-                                        <ButtonsWrapper>
-                                            <Button text="First" size="xs" stretching="filled" />
-                                            <Button text="Second" size="xs" stretching="filled" />
-                                        </ButtonsWrapper>
-                                    ),
-                                },
-                                80000,
-                            );
-                            addNotification(
-                                {
-                                    id: 'layout-second',
-                                    title: 'Title',
-                                    children: 'Text',
-                                    layout: 'horizontal',
-                                    icon: <IconDisclosureRight />,
-                                    actions: (
-                                        <ButtonsWrapper>
-                                            <Button text="First" size="xxs" />
-                                            <Button text="Second" size="xxs" />
-                                        </ButtonsWrapper>
-                                    ),
-                                },
-                                80000,
-                            );
+                            closeNotification('layout-first');
+                            closeNotification('layout-second');
                         }}
                     />
+                </NotificationsProvider>
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.get('button').contains('Открыть').click();
+        cy.matchImageSnapshot();
+        cy.get('button').contains('Закрыть').click();
+    });
+
+    it.only('placement: bottom-left', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <NotificationsProvider placement="bottom-left">
+                    <Button text="Открыть" onClick={showNotifications} />
                     <SpaceMe />
                     <Button
                         text="Закрыть"

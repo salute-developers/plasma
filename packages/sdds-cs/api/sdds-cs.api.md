@@ -133,6 +133,7 @@ import { MouseEvent as MouseEvent_2 } from 'react';
 import { MutableRefObject } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -2706,6 +2707,7 @@ export { NotificationProps }
 export const NotificationsProvider: React_2.FC<{
     children: ReactNode;
     frame?: string;
+    placement?: NotificationPlacement;
 }>;
 
 export { Overlay }
