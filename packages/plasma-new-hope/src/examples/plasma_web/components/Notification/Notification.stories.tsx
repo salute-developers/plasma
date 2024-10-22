@@ -5,6 +5,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import {
+    NotificationPlacement,
     NotificationIconPlacement,
     NotificationLayout,
     addNotification,
@@ -20,6 +21,7 @@ const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
 const size = ['xs', 'xxs'];
 const iconPlacement = ['top', 'left'];
+const notificationsPlacements = ['bottom-right', 'bottom-left'];
 
 const longText = `JavaScript frameworks are an essential part of modern front-end web development,
 providing developers with proven tools for building scalable, interactive web applications.
@@ -49,6 +51,7 @@ interface StoryDefaultProps {
     layout: NotificationLayout;
     size: 'xs' | 'xxs';
     iconPlacement: NotificationIconPlacement;
+    placement?: NotificationPlacement;
 }
 
 const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIcon, ...rest }: StoryDefaultProps) => {
@@ -111,9 +114,10 @@ type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     layout: NotificationLayout;
     size: 'xs' | 'xxs';
     iconPlacement: NotificationIconPlacement;
+    placement?: NotificationPlacement;
 };
 
-const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
+const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
         addNotification({ icon: <IconDisclosureRight />, ...rest, ...getNotificationProps(count.current) }, timeout);
@@ -121,7 +125,7 @@ const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
     }, [count, rest]);
 
     return (
-        <NotificationsProvider>
+        <NotificationsProvider placement={placement}>
             <Button text="Добавить уведомление" onClick={handleClick} />
         </NotificationsProvider>
     );
@@ -135,20 +139,28 @@ export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
                 type: 'select',
             },
         },
+        placement: {
+            options: notificationsPlacements,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         timeout: 3000,
         role: 'alert',
         layout: 'vertical',
+        placement: 'bottom-right',
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };
 
 type StoryWithModalProps = ComponentProps<typeof Notification> & {
     timeout: number;
+    placement?: NotificationPlacement;
 };
 
-const StoryWithModal = ({ timeout }: StoryWithModalProps) => {
+const StoryWithModal = ({ timeout, placement }: StoryWithModalProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const count = useRef(0);
     const handleClick = useCallback(() => {
@@ -157,7 +169,7 @@ const StoryWithModal = ({ timeout }: StoryWithModalProps) => {
     }, [count]);
 
     return (
-        <NotificationsProvider>
+        <NotificationsProvider placement={placement}>
             <PopupProvider>
                 <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
                 <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
@@ -172,6 +184,15 @@ const StoryWithModal = ({ timeout }: StoryWithModalProps) => {
 export const WithModal: StoryObj<StoryLiveDemoProps> = {
     args: {
         timeout: 3500,
+        placement: 'bottom-right',
+    },
+    argTypes: {
+        placement: {
+            options: notificationsPlacements,
+            control: {
+                type: 'select',
+            },
+        },
     },
     render: (args) => <StoryWithModal {...args} />,
 };

@@ -6,7 +6,7 @@ import { buttonConfig } from '../Button';
 import { component, mergeConfig } from '../../engines';
 
 import { classes, tokens } from './Notification.tokens';
-import { CloseIconType, IconPlacementType, placements } from './Notification.types';
+import { CloseIconType, IconPlacementType, NotificationPlacement, placements } from './Notification.types';
 
 export const StyledNotification = css`
     width: fit-content;
@@ -138,10 +138,42 @@ export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`
 
     &&.${classes.notificationItemOpened} {
         animation: 0.4s showAnimation ease-out;
+
+        &.${classes.notificationLeftToRightAnimation} {
+            animation: 0.4s showLeftToRightAnimation ease-out;
+        }
     }
 
     &&.${classes.notificationItemHidden} {
         animation: 0.4s hideAnimation ease-out;
+
+        &.${classes.notificationLeftToRightAnimation} {
+            animation: 0.4s hideLeftToRightAnimation ease-out;
+        }
+    }
+
+    @keyframes showLeftToRightAnimation {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes hideLeftToRightAnimation {
+        0% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
     }
 
     @keyframes showAnimation {
@@ -169,11 +201,11 @@ export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`
     }
 `;
 
-export const StyledRoot = styled.div`
+export const StyledRoot = styled.div<{ placement?: NotificationPlacement }>`
     display: flex;
     flex-direction: column-reverse;
     box-sizing: border-box;
     padding: 0 1.5rem 1.5rem;
     max-height: 100%;
-    align-items: flex-end;
+    align-items: ${({ placement }) => (placement === 'bottom-left' ? 'flex-start' : 'flex-end')};
 `;
