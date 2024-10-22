@@ -10,21 +10,7 @@ import { Dropdown, DropdownList, DropdownItem, DropdownPopup } from '.';
 
 type DropdownProps = ComponentProps<typeof Dropdown>;
 
-const placements: DropdownProps['placement'][] = [
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'right',
-    'right-start',
-    'right-end',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'left',
-    'left-start',
-    'left-end',
-];
+const placements: DropdownProps['placement'][] = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers: DropdownProps['trigger'][] = ['click', 'hover'];
 const size = ['xs', 's', 'm', 'l'];
 const variant = ['normal', 'tight'];

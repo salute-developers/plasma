@@ -4,22 +4,9 @@ import React from 'react';
 import { FocusedPathState } from './reducers/focusedPathReducer';
 import { DropdownItemOption } from './ui/DropdownItem/DropdownItem.type';
 
-type DropdownPlacement =
-    | 'auto'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end';
+export type DropdownPlacement = 'auto' | 'top' | 'right' | 'bottom' | 'left';
 
-type DropdownTrigger = 'hover' | 'click';
+export type DropdownTrigger = 'hover' | 'click';
 
 export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
     /**
@@ -122,12 +109,14 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
 
 export type HandleGlobalToggleType = (opened: boolean, event: SyntheticEvent | Event) => void;
 
+export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
+
 export type FloatingPopoverProps = {
     target: React.ReactNode;
     children: React.ReactNode;
     opened: boolean;
     onToggle: (opened: boolean, event: SyntheticEvent | Event) => void;
-    placement: DropdownProps['placement'];
+    placement: PlacementType;
     trigger: DropdownProps['trigger'];
     isInner?: boolean;
     portal?: DropdownProps['portal'];

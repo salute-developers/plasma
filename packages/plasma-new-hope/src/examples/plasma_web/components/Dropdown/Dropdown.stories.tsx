@@ -11,21 +11,7 @@ import { Dropdown } from './Dropdown';
 
 type StoryDropdownProps = ComponentProps<typeof Dropdown>;
 
-const placements: Array<DropdownPlacement> = [
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'right',
-    'right-start',
-    'right-end',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'left',
-    'left-start',
-    'left-end',
-];
+const placements: Array<DropdownPlacement> = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers: Array<DropdownTrigger> = ['click', 'hover'];
 const size = ['xs', 's', 'm', 'l'];
 const variant = ['normal', 'tight'];

@@ -11,7 +11,7 @@ import { DropdownInner } from './ui';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { Ul, base } from './Dropdown.styles';
-import { childrenWithProps, getItemByFocused, getItemId } from './utils';
+import { childrenWithProps, getItemByFocused, getItemId, getPlacement } from './utils';
 import type { DropdownProps, HandleGlobalToggleType, ItemContext } from './Dropdown.types';
 import { classes } from './Dropdown.tokens';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
@@ -29,7 +29,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             {
                 items,
                 children,
-                placement = 'bottom-start',
+                placement,
                 offset,
                 closeOnOverlayClick = true,
                 onToggle,
@@ -125,7 +125,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         ref={floatingPopoverRef}
                         opened={isCurrentListOpen}
                         onToggle={handleGlobalToggle}
-                        placement={placement}
+                        placement={getPlacement(placement)}
                         offset={offset}
                         portal={portal}
                         trigger={trigger}
