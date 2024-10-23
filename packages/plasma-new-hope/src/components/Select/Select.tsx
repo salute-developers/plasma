@@ -5,7 +5,14 @@ import { isEmpty, getPlacements } from '../../utils';
 import { useOutsideClick } from '../../hooks';
 
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
-import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
+import {
+    initialItemsTransform,
+    updateAncestors,
+    updateDescendants,
+    updateSingleAncestors,
+    getView,
+    getInitialValue,
+} from './utils';
 import { Inner, Target } from './ui';
 import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
@@ -52,23 +59,16 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             ...rest
         } = props;
 
-        const [internalValue, setInternalValue] = useState<string | number | Array<string | number>>(
-            outerValue || props.multiselect ? [] : '',
-        );
+        const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
 
-        const value = outerValue || internalValue;
+        const value = getInitialValue(outerValue, valueToItemMap);
 
         const onChange = (e: string | number | Array<string | number>) => {
             if (outerOnChange) {
                 outerOnChange(e as any);
             }
-
-            setInternalValue(e);
         };
-
-        const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
-
-        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
 
         const [path, dispatchPath] = useReducer(pathReducer, []);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
@@ -138,18 +138,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                     e.stopPropagation();
                 }
 
-                const checkedCopy = new Map(checked);
-
-                const isCurrentChecked = checkedCopy.get(item.value);
-
-                checkedCopy.forEach((_, key) => {
-                    checkedCopy.set(key, false);
-                });
-
-                if (!isCurrentChecked) {
-                    checkedCopy.set(item.value, 'done');
-                    updateSingleAncestors(item, checkedCopy, 'dot');
-                }
+                const isCurrentChecked = checked.get(item.value);
 
                 if (closeAfterSelect) {
                     dispatchPath({ type: 'reset' });
@@ -232,7 +221,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
 
             setChecked(checkedCopy);
-        }, [value]);
+        }, [outerValue, items]);
 
         return (
             <Root ref={ref} size={size} view={status ? getView(status) : view} chipView={chipView} {...(rest as any)}>
@@ -308,6 +297,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         )}
                     </StyledPopover>
                 </Context.Provider>
+
                 {helperText && target === 'textfield-like' && <HelperText>{helperText}</HelperText>}
             </Root>
         );

@@ -17,6 +17,7 @@ import {
     updateSingleAncestors,
     filterItems,
     getItemId,
+    getInitialValue,
 } from './utils';
 import { Inner, StyledTextField } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
@@ -39,6 +40,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             value: outerValue,
             onChange: outerOnChange,
             isTargetAmount,
+            targetAmount,
             items,
             placement = 'bottom-start',
             label,
@@ -61,22 +63,28 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             alwaysOpened = false,
             filter,
             closeAfterSelect: outerCloseAfterSelect,
+            renderValue,
             ...rest
         } = props;
+        const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
+
         // Создаем структуры для быстрой работы с деревом
-        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(items), [items]);
+        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(transformedItems), [
+            items,
+        ]);
 
         const [textValue, setTextValue] = useState(valueToItemMap.get(outerValue as string)?.label || '');
         const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
 
-        const value = outerValue || internalValue;
+        const value =
+            outerValue !== null && outerValue !== undefined
+                ? getInitialValue(outerValue, valueToItemMap)
+                : internalValue;
 
         const inputRef = useRef<HTMLInputElement>(null);
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
         const inputForkRef = useForkRef(inputRef, ref);
         const treeId = safeUseId();
-
-        const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         const filteredItems = filterItems(
             transformedItems,
@@ -227,20 +235,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 e.stopPropagation();
             }
 
-            const checkedCopy = new Map(checked);
-
-            const isCurrentChecked = checkedCopy.get(item.value);
-
-            checkedCopy.forEach((_, key) => {
-                checkedCopy.set(key, false);
-            });
-
-            if (!isCurrentChecked) {
-                checkedCopy.set(item.value, 'done');
-                updateSingleAncestors(item, checkedCopy, 'dot');
-            }
-
-            setTextValue(isCurrentChecked ? '' : item.label);
+            const isCurrentChecked = checked.get(item.value);
 
             if (!alwaysOpened && closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
@@ -253,14 +248,18 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         const getChips = (): string[] => {
-            if (multiple) {
+            if (multiple && Array.isArray(value)) {
                 if (value.length === 0) return [];
 
                 if (isTargetAmount) {
-                    return [`Выбрано ${value.length}`];
+                    return [`Выбрано ${targetAmount || value.length}`];
                 }
 
-                return (value as []).map((value) => valueToItemMap.get(value)!.label);
+                const renderValueMapper =
+                    renderValue && ((stringValue: string) => renderValue(valueToItemMap.get(stringValue)!));
+                const valueToItemMapper = (stringValue: string) => valueToItemMap.get(stringValue)!.label;
+
+                return value.map(renderValueMapper || valueToItemMapper);
             }
 
             return [];
@@ -310,7 +309,13 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
 
             setChecked(checkedCopy);
-        }, [value]);
+
+            setTextValue(valueToItemMap.get(outerValue as string)?.label || '');
+
+            // В deps мы кладем именно outerValue и internalValue, а не просто value.
+            // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
+            // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
+        }, [outerValue, internalValue, items]);
 
         return (
             <Root size={size} view={view} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
