@@ -25,6 +25,8 @@ export const tokens = {
     horizontalLayoutPadding: '--plasma-notification-horizontal-layout-padding',
     width: '--plasma-notification-width',
     borderRadius: '--plasma-notification-border-radius',
+    borderWidth: '--plasma-notification-border-width',
+    borderColor: '--plasma-notification-border-color',
 
     paddingOneLineTextbox: '--plasma-notification-padding-one-line-textbox',
     horizontalLayoutGap: '--plasma-notification-horizontal-layout-gap',
