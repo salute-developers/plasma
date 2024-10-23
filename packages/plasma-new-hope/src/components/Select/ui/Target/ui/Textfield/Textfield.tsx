@@ -54,7 +54,7 @@ const getLabel = ({
                     text={renderValue ? renderValue(valueToItemMap.get(currentValue)!) : itemLabel}
                     onClick={(e: React.MouseEvent<HTMLElement>) => {
                         e.stopPropagation();
-                        onChipClick(currentValue);
+                        onChipClick(currentValue.toString());
                     }}
                     focused={focusedChipIndex === index}
                 />
