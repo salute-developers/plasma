@@ -30,6 +30,7 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${tokens.itemColor}: var(--text-primary);
                 ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
 
                 ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
                 ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
