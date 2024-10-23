@@ -123,6 +123,13 @@ export const PaginationButton = styled(Button)`
         ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.paginationCurrentButtonActiveBackgroundColor});
     }
 
+    &.${classes.buttonDisabled} {
+        ${buttonTokens.buttonColor}: var(${tokens.paginationDisabledButtonColor}, var(${tokens.buttonColor}));
+        ${buttonTokens.buttonBackgroundColor}: var(${tokens.paginationDisabledButtonBackgroundColor}, var(${
+    tokens.buttonBackgroundColor
+}));
+    }
+
     :focus {
         outline: none;
     }
