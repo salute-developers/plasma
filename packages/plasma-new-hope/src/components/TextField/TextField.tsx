@@ -294,7 +294,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     {...(hintText && { hintView, hintSize })}
                 >
                     {(hasOuterLabel || titleCaption) && (
-                        <OuterLabelWrapper isInnnerLabel={labelPlacement === 'inner'}>
+                        <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
                             {hasOuterLabel && (
                                 <StyledIndicatorWrapper>
                                     <Label id={labelId} htmlFor={id}>

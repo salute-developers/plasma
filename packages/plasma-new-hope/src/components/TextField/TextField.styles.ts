@@ -85,12 +85,12 @@ export const InputPlaceholder = styled.div`
     color: var(${tokens.placeholderColor});
 `;
 
-export const OuterLabelWrapper = styled.div<{ isInnnerLabel: boolean }>`
+export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;
 
-    margin-bottom: ${({ isInnnerLabel }) =>
-        isInnnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
+    margin-bottom: ${({ isInnerLabel }) =>
+        isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
 `;
 
 export const TitleCaption = styled.div`
