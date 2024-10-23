@@ -2,13 +2,13 @@ import type { KeyboardEvent } from 'react';
 
 import type { ValueToItemMapType, FocusedToValueMapType } from '../../hooks/usePathMaps';
 import { FocusedChipIndexState, FocusedPathState } from '../../reducers';
-import type { MergedSelectProps } from '../../Select.types';
+import type { MergedSelectProps, DefaultValueType } from '../../Select.types';
 
 export type TargetProps = Pick<
     MergedSelectProps,
     'size' | 'label' | 'labelPlacement' | 'placeholder' | 'contentLeft' | 'disabled' | 'renderValue'
 > & {
-    value: string | string[];
+    value: DefaultValueType;
     opened: boolean;
     valueToItemMap: ValueToItemMapType;
     onChipClick: (value: string) => void;

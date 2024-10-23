@@ -211,6 +211,8 @@ type DropdownNodeOld = {
 
 // Тип, объединенный для старого и нового селекта для поддержки обратной совместимости.
 // В plasma-2.0 удалим MergedSelectProps и оставим только SelectProps.
+export type DefaultValueType = string | number | Array<string | number>;
+
 export type MergedSelectProps<T = any> = Target &
     (
         | {
