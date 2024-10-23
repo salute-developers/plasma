@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 
-import { IconDisclosureDownFill, IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
+import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { CalendarState } from '../../store/types';
 import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../utils';
 import type { DateObject } from '../../Calendar.types';
@@ -17,6 +17,7 @@ import {
     StyledHeaderDate,
     StyledHeaderDouble,
     StyledNavigation,
+    StyledHeaderArrow,
 } from './CalendarHeader.styles';
 
 /**
@@ -58,7 +59,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                         <StyledHeaderDate>{MONTH_NAMES[locale][date.monthIndex]}</StyledHeaderDate>
                         <StyledHeaderDate>
                             {date.year}
-                            <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                            <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                         </StyledHeaderDate>
                     </>
                 );
@@ -68,7 +69,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 return (
                     <StyledHeaderDate>
                         {date.year}
-                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                        <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                     </StyledHeaderDate>
                 );
             }
@@ -79,7 +80,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 return (
                     <StyledHeaderDate>
                         {yearValue}—{yearValue + YEAR_RENDER_COUNT - 1}
-                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                        <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                     </StyledHeaderDate>
                 );
             }
