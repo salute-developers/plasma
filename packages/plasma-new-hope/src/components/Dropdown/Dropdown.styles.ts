@@ -20,6 +20,7 @@ export const Ul = styled.ul<{
     background: var(${constants.background});
     box-shadow: ${constants.boxShadow};
     border-radius: var(${tokens.borderRadius});
+    border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
 `;
 
 export const base = css``;

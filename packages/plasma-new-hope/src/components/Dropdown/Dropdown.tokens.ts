@@ -14,6 +14,8 @@ export const tokens = {
     padding: '--plasma-dropdown-padding',
     disclosureIconColor: '--plasma-dropdown-disclosure-icon-color',
     disabledOpacity: '--plasma-dropdown-disabled-opacity',
+    borderColor: '--plasma-dropdown-border-color',
+    borderWidth: '--plasma-dropdown-border-width',
     focusColor: '--plasma-dropdown-focus-color', // Old
 
     dividerColor: '--plasma-dropdown-divider-color',
