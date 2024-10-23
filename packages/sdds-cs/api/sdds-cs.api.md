@@ -82,6 +82,7 @@ import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-component
 import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
+import { DefaultValueType } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -3019,8 +3020,8 @@ true: PolymorphicClassName;
     multiselect?: false | undefined;
     separator?: undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;
@@ -3057,8 +3058,8 @@ true: PolymorphicClassName;
     multiselect?: true | undefined;
     separator?: string | undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;
@@ -3095,8 +3096,8 @@ true: PolymorphicClassName;
     multiselect?: false | undefined;
     separator?: undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;
@@ -3133,8 +3134,8 @@ true: PolymorphicClassName;
     multiselect?: true | undefined;
     separator?: string | undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;
