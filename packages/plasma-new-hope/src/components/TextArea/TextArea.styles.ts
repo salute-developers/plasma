@@ -11,12 +11,12 @@ const Tooltip = component(mergedConfig);
 
 export const Hint = styled(Tooltip)``;
 
-export const OuterLabelWrapper = styled.div<{ isInnnerLabel: boolean }>`
+export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;
 
-    margin-bottom: ${({ isInnnerLabel }) =>
-        isInnnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelMarginBottom})`};
+    margin-bottom: ${({ isInnerLabel }) =>
+        isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelMarginBottom})`};
 `;
 
 export const StyledLabel = styled.div`
