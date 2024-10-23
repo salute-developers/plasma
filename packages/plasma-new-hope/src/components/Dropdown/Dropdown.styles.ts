@@ -34,6 +34,7 @@ export const Ul = styled.ul<{
 
     margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 var(${tokens.padding})` : 0)};
     padding: var(${tokens.padding});
+    border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
 `;
 
 export const base = css`
