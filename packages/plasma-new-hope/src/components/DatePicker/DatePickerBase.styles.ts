@@ -40,6 +40,8 @@ export const baseCalendarTokens = `
 
     ${calendarBaseTokens.calendarWidth}: var(${tokens.calendarWidth});
     ${calendarBaseTokens.calendarHeight}: var(${tokens.calendarHeight});
+    ${calendarBaseTokens.calendarBorderWidth}: var(${tokens.calendarBorderWidth});
+    ${calendarBaseTokens.calendarBorderColor}: var(${tokens.calendarBorderColor});
 
     ${calendarBaseTokens.calendarYearsPadding}: var(${tokens.calendarYearsPadding});
     ${calendarBaseTokens.calendarYearItemBorderRadius}: var(${tokens.calendarYearItemBorderRadius});
@@ -101,6 +103,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarHeaderFontLineHeight}: var(${tokens.calendarHeaderFontLineHeight});
     ${calendarBaseTokens.calendarHeaderFontWeight}: var(${tokens.calendarHeaderFontWeight});
     ${calendarBaseTokens.calendarHeaderFontWeightBold}: var(${tokens.calendarHeaderFontWeightBold});
+    ${calendarBaseTokens.calendarHeaderArrowColor}: var(${tokens.calendarHeaderArrowColor});
     
     ${calendarBaseTokens.iconButtonHeight}: var(${tokens.iconButtonHeight});
     ${calendarBaseTokens.iconButtonWidth}: var(${tokens.iconButtonWidth});

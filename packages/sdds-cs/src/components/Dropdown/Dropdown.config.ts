@@ -11,6 +11,7 @@ export const config = {
                 ${dropdownTokens.padding}: 0.125rem;
                 ${dropdownTokens.width}: 12.5rem;
                 ${dropdownTokens.borderRadius}: 0.625rem;
+                ${dropdownTokens.borderWidth}: 0.125rem;
 
                 ${dropdownTokens.itemPaddingTop}: 0.5rem;
                 ${dropdownTokens.itemPaddingRight}: 0.75rem;
@@ -38,6 +39,7 @@ export const config = {
         view: {
             default: css`
                 ${dropdownTokens.disabledOpacity}: 0.4;
+                ${dropdownTokens.borderColor}: var(--outline-solid-primary);
                 ${dropdownTokens.focusColor}: var(--surface-accent);
                 ${dropdownTokens.background}: var(--surface-solid-card-brightness);
                 ${dropdownTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);

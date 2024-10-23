@@ -35,6 +35,13 @@ export const SelectPerPageSelect = styled(Select)`
     ${selectTokens.itemIconMargin}: 0 0.375rem 0 0;
     ${selectTokens.itemIconSize}: 1.5rem;
     ${selectTokens.itemHeight}: var(${tokens.selectItemHeight});
+
+    ${selectTokens.fontFamily}: var(${tokens.paginationFontFamily});
+    ${selectTokens.fontSize}: var(${tokens.paginationFontSize});
+    ${selectTokens.fontStyle}: var(${tokens.paginationFontStyle});
+    ${selectTokens.fontWeight}: var(${tokens.paginationFontWeight});
+    ${selectTokens.fontLetterSpacing}: var(${tokens.paginationLetterSpacing});
+    ${selectTokens.fontLineHeight}: var(${tokens.paginationLineHeight});
 `;
 
 export const SelectPerPageTypography = styled.div`
