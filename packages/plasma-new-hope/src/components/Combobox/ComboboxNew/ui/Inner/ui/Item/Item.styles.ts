@@ -61,10 +61,10 @@ export const StyledContentRight = styled.div`
 
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
-    color: var(${constants.disclosureIconColor});
+    color: var(${tokens.disclosureIconColor}, var(${constants.disclosureIconColor}));
 
     &:hover {
-        color: var(${constants.disclosureIconColorHover});
+        color: var(${tokens.disclosureIconColorHover}, var(${constants.disclosureIconColorHover}));
     }
 `;
 
@@ -98,7 +98,7 @@ export const Wrapper = styled.li<{ variant: ComboboxProps['variant'] }>`
     font-weight: var(${tokens.fontWeight});
     letter-spacing: var(${tokens.fontLetterSpacing});
     line-height: var(${tokens.fontLineHeight});
-    background-color: var(${constants.itemBackground});
+    background-color: var(${tokens.itemBackground}, var(${constants.itemBackground}));
     color: var(--text-primary);
     border-radius: var(${tokens.borderRadius});
     user-select: none;
@@ -108,11 +108,11 @@ export const Wrapper = styled.li<{ variant: ComboboxProps['variant'] }>`
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
         cursor: pointer;
-        background-color: var(${constants.itemBackgroundHover});
+        background-color: var(${tokens.itemBackgroundHover}, var(${constants.itemBackgroundHover}));
     }
 
     &.${classes.dropdownItemIsActive} {
-        background-color: var(${constants.itemBackgroundHover});
+        background-color: var(${tokens.itemBackgroundHover}, var(${constants.itemBackgroundHover}));
     }
 
     &.${classes.dropdownItemIsDisabled} {
