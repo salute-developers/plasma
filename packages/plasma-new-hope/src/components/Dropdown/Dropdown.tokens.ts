@@ -140,7 +140,7 @@ export const tokens = {
 
 export const constants = {
     focusColor: '--surface-accent',
-    background: '--surface-solid-card',
+    background: '--surface-solid-card-brightness',
     boxShadow: '0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04)',
     disclosureIconColor: '--text-secondary',
     itemBackground: '--plasma-colors-transparent',
