@@ -64,6 +64,8 @@ export const config = {
                 ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${tokens.calendarContentPrimaryColor}: var(--surface-solid-default);
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
+                ${tokens.calendarHeaderArrowColor}: var(--text-accent);
+                ${tokens.calendarBorderColor}: var(--outline-solid-primary);
 
                 ${tokens.iconButtonColor}: var(--text-accent);
                 ${tokens.iconButtonBackgroundColor}: var(--surface-clear);
@@ -72,6 +74,9 @@ export const config = {
                 ${tokens.iconButtonColorActive}: var(--text-primary-hover);
                 ${tokens.iconButtonBackgroundColorActive}: var(--surface-clear);
                 ${tokens.iconButtonFocusColor}: var(--surface-accent);
+
+                ${tokens.textFieldContentRightSlotColor}: var(--text-accent);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-accent-hover);
             `,
         },
         size: {
@@ -126,6 +131,7 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
+                ${tokens.calendarBorderWidth}: 0.125rem;
                 ${tokens.calendarWidth}: 19.5rem;
                 ${tokens.calendarBorderRadius}: 0.875rem;
 
