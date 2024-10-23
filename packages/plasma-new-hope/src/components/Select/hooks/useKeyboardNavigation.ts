@@ -9,7 +9,7 @@ import {
     FocusedChipIndexState,
     FocusedChipIndexAction,
 } from '../reducers';
-import { SelectProps } from '../Select.types';
+import { SelectProps, DefaultValueType } from '../Select.types';
 import type { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './usePathMaps';
@@ -49,7 +49,7 @@ type Props = {
     handlePressDown: (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => void;
     focusedChipIndex: FocusedChipIndexState;
     dispatchFocusedChipIndex: Dispatch<FocusedChipIndexAction>;
-    value: string | string[];
+    value: DefaultValueType;
     valueToItemMap: ValueToItemMapType;
     multiselect: SelectProps['multiselect'];
     isTargetAmount: SelectProps['isTargetAmount'];
@@ -167,7 +167,7 @@ export const useKeyNavigation = ({
             }
 
             case keys.Backspace: {
-                if (!multiselect) break;
+                if (!multiselect || !Array.isArray(value)) break;
 
                 if (focusedChipIndex !== null) {
                     const currentItem = valueToItemMap.get(value[focusedChipIndex])!;

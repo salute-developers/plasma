@@ -6,3 +6,4 @@ export { sizeToIconSize } from './sizeToIconSize';
 export { getCorrectHeight } from './getCorrectHeight';
 export { getButtonLabel } from './getButtonLabel';
 export { getView } from './getView';
+export { getInitialValue } from './getInitialValue';
