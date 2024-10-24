@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { useFocusTrap, useForkRef, safeUseId } from '@salutejs/plasma-core';
+import { useForkRef, safeUseId } from '@salutejs/plasma-core';
 
 import { component, mergeConfig } from '../../engines';
 import type { RootProps } from '../../engines';
@@ -8,6 +8,7 @@ import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
 import { panelConfig } from '../Panel';
 import { cx, getSizeValueFromProp } from '../../utils';
+import { useFocusTrap } from '../../hooks';
 
 import { classes, tokens } from './Drawer.tokens';
 import type { DrawerProps } from './Drawer.types';
