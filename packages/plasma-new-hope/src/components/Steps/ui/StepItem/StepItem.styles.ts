@@ -64,6 +64,21 @@ export const BulletIndicatorWrapper = styled.div`
         }
     }
 
+    &.${classes.simple} {
+        flex: 0;
+        justify-content: center;
+
+        &.${classes.hasIndicator} {
+            width: var(${tokens.activeIndicatorSize});
+            min-height: var(${tokens.activeIndicatorSize});
+        }
+
+        &:not(.${classes.hasIndicator}) {
+            width: var(${tokens.activeBulletSize});
+            min-height: var(${tokens.activeBulletSize});
+        }
+    }
+
     &.${classes.verticalOrientation} {
         flex-direction: column;
         align-items: center;
@@ -142,7 +157,7 @@ export const Bullet = styled(BulletIndicator)`
 
         border: var(${tokens.dividerThickness}) var(${tokens.activeIndicatorBorder});
 
-        background-color: var(${tokens.activeIndicatorBackground});
+        background: var(${tokens.activeIndicatorBackground});
     }
 `;
 
@@ -151,14 +166,14 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
     height: var(${tokens.dividerThickness});
 
     flex: 1;
-    background-color: var(${tokens.activeIndicatorColor});
+    background: var(${tokens.activeIndicatorColor});
 
     &.${classes.inactive} {
-        background-color: var(${tokens.inactiveIndicatorBackground});
+        background: var(${tokens.inactiveIndicatorBackground});
     }
 
     &.${classes.transparentDivider} {
-        background-color: transparent;
+        background: transparent;
     }
 
     &.${classes.verticalOrientation} {
@@ -194,10 +209,14 @@ export const StepItemContentWrapper = styled.div`
 `;
 
 export const StepItemStyled = styled.div`
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     flex: 1;
+
+    color: var(${tokens.activeIndicatorColor});
 
     &.${classes.verticalOrientation} {
         flex-direction: row;
@@ -216,8 +235,113 @@ export const StepItemStyled = styled.div`
     }
 
     &.${classes.inactive} {
+        color: var(${tokens.inactiveIndicatorColor});
         ${StepItemTitle} {
             color: var(${tokens.inactiveTitleColor});
+        }
+    }
+
+    &.${classes.simple} {
+        flex: 0;
+        align-items: center;
+        justify-content: center;
+
+        &.${classes.hasIndicator} {
+            min-width: var(${tokens.activeIndicatorSize});
+        }
+
+        &:not(.${classes.hasIndicator}) {
+            min-width: var(${tokens.activeBulletSize});
+        }
+
+        &.${classes.inactive}, &:not(.${classes.active}) {
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                content: '';
+                display: flex;
+                align-self: center;
+                width: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+                height: var(${tokens.dividerThickness});
+                background: var(${tokens.activeIndicatorColor});
+            }
+
+            &:after {
+                left: auto;
+                right: 0;
+            }
+
+            &.${classes.verticalOrientation} {
+                &:before,
+                &:after {
+                    width: var(${tokens.dividerThickness});
+                    height: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+                    margin: 0 auto;
+                    align-self: auto;
+                }
+
+                &:before {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                }
+
+                &:after {
+                    top: auto;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: 0 auto;
+                }
+            }
+
+            &.isFirst {
+                &:before {
+                    display: none;
+                }
+            }
+
+            &.isLast {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        &.${classes.inactive} {
+            &:after,
+            &:before {
+                background: var(${tokens.inactiveIndicatorBackground});
+            }
+        }
+
+        &.isPrevInactive {
+            &:before {
+                background: var(${tokens.inactiveIndicatorBackground});
+            }
+        }
+
+        &.isNextInactive {
+            &:after {
+                background: var(${tokens.inactiveIndicatorBackground});
+            }
+        }
+    }
+
+    &:not(.${classes.simple}):not(.${classes.verticalOrientation}) {
+        &.isNextActive {
+            ${BulletIndicatorWrapper} {
+                width: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+            }
+        }
+        &.${classes.active} {
+            ${BulletIndicatorWrapper} {
+                margin-left: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / -2);
+                width: calc(100% + (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+            }
         }
     }
 
@@ -268,10 +392,6 @@ export const StepItemStyled = styled.div`
                 text-align: center;
             }
         }
-    }
-
-    &.${classes.simple} {
-        flex: 0;
     }
 
     &.${classes.disabled} {

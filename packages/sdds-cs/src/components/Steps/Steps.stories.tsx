@@ -114,7 +114,7 @@ const DefaultStory = (args) => {
     };
 
     return (
-        <div style={{ maxWidth, height: '400px' }}>
+        <div style={{ maxWidth, height: '600px' }}>
             <Steps
                 size={size}
                 items={items}
