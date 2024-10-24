@@ -62,6 +62,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             alwaysOpened = false,
             filter,
             closeAfterSelect: outerCloseAfterSelect,
+            renderValue,
             ...rest
         } = props;
         // Создаем структуры для быстрой работы с деревом
@@ -257,14 +258,18 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         const getChips = (): string[] => {
-            if (multiple) {
+            if (multiple && Array.isArray(value)) {
                 if (value.length === 0) return [];
 
                 if (isTargetAmount) {
                     return [`Выбрано ${value.length}`];
                 }
 
-                return (value as []).map((value) => valueToItemMap.get(value)!.label);
+                const mapper =
+                    (renderValue && ((stringValue: string) => renderValue(valueToItemMap.get(stringValue)!))) ||
+                    ((stringValue: string) => valueToItemMap.get(stringValue)!.label);
+
+                return value.map(mapper);
             }
 
             return [];
