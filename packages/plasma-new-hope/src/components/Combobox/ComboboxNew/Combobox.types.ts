@@ -19,7 +19,7 @@ type Placement =
     | 'left-start'
     | 'left-end';
 
-type IsMultiselect =
+type IsMultiselect<T extends ItemOption = ItemOption> =
     | {
           multiple?: false;
           value?: string;
@@ -29,12 +29,17 @@ type IsMultiselect =
            * @default false
            */
           isTargetAmount?: never | false;
+          renderValue?: never;
       }
     | {
           multiple: true;
           value?: Array<string>;
           onChange?: (value: Array<string>) => void;
           isTargetAmount?: boolean;
+          /**
+           * Callback для кастомной настройки значения в селекте.
+           */
+          renderValue?: (item: T) => string;
       };
 
 type ViewStateProps =
@@ -165,7 +170,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      */
     labelPlacement?: 'outer' | 'inner';
 } & ViewStateProps &
-    IsMultiselect &
+    IsMultiselect<T> &
     Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 export type FloatingPopoverProps = {

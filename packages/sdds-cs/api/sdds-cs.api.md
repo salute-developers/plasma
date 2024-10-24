@@ -82,6 +82,7 @@ import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-component
 import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
+import { DefaultValueType } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -981,6 +982,7 @@ true: PolymorphicClassName;
     value?: string | undefined;
     onChange?: ((value: string) => void) | undefined;
     isTargetAmount?: false | undefined;
+    renderValue?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1010,6 +1012,7 @@ true: PolymorphicClassName;
     value?: string[] | undefined;
     onChange?: ((value: string[]) => void) | undefined;
     isTargetAmount?: boolean | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1039,6 +1042,7 @@ true: PolymorphicClassName;
     value?: string | undefined;
     onChange?: ((value: string) => void) | undefined;
     isTargetAmount?: false | undefined;
+    renderValue?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1068,6 +1072,7 @@ true: PolymorphicClassName;
     value?: string[] | undefined;
     onChange?: ((value: string[]) => void) | undefined;
     isTargetAmount?: boolean | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1097,6 +1102,7 @@ true: PolymorphicClassName;
     value?: string | undefined;
     onChange?: ((value: string) => void) | undefined;
     isTargetAmount?: false | undefined;
+    renderValue?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1126,6 +1132,7 @@ true: PolymorphicClassName;
     value?: string[] | undefined;
     onChange?: ((value: string[]) => void) | undefined;
     isTargetAmount?: boolean | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>)), "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & {
     ref?: ForwardedRef<HTMLInputElement> | undefined;
 }) => ReactElement | null;
@@ -3019,8 +3026,8 @@ true: PolymorphicClassName;
     multiselect?: false | undefined;
     separator?: undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;
@@ -3057,8 +3064,8 @@ true: PolymorphicClassName;
     multiselect?: true | undefined;
     separator?: string | undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;
@@ -3095,8 +3102,8 @@ true: PolymorphicClassName;
     multiselect?: false | undefined;
     separator?: undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;
@@ -3133,8 +3140,8 @@ true: PolymorphicClassName;
     multiselect?: true | undefined;
     separator?: string | undefined;
 } & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
+    value: DefaultValueType;
+    onChange?: ((value: DefaultValueType) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     status?: "warning" | "success" | "error" | undefined;

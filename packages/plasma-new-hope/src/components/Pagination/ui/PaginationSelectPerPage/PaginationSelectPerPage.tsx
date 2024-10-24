@@ -15,9 +15,9 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
     listWidth,
     ...rest
 }) => {
-    const handleSelectChange = (newValue?: string) => {
-        if (newValue) {
-            onChangeValue?.(Number(newValue));
+    const handleSelectChange = (newValue: string | number | Array<string | number>) => {
+        if (newValue && !Array.isArray(newValue) && onChangeValue) {
+            onChangeValue(Number(newValue));
         }
     };
 

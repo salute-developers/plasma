@@ -120,6 +120,7 @@ import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/compon
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
+import { DefaultValueType } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
@@ -3522,8 +3523,8 @@ helperText?: string | undefined;
 multiselect?: false | undefined;
 separator?: undefined;
 } & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
+value: DefaultValueType;
+onChange?: ((value: DefaultValueType) => void) | undefined;
 listOverflow?: Property.Overflow | undefined;
 listHeight?: Property.Height<string | number> | undefined;
 status?: "warning" | "success" | "error" | undefined;
@@ -3560,8 +3561,8 @@ helperText?: string | undefined;
 multiselect?: true | undefined;
 separator?: string | undefined;
 } & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
+value: DefaultValueType;
+onChange?: ((value: DefaultValueType) => void) | undefined;
 listOverflow?: Property.Overflow | undefined;
 listHeight?: Property.Height<string | number> | undefined;
 status?: "warning" | "success" | "error" | undefined;
@@ -3598,8 +3599,8 @@ helperText?: undefined;
 multiselect?: false | undefined;
 separator?: undefined;
 } & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
+value: DefaultValueType;
+onChange?: ((value: DefaultValueType) => void) | undefined;
 listOverflow?: Property.Overflow | undefined;
 listHeight?: Property.Height<string | number> | undefined;
 status?: "warning" | "success" | "error" | undefined;
@@ -3636,8 +3637,8 @@ helperText?: undefined;
 multiselect?: true | undefined;
 separator?: string | undefined;
 } & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
+value: DefaultValueType;
+onChange?: ((value: DefaultValueType) => void) | undefined;
 listOverflow?: Property.Overflow | undefined;
 listHeight?: Property.Height<string | number> | undefined;
 status?: "warning" | "success" | "error" | undefined;

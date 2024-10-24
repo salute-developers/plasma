@@ -17,6 +17,7 @@ import {
     updateSingleAncestors,
     filterItems,
     getItemId,
+    getInitialValue,
 } from './utils';
 import { Inner, StyledTextField } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
@@ -61,6 +62,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             alwaysOpened = false,
             filter,
             closeAfterSelect: outerCloseAfterSelect,
+            renderValue,
             ...rest
         } = props;
         // Создаем структуры для быстрой работы с деревом
@@ -69,7 +71,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const [textValue, setTextValue] = useState(valueToItemMap.get(outerValue as string)?.label || '');
         const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
 
-        const value = outerValue || internalValue;
+        const value =
+            outerValue !== null && outerValue !== undefined
+                ? getInitialValue(outerValue, valueToItemMap)
+                : internalValue;
 
         const inputRef = useRef<HTMLInputElement>(null);
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
@@ -253,14 +258,18 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         const getChips = (): string[] => {
-            if (multiple) {
+            if (multiple && Array.isArray(value)) {
                 if (value.length === 0) return [];
 
                 if (isTargetAmount) {
                     return [`Выбрано ${value.length}`];
                 }
 
-                return (value as []).map((value) => valueToItemMap.get(value)!.label);
+                const mapper =
+                    (renderValue && ((stringValue: string) => renderValue(valueToItemMap.get(stringValue)!))) ||
+                    ((stringValue: string) => valueToItemMap.get(stringValue)!.label);
+
+                return value.map(mapper);
             }
 
             return [];
@@ -310,7 +319,13 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
 
             setChecked(checkedCopy);
-        }, [value]);
+
+            setTextValue(valueToItemMap.get(outerValue as string)?.label || '');
+
+            // В deps мы кладем именно outerValue и internalValue, а не просто value.
+            // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
+            // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
+        }, [outerValue, internalValue]);
 
         return (
             <Root size={size} view={view} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
