@@ -37,6 +37,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             pilled = false,
             index,
             className,
+            hasDivider = true,
             ...rest
         } = props;
         const [firstItemVisible, setFirstItemVisible] = useState(true);
@@ -51,6 +52,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
         const pilledAttr = view !== 'clear' && pilled;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
 
+        const noDividerClass = !hasDivider ? classes.tabsNoDivider : undefined;
         const stretchClass = firstItemVisible && lastItemVisible && stretch ? classes.tabsStretch : undefined;
         const hasLeftArrowClass = !firstItemVisible ? classes.tabsHasLeftArrow : undefined;
         const hasRightArrowClass = !lastItemVisible ? classes.tabsHasRightArrow : undefined;
@@ -206,12 +208,20 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                 <Root
                     view={view}
                     role="tablist"
-                    size={size}
+                    // TODO: убрать каст any, когда будут удалены deprecated props
+                    size={size as any}
                     pilled={pilled}
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
-                    className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass, className)}
+                    className={cx(
+                        pilledClass,
+                        stretchClass,
+                        hasLeftArrowClass,
+                        hasRightArrowClass,
+                        noDividerClass,
+                        className,
+                    )}
                     onKeyDown={onKeyDown}
                     {...rest}
                 >

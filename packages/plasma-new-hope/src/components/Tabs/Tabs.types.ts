@@ -28,12 +28,18 @@ export type CustomHorizontalTabsProps = {
      */
     orientation?: 'horizontal';
     /**
+     * Наличие divider
+     * @default true
+     */
+    hasDivider?: boolean;
+    /**
      * Табы растянуты на доступную область
      * @default false
      */
     stretch?: boolean;
     /**
      * Табы c округлым border-radius
+     * @deprecated
      * @default false
      */
     pilled?: boolean;
@@ -44,12 +50,48 @@ export type CustomHorizontalTabsProps = {
     /**
      * Размер табов
      */
-    size?: string;
+    size?: 'xs' | 's' | 'm' | 'l';
     /**
      * Уберет скругление с выбранной стороны и подвинет контейнер
      * @deprecated
      */
     outsideScroll?: boolean | { left?: string; right?: string };
+};
+
+export type CustomHeaderTabsProps = {
+    /**
+     * Расположение табов
+     */
+    orientation?: 'horizontal';
+    /**
+     * Наличие divider
+     * @default true
+     */
+    hasDivider?: never;
+    /**
+     * Табы растянуты на доступную область
+     * @default false
+     */
+    stretch?: never;
+    /**
+     * Табы c округлым border-radius
+     * @deprecated
+     * @default false
+     */
+    pilled?: never;
+    /**
+     * Вид табов
+     */
+    view?: string;
+    /**
+     * Размер табов
+     */
+    size: 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    /**
+     * Уберет скругление с выбранной стороны и подвинет контейнер
+     * @deprecated
+     */
+    outsideScroll?: never;
 };
 
 export type CustomVerticalTabsProps = {
@@ -72,7 +114,9 @@ export type CustomVerticalTabsProps = {
     size?: string;
 };
 
-export type HorizontalTabsProps = BaseTabsProps & CustomHorizontalTabsProps;
+export type HorizontalTabsProps = BaseTabsProps & (CustomHorizontalTabsProps | CustomHeaderTabsProps);
+
+export type HorizontalCommonTabsProps = BaseTabsProps & CustomHorizontalTabsProps;
 
 export type VerticalTabsProps = BaseTabsProps & CustomVerticalTabsProps;
 
