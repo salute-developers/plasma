@@ -65,6 +65,7 @@ export const tokens = {
     inactiveTitleColorHover: '--plasma-step-item-inactive-title-color-hover',
 
     contentColor: '--plasma-step-item-content-color',
+    focusColor: '--plasma-step-item-focus-color',
 
     activeIndicatorBorder: '--plasma-step-item-active-indicator-border',
     activeIndicatorBorderHover: '--plasma-step-item-active-indicator-border-hover',

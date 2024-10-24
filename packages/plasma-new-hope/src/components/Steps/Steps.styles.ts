@@ -34,9 +34,5 @@ export const base = css`
         flex-direction: column;
         justify-content: center;
         height: 100%;
-
-        &.${classes.simple} {
-            display: inline-flex;
-        }
     }
 `;

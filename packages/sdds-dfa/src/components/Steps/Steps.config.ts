@@ -27,6 +27,7 @@ export const config = {
                 ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-transparent-secondary-hover);
 
                 ${tokens.contentColor}: var(--text-secondary);
+                ${tokens.focusColor}: var(--surface-accent);
 
                 ${tokens.disabledOpacity}: 0.4;
             `,
