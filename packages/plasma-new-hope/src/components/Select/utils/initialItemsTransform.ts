@@ -7,17 +7,15 @@ export const initialItemsTransform = (
     items: Array<MergedDropdownNodeTransformed>,
     parent?: MergedDropdownNodeTransformed,
 ): Array<MergedDropdownNodeTransformed> => {
-    const newItems = [...items];
+    return [...items].map((item) => {
+        const itemCopy = { ...item };
 
-    newItems.forEach((item) => {
-        const newItem = { ...item };
+        itemCopy.parent = parent;
 
-        newItem.parent = parent;
-
-        if (item.items) {
-            item.items = initialItemsTransform(item.items, item);
+        if (itemCopy.items) {
+            itemCopy.items = initialItemsTransform(itemCopy.items, itemCopy);
         }
-    });
 
-    return newItems;
+        return itemCopy;
+    });
 };
