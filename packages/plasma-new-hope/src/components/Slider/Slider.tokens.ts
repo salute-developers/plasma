@@ -1,6 +1,12 @@
 export const classes = {
     labelPlacementOuter: 'slider-label-placement-outer',
     labelPlacementInner: 'slider-label-placement-inner',
+    labelPlacementBottom: 'slider-label-placement-bottom',
+    labelAlignLeft: 'slider-label-align-left',
+    labelAlignCenter: 'slider-label-align-center',
+    labelAlignRight: 'slider-label-align-right',
+    labelAlignNone: 'slider-label-align-none',
+    labelContentReversed: 'slider-label-content-reversed',
     rangeValuesPlacementOuter: 'slider-range-values-placement-outer',
     rangeValuesPlacementInner: 'slider-range-values-placement-inner',
     maxRangeValue: 'slider-max-range-value',
@@ -10,14 +16,18 @@ export const classes = {
     firstTextField: 'slider-first-text-field',
     secondTextField: 'slider-second-text-field',
     activeRangeValue: 'slider-active-range-value',
+    verticalOrientation: 'slider-vertical-orientation',
+    valuePlacementLeft: 'slider-value-placement-left',
+    reversed: 'slider-reversed',
 };
 
 export const tokens = {
-    height: '--plasma-slider-height',
+    size: '--plasma-slider-size',
 
     labelWrapperGap: '--plasma-slider-label-wrapper-gap',
     labelWrapperMarginBottom: '--plasma-slider-label-wrapper-margin-bottom',
     labelWrapperMarginRight: '--plasma-slider-label-wrapper-margin-right',
+    labelWrapperVerticalMargin: '--plasma-slider-label-wrapper-vertical-margin',
 
     labelColor: '--plasma-slider-label-color',
     labelFontFamily: '--plasma-slider-label-font-family',
@@ -27,21 +37,23 @@ export const tokens = {
     labelLetterSpacing: '--plasma-slider-label-letter-spacing',
     labelLineHeight: '--plasma-slider-label-line-height',
 
-    rangeMinValueMargin: '--plasma-slider-range-min-value-margin',
-    rangeMaxValueMargin: '--plasma-slider-range-max-value-margin',
     rangeValueBottomOffset: '--plasma-slider-range-value-bottom-offset',
+    rangeValueHorizontalMargin: '--plasma-slider-range-value-horizontal-margin',
+    rangeValueHorizontalOffset: '--plasma-slider-range-value-horizontal-offset',
+    rangeValueVerticalMargin: '--plasma-slider-range-value-vertical-margin',
 
     rangeValueColor: '--plasma-slider-range-value-color',
-    rangeValueFontFamily: '--plasma-slider-range-value-font-family',
-    rangeValueFontSize: '--plasma-slider-range-value-font-size',
-    rangeValueFontStyle: '--plasma-slider-range-value-font-style',
-    rangeValueFontWeight: '--plasma-slider-range-value-font-weight',
-    rangeValueLetterSpacing: '--plasma-slider-range-value-letter-spacing',
-    rangeValueLineHeight: '--plasma-slider-range-value-line-height',
+    valueFontFamily: '--plasma-slider-value-font-family',
+    valueFontSize: '--plasma-slider-value-font-size',
+    valueFontStyle: '--plasma-slider-value-font-style',
+    valueFontWeight: '--plasma-slider-value-font-weight',
+    valueLetterSpacing: '--plasma-slider-value-letter-spacing',
+    valueLineHeight: '--plasma-slider-value-line-height',
 
     doubleWrapperGap: '--plasma-slider-double-wrapper-gap',
 
     thumbSize: '--plasma-slider-thumb-size',
+    thumbSizeLarge: '--plasma-slider-thumb-size-large',
     thumbBorder: '--plasma-slider-thumb-border',
     thumbBorderColor: '--plasma-slider-thumb-border-color',
     thumbBackgroundColor: '--plasma-slider-thumb-background-color',
@@ -50,15 +62,8 @@ export const tokens = {
 
     currentValueTopOffset: '--plasma-slider-current-value-top-offset',
 
-    currentValueFontFamily: '--plasma-slider-current-value-font-family',
-    currentValueFontSize: '--plasma-slider-current-value-font-size',
-    currentValueFontStyle: '--plasma-slider-current-value-font-style',
-    currentValueFontWeight: '--plasma-slider-current-value-font-weight',
-    currentValueLetterSpacing: '--plasma-slider-current-value-letter-spacing',
-    currentValueLineHeight: '--plasma-slider-current-value-line-height',
-
     railBackgroundColor: '--plasma-slider-rail-background-color',
-    railHeight: '--plasma-slider-rail-height',
+    railThickness: '--plasma-slider-rail-thickness',
     railBorderRadius: '--plasma-slider-rail-border-radius',
     railIndent: '--plasma-slider-rail-indent',
 
