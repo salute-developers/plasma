@@ -1064,6 +1064,7 @@ true: PolymorphicClassName;
     value?: string | undefined;
     onChange?: ((value: string) => void) | undefined;
     isTargetAmount?: false | undefined;
+    renderValue?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1093,6 +1094,7 @@ true: PolymorphicClassName;
     value?: string[] | undefined;
     onChange?: ((value: string[]) => void) | undefined;
     isTargetAmount?: boolean | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1122,6 +1124,7 @@ true: PolymorphicClassName;
     value?: string | undefined;
     onChange?: ((value: string) => void) | undefined;
     isTargetAmount?: false | undefined;
+    renderValue?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1151,6 +1154,7 @@ true: PolymorphicClassName;
     value?: string[] | undefined;
     onChange?: ((value: string[]) => void) | undefined;
     isTargetAmount?: boolean | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1180,6 +1184,7 @@ true: PolymorphicClassName;
     value?: string | undefined;
     onChange?: ((value: string) => void) | undefined;
     isTargetAmount?: false | undefined;
+    renderValue?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
     items: ItemOption[];
     placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
@@ -1209,6 +1214,7 @@ true: PolymorphicClassName;
     value?: string[] | undefined;
     onChange?: ((value: string[]) => void) | undefined;
     isTargetAmount?: boolean | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & RefAttributes<HTMLInputElement>)), "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & {
     ref?: ForwardedRef<HTMLInputElement> | undefined;
 }) => ReactElement | null;
