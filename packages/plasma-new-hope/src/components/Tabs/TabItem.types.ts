@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import type { AsProps } from '../../types';
 
-type RightContent =
+export type RightContent =
     | {
           /**
            * Значение таба
@@ -35,10 +35,6 @@ export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement
      */
     disabled?: boolean;
     /**
-     * Контент слева
-     */
-    contentLeft?: ReactNode;
-    /**
      * Контент справа
      */
     contentRight?: ReactNode;
@@ -59,12 +55,18 @@ export type CustomHorizontalTabItemProps = {
      */
     orientation?: 'horizontal';
     /**
+     * Контент слева
+     */
+    contentLeft?: ReactNode;
+    /**
      * TabItem c округлым border-radius
+     * @deprecated
      * @default false
      */
     pilled?: boolean;
     /**
      * Фон TabItem меняется с анимацией
+     * @deprecated
      * @default true
      */
     animated?: boolean;
@@ -75,7 +77,7 @@ export type CustomHorizontalTabItemProps = {
     /**
      * Размер TabItem
      */
-    size?: string;
+    size?: 'xs' | 's' | 'm' | 'l';
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`
@@ -83,11 +85,51 @@ export type CustomHorizontalTabItemProps = {
     isActive?: boolean;
 } & RightContent;
 
+export type CustomHeaderTabItemProps = {
+    /**
+     * Расположение табов
+     */
+    orientation?: 'horizontal';
+    /**
+     * Контент слева
+     */
+    contentLeft?: never;
+    /**
+     * TabItem c округлым border-radius
+     * @deprecated
+     * @default false
+     */
+    pilled?: never;
+    /**
+     * Фон TabItem меняется с анимацией
+     * @deprecated
+     * @default true
+     */
+    animated?: never;
+    /**
+     * Вид TabItem
+     */
+    view?: string;
+    /**
+     * Размер TabItem
+     */
+    size: 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    /**
+     * Активен ли TabItem
+     * @deprecated Используйте свойство `selected`
+     */
+    isActive?: never;
+} & Extract<RightContent, { contentRight?: never }>;
+
 export type CustomVerticalTabItemProps = {
     /**
      * Расположение табов
      */
     orientation: 'vertical';
+    /**
+     * Контент слева
+     */
+    contentLeft?: ReactNode;
     /**
      * Вид TabItem
      */
@@ -98,7 +140,7 @@ export type CustomVerticalTabItemProps = {
     size?: string;
 } & RightContent;
 
-export type HorizontalTabItemProps = BaseTabItemProps & CustomHorizontalTabItemProps;
+export type HorizontalTabItemProps = BaseTabItemProps & (CustomHorizontalTabItemProps | CustomHeaderTabItemProps);
 
 export type VerticalTabItemProps = BaseTabItemProps & CustomVerticalTabItemProps;
 

@@ -107,7 +107,8 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
                 pilled={pilled}
                 role={role}
                 view={view}
-                size={size}
+                // TODO: убрать каст any, когда будут удалены deprecated props
+                size={size as any}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
                 className={cx(pilledClass, selectedClass, animatedClass, className)}
