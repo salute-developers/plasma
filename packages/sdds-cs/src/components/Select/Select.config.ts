@@ -29,6 +29,20 @@ export const config = {
                 ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${selectTokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
 
+                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
                 ${selectTokens.checkboxTriggerSize}: 1.25rem;
                 ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
                 ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
@@ -69,9 +83,9 @@ export const config = {
         view: {
             default: css`
                 ${selectTokens.helperTextColor}: var(--text-secondary);
-                ${selectTokens.targetButtonColor}: var(--text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--text-primary);
-                ${selectTokens.targetButtonColorActive}: var(--text-primary);
+                ${selectTokens.targetButtonColor}: var(--text-accent);
+                ${selectTokens.targetButtonColorHover}: var(--text-accent-hover);
+                ${selectTokens.targetButtonColorActive}: var(--text-accent-active);
                 ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
                 ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
@@ -88,6 +102,9 @@ export const config = {
                 ${selectTokens.targetTextfieldBorderOpenedColor}: var(--outline-accent);
                 ${selectTokens.popoverBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.checkboxIconColor}: var(--text-accent);
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
+                ${selectTokens.disclosureIconColor}: var(--text-accent);
+                ${selectTokens.disclosureIconColorHover}: var(--text-accent-hover);
             `,
         },
         chipView: {
