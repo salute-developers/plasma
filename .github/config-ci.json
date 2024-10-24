@@ -9,6 +9,7 @@
         "sdds-serv",
         "sdds-dfa",
         "sdds-cs",
-        "sdds-finportal"
+        "sdds-finportal",
+        "sdds-insol"
     ]
 }

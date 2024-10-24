@@ -61,6 +61,11 @@ jobs:
           npm run build --prefix="./website/sdds-dfa-docs"
           cp -R ./website/sdds-dfa-docs/build ./s3_build/next-${{ github.sha }}/sdds-dfa
 
+      - name: Plasma SDDS INSOL Docs
+        run: |
+          npm run build --prefix="./website/sdds-insol-docs"
+          cp -R ./website/sdds-insol-docs/build ./s3_build/next-${{ github.sha }}/sdds-insol
+
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
@@ -100,6 +105,11 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/sdds-dfa"
           cp -R ./packages/sdds-dfa/build-sb ./s3_build_sb/sdds-dfa-storybook
+
+      - name: Plasma "SDDS INSOL" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-insol"
+          cp -R ./packages/sdds-insol/build-sb ./s3_build_sb/sdds-insol-storybook
 
       - name: Install s3cmd
         run: pip3 install s3cmd
@@ -208,3 +218,18 @@ jobs:
           sync
           ./s3_build_sb/sdds-serv-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/sdds-serv-storybook/
+
+      - name: Upload to S3 storybook "SDDS INSOL"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/sdds-insol-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/sdds-insol-storybook/

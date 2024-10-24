@@ -57,6 +57,11 @@ jobs:
         run: |
           npm run build --prefix="./website/sdds-dfa-docs"
           cp -R ./website/sdds-dfa-docs/build ./s3_build/sdds-dfa
+
+      - name: SDDS INSOL Docs
+        run: |
+          npm run build --prefix="./website/sdds-insol-docs"
+          cp -R ./website/sdds-insol-docs/build ./s3_build/sdds-insol
  
       - name: Plasma UI Storybook
         run: |
@@ -97,6 +102,11 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/sdds-dfa"
           cp -R ./packages/sdds-dfa/build-sb ./s3_build/sdds-dfa-storybook
+
+      - name: Plasma "SDDS INSOL" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-insol"
+          cp -R ./packages/sdds-insol/build-sb ./s3_build/sdds-insol-storybook
 
       - name: Install s3cmd
         run: pip3 install s3cmd
