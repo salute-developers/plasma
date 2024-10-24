@@ -1,0 +1,124 @@
+---
+id: badge
+title: Badge
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Badge
+<Description name="Badge" />
+<PropsTable name="Badge"  exclude={['css']} />
+
+## Примеры
+
+### Размер badge
+Размер задается с помощью свойства `size`.
+
+Возможные значения свойства: `l`, `m`, `s`, `xs`.
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" />
+            <Badge text="Бейдж" size="m" />
+            <Badge text="Бейдж" size="s" />
+            <Badge text="Бейдж" size="xs" />
+        </div>
+    );
+}
+```
+
+### Скругленность badge
+Скругленность задается с помощью свойства `pilled`:
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" pilled />
+            <Badge text="Бейдж" size="m" pilled />
+            <Badge text="Бейдж" size="s" pilled />
+            <Badge text="Бейдж" size="xs" pilled />
+        </div>
+    );
+}
+```
+
+### Вид badge
+Вид `badge` задается с помощью свойства `view`. Возможные значения свойства `view`:
+
++ `"primary"` – основной badge;
++ `"accent"` – бейдж акцентного цвета;
++ `"positive"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"negative"` – ошибка;
++ `"dark"` – темный badge;
++ `"light"` – светлый badge.
+
+Так же на вид badge влияет свойства `transparent` и `clear`.
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/sdds-insol';
+
+export function App() {
+    const Badges = ({transparent, clear}) => {
+        return (
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <Badge text="Бейдж" size="l" view="primary" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="accent" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="positive" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="warning" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="negative" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="dark" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="light" transparent={transparent} clear={clear} />
+            </div>
+        )
+    }
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <Badges />
+            <Badges transparent />
+            <Badges clear />
+        </div>
+    );
+}
+```
+
+### Иконка слева / справа
+В левой и/или правой части badge можно отобразить иконку:
+
+```tsx live
+import React from 'react';
+import { Badge } from '@salutejs/sdds-insol';
+import { IconEye } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Badge 
+                text="Бейдж" 
+                size="l"   
+                view="primary" 
+                contentLeft={
+                    <IconEye color="inherit" size="xs" />
+                } />
+            <Badge 
+                text="Бейдж" 
+                size="l"   
+                view="primary" 
+                contentRight={
+                    <IconEye color="inherit" size="xs" />
+                } />
+        </div>
+    );
+}
+```
