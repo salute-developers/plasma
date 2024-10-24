@@ -1,9 +1,9 @@
 import React, { forwardRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
 import { HorizontalTabItemProps } from './TabItem.types';
-import { HorizontalTabsProps } from './Tabs.types';
+import { HorizontalCommonTabsProps } from './Tabs.types';
 
-export interface TabsControllerProps extends HorizontalTabsProps {
+export interface TabsControllerProps extends HorizontalCommonTabsProps {
     items: Array<{ label: string } & HorizontalTabItemProps>;
     index: number;
     onIndexChange: (index: number) => void;
@@ -19,7 +19,7 @@ export interface TabsControllerProps extends HorizontalTabsProps {
  * кастомизировать стили, при этом сохраняя единый интерфейс и функционал.
  */
 export function createTabsController<T extends HTMLDivElement, P extends TabsControllerProps>(
-    ListComponent: ForwardRefExoticComponent<HorizontalTabsProps & RefAttributes<HTMLDivElement>>,
+    ListComponent: ForwardRefExoticComponent<HorizontalCommonTabsProps & RefAttributes<HTMLDivElement>>,
     ItemComponent: ForwardRefExoticComponent<HorizontalTabItemProps & RefAttributes<HTMLDivElement>>,
 ) {
     // eslint-disable-next-line prefer-arrow-callback

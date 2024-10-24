@@ -104,6 +104,7 @@ import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomComboboxProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxOld/Combobox.types';
+import { CustomHeaderTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
