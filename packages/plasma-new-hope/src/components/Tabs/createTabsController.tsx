@@ -1,9 +1,9 @@
 import React, { forwardRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
 import { HorizontalTabItemProps } from './TabItem.types';
-import { HorizontalTabsProps } from './Tabs.types';
+import { HorizontalCommonTabsProps, HorizontalTabsProps } from './Tabs.types';
 
-export interface TabsControllerProps extends HorizontalTabsProps {
+export interface TabsControllerProps extends HorizontalCommonTabsProps {
     items: Array<{ label: string } & HorizontalTabItemProps>;
     index: number;
     onIndexChange: (index: number) => void;

@@ -27,4 +27,10 @@ export const base = css`
             right: 1.5rem;
         }
     }
+
+    &.${classes.tabsNoDivider} {
+        &::after {
+            height: 0;
+        }
+    }
 `;
