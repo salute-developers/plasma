@@ -103,7 +103,6 @@ export const Item: FC<ItemProps> = ({
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}
-                            className={classes.selectItemCheckbox}
                         />
                     </StyledCheckboxWrapper>
                 )}

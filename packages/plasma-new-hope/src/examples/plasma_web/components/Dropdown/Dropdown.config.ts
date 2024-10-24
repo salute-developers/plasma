@@ -15,8 +15,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.875rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1rem;
-                ${tokens.itemPaddingTight}: 0.75rem 1rem 0.75rem 0.875rem;
+                ${tokens.itemPadding}: 1rem 1.125rem;
+                ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
 
                 ${tokens.dividerMarginTop}: 0.5rem;
@@ -52,8 +52,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.75rem;
-                ${tokens.itemPaddingTight}: 0.5rem 0.75rem 0.5rem 0.75rem;
+                ${tokens.itemPadding}: 0.75rem 0.875rem;
+                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
 
                 ${tokens.dividerMarginTop}: 0.375rem;
@@ -90,7 +90,7 @@ export const config = {
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 0.5rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.75rem 0.25rem 0.675rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
 
                 ${tokens.dividerMarginTop}: 0.375rem;
@@ -127,7 +127,7 @@ export const config = {
 
                 ${tokens.itemHeight}: 1rem;
                 ${tokens.itemPadding}: 0.5rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.5rem 0.25rem 0.375rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.375rem;
 
                 ${tokens.dividerMarginTop}: 0.25rem;

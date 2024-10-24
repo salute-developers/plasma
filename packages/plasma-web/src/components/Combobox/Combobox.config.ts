@@ -174,16 +174,30 @@ export const config = {
                 ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-l-line-height);
 
+                ${tokens.emptyStatePadding}: 1rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.875rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1rem 1rem 1rem 0.875rem;
-                ${tokens.itemPaddingTight}: 0.75rem 1rem 0.75rem 0.875rem;
+                ${tokens.itemPadding}: 1rem 1.125rem;
+                ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
                 ${tokens.itemIconMargin}: 0 0.5rem 0 0;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1.5rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -257,16 +271,30 @@ export const config = {
                 ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-m-line-height);
 
+                ${tokens.emptyStatePadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.5rem 0.75rem 0.5rem 0.75rem;
+                ${tokens.itemPadding}: 0.75rem 0.875rem;
+                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
                 ${tokens.itemIconMargin}: 0 0.375rem 0 0;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1.5rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -340,16 +368,30 @@ export const config = {
                 ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-s-line-height);
 
+                ${tokens.emptyStatePadding}: 0.625rem 0.875rem 0.625rem 0.875rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.625rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.5rem 0.75rem 0.5rem 0.675rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.75rem 0.25rem 0.675rem;
+                ${tokens.itemPadding}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1rem;
                 ${tokens.itemIconMargin}: 0 0.375rem 0 0;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -423,16 +465,30 @@ export const config = {
                 ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-xs-line-height);
 
+                ${tokens.emptyStatePadding}: 0.5rem 0.625rem 0.5rem 0.625rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.5rem;
 
-                ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.5rem 0.75rem 0.5rem 0.75rem;
-                ${tokens.itemBorderRadius}: 0.625rem;
-                ${tokens.itemIconMargin}: 0 0.375rem 0 0;
-                ${tokens.itemIconSize}: 1.5rem;
-                ${tokens.itemIconSizeTight}: 1.5rem;
+                ${tokens.itemHeight}: 1rem;
+                ${tokens.itemPadding}: 0.5rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
+                ${tokens.itemBorderRadius}: 0.375rem;
+                ${tokens.itemIconMargin}: 0 0.25rem 0 0;
+                ${tokens.itemIconSize}: 1rem;
+                ${tokens.itemIconSizeTight}: 1rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.25rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -441,10 +497,10 @@ export const config = {
                 ${tokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.checkboxTriggerSize}: 1.25rem;
-                ${tokens.checkboxTriggerSizeTight}: 1.25rem;
-                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${tokens.checkboxTriggerSize}: 0.875rem;
+                ${tokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
