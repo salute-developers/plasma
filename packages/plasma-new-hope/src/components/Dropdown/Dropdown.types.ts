@@ -1,9 +1,10 @@
 import type { CSSProperties, HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
+import React from 'react';
 
+import { FocusedPathState } from './reducers/focusedPathReducer';
 import { DropdownItemOption } from './ui/DropdownItem/DropdownItem.type';
 
-export type DropdownPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-export type DropdownPlacement = DropdownPlacementBasic | 'auto';
+export type DropdownPlacement = 'auto' | 'top' | 'right' | 'bottom' | 'left';
 
 export type DropdownTrigger = 'hover' | 'click';
 
@@ -38,7 +39,7 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
      * Сторона открытия дропдауна относительно target элемента.
      * @default bottom
      */
-    placement?: DropdownPlacement | Array<DropdownPlacementBasic>;
+    placement?: DropdownPlacement;
     /**
      * Отступ дропдауна относительно элемента, у которого оно вызвано.
      * @default [0, 0]
@@ -106,4 +107,32 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
     hoverIndex?: number;
 }
 
-export type HandleGlobalToggleType = (opened: boolean, event: Event | SyntheticEvent<Element, Event>) => void;
+export type HandleGlobalToggleType = (opened: boolean, event: SyntheticEvent | Event) => void;
+
+export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
+
+export type FloatingPopoverProps = {
+    target: React.ReactNode;
+    children: React.ReactNode;
+    opened: boolean;
+    onToggle: (opened: boolean, event: SyntheticEvent | Event) => void;
+    placement: PlacementType;
+    trigger: DropdownProps['trigger'];
+    isInner?: boolean;
+    portal?: DropdownProps['portal'];
+    offset?: [number, number];
+};
+
+export type ItemContext = {
+    focusedPath: FocusedPathState;
+    size: DropdownProps['size'];
+    variant: DropdownProps['variant'];
+    itemRole: DropdownProps['itemRole'];
+    handleGlobalToggle: HandleGlobalToggleType;
+    closeOnSelect: DropdownProps['closeOnSelect'];
+    onHover: DropdownProps['onHover'];
+    onItemSelect: DropdownProps['onItemSelect'];
+    onItemClick: DropdownProps['onItemClick'];
+    hasArrow: DropdownProps['hasArrow'];
+    treeId: string;
+};

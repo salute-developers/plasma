@@ -3,7 +3,7 @@ export const classes = {
     dropdownItemIsFocused: 'dropdown-item-is-focused',
     dropdownItemIsDisabled: 'dropdown-item-is-disabled',
     dropdownItemIsActive: 'dropdown-item-is-active',
-    dropdownItemIsSelected: 'dropdownItemIsSelected',
+    dropdownItemIsSelected: 'dropdown-item-is-selected',
 };
 
 export const tokens = {
@@ -14,7 +14,7 @@ export const tokens = {
     padding: '--plasma-dropdown-padding',
     disclosureIconColor: '--plasma-dropdown-disclosure-icon-color',
     disabledOpacity: '--plasma-dropdown-disabled-opacity',
-    focusColor: '--plasma-dropdown-focus-color',
+    focusColor: '--plasma-dropdown-focus-color', // Old
 
     dividerColor: '--plasma-dropdown-divider-color',
     dividerMarginTop: '--plasma-dropdown-divider-margin-top',
@@ -28,7 +28,7 @@ export const tokens = {
     itemBackgroundHover: '--plasma-dropdown-item-background-hover',
     itemBackgroundSelected: '--plasma-dropdown-item-background-selected', // Old
     itemBackgroundSelectedHover: '--plasma-dropdown-item-background-selected-hover', // Old
-    itemColor: '--plasma-dropdown-item-color',
+    itemColor: '--plasma-dropdown-item-color', // Old
     itemColorSelected: '--plasma-dropdown-item-color-selected', // Old
     itemColorSelectedHover: '--plasma-dropdown-item-color-selected-hover', // Old
     itemBorderRadius: '--plasma-dropdown-item-border-radius',
@@ -38,12 +38,12 @@ export const tokens = {
     itemMarginRight: '--plasma-dropdown-item-margin-right', // Old
     itemMarginBottom: '--plasma-dropdown-item-margin-bottom', // Old
     itemMarginLeft: '--plasma-dropdown-item-margin-left', // Old
-    itemPaddingTop: '--plasma-dropdown-item-padding-top',
-    itemPaddingTopTight: '--plasma-dropdown-item-padding-top-tight',
-    itemPaddingRight: '--plasma-dropdown-item-padding-right',
-    itemPaddingBottom: '--plasma-dropdown-item-padding-bottom',
-    itemPaddingBottomTight: '--plasma-dropdown-item-padding-bottom-tight',
-    itemPaddingLeft: '--plasma-dropdown-item-padding-left',
+    itemPaddingTop: '--plasma-dropdown-item-padding-top', // Old
+    itemPaddingTopTight: '--plasma-dropdown-item-padding-top-tight', // Old
+    itemPaddingRight: '--plasma-dropdown-item-padding-right', // Old
+    itemPaddingBottom: '--plasma-dropdown-item-padding-bottom', // Old
+    itemPaddingBottomTight: '--plasma-dropdown-item-padding-bottom-tight', // Old
+    itemPaddingLeft: '--plasma-dropdown-item-padding-left', // Old
     itemContentLeftWidth: '--plasma-dropdown-item-content-left-width', // Old
     itemContentLeftColor: '--plasma-dropdown-item-content-left-color', // Old
     itemContentRightWidth: '--plasma-dropdown-item-content-right-width', // Old
@@ -54,6 +54,21 @@ export const tokens = {
     itemFontWeightBold: '--plasma-dropdown-item-letter-spacing',
     itemFontLetterSpacing: '--plasma-dropdown-item-line-height',
     itemFontLineHeight: '--plasma-dropdown-item-font-weight',
+    itemPadding: '--plasma-dropdown-item-padding',
+    itemPaddingTight: '--plasma-dropdown-item-padding-tight',
+
+    cellPadding: '--plasma-dropdown-cell-padding',
+    cellPaddingLeftContent: '--plasma-dropdown-cell-padding-left-content',
+    cellPaddingContent: '--plasma-dropdown-cell-padding-content',
+    cellPaddingRightContent: '--plasma-dropdown-cell-padding-right-content',
+    cellTextboxGap: '--plasma-dropdown-cell-textbox-gap',
+    cellGap: '--plasma-dropdown-cell-gap',
+    cellTitleFontFamily: '--plasma-dropdown-cell-title-font-family',
+    cellTitleFontSize: '--plasma-dropdown-cell-title-font-size',
+    cellTitleFontStyle: '--plasma-dropdown-cell-title-font-style',
+    cellTitleFontWeight: '--plasma-dropdown-cell-title-font-weight',
+    cellTitleLetterSpacing: '--plasma-dropdown-cell-title-letter-spacing',
+    cellTitleLineHeight: '--plasma-dropdown-cell-title-line-height',
 
     // TODO: Remove below tokens as soon as they are no longer needed
     footerBackground: '--plasma-dropdown-footer-background',
@@ -121,4 +136,16 @@ export const tokens = {
     groupLabelMarginRight: '--plasma-dropdown-group-label-margin-right',
     groupLabelMarginBottom: '--plasma-dropdown-group-label-margin-bottom',
     groupLabelMarginLeft: '--plasma-dropdown-group-label-margin-left',
+};
+
+export const constants = {
+    focusColor: '--surface-accent',
+    background: '--surface-solid-card-brightness',
+    boxShadow: '0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04)',
+    disclosureIconColor: '--text-secondary',
+    itemBackground: '--plasma-colors-transparent',
+    itemBackgroundHover: '--surface-transparent-secondary',
+    opacity: '0.4',
+    cellTitleColor: '--text-primary',
+    cellBackgroundColor: '--plasma-colors-transparent',
 };

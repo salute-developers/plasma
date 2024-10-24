@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import type { DropdownPlacement, DropdownTrigger } from '@salutejs/plasma-new-hope';
 import { IconLocation } from '@salutejs/plasma-icons';
+import { action } from '@storybook/addon-actions';
 
 import { Button } from '../Button';
 
 import { Dropdown, DropdownList, DropdownItem, DropdownPopup } from '.';
-import type { DropdownProps } from '.';
 
-const placements: Array<DropdownPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
-const triggers: Array<DropdownTrigger> = ['click', 'hover'];
+type DropdownProps = ComponentProps<typeof Dropdown>;
+
+const placements: DropdownProps['placement'][] = ['auto', 'top', 'right', 'bottom', 'left'];
+const triggers: DropdownProps['trigger'][] = ['click', 'hover'];
 const size = ['xs', 's', 'm', 'l'];
 const variant = ['normal', 'tight'];
 
@@ -46,14 +47,30 @@ const meta: Meta<DropdownProps> = {
         },
     },
     args: {
+        size: 'm',
+        variant: 'normal',
+        placement: 'bottom-start',
         trigger: 'click',
         offset: [0, 0],
-        listWidth: 'auto',
+        listWidth: '',
         hasArrow: true,
         closeOnOverlayClick: true,
         closeOnSelect: true,
-        size: 'm',
-        variant: 'normal',
+    },
+    parameters: {
+        controls: {
+            include: [
+                'size',
+                'variant',
+                'placement',
+                'trigger',
+                'offset',
+                'listWidth',
+                'hasArrow',
+                'closeOnOverlayClick',
+                'closeOnSelect',
+            ],
+        },
     },
 };
 
@@ -278,7 +295,14 @@ const items = (dropdownSize: DropdownProps['size']) => [
 const StoryNormal = (args: DropdownProps) => {
     return (
         <>
-            <Dropdown {...args} items={items(args.size)}>
+            <Dropdown
+                {...args}
+                items={items(args.size)}
+                onToggle={action('onToggle')}
+                onHover={action('onHover')}
+                onItemSelect={action('onItemSelect')}
+                onItemClick={action('onItemClick')}
+            >
                 <Button text="Список стран" />
             </Dropdown>
         </>
@@ -289,7 +313,7 @@ export const Default: StoryObj<DropdownProps> = {
     render: (args) => <StoryNormal {...args} />,
 };
 
-export const CompositionDeprecated = () => {
+const CompositionDeprecatedStory = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -321,4 +345,13 @@ export const CompositionDeprecated = () => {
             </DropdownPopup>
         </div>
     );
+};
+
+export const CompositionDeprecated: StoryObj<DropdownProps> = {
+    render: (args) => <CompositionDeprecatedStory {...args} />,
+    parameters: {
+        controls: {
+            include: [],
+        },
+    },
 };

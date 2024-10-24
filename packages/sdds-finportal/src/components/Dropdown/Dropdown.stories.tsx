@@ -1,33 +1,87 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconLocation } from '@salutejs/plasma-icons';
+import { action } from '@storybook/addon-actions';
 
 import { Button } from '../Button';
 
-import type { DropdownProps } from '.';
 import { Dropdown } from '.';
+
+type DropdownProps = ComponentProps<typeof Dropdown>;
+
+const placements: DropdownProps['placement'][] = ['auto', 'top', 'right', 'bottom', 'left'];
+const triggers: DropdownProps['trigger'][] = ['click', 'hover'];
+const size = ['xs', 's', 'm', 'l'];
+const variant = ['normal', 'tight'];
 
 const meta: Meta<DropdownProps> = {
     title: 'Controls/Dropdown',
     component: Dropdown,
     decorators: [InSpacingDecorator],
+    argTypes: {
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            mapping: placements,
+        },
+        trigger: {
+            options: triggers,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: size,
+            control: {
+                type: 'select',
+            },
+        },
+        variant: {
+            options: variant,
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
-        placement: 'bottom',
+        size: 'm',
+        variant: 'normal',
+        placement: 'bottom-start',
         trigger: 'click',
-        closeOnSelect: true,
+        offset: [0, 0],
+        listWidth: '',
+        hasArrow: true,
         closeOnOverlayClick: true,
-        onItemSelect: (item, event) => console.log('onItemSelect', item, event),
-        onToggle: (a, b) => console.log('onToggle', a, b),
-        variant: 'tight',
+        closeOnSelect: true,
+    },
+    parameters: {
+        controls: {
+            include: [
+                'size',
+                'variant',
+                'placement',
+                'trigger',
+                'offset',
+                'listWidth',
+                'hasArrow',
+                'closeOnOverlayClick',
+                'closeOnSelect',
+            ],
+        },
     },
 };
 
 export default meta;
 
-const items = [
+const items = (dropdownSize: DropdownProps['size']) => [
     {
         value: 'north_america',
         label: 'Северная Америка',
+        contentLeft: <IconLocation size={dropdownSize !== 'xs' ? 's' : 'xs'} color="inherit" />,
+        contentRight: <IconLocation size={dropdownSize !== 'xs' ? 's' : 'xs'} color="inherit" />,
     },
     {
         value: 'south_america',
@@ -241,8 +295,15 @@ const items = [
 const StoryNormal = (args: DropdownProps) => {
     return (
         <>
-            <Dropdown items={items} {...args}>
-                <Button text="Нажмите" stretching="filled" />
+            <Dropdown
+                {...args}
+                items={items(args.size)}
+                onToggle={action('onToggle')}
+                onHover={action('onHover')}
+                onItemSelect={action('onItemSelect')}
+                onItemClick={action('onItemClick')}
+            >
+                <Button text="Список стран" />
             </Dropdown>
         </>
     );

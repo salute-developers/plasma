@@ -1,19 +1,24 @@
-import React, { forwardRef, useReducer } from 'react';
+import React, { createContext, forwardRef, useReducer, useRef } from 'react';
+import { safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
-import { cx, getPlacements } from '../../utils';
+import { cx } from '../../utils';
+import { useOutsideClick } from '../../hooks';
 
 import { pathReducer } from './reducers/pathReducer';
 import { focusedPathReducer } from './reducers/focusedPathReducer';
 import { DropdownInner } from './ui';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { Ul, StyledPopover, base } from './Dropdown.styles';
-import { childrenWithProps } from './utils';
-import type { DropdownProps, HandleGlobalToggleType } from './Dropdown.types';
+import { Ul, base } from './Dropdown.styles';
+import { childrenWithProps, getItemByFocused, getItemId, getPlacement } from './utils';
+import type { DropdownProps, HandleGlobalToggleType, ItemContext } from './Dropdown.types';
 import { classes } from './Dropdown.tokens';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { useHashMaps } from './hooks/useHashMaps';
+import { FloatingPopover } from './FloatingPopover';
+
+export const Context = createContext<ItemContext>({} as ItemContext);
 
 /**
  * Выпадающий список.
@@ -24,8 +29,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             {
                 items,
                 children,
-                placement = 'bottom',
-                offset = [0, 0],
+                placement,
+                offset,
                 closeOnOverlayClick = true,
                 onToggle,
                 size,
@@ -51,6 +56,26 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
 
             const [pathMap, focusedToValueMap] = useHashMaps(items);
+
+            const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
+
+            const floatingPopoverRef = useRef<HTMLDivElement>(null);
+
+            const treeId = safeUseId();
+
+            // Логика работы при клике за пределами выпадающего списка
+            const targetRef = useOutsideClick<HTMLUListElement>((event) => {
+                if (!isCurrentListOpen || !closeOnOverlayClick) {
+                    return;
+                }
+
+                dispatchPath({ type: 'reset' });
+                dispatchFocusedPath({ type: 'reset' });
+
+                if (onToggle) {
+                    onToggle(false, event);
+                }
+            }, floatingPopoverRef);
 
             const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
                 if (opened) {
@@ -80,66 +105,74 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
 
             const isCurrentListOpen = Boolean(path[0]);
 
-            const getActiveDescendant = () => {
-                const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
-                return focusedToValueMap?.get(focusedPathAsString)?.value.toString();
-            };
-
             return (
-                <StyledPopover
-                    opened={isCurrentListOpen}
-                    onToggle={handleGlobalToggle}
-                    offset={offset}
-                    placement={getPlacements(placement)}
-                    trigger={trigger}
-                    closeOnOverlayClick={closeOnOverlayClick}
-                    isFocusTrapped={false}
-                    target={childrenWithProps(children, {
-                        role: 'combobox',
-                        'aria-controls': 'tree_level_1',
-                        'aria-expanded': isCurrentListOpen,
-                        'aria-activedescendant': getActiveDescendant(),
-                        onKeyDown,
-                    })}
-                    preventOverflow={false}
-                    usePortal={Boolean(portal)}
-                    frame={portal}
+                <Context.Provider
+                    value={{
+                        focusedPath,
+                        size,
+                        variant,
+                        itemRole,
+                        handleGlobalToggle,
+                        closeOnSelect,
+                        onHover,
+                        onItemClick,
+                        onItemSelect,
+                        hasArrow,
+                        treeId,
+                    }}
                 >
-                    <Root className={cx(className, classes.dropdownRoot)} ref={ref} view={view} size={size} {...rest}>
-                        <Ul
-                            listHeight={listHeight}
-                            listOverflow={listOverflow}
-                            role="tree"
-                            id="tree_level_1"
-                            listWidth={listWidth}
+                    <FloatingPopover
+                        ref={floatingPopoverRef}
+                        opened={isCurrentListOpen}
+                        onToggle={handleGlobalToggle}
+                        placement={getPlacement(placement)}
+                        offset={offset}
+                        portal={portal}
+                        trigger={trigger}
+                        target={childrenWithProps(children, {
+                            role: 'combobox',
+                            'aria-controls': `${treeId}_tree_level_1`,
+                            'aria-expanded': isCurrentListOpen,
+                            'aria-activedescendant': activeDescendantItemValue
+                                ? getItemId(treeId, activeDescendantItemValue.toString())
+                                : '',
+                            onKeyDown,
+                        })}
+                    >
+                        <Root
+                            className={cx(className, classes.dropdownRoot)}
+                            ref={ref}
+                            view={view}
+                            size={size}
+                            style={{ display: 'inline-block' }}
+                            {...rest}
                         >
-                            {items.map((item, index) => (
-                                <DropdownInner
-                                    key={`${index}/0`}
-                                    item={item}
-                                    currentLevel={0}
-                                    focusedPath={focusedPath}
-                                    trigger={trigger}
-                                    path={path}
-                                    dispatchPath={dispatchPath}
-                                    index={index}
-                                    itemRole={itemRole}
-                                    listHeight={listHeight}
-                                    listOverflow={listOverflow}
-                                    handleGlobalToggle={handleGlobalToggle}
-                                    closeOnSelect={closeOnSelect}
-                                    onHover={onHover}
-                                    onItemSelect={onItemSelect}
-                                    onItemClick={onItemClick}
-                                    listWidth={listWidth}
-                                    variant={variant}
-                                    hasArrow={hasArrow}
-                                    size={size}
-                                />
-                            ))}
-                        </Ul>
-                    </Root>
-                </StyledPopover>
+                            <Ul
+                                ref={targetRef}
+                                id={`${treeId}_tree_level_1`}
+                                role="tree"
+                                listHeight={listHeight}
+                                listOverflow={listOverflow}
+                                listWidth={listWidth}
+                            >
+                                {items.map((item, index) => (
+                                    <DropdownInner
+                                        key={`${index}/0`}
+                                        item={item}
+                                        currentLevel={0}
+                                        trigger={trigger}
+                                        path={path}
+                                        dispatchPath={dispatchPath}
+                                        index={index}
+                                        listHeight={listHeight}
+                                        listOverflow={listOverflow}
+                                        listWidth={listWidth}
+                                    />
+                                ))}
+                            </Ul>
+                        </Root>
+                    </FloatingPopover>
+                </Context.Provider>
             );
         },
     );

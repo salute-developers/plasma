@@ -1,44 +1,43 @@
-import React, { useEffect, useRef, FC } from 'react';
+import React, { useEffect, useRef, FC, useContext } from 'react';
 
 import { classes } from '../../Dropdown.tokens';
 import { cx } from '../../../../utils';
 import { IconDisclosureRight } from '../../../_Icon';
+import { Context } from '../../Dropdown';
+import { getItemId } from '../../utils';
 
-import {
-    StyledContentLeft,
-    StyledContentRight,
-    StyledText,
-    Wrapper,
-    DisclosureIconWrapper,
-    Divider,
-} from './DropdownItem.styles';
+import { Wrapper, DisclosureIconWrapper, Divider, CellWrapper, StyledCell } from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
 export const DropdownItem: FC<DropdownItemProps> = ({
     item,
     path,
-    focusedPath,
     currentLevel,
     index,
-    itemRole,
-    closeOnSelect,
-    handleGlobalToggle,
-    onHover,
-    onItemSelect,
-    onItemClick,
     ariaControls,
     ariaExpanded,
-    ariaHasPopup,
     ariaLevel,
     ariaLabel,
-    variant,
-    hasArrow,
-    size,
 }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight, dividerBefore, dividerAfter } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
+    const {
+        focusedPath,
+        size,
+        variant,
+        itemRole,
+        handleGlobalToggle,
+        closeOnSelect,
+        onHover,
+        onItemSelect,
+        onItemClick,
+        hasArrow,
+        treeId,
+    } = useContext(Context);
+
+    const hasDescendants = Boolean(item.items);
     const disclosureIconSize = size === 'xs' ? 'xs' : 's';
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
@@ -70,7 +69,8 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             onItemClick(item, event);
         }
 
-        if (handleGlobalToggle && closeOnSelect) {
+        // Закрываем весь дропдаун целиком при клике на айтем без потомков. Только при closeOnSelect === true.
+        if (closeOnSelect && !hasDescendants) {
             handleGlobalToggle(false, event);
         }
     };
@@ -84,24 +84,30 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     return (
         <>
             {dividerBefore && <Divider variant={variant} />}
+
             <Wrapper
-                className={cx(isDisabledClassName, focusedClass, activeClass)}
-                id={value.toString()}
-                role={itemRole}
                 ref={ref}
-                aria-disabled={disabled || isDisabled}
+                className={cx(isDisabledClassName, focusedClass, activeClass)}
+                id={getItemId(treeId, value.toString())}
+                role={itemRole}
                 onClick={handleClick}
                 onMouseEnter={handleHover}
                 variant={variant}
+                aria-disabled={disabled || isDisabled}
                 aria-controls={ariaControls}
                 aria-expanded={ariaExpanded}
-                aria-haspopup={ariaHasPopup}
                 aria-level={ariaLevel}
                 aria-label={ariaLabel}
             >
-                {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-                <StyledText>{label}</StyledText>
-                {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                <CellWrapper>
+                    <StyledCell
+                        contentLeft={contentLeft}
+                        contentRight={contentRight}
+                        alignContentLeft="center"
+                        alignContentRight="center"
+                        title={label}
+                    />
+                </CellWrapper>
 
                 {item.items && hasArrow && (
                     <DisclosureIconWrapper>
@@ -109,6 +115,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
                     </DisclosureIconWrapper>
                 )}
             </Wrapper>
+
             {dividerAfter && <Divider variant={variant} />}
         </>
     );
