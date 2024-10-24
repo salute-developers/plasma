@@ -8,6 +8,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as transparentCSS } from './variations/_transparent/base';
 import { base as clearCSS } from './variations/_clear/base';
+import { base as truncateCSS } from './variations/_truncate/base';
 import type { BadgeProps, BadgeRootProps } from './Badge.types';
 import { StyledContentLeft, StyledContentMain, StyledContentRight, base } from './Badge.styles';
 import { classes } from './Badge.tokens';
@@ -25,6 +26,7 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
             pilled = false,
             transparent = false,
             clear = false,
+            truncate = false,
             ...rest
         } = props;
 
@@ -36,7 +38,7 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
         return (
             <Root
                 ref={ref}
-                className={cx(pilledClass, transparentClass, clearClass, className)}
+                className={cx(pilledClass, transparentClass, clearClass, truncate && classes.badgeTruncate, className)}
                 view={view}
                 size={size}
                 pilled={pilled}
@@ -73,6 +75,10 @@ export const badgeConfig = {
         },
         clear: {
             css: clearCSS,
+            attrs: true,
+        },
+        truncate: {
+            css: truncateCSS,
             attrs: true,
         },
     },

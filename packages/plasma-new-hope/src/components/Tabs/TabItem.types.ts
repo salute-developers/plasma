@@ -51,6 +51,11 @@ export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement
      * Индекс TabItem внутри Tabs - необходим для клавиатурной навигации
      */
     itemIndex?: number;
+    /**
+     * Обрезает не вместившийся контент и добавляет в конце ...
+     * @default false
+     */
+    truncate?: boolean;
 }
 
 export type CustomHorizontalTabItemProps = {

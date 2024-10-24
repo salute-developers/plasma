@@ -15,6 +15,7 @@ export const classes = {
     tabsHasBottomArrow: 'tabs-has-bottom-arrow',
     tabsClipScroll: 'tabs-clip-scroll',
     tabsClipShowAll: 'tabs-clip-show-all',
+    tabsTruncate: 'tabs-truncate',
 };
 
 export const tokens = {

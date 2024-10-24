@@ -11,6 +11,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { base as truncateCSS } from './variations/_truncate/base';
 import { LeftContent, RightContent, StyledContent, TabItemValue, base } from './HorizontalTabItem.styles';
 
 export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, HorizontalTabItemProps>) =>
@@ -32,6 +33,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             tabIndex,
             className,
             onClick,
+            truncate,
             ...rest
         } = props;
 
@@ -45,6 +47,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
         const animatedClass = animated ? classes.tabItemAnimated : undefined;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
         const selectedClass = isActive || selected ? classes.selectedTabsItem : undefined;
+
         const hasKeyNavigation = itemIndex !== undefined && onIndexChange !== undefined;
         const navigationTabIndex = !disabled && refs?.current === itemIndex ? 0 : -1;
 
@@ -108,9 +111,10 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
                 role={role}
                 view={view}
                 size={size}
+                truncate={truncate}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(pilledClass, selectedClass, animatedClass, className)}
+                className={cx(pilledClass, selectedClass, animatedClass, truncate && classes.tabsTruncate, className)}
                 onClick={handleClick}
                 {...rest}
             >
@@ -144,6 +148,9 @@ export const horizontalTabItemConfig = {
         },
         pilled: {
             css: pilledCSS,
+        },
+        truncate: {
+            css: truncateCSS,
         },
     },
     defaults: {
