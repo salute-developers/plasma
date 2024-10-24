@@ -105,7 +105,12 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/sdds-finportal"
           cp -R ./packages/sdds-finportal/build-sb ./s3_build/${PR_NAME}/sdds-finportal-storybook
-      
+
+      - name: Plasma "SDDS INSURANCE" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-insurance"
+          cp -R ./packages/sdds-insurance/build-sb ./s3_build/${PR_NAME}/sdds-insurance-storybook
+          
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -149,5 +154,6 @@ jobs:
               sdds-cs storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-cs-storybook/
               sdds-dfa storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-dfa-storybook/
               sdds-finportal storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-finportal-storybook/
+              sdds-insurance storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-insurance-storybook/
               `
             });
