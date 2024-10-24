@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import {
-    noticationConfig,
+    NotificationPlacement,
+    notificationConfig,
     NotificationsProvider as Provider,
     component,
     mergeConfig,
@@ -8,16 +9,19 @@ import {
 
 import { config } from './Notification.config';
 
-const mergedConfig = mergeConfig(noticationConfig, config);
+export type { NotificationPlacement };
+
+const mergedConfig = mergeConfig(notificationConfig, config);
 
 export const Notification = component(mergedConfig);
 
-export const NotificationsProvider: React.FC<{ children: ReactNode; frame?: string }> = ({
-    children,
-    frame = 'document',
-}) => {
+export const NotificationsProvider: React.FC<{
+    children: ReactNode;
+    frame?: string;
+    placement?: NotificationPlacement;
+}> = ({ children, frame = 'document', placement }) => {
     return (
-        <Provider config={mergedConfig} frame={frame}>
+        <Provider config={mergedConfig} frame={frame} placement={placement}>
             {children}
         </Provider>
     );

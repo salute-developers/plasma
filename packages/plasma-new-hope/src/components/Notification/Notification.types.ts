@@ -1,5 +1,5 @@
 import type { AsProps } from '@salutejs/plasma-core';
-import { HTMLAttributes, ReactNode, RefAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
 import { ComponentConfig, PropsType, Variants } from '../../engines/types';
 
@@ -16,6 +16,7 @@ export const placements = {
 };
 
 export type NotificationIconPlacement = keyof typeof placements;
+export type NotificationPlacement = 'bottom-right' | 'bottom-left';
 
 export type LayoutType = {
     layout?: NotificationLayout;
@@ -29,11 +30,11 @@ export type CloseIconType = {
     showCloseIcon?: boolean;
 };
 
-export interface NotificationProps extends AsProps, HTMLAttributes<HTMLDivElement> {
+export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     /**
      * Заголовок.
      */
-    title?: string;
+    title?: ReactNode;
     /**
      * Контент под заголовком.
      */
@@ -81,13 +82,18 @@ export interface NotificationProps extends AsProps, HTMLAttributes<HTMLDivElemen
     size?: string;
 }
 
-export interface NotificationPortalProps extends HTMLAttributes<HTMLDivElement> {
+export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     /**
      * Конфиг компонента Notification.
      */
-    config: ComponentConfig<string, Variants, PropsType<Variants>, NotificationProps & RefAttributes<HTMLDivElement>>;
+    config: ComponentConfig<string, Variants, PropsType<Variants>, NotificationProps & HTMLAttributes<HTMLDivElement>>;
     /**
      * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
      */
     frame?: string;
+    /**
+     * Расположение компонента Notification во frame
+     * @default bottom-right
+     */
+    placement?: NotificationPlacement;
 }
