@@ -62,4 +62,9 @@ module.exports = {
         required: ['plasma-core'],
         themes: 'sdds-themes',
     },
+    'sdds-insol': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
+        required: ['plasma-new-hope', 'plasma-core', 'sdds-themes'],
+        themes: 'sdds-themes',
+    },
 };

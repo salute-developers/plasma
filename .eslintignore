@@ -58,6 +58,9 @@ packages/sdds-cs/*
 packages/sdds-finportal/*
 !packages/sdds-finportal/src
 
+packages/sdds-insol/*
+!packages/sdds-insol/src
+
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 
