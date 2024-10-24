@@ -28,8 +28,6 @@ const StyledPlayground = styled.div`
     position: relative;
 `;
 
-const StandardTypo = createGlobalStyle(standard);
-
 const getSourceWithoutImports = (source: string) => {
     const regexp = /import\s+?(?:(?:(?:[\w*\s{},]*)\s+from\s+?)|)(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g;
     return source
@@ -48,7 +46,6 @@ const ResultWithHeader: FC = () => {
     return (
         <>
             <LightTheme />
-            <StandardTypo />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
                     Result

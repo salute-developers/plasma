@@ -210,6 +210,7 @@ import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
+import { ViewContainerCustomProps } from '@salutejs/plasma-new-hope/types/components/ViewContainer/ViewContainer';
 
 export { addFocus }
 
@@ -5027,6 +5028,14 @@ export { usePopupContext }
 export { useSegment }
 
 export { useToast }
+
+// @public (undocumented)
+export const ViewContainer: FunctionComponent<PropsType<    {
+view: {
+onDark: PolymorphicClassName;
+onLight: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & ViewContainerCustomProps & RefAttributes<HTMLAnchorElement>>;
 
 
 export * from "@salutejs/sdds-themes/tokens/sdds_dfa";
