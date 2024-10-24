@@ -22,8 +22,8 @@ export const getButtonLabel = ({
         return label || '';
     }
 
-    if (selectProps.multiselect && selectProps.isTargetAmount) {
-        return `Выбрано: ${value.toString().length}`;
+    if (selectProps.multiselect && Array.isArray(value) && selectProps.isTargetAmount) {
+        return `Выбрано: ${value.length}`;
     }
 
     if (selectProps.multiselect && Array.isArray(value)) {
