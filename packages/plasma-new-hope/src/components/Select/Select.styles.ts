@@ -52,21 +52,21 @@ export const OuterLabel = styled.label`
     margin-bottom: var(${tokens.labelOffset});
     color: var(${constants.textfieldOuterLabelColor});
 
-    font-family: var(${tokens.fontFamily});
-    font-size: var(${tokens.fontSize});
-    font-style: var(${tokens.fontStyle});
-    font-weight: var(${tokens.fontWeight});
-    letter-spacing: var(${tokens.fontLetterSpacing});
-    line-height: var(${tokens.fontLineHeight});
+    font-family: var(${tokens.labelFontFamily}, var(${tokens.fontFamily}));
+    font-size: var(${tokens.labelFontSize}, var(${tokens.fontSize}));
+    font-style: var(${tokens.labelFontStyle}, var(${tokens.fontStyle}));
+    font-weight: var(${tokens.labelFontWeight}, var(${tokens.fontWeight}));
+    letter-spacing: var(${tokens.labelFontLetterSpacing}, var(${tokens.fontLetterSpacing}));
+    line-height: var(${tokens.labelFontLineHeight}, var(${tokens.fontLineHeight}));
 `;
 
 export const HelperText = styled.div`
     margin-top: var(${tokens.helperTextOffset});
     color: var(${tokens.helperTextColor});
-    font-family: var(${constants.fontFamily});
-    font-size: var(${constants.fontSize});
-    font-style: var(${constants.fontStyle});
-    font-weight: var(${constants.fontWeight});
-    letter-spacing: var(${constants.fontLetterSpacing});
-    line-height: var(${constants.fontLineHeight});
+    font-family: var(${tokens.helperTextFontFamily}, var(${constants.fontFamily}));
+    font-size: var(${tokens.helperTextFontSize}, var(${constants.fontSize}));
+    font-style: var(${tokens.helperTextFontStyle}, var(${constants.fontStyle}));
+    font-weight: var(${tokens.helperTextFontWeight}, var(${constants.fontWeight}));
+    letter-spacing: var(${tokens.helperTextFontLetterSpacing}, var(${constants.fontLetterSpacing}));
+    line-height: var(${tokens.helperTextFontLineHeight}, var(${constants.fontLineHeight}));
 `;
