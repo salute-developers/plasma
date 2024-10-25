@@ -37,10 +37,10 @@ export const StyledContentRight = styled.div`
 
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
-    color: var(${constants.disclosureIconColor});
+    color: var(${tokens.disclosureIconColor});
 
     &:hover {
-        color: var(${constants.disclosureIconColorHover});
+        color: var(${tokens.disclosureIconColorHover});
     }
 `;
 
@@ -83,18 +83,18 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
     font-weight: var(${tokens.fontWeight});
     letter-spacing: var(${tokens.fontLetterSpacing});
     line-height: var(${tokens.fontLineHeight});
-    background: var(${constants.itemBackground});
+    background: var(${tokens.itemBackground}, var(${constants.itemBackground}));
     color: var(--text-primary);
     border-radius: var(${tokens.itemBorderRadius});
     user-select: none;
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
         cursor: pointer;
-        background: var(${constants.itemBackgroundHover});
+        background: var(${tokens.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsActive} {
-        background: var(${constants.itemBackgroundHover});
+        background: var(${tokens.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsDisabled} {
