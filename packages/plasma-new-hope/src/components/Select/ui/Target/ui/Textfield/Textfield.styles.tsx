@@ -171,6 +171,7 @@ export const ContentLeftWrapper = styled.div`
     margin-left: -0.125rem;
     margin-right: 0.375rem;
     line-height: 0;
+    color: var(${tokens.contentLeftColor});
 `;
 
 export const Value = styled.span`
