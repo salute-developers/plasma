@@ -62,3 +62,4 @@ export * from './components/Editable';
 export * from './components/Mask';
 export * from './components/Attach';
 export * from './components/ViewContainer';
+export * from './components/NumberInput';

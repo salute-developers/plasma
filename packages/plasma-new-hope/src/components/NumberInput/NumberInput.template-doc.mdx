@@ -1,0 +1,194 @@
+---
+id: numberInput
+title: NumberInput
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# NumberInput
+Числовое поле. Поддерживает как ручной ввод, так и увеличение/уменьшение значения, 
+посредством нажатия соответствующих кнопок.
+
+## NumberInput
+<Description name="NumberInput" />
+<PropsTable name="NumberInput" />
+
+## Примеры
+
+### Вид числового поля
+Вид числового поля задается с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} view="default" />
+            <NumberInput value={5} view="secondary" />
+            <NumberInput value={5} view="accent" />
+            <NumberInput value={5} view="clear" />
+        </div>
+    );
+}
+```
+
+### Модификация вида числового поля
+Числовое поле может иметь различные отступы внутри, влияющие на форму. Задается с помощью свойства `segmentation`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} view="default" segmentation="default" />
+            <NumberInput value={5} view="default" segmentation="segmented" />
+            <NumberInput value={5} view="default" segmentation="solid" />
+        </div>
+    );
+}
+```
+
+### Граница числового поля
+Граница числового поля задается с помощью свойства `shape`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} view="default" segmentation="default" shape="cornered" />
+            <NumberInput value={5} view="default" segmentation="solid" shape="cornered" />
+            <NumberInput value={5} view="default" segmentation="default" shape="pilled" />
+            <NumberInput value={5} view="default" segmentation="solid" shape="pilled" />
+        </div>
+    );
+}
+```
+
+### Размер числового поля
+Размер числового поля задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} size="l" />
+            <NumberInput value={5} size="m" />
+            <NumberInput value={5} size="s" />
+            <NumberInput value={5} size="xs" />
+        </div>
+    );
+}
+```
+
+### Состояние загрузки числового поля
+Состояние загрузки числового поля определяется свойством `isLoading`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} size="l" isLoading />
+        </div>
+    );
+}
+```
+
+### Ручной ввод
+Режим ручного ввода включается свойством `isManualInput`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} size="l" isManualInput />
+        </div>
+    );
+}
+```
+
+### Кастомные иконки для кнопок
+Можно установить собственную иконку для кнопки используя 
+свойства `decrementIcon` и `incrementIcon` соответственно:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/{{ package }}';
+import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput 
+                value={5} 
+                size="l" 
+                incrementIcon={<IconVolumeLevel1Fill color="inherit"/>} 
+                decrementIcon={<IconVolumeLevel2Fill color="inherit"/>} 
+            />
+        </div>
+    );
+}
+```
+
+### Кастомные кнопки увеличения/уменьшения значения
+Можно установить собственную иконку для кнопки используя 
+свойства `decrementIcon` и `incrementIcon` соответственно:
+
+```tsx live
+import React, {useState} from 'react';
+import { NumberInput, IconButton } from '@salutejs/{{ package }}';
+import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [currentValue, setCurrentValue] = useState(0);
+
+    const min = 0;
+    const max = 10;
+
+    const CustomIncrementButton = () => (
+        <IconButton 
+            view={currentValue !== max ? "accent" : "critical"}
+            size="l"
+            disabled={currentValue === max}
+        >
+            <IconVolumeLevel1Fill color="inherit"/>
+        </IconButton>
+    )
+
+    const CustomDecrementButton = () => (
+        <IconButton 
+            view={currentValue !== min ? "accent" : "critical"}
+            size="l"
+            disabled={currentValue === min}
+        >
+            <IconVolumeLevel2Fill color="inherit"/>
+        </IconButton>
+    )
+
+    return (
+        <div>
+            <NumberInput 
+                value={5} 
+                size="l" 
+                customIncrementButton={<CustomIncrementButton />} 
+                customDecrementButton={<CustomDecrementButton />} 
+            />
+        </div>
+    );
+}
+```
