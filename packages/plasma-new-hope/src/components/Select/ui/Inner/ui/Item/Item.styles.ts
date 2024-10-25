@@ -83,7 +83,7 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
     font-weight: var(${tokens.fontWeight});
     letter-spacing: var(${tokens.fontLetterSpacing});
     line-height: var(${tokens.fontLineHeight});
-    background: var(${tokens.itemBackground}, var(${constants.itemBackground}));
+    background: var(${constants.itemBackground});
     color: var(--text-primary);
     border-radius: var(${tokens.itemBorderRadius});
     user-select: none;

@@ -44,7 +44,6 @@ export const tokens = {
     itemIconSize: '--plasma-select-item-icon-size',
     itemIconSizeTight: '--plasma-select-item-icon-size-tight',
     itemIconMargin: '--plasma-select-item-icon-margin',
-    itemBackground: '--plasma-select-item-background',
     itemBackgroundHover: '--plasma-select-item-background-hover',
 
     checkboxTriggerSize: '--plasma-select-checkbox-trigger-size',
