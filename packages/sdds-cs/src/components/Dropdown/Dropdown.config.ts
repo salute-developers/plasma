@@ -85,10 +85,10 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
-                ${dropdownTokens.padding}: 0.125rem;
-                ${dropdownTokens.width}: 12.5rem;
-                ${dropdownTokens.borderRadius}: 0.625rem;
-                ${dropdownTokens.borderWidth}: 0.125rem;
+                ${tokens.padding}: 0.125rem;
+                ${tokens.width}: 12.5rem;
+                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 0.5rem 0.75rem;
