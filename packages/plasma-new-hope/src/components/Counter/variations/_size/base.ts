@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../Counter.tokens';
+import { classes, tokens } from '../../Counter.tokens';
 
 export const base = css`
     font-family: var(${tokens.fontFamily});
@@ -18,4 +18,8 @@ export const base = css`
     padding-right: var(${tokens.paddingRight});
     padding-bottom: var(${tokens.paddingBottom});
     padding-left: var(${tokens.paddingLeft});
+
+    &.${classes.round} {
+        width: var(${tokens.height});
+    }
 `;

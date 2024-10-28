@@ -1,20 +1,32 @@
 import React, { forwardRef } from 'react';
 
 import type { RootProps } from '../../engines';
+import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import type { CounterProps } from './Counter.types';
 import { base } from './Counter.styles';
+import { classes } from './Counter.tokens';
+
+const MIN_COUNT = 1;
 
 export const counterRoot = (Root: RootProps<HTMLDivElement, CounterProps>) =>
     forwardRef<HTMLDivElement, CounterProps>((props, ref) => {
-        const { count, maxCount, size, view, ...rest } = props;
+        const { count, maxCount, size, view, className, ...rest } = props;
 
-        const content = maxCount && count > maxCount ? `${maxCount}+` : count;
+        const currentCount = count < MIN_COUNT ? MIN_COUNT : count;
+        const currentMaxCount = maxCount && maxCount < MIN_COUNT ? MIN_COUNT : maxCount;
+
+        const isCurrentCountOneDigit = currentCount >= 0 && currentCount < 10;
+        const isCurrentMaxCountExceeded = currentMaxCount && currentCount > currentMaxCount;
+
+        const content = isCurrentMaxCountExceeded ? `${currentMaxCount}+` : currentCount;
+
+        const roundClass = !isCurrentMaxCountExceeded && isCurrentCountOneDigit ? classes.round : undefined;
 
         return (
-            <Root ref={ref} view={view} size={size} count={count} {...rest}>
+            <Root ref={ref} view={view} size={size} count={count} className={cx(roundClass, className)} {...rest}>
                 {content}
             </Root>
         );

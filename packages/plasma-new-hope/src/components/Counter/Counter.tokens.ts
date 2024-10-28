@@ -1,3 +1,7 @@
+export const classes = {
+    round: '--plasma-counter-round',
+};
+
 export const tokens = {
     background: '--plasma-counter-background',
     color: '--plasma-counter-color',

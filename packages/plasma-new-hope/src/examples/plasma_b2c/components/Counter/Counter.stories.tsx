@@ -1,4 +1,3 @@
-import React from 'react';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
@@ -6,19 +5,22 @@ import { WithTheme } from '../../../_helpers';
 
 import { Counter } from './Counter';
 
+const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
+
 const meta: Meta<typeof Counter> = {
     title: 'plasma_b2c/Counter',
     component: Counter,
     decorators: [WithTheme],
     argTypes: {
         size: {
-            options: ['xs', 'xxs'],
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
+            options: views,
             control: {
                 type: 'select',
             },
@@ -33,8 +35,8 @@ type Story = StoryObj<typeof Counter>;
 
 export const Default: Story = {
     args: {
-        count: 25,
-        maxCount: 100,
+        count: 123,
+        maxCount: 200,
         view: 'default',
         size: 'xs',
     },
