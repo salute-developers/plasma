@@ -2,11 +2,11 @@ import type { HTMLAttributes } from 'react';
 
 type CustomCounterProps = {
     /**
-     * Отображаемое число
+     * Отображаемое число. Не может быть меньше 1.
      */
     count: number;
     /**
-     * Максимальное отображаемое число
+     * Максимальное отображаемое число. Не может быть меньше 1.
      */
     maxCount?: number;
     /**
