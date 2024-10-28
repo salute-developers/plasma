@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
-import { useUniqId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../../engines';
+import { safeUseId } from '../../../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -14,7 +14,7 @@ import type { DropdownHeaderProps } from './DropdownHeader.type';
 export const dropdownHeaderRoot = (Root: RootProps<HTMLDivElement, DropdownHeaderProps>) =>
     forwardRef<HTMLDivElement, DropdownHeaderProps>(
         ({ id, className, view, size, children, ...rest }, outerRootRef) => {
-            const uniqId = useUniqId();
+            const uniqId = safeUseId();
             const innerId = id || uniqId;
 
             return (
