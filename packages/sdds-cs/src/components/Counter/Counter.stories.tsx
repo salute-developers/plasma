@@ -1,27 +1,22 @@
-import React from 'react';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Counter } from './Counter';
+
+const views = ['default', 'accent', 'positive', 'negative'];
 
 const meta: Meta<typeof Counter> = {
     title: 'Content/Counter',
     component: Counter,
     decorators: [InSpacingDecorator],
     argTypes: {
-        size: {
-            options: ['s'],
-            control: {
-                type: 'select',
-            },
-        },
         view: {
-            options: ['default', 'accent', 'positive', 'negative'],
+            options: views,
             control: {
                 type: 'select',
             },
         },
-        ...disableProps(['contentLeft', 'contentRight']),
+        ...disableProps(['size', 'contentLeft', 'contentRight']),
     },
 };
 
@@ -31,8 +26,8 @@ type Story = StoryObj<typeof Counter>;
 
 export const Default: Story = {
     args: {
-        count: 25,
-        maxCount: 100,
+        count: 123,
+        maxCount: 200,
         view: 'default',
         size: 's',
     },
