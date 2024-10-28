@@ -89,43 +89,44 @@ const meta: Meta<typeof TextField> = {
         },
         hintText: {
             control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintView: {
             options: hintViews,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintSize: {
             options: hintSizes,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintTrigger: {
             options: hintTriggers,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintPlacement: {
             options: placements,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
             mappers: placements,
         },
         hintHasArrow: {
             control: { type: 'boolean' },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintWidth: {
             control: { type: 'text' },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         ...disableProps([
             'contentLeft',
@@ -161,6 +162,7 @@ type StoryPropsDefault = Omit<
     | 'chips'
     | 'onChangeChips'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -225,6 +227,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         optional: false,
         clear: false,
         hasDivider: false,
+        hasHint: true,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
         hintView: 'default',
@@ -255,6 +258,7 @@ type StoryPropsChips = Omit<
     | 'required'
     | 'enumerationType'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
