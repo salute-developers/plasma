@@ -73,7 +73,7 @@ export const StyledRoot = styled.div<{ position: string; isVisible: boolean; off
 `;
 
 export const CloseIconWrapper = styled(Button)`
-    height: 1rem;
+    height: var(${tokens.closeIconButtonSize});
     --plasma_private-close-icon-margin: var(${tokens.closeIconMargin});
     margin: var(--plasma_private-close-icon-margin);
 

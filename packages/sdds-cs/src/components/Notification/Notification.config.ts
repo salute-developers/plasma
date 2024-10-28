@@ -71,6 +71,8 @@ export const config = {
                 ${notificationTokens.closeIconTop}: 0.5rem;
                 ${notificationTokens.closeIconRight}: 0.5rem;
                 ${notificationTokens.borderWidth}: 0.125rem;
+                ${notificationTokens.closeIconButtonSize}: 2rem;
+                ${notificationTokens.closeIconSize}: 2rem;
 
                 ${notificationTokens.padding}: 0.75rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
@@ -86,6 +88,8 @@ export const config = {
                 ${notificationTokens.closeIconTop}: 0.8125rem;
                 ${notificationTokens.closeIconRight}: 1rem;
                 ${notificationTokens.borderWidth}: 0.125rem;
+                ${notificationTokens.closeIconButtonSize}: 2rem;
+                ${notificationTokens.closeIconSize}: 2rem;
 
                 ${notificationTokens.padding}: 0.75rem 1rem 1rem 1rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;

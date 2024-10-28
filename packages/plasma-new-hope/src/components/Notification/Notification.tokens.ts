@@ -79,4 +79,6 @@ export const tokens = {
     closeIconRight: '--plasma-notification-close-icon-right',
     closeIconColor: '--plasma-notification-close-icon-color',
     closeIconColorOnHover: '--plasma-notification-close-icon-color-on-hover',
+    closeIconSize: '--plasma-notification-close-icon-size',
+    closeIconButtonSize: '--plasma-notification-close-icon-button-size',
 };
