@@ -11,6 +11,7 @@ import { TextArea } from './TextArea';
 const labelPlacements = ['inner', 'outer'];
 
 type StoryTextAreaPropsCustom = {
+    hasHint?: boolean;
     enableContentRight?: boolean;
 };
 
@@ -103,43 +104,44 @@ const meta: Meta<StoryTextAreaProps> = {
         },
         hintText: {
             control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintView: {
             options: hintViews,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintSize: {
             options: hintSizes,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintTrigger: {
             options: hintTriggers,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintPlacement: {
             options: placements,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
             mappers: placements,
         },
         hintHasArrow: {
             control: { type: 'boolean' },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         hintWidth: {
             control: { type: 'text' },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', truthy: true },
         },
         ...disableProps([
             'helperBlock',
@@ -185,6 +187,7 @@ const meta: Meta<StoryTextAreaProps> = {
         optional: false,
         clear: false,
         hasDivider: false,
+        hasHint: true,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
         hintView: 'default',
