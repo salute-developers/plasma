@@ -2,7 +2,7 @@ import React, { ComponentProps, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconPlasma } from '@salutejs/plasma-icons';
+import { IconPlasma, IconDisclosureDown } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -87,7 +87,7 @@ const StoryDefault = ({
             valueError={valueError}
             valueSuccess={valueSuccess}
             contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconDisclosureDown size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => setIsOpen(is)}
@@ -151,7 +151,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconPlasma size={iconSize} color="var(--text-accent)" />
+            <IconDisclosureDown size={iconSize} color="var(--text-accent)" />
         </IconButton>
     );
 };
@@ -199,9 +199,13 @@ const StoryRange = ({
             contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={enableFirstTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            firstTextfieldContentRight={enableFirstTextfieldContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            firstTextfieldContentRight={
+                enableFirstTextfieldContentRight ? <IconDisclosureDown size={iconSize} /> : undefined
+            }
             secondTextfieldContentLeft={enableSecondTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            secondTextfieldContentRight={enableSecondTextfieldContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            secondTextfieldContentRight={
+                enableSecondTextfieldContentRight ? <IconDisclosureDown size={iconSize} /> : undefined
+            }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
             }
