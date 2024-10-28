@@ -1,9 +1,10 @@
 import React, { useRef, useCallback, useEffect, useState, forwardRef } from 'react';
 import type { CSSProperties } from 'react';
 import { usePopper } from 'react-popper';
-import { useFocusTrap, useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../engines/types';
+import { useFocusTrap } from '../../hooks';
 import { cx } from '../../utils';
 import { Portal } from '../Portal';
 

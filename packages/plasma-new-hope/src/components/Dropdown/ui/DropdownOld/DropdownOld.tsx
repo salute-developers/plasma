@@ -1,7 +1,8 @@
 import React, { forwardRef, useRef } from 'react';
-import { useFocusTrap, useForkRef, useUniqId } from '@salutejs/plasma-core';
+import { useForkRef, useUniqId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../../engines';
+import { useFocusTrap } from '../../../../hooks';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
