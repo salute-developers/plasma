@@ -173,6 +173,8 @@ export const config = {
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
 
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
                 ${tokens.calendarHeaderWrapperPadding}: 0.875rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
 
@@ -295,6 +297,8 @@ export const config = {
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarHeaderWrapperPadding}: 0.75rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
@@ -419,6 +423,8 @@ export const config = {
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
 
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
                 ${tokens.calendarHeaderWrapperPadding}: 0.75rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
 
@@ -541,6 +547,8 @@ export const config = {
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarHeaderWrapperPadding}: 0.5rem 0.75rem 0 0.75rem;
                 ${tokens.calendarHeaderArrowGap}: 0;
