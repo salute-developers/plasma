@@ -37,6 +37,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 type StoryTextAreaPropsCustom = {
+    hasHint?: boolean;
     enableContentRight?: boolean;
 };
 
@@ -92,43 +93,44 @@ const meta: Meta<StoryTextAreaProps> = {
         },
         hintText: {
             control: { type: 'text' },
+            if: { arg: 'hasHint', thruthy: true },
         },
         hintView: {
             options: hintViews,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', thruthy: true },
         },
         hintSize: {
             options: hintSizes,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', thruthy: true },
         },
         hintTrigger: {
             options: hintTriggers,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', thruthy: true },
         },
         hintPlacement: {
             options: placements,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', thruthy: true },
             mappers: placements,
         },
         hintHasArrow: {
             control: { type: 'boolean' },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', thruthy: true },
         },
         hintWidth: {
             control: { type: 'text' },
-            if: { arg: 'hintText', neq: '' },
+            if: { arg: 'hasHint', thruthy: true },
         },
     },
     args: {
@@ -152,6 +154,7 @@ const meta: Meta<StoryTextAreaProps> = {
         requiredPlacement: 'right',
         clear: false,
         hasDivider: false,
+        hasHint: true,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
         hintView: 'default',
