@@ -99,7 +99,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
     items: Array<T>;
     /**
      * Сторона открытия дропдауна относительно target элемента.
-     * @default bottom
+     * @default bottom-start
      */
     placement?: Placement;
     /**
@@ -186,6 +186,7 @@ export type FloatingPopoverProps = {
     onToggle: (opened: boolean) => void;
     placement: Placement;
     portal?: ComboboxProps['portal'];
+    listWidth?: ComboboxProps['listWidth'];
     offset?: number;
 };
 

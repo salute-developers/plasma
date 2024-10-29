@@ -310,7 +310,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             setChecked(checkedCopy);
 
-            setTextValue(valueToItemMap.get(outerValue as string)?.label || '');
+            setTextValue(valueToItemMap.get(value as string)?.label || '');
 
             // В deps мы кладем именно outerValue и internalValue, а не просто value.
             // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
@@ -340,6 +340,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             onToggle={(opened: boolean) => opened && handleListToggle(true)}
                             placement={placement}
                             portal={portal}
+                            listWidth={listWidth}
                             target={(referenceRef) => (
                                 <StyledTextField
                                     ref={inputForkRef}
