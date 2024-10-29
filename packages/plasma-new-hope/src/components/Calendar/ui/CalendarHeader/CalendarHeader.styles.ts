@@ -134,5 +134,5 @@ export const StyledHeaderDouble = styled.button`
 `;
 
 export const StyledHeaderArrow = styled(IconDisclosureDownFill)`
-    color: var(${tokens.calendarHeaderArrowColor}, var(${tokens.calendarContentPrimaryColor}));
+    color: var(${tokens.calendarHeaderArrowColor});
 `;

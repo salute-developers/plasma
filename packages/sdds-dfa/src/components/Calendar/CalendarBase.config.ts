@@ -23,6 +23,7 @@ export const config = {
                 ${calendarBaseTokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${calendarBaseTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarContentSecondaryColor}: var(--text-secondary);
+                ${calendarBaseTokens.calendarHeaderArrowColor}: ${calendarBaseTokens.calendarContentPrimaryColor};
                 ${calendarBaseTokens.calendarDayOfWeekColor}: var(--text-secondary);
 
                 ${calendarBaseTokens.iconButtonColor}: var(--text-primary);
