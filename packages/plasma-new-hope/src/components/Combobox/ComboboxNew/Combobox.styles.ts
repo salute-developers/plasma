@@ -38,7 +38,7 @@ export const Ul = styled.ul<{
 
 export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
     line-height: 0;
-    color: var(${tokens.disclosureIconColor}, var(${constants.disclosureIconColor}));
+    color: var(${tokens.disclosureIconColor});
     cursor: ${({ disabled }) => (disabled ? 'inherit' : 'pointer')};
 
     .${classes.arrowInverse} {
@@ -48,9 +48,7 @@ export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
     &:hover,
     &:active {
         color: ${({ disabled }) =>
-            disabled
-                ? `var(${tokens.disclosureIconColor}, var(${constants.disclosureIconColor}))`
-                : `var(${tokens.disclosureIconColorHover}, var(${constants.disclosureIconColorHover}))`};
+            disabled ? `var(${tokens.disclosureIconColor})` : `var(${tokens.disclosureIconColorHover})`};
     }
 `;
 
