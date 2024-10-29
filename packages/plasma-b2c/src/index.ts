@@ -72,3 +72,4 @@ export * from './components/TextFieldGroup';
 export * from './components/Mask';
 export * from './components/Attach';
 export * from './components/ChipGroup';
+export * from './components/NumberInput';
