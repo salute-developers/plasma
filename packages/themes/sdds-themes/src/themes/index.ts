@@ -10,5 +10,5 @@ export { sdds_finportal__dark } from './sdds_finportal__dark';
 export { sdds_finportal__light } from './sdds_finportal__light';
 export { sdds_os__dark } from './sdds_os__dark';
 export { sdds_os__light } from './sdds_os__light';
-export { sdds_insurance__dark } from './sdds_insurance__dark';
-export { sdds_insurance__light } from './sdds_insurance__light';
+export { sdds_insol__dark } from './sdds_insol__dark';
+export { sdds_insol__light } from './sdds_insol__light';

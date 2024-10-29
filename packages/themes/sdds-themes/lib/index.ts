@@ -22,7 +22,7 @@ generate([
         version: 'latest',
     },
     {
-        name: 'sdds_insurance',
+        name: 'sdds_insol',
         version: 'latest',
     },
 ]);
