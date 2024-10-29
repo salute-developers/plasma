@@ -1319,6 +1319,9 @@ dark: PolymorphicClassName;
 light: PolymorphicClassName;
 };
 size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
 xs: PolymorphicClassName;
 xxs: PolymorphicClassName;
 };
