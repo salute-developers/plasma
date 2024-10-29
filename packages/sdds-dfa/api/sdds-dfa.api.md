@@ -18,8 +18,8 @@ import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
-import { BaseTabItemProps } from '@salutejs/plasma-new-hope/types/components/Tabs/TabItem.types';
-import { BaseTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
+import { BaseTabItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { BaseTabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -63,6 +63,7 @@ import { CommitInstanceCallback } from '@salutejs/plasma-new-hope/types/componen
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomHeaderTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
