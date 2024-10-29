@@ -232,7 +232,7 @@ export const config = {
                 ${tabsTokens.itemHeight}: 4.5rem;
                 ${tabsTokens.itemPadding}: 0rem;
                 ${tabsTokens.itemMarginLeft}: 2.5rem;
-                ${tabsTokens.itemContentGap}: 1rem;
+                ${tabsTokens.itemContentGap}: 0.875rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h2-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h2-font-size);
@@ -247,7 +247,7 @@ export const config = {
                 ${tabsTokens.itemHeight}: 5.75rem;
                 ${tabsTokens.itemPadding}: 0rem;
                 ${tabsTokens.itemMarginLeft}: 3.5rem;
-                ${tabsTokens.itemContentGap}: 0.5rem;
+                ${tabsTokens.itemContentGap}: 1rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h1-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h1-font-size);

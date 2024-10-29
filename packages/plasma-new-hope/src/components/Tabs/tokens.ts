@@ -37,6 +37,8 @@ export const tokens = {
 
     outlineFocusColor: '--plasma-tabs-outline-focus-color',
     arrowColor: '--plasma-tabs-arrow-color',
+    arrowColorHover: '--plasma-tabs-arrow-color-hover',
+    arrowColorActive: '--plasma-tabs-arrow-color-active',
     tabsFilledBackgroundColor: '--plasma-tabs-filled-background-color',
 
     tabsBackgroundColor: '--plasma-tabs-background-color',

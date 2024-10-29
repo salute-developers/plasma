@@ -4,7 +4,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../../../../engines/types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
-import { classes, tokens } from '../../../tokens';
+import { classes } from '../../../tokens';
 import { cx } from '../../../../../utils';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { HorizontalTabsProps } from '../../../Tabs.types';
@@ -22,6 +22,10 @@ enum Keys {
     left = 37,
     right = 39,
 }
+
+const getIconSize = (size?: string) => {
+    return size === 'h1' || size === 'h2' ? 'm' : 's';
+};
 
 // TODO: https://github.com/salute-developers/plasma/issues/1474
 export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTabsProps>) =>
@@ -114,10 +118,10 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     ref={leftArrowRef}
                     isLeftArrow
                 >
-                    <IconDisclosureLeft color={`var(${tokens.arrowColor})`} />
+                    <IconDisclosureLeft size={getIconSize(size)} color="inherit" />
                 </StyledArrow>
             ),
-            [onPrev, disabled, isFilled],
+            [onPrev, size, disabled, isFilled],
         );
 
         const NextButton = useMemo(
@@ -130,10 +134,10 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     disabled={disabled}
                     isFilled={isFilled}
                 >
-                    <IconDisclosureRight color={`var(${tokens.arrowColor})`} />
+                    <IconDisclosureRight size={getIconSize(size)} color="inherit" />
                 </StyledArrow>
             ),
-            [onNext, disabled, isFilled],
+            [onNext, size, disabled, isFilled],
         );
 
         const handleScroll = useCallback(

@@ -9,6 +9,8 @@ export const config = {
         view: {
             clear: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
@@ -18,6 +20,8 @@ export const config = {
             `,
             filled: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: var(--surface-transparent-primary);
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
@@ -27,6 +31,8 @@ export const config = {
             `,
             divider: css`
                 ${tabsTokens.arrowColor}: var(--text-accent);
+                ${tabsTokens.arrowColorHover}: var(--text-accent-hover);
+                ${tabsTokens.arrowColorActive}: var(--text-accent-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
