@@ -83,28 +83,71 @@ export const config = {
         view: {
             default: css`
                 ${selectTokens.helperTextColor}: var(--text-secondary);
+
+                ${selectTokens.popoverBorderColor}: var(--outline-solid-primary);
+                ${selectTokens.checkboxIconColor}: var(--text-accent);
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
+
+                ${selectTokens.disclosureIconColor}: var(--text-accent);
+                ${selectTokens.disclosureIconColorHover}: var(--text-accent-hover);
+
+                ${selectTokens.contentLeftColor}: var(--text-secondary);
+
+                // INFO: Target button like
                 ${selectTokens.targetButtonColor}: var(--text-accent);
                 ${selectTokens.targetButtonColorHover}: var(--text-accent-hover);
                 ${selectTokens.targetButtonColorActive}: var(--text-accent-active);
                 ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
                 ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColor}: var(--text-accent);
-                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-accent-hover);
-                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-accent-hover);
                 ${selectTokens.targetButtonBackgroundColor}: var(--surface-solid-primary);
                 ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-solid-primary-active);
+
+                // INFO: Target button TextField
+                ${selectTokens.targetTextfieldArrowColor}: var(--text-accent);
+                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-accent-hover);
+                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-accent-hover);
                 ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-solid-card);
                 ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-solid-card);
                 ${selectTokens.targetTextfieldBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.targetTextfieldBorderColorHover}: var(--outline-solid-primary-hover);
                 ${selectTokens.targetTextfieldBorderOpenedColor}: var(--outline-accent);
+            `,
+            negative: css`
+                ${selectTokens.helperTextColor}: var(--text-negative);
+
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${selectTokens.popoverBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.checkboxIconColor}: var(--text-accent);
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
+
+                ${selectTokens.helperTextColor}: var(--text-secondary);
+
                 ${selectTokens.disclosureIconColor}: var(--text-accent);
                 ${selectTokens.disclosureIconColorHover}: var(--text-accent-hover);
+
+                ${selectTokens.contentLeftColor}: var(--text-secondary);
+
+                // INFO: Target button like (нет макета для negative)
+                ${selectTokens.targetButtonColor}: var(--text-accent);
+                ${selectTokens.targetButtonColorHover}: var(--text-accent-hover);
+                ${selectTokens.targetButtonColorActive}: var(--text-accent-active);
+                ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonBackgroundColor}: var(--surface-solid-primary);
+                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-solid-primary-active);
+
+                // INFO: Target button TextField
+                ${selectTokens.targetTextfieldArrowColor}: var(--text-accent);
+                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-accent-hover);
+                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-accent-hover);
+                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-solid-card);
+                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-solid-card);
+                ${selectTokens.targetTextfieldBorderColor}: var(--outline-negative);
+                ${selectTokens.targetTextfieldBorderColorHover}: var(--outline-negative-hover);
+                ${selectTokens.targetTextfieldBorderOpenedColor}: var(--outline-accent);
             `,
         },
         chipView: {
