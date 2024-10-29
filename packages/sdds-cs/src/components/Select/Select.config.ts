@@ -97,9 +97,9 @@ export const config = {
                 ${selectTokens.targetButtonColor}: var(--text-accent);
                 ${selectTokens.targetButtonColorHover}: var(--text-accent-hover);
                 ${selectTokens.targetButtonColorActive}: var(--text-accent-active);
-                ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonArrowColor}: var(--text-primary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--text-primary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--text-primary-hover);
                 ${selectTokens.targetButtonBackgroundColor}: var(--surface-solid-primary);
                 ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-solid-primary-active);
@@ -132,9 +132,9 @@ export const config = {
                 ${selectTokens.targetButtonColor}: var(--text-accent);
                 ${selectTokens.targetButtonColorHover}: var(--text-accent-hover);
                 ${selectTokens.targetButtonColorActive}: var(--text-accent-active);
-                ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
+                ${selectTokens.targetButtonArrowColor}: var(--text-primary);
+                ${selectTokens.targetButtonArrowColorHover}: var(--text-primary-hover);
+                ${selectTokens.targetButtonArrowColorActive}: var(--text-primary-hover);
                 ${selectTokens.targetButtonBackgroundColor}: var(--surface-solid-primary);
                 ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-solid-primary-active);
