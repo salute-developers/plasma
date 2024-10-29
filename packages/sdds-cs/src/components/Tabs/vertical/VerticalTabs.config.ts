@@ -9,6 +9,8 @@ export const config = {
         view: {
             divider: css`
                 ${tabsTokens.arrowColor}: var(--text-accent);
+                ${tabsTokens.arrowColorHover}: var(--text-accent-hover);
+                ${tabsTokens.arrowColorActive}: var(--text-accent-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 

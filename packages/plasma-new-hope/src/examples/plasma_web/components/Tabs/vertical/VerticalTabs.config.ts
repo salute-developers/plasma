@@ -11,6 +11,8 @@ export const config = {
         view: {
             divider: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 

@@ -8,7 +8,9 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${tabsTokens.arrowColor}: var(--text-accent);
+                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
@@ -17,7 +19,9 @@ export const config = {
                 ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             divider: css`
-                ${tabsTokens.arrowColor}: var(--text-accent);
+                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
@@ -100,6 +104,8 @@ export const config = {
             true: css`
                 ${tabsTokens.disabledOpacity}: 1;
                 ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
             `,
         },
         pilled: {

@@ -71,4 +71,14 @@ export const StyledArrow = styled.button`
     &[disabled] {
         cursor: not-allowed;
     }
+
+    color: var(${tokens.arrowColor});
+
+    &:hover {
+        color: var(${tokens.arrowColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.arrowColorActive});
+    }
 `;
