@@ -13,13 +13,15 @@ export const config = {
             default: css`
                 ${tokens.color}: var(--text-primary);
                 ${tokens.clearColor}: var(--text-primary);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
+
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.caretColor}: var(--text-accent);
-                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -55,13 +57,15 @@ export const config = {
             positive: css`
                 ${tokens.color}: var(--text-primary);
                 ${tokens.clearColor}: var(--text-positive);
-                ${tokens.clearPlaceholderColor}: var(--text-positive);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColor}: var(--text-positive);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
+
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
                 ${tokens.caretColor}: var(--text-accent);
-                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -97,13 +101,15 @@ export const config = {
             warning: css`
                 ${tokens.color}: var(--text-primary);
                 ${tokens.clearColor}: var(--text-warning);
-                ${tokens.clearPlaceholderColor}: var(--text-warning);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColor}: var(--text-warning);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-warning);
+
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
                 ${tokens.caretColor}: var(--text-accent);
-                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -139,13 +145,15 @@ export const config = {
             negative: css`
                 ${tokens.color}: var(--text-primary);
                 ${tokens.clearColor}: var(--text-negative);
-                ${tokens.clearPlaceholderColor}: var(--text-negative);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.clearPlaceholderColor}: var(--text-negative);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
+
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.caretColor}: var(--text-accent);
-                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
