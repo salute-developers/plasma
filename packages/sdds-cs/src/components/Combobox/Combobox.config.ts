@@ -57,6 +57,36 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: var(--text-accent-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
             `,
+            negative: css`
+                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-card);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-card);
+                ${tokens.textFieldCaretColor}: var(--text-accent);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldTextBeforeColor}: var(--text-secondary);
+                ${tokens.textFieldTextAfterColor}: var(--text-secondary);
+                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-negative);
+                ${tokens.textFieldFocusColor}: var(--text-accent);
+                ${tokens.textFieldBorderColor}: var(--outline-negative);
+                ${tokens.textFieldBorderColorHover}: var(--outline-negative-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
+
+                ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipColor}: var(--text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorHover}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.textFieldChipColorActive}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundActive}: var(--surface-transparent-secondary-active);
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 0.72;
+                ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
+            `,
         },
         size: {
             s: css`
