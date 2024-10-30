@@ -55,6 +55,7 @@ export * from './components/Autocomplete';
 export * from './components/EmptyState';
 export * from './components/Attach';
 export * from './components/ViewContainer';
+export * from './components/NumberInput';
 
 export * from './mixins';
 export * from './tokens';
