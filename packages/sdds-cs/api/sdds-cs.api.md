@@ -3018,6 +3018,7 @@ s: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 chipView: {
 default: PolymorphicClassName;
