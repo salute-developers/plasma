@@ -109,6 +109,8 @@ export const tokens = {
 
     disclosureIconColor: '--plasma-select-disclosure-icon-color',
     disclosureIconColorHover: '--plasma-select-disclosure-icon-color-hover',
+
+    contentLeftColor: '--plasma-select-content-left-color',
 };
 
 export const constants = {
