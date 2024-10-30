@@ -467,6 +467,7 @@ icon?: ReactNode;
 export const Autocomplete: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
@@ -951,6 +952,7 @@ export { ColSizeProps }
 export const Combobox: <T extends ItemOption>(props: Omit<ComboboxProps<T>, "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & Pick<PropsType<    {
 view: {
 default: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
@@ -3364,7 +3366,7 @@ true: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "clear" | "negative" | "secondary" | "positive" | "warning" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "negative" | "clear" | "secondary" | "positive" | "warning" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
@@ -3402,7 +3404,7 @@ true: PolymorphicClassName;
     chipView?: string | undefined;
 } & Omit<React_2.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & React_2.RefAttributes<HTMLButtonElement>) | ({
     target?: "button-like" | undefined;
-    view?: "default" | "accent" | "clear" | "negative" | "secondary" | "positive" | "warning" | "dark" | "black" | "white" | undefined;
+    view?: "default" | "accent" | "negative" | "clear" | "secondary" | "positive" | "warning" | "dark" | "black" | "white" | undefined;
     contentLeft?: undefined;
     labelPlacement?: undefined;
     placeholder?: undefined;
