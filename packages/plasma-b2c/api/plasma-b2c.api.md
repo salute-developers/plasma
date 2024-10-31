@@ -186,6 +186,8 @@ import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-comp
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
+import { numberInputClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { numberInputTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Orientation } from '@salutejs/plasma-new-hope/types/components/TextFieldGroup/TextFieldGroup.types';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
@@ -3117,6 +3119,92 @@ export const NotificationsProvider: React_2.FC<{
     frame?: string;
     placement?: NotificationPlacement;
 }>;
+
+// @public (undocumented)
+export const NumberInput: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+clear: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+shape: {
+cornered: PolymorphicClassName;
+pilled: PolymorphicClassName;
+};
+inputBackgroundType: {
+fill: PolymorphicClassName;
+clear: PolymorphicClassName;
+};
+segmentation: {
+default: PolymorphicClassName;
+segmented: PolymorphicClassName;
+solid: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & (({
+value?: number | undefined;
+min?: number | undefined;
+max?: number | undefined;
+step?: number | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+clear?: boolean | undefined;
+shape?: string | undefined;
+disabled?: boolean | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+customIncrementButton?: ReactNode;
+incrementIcon?: ReactNode;
+customDecrementButton?: ReactNode;
+decrementIcon?: ReactNode;
+isManualInput?: boolean | undefined;
+onChange?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value: string | number) => void) | undefined;
+onIncrement?: ((value: number) => void) | undefined;
+onDecrement?: ((value: number) => void) | undefined;
+} & {
+segmentation?: "clear" | undefined;
+inputBackgroundType?: undefined;
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>) | ({
+value?: number | undefined;
+min?: number | undefined;
+max?: number | undefined;
+step?: number | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+clear?: boolean | undefined;
+shape?: string | undefined;
+disabled?: boolean | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+customIncrementButton?: ReactNode;
+incrementIcon?: ReactNode;
+customDecrementButton?: ReactNode;
+decrementIcon?: ReactNode;
+isManualInput?: boolean | undefined;
+onChange?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value: string | number) => void) | undefined;
+onIncrement?: ((value: number) => void) | undefined;
+onDecrement?: ((value: number) => void) | undefined;
+} & {
+segmentation?: string | undefined;
+inputBackgroundType?: string | undefined;
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>))>;
+
+export { numberInputClasses }
+
+export { numberInputTokens }
 
 export { OutlinedProps }
 
