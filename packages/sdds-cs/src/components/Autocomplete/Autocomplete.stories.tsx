@@ -6,9 +6,7 @@ import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Autocomplete } from './Autocomplete';
 
-const sizes = ['s'];
 const views = ['default', 'negative'];
-const labelPlacements = ['outer'];
 
 const suggestions = [
     { label: 'Алексей Смирнов' },
@@ -79,18 +77,6 @@ const meta: Meta<StoryProps> = {
                 type: 'select',
             },
         },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        labelPlacement: {
-            options: labelPlacements,
-            control: {
-                type: 'inline-radio',
-            },
-        },
         requiredPlacement: {
             options: ['left', 'right'],
             control: {
@@ -113,8 +99,6 @@ const meta: Meta<StoryProps> = {
     },
     args: {
         view: 'default',
-        size: 's',
-        labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
         label: 'Label',
