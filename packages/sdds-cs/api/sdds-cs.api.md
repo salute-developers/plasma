@@ -136,6 +136,8 @@ import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-comp
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
+import { numberInputClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { numberInputTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -193,6 +195,7 @@ import { StepItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Steps.types';
 import { StyledComponent } from 'styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { SyntheticEvent } from 'react';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -2972,6 +2975,83 @@ export const NotificationsProvider: React_2.FC<{
     frame?: string;
     placement?: NotificationPlacement;
 }>;
+
+// @public (undocumented)
+export const NumberInput: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+s: PolymorphicClassName;
+};
+shape: {
+cornered: PolymorphicClassName;
+pilled: PolymorphicClassName;
+};
+inputBackgroundType: {
+clear: PolymorphicClassName;
+};
+segmentation: {
+solid: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & (({
+value?: number | undefined;
+min?: number | undefined;
+max?: number | undefined;
+step?: number | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+clear?: boolean | undefined;
+shape?: string | undefined;
+disabled?: boolean | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+customIncrementButton?: ReactNode;
+incrementIcon?: ReactNode;
+customDecrementButton?: ReactNode;
+decrementIcon?: ReactNode;
+isManualInput?: boolean | undefined;
+onChange?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value: string | number) => void) | undefined;
+onIncrement?: ((value: number) => void) | undefined;
+onDecrement?: ((value: number) => void) | undefined;
+} & {
+segmentation?: "clear" | undefined;
+inputBackgroundType?: undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>) | ({
+value?: number | undefined;
+min?: number | undefined;
+max?: number | undefined;
+step?: number | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+size?: string | undefined;
+view?: string | undefined;
+clear?: boolean | undefined;
+shape?: string | undefined;
+disabled?: boolean | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+customIncrementButton?: ReactNode;
+incrementIcon?: ReactNode;
+customDecrementButton?: ReactNode;
+decrementIcon?: ReactNode;
+isManualInput?: boolean | undefined;
+onChange?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value: string | number) => void) | undefined;
+onIncrement?: ((value: number) => void) | undefined;
+onDecrement?: ((value: number) => void) | undefined;
+} & {
+segmentation?: string | undefined;
+inputBackgroundType?: string | undefined;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>))>;
+
+export { numberInputClasses }
+
+export { numberInputTokens }
 
 export { Overlay }
 
