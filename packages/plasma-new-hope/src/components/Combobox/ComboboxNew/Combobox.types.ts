@@ -1,6 +1,8 @@
 import type { CSSProperties, ButtonHTMLAttributes } from 'react';
 import React from 'react';
 
+import { RequiredProps } from '../../TextField/TextField.types';
+
 import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/getPathMaps';
@@ -177,6 +179,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
     labelPlacement?: 'outer' | 'inner';
 } & ViewStateProps &
     IsMultiselect<T> &
+    RequiredProps &
     Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 export type FloatingPopoverProps = {

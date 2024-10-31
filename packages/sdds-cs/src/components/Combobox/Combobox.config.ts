@@ -10,16 +10,32 @@ export const config = {
         view: {
             default: css`
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldClearColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldClearPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
+
                 ${tokens.textFieldBackgroundColor}: var(--surface-solid-card);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-card);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-secondary);
                 ${tokens.textFieldTextAfterColor}: var(--text-secondary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-accent-hover);
+                ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
                 ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
                 ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
@@ -81,6 +97,16 @@ export const config = {
 
                 ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.375rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
 
                 ${tokens.textFieldChipGap}: 0.25rem;
                 ${tokens.textFieldChipBorderRadius}: 0.25rem;
