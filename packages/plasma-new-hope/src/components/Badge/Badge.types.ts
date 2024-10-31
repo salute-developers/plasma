@@ -1,4 +1,4 @@
-import type { HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 
 type ClearViewProps =
     | {
@@ -63,6 +63,11 @@ type CustomBadgeProps = {
      * Слот для контента справа, например `Icon`
      */
     contentRight?: ReactNode;
+    /**
+     * Обрезает контент по максимальной ширине и добавляет ...
+     * @default 'auto'
+     */
+    maxWidth?: CSSProperties['width'];
     /**
      * Размер Badge
      * @default

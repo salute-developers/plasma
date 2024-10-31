@@ -26,6 +26,7 @@ type CustomStoryTabsProps = {
 
 const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'counter', 'icon'];
+const labels = ['Label', 'Middle label', 'Very long label'];
 
 const getContentLeft = (contentLeftOption: string, size: Size) => {
     const iconSize = 's';
@@ -80,6 +81,12 @@ const meta: Meta<StoryTabsProps> = {
             'index',
             'size',
         ]),
+        maxItemWidth: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'stretch', truthy: false },
+        },
     },
 };
 
@@ -94,13 +101,14 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         stretch,
+        maxItemWidth,
         helperText,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs view="divider" hasDivider={hasDivider} stretch={stretch} disabled={disabled} size={size}>
+        <Tabs clip="none" view="divider" hasDivider={hasDivider} stretch={stretch} disabled={disabled} size={size}>
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -114,8 +122,9 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            maxItemWidth={maxItemWidth}
                         >
-                            {`Label${i + 1}`}
+                            {`${labels[i % labels.length]} ${i + 1}`}
                         </TabItem>
                     );
                 }
@@ -131,8 +140,9 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size, disabled)}
                         size={size as Size}
+                        maxItemWidth={maxItemWidth}
                     >
-                        {`Label${i + 1}`}
+                        {`${labels[i % labels.length]} ${i + 1}`}
                     </TabItem>
                 );
             })}
@@ -151,6 +161,7 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
         hasDivider,
         helperText,
         width,
+        maxItemWidth,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
@@ -170,8 +181,9 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            maxItemWidth={maxItemWidth}
                         >
-                            {`Label${i + 1}`}
+                            {`${labels[i % labels.length]} ${i + 1}`}
                         </TabItem>
                     );
                 }
@@ -187,8 +199,9 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        maxItemWidth={maxItemWidth}
                     >
-                        {`Label${i + 1}`}
+                        {`${labels[i % labels.length]} ${i + 1}`}
                     </TabItem>
                 );
             })}
@@ -206,6 +219,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        maxItemWidth,
     } = props;
     const maxItemQuantity = 3;
     const items = Array(itemQuantity).fill(0);
@@ -238,8 +252,9 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            maxItemWidth={maxItemWidth}
                         >
-                            {`Label${i + 1}`}
+                            {`${labels[i % labels.length]} ${i + 1}`}
                         </TabItem>
                     );
                 }
@@ -255,8 +270,9 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        maxItemWidth={maxItemWidth}
                     >
-                        {`Label${i + 1}`}
+                        {`${labels[i % labels.length]} ${i + 1}`}
                     </TabItem>
                 );
             })}
@@ -273,6 +289,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
                             tabIndex={!disabled ? 0 : -1}
                             disabled={disabled}
                             size={size as Size}
+                            maxItemWidth="auto"
                         >
                             ShowAll
                         </TabItem>
@@ -289,9 +306,10 @@ export const HorizontalTabs: StoryObj<HorizontalStoryTabsProps> = {
         disabled: false,
         hasDivider: true,
         helperText: '',
-        itemQuantity: 8,
+        itemQuantity: 6,
         stretch: false,
         width: '15rem',
+        maxItemWidth: '',
     },
     argTypes: {
         contentLeft: {
@@ -347,6 +365,7 @@ const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        maxItemWidth,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
@@ -367,8 +386,9 @@ const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            maxItemWidth={maxItemWidth}
                         >
-                            {`Label${i + 1}`}
+                            {`${labels[i % labels.length]} ${i + 1}`}
                         </TabItem>
                     );
                 }
@@ -385,8 +405,9 @@ const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        maxItemWidth={maxItemWidth}
                     >
-                        {`Label${i + 1}`}
+                        {`${labels[i % labels.length]} ${i + 1}`}
                     </TabItem>
                 );
             })}
@@ -405,6 +426,7 @@ const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
         hasDivider,
         helperText,
         height,
+        maxItemWidth,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
@@ -432,8 +454,9 @@ const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            maxItemWidth={maxItemWidth}
                         >
-                            {`Label${i + 1}`}
+                            {`${labels[i % labels.length]} ${i + 1}`}
                         </TabItem>
                     );
                 }
@@ -450,8 +473,9 @@ const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        maxItemWidth={maxItemWidth}
                     >
-                        {`Label${i + 1}`}
+                        {`${labels[i % labels.length]} ${i + 1}`}
                     </TabItem>
                 );
             })}
@@ -469,6 +493,7 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
         contentRight: contentRightOption,
         hasDivider,
         helperText,
+        maxItemWidth,
     } = props;
     const maxItemQuantity = 3;
     const items = Array(itemQuantity).fill(0);
@@ -502,8 +527,9 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
                             value={helperText}
                             contentLeft={getContentLeft(contentLeftOption, size as Size)}
                             size={size as Size}
+                            maxItemWidth={maxItemWidth}
                         >
-                            {`Label${i + 1}`}
+                            {`${labels[i % labels.length]} ${i + 1}`}
                         </TabItem>
                     );
                 }
@@ -520,8 +546,9 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
                         contentLeft={getContentLeft(contentLeftOption, size as Size)}
                         contentRight={getContentRight(contentRightOption, size as Size)}
                         size={size as Size}
+                        maxItemWidth={maxItemWidth}
                     >
-                        {`Label${i + 1}`}
+                        {`${labels[i % labels.length]} ${i + 1}`}
                     </TabItem>
                 );
             })}
@@ -538,6 +565,7 @@ const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
                         tabIndex={!disabled ? 0 : -1}
                         disabled={disabled}
                         size={size as Size}
+                        maxItemWidth="auto"
                     >
                         ShowAll
                     </TabItem>
@@ -552,10 +580,11 @@ export const VerticalTabs: StoryObj<VerticalStoryTabsProps> = {
         size: 's',
         disabled: false,
         hasDivider: true,
-        itemQuantity: 8,
+        itemQuantity: 6,
         orientation: 'vertical',
         helperText: '',
         height: '10rem',
+        maxItemWidth: '',
     },
     argTypes: {
         contentLeft: {

@@ -114,5 +114,8 @@ export const config = {
                 ${tabsTokens.disabledOpacity}: 0.4;
             `,
         },
+        truncate: {
+            true: css``,
+        },
     },
 };

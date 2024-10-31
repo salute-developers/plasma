@@ -25,24 +25,31 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
             pilled = false,
             transparent = false,
             clear = false,
+            maxWidth = 'auto',
             ...rest
         } = props;
 
         const pilledClass = pilled ? classes.badgePilled : undefined;
         const transparentClass = transparent ? classes.badgeTransparent : undefined;
         const clearClass = clear ? classes.badgeClear : undefined;
+        const truncateClass = maxWidth !== 'auto' ? classes.badgeTruncate : undefined;
+
         const txt = !text && typeof children === 'string' ? children : text;
 
         return (
             <Root
                 ref={ref}
-                className={cx(pilledClass, transparentClass, clearClass, className)}
+                className={cx(pilledClass, transparentClass, clearClass, truncateClass, className)}
                 view={view}
                 size={size}
                 pilled={pilled}
                 transparent={transparent}
                 clear={clear}
                 {...rest}
+                style={{
+                    ...rest.style,
+                    maxWidth,
+                }}
             >
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                 {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}

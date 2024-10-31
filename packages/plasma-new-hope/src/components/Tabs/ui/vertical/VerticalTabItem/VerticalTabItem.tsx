@@ -28,6 +28,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             tabIndex,
             className,
             onClick,
+            maxItemWidth: maxWidth = 'auto',
             ...rest
         } = props;
 
@@ -38,6 +39,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
         const role = 'tab';
 
         const selectedClass = selected ? classes.selectedTabsItem : undefined;
+        const truncateClass = maxWidth !== 'auto' ? classes.tabsTruncate : undefined;
 
         const hasKeyNavigation = itemIndex !== undefined && onIndexChange !== undefined;
         const navigationTabIndex = !disabled && refs?.current === itemIndex ? 0 : -1;
@@ -102,9 +104,13 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
                 size={size}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(selectedClass, className)}
+                className={cx(selectedClass, truncateClass, className)}
                 onClick={handleClick}
                 {...rest}
+                style={{
+                    ...rest.style,
+                    maxWidth,
+                }}
             >
                 <>
                     {contentLeft && <LeftContent className={classes.tabLeftContent}>{contentLeft}</LeftContent>}
