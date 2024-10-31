@@ -1,0 +1,120 @@
+---
+id: numberInput
+title: NumberInput
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# NumberInput
+Числовое поле. Поддерживает как ручной ввод, так и увеличение/уменьшение значения, 
+посредством нажатия соответствующих кнопок.
+
+## NumberInput
+<Description name="NumberInput" />
+<PropsTable name="NumberInput" />
+
+## Примеры
+
+### Вид числового поля
+Вид числового поля задается с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} width={140} view="default" />
+        </div>
+    );
+}
+```
+
+### Граница числового поля
+Граница числового поля задается с помощью свойства `shape`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} width={140} view="default" shape="cornered" />
+            <NumberInput value={5} width={140} view="default" shape="pilled" />
+        </div>
+    );
+}
+```
+
+### Размер числового поля
+Размер числового поля задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} width={140} size="s" />
+        </div>
+    );
+}
+```
+
+### Состояние загрузки числового поля
+Состояние загрузки числового поля определяется свойством `isLoading`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} width={140} isLoading />
+        </div>
+    );
+}
+```
+
+### Ручной ввод
+Режим ручного ввода включается свойством `isManualInput`:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput value={5} width={140} isManualInput />
+        </div>
+    );
+}
+```
+
+### Кастомные иконки для кнопок
+Можно установить собственную иконку для кнопки используя 
+свойства `decrementIcon` и `incrementIcon` соответственно:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-cs';
+import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <NumberInput 
+                value={5}
+                width={140}
+                incrementIcon={<IconVolumeLevel1Fill color="inherit"/>} 
+                decrementIcon={<IconVolumeLevel2Fill color="inherit"/>} 
+            />
+        </div>
+    );
+}
+```
