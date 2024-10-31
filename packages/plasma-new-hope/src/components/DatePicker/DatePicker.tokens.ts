@@ -131,6 +131,7 @@ export const tokens = {
     textFieldContentRightSlotColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
 
     /** Токены календаря */
+    calendarMarginTop: '--plasma-date-picker-calendar-margin-top',
     calendarPaddingTop: '--plasma-date-picker-calendar-padding-top',
     calendarShadow: '--plasma-date-picker-calendar-shadow',
     calendarBorderRadius: '--plasma-date-picker-calendar-border-radius',

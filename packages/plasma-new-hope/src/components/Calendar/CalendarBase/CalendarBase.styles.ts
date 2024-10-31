@@ -11,6 +11,7 @@ export const StyledCalendar = css`
     width: var(${tokens.calendarWidth});
     height: var(${tokens.calendarHeight});
     border: var(${tokens.calendarBorderWidth}) solid var(${tokens.calendarBorderColor});
+    box-sizing: border-box;
 `;
 
 export const IsOutOfRange = styled.div`
