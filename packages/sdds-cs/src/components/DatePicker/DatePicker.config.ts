@@ -66,6 +66,7 @@ export const config = {
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
                 ${tokens.calendarHeaderArrowColor}: var(--text-accent);
                 ${tokens.calendarBorderColor}: var(--outline-solid-primary);
+                ${tokens.calendarDayOfWeekColor}: var(--text-secondary);
 
                 ${tokens.iconButtonColor}: var(--text-accent);
                 ${tokens.iconButtonBackgroundColor}: var(--surface-clear);
@@ -195,13 +196,13 @@ export const config = {
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-body-m-bold-font-family);
+                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-body-m-bold-font-size);
+                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-body-m-bold-font-style);
+                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
+                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-body-m-bold-line-height);
+                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-body-m-bold-font-weight);
 
                 ${tokens.iconButtonHeight}: 2rem;
                 ${tokens.iconButtonWidth}: 2rem;
