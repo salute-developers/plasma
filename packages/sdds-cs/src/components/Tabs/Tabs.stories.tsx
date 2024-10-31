@@ -100,7 +100,7 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs view={hasDivider ? 'divider' : 'clear'} stretch={stretch} disabled={disabled} size={size}>
+        <Tabs view="divider" hasDivider={hasDivider} stretch={stretch} disabled={disabled} size={size}>
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -156,7 +156,7 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs clip={clip} view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size} style={{ width }}>
+        <Tabs clip={clip} view="divider" hasDivider={hasDivider} disabled={disabled} size={size} style={{ width }}>
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
@@ -224,7 +224,7 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
     });
 
     return (
-        <Tabs clip={clip} view={hasDivider ? 'divider' : 'clear'} disabled={disabled} size={size}>
+        <Tabs clip={clip} view="divider" hasDivider={hasDivider} disabled={disabled} size={size}>
             {visibleItems.map((_, i) => {
                 if (helperText !== '') {
                     return (

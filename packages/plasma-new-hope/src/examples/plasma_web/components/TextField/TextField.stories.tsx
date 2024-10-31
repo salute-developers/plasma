@@ -4,7 +4,8 @@ import { action } from '@storybook/addon-actions';
 import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
-import { IconChevronLeft } from '../../../../components/_Icon';
+import { IconCross } from '../../../../components/_Icon';
+import type { PopoverPlacement } from '../Popover/Popover';
 
 import { TextField } from './TextField';
 
@@ -16,7 +17,29 @@ const onChipsChange = action('onChipsChange');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
 const labelPlacements = ['outer', 'inner'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<typeof TextField> = {
     title: 'plasma_web/TextField',
@@ -70,6 +93,47 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
     },
 };
 
@@ -95,6 +159,7 @@ type StoryPropsDefault = Omit<
     | 'chips'
     | 'onChangeChips'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -105,13 +170,13 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
             <TextField
                 {...rest}
                 enumerationType="plain"
                 value={text}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconCross color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconCross color="inherit" size={iconSize} /> : undefined}
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -145,17 +210,28 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
+        titleCaption: 'Подпись к полю',
+        textBefore: '',
+        textAfter: '',
         placeholder: 'Заполните поле',
         leftHelper: 'Подсказка к полю',
         disabled: false,
         readOnly: false,
-        required: false,
-        requiredPlacement: 'right',
-        optional: false,
         enableContentLeft: true,
         enableContentRight: true,
         clear: false,
         hasDivider: false,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
+        hasHint: true,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
     render: (args) => <StoryDemo {...args} />,
 };
@@ -176,10 +252,9 @@ type StoryPropsChips = Omit<
     | 'checked'
     | 'maxLength'
     | 'minLength'
-    | 'required'
-    | 'optional'
     | 'enumerationType'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -194,7 +269,7 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             {...rest}
             enumerationType="chip"
             value={text}
-            contentLeft={enableContentLeft ? <IconChevronLeft color="inherit" size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             view={view}
             onChange={(e) => {
@@ -204,6 +279,7 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             onFocus={onFocus}
             onBlur={onBlur}
             onChangeChips={onChipsChange}
+            style={{ width: '70%', margin: '0 auto' }}
         />
     );
 };

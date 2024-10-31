@@ -3,6 +3,8 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { IconPlasma } from '@salutejs/plasma-icons';
+import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextField } from '.';
 
@@ -15,6 +17,27 @@ const onChipsChange = action('onChipsChange');
 const sizes = ['s'];
 const views = ['default', 'negative'];
 const labelPlacements = ['outer'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<typeof TextField> = {
     title: 'Controls/TextField',
@@ -63,6 +86,40 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
         ...disableProps([
             'contentLeft',
             'contentRight',
@@ -71,6 +128,7 @@ const meta: Meta<typeof TextField> = {
             'onChangeChips',
             'enumerationType',
             'values',
+            'hintView',
         ]),
     },
 };
@@ -97,38 +155,21 @@ type StoryPropsDefault = Omit<
     | 'chips'
     | 'onChangeChips'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
-};
-
-const BellIcon = ({ size }) => {
-    const sizeMapper = {
-        l: '1.5rem',
-        m: '1.5rem',
-        s: '1.5rem',
-        xs: '1rem',
-    };
-
-    return (
-        <svg viewBox="0 0 24 24" fill="none" width={sizeMapper[size]} height={sizeMapper[size]}>
-            <path
-                d="M11.501 21.28c1.088 0 1.978-.889 1.978-1.977H9.524c0 1.088.88 1.978 1.977 1.978zm5.933-5.932v-4.944c0-3.035-1.622-5.576-4.45-6.248v-.673c0-.82-.662-1.483-1.483-1.483-.82 0-1.483.662-1.483 1.483v.672c-2.838.673-4.45 3.204-4.45 6.25v4.943l-1.275 1.276c-.623.623-.188 1.69.692 1.69h13.022c.88 0 1.325-1.067.702-1.69l-1.275-1.276z"
-                fill="currentColor"
-            />
-        </svg>
-    );
 };
 
 const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
             <TextField
                 {...rest}
                 value={text}
-                contentLeft={enableContentLeft ? <BellIcon size={rest.size} /> : undefined}
-                contentRight={enableContentRight ? <BellIcon size={rest.size} /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentRight={enableContentRight ? <IconPlasma size="s" color="inherit" /> : undefined}
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -143,8 +184,8 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
                 {...rest}
                 label="Uncontrolled TextField"
                 defaultValue="Дефолтное значение"
-                contentLeft={enableContentLeft ? <BellIcon size={rest.size} /> : undefined}
-                contentRight={enableContentRight ? <BellIcon size={rest.size} /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentRight={enableContentRight ? <IconPlasma size="s" color="inherit" /> : undefined}
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -165,6 +206,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
+        titleCaption: 'Подпись к полю',
         placeholder: 'Заполните поле',
         leftHelper: 'Подсказка к полю',
         disabled: false,
@@ -176,6 +218,14 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         clear: false,
         hasDivider: false,
+        hasHint: true,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
     render: (args) => <StoryDemo {...args} />,
 };
@@ -199,6 +249,7 @@ type StoryPropsChips = Omit<
     | 'required'
     | 'enumerationType'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -210,9 +261,10 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
         <TextField
             {...rest}
             enumerationType="chip"
+            style={{ width: '70%', margin: '0 auto' }}
             value={text}
-            contentLeft={enableContentLeft ? <BellIcon size={rest.size} /> : undefined}
-            contentRight={enableContentRight ? <BellIcon size={rest.size} /> : undefined}
+            contentLeft={enableContentLeft ? <IconPlasma size="s" /> : undefined}
+            contentRight={enableContentRight ? <IconPlasma size="s" /> : undefined}
             view={view}
             onChange={(e) => {
                 setText(e.target.value);

@@ -105,7 +105,12 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/sdds-finportal"
           cp -R ./packages/sdds-finportal/build-sb ./s3_build/${PR_NAME}/sdds-finportal-storybook
-      
+
+      - name: Plasma "SDDS INSOL" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-insol"
+          cp -R ./packages/sdds-insol/build-sb ./s3_build/${PR_NAME}/sdds-insol-storybook
+          
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -149,5 +154,6 @@ jobs:
               sdds-cs storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-cs-storybook/
               sdds-dfa storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-dfa-storybook/
               sdds-finportal storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-finportal-storybook/
+              sdds-insol storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-insol-storybook/
               `
             });

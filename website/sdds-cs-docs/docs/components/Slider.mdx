@@ -14,7 +14,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { Slider  } from '@salutejs/sdds-cs';
+import { Slider } from '@salutejs/sdds-cs';
 
 export function App() {
     return (
@@ -72,6 +72,31 @@ export function App() {
                 onBlurTextField={onBlurTextField}
                 onChangeCommitted={onChangeCommitedHandle}
                 onChange={onChangeHandle} min={0} max={100} />
+        </section>
+    );
+}
+```
+
+## Вертикальное отображение
+
+```tsx live
+import React from 'react';
+import { Slider  } from '@salutejs/sdds-cs';
+import { IconMic } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <section style={{ height: '300px' }}>
+            <Slider
+                onChangeCommitted={() => {}}
+                min={0}
+                max={100}
+                value={30}
+                label="Громкость"
+                labelContent={<IconMic size="xs" />}
+                orientation="vertical"
+                sliderAlign="center"
+            />
         </section>
     );
 }

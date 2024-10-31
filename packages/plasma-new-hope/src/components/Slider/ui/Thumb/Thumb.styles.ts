@@ -4,20 +4,21 @@ import { addFocus } from '../../../../mixins';
 import { tokens } from '../../Slider.tokens';
 
 export const ThumbBase = styled.div<{ disabled?: boolean }>`
-    width: var(${tokens.thumbSize});
-    height: var(${tokens.thumbSize});
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    min-width: var(--thumb-size);
+    min-height: var(--thumb-size);
+
     position: relative;
-    left: -0.125rem;
-    top: -0.125rem;
     border-radius: 50%;
     box-sizing: border-box;
     background: var(${tokens.thumbBackgroundColor});
-    margin: 0.125rem;
+    margin: 0.0625rem;
     transition: border-color 0.1s ease-in-out;
 
     &:after {
         background: var(${tokens.thumbBorderColor});
-        margin: -0.125rem;
+        margin: -0.0625rem;
         content: '';
         position: absolute;
         inset: 0;
@@ -39,7 +40,7 @@ export const ThumbBase = styled.div<{ disabled?: boolean }>`
     }
 
     ${addFocus({
-        outlineOffset: '0.125rem',
+        outlineOffset: '0.0625rem',
         outlineSize: '0.125rem',
         outlineRadius: '50%',
         outlineColor: `var(${tokens.thumbFocusBorderColor})`,

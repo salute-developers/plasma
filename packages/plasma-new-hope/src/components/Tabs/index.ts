@@ -6,5 +6,5 @@ export { tokens as tabsTokens } from './tokens';
 export { TabItemRefs, TabsContext } from './TabsContext';
 export { createTabsController } from './createTabsController';
 export type { TabsControllerProps } from './createTabsController';
-export type { HorizontalTabsProps } from './Tabs.types';
-export type { HorizontalTabItemProps } from './TabItem.types';
+export type { HorizontalTabsProps, BaseTabsProps } from './Tabs.types';
+export type { HorizontalTabItemProps, BaseTabItemProps, RightContent } from './TabItem.types';

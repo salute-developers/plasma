@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { IconBell } from '@salutejs/plasma-icons';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconMic } from '@salutejs/plasma-icons';
+import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextArea } from './TextArea';
 
 const labelPlacements = ['inner', 'outer'];
 
 type StoryTextAreaPropsCustom = {
+    hasHint?: boolean;
     enableContentRight?: boolean;
 };
 
@@ -17,6 +19,28 @@ type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCu
 
 const sizes = ['xs', 's', 'm', 'l'];
 const views = ['default', 'positive', 'warning', 'negative'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<StoryTextAreaProps> = {
     title: 'Controls/TextArea',
@@ -78,6 +102,47 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'clear', truthy: false },
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
         ...disableProps([
             'helperBlock',
             '$isFocused',
@@ -109,6 +174,7 @@ const meta: Meta<StoryTextAreaProps> = {
         enableContentRight: true,
         label: 'Лейбл',
         placeholder: 'Заполните многострочное поле',
+        titleCaption: 'Подпись к полю',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
         disabled: false,
@@ -121,6 +187,14 @@ const meta: Meta<StoryTextAreaProps> = {
         optional: false,
         clear: false,
         hasDivider: false,
+        hasHint: true,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
 };
 
@@ -138,13 +212,14 @@ const StoryDefault = (props: StoryTextAreaProps) => {
     return (
         <TextArea
             value={value}
-            contentRight={props.enableContentRight ? <IconMic size={iconSize} /> : undefined}
+            contentRight={props.enableContentRight ? <IconBell size={iconSize} /> : undefined}
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            style={{ width: '70%', margin: '0 auto' }}
             {...props}
         />
     );

@@ -24,7 +24,7 @@ const StyledPopup = styled(Popup)`
 /**
  * Обертка для визуального представления уведомлений.
  */
-export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame }) => {
+export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame, placement = 'bottom-right' }) => {
     const { notifications } = useStoreon<NotificationsState, NotificationsEvents>('notifications');
 
     const Notification = useMemo(
@@ -35,13 +35,14 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
     return (
         <PopupProvider>
             {notifications.length > 0 && (
-                <StyledPopup opened frame={frame} placement="bottom-right" zIndex="9100">
-                    <StyledRoot>
+                <StyledPopup opened frame={frame} placement={placement} zIndex="9100">
+                    <StyledRoot placement={placement}>
                         {notifications.map(({ id, isHidden, ...rest }) => (
                             <StyledItemWrapper
                                 key={id}
                                 className={cx(
                                     isHidden ? classes.notificationItemHidden : classes.notificationItemOpened,
+                                    placement === 'bottom-left' && classes.notificationLeftToRightAnimation,
                                 )}
                                 isHidden={isHidden || false}
                             >

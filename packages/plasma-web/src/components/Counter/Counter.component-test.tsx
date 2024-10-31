@@ -52,13 +52,15 @@ describe('plasma-web: Counter', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
+                <Counter count={1} size="xxs" />
+                <PadMe />
                 <Counter count={10} size="xs" />
                 <PadMe />
-                <Counter count={10} size="xxs" />
+                <Counter count={100} maxCount={99} size="s" />
                 <PadMe />
-                <Counter count={100} maxCount={99} size="xs" />
+                <Counter count={1000} maxCount={999} size="m" />
                 <PadMe />
-                <Counter count={100} maxCount={99} size="xxs" />
+                <Counter count={10000} maxCount={9999} size="l" />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();

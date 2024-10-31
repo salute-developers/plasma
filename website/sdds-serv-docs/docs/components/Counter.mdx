@@ -12,7 +12,7 @@ import { PropsTable, Description } from '@site/src/components';
 ## Примеры
 
 ### Максимальное значение числового бейджа
-Задается с помощью свойства `maxCount`.
+Задается с помощью свойства `maxCount`. Как и `count`, не может быть меньше 1.
 
 ```tsx live 
 import React from 'react';
@@ -29,7 +29,7 @@ export function App() {
 ```
 
 ### Размер числового бейджа
-Размер задается с помощью свойства `size`. Возможные значения свойства: `"xs"` или `"xxs"`.
+Размер задается с помощью свойства `size`. Возможные значения свойства: `xxs`, `xs`, `s`, `m`, `l`.
 
 ```tsx live 
 import React from 'react';

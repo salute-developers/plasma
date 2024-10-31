@@ -7,8 +7,6 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 # Slider
 
-Слайдер позволяет определить числовое значение в пределах указанного промежутка.
-
 <Description name="Slider" />
 <PropsTable name="Slider" />
 <StorybookLink name="Slider" />
@@ -75,6 +73,32 @@ export function App() {
                 onBlurTextField={onBlurTextField}
                 onChangeCommitted={onChangeCommitedHandle}
                 onChange={onChangeHandle} min={0} max={100} />
+        </section>
+    );
+}
+```
+
+## Вертикальное отображение
+
+```tsx live
+import React from 'react';
+import { Slider  } from '@salutejs/plasma-b2c';
+import { IconMic } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <section style={{ height: '300px' }}>
+            <Slider
+                onChangeCommitted={() => {}}
+                min={0}
+                max={100}
+                value={30}
+                label="Громкость"
+                labelContent={<IconMic size="s" />}
+                orientation="vertical"
+                sliderAlign="center"
+                size="m"
+            />
         </section>
     );
 }

@@ -3,7 +3,7 @@ import type { MutableRefObject } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../../../../engines/types';
-import { classes, tokens } from '../../../tokens';
+import { classes } from '../../../tokens';
 import { cx } from '../../../../../utils';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { VerticalTabsProps } from '../../../Tabs.types';
@@ -104,7 +104,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                 disabled={disabled}
                 ref={upArrowRef}
             >
-                <IconDisclosureLeft color={`var(${tokens.arrowColor})`} />
+                <IconDisclosureLeft color="inherit" />
             </StyledArrow>
         );
 
@@ -116,7 +116,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                 tabIndex={disabled ? -1 : 0}
                 disabled={disabled}
             >
-                <IconDisclosureRight color={`var(${tokens.arrowColor})`} />
+                <IconDisclosureRight color="inherit" />
             </StyledArrow>
         );
 

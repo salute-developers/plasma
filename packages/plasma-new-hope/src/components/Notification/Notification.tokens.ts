@@ -16,6 +16,7 @@ export const classes = {
 
     notificationItemOpened: 'notification-item-opened',
     notificationItemHidden: 'notification-item-hidden',
+    notificationLeftToRightAnimation: 'notification-left-to-right-animation',
 };
 
 export const tokens = {

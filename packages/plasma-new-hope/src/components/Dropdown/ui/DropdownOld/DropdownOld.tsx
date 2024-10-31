@@ -1,7 +1,9 @@
 import React, { forwardRef, useRef } from 'react';
-import { useFocusTrap, useForkRef, useUniqId } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../../engines';
+import { useFocusTrap } from '../../../../hooks';
+import { safeUseId } from '../../../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -40,7 +42,7 @@ export const dropdownOldRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) 
         ) => {
             const innerIsOpen = Boolean(isOpen || opened);
 
-            const uniqId = useUniqId();
+            const uniqId = safeUseId();
             const innerId = id || uniqId;
 
             const rootRef = useRef<HTMLDivElement | null>(null);

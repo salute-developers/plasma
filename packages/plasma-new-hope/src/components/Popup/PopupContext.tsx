@@ -83,9 +83,11 @@ export const PopupProvider: FC<PropsWithChildren> = ({ children }) => {
     return (
         <PopupContext.Provider value={context}>
             {children}
-            <Portal container={document.body}>
-                <StyledPortal id={rootId} />
-            </Portal>
+            {canUseDOM && (
+                <Portal container={document.body}>
+                    <StyledPortal id={rootId} />
+                </Portal>
+            )}
         </PopupContext.Provider>
     );
 };

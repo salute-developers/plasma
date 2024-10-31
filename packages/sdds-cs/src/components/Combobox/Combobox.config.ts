@@ -95,12 +95,13 @@ export const config = {
                 ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-s-line-height);
 
+                ${tokens.emptyStatePadding}: 0.625rem 0.875rem 0.625rem 0.875rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.625rem;
 
                 ${tokens.itemHeight}: 2.5rem;
-                ${tokens.itemPadding}: 0.5rem 0.75rem 0.5rem 0.675rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.75rem 0.25rem 0.675rem;
+                ${tokens.itemPadding}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1rem;
@@ -112,6 +113,19 @@ export const config = {
                 ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerSizeTight}: 0.875rem;

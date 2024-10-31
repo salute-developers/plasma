@@ -72,4 +72,14 @@ export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boo
         isLeftArrow ? `var(${tokens.arrowInnerPadding})` : 'var(--plasma_private-outer-padding)'};
     padding-left: ${({ isLeftArrow }) =>
         isLeftArrow ? 'var(--plasma_private-outer-padding)' : `var(${tokens.arrowInnerPadding})`};
+
+    color: var(${tokens.arrowColor});
+
+    &:hover {
+        color: var(${tokens.arrowColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.arrowColorActive});
+    }
 `;

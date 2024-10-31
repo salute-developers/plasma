@@ -2,6 +2,8 @@ import React, { PropsWithChildren, useRef, MouseEventHandler, useEffect } from '
 import { DraggableData } from 'react-draggable';
 
 import { useIsomorphicLayoutEffect } from '../../../../hooks';
+import { classes } from '../../Slider.tokens';
+import { cx } from '../../../../utils';
 
 import type { SliderViewProps } from './SliderBase.types';
 import { Fill, Rail, RailWrap, Slider } from './SliderBase.styles';
@@ -17,17 +19,21 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
     labelPlacement,
     rangeValuesPlacement,
     onChange,
+    orientation,
+    size,
+    sliderAlign,
     settings = {},
 }) => {
     const { indent = 0.75, fontSizeMultiplier = 16 } = settings;
 
     const ref = useRef<HTMLDivElement | null>(null);
     const gap = indent * fontSizeMultiplier * 2;
+    const isVertical = orientation === 'vertical';
 
     useEffect(() => {
         const resizeHandler = () => {
             if (ref.current) {
-                const railSize = ref.current.offsetWidth - gap;
+                const railSize = isVertical ? ref.current.offsetHeight - gap : ref.current.offsetWidth - gap;
                 const totalSteps = max - min;
 
                 setStepSize(railSize / totalSteps);
@@ -35,27 +41,37 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
         };
 
         resizeHandler();
-    }, [labelPlacement, rangeValuesPlacement]);
+    }, [
+        labelPlacement,
+        rangeValuesPlacement,
+        gap,
+        isVertical,
+        // для перерасчета размеров
+        size,
+        sliderAlign,
+    ]);
 
     const onHandleChange: MouseEventHandler<HTMLDivElement> = (e) => {
         if (!onChange || disabled) {
             return;
         }
 
-        const { x, width } = e.currentTarget.getBoundingClientRect();
+        const { x, width, y, height } = e.currentTarget.getBoundingClientRect();
 
-        const lastX = e.clientX - x;
+        const lastPos = isVertical ? e.clientY - y : e.clientX - x;
+        const sliderWidth = isVertical ? height : width;
 
-        const position = min + (lastX / (width - gap)) * (max - min);
+        const position = min + (lastPos / (sliderWidth - gap)) * (max - min);
         const result = Math.max(min, Math.min(max, position));
 
-        onChange(result, { lastX } as DraggableData);
+        const data = isVertical ? { lastY: lastPos } : { lastX: lastPos };
+        onChange(result, (data as unknown) as DraggableData);
     };
 
     useIsomorphicLayoutEffect(() => {
         const resizeHandler = () => {
             if (ref.current) {
-                const railSize = ref.current.offsetWidth - gap;
+                const railSize = isVertical ? ref.current.offsetHeight - gap : ref.current.offsetWidth - gap;
                 const totalSteps = max - min;
 
                 setStepSize(railSize / totalSteps);
@@ -66,12 +82,14 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
         window.addEventListener('resize', resizeHandler);
 
         return () => window.removeEventListener('resize', resizeHandler);
-    }, [min, max, setStepSize, gap, labelPlacement, rangeValuesPlacement]);
+    }, [min, max, setStepSize, gap, labelPlacement, rangeValuesPlacement, isVertical]);
 
-    const fillStyle = { left: `${railFillXPosition}px`, width: `${railFillWidth}px` };
+    const fillStyle = isVertical
+        ? { top: `${railFillXPosition}px`, height: `${railFillWidth}px`, width: '100%' }
+        : { left: `${railFillXPosition}px`, width: `${railFillWidth}px` };
 
     return (
-        <Slider ref={ref}>
+        <Slider ref={ref} className={cx(orientation === 'vertical' && classes.verticalOrientation)}>
             <RailWrap aria-hidden="true" onMouseDown={onHandleChange}>
                 <Rail>
                     <Fill style={fillStyle} />

@@ -7,6 +7,7 @@ import {
     createShadowTokens,
     createShapeTokens,
     createTypographyTokens,
+    createViewContainerTokens,
 } from './creators';
 import {
     generateCSSThemes,
@@ -59,6 +60,8 @@ export const generate = async (themes: ThemeRequest[]) => {
             true,
         );
 
+        const viewContainerVariables = createViewContainerTokens(metaGrouped.color, metaGrouped.gradient);
+
         const cssVariables = {
             dark: {
                 colorTokens: colorCSSVariables.dark,
@@ -88,6 +91,7 @@ export const generate = async (themes: ThemeRequest[]) => {
             shadowTokens: shadowJSVariables.dark,
             shapeTokens: shapeJSVariables.dark,
             typographyTokens: typographyJSVariables.dark,
+            viewContainerTokens: viewContainerVariables,
         });
     }
 

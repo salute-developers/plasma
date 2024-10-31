@@ -101,11 +101,11 @@ type Items = Array<{
             return (
                 <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Single" value={singleValue} onChange={setSingleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
+                        <Select items={items} value={singleValue} onChange={setSingleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
                     </div>
 
                     <div style={{width: '300px'}}>
-                        <Select multiselect items={items} label="Multiple" value={multipleValue} onChange={setMultipleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
+                        <Select multiselect items={items} value={multipleValue} onChange={setMultipleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
                     </div>
                 </div>
             );

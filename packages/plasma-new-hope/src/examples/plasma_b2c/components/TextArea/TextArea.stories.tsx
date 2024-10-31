@@ -7,13 +7,37 @@ import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 import { textAreaConfig } from '../../../../components/TextArea';
 import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
+import type { PopoverPlacement } from '../Popover/Popover';
 
 import { config } from './TextArea.config';
 import { TextArea } from './TextArea';
 
 const labelPlacements = ['inner', 'outer'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 type StoryTextAreaPropsCustom = {
+    hasHint?: boolean;
     enableContentRight?: boolean;
 };
 
@@ -67,6 +91,47 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'clear', truthy: true },
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
     },
     args: {
         id: 'example-textarea',
@@ -76,6 +141,7 @@ const meta: Meta<StoryTextAreaProps> = {
         label: 'Лейбл',
         labelPlacement: 'outer',
         placeholder: 'Заполните многострочное поле',
+        titleCaption: 'Подпись к полю',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
         disabled: false,
@@ -88,6 +154,14 @@ const meta: Meta<StoryTextAreaProps> = {
         requiredPlacement: 'right',
         clear: false,
         hasDivider: false,
+        hasHint: true,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
 };
 
@@ -112,6 +186,7 @@ const StoryDefault = (props: StoryTextAreaProps) => {
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            style={{ width: '70%', margin: '0 auto' }}
             {...props}
         />
     );

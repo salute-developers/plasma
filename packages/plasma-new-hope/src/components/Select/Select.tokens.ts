@@ -23,6 +23,20 @@ export const tokens = {
     fontLetterSpacing: '--plasma-select-font-letter-spacing',
     fontLineHeight: '--plasma-select-font-line-height',
 
+    labelFontFamily: '--plasma-select-label-font-family',
+    labelFontSize: '--plasma-select-label-font-size',
+    labelFontStyle: '--plasma-select-label-font-style',
+    labelFontWeight: '--plasma-select-label-font-weight',
+    labelFontLetterSpacing: '--plasma-select-label-font-letter-spacing',
+    labelFontLineHeight: '--plasma-select-label-font-line-height',
+
+    helperTextFontFamily: '--plasma-select-helper-text-font-family',
+    helperTextFontSize: '--plasma-select-helper-text-font-size',
+    helperTextFontStyle: '--plasma-select-helper-text-font-style',
+    helperTextFontWeight: '--plasma-select-helper-text-font-weight',
+    helperTextFontLetterSpacing: '--plasma-select-helper-text-font-letter-spacing',
+    helperTextFontLineHeight: '--plasma-select-helper-text-font-line-height',
+
     itemHeight: '--plasma-select-item-height',
     itemBorderRadius: '--plasma-select-item-border-radius',
     itemPadding: '--plasma-select-item-padding',
@@ -30,6 +44,7 @@ export const tokens = {
     itemIconSize: '--plasma-select-item-icon-size',
     itemIconSizeTight: '--plasma-select-item-icon-size-tight',
     itemIconMargin: '--plasma-select-item-icon-margin',
+    itemBackgroundHover: '--plasma-select-item-background-hover',
 
     checkboxTriggerSize: '--plasma-select-checkbox-trigger-size',
     checkboxTriggerSizeTight: '--plasma-select-checkbox-trigger-size-tight',
@@ -91,6 +106,11 @@ export const tokens = {
 
     spinnerSize: '--plasma-select-spinner-size',
     spinnerSizeTight: '--plasma-select-spinner-size-tight',
+
+    disclosureIconColor: '--plasma-select-disclosure-icon-color',
+    disclosureIconColorHover: '--plasma-select-disclosure-icon-color-hover',
+
+    contentLeftColor: '--plasma-select-content-left-color',
 };
 
 export const constants = {
@@ -98,10 +118,7 @@ export const constants = {
     focusSize: '0.0625rem',
     background: '--surface-solid-card',
     boxShadow: '0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04)',
-    disclosureIconColor: '--text-secondary',
-    disclosureIconColorHover: '--text-secondary-hover',
     itemBackground: '--plasma-colors-transparent',
-    itemBackgroundHover: '--surface-transparent-secondary',
     textfieldTargetColor: '--text-primary',
     textfieldOuterLabelColor: '--text-primary',
     textfieldInnerLabelColor: '--text-secondary',

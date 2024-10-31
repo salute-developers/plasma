@@ -5,7 +5,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 import type { FloatingPopoverProps } from './Combobox.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, offset = 0 }, ref) => {
+    ({ target, children, opened, onToggle, placement, portal, listWidth, offset = 0 }, ref) => {
         const { refs, floatingStyles } = useFloating({
             placement,
             open: opened,
@@ -16,7 +16,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                 size({
                     apply({ rects, elements }) {
                         Object.assign(elements.floating.style, {
-                            width: `${rects.reference.width}px`,
+                            width: listWidth || `${rects.reference.width}px`,
                         });
                     },
                 }),

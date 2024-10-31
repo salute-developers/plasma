@@ -56,6 +56,7 @@ export interface TokensContent {
         screenM: string;
         screenL: string;
     };
+    viewContainerTokens?: string;
 }
 
 export interface ThemeContent {

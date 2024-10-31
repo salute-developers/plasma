@@ -19,7 +19,7 @@ type Placement =
     | 'left-start'
     | 'left-end';
 
-type IsMultiselect =
+type IsMultiselect<T extends ItemOption = ItemOption> =
     | {
           multiple?: false;
           value?: string;
@@ -29,12 +29,23 @@ type IsMultiselect =
            * @default false
            */
           isTargetAmount?: never | false;
+          /**
+           * Ручная настройка количества выбранных элементов. Только при isTargetAmount === true.
+           * @default undefined
+           */
+          targetAmount?: never;
+          renderValue?: never;
       }
     | {
           multiple: true;
           value?: Array<string>;
           onChange?: (value: Array<string>) => void;
-          isTargetAmount?: boolean;
+          isTargetAmount?: true;
+          targetAmount?: number;
+          /**
+           * Callback для кастомной настройки значения в селекте.
+           */
+          renderValue?: (item: T) => string;
       };
 
 type ViewStateProps =
@@ -88,7 +99,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
     items: Array<T>;
     /**
      * Сторона открытия дропдауна относительно target элемента.
-     * @default bottom
+     * @default bottom-start
      */
     placement?: Placement;
     /**
@@ -165,7 +176,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      */
     labelPlacement?: 'outer' | 'inner';
 } & ViewStateProps &
-    IsMultiselect &
+    IsMultiselect<T> &
     Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 export type FloatingPopoverProps = {
@@ -175,6 +186,7 @@ export type FloatingPopoverProps = {
     onToggle: (opened: boolean) => void;
     placement: Placement;
     portal?: ComboboxProps['portal'];
+    listWidth?: ComboboxProps['listWidth'];
     offset?: number;
 };
 

@@ -4,11 +4,13 @@
 
 ## Конфигурация пакета
 
-| Тема        | Библиотека            | Шрифты                                                                                                                                                                                               |
-| ----------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sdds_serv` | `@salutejs/sdds-serv` | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
-| `sdds_dfa`  | `@salutejs/sdds-dfa`  | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
-| `sdds_cs`   | `@salutejs/sdds-cs`   | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
+| Тема             | Библиотека                 | Шрифты                                                                                                                                                                                               |
+| ---------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sdds_serv`      | `@salutejs/sdds-serv`      | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
+| `sdds_dfa`       | `@salutejs/sdds-dfa`       | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
+| `sdds_cs`        | `@salutejs/sdds-cs`        | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
+| `sdds_finportal` | `@salutejs/sdds-finportal` | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
+| `sdds_insol` | `@salutejs/sdds-insol` | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
 
 ## Установка и подключение
 
@@ -131,11 +133,43 @@ export const dsplL = ({
 } as unknown) as CSSObject;
 ```
 
-Пример использования:
+Пример использования со `styled-components`:
 
 ```jsx
 import React from 'react';
 import styled from 'styled-components';
+
+import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+
+const AppStyled = styled.div`
+    padding: 30px;
+    color: ${textAccent};
+    background-color: ${backgroundPrimary};
+`;
+
+const Container = styled.div`
+    ${textL};
+    margin: 15px;
+`;
+
+const App = () => {
+    return (
+        <AppStyled>
+            <Container>
+                <span>Hello world</span>
+            </Container>
+        </AppStyled>
+    );
+};
+
+export default App;
+```
+
+Пример использования с `linaria`:
+
+```jsx
+import React from 'react';
+import styled from 'linaria';
 
 import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
 

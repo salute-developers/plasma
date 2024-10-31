@@ -1,4 +1,7 @@
-import { TextareaHTMLAttributes } from '../../types';
+import type { ReactNode } from 'react';
+
+import type { TextareaHTMLAttributes } from '../../types';
+import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
 
 type Only<T, U, R, K> = {
     [P in keyof T]: T[P];
@@ -103,6 +106,70 @@ type RequiredProps = {
       }
 );
 
+type HintProps =
+    | {
+          /**
+           * Текст тултипа
+           */
+          hintText: string;
+          /**
+           * Способ открытия тултипа - наведение или клик мышью
+           */
+          hintTrigger?: 'hover' | 'click';
+          /**
+           * Видимость тултипа
+           */
+          hintOpened?: boolean;
+          /**
+           * Вид тултипа
+           */
+          hintView?: string;
+          /**
+           * Размер тултипа
+           */
+          hintSize?: string;
+          /**
+           * Иконка, рядом с которым произойдет вызов всплывающего окна.
+           * Если свойство не задано, применится иконка по умолчанию.
+           */
+          hintTargetIcon?: ReactNode;
+          /**
+           * Направление раскрытия тултипа.
+           */
+          hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+          /**
+           * Видимость стрелки (хвоста).
+           */
+          hintHasArrow?: boolean;
+          /**
+           * Отступ окна относительно элемента, у которого оно вызвано.
+           * @default
+           * [0, 8]
+           */
+          hintOffset?: [number, number];
+          /**
+           * Ширина окна (в rem).
+           */
+          hintWidth?: string;
+          /**
+           * Слот для контента слева, например `Icon`.
+           */
+          hintContentLeft?: ReactNode;
+      }
+    | {
+          hintText?: never;
+          hintOpened?: never;
+          hintTrigger?: never;
+          hintView?: never;
+          hintSize?: never;
+          hintTargetIcon?: never;
+          hintPlacement?: never;
+          hintHasArrow?: never;
+          hintOffset?: never;
+          hintWidth?: never;
+          hintContentLeft?: never;
+      };
+
 export type TextAreaPropsBase = {
     /**
      * Статус компонента: заполнен успешно / с предупреждением / с ошибкой.
@@ -117,6 +184,10 @@ export type TextAreaPropsBase = {
      * Расположение лейбла.
      */
     labelPlacement?: 'inner' | 'outer';
+    /**
+     * Метка-подпись к элементу справа.
+     */
+    titleCaption?: ReactNode;
     /**
      * Слот для контента справа.
      */
@@ -139,7 +210,8 @@ export type TextAreaPropsBase = {
      * Вспомогательный текст снизу справа для поля ввода.
      */
     rightHelper?: string;
-} & RequiredProps;
+} & RequiredProps &
+    HintProps;
 
 type TextAreaPropsExtends = TextAreaPropsBase & {
     /**
@@ -155,3 +227,13 @@ type TextAreaPropsExtends = TextAreaPropsBase & {
 export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols' | 'required'> &
     TextAreaPropsExtends &
     TextAreaDimensionsProps;
+
+export type TextAreaRootProps = {
+    size?: string;
+    view?: string;
+    hintView?: string;
+    hintSize?: string;
+    clear?: boolean;
+    readOnly?: boolean;
+    disabled?: boolean;
+} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols' | 'required'>;

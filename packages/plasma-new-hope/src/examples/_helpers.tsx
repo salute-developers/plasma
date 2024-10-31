@@ -1,24 +1,12 @@
 import React from 'react';
-import type { ArgTypes, StoryContext, Decorator } from '@storybook/react';
+import type { ArgTypes, Decorator } from '@storybook/react';
 
 import { ComponentConfig } from '../engines';
 import type { HTMLAttributesWithoutOnChange, HTMLTagList, PropsType, Variants } from '../engines/types';
 
-import { ThemeType, themes } from './themes';
-
-export const WithTheme: Decorator = (Story, context: StoryContext) => {
-    const themeType = context.globals.theme as keyof ThemeType;
-    const themeName = context.title.split('/')[0];
-
-    return (
-        <div
-            id="theme-root"
-            className={themes?.[themeName]?.[themeType]}
-            style={{ padding: '1rem', minHeight: '100vh', boxSizing: 'border-box' }}
-        >
-            <Story />
-        </div>
-    );
+// TODO: Удалить в отдельном пр из всех компонент
+export const WithTheme: Decorator = (Story) => {
+    return <Story />;
 };
 
 export function argTypesFromConfig<

@@ -1,9 +1,7 @@
-import { Placement, ComputedPlacement } from '@popperjs/core';
 import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
+import { Placement as PopoverPlacement, ComputedPlacement as PopoverPlacementBasic } from '@popperjs/core';
 
-export type PopoverPlacementBasic = ComputedPlacement;
-export type PopoverPlacement = Placement;
-
+export type { Placement as PopoverPlacement, ComputedPlacement as PopoverPlacementBasic } from '@popperjs/core';
 export type PopoverTrigger = 'hover' | 'click';
 
 export type CustomPopoverProps = {

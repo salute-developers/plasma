@@ -37,10 +37,10 @@ export const StyledContentRight = styled.div`
 
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
-    color: var(${constants.disclosureIconColor});
+    color: var(${tokens.disclosureIconColor});
 
     &:hover {
-        color: var(${constants.disclosureIconColorHover});
+        color: var(${tokens.disclosureIconColorHover});
     }
 `;
 
@@ -90,11 +90,11 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
         cursor: pointer;
-        background: var(${constants.itemBackgroundHover});
+        background: var(${tokens.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsActive} {
-        background: var(${constants.itemBackgroundHover});
+        background: var(${tokens.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsDisabled} {

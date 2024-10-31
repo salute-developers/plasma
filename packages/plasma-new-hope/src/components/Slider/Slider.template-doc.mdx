@@ -76,3 +76,29 @@ export function App() {
     );
 }
 ```
+
+# Вертикальное отображение
+
+```tsx live
+import React from 'react';
+import { Slider  } from '@salutejs/{{ package }}';
+import { IconMic } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <section style={{ height: '300px' }}>
+            <Slider
+                onChangeCommitted={() => {}}
+                min={0}
+                max={100}
+                value={30}
+                label="Громкость"
+                labelContent={<IconMic size="s" />}
+                orientation="vertical"
+                sliderAlign="center"
+                size="m"
+            />
+        </section>
+    );
+}
+```

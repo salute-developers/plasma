@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { SliderBaseProps, SliderInternalProps } from '../SliderBase/SliderBase.types';
 import { FormTypeNumber } from '../../../../types/FormType';
@@ -41,9 +41,62 @@ type SingleSliderPropsUnion =
           defaultValue?: never;
       };
 
+type SingleSliderOrientationPropsUnion =
+    | {
+          /**
+           * Ориентация Slider.
+           * @default `horizontal`
+           */
+          orientation?: 'horizontal';
+          /**
+           * Расположение подписи.
+           * @default top
+           * @description
+           * Может принимать три значения:
+           * top - отображение справа
+           * left - отображение слева
+           * none - скрывает подпись
+           */
+          labelPlacement?: 'top' | 'left' | 'none';
+          /**
+           * Расположение значений минимума и максимума интервала.
+           * @default top
+           * @description
+           * Может принимать три значения:
+           * side - отображение по сторонам
+           * bottom - отображение снизу
+           * none - скрывает значения
+           */
+          scaleAlign?: 'side' | 'bottom' | 'none';
+          /**
+           * Выравнивание элементов в Slider.
+           */
+          sliderAlign?: never | 'none';
+
+          reversed?: never;
+          labelReversed?: never;
+      }
+    | {
+          /**
+           * Ориентация Slider.
+           * @default `horizontal`
+           */
+          orientation: 'vertical';
+          /**
+           * Выравнивание элементов в Slider.
+           * @default 'left'
+           */
+          sliderAlign?: 'center' | 'left' | 'right' | 'none';
+          scaleAlign?: never;
+
+          reversed?: boolean;
+          labelReversed?: boolean;
+      };
+
 export type SingleSliderProps = SliderBaseProps &
     SliderInternalProps &
     SingleSliderPropsUnion &
+    SingleSliderOrientationPropsUnion &
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> & {
         /**
          * Вызывается при отпускании ползунка
@@ -59,8 +112,18 @@ export type SingleSliderProps = SliderBaseProps &
         showCurrentValue?: boolean;
         /**
          * Отображать ли значения минимума и максимума интервала.
+         * @deprecated
          */
         showRangeValues?: boolean;
+        /**
+         * Расположение значений минимума и максимума интервала.
+         * @deprecated
+         */
+        rangeValuesPlacement?: string;
+        /**
+         * Отображать ли значения минимума и максимума интервала.
+         */
+        showScale?: boolean;
         /**
          * Разница между текущим значением и минимальным, при котором минимальное будет скрыто.
          */
@@ -70,15 +133,23 @@ export type SingleSliderProps = SliderBaseProps &
          */
         hideMaxValueDiff?: number;
         /**
-         * Расположение значений минимума и максимума интервала.
-         * @default `outer`
-         */
-        rangeValuesPlacement?: 'inner' | 'outer';
-        /**
          * Расположение подписи.
+         * @deprecated
          * @default `outer`
          */
         labelPlacement?: 'inner' | 'outer';
+
+        /**
+         * Слот под контент слева от подписи (например, иконку)
+         * @deprecated
+         */
+        labelContentLeft?: ReactNode;
+
+        /**
+         * Слот под контент рядом с подписью (например, иконку)
+         */
+        labelContent?: ReactNode;
+
         /**
          * Размера увеличенного шага (для клавиш PageUp, PageDown).
          * Указывает процентное отношение от максимально возможного значения.
@@ -89,4 +160,15 @@ export type SingleSliderProps = SliderBaseProps &
         view?: string;
         size?: 's' | 'm' | 'l';
         type?: 'single';
+
+        /**
+         * Размер ползунка
+         * @default small
+         * @description
+         * Может принимать три значения:
+         * small - размер s;
+         * large - размер l;
+         * none - скрыть ползунок
+         */
+        pointerSize?: 'small' | 'large' | 'none';
     };

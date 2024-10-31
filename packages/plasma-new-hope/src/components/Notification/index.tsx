@@ -1,5 +1,5 @@
 export { NotificationsProvider } from './NotificationsProvider';
-export { notificationRoot, noticationConfig } from './Notification';
+export { notificationRoot, notificationConfig } from './Notification';
 export { addNotification, closeNotification } from './NotificationsStore';
 export { classes as notificationClasses, tokens as notificationTokens } from './Notification.tokens';
 export type {
@@ -7,4 +7,5 @@ export type {
     NotificationPortalProps,
     NotificationLayout,
     NotificationIconPlacement,
+    NotificationPlacement,
 } from './Notification.types';

@@ -6,12 +6,12 @@ import { IconDisclosureDownCentered } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../../../Button';
 import { tokens, classes, constants } from '../../../../Select.tokens';
-import type { SelectProps } from '../../../../Select.types';
+import type { MergedSelectProps } from '../../../../Select.types';
 
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
-export const TextfieldWrapper = styled.div<{ opened: boolean; value: SelectProps['value'] }>`
+export const TextfieldWrapper = styled.div<{ opened: boolean; value: MergedSelectProps['value'] }>`
     display: inline;
 
     .${classes.textfieldTarget} {
@@ -98,13 +98,16 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const ChipWrapper = styled.div<{ multiselect: SelectProps['multiselect']; value: SelectProps['value'] }>`
+export const ChipWrapper = styled.div<{
+    multiselect: MergedSelectProps['multiselect'];
+    value: MergedSelectProps['value'];
+}>`
     width: 100%;
     display: flex;
     min-width: 0;
     padding: ${({ multiselect, value }) =>
         `calc(${constants.focusSize} + ${
-            multiselect && value && value.length > 0 ? `var(${tokens.focusOffset})` : 0
+            multiselect && value && value.toString().length > 0 ? `var(${tokens.focusOffset})` : 0
         })`};
     gap: 0.25rem;
     overflow-x: scroll;
@@ -168,6 +171,7 @@ export const ContentLeftWrapper = styled.div`
     margin-left: -0.125rem;
     margin-right: 0.375rem;
     line-height: 0;
+    color: var(${tokens.contentLeftColor}, --text-secondary);
 `;
 
 export const Value = styled.span`

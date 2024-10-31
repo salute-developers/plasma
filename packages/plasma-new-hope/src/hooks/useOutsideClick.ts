@@ -2,10 +2,11 @@ import { useEffect, useRef } from 'react';
 import type { RefObject } from 'react';
 
 export const useOutsideClick = <T extends HTMLElement = HTMLElement>(
-    callback: () => void,
+    callback: (event: MouseEvent | TouchEvent) => void,
     secondaryRef?: RefObject<HTMLElement | null> | null,
 ) => {
     const ref = useRef<T | null>(null);
+
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent | TouchEvent) => {
             if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -13,7 +14,7 @@ export const useOutsideClick = <T extends HTMLElement = HTMLElement>(
                     !secondaryRef?.current ||
                     (secondaryRef.current && !secondaryRef.current.contains(event.target as Node))
                 ) {
-                    callback();
+                    callback(event);
                 }
             }
         };

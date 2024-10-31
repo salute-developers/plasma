@@ -1,13 +1,27 @@
 import { styled } from '@linaria/react';
 
 import { applyEllipsis } from '../../mixins';
+import { tooltipConfig } from '../Tooltip';
+import { component, mergeConfig } from '../../engines';
 
 import { classes, tokens } from './TextArea.tokens';
+
+const mergedConfig = mergeConfig(tooltipConfig);
+const Tooltip = component(mergedConfig);
+
+export const Hint = styled(Tooltip)``;
+
+export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
+    display: flex;
+    align-items: center;
+
+    margin-bottom: ${({ isInnerLabel }) =>
+        isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelMarginBottom})`};
+`;
 
 export const StyledLabel = styled.div`
     position: relative;
     display: inline-flex;
-    margin-bottom: var(${tokens.labelMarginBottom});
 
     color: var(${tokens.labelOuterColor}, var(${tokens.inputColor}));
     font-family: var(${tokens.labelOuterFontFamily}, var(${tokens.inputFontFamily}));
@@ -18,9 +32,64 @@ export const StyledLabel = styled.div`
     line-height: var(${tokens.labelOuterLineHeight}, var(${tokens.inputLineHeight}));
 `;
 
-export const StyledOptionalText = styled.span`
-    color: var(${tokens.optionalColor});
+export const TitleCaption = styled.div`
+    display: inline-block;
+    margin-left: auto;
+
+    font-family: var(${tokens.titleCaptionFontFamily});
+    font-size: var(${tokens.titleCaptionFontSize});
+    font-style: var(${tokens.titleCaptionFontStyle});
+    font-weight: var(${tokens.titleCaptionFontWeight});
+    letter-spacing: var(${tokens.titleCaptionLetterSpacing});
+    line-height: var(${tokens.titleCaptionLineHeight});
 `;
+
+export const StyledIndicatorWrapper = styled.div`
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+`;
+
+export const StyledOptionalText = styled.span<{ inheritFont?: boolean }>`
+    color: var(${tokens.optionalColor});
+
+    font-family: ${({ inheritFont }) =>
+        inheritFont ? 'inherit' : `var(${tokens.labelOuterFontFamily}, var(${tokens.inputFontFamily}))`};
+    font-size: ${({ inheritFont }) =>
+        inheritFont ? 'inherit' : `var(${tokens.labelOuterFontSize}, var(${tokens.inputFontSize}))`};
+    font-style: ${({ inheritFont }) =>
+        inheritFont ? 'inherit' : `var(${tokens.labelOuterFontStyle}, var(${tokens.inputFontStyle}))`};
+    font-weight: ${({ inheritFont }) =>
+        inheritFont ? 'inherit' : `var(${tokens.labelOuterFontWeight}, var(${tokens.inputFontWeight}))`};
+    letter-spacing: ${({ inheritFont }) =>
+        inheritFont ? 'inherit' : `var(${tokens.labelOuterLetterSpacing}, var(${tokens.inputLetterSpacing}))`};
+    line-height: ${({ inheritFont }) =>
+        inheritFont ? 'inherit' : `var(${tokens.labelOuterLineHeight}, var(${tokens.inputLineHeight}))`};
+`;
+
+export const StyledHintWrapper = styled.div`
+    display: inline-flex;
+    line-height: 0;
+    margin: var(${tokens.hintMargin});
+
+    &.${classes.innerLabelPlacement} {
+        position: absolute;
+        margin: 0;
+        inset: var(${tokens.hintInnerLabelPlacementOffset});
+    }
+`;
+
+export const HintTargetWrapper = styled.div`
+    color: var(${tokens.hintIconColor});
+    width: var(${tokens.hintTargetSize});
+    height: var(${tokens.hintTargetSize});
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const HintIconWrapper = styled.div``;
 
 export const StyledTextAreaWrapper = styled.div<{
     hasHelper: boolean;
@@ -241,8 +310,12 @@ export const StyledIndicator = styled.div`
         height: var(${tokens.indicatorSizeOuter});
         inset: var(${tokens.indicatorLabelPlacementOuter});
 
-        &.align-right {
+        &.${classes.requiredAlignRight} {
             inset: var(${tokens.indicatorLabelPlacementOuterRight});
+
+            &.${classes.hasHint} {
+                right: calc(-1 * var(${tokens.indicatorSizeOuter}));
+            }
         }
     }
 
@@ -251,7 +324,7 @@ export const StyledIndicator = styled.div`
         height: var(${tokens.indicatorSizeInner});
         inset: var(${tokens.indicatorLabelPlacementInner});
 
-        &.align-right {
+        &.${classes.requiredAlignRight} {
             inset: var(${tokens.indicatorLabelPlacementInnerRight});
         }
     }

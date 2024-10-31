@@ -105,6 +105,8 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
         [getSelectedDate, onHoverYear, value],
     );
 
+    const handleMouseOutGrid = () => onHoverYear?.(undefined);
+
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
             outerRefs.current[i + offset][j] = element;
@@ -119,7 +121,12 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
     }, []);
 
     return (
-        <StyledCalendarYears role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
+        <StyledCalendarYears
+            role="grid"
+            aria-labelledby="id-grid-label"
+            onKeyDown={onKeyDown}
+            onMouseLeave={handleMouseOutGrid}
+        >
             {years.map((year, i) => (
                 <StyledFlex role="row" key={i}>
                     {year.map(

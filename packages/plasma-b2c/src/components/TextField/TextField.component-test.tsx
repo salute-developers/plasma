@@ -344,6 +344,39 @@ describe('plasma-b2c: TextField', () => {
 
         cy.matchImageSnapshot();
     });
+
+    describe('with hint', () => {
+        const sizes = ['xs', 's', 'm', 'l'] as const;
+
+        const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
+
+        sizes.forEach((size) => {
+            it(`_size:${size}`, () => {
+                mount(
+                    <CypressTestDecoratorWithTypo>
+                        {cases.map((props) => (
+                            <div style={{ margin: '0 1rem' }}>
+                                <TextField
+                                    value="Value"
+                                    placeholder="Placeholder"
+                                    label="Title"
+                                    size={size}
+                                    hintText="Подсказка к полю"
+                                    hintTrigger="click"
+                                    {...props}
+                                />
+                                <SpaceMe />
+                            </div>
+                        ))}
+                    </CypressTestDecoratorWithTypo>,
+                );
+
+                cy.get('.popover-wrapper').first().click();
+
+                cy.matchImageSnapshot();
+            });
+        });
+    });
 });
 
 describe('plasma-b2c: TextField keyboard navigation', () => {

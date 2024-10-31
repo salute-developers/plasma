@@ -4,14 +4,18 @@ import styled from 'styled-components';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
+import { IconMic } from '../../../../components/_Icon';
 import { WithTheme } from '../../../_helpers';
 
 import { Slider } from './Slider';
 
 const sizes = ['l', 'm', 's'];
+const pointerSizes = ['small', 'large', 'none'];
 const views = ['default', 'accent', 'gradient'];
-const labelPlacements = ['outer', 'inner'];
-const rangeValuesPlacement = ['outer', 'inner'];
+const sliderAligns = ['center', 'left', 'right', 'none'];
+const labelPlacements = ['top', 'left'];
+const scaleAligns = ['side', 'bottom'];
+const orientations: Array<string> = ['vertical', 'horizontal'];
 
 const meta: Meta<typeof Slider> = {
     title: 'plasma_web/Slider',
@@ -30,9 +34,24 @@ const meta: Meta<typeof Slider> = {
                 type: 'inline-radio',
             },
         },
+        pointerSize: {
+            options: pointerSizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        orientation: {
+            options: orientations,
+            control: {
+                type: 'select',
+            },
+        },
         ...disableProps([
             'value',
             'onChangeCommitted',
+            'onChangeTextField',
+            'onBlurTextField',
+            'onKeyDownTextField',
             'ariaLabel',
             'onChange',
             'fontSizeMultiplier',
@@ -40,6 +59,14 @@ const meta: Meta<typeof Slider> = {
             'settings',
             'hasHoverAnimation',
             'type',
+            'labelContentLeft',
+            'rangeValuesPlacement',
+            'name',
+            'defaultValue',
+            'labelContent',
+            'showRangeValues',
+            'hideMinValueDiff',
+            'hideMaxValueDiff',
         ]),
     },
 };
@@ -52,8 +79,9 @@ type StorySingleProps = StoryProps;
 type StorySingle = StoryObj<StorySingleProps>;
 type StoryDouble = StoryObj<StoryProps>;
 
-const SliderWrapper = styled.div`
-    width: 25rem;
+const SliderWrapper = styled.div<{ isVertical?: boolean }>`
+    width: ${({ isVertical }) => (isVertical ? 'auto' : '25rem')};
+    height: ${({ isVertical }) => (isVertical ? '25rem' : 'auto')};
 `;
 
 const StoryDefault = (args: StorySingleProps) => {
@@ -67,41 +95,86 @@ const StoryDefault = (args: StorySingleProps) => {
         setValue(values);
     };
 
+    const { hasIcon, showIcon, orientation, labelPlacement, labelVerticalPlacement, ...rest } = args;
+    const isVertical = orientation === 'vertical';
+
     return (
-        <SliderWrapper>
-            <Slider value={value} onChangeCommitted={onChangeCommittedHandle} onChange={onChangeHandle} {...args} />
+        <SliderWrapper isVertical={isVertical}>
+            <Slider
+                value={value}
+                orientation={orientation}
+                labelPlacement={labelPlacement}
+                labelContent={showIcon ? <IconMic size={rest.size === 's' ? 'xs' : 's'} /> : null}
+                onChangeCommitted={onChangeCommittedHandle}
+                onChange={onChangeHandle}
+                {...rest}
+            />
         </SliderWrapper>
     );
 };
 
 export const Default: StorySingle = {
     argTypes: {
+        sliderAlign: {
+            options: sliderAligns,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'orientation', eq: 'vertical' },
+        },
         labelPlacement: {
             options: labelPlacements,
             control: {
                 type: 'inline-radio',
             },
+            if: { arg: 'orientation', eq: 'horizontal' },
         },
-        rangeValuesPlacement: {
-            options: rangeValuesPlacement,
+        labelReversed: {
+            control: {
+                type: 'boolean',
+                expanded: true,
+            },
+            if: { arg: 'orientation', eq: 'vertical' },
+        },
+        scaleAlign: {
+            options: scaleAligns,
             control: {
                 type: 'inline-radio',
             },
+            if: { arg: 'orientation', eq: 'horizontal' },
+        },
+        orientation: {
+            options: orientations,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        reversed: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'orientation', eq: 'vertical' },
         },
     },
     args: {
         view: 'default',
         size: 'm',
+        pointerSize: 'small',
         min: 0,
         max: 100,
-        disabled: false,
-        ariaLabel: 'Цена товара',
+        orientation: 'horizontal',
+        ariaLabel: 'Цена микрофона',
         multipleStepSize: 10,
-        label: 'Цена товара',
-        labelPlacement: 'outer',
-        rangeValuesPlacement: 'outer',
-        showRangeValues: true,
+        label: 'Цена микрофона',
+        labelPlacement: 'top',
+        sliderAlign: 'center',
+        scaleAlign: 'bottom',
+        showScale: true,
         showCurrentValue: false,
+        showIcon: true,
+        reversed: false,
+        labelReversed: false,
+        disabled: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -141,7 +214,7 @@ const StoryMultipleValues = (args: StoryProps) => {
     };
 
     return (
-        <SliderWrapper>
+        <SliderWrapper isVertical={args.orientation === 'vertical'}>
             <Slider
                 value={value}
                 onKeyDownTextField={onKeyDownTextField}
@@ -158,12 +231,22 @@ export const MultipleValues: StoryDouble = {
     args: {
         view: 'default',
         size: 'm',
+        pointerSize: 'small',
         min: 0,
         max: 100,
         disabled: false,
         label: 'Цена товара',
         ariaLabel: ['Минимальная цена товара', 'Максимальная цена товара'],
         multipleStepSize: 10,
+    },
+    argTypes: {
+        pointerSize: {
+            options: ['small', 'large'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        ...disableProps(['orientation']),
     },
     render: (args) => <StoryMultipleValues {...args} />,
 };

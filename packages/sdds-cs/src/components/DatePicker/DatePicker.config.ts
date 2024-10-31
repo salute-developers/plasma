@@ -3,7 +3,7 @@ import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/style
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 's',
     },
     variations: {
         view: {

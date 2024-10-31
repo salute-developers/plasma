@@ -25,7 +25,7 @@ import { getLayoutClass } from './utils';
 /**
  * Компонент для небольших уведомлений пользователя
  */
-export const notificationRoot = (Root: RootProps<HTMLDivElement, NotificationProps>) =>
+export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<NotificationProps, 'title'>>) =>
     forwardRef<HTMLDivElement, NotificationProps>((props, ref) => {
         const {
             role = 'status',
@@ -115,7 +115,7 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, NotificationPro
         );
     });
 
-export const noticationConfig = {
+export const notificationConfig = {
     name: 'Notification',
     tag: 'div',
     layout: notificationRoot,

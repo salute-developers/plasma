@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, InputPlaceholder, InputWrapper, Label, LeftHelper } from '../../TextField.styles';
+import { Input, InputPlaceholder, InputWrapper, Label, LeftHelper, TitleCaption } from '../../TextField.styles';
 
 export const base = css`
     &[readonly] {
@@ -29,6 +29,10 @@ export const base = css`
             color: var(${tokens.colorReadOnly});
             cursor: default;
             min-width: unset;
+        }
+
+        ${TitleCaption} {
+            color: var(${tokens.titleCaptionColorReadOnly});
         }
 
         ${LeftHelper} {

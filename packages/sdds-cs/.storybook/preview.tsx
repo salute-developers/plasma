@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react';
 
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
-import { withTheme, SDDS_CS_LIGHT_THEME } from './decoratorThemes';
+import { withTheme, SDDS_CS_LIGHT_THEME, DEFAULT_MODE, ON_LIGHT_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
 
 // Workaround: to make VoiceOver read russian text properly
@@ -21,12 +21,12 @@ const preview: Preview = {
                 items: [SDDS_CS_LIGHT_THEME],
             },
         },
-        typoVersion: {
-            description: 'Global typography version for components',
-            defaultValue: 'standard',
+        viewContainer: {
+            description: 'ViewContainer mode for components',
+            defaultValue: DEFAULT_MODE,
             toolbar: {
-                title: 'Typography version',
-                items: ['standard', 'old'],
+                title: 'ViewContainer',
+                items: [DEFAULT_MODE, ON_LIGHT_MODE],
             },
         },
     },

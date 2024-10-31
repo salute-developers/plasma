@@ -28,6 +28,20 @@ export const config = {
                 ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${selectTokens.fontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
+                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectTokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${selectTokens.checkboxTriggerSize}: 0.875rem;
                 ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
                 ${selectTokens.checkboxTriggerBorderRadius}: 0.25rem;
@@ -82,6 +96,20 @@ export const config = {
                 ${selectTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${selectTokens.fontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${selectTokens.checkboxTriggerSize}: 1.25rem;
                 ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
@@ -138,6 +166,20 @@ export const config = {
                 ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${selectTokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
 
+                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${selectTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${selectTokens.checkboxTriggerSize}: 1.25rem;
                 ${selectTokens.checkboxTriggerSizeTight}: 1.25rem;
                 ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
@@ -193,6 +235,20 @@ export const config = {
                 ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${selectTokens.fontLineHeight}: var(--plasma-typo-body-l-line-height);
 
+                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${selectTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${selectTokens.checkboxTriggerSize}: 1.25rem;
                 ${selectTokens.checkboxTriggerSizeTight}: 1.25rem;
                 ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
@@ -232,6 +288,9 @@ export const config = {
         view: {
             default: css`
                 ${selectTokens.helperTextColor}: var(--text-secondary);
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--inverse-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--inverse-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--inverse-text-primary-active);
@@ -249,6 +308,9 @@ export const config = {
             `,
             positive: css`
                 ${selectTokens.helperTextColor}: var(--text-positive);
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
@@ -266,6 +328,9 @@ export const config = {
             `,
             warning: css`
                 ${selectTokens.helperTextColor}: var(--text-warning);
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
@@ -283,6 +348,9 @@ export const config = {
             `,
             negative: css`
                 ${selectTokens.helperTextColor}: var(--text-negative);
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
@@ -299,6 +367,9 @@ export const config = {
                 ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-negative-active);
             `,
             accent: css`
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
@@ -310,6 +381,9 @@ export const config = {
                 ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--text-primary-active);
@@ -321,6 +395,9 @@ export const config = {
                 ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
             clear: css`
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--text-primary-active);
@@ -332,6 +409,9 @@ export const config = {
                 ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-clear);
             `,
             dark: css`
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
@@ -343,6 +423,9 @@ export const config = {
                 ${selectTokens.targetButtonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
             `,
             black: css`
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
@@ -354,6 +437,9 @@ export const config = {
                 ${selectTokens.targetButtonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
             `,
             white: css`
+                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${selectTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectTokens.targetButtonColor}: var(--on-light-text-primary);
                 ${selectTokens.targetButtonColorHover}: var(--on-light-text-primary-hover);
                 ${selectTokens.targetButtonColorActive}: var(--on-light-text-primary-active);

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
-import { useUniqId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../../engines';
+import { safeUseId } from '../../../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -13,7 +13,7 @@ import type { DropdownDividerProps } from './DropdownDivider.types';
  */
 export const dropdownDividerRoot = (Root: RootProps<HTMLDivElement, DropdownDividerProps>) =>
     forwardRef<HTMLDivElement, DropdownDividerProps>(({ id, className, view, size, ...rest }, outerRootRef) => {
-        const uniqId = useUniqId();
+        const uniqId = safeUseId();
         const innerId = id || uniqId;
 
         return (

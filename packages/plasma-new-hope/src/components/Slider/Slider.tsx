@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import type { RootPropsOmitOnChangeAndDefaultValue } from '../../engines';
+import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -8,6 +9,7 @@ import { base as disabledCSS } from './variations/_disabled/base';
 import { SingleSlider, DoubleUncontrolled } from './components';
 import type { SingleSliderProps, DoubleUncontrolledProps } from './components';
 import { SliderProps } from './Slider.types';
+import { classes } from './Slider.tokens';
 
 // TODO: проверить, можно ли обойтись без каста типов
 
@@ -19,9 +21,20 @@ const isDoubleValueProps = (props: SliderProps, type: string): props is DoubleUn
 
 export const sliderRoot = (Root: RootPropsOmitOnChangeAndDefaultValue<HTMLDivElement, SliderProps>) =>
     forwardRef<HTMLDivElement, SliderProps>(({ type = 'single', ...props }, ref) => {
+        if (isSingleValueProps(props, type)) {
+            return (
+                <Root
+                    {...props}
+                    className={cx(props.orientation === 'vertical' && classes.verticalOrientation, props.className)}
+                    ref={ref}
+                >
+                    <SingleSlider {...props} />
+                </Root>
+            );
+        }
+
         return (
-            <Root {...props} ref={ref}>
-                {isSingleValueProps(props, type) && <SingleSlider {...props} />}
+            <Root ref={ref} {...props}>
                 {isDoubleValueProps(props, type) && <DoubleUncontrolled {...props} />}
             </Root>
         );

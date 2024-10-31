@@ -147,7 +147,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 </Root>
             );
 
-            if (typeof frame !== 'string' && frame && frame.current) {
+            if (typeof frame !== 'string' && frame && frame.current && canUseDOM) {
                 return <Portal container={frame.current}>{rootNode}</Portal>;
             }
 

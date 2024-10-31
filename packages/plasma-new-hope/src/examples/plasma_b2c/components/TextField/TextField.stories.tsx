@@ -5,6 +5,7 @@ import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { IconCross } from '../../../../components/_Icon';
+import type { PopoverPlacement } from '../Popover/Popover';
 
 import { TextField } from './TextField';
 
@@ -16,7 +17,29 @@ const onChipsChange = action('onChipsChange');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
 const labelPlacements = ['outer', 'inner'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<typeof TextField> = {
     title: 'plasma_b2c/TextField',
@@ -70,6 +93,47 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
     },
 };
 
@@ -95,6 +159,7 @@ type StoryPropsDefault = Omit<
     | 'chips'
     | 'onChangeChips'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -145,6 +210,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
+        titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',
@@ -155,9 +221,17 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         optional: false,
         required: false,
+        requiredPlacement: 'right',
         clear: false,
         hasDivider: false,
-        requiredPlacement: 'right',
+        hasHint: true,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
     render: (args) => <StoryDemo {...args} />,
 };
@@ -180,6 +254,7 @@ type StoryPropsChips = Omit<
     | 'minLength'
     | 'enumerationType'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -204,6 +279,7 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             onFocus={onFocus}
             onBlur={onBlur}
             onChangeChips={onChipsChange}
+            style={{ width: '70%', margin: '0 auto' }}
         />
     );
 };

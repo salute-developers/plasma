@@ -3,6 +3,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconBellFill } from '@salutejs/plasma-icons';
+import { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextField, TextFieldView } from '.';
 import type { TextFieldProps } from '.';
@@ -15,7 +16,29 @@ const onChipsChange = action('onChipsChange');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const statuses = ['', 'success', 'warning', 'error'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
 const labelPlacements = ['label', 'placeholder'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const propsToDisable = [
     'helperBlock',
@@ -95,6 +118,47 @@ const meta: Meta<TextFieldProps> = {
         label: {
             control: 'text',
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
         ...disableProps(propsToDisable),
     },
 };
@@ -117,6 +181,7 @@ type StoryPropsDefault = Omit<
     | 'maxLength'
     | 'minLength'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -127,7 +192,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: S
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
             <TextField
                 {...rest}
                 value={value}
@@ -167,6 +232,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         label: 'Лейбл',
         animatedHint: undefined,
         placeholder: 'Заполните поле',
+        titleCaption: 'Подпись к полю',
         helperText: 'Подсказка к полю',
         enumerationType: 'plain',
         status: '' as 'success',
@@ -179,6 +245,14 @@ export const Default: StoryObj<StoryPropsDefault> = {
         optional: false,
         clear: false,
         hasDivider: false,
+        hasHint: true,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
     render: (args) => <StoryDemo {...args} />,
 };

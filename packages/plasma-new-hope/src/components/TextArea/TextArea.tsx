@@ -1,9 +1,10 @@
-import React, { forwardRef, useState, createRef, useCallback } from 'react';
+import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler } from 'react';
 import { css } from '@linaria/core';
-import { useResizeObserver } from '@salutejs/plasma-core';
+import { useForkRef, useResizeObserver } from '@salutejs/plasma-core';
 
 import { cx, mergeRefs } from '../../utils';
 import type { RootProps } from '../../engines/types';
+import { useOutsideClick } from '../../hooks';
 
 import { applyDynamicLabel } from './mixins';
 import { useAutoResize, ROOT_FONT_SIZE } from './hooks';
@@ -19,13 +20,20 @@ import {
     StyledContainer,
     StyledIndicator,
     StyledOptionalText,
+    OuterLabelWrapper,
+    StyledIndicatorWrapper,
+    StyledHintWrapper,
+    TitleCaption,
 } from './TextArea.styles';
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as clearCSS } from './variations/_clear/base';
 import { base as disabledCSS } from './variations/_disabled/base';
-import type { TextAreaProps } from './TextArea.types';
+import { base as hintViewCSS } from './variations/_hint-view/base';
+import { base as hintSizeCSS } from './variations/_hint-size/base';
+import type { TextAreaProps, TextAreaRootProps } from './TextArea.types';
+import { HintComponent } from './ui/Hint/Hint';
 
 const {
     innerPlaceholderUp,
@@ -54,6 +62,8 @@ const fallbackStatusMap = {
     warning: 'warning',
     error: 'negative',
 };
+
+const HINT_DEFAULT_OFFSET: [number, number] = [0, 0];
 
 // TODO: Перенести этот метод в файл applyDynamicLabel.ts
 export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) => {
@@ -85,7 +95,7 @@ export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) =
     return [withFocusedOuterUpPlaceholder, withInnerPlaceholderUp, withHidePlaceholder];
 };
 
-export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>) =>
+export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootProps>) =>
     forwardRef<HTMLTextAreaElement, TextAreaProps>((props, innerRef) => {
         const {
             helperText,
@@ -99,6 +109,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             maxAuto,
             label,
             labelPlacement = 'inner',
+            titleCaption,
             placeholder,
             defaultValue,
             height,
@@ -118,15 +129,32 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             readOnly,
             rows,
             cols,
+            hintTrigger = 'hover',
+            hintText,
+            hintView = 'default',
+            hintSize = 'm',
+            hintTargetIcon,
+            hintPlacement = 'auto',
+            hintHasArrow,
+            hintOffset = HINT_DEFAULT_OFFSET,
+            hintWidth,
+            hintContentLeft,
             onChange,
             ...rest
         } = props;
 
+        const [isHintVisible, setIsHintVisible] = useState(false);
         const [helperWidth, setHelperWidth] = useState<string>(width ? `${width}rem` : '100%');
         const [focused, setFocused] = useState(false);
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
         const outerRef = createRef<HTMLTextAreaElement>();
+
+        const hintRef = useOutsideClick<HTMLDivElement>(() => {
+            setIsHintVisible(false);
+        });
+        const hintInnerRef = useRef<HTMLDivElement>(null);
+        const hintForkRef = useForkRef(hintRef, hintInnerRef);
 
         const innerOptional = required ? false : optional;
         const hasHelper = Boolean(leftHelper || rightHelper || helperText);
@@ -140,9 +168,26 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const placeholderLabel = hasInnerLabel ? label : placeholder;
 
         const clearClass = clear ? classes.clear : undefined;
+        const hasHintClass = hintText ? classes.hasHint : undefined;
         const hasRightContentClass = contentRight ? classes.hasRightContent : undefined;
         const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
-        const requiredPlacementClass = requiredPlacement === 'right' ? 'align-right ' : undefined;
+        const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
+
+        const handleHintShow = () => setIsHintVisible(true);
+        const handleHintHide = () => setIsHintVisible(false);
+        const handleHintClick: MouseEventHandler = (event) => {
+            if (!hintText || hintTrigger !== 'click') {
+                return;
+            }
+
+            event.stopPropagation();
+            const targetIsPopover = event.target === hintInnerRef.current;
+            const rootHasTarget = hintInnerRef.current?.contains(event.target as Element);
+
+            if (!targetIsPopover && !rootHasTarget) {
+                setIsHintVisible(true);
+            }
+        };
 
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
@@ -202,7 +247,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         );
 
         const optionalTextNode = innerOptional ? (
-            <StyledOptionalText>
+            <StyledOptionalText inheritFont={!hasOuterLabel}>
                 {Boolean(hasPlaceholderOptional ? placeholderLabel : label) && '\xa0'}
                 {optionalText}
             </StyledOptionalText>
@@ -216,17 +261,49 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 readOnly={readOnly}
                 clear={clear}
                 style={{ width: helperWidth, ...style }}
-                className={cx(clearClass, hasDividerClass, className)}
+                className={cx(clearClass, hasDividerClass, hasHintClass, className)}
                 onClick={handleTextAreaFocus}
+                {...(hintText && { hintView, hintSize })}
             >
-                {hasOuterLabel && (
-                    <StyledLabel>
-                        {required && (
-                            <StyledIndicator className={cx(classes.outerLabelPlacement, requiredPlacementClass)} />
+                {(hasOuterLabel || titleCaption) && (
+                    <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
+                        {hasOuterLabel && (
+                            <StyledIndicatorWrapper>
+                                <StyledLabel>{label}</StyledLabel>
+
+                                {hintText && (
+                                    <StyledHintWrapper>
+                                        <HintComponent
+                                            ref={hintForkRef}
+                                            hintText={hintText}
+                                            hintTrigger={hintTrigger}
+                                            isHintVisible={isHintVisible}
+                                            hintTargetIcon={hintTargetIcon}
+                                            hintPlacement={hintPlacement}
+                                            hintHasArrow={hintHasArrow}
+                                            hintOffset={hintOffset}
+                                            hintWidth={hintWidth}
+                                            hintContentLeft={hintContentLeft}
+                                            handleHintShow={handleHintShow}
+                                            handleHintHide={handleHintHide}
+                                            handleHintClick={handleHintClick}
+                                        />
+                                    </StyledHintWrapper>
+                                )}
+                                {required && (
+                                    <StyledIndicator
+                                        className={cx(
+                                            classes.outerLabelPlacement,
+                                            requiredPlacementClass,
+                                            hasHintClass,
+                                        )}
+                                    />
+                                )}
+                                {optionalTextNode}
+                            </StyledIndicatorWrapper>
                         )}
-                        {label}
-                        {optionalTextNode}
-                    </StyledLabel>
+                        {titleCaption && <TitleCaption>{titleCaption}</TitleCaption>}
+                    </OuterLabelWrapper>
                 )}
                 <StyledContainer
                     className={cx(styledContainer, ...dynamicLabelClasses)}
@@ -234,8 +311,31 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}
                 >
-                    {required && !hasOuterLabel && (
-                        <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
+                    {!hasOuterLabel && (
+                        <>
+                            {required && (
+                                <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
+                            )}
+                            {hintText && (
+                                <StyledHintWrapper className={classes.innerLabelPlacement}>
+                                    <HintComponent
+                                        ref={hintForkRef}
+                                        hintText={hintText}
+                                        hintTrigger={hintTrigger}
+                                        isHintVisible={isHintVisible}
+                                        hintTargetIcon={hintTargetIcon}
+                                        hintPlacement={hintPlacement}
+                                        hintHasArrow={hintHasArrow}
+                                        hintOffset={hintOffset}
+                                        hintWidth={hintWidth}
+                                        hintContentLeft={hintContentLeft}
+                                        handleHintShow={handleHintShow}
+                                        handleHintHide={handleHintHide}
+                                        handleHintClick={handleHintClick}
+                                    />
+                                </StyledHintWrapper>
+                            )}
+                        </>
                     )}
                     {contentRight && <StyledContent>{contentRight}</StyledContent>}
                     <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
@@ -306,6 +406,12 @@ export const textAreaConfig = {
         },
         readOnly: {
             attrs: true,
+        },
+        hintView: {
+            css: hintViewCSS,
+        },
+        hintSize: {
+            css: hintSizeCSS,
         },
     },
     defaults: {
