@@ -109,4 +109,51 @@ describe('plasma-web: Tabs', () => {
         cy.get('button').contains('Sber').should('be.visible');
         cy.get('button').contains('Joy').should('not.be.visible');
     });
+
+    it('truncate', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tabs size="l" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem
+                            size="l"
+                            view="divider"
+                            key={i}
+                            selected={i === 1}
+                            forwardedAs="li"
+                            maxItemWidth="2rem"
+                        >
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
+                <Tabs size="l" view="divider" forwardedAs="ul" orientation="vertical">
+                    {items.map((item, i) => (
+                        <TabItem
+                            size="l"
+                            view="divider"
+                            orientation="vertical"
+                            key={i}
+                            selected={i === 1}
+                            forwardedAs="li"
+                            maxItemWidth="5rem"
+                        >
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
+                <Tabs size="h5" view="clear" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem size="h5" view="clear" key={i} selected={i === 1} forwardedAs="li" maxItemWidth="2rem">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });

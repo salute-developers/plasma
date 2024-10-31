@@ -162,5 +162,8 @@ export const config = {
         clear: {
             true: css``,
         },
+        truncate: {
+            true: css``,
+        },
     },
 };

@@ -75,5 +75,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerColorHover}: none;
             `,
         },
+        truncate: {
+            true: css``,
+        },
     },
 };
