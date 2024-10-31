@@ -1,3 +1,260 @@
+# (Thu Oct 31 2024)
+
+### Release Notes
+
+#### Release by 30.10.2024 ([#1521](https://github.com/salute-developers/plasma/pull/1521))
+
+## Components
+
+### Генерация CSS linaria для SDDS SERV
+
+-   styled components перенесены в папку `styled-components` для пакета `sdds-serv`
+-   добавлена генерация CSS Linaria по-умолчанию для пакета `sdds-serv`
+
+ 
+feat(sdds-serv): Add linaria (https://github.com/salute-developers/plasma/pull/1419)
+
+### Accordion
+
+- исправлен параметр `contentRight`
+- исправлен отступы во всех поставках `sdds` в `AccordionItem`
+- добавлен новый параметр `opened`, для контроля состоянием вне компонента
+- добавлена возможность прокидывать `ref` в `AccordionItem`
+
+ 
+feat(*): Fix Accordion Right Content and Paddings (https://github.com/salute-developers/plasma/pull/1484)
+
+### TextArea, TextField
+
+- добавлены подсказки сверху справа и в виде Tooltip
+- обновлены тесты и документация
+
+**After**:
+<img width="498" alt="image" src="https://github.com/user-attachments/assets/31f03fe2-1325-4412-80b5-b443e19e2a2d">
+
+
+ 
+feat(plasma-*,sdds-*): add TextArea and TextField hints (https://github.com/salute-developers/plasma/pull/1459)
+
+
+### Select
+
+- добавлены новые токены в ядро компонента
+- исправлена конфигурация компонента с учетом новых токенов для поставки `sdds-cs`
+
+ 
+plasma-*: Update config for `Select` (https://github.com/salute-developers/plasma/pull/1504)
+
+### Dropdown
+- компонент Dropdown переведен на новую архитекутуру. API сохранен;
+- исправлен баг, связанный с невозможностью раскрытия выпадающего списка в старом(legacy) Dropdown;
+- исправлены недочеты по UI;
+- расширены возможности использования через портал;
+
+ 
+feat(plasma-*, sdds-*): Dropdown architecture improvement (https://github.com/salute-developers/plasma/pull/1497)
+
+### Combobox
+- несуществующие value (которых нет в массиве items) теперь отбрасываются и не принимают участие в работе компонента;
+- изменение массива items теперь приводит к обновлению выбранных элементов (для гибкой асинхронной работы);
+- исправлен баг, связанный с мутацией исходного массива items;
+- добавлено новое св-во renderValue;
+
+### Select
+- несуществующие value (которых нет в массиве items) теперь отбрасываются и не принимают участие в работе компонента;
+- изменение массива items теперь приводит к обновлению выбранных элементов (для гибкой асинхронной работы);
+
+ 
+feat(plasma-*, sdds-*): Combobox & Select improvements (https://github.com/salute-developers/plasma/pull/1505)
+
+### Slider
+
+* добавлено вертикальное отображение
+* обновлен дизайн горизонтального отображения
+
+ 
+feat: vertical single Slider (https://github.com/salute-developers/plasma/pull/1452)
+
+### Notification
+
+- изменен `type` для `title` на `ReactNode`
+- добавлено расположение `bottom-left`
+
+ 
+feat: Notification placement prop (https://github.com/salute-developers/plasma/pull/1503)
+
+### Tabs
+- добавлены `Header Tabs`
+- добавлены `hover` и `active` состояния для стрелок
+- обновлены тесты и `storybooks`
+
+ 
+plasma-*, sdds-*: Header Tabs added (https://github.com/salute-developers/plasma/pull/1502)
+
+### SDDS-CS
+
+- добавлена `view negative` для компонента `Select`
+- исправлен цветовой токен для `contentLeftColor` в компоненте `Select`
+- убраны лишние опции и примеры из storybook для компонента `Select`
+
+ 
+[PLASMA-3718]: Fix config for `Select` (https://github.com/salute-developers/plasma/pull/1519)
+
+### Combobox
+
+- добавлены тесты;
+
+
+feat(plasma-b2c, plasma-web): Combobox component tests (https://github.com/salute-developers/plasma/pull/1518)
+
+### Counter
+- видимое значение не может быть меньше 1
+- для значений от 1 до 9 `Counter` становится круглым
+- добавлены размеры `l`, `m`, `s` во все пакеты (в `sdds-cs` только размер `s`)
+- исправлены токены отступов для размера `xxs`
+- обновлены `storybooks` и документация
+
+**Before**:
+
+<img width="292" alt="berfore" src="https://github.com/user-attachments/assets/7762823b-2ae4-4474-abb6-d638fd98b805">
+
+**After**:
+
+<img width="827" alt="after" src="https://github.com/user-attachments/assets/27ec7202-6243-43a7-91a6-b94131f3b84f">
+ 
+
+`plasma-*, sdds-*`: `Counter` impovements added (https://github.com/salute-developers/plasma/pull/1514)
+
+
+## Tokens
+
+### Tokens
+
+- собраны изменение всех тем в один PR:
+  * https://github.com/salute-developers/plasma/pull/1491
+  * https://github.com/salute-developers/plasma/pull/1489
+  * https://github.com/salute-developers/plasma/pull/1486
+  * https://github.com/salute-developers/plasma/pull/1485
+- добавлена новая тема `sdds_os` на основе `sdds_serv`
+- обновлена `default` тема для пакета plasma-tokens
+
+ 
+feat(plasma-tokens,sdds-themes,plasma-themes): Add and update themes from other PRs (https://github.com/salute-developers/plasma/pull/1495)
+
+### Tokens
+
+* обновлены токены типографики в теме `sdds-cs`. Теперь для всех размеров экранов (L, M и S) значения всех параметров одинаковые
+
+ 
+fix(sdds-themes): Update typography tokens for `sdds-cs` theme (https://github.com/salute-developers/plasma/pull/1507)
+
+### Tokens
+
+- исправлена генерация токенов для модульного css, а также обновлены все темы
+- добавлены методы генерации наборов токенов (dark и light режимов) для компонента `ViewContainer`
+- добавлено подключение темы через css модули из пакета @salutejs/plasma-themes в plasma-new-hope
+
+### ViewContainer
+
+- добавлен компонент `ViewContainer` в plasma-new-hope в качестве примера
+- добавлен декоратор `decoratorViewContainer` в plasma-new-hope с возможностью переключения тем и режимов контейнера (onDark / onLight / default)
+- добавлен компонент `ViewContainer` во все библиотеки вертикали `sdds`, а также примеры и документация
+
+
+feat(plasma-new-hope, sdds-*): Add `ViewContainer` component (https://github.com/salute-developers/plasma/pull/1488)
+
+
+## Misc
+
+### Calendar
+
+- поправлено поведение hover для дней на календарной сетке
+
+**Before**:
+
+https://github.com/user-attachments/assets/992d2566-10a1-40ff-8d76-d3e2d8de4d13
+
+**After**:
+
+https://github.com/user-attachments/assets/8e0bf060-a103-46ba-aa4a-b5bc6bef632d
+
+ 
+fix(plasma-new-hope): Fix Calendar hover behaviour (https://github.com/salute-developers/plasma/pull/1498)
+
+### Sdds-insol
+
+- добавлена новая библиотека
+
+ 
+sdds-insol: Add library of components `sdds-insol` (https://github.com/salute-developers/plasma/pull/1509)
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-asdk@0.190.0`, `@salutejs/plasma-b2c@1.432.0`, `@salutejs/plasma-core@1.184.0`, `@salutejs/plasma-hope@1.317.0`, `@salutejs/plasma-icons@1.207.0`, `@salutejs/plasma-new-hope@0.181.0`, `@salutejs/plasma-tokens@1.103.0`, `@salutejs/plasma-ui@1.290.0`, `@salutejs/plasma-web@1.434.0`, `@salutejs/sdds-cs@0.162.0`, `@salutejs/sdds-dfa@0.160.0`, `@salutejs/sdds-finportal@0.154.0`, `@salutejs/sdds-insol@0.153.0`, `@salutejs/sdds-serv@0.161.0`, `@salutejs/core-themes@0.15.0`, `@salutejs/plasma-themes@0.22.0`, `@salutejs/sdds-themes@0.26.0`, `@salutejs/plasma-cy-utils@0.115.0`, `@salutejs/plasma-sb-utils@0.182.0`
+  - Release by 30.10.2024 [#1521](https://github.com/salute-developers/plasma/pull/1521) ([@iljs](https://github.com/iljs) [@Salute-Eva](https://github.com/Salute-Eva) [@simashova](https://github.com/simashova) [@Irinkv](https://github.com/Irinkv) [@neretin-trike](https://github.com/neretin-trike) [@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@shuga2704](https://github.com/shuga2704) [@vadim-kudr](https://github.com/vadim-kudr) [@denivladislav](https://github.com/denivladislav))
+- `@salutejs/sdds-cs@0.162.0`
+  - feat(sdds-cs): update api report [Select] [#1519](https://github.com/salute-developers/plasma/pull/1519) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/sdds-insol@0.153.0`
+  - feat(sdds-insol): Add library of components [#1509](https://github.com/salute-developers/plasma/pull/1509) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.432.0`, `@salutejs/plasma-web@1.434.0`, `@salutejs/sdds-dfa@0.160.0`, `@salutejs/sdds-finportal@0.154.0`, `@salutejs/sdds-serv@0.161.0`
+  - docs(): api reports regenerated [#1514](https://github.com/salute-developers/plasma/pull/1514) ([@denivladislav](https://github.com/denivladislav))
+- `@salutejs/plasma-b2c@1.432.0`, `@salutejs/plasma-new-hope@0.181.0`, `@salutejs/plasma-web@1.434.0`, `@salutejs/sdds-cs@0.162.0`, `@salutejs/sdds-dfa@0.160.0`, `@salutejs/sdds-finportal@0.154.0`, `@salutejs/sdds-serv@0.161.0`
+  - feat(plasma-*,sdds-*): add hasHint to TextField/Area stories [#1513](https://github.com/salute-developers/plasma/pull/1513) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - feat: vertical single Slider [#1452](https://github.com/salute-developers/plasma/pull/1452) ([@vadim-kudr](https://github.com/vadim-kudr))
+  - feat(*): add new tokens to select in all libs [#1504](https://github.com/salute-developers/plasma/pull/1504) ([@iljs](https://github.com/iljs))
+  - feat(*): add new props, edit contentRight, add ref to item and fix margin in sdds [#1484](https://github.com/salute-developers/plasma/pull/1484) ([@iljs](https://github.com/iljs))
+- `@salutejs/plasma-b2c@1.432.0`, `@salutejs/plasma-new-hope@0.181.0`, `@salutejs/plasma-web@1.434.0`, `@salutejs/sdds-cs@0.162.0`, `@salutejs/sdds-dfa@0.160.0`, `@salutejs/sdds-finportal@0.154.0`, `@salutejs/sdds-serv@0.161.0`, `@salutejs/sdds-themes@0.26.0`
+  - feat: Notification placement prop [#1503](https://github.com/salute-developers/plasma/pull/1503) ([@vadim-kudr](https://github.com/vadim-kudr))
+- `@salutejs/sdds-cs@0.162.0`, `@salutejs/sdds-dfa@0.160.0`, `@salutejs/sdds-finportal@0.154.0`, `@salutejs/sdds-serv@0.161.0`
+  - feat(sdds-*): Add `ViewContainer` component [#1488](https://github.com/salute-developers/plasma/pull/1488) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(sdds-*): add hint to TextArea & TextField [#1459](https://github.com/salute-developers/plasma/pull/1459) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-icons@1.207.0`
+  - feat(plasma-icons): add preset icons PanelSidebar [36x36] [#1494](https://github.com/salute-developers/plasma/pull/1494) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-themes@0.22.0`, `@salutejs/sdds-themes@0.26.0`
+  - feat(plasma-themes,sdds-themes): Add and update all themes [#1495](https://github.com/salute-developers/plasma/pull/1495) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-new-hope@0.181.0`, `@salutejs/sdds-serv@0.161.0`
+  - feat(sdds-serv): building [#1419](https://github.com/salute-developers/plasma/pull/1419) ([@iljs](https://github.com/iljs))
+
+#### 🐛 Bug Fix
+
+- ci: Add `plasma-themes` and `core-themes` to workflows [#1499](https://github.com/salute-developers/plasma/pull/1499) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.432.0`, `@salutejs/plasma-new-hope@0.181.0`, `@salutejs/plasma-web@1.434.0`
+  - feat(plasma-b2c, plasma-web): Combobox component tests [#1518](https://github.com/salute-developers/plasma/pull/1518) ([@shuga2704](https://github.com/shuga2704))
+- `@salutejs/plasma-new-hope@0.181.0`
+  - fix(plasma-new-hope): add more canUseDOM checks [#1515](https://github.com/salute-developers/plasma/pull/1515) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - fix(plasma-new-hope): replace useUniqId with safeUseId import [#1512](https://github.com/salute-developers/plasma/pull/1512) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - fix(plasma-new-hope): fix useFocusTrap import [#1508](https://github.com/salute-developers/plasma/pull/1508) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - fix(plasma-new-hope): fix DatePicker placeholder type [#1501](https://github.com/salute-developers/plasma/pull/1501) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - fix(plasma-new-hope): fix TextArea, TextField typo [#1498](https://github.com/salute-developers/plasma/pull/1498) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.432.0`, `@salutejs/plasma-web@1.434.0`, `@salutejs/sdds-cs@0.162.0`, `@salutejs/sdds-dfa@0.160.0`, `@salutejs/sdds-finportal@0.154.0`, `@salutejs/sdds-serv@0.161.0`
+  - docs(): api reports regenerated [#1502](https://github.com/salute-developers/plasma/pull/1502) ([@denivladislav](https://github.com/denivladislav))
+- `@salutejs/plasma-b2c@1.432.0`, `@salutejs/plasma-new-hope@0.181.0`, `@salutejs/plasma-web@1.434.0`, `@salutejs/sdds-cs@0.162.0`, `@salutejs/sdds-dfa@0.160.0`, `@salutejs/sdds-finportal@0.154.0`, `@salutejs/sdds-serv@0.161.0`
+  - feat(plasma-*, sdds-*): Combobox & Select improvements [#1505](https://github.com/salute-developers/plasma/pull/1505) ([@shuga2704](https://github.com/shuga2704))
+  - feat(plasma-*, sdds-*): Dropdown architecture improvement [#1497](https://github.com/salute-developers/plasma/pull/1497) ([@shuga2704](https://github.com/shuga2704))
+- `@salutejs/sdds-themes@0.26.0`
+  - fix(sdds-themes): Update typography tokens for `sdds-cs` theme [#1507](https://github.com/salute-developers/plasma/pull/1507) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.432.0`
+  - fix(plasma-b2c): handle side effect for css [#1448](https://github.com/salute-developers/plasma/pull/1448) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/sdds-cs@0.162.0`
+  - fix(sdds-cs): fix default value [#1496](https://github.com/salute-developers/plasma/pull/1496) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 10
+
+- [@iljs](https://github.com/iljs)
+- [@Irinkv](https://github.com/Irinkv)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Anastasia Simashova ([@simashova](https://github.com/simashova))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vladislav Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # (Thu Oct 17 2024)
 
 ### Release Notes
