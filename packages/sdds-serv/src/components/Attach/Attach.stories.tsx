@@ -77,7 +77,6 @@ export const Button: StoryObj<StoryAttachProps> = {
         width: '400px',
         buttonText: 'Загрузить файл',
         buttonValue: '',
-        square: false,
         enableContentLeft: false,
         enableContentRight: false,
         size: 'm',
