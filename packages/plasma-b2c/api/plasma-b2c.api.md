@@ -3081,6 +3081,9 @@ layout: {
 horizontal: PolymorphicClassName;
 vertical: PolymorphicClassName;
 };
+closeIconType: {
+default: PolymorphicClassName;
+};
 size: {
 xs: PolymorphicClassName;
 xxs: PolymorphicClassName;
@@ -4822,6 +4825,9 @@ light: PolymorphicClassName;
 };
 size: {
 m: PolymorphicClassName;
+};
+closeIconType: {
+default: PolymorphicClassName;
 };
 pilled: {
 true: PolymorphicClassName;

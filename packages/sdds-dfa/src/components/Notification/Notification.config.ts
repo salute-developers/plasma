@@ -3,6 +3,7 @@ import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-compon
 export const config = {
     defaults: {
         view: 'default',
+        closeIconType: 'default',
     },
     variations: {
         view: {
@@ -69,12 +70,16 @@ export const config = {
                 ${notificationTokens.padding}: 0.375rem;
             `,
         },
+        closeIconType: {
+            default: css`
+                ${notificationTokens.closeIconButtonSize}: 1.5rem;
+                ${notificationTokens.closeIconSize}: 1.5rem;
+            `,
+        },
         size: {
             xs: css`
                 ${notificationTokens.closeIconTop}: 0.5rem;
                 ${notificationTokens.closeIconRight}: 0.5rem;
-                ${notificationTokens.closeIconButtonSize}: 1.5rem;
-                ${notificationTokens.closeIconSize}: 1.5rem;
 
                 ${notificationTokens.padding}: 0.375rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
@@ -89,8 +94,6 @@ export const config = {
             xxs: css`
                 ${notificationTokens.closeIconTop}: 0.8125rem;
                 ${notificationTokens.closeIconRight}: 1rem;
-                ${notificationTokens.closeIconButtonSize}: 1.5rem;
-                ${notificationTokens.closeIconSize}: 1.5rem;
 
                 ${notificationTokens.padding}: 0.5625rem 1rem 1rem 1rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;

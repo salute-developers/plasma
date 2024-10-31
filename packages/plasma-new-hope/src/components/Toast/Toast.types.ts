@@ -54,6 +54,10 @@ export type ToastControllerProps = {
      * Вид блока подсказки
      */
     view?: string;
+    /**
+     * Вид закрывающей иконки в Notification.
+     */
+    closeIconType?: 'default' | 'thin';
 };
 
 export type CustomToastProps = {
@@ -91,6 +95,10 @@ export type CustomToastProps = {
      * Вид блока подсказки
      */
     view?: string;
+    /**
+     * Вид закрывающей иконки в Notification.
+     */
+    closeIconType?: 'default' | 'thin';
     /**
      * Колбек при нажатии на кнопку закрытия.
      */
