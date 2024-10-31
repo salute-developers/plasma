@@ -53,28 +53,45 @@ export const config = {
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldClearColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldClearPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
+
                 ${tokens.textFieldBackgroundColor}: var(--surface-solid-card);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-card);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldTextBeforeColor}: var(--text-secondary);
                 ${tokens.textFieldTextAfterColor}: var(--text-secondary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-negative);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-accent-hover);
+                ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
+
+                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
                 ${tokens.textFieldBorderColor}: var(--outline-negative);
                 ${tokens.textFieldBorderColorHover}: var(--outline-negative-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: var(--plasma-colors-transparent);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${tokens.itemColor}: var(--text-primary);
-                ${tokens.focusColor}: var(--surface-accent);
 
                 ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
+
                 ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
             `,
         },

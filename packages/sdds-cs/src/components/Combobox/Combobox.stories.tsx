@@ -11,8 +11,6 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
 };
 
 const view = ['default', 'negative'];
-const size = ['s'];
-const labelPlacement = ['outer'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
@@ -21,20 +19,8 @@ const meta: Meta<StorySelectProps> = {
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {
-        size: {
-            options: size,
-            control: {
-                type: 'select',
-            },
-        },
         view: {
             options: view,
-            control: {
-                type: 'select',
-            },
-        },
-        labelPlacement: {
-            options: labelPlacement,
             control: {
                 type: 'select',
             },
@@ -99,10 +85,8 @@ const meta: Meta<StorySelectProps> = {
     },
     args: {
         label: 'Label',
-        labelPlacement: 'outer',
         placeholder: 'Placeholder',
         helperText: 'Helper text',
-        size: 's',
         view: 'default',
         chipView: 'default',
         enableContentLeft: false,
