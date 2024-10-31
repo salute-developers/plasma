@@ -18,7 +18,7 @@ type StoryTextAreaPropsCustom = {
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
 const sizes = ['xs', 's', 'm', 'l'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const views = ['default', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
