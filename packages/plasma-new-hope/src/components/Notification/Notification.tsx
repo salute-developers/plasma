@@ -3,11 +3,13 @@ import React, { forwardRef, useMemo } from 'react';
 import { RootProps } from '../../engines';
 import { cx } from '../../utils';
 import { IconCross } from '../_Icon/Icons/IconCross';
+import { IconCrossThin } from '../_Icon/Icons/IconCrossThin';
 
 import { classes, tokens } from './Notification.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as layoutCSS } from './variations/_layout/base';
 import { base as sizeCSS } from './variations/_size/base';
+import { base as closeIconTypeCSS } from './variations/_closeIconType/base';
 import { NotificationLayout, NotificationProps, layouts } from './Notification.types';
 import {
     ButtonsWrapper,
@@ -38,6 +40,7 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             showCloseIcon = true,
             layout = layouts.vertical as NotificationLayout,
             icon,
+            closeIconType,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -63,6 +66,7 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                 view={view}
                 size={size}
                 layout={layout}
+                closeIconType={closeIconType}
                 ref={ref}
                 role={role}
                 aria-live={ariaLive}
@@ -107,7 +111,11 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                             onClick={onCloseButtonClick}
                             className={cx(classes.closeIcon, getLayoutClass(layout))}
                         >
-                            <IconCross size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                            {closeIconType === 'default' ? (
+                                <IconCross size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                            ) : (
+                                <IconCrossThin size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                            )}
                         </CloseIconWrapper>
                     )}
                 </Wrapper>
@@ -130,10 +138,14 @@ export const notificationConfig = {
         size: {
             css: sizeCSS,
         },
+        closeIconType: {
+            css: closeIconTypeCSS,
+        },
     },
     defaults: {
         view: 'default',
         layout: layouts.vertical,
         size: 'xs',
+        closeIconType: 'default',
     },
 };
