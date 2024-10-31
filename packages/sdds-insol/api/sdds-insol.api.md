@@ -701,6 +701,7 @@ export const Button: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
 accent: PolymorphicClassName;
+'accent-gradient': PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
 success: PolymorphicClassName;
@@ -3681,8 +3682,6 @@ l: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
-positive: PolymorphicClassName;
-primary: PolymorphicClassName;
 warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
@@ -3697,6 +3696,9 @@ clear: {
 true: PolymorphicClassName;
 };
 disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
 true: PolymorphicClassName;
 };
 }> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
