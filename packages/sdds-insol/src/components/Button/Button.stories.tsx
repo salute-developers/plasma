@@ -11,7 +11,7 @@ import type { ButtonProps as Base } from '.';
 
 type ButtonProps = ComponentProps<Base>;
 
-const views = ['default', 'accent', 'success', 'warning', 'critical', 'dark', 'light'];
+const views = ['default', 'accent', 'accent-gradient', 'success', 'warning', 'critical', 'dark', 'light'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
@@ -109,7 +109,7 @@ type StoryPropsDefault = ComponentProps<typeof Button> & {
 };
 
 const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
-    const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
+    const iconSize = size === 's' || size === 'xs' || size === 'xxs' ? 'xs' : 's';
 
     return (
         <Button
@@ -155,7 +155,7 @@ const StoryLoading = ({
     const [count, setCount] = useState(0);
     const intervalId = useRef<number | undefined>();
 
-    const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
+    const iconSize = size === 's' || size === 'xs' || size === 'xxs' ? 'xs' : 's';
 
     const onClickHandle = useCallback(
         (event) => {
