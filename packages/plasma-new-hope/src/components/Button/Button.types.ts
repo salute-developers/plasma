@@ -73,6 +73,8 @@ type CustomButtonProps = {
     stretching?: Stretching;
     /**
      * Кнопка принимает соотношение сторон 1:1
+     * @deprecated
+     * Использовать для этого случая IconButton
      */
     square?: boolean;
     /**
