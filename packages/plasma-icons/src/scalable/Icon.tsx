@@ -965,6 +965,7 @@ export const iconSectionsSet = {
         panelSidebarDFocusOutline: 'PanelSidebarDFocusOutline',
         panelSidebarDFocusOutlineOff: 'PanelSidebarDFocusOutlineOff',
         panelSidebarRFocusOutlineOff: 'PanelSidebarRFocusOutlineOff',
+        dotsVerticalCenteredOutline: 'DotsVerticalCenteredOutline',
     },
     Devices: {
         antennaFill: 'AntennaFill',
