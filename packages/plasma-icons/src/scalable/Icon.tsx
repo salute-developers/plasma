@@ -129,6 +129,7 @@ export const iconSectionsSet = {
         header5: 'Header5',
         superscriptText: 'SuperscriptText',
         variable: 'Variable',
+        history: 'History',
     },
     Animal: {
         animalFill: 'AnimalFill',
