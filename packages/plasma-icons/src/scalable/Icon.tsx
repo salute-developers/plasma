@@ -121,6 +121,7 @@ export const iconSectionsSet = {
         settingsFilterOff: 'SettingsFilterOff',
         sum: 'Sum',
         hierarchy: 'Hierarchy',
+        tree: 'Tree',
     },
     Animal: {
         animalFill: 'AnimalFill',
