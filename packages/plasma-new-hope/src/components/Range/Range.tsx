@@ -25,6 +25,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
     forwardRef<RangeInputRefs, RangeProps>(
         (
             {
+                autoComplete,
                 label,
                 leftHelper,
                 contentLeft,
@@ -136,6 +137,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                             onSearch={handleSearchFirstValue}
                             onFocus={onFocusFirstTextfield}
                             onBlur={onBlurFirstTextfield}
+                            autoComplete={autoComplete}
                         />
                         {Divider}
                         <StyledInput
@@ -153,6 +155,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                             onSearch={handleSearchSecondValue}
                             onFocus={onFocusSecondTextfield}
                             onBlur={onBlurSecondTextfield}
+                            autoComplete={autoComplete}
                         />
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                     </ContentWrapper>
