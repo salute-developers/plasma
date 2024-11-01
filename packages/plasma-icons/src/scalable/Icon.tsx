@@ -275,6 +275,8 @@ export const iconSectionsSet = {
         doubleDisclosureDown: 'DoubleDisclosureDown',
         doubleDisclosureUp: 'DoubleDisclosureUp',
         swapVertOff: 'SwapVertOff',
+        arrowDiagLeftUp: 'ArrowDiagLeftUp',
+        arrowDiagRightDown: 'ArrowDiagRightDown',
     },
     Data: {
         chartDistributionFill: 'ChartDistributionFill',
