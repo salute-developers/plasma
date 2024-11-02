@@ -6,7 +6,7 @@ import { Image, Ratio } from '.';
 import type { ImageProps } from '.';
 
 const meta: Meta<ImageProps> = {
-    title: 'Content/Image',
+    title: 'Data Display/Image',
     component: Image,
     decorators: [InSpacingDecorator],
     argTypes: {
