@@ -40,7 +40,7 @@ import {
 } from '.';
 
 const meta: Meta<SpacingProps> = {
-    title: 'Content/Typography',
+    title: 'Data Display/Typography',
     component: DsplL,
     argTypes: {
         ...disableProps(['size']),
