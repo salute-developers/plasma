@@ -14,7 +14,7 @@ const config = hasComponentDraftConfig() ? draftConfig : defaultConfig;
 const Badge = createComponentByConfig(badgeConfig, config);
 
 const meta: Meta<typeof Badge> = {
-    title: 'Content/Badge',
+    title: 'Data Display/Badge',
     component: Badge,
     decorators: [InSpacingDecorator],
     argTypes: {
