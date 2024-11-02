@@ -12,7 +12,7 @@ import { LineSkeleton, TextSkeleton, RectSkeleton } from '.';
 import type { LineSkeletonProps, TextSkeletonProps, RectSkeletonProps } from '.';
 
 const meta: Meta = {
-    title: 'Content/Skeleton',
+    title: 'Data Display/Skeleton',
     decorators: [InSpacingDecorator],
 };
 
