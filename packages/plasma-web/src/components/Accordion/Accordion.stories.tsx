@@ -8,7 +8,7 @@ import { IconButton } from '../IconButton/IconButton';
 import { Accordion, AccordionItem } from '.';
 
 const meta: Meta<typeof Accordion> = {
-    title: 'Content/Accordion',
+    title: 'Data Display/Accordion',
     component: Accordion,
     args: {
         singleActive: false,
