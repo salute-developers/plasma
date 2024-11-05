@@ -18,7 +18,7 @@ const meta: Meta<SwitchProps> = {
     decorators: [WithTheme],
     component: Switch,
     argTypes: {
-        ...argTypesFromConfig(mergeConfig(switchConfig, config), ['size', 'view', 'focused']),
+        ...argTypesFromConfig(mergeConfig(switchConfig, config), ['view', 'focused']),
         labelPosition: {
             options: ['before', 'after'],
             control: { type: 'select' },
@@ -64,5 +64,9 @@ const StoryDefault = (args: SwitchProps) => {
 };
 
 export const Default: StoryObj<SwitchProps> = {
+    args: {
+        size: 'm',
+        disabled: false,
+    },
     render: (args) => <StoryDefault {...args} />,
 };
