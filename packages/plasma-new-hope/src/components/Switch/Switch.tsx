@@ -7,7 +7,7 @@ import { base as focusedCSS } from '../Switch/_focused/base';
 import { base as disabledCSS } from '../Switch/_disabled/base';
 import { cx } from '../../utils';
 
-import { StyledInput, StyledLabel, StyledTrigger, base } from './Switch.styles';
+import { StyledContent, StyledDescription, StyledInput, StyledLabel, StyledTrigger, base } from './Switch.styles';
 import { SwitchProps } from './Switch.types';
 import { classes } from './Switch.tokens';
 
@@ -22,6 +22,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
             labelPosition,
 
             label,
+            description,
 
             id,
             style,
@@ -47,20 +48,23 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                 labelPosition={labelPosition}
                 id={id}
                 style={style}
-                className={cx(className, classes[`${labelPosition}SwitchLabelPosition` as keyof typeof classes])}
+                className={cx(className)}
             >
-                <StyledInput
-                    {...rest}
-                    ref={ref}
-                    role="switch"
-                    aria-checked={exactChecked}
-                    type="checkbox"
-                    checked={checked ?? pressed}
-                    defaultChecked={defaultChecked}
-                    disabled={disabled}
-                />
-                <StyledLabel tabIndex={-1}>{label}</StyledLabel>
-                <StyledTrigger aria-hidden />
+                <StyledContent className={cx(classes[`${labelPosition}SwitchLabelPosition` as keyof typeof classes])}>
+                    <StyledInput
+                        {...rest}
+                        ref={ref}
+                        role="switch"
+                        aria-checked={exactChecked}
+                        type="checkbox"
+                        checked={checked ?? pressed}
+                        defaultChecked={defaultChecked}
+                        disabled={disabled}
+                    />
+                    <StyledLabel tabIndex={-1}>{label}</StyledLabel>
+                    <StyledTrigger aria-hidden />
+                </StyledContent>
+                {description && <StyledDescription>{description}</StyledDescription>}
             </Root>
         );
     });

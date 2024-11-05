@@ -5,6 +5,10 @@ export interface SwitchPropsPropsBase {
      * Метка-подпись к элементу
      */
     label?: string;
+    /**
+     * Дополнительное описание
+     */
+    description?: string;
 }
 
 export interface SwitchPropsVariations extends SwitchPropsPropsBase {

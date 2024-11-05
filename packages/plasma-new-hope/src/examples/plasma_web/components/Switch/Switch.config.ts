@@ -18,6 +18,13 @@ export const config = {
                 ${switchTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
                 ${switchTokens.fontSize}: var(--plasma-typo-body-s-font-size);
                 ${switchTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${switchTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.trackWidth}: 2.75rem;
                 ${switchTokens.trackHeight}: 1.75rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
@@ -34,6 +41,13 @@ export const config = {
                 ${switchTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
                 ${switchTokens.fontSize}: var(--plasma-typo-body-m-font-size);
                 ${switchTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
+                ${switchTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.trackWidth}: 2.75rem;
                 ${switchTokens.trackHeight}: 1.75rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
@@ -50,6 +64,13 @@ export const config = {
                 ${switchTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
                 ${switchTokens.fontSize}: var(--plasma-typo-body-l-font-size);
                 ${switchTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
+                ${switchTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.trackWidth}: 2.75rem;
                 ${switchTokens.trackHeight}: 1.75rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
@@ -62,6 +83,8 @@ export const config = {
         },
         view: {
             default: css`
+                ${switchTokens.labelColor}: var(--text-primary);
+                ${switchTokens.descriptionColor}: var(--text-secondary);
                 ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
                 ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
                 ${switchTokens.trackBackgroundColorOff}: var(--surface-transparent-tertiary);

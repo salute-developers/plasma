@@ -6,13 +6,26 @@ export const tokens = {
     letterSpacing: '--plasma-switch-letter-spacing',
     lineHeight: '--plasma-switch-line-height',
 
+    /* Токены description */
+    descriptionFontFamily: '--plasma-switch-description-font-family',
+    descriptionFontStyle: '--plasma-switch-description-font-style',
+    descriptionFontSize: '--plasma-switch-description-font-size',
+    descriptionFontWeight: '--plasma-switch-description-font-weight',
+    descriptionLetterSpacing: '--plasma-switch-description-letter-spacing',
+    descriptionLineHeight: '--plasma-switch-description-line-height',
+
     /* Цвет подписи */
     labelColor: '--plasma-switch__label-color',
     labelOffset: '--plasma-switch__label-offset',
 
+    /* Цвет описания */
+    descriptionColor: '--plasma-switch__description-color',
+    descriptionOffset: '--plasma-switch__description-offset',
+
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-switch-disabled-opacity',
 
+    verticalGap: '--plasma-switch-vertical-gap',
     trackWidth: '--plasma-switch__track-width',
     trackHeight: '--plasma-switch__track-height',
     trackBorderRadius: '--plasma-switch__track-border-radius',
