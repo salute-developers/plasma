@@ -26,6 +26,7 @@ const meta: Meta<SwitchProps> = {
     },
     args: {
         label: 'Label',
+        description: 'Description',
         labelPosition: 'before',
     },
 };
