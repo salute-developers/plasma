@@ -2256,6 +2256,15 @@ export const backgroundMobileAssistantBrand =
 export const backgroundMobileAssistantMain =
     'var(--background-mobile-assistant-main, linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%)), var(--background-mobile-assistant-main, radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%)), var(--background-mobile-assistant-main, linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%)), var(--background-mobile-assistant-main, linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-main, #080808FF)';
 
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimaryBrightness = 'var(--inverse-background-primary-brightness, #FFFFFF)';
+
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F2F2F2)';
+
+/** Инвертированный вторичный фон */
+export const inverseBackgroundSecondary = 'var(--inverse-background-secondary, #FFFFFF)';
+
 /** Цвет фона паранжи светлый на темном фоне */
 export const onDarkOverlaySoft = 'var(--on-dark-overlay-soft, rgba(0, 0, 0, 0.56))';
 

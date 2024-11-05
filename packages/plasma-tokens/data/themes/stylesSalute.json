@@ -6263,25 +6263,25 @@
                 }
             },
             "inverse": {
-                "backgroundPrimary": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный основной фон",
-                    "enabled": false
-                },
                 "backgroundPrimaryBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный основной фон",
-                    "enabled": false
-                },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный вторичный фон",
-                    "enabled": false
+                    "enabled": true
                 },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#F2F2F2",
+                    "comment": "Инвертированный основной фон",
+                    "enabled": true
+                },
+                "backgroundSecondary": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный вторичный фон",
+                    "enabled": true
                 }
             }
         },
@@ -15176,25 +15176,25 @@
                 }
             },
             "inverse": {
-                "backgroundPrimary": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный основной фон",
-                    "enabled": false
-                },
                 "backgroundPrimaryBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный основной фон",
-                    "enabled": false
-                },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный вторичный фон",
-                    "enabled": false
+                    "enabled": true
                 },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#000000",
+                    "comment": "Инвертированный основной фон",
+                    "enabled": true
+                },
+                "backgroundSecondary": {
+                    "value": "[general.gray.950]",
+                    "comment": "Инвертированный вторичный фон",
+                    "enabled": true
                 }
             }
         },

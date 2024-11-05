@@ -819,6 +819,9 @@ export const stylesSalute__light = {
             'linear-gradient(336.9deg, rgba(4, 255, 44, 0.02) 0%, rgba(255, 255, 255, 0) 64.95%), radial-gradient(100% 100% at 75.89% 100%, rgba(0, 179, 255, 0.06) 0%, rgba(0, 209, 255, 0.01) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(0, 251, 59, 0.05) 100%), linear-gradient(270deg, rgba(6, 195, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFFFF',
         '--background-mobile-assistant-main':
             'linear-gradient(336.9deg, rgba(4, 255, 44, 0.02) 0%, rgba(255, 255, 255, 0) 64.95%), radial-gradient(100% 100% at 75.89% 100%, rgba(0, 179, 255, 0.06) 0%, rgba(0, 209, 255, 0.01) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(0, 251, 59, 0.05) 100%), linear-gradient(270deg, rgba(6, 195, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFFFF',
+        '--inverse-background-primary-brightness': '#FFFFFF',
+        '--inverse-background-primary': '#000000',
+        '--inverse-background-secondary': '#171717',
         '--on-dark-overlay-soft': 'rgba(0, 0, 0, 0.56)',
         '--on-dark-overlay-hard': '#000000EB',
         '--on-dark-overlay-blur': '#26262647',
