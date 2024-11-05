@@ -6,6 +6,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'm',
+        toggleSize: 'l',
         labelPosition: 'before',
         focused: 'true',
     },
@@ -23,15 +24,8 @@ export const config = {
                 ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${switchTokens.verticalGap}: 0.25rem;
-                ${switchTokens.trackWidth}: 2.75rem;
-                ${switchTokens.trackHeight}: 1.75rem;
-                ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
-                ${switchTokens.thumbSize}: 1.5rem;
-                ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
-                ${switchTokens.thumbPressScale}: 1.25;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
             m: css`
@@ -46,15 +40,8 @@ export const config = {
                 ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${switchTokens.verticalGap}: 0.25rem;
-                ${switchTokens.trackWidth}: 2.75rem;
-                ${switchTokens.trackHeight}: 1.75rem;
-                ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
-                ${switchTokens.thumbSize}: 1.5rem;
-                ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
-                ${switchTokens.thumbPressScale}: 1.25;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
             l: css`
@@ -69,8 +56,13 @@ export const config = {
                 ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${switchTokens.verticalGap}: 0.25rem;
+                ${switchTokens.labelOffset}: 0.75rem;
+            `,
+        },
+        toggleSize: {
+            l: css`
                 ${switchTokens.trackWidth}: 2.75rem;
                 ${switchTokens.trackHeight}: 1.75rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
@@ -78,7 +70,15 @@ export const config = {
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
                 ${switchTokens.thumbOffset}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
-                ${switchTokens.labelOffset}: 0.75rem;
+            `,
+            s: css`
+                ${switchTokens.trackWidth}: 2rem;
+                ${switchTokens.trackHeight}: 1.25rem;
+                ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
+                ${switchTokens.thumbSize}: 1rem;
+                ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
+                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbPressScale}: 1.25;
             `,
         },
         view: {
