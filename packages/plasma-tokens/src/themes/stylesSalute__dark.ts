@@ -457,6 +457,14 @@ export const stylesSalute__dark = {
         '--surface-transparent-accent-main': 'rgba(26,158,50,0.20)',
         '--surface-transparent-accent-main-hover': '#1A9E3252',
         '--surface-transparent-accent-main-active': '#1A9E3224',
+        '--surface-skeleton-gradient':
+            'linear-gradient(270deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.09) 5%, rgba(255, 255, 255, 0.10) 10%, rgba(255, 255, 255, 0.11) 20%, rgba(255, 255, 255, 0.12) 25%, rgba(255, 255, 255, 0.13) 30%, rgba(255, 255, 255, 0.14) 40%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.15) 55%, rgba(255, 255, 255, 0.14) 60%, rgba(255, 255, 255, 0.13) 70%, rgba(255, 255, 255, 0.12) 75%, rgba(255, 255, 255, 0.11) 80%, rgba(255, 255, 255, 0.10) 85%, rgba(255, 255, 255, 0.10) 90%, rgba(255, 255, 255, 0.09) 95%, rgba(255, 255, 255, 0.08) 100%)',
+        '--surface-skeleton-gradient-hover': '#FFFFFFFF',
+        '--surface-skeleton-gradient-active': '#FFFFFFFF',
+        '--surface-skeleton-deep-gradient':
+            'linear-gradient(270deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.30) 5%, rgba(255, 255, 255, 0.32) 10%, rgba(255, 255, 255, 0.34) 15%, rgba(255, 255, 255, 0.36) 20%, rgba(255, 255, 255, 0.38) 25%, rgba(255, 255, 255, 0.40) 30%, rgba(255, 255, 255, 0.42) 35%, rgba(255, 255, 255, 0.44) 40%, rgba(255, 255, 255, 0.46) 45%, rgba(255, 255, 255, 0.48) 50%, rgba(255, 255, 255, 0.46) 55%, rgba(255, 255, 255, 0.44) 60%, rgba(255, 255, 255, 0.42) 65%, rgba(255, 255, 255, 0.40) 70%, rgba(255, 255, 255, 0.38) 75%, rgba(255, 255, 255, 0.36) 80%, rgba(255, 255, 255, 0.34) 85%, rgba(255, 255, 255, 0.32) 90%, rgba(255, 255, 255, 0.30) 95%, rgba(255, 255, 255, 0.28) 100%)',
+        '--surface-skeleton-deep-gradient-hover': '#FFFFFFFF',
+        '--surface-skeleton-deep-gradient-active': '#FFFFFFFF',
         '--on-dark-surface-solid-primary-hover': '#1C1C1CFF',
         '--on-dark-surface-solid-primary-active': '#121212FF',
         '--on-dark-surface-solid-primary': '#171717',
@@ -571,6 +579,14 @@ export const stylesSalute__dark = {
         '--on-dark-surface-transparent-accent-brand': 'rgba(63,129,253,0.20)',
         '--on-dark-surface-transparent-accent-brand-hover': '#3F82FD52',
         '--on-dark-surface-transparent-accent-brand-active': '#3F82FD24',
+        '--on-dark-surface-skeleton-gradient':
+            'linear-gradient(270deg, rgba(8, 8, 8, 0.06) 0%, rgba(8, 8, 8, 0.05) 10%, rgba(8, 8, 8, 0.04) 20%, rgba(8, 8, 8, 0.03) 25%, rgba(8, 8, 8, 0.02) 30%, rgba(8, 8, 8, 0.01) 40%, rgba(8, 8, 8, 0.00) 50%, rgba(8, 8, 8, 0.01) 60%, rgba(8, 8, 8, 0.02) 70%, rgba(8, 8, 8, 0.03) 75%, rgba(8, 8, 8, 0.04) 80%, rgba(8, 8, 8, 0.05) 90%, rgba(8, 8, 8, 0.06) 100%)',
+        '--on-dark-surface-skeleton-gradient-hover': '#FFFFFFFF',
+        '--on-dark-surface-skeleton-gradient-active': '#FFFFFFFF',
+        '--on-dark-surface-skeleton-deep-gradient':
+            'linear-gradient(90deg, rgba(8, 8, 8, 0.24) 0%, rgba(8, 8, 8, 0.22) 5%, rgba(8, 8, 8, 0.21) 10%, rgba(8, 8, 8, 0.19) 15%, rgba(8, 8, 8, 0.18) 20%, rgba(8, 8, 8, 0.16) 25%, rgba(8, 8, 8, 0.14) 30%, rgba(8, 8, 8, 0.13) 35%, rgba(8, 8, 8, 0.11) 40%, rgba(8, 8, 8, 0.10) 45%, rgba(8, 8, 8, 0.08) 50%, rgba(8, 8, 8, 0.10) 55%, rgba(8, 8, 8, 0.11) 60%, rgba(8, 8, 8, 0.13) 65%, rgba(8, 8, 8, 0.14) 70%, rgba(8, 8, 8, 0.16) 75%, rgba(8, 8, 8, 0.18) 80%, rgba(8, 8, 8, 0.19) 85%, rgba(8, 8, 8, 0.21) 90%, rgba(8, 8, 8, 0.22) 95%, rgba(8, 8, 8, 0.24) 100%)',
+        '--on-dark-surface-skeleton-deep-gradient-hover': '#FFFFFFFF',
+        '--on-dark-surface-skeleton-deep-gradient-active': '#FFFFFFFF',
         '--on-light-surface-solid-primary-hover': '#FAFAFAFF',
         '--on-light-surface-solid-primary-active': '#F0F0F0FF',
         '--on-light-surface-solid-primary': '#F5F5F5',
@@ -688,6 +704,14 @@ export const stylesSalute__dark = {
         '--on-light-surface-transparent-accent-brand': 'rgba(63,129,253,0.12)',
         '--on-light-surface-transparent-accent-brand-hover': '#3F82FD3D',
         '--on-light-surface-transparent-accent-brand-active': '#3F82FD0F',
+        '--on-light-surface-skeleton-gradient-hover': '#FFFFFFFF',
+        '--on-light-surface-skeleton-gradient-active': '#FFFFFFFF',
+        '--on-light-surface-skeleton-deep-gradient-hover': '#FFFFFFFF',
+        '--on-light-surface-skeleton-deep-gradient-active': '#FFFFFFFF',
+        '--on-light-surface-skeleton-gradient':
+            'linear-gradient(270deg, rgba(8, 8, 8, 0.06) 0%, rgba(8, 8, 8, 0.05) 10%, rgba(8, 8, 8, 0.04) 20%, rgba(8, 8, 8, 0.03) 25%, rgba(8, 8, 8, 0.02) 30%, rgba(8, 8, 8, 0.01) 40%, rgba(8, 8, 8, 0.00) 50%, rgba(8, 8, 8, 0.01) 60%, rgba(8, 8, 8, 0.02) 70%, rgba(8, 8, 8, 0.03) 75%, rgba(8, 8, 8, 0.04) 80%, rgba(8, 8, 8, 0.05) 90%, rgba(8, 8, 8, 0.06) 100%)',
+        '--on-light-surface-skeleton-deep-gradient':
+            'linear-gradient(90deg, rgba(8, 8, 8, 0.24) 0%, rgba(8, 8, 8, 0.22) 5%, rgba(8, 8, 8, 0.21) 10%, rgba(8, 8, 8, 0.19) 15%, rgba(8, 8, 8, 0.18) 20%, rgba(8, 8, 8, 0.16) 25%, rgba(8, 8, 8, 0.14) 30%, rgba(8, 8, 8, 0.13) 35%, rgba(8, 8, 8, 0.11) 40%, rgba(8, 8, 8, 0.10) 45%, rgba(8, 8, 8, 0.08) 50%, rgba(8, 8, 8, 0.10) 55%, rgba(8, 8, 8, 0.11) 60%, rgba(8, 8, 8, 0.13) 65%, rgba(8, 8, 8, 0.14) 70%, rgba(8, 8, 8, 0.16) 75%, rgba(8, 8, 8, 0.18) 80%, rgba(8, 8, 8, 0.19) 85%, rgba(8, 8, 8, 0.21) 90%, rgba(8, 8, 8, 0.22) 95%, rgba(8, 8, 8, 0.24) 100%)',
         '--inverse-surface-solid-primary-hover': '#FAFAFAFF',
         '--inverse-surface-solid-primary-active': '#F0F0F0FF',
         '--inverse-surface-solid-primary-brightness': '#FFFFFFFF',
@@ -802,6 +826,14 @@ export const stylesSalute__dark = {
         '--inverse-surface-gradient-main-hover': '#FFFFFFFF',
         '--inverse-surface-gradient-main-active': '#FFFFFFFF',
         '--inverse-surface-gradient-main': 'linear-gradient(88deg, #24B23E 0%, #00A4D1 100%)',
+        '--inverse-surface-skeleton-gradient':
+            'linear-gradient(270deg, rgba(8, 8, 8, 0.06) 0%, rgba(8, 8, 8, 0.05) 10%, rgba(8, 8, 8, 0.04) 20%, rgba(8, 8, 8, 0.03) 25%, rgba(8, 8, 8, 0.02) 30%, rgba(8, 8, 8, 0.01) 40%, rgba(8, 8, 8, 0.00) 50%, rgba(8, 8, 8, 0.01) 60%, rgba(8, 8, 8, 0.02) 70%, rgba(8, 8, 8, 0.03) 75%, rgba(8, 8, 8, 0.04) 80%, rgba(8, 8, 8, 0.05) 90%, rgba(8, 8, 8, 0.06) 100%)',
+        '--inverse-surface-skeleton-gradient-hover': '#FFFFFFFF',
+        '--inverse-surface-skeleton-gradient-active': '#FFFFFFFF',
+        '--inverse-surface-skeleton-deep-gradient':
+            'linear-gradient(90deg, rgba(8, 8, 8, 0.24) 0%, rgba(8, 8, 8, 0.22) 5%, rgba(8, 8, 8, 0.21) 10%, rgba(8, 8, 8, 0.19) 15%, rgba(8, 8, 8, 0.18) 20%, rgba(8, 8, 8, 0.16) 25%, rgba(8, 8, 8, 0.14) 30%, rgba(8, 8, 8, 0.13) 35%, rgba(8, 8, 8, 0.11) 40%, rgba(8, 8, 8, 0.10) 45%, rgba(8, 8, 8, 0.08) 50%, rgba(8, 8, 8, 0.10) 55%, rgba(8, 8, 8, 0.11) 60%, rgba(8, 8, 8, 0.13) 65%, rgba(8, 8, 8, 0.14) 70%, rgba(8, 8, 8, 0.16) 75%, rgba(8, 8, 8, 0.18) 80%, rgba(8, 8, 8, 0.19) 85%, rgba(8, 8, 8, 0.21) 90%, rgba(8, 8, 8, 0.22) 95%, rgba(8, 8, 8, 0.24) 100%)',
+        '--inverse-surface-skeleton-deep-gradient-hover': '#FFFFFFFF',
+        '--inverse-surface-skeleton-deep-gradient-active': '#FFFFFFFF',
         '--background-primary': '#000000FF',
         '--background-primary-brightness': '#0F0FFF',
         '--background-secondary': '#171717',
@@ -817,6 +849,9 @@ export const stylesSalute__dark = {
             'linear-gradient(336.9deg, #184BAB 0%, rgba(8, 8, 8, 0) 64.95%), radial-gradient(66.53% 100% at 73.33% 100%, rgba(22, 69, 164, 0.44) 0%, rgba(11, 39, 45, 0.1) 100%), linear-gradient(180.03deg, rgba(8, 8, 8, 0) 50%, rgba(22, 69, 164, 0.41) 99.97%), linear-gradient(269.47deg, rgba(22, 69, 164, 0.3) 0.52%, rgba(8, 8, 8, 0) 99.61%), #080808FF',
         '--background-mobile-assistant-main':
             'linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%), radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%), linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%), linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%), #080808FF',
+        '--inverse-background-primary-brightness': '#FFFFFF',
+        '--inverse-background-primary': '#F2F2F2',
+        '--inverse-background-secondary': '#FFFFFF',
         '--on-dark-overlay-soft': 'rgba(0, 0, 0, 0.56)',
         '--on-dark-overlay-hard': '#000000EB',
         '--on-dark-overlay-blur': '#26262647',

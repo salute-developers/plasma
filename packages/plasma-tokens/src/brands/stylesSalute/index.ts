@@ -1256,6 +1256,20 @@ export const surfaceTransparentAccentMainHover = 'var(--surface-transparent-acce
 
 export const surfaceTransparentAccentMainActive = 'var(--surface-transparent-accent-main-active, #1A9E3224)';
 
+export const surfaceSkeletonGradient =
+    'var(--surface-skeleton-gradient, linear-gradient(270deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.09) 5%, rgba(255, 255, 255, 0.10) 10%, rgba(255, 255, 255, 0.11) 20%, rgba(255, 255, 255, 0.12) 25%, rgba(255, 255, 255, 0.13) 30%, rgba(255, 255, 255, 0.14) 40%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.15) 55%, rgba(255, 255, 255, 0.14) 60%, rgba(255, 255, 255, 0.13) 70%, rgba(255, 255, 255, 0.12) 75%, rgba(255, 255, 255, 0.11) 80%, rgba(255, 255, 255, 0.10) 85%, rgba(255, 255, 255, 0.10) 90%, rgba(255, 255, 255, 0.09) 95%, rgba(255, 255, 255, 0.08) 100%))';
+
+export const surfaceSkeletonGradientHover = 'var(--surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+export const surfaceSkeletonGradientActive = 'var(--surface-skeleton-gradient-active, #FFFFFFFF)';
+
+export const surfaceSkeletonDeepGradient =
+    'var(--surface-skeleton-deep-gradient, linear-gradient(270deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.30) 5%, rgba(255, 255, 255, 0.32) 10%, rgba(255, 255, 255, 0.34) 15%, rgba(255, 255, 255, 0.36) 20%, rgba(255, 255, 255, 0.38) 25%, rgba(255, 255, 255, 0.40) 30%, rgba(255, 255, 255, 0.42) 35%, rgba(255, 255, 255, 0.44) 40%, rgba(255, 255, 255, 0.46) 45%, rgba(255, 255, 255, 0.48) 50%, rgba(255, 255, 255, 0.46) 55%, rgba(255, 255, 255, 0.44) 60%, rgba(255, 255, 255, 0.42) 65%, rgba(255, 255, 255, 0.40) 70%, rgba(255, 255, 255, 0.38) 75%, rgba(255, 255, 255, 0.36) 80%, rgba(255, 255, 255, 0.34) 85%, rgba(255, 255, 255, 0.32) 90%, rgba(255, 255, 255, 0.30) 95%, rgba(255, 255, 255, 0.28) 100%))';
+
+export const surfaceSkeletonDeepGradientHover = 'var(--surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+export const surfaceSkeletonDeepGradientActive = 'var(--surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #1C1C1CFF)';
 
@@ -1577,6 +1591,21 @@ export const onDarkSurfaceTransparentAccentBrandHover =
 
 export const onDarkSurfaceTransparentAccentBrandActive =
     'var(--on-dark-surface-transparent-accent-brand-active, #3F82FD24)';
+
+export const onDarkSurfaceSkeletonGradient =
+    'var(--on-dark-surface-skeleton-gradient, linear-gradient(270deg, rgba(8, 8, 8, 0.06) 0%, rgba(8, 8, 8, 0.05) 10%, rgba(8, 8, 8, 0.04) 20%, rgba(8, 8, 8, 0.03) 25%, rgba(8, 8, 8, 0.02) 30%, rgba(8, 8, 8, 0.01) 40%, rgba(8, 8, 8, 0.00) 50%, rgba(8, 8, 8, 0.01) 60%, rgba(8, 8, 8, 0.02) 70%, rgba(8, 8, 8, 0.03) 75%, rgba(8, 8, 8, 0.04) 80%, rgba(8, 8, 8, 0.05) 90%, rgba(8, 8, 8, 0.06) 100%))';
+
+export const onDarkSurfaceSkeletonGradientHover = 'var(--on-dark-surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+export const onDarkSurfaceSkeletonGradientActive = 'var(--on-dark-surface-skeleton-gradient-active, #FFFFFFFF)';
+
+export const onDarkSurfaceSkeletonDeepGradient =
+    'var(--on-dark-surface-skeleton-deep-gradient, linear-gradient(90deg, rgba(8, 8, 8, 0.24) 0%, rgba(8, 8, 8, 0.22) 5%, rgba(8, 8, 8, 0.21) 10%, rgba(8, 8, 8, 0.19) 15%, rgba(8, 8, 8, 0.18) 20%, rgba(8, 8, 8, 0.16) 25%, rgba(8, 8, 8, 0.14) 30%, rgba(8, 8, 8, 0.13) 35%, rgba(8, 8, 8, 0.11) 40%, rgba(8, 8, 8, 0.10) 45%, rgba(8, 8, 8, 0.08) 50%, rgba(8, 8, 8, 0.10) 55%, rgba(8, 8, 8, 0.11) 60%, rgba(8, 8, 8, 0.13) 65%, rgba(8, 8, 8, 0.14) 70%, rgba(8, 8, 8, 0.16) 75%, rgba(8, 8, 8, 0.18) 80%, rgba(8, 8, 8, 0.19) 85%, rgba(8, 8, 8, 0.21) 90%, rgba(8, 8, 8, 0.22) 95%, rgba(8, 8, 8, 0.24) 100%))';
+
+export const onDarkSurfaceSkeletonDeepGradientHover = 'var(--on-dark-surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+export const onDarkSurfaceSkeletonDeepGradientActive =
+    'var(--on-dark-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #FAFAFAFF)';
@@ -1913,6 +1942,22 @@ export const onLightSurfaceTransparentAccentBrandHover =
 export const onLightSurfaceTransparentAccentBrandActive =
     'var(--on-light-surface-transparent-accent-brand-active, #3F82FD0F)';
 
+export const onLightSurfaceSkeletonGradientHover = 'var(--on-light-surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+export const onLightSurfaceSkeletonGradientActive = 'var(--on-light-surface-skeleton-gradient-active, #FFFFFFFF)';
+
+export const onLightSurfaceSkeletonDeepGradientHover =
+    'var(--on-light-surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+export const onLightSurfaceSkeletonDeepGradientActive =
+    'var(--on-light-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+export const onLightSurfaceSkeletonGradient =
+    'var(--on-light-surface-skeleton-gradient, linear-gradient(270deg, rgba(8, 8, 8, 0.06) 0%, rgba(8, 8, 8, 0.05) 10%, rgba(8, 8, 8, 0.04) 20%, rgba(8, 8, 8, 0.03) 25%, rgba(8, 8, 8, 0.02) 30%, rgba(8, 8, 8, 0.01) 40%, rgba(8, 8, 8, 0.00) 50%, rgba(8, 8, 8, 0.01) 60%, rgba(8, 8, 8, 0.02) 70%, rgba(8, 8, 8, 0.03) 75%, rgba(8, 8, 8, 0.04) 80%, rgba(8, 8, 8, 0.05) 90%, rgba(8, 8, 8, 0.06) 100%))';
+
+export const onLightSurfaceSkeletonDeepGradient =
+    'var(--on-light-surface-skeleton-deep-gradient, linear-gradient(90deg, rgba(8, 8, 8, 0.24) 0%, rgba(8, 8, 8, 0.22) 5%, rgba(8, 8, 8, 0.21) 10%, rgba(8, 8, 8, 0.19) 15%, rgba(8, 8, 8, 0.18) 20%, rgba(8, 8, 8, 0.16) 25%, rgba(8, 8, 8, 0.14) 30%, rgba(8, 8, 8, 0.13) 35%, rgba(8, 8, 8, 0.11) 40%, rgba(8, 8, 8, 0.10) 45%, rgba(8, 8, 8, 0.08) 50%, rgba(8, 8, 8, 0.10) 55%, rgba(8, 8, 8, 0.11) 60%, rgba(8, 8, 8, 0.13) 65%, rgba(8, 8, 8, 0.14) 70%, rgba(8, 8, 8, 0.16) 75%, rgba(8, 8, 8, 0.18) 80%, rgba(8, 8, 8, 0.19) 85%, rgba(8, 8, 8, 0.21) 90%, rgba(8, 8, 8, 0.22) 95%, rgba(8, 8, 8, 0.24) 100%))';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #FAFAFAFF)';
 
@@ -2223,6 +2268,21 @@ export const inverseSurfaceGradientMainActive = 'var(--inverse-surface-gradient-
 export const inverseSurfaceGradientMain =
     'var(--inverse-surface-gradient-main, linear-gradient(88deg, #24B23E 0%, #00A4D1 100%))';
 
+export const inverseSurfaceSkeletonGradient =
+    'var(--inverse-surface-skeleton-gradient, linear-gradient(270deg, rgba(8, 8, 8, 0.06) 0%, rgba(8, 8, 8, 0.05) 10%, rgba(8, 8, 8, 0.04) 20%, rgba(8, 8, 8, 0.03) 25%, rgba(8, 8, 8, 0.02) 30%, rgba(8, 8, 8, 0.01) 40%, rgba(8, 8, 8, 0.00) 50%, rgba(8, 8, 8, 0.01) 60%, rgba(8, 8, 8, 0.02) 70%, rgba(8, 8, 8, 0.03) 75%, rgba(8, 8, 8, 0.04) 80%, rgba(8, 8, 8, 0.05) 90%, rgba(8, 8, 8, 0.06) 100%))';
+
+export const inverseSurfaceSkeletonGradientHover = 'var(--inverse-surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfaceSkeletonGradientActive = 'var(--inverse-surface-skeleton-gradient-active, #FFFFFFFF)';
+
+export const inverseSurfaceSkeletonDeepGradient =
+    'var(--inverse-surface-skeleton-deep-gradient, linear-gradient(90deg, rgba(8, 8, 8, 0.24) 0%, rgba(8, 8, 8, 0.22) 5%, rgba(8, 8, 8, 0.21) 10%, rgba(8, 8, 8, 0.19) 15%, rgba(8, 8, 8, 0.18) 20%, rgba(8, 8, 8, 0.16) 25%, rgba(8, 8, 8, 0.14) 30%, rgba(8, 8, 8, 0.13) 35%, rgba(8, 8, 8, 0.11) 40%, rgba(8, 8, 8, 0.10) 45%, rgba(8, 8, 8, 0.08) 50%, rgba(8, 8, 8, 0.10) 55%, rgba(8, 8, 8, 0.11) 60%, rgba(8, 8, 8, 0.13) 65%, rgba(8, 8, 8, 0.14) 70%, rgba(8, 8, 8, 0.16) 75%, rgba(8, 8, 8, 0.18) 80%, rgba(8, 8, 8, 0.19) 85%, rgba(8, 8, 8, 0.21) 90%, rgba(8, 8, 8, 0.22) 95%, rgba(8, 8, 8, 0.24) 100%))';
+
+export const inverseSurfaceSkeletonDeepGradientHover = 'var(--inverse-surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfaceSkeletonDeepGradientActive =
+    'var(--inverse-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
 /** Первичный фон */
 export const backgroundPrimary = 'var(--background-primary, #000000FF)';
 
@@ -2255,6 +2315,15 @@ export const backgroundMobileAssistantBrand =
 /** Фон ассистента на мобиле */
 export const backgroundMobileAssistantMain =
     'var(--background-mobile-assistant-main, linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%)), var(--background-mobile-assistant-main, radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%)), var(--background-mobile-assistant-main, linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%)), var(--background-mobile-assistant-main, linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-main, #080808FF)';
+
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimaryBrightness = 'var(--inverse-background-primary-brightness, #FFFFFF)';
+
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F2F2F2)';
+
+/** Инвертированный вторичный фон */
+export const inverseBackgroundSecondary = 'var(--inverse-background-secondary, #FFFFFF)';
 
 /** Цвет фона паранжи светлый на темном фоне */
 export const onDarkOverlaySoft = 'var(--on-dark-overlay-soft, rgba(0, 0, 0, 0.56))';
