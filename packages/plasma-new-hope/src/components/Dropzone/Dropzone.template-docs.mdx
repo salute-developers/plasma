@@ -1,0 +1,136 @@
+---
+id: dropzone
+title: Dropzone
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Dropzone
+Компонент для загрузки файлов, без отображения индикации загрузки. 
+Компонент не предполагает наличия валиации, так как является частью Upload. 
+Но валидацию можно задать с помощью callback `validator`.
+<PropsTable name="Dropzone" />
+
+# Типизация
+
+```tsx
+type DropzoneProps = {
+    /**
+     * Массив форматов файлов, которые могут быть прикреплены (см. HTML-атрибут 'accept' для 'input').
+     */
+    acceptedFileFormats?: string[];
+    /**
+     * Позовляет выбирать несколько файлов для загрузки
+     */
+    multiple?: boolean;
+    /**
+     * Слот для Title
+     */
+    title?: string;
+    /**
+     * Слот для описания
+     */
+    description?: ReactNode;
+    /**
+     * Слот для иконки
+     */
+    icon?: ReactNode;
+    /**
+     * Расположение иконки
+     * @default 'left'
+     */
+    iconPlacement?: 'top' | 'left';
+    /**
+     * Размер компонента
+     */
+    size?: string;
+    /**
+     * Вид компонента
+     */
+    view?: string;
+    /**
+     * Компонент неактивен
+     */
+    disabled?: boolean;
+    /**
+     * Компонент растягивается на всю доступную ширину
+     */
+    stretch?: boolean;
+    /**
+     * Функция, вызываемая в момент вхождения курсора внутрь границ Dropzone
+     */
+    onDragEnter?: () => void;
+    /**
+     * Функция, вызываемая в момент выхода курсора из Dropzone
+     */
+    onDragLeave?: () => void;
+    /**
+     * Функция, вызываемая при нахождении курсора внутри Dropzone
+     */
+    onDragOver?: () => void;
+    /**
+     * Функция, вызываемая при drop файлов
+     */
+    onDrop?: () => void;
+    /**
+     * Функция, вызываемая для валидации файлов, перед onDropFiles
+     */
+    validator?: (files: File[]) => ValidatorReturnType;
+    /**
+     * Функция, вызываемая при наличии файлов, после onDrop
+     */
+    onDropFiles?: FileProcessHandler;
+    /**
+     * Функция, вызываемая при выборе файлов
+     */
+    onChoseFiles?: FileProcessHandler;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'accept'>;
+```
+
+# Пример
+
+```tsx live
+import React from 'react';
+import { Dropzone } from '@salutejs/{{ package }}';
+
+export function App() {
+    const onDragEnter = () => {
+        console.log("onDragEnter")
+    }
+
+    const onDragLeave = () => {
+        console.log("onDragLeave")
+    }
+
+    const onDrop = () => {
+        console.log("onDrop")
+    }
+
+    const onDropFiles = () => {
+        console.log("onDropFiles")
+    }
+
+    const onChange = () => {
+        console.log("onChange")
+    }
+
+    const onChoseFiles = () => {
+        console.log("onChoseFiles")
+    }
+
+    return (
+        <Dropzone
+            iconPlacement="top"
+            width="240"
+            title="Click to upload"
+            description="or drag and drop files here"
+            onDragEnter={onDragEnter}
+            onDragLeave={onDragLeave}
+            onDrop={onDrop}
+            onDropFiles={onDropFiles}
+            onChange={onChange}
+            onChoseFiles={onChoseFiles}
+        />
+    );
+}
+```
