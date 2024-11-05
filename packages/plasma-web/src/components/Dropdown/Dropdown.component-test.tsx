@@ -392,6 +392,26 @@ describe('plasma-web: Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: placement, alwaysOpened', () => {
+        cy.viewport(500, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown placement="right-start" items={items} closeOnOverlayClick={false} alwaysOpened>
+                    <Button text="Список стран" />
+                </Dropdown>
+
+                <div style={{ height: '600px' }} />
+
+                <Dropdown placement="top-start" items={items} closeOnOverlayClick={false} alwaysOpened>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: offset', () => {
         cy.viewport(1000, 500);
 
