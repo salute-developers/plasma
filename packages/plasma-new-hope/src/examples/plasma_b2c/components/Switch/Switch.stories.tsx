@@ -67,6 +67,7 @@ const StoryDefault = (args: SwitchProps) => {
 export const Default: StoryObj<SwitchProps> = {
     args: {
         size: 'm',
+        toggleSize: 'l',
         disabled: false,
     },
     render: (args) => <StoryDefault {...args} />,

@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { RootProps } from '../../engines';
 import { base as sizeCSS } from '../Switch/_size/base';
+import { base as toggleSizeCSS } from '../Switch/_toggleSize/base';
 import { base as viewCSS } from '../Switch/_view/base';
 import { base as focusedCSS } from '../Switch/_focused/base';
 import { base as disabledCSS } from '../Switch/_disabled/base';
@@ -15,6 +16,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
     forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
         const {
             size,
+            toggleSize,
             view,
             focused,
             outlined,
@@ -43,6 +45,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
             <Root
                 view={view}
                 size={size}
+                toggleSize={toggleSize}
                 disabled={disabled}
                 focused={focused ?? outlined}
                 labelPosition={labelPosition}
@@ -80,6 +83,9 @@ export const switchConfig = {
         },
         view: {
             css: viewCSS,
+        },
+        toggleSize: {
+            css: toggleSizeCSS,
         },
         disabled: {
             css: disabledCSS,
