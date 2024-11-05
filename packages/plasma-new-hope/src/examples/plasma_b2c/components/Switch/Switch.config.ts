@@ -11,14 +11,45 @@ export const config = {
     },
     variations: {
         size: {
+            s: css`
+                ${switchTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${switchTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${switchTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${switchTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${switchTokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${switchTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${switchTokens.trackWidth}: 2.75rem;
+                ${switchTokens.trackHeight}: 1.75rem;
+                ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
+                ${switchTokens.thumbSize}: 1.5rem;
+                ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
+                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbPressScale}: 1.25;
+                ${switchTokens.labelOffset}: 0.75rem;
+            `,
             m: css`
-                ${switchTokens.fontFamily}: var(--plasma-typo-body1-font-family);
-                ${switchTokens.fontStyle}: var(--plasma-typo-body1-font-style);
-                ${switchTokens.fontWeight}: var(--plasma-typo-body1-font-weight);
-                ${switchTokens.fontWeight}: var(--plasma-typo-body1-font-weight);
-                ${switchTokens.lineHeight}: var(--plasma-typo-body1-line-height);
-                ${switchTokens.fontSize}: var(--plasma-typo-body1-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body1-letter-spacing);
+                ${switchTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${switchTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${switchTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${switchTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${switchTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${switchTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${switchTokens.trackWidth}: 2.75rem;
+                ${switchTokens.trackHeight}: 1.75rem;
+                ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
+                ${switchTokens.thumbSize}: 1.5rem;
+                ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
+                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbPressScale}: 1.25;
+                ${switchTokens.labelOffset}: 0.75rem;
+            `,
+            l: css`
+                ${switchTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${switchTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${switchTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${switchTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${switchTokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${switchTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${switchTokens.trackWidth}: 2.75rem;
                 ${switchTokens.trackHeight}: 1.75rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
