@@ -14,6 +14,10 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
      */
     items: Array<DropdownItemOption>;
     /**
+     * Дропдаун открыт всегда.
+     */
+    alwaysOpened?: boolean;
+    /**
      * Target для открытия.
      */
     children?: ReactNode;
