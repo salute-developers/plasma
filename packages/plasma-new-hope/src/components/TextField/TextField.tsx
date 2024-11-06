@@ -6,6 +6,7 @@ import { css } from '@linaria/core';
 import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
 import { useOutsideClick } from '../../hooks';
+import { createEvent } from '../../utils/syntheticEvent';
 
 import type { ChipValues, TextFieldPrimitiveValue, TextFieldProps, TextFieldRootProps } from './TextField.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -257,11 +258,21 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             }, [isChipEnumeration, values]);
 
             useEffect(() => {
+                console.log('Init Value');
                 setHasValue(Boolean(rest?.defaultValue));
+                const event = createEvent(inputRef);
+                if (event) {
+                    handleChange(event);
+                }
             }, [rest.defaultValue]);
 
             useEffect(() => {
+                console.log('Set Value');
                 setHasValue(Boolean(outerValue) || Boolean(inputRef?.current?.value));
+                const event = createEvent(inputRef);
+                if (event) {
+                    handleChange(event);
+                }
             }, [outerValue, inputRef?.current?.value]);
 
             const innerOptional = Boolean(required ? false : optional);
