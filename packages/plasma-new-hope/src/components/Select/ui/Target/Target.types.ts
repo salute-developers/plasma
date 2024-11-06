@@ -1,21 +1,34 @@
-import type { KeyboardEvent } from 'react';
+import type { KeyboardEvent, MutableRefObject } from 'react';
 
-import type { ValueToItemMapType, FocusedToValueMapType } from '../../hooks/usePathMaps';
-import { FocusedChipIndexState, FocusedPathState } from '../../reducers';
-import type { MergedSelectProps, DefaultValueType } from '../../Select.types';
+import type { LabelToItemMapType, ValueToItemMapType } from '../../hooks/usePathMaps';
+import type { DefaultValueType, MergedSelectProps } from '../../Select.types';
 
 export type TargetProps = Pick<
     MergedSelectProps,
-    'size' | 'label' | 'labelPlacement' | 'placeholder' | 'contentLeft' | 'disabled' | 'renderValue'
+    | 'size'
+    | 'view'
+    | 'label'
+    | 'labelPlacement'
+    | 'placeholder'
+    | 'contentLeft'
+    | 'disabled'
+    | 'renderValue'
+    | 'multiselect'
+    | 'helperText'
+    | 'isTargetAmount'
+    | 'target'
+    | 'chipView'
 > & {
     value: DefaultValueType;
     opened: boolean;
     valueToItemMap: ValueToItemMapType;
-    onChipClick: (value: string) => void;
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
-    focusedChipIndex: FocusedChipIndexState;
-    focusedPath: FocusedPathState;
-    focusedToValueMap: FocusedToValueMapType;
     selectProps: MergedSelectProps;
+    inputWrapperRef: MutableRefObject<HTMLDivElement>;
+    handleClickArrow: () => void;
+    treeId: string;
+    activeDescendantItemValue: string;
+    onChange: (newValue: string | number | Array<string | number>) => void;
+    labelToItemMap: LabelToItemMapType;
     separator?: string;
 };

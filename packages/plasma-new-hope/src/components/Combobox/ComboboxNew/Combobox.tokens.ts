@@ -59,8 +59,6 @@ export const tokens = {
 
     indicatorSize: '--plasma-combobox-indicator-size',
 
-    targetHeight: '--plasma-combobox-target-height',
-
     // Токены для TextField
     textFieldColor: '--plasma-combobox-new-textfield-color',
     textFieldClearColor: '--plasma-combobox-new-textfield-clear-color',

@@ -1,10 +1,11 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect } from 'react';
+import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
+import { safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
-import { isEmpty, getPlacements } from '../../utils';
+import { isEmpty } from '../../utils';
 import { useOutsideClick } from '../../hooks';
 
-import { useKeyNavigation } from './hooks/useKeyboardNavigation';
+import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
 import {
     initialItemsTransform,
     updateAncestors,
@@ -14,13 +15,12 @@ import {
     getInitialValue,
 } from './utils';
 import { Inner, Target } from './ui';
-import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
+import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
-import { StyledPopover, Ul, base, OuterLabel, HelperText } from './Select.styles';
+import { Ul, base } from './Select.styles';
 import type { ItemContext, MergedSelectProps } from './Select.types';
-import { base as viewCSS } from './variations/_view/base';
-import { base as sizeCSS } from './variations/_size/base';
 import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
+import { FloatingPopover } from './FloatingPopover';
 
 export const Context = createContext<ItemContext>({} as ItemContext);
 
@@ -36,11 +36,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             items,
             placement = 'bottom',
             label,
-            labelPlacement = 'outer',
+            labelPlacement,
             placeholder,
             helperText,
             disabled = false,
-            view,
+            view: outerView,
             size,
             listOverflow,
             listHeight,
@@ -56,73 +56,114 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             onItemSelect,
             separator,
             closeAfterSelect: outerCloseAfterSelect,
+            isTargetAmount,
             ...rest
         } = props;
-
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
-        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
 
-        const value = getInitialValue(outerValue, valueToItemMap);
+        // Создаем структуры для быстрой работы с деревом
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap, labelToItemMap] = usePathMaps(
+            transformedItems,
+        );
 
-        const onChange = (e: string | number | Array<string | number>) => {
-            if (outerOnChange) {
-                outerOnChange(e as any);
-            }
-        };
+        const [internalValue, setInternalValue] = useState<string | number | Array<string | number>>(
+            props.multiselect ? [] : '',
+        );
 
+        const value =
+            outerValue !== null && outerValue !== undefined
+                ? getInitialValue(outerValue, valueToItemMap)
+                : internalValue;
+
+        const floatingPopoverRef = useRef<HTMLDivElement>(null);
+
+        // Состояния дерева элементов
         const [path, dispatchPath] = useReducer(pathReducer, []);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
-        const [focusedChipIndex, dispatchFocusedChipIndex] = useReducer(focusedChipIndexReducer, null);
         const [checked, setChecked] = useState(valueToCheckedMap);
 
+        const isCurrentListOpen = Boolean(path[0]);
+        const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value.toString() || '';
         const closeAfterSelect = outerCloseAfterSelect ?? !props.multiselect;
+        const treeId = safeUseId();
+        const view = target === 'textfield-like' && disabled ? 'default' : getView(status, outerView);
 
-        const targetRef = useOutsideClick<HTMLDivElement>(() => {
-            if (focusedChipIndex != null) {
-                dispatchFocusedChipIndex({ type: 'reset' });
+        const targetRef = useOutsideClick<HTMLUListElement>(() => {
+            if (!isCurrentListOpen) {
+                return;
             }
-        });
 
-        const handleToggle = (opened: boolean) => {
+            dispatchPath({ type: 'reset' });
+            dispatchFocusedPath({ type: 'reset' });
+        }, floatingPopoverRef);
+
+        const onChange = (newValue: string | number | Array<string | number>) => {
+            if (outerOnChange) {
+                outerOnChange(newValue as any);
+            }
+
+            setInternalValue(newValue);
+        };
+
+        const handleClickArrow = () => {
+            if (disabled) {
+                return;
+            }
+
+            if (isCurrentListOpen) {
+                dispatchPath({ type: 'reset' });
+            } else {
+                dispatchPath({ type: 'opened_first_level' });
+            }
+
+            dispatchFocusedPath({ type: 'reset' });
+        };
+
+        const handleListToggle = (opened: boolean) => {
+            if (disabled) {
+                return;
+            }
+
             if (opened) {
                 dispatchPath({ type: 'opened_first_level' });
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
-                dispatchFocusedChipIndex({ type: 'reset' });
             }
         };
 
         const handleCheckboxChange = (item: MergedDropdownNodeTransformed) => {
-            if (props.multiselect) {
-                const checkedCopy = new Map(checked);
+            if (!props.multiselect) {
+                return;
+            }
 
-                if (!checkedCopy.get(item.value)) {
-                    checkedCopy.set(item.value, true);
-                    updateDescendants(item, checkedCopy, true);
-                } else {
-                    checkedCopy.set(item.value, false);
-                    updateDescendants(item, checkedCopy, false);
+            const checkedCopy = new Map(checked);
+
+            if (!checkedCopy.get(item.value)) {
+                checkedCopy.set(item.value, true);
+                updateDescendants(item, checkedCopy, true);
+            } else {
+                checkedCopy.set(item.value, false);
+                updateDescendants(item, checkedCopy, false);
+            }
+
+            updateAncestors(item, checkedCopy);
+
+            const newValues: Array<string | number> = [];
+
+            valueToItemMap.forEach((item, key) => {
+                if (checkedCopy.get(key)) {
+                    newValues.push(item.value);
                 }
+            });
 
-                updateAncestors(item, checkedCopy);
+            if (closeAfterSelect) {
+                dispatchPath({ type: 'reset' });
+                dispatchFocusedPath({ type: 'reset' });
+            }
 
-                const newValues: Array<string | number> = [];
-
-                valueToItemMap.forEach((item, key) => {
-                    if (checkedCopy.get(key)) {
-                        newValues.push(item.value);
-                    }
-                });
-
-                if (closeAfterSelect) {
-                    dispatchPath({ type: 'reset' });
-                    dispatchFocusedPath({ type: 'reset' });
-                }
-
-                if (onChange) {
-                    onChange(newValues);
-                }
+            if (onChange) {
+                onChange(newValues);
             }
         };
 
@@ -133,30 +174,27 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
 
             if (props.multiselect) {
                 handleCheckboxChange(item);
-            } else {
-                if (e) {
-                    e.stopPropagation();
-                }
-
-                const isCurrentChecked = checked.get(item.value);
-
-                if (closeAfterSelect) {
-                    dispatchPath({ type: 'reset' });
-                    dispatchFocusedPath({ type: 'reset' });
-                }
-
-                if (onChange) {
-                    onChange(isCurrentChecked ? '' : item.value);
-                }
-
-                if (onItemSelect) {
-                    onItemSelect(item, e!);
-                }
+                return;
             }
-        };
 
-        const handleChipClick = (currentValue: string) => {
-            handleCheckboxChange(valueToItemMap.get(currentValue)!);
+            if (e) {
+                e.stopPropagation();
+            }
+
+            const isCurrentChecked = checked.get(item.value);
+
+            if (closeAfterSelect) {
+                dispatchPath({ type: 'reset' });
+                dispatchFocusedPath({ type: 'reset' });
+            }
+
+            if (onChange) {
+                onChange(isCurrentChecked ? '' : item.value);
+            }
+
+            if (onItemSelect) {
+                onItemSelect(item, e!);
+            }
         };
 
         const handlePressDown = (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => {
@@ -181,25 +219,18 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const { onKeyDown } = useKeyNavigation({
-            value,
             focusedPath,
             dispatchFocusedPath,
             path,
             dispatchPath,
             pathMap,
             focusedToValueMap,
-            handleToggle,
+            handleListToggle,
             handlePressDown,
-            focusedChipIndex,
-            dispatchFocusedChipIndex,
-            valueToItemMap,
-            multiselect: props.multiselect,
-            isTargetAmount: props.isTargetAmount,
         });
 
-        const isCurrentListOpen = Boolean(path[0]);
-
-        // В данном эффекте мы следим за изменениями value и вносим коррективы в дерево чекбоксов.
+        // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
+        // Пример: когда юзер очистил value извне, тогда нужно пройтись по элементам и выключить все чекбоксы.
         useLayoutEffect(() => {
             const checkedCopy = new Map(checked);
 
@@ -221,11 +252,21 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
 
             setChecked(checkedCopy);
-        }, [outerValue, items]);
+
+            // В deps мы кладем именно outerValue и internalValue, а не просто value.
+            // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
+            // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
+        }, [outerValue, internalValue, items]);
 
         return (
-            <Root ref={ref} size={size} view={status ? getView(status) : view} chipView={chipView} {...(rest as any)}>
-                {label && labelPlacement === 'outer' && target !== 'button-like' && <OuterLabel>{label}</OuterLabel>}
+            <Root
+                view={view}
+                size={size}
+                labelPlacement={labelPlacement}
+                chipView={chipView}
+                disabled={disabled}
+                {...(rest as any)}
+            >
                 <Context.Provider
                     value={{
                         focusedPath,
@@ -237,68 +278,80 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         variant,
                         renderItem,
                         valueToItemMap,
+                        treeId,
                     }}
                 >
-                    <StyledPopover
-                        ref={targetRef}
+                    <FloatingPopover
+                        ref={floatingPopoverRef}
                         opened={isCurrentListOpen}
-                        placement={getPlacements(placement)}
-                        usePortal={Boolean(portal)}
-                        frame={portal}
-                        onToggle={handleToggle}
-                        trigger="click"
-                        target={
+                        onToggle={(opened: boolean) => opened && handleListToggle(true)}
+                        placement={placement}
+                        portal={portal}
+                        listWidth={listWidth}
+                        target={(referenceRef) => (
                             <Target
-                                opened={isCurrentListOpen}
+                                ref={ref}
+                                target={target}
                                 value={value}
+                                opened={isCurrentListOpen}
                                 valueToItemMap={valueToItemMap}
-                                focusedPath={focusedPath}
-                                focusedToValueMap={focusedToValueMap}
-                                onChipClick={handleChipClick}
                                 label={label}
                                 placeholder={placeholder}
                                 onKeyDown={onKeyDown}
-                                focusedChipIndex={focusedChipIndex}
                                 labelPlacement={labelPlacement}
-                                selectProps={props}
                                 size={size}
                                 contentLeft={contentLeft}
                                 disabled={disabled}
                                 renderValue={renderValue}
+                                selectProps={props}
+                                inputWrapperRef={referenceRef as React.MutableRefObject<HTMLDivElement>}
+                                multiselect={props.multiselect}
+                                view={view}
+                                handleClickArrow={handleClickArrow}
+                                helperText={helperText}
+                                treeId={treeId}
+                                activeDescendantItemValue={activeDescendantItemValue}
+                                isTargetAmount={isTargetAmount}
+                                onChange={onChange}
+                                labelToItemMap={labelToItemMap}
+                                chipView={chipView}
+                                separator={separator}
                             />
-                        }
-                        preventOverflow={false}
-                        closeOnOverlayClick
-                        listWidth={listWidth}
-                    >
-                        {items && (
-                            <Root size={size} {...(rest as any)}>
-                                <Ul
-                                    role="tree"
-                                    id="tree_level_1"
-                                    listHeight={listHeight}
-                                    listOverflow={listOverflow}
-                                    onScroll={handleScroll}
-                                    listWidth={listWidth}
-                                >
-                                    {transformedItems.map((item, index) => (
-                                        <Inner
-                                            key={`${index}/0`}
-                                            item={item}
-                                            currentLevel={0}
-                                            path={path}
-                                            dispatchPath={dispatchPath}
-                                            index={index}
-                                            listWidth={listWidth}
-                                        />
-                                    ))}
-                                </Ul>
-                            </Root>
                         )}
-                    </StyledPopover>
+                    >
+                        <Root
+                            view={view}
+                            size={size}
+                            labelPlacement={labelPlacement}
+                            chipView={chipView}
+                            disabled={disabled}
+                            {...(rest as any)}
+                        >
+                            <Ul
+                                role="tree"
+                                id={`${treeId}_tree_level_1`}
+                                aria-multiselectable={Boolean(props.multiselect)}
+                                listHeight={listHeight}
+                                listOverflow={listOverflow}
+                                onScroll={handleScroll}
+                                listWidth={listWidth}
+                                ref={targetRef}
+                            >
+                                {transformedItems.map((item, index) => (
+                                    <Inner
+                                        key={`${index}/0`}
+                                        item={item}
+                                        currentLevel={0}
+                                        path={path}
+                                        dispatchPath={dispatchPath}
+                                        index={index}
+                                        listWidth={listWidth}
+                                    />
+                                ))}
+                            </Ul>
+                        </Root>
+                    </FloatingPopover>
                 </Context.Provider>
-
-                {helperText && target === 'textfield-like' && <HelperText>{helperText}</HelperText>}
             </Root>
         );
     });
@@ -308,17 +361,11 @@ export const selectConfig = {
     tag: 'div',
     layout: selectRoot,
     base,
-    variations: {
-        view: {
-            css: viewCSS,
-        },
-        size: {
-            css: sizeCSS,
-        },
-    },
+    variations: {},
     defaults: {
         view: 'default',
-        chipView: 'default',
         size: 'm',
+        labelPlacement: 'outer',
+        chipView: 'default',
     },
 };

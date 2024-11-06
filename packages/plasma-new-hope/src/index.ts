@@ -4,6 +4,7 @@ export * from './mixins';
 export * from './engines';
 export * from './hooks';
 export * from './utils';
+export * from './types';
 export * from './components/Button';
 export * from './components/IconButton';
 export * from './components/ButtonGroup';

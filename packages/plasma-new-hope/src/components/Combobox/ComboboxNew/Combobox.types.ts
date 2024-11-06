@@ -94,7 +94,7 @@ type ViewStateProps =
           alwaysOpened?: true;
       };
 
-export type ComboboxProps<T extends ItemOption = ItemOption> = {
+type BasicProps<T extends ItemOption = ItemOption> = {
     /**
      * Список элементов.
      */
@@ -150,7 +150,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
     /**
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
-    portal?: React.MutableRefObject<HTMLElement | null>;
+    portal?: string | React.RefObject<HTMLElement>;
     /**
      * Callback для кастомной настройки айтема в выпадающем списке.
      */
@@ -177,7 +177,10 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      * @default outer
      */
     labelPlacement?: 'outer' | 'inner';
-} & ViewStateProps &
+};
+
+export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
+    ViewStateProps &
     IsMultiselect<T> &
     RequiredProps &
     Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;

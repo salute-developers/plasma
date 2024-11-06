@@ -338,7 +338,13 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     <InputWrapper
                         // Ref для внутреннего использования. Не отдается наружу.
                         ref={(rest as any).inputWrapperRef}
-                        className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}
+                        // TODO: #1544, и после убрать classes.inputWrapper
+                        className={cx(
+                            withHasChips,
+                            wrapperWithoutLeftContent,
+                            wrapperWithoutRightContent,
+                            classes.inputWrapper,
+                        )}
                     >
                         {!hasOuterLabel && (
                             <>
@@ -395,6 +401,13 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                                 onKeyDown={(event) => handleChipKeyDown(event, chipId, index)}
                                                 onClear={() => onChipClear(chipId, index)}
                                                 onClick={onChipClick}
+                                                // TODO: #1547
+                                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                // @ts-ignore
+                                                _forceChipManipulationWithReadonly={
+                                                    // eslint-disable-next-line no-underscore-dangle
+                                                    (rest as any)._forceChipManipulationWithReadonly
+                                                }
                                             />
                                         );
                                     })}

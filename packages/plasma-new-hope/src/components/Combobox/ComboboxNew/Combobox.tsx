@@ -282,7 +282,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             focusedToValueMap,
             handleListToggle,
             handlePressDown,
-            multiselect: multiple,
             setTextValue,
         });
 

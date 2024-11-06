@@ -571,9 +571,9 @@ export const config = {
                 ${tokens.itemPadding}: 0.5rem;
                 ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.375rem;
-                ${tokens.itemIconMargin}: 0 0.25rem 0 0;
                 ${tokens.itemIconSize}: 1rem;
                 ${tokens.itemIconSizeTight}: 1rem;
+                ${tokens.itemIconMargin}: 0 0.25rem 0 0;
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;

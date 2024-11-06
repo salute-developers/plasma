@@ -10,16 +10,16 @@ const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
 export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
-    ${buttonTokens.buttonColor}: var(${tokens.targetButtonColor});
-    ${buttonTokens.buttonColorHover}: var(${tokens.targetButtonColorHover});
-    ${buttonTokens.buttonColorActive}: var(${tokens.targetButtonColorActive});
-    ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetButtonBackgroundColor});
-    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.targetButtonBackgroundColorHover});
-    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetButtonBackgroundColorActive});
-    ${buttonTokens.buttonRightContentMargin}: var(${tokens.targetButtonArrowMargin});
+    ${buttonTokens.buttonColor}: var(${tokens.buttonColor});
+    ${buttonTokens.buttonColorHover}: var(${tokens.buttonColorHover});
+    ${buttonTokens.buttonColorActive}: var(${tokens.buttonColorActive});
+    ${buttonTokens.buttonBackgroundColor}: var(${tokens.buttonBackgroundColor});
+    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.buttonBackgroundColorHover});
+    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.buttonBackgroundColorActive});
+    ${buttonTokens.buttonRightContentMargin}: var(${tokens.buttonArrowMargin});
     ${buttonTokens.buttonHeight}: ${({ renderTarget }) => (renderTarget ? 'auto' : `var(${tokens.targetHeight})`)};
     ${buttonTokens.buttonWidth}: 100%;
-    ${buttonTokens.buttonPadding}: var(${tokens.targetButtonPadding});
+    ${buttonTokens.buttonPadding}: var(${tokens.buttonPadding});
     ${buttonTokens.buttonRadius}: var(${tokens.borderRadius});
     ${buttonTokens.buttonFontFamily}: var(${tokens.fontFamily});
     ${buttonTokens.buttonFontSize}: var(${tokens.fontSize});
@@ -34,14 +34,14 @@ export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
 
 export const IconArrowWrapper = styled.div`
     line-height: 0;
-    color: var(${tokens.targetButtonArrowColor});
+    color: var(${tokens.buttonArrowColor});
 
     &:hover {
-        color: var(${tokens.targetButtonArrowColorHover});
+        color: var(${tokens.buttonArrowColorHover});
     }
 
     &:active {
-        color: var(${tokens.targetButtonArrowColorActive});
+        color: var(${tokens.buttonArrowColorActive});
     }
 `;
 
