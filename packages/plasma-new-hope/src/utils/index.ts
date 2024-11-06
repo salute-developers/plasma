@@ -22,3 +22,5 @@ export const composableStyle = (s: TemplateStringsArray, ...expr: Array<string |
 
     return res;
 };
+
+export { fixedForwardRef } from './fixedForwardRef';

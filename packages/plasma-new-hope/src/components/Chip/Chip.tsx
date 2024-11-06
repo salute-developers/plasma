@@ -38,7 +38,9 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
         const pilledClass = pilled ? classes.pilled : undefined;
 
         const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-            if (disabled || readOnly) {
+            // TODO: #1547
+            // eslint-disable-next-line no-underscore-dangle
+            if (disabled || (readOnly && !(rest as any)._forceChipManipulationWithReadonly)) {
                 return;
             }
 

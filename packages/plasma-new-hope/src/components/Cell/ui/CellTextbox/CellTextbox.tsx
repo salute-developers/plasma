@@ -14,7 +14,8 @@ export const CellTextbox: React.FC<HTMLAttributes<HTMLDivElement> & CellTextboxP
     children,
 }) => {
     return (
-        <CellTextboxStyled>
+        // TODO: #1548
+        <CellTextboxStyled className="cell-textbox">
             {label || title || subtitle ? (
                 <>
                     {label && <CellTextboxLabel>{label}</CellTextboxLabel>}

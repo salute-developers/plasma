@@ -47,8 +47,17 @@ export type MergedDropdownNode = {
     value: string | number;
     label: string;
     items?: MergedDropdownNode[];
+    /**
+     * @deprecated
+     */
     isActive?: boolean;
+    /**
+     * @deprecated Использовать disabled
+     */
     isDisabled?: boolean;
+    /**
+     * @deprecated
+     */
     color?: string;
     contentLeft?: React.ReactNode;
 

@@ -21,36 +21,38 @@ const meta: Meta<StorySelectProps> = {
     component: Select,
     argTypes: {
         target: {
+            control: 'select',
             options: ['button-like', 'textfield-like'],
-            control: {
-                type: 'select',
-            },
         },
         view: {
+            control: 'select',
             options: view,
-            control: {
-                type: 'select',
-            },
         },
         variant: {
+            control: 'select',
             options: variant,
-            control: {
-                type: 'select',
-            },
         },
         listWidth: {
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
         listOverflow: {
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
         listHeight: {
-            control: {
-                type: 'text',
+            control: 'text',
+        },
+        helperText: {
+            control: 'text',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
+        enableContentLeft: {
+            control: 'boolean',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
             },
         },
     },
@@ -318,6 +320,11 @@ const SingleStory = (args: StorySelectProps) => {
 };
 
 export const Single: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            exclude: ['isTargetAmount'],
+        },
+    },
     render: (args) => <SingleStory {...args} />,
     args: {
         closeAfterSelect: true,

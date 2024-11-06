@@ -108,7 +108,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
 );
 
 type FloatingPortalReturnedProps = {
-    root?: HTMLElement | null | React.MutableRefObject<HTMLElement | null>;
+    root?: React.RefObject<HTMLElement>;
     id?: string;
 };
 

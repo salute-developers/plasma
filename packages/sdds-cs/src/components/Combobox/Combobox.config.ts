@@ -179,7 +179,7 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.625rem;
 
-                ${tokens.itemHeight}: 2.5rem;
+                ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 0.5rem 0.75rem;
                 ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
@@ -233,14 +233,13 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.textFieldColor}: var(--text-secondary);
-                ${tokens.textFieldLabelColor}: var(--text-secondary);
+                ${tokens.textFieldDisabledOpacity}: 1;
                 ${tokens.textFieldBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.textFieldBackgroundColorHover}: var(--surface-solid-primary);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.textFieldBorderColor}: var(--surface-solid-primary);
                 ${tokens.textFieldBorderColorHover}: var(--surface-solid-primary);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-solid-primary);
+                ${tokens.textFieldColor}: var(--text-secondary);
             `,
         },
         readOnly: {

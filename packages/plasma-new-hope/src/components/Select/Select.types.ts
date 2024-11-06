@@ -10,7 +10,7 @@ import {
 import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/usePathMaps';
 
 type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-type SelectPlacement = SelectPlacementBasic | 'auto';
+type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
 
 type Target =
     | {
@@ -39,7 +39,7 @@ type Target =
           helperText?: string;
       }
     | {
-          target?: 'button-like';
+          target: 'button-like';
           view?:
               | 'default'
               | 'accent'
@@ -57,7 +57,7 @@ type Target =
           helperText?: never;
       };
 
-type IsMultiselect =
+type IsMultiselect<K extends ItemOption> =
     | {
           multiselect?: false;
           value?: string;
@@ -70,21 +70,21 @@ type IsMultiselect =
           /**
            * Callback для кастомной настройки таргета целиком.
            */
-          renderTarget?: (value: string) => React.ReactNode;
+          renderTarget?: (value: K) => React.ReactNode;
       }
     | {
           multiselect: true;
           value?: Array<string>;
           onChange?: (value: Array<string>) => void;
           isTargetAmount?: boolean;
-          renderTarget?: (value: Array<string>) => React.ReactNode;
+          renderTarget?: (value: K[]) => React.ReactNode;
       };
 
-export interface BasicProps {
+export interface BasicProps<K extends ItemOption> {
     /**
      * Список элементов.
      */
-    items: Array<ItemOption>;
+    items: K[];
     /**
      * Сторона открытия дропдауна относительно target элемента.
      * @default bottom
@@ -130,11 +130,11 @@ export interface BasicProps {
     /**
      * Callback для кастомной настройки значения в селекте.
      */
-    renderValue?: (value: ItemOption['value'], label: ItemOption['label']) => string;
+    renderValue?: (item: K) => string;
     /**
      * Callback для кастомной настройки айтема в выпадающем списке.
      */
-    renderItem?: (value: ItemOption['value'], label: ItemOption['label']) => React.ReactNode;
+    renderItem?: (item: K) => React.ReactNode;
     /**
      * Закрывать ли выпадающий список после выбора элемента.
      * @default если single, то true; если multiple, то false
@@ -156,10 +156,12 @@ export interface BasicProps {
 }
 
 // Тип нового селекта
-export type SelectProps = BasicProps &
-    IsMultiselect &
+export type SelectProps<K extends ItemOption = ItemOption> = BasicProps<K> &
+    IsMultiselect<K> &
     Target &
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+
+export type { ItemOption as ItemOptionSelect };
 
 export type ItemContext = {
     focusedPath: FocusedPathState;
@@ -171,6 +173,7 @@ export type ItemContext = {
     variant: MergedSelectProps['variant'];
     renderItem: MergedSelectProps['renderItem'];
     valueToItemMap: ValueToItemMapType;
+    treeId: string;
 };
 
 // Тип старого селекта
@@ -213,7 +216,7 @@ type DropdownNodeOld = {
 // В plasma-2.0 удалим MergedSelectProps и оставим только SelectProps.
 export type DefaultValueType = string | number | Array<string | number>;
 
-export type MergedSelectProps<T = any> = Target &
+export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = Target &
     (
         | {
               multiselect?: false;
@@ -224,7 +227,7 @@ export type MergedSelectProps<T = any> = Target &
               separator?: string;
           }
     ) & {
-        value: T;
+        value?: T;
         onChange?: (value: T) => void;
         /**
          * Значение css overflow для выпадающего меню.
@@ -236,7 +239,7 @@ export type MergedSelectProps<T = any> = Target &
          * @example listHeight="11", listHeight="auto", listHeight={11}
          */
         listHeight?: number | CSSProperties['height'];
-        status?: 'success' | 'warning' | 'error';
+
         /**
          * Placeholder.
          */
@@ -253,11 +256,10 @@ export type MergedSelectProps<T = any> = Target &
         /**
          * Список элементов.
          */
-        items?: DropdownNode[];
-        onItemSelect?: (e: DropdownNode, event: SyntheticEvent) => void;
-        hasItems?: boolean;
+        items?: K[];
+        onItemSelect?: (e: K, event: SyntheticEvent) => void;
+
         children?: never;
-        isOpen?: boolean;
         /**
          * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
          * @default false
@@ -266,7 +268,7 @@ export type MergedSelectProps<T = any> = Target &
         /**
          * Callback для кастомной настройки таргета целиком.
          */
-        renderTarget?: (item: DropdownNode | DropdownNode[]) => React.ReactNode;
+        renderTarget?: (item: K | K[]) => React.ReactNode;
         /**
          * Сторона открытия дропдауна относительно target элемента.
          * @default bottom
@@ -297,11 +299,11 @@ export type MergedSelectProps<T = any> = Target &
         /**
          * Callback для кастомной настройки значения в селекте.
          */
-        renderValue?: (item: DropdownNode) => string;
+        renderValue?: (item: K) => string;
         /**
          * Callback для кастомной настройки айтема в выпадающем списке.
          */
-        renderItem?: (item: DropdownNode) => React.ReactNode;
+        renderItem?: (item: K) => React.ReactNode;
         /**
          * Закрывать ли выпадающий список после выбора элемента.
          * @default если single, то true; если multiple, то false
@@ -320,4 +322,30 @@ export type MergedSelectProps<T = any> = Target &
          * Внешний вид чипа в варианте textfield-like multiselect.
          */
         chipView?: string;
+
+        /**
+         * @deprecated
+         */
+        status?: 'success' | 'warning' | 'error';
+        /**
+         * @deprecated
+         */
+        hasItems?: boolean;
+        /**
+         * @deprecated
+         */
+        isOpen?: boolean;
     } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+
+export type { DropdownNode as DropdownNodeSelect };
+
+export type FloatingPopoverProps = {
+    target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
+    children: React.ReactNode;
+    opened: boolean;
+    onToggle: (opened: boolean) => void;
+    placement: NonNullable<MergedSelectProps['placement']>;
+    portal?: MergedSelectProps['portal'];
+    listWidth?: MergedSelectProps['listWidth'];
+    offset?: number;
+};

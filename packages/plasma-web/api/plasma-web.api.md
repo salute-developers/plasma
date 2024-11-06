@@ -29,7 +29,7 @@ import { arrayItemRemoving } from '@salutejs/plasma-hope';
 import { arrayItemSelecting } from '@salutejs/plasma-hope';
 import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
-import { AsProps as AsProps_2 } from '@salutejs/plasma-new-hope/types/types';
+import { AsProps as AsProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -120,6 +120,8 @@ import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
+import type { DistributiveOmit } from '@salutejs/plasma-new-hope';
+import type { DistributivePick } from '@salutejs/plasma-new-hope';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -129,6 +131,7 @@ import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
 import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
+import type { DropdownNodeSelect } from '@salutejs/plasma-new-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -157,10 +160,9 @@ import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
-import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes as InputHTMLAttributes_3 } from 'react';
 import type { ItemOption } from '@salutejs/plasma-new-hope';
-import { ItemOption as ItemOption_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -171,7 +173,7 @@ import { MaskProps } from '@salutejs/plasma-new-hope/types/components/Mask/Mask.
 import { MaxLinesProps } from '@salutejs/plasma-core';
 import { mediaQuery } from '@salutejs/plasma-hope';
 import { MediaQueryFunction } from '@salutejs/plasma-hope';
-import { MergedDropdownNode } from '@salutejs/plasma-new-hope/types/components/Select/ui/Inner/ui/Item/Item.types';
+import type { MergedSelectProps } from '@salutejs/plasma-new-hope';
 import { Modal } from '@salutejs/plasma-hope';
 import { modalClasses as modalBaseClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps as ModalBaseProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -181,7 +183,6 @@ import { ModalView } from '@salutejs/plasma-hope';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
 import { MouseEvent as MouseEvent_2 } from 'react';
-import { MutableRefObject } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -294,7 +295,7 @@ import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-import { TextareaHTMLAttributes as TextareaHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
+import { TextareaHTMLAttributes as TextareaHTMLAttributes_2 } from '@salutejs/plasma-new-hope/styled-components';
 import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -316,7 +317,6 @@ import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 import { TypographyVariants } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
-import { UIEvent as UIEvent_2 } from 'react';
 import { Upload } from '@salutejs/plasma-hope';
 import { UploadAudio } from '@salutejs/plasma-hope';
 import { UploadAudioProps } from '@salutejs/plasma-hope';
@@ -1256,7 +1256,7 @@ export { ColSizeProps }
 // Warning: (ae-forgotten-export) The symbol "CommonProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Combobox: <T extends ItemOption>(props: CommonProps<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement | null;
+export const Combobox: <T extends ItemOption>(props: CommonProps<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
 
 // @public (undocumented)
 export const ComboboxDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
@@ -3606,184 +3606,10 @@ export { SegmentProvider }
 
 export { SegmentProviderProps }
 
+// Warning: (ae-forgotten-export) The symbol "SelectProps_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const Select: FunctionComponent<PropsType<    {
-size: {
-xs: PolymorphicClassName;
-s: PolymorphicClassName;
-m: PolymorphicClassName;
-l: PolymorphicClassName;
-};
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-accent: PolymorphicClassName;
-secondary: PolymorphicClassName;
-clear: PolymorphicClassName;
-dark: PolymorphicClassName;
-black: PolymorphicClassName;
-white: PolymorphicClassName;
-};
-chipView: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-accent: PolymorphicClassName;
-};
-}> & (({
-target?: "textfield-like" | undefined;
-view?: "default" | "positive" | "warning" | "negative" | undefined;
-contentLeft?: ReactNode;
-labelPlacement?: "outer" | "inner" | undefined;
-placeholder?: string | undefined;
-helperText?: string | undefined;
-} & {
-multiselect?: false | undefined;
-separator?: undefined;
-} & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
-listOverflow?: Property.Overflow | undefined;
-listHeight?: Property.Height<string | number> | undefined;
-status?: "warning" | "success" | "error" | undefined;
-placeholder?: string | undefined;
-helperText?: string | undefined;
-disabled?: boolean | undefined;
-items?: MergedDropdownNode[] | undefined;
-onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
-hasItems?: boolean | undefined;
-children?: undefined;
-isOpen?: boolean | undefined;
-isTargetAmount?: boolean | undefined;
-renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
-placement?: ("auto" | ("top" | "right" | "bottom" | "left")) | ("top" | "right" | "bottom" | "left")[] | undefined;
-label?: string | undefined;
-onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
-variant?: "normal" | "tight" | undefined;
-listWidth?: Property.Width<string | number> | undefined;
-portal?: string | RefObject<HTMLElement> | undefined;
-renderValue?: ((item: MergedDropdownNode) => string) | undefined;
-renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
-closeAfterSelect?: boolean | undefined;
-size?: string | undefined;
-view?: string | undefined;
-chipView?: string | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | ({
-target?: "textfield-like" | undefined;
-view?: "default" | "positive" | "warning" | "negative" | undefined;
-contentLeft?: ReactNode;
-labelPlacement?: "outer" | "inner" | undefined;
-placeholder?: string | undefined;
-helperText?: string | undefined;
-} & {
-multiselect?: true | undefined;
-separator?: string | undefined;
-} & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
-listOverflow?: Property.Overflow | undefined;
-listHeight?: Property.Height<string | number> | undefined;
-status?: "warning" | "success" | "error" | undefined;
-placeholder?: string | undefined;
-helperText?: string | undefined;
-disabled?: boolean | undefined;
-items?: MergedDropdownNode[] | undefined;
-onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
-hasItems?: boolean | undefined;
-children?: undefined;
-isOpen?: boolean | undefined;
-isTargetAmount?: boolean | undefined;
-renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
-placement?: ("auto" | ("top" | "right" | "bottom" | "left")) | ("top" | "right" | "bottom" | "left")[] | undefined;
-label?: string | undefined;
-onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
-variant?: "normal" | "tight" | undefined;
-listWidth?: Property.Width<string | number> | undefined;
-portal?: string | RefObject<HTMLElement> | undefined;
-renderValue?: ((item: MergedDropdownNode) => string) | undefined;
-renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
-closeAfterSelect?: boolean | undefined;
-size?: string | undefined;
-view?: string | undefined;
-chipView?: string | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | ({
-target?: "button-like" | undefined;
-view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
-contentLeft?: undefined;
-labelPlacement?: undefined;
-placeholder?: undefined;
-helperText?: undefined;
-} & {
-multiselect?: false | undefined;
-separator?: undefined;
-} & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
-listOverflow?: Property.Overflow | undefined;
-listHeight?: Property.Height<string | number> | undefined;
-status?: "warning" | "success" | "error" | undefined;
-placeholder?: string | undefined;
-helperText?: string | undefined;
-disabled?: boolean | undefined;
-items?: MergedDropdownNode[] | undefined;
-onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
-hasItems?: boolean | undefined;
-children?: undefined;
-isOpen?: boolean | undefined;
-isTargetAmount?: boolean | undefined;
-renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
-placement?: ("auto" | ("top" | "right" | "bottom" | "left")) | ("top" | "right" | "bottom" | "left")[] | undefined;
-label?: string | undefined;
-onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
-variant?: "normal" | "tight" | undefined;
-listWidth?: Property.Width<string | number> | undefined;
-portal?: string | RefObject<HTMLElement> | undefined;
-renderValue?: ((item: MergedDropdownNode) => string) | undefined;
-renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
-closeAfterSelect?: boolean | undefined;
-size?: string | undefined;
-view?: string | undefined;
-chipView?: string | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | ({
-target?: "button-like" | undefined;
-view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
-contentLeft?: undefined;
-labelPlacement?: undefined;
-placeholder?: undefined;
-helperText?: undefined;
-} & {
-multiselect?: true | undefined;
-separator?: string | undefined;
-} & {
-value: any;
-onChange?: ((value: any) => void) | undefined;
-listOverflow?: Property.Overflow | undefined;
-listHeight?: Property.Height<string | number> | undefined;
-status?: "warning" | "success" | "error" | undefined;
-placeholder?: string | undefined;
-helperText?: string | undefined;
-disabled?: boolean | undefined;
-items?: MergedDropdownNode[] | undefined;
-onItemSelect?: ((e: MergedDropdownNode, event: SyntheticEvent<Element, Event>) => void) | undefined;
-hasItems?: boolean | undefined;
-children?: undefined;
-isOpen?: boolean | undefined;
-isTargetAmount?: boolean | undefined;
-renderTarget?: ((item: MergedDropdownNode | MergedDropdownNode[]) => ReactNode) | undefined;
-placement?: ("auto" | ("top" | "right" | "bottom" | "left")) | ("top" | "right" | "bottom" | "left")[] | undefined;
-label?: string | undefined;
-onScrollBottom?: ((e: UIEvent_2<HTMLUListElement, UIEvent>) => void) | undefined;
-variant?: "normal" | "tight" | undefined;
-listWidth?: Property.Width<string | number> | undefined;
-portal?: string | RefObject<HTMLElement> | undefined;
-renderValue?: ((item: MergedDropdownNode) => string) | undefined;
-renderItem?: ((item: MergedDropdownNode) => ReactNode) | undefined;
-closeAfterSelect?: boolean | undefined;
-size?: string | undefined;
-view?: string | undefined;
-chipView?: string | undefined;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
+export const Select: <T, K extends DropdownNodeSelect>(props: SelectProps_2<T, K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
 
 export { SelectGroup }
 

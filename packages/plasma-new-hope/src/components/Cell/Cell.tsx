@@ -46,7 +46,8 @@ export const cellRoot = (Root: RootProps<HTMLDivElement, CellProps>) =>
                 >
                     {contentLeftDeprecated && <CellLeft align={alignContentLeft}>{contentLeftDeprecated}</CellLeft>}
                     <CellContentWrapper>
-                        <CellContent>
+                        {/* TODO: #1548 */}
+                        <CellContent className="cell-content">
                             {titleText || subtitle || label ? (
                                 <CellTextbox label={label} title={titleText} subtitle={subtitle} />
                             ) : (
