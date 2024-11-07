@@ -1,8 +1,17 @@
 import React, { ComponentProps } from 'react';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
+import { badgeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-import { Badge } from './Badge';
+import { hasComponentDraftConfig } from '../../helpers/hasComponentDraftConfig';
+import { createComponentByConfig } from '../../helpers/createComponentByConfig';
+
+import { config as defaultConfig } from './Badge.config';
+import { config as draftConfig } from './Badge.config.draft';
+
+const config = hasComponentDraftConfig() ? draftConfig : defaultConfig;
+
+const Badge = createComponentByConfig(badgeConfig, config);
 
 const meta: Meta<typeof Badge> = {
     title: 'Content/Badge',
