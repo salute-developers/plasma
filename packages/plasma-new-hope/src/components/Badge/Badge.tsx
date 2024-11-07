@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { CSSProperties, forwardRef } from 'react';
 
 import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
@@ -10,18 +10,21 @@ import { base as transparentCSS } from './variations/_transparent/base';
 import { base as clearCSS } from './variations/_clear/base';
 import type { BadgeProps, BadgeRootProps } from './Badge.types';
 import { StyledContentLeft, StyledContentMain, StyledContentRight, base } from './Badge.styles';
-import { classes } from './Badge.tokens';
+import { classes, privateTokens } from './Badge.tokens';
 
 export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
     forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
         const {
             children,
             className,
+            style,
             text,
             contentLeft,
             contentRight,
             size,
             view,
+            customColor,
+            customBackgroundColor,
             pilled = false,
             transparent = false,
             clear = false,
@@ -35,25 +38,46 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
         const truncateClass = maxWidth !== 'auto' ? classes.badgeTruncate : undefined;
 
         const txt = !text && typeof children === 'string' ? children : text;
+        const iconOnlyClass = !txt && contentLeft ? classes.iconOnly : undefined;
+
+        const BadgeContent = () => {
+            if (contentLeft) {
+                return (
+                    <>
+                        <StyledContentLeft>{contentLeft}</StyledContentLeft>
+                        {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                    </>
+                );
+            }
+
+            return (
+                <>
+                    {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                    {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                </>
+            );
+        };
 
         return (
             <Root
                 ref={ref}
-                className={cx(pilledClass, transparentClass, clearClass, truncateClass, className)}
+                className={cx(pilledClass, transparentClass, clearClass, truncateClass, iconOnlyClass, className)}
                 view={view}
                 size={size}
                 pilled={pilled}
                 transparent={transparent}
                 clear={clear}
+                style={
+                    {
+                        ...style,
+                        maxWidth,
+                        [privateTokens.customBackground]: customBackgroundColor,
+                        [privateTokens.customColor]: customColor,
+                    } as CSSProperties
+                }
                 {...rest}
-                style={{
-                    ...rest.style,
-                    maxWidth,
-                }}
             >
-                {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-                {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
-                {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                <BadgeContent />
             </Root>
         );
     });
