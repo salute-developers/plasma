@@ -5,9 +5,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { WithTheme } from '../../../_helpers';
 import { IconDone } from '../../../../components/_Icon';
 
-import { Combobox } from './Combobox';
+import { ComboboxWithForm } from './Combobox';
 
-type StorySelectProps = ComponentProps<typeof Combobox> & {
+type StorySelectProps = ComponentProps<typeof ComboboxWithForm> & {
     enableContentLeft?: boolean;
 };
 
@@ -19,7 +19,7 @@ const variant = ['normal', 'tight'];
 const meta: Meta<StorySelectProps> = {
     title: 'plasma_web/Combobox',
     decorators: [WithTheme],
-    component: Combobox,
+    component: ComboboxWithForm,
     argTypes: {
         size: {
             options: size,
@@ -356,7 +356,7 @@ const SingleStory = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '400px' }}>
-            <Combobox
+            <ComboboxWithForm
                 {...args}
                 items={items}
                 value={value}
@@ -384,7 +384,7 @@ const MultipleStory = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '400px' }}>
-            <Combobox
+            <ComboboxWithForm
                 {...args}
                 multiple
                 items={items}

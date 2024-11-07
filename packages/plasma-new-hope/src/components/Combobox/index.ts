@@ -22,5 +22,7 @@ export {
     comboboxTokens as comboboxNewTokens,
     comboboxRoot as comboboxNewRoot,
     comboboxConfig as comboboxNewConfig,
+    boundCombobox,
+    getFormComponentGenerator,
 } from './ComboboxNew';
 export type { ItemOption, ComboboxProps } from './ComboboxNew';

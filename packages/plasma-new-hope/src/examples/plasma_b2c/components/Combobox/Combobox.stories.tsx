@@ -5,9 +5,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { WithTheme } from '../../../_helpers';
 import { IconDone } from '../../../../components/_Icon';
 
-import { Combobox } from './Combobox';
+import { ComboboxWithForm } from './Combobox';
 
-type StorySelectProps = ComponentProps<typeof Combobox> & {
+type StorySelectProps = ComponentProps<typeof ComboboxWithForm> & {
     enableContentLeft?: boolean;
 };
 
@@ -19,7 +19,7 @@ const variant = ['normal', 'tight'];
 const meta: Meta<StorySelectProps> = {
     title: 'plasma_b2c/Combobox',
     decorators: [WithTheme],
-    component: Combobox,
+    component: ComboboxWithForm,
     argTypes: {
         size: {
             options: size,
@@ -356,11 +356,29 @@ const SingleStory = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '400px' }}>
-            <Combobox
+            <ComboboxWithForm
                 {...args}
                 items={items}
                 value={value}
                 onChange={setValue}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+            />
+        </div>
+    );
+};
+
+const SingleFormStory = (args: StorySelectProps) => {
+    const handleChange = (event) => {
+        console.log(event);
+    };
+
+    return (
+        <div style={{ width: '400px' }}>
+            <ComboboxWithForm
+                {...args}
+                items={items}
+                formType
+                onChange={handleChange}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
             />
         </div>
@@ -379,14 +397,27 @@ export const Single: StoryObj<StorySelectProps> = {
     },
 };
 
+export const SingleForm: StoryObj<StorySelectProps> = {
+    render: (args) => <SingleFormStory {...args} />,
+    args: {
+        closeAfterSelect: true,
+    },
+    parameters: {
+        controls: {
+            exclude: ['isTargetAmount'],
+        },
+    },
+};
+
 const MultipleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState([]);
 
     return (
         <div style={{ width: '400px' }}>
-            <Combobox
+            <ComboboxWithForm
                 {...args}
                 multiple
+                formType={false}
                 items={items}
                 value={value}
                 onChange={setValue}
@@ -396,8 +427,34 @@ const MultipleStory = (args: StorySelectProps) => {
     );
 };
 
+const MultipleStoryForm = (args: StorySelectProps) => {
+    const handleChange = (event) => {
+        console.log(event);
+    };
+
+    return (
+        <div style={{ width: '400px' }}>
+            <ComboboxWithForm
+                {...args}
+                multiple
+                formType
+                onChange={handleChange}
+                items={items}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+            />
+        </div>
+    );
+};
+
 export const Multiple: StoryObj<StorySelectProps> = {
     render: (args) => <MultipleStory {...args} />,
+    args: {
+        closeAfterSelect: false,
+    },
+};
+
+export const MultipleForm: StoryObj<StorySelectProps> = {
+    render: (args) => <MultipleStoryForm {...args} />,
     args: {
         closeAfterSelect: false,
     },

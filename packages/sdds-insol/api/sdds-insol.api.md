@@ -1068,6 +1068,7 @@ true: PolymorphicClassName;
     size?: string | undefined;
     view?: string | undefined;
     labelPlacement?: "outer" | "inner" | undefined;
+    formType?: Boolean | undefined;
 } & {
     readOnly?: boolean | undefined;
     disabled?: true | undefined;
@@ -1140,6 +1141,7 @@ true: PolymorphicClassName;
     size?: string | undefined;
     view?: string | undefined;
     labelPlacement?: "outer" | "inner" | undefined;
+    formType?: Boolean | undefined;
 } & {
     readOnly?: boolean | undefined;
     disabled?: true | undefined;
@@ -1212,6 +1214,7 @@ true: PolymorphicClassName;
     size?: string | undefined;
     view?: string | undefined;
     labelPlacement?: "outer" | "inner" | undefined;
+    formType?: Boolean | undefined;
 } & {
     readOnly?: true | undefined;
     disabled?: boolean | undefined;
@@ -1284,6 +1287,7 @@ true: PolymorphicClassName;
     size?: string | undefined;
     view?: string | undefined;
     labelPlacement?: "outer" | "inner" | undefined;
+    formType?: Boolean | undefined;
 } & {
     readOnly?: true | undefined;
     disabled?: boolean | undefined;
@@ -1356,6 +1360,7 @@ true: PolymorphicClassName;
     size?: string | undefined;
     view?: string | undefined;
     labelPlacement?: "outer" | "inner" | undefined;
+    formType?: Boolean | undefined;
 } & {
     readOnly?: false | undefined;
     disabled?: false | undefined;
@@ -1428,6 +1433,7 @@ true: PolymorphicClassName;
     size?: string | undefined;
     view?: string | undefined;
     labelPlacement?: "outer" | "inner" | undefined;
+    formType?: Boolean | undefined;
 } & {
     readOnly?: false | undefined;
     disabled?: false | undefined;

@@ -3,3 +3,5 @@ export { tokens as comboboxTokens } from './Combobox.tokens';
 
 export type { ComboboxProps } from './Combobox.types';
 export type { ItemOption } from './ui/Inner/ui/Item/Item.types';
+export { boundCombobox } from './Combobox.boundler';
+export { getFormComponentGenerator } from './utils';

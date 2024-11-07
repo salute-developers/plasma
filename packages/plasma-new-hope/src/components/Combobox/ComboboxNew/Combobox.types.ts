@@ -205,3 +205,32 @@ export type ItemContext = {
     valueToItemMap: ValueToItemMapType;
     treeId: string;
 };
+
+type ComboboxFormBaseProps =
+    | {
+          onChange?: (event: React.ChangeEvent<HTMLSelectElement> | null) => void;
+          defaultValue?: string;
+          multiple?: false;
+      }
+    | {
+          onChange?: (event: React.ChangeEvent<HTMLSelectElement> | null) => void;
+          defaultValue?: string[];
+          multiple?: true;
+      };
+
+export type ComboboxFormProps = Omit<ComboboxProps, 'onChange' | 'defaultValue' | 'multiple'> & ComboboxFormBaseProps;
+
+export type ComboboxBoundlerProps = {
+    base: React.FC<ComboboxProps>;
+    baseForm: React.FC<ComboboxFormPropsAll>;
+};
+
+export type ComboboxFormPropsAll = ComboboxFormProps & {
+    formType: true;
+};
+
+export type ComboboxPropsAll = ComboboxProps & {
+    formType: false;
+};
+
+export type ComboboxBoundlerPropsComponent = ComboboxFormPropsAll | ComboboxPropsAll;
