@@ -1,7 +1,6 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 
-const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 
 const storyMap = {
@@ -10,13 +9,9 @@ const storyMap = {
 };
 
 const stories = ['../README.stories.mdx'];
+const CSS_IN_JS = USE_EMOTION_COMPONENTS ? 'emotion' : 'styled-components';
 
-if (USE_EMOTION_COMPONENTS) {
-    stories.push(...storyMap['emotion']);
-} else {
-    // default
-    stories.push(...storyMap['styled-components']);
-}
+stories.push(...storyMap[CSS_IN_JS]);
 
 const config: StorybookConfig = {
     staticDirs: ['public'],
@@ -42,6 +37,9 @@ const config: StorybookConfig = {
             },
             build: {
                 sourcemap: false,
+            },
+            define: {
+                'process.env.IS_DRAFT': JSON.stringify(process.env.IS_DRAFT || 'false'),
             },
         });
     },
