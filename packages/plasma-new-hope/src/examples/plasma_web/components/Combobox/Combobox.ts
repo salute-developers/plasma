@@ -14,13 +14,9 @@ type PropsFromConfig = keyof typeof config['variations'];
 type PropsNew<T extends ItemOption> = Omit<ComboboxProps<T>, PropsFromConfig> &
     Pick<ComponentProps<typeof ComboboxComponent>, PropsFromConfig>;
 
-const Combobox = ComboboxComponent as <T extends ItemOption>(
-    props: PropsNew<T> & { ref?: ForwardedRef<HTMLInputElement> },
-) => ReactElement | null;
-
-const ComboboxWithForm = boundCombobox({
+const Combobox = boundCombobox({
     base: ComboboxComponent as FC<ComboboxProps>,
     baseForm: getFormComponentGenerator(ComboboxComponent as FC<ComboboxProps>),
 }) as <T extends ItemOption>(props: PropsNew<T> & { ref?: ForwardedRef<HTMLInputElement> }) => ReactElement | null;
 
-export { Combobox, ComboboxWithForm };
+export { Combobox };

@@ -4,6 +4,7 @@ import { css } from '@linaria/core';
 import { emptyStateConfig, emptyStateTokens } from '../../EmptyState';
 import { IconDisclosureDownCentered } from '../../_Icon';
 import { component, mergeConfig } from '../../../engines';
+import { applyHidden } from '../../../mixins';
 
 import { ComboboxProps } from './Combobox.types';
 import { tokens, constants, classes } from './Combobox.tokens';
@@ -65,4 +66,8 @@ export const StyledEmptyState = styled(EmptyState)`
     ${emptyStateTokens.fontWeight}: var(${tokens.textFieldFontWeight});
     ${emptyStateTokens.fontLetterSpacing}: var(${tokens.textFieldLetterSpacing});
     ${emptyStateTokens.fontLineHeight}: var(${tokens.textFieldLineHeight});
+`;
+
+export const SelectHidden = styled.select`
+    ${applyHidden()};
 `;

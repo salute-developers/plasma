@@ -177,6 +177,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      * @default outer
      */
     labelPlacement?: 'outer' | 'inner';
+    formType?: false;
 } & ViewStateProps &
     IsMultiselect<T> &
     RequiredProps &
@@ -210,27 +211,26 @@ type ComboboxFormBaseProps =
     | {
           onChange?: (event: React.ChangeEvent<HTMLSelectElement> | null) => void;
           defaultValue?: string;
+          name?: string;
           multiple?: false;
+          ref?: React.Ref<HTMLSelectElement>;
+          formType: true;
       }
     | {
           onChange?: (event: React.ChangeEvent<HTMLSelectElement> | null) => void;
           defaultValue?: string[];
+          name?: string;
           multiple?: true;
+          ref?: React.Ref<HTMLSelectElement>;
+          formType: true;
       };
 
-export type ComboboxFormProps = Omit<ComboboxProps, 'onChange' | 'defaultValue' | 'multiple'> & ComboboxFormBaseProps;
+export type ComboboxFormProps = Omit<ComboboxProps, 'onChange' | 'defaultValue' | 'multiple' | 'formType'> &
+    ComboboxFormBaseProps;
 
 export type ComboboxBoundlerProps = {
     base: React.FC<ComboboxProps>;
-    baseForm: React.FC<ComboboxFormPropsAll>;
+    baseForm: React.FC<ComboboxFormProps>;
 };
 
-export type ComboboxFormPropsAll = ComboboxFormProps & {
-    formType: true;
-};
-
-export type ComboboxPropsAll = ComboboxProps & {
-    formType: false;
-};
-
-export type ComboboxBoundlerPropsComponent = ComboboxFormPropsAll | ComboboxPropsAll;
+export type ComboboxBoundlerPropsComponent = ComboboxFormProps | ComboboxProps;

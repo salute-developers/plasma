@@ -1,5 +1,5 @@
-import React, { forwardRef, ComponentProps } from 'react';
-import type { ItemOption, ComboboxProps } from '@salutejs/plasma-new-hope';
+import React, { forwardRef, ComponentProps, FC, ForwardedRef, ReactElement } from 'react';
+import { ItemOption, ComboboxProps, boundCombobox, getFormComponentGenerator } from '@salutejs/plasma-new-hope';
 
 import { config } from './Combobox.config';
 import { Combobox as ComboboxOld } from './Legacy';
@@ -32,4 +32,9 @@ const ComboboxComponent = <T extends ItemOption>(props: CommonProps<T>, ref: Rea
     return <ComboboxOld ref={ref} {...props} />;
 };
 
-export const Combobox = fixedForwardRef(ComboboxComponent);
+const ComboboxFixedRef = fixedForwardRef(ComboboxComponent);
+
+export const Combobox = boundCombobox({
+    base: ComboboxFixedRef as FC<ComboboxProps>,
+    baseForm: getFormComponentGenerator(ComboboxFixedRef as FC<ComboboxProps>),
+}) as <T extends ItemOption>(props: PropsNew<T> & { ref?: ForwardedRef<HTMLInputElement> }) => ReactElement | null;
