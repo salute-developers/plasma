@@ -1,6 +1,7 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../Badge.tokens';
+import { classes, tokens } from '../../Badge.tokens';
+import { StyledContentLeft } from '../../Badge.styles';
 
 export const base = css`
     font-family: var(${tokens.fontFamily});
@@ -14,8 +15,13 @@ export const base = css`
 
     height: var(${tokens.height});
 
-    padding-top: var(${tokens.paddingTop});
-    padding-right: var(${tokens.paddingRight});
-    padding-bottom: var(${tokens.paddingBottom});
-    padding-left: var(${tokens.paddingLeft});
+    padding: var(${tokens.padding});
+
+    &.${classes.iconOnly} {
+        padding: var(${tokens.paddingIconOnly});
+
+        ${StyledContentLeft} {
+            margin: 0;
+        }
+    }
 `;
