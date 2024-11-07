@@ -743,11 +743,14 @@ true: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
 maxWidth?: Property.Width<string | number> | undefined;
 size?: string | undefined;
 view?: string | undefined;
+} & {
+contentLeft?: ReactNode;
+contentRight?: undefined;
 } & {
 children?: ReactNode;
 } & {
@@ -756,11 +759,14 @@ pilled?: false | undefined;
 transparent?: false | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
 maxWidth?: Property.Width<string | number> | undefined;
 size?: string | undefined;
 view?: string | undefined;
+} & {
+contentLeft?: ReactNode;
+contentRight?: undefined;
 } & {
 children?: ReactNode;
 } & {
@@ -769,11 +775,62 @@ transparent?: boolean | undefined;
 clear?: false | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
 maxWidth?: Property.Width<string | number> | undefined;
 size?: string | undefined;
 view?: string | undefined;
+} & {
+contentLeft?: ReactNode;
+contentRight?: undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: boolean | undefined;
+transparent?: true | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+maxWidth?: Property.Width<string | number> | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+contentLeft?: undefined;
+contentRight?: ReactNode;
+} & {
+children?: ReactNode;
+} & {
+clear?: true | undefined;
+pilled?: false | undefined;
+transparent?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+maxWidth?: Property.Width<string | number> | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+contentLeft?: undefined;
+contentRight?: ReactNode;
+} & {
+children?: ReactNode;
+} & {
+pilled?: true | undefined;
+transparent?: boolean | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+maxWidth?: Property.Width<string | number> | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+contentLeft?: undefined;
+contentRight?: ReactNode;
 } & {
 children?: ReactNode;
 } & {
