@@ -77,7 +77,7 @@ jobs:
                         result.push('plasma-themes');
                         result.push('core-themes');
                       }
-                    
+
                       console.log('Result =>', result);
 
                       return `@salutejs/{${result.join(',')}}`;
@@ -169,6 +169,12 @@ jobs:
                     npm run storybook:build --prefix="./packages/${{ matrix.package }}"
                     cp -R ./packages/${{ matrix.package }}/build-sb ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-storybook
 
+            -   name: Build draft components storybook - "${{ matrix.package }}"
+                if: ${{ contains(fromJSON('["sdds-finportal"]'), matrix.package) }}
+                run: |
+                    npm run storybook:build:draft --prefix="./packages/${{ matrix.package }}"
+                    cp -R ./packages/${{ matrix.package }}/build-sb-draft ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-draft-storybook
+
             -   name: Install s3cmd
                 run: pip3 install s3cmd
 
@@ -187,6 +193,22 @@ jobs:
                     sync
                     ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}/
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}/
+
+            -   name: s3 upload storybook for draft components
+                if: ${{ contains(fromJSON('["sdds-finportal"]'), matrix.package) }}
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --delete-removed
+                    --no-mime-magic
+                    sync
+                    ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-draft-storybook/
+                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}-draft-storybook/
 
             -   name: s3 upload storybook
                 run: >
