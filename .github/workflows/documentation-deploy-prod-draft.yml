@@ -1,0 +1,173 @@
+name: Deploy documentations artefacts [PROD]
+
+on:
+    workflow_dispatch:
+    workflow_run:
+        workflows: [ "Release" ]
+        branches: [ master ]
+        types:
+            - completed
+
+jobs:
+    state:
+        name: Deploy website artifacts
+        if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+        runs-on: ubuntu-22.04
+        outputs:
+            MATRIX: ${{ steps.matrix.outputs.result }}
+        steps:
+            -   uses: actions/checkout@v4
+                # [NOTE]: В проекте default branch - dev, что бы правильно собрать
+                # актуальную версию для branch master, нужно указать ref = 'master'
+                # [DOC]: About REF. The branch, tag or SHA to checkout. When checking out the repository that
+                # triggered a workflow, this defaults to the reference or SHA for that event.
+                # Otherwise, **uses the default branch**.
+                # [DOC]: Last commit on default branch
+                with:
+                    ref: 'master'
+                    show-progress: false
+
+            -   name: Read meta config
+                id: matrix
+                uses: actions/github-script@v7
+                with:
+                    script: |
+                        const fs = require('fs');
+                        const data = '.github/config-ci.json';
+                        const config = JSON.parse(fs.readFileSync(data, 'utf8'));
+
+                        return config.PACKAGES_DS;
+
+    # Собираем и загружаем артефакты пакета "plasma-website"
+    # результат кладется в директорию current на s3
+    deploy-website:
+        name: Deploy website artifacts
+        needs: [ state ]
+        runs-on: ubuntu-22.04
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    ref: 'master'
+                    show-progress: false
+
+            -   name: Prepare environment
+                uses: ./.github/actions/prepare-environment
+
+            -   name: Lerna bootstrap
+                run: npx lerna bootstrap --scope="@salutejs/{plasma-b2c,plasma-web,plasma-website,plasma-tokens-b2c,plasma-typo,plasma-icons,plasma-new-hope,plasma-themes,core-themes}"
+
+            -   name: Prepare directory
+                run: mkdir -p s3_local_current
+
+            -   name: Plasma Website
+                run: |
+                    npm run build --prefix="./website/plasma-website"
+                    cp -R ./website/plasma-website/build/. ./s3_local_current/next-${{ github.sha }}
+
+            -   name: Install s3cmd
+                run: pip3 install s3cmd
+
+                # Заменить путь на s3://${{ secrets.AWS_S3_BUCKET_2 }}/current/
+            -   name: s3 Upload
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --no-mime-magic
+                    sync
+                    ./s3_local_current/next-${{ github.sha }}/
+                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/dev/
+
+    deploy-artifacts:
+        name: Deploy artifacts
+        needs: [ state, deploy-website ]
+        runs-on: ubuntu-22.04
+        strategy:
+            fail-fast: false
+            matrix:
+                package: ${{ needs.state.outputs.MATRIX }}
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    ref: 'master'
+                    show-progress: false
+
+            -   name: Prepare environment
+                uses: ./.github/actions/prepare-environment
+
+            -   name: Set job environment variables
+                run: |
+                    echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/plasma-//g')" >> $GITHUB_ENV
+                    echo "HAS_PACKAGE_DOCS=$([ -d "./website/${{ matrix.package }}-docs" ] && echo true || echo false)" >> $GITHUB_ENV
+
+            -   name: Computed lerna scope
+                id: scope
+                uses: actions/github-script@v7
+                env:
+                    PACKAGE: ${{ matrix.package }}
+                with:
+                    result-encoding: string
+                    script: |
+                        const fs = require('fs');
+                        const META = require('.github/meta-prod.js');
+
+                        return META[env.PACKAGE].scope;
+
+            -   name: Lerna bootstrap
+                run: npx lerna bootstrap --scope="${{ steps.scope.outputs.result }}"
+
+            -   name: Prepare directory
+                run: mkdir -p s3_local_storybook_build s3_local_docs_build
+
+            -   name: Build documentation - "${{ matrix.package }}"
+                if: ${{ fromJSON(env.HAS_PACKAGE_DOCS) }}
+                run: |
+                    npm run build --prefix="./website/${{ matrix.package }}-docs" -- --no-minify
+                    cp -R ./website/${{ matrix.package }}-docs/build ./s3_local_docs_build/${{ env.SHORT_NAME }}
+
+            -   name: Build storybook - "${{ matrix.package }}"
+                run: |
+                    npm run storybook:build --prefix="./packages/${{ matrix.package }}"
+                    cp -R ./packages/${{ matrix.package }}/build-sb ./s3_local_storybook_build/${{ env.SHORT_NAME }}-storybook
+
+            -   name: Install s3cmd
+                run: pip3 install s3cmd
+
+            ## TODO заменить dev на current
+            ## TODO "s3://${{ secrets.AWS_S3_BUCKET_2 }}/current/${{ env.SHORT_NAME }}/"
+            -   name: s3 upload docs
+                if: ${{ fromJSON(env.HAS_PACKAGE_DOCS) }}
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --delete-removed
+                    --no-mime-magic
+                    sync
+                    ./s3_local_docs_build/${{ env.SHORT_NAME }}/
+                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/dev/${{ env.SHORT_NAME }}/
+
+            ## TODO В отличие от документации storybook нужно заливать в конкретную директорию
+            ## TODO "s3://${{ secrets.AWS_S3_BUCKET_2 }}/${{ env.SHORT_NAME }}-storybook/"
+            -   name: s3 upload storybook
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --delete-removed
+                    --no-mime-magic
+                    sync
+                    ./s3_local_storybook_build/${{ env.SHORT_NAME }}-storybook/
+                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/dev/${{ env.SHORT_NAME }}-storybook/
