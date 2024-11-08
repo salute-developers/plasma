@@ -19,7 +19,43 @@ import { Switch } from '@salutejs/plasma-web';
 
 export function App() {
     return (
-        <Switch label="Переключатель" defaultChecked />
+        <Switch description="Описание переключателя" label="Переключатель" defaultChecked />
+    );
+}
+```
+
+## Примеры
+
+### Размер Switch
+Размер компонента задается с помощью свойства `size`.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Switch size="s" description="Описание переключателя" label="Переключатель" defaultChecked />
+            <Switch size="m" description="Описание переключателя" label="Переключатель" defaultChecked />
+            <Switch size="l" description="Описание переключателя" label="Переключатель" defaultChecked />
+        </div>
+    );
+}
+```
+
+Размер переключателя задается с помощью свойства `toggleSize`.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div style={{ alignItems: "center" }}>
+            <Switch toggleSize="s" label="Переключатель" defaultChecked />
+            <Switch toggleSize="l" label="Переключатель" defaultChecked />
+        </div>
     );
 }
 ```
