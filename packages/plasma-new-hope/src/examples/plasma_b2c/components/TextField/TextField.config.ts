@@ -20,6 +20,7 @@ export const config = {
                 ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
@@ -64,6 +65,7 @@ export const config = {
                 ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
@@ -108,6 +110,7 @@ export const config = {
                 ${tokens.clearPlaceholderColorFocus}: var(--text-warning);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
@@ -152,6 +155,7 @@ export const config = {
                 ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
