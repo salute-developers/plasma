@@ -196,9 +196,11 @@ import { StepsProps } from '@salutejs/plasma-new-hope/types/components/Steps/Ste
 import { StyledComponent } from 'styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SyntheticEvent } from 'react';
+import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
@@ -3753,17 +3755,19 @@ true: PolymorphicClassName;
 // @public (undocumented)
 export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
-// Warning: (ae-forgotten-export) The symbol "TabItemProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TabItemProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const TabItem: (props: TabItemProps) => JSX.Element;
+export const TabItem: (props: TabItemProps_2) => JSX.Element;
+
+export { TabItemProps }
 
 export { TabItemRefs }
 
-// Warning: (ae-forgotten-export) The symbol "TabsProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TabsProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const Tabs: (props: TabsProps) => JSX.Element;
+export const Tabs: (props: TabsProps_2) => JSX.Element;
 
 export { TabsContext }
 
@@ -3771,6 +3775,8 @@ export { TabsContext }
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }
+
+export { TabsProps }
 
 // @public
 export const TextArea: FunctionComponent<PropsType<    {

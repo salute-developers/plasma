@@ -288,9 +288,11 @@ import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SyntheticEvent } from 'react';
 import { syntheticFocus } from '@salutejs/plasma-core';
+import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextareaHTMLAttributes as TextareaHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
 import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-hope';
@@ -4025,17 +4027,19 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 export { syntheticFocus }
 
-// Warning: (ae-forgotten-export) The symbol "TabItemProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TabItemProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const TabItem: (props: TabItemProps) => JSX.Element;
+export const TabItem: (props: TabItemProps_2) => JSX.Element;
+
+export { TabItemProps }
 
 export { TabItemRefs }
 
-// Warning: (ae-forgotten-export) The symbol "TabsProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TabsProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const Tabs: (props: TabsProps) => JSX.Element;
+export const Tabs: (props: TabsProps_2) => JSX.Element;
 
 export { TabsContext }
 
@@ -4043,6 +4047,8 @@ export { TabsContext }
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }
+
+export { TabsProps }
 
 // @public
 export const TextArea: FunctionComponent<PropsType<    {
