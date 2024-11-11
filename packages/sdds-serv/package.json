@@ -133,5 +133,5 @@
     "Vasiliy Loginevskiy",
     "Anton Vinogradov"
   ],
-  "sideEffects": false
+  "sideEffects": ["*.css"]
 }

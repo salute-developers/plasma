@@ -130,8 +130,7 @@
     "atLeast": 99.96
   },
   "contributors": [
-    "Vasiliy Loginevskiy",
-    "Anton Vinogradov"
+    "Vasiliy Loginevskiy"
   ],
-  "sideEffects": false
+  "sideEffects": ["*.css"]
 }
