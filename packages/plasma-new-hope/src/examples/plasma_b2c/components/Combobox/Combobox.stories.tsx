@@ -353,11 +353,11 @@ const items = [
 
 const SingleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState('');
-
     return (
         <div style={{ width: '400px' }}>
             <Combobox
                 {...args}
+                name="mau"
                 items={items}
                 value={value}
                 onChange={setValue}

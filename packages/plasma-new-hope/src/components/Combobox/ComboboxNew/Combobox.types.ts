@@ -1,4 +1,4 @@
-import type { CSSProperties, ButtonHTMLAttributes } from 'react';
+import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler } from 'react';
 import React from 'react';
 
 import { RequiredProps, LabelProps } from '../../TextField/TextField.types';
@@ -23,8 +23,10 @@ type Placement =
 
 type IsMultiselect<T extends ItemOption = ItemOption> =
     | {
+          name?: never;
           multiple?: false;
           value?: string;
+          defaultValue?: never;
           onChange?: (value: string) => void;
           /**
            * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
@@ -41,6 +43,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
     | {
           multiple: true;
           value?: Array<string>;
+          defaultValue?: never;
           onChange?: (value: Array<string>) => void;
           isTargetAmount?: true;
           targetAmount?: number;
@@ -48,6 +51,27 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
            * Callback для кастомной настройки значения в селекте.
            */
           renderValue?: (item: T) => string;
+          name?: never;
+      }
+    | {
+          multiple: true;
+          value?: string[];
+          defaultValue?: string[];
+          onChange?: ChangeEventHandler;
+          isTargetAmount?: never | false;
+          targetAmount?: never;
+          renderValue?: never;
+          name: string;
+      }
+    | {
+          multiple?: false;
+          value?: string;
+          defaultValue?: string;
+          onChange?: ChangeEventHandler;
+          isTargetAmount?: never | false;
+          targetAmount?: never;
+          renderValue?: never;
+          name: string;
       };
 
 type ViewStateProps =
@@ -176,7 +200,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     ViewStateProps &
     IsMultiselect<T> &
     RequiredProps &
-    Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+    Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);

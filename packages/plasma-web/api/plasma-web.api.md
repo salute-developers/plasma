@@ -81,6 +81,7 @@ import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
+import { ChangeEventHandler } from 'react';
 import { ChangeInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipGroupProps } from '@salutejs/plasma-new-hope/types/components/ChipGroup/ChipGroup.types';
