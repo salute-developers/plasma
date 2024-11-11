@@ -48,6 +48,7 @@ import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChangeEvent } from 'react';
+import { ChangeEventHandler } from 'react';
 import { ChangeInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipGroupProps } from '@salutejs/plasma-new-hope/types/components/ChipGroup/ChipGroup.types';
@@ -1296,7 +1297,944 @@ export { ColSizeProps }
 // Warning: (ae-forgotten-export) The symbol "Props" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Combobox: <T extends ItemOption>(props: Props<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export const Combobox: <T extends ItemOption>(props: Omit<ComboboxProps<T>, "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & Pick<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & (({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    name?: undefined;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    name?: undefined;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: string[] | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: string[] | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: string | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: string | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: true | undefined;
+    targetAmount?: number | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
+    name?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: boolean | undefined;
+    disabled?: true | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: true | undefined;
+    targetAmount?: number | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
+    name?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    name?: undefined;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    name?: undefined;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: string[] | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: string[] | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: string | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: string | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: true | undefined;
+    targetAmount?: number | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
+    name?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: true | undefined;
+    disabled?: boolean | undefined;
+    alwaysOpened?: false | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: true | undefined;
+    targetAmount?: number | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
+    name?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    name?: undefined;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    name?: undefined;
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string) => void) | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: string[] | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: string[] | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: string | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple?: false | undefined;
+    value?: string | undefined;
+    defaultValue?: string | undefined;
+    onChange?: ChangeEventHandler<Element> | undefined;
+    isTargetAmount?: false | undefined;
+    targetAmount?: undefined;
+    renderValue?: undefined;
+    name: string;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: true | undefined;
+    targetAmount?: number | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
+    name?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    required: true;
+    optional?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>) | ({
+    items: ItemOption[];
+    placement?: ("top" | "bottom" | "right" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end") | undefined;
+    label?: string | undefined;
+    placeholder?: string | undefined;
+    helperText?: string | undefined;
+    contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    portal?: MutableRefObject<HTMLElement | null> | undefined;
+    renderItem?: ((item: ItemOption) => ReactNode) | undefined;
+    filter?: ((item: ItemOption, textValue: string) => boolean) | undefined;
+    closeAfterSelect?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
+} & {
+    readOnly?: false | undefined;
+    disabled?: false | undefined;
+    alwaysOpened?: true | undefined;
+} & {
+    multiple: true;
+    value?: string[] | undefined;
+    defaultValue?: undefined;
+    onChange?: ((value: string[]) => void) | undefined;
+    isTargetAmount?: true | undefined;
+    targetAmount?: number | undefined;
+    renderValue?: ((item: ItemOption) => string) | undefined;
+    name?: undefined;
+} & {
+    requiredPlacement?: "right" | "left" | undefined;
+} & {
+    optional?: true | undefined;
+    required?: false | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLInputElement>, "onChange" | "defaultValue" | "name" | "value"> & RefAttributes<HTMLInputElement | HTMLSelectElement>)), "view" | "size" | "disabled" | "readOnly" | "labelPlacement"> & {
+    ref?: ForwardedRef<HTMLInputElement> | undefined;
+}) => ReactElement | null;
 
 // @public
 export const Counter: FunctionComponent<PropsType<    {

@@ -1,5 +1,14 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
-import type { ChangeEvent } from 'react';
+import React, {
+    forwardRef,
+    useState,
+    useReducer,
+    useMemo,
+    createContext,
+    useLayoutEffect,
+    useRef,
+    useEffect,
+} from 'react';
+import type { ChangeEvent, ForwardedRef } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../engines';
@@ -27,18 +36,22 @@ import type { ItemContext, ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
+import { Form } from './ui/Form/Form';
 
 export const Context = createContext<ItemContext>({} as ItemContext);
 
 /**
  * Поле ввода с выпадающим списком и возможностью фильтрации и выбора элементов.
  */
+
 export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items'>>) =>
-    forwardRef<HTMLInputElement, ComboboxProps>((props, ref) => {
+    forwardRef<HTMLInputElement | HTMLSelectElement, ComboboxProps>((props, ref) => {
         const {
+            name,
             multiple,
             value: outerValue,
             onChange: outerOnChange,
+            defaultValue,
             isTargetAmount,
             targetAmount,
             items,
@@ -127,12 +140,24 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         }, floatingPopoverRef);
 
-        const onChange = (newValue: string | Array<string>) => {
+        const onChange = (newValue: string | Array<string> | ChangeEvent<HTMLSelectElement> | null) => {
             if (outerOnChange) {
-                outerOnChange(newValue as any);
+                if (!name && !multiple && typeof newValue === 'string') {
+                    outerOnChange(newValue as string & string[] & ChangeEvent<HTMLSelectElement>);
+                }
+
+                if (!name && multiple && Array.isArray(newValue)) {
+                    outerOnChange(newValue as string & string[] & ChangeEvent<HTMLSelectElement>);
+                }
+
+                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    outerOnChange(newValue as string & string[] & ChangeEvent<HTMLSelectElement>);
+                }
             }
 
-            setInternalValue(newValue);
+            if (typeof newValue === 'string' || Array.isArray(newValue)) {
+                setInternalValue(newValue);
+            }
         };
 
         const handleClickArrow = () => {
@@ -341,8 +366,23 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
+        useEffect(() => {
+            if (defaultValue) {
+                setInternalValue(defaultValue);
+            }
+        }, [defaultValue]);
+
         return (
             <Root size={size} view={view} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
+                {name && (
+                    <Form
+                        name={name}
+                        value={internalValue}
+                        multiple={multiple}
+                        onChange={onChange}
+                        ref={ref as ForwardedRef<HTMLSelectElement>}
+                    />
+                )}
                 <div>
                     <Context.Provider
                         value={{
@@ -366,7 +406,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             listWidth={listWidth}
                             target={(referenceRef) => (
                                 <StyledTextField
-                                    ref={inputForkRef}
+                                    ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
                                     inputWrapperRef={referenceRef}
                                     value={textValue}
                                     onChange={handleTextValueChange}
