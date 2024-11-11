@@ -1,4 +1,11 @@
-const commonScope = ['plasma-icons', 'plasma-sb-utils', 'plasma-tokens', 'plasma-tokens-utils', 'plasma-themes', 'core-themes'];
+const commonScope = [
+    'plasma-icons',
+    'plasma-sb-utils',
+    'plasma-tokens',
+    'plasma-tokens-utils',
+    'plasma-themes',
+    'core-themes',
+];
 
 module.exports = {
     'plasma-asdk': {
@@ -21,10 +28,17 @@ module.exports = {
     },
     'plasma-new-hope': {
         scope: [...commonScope, 'plasma-themes', 'plasma-core'],
-        required: ['plasma-core'],
+        required: ['plasma-core', 'core-themes', 'plasma-themes'],
     },
     'plasma-ui': {
-        scope: ['plasma-icons', 'plasma-sb-utils', 'plasma-tokens', 'plasma-tokens-utils', 'plasma-core', 'plasma-typo'],
+        scope: [
+            'plasma-icons',
+            'plasma-sb-utils',
+            'plasma-tokens',
+            'plasma-tokens-utils',
+            'plasma-core',
+            'plasma-typo',
+        ],
         required: ['plasma-icons', 'plasma-core'],
         themes: '',
     },
@@ -44,22 +58,22 @@ module.exports = {
     },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-new-hope', 'plasma-core'],
+        required: ['plasma-new-hope', 'plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-dfa': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-core'],
+        required: ['plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-cs': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-core'],
+        required: ['plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-finportal': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-core'],
+        required: ['plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-insol': {
