@@ -426,6 +426,96 @@ export const inverseTextParagraphHover = 'var(--inverse-text-paragraph-hover, #0
 /** Инвертированный cплошной наборный текст */
 export const inverseTextParagraphActive = 'var(--inverse-text-paragraph-active, #080808A3)';
 
+/** Инвертированный акцентный цвет */
+export const inverseTextAccentHover = 'var(--inverse-text-accent-hover, #79A7FBFF)';
+
+/** Инвертированный акцентный цвет */
+export const inverseTextAccentActive = 'var(--inverse-text-accent-active, #0D5FF8FF)';
+
+/** Инвертированный цвет успеха */
+export const inverseTextPositiveHover = 'var(--inverse-text-positive-hover, #1EB83AFF)';
+
+/** Инвертированный цвет успеха */
+export const inverseTextPositiveActive = 'var(--inverse-text-positive-active, #15842AFF)';
+
+/** Инвертированный цвет предупреждения */
+export const inverseTextWarningHover = 'var(--inverse-text-warning-hover, #FB7223FF)';
+
+/** Инвертированный цвет предупреждения */
+export const inverseTextWarningActive = 'var(--inverse-text-warning-active, #DC5304FF)';
+
+/** Инвертированный цвет ошибки */
+export const inverseTextNegativeHover = 'var(--inverse-text-negative-hover, #F5384BFF)';
+
+/** Инвертированный цвет ошибки */
+export const inverseTextNegativeActive = 'var(--inverse-text-negative-active, #E40C22FF)';
+
+/** dark text inverse textAccentMinorHover */
+export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hover, #DCE8FEFF)';
+
+/** dark text inverse textAccentMinorActive */
+export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #6FA0FBFF)';
+
+/** Инвертированный акцентный цвет */
+export const inverseTextAccent = 'var(--inverse-text-accent, #2A72F8)';
+
+/** dark text inverse textAccentMinor */
+export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #8BB2FC)';
+
+/** Инвертированный цвет успеха */
+export const inverseTextPositive = 'var(--inverse-text-positive, #1A9E32)';
+
+/** Инвертированный цвет предупреждения */
+export const inverseTextWarning = 'var(--inverse-text-warning, #FA5F05)';
+
+/** Инвертированный цвет ошибки */
+export const inverseTextNegative = 'var(--inverse-text-negative, #F31B31)';
+
+/** dark text inverse textInfo */
+export const inverseTextInfo = 'var(--inverse-text-info, #2A72F8)';
+
+/** dark text inverse textInfoHover */
+export const inverseTextInfoHover = 'var(--inverse-text-info-hover, #79A7FBFF)';
+
+/** dark text inverse textInfoActive */
+export const inverseTextInfoActive = 'var(--inverse-text-info-active, #0D5FF8FF)';
+
+/** dark text inverse textPositiveMinor */
+export const inverseTextPositiveMinor = 'var(--inverse-text-positive-minor, #28D247)';
+
+/** dark text inverse textPositiveMinorHover */
+export const inverseTextPositiveMinorHover = 'var(--inverse-text-positive-minor-hover, #3EDA5BFF)';
+
+/** dark text inverse textPositiveMinorActive */
+export const inverseTextPositiveMinorActive = 'var(--inverse-text-positive-minor-active, #23B83EFF)';
+
+/** dark text inverse textWarningMinor */
+export const inverseTextWarningMinor = 'var(--inverse-text-warning-minor, #FD9C68)';
+
+/** dark text inverse textWarningMinorHover */
+export const inverseTextWarningMinorHover = 'var(--inverse-text-warning-minor-hover, #FDB086FF)';
+
+/** dark text inverse textWarningMinorActive */
+export const inverseTextWarningMinorActive = 'var(--inverse-text-warning-minor-active, #FC884AFF)';
+
+/** dark text inverse textNegativeMinor */
+export const inverseTextNegativeMinor = 'var(--inverse-text-negative-minor, #FF8F9A)';
+
+/** dark text inverse textNegativeMinorHover */
+export const inverseTextNegativeMinorHover = 'var(--inverse-text-negative-minor-hover, #FFADB6FF)';
+
+/** dark text inverse textNegativeMinorActive */
+export const inverseTextNegativeMinorActive = 'var(--inverse-text-negative-minor-active, #FF707EFF)';
+
+/** dark text inverse textInfoMinor */
+export const inverseTextInfoMinor = 'var(--inverse-text-info-minor, #8BB2FC)';
+
+/** dark text inverse textInfoMinorHover */
+export const inverseTextInfoMinorHover = 'var(--inverse-text-info-minor-hover, #DCE8FEFF)';
+
+/** dark text inverse textInfoMinorActive */
+export const inverseTextInfoMinorActive = 'var(--inverse-text-info-minor-active, #6FA0FBFF)';
+
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimary = 'var(--surface-solid-primary, #171717)';
 
@@ -1138,6 +1228,250 @@ export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transp
 /** dark surface onLight surfaceTransparentDeepActive */
 export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #08080894)';
 
+/** Инвертированный осн. непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidPrimaryBrightness = 'var(--inverse-surface-solid-primary-brightness, #FFFFFFFF)';
+
+/** Инвертированный основной фон для карточек */
+export const inverseSurfaceSolidCardBrightness = 'var(--inverse-surface-solid-card-brightness, #FFFFFFFF)';
+
+/** Инвертированный прозрачный фон для карточек */
+export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-transparent-card-brightness, #FFFFFFFF)';
+
+/** dark surface inverse surfacePositive */
+export const inverseSurfacePositive = 'var(--inverse-surface-positive, #1A9E32)';
+
+/** dark surface inverse surfaceWarning */
+export const inverseSurfaceWarning = 'var(--inverse-surface-warning, #FA5F05)';
+
+/** dark surface inverse surfaceNegative */
+export const inverseSurfaceNegative = 'var(--inverse-surface-negative, #F31B31)';
+
+/** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
+export const inverseSurfaceSolidDefaultHover = 'var(--inverse-surface-solid-default-hover, #0D0D0DFF)';
+
+/** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
+export const inverseSurfaceSolidDefaultActive = 'var(--inverse-surface-solid-default-active, #030303FF)';
+
+/** Инвертированный осн. непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #FAFAFAFF)';
+
+/** Инвертированный осн. непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidPrimaryActive = 'var(--inverse-surface-solid-primary-active, #F0F0F0FF)';
+
+/** Инвертированный втор. непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidSecondaryHover = 'var(--inverse-surface-solid-secondary-hover, #F7F7F7FF)';
+
+/** Инвертированный втор. непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidSecondaryActive = 'var(--inverse-surface-solid-secondary-active, #E8E8E8FF)';
+
+/** Инвертированный трет.непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiaryHover = 'var(--inverse-surface-solid-tertiary-hover, #E8E8E8FF)';
+
+/** Инвертированный трет.непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiaryActive = 'var(--inverse-surface-solid-tertiary-active, #D9D9D9FF)';
+
+/** Инвертированный основной фон для карточек */
+export const inverseSurfaceSolidCardHover = 'var(--inverse-surface-solid-card-hover, #FFFFFFFF)';
+
+/** Инвертированный основной фон для карточек */
+export const inverseSurfaceSolidCardActive = 'var(--inverse-surface-solid-card-active, #FFFFFFFF)';
+
+/** Инвертированный основной прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentPrimaryHover = 'var(--inverse-surface-transparent-primary-hover, #08080812)';
+
+/** Инвертированный основной прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentPrimaryActive = 'var(--inverse-surface-transparent-primary-active, #08080803)';
+
+/** Инвертированный вторичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentSecondaryHover = 'var(--inverse-surface-transparent-secondary-hover, #0808081F)';
+
+/** Инвертированный вторичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentSecondaryActive =
+    'var(--inverse-surface-transparent-secondary-active, #0808080A)';
+
+/** Инвертированный третичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentTertiaryHover = 'var(--inverse-surface-transparent-tertiary-hover, #0808083D)';
+
+/** Инвертированный третичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentTertiaryActive = 'var(--inverse-surface-transparent-tertiary-active, #0808080F)';
+
+/** Инвертированный прозрачный фон для карточек */
+export const inverseSurfaceTransparentCardHover = 'var(--inverse-surface-transparent-card-hover, #FFFFFFFF)';
+
+/** Инвертированный прозрачный фон для карточек */
+export const inverseSurfaceTransparentCardActive = 'var(--inverse-surface-transparent-card-active, #FFFFFFFF)';
+
+/** Инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #4886F9FF)';
+
+/** Инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #206CF8FF)';
+
+/** dark surface inverse surfacePositiveHover */
+export const inverseSurfacePositiveHover = 'var(--inverse-surface-positive-hover, #1DAF37FF)';
+
+/** dark surface inverse surfacePositiveActive */
+export const inverseSurfacePositiveActive = 'var(--inverse-surface-positive-active, #18952FFF)';
+
+/** dark surface inverse surfaceWarningHover */
+export const inverseSurfaceWarningHover = 'var(--inverse-surface-warning-hover, #FB7223FF)';
+
+/** dark surface inverse surfaceWarningActive */
+export const inverseSurfaceWarningActive = 'var(--inverse-surface-warning-active, #F05B05FF)';
+
+/** dark surface inverse surfaceNegativeHover */
+export const inverseSurfaceNegativeHover = 'var(--inverse-surface-negative-hover, #F5384BFF)';
+
+/** dark surface inverse surfaceNegativeActive */
+export const inverseSurfaceNegativeActive = 'var(--inverse-surface-negative-active, #F31228FF)';
+
+/** Инвертированный фон поверхности/контрола без заливки */
+export const inverseSurfaceClearHover = 'var(--inverse-surface-clear-hover, #FFFFFFFF)';
+
+/** Инвертированный фон поверхности/контрола без заливки */
+export const inverseSurfaceClearActive = 'var(--inverse-surface-clear-active, #FFFFFFFF)';
+
+/** Инвертированный основной фон для карточек */
+export const inverseSurfaceSolidCard = 'var(--inverse-surface-solid-card, #FFFFFFFF)';
+
+/** Инвертированный осн. непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidPrimary = 'var(--inverse-surface-solid-primary, #F5F5F5)';
+
+/** Инвертированный втор. непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidSecondary = 'var(--inverse-surface-solid-secondary, #ECECEC)';
+
+/** Инвертированный трет.непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiary = 'var(--inverse-surface-solid-tertiary, #DDDDDD)';
+
+/** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
+export const inverseSurfaceSolidDefault = 'var(--inverse-surface-solid-default, #080808)';
+
+/** Инвертированный прозрачный фон для карточек */
+export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card, #FFFFFFFF)';
+
+/** Инвертированный основной прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentPrimary = 'var(--inverse-surface-transparent-primary, #08080808)';
+
+/** Инвертированный вторичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentSecondary = 'var(--inverse-surface-transparent-secondary, #0808080F)';
+
+/** Инвертированный третичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentTertiary = 'var(--inverse-surface-transparent-tertiary, #0808081F)';
+
+/** dark surface inverse surfaceTransparentDeep */
+export const inverseSurfaceTransparentDeep = 'var(--inverse-surface-transparent-deep, #080808A3)';
+
+/** dark surface inverse surfaceTransparentDeepHover */
+export const inverseSurfaceTransparentDeepHover = 'var(--inverse-surface-transparent-deep-hover, #080808C2)';
+
+/** dark surface inverse surfaceTransparentDeepActive */
+export const inverseSurfaceTransparentDeepActive = 'var(--inverse-surface-transparent-deep-active, #08080894)';
+
+/** Инвертированный фон поверхности/контрола без заливки */
+export const inverseSurfaceClear = 'var(--inverse-surface-clear, #00000000)';
+
+/** Инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #2A72F8)';
+
+/** dark surface inverse surfaceAccentMinor */
+export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #DEE9FF)';
+
+/** dark surface inverse surfaceAccentMinorHover */
+export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #EBF1FFFF)';
+
+/** dark surface inverse surfaceAccentMinorActive */
+export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #D6E4FFFF)';
+
+/** dark surface inverse surfaceTransparentAccent */
+export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #2A72F81F)';
+
+/** dark surface inverse surfaceTransparentAccentHover */
+export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #2A72F83D)';
+
+/** dark surface inverse surfaceTransparentAccentActive */
+export const inverseSurfaceTransparentAccentActive = 'var(--inverse-surface-transparent-accent-active, #2A72F80F)';
+
+/** dark surface inverse surfaceInfo */
+export const inverseSurfaceInfo = 'var(--inverse-surface-info, #2A72F8)';
+
+/** dark surface inverse surfaceInfoHover */
+export const inverseSurfaceInfoHover = 'var(--inverse-surface-info-hover, #4886F9FF)';
+
+/** dark surface inverse surfaceInfoActive */
+export const inverseSurfaceInfoActive = 'var(--inverse-surface-info-active, #206CF8FF)';
+
+/** dark surface inverse surfacePositiveMinor */
+export const inverseSurfacePositiveMinor = 'var(--inverse-surface-positive-minor, #9EFAAF)';
+
+/** dark surface inverse surfacePositiveMinorHover */
+export const inverseSurfacePositiveMinorHover = 'var(--inverse-surface-positive-minor-hover, #B1FBBFFF)';
+
+/** dark surface inverse surfacePositiveMinorActive */
+export const inverseSurfacePositiveMinorActive = 'var(--inverse-surface-positive-minor-active, #94F9A7FF)';
+
+/** dark surface inverse surfaceWarningMinor */
+export const inverseSurfaceWarningMinor = 'var(--inverse-surface-warning-minor, #FEE2D2)';
+
+/** dark surface inverse surfaceWarningMinorHover */
+export const inverseSurfaceWarningMinorHover = 'var(--inverse-surface-warning-minor-hover, #FEE9DCFF)';
+
+/** dark surface inverse surfaceWarningMinorActive */
+export const inverseSurfaceWarningMinorActive = 'var(--inverse-surface-warning-minor-active, #FEDCC8FF)';
+
+/** dark surface inverse surfaceNegativeMinor */
+export const inverseSurfaceNegativeMinor = 'var(--inverse-surface-negative-minor, #FFE0E3)';
+
+/** dark surface inverse surfaceNegativeMinorHover */
+export const inverseSurfaceNegativeMinorHover = 'var(--inverse-surface-negative-minor-hover, #FFEBEDFF)';
+
+/** dark surface inverse surfaceNegativeMinorActive */
+export const inverseSurfaceNegativeMinorActive = 'var(--inverse-surface-negative-minor-active, #FFD6DAFF)';
+
+/** dark surface inverse surfaceInfoMinor */
+export const inverseSurfaceInfoMinor = 'var(--inverse-surface-info-minor, #DEE9FF)';
+
+/** dark surface inverse surfaceInfoMinorHover */
+export const inverseSurfaceInfoMinorHover = 'var(--inverse-surface-info-minor-hover, #EBF1FFFF)';
+
+/** dark surface inverse surfaceInfoMinorActive */
+export const inverseSurfaceInfoMinorActive = 'var(--inverse-surface-info-minor-active, #D6E4FFFF)';
+
+/** dark surface inverse surfaceTransparentPositive */
+export const inverseSurfaceTransparentPositive = 'var(--inverse-surface-transparent-positive, #1A9E321F)';
+
+/** dark surface inverse surfaceTransparentPositiveHover */
+export const inverseSurfaceTransparentPositiveHover = 'var(--inverse-surface-transparent-positive-hover, #1A9E323D)';
+
+/** dark surface inverse surfaceTransparentPositiveActive */
+export const inverseSurfaceTransparentPositiveActive = 'var(--inverse-surface-transparent-positive-active, #1A9E320F)';
+
+/** dark surface inverse surfaceTransparentWarning */
+export const inverseSurfaceTransparentWarning = 'var(--inverse-surface-transparent-warning, #FA5F051F)';
+
+/** dark surface inverse surfaceTransparentWarningHover */
+export const inverseSurfaceTransparentWarningHover = 'var(--inverse-surface-transparent-warning-hover, #FA5F053D)';
+
+/** dark surface inverse surfaceTransparentWarningActive */
+export const inverseSurfaceTransparentWarningActive = 'var(--inverse-surface-transparent-warning-active, #FA5F050F)';
+
+/** dark surface inverse surfaceTransparentNegative */
+export const inverseSurfaceTransparentNegative = 'var(--inverse-surface-transparent-negative, #F31B311F)';
+
+/** dark surface inverse surfaceTransparentNegativeHover */
+export const inverseSurfaceTransparentNegativeHover = 'var(--inverse-surface-transparent-negative-hover, #F31B313D)';
+
+/** dark surface inverse surfaceTransparentNegativeActive */
+export const inverseSurfaceTransparentNegativeActive = 'var(--inverse-surface-transparent-negative-active, #F31B310F)';
+
+/** dark surface inverse surfaceTransparentInfo */
+export const inverseSurfaceTransparentInfo = 'var(--inverse-surface-transparent-info, #2A72F81F)';
+
+/** dark surface inverse surfaceTransparentInfoHover */
+export const inverseSurfaceTransparentInfoHover = 'var(--inverse-surface-transparent-info-hover, #2A72F83D)';
+
+/** dark surface inverse surfaceTransparentInfoActive */
+export const inverseSurfaceTransparentInfoActive = 'var(--inverse-surface-transparent-info-active, #2A72F80F)';
+
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #080808)';
 
@@ -1149,6 +1483,12 @@ export const darkBackgroundPrimary = 'var(--dark-background-primary, #080808)';
 
 /** Основной фон на светлом фоне */
 export const lightBackgroundPrimary = 'var(--light-background-primary, #F9F9F9)';
+
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimaryBrightness = 'var(--inverse-background-primary-brightness, #FFFFFFFF)';
+
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F9F9F9)';
 
 /** Цвет фона паранжи светлый */
 export const overlaySoft = 'var(--overlay-soft, #0808088F)';
@@ -1176,6 +1516,15 @@ export const onLightOverlayHard = 'var(--on-light-overlay-hard, #F9F9F9F5)';
 
 /** dark overlay onLight overlayBlur */
 export const onLightOverlayBlur = 'var(--on-light-overlay-blur, #F9F9F947)';
+
+/** Инвертированный цвет фона паранжи светлый */
+export const inverseOverlaySoft = 'var(--inverse-overlay-soft, #F9F9F98F)';
+
+/** Инвертированный цвет фона паранжи темный */
+export const inverseOverlayHard = 'var(--inverse-overlay-hard, #F9F9F9F5)';
+
+/** dark overlay inverse overlayBlur */
+export const inverseOverlayBlur = 'var(--inverse-overlay-blur, #F9F9F947)';
 
 /** dark outline default outlinePrimary */
 export const outlinePrimary = 'var(--outline-primary, #262626)';
@@ -1788,10 +2137,212 @@ export const onLightOutlineInfoMinor = 'var(--on-light-outline-info-minor, #8BB2
 export const onLightOutlineTransparentInfo = 'var(--on-light-outline-transparent-info, #2A72F833)';
 
 /** dark outline inverse outlinePrimaryHover */
-export const inverseOutlinePrimaryHover = 'var(--inverse-outline-primary-hover, #CCCCCCFF)';
+export const inverseOutlinePrimaryHover = 'var(--inverse-outline-primary-hover, #ABABABFF)';
 
 /** dark outline inverse outlinePrimaryActive */
-export const inverseOutlinePrimaryActive = 'var(--inverse-outline-primary-active, #E6E6E6FF)';
+export const inverseOutlinePrimaryActive = 'var(--inverse-outline-primary-active, #C4C4C4FF)';
+
+/** dark outline inverse outlinePrimary */
+export const inverseOutlinePrimary = 'var(--inverse-outline-primary, #DDDDDD)';
+
+/** dark outline inverse outlineSecondary */
+export const inverseOutlineSecondary = 'var(--inverse-outline-secondary, #949494)';
+
+/** dark outline inverse outlineSecondaryHover */
+export const inverseOutlineSecondaryHover = 'var(--inverse-outline-secondary-hover, #FFFFFFFF)';
+
+/** dark outline inverse outlineSecondaryActive */
+export const inverseOutlineSecondaryActive = 'var(--inverse-outline-secondary-active, #575757FF)';
+
+/** dark outline inverse outlineTertiary */
+export const inverseOutlineTertiary = 'var(--inverse-outline-tertiary, #707070)';
+
+/** dark outline inverse outlineTertiaryHover */
+export const inverseOutlineTertiaryHover = 'var(--inverse-outline-tertiary-hover, #FFFFFFFF)';
+
+/** dark outline inverse outlineTertiaryActive */
+export const inverseOutlineTertiaryActive = 'var(--inverse-outline-tertiary-active, #737373FF)';
+
+/** dark outline inverse outlineDefault */
+export const inverseOutlineDefault = 'var(--inverse-outline-default, #080808)';
+
+/** dark outline inverse outlineDefaultHover */
+export const inverseOutlineDefaultHover = 'var(--inverse-outline-default-hover, #FFFFFFFF)';
+
+/** dark outline inverse outlineDefaultActive */
+export const inverseOutlineDefaultActive = 'var(--inverse-outline-default-active, #C7C7C7FF)';
+
+/** dark outline inverse outlineTransparentPrimary */
+export const inverseOutlineTransparentPrimary = 'var(--inverse-outline-transparent-primary, #08080833)';
+
+/** dark outline inverse outlineTransparentPrimaryHover */
+export const inverseOutlineTransparentPrimaryHover = 'var(--inverse-outline-transparent-primary-hover, #080808FF)';
+
+/** dark outline inverse outlineTransparentPrimaryActive */
+export const inverseOutlineTransparentPrimaryActive = 'var(--inverse-outline-transparent-primary-active, #0808083D)';
+
+/** dark outline inverse outlineTransparentSecondary */
+export const inverseOutlineTransparentSecondary = 'var(--inverse-outline-transparent-secondary, #08080866)';
+
+/** dark outline inverse outlineTransparentSecondaryHover */
+export const inverseOutlineTransparentSecondaryHover = 'var(--inverse-outline-transparent-secondary-hover, #080808FF)';
+
+/** dark outline inverse outlineTransparentSecondaryActive */
+export const inverseOutlineTransparentSecondaryActive =
+    'var(--inverse-outline-transparent-secondary-active, #0808087A)';
+
+/** dark outline inverse outlineTransparentTertiary */
+export const inverseOutlineTransparentTertiary = 'var(--inverse-outline-transparent-tertiary, #0808088F)';
+
+/** dark outline inverse outlineTransparentTertiaryHover */
+export const inverseOutlineTransparentTertiaryHover = 'var(--inverse-outline-transparent-tertiary-hover, #080808FF)';
+
+/** dark outline inverse outlineTransparentTertiaryActive */
+export const inverseOutlineTransparentTertiaryActive = 'var(--inverse-outline-transparent-tertiary-active, #080808AB)';
+
+/** dark outline inverse outlineTransparentClear */
+export const inverseOutlineTransparentClear = 'var(--inverse-outline-transparent-clear, #FFFFFF00)';
+
+/** dark outline inverse outlineTransparentClearHover */
+export const inverseOutlineTransparentClearHover = 'var(--inverse-outline-transparent-clear-hover, #FFFFFFFF)';
+
+/** dark outline inverse outlineTransparentClearActive */
+export const inverseOutlineTransparentClearActive = 'var(--inverse-outline-transparent-clear-active, #FFFFFFFF)';
+
+/** dark outline inverse outlineAccent */
+export const inverseOutlineAccent = 'var(--inverse-outline-accent, #2A72F8)';
+
+/** dark outline inverse outlineAccentHover */
+export const inverseOutlineAccentHover = 'var(--inverse-outline-accent-hover, #79A7FBFF)';
+
+/** dark outline inverse outlineAccentActive */
+export const inverseOutlineAccentActive = 'var(--inverse-outline-accent-active, #0D5FF8FF)';
+
+/** dark outline inverse outlineAccentMinor */
+export const inverseOutlineAccentMinor = 'var(--inverse-outline-accent-minor, #8BB2FC)';
+
+/** dark outline inverse outlineAccentMinorHover */
+export const inverseOutlineAccentMinorHover = 'var(--inverse-outline-accent-minor-hover, #DCE8FEFF)';
+
+/** dark outline inverse outlineAccentMinorActive */
+export const inverseOutlineAccentMinorActive = 'var(--inverse-outline-accent-minor-active, #6FA0FBFF)';
+
+/** dark outline inverse outlineTransparentAccent */
+export const inverseOutlineTransparentAccent = 'var(--inverse-outline-transparent-accent, #2A72F833)';
+
+/** dark outline inverse outlineTransparentAccentHover */
+export const inverseOutlineTransparentAccentHover = 'var(--inverse-outline-transparent-accent-hover, #2A72F8FF)';
+
+/** dark outline inverse outlineTransparentAccentActive */
+export const inverseOutlineTransparentAccentActive = 'var(--inverse-outline-transparent-accent-active, #2A72F83D)';
+
+/** dark outline inverse outlinePositive */
+export const inverseOutlinePositive = 'var(--inverse-outline-positive, #1A9E32)';
+
+/** dark outline inverse outlinePositiveHover */
+export const inverseOutlinePositiveHover = 'var(--inverse-outline-positive-hover, #1EB83AFF)';
+
+/** dark outline inverse outlinePositiveActive */
+export const inverseOutlinePositiveActive = 'var(--inverse-outline-positive-active, #15842AFF)';
+
+/** dark outline inverse outlineWarning */
+export const inverseOutlineWarning = 'var(--inverse-outline-warning, #FA5F05)';
+
+/** dark outline inverse outlineWarningHover */
+export const inverseOutlineWarningHover = 'var(--inverse-outline-warning-hover, #FB7223FF)';
+
+/** dark outline inverse outlineWarningActive */
+export const inverseOutlineWarningActive = 'var(--inverse-outline-warning-active, #DC5304FF)';
+
+/** dark outline inverse outlineNegative */
+export const inverseOutlineNegative = 'var(--inverse-outline-negative, #F31B31)';
+
+/** dark outline inverse outlineNegativeHover */
+export const inverseOutlineNegativeHover = 'var(--inverse-outline-negative-hover, #F5384BFF)';
+
+/** dark outline inverse outlineNegativeActive */
+export const inverseOutlineNegativeActive = 'var(--inverse-outline-negative-active, #E40C22FF)';
+
+/** dark outline inverse outlineInfo */
+export const inverseOutlineInfo = 'var(--inverse-outline-info, #2A72F8)';
+
+/** dark outline inverse outlineInfoHover */
+export const inverseOutlineInfoHover = 'var(--inverse-outline-info-hover, #79A7FBFF)';
+
+/** dark outline inverse outlineInfoActive */
+export const inverseOutlineInfoActive = 'var(--inverse-outline-info-active, #0D5FF8FF)';
+
+/** dark outline inverse outlinePositiveMinor */
+export const inverseOutlinePositiveMinor = 'var(--inverse-outline-positive-minor, #28D247)';
+
+/** dark outline inverse outlinePositiveMinorHover */
+export const inverseOutlinePositiveMinorHover = 'var(--inverse-outline-positive-minor-hover, #3EDA5BFF)';
+
+/** dark outline inverse outlinePositiveMinorActive */
+export const inverseOutlinePositiveMinorActive = 'var(--inverse-outline-positive-minor-active, #23B83EFF)';
+
+/** dark outline inverse outlineWarningMinor */
+export const inverseOutlineWarningMinor = 'var(--inverse-outline-warning-minor, #FD9C68)';
+
+/** dark outline inverse outlineWarningMinorHover */
+export const inverseOutlineWarningMinorHover = 'var(--inverse-outline-warning-minor-hover, #FDB086FF)';
+
+/** dark outline inverse outlineWarningMinorActive */
+export const inverseOutlineWarningMinorActive = 'var(--inverse-outline-warning-minor-active, #FC884AFF)';
+
+/** dark outline inverse outlineNegativeMinor */
+export const inverseOutlineNegativeMinor = 'var(--inverse-outline-negative-minor, #FF8F9A)';
+
+/** dark outline inverse outlineNegativeMinorHover */
+export const inverseOutlineNegativeMinorHover = 'var(--inverse-outline-negative-minor-hover, #FFADB6FF)';
+
+/** dark outline inverse outlineNegativeMinorActive */
+export const inverseOutlineNegativeMinorActive = 'var(--inverse-outline-negative-minor-active, #FF707EFF)';
+
+/** dark outline inverse outlineInfoMinor */
+export const inverseOutlineInfoMinor = 'var(--inverse-outline-info-minor, #8BB2FC)';
+
+/** dark outline inverse outlineInfoMinorHover */
+export const inverseOutlineInfoMinorHover = 'var(--inverse-outline-info-minor-hover, #DCE8FEFF)';
+
+/** dark outline inverse outlineInfoMinorActive */
+export const inverseOutlineInfoMinorActive = 'var(--inverse-outline-info-minor-active, #6FA0FBFF)';
+
+/** dark outline inverse outlineTransparentPositive */
+export const inverseOutlineTransparentPositive = 'var(--inverse-outline-transparent-positive, #1A9E3233)';
+
+/** dark outline inverse outlineTransparentPositiveHover */
+export const inverseOutlineTransparentPositiveHover = 'var(--inverse-outline-transparent-positive-hover, #1A9E32FF)';
+
+/** dark outline inverse outlineTransparentPositiveActive */
+export const inverseOutlineTransparentPositiveActive = 'var(--inverse-outline-transparent-positive-active, #1A9E323D)';
+
+/** dark outline inverse outlineTransparentWarning */
+export const inverseOutlineTransparentWarning = 'var(--inverse-outline-transparent-warning, #FA5F0533)';
+
+/** dark outline inverse outlineTransparentWarningHover */
+export const inverseOutlineTransparentWarningHover = 'var(--inverse-outline-transparent-warning-hover, #FA5F05FF)';
+
+/** dark outline inverse outlineTransparentWarningActive */
+export const inverseOutlineTransparentWarningActive = 'var(--inverse-outline-transparent-warning-active, #FA5F053D)';
+
+/** dark outline inverse outlineTransparentNegative */
+export const inverseOutlineTransparentNegative = 'var(--inverse-outline-transparent-negative, #F31B3133)';
+
+/** dark outline inverse outlineTransparentNegativeHover */
+export const inverseOutlineTransparentNegativeHover = 'var(--inverse-outline-transparent-negative-hover, #F31B31FF)';
+
+/** dark outline inverse outlineTransparentNegativeActive */
+export const inverseOutlineTransparentNegativeActive = 'var(--inverse-outline-transparent-negative-active, #F31B313D)';
+
+/** dark outline inverse outlineTransparentInfo */
+export const inverseOutlineTransparentInfo = 'var(--inverse-outline-transparent-info, #2A72F833)';
+
+/** dark outline inverse outlineTransparentInfoHover */
+export const inverseOutlineTransparentInfoHover = 'var(--inverse-outline-transparent-info-hover, #2A72F8FF)';
+
+/** dark outline inverse outlineTransparentInfoActive */
+export const inverseOutlineTransparentInfoActive = 'var(--inverse-outline-transparent-info-active, #2A72F83D)';
 
 /** @deprecated instead use onDarkTextPrimary */
 export const whitePrimary = 'var(--plasma-colors-white-primary, var(--on-dark-text-primary))';
@@ -1924,6 +2475,16 @@ export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradie
 /** Акцентный цвет с градиентом на светлом фоне */
 export const onLightTextAccentGradientActive = 'var(--on-light-text-accent-gradient-active, #E6E6E6FF)';
 
+/** Инвертированный акцентный цвет с градиентом */
+export const inverseTextAccentGradientHover = 'var(--inverse-text-accent-gradient-hover, #CCCCCCFF)';
+
+/** Инвертированный акцентный цвет с градиентом */
+export const inverseTextAccentGradientActive = 'var(--inverse-text-accent-gradient-active, #E6E6E6FF)';
+
+/** Инвертированный акцентный цвет с градиентом */
+export const inverseTextAccentGradient =
+    'var(--inverse-text-accent-gradient, linear-gradient(94deg, #3E79F0FF 6.49%, #27C6E5FF 93.51%))';
+
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradient =
     'var(--surface-accent-gradient, linear-gradient(93.97deg, #3E79F0FF 6.49%, #27C6E5FF 93.51%),linear-gradient(89.83deg, #5E94FFFF 0%, #43DBFAFF 100%))';
@@ -2017,6 +2578,16 @@ export const onLightSurfaceSkeletonDeepGradientHover =
 export const onLightSurfaceSkeletonDeepGradientActive =
     'var(--on-light-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
 
+/** Инвертированный акцентный фон поверхности/контрола с градиентом */
+export const inverseSurfaceAccentGradientHover = 'var(--inverse-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Инвертированный акцентный фон поверхности/контрола с градиентом */
+export const inverseSurfaceAccentGradientActive = 'var(--inverse-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Инвертированный акцентный фон поверхности/контрола с градиентом */
+export const inverseSurfaceAccentGradient =
+    'var(--inverse-surface-accent-gradient, linear-gradient(94deg, #3E79F0FF 6.49%, #27C6E5FF 93.51%))';
+
 /** Фон для скелетона */
 export const inverseSurfaceSkeletonGradient =
     'var(--inverse-surface-skeleton-gradient, linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%))';
@@ -2078,19 +2649,19 @@ export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px #0000
 export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
 
 /** borderRadius xs */
-export const borderRadiusXs = 'var(--border-radius-xs, 8px)';
+export const borderRadiusXs = 'var(--border-radius-xs, 6px)';
 
 /** borderRadius s */
-export const borderRadiusS = 'var(--border-radius-s, 12px)';
+export const borderRadiusS = 'var(--border-radius-s, 8px)';
 
 /** borderRadius m */
-export const borderRadiusM = 'var(--border-radius-m, 16px)';
+export const borderRadiusM = 'var(--border-radius-m, 12px)';
 
 /** borderRadius l */
-export const borderRadiusL = 'var(--border-radius-l, 20px)';
+export const borderRadiusL = 'var(--border-radius-l, 16px)';
 
 /** borderRadius xl */
-export const borderRadiusXl = 'var(--border-radius-xl, 24px)';
+export const borderRadiusXl = 'var(--border-radius-xl, 20px)';
 
 /** borderRadius xxl */
 export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
@@ -2493,6 +3064,36 @@ export const viewContainer = {
         --inverse-text-tertiary-active: var(--on-light-text-tertiary-active);
         --inverse-text-paragraph-hover: var(--on-light-text-paragraph-hover);
         --inverse-text-paragraph-active: var(--on-light-text-paragraph-active);
+        --inverse-text-accent-hover: var(--on-light-text-accent-hover);
+        --inverse-text-accent-active: var(--on-light-text-accent-active);
+        --inverse-text-positive-hover: var(--on-light-text-positive-hover);
+        --inverse-text-positive-active: var(--on-light-text-positive-active);
+        --inverse-text-warning-hover: var(--on-light-text-warning-hover);
+        --inverse-text-warning-active: var(--on-light-text-warning-active);
+        --inverse-text-negative-hover: var(--on-light-text-negative-hover);
+        --inverse-text-negative-active: var(--on-light-text-negative-active);
+        --inverse-text-accent-minor-hover: var(--on-light-text-accent-minor-hover);
+        --inverse-text-accent-minor-active: var(--on-light-text-accent-minor-active);
+        --inverse-text-accent: var(--on-light-text-accent);
+        --inverse-text-accent-minor: var(--on-light-text-accent-minor);
+        --inverse-text-positive: var(--on-light-text-positive);
+        --inverse-text-warning: var(--on-light-text-warning);
+        --inverse-text-negative: var(--on-light-text-negative);
+        --inverse-text-info: var(--on-light-text-info);
+        --inverse-text-info-hover: var(--on-light-text-info-hover);
+        --inverse-text-info-active: var(--on-light-text-info-active);
+        --inverse-text-positive-minor: var(--on-light-text-positive-minor);
+        --inverse-text-positive-minor-hover: var(--on-light-text-positive-minor-hover);
+        --inverse-text-positive-minor-active: var(--on-light-text-positive-minor-active);
+        --inverse-text-warning-minor: var(--on-light-text-warning-minor);
+        --inverse-text-warning-minor-hover: var(--on-light-text-warning-minor-hover);
+        --inverse-text-warning-minor-active: var(--on-light-text-warning-minor-active);
+        --inverse-text-negative-minor: var(--on-light-text-negative-minor);
+        --inverse-text-negative-minor-hover: var(--on-light-text-negative-minor-hover);
+        --inverse-text-negative-minor-active: var(--on-light-text-negative-minor-active);
+        --inverse-text-info-minor: var(--on-light-text-info-minor);
+        --inverse-text-info-minor-hover: var(--on-light-text-info-minor-hover);
+        --inverse-text-info-minor-active: var(--on-light-text-info-minor-active);
         --surface-solid-primary: var(--on-dark-surface-solid-primary);
         --surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
         --surface-solid-secondary: var(--on-dark-surface-solid-secondary);
@@ -2574,11 +3175,97 @@ export const viewContainer = {
         --surface-negative-active: var(--on-dark-surface-negative-active);
         --surface-clear-hover: var(--on-dark-surface-clear-hover);
         --surface-clear-active: var(--on-dark-surface-clear-active);
+        --inverse-surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);
+        --inverse-surface-solid-card-brightness: var(--on-light-surface-solid-card-brightness);
+        --inverse-surface-transparent-card-brightness: var(--on-light-surface-transparent-card-brightness);
+        --inverse-surface-positive: var(--on-light-surface-positive);
+        --inverse-surface-warning: var(--on-light-surface-warning);
+        --inverse-surface-negative: var(--on-light-surface-negative);
+        --inverse-surface-solid-default-hover: var(--on-light-surface-solid-default-hover);
+        --inverse-surface-solid-default-active: var(--on-light-surface-solid-default-active);
+        --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
+        --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
+        --inverse-surface-solid-secondary-hover: var(--on-light-surface-solid-secondary-hover);
+        --inverse-surface-solid-secondary-active: var(--on-light-surface-solid-secondary-active);
+        --inverse-surface-solid-tertiary-hover: var(--on-light-surface-solid-tertiary-hover);
+        --inverse-surface-solid-tertiary-active: var(--on-light-surface-solid-tertiary-active);
+        --inverse-surface-solid-card-hover: var(--on-light-surface-solid-card-hover);
+        --inverse-surface-solid-card-active: var(--on-light-surface-solid-card-active);
+        --inverse-surface-transparent-primary-hover: var(--on-light-surface-transparent-primary-hover);
+        --inverse-surface-transparent-primary-active: var(--on-light-surface-transparent-primary-active);
+        --inverse-surface-transparent-secondary-hover: var(--on-light-surface-transparent-secondary-hover);
+        --inverse-surface-transparent-secondary-active: var(--on-light-surface-transparent-secondary-active);
+        --inverse-surface-transparent-tertiary-hover: var(--on-light-surface-transparent-tertiary-hover);
+        --inverse-surface-transparent-tertiary-active: var(--on-light-surface-transparent-tertiary-active);
+        --inverse-surface-transparent-card-hover: var(--on-light-surface-transparent-card-hover);
+        --inverse-surface-transparent-card-active: var(--on-light-surface-transparent-card-active);
+        --inverse-surface-accent-hover: var(--on-light-surface-accent-hover);
+        --inverse-surface-accent-active: var(--on-light-surface-accent-active);
+        --inverse-surface-positive-hover: var(--on-light-surface-positive-hover);
+        --inverse-surface-positive-active: var(--on-light-surface-positive-active);
+        --inverse-surface-warning-hover: var(--on-light-surface-warning-hover);
+        --inverse-surface-warning-active: var(--on-light-surface-warning-active);
+        --inverse-surface-negative-hover: var(--on-light-surface-negative-hover);
+        --inverse-surface-negative-active: var(--on-light-surface-negative-active);
+        --inverse-surface-clear-hover: var(--on-light-surface-clear-hover);
+        --inverse-surface-clear-active: var(--on-light-surface-clear-active);
+        --inverse-surface-solid-card: var(--on-light-surface-solid-card);
+        --inverse-surface-solid-primary: var(--on-light-surface-solid-primary);
+        --inverse-surface-solid-secondary: var(--on-light-surface-solid-secondary);
+        --inverse-surface-solid-tertiary: var(--on-light-surface-solid-tertiary);
+        --inverse-surface-solid-default: var(--on-light-surface-solid-default);
+        --inverse-surface-transparent-card: var(--on-light-surface-transparent-card);
+        --inverse-surface-transparent-primary: var(--on-light-surface-transparent-primary);
+        --inverse-surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
+        --inverse-surface-transparent-tertiary: var(--on-light-surface-transparent-tertiary);
+        --inverse-surface-transparent-deep: var(--on-light-surface-transparent-deep);
+        --inverse-surface-transparent-deep-hover: var(--on-light-surface-transparent-deep-hover);
+        --inverse-surface-transparent-deep-active: var(--on-light-surface-transparent-deep-active);
+        --inverse-surface-clear: var(--on-light-surface-clear);
+        --inverse-surface-accent: var(--on-light-surface-accent);
+        --inverse-surface-accent-minor: var(--on-light-surface-accent-minor);
+        --inverse-surface-accent-minor-hover: var(--on-light-surface-accent-minor-hover);
+        --inverse-surface-accent-minor-active: var(--on-light-surface-accent-minor-active);
+        --inverse-surface-transparent-accent: var(--on-light-surface-transparent-accent);
+        --inverse-surface-transparent-accent-hover: var(--on-light-surface-transparent-accent-hover);
+        --inverse-surface-transparent-accent-active: var(--on-light-surface-transparent-accent-active);
+        --inverse-surface-info: var(--on-light-surface-info);
+        --inverse-surface-info-hover: var(--on-light-surface-info-hover);
+        --inverse-surface-info-active: var(--on-light-surface-info-active);
+        --inverse-surface-positive-minor: var(--on-light-surface-positive-minor);
+        --inverse-surface-positive-minor-hover: var(--on-light-surface-positive-minor-hover);
+        --inverse-surface-positive-minor-active: var(--on-light-surface-positive-minor-active);
+        --inverse-surface-warning-minor: var(--on-light-surface-warning-minor);
+        --inverse-surface-warning-minor-hover: var(--on-light-surface-warning-minor-hover);
+        --inverse-surface-warning-minor-active: var(--on-light-surface-warning-minor-active);
+        --inverse-surface-negative-minor: var(--on-light-surface-negative-minor);
+        --inverse-surface-negative-minor-hover: var(--on-light-surface-negative-minor-hover);
+        --inverse-surface-negative-minor-active: var(--on-light-surface-negative-minor-active);
+        --inverse-surface-info-minor: var(--on-light-surface-info-minor);
+        --inverse-surface-info-minor-hover: var(--on-light-surface-info-minor-hover);
+        --inverse-surface-info-minor-active: var(--on-light-surface-info-minor-active);
+        --inverse-surface-transparent-positive: var(--on-light-surface-transparent-positive);
+        --inverse-surface-transparent-positive-hover: var(--on-light-surface-transparent-positive-hover);
+        --inverse-surface-transparent-positive-active: var(--on-light-surface-transparent-positive-active);
+        --inverse-surface-transparent-warning: var(--on-light-surface-transparent-warning);
+        --inverse-surface-transparent-warning-hover: var(--on-light-surface-transparent-warning-hover);
+        --inverse-surface-transparent-warning-active: var(--on-light-surface-transparent-warning-active);
+        --inverse-surface-transparent-negative: var(--on-light-surface-transparent-negative);
+        --inverse-surface-transparent-negative-hover: var(--on-light-surface-transparent-negative-hover);
+        --inverse-surface-transparent-negative-active: var(--on-light-surface-transparent-negative-active);
+        --inverse-surface-transparent-info: var(--on-light-surface-transparent-info);
+        --inverse-surface-transparent-info-hover: var(--on-light-surface-transparent-info-hover);
+        --inverse-surface-transparent-info-active: var(--on-light-surface-transparent-info-active);
         --background-primary: var(--dark-background-primary);
         --background-primary-brightness: var(--dark-background-primary-brightness);
+        --inverse-background-primary-brightness: var(--light-background-primary-brightness);
+        --inverse-background-primary: var(--light-background-primary);
         --overlay-soft: var(--on-dark-overlay-soft);
         --overlay-hard: var(--on-dark-overlay-hard);
         --overlay-blur: var(--on-dark-overlay-blur);
+        --inverse-overlay-soft: var(--on-light-overlay-soft);
+        --inverse-overlay-hard: var(--on-light-overlay-hard);
+        --inverse-overlay-blur: var(--on-light-overlay-blur);
         --outline-primary: var(--on-dark-outline-primary);
         --outline-primary-hover: var(--on-dark-outline-primary-hover);
         --outline-primary-active: var(--on-dark-outline-primary-active);
@@ -2652,9 +3339,79 @@ export const viewContainer = {
         --outline-info: var(--on-dark-outline-info);
         --inverse-outline-primary-hover: var(--on-light-outline-primary-hover);
         --inverse-outline-primary-active: var(--on-light-outline-primary-active);
+        --inverse-outline-primary: var(--on-light-outline-primary);
+        --inverse-outline-secondary: var(--on-light-outline-secondary);
+        --inverse-outline-secondary-hover: var(--on-light-outline-secondary-hover);
+        --inverse-outline-secondary-active: var(--on-light-outline-secondary-active);
+        --inverse-outline-tertiary: var(--on-light-outline-tertiary);
+        --inverse-outline-tertiary-hover: var(--on-light-outline-tertiary-hover);
+        --inverse-outline-tertiary-active: var(--on-light-outline-tertiary-active);
+        --inverse-outline-default: var(--on-light-outline-default);
+        --inverse-outline-default-hover: var(--on-light-outline-default-hover);
+        --inverse-outline-default-active: var(--on-light-outline-default-active);
+        --inverse-outline-transparent-primary: var(--on-light-outline-transparent-primary);
+        --inverse-outline-transparent-primary-hover: var(--on-light-outline-transparent-primary-hover);
+        --inverse-outline-transparent-primary-active: var(--on-light-outline-transparent-primary-active);
+        --inverse-outline-transparent-secondary: var(--on-light-outline-transparent-secondary);
+        --inverse-outline-transparent-secondary-hover: var(--on-light-outline-transparent-secondary-hover);
+        --inverse-outline-transparent-secondary-active: var(--on-light-outline-transparent-secondary-active);
+        --inverse-outline-transparent-tertiary: var(--on-light-outline-transparent-tertiary);
+        --inverse-outline-transparent-tertiary-hover: var(--on-light-outline-transparent-tertiary-hover);
+        --inverse-outline-transparent-tertiary-active: var(--on-light-outline-transparent-tertiary-active);
+        --inverse-outline-transparent-clear: var(--on-light-outline-transparent-clear);
+        --inverse-outline-transparent-clear-hover: var(--on-light-outline-transparent-clear-hover);
+        --inverse-outline-transparent-clear-active: var(--on-light-outline-transparent-clear-active);
+        --inverse-outline-accent: var(--on-light-outline-accent);
+        --inverse-outline-accent-hover: var(--on-light-outline-accent-hover);
+        --inverse-outline-accent-active: var(--on-light-outline-accent-active);
+        --inverse-outline-accent-minor: var(--on-light-outline-accent-minor);
+        --inverse-outline-accent-minor-hover: var(--on-light-outline-accent-minor-hover);
+        --inverse-outline-accent-minor-active: var(--on-light-outline-accent-minor-active);
+        --inverse-outline-transparent-accent: var(--on-light-outline-transparent-accent);
+        --inverse-outline-transparent-accent-hover: var(--on-light-outline-transparent-accent-hover);
+        --inverse-outline-transparent-accent-active: var(--on-light-outline-transparent-accent-active);
+        --inverse-outline-positive: var(--on-light-outline-positive);
+        --inverse-outline-positive-hover: var(--on-light-outline-positive-hover);
+        --inverse-outline-positive-active: var(--on-light-outline-positive-active);
+        --inverse-outline-warning: var(--on-light-outline-warning);
+        --inverse-outline-warning-hover: var(--on-light-outline-warning-hover);
+        --inverse-outline-warning-active: var(--on-light-outline-warning-active);
+        --inverse-outline-negative: var(--on-light-outline-negative);
+        --inverse-outline-negative-hover: var(--on-light-outline-negative-hover);
+        --inverse-outline-negative-active: var(--on-light-outline-negative-active);
+        --inverse-outline-info: var(--on-light-outline-info);
+        --inverse-outline-info-hover: var(--on-light-outline-info-hover);
+        --inverse-outline-info-active: var(--on-light-outline-info-active);
+        --inverse-outline-positive-minor: var(--on-light-outline-positive-minor);
+        --inverse-outline-positive-minor-hover: var(--on-light-outline-positive-minor-hover);
+        --inverse-outline-positive-minor-active: var(--on-light-outline-positive-minor-active);
+        --inverse-outline-warning-minor: var(--on-light-outline-warning-minor);
+        --inverse-outline-warning-minor-hover: var(--on-light-outline-warning-minor-hover);
+        --inverse-outline-warning-minor-active: var(--on-light-outline-warning-minor-active);
+        --inverse-outline-negative-minor: var(--on-light-outline-negative-minor);
+        --inverse-outline-negative-minor-hover: var(--on-light-outline-negative-minor-hover);
+        --inverse-outline-negative-minor-active: var(--on-light-outline-negative-minor-active);
+        --inverse-outline-info-minor: var(--on-light-outline-info-minor);
+        --inverse-outline-info-minor-hover: var(--on-light-outline-info-minor-hover);
+        --inverse-outline-info-minor-active: var(--on-light-outline-info-minor-active);
+        --inverse-outline-transparent-positive: var(--on-light-outline-transparent-positive);
+        --inverse-outline-transparent-positive-hover: var(--on-light-outline-transparent-positive-hover);
+        --inverse-outline-transparent-positive-active: var(--on-light-outline-transparent-positive-active);
+        --inverse-outline-transparent-warning: var(--on-light-outline-transparent-warning);
+        --inverse-outline-transparent-warning-hover: var(--on-light-outline-transparent-warning-hover);
+        --inverse-outline-transparent-warning-active: var(--on-light-outline-transparent-warning-active);
+        --inverse-outline-transparent-negative: var(--on-light-outline-transparent-negative);
+        --inverse-outline-transparent-negative-hover: var(--on-light-outline-transparent-negative-hover);
+        --inverse-outline-transparent-negative-active: var(--on-light-outline-transparent-negative-active);
+        --inverse-outline-transparent-info: var(--on-light-outline-transparent-info);
+        --inverse-outline-transparent-info-hover: var(--on-light-outline-transparent-info-hover);
+        --inverse-outline-transparent-info-active: var(--on-light-outline-transparent-info-active);
         --text-accent-gradient: var(--on-dark-text-accent-gradient);
         --text-accent-gradient-hover: var(--on-dark-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-dark-text-accent-gradient-active);
+        --inverse-text-accent-gradient-hover: var(--on-light-text-accent-gradient-hover);
+        --inverse-text-accent-gradient-active: var(--on-light-text-accent-gradient-active);
+        --inverse-text-accent-gradient: var(--on-light-text-accent-gradient);
         --surface-accent-gradient: var(--on-dark-surface-accent-gradient);
         --surface-accent-gradient-hover: var(--on-dark-surface-accent-gradient-hover);
         --surface-accent-gradient-active: var(--on-dark-surface-accent-gradient-active);
@@ -2664,6 +3421,9 @@ export const viewContainer = {
         --surface-skeleton-deep-gradient: var(--on-dark-surface-skeleton-deep-gradient);
         --surface-skeleton-deep-gradient-hover: var(--on-dark-surface-skeleton-deep-gradient-hover);
         --surface-skeleton-deep-gradient-active: var(--on-dark-surface-skeleton-deep-gradient-active);
+        --inverse-surface-accent-gradient-hover: var(--on-light-surface-accent-gradient-hover);
+        --inverse-surface-accent-gradient-active: var(--on-light-surface-accent-gradient-active);
+        --inverse-surface-accent-gradient: var(--on-light-surface-accent-gradient);
         --inverse-surface-skeleton-gradient: var(--on-light-surface-skeleton-gradient);
         --inverse-surface-skeleton-gradient-hover: var(--on-light-surface-skeleton-gradient-hover);
         --inverse-surface-skeleton-gradient-active: var(--on-light-surface-skeleton-gradient-active);
@@ -2720,6 +3480,9 @@ export const viewContainer = {
         --inverse-text-secondary: var(--on-dark-text-secondary);
         --inverse-text-tertiary: var(--on-dark-text-tertiary);
         --inverse-text-paragraph: var(--on-dark-text-paragraph);
+        --inverse-text-positive: var(--on-dark-text-positive);
+        --inverse-text-warning: var(--on-dark-text-warning);
+        --inverse-text-negative: var(--on-dark-text-negative);
         --inverse-text-primary-hover: var(--on-dark-text-primary-hover);
         --inverse-text-primary-active: var(--on-dark-text-primary-active);
         --inverse-text-secondary-hover: var(--on-dark-text-secondary-hover);
@@ -2728,6 +3491,33 @@ export const viewContainer = {
         --inverse-text-tertiary-active: var(--on-dark-text-tertiary-active);
         --inverse-text-paragraph-hover: var(--on-dark-text-paragraph-hover);
         --inverse-text-paragraph-active: var(--on-dark-text-paragraph-active);
+        --inverse-text-accent-hover: var(--on-dark-text-accent-hover);
+        --inverse-text-accent-active: var(--on-dark-text-accent-active);
+        --inverse-text-positive-hover: var(--on-dark-text-positive-hover);
+        --inverse-text-positive-active: var(--on-dark-text-positive-active);
+        --inverse-text-warning-hover: var(--on-dark-text-warning-hover);
+        --inverse-text-warning-active: var(--on-dark-text-warning-active);
+        --inverse-text-negative-hover: var(--on-dark-text-negative-hover);
+        --inverse-text-negative-active: var(--on-dark-text-negative-active);
+        --inverse-text-accent-minor: var(--on-dark-text-accent-minor);
+        --inverse-text-accent-minor-hover: var(--on-dark-text-accent-minor-hover);
+        --inverse-text-accent-minor-active: var(--on-dark-text-accent-minor-active);
+        --inverse-text-info-hover: var(--on-dark-text-info-hover);
+        --inverse-text-info-active: var(--on-dark-text-info-active);
+        --inverse-text-positive-minor-hover: var(--on-dark-text-positive-minor-hover);
+        --inverse-text-positive-minor-active: var(--on-dark-text-positive-minor-active);
+        --inverse-text-warning-minor-hover: var(--on-dark-text-warning-minor-hover);
+        --inverse-text-warning-minor-active: var(--on-dark-text-warning-minor-active);
+        --inverse-text-negative-minor-hover: var(--on-dark-text-negative-minor-hover);
+        --inverse-text-negative-minor-active: var(--on-dark-text-negative-minor-active);
+        --inverse-text-info-minor-hover: var(--on-dark-text-info-minor-hover);
+        --inverse-text-info-minor-active: var(--on-dark-text-info-minor-active);
+        --inverse-text-accent: var(--on-dark-text-accent);
+        --inverse-text-info: var(--on-dark-text-info);
+        --inverse-text-positive-minor: var(--on-dark-text-positive-minor);
+        --inverse-text-warning-minor: var(--on-dark-text-warning-minor);
+        --inverse-text-negative-minor: var(--on-dark-text-negative-minor);
+        --inverse-text-info-minor: var(--on-dark-text-info-minor);
         --surface-solid-default: var(--on-light-surface-solid-default);
         --surface-solid-primary: var(--on-light-surface-solid-primary);
         --surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);
@@ -2809,11 +3599,91 @@ export const viewContainer = {
         --surface-clear-active: var(--on-light-surface-clear-active);
         --surface-transparent-deep-hover: var(--on-light-surface-transparent-deep-hover);
         --surface-transparent-deep-active: var(--on-light-surface-transparent-deep-active);
+        --inverse-surface-solid-default: var(--on-dark-surface-solid-default);
+        --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
+        --inverse-surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
+        --inverse-surface-solid-secondary: var(--on-dark-surface-solid-secondary);
+        --inverse-surface-solid-tertiary: var(--on-dark-surface-solid-tertiary);
+        --inverse-surface-solid-card: var(--on-dark-surface-solid-card);
+        --inverse-surface-solid-card-brightness: var(--on-dark-surface-solid-card-brightness);
+        --inverse-surface-transparent-primary: var(--on-dark-surface-transparent-primary);
+        --inverse-surface-transparent-secondary: var(--on-dark-surface-transparent-secondary);
+        --inverse-surface-transparent-tertiary: var(--on-dark-surface-transparent-tertiary);
+        --inverse-surface-transparent-card: var(--on-dark-surface-transparent-card);
+        --inverse-surface-transparent-card-brightness: var(--on-dark-surface-transparent-card-brightness);
+        --inverse-surface-accent: var(--on-dark-surface-accent);
+        --inverse-surface-positive: var(--on-dark-surface-positive);
+        --inverse-surface-warning: var(--on-dark-surface-warning);
+        --inverse-surface-negative: var(--on-dark-surface-negative);
+        --inverse-surface-clear: var(--on-dark-surface-clear);
+        --inverse-surface-solid-default-hover: var(--on-dark-surface-solid-default-hover);
+        --inverse-surface-solid-default-active: var(--on-dark-surface-solid-default-active);
+        --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
+        --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
+        --inverse-surface-solid-secondary-hover: var(--on-dark-surface-solid-secondary-hover);
+        --inverse-surface-solid-secondary-active: var(--on-dark-surface-solid-secondary-active);
+        --inverse-surface-solid-tertiary-hover: var(--on-dark-surface-solid-tertiary-hover);
+        --inverse-surface-solid-tertiary-active: var(--on-dark-surface-solid-tertiary-active);
+        --inverse-surface-solid-card-hover: var(--on-dark-surface-solid-card-hover);
+        --inverse-surface-solid-card-active: var(--on-dark-surface-solid-card-active);
+        --inverse-surface-transparent-primary-hover: var(--on-dark-surface-transparent-primary-hover);
+        --inverse-surface-transparent-primary-active: var(--on-dark-surface-transparent-primary-active);
+        --inverse-surface-transparent-secondary-hover: var(--on-dark-surface-transparent-secondary-hover);
+        --inverse-surface-transparent-secondary-active: var(--on-dark-surface-transparent-secondary-active);
+        --inverse-surface-transparent-tertiary-hover: var(--on-dark-surface-transparent-tertiary-hover);
+        --inverse-surface-transparent-tertiary-active: var(--on-dark-surface-transparent-tertiary-active);
+        --inverse-surface-transparent-card-hover: var(--on-dark-surface-transparent-card-hover);
+        --inverse-surface-transparent-card-active: var(--on-dark-surface-transparent-card-active);
+        --inverse-surface-accent-hover: var(--on-dark-surface-accent-hover);
+        --inverse-surface-accent-active: var(--on-dark-surface-accent-active);
+        --inverse-surface-clear-hover: var(--on-dark-surface-clear-hover);
+        --inverse-surface-clear-active: var(--on-dark-surface-clear-active);
+        --inverse-surface-transparent-deep: var(--on-dark-surface-transparent-deep);
+        --inverse-surface-transparent-deep-hover: var(--on-dark-surface-transparent-deep-hover);
+        --inverse-surface-transparent-deep-active: var(--on-dark-surface-transparent-deep-active);
+        --inverse-surface-accent-minor: var(--on-dark-surface-accent-minor);
+        --inverse-surface-accent-minor-hover: var(--on-dark-surface-accent-minor-hover);
+        --inverse-surface-accent-minor-active: var(--on-dark-surface-accent-minor-active);
+        --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
+        --inverse-surface-transparent-accent-hover: var(--on-dark-surface-transparent-accent-hover);
+        --inverse-surface-transparent-accent-active: var(--on-dark-surface-transparent-accent-active);
+        --inverse-surface-info: var(--on-dark-surface-info);
+        --inverse-surface-info-hover: var(--on-dark-surface-info-hover);
+        --inverse-surface-info-active: var(--on-dark-surface-info-active);
+        --inverse-surface-positive-minor: var(--on-dark-surface-positive-minor);
+        --inverse-surface-positive-minor-hover: var(--on-dark-surface-positive-minor-hover);
+        --inverse-surface-positive-minor-active: var(--on-dark-surface-positive-minor-active);
+        --inverse-surface-warning-minor: var(--on-dark-surface-warning-minor);
+        --inverse-surface-warning-minor-hover: var(--on-dark-surface-warning-minor-hover);
+        --inverse-surface-warning-minor-active: var(--on-dark-surface-warning-minor-active);
+        --inverse-surface-negative-minor: var(--on-dark-surface-negative-minor);
+        --inverse-surface-negative-minor-hover: var(--on-dark-surface-negative-minor-hover);
+        --inverse-surface-negative-minor-active: var(--on-dark-surface-negative-minor-active);
+        --inverse-surface-info-minor: var(--on-dark-surface-info-minor);
+        --inverse-surface-info-minor-hover: var(--on-dark-surface-info-minor-hover);
+        --inverse-surface-info-minor-active: var(--on-dark-surface-info-minor-active);
+        --inverse-surface-transparent-positive: var(--on-dark-surface-transparent-positive);
+        --inverse-surface-transparent-positive-hover: var(--on-dark-surface-transparent-positive-hover);
+        --inverse-surface-transparent-positive-active: var(--on-dark-surface-transparent-positive-active);
+        --inverse-surface-transparent-warning: var(--on-dark-surface-transparent-warning);
+        --inverse-surface-transparent-warning-hover: var(--on-dark-surface-transparent-warning-hover);
+        --inverse-surface-transparent-warning-active: var(--on-dark-surface-transparent-warning-active);
+        --inverse-surface-transparent-negative: var(--on-dark-surface-transparent-negative);
+        --inverse-surface-transparent-negative-hover: var(--on-dark-surface-transparent-negative-hover);
+        --inverse-surface-transparent-negative-active: var(--on-dark-surface-transparent-negative-active);
+        --inverse-surface-transparent-info: var(--on-dark-surface-transparent-info);
+        --inverse-surface-transparent-info-hover: var(--on-dark-surface-transparent-info-hover);
+        --inverse-surface-transparent-info-active: var(--on-dark-surface-transparent-info-active);
         --background-primary: var(--light-background-primary);
         --background-primary-brightness: var(--light-background-primary-brightness);
+        --inverse-background-primary-brightness: var(--dark-background-primary-brightness);
+        --inverse-background-primary: var(--dark-background-primary);
         --overlay-soft: var(--on-light-overlay-soft);
         --overlay-hard: var(--on-light-overlay-hard);
         --overlay-blur: var(--on-light-overlay-blur);
+        --inverse-overlay-hard: var(--on-dark-overlay-hard);
+        --inverse-overlay-soft: var(--on-dark-overlay-soft);
+        --inverse-overlay-blur: var(--on-dark-overlay-blur);
         --outline-secondary-hover: var(--on-light-outline-secondary-hover);
         --outline-secondary-active: var(--on-light-outline-secondary-active);
         --outline-tertiary-hover: var(--on-light-outline-tertiary-hover);
@@ -2887,9 +3757,79 @@ export const viewContainer = {
         --outline-transparent-info: var(--on-light-outline-transparent-info);
         --inverse-outline-primary-hover: var(--on-dark-outline-primary-hover);
         --inverse-outline-primary-active: var(--on-dark-outline-primary-active);
+        --inverse-outline-secondary-hover: var(--on-dark-outline-secondary-hover);
+        --inverse-outline-secondary-active: var(--on-dark-outline-secondary-active);
+        --inverse-outline-tertiary-hover: var(--on-dark-outline-tertiary-hover);
+        --inverse-outline-tertiary-active: var(--on-dark-outline-tertiary-active);
+        --inverse-outline-default-hover: var(--on-dark-outline-default-hover);
+        --inverse-outline-default-active: var(--on-dark-outline-default-active);
+        --inverse-outline-transparent-primary-hover: var(--on-dark-outline-transparent-primary-hover);
+        --inverse-outline-transparent-primary-active: var(--on-dark-outline-transparent-primary-active);
+        --inverse-outline-transparent-secondary-hover: var(--on-dark-outline-transparent-secondary-hover);
+        --inverse-outline-transparent-secondary-active: var(--on-dark-outline-transparent-secondary-active);
+        --inverse-outline-transparent-tertiary-hover: var(--on-dark-outline-transparent-tertiary-hover);
+        --inverse-outline-transparent-tertiary-active: var(--on-dark-outline-transparent-tertiary-active);
+        --inverse-outline-transparent-clear-hover: var(--on-dark-outline-transparent-clear-hover);
+        --inverse-outline-transparent-clear-active: var(--on-dark-outline-transparent-clear-active);
+        --inverse-outline-accent-hover: var(--on-dark-outline-accent-hover);
+        --inverse-outline-accent-active: var(--on-dark-outline-accent-active);
+        --inverse-outline-accent-minor-hover: var(--on-dark-outline-accent-minor-hover);
+        --inverse-outline-accent-minor-active: var(--on-dark-outline-accent-minor-active);
+        --inverse-outline-transparent-accent-hover: var(--on-dark-outline-transparent-accent-hover);
+        --inverse-outline-transparent-accent-active: var(--on-dark-outline-transparent-accent-active);
+        --inverse-outline-positive-hover: var(--on-dark-outline-positive-hover);
+        --inverse-outline-positive-active: var(--on-dark-outline-positive-active);
+        --inverse-outline-warning-hover: var(--on-dark-outline-warning-hover);
+        --inverse-outline-warning-active: var(--on-dark-outline-warning-active);
+        --inverse-outline-negative-hover: var(--on-dark-outline-negative-hover);
+        --inverse-outline-negative-active: var(--on-dark-outline-negative-active);
+        --inverse-outline-info-hover: var(--on-dark-outline-info-hover);
+        --inverse-outline-info-active: var(--on-dark-outline-info-active);
+        --inverse-outline-positive-minor-hover: var(--on-dark-outline-positive-minor-hover);
+        --inverse-outline-positive-minor-active: var(--on-dark-outline-positive-minor-active);
+        --inverse-outline-warning-minor-hover: var(--on-dark-outline-warning-minor-hover);
+        --inverse-outline-warning-minor-active: var(--on-dark-outline-warning-minor-active);
+        --inverse-outline-negative-minor-hover: var(--on-dark-outline-negative-minor-hover);
+        --inverse-outline-negative-minor-active: var(--on-dark-outline-negative-minor-active);
+        --inverse-outline-info-minor-hover: var(--on-dark-outline-info-minor-hover);
+        --inverse-outline-info-minor-active: var(--on-dark-outline-info-minor-active);
+        --inverse-outline-transparent-positive-hover: var(--on-dark-outline-transparent-positive-hover);
+        --inverse-outline-transparent-positive-active: var(--on-dark-outline-transparent-positive-active);
+        --inverse-outline-transparent-warning-hover: var(--on-dark-outline-transparent-warning-hover);
+        --inverse-outline-transparent-warning-active: var(--on-dark-outline-transparent-warning-active);
+        --inverse-outline-transparent-negative-hover: var(--on-dark-outline-transparent-negative-hover);
+        --inverse-outline-transparent-negative-active: var(--on-dark-outline-transparent-negative-active);
+        --inverse-outline-transparent-info-hover: var(--on-dark-outline-transparent-info-hover);
+        --inverse-outline-transparent-info-active: var(--on-dark-outline-transparent-info-active);
+        --inverse-outline-primary: var(--on-dark-outline-primary);
+        --inverse-outline-secondary: var(--on-dark-outline-secondary);
+        --inverse-outline-tertiary: var(--on-dark-outline-tertiary);
+        --inverse-outline-default: var(--on-dark-outline-default);
+        --inverse-outline-transparent-primary: var(--on-dark-outline-transparent-primary);
+        --inverse-outline-transparent-secondary: var(--on-dark-outline-transparent-secondary);
+        --inverse-outline-transparent-tertiary: var(--on-dark-outline-transparent-tertiary);
+        --inverse-outline-transparent-clear: var(--on-dark-outline-transparent-clear);
+        --inverse-outline-accent: var(--on-dark-outline-accent);
+        --inverse-outline-accent-minor: var(--on-dark-outline-accent-minor);
+        --inverse-outline-transparent-accent: var(--on-dark-outline-transparent-accent);
+        --inverse-outline-positive: var(--on-dark-outline-positive);
+        --inverse-outline-warning: var(--on-dark-outline-warning);
+        --inverse-outline-negative: var(--on-dark-outline-negative);
+        --inverse-outline-info: var(--on-dark-outline-info);
+        --inverse-outline-positive-minor: var(--on-dark-outline-positive-minor);
+        --inverse-outline-warning-minor: var(--on-dark-outline-warning-minor);
+        --inverse-outline-negative-minor: var(--on-dark-outline-negative-minor);
+        --inverse-outline-info-minor: var(--on-dark-outline-info-minor);
+        --inverse-outline-transparent-positive: var(--on-dark-outline-transparent-positive);
+        --inverse-outline-transparent-warning: var(--on-dark-outline-transparent-warning);
+        --inverse-outline-transparent-negative: var(--on-dark-outline-transparent-negative);
+        --inverse-outline-transparent-info: var(--on-dark-outline-transparent-info);
         --text-accent-gradient: var(--on-light-text-accent-gradient);
         --text-accent-gradient-hover: var(--on-light-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-light-text-accent-gradient-active);
+        --inverse-text-accent-gradient-hover: var(--on-dark-text-accent-gradient-hover);
+        --inverse-text-accent-gradient-active: var(--on-dark-text-accent-gradient-active);
+        --inverse-text-accent-gradient: var(--on-dark-text-accent-gradient);
         --surface-accent-gradient: var(--on-light-surface-accent-gradient);
         --surface-accent-gradient-hover: var(--on-light-surface-accent-gradient-hover);
         --surface-accent-gradient-active: var(--on-light-surface-accent-gradient-active);
@@ -2899,6 +3839,9 @@ export const viewContainer = {
         --surface-skeleton-deep-gradient: var(--on-light-surface-skeleton-deep-gradient);
         --surface-skeleton-deep-gradient-hover: var(--on-light-surface-skeleton-deep-gradient-hover);
         --surface-skeleton-deep-gradient-active: var(--on-light-surface-skeleton-deep-gradient-active);
+        --inverse-surface-accent-gradient: var(--on-dark-surface-accent-gradient);
+        --inverse-surface-accent-gradient-hover: var(--on-dark-surface-accent-gradient-hover);
+        --inverse-surface-accent-gradient-active: var(--on-dark-surface-accent-gradient-active);
         --inverse-surface-skeleton-gradient: var(--on-dark-surface-skeleton-gradient);
         --inverse-surface-skeleton-gradient-hover: var(--on-dark-surface-skeleton-gradient-hover);
         --inverse-surface-skeleton-gradient-active: var(--on-dark-surface-skeleton-gradient-active);

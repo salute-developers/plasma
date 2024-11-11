@@ -734,6 +734,9 @@ export const stylesSalute__light = ([
   --background-primary: #F2F2F2FF;
   --background-primary-brightness: #F3F3F3FF;
   --background-secondary: #FFFFFFFF;
+  --inverse-background-primary-brightness: #FFFFFFFF;
+  --inverse-background-primary: #000000FF;
+  --inverse-background-secondary: #171717;
   --on-dark-overlay-soft: #0000008F;
   --on-dark-overlay-hard: #000000EB;
   --on-dark-overlay-blur: #26262647;

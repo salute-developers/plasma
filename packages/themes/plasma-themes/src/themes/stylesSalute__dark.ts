@@ -732,6 +732,9 @@ export const stylesSalute__dark = ([
   --background-primary: #000000FF;
   --background-primary-brightness: #0F0FFFFF;
   --background-secondary: #171717;
+  --inverse-background-primary-brightness: #FFFFFFFF;
+  --inverse-background-primary: #F2F2F2FF;
+  --inverse-background-secondary: #FFFFFFFF;
   --on-dark-overlay-soft: #0000008F;
   --on-dark-overlay-hard: #000000EB;
   --on-dark-overlay-blur: #26262647;
