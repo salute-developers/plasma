@@ -18,12 +18,12 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
-                ${iconButtonTokens.iconButtonColor}: var(--text-primary);
+                ${iconButtonTokens.iconButtonColor}: var(--text-accent);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-primary);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--text-primary);
+                ${iconButtonTokens.iconButtonColorHover}: var(--text-accent-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--text-primary);
+                ${iconButtonTokens.iconButtonColorActive}: var(--text-accent-active);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-primary-active);
             `,
             clear: css`
