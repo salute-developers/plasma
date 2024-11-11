@@ -31,7 +31,7 @@ export const config = {
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
             `,
         },
