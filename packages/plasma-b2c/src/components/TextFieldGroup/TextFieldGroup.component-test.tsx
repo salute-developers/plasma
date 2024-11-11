@@ -17,7 +17,9 @@ describe('plasma-b2c: TextFieldGroup', () => {
             <CypressTestDecorator>
                 <TextFieldGroup size="l">{getTexFields()}</TextFieldGroup>
                 <PadMe />
-                <TextFieldGroup size="m">{getTexFields()}</TextFieldGroup>
+                <TextFieldGroup className="m-group" size="m">
+                    {getTexFields()}
+                </TextFieldGroup>
                 <PadMe />
                 <TextFieldGroup size="s">{getTexFields()}</TextFieldGroup>
                 <PadMe />
@@ -25,6 +27,8 @@ describe('plasma-b2c: TextFieldGroup', () => {
                 <PadMe />
             </CypressTestDecorator>,
         );
+
+        cy.get('.m-group input').last().click();
 
         cy.viewport(1366, 768);
         cy.matchImageSnapshot();
@@ -65,11 +69,13 @@ describe('plasma-b2c: TextFieldGroup', () => {
                     {getTexFields()}
                 </TextFieldGroup>
                 <PadMe />
-                <TextFieldGroup orientation="vertical" stretching="filled">
+                <TextFieldGroup className="vertical-group" orientation="vertical" stretching="filled">
                     {getTexFields()}
                 </TextFieldGroup>
             </CypressTestDecorator>,
         );
+
+        cy.get('.vertical-group input').first().click();
 
         cy.viewport(1366, 768);
         cy.matchImageSnapshot();
@@ -82,7 +88,7 @@ describe('plasma-b2c: TextFieldGroup', () => {
                     {getTexFields()}
                 </TextFieldGroup>
                 <PadMe />
-                <TextFieldGroup shape="segmented" gap="dense">
+                <TextFieldGroup className="segmented-group" shape="segmented" gap="dense">
                     {getTexFields()}
                 </TextFieldGroup>
                 <PadMe />
@@ -96,6 +102,8 @@ describe('plasma-b2c: TextFieldGroup', () => {
                 <PadMe />
             </CypressTestDecorator>,
         );
+
+        cy.get('.segmented-group input').last().click();
 
         cy.viewport(1366, 768);
         cy.matchImageSnapshot();
