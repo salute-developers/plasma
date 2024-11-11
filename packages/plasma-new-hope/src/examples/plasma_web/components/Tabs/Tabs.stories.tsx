@@ -25,6 +25,7 @@ type CustomStoryTabsProps = {
     contentRight: string;
     stretch: boolean;
     helperText: string;
+    maxItemWidth: string;
 };
 
 const contentLeftOptions = ['none', 'icon'];
@@ -59,17 +60,6 @@ const meta: Meta<StoryTabsProps> = {
     component: Tabs,
     decorators: [WithTheme],
     argTypes: {
-        ...disableProps([
-            'orientation',
-            'tabItemContentLeft',
-            'pilled',
-            'animated',
-            'view',
-            'as',
-            'forwardedAs',
-            'outsideScroll',
-            'index',
-        ]),
         contentRight: {
             options: contentRightOptions,
             control: {
@@ -83,6 +73,17 @@ const meta: Meta<StoryTabsProps> = {
             },
             if: { arg: 'stretch', truthy: false },
         },
+        ...disableProps([
+            'orientation',
+            'tabItemContentLeft',
+            'pilled',
+            'animated',
+            'view',
+            'as',
+            'forwardedAs',
+            'outsideScroll',
+            'index',
+        ]),
     },
 };
 
@@ -99,12 +100,13 @@ const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
         stretch,
         maxItemWidth,
         helperText,
+        clip,
     } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs clip="none" view="divider" hasDivider={hasDivider} stretch={stretch} disabled={disabled} size={size}>
+        <Tabs clip={clip} view="divider" hasDivider={hasDivider} stretch={stretch} disabled={disabled} size={size}>
             {items.map((_, i) => {
                 if (helperText !== '') {
                     return (
