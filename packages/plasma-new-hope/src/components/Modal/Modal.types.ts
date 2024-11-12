@@ -1,6 +1,22 @@
 import { PopupHookArgs, PopupProps, PopupRootProps } from '../Popup/Popup.types';
 
-export interface ModalProps extends PopupProps {
+export type ModalBodyProps =
+    | {
+          /**
+           * Оборачивает children в стилизованную обертку
+           */
+          hasBody: true;
+          /**
+           * Отображает кнопку с крестиком для закрытия
+           */
+          hasClose?: boolean;
+      }
+    | {
+          hasBody?: never;
+          hasClose?: never;
+      };
+
+export interface CommonModalProps extends PopupProps {
     /**
      * Нужно ли применять blur для подложки.
      */
@@ -36,6 +52,8 @@ export interface ModalProps extends PopupProps {
     onClose?: () => void;
     view?: string;
 }
+
+export type ModalProps = CommonModalProps & ModalBodyProps;
 
 export type ModalBaseRootProps = PopupRootProps & Pick<ModalProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'>;
 
