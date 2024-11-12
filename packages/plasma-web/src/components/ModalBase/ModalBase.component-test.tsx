@@ -49,6 +49,37 @@ describe('plasma-web: ModalBase', () => {
         );
     }
 
+    function DemoWithBody({
+        open = false,
+        withBlur = false,
+        placement,
+        hasClose,
+    }: {
+        open?: boolean;
+        withBlur?: boolean;
+        placement?: string;
+        hasClose?: boolean;
+    }) {
+        const [isOpen, setIsOpen] = React.useState(open);
+
+        return (
+            <PopupBaseProvider>
+                <Button text="Open modal" onClick={() => setIsOpen(true)} data-test="open-modal" />
+                <ModalBase
+                    opened={isOpen}
+                    onClose={() => setIsOpen(false)}
+                    withBlur={withBlur}
+                    placement={placement}
+                    hasBody
+                    hasClose={hasClose}
+                >
+                    <Headline3>Modal</Headline3>
+                    <Button text="Close" onClick={() => setIsOpen(false)} />
+                </ModalBase>
+            </PopupBaseProvider>
+        );
+    }
+
     function Double() {
         const [isOpenA, setIsOpenA] = React.useState(false);
         const [isOpenB, setIsOpenB] = React.useState(false);
@@ -162,6 +193,35 @@ describe('plasma-web: ModalBase', () => {
         cy.get('button').click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('hasBody', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <DemoWithBody hasClose={false} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('[data-test="open-modal"]').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('[data-test="modal-close"]').should('not.exist');
+    });
+
+    it('hasBody: hasClose', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <DemoWithBody />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('[data-test="open-modal"]').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('[data-test="modal-close"]').click();
+        cy.get('[data-test="modal-close"]').should('not.exist');
     });
 
     it('check focus trap', () => {
