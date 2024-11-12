@@ -107,9 +107,10 @@ export function App() {
                     />
                 ))}
             </RadioGroup>
-            <Slider name="slider" label="Slider" type="single" min={0} max={100} />
+             <Slider name="slider" label="Slider" type="single" min={0} max={100} />
             <DatePicker label="DatePicker" name="datepicker" />
             <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
+            <Combobox label="Combobox" name="combobox" />
             <Button type="submit">Отправить</Button>
         </form>
     );
