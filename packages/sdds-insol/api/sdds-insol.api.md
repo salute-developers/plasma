@@ -3989,7 +3989,13 @@ xs: PolymorphicClassName;
 // @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
 size: {
+s: PolymorphicClassName;
 m: PolymorphicClassName;
+l: PolymorphicClassName;
+};
+toggleSize: {
+l: PolymorphicClassName;
+s: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
