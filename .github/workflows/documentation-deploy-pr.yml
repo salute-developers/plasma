@@ -168,7 +168,7 @@ jobs:
                     cp -R ./packages/${{ matrix.package }}/build-sb ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-storybook
             
             -   name: Build storybook by draft components - "${{ matrix.package }}"
-                if: ${{ contains(fromJSON('["sdds-finportal"]'), matrix.package) }}
+                if: false
                 run: |
                     npm run storybook:build:draft --prefix="./packages/${{ matrix.package }}"
                     cp -R ./packages/${{ matrix.package }}/build-sb-draft ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-draft-storybook
@@ -193,7 +193,7 @@ jobs:
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}/
             
             -   name: s3 upload storybook by draft components
-                if: ${{ contains(fromJSON('["sdds-finportal"]'), matrix.package) }}
+                if: false
                 run: >
                     s3cmd
                     --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
