@@ -45,6 +45,14 @@ const meta: Meta<DropdownProps> = {
                 type: 'select',
             },
         },
+        closeOnOverlayClick: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        closeOnSelect: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
     },
     args: {
         size: 'm',
@@ -54,6 +62,7 @@ const meta: Meta<DropdownProps> = {
         offset: [0, 0],
         listWidth: '',
         hasArrow: true,
+        alwaysOpened: false,
         closeOnOverlayClick: true,
         closeOnSelect: true,
     },
