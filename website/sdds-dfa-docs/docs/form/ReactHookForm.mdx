@@ -103,6 +103,8 @@ export function App() {
             <Slider {...register('slider')} label="Slider" type="single" min={0} max={100} />
             <Slider {...register('sliderdouble')} label="Slider Double" type="double" min={0} max={100} />
             <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
+            <Combobox {...register('combobox')} />
+            <Combobox {...register('comboboxMultiple')} />
             <Button type="submit">Отправить</Button>
         </form>
     );
