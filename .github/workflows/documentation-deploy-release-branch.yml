@@ -43,24 +43,6 @@ jobs:
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build/. ./s3_build/${PR_NAME}
       
-      - name: Plasma UI Docs
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          npm run build --prefix="./website/plasma-ui-docs"
-          cp -R ./website/plasma-ui-docs/build ./s3_build/${PR_NAME}/ui
-      
-      - name: Plasma Web Docs
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          npm run build --prefix="./website/plasma-web-docs"
-          cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
-          
-      - name: Plasma B2C Docs
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          npm run build --prefix="./website/plasma-b2c-docs"
-          cp -R ./website/plasma-b2c-docs/build ./s3_build/${PR_NAME}/b2c
-      
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
