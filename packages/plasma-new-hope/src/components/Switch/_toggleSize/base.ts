@@ -5,10 +5,15 @@ import { StyledTrigger } from '../Switch.styles';
 
 export const base = css`
     ${StyledTrigger} {
+        box-sizing: border-box;
         flex: 0 0 var(${tokens.trackWidth});
+
+        border-style: solid;
+        border-width: var(${tokens.trackBorderWidth});
+        border-radius: var(${tokens.trackBorderRadius});
+
         width: var(${tokens.trackWidth});
         height: var(${tokens.trackHeight});
-        border-radius: var(${tokens.trackBorderRadius});
 
         &::after {
             width: var(${tokens.thumbSize});

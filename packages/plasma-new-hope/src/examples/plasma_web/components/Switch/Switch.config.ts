@@ -89,7 +89,9 @@ export const config = {
                 ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
                 ${switchTokens.trackBackgroundColorOff}: var(--surface-transparent-tertiary);
                 ${switchTokens.trackBackgroundColorOffHover}: var(--surface-transparent-tertiary-hover);
-                ${switchTokens.thumbBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${switchTokens.trackBorderWidth}: 0rem;
+                ${switchTokens.thumbBackgroundColorOff}: var(--on-dark-surface-solid-default);
+                ${switchTokens.thumbBackgroundColorOn}: var(--on-dark-surface-solid-default);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },
