@@ -14,7 +14,6 @@ on:
 jobs:
     state:
         name: Computed state
-        if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
         runs-on: ubuntu-22.04
         outputs:
             MATRIX: ${{ steps.matrix.outputs.result }}
@@ -89,7 +88,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                package: ${{ needs.state.outputs.MATRIX }}
+                package: ${{ fromJSON(needs.state.outputs).MATRIX }}
         steps:
             -   uses: actions/checkout@v4
                 with:
