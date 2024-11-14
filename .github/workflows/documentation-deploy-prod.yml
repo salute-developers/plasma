@@ -24,18 +24,21 @@ jobs:
           ref: 'master'
           show-progress: false
 
-      - name: Check disk space
+      - name: Detailed disk space check
         run: |
-            echo "Disk space information:"
-            df -h / | awk '{print $4}' | tail -n 1
-            echo "Available space in workspace:"
-            du -sh $GITHUB_WORKSPACE
+            echo "=== System disk usage ==="
+            df -h
+            echo "=== Top largest directories ==="
+            du -hs /* 2>/dev/null | sort -rh | head -10
+            echo "=== Docker space usage ==="
+            docker system df || true
+
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: echo "NODE_OPTIONS=--max_old_space_size=4096" >> $GITHUB_ENV
+        run: echo "NODE_OPTIONS=--max_old_space_size=4096" >> "$GITHUB_ENV"
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap
