@@ -113,8 +113,9 @@ jobs:
                     script: |
                         const fs = require('fs');
                         const META = require('.github/meta-prod.js');
+                        const packageName = process.env.PACKAGE;
 
-                        return META[env.PACKAGE].scope;
+                        return META[packageName].scope;
 
             -   name: Lerna bootstrap
                 run: npx lerna bootstrap --scope="${{ steps.scope.outputs.result }}"
