@@ -18,7 +18,7 @@ import { Inner, Target } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { Ul, base } from './Select.styles';
-import type { ItemContext, MergedSelectProps } from './Select.types';
+import type { ItemContext, MergedSelectProps, RequiredProps } from './Select.types';
 import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 import { FloatingPopover } from './FloatingPopover';
 
@@ -87,6 +87,16 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const closeAfterSelect = outerCloseAfterSelect ?? !props.multiselect;
         const treeId = safeUseId();
         const view = target === 'textfield-like' && disabled ? 'default' : getView(status, outerView);
+
+        // Собираем объект с пропсами для required и прокидываем их напрямую в компонент Textfield.
+        const requiredProps =
+            props.target === 'button-like'
+                ? undefined
+                : ({
+                      required: props.required,
+                      requiredPlacement: props.requiredPlacement,
+                      optional: props.optional,
+                  } as RequiredProps);
 
         const targetRef = useOutsideClick<HTMLUListElement>(() => {
             if (!isCurrentListOpen) {
@@ -290,7 +300,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         target={(referenceRef) => (
                             <Target
                                 ref={ref}
-                                target={target}
                                 value={value}
                                 opened={isCurrentListOpen}
                                 valueToItemMap={valueToItemMap}
@@ -315,6 +324,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 labelToItemMap={labelToItemMap}
                                 chipView={chipView}
                                 separator={separator}
+                                requiredProps={requiredProps}
                             />
                         )}
                     >

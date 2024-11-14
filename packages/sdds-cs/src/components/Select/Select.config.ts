@@ -22,6 +22,9 @@ export const config = {
                 ${selectTokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
                 ${selectTokens.textFieldBorderColorFocus}: var(--outline-accent);
 
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
                 ${selectTokens.buttonColor}: var(--text-accent);
                 ${selectTokens.buttonColorHover}: var(--text-accent-hover);
                 ${selectTokens.buttonColorActive}: var(--text-accent-active);
@@ -50,6 +53,9 @@ export const config = {
                 ${selectTokens.textFieldBorderColor}: var(--outline-negative);
                 ${selectTokens.textFieldBorderColorHover}: var(--outline-negative-hover);
                 ${selectTokens.textFieldBorderColorFocus}: var(--outline-accent);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${selectTokens.buttonColor}: var(--text-accent);
                 ${selectTokens.buttonColorHover}: var(--text-accent-hover);
@@ -108,6 +114,16 @@ export const config = {
 
                 ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.375rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
 
                 ${tokens.textFieldChipGap}: 0.25rem;
                 ${tokens.textFieldChipBorderRadius}: 0.25rem;

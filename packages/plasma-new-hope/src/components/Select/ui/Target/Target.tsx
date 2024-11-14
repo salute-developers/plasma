@@ -9,7 +9,6 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
     (
         {
             value,
-            target,
             opened,
             valueToItemMap,
             label,
@@ -33,6 +32,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             labelToItemMap,
             chipView,
             separator,
+            requiredProps,
         },
         ref,
     ) => {
@@ -50,7 +50,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             );
         }
 
-        return target === 'button-like' ? (
+        return selectProps.target === 'button-like' ? (
             <Button
                 ref={buttonRef}
                 opened={opened}
@@ -91,6 +91,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 onChange={onChange}
                 labelToItemMap={labelToItemMap}
                 chipView={chipView}
+                requiredProps={requiredProps}
             />
         );
     },

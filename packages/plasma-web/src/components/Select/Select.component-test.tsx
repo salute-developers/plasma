@@ -652,6 +652,48 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: required, requiredPlacement', () => {
+        cy.viewport(500, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '200px' }}>
+                        <Select required items={items} label="Label" placeholder="Placeholder" />
+                    </div>
+
+                    <div style={{ width: '200px' }}>
+                        <Select
+                            required
+                            requiredPlacement="left"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: optional', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select optional items={items} label="Label" placeholder="Placeholder" />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 

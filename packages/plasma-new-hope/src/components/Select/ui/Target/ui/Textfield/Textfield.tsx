@@ -31,6 +31,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             onChange,
             labelToItemMap,
             chipView,
+            requiredProps,
         },
         ref,
     ) => {
@@ -116,6 +117,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 opened={opened}
                 // TODO: #1547
                 _forceChipManipulationWithReadonly
+                {...requiredProps}
             />
         );
     },

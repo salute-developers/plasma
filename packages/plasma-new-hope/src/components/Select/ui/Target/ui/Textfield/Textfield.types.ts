@@ -24,4 +24,5 @@ export type TextfieldProps = Pick<
     | 'onChange'
     | 'labelToItemMap'
     | 'chipView'
+    | 'requiredProps'
 >;
