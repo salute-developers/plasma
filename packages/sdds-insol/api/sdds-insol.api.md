@@ -92,8 +92,11 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
+import type { DropdownItemOption } from '@salutejs/plasma-new-hope';
+import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
 import { DropdownNodeSelect } from '@salutejs/plasma-new-hope/styled-components';
-import { DropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { DropdownTrigger } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { dsplL } from '@salutejs/sdds-themes/tokens';
 import { dsplLBold } from '@salutejs/sdds-themes/tokens';
 import { dsplM } from '@salutejs/sdds-themes/tokens';
@@ -1240,7 +1243,7 @@ export { DrawerHeaderProps }
 export { DrawerProps }
 
 // @public (undocumented)
-export const Dropdown: FunctionComponent<PropsType<    {
+export const Dropdown: <T extends DropdownItemOption>(props: Omit<DropdownNewProps<T>, "view" | "size"> & Pick<PropsType<    {
 size: {
 l: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1250,7 +1253,31 @@ xs: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 };
-}> & DropdownProps & RefAttributes<HTMLDivElement>>;
+}> & {
+    items: DropdownItemOption[];
+    alwaysOpened?: boolean | undefined;
+    children?: React_2.ReactNode;
+    itemRole?: string | undefined;
+    onHover?: ((index: number) => void) | undefined;
+    onItemSelect?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
+    trigger?: DropdownTrigger | undefined;
+    placement?: DropdownPlacement | undefined;
+    offset?: [number, number] | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    hasArrow?: boolean | undefined;
+    closeOnSelect?: boolean | undefined;
+    closeOnOverlayClick?: boolean | undefined;
+    onToggle?: ((isOpen: boolean, event: Event | React_2.SyntheticEvent<Element, Event>) => void) | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    portal?: string | React_2.RefObject<HTMLElement> | undefined;
+    renderItem?: ((item: DropdownItemOption) => React_2.ReactNode) | undefined;
+    onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    hoverIndex?: number | undefined;
+} & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "view" | "size"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {

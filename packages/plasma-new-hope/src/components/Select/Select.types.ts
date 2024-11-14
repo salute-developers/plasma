@@ -7,7 +7,7 @@ import {
     MergedDropdownNode as DropdownNode,
     MergedDropdownNodeTransformed,
 } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/usePathMaps';
+import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
 type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
 type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
@@ -172,7 +172,6 @@ export type ItemContext = {
     handleItemClick: (item: MergedDropdownNodeTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: MergedSelectProps['variant'];
     renderItem: MergedSelectProps['renderItem'];
-    valueToItemMap: ValueToItemMapType;
     treeId: string;
 };
 

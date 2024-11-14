@@ -9,3 +9,5 @@ export type {
 } from './ui/DropdownOld/Dropdown.types';
 export type { DropdownItemProps, DropdownItemOption } from './ui/DropdownItem/DropdownItem.type';
 export * from './ui';
+
+export type { DropdownProps as DropdownNewProps } from './Dropdown.types';

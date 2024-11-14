@@ -277,7 +277,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         handleItemClick,
                         variant,
                         renderItem,
-                        valueToItemMap,
                         treeId,
                     }}
                 >
