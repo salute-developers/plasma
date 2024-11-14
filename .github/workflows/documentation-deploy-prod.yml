@@ -24,11 +24,11 @@ jobs:
           ref: 'master'
           show-progress: false
 
+      - name: Prepare repository
+        run: git fetch --unshallow --tags
+
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
-
-      - name: Lerna bootstrap
-        run: echo "NODE_OPTIONS=--max_old_space_size=4096" >> "$GITHUB_ENV"
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap
@@ -39,6 +39,7 @@ jobs:
 
       - name: Plasma Website
         run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build ./s3_build/next-${{ github.sha }}
 
@@ -49,21 +50,25 @@ jobs:
 
       - name: Plasma Web Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
 
       - name: Plasma B2C Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
           npm run build --prefix="./website/plasma-b2c-docs"
           cp -R ./website/plasma-b2c-docs/build ./s3_build/next-${{ github.sha }}/b2c
 
       - name: SDDS-SERV Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
           npm run build --prefix="./website/sdds-serv-docs"
           cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv
 
       - name: SDDS-CS Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
           npm run build --prefix="./website/sdds-cs-docs"
           cp -R ./website/sdds-cs-docs/build ./s3_build/next-${{ github.sha }}/sdds-cs
 
