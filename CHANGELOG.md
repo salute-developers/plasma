@@ -1,3 +1,236 @@
+# (Thu Nov 14 2024)
+
+### Release Notes
+
+#### Release by 13.11.2024 ([#1559](https://github.com/salute-developers/plasma/pull/1559))
+
+## Components
+
+### Autocomplete
+
+- добавлены новые св-ва `required`, `requiredPlacement` и `optional`;
+ 
+feat(plasma-*, sdds-*): Add required functionality in Autocomplete (https://github.com/salute-developers/plasma/pull/1522)
+
+### Combobox
+
+- добавлены новые св-ва `required`, `requiredPlacement` и `optional`;
+
+feat(plasma-*, sdds-*): Add required functionality in Combobox (https://github.com/salute-developers/plasma/pull/1527)
+
+### Range, DatePickerRange
+
+- добавлена возможность передать свойство `autoComplete`
+
+feat(plasma-new-hope): Add autoComplete prop to Range (https://github.com/salute-developers/plasma/pull/1530)
+
+### Chip
+
+- добавлено событие `onClickClose` по клику на крестик
+- `onClear` помечено как deprecated
+- написан тест на onClickClose
+
+feat(plasma-new-hope): Divide chip events (https://github.com/salute-developers/plasma/pull/1536)
+
+### Badge, Tabs
+
+- реализована возможность обрезания текста по максимальной ширине
+
+feat: add Badge & Tabs truncate props (https://github.com/salute-developers/plasma/pull/1500)
+
+### NumberInput
+
+- компонент включен в поставку `plasma-*` и `sdds-*` библиотек
+
+**After**:
+<img width="216" alt="image" src="https://github.com/user-attachments/assets/4b51c0e6-099d-41d7-af07-88344f7f77b0" />
+
+feat(plasma-new-hope): Add NumberInput component (https://github.com/salute-developers/plasma/pull/1511)
+
+### Dropdown
+
+- добавлено свойство alwaysOpened
+- добавлен тест на новое свойство
+
+feat(plasma-new-hope): Add alwaysOpened prop for Dropdown (https://github.com/salute-developers/plasma/pull/1538)
+
+### TextField
+
+- добавлен токен изменения цвета фона компонента при наведении
+
+feat(plasma-*,sdds-*): Fix TextField hover tokens (https://github.com/salute-developers/plasma/pull/1551)
+
+### Tabs
+
+- для `sdds-cs` исправлены значения токенов `itemSelectedDividerColor` и `itemSelectedDividerColorHover`
+- для `sdds-dfa` исправлены токены для состояния `disabled`
+- исправлены `argTypes` в stories
+
+### Breadcrumbs
+
+- исправлен курсор при наведении на текущий `Breadcrumb`
+- исправлены токены для `hover` и `active` состояний у `Breadcrumb` 
+
+`plasma-new-hope, sdds-cs`: fix `Tabs` and `Breadcrumbs` (https://github.com/salute-developers/plasma/pull/1532)
+
+### Switch
+- добавлены размеры `s`, `l`
+- добавлено свойство `description`
+- добавлено свойство `toggleSize`
+- обновлены документация и тесты
+
+`plasma-*, sdds-*`: `Switch` sizes added (https://github.com/salute-developers/plasma/pull/1539)
+
+### Attach, Button
+
+- свойство `square` у `Button` помечено как `deprecated`
+- свойство `square` удалено из storybooks для `Attach`
+- для размеров `m`, `l` у `Attach` исправлен размер иконки по умолчанию в варианте `IconButton`
+- исправлены токены для view=secondary в пакете `sdds-cs`
+
+### IconButton
+- исправлены токены для view=secondary в пакете `sdds-cs`
+
+`plasma-*, sdds-*`: fix `Attach` `square` prop (https://github.com/salute-developers/plasma/pull/1525)
+
+### Steps
+
+- исправлены смещающиеся активные элементы
+- добавлен фокус 
+- добавлены тесты
+ 
+plasma-*: Fix `Steps` jumping bullets (https://github.com/salute-developers/plasma/pull/1517)
+
+### Select
+
+- осуществлен переход на `floating-ui`
+- расширена типизация, позволяющая использовать компонент в режиме uncontrolled (b2c и web)
+- исправлено некорректное отображение ячейки выпадающего списка при длинных значениях
+- расширены возможности использования компонента через портал. Теперь помимо рефки можно пробросить id `dom-элемента`
+- исправлены UI-баги при использовании портала
+- улучшена поддержка типов
+ 
+feat(plasma-*, sdds-*): Select improvements (https://github.com/salute-developers/plasma/pull/1550)
+
+### Tabs
+
+- вернули возможность использовать `TabItemProps`, `TabsProps` во все пакетах
+
+`plasma-*, sdds-*`: `TabItemProps`, `TabsProps` exported (https://github.com/salute-developers/plasma/pull/1545)
+
+
+## Вертикали 
+
+### `SDDS-CS`
+
+- добавлен view `negative` для `Combobox` 
+- добавлен view `negative` для `Autocomplete`
+
+plasma(sdds-cs): Add view negative to combobox and autocomplite (https://github.com/salute-developers/plasma/pull/1523)
+
+Добавлены новые токены для компонентов: 
+
+- `Autocomplete`, 
+- `Combobox`, 
+- `Dropdown`, 
+- `Notifications`, 
+- `Range`, 
+- `Pagination`, 
+- `Tabs`, 
+- `DatePicker`
+ 
+feat(new-hope): Add new tokens to components (https://github.com/salute-developers/plasma/pull/1506)
+ 
+### `SDDS-INSOL`
+
+- обновлена тема `sdds_insol`
+- обновлено свойство `background-color` на background в компоненте `Button` для поддержки градиентов в значениях у токенов.
+- обновлены конфигурации для компонентов `Button`, `TextArea` и  `TextField`
+
+feat(sdds-insol): Update configs for `Button`, `TextArea` and  `TextField` components [part 1] (https://github.com/salute-developers/plasma/pull/1526)
+
+## Docs
+
+### Edit docs components for correctly view
+
+- изменена документация ( значения `size` ) для корректного отображения в документации в вертикали `sdds-cs`
+
+fix(sdds-cs-docs): Edit docs components for correctly view (https://github.com/salute-developers/plasma/pull/1557)
+
+### Theme documentation
+
+- добавлен подраздел примеры смены тем
+ 
+feat: change theme docs (https://github.com/salute-developers/plasma/pull/1516)
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-asdk@0.203.0`, `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-core@1.186.0`, `@salutejs/plasma-hope@1.320.0`, `@salutejs/plasma-icons@1.208.0`, `@salutejs/plasma-new-hope@0.193.0`, `@salutejs/plasma-tokens@1.105.0`, `@salutejs/plasma-ui@1.293.0`, `@salutejs/plasma-web@1.447.0`, `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`, `@salutejs/plasma-themes@0.23.0`, `@salutejs/sdds-themes@0.27.0`, `@salutejs/plasma-cy-utils@0.117.0`, `@salutejs/plasma-sb-utils@0.184.0`
+  - Release by 13.11.2024 [#1559](https://github.com/salute-developers/plasma/pull/1559) ([@iljs](https://github.com/iljs) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@neretin-trike](https://github.com/neretin-trike) [@Yakutoc](https://github.com/Yakutoc) [@vadim-kudr](https://github.com/vadim-kudr) [@TitanKuzmich](https://github.com/TitanKuzmich) [@denivladislav](https://github.com/denivladislav) [@luizasok](https://github.com/luizasok))
+- `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-web@1.447.0`, `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`
+  - docs(): api reports regenerated [#1539](https://github.com/salute-developers/plasma/pull/1539) ([@denivladislav](https://github.com/denivladislav))
+- `@salutejs/plasma-b2c@1.445.0`
+  - feat(plasma-b2c): update TextFieldGroup tests [#1551](https://github.com/salute-developers/plasma/pull/1551) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`
+  - feat(sdds-*): add alwaysOpened to Dropdown [#1538](https://github.com/salute-developers/plasma/pull/1538) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - feat(sdds-*): add NumberInput component [#1511](https://github.com/salute-developers/plasma/pull/1511) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-web@1.447.0`
+  - feat(plasma-*): update TextArea resize test [#1520](https://github.com/salute-developers/plasma/pull/1520) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - feat(plasma-*): add test onClickClose for Chip [#1536](https://github.com/salute-developers/plasma/pull/1536) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-themes@0.23.0`
+  - fix(plasma-themes): Update themes [#1555](https://github.com/salute-developers/plasma/pull/1555) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-new-hope@0.193.0`, `@salutejs/plasma-web@1.447.0`, `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`
+  - feat: add Badge & Tabs truncate props [#1500](https://github.com/salute-developers/plasma/pull/1500) ([@vadim-kudr](https://github.com/vadim-kudr))
+  - feat(new-hope): add thin cross to notification and toast [#1506](https://github.com/salute-developers/plasma/pull/1506) ([@iljs](https://github.com/iljs))
+- `@salutejs/sdds-cs@0.176.0`
+  - feat(sdds-cs): update docs for combobox and autocomplite [#1523](https://github.com/salute-developers/plasma/pull/1523) ([@iljs](https://github.com/iljs))
+- `@salutejs/plasma-new-hope@0.193.0`
+  - feat(plasma-new-hope): add autoComplete prop to Range [#1530](https://github.com/salute-developers/plasma/pull/1530) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-themes@0.23.0`, `@salutejs/sdds-themes@0.27.0`
+  - feat: change theme docs [#1516](https://github.com/salute-developers/plasma/pull/1516) ([@vadim-kudr](https://github.com/vadim-kudr))
+- `@salutejs/plasma-icons@1.208.0`
+  - feat(plasma-icons): add icons Star [36x36] [#1529](https://github.com/salute-developers/plasma/pull/1529) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/sdds-insol@0.166.0`
+  - feat(sdds-insol): Update config for `Button`, `TextField` and `TextArea` components [#1526](https://github.com/salute-developers/plasma/pull/1526) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix(sdds-cs-docs): edit docs components for correctly view [#1557](https://github.com/salute-developers/plasma/pull/1557) ([@iljs](https://github.com/iljs))
+- ci(deploy): by draft components [#1549](https://github.com/salute-developers/plasma/pull/1549) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-asdk@0.203.0`, `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-new-hope@0.193.0`, `@salutejs/plasma-web@1.447.0`, `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`
+  - feat(plasma-*, sdds-*): Select improvements [#1550](https://github.com/salute-developers/plasma/pull/1550) ([@shuga2704](https://github.com/shuga2704))
+- `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-new-hope@0.193.0`, `@salutejs/plasma-web@1.447.0`, `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-serv@0.174.0`
+  - fix: fix Steps jumping bullets [#1517](https://github.com/salute-developers/plasma/pull/1517) ([@vadim-kudr](https://github.com/vadim-kudr))
+- `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`
+  - chore: include css by tree shaking [#1554](https://github.com/salute-developers/plasma/pull/1554) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/sdds-cs@0.176.0`
+  - fix(sdds-cs): fixed Attach and IconButton view=secondary tokens [#1525](https://github.com/salute-developers/plasma/pull/1525) ([@denivladislav](https://github.com/denivladislav))
+- `@salutejs/sdds-dfa@0.173.0`
+  - fix(sdds-dfa): Tabs disabled tokens fixed [#1532](https://github.com/salute-developers/plasma/pull/1532) ([@denivladislav](https://github.com/denivladislav))
+- `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-web@1.447.0`, `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`
+  - docs(): api reports regenerated [#1545](https://github.com/salute-developers/plasma/pull/1545) ([@denivladislav](https://github.com/denivladislav))
+- `@salutejs/plasma-new-hope@0.193.0`
+  - fix(plasma-new-hope): fix DatePickerRange grid type prop [#1535](https://github.com/salute-developers/plasma/pull/1535) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.445.0`, `@salutejs/plasma-new-hope@0.193.0`, `@salutejs/plasma-web@1.447.0`, `@salutejs/sdds-cs@0.176.0`, `@salutejs/sdds-dfa@0.173.0`, `@salutejs/sdds-finportal@0.167.0`, `@salutejs/sdds-insol@0.166.0`, `@salutejs/sdds-serv@0.174.0`
+  - feat(plasma-*, sdds-*): Add required functionality in Combobox [#1527](https://github.com/salute-developers/plasma/pull/1527) ([@shuga2704](https://github.com/shuga2704))
+  - feat(plasma-*, sdds-*): Add required functionality in Autocomplete [#1522](https://github.com/salute-developers/plasma/pull/1522) ([@shuga2704](https://github.com/shuga2704))
+
+#### Authors: 9
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Luiza_Sok ([@luizasok](https://github.com/luizasok))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vlad Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # (Thu Oct 31 2024)
 
 ### Release Notes

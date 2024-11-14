@@ -1,3 +1,194 @@
+# v0.184.0 (Thu Nov 14 2024)
+
+### Release Notes
+
+#### Release by 13.11.2024 ([#1559](https://github.com/salute-developers/plasma/pull/1559))
+
+## Components
+
+### Autocomplete
+
+- добавлены новые св-ва `required`, `requiredPlacement` и `optional`;
+ 
+feat(plasma-*, sdds-*): Add required functionality in Autocomplete (https://github.com/salute-developers/plasma/pull/1522)
+
+### Combobox
+
+- добавлены новые св-ва `required`, `requiredPlacement` и `optional`;
+
+feat(plasma-*, sdds-*): Add required functionality in Combobox (https://github.com/salute-developers/plasma/pull/1527)
+
+### Range, DatePickerRange
+
+- добавлена возможность передать свойство `autoComplete`
+
+feat(plasma-new-hope): Add autoComplete prop to Range (https://github.com/salute-developers/plasma/pull/1530)
+
+### Chip
+
+- добавлено событие `onClickClose` по клику на крестик
+- `onClear` помечено как deprecated
+- написан тест на onClickClose
+
+feat(plasma-new-hope): Divide chip events (https://github.com/salute-developers/plasma/pull/1536)
+
+### Badge, Tabs
+
+- реализована возможность обрезания текста по максимальной ширине
+
+feat: add Badge & Tabs truncate props (https://github.com/salute-developers/plasma/pull/1500)
+
+### NumberInput
+
+- компонент включен в поставку `plasma-*` и `sdds-*` библиотек
+
+**After**:
+<img width="216" alt="image" src="https://github.com/user-attachments/assets/4b51c0e6-099d-41d7-af07-88344f7f77b0" />
+
+feat(plasma-new-hope): Add NumberInput component (https://github.com/salute-developers/plasma/pull/1511)
+
+### Dropdown
+
+- добавлено свойство alwaysOpened
+- добавлен тест на новое свойство
+
+feat(plasma-new-hope): Add alwaysOpened prop for Dropdown (https://github.com/salute-developers/plasma/pull/1538)
+
+### TextField
+
+- добавлен токен изменения цвета фона компонента при наведении
+
+feat(plasma-*,sdds-*): Fix TextField hover tokens (https://github.com/salute-developers/plasma/pull/1551)
+
+### Tabs
+
+- для `sdds-cs` исправлены значения токенов `itemSelectedDividerColor` и `itemSelectedDividerColorHover`
+- для `sdds-dfa` исправлены токены для состояния `disabled`
+- исправлены `argTypes` в stories
+
+### Breadcrumbs
+
+- исправлен курсор при наведении на текущий `Breadcrumb`
+- исправлены токены для `hover` и `active` состояний у `Breadcrumb` 
+
+`plasma-new-hope, sdds-cs`: fix `Tabs` and `Breadcrumbs` (https://github.com/salute-developers/plasma/pull/1532)
+
+### Switch
+- добавлены размеры `s`, `l`
+- добавлено свойство `description`
+- добавлено свойство `toggleSize`
+- обновлены документация и тесты
+
+`plasma-*, sdds-*`: `Switch` sizes added (https://github.com/salute-developers/plasma/pull/1539)
+
+### Attach, Button
+
+- свойство `square` у `Button` помечено как `deprecated`
+- свойство `square` удалено из storybooks для `Attach`
+- для размеров `m`, `l` у `Attach` исправлен размер иконки по умолчанию в варианте `IconButton`
+- исправлены токены для view=secondary в пакете `sdds-cs`
+
+### IconButton
+- исправлены токены для view=secondary в пакете `sdds-cs`
+
+`plasma-*, sdds-*`: fix `Attach` `square` prop (https://github.com/salute-developers/plasma/pull/1525)
+
+### Steps
+
+- исправлены смещающиеся активные элементы
+- добавлен фокус 
+- добавлены тесты
+ 
+plasma-*: Fix `Steps` jumping bullets (https://github.com/salute-developers/plasma/pull/1517)
+
+### Select
+
+- осуществлен переход на `floating-ui`
+- расширена типизация, позволяющая использовать компонент в режиме uncontrolled (b2c и web)
+- исправлено некорректное отображение ячейки выпадающего списка при длинных значениях
+- расширены возможности использования компонента через портал. Теперь помимо рефки можно пробросить id `dom-элемента`
+- исправлены UI-баги при использовании портала
+- улучшена поддержка типов
+ 
+feat(plasma-*, sdds-*): Select improvements (https://github.com/salute-developers/plasma/pull/1550)
+
+### Tabs
+
+- вернули возможность использовать `TabItemProps`, `TabsProps` во все пакетах
+
+`plasma-*, sdds-*`: `TabItemProps`, `TabsProps` exported (https://github.com/salute-developers/plasma/pull/1545)
+
+
+## Вертикали 
+
+### `SDDS-CS`
+
+- добавлен view `negative` для `Combobox` 
+- добавлен view `negative` для `Autocomplete`
+
+plasma(sdds-cs): Add view negative to combobox and autocomplite (https://github.com/salute-developers/plasma/pull/1523)
+
+Добавлены новые токены для компонентов: 
+
+- `Autocomplete`, 
+- `Combobox`, 
+- `Dropdown`, 
+- `Notifications`, 
+- `Range`, 
+- `Pagination`, 
+- `Tabs`, 
+- `DatePicker`
+ 
+feat(new-hope): Add new tokens to components (https://github.com/salute-developers/plasma/pull/1506)
+ 
+### `SDDS-INSOL`
+
+- обновлена тема `sdds_insol`
+- обновлено свойство `background-color` на background в компоненте `Button` для поддержки градиентов в значениях у токенов.
+- обновлены конфигурации для компонентов `Button`, `TextArea` и  `TextField`
+
+feat(sdds-insol): Update configs for `Button`, `TextArea` and  `TextField` components [part 1] (https://github.com/salute-developers/plasma/pull/1526)
+
+## Docs
+
+### Edit docs components for correctly view
+
+- изменена документация ( значения `size` ) для корректного отображения в документации в вертикали `sdds-cs`
+
+fix(sdds-cs-docs): Edit docs components for correctly view (https://github.com/salute-developers/plasma/pull/1557)
+
+### Theme documentation
+
+- добавлен подраздел примеры смены тем
+ 
+feat: change theme docs (https://github.com/salute-developers/plasma/pull/1516)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 13.11.2024 [#1559](https://github.com/salute-developers/plasma/pull/1559) ([@iljs](https://github.com/iljs) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@neretin-trike](https://github.com/neretin-trike) [@Yakutoc](https://github.com/Yakutoc) [@vadim-kudr](https://github.com/vadim-kudr) [@TitanKuzmich](https://github.com/TitanKuzmich) [@denivladislav](https://github.com/denivladislav) [@luizasok](https://github.com/luizasok))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 9
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Luiza_Sok ([@luizasok](https://github.com/luizasok))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vlad Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # v0.182.0 (Thu Oct 31 2024)
 
 ### Release Notes
