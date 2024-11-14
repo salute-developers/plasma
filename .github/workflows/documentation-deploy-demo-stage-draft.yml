@@ -1,17 +1,12 @@
-name: Deploy documentations artefacts [PROD]
+name: Deploy documentations artefacts [DEMO STAGE]
 
 on:
     workflow_dispatch:
-    workflow_run:
-        workflows: [ "Release" ]
-        branches: [ master ]
-        types:
-            - completed
 
 jobs:
     run:
-        name: Deploy artifacts [PROD]
-        if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+        name: Deploy artifacts [DEMO STAGE]
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: ./.github/workflows/documentation-deploy-common.yml
         with:
             path: 'dev'
