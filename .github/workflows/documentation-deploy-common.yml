@@ -13,7 +13,7 @@ on:
                 default: 'dev'
 jobs:
     state:
-        name: Deploy website artifacts
+        name: Computed state
         if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
         runs-on: ubuntu-22.04
         outputs:
