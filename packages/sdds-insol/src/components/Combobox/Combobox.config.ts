@@ -26,12 +26,12 @@ export const config = {
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
-
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
                 ${tokens.textFieldChipColor}: var(--text-primary);

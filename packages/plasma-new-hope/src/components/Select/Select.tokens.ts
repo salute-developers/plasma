@@ -84,7 +84,6 @@ export const tokens = {
 
     textFieldPlaceholderColor: '--plasma-select-textfield-placeholder-color',
     textFieldPlaceholderColorFocus: '--plasma-select-textfield-placeholder-color-focus',
-    textFieldOptionalColor: '--plasma-select-textfield-optional-color',
 
     textFieldHeight: '--plasma-select-textfield-height',
     textFieldBorderWidth: '--plasma-select-textfield-border-width',
@@ -185,6 +184,19 @@ export const tokens = {
     textFieldChipLineHeight: '--plasma-select-textfield-chip-line-height',
     textFieldChipClearContentMarginLeft: '--plasma-select-textfield-chip-clear-content-margin-left',
     textFieldChipClearContentMarginRight: '--plasma-select-textfield-chip-clear-content-margin-right',
+
+    textFieldIndicatorColor: '--plasma-select-new-textfield-indicator-color',
+    textFieldIndicatorSizeInner: '--plasma-select-new-textfield-indicator-size-inner',
+    textFieldIndicatorSizeOuter: '--plasma-select-new-textfield-indicator-size-outer',
+    textFieldIndicatorLabelPlacementInner: '--plasma-select-new-textfield-indicator-placement-inner',
+    textFieldIndicatorLabelPlacementOuter: '--plasma-select-new-textfield-indicator-placement-outer',
+    textFieldIndicatorLabelPlacementInnerRight: '--plasma-select-new-textfield-indicator-placement-inner-right',
+    textFieldIndicatorLabelPlacementOuterRight: '--plasma-select-new-textfield-indicator-placement-outer-right',
+    textFieldClearIndicatorLabelPlacementInner: '--plasma-select-new-textfield-clear-indicator-placement-inner',
+    textFieldClearIndicatorLabelPlacementInnerRight:
+        '--plasma-select-new-textfield-clear-indicator-placement-inner-right',
+    textFieldClearIndicatorHintInnerRight: '--plasma-select-new-textfield-clear-indicator-hint-placement-inner-right',
+    textFieldOptionalColor: '--plasma-select-new-textfield-optional-color',
 
     textFieldFocusColor: '--plasma-select-textfield-focus-color',
 

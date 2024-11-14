@@ -1,6 +1,8 @@
 import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent } from 'react';
 import React from 'react';
 
+import type { RequiredProps } from '../TextField/TextField.types';
+
 import { FocusedPathState } from './reducers';
 import {
     ItemOption,
@@ -12,8 +14,10 @@ import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
 type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
 
+export type { RequiredProps };
+
 type Target =
-    | {
+    | (RequiredProps & {
           /**
            * Стиль селекта: button-like или textfield-like.
            * @default textfield-like
@@ -37,7 +41,7 @@ type Target =
            * Вспомогательный текст снизу слева для поля ввода.
            */
           helperText?: string;
-      }
+      })
     | {
           target: 'button-like';
           view?:

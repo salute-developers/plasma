@@ -44,6 +44,12 @@ const meta: Meta<StorySelectProps> = {
                 eq: 'textfield-like',
             },
         },
+        placeholder: {
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
         chipView: {
             control: 'select',
             options: chip,
@@ -79,6 +85,24 @@ const meta: Meta<StorySelectProps> = {
                 eq: 'textfield-like',
             },
         },
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
     },
     args: {
         target: 'textfield-like',
@@ -93,6 +117,9 @@ const meta: Meta<StorySelectProps> = {
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
     },
     parameters: {
         controls: {
@@ -113,6 +140,9 @@ const meta: Meta<StorySelectProps> = {
                 'listWidth',
                 'listOverflow',
                 'listHeight',
+                'optional',
+                'required',
+                'requiredPlacement',
             ],
         },
     },
