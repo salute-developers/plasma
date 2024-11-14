@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../Switch.tokens';
-import { StyledTrigger, StyledInput } from '../Switch.styles';
+import { StyledTrigger, StyledInput, StyledLabel, StyledDescription } from '../Switch.styles';
 
 export const base = css`
     ${StyledTrigger} {
@@ -27,5 +27,13 @@ export const base = css`
 
     ${StyledInput}:checked ~ ${StyledTrigger}::after {
         box-shadow: var(${tokens.thumbBoxShadowOn}, var(${tokens.thumbBoxShadow}));
+    }
+
+    ${StyledLabel} {
+        color: var(${tokens.labelColor});
+    }
+
+    ${StyledDescription} {
+        color: var(${tokens.descriptionColor});
     }
 `;

@@ -62,6 +62,7 @@ export const StepItem: React.FC<
     const nextItem = items[index + 1];
 
     const isActive = status === 'active';
+    const isNextActive = nextItem?.status === 'active';
     const isInactive = status === 'inactive';
     const isPrevInactive = (prevItem && !prevItem?.status) || prevItem?.status === 'inactive';
     const isNextInactive = !nextItem?.status || nextItem?.status === 'inactive';
@@ -113,6 +114,71 @@ export const StepItem: React.FC<
         }
     }, [isDisabled]);
 
+    if (isSimple) {
+        return (
+            <>
+                <StepItemStyled
+                    className={cls({
+                        [classes.simple]: isSimple,
+                        [classes.active]: isActive,
+                        [classes.hovered]: isHovered && !isActive,
+                        [classes.inactive]: isInactive,
+                        [classes.centered]: isCentered,
+                        [classes.disabled]: isDisabled,
+                        [classes.clickable]: clickable && !isActive,
+                        [classes.hasIndicator]: hasIndicator,
+                        [classes.transparentDivider]: !hasLine,
+                        [classes.verticalOrientation]: isVertical,
+                        isFirst,
+                        isLast,
+                        isPrevInactive,
+                        isNextInactive,
+                    })}
+                >
+                    <BulletIndicatorWrapper
+                        className={cls({
+                            [classes.verticalOrientation]: isVertical,
+                            [classes.centered]: isCentered,
+                            [classes.simple]: isSimple,
+                            [classes.hasIndicator]: hasIndicator,
+                        })}
+                        onClick={onClickHandler}
+                        onFocus={onMouseOver}
+                        onBlur={onMouseOut}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                    >
+                        {hasLoader && <SpinnerStyled hasIndicator={hasIndicator} />}
+
+                        {!hasLoader && (
+                            <BulletNode
+                                className={cls({
+                                    [classes.active]: isActive,
+                                    [classes.inactive]: isInactive,
+                                })}
+                                disabled={isDisabled}
+                            >
+                                {typeof indicator === 'function' && indicator({ status, item, size })}
+                                {typeof indicator !== 'function' && indicator}
+                            </BulletNode>
+                        )}
+                    </BulletIndicatorWrapper>
+                </StepItemStyled>
+                {!isLast && (
+                    <StepItemDivider
+                        className={cls(classes.simple, {
+                            [classes.verticalOrientation]: isVertical,
+                            [classes.transparentDivider]: !hasLine,
+                            [classes.active]: isActive,
+                            [classes.inactive]: isInactive || isNextInactive,
+                            [classes.disabled]: isDisabled,
+                        })}
+                    />
+                )}
+            </>
+        );
+    }
+
     return (
         <>
             <StepItemStyled
@@ -126,6 +192,7 @@ export const StepItem: React.FC<
                     [classes.clickable]: clickable && !isActive,
                     [classes.hasIndicator]: hasIndicator,
                     [classes.verticalOrientation]: isVertical,
+                    isNextActive,
                 })}
             >
                 <BulletIndicatorWrapper
@@ -151,7 +218,7 @@ export const StepItem: React.FC<
                         />
                     )}
 
-                    {isVertical && (isSimple ? !isFirst : true) && (
+                    {isVertical && (
                         <StepItemDivider
                             className={cls(classes.indentDivider, {
                                 [classes.simple]: isSimple,
@@ -170,59 +237,47 @@ export const StepItem: React.FC<
                                 [classes.active]: isActive,
                                 [classes.inactive]: isInactive,
                             })}
+                            disabled={isDisabled}
                         >
                             {typeof indicator === 'function' && indicator({ status, item, size })}
                             {typeof indicator !== 'function' && indicator}
                         </BulletNode>
                     )}
 
-                    {!isSimple && (
-                        <StepItemDivider
-                            className={cls({
-                                [classes.simple]: isSimple,
-                                [classes.transparentDivider]: !hasLine || isLast,
-                                [classes.inactive]: isInactive || isNextInactive,
-                            })}
-                        />
-                    )}
+                    <StepItemDivider
+                        className={cls({
+                            [classes.simple]: isSimple,
+                            [classes.transparentDivider]: !hasLine || isLast,
+                            [classes.inactive]: isInactive || isNextInactive,
+                        })}
+                    />
                 </BulletIndicatorWrapper>
 
-                {!isSimple && (
-                    <StepItemContentWrapper
-                        className={cls({
-                            [classes.verticalOrientation]: isVertical,
-                            [classes.centered]: isCentered,
-                            [classes.active]: isActive,
-                            [classes.hasIndicator]: hasIndicator,
-                        })}
-                    >
-                        <StepItemTitle
-                            onClick={onClickHandler}
-                            onFocus={onMouseOver}
-                            onBlur={onMouseOut}
-                            onMouseOver={onMouseOver}
-                            onMouseOut={onMouseOut}
-                        >
-                            {title}
-                        </StepItemTitle>
-
-                        {content && (
-                            <StepItemContent>
-                                {typeof content === 'function' ? content(status, index, items) : content}
-                            </StepItemContent>
-                        )}
-                    </StepItemContentWrapper>
-                )}
-            </StepItemStyled>
-            {isSimple && !isLast && (
-                <StepItemDivider
-                    className={cls(classes.simple, {
+                <StepItemContentWrapper
+                    className={cls({
                         [classes.verticalOrientation]: isVertical,
-                        [classes.transparentDivider]: !hasLine,
-                        [classes.inactive]: isInactive || isNextInactive,
+                        [classes.centered]: isCentered,
+                        [classes.active]: isActive,
+                        [classes.hasIndicator]: hasIndicator,
                     })}
-                />
-            )}
+                >
+                    <StepItemTitle
+                        onClick={onClickHandler}
+                        onFocus={onMouseOver}
+                        onBlur={onMouseOut}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                    >
+                        {title}
+                    </StepItemTitle>
+
+                    {content && (
+                        <StepItemContent>
+                            {typeof content === 'function' ? content(status, index, items) : content}
+                        </StepItemContent>
+                    )}
+                </StepItemContentWrapper>
+            </StepItemStyled>
         </>
     );
 };

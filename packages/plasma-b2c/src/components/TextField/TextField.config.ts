@@ -15,6 +15,7 @@ export const config = {
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
@@ -57,6 +58,7 @@ export const config = {
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
@@ -99,6 +101,7 @@ export const config = {
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
@@ -141,6 +144,7 @@ export const config = {
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);

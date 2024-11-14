@@ -25,54 +25,58 @@ const meta: Meta<StorySelectProps> = {
     component: Select,
     argTypes: {
         target: {
+            control: 'select',
             options: ['button-like', 'textfield-like'],
-            control: {
-                type: 'select',
-            },
         },
         size: {
+            control: 'select',
             options: size,
-            control: {
-                type: 'select',
-            },
         },
         view: {
+            control: 'select',
             options: view,
-            control: {
-                type: 'select',
-            },
         },
         labelPlacement: {
+            control: 'select',
             options: labelPlacement,
-            control: {
-                type: 'select',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
             },
         },
         chipView: {
+            control: 'select',
             options: chip,
-            control: {
-                type: 'select',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
             },
         },
         variant: {
+            control: 'select',
             options: variant,
-            control: {
-                type: 'select',
-            },
         },
         listWidth: {
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
         listOverflow: {
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
         listHeight: {
-            control: {
-                type: 'text',
+            control: 'text',
+        },
+        helperText: {
+            control: 'text',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
+        enableContentLeft: {
+            control: 'boolean',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
             },
         },
     },
@@ -84,7 +88,7 @@ const meta: Meta<StorySelectProps> = {
         helperText: 'Helper text',
         size: 'm',
         view: 'default',
-        chipView: 'default',
+        chipView: 'secondary',
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
@@ -338,13 +342,18 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
             />
         </div>
     );
 };
 
 export const Single: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            exclude: ['chipView', 'isTargetAmount'],
+        },
+    },
     render: (args) => <SingleStory {...args} />,
     args: {
         closeAfterSelect: true,
@@ -361,7 +370,7 @@ const MultiselectStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
             />
         </div>
     );
@@ -386,7 +395,7 @@ const PredefinedStory = (args: StorySelectProps) => {
                 items={items}
                 value={valueSingle}
                 onChange={setValueSingle}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
             />
 
             <br />
@@ -397,7 +406,7 @@ const PredefinedStory = (args: StorySelectProps) => {
                 multiselect
                 value={valueMultiple}
                 onChange={setValueMultiple}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
             />
         </div>
     );
@@ -462,7 +471,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="default"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -475,7 +484,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="default"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -606,7 +615,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="positive"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -619,7 +628,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="positive"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -659,7 +668,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="warning"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -672,7 +681,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="warning"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -712,7 +721,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="negative"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -725,7 +734,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="negative"
-                                    contentLeft={enableContentLeft ? <IconDone size="s" /> : undefined}
+                                    contentLeft={enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
                                 />
                             </div>
                         </td>
@@ -835,9 +844,7 @@ export const Common: StoryObj<StorySelectProps> = {
     argTypes: {
         size: {
             options: size,
-            control: {
-                type: 'select',
-            },
+            control: 'select',
         },
     },
     args: {

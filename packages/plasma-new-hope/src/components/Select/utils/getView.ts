@@ -1,6 +1,6 @@
 import { MergedSelectProps } from '../Select.types';
 
-export const getView = (status: MergedSelectProps['status']) => {
+export const getView = (status: MergedSelectProps['status'], view: MergedSelectProps['view']) => {
     switch (status) {
         case 'success': {
             return 'positive';
@@ -15,7 +15,7 @@ export const getView = (status: MergedSelectProps['status']) => {
         }
 
         default: {
-            return 'default';
+            return view;
         }
     }
 };

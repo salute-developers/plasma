@@ -108,14 +108,11 @@ export const Label = styled.label`
     display: inline-flex;
 `;
 
-const StyledContentSlot = styled.div<{ isDefaultView: boolean; isClear: boolean }>`
+export const StyledContentLeft = styled.div<{ isDefaultView: boolean; isClear: boolean }>`
+    margin: var(${tokens.leftContentMargin});
     color: ${({ isDefaultView, isClear }) =>
         !isDefaultView && isClear ? `var(${tokens.clearColor})` : `var(${tokens.contentSlotColor})`};
     line-height: 0;
-`;
-
-export const StyledContentLeft = styled(StyledContentSlot)`
-    margin: var(${tokens.leftContentMargin});
 `;
 
 export const StyledContentRight = styled.div`
@@ -125,7 +122,6 @@ export const StyledContentRight = styled.div`
     color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
 
     &:hover {
-        color: var(${tokens.contentSlotColorHover});
         color: var(${tokens.contentSlotRightColorHover}, var(${tokens.contentSlotColorHover}));
         cursor: pointer;
     }

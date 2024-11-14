@@ -2216,6 +2216,15 @@ export const backgroundPrimaryBrightness = 'var(--background-primary-brightness,
 /** Вторичный фон */
 export const backgroundSecondary = 'var(--background-secondary, #171717)';
 
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimaryBrightness = 'var(--inverse-background-primary-brightness, #FFFFFFFF)';
+
+/** Инвертированный основной фон */
+export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F2F2F2FF)';
+
+/** Инвертированный вторичный фон */
+export const inverseBackgroundSecondary = 'var(--inverse-background-secondary, #FFFFFFFF)';
+
 /** Цвет фона паранжи светлый на темном фоне */
 export const onDarkOverlaySoft = 'var(--on-dark-overlay-soft, #0000008F)';
 
@@ -4595,6 +4604,9 @@ export const viewContainer = {
         --background-primary: var(--dark-background-primary);
         --background-primary-brightness: var(--dark-background-primary-brightness);
         --background-secondary: var(--dark-background-secondary);
+        --inverse-background-primary-brightness: var(--light-background-primary-brightness);
+        --inverse-background-primary: var(--light-background-primary);
+        --inverse-background-secondary: var(--light-background-secondary);
         --outline-solid-primary-hover: var(--on-dark-outline-solid-primary-hover);
         --outline-solid-primary-active: var(--on-dark-outline-solid-primary-active);
         --outline-solid-secondary-hover: var(--on-dark-outline-solid-secondary-hover);
@@ -5228,6 +5240,9 @@ export const viewContainer = {
         --background-primary: var(--light-background-primary);
         --background-primary-brightness: var(--light-background-primary-brightness);
         --background-secondary: var(--light-background-secondary);
+        --inverse-background-primary-brightness: var(--dark-background-primary-brightness);
+        --inverse-background-primary: var(--dark-background-primary);
+        --inverse-background-secondary: var(--dark-background-secondary);
         --outline-solid-primary-hover: var(--on-light-outline-solid-primary-hover);
         --outline-solid-primary-active: var(--on-light-outline-solid-primary-active);
         --outline-solid-secondary-hover: var(--on-light-outline-solid-secondary-hover);

@@ -11,6 +11,7 @@ export const classes = {
     hasHint: 'textfield-has-hint',
     textFieldGroupItem: 'text-field-group-item',
     requiredAlignRight: 'required-align-right',
+    inputWrapper: 'input-wrapper',
 };
 
 export const tokens = {

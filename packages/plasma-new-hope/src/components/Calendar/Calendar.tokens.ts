@@ -34,6 +34,8 @@ export const innerTokens = {
 export const tokens = {
     calendarWidth: '--plasma-calendar-width',
     calendarHeight: '--plasma-calendar-height',
+    calendarBorderWidth: '--plasma-calendar-border-width',
+    calendarBorderColor: '--plasma-calendar-border-color',
 
     /* Токены размера сетки лет */
     calendarYearsPadding: '--plasma-calendar-years-padding',
@@ -108,6 +110,7 @@ export const tokens = {
     calendarHeaderFontLineHeight: '--plasma-calendar-header-line-height',
     calendarHeaderFontWeight: '--plasma-calendar-header-font-weight',
     calendarHeaderFontWeightBold: '--plasma-calendar-header-font-weight-bold',
+    calendarHeaderArrowColor: '--plasma-calendar-header-arrow-color',
 
     /* Токены стрелок навигации календаря */
     iconButtonColor: '--plasma-calendar-icon-button-color',
@@ -127,6 +130,7 @@ export const tokens = {
     calendarSelectedItemColor: '--plasma-calendar-selected-item-color',
     calendarSelectableItemBackgroundHover: '--plasma-calendar-selectable-item-bg-hover',
     calendarCurrentItemBorderColor: '--plasma-calendar-current-item-border-color',
+    calendarCurrentItemBorderWidth: '--plasma-calendar-current-item-border-width',
     calendarCurrentItemBackgroundHover: '--plasma-calendar-current-item-bg-hover',
     calendarCurrentItemColorHover: '--plasma-calendar-current-item-color-hover',
     calendarCurrentItemChildBackgroundHover: '--plasma-calendar-current-item-child-bg-hover',

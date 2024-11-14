@@ -46,7 +46,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                 {opened && (
                     // root - принимает ref контейнера портала.
                     // id - если есть портал - не используется, если портала нет - подставляется 'wrappedId'.
-                    <FloatingPortal root={portal} id={portal ? undefined : wrappedId}>
+                    <FloatingPortal {...getFloatingPortalProps(portal, wrappedId)}>
                         <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: 1 }}>
                             {children}
                         </div>
@@ -56,5 +56,27 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         );
     },
 );
+
+type FloatingPortalReturnedProps = {
+    root?: React.RefObject<HTMLElement>;
+    id?: string;
+};
+
+// root - принимает ref контейнера портала.
+// id - если есть портал - не используется, если портала нет - подставляется 'wrappedId'.
+const getFloatingPortalProps = (
+    portal: FloatingPopoverProps['portal'],
+    wrappedId: string,
+): FloatingPortalReturnedProps => {
+    if (!portal) {
+        return { id: wrappedId };
+    }
+
+    if (typeof portal === 'string') {
+        return { id: portal };
+    }
+
+    return { root: portal };
+};
 
 export { FloatingPopover };

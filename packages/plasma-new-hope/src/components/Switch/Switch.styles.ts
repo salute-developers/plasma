@@ -8,7 +8,8 @@ import { classes, tokens } from './Switch.tokens';
 export const base = css`
     position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: var(${tokens.verticalGap});
 
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -16,6 +17,13 @@ export const base = css`
     &:focus {
         outline: 0 none;
     }
+`;
+
+export const StyledContent = styled.div`
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
 
     &.${classes.beforeSwitchLabelPosition} {
         justify-content: space-between;
@@ -29,6 +37,10 @@ export const base = css`
 
         ${tokens.labelOffsetPrivate}: 0 0 0 var(${tokens.labelOffset});
     }
+`;
+
+export const StyledDescription = styled.div`
+    position: relative;
 `;
 
 export const StyledInput = styled.input`

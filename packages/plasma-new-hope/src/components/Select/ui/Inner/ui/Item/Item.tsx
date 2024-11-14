@@ -1,21 +1,22 @@
-import React, { useEffect, useRef, FC, useContext } from 'react';
+import React, { useRef, FC, useContext } from 'react';
 
-import { sizeToIconSize } from '../../../../utils';
+import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 import { cx, isEmpty } from '../../../../../../utils';
 import { IconDisclosureRightCentered, IconDone } from '../../../../../_Icon';
 import { Context } from '../../../../Select';
+import { useDidMountEffect } from '../../../../../../hooks';
 
 import { ItemProps } from './Item.types';
 import {
-    StyledContentLeft,
-    StyledContentRight,
+    StyledWrapper,
+    StyledCell,
+    StyledCheckbox,
+    StyledIndicator,
+    DisclosureIconWrapper,
+    IconWrapper,
     StyledText,
     Wrapper,
-    DisclosureIconWrapper,
-    StyledCheckbox,
-    IconWrapper,
-    StyledIndicator,
     StyledCheckboxWrapper,
 } from './Item.styles';
 
@@ -29,7 +30,8 @@ export const Item: FC<ItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, isDisabled, color, contentLeft, contentRight } = item;
+    const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
+
     const ref = useRef<HTMLLIElement | null>(null);
 
     const {
@@ -42,18 +44,19 @@ export const Item: FC<ItemProps> = ({
         variant,
         renderItem,
         valueToItemMap,
+        treeId,
     } = useContext(Context);
 
     const itemDisabled = Boolean(disabled || isDisabled);
 
-    const isDisabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const disabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
             ? classes.dropdownItemIsFocused
             : undefined;
     const activeClass = value === path?.[currentLevel + 1] ? classes.dropdownItemIsActive : undefined;
 
-    useEffect(() => {
+    useDidMountEffect(() => {
         if (focusedClass && ref?.current) {
             ref.current.scrollIntoView({
                 behavior: 'smooth',
@@ -82,16 +85,17 @@ export const Item: FC<ItemProps> = ({
 
     return (
         <Wrapper
-            className={cx(isDisabledClassName, focusedClass, activeClass)}
-            id={value.toString()}
+            className={cx(disabledClassName, focusedClass, activeClass)}
+            id={getItemId(treeId, value.toString())}
             ref={ref}
             onClick={handleClick}
             variant={variant}
+            role="treeitem"
             aria-controls={ariaControls}
             aria-expanded={ariaExpanded}
             aria-level={ariaLevel}
             aria-label={ariaLabel}
-            role="treeitem"
+            aria-selected={Boolean(checked.get(item.value))}
         >
             <IconWrapper variant={variant}>
                 {multiselect && (
@@ -100,7 +104,6 @@ export const Item: FC<ItemProps> = ({
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}
-                            className={classes.selectItemCheckbox}
                         />
                     </StyledCheckboxWrapper>
                 )}
@@ -112,11 +115,20 @@ export const Item: FC<ItemProps> = ({
                 )}
             </IconWrapper>
 
-            {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-
-            <StyledText color={color}>{(renderItem && renderItem(valueToItemMap.get(value)!)) || label}</StyledText>
-
-            {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+            {renderItem ? (
+                <StyledText>{renderItem(valueToItemMap.get(value)!)}</StyledText>
+            ) : (
+                <StyledWrapper>
+                    <StyledCell
+                        contentLeft={contentLeft}
+                        contentRight={contentRight}
+                        // TODO: #1548
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        title={<span>{label}</span>}
+                    />
+                </StyledWrapper>
+            )}
 
             {!isEmpty(item.items) && (
                 <DisclosureIconWrapper>

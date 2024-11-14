@@ -1135,6 +1135,38 @@ describe('plasma-web: Combobox', () => {
         cy.get('#multiple2').should('not.be.focused');
     });
 
+    it('prop: required, requiredPlacement', () => {
+        cy.viewport(500, 100);
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '200px' }}>
+                    <Combobox required items={items} label="Label" placeholder="Placeholder" />
+                </div>
+
+                <div style={{ width: '200px' }}>
+                    <Combobox required requiredPlacement="left" items={items} label="Label" placeholder="Placeholder" />
+                </div>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: optional', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '300px' }}>
+                    <Combobox optional items={items} label="Label" placeholder="Placeholder" />
+                </div>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('flow: single uncontrolled', () => {
         cy.viewport(1000, 500);
 

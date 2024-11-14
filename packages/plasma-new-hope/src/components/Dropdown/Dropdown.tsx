@@ -47,6 +47,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 trigger = 'click',
                 variant = 'normal',
                 hasArrow = true,
+                alwaysOpened = false,
                 portal,
                 ...rest
             },
@@ -65,7 +66,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
 
             // Логика работы при клике за пределами выпадающего списка
             const targetRef = useOutsideClick<HTMLUListElement>((event) => {
-                if (!isCurrentListOpen || !closeOnOverlayClick) {
+                if (!isCurrentListOpen || !closeOnOverlayClick || alwaysOpened) {
                     return;
                 }
 
@@ -78,7 +79,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             }, floatingPopoverRef);
 
             const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
-                if (opened) {
+                if (alwaysOpened || opened) {
                     dispatchPath({ type: 'opened_first_level' });
                 } else {
                     dispatchFocusedPath({ type: 'reset' });
@@ -103,7 +104,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 onItemClick,
             });
 
-            const isCurrentListOpen = Boolean(path[0]);
+            const isCurrentListOpen = alwaysOpened || Boolean(path[0]);
 
             return (
                 <Context.Provider

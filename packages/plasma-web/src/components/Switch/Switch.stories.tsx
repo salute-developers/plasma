@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
-
-import { InSpacingDecorator, disableProps } from '../../helpers';
+import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Switch } from '.';
 import type { SwitchProps } from '.';
@@ -22,6 +21,21 @@ const meta: Meta<SwitchProps> = {
                 type: 'text',
             },
         },
+        description: {
+            control: {
+                type: 'text',
+            },
+        },
+        labelPosition: {
+            options: ['before', 'after'],
+            control: { type: 'select' },
+        },
+        size: {
+            control: { type: 'select' },
+        },
+        toggleSize: {
+            control: { type: 'select' },
+        },
         ...disableProps([
             'id',
             'onFocus',
@@ -29,25 +43,26 @@ const meta: Meta<SwitchProps> = {
             'onChange',
             'value',
             'checked',
-            'description',
             'focused',
             'pressed',
             'outlined',
             'theme',
             'as',
             'forwardedAs',
-            'indeterminate',
-            'singleLine',
-            'maxLength',
-            'minLength',
-            'required',
+            'view',
             'placeholder',
-            'readOnly',
             'name',
             'type',
-            'view',
-            'size',
+            'readOnly',
+            'required',
+            'minLength',
+            'maxLength',
         ]),
+    },
+    args: {
+        label: 'Label',
+        description: 'Description',
+        labelPosition: 'before',
     },
 };
 
@@ -80,7 +95,8 @@ const StoryDefault = (args: SwitchProps) => {
 
 export const Default: StoryObj<SwitchProps> = {
     args: {
-        label: 'Label',
+        size: 'm',
+        toggleSize: 'l',
         disabled: false,
     },
     render: (args) => <StoryDefault {...args} />,

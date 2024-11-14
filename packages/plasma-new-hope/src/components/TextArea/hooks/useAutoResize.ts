@@ -8,6 +8,7 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
     value?: string | ReadonlyArray<string> | number,
     minAuto?: number,
     maxAuto?: number,
+    resize?: string,
 ) => {
     const previousHeight = useRef<number | undefined>();
 
@@ -15,7 +16,12 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
         if (active && ref && ref.current) {
             // проверка на пользовательский resize (вручную)
             const height = ref.current.clientHeight / ROOT_FONT_SIZE;
-            if (previousHeight.current !== undefined && previousHeight.current !== height) {
+            if (
+                resize &&
+                resize !== 'none' &&
+                previousHeight.current !== undefined &&
+                previousHeight.current !== height
+            ) {
                 return;
             }
 
@@ -36,5 +42,5 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
             ref.current.style.height = `${newHeight}rem`;
             previousHeight.current = newHeight;
         }
-    }, [ref, active, value, minAuto, maxAuto]);
+    }, [ref, resize, active, value, minAuto, maxAuto]);
 };

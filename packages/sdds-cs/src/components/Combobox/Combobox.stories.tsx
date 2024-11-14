@@ -10,9 +10,7 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
 };
 
-const view = ['default'];
-const size = ['s'];
-const labelPlacement = ['outer'];
+const view = ['default', 'negative'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
@@ -21,20 +19,8 @@ const meta: Meta<StorySelectProps> = {
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {
-        size: {
-            options: size,
-            control: {
-                type: 'select',
-            },
-        },
         view: {
             options: view,
-            control: {
-                type: 'select',
-            },
-        },
-        labelPlacement: {
-            options: labelPlacement,
             control: {
                 type: 'select',
             },
@@ -78,13 +64,29 @@ const meta: Meta<StorySelectProps> = {
             control: { type: 'number' },
             if: { arg: 'isTargetAmount', truthy: true },
         },
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
     },
     args: {
         label: 'Label',
-        labelPlacement: 'outer',
         placeholder: 'Placeholder',
         helperText: 'Helper text',
-        size: 's',
         view: 'default',
         chipView: 'default',
         enableContentLeft: false,
@@ -94,6 +96,9 @@ const meta: Meta<StorySelectProps> = {
         alwaysOpened: false,
         disabled: false,
         readOnly: false,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
     },
     parameters: {
         controls: {
@@ -117,6 +122,9 @@ const meta: Meta<StorySelectProps> = {
                 'listOverflow',
                 'listHeight',
                 'labelPlacement',
+                'optional',
+                'required',
+                'requiredPlacement',
             ],
         },
     },

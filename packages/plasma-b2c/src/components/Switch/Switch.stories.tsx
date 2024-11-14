@@ -21,6 +21,21 @@ const meta: Meta<SwitchProps> = {
                 type: 'text',
             },
         },
+        description: {
+            control: {
+                type: 'text',
+            },
+        },
+        labelPosition: {
+            options: ['before', 'after'],
+            control: { type: 'select' },
+        },
+        size: {
+            control: { type: 'select' },
+        },
+        toggleSize: {
+            control: { type: 'select' },
+        },
         ...disableProps([
             'id',
             'onFocus',
@@ -28,14 +43,26 @@ const meta: Meta<SwitchProps> = {
             'onChange',
             'value',
             'checked',
-            'description',
             'focused',
             'pressed',
             'outlined',
             'theme',
             'as',
             'forwardedAs',
+            'view',
+            'placeholder',
+            'name',
+            'type',
+            'readOnly',
+            'required',
+            'minLength',
+            'maxLength',
         ]),
+    },
+    args: {
+        label: 'Label',
+        description: 'Description',
+        labelPosition: 'before',
     },
 };
 
@@ -68,7 +95,8 @@ const StoryDefault = (args: SwitchProps) => {
 
 export const Default: StoryObj<SwitchProps> = {
     args: {
-        label: 'Label',
+        size: 'm',
+        toggleSize: 'l',
         disabled: false,
     },
     render: (args) => <StoryDefault {...args} />,

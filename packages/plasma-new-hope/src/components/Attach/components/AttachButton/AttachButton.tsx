@@ -6,17 +6,7 @@ import { StyledButton } from '../../ui/Button/Button';
 import { IconPlus } from '../../../_Icon';
 
 const getDefaultIcon = (size?: string) => {
-    let iconSize: 'xs' | 's' | 'm';
-    switch (size) {
-        case 'xs':
-            iconSize = 'xs';
-            break;
-        case 's':
-            iconSize = 's';
-            break;
-        default:
-            iconSize = 'm';
-    }
+    const iconSize = size === 'xs' ? 'xs' : 's';
     return <IconPlus size={iconSize} color="inherit" />;
 };
 

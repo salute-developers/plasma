@@ -45,36 +45,43 @@ jobs:
 
       - name: Plasma UI Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/next-${{ github.sha }}/ui
 
       - name: Plasma Web Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
           
       - name: Plasma B2C Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/plasma-b2c-docs"
           cp -R ./website/plasma-b2c-docs/build ./s3_build/next-${{ github.sha }}/b2c
       
       - name: SDDS-SERV Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-serv-docs"
           cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv
 
       - name: SDDS-CS Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-cs-docs"
           cp -R ./website/sdds-cs-docs/build ./s3_build/next-${{ github.sha }}/sdds-cs
 
       - name: SDDS-DFA Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-dfa-docs"
           cp -R ./website/sdds-dfa-docs/build ./s3_build/next-${{ github.sha }}/sdds-dfa
 
       - name: SDDS-INSOL Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-insol-docs"
           cp -R ./website/sdds-insol-docs/build ./s3_build/next-${{ github.sha }}/sdds-insol
 

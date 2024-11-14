@@ -7,7 +7,7 @@
 /// <reference types="react" />
 
 import { AnchorHTMLAttributes } from 'react';
-import { AsProps } from '@salutejs/plasma-new-hope/types/types';
+import { AsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
@@ -18,7 +18,7 @@ import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { HtmlHTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope';
-import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';

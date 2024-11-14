@@ -30,8 +30,8 @@ export const config = {
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
             `,
             secondary: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
@@ -55,8 +55,8 @@ export const config = {
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
             `,
             divider: css`
                 ${tabsTokens.itemColor}: var(--text-accent);
@@ -81,8 +81,8 @@ export const config = {
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
             `,
             default: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
@@ -106,8 +106,8 @@ export const config = {
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
             `,
         },
         size: {
@@ -127,6 +127,13 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-bold-line-height);
+
+                ${tabsTokens.valueFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tabsTokens.valueFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tabsTokens.valueFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tabsTokens.valueFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tabsTokens.valueLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tabsTokens.valueLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
         disabled: {
@@ -146,6 +153,9 @@ export const config = {
             true: css`
                 ${tabsTokens.itemPilledBorderRadius}: 1.5rem;
             `,
+        },
+        truncate: {
+            true: css``,
         },
     },
 };

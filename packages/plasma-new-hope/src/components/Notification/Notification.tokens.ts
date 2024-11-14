@@ -25,6 +25,8 @@ export const tokens = {
     horizontalLayoutPadding: '--plasma-notification-horizontal-layout-padding',
     width: '--plasma-notification-width',
     borderRadius: '--plasma-notification-border-radius',
+    borderWidth: '--plasma-notification-border-width',
+    borderColor: '--plasma-notification-border-color',
 
     paddingOneLineTextbox: '--plasma-notification-padding-one-line-textbox',
     horizontalLayoutGap: '--plasma-notification-horizontal-layout-gap',
@@ -77,4 +79,6 @@ export const tokens = {
     closeIconRight: '--plasma-notification-close-icon-right',
     closeIconColor: '--plasma-notification-close-icon-color',
     closeIconColorOnHover: '--plasma-notification-close-icon-color-on-hover',
+    closeIconSize: '--plasma-notification-close-icon-size',
+    closeIconButtonSize: '--plasma-notification-close-icon-button-size',
 };

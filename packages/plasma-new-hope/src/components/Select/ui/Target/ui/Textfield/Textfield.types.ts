@@ -1,16 +1,27 @@
 import { TargetProps } from '../../Target.types';
 
-export type TextfieldProps = Omit<TargetProps, 'target'>;
-
-export type GetTextfieldLabelProps = Pick<
-    TextfieldProps,
+export type TextfieldProps = Pick<
+    TargetProps,
+    | 'inputWrapperRef'
+    | 'opened'
+    | 'multiselect'
     | 'value'
-    | 'valueToItemMap'
-    | 'onChipClick'
-    | 'focusedChipIndex'
     | 'label'
-    | 'labelPlacement'
     | 'placeholder'
-    | 'renderValue'
+    | 'onKeyDown'
+    | 'labelPlacement'
     | 'size'
-> & { isTargetAmount?: boolean };
+    | 'view'
+    | 'handleClickArrow'
+    | 'contentLeft'
+    | 'helperText'
+    | 'treeId'
+    | 'activeDescendantItemValue'
+    | 'disabled'
+    | 'isTargetAmount'
+    | 'valueToItemMap'
+    | 'renderValue'
+    | 'onChange'
+    | 'labelToItemMap'
+    | 'chipView'
+>;

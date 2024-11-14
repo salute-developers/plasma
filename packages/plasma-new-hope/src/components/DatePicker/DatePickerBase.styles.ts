@@ -13,12 +13,14 @@ export const baseCalendarTokens = `
     padding-top: var(${tokens.calendarPaddingTop});
     box-shadow: var(${tokens.calendarShadow});
     border-radius: var(${tokens.calendarBorderRadius});
+    margin-top: var(${tokens.calendarMarginTop});
 
     ${calendarBaseTokens.calendarBackgroundColor}: var(${tokens.calendarBackgroundColor});
     ${calendarBaseTokens.calendarSelectedItemBackground}: var(${tokens.calendarSelectedItemBackground});
     ${calendarBaseTokens.calendarSelectedItemColor}: var(${tokens.calendarSelectedItemColor});
     ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(${tokens.calendarSelectableItemBackgroundHover});
     ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(${tokens.calendarCurrentItemBorderColor});
+    ${calendarBaseTokens.calendarCurrentItemBorderWidth}: var(${tokens.calendarCurrentItemBorderWidth});
     ${calendarBaseTokens.calendarCurrentItemBackgroundHover}: var(${tokens.calendarCurrentItemBackgroundHover});
     ${calendarBaseTokens.calendarCurrentItemColorHover}: var(${tokens.calendarCurrentItemColorHover});
     ${calendarBaseTokens.calendarCurrentItemChildBackgroundHover}: var(${tokens.calendarCurrentItemChildBackgroundHover});
@@ -40,6 +42,8 @@ export const baseCalendarTokens = `
 
     ${calendarBaseTokens.calendarWidth}: var(${tokens.calendarWidth});
     ${calendarBaseTokens.calendarHeight}: var(${tokens.calendarHeight});
+    ${calendarBaseTokens.calendarBorderWidth}: var(${tokens.calendarBorderWidth});
+    ${calendarBaseTokens.calendarBorderColor}: var(${tokens.calendarBorderColor});
 
     ${calendarBaseTokens.calendarYearsPadding}: var(${tokens.calendarYearsPadding});
     ${calendarBaseTokens.calendarYearItemBorderRadius}: var(${tokens.calendarYearItemBorderRadius});
@@ -88,6 +92,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarDayFontLineHeight}: var(${tokens.calendarDayFontLineHeight});
     ${calendarBaseTokens.calendarDayFontWeight}: var(${tokens.calendarDayFontWeight});
     ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(${tokens.calendarDaySelectedFontWeight});
+    ${calendarBaseTokens.calendarDayOfWeekColor}: var(${tokens.calendarDayOfWeekColor});
     
     ${calendarBaseTokens.calendarHeaderWrapperPadding}: var(${tokens.calendarHeaderWrapperPadding});
     ${calendarBaseTokens.calendarHeaderArrowGap}: var(${tokens.calendarHeaderArrowGap});
@@ -101,6 +106,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarHeaderFontLineHeight}: var(${tokens.calendarHeaderFontLineHeight});
     ${calendarBaseTokens.calendarHeaderFontWeight}: var(${tokens.calendarHeaderFontWeight});
     ${calendarBaseTokens.calendarHeaderFontWeightBold}: var(${tokens.calendarHeaderFontWeightBold});
+    ${calendarBaseTokens.calendarHeaderArrowColor}: var(${tokens.calendarHeaderArrowColor});
     
     ${calendarBaseTokens.iconButtonHeight}: var(${tokens.iconButtonHeight});
     ${calendarBaseTokens.iconButtonWidth}: var(${tokens.iconButtonWidth});

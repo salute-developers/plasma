@@ -102,10 +102,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tabsTokens.disabledOpacity}: 1;
-                ${tabsTokens.arrowColor}: var(--text-secondary);
-                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
+                ${tabsTokens.disabledOpacity}: 0.4;
             `,
         },
         pilled: {

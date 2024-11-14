@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, MouseEvent } from 'react';
 
 import type { RootProps } from '../../engines';
 import { IconClose } from '../_Icon/Icons/IconClose';
@@ -27,6 +27,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             className,
             onClear,
             onClick,
+            onClickClose,
             pilled = false,
             readOnly = false,
             disabled = false,
@@ -36,8 +37,10 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
         const txt = !text && typeof children === 'string' ? children : text;
         const pilledClass = pilled ? classes.pilled : undefined;
 
-        const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-            if (disabled || readOnly) {
+        const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+            // TODO: #1547
+            // eslint-disable-next-line no-underscore-dangle
+            if (disabled || (readOnly && !(rest as any)._forceChipManipulationWithReadonly)) {
                 return;
             }
 
@@ -45,15 +48,14 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             onClear?.();
         };
 
-        const ClearContent = useMemo(() => {
-            return (
-                contentClearButton || (
-                    <StyledContentClear>
-                        <IconClose sizeCustomProperty={tokens.closeIconSize} color="inherit" />
-                    </StyledContentClear>
-                )
-            );
-        }, [contentClearButton, tokens.closeIconSize]);
+        const handleClickClose = (event: MouseEvent<HTMLDivElement>) => {
+            if (disabled || readOnly || !onClickClose) {
+                return;
+            }
+
+            event.stopPropagation();
+            onClickClose(event);
+        };
 
         return (
             <Root
@@ -71,7 +73,12 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                 {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
                 {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
-                {hasClear && ClearContent}
+                {hasClear &&
+                    (contentClearButton || (
+                        <StyledContentClear onClick={handleClickClose}>
+                            <IconClose sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                        </StyledContentClear>
+                    ))}
             </Root>
         );
     });

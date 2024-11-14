@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect, HTMLAttributes } from 'react';
+import React, { forwardRef, useState, useEffect, HTMLAttributes, useMemo } from 'react';
 import cls from 'classnames';
 
 import type { RootPropsOmitOnChange } from '../../engines/types';
@@ -32,16 +32,34 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
 
         const [prevIndex, setPrevIndex] = useState<number | undefined>();
 
-        const isUncontrolled = current !== undefined;
         const hasIndicator = items.some((item) => item.indicator != null);
         const isSimple = items.every((item) => !item.title && !item.content);
+
+        const innerItems = useMemo(() => {
+            const isUncontrolled = current !== undefined;
+
+            return items.map((item, index) => {
+                const itemStatus = getItemStatus({
+                    isUncontrolled,
+                    current,
+                    status,
+                    index,
+                    item,
+                });
+
+                return {
+                    ...item,
+                    status: itemStatus,
+                };
+            });
+        }, [status, current, items]);
 
         useEffect(() => {
             const calcPrevIndex = () => {
                 if (current !== undefined) {
                     setPrevIndex(current);
                 } else {
-                    const index = items.findIndex((item) => item.status === 'active');
+                    const index = innerItems.findIndex((item) => item.status === 'active');
                     setPrevIndex(index !== -1 ? index : undefined);
                 }
             };
@@ -51,7 +69,7 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
             return () => {
                 calcPrevIndex();
             };
-        }, [current, items]);
+        }, [current, innerItems]);
 
         return (
             <Root
@@ -65,10 +83,8 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
                 })}
                 {...rest}
             >
-                {items.map((item, index) => {
-                    const itemStatus = getItemStatus({ isUncontrolled, current, status, index, item });
-
-                    const isActive = itemStatus === 'active';
+                {innerItems.map((item, index) => {
+                    const isActive = item.status === 'active';
 
                     const itemContent =
                         (hasContent === 'active' && !isActive) || hasContent === 'none' ? '' : item.content;
@@ -83,14 +99,14 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
                             title={item.title}
                             content={itemContent}
                             indicator={item.indicator}
-                            status={itemStatus}
+                            status={item.status}
                             size={size!}
                             orientation={orientation}
                             contentAlign={itemContentAlign}
                             hasLine={hasLine}
                             hasLoader={hasLoader && isActive}
                             onClick={onClick}
-                            items={items}
+                            items={innerItems}
                         />
                     );
                 })}

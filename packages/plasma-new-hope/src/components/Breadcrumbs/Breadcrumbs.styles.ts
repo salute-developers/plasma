@@ -12,11 +12,17 @@ const mergedLinkConfig = mergeConfig(linkConfig);
 const Link = component(mergedLinkConfig);
 
 export const StyledLink = styled(Link)<{ isHref: boolean }>`
-    opacity: ${({ isHref }) => (isHref ? 1 : `var(${tokens.breadcrumbsOpacity})`)};
-    cursor: ${({ isHref }) => (isHref ? 'pointer' : 'auto')};
-    color: ${({ isHref }) => (isHref ? `var(${tokens.breadcrumbsColor})` : `var(${tokens.breadcrumbsColorText})`)};
+    --plasma__private-color: ${({ isHref }) =>
+        isHref ? `var(${tokens.breadcrumbsColor})` : `var(${tokens.breadcrumbsColorText})`};
+
+    --plasma-link-color: var(--plasma__private-color);
+    --plasma-link-color-hover: var(--plasma__private-color);
+    --plasma-link-color-active: var(--plasma__private-color);
 
     --plasma-link-disabled-opacity: var(${tokens.breadcrumbsOpacity});
+    opacity: ${({ isHref }) => (isHref ? 1 : `var(${tokens.breadcrumbsOpacity})`)};
+
+    cursor: pointer;
 
     ${addFocus({
         outlineOffset: '0rem',

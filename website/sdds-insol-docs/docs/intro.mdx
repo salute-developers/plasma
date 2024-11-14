@@ -150,6 +150,144 @@ const App = () => {
 export default App;
 ```
 
+
+## Смена тем
+
+Пример на `styled-components`:
+
+```jsx
+import React, { useState } from 'react';
+import { createGlobalStyle } from 'styled-components';
+
+import { Switch } from '@salutejs/sdds-insol';
+import { sdds_insol__light, sdds_insol__dark } from '@salutejs/sdds-themes';
+
+import './style.css';
+
+const LightTheme = createGlobalStyle(sdds_insol__light);
+const DarkTheme = createGlobalStyle(sdds_insol__dark);
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    return (
+        <>
+            {theme === 'light' ? <LightTheme /> : <DarkTheme />}
+
+            <div className="wrapper">
+                <Switch
+                    label="dark theme: "
+                    onChange={() => {
+                        setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                    }}
+                />
+            </div>
+        </>
+    );
+};
+
+export default App;
+```
+
+Пример на `emotion`:
+
+```jsx
+import React, { useState } from 'react';
+
+import { Global, css } from '@emotion/react';
+import { Switch } from '@salutejs/sdds-insol';
+import { sdds_insol__light, sdds_insol__dark } from '@salutejs/sdds-themes';
+
+import './style.css';
+
+const lightThemeStyle = css(sdds_insol__light);
+const darkThemeStyle = css(sdds_insol__dark);
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    return (
+        <>
+            <Global styles={theme === 'light' ? lightThemeStyle : darkThemeStyle} />
+
+            <div className="wrapper">
+                <Switch
+                    label="dark theme: "
+                    onChange={() => setTheme((theme) => (theme === 'light' ? 'dark' : 'light'))}
+                />
+            </div>
+        </>
+    );
+};
+
+export default App;
+```
+
+Пример на `css-modules`:
+
+```jsx
+import React, { useLayoutEffect, useState } from 'react';
+
+import { Switch } from '@salutejs/sdds-insol';
+import webThemes from '@salutejs/sdds-themes/css/sdds_insol.module.css';
+
+import './style.css';
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = webThemes[theme];
+    }, [theme]);
+
+    return (
+        <div className="wrapper">
+            <Switch
+                label="dark theme: "
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
+    );
+};
+
+export default App;
+```
+
+Пример на `css`:
+
+```jsx
+import React, { useLayoutEffect, useState } from 'react';
+
+import { Switch } from '@salutejs/sdds-insol';
+
+// добавьте импорт в css файл
+// @import '@salutejs/sdds-themes/css/sdds_insol.module.css';
+import './style.css';
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = theme;
+    }, [theme]);
+
+    return (
+        <div className="wrapper">
+            <Switch
+                label="dark theme: "
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
+    );
+};
+
+export default App;
+```
+
 ### Корень приложения
 
 В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:

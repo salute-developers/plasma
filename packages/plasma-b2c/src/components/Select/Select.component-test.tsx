@@ -695,21 +695,19 @@ describe('plasma-b2c: Select', () => {
         cy.get('#multiple').should('include.text', 'Париж').should('include.text', 'Лион');
 
         cy.get('#single').realClick();
-        cy.get('#single #europe').realClick();
-        cy.get('#single #france').realClick();
+        cy.get('#single [id$="europe"]').realClick();
+        cy.get('#single [id$="france"]').realClick();
 
-        cy.get('#single #paris').realClick();
-
-        cy.get('#single').realClick();
+        cy.get('#single [id$="paris"]').realClick();
 
         cy.get('#multiple').realClick();
-        cy.get('#multiple #europe').realClick();
-        cy.get('#multiple #france').realClick();
+        cy.get('#multiple [id$="europe"]').realClick();
+        cy.get('#multiple [id$="france"]').realClick();
 
-        cy.get('#multiple #lyon .select-item-checkbox').realClick();
+        cy.get('#multiple [id$="lyon"]').realClick();
 
-        cy.get('#multiple #germany .select-item-checkbox').realClick();
-        cy.get('#multiple #germany').realClick();
+        cy.get('#multiple [id$="germany"] .checkbox-trigger').realClick();
+        cy.get('#multiple [id$="germany"]').realClick();
 
         cy.matchImageSnapshot();
     });
@@ -744,8 +742,8 @@ describe('plasma-b2c: Select', () => {
 
         // Arrow Down
         cy.realPress('ArrowDown');
-        cy.get('#tree_level_1').should('be.visible');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown')
             .realPress('ArrowDown')
@@ -754,123 +752,123 @@ describe('plasma-b2c: Select', () => {
             .realPress('ArrowDown')
             .realPress('ArrowDown')
             .realPress('ArrowDown');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Arrow Up
         cy.realPress('ArrowUp');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('ArrowUp');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Arrows Right and Left
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowRight');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-focused');
-        cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="brazil"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
         cy.realPress('ArrowLeft');
         cy.realPress('ArrowLeft');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
         cy.realPress('ArrowDown')
             .realPress('ArrowDown')
             .realPress('ArrowRight')
             .realPress('ArrowRight')
             .realPress('ArrowRight')
             .realPress('ArrowRight');
-        cy.get('#beijing').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#asia').should('have.class', 'dropdown-item-is-active');
-        cy.get('#china').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="beijing"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="asia"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="china"]').should('have.class', 'dropdown-item-is-active');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowLeft')
             .realPress('ArrowLeft')
             .realPress('ArrowLeft')
             .realPress('ArrowLeft')
             .realPress('ArrowLeft');
-        cy.get('#tree_level_1').should('not.be.visible');
-        cy.get('#tree_level_2').should('not.be.visible');
-        cy.get('#tree_level_3').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.get('[id$="tree_level_3"]').should('not.exist');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('PageDown');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('PageUp');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('Home');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('End');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Escape
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
         cy.realPress('Escape');
-        cy.get('#tree_level_1').should('not.be.visible');
-        cy.get('#tree_level_2').should('not.be.visible');
-        cy.get('#tree_level_3').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.get('[id$="tree_level_3"]').should('not.exist');
         cy.get('button').should('have.focus');
 
         // Home
         cy.realPress('Home');
-        cy.get('#tree_level_1').should('be.visible');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('button').should('have.focus');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // End
         cy.realPress('End');
-        cy.get('#tree_level_1').should('be.visible');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('button').should('have.focus');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Page Down
         cy.realPress('PageDown');
-        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown');
         cy.realPress('PageDown');
         cy.get('button').should('have.focus');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Page Up
         cy.realPress('PageUp');
-        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown');
         cy.realPress('ArrowDown');
         cy.realPress('PageUp');
         cy.get('button').should('have.focus');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
@@ -879,7 +877,7 @@ describe('plasma-b2c: Select', () => {
         cy.get('button').should('have.class', 'select-without-box-shadow');
         cy.realPress('Space');
         cy.get('button').should('include.text', 'Северная Америка');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.get('button').should('have.class', 'select-without-box-shadow');
         cy.realPress('Space');
         cy.get('button').should('not.include.text', 'Северная Америка');
@@ -911,12 +909,13 @@ describe('plasma-b2c: Select', () => {
         cy.realPress('ArrowDown');
         cy.realPress('Enter');
         cy.get('button').should('include.text', 'Список стран');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
         cy.realPress('Enter');
         cy.realPress('Enter');
         cy.realPress('Enter');
-        cy.get('#rio_de_janeiro').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="brazil"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="rio_de_janeiro"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Enter');
         cy.get('button').should('include.text', 'Рио-де-Жанейро');
         cy.get('button').should('not.include.text', 'Сан-Паулу');
@@ -928,7 +927,7 @@ describe('plasma-b2c: Select', () => {
 
         // Tab
         cy.realPress('ArrowDown').realPress('Tab');
-        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('button').should('not.have.focus');
     });
 });

@@ -2,7 +2,6 @@ import type { KeyboardEvent, Dispatch } from 'react';
 import React from 'react';
 
 import { PathAction, PathState, FocusedPathAction, FocusedPathState } from '../reducers';
-import { ComboboxProps } from '../Combobox.types';
 import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 import { PathMapType, FocusedToValueMapType } from './getPathMaps';
@@ -40,7 +39,6 @@ type Props = {
     focusedToValueMap: FocusedToValueMapType;
     handleListToggle: (opened: boolean) => void;
     handlePressDown: (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => void;
-    multiselect: ComboboxProps['multiple'];
     setTextValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
@@ -57,7 +55,6 @@ export const useKeyNavigation = ({
     focusedToValueMap,
     handleListToggle,
     handlePressDown,
-    multiselect,
     setTextValue,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
@@ -143,8 +140,6 @@ export const useKeyNavigation = ({
 
                     const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
 
-                    console.log('currentItem', currentItem, focusedPath, focusedToValueMap);
-
                     if (currentItem?.items) {
                         if (path.length > focusedPath.length) {
                             dispatchFocusedPath({ type: 'add_focus', value: 0 });
@@ -156,32 +151,6 @@ export const useKeyNavigation = ({
 
                 break;
             }
-
-            case keys.Backspace: {
-                if (!multiselect) break;
-
-                break;
-            }
-
-            // case keys.Space: {
-            //     event.preventDefault();
-            //
-            //     const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
-            //
-            //     if (!path[0]) {
-            //         dispatchPath({ type: 'opened_first_level' });
-            //         dispatchFocusedPath({ type: 'set_initial_focus' });
-            //         break;
-            //     }
-            //
-            //     if (!currentItem || currentItem?.disabled) {
-            //         break;
-            //     }
-            //
-            //     handlePressDown(currentItem);
-            //
-            //     break;
-            // }
 
             case keys.Enter: {
                 event.preventDefault();
@@ -198,16 +167,6 @@ export const useKeyNavigation = ({
                     break;
                 }
 
-                // if (currentItem?.items) {
-                //     if (path.length > focusedPath.length) {
-                //         dispatchFocusedPath({ type: 'add_focus', value: 0 });
-                //     } else {
-                //         dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
-                //     }
-                //
-                //     break;
-                // }
-
                 if (currentItem) {
                     handlePressDown(currentItem);
                 }
@@ -215,19 +174,12 @@ export const useKeyNavigation = ({
                 break;
             }
 
-            case keys.Tab: {
-                dispatchPath({ type: 'reset' });
-                dispatchFocusedPath({ type: 'reset' });
-                handleListToggle(false);
-                setTextValue('');
-
-                break;
-            }
-
+            case keys.Tab:
             case keys.Escape: {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
                 handleListToggle(false);
+                setTextValue('');
 
                 break;
             }

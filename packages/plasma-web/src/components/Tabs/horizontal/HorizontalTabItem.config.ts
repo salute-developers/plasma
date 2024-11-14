@@ -265,5 +265,8 @@ export const config = {
                 ${tabsTokens.itemPilledBorderRadius}: 1.5rem;
             `,
         },
+        truncate: {
+            true: css``,
+        },
     },
 };

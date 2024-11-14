@@ -50,13 +50,13 @@ export const config = {
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
             `,
             secondary: css`
-                ${attachTokens.buttonColor}: var(--text-primary);
+                ${attachTokens.buttonColor}: var(--text-accent);
                 ${attachTokens.buttonValueColor}: var(--text-secondary);
                 ${attachTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--text-primary);
+                ${attachTokens.buttonColorHover}: var(--text-accent-hover);
                 ${attachTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${attachTokens.buttonColorActive}: var(--text-primary);
+                ${attachTokens.buttonColorActive}: var(--text-accent-active);
                 ${attachTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
@@ -68,12 +68,12 @@ export const config = {
                 ${attachTokens.cellSubtitleColor}: var(--text-secondary);
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--text-primary);
+                ${attachTokens.iconButtonColor}: var(--text-accent);
                 ${attachTokens.iconButtonBackgroundColor}: var(--surface-solid-primary);
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--text-primary);
+                ${attachTokens.iconButtonColorHover}: var(--text-accent-hover);
                 ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${attachTokens.iconButtonColorActive}: var(--text-primary);
+                ${attachTokens.iconButtonColorActive}: var(--text-accent-hover);
                 ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;

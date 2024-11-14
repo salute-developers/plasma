@@ -4,6 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 's',
+        closeIconType: 'thin',
     },
     variations: {
         view: {
@@ -43,7 +44,13 @@ export const config = {
                 ${toastTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${toastTokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem 0rem;
-                ${toastTokens.closeIconMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${toastTokens.closeIconMargin}: -0.0625rem 0.125rem -0.0625rem 0.75rem;
+            `,
+        },
+        closeIconType: {
+            thin: css`
+                ${toastTokens.closeIconButtonSize}: 1.5rem;
+                ${toastTokens.closeIconSize}: 1.5rem;
             `,
         },
         pilled: {
