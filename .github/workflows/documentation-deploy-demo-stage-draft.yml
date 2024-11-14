@@ -11,3 +11,4 @@ jobs:
         with:
             path: 'dev'
             ref: 'dev'
+        secrets: inherit

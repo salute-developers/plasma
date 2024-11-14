@@ -16,3 +16,4 @@ jobs:
         with:
             path: 'current'
             ref: 'master'
+        secrets: inherit
