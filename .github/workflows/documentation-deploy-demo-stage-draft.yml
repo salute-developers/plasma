@@ -10,4 +10,4 @@ jobs:
         uses: ./.github/workflows/documentation-deploy-common.yml
         with:
             path: 'dev'
-            ref: 'master'
+            ref: 'dev'
