@@ -31,7 +31,9 @@ jobs:
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap
+        run: |
+         export NODE_OPTIONS="--max_old_space_size=4096"
+         npx lerna bootstrap
 
       - name: Prepare directories
         run: |
