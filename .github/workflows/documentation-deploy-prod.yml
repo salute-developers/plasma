@@ -24,16 +24,6 @@ jobs:
           ref: 'master'
           show-progress: false
 
-      - name: Detailed disk space check
-        run: |
-            echo "=== System disk usage ==="
-            df -h
-            echo "=== Top largest directories ==="
-            du -hs /* 2>/dev/null | sort -rh | head -10
-            echo "=== Docker space usage ==="
-            docker system df || true
-
-
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
