@@ -28,6 +28,12 @@ export const tokens = {
     verticalGap: '--plasma-switch-vertical-gap',
     trackWidth: '--plasma-switch__track-width',
     trackHeight: '--plasma-switch__track-height',
+    trackBorderWidth: '--plasma-switch__track-border',
+    trackBorderColorOn: '--plasma-switch__track-checked_true-border-color',
+    trackBorderColorOnHover: '--plasma-switch__track-checked_true_hovered_true-border-color',
+    trackBorderColorOff: '--plasma-switch__track-checked_false-border-color',
+    trackBorderColorOffHover: '--plasma-switch__track-checked_false_hovered_true-border-color',
+
     trackBorderRadius: '--plasma-switch__track-border-radius',
     // NOTE: could be intersection with checked
     trackBackgroundColorOn: '--plasma-switch__track_checked_true-bg-color',
@@ -43,7 +49,8 @@ export const tokens = {
 
     thumbPressScale: '--plasma-switch__thumb-scale',
 
-    thumbBackgroundColor: '--plasma-switch__thumb-bg-color',
+    thumbBackgroundColorOn: '--plasma-switch__thumb_checked_true-bg-color',
+    thumbBackgroundColorOff: '--plasma-switch__thumb-checked_false-bg-color',
     thumbBoxShadow: '--plasma-switch__thumb-box-shadow',
     thumbBoxShadowOn: '--plasma-switch__thumb-box-shadow_checked_true',
 
