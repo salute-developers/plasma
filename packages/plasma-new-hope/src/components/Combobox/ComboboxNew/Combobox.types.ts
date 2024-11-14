@@ -5,7 +5,7 @@ import { RequiredProps } from '../../TextField/TextField.types';
 
 import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/getPathMaps';
+import type { ValueToCheckedMapType } from './hooks/getPathMaps';
 
 type Placement =
     | 'top'
@@ -205,6 +205,5 @@ export type ItemContext = {
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: ComboboxProps['variant'];
     renderItem: ComboboxProps['renderItem'];
-    valueToItemMap: ValueToItemMapType;
     treeId: string;
 };

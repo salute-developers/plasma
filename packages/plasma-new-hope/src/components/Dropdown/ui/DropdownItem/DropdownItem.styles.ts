@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { classes, tokens, constants } from '../../Dropdown.tokens';
-import { addFocus } from '../../../../mixins';
+import { addFocus, applyEllipsis } from '../../../../mixins';
 import { DropdownProps } from '../../Dropdown.types';
 import { cellConfig, cellTokens } from '../../../Cell';
 import { component, mergeConfig } from '../../../../engines';
@@ -96,4 +96,9 @@ export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
             }
         `,
     })};
+`;
+
+export const RenderItemWrapper = styled.div`
+    ${applyEllipsis()};
+    flex: 1;
 `;

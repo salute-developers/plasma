@@ -157,7 +157,27 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         // Обработчик чипов
         const handleChipsChange = (chipLabels: any[]) => {
-            onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+            if (!Array.isArray(value)) return;
+
+            // TODO: #1564
+            // Из лейблов чипов получаем value у item и далее прокидываем его в onChange.
+            if (renderValue && !isTargetAmount) {
+                const resultValues = [...value];
+
+                value.forEach((_, index) => {
+                    const labelAfterRenderValue = renderValue(
+                        labelToItemMap.get(valueToItemMap.get(value[index])!.label)!,
+                    );
+
+                    if (!chipLabels.includes(labelAfterRenderValue)) {
+                        resultValues.splice(index, 1);
+                    }
+                });
+
+                onChange(resultValues);
+            } else {
+                onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+            }
         };
 
         // Обработчик открытия/закрытия выпадающего списка
@@ -329,7 +349,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             handleItemClick,
                             variant,
                             renderItem,
-                            valueToItemMap,
                             treeId,
                         }}
                     >
