@@ -284,3 +284,287 @@ export const Chips: StoryObj<StoryPropsChips> = {
     },
     render: (args) => <StoryChips {...args} />,
 };
+
+const disableValidationProps = [
+    'view',
+    'size',
+    'maxLength',
+    'required',
+    'requiredPlacement',
+    'optional',
+    'clear',
+    'disabled',
+    'readOnly',
+    'label',
+    'titleCaption',
+    'leftHelper',
+    'textBefore',
+    'textAfter',
+    'hintTargetIcon',
+    'hintOffset',
+    'hintContentLeft',
+    'chips',
+    'validationType',
+    'options',
+    'onValidate',
+    'onFocus',
+    'onBlur',
+    'name',
+    'value',
+    'type',
+    'checked',
+    'minLength',
+];
+
+type StoryEmailValidationProps = StoryPropsDefault & {
+    minLengthValue?: number;
+    minLengthErrorMessage?: string;
+    maxLengthValue?: number;
+    maxLengthErrorMessage?: string;
+    minHostLengthValue?: number;
+    minHostLengthErrorMessage?: string;
+    maxHostLengthValue?: number;
+    maxHostLengthErrorMessage?: string;
+    minDomainLengthValue?: number;
+    minDomainLengthErrorMessage?: string;
+    maxDomainLengthValue?: number;
+    maxDomainLengthErrorMessage?: string;
+    minZoneLengthValue?: number;
+    minZoneLengthErrorMessage?: string;
+    maxZoneLengthValue?: number;
+    maxZoneLengthErrorMessage?: string;
+    whitelistDomainsValue?: string;
+    whitelistDomainsErrorMessage?: string;
+    blacklistDomainsValue?: string;
+    blacklistDomainsErrorMessage?: string;
+};
+
+const StoryEmailValidation = ({
+    minLengthValue,
+    minLengthErrorMessage,
+    maxLengthValue,
+    maxLengthErrorMessage,
+    minHostLengthValue,
+    minHostLengthErrorMessage,
+    maxHostLengthValue,
+    maxHostLengthErrorMessage,
+    minDomainLengthValue,
+    minDomainLengthErrorMessage,
+    maxDomainLengthValue,
+    maxDomainLengthErrorMessage,
+    minZoneLengthValue,
+    minZoneLengthErrorMessage,
+    maxZoneLengthValue,
+    maxZoneLengthErrorMessage,
+    whitelistDomainsValue,
+    whitelistDomainsErrorMessage,
+    blacklistDomainsValue,
+    blacklistDomainsErrorMessage,
+    ...rest
+}: StoryEmailValidationProps) => {
+    const [error, setError] = useState('');
+
+    const validationOptions = {
+        minLength: {
+            value: minLengthValue || undefined,
+            errorMessage: minLengthErrorMessage || 'Почта слишком короткая',
+        },
+        maxLength: {
+            value: maxLengthValue || undefined,
+            errorMessage: maxLengthErrorMessage || 'Почта слишком длинная',
+        },
+        minHostLength: {
+            value: minHostLengthValue || undefined,
+            errorMessage: minHostLengthErrorMessage || 'Хост слишком короткий',
+        },
+        maxHostLength: {
+            value: maxHostLengthValue || undefined,
+            errorMessage: maxHostLengthErrorMessage || 'Хост слишком длинный',
+        },
+        minDomainLength: {
+            value: minDomainLengthValue || undefined,
+            errorMessage: minDomainLengthErrorMessage || 'Домен слишком короткий',
+        },
+        maxDomainLength: {
+            value: maxDomainLengthValue || undefined,
+            errorMessage: maxDomainLengthErrorMessage || 'Домен слишком длинный',
+        },
+        minZoneLength: {
+            value: minZoneLengthValue || undefined,
+            errorMessage: minZoneLengthErrorMessage || 'Доменная зона слишком короткая',
+        },
+        maxZoneLength: {
+            value: maxZoneLengthValue || undefined,
+            errorMessage: maxZoneLengthErrorMessage || 'Доменная зона слишком длинная',
+        },
+        whitelistDomains: {
+            value: whitelistDomainsValue?.split(',') || undefined,
+            errorMessage: whitelistDomainsErrorMessage || 'Домен не разрешен',
+        },
+        blacklistDomains: {
+            value: blacklistDomainsValue?.split(',') || undefined,
+            errorMessage: blacklistDomainsErrorMessage || 'Домен запрещен',
+        },
+    };
+
+    const handleOnChange = () => {
+        setError('');
+    };
+
+    const handleOnValidate = ({ errorMessage }: { errorMessage?: string }) => {
+        setError(errorMessage || '');
+    };
+
+    return (
+        <TextField
+            label="Валидация почты"
+            validationType="email"
+            options={validationOptions}
+            size="s"
+            view={error ? 'negative' : 'default'}
+            leftHelper={error || 'Валидация почты'}
+            onChange={handleOnChange}
+            onValidate={handleOnValidate}
+            {...rest}
+        />
+    );
+};
+
+export const EmailValidation: StoryObj<StoryEmailValidationProps> = {
+    argTypes: {
+        ...disableProps(disableValidationProps),
+        ...disableProps(['passwordHidden']),
+    },
+    args: {
+        labelPlacement: 'outer',
+        placeholder: 'Заполните поле',
+        minLengthValue: 5,
+        minLengthErrorMessage: 'Почта слишком короткая',
+        maxLengthValue: 25,
+        maxLengthErrorMessage: 'Почта слишком длинная',
+        minHostLengthValue: 1,
+        minHostLengthErrorMessage: 'Хост слишком короткий',
+        maxHostLengthValue: 12,
+        maxHostLengthErrorMessage: 'Хост слишком длинный',
+        minDomainLengthValue: 1,
+        minDomainLengthErrorMessage: 'Домен слишком короткий',
+        maxDomainLengthValue: 6,
+        maxDomainLengthErrorMessage: 'Домен слишком длинный',
+        minZoneLengthValue: 1,
+        minZoneLengthErrorMessage: 'Доменная зона слишком короткая',
+        maxZoneLengthValue: 5,
+        maxZoneLengthErrorMessage: 'Доменная зона слишком длинная',
+        whitelistDomainsValue: 'gmail.com,yandex.ru,mail.ru,mail.com',
+        whitelistDomainsErrorMessage: 'Домен не разрешен',
+        blacklistDomainsValue: 'heh.org,hah.ha',
+        blacklistDomainsErrorMessage: 'Домен запрещен',
+    },
+    render: (args) => <StoryEmailValidation {...args} />,
+};
+
+type StoryPasswordValidationProps = StoryPropsDefault & {
+    minLengthValue?: number;
+    minLengthErrorMessage?: string;
+    maxLengthValue?: number;
+    maxLengthErrorMessage?: string;
+    includeUppercase?: boolean;
+    includeUppercaseErrorMessage?: string;
+    includeLowercase?: boolean;
+    includeLowercaseErrorMessage?: string;
+    includeDigits?: boolean;
+    includeDigitsErrorMessage?: string;
+    includeSpecialSymbols?: boolean;
+    includeSpecialSymbolsErrorMessage?: string;
+};
+
+const StoryPasswordValidation = ({
+    minLengthValue,
+    minLengthErrorMessage,
+    maxLengthValue,
+    maxLengthErrorMessage,
+    includeUppercase,
+    includeUppercaseErrorMessage,
+    includeLowercase,
+    includeLowercaseErrorMessage,
+    includeDigits,
+    includeDigitsErrorMessage,
+    includeSpecialSymbols,
+    includeSpecialSymbolsErrorMessage,
+    ...rest
+}: StoryPasswordValidationProps) => {
+    const [error, setError] = useState('');
+
+    const validationOptions = {
+        minLength: {
+            value: minLengthValue || undefined,
+            errorMessage: minLengthErrorMessage || 'Пароль слишком короткий',
+        },
+        maxLength: {
+            value: maxLengthValue || undefined,
+            errorMessage: maxLengthErrorMessage || 'Пароль слишком длинный',
+        },
+        includeUppercase: {
+            value: includeUppercase,
+            errorMessage: includeUppercaseErrorMessage || 'Пароль должен содержать хотя бы одну заглавную букву',
+        },
+        includeLowercase: {
+            value: includeLowercase,
+            errorMessage: includeLowercaseErrorMessage || 'Пароль должен содержать хотя бы одну строчную букву',
+        },
+        includeDigits: {
+            value: includeDigits,
+            errorMessage: includeDigitsErrorMessage || 'Пароль должен содержать хотя бы одну цифру',
+        },
+        includeSpecialSymbols: {
+            value: includeSpecialSymbols,
+            errorMessage:
+                includeSpecialSymbolsErrorMessage || 'Пароль должен содержать хотя бы один специальный символ',
+        },
+    };
+
+    const handleOnChange = () => {
+        setError('');
+    };
+
+    const handleOnValidate = ({ errorMessage }: { errorMessage?: string }) => {
+        setError(errorMessage || '');
+    };
+
+    return (
+        <TextField
+            label="Валидация пароля"
+            validationType="password"
+            options={validationOptions}
+            size="s"
+            view={error ? 'negative' : 'default'}
+            leftHelper={error || 'Валидация пароля'}
+            onChange={handleOnChange}
+            onValidate={handleOnValidate}
+            {...rest}
+        />
+    );
+};
+
+export const PasswordValidation: StoryObj<StoryPasswordValidationProps> = {
+    argTypes: {
+        ...disableProps(disableValidationProps),
+    },
+    args: {
+        labelPlacement: 'outer',
+        placeholder: 'Заполните поле',
+        passwordHidden: false,
+        minLengthValue: 5,
+        minLengthErrorMessage: 'Пароль слишком короткий',
+        maxLengthValue: 25,
+        maxLengthErrorMessage: 'Пароль слишком длинный',
+        includeUppercase: true,
+        includeUppercaseErrorMessage: 'Пароль должен содержать хотя бы одну заглавную букву',
+        includeLowercase: true,
+        includeLowercaseErrorMessage: 'Пароль должен содержать хотя бы одну строчную букву',
+        includeDigits: true,
+        includeDigitsErrorMessage: 'Пароль должен содержать хотя бы одну цифру',
+        includeSpecialSymbols: true,
+        includeSpecialSymbolsErrorMessage: 'Пароль должен содержать хотя бы один специальный символ',
+    },
+    render: (args) => <StoryPasswordValidation {...args} />,
+};

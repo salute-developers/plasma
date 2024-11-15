@@ -12,6 +12,75 @@ export type ChipValues = {
 
 export type EnumerationType = 'plain' | 'chip';
 
+type ValidationOption<T> = {
+    value?: T;
+    errorMessage?: string;
+};
+
+export type PasswordValidationOptions = {
+    minLength?: ValidationOption<number>;
+    maxLength?: ValidationOption<number>;
+    includeUppercase?: ValidationOption<boolean>;
+    includeLowercase?: ValidationOption<boolean>;
+    includeDigits?: ValidationOption<boolean>;
+    includeSpecialSymbols?: ValidationOption<boolean>;
+};
+
+export type EmailValidationOptions = {
+    customEmailRegex?: ValidationOption<RegExp>;
+    minLength?: ValidationOption<number>;
+    maxLength?: ValidationOption<number>;
+    minHostLength?: ValidationOption<number>;
+    maxHostLength?: ValidationOption<number>;
+    minDomainLength?: ValidationOption<number>;
+    maxDomainLength?: ValidationOption<number>;
+    minZoneLength?: ValidationOption<number>;
+    maxZoneLength?: ValidationOption<number>;
+    whitelistDomains?: ValidationOption<string[]>;
+    blacklistDomains?: ValidationOption<string[]>;
+};
+
+type OnValidateArgs = {
+    isValid: boolean;
+    errorMessage?: string;
+};
+
+export type ValidationProps =
+    | {
+          /*
+           * Тип валидации
+           */
+          validationType?: never;
+          /*
+           * Опции валидации
+           * @description
+           * Содержит объект опций валидации с сообщением ошибки
+           */
+          options?: never;
+          /*
+           * Состояние сокрытия оригинального пароля
+           */
+          passwordHidden?: never;
+          /*
+           * Функция, вызываемая при валидации значения.
+           * @description
+           * Вызывается при событии onBlur и по нажатию Enter, когда фокус на поле ввода
+           */
+          onValidate?: never;
+      }
+    | {
+          validationType: 'password';
+          options?: PasswordValidationOptions;
+          passwordHidden?: boolean;
+          onValidate?: (args: OnValidateArgs) => void;
+      }
+    | {
+          validationType: 'email';
+          options?: EmailValidationOptions;
+          passwordHidden?: never;
+          onValidate?: (args: OnValidateArgs) => void;
+      };
+
 type TextFieldChipProps =
     | {
           /**
@@ -202,7 +271,8 @@ export type TextFieldPropsBase = {
 } & RequiredProps &
     ClearProps &
     HintProps &
-    TextFieldChipProps;
+    TextFieldChipProps &
+    ValidationProps;
 
 export type TextFieldProps = {
     /**
@@ -251,3 +321,9 @@ export interface UseKeyNavigationProps {
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
+
+export type UseValidationArgs = {
+    validationType?: 'password' | 'email';
+    options?: PasswordValidationOptions | EmailValidationOptions;
+    onValidate?: (args: OnValidateArgs) => void;
+};

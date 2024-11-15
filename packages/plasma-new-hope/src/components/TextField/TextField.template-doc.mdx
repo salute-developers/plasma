@@ -5,6 +5,9 @@ title: TextField
 
 import { PropsTable, Description } from '@site/src/components';
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # TextField
 <Description name="TextField" />
 <PropsTable name="TextField" exclude={['$isFocused']} />
@@ -198,3 +201,330 @@ export function App() {
     );
 }
 ```
+
+### Валидация
+Поддерживается валидация почты и пароля:
+
+<Tabs>
+    <TabItem value="email" label="Email" default>
+        Свойства доступные при валидации почты:
+        ```tsx
+        type ValidationProps = {
+            /*
+            * Тип валидации
+            */
+            validationType: 'email';
+            /*
+            * Опции валидации
+            */
+            options?: EmailValidationOptions;
+            /*
+            * Функция, вызываемая при валидации значения.
+            * Вызывается при событии onBlur и по нажатию Enter, когда фокус на поле ввода
+            */
+            onValidate?: (args: OnValidateArgs) => void;
+        }
+        ```
+        Свойство `options` имеет следующий вид:
+        ```tsx
+        type EmailValidationOptions = {
+            /*
+            * Пользовательское регулярное выражение, для проверки почты на валидность
+            */
+            customEmailRegex?: {
+                value?: RegExp;
+                errorMessage?: string;
+            };
+            /*
+            * Минимальная длина почты
+            */
+            minLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Максимальная длина почты
+            */
+            maxLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Минимальная длина хоста (часть почты до `@`)
+            */
+            minHostLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Максимальная длина хоста (часть почты до `@`)
+            */
+            maxHostLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Минимальная длина домена (часть почты от `@` до `.` перед доменной зоной)
+            */
+            minDomainLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Максимальная длина домена (часть почты от `@` до `.` перед доменной зоной)
+            */
+            maxDomainLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Минимальная длина доменной зоны (часть почты от `.`; например `ru`, `com`...)
+            */
+            minZoneLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Максимальная длина доменной зоны (часть почты от `.`; например `ru`, `com`...)
+            */
+            maxZoneLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Список разрешенных доменов (например `['mail.ru', 'yahoo.ru', 'gmail.com']`)
+            */
+            whitelistDomains?: {
+                value?: string[];
+                errorMessage?: string;
+            };
+            /*
+            * Список запрещенных доменов (например `['org.biz', 'expressmail.com']`)
+            */
+            blacklistDomains?: {
+                value?: string[];
+                errorMessage?: string;
+            };
+        };
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { TextField } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const options = {
+                minLength: {
+                    value: 7,
+                    errorMessage: 'Почта слишком короткая',
+                },
+                maxLength: {
+                    value: 30,
+                    errorMessage: 'Почта слишком длинная',
+                },
+                minHostLength: {
+                    value: 2,
+                    errorMessage: 'Хост слишком короткий',
+                },
+                maxHostLength: {
+                    value: 12,
+                    errorMessage: 'Хост слишком длинный',
+                },
+                minDomainLength: {
+                    value: 3,
+                    errorMessage: 'Домен слишком короткий',
+                },
+                maxDomainLength: {
+                    value: 6,
+                    errorMessage: 'Домен слишком длинный',
+                },
+                minZoneLength: {
+                    value: 2,
+                    errorMessage: 'Доменная зона слишком короткая',
+                },
+                maxZoneLength: {
+                    value: 5,
+                    errorMessage: 'Доменная зона слишком длинная',
+                },
+                whitelistDomains: {
+                    value: ['plasma.ru', 'gmail.com', 'mail.ru'],
+                    errorMessage: 'Домен не разрешен',
+                },
+                blacklistDomains: {
+                    value: ['hah.ah', 'heh.eh'],
+                    errorMessage: 'Домен запрещен',
+                },
+            };
+
+            const [error, setError] = useState('');
+
+            const handleOnChange = () => {
+                setError('');
+            };
+
+            const handleOnValidate = ({ errorMessage }: { errorMessage?: string }) => {
+                setError(errorMessage || '');
+            };
+
+            return (
+                <div>
+                    <TextField
+                        label="Валидация почты"
+                        placeholder="Заполните поле"
+                        validationType="email"
+                        options={options}
+                        view={error ? 'negative' : 'default}
+                        helperText={error || 'Валидация почты'}
+                        onChange={handleOnChange}
+                        onValidate={handleOnValidate}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="password" label="Password" default>
+        Свойства доступные при валидации пароля:
+        ```tsx
+        type ValidationProps = {
+            /*
+            * Тип валидации
+            */
+            validationType: 'password';
+            /*
+            * Опции валидации
+            */
+            options?: PasswordValidationOptions;
+            /*
+            * Состояние сокрытия оригинального пароля
+            */
+            passwordHidden?: boolean;
+            /*
+            * Функция, вызываемая при валидации значения.
+            * Вызывается при событии onBlur и по нажатию Enter, когда фокус на поле ввода
+            */
+            onValidate?: (args: OnValidateArgs) => void;
+        }
+        ```
+        Свойство `options` имеет следующий вид:
+        ```tsx
+        type PasswordValidationOptions = {
+            /*
+            * Минимальная длина пароля
+            */
+            minLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Максимальная длина пароля
+            */
+            maxLength?: {
+                value?: number;
+                errorMessage?: string;
+            };
+            /*
+            * Должны ли быть буквы верхнего регистра в пароле
+            */
+            includeUppercase?: {
+                value?: boolean;
+                errorMessage?: string;
+            };
+            /*
+            * Должны ли быть буквы нижнего регистра в пароле
+            */
+            includeLowercase?: {
+                value?: boolean;
+                errorMessage?: string;
+            };
+            /*
+            * Должны ли быть цифры в пароле
+            */
+            includeDigits?: {
+                value?: boolean;
+                errorMessage?: string;
+            };
+            /*
+            * Должны ли быть специальные символы в пароле
+            */
+            includeSpecialSymbols?: {
+                value?: boolean;
+                errorMessage?: string;
+            };
+        };
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { TextField, IconButton } from '@salutejs/{{ package }}';
+        import { IconEyeFill, IconEyeClosedFill } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const options = {
+                minLength: {
+                    value: 5,
+                    errorMessage: 'Пароль слишком короткий',
+                },
+                maxLength: {
+                    value: 20,
+                    errorMessage: 'Пароль слишком длинный',
+                },
+                includeUppercase: {
+                    value: true,
+                    errorMessage: 'Пароль должен содержать хотя бы одну заглавную букву',
+                },
+                includeLowercase: {
+                    value: true,
+                    errorMessage: 'Пароль должен содержать хотя бы одну строчную букву',
+                },
+                includeDigits: {
+                    value: true,
+                    errorMessage: 'Пароль должен содержать хотя бы одну цифру',
+                },
+                includeSpecialSymbols: {
+                    value: true,
+                    errorMessage: 'Пароль должен содержать хотя бы один специальный символ',
+                },
+            };
+
+            const [error, setError] = useState('');
+            const [hidden, setHidden] = useState(false);
+
+            const handleOnChange = () => {
+                setError('');
+            };
+
+            const handleOnValidate = ({ errorMessage }: { errorMessage?: string }) => {
+                setError(errorMessage || '');
+            };
+
+            const toggleShowPassword = () => setHidden(!hidden);
+
+            const HideButton = () => (
+                <IconButton size="s" view="clear" onClick={toggleShowPassword}>
+                    {hidden ? <IconEyeClosedFill size="xs" color="inherit" /> : <IconEyeFill size="xs" color="inherit" />}
+                </IconButton>
+            )
+
+            return (
+                <div>
+                    <TextField
+                        label="Валидация пароля"
+                        placeholder="Заполните поле"
+                        validationType="password"
+                        options={options}
+                        view={error ? 'negative' : 'default'}
+                        leftHelper={error || 'Валидация пароля'}
+                        onChange={handleOnChange}
+                        onValidate={handleOnValidate}
+                        passwordHidden={hidden}
+                        contentLeft={<HideButton />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
