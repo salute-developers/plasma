@@ -11,3 +11,6 @@ export const keyCodes = {
     Space: 32,
     Escape: 27,
 };
+
+export const emailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+export const specialCharacters = /[!@#$%^&*(),.?":{}|<>]/;

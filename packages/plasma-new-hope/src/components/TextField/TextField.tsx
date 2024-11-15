@@ -1,5 +1,12 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import type { FormEventHandler, ChangeEventHandler, KeyboardEvent, ChangeEvent, MouseEventHandler } from 'react';
+import type {
+    FormEventHandler,
+    ChangeEventHandler,
+    KeyboardEvent,
+    ChangeEvent,
+    MouseEventHandler,
+    FocusEvent,
+} from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
 
@@ -38,7 +45,7 @@ import {
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip } from './ui';
-import { useKeyNavigation } from './hooks';
+import { useKeyNavigation, useValidation } from './hooks';
 import { HintComponent } from './ui/Hint/Hint';
 
 const optionalText = 'optional';
@@ -97,8 +104,15 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 value: outerValue,
                 chips: values,
 
+                // validation
+                validationType,
+                options,
+                passwordHidden,
+                onValidate,
+
                 // events
                 onChange,
+                onBlur,
                 onChangeChips,
                 onSearch,
                 onKeyDown,
@@ -155,6 +169,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const wrapperWithoutRightContent =
                 !contentRight && isChipsVisible ? classes.hasEmptyContentRight : undefined;
 
+            const isPasswordHidden = validationType === 'password' && passwordHidden;
+
             const hintRef = useOutsideClick<HTMLDivElement>(() => {
                 setIsHintVisible(false);
             });
@@ -200,6 +216,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 onChangeChips?.(newValues);
             };
 
+            const { handleValidationBlur, handleValidationKeyDown } = useValidation({
+                validationType,
+                options,
+                onValidate,
+            });
+
             const { handleInputKeydown, handleChipKeyDown, onChipClear, handleContentKeyDown } = useKeyNavigation({
                 controlledRefs,
                 disabled,
@@ -228,6 +250,14 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 inputRef.current.focus();
             };
 
+            const handleInputBlur = (event: FocusEvent<HTMLInputElement>) => {
+                if (onBlur) {
+                    onBlur(event);
+                }
+
+                handleValidationBlur(event);
+            };
+
             const getRef = (element: HTMLButtonElement | null, index: number) => {
                 if (element && chipsRefs?.current) {
                     chipsRefs.current[index] = element;
@@ -236,6 +266,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
 
             const handleOnKeyDown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
                 handleInputKeydown(event);
+                handleValidationKeyDown(event);
 
                 if (onKeyDown) {
                     onKeyDown(event);
@@ -427,7 +458,9 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onInput={handleInput}
                                     onChange={handleChange}
                                     onKeyDown={handleOnKeyDown}
+                                    onBlur={handleInputBlur}
                                     {...rest}
+                                    {...(isPasswordHidden && { type: 'password' })}
                                 />
                                 {hasInnerLabel && (
                                     <Label id={labelId} htmlFor={innerId}>
