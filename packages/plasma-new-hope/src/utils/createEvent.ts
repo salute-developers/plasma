@@ -13,7 +13,7 @@ export const createEvent = <T extends HTMLSelectElement | HTMLInputElement | HTM
     return null;
 };
 
-export const createSyntheticEvent = <T extends Element, E extends Event>(event: E): React.SyntheticEvent<T, E> => {
+const createSyntheticEvent = <T extends Element, E extends Event>(event: E): React.SyntheticEvent<T, E> => {
     let isDefaultPrevented = false;
     let isPropagationStopped = false;
     const preventDefault = () => {

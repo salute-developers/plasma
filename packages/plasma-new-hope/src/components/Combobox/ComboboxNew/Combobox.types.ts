@@ -22,57 +22,67 @@ type Placement =
     | 'left-end';
 
 type IsMultiselect<T extends ItemOption = ItemOption> =
-    | {
-          name?: never;
-          multiple?: false;
-          value?: string;
-          defaultValue?: never;
-          onChange?: (value: string) => void;
-          /**
-           * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
-           * @default false
-           */
-          isTargetAmount?: never | false;
-          /**
-           * Ручная настройка количества выбранных элементов. Только при isTargetAmount === true.
-           * @default undefined
-           */
-          targetAmount?: never;
-          renderValue?: never;
-      }
-    | {
-          multiple: true;
-          value?: Array<string>;
-          defaultValue?: never;
-          onChange?: (value: Array<string>) => void;
-          isTargetAmount?: true;
-          targetAmount?: number;
-          /**
-           * Callback для кастомной настройки значения в селекте.
-           */
-          renderValue?: (item: T) => string;
-          name?: never;
-      }
-    | {
-          multiple: true;
-          value?: string[];
-          defaultValue?: string[];
-          onChange?: ChangeEventHandler;
-          isTargetAmount?: never | false;
-          targetAmount?: never;
-          renderValue?: never;
-          name: string;
-      }
-    | {
-          multiple?: false;
-          value?: string;
-          defaultValue?: string;
-          onChange?: ChangeEventHandler;
-          isTargetAmount?: never | false;
-          targetAmount?: never;
-          renderValue?: never;
-          name: string;
-      };
+    | ({ name?: never; defaultValue?: never } & (
+          | {
+                multiple?: false;
+                value?: string;
+                onChange?: (value: string) => void;
+                /**
+                 * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+                 * @default false
+                 */
+                isTargetAmount?: never | false;
+                /**
+                 * Ручная настройка количества выбранных элементов. Только при isTargetAmount === true.
+                 * @default undefined
+                 */
+                targetAmount?: never;
+                /**
+                 * Callback для кастомной настройки значения в селекте.
+                 */
+                renderValue?: never;
+            }
+          | {
+                multiple: true;
+                value?: string[];
+                onChange?: (value: string[]) => void;
+                isTargetAmount?: true;
+                targetAmount?: number;
+                renderValue?: (item: T) => string;
+            }
+      ))
+    | ({ name: string; onChange?: ChangeEventHandler } & (
+          | {
+                multiple?: false;
+                defaultValue?: string;
+                value?: never;
+                isTargetAmount?: never | false;
+                targetAmount?: never;
+                renderValue?: never;
+            }
+          | {
+                multiple: true;
+                defaultValue?: string[];
+                value?: never;
+                isTargetAmount?: true;
+                targetAmount?: number;
+                renderValue?: (item: T) => string;
+            }
+      ));
+
+// type VS = (value: string) => void;
+// type VSA = (value: string[]) => void;
+
+// type IsMultiselect<T extends ItemOption = ItemOption> = {
+//     name?: string;
+//     multiple?: boolean;
+//     value?: string | string[];
+//     defaultValue?: string | string[];
+//     onChange?: VS | VSA | ChangeEventHandler;
+//     isTargetAmount?: boolean;
+//     targetAmount?: number;
+//     renderValue?: (item: T) => string;
+// };
 
 type ViewStateProps =
     | {
