@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
@@ -453,6 +453,251 @@ describe('plasma-b2c: TextField keyboard navigation', () => {
         // удаление части текста
         cy.focused().type('{backspace}{backspace}{backspace}');
         cy.get('input').should('have.value', 'Hello');
+
+        cy.matchImageSnapshot();
+    });
+});
+
+describe('plasma-b2c: TextField email validation', () => {
+    const TextField = getComponent('TextField') as typeof TextFieldB2C;
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
+    const options = {
+        minLength: {
+            value: 7,
+            errorMessage: 'Почта слишком короткая',
+        },
+        maxLength: {
+            value: 30,
+            errorMessage: 'Почта слишком длинная',
+        },
+        minHostLength: {
+            value: 2,
+            errorMessage: 'Хост слишком короткий',
+        },
+        maxHostLength: {
+            value: 12,
+            errorMessage: 'Хост слишком длинный',
+        },
+        minDomainLength: {
+            value: 3,
+            errorMessage: 'Домен слишком короткий',
+        },
+        maxDomainLength: {
+            value: 6,
+            errorMessage: 'Домен слишком длинный',
+        },
+        minZoneLength: {
+            value: 2,
+            errorMessage: 'Доменная зона слишком короткая',
+        },
+        maxZoneLength: {
+            value: 5,
+            errorMessage: 'Доменная зона слишком длинная',
+        },
+        whitelistDomains: {
+            value: ['plasma.ru', 'gmail.com', 'mail.ru'],
+            errorMessage: 'Домен не разрешен',
+        },
+        blacklistDomains: {
+            value: ['hah.ah', 'heh.eh'],
+            errorMessage: 'Домен запрещен',
+        },
+    };
+
+    const Demo = () => {
+        const [error, setError] = useState('');
+
+        const handleOnChange = () => {
+            setError('');
+        };
+
+        const handleOnValidate = ({ errorMessage }: { errorMessage?: string }) => {
+            setError(errorMessage || '');
+        };
+
+        return (
+            <TextField
+                size="m"
+                label="Валидация почты"
+                placeholder="Заполните поле"
+                validationType="email"
+                options={options}
+                status={error ? 'error' : undefined}
+                helperText={error || 'Валидация почты'}
+                onChange={handleOnChange}
+                onValidate={handleOnValidate}
+            />
+        );
+    };
+
+    it('email validation', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        // проверка корректности почты
+        cy.get('input').type('HelloPlasmaHaveFun{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', 'Invalid email');
+
+        cy.get('input').clear().type('HelloPlasmaHaveFun@{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', 'Invalid email');
+
+        // проверка длины почты
+        cy.get('input').clear().type('HelloPlasmaHaveFun@plasma-sberdevices.ru{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.maxLength.errorMessage);
+
+        cy.get('input').clear().type('H@p.ro{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.minLength.errorMessage);
+
+        // проверка длины хоста почты
+        cy.get('input').clear().type('H@plasma.ru{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.minHostLength.errorMessage);
+
+        cy.get('input').clear().type('HelloPlasmaHaveFun@plasma.ru{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.maxHostLength.errorMessage);
+
+        // проверка длины домена почты
+        cy.get('input').clear().type('HelloPlasma@p.ru{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.minDomainLength.errorMessage);
+
+        cy.get('input').clear().type('Hello@plasma-sberdevices.ru{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.maxDomainLength.errorMessage);
+
+        // проверка длины доменной зоны почты
+        cy.get('input').clear().type('HelloPlasma@plasma.ruzone{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.maxZoneLength.errorMessage);
+
+        // проверка доменов
+        cy.get('input').clear().type('HelloPlasma@yachoo.com{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.whitelistDomains.errorMessage);
+
+        cy.get('input').clear().type('HelloPlasma@heh.eh{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.blacklistDomains.errorMessage);
+
+        // корректная почта
+        cy.get('input').clear().type('HelloPlasma@plasma.ru{enter}');
+
+        cy.matchImageSnapshot();
+    });
+});
+
+describe('plasma-b2c: TextField password validation', () => {
+    const TextField = getComponent('TextField') as typeof TextFieldB2C;
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
+    const options = {
+        minLength: {
+            value: 5,
+            errorMessage: 'Пароль слишком короткий',
+        },
+        maxLength: {
+            value: 20,
+            errorMessage: 'Пароль слишком длинный',
+        },
+        includeUppercase: {
+            value: true,
+            errorMessage: 'Пароль должен содержать хотя бы одну заглавную букву',
+        },
+        includeLowercase: {
+            value: true,
+            errorMessage: 'Пароль должен содержать хотя бы одну строчную букву',
+        },
+        includeDigits: {
+            value: true,
+            errorMessage: 'Пароль должен содержать хотя бы одну цифру',
+        },
+        includeSpecialSymbols: {
+            value: true,
+            errorMessage: 'Пароль должен содержать хотя бы один специальный символ',
+        },
+    };
+
+    const Demo = ({ hidden }: { hidden?: boolean }) => {
+        const [error, setError] = useState('');
+
+        const handleOnChange = () => {
+            setError('');
+        };
+
+        const handleOnValidate = ({ errorMessage }: { errorMessage?: string }) => {
+            setError(errorMessage || '');
+        };
+
+        return (
+            <TextField
+                size="m"
+                label="Валидация пароля"
+                placeholder="Заполните поле"
+                validationType="password"
+                options={options}
+                status={error ? 'error' : undefined}
+                helperText={error || 'Валидация почты'}
+                onChange={handleOnChange}
+                onValidate={handleOnValidate}
+                passwordHidden={hidden}
+            />
+        );
+    };
+
+    it('password validation', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        // проверка длины пароля
+        cy.get('input').type('H{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.minLength.errorMessage);
+
+        cy.get('input').clear().type('HelloPlasmaHaveFunHelloPlasmaHaveFunHelloPlasmaHaveFun@{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.maxLength.errorMessage);
+
+        // проверка наличия заглавных букв
+        cy.get('input').clear().type('helloplasma24*_{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.includeUppercase.errorMessage);
+
+        // проверка наличия строчных букв
+        cy.get('input').clear().type('HELLOPLASMA24*_{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.includeLowercase.errorMessage);
+
+        // проверка наличия цифр
+        cy.get('input').clear().type('HelloPlasma*_{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.includeDigits.errorMessage);
+
+        // проверка наличия специальных символов
+        cy.get('input').clear().type('HelloPlasma24{enter}');
+        cy.get('.text-field-group-item div').last().should('have.text', options.includeSpecialSymbols.errorMessage);
+
+        // валидный пароль
+        cy.get('input').clear().type('HelloPlasma24*_{enter}');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('password validation hidden', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo hidden />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').clear().type('HelloPlasma24*_{enter}');
 
         cy.matchImageSnapshot();
     });
