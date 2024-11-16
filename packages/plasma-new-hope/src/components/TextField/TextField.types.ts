@@ -1,4 +1,4 @@
-import type { MutableRefObject, KeyboardEvent, ChangeEvent, ReactNode, FocusEventHandler } from 'react';
+import type { MutableRefObject, KeyboardEvent, ChangeEvent, ReactNode } from 'react';
 
 import type { InputHTMLAttributes } from '../../types';
 import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
