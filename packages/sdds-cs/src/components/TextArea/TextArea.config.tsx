@@ -167,21 +167,25 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             negative: css`
-                ${textAreaTokens.borderColor}: var(--outline-negative);
-                ${textAreaTokens.borderColorHover}: var(--outline-negative-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-negative-focus);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-negative);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${textAreaTokens.borderColor}: var(--text-negative);
+                ${textAreaTokens.borderColorHover}: var(--text-negative-hover);
+                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
+                ${textAreaTokens.inputBackgroundColor}: var(--surface-solid-card);
+                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-solid-card-hover);
+                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-solid-card-active);
+                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-solid-card);
+                ${textAreaTokens.helpersBackgroundColor}: var(--surface-solid-card);
+                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-solid-card-hover);
+                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-solid-card-active);
+                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-solid-card);
                 ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.clearInputColor}: var(--text-negative);
+                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-negative);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-secondary);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
@@ -195,10 +199,10 @@ export const config = {
                 ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
                 ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
 
-                ${textAreaTokens.dividerColor}: var(--surface-negative);
-                ${textAreaTokens.dividerColorHover}: var(--surface-negative);
+                ${textAreaTokens.dividerColor}: var(--outline-solid-primary);
+                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
-                ${textAreaTokens.titleCaptionColor}: var(--text-negative);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
         },
