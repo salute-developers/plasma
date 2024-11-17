@@ -27,7 +27,7 @@ const meta: Meta<CalendarProps> = {
             },
         },
         size: {
-            options: ['l', 'm', 's', 'xs'],
+            options: ['s'],
             control: {
                 type: 'inline-radio',
             },
@@ -124,7 +124,7 @@ export const Default: StoryObj<CalendarProps> = {
         isDouble: false,
         isRange: false,
         includeEdgeDates: false,
-        size: 'm',
+        size: 's',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -207,7 +207,7 @@ export const Base: StoryObj<CalendarBaseProps & { displayDouble: boolean }> = {
         ...disableProps(['isRange', 'isDouble']),
     },
     args: {
-        size: 'm',
+        size: 's',
         min: defaultMinDate,
         max: defaultMaxDate,
         includeEdgeDates: false,
@@ -294,7 +294,7 @@ export const Range: StoryObj<CalendarBaseRangeProps & { displayDouble: boolean }
         ...disableProps(['isRange', 'isDouble']),
     },
     args: {
-        size: 'm',
+        size: 's',
         min: defaultMinDate,
         max: defaultMaxDate,
         includeEdgeDates: false,

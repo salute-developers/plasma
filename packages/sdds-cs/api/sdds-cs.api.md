@@ -858,10 +858,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 }> & Calendar_2 & CalendarConfigProps & RefAttributes<HTMLDivElement>>;
 
@@ -876,10 +873,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 }> & Calendar_2 & CalendarConfigProps & RefAttributes<HTMLDivElement>>;
 
