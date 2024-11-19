@@ -16,7 +16,7 @@ const onBlur = action('onBlur');
 type RadioboxProps = Base;
 
 const meta: Meta<RadioboxProps> = {
-    title: 'Controls/Radiobox',
+    title: 'Data Entry/Radiobox',
     component: Radiobox,
     decorators: [InSpacingDecorator],
 };
