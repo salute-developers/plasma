@@ -22,7 +22,7 @@ const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 
 const meta: Meta<typeof Range> = {
-    title: 'Controls/Range',
+    title: 'Data Entry/Range',
     component: Range,
     decorators: [InSpacingDecorator],
     argTypes: {
