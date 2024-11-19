@@ -14,7 +14,7 @@ sidebar_position: 3
 ```tsx live
 
 import React from 'react';
-import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker } from "@salutejs/sdds-cs";
+import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, Autocomplite } from "@salutejssdds-cs";
 
 export function App() {
     const langName = 'language';
@@ -34,6 +34,59 @@ export function App() {
             console.log(name, value);
         }
     };
+
+    const mockData = [
+        { label: 'Алексей Смирнов' },
+        { label: 'Екатерина Иванова' },
+        { label: 'Дмитрий Петров' },
+        { label: 'Ольга Васильева' },
+        { label: 'Сергей Сидоров' },
+        { label: 'Мария Кузнецова' },
+        { label: 'Андрей Попов' },
+        { label: 'Анна Николаева' },
+        { label: 'Иван Федоров' },
+        { label: 'Наталья Морозова' },
+        { label: 'Михаил Павлов' },
+        { label: 'Елена Романова' },
+        { label: 'Владимир Киселев' },
+        { label: 'Татьяна Захарова' },
+        { label: 'Николай Семенов' },
+        { label: 'Юлия Белова' },
+        { label: 'Александр Гусев' },
+        { label: 'Оксана Яковлева' },
+        { label: 'Игорь Егорова' },
+        { label: 'Вера Тихомирова' },
+        { label: 'Артем Григорьев' },
+        { label: 'Евгения Козлова' },
+        { label: 'Максим Лебедев' },
+        { label: 'Виктория Калашникова' },
+        { label: 'Константин Абрамов' },
+        { label: 'Светлана Новикова' },
+        { label: 'Юрий Волков' },
+        { label: 'Валентина Воробьева' },
+        { label: 'Павел Сергеев' },
+        { label: 'Людмила Виноградова' },
+        { label: 'Антон Соловьев' },
+        { label: 'Маргарита Цветкова' },
+        { label: 'Роман Трофимов' },
+        { label: 'Лариса Зайцева' },
+        { label: 'Евгений Никитин' },
+        { label: 'Галина Михайлова' },
+        { label: 'Владислав Антонов' },
+        { label: 'Дарья Филатова' },
+        { label: 'Олег Буров' },
+        { label: 'Инна Медведева' },
+        { label: 'Вячеслав Крылов' },
+        { label: 'Тамара Беляева' },
+        { label: 'Кирилл Марков' },
+        { label: 'Марина Пономарева' },
+        { label: 'Борис Захаров' },
+        { label: 'Жанна Савельева' },
+        { label: 'Федор Жуков' },
+        { label: 'Елизавета Логинова' },
+        { label: 'Виктор Рыбаков' },
+        { label: 'Лилия Макарова' },
+    ];
     return (
         <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <TextField name="textfield" placeholder="Textfield" />
@@ -56,6 +109,7 @@ export function App() {
             </RadioGroup>
             <Slider name="slider" label="Slider" type="single" min={0} max={100} />
             <DatePicker label="DatePicker" name="datepicker" />
+            <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
             <Button type="submit">Отправить</Button>
         </form>
     );
