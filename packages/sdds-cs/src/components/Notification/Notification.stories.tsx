@@ -37,7 +37,7 @@ const getNotificationProps = (i: number) => ({
 const placements = ['top', 'left'];
 
 const meta: Meta<typeof Notification> = {
-    title: 'Controls/Notification',
+    title: 'Overlay/Notification',
     decorators: [InSpacingDecorator],
 };
 
