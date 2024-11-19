@@ -121,6 +121,7 @@ jobs:
         env:
             PR_NAME: pr-${{ github.event.number }}
             PREFIX: pr/pr-${{ github.event.number }}
+            HAS_DRAFT_COMPONENTS: false
         strategy:
             fail-fast: false
             matrix:
@@ -169,15 +170,12 @@ jobs:
                     npm run storybook:build --prefix="./packages/${{ matrix.package }}"
                     cp -R ./packages/${{ matrix.package }}/build-sb ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-storybook
 
-            -   name: TEST draft-components
-                uses: ./.github/actions/draft-components
-
             -   name: Build draft components storybook - "${{ matrix.package }}"
-                if: false
                 run: |
-                    if grep -q '"storybook:draft"' package.json; then
+                    if grep -q '"storybook:draft"' "./packages/${{ matrix.package }}/package.json"; then
                      npm run storybook:build:draft --prefix="./packages/${{ matrix.package }}"
                      cp -R ./packages/${{ matrix.package }}/build-sb-draft ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-draft-storybook
+                     echo "HAS_DRAFT_COMPONENTS=true" >> $GITHUB_ENV
                     else
                      echo "Package not have draft components"
                     fi
@@ -202,7 +200,7 @@ jobs:
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}/
 
             -   name: s3 upload storybook for draft components
-                if: false
+                if: ${{ env.HAS_DRAFT_COMPONENTS }}
                 run: >
                     s3cmd
                     --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
