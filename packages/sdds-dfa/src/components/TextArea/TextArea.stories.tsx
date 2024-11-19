@@ -43,7 +43,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<StoryTextAreaProps> = {
-    title: 'Controls/TextArea',
+    title: 'Data Entry/TextArea',
     decorators: [InSpacingDecorator],
     component: TextArea,
     argTypes: {
