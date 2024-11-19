@@ -275,6 +275,10 @@ export const fallbackThemeDark = getFormattedTokensForFallbackTheme({
         'linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% )',
     '--skeleton-gradient-lighter':
         'linear-gradient( 90deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.32) 6.25%, rgba(255, 255, 255, 0.20) 12.5%, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.20) 37.5%, rgba(255, 255, 255, 0.32) 43.75%, rgba(255, 255, 255, 0.36) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.20) 62.5%, rgba(255, 255, 255, 0.04) 75%, rgba(255, 255, 255, 0.20) 87.5%, rgba(255, 255, 255, 0.32) 93.75%, rgba(255, 255, 255, 0.36) 100% )',
+    // tokens added manually
+    '--outline-solid-secondary': '#4E4E4E',
+    '--outline-solid-secondary-hover': '#595959FF',
+    '--outline-accent': '#3F81FD',
 });
 
 export const fallbackThemeLight = getFormattedTokensForFallbackTheme({
@@ -551,4 +555,8 @@ export const fallbackThemeLight = getFormattedTokensForFallbackTheme({
         'linear-gradient( 90deg, rgba(8, 8, 8, 0.09) 0%, rgba(8, 8, 8, 0.08) 6.25%, rgba(8, 8, 8, 0.05) 12.5%, rgba(8, 8, 8, 0.01) 25%, rgba(8, 8, 8, 0.05) 37.5%, rgba(8, 8, 8, 0.08) 43.75%, rgba(8, 8, 8, 0.09) 50%, rgba(8, 8, 8, 0.08) 56.25%, rgba(8, 8, 8, 0.05) 62.5%, rgba(8, 8, 8, 0.01) 75%, rgba(8, 8, 8, 0.05) 87.5%, rgba(8, 8, 8, 0.08) 93.75%, rgba(8, 8, 8, 0.09) 100% )',
     '--skeleton-gradient-lighter':
         'linear-gradient( 90deg, rgba(8, 8, 8, 0.36) 0%, rgba(8, 8, 8, 0.32) 6.25%, rgba(8, 8, 8, 0.20) 12.5%, rgba(8, 8, 8, 0.04) 25%, rgba(8, 8, 8, 0.20) 37.5%, rgba(8, 8, 8, 0.32) 43.75%, rgba(8, 8, 8, 0.36) 50%, rgba(8, 8, 8, 0.08) 56.25%, rgba(8, 8, 8, 0.20) 62.5%, rgba(8, 8, 8, 0.04) 75%, rgba(8, 8, 8, 0.20) 87.5%, rgba(8, 8, 8, 0.32) 93.75%, rgba(8, 8, 8, 0.36) 100% )',
+    // tokens added manually
+    '--outline-solid-secondary': '#949494',
+    '--outline-solid-secondary-hover': '#A3A3A3FF',
+    '--outline-accent': '#2A72F8',
 });
