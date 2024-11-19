@@ -15,7 +15,7 @@ const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/Combobox',
+    title: 'Data Entry/Combobox',
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {
