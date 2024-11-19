@@ -19,7 +19,7 @@ const longText = `Если после применения правила Лоп
 type StoryModalProps = ModalProps & { heading: string; text: string; withBlur?: boolean };
 
 const meta: Meta<StoryModalProps> = {
-    title: 'Controls/Modal',
+    title: 'Overlay/Modal',
     component: Modal,
     decorators: [InSpacingDecorator],
     argTypes: {
