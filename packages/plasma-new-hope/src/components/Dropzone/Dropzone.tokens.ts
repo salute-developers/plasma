@@ -3,17 +3,21 @@ export const classes = {
     active: 'dropzone-active',
     verticalContentPlacing: 'dropzone-vertical-content-placing',
     disabled: 'dropzone-disabled',
+    truncate: 'dropzone-truncate-content',
 };
 
 export const privateTokens = {
     width: '--plasma_private-dropzone-width',
     height: '--plasma_private-dropzone-height',
+    ratioX: '--plasma_private-dropzone-ratio-x',
+    ratioY: '--plasma_private-dropzone-ratio-y',
 };
 
 export const tokens = {
     background: '--plasma-dropzone-background',
+    backgroundHover: '--plasma-dropzone-background-hover',
     overlayColorActive: '--plasma-dropzone-overlay-color-active',
-    border: '--plasma-dropzone-border-color',
+    borderColor: '--plasma-dropzone-border-color',
     borderColorHover: '--plasma-dropzone-border-color-hover',
     borderColorActive: '--plasma-dropzone-border-color-active',
 
@@ -23,8 +27,8 @@ export const tokens = {
     padding: '--plasma-dropzone-padding',
     borderRadius: '--plasma-dropzone-border-radius',
     contentGap: '--plasma-dropzone-content-gap',
-    titleWrapperGap: '--plasma-dropzone-title-wrapper-gap',
-    titleWrapperGapColumn: '--plasma-dropzone-title-wrapper-column-gap',
+    contentColumnGap: '--plasma-dropzone-content-column-gap',
+    contentWrapperGap: '--plasma-dropzone-content-wrapper-gap',
 
     titleFontFamily: '--plasma-dropzone-title-font-family',
     titleFontSize: '--plasma-dropzone-title-font-size',
