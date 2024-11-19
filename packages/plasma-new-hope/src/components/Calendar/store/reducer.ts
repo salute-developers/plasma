@@ -23,10 +23,11 @@ export const sizeMap: SizeMap = {
 
 export const getInitialState = (
     value: Date | undefined,
+    min: Date | undefined,
     calendarState: CalendarStateType,
     isDouble?: boolean,
 ): InitialState => {
-    const initDate = value || new Date();
+    const initDate = value || min || new Date();
     const date = getDateFromValue(initDate);
 
     const resSize: [number, number] = isDouble ? sizeMap[calendarState].double : sizeMap[calendarState].single;
