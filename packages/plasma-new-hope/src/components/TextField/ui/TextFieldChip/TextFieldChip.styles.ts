@@ -54,3 +54,39 @@ export const StyledChip = styled(Chip)`
         opacity: var(${tokens.chipOpacityReadonly});
     }
 `;
+
+export const TextChip = styled.button`
+    display: block;
+    flex: none;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    white-space: nowrap;
+    cursor: pointer;
+
+    font-family: var(${tokens.fontFamily});
+    font-size: var(${tokens.fontSize});
+    font-style: var(${tokens.fontStyle});
+    font-weight: var(${tokens.fontWeight});
+    letter-spacing: var(${tokens.letterSpacing});
+    line-height: var(${tokens.lineHeight});
+    color: var(${tokens.color});
+
+    ${addFocus({
+        outlineOffset: '0.0625rem',
+        outlineSize: '0.0625rem',
+        outlineRadius: `calc(var(${tokens.chipBorderRadius}) - 0.1rem)`,
+        outlineColor: `var(${tokens.focusColor})`,
+    })}
+
+    &:after {
+        content: ',';
+    }
+
+    &:last-child {
+        &:after {
+            content: '';
+        }
+    }
+`;

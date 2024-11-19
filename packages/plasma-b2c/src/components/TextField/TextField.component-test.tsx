@@ -345,6 +345,25 @@ describe('plasma-b2c: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('chipType', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    chipType="text"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     describe('with hint', () => {
         const sizes = ['xs', 's', 'm', 'l'] as const;
 

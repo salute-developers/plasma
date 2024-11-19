@@ -31,6 +31,10 @@ type TextFieldChipProps =
            * Callback по нажатию Enter
            */
           onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
+          /**
+           * Внешний вид chip.
+           */
+          chipType?: never;
       }
     | {
           /**
@@ -50,6 +54,10 @@ type TextFieldChipProps =
            * Обработчик изменения выбранных значений.
            */
           onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+          /**
+           * Внешний вид chip.
+           */
+          chipType?: 'default' | 'text';
       };
 
 export type RequiredProps = {

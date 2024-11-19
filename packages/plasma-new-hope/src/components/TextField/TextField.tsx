@@ -96,6 +96,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 // controlled
                 value: outerValue,
                 chips: values,
+                chipType = 'default',
 
                 // events
                 onChange,
@@ -151,9 +152,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 : undefined;
             const hasValueClass = hasValue ? classes.hasValue : undefined;
 
-            const wrapperWithoutLeftContent = !contentLeft && isChipsVisible ? classes.hasEmptyContentLeft : undefined;
+            const wrapperWithoutLeftContent =
+                !contentLeft && isChipsVisible && chipType === 'default' ? classes.hasEmptyContentLeft : undefined;
             const wrapperWithoutRightContent =
-                !contentRight && isChipsVisible ? classes.hasEmptyContentRight : undefined;
+                !contentRight && isChipsVisible && chipType === 'default' ? classes.hasEmptyContentRight : undefined;
 
             const hintRef = useOutsideClick<HTMLDivElement>(() => {
                 setIsHintVisible(false);
@@ -401,6 +403,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                                 onKeyDown={(event) => handleChipKeyDown(event, chipId, index)}
                                                 onClear={() => onChipClear(chipId, index)}
                                                 onClick={onChipClick}
+                                                chipType={chipType}
                                                 // TODO: #1547
                                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                                 // @ts-ignore

@@ -121,7 +121,7 @@ type HintProps =
       };
 
 export type CustomTextFieldProps = (TextFieldProps &
-    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips' | 'titleCaption'>) &
+    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption'>) &
     RequiredProps &
     ClearProps &
     HintProps;
@@ -158,6 +158,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         chips,
         onSearch,
         onChangeChips,
+        chipType,
 
         ...rest
     } = props;
@@ -190,6 +191,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
                 chips={chips}
                 hintText={String(hintText || '')}
                 onChangeChips={onChangeChips}
+                chipType={chipType}
             />
         );
     }
