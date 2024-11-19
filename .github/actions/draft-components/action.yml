@@ -26,7 +26,11 @@ runs:
         -   name: Computed HAS_EXECUTE_STORYBOOK_DRAFT
             shell: bash
             run: |
-                echo "HAS_EXECUTE_STORYBOOK_DRAFT=${{ contains(fromJSON('["${{ env.HAS_STORYBOOK_DRAFT_SCRIPTS }}", "${{ env.HAS_DRAFT_COMPONENTS_CHANGE }}"]'), 'true') }}" >> $GITHUB_ENV
+                if [ "${{ env.HAS_STORYBOOK_DRAFT_SCRIPTS }}" = "true" ] && [ "${{ env.HAS_DRAFT_COMPONENTS_CHANGE }}" = "true" ]; then
+                    echo "HAS_EXECUTE_STORYBOOK_DRAFT=true" >> $GITHUB_ENV
+                else
+                    echo "HAS_EXECUTE_STORYBOOK_DRAFT=false" >> $GITHUB_ENV
+                fi
 
         -   name: ECHO
             shell: bash
