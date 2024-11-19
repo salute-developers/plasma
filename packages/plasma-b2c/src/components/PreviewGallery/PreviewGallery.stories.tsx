@@ -9,7 +9,7 @@ import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping, PreviewGaller
 import type { PreviewGalleryItemProps, PreviewGalleryProps } from '.';
 
 const meta: Meta = {
-    title: 'Controls/PreviewGallery',
+    title: 'Layout/PreviewGallery',
     component: PreviewGallery,
     argTypes: {
         items: {
