@@ -728,8 +728,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -742,8 +748,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2172,8 +2184,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2186,8 +2204,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2461,20 +2485,12 @@
         },
         "outline": {
             "default": {
-                "outlinePrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
                 "outlinePrimaryHover": {
                     "value": "#303030FF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
                     "value": "#212121FF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.800]",
                     "comment": ""
                 },
                 "outlineSecondaryHover": {
@@ -2485,20 +2501,12 @@
                     "value": "#4A4A4AFF",
                     "comment": ""
                 },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
                 "outlineTertiaryHover": {
                     "value": "#7A7A7AFF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
                     "value": "#6B6B6BFF",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
                     "comment": ""
                 },
                 "outlineDefaultHover": {
@@ -2744,6 +2752,54 @@
                 "outlineInfo": {
                     "value": "[general.electricBlue.400]",
                     "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#ADADADFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#8C8C8CFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#737373FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#E0E0E0FF",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -2923,22 +2979,6 @@
                     "value": "#3F82FD38",
                     "comment": ""
                 },
-                "outlinePrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.800]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(255, 255, 255, 0.12)",
                     "comment": ""
@@ -3010,6 +3050,54 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(63, 129, 253, 0.28)",
                     "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#ADADADFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#8C8C8CFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#737373FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#E0E0E0FF",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -3029,20 +3117,12 @@
                     "value": "#8F8F8FFF",
                     "comment": ""
                 },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
                 "outlineTertiaryHover": {
                     "value": "#7A7A7AFF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
                     "value": "#6B6B6BFF",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
                     "comment": ""
                 },
                 "outlineDefaultHover": {
@@ -3257,14 +3337,6 @@
                     "value": "#2A72F824",
                     "comment": ""
                 },
-                "outlinePrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                },
                 "outlineInfo": {
                     "value": "[general.electricBlue.500]",
                     "comment": ""
@@ -3275,6 +3347,54 @@
                 },
                 "outlineTransparentInfo": {
                     "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#737373FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#ABABABFF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#C4C4C4FF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#575757FF",
                     "comment": ""
                 }
             },
@@ -3287,14 +3407,6 @@
                     "value": "#C4C4C4FF",
                     "comment": ""
                 },
-                "outlinePrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                },
                 "outlineSecondaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
@@ -3303,20 +3415,12 @@
                     "value": "#575757FF",
                     "comment": ""
                 },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
                 "outlineTertiaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineTertiaryActive": {
                     "value": "#737373FF",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
                     "comment": ""
                 },
                 "outlineDefaultHover": {
@@ -3553,6 +3657,54 @@
                 },
                 "outlineTransparentInfoActive": {
                     "value": "#2A72F83D",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#ABABABFF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#C4C4C4FF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#575757FF",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#737373FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
                     "comment": ""
                 }
             }
@@ -4327,8 +4479,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -4341,8 +4499,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6157,28 +6321,12 @@
                     "value": "#2A72F83D",
                     "comment": ""
                 },
-                "outlinePrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
                 "outlinePrimaryHover": {
                     "value": "#EDEDEDFF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
                     "value": "#D4D4D4FF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
                     "comment": ""
                 },
                 "outlineTransparentPrimary": {
@@ -6263,6 +6411,54 @@
                 },
                 "outlineTransparentInfo": {
                     "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#787878FF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#4F4F4FFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#404040FF",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
                     "comment": ""
                 }
             },
@@ -6495,28 +6691,12 @@
                     "value": "#3F82FD52",
                     "comment": ""
                 },
-                "outlinePrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
                 "outlinePrimaryHover": {
                     "value": "#3B3B3BFF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
                     "value": "#1C1C1CFF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.800]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
                     "comment": ""
                 },
                 "outlineInfo": {
@@ -6529,6 +6709,54 @@
                 },
                 "outlineTransparentInfo": {
                     "value": "rgba(63, 129, 253, 0.28)",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#787878FF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#4F4F4FFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#404040FF",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
                     "comment": ""
                 }
             },
@@ -6547,10 +6775,6 @@
                 },
                 "outlineTertiaryActive": {
                     "value": "#666666FF",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
                     "comment": ""
                 },
                 "outlineDefaultHover": {
@@ -6765,24 +6989,12 @@
                     "value": "#2A72F83D",
                     "comment": ""
                 },
-                "outlinePrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
                 "outlinePrimaryHover": {
                     "value": "#EDEDEDFF",
                     "comment": ""
                 },
                 "outlinePrimaryActive": {
                     "value": "#D4D4D4FF",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
                     "comment": ""
                 },
                 "outlineInfo": {
@@ -6795,6 +7007,54 @@
                 },
                 "outlineTransparentInfo": {
                     "value": "rgba(42, 114, 248, 0.20)",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#303030FF",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#B3B3B3FF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#757575FF",
                     "comment": ""
                 }
             },
@@ -6983,22 +7243,6 @@
                     "value": "#3F82FD56",
                     "comment": ""
                 },
-                "outlinePrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
-                "outlineSecondary": {
-                    "value": "[general.gray.800]",
-                    "comment": ""
-                },
-                "outlineTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(255,255,255,0.12)",
                     "comment": ""
@@ -7073,6 +7317,54 @@
                 },
                 "outlineTransparentInfo": {
                     "value": "rgba(63,129,253,0.28)",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidPrimaryActive": {
+                    "value": "#B3B3B3FF",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidSecondaryActive": {
+                    "value": "#757575FF",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidTertiaryActive": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#303030FF",
                     "comment": ""
                 }
             }
