@@ -87,6 +87,10 @@ export type BaseProps = {
      * Коллбэк для рендера элемента в конце выпадающего списка.
      */
     renderListEnd?: () => ReactNode;
+    /**
+     * Изначальное значение.
+     */
+    defaultValue?: string;
 };
 
 export type AutocompleteProps = BaseProps &
