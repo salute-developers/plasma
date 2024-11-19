@@ -52,16 +52,7 @@ export function App() {
 ```
 
 ### Вид badge
-Вид `badge` задается с помощью свойства `view`. Возможные значения свойства `view`:
-
-+ `"primary"` – основной badge;
-+ `"accent"` – бейдж акцентного цвета;
-+ `"positive"` – успешное завершение;
-+ `"warning"` – предупреждение;
-+ `"negative"` – ошибка;
-+ `"dark"` – темный badge;
-+ `"light"` – светлый badge.
-
+Вид `badge` задается с помощью свойства `view`.
 Так же на вид badge влияет свойства `transparent` и `clear`.
 
 ```tsx live 
@@ -94,7 +85,8 @@ export function App() {
 ```
 
 ### Иконка слева / справа
-В левой и/или правой части badge можно отобразить иконку:
+В левой или правой части badge можно отобразить иконку. 
+Если же нужен Badge с иконкой без текста, нужно использовать `contentLeft`.
 
 ```tsx live
 import React from 'react';
@@ -110,15 +102,46 @@ export function App() {
                 view="primary" 
                 contentLeft={
                     <IconEye color="inherit" size="xs" />
-                } />
+                } 
+            />
             <Badge 
                 text="Бейдж" 
                 size="l"   
                 view="primary" 
                 contentRight={
                     <IconEye color="inherit" size="xs" />
-                } />
+                } 
+            />
+            <Badge 
+                size="l"   
+                view="default" 
+                contentLeft={
+                    <IconEye color="inherit" size="xs" />
+                } 
+            />
         </div>
     );
 }
 ```
+
+### Задание цвета текста и фона
+Цвет текста и фона можно задать с помощью свойств 
+`customColor` и `customBackgroundColor` соответственно.
+
+```tsx live
+import React from 'react';
+import { Badge } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div>
+            <Badge 
+                text="Бейдж" 
+                size="l"   
+                view="default" 
+                customColor="antiquewhite"
+                customBackgroundColor="darkolivegreen" 
+            />
+        </div>
+    );
+}
