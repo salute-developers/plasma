@@ -21,7 +21,7 @@ const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
 
 const meta: Meta = {
-    title: 'Controls/DatePicker',
+    title: 'Data Entry/DatePicker',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {
