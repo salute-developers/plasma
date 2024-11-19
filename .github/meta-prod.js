@@ -25,7 +25,7 @@ module.exports = {
         ],
     },
     'plasma-new-hope': {
-        scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-core'],
+        scope: [...commonScope, 'plasma-themes', 'plasma-core'],
     },
     'plasma-ui': {
         scope: [
