@@ -25,7 +25,7 @@ const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
 };
 
 const meta: Meta<typeof Toolbar> = {
-    title: 'Controls/Toolbar',
+    title: 'Overlay/Toolbar',
     component: ToolbarWrapper,
     decorators: [InSpacingDecorator],
     argTypes: {
