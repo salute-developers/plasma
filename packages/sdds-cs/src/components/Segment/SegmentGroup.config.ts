@@ -3,7 +3,7 @@ import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components'
 export const config = {
     defaults: {
         view: 'clear',
-        size: 's',
+        size: 'xs',
     },
     variations: {
         view: {
@@ -19,7 +19,7 @@ export const config = {
             `,
         },
         size: {
-            s: css`
+            xs: css`
                 ${segmentTokens.groupBorderRadius}: 0.75rem;
                 ${segmentTokens.groupPilledBorderRadius}: 1.375rem;
                 ${segmentTokens.groupWidth}: auto;
