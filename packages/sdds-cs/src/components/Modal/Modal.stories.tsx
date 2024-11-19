@@ -13,7 +13,7 @@ import { Modal, modalClasses } from '.';
 import type { ModalProps } from '.';
 
 const meta: Meta<ModalProps> = {
-    title: 'Controls/Modal',
+    title: 'Overlay/Modal',
     decorators: [InSpacingDecorator],
     parameters: {
         docs: { story: { inline: false, iframeHeight: '30rem' } },
