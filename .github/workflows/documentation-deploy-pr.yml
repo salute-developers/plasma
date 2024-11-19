@@ -200,7 +200,7 @@ jobs:
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}/
 
             -   name: s3 upload storybook for draft components
-                if: ${{ env.HAS_DRAFT_COMPONENTS }}
+                if: ${{ env.HAS_DRAFT_COMPONENTS == 'true' }}
                 run: >
                     s3cmd
                     --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
