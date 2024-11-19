@@ -2939,7 +2939,7 @@ clear: PolymorphicClassName;
 filled: PolymorphicClassName;
 };
 size: {
-s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -2967,7 +2967,7 @@ default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 };
 size: {
-s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
