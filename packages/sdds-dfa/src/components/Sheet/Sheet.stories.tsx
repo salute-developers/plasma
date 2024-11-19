@@ -10,7 +10,7 @@ import { Sheet } from '.';
 import type { SheetProps } from '.';
 
 const meta: Meta<SheetProps> = {
-    title: 'Content/Sheet',
+    title: 'Overlay/Sheet',
     decorators: [InSpacingDecorator],
     args: {
         withBlur: false,
