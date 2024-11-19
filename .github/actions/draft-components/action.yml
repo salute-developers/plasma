@@ -1,0 +1,33 @@
+name: 'Draft components'
+
+description: 'Check if change/create draft config components'
+
+runs:
+    using: "composite"
+    steps:
+        -   name: Computed HAS_STORYBOOK_DRAFT_SCRIPTS
+            shell: bash
+            run: |
+                if grep -q '"storybook:draft"' package.json; then
+                  echo "HAS_STORYBOOK_DRAFT_SCRIPTS=true" >> $GITHUB_ENV
+                else
+                  echo "HAS_STORYBOOK_DRAFT_SCRIPTS=false" >> $GITHUB_ENV
+                fi
+
+        -   name: Computed HAS_DRAFT_COMPONENTS_CHANGE
+            shell: bash
+            run: |
+                if npx lerna diff | grep -E '\.config\.draft\.ts$'; then
+                  echo "HAS_DRAFT_COMPONENTS_CHANGE=true" >> $GITHUB_ENV
+                else
+                  echo "HAS_DRAFT_COMPONENTS_CHANGE=false" >> $GITHUB_ENV
+                fi
+
+        -   name: Computed HAS_EXECUTE_STORYBOOK_DRAFT
+            shell: bash
+            run: |
+                echo "HAS_EXECUTE_STORYBOOK_DRAFT=${{ contains(fromJSON('["${{ env.HAS_STORYBOOK_DRAFT_SCRIPTS }}", "${{ env.HAS_DRAFT_COMPONENTS_CHANGE }}"]'), 'true') }}" >> $GITHUB_ENV
+
+        -   name: ECHO
+            shell: bash
+            run: echo ${{ env.HAS_EXECUTE_STORYBOOK_DRAFT }}
