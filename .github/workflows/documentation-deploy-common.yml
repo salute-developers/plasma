@@ -118,7 +118,7 @@ jobs:
                         return META[packageName].scope;
 
             -   name: Lerna bootstrap
-                run: npx lerna bootstrap --scope="@salutejs/{${{ steps.scope.outputs.result }}}"
+                run: npx lerna bootstrap --scope="@salutejs/${{ matrix.package }}" --scope="@salutejs/{${{ steps.scope.outputs.result }}}"
 
             -   name: Prepare directory
                 run: mkdir -p s3_local_storybook_build s3_local_docs_build
