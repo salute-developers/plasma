@@ -1,33 +1,29 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../Dropzone.tokens';
-import { Description, TitleWrapper } from '../../Dropzone.styles';
+import { Description, DropzoneHandlerOverlay, ContentWrapper } from '../../Dropzone.styles';
 
 export const base = css`
     background: var(${tokens.background});
-    border: var(${tokens.border});
+    border: 0.063rem dashed var(${tokens.borderColor});
 
     &:not(.${classes.active}):hover,
     &:not(.${classes.active}):focus-within {
-        border-color: var(${tokens.borderColorHover});
+        background: var(${tokens.backgroundHover});
         outline: none;
+        border-color: var(${tokens.borderColorHover});
     }
 
     &.${classes.active} {
         border-color: var(${tokens.borderColorActive});
+        background: var(${tokens.backgroundHover});
 
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        ${DropzoneHandlerOverlay} {
             background: var(${tokens.overlayColorActive});
         }
     }
 
-    ${TitleWrapper} {
+    ${ContentWrapper} {
         color: var(${tokens.titleColor});
     }
 

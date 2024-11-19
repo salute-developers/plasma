@@ -21,7 +21,7 @@ export type DropzoneProps = {
     /**
      * Слот для описания
      */
-    description?: ReactNode;
+    description?: string;
     /**
      * Слот для иконки
      */

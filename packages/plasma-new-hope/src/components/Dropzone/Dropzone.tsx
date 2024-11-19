@@ -1,8 +1,8 @@
-import React, { forwardRef, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, CSSProperties, DragEvent, MouseEvent } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef, useResizeObserver } from '@salutejs/plasma-core';
 
-import { cx, getSizeValueFromProp } from '../../utils';
+import { canUseDOM, cx, getSizeValueFromProp } from '../../utils';
 import { IconArrowBarDown } from '../../components/_Icon';
 import type { RootProps } from '../../engines';
 
@@ -14,10 +14,14 @@ import {
     base,
     Content,
     Description,
+    DescriptionHelper,
     DropzoneHandlerOverlay,
     HiddenInput,
+    StyledIcon,
     Title,
-    TitleWrapper,
+    TitleHelper,
+    ContentWrapper,
+    IconWrapper,
 } from './Dropzone.styles';
 import { classes, privateTokens } from './Dropzone.tokens';
 
@@ -32,7 +36,7 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
                 title,
                 description,
                 icon,
-                iconPlacement,
+                iconPlacement = 'left',
                 size,
                 view,
                 disabled,
@@ -52,9 +56,20 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
             outerRef,
         ) => {
             const [isDropzoneActive, setIsDropzoneActive] = useState(false);
+            const [innerTitle, setInnerTitle] = useState(title);
+            const [innerDescription, setInnerDescription] = useState(description);
 
             const inputRef = useRef<HTMLInputElement>(null);
             const forkInputRef = useForkRef(outerRef, inputRef);
+
+            const contentRef = useRef<HTMLDivElement>(null);
+            const iconWrapperRef = useRef<HTMLDivElement>(null);
+            const iconRef = useRef<HTMLDivElement>(null);
+            const contentWrapperRef = useRef<HTMLDivElement>(null);
+            const titleRef = useRef<HTMLDivElement>(null);
+            const titleHelperRef = useRef<HTMLDivElement>(null);
+            const descriptionRef = useRef<HTMLDivElement>(null);
+            const descriptionHelperRef = useRef<HTMLDivElement>(null);
 
             const innerWidth = width ? getSizeValueFromProp(width) : 'fit-content';
             const innerHeight = height ? getSizeValueFromProp(height) : 'fit-content';
@@ -176,6 +191,85 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
                 await processFiles(rawFiles, onChoseFiles);
             };
 
+            const truncateContent = () => {
+                if (
+                    !canUseDOM ||
+                    !descriptionRef?.current ||
+                    !contentWrapperRef?.current ||
+                    !titleRef?.current ||
+                    !titleHelperRef?.current ||
+                    !iconRef?.current ||
+                    !iconWrapperRef?.current ||
+                    !contentRef?.current ||
+                    !descriptionHelperRef?.current ||
+                    (!width && !height)
+                ) {
+                    return;
+                }
+
+                const contentHeight = contentRef.current.offsetHeight;
+                const iconHeight = iconRef.current.offsetHeight;
+                const iconWidth = iconPlacement === 'top' ? 0 : iconRef.current.offsetWidth;
+                const titleHeight = titleRef.current.offsetHeight;
+
+                const iconContentGap =
+                    iconPlacement === 'top'
+                        ? Number(window.getComputedStyle(iconWrapperRef.current).rowGap.replace('px', ''))
+                        : 0;
+
+                const availableWidth = contentRef.current.offsetWidth - iconWidth - iconContentGap;
+
+                const contentGap = Number(window.getComputedStyle(contentWrapperRef.current).rowGap.replace('px', ''));
+
+                const titleFontWidth = Math.floor(titleHelperRef.current.offsetWidth);
+                const titleFontHeight = Math.floor(titleHelperRef.current.offsetHeight);
+
+                const descriptionFontWidth = Math.floor(descriptionHelperRef.current.offsetWidth);
+                const descriptionFontHeight = Math.floor(descriptionHelperRef.current.offsetHeight);
+
+                const titleAvailableHeight =
+                    contentHeight - iconHeight - iconContentGap - descriptionFontHeight - contentGap;
+
+                const titleMaxChars = Math.floor(
+                    (availableWidth / titleFontWidth) * (titleAvailableHeight / titleFontHeight),
+                );
+
+                let resTitleLength = 0;
+
+                if (title) {
+                    const newTitle = title.length <= titleMaxChars ? title : `${title.slice(0, titleMaxChars - 3)}...`;
+                    resTitleLength = newTitle.length;
+                    setInnerTitle(newTitle);
+                }
+
+                const resultTitleHeight = Math.floor(
+                    (titleFontHeight * titleFontWidth * resTitleLength) / availableWidth,
+                );
+
+                const descriptionAvailableHeight =
+                    titleAvailableHeight >= titleHeight + 2 * descriptionFontHeight
+                        ? contentHeight - resultTitleHeight - iconContentGap - contentGap
+                        : descriptionFontHeight;
+
+                const descriptionMaxChars = Math.floor(
+                    (availableWidth / descriptionFontWidth) * (descriptionAvailableHeight / descriptionFontHeight),
+                );
+
+                if (description) {
+                    const newDescription =
+                        description.length <= descriptionMaxChars
+                            ? description
+                            : `${description.slice(0, descriptionMaxChars - 3)}...`;
+                    setInnerDescription(newDescription);
+                }
+            };
+
+            useResizeObserver(contentRef, truncateContent);
+
+            useEffect(() => {
+                truncateContent();
+            }, [title, description, iconPlacement]);
+
             return (
                 <Root
                     className={cx(
@@ -203,12 +297,29 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
                         onDrop={handleDrop}
                         onClick={handleClick}
                     />
-                    <Content>
-                        <TitleWrapper className={cx(iconPlacement === 'top' && classes.verticalContentPlacing)}>
-                            {icon || <IconArrowBarDown color="inherit" size="s" />}
-                            {title && <Title>{title}</Title>}
-                        </TitleWrapper>
-                        {description && <Description>{description}</Description>}
+                    <Content ref={contentRef}>
+                        <IconWrapper
+                            ref={iconWrapperRef}
+                            className={cx(iconPlacement === 'top' && classes.verticalContentPlacing)}
+                        >
+                            <StyledIcon ref={iconRef}>
+                                {icon || <IconArrowBarDown color="inherit" size="s" />}
+                            </StyledIcon>
+                            <ContentWrapper ref={contentWrapperRef}>
+                                {title && (
+                                    <>
+                                        <Title ref={titleRef}>{innerTitle}</Title>
+                                        <TitleHelper ref={titleHelperRef}>C</TitleHelper>
+                                    </>
+                                )}
+                                {description && (
+                                    <>
+                                        <Description ref={descriptionRef}>{innerDescription}</Description>
+                                        <DescriptionHelper ref={descriptionHelperRef}>C</DescriptionHelper>
+                                    </>
+                                )}
+                            </ContentWrapper>
+                        </IconWrapper>
                     </Content>
                     <HiddenInput
                         ref={forkInputRef}

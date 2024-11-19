@@ -40,18 +40,21 @@ export const Default: StoryObj<StoryPropsDefault> = {
         iconPlacement: 'top',
         width: 400,
         height: 280,
+        stretch: false,
         disabled: false,
         title: 'Click to upload',
         description: 'or drag and drop files here',
     },
     render: (args) => (
-        <Dropzone
-            {...args}
-            onDragEnter={onDragEnter}
-            onDragLeave={onDragLeave}
-            onDrop={onDrop}
-            onChange={onChange}
-            onChoseFiles={onChoseFiles}
-        />
+        <div style={{ height: '100vh' }}>
+            <Dropzone
+                {...args}
+                onDragEnter={onDragEnter}
+                onDragLeave={onDragLeave}
+                onDrop={onDrop}
+                onChange={onChange}
+                onChoseFiles={onChoseFiles}
+            />
+        </div>
     ),
 };
