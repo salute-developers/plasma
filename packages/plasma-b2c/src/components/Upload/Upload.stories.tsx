@@ -7,7 +7,7 @@ import { Upload, ValidationResult } from '.';
 import type { UploadProps } from '.';
 
 const meta: Meta<UploadProps> = {
-    title: 'Controls/Upload',
+    title: 'Data Entry/Upload',
     component: Upload,
     argTypes: {
         content: {
