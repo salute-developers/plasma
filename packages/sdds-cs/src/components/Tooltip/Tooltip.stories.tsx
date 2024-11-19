@@ -30,7 +30,7 @@ const placements: Array<string> = [
 ];
 
 const meta: Meta<TooltipProps> = {
-    title: 'Controls/Tooltip',
+    title: 'Overlay/Tooltip',
     decorators: [InSpacingDecorator],
     component: Tooltip,
 };

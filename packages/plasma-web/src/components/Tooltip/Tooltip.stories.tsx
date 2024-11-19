@@ -32,7 +32,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<TooltipProps> = {
-    title: 'Controls/Tooltip',
+    title: 'Overlay/Tooltip',
     decorators: [InSpacingDecorator],
     component: Tooltip,
 };
