@@ -16,7 +16,7 @@ const scaleAligns = ['side', 'bottom'];
 const orientations: Array<string> = ['vertical', 'horizontal'];
 
 const meta: Meta<typeof Slider> = {
-    title: 'Controls/Slider',
+    title: 'Data Entry/Slider',
     component: Slider,
     decorators: [InSpacingDecorator],
     argTypes: {
