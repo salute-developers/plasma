@@ -43,12 +43,12 @@ module.exports = {
             },
             items: [
                 {
-                    href: `https://plasma.sberdevices.ru${PREFIX}/ui/`,
+                    href: `https://plasma.sberdevices.ru${VERSION_NAME || PREFIX}/ui/`,
                     position: 'left',
                     label: 'UI',
                 },
                 {
-                    href: `https://plasma.sberdevices.ru${PREFIX}/web/`,
+                    href: `https://plasma.sberdevices.ru${VERSION_NAME || PREFIX}/web/`,
                     position: 'left',
                     label: 'WEB',
                 },
@@ -84,11 +84,11 @@ module.exports = {
                     items: [
                         {
                             label: 'Plasma UI',
-                            to: `https://plasma.sberdevices.ru${PREFIX}/ui/`,
+                            to: `https://plasma.sberdevices.ru${VERSION_NAME || PREFIX}/ui/`,
                         },
                         {
                             label: 'Plasma WEB',
-                            to: `https://plasma.sberdevices.ru${PREFIX}/web/`,
+                            to: `https://plasma.sberdevices.ru${VERSION_NAME || PREFIX}/web/`,
                         },
                         {
                             label: 'Plasma B2C',
