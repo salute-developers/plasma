@@ -13,7 +13,7 @@ import { ModalBase, modalBaseClasses } from '.';
 import type { ModalBaseProps } from '.';
 
 const meta: Meta<ModalBaseProps> = {
-    title: 'Controls/ModalBase',
+    title: 'Overlay/ModalBase',
     component: ModalBase,
     decorators: [InSpacingDecorator],
     parameters: {
