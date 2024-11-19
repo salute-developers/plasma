@@ -1,15 +1,4 @@
 {
     "PACKAGES_CYPRESS": ["plasma-web", "plasma-b2c", "plasma-ui"],
-    "PACKAGES_DS": [
-        "plasma-web",
-        "plasma-b2c",
-        "plasma-ui",
-        "plasma-new-hope",
-        "plasma-asdk",
-        "sdds-serv",
-        "sdds-dfa",
-        "sdds-cs",
-        "sdds-finportal",
-        "sdds-insol"
-    ]
+    "PACKAGES_DS": ["sdds-serv"]
 }

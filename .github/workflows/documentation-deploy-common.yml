@@ -1,4 +1,4 @@
-name: Deploy documentations artefacts common workflow (PROD,DEMO STAGE)
+name: Deploy documentations artefacts common workflow (PROD,DEV SUBDIR)
 
 on:
     workflow_call:
@@ -11,6 +11,10 @@ on:
                 type: string
                 description: "Manual set repo ref"
                 default: 'dev'
+            docusaurusURLPrefix:
+                type: string
+                description: "prefix for docusaurus URL, example 'plasma.sberdevices.ru/dev/sdds-serv/'"
+                default: ''
 jobs:
     state:
         name: Computed state
@@ -84,6 +88,8 @@ jobs:
     deploy-artifacts:
         name: Deploy artifacts
         needs: [ state, deploy-website ]
+        env:
+            PREFIX: ${{ inputs.docusaurusURLPrefix }}
         runs-on: ubuntu-22.04
         strategy:
             fail-fast: false

@@ -13,9 +13,13 @@ const pckgJson = require('./package.json');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const versionsArchived = require('./versionsArchived.json');
 
-const { PR_NAME, VERSION_NAME } = process.env;
-const prefix = VERSION_NAME || !PR_NAME ? '' : `/pr/${PR_NAME}`;
-const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : `${prefix}/b2c/`;
+// const { PR_NAME, VERSION_NAME } = process.env;
+// const prefix = VERSION_NAME || !PR_NAME ? '' : `/pr/${PR_NAME}`;
+// const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : `${prefix}/b2c/`;
+
+const { VERSION_NAME, PREFIX = '' } = process.env;
+const defaultUrl = PREFIX ? `/${PREFIX}/b2c/` : '/b2c/';
+const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -39,12 +43,12 @@ module.exports = {
             },
             items: [
                 {
-                    href: `https://plasma.sberdevices.ru${prefix}/ui/`,
+                    href: `https://plasma.sberdevices.ru${PREFIX}/ui/`,
                     position: 'left',
                     label: 'UI',
                 },
                 {
-                    href: `https://plasma.sberdevices.ru${prefix}/web/`,
+                    href: `https://plasma.sberdevices.ru${PREFIX}/web/`,
                     position: 'left',
                     label: 'WEB',
                 },
@@ -80,11 +84,11 @@ module.exports = {
                     items: [
                         {
                             label: 'Plasma UI',
-                            to: `https://plasma.sberdevices.ru${prefix}/ui/`,
+                            to: `https://plasma.sberdevices.ru${PREFIX}/ui/`,
                         },
                         {
                             label: 'Plasma WEB',
-                            to: `https://plasma.sberdevices.ru${prefix}/web/`,
+                            to: `https://plasma.sberdevices.ru${PREFIX}/web/`,
                         },
                         {
                             label: 'Plasma B2C',
