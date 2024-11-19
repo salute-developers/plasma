@@ -10,7 +10,7 @@ import { Popup, popupClasses, PopupProvider } from '.';
 import type { PopupProps } from '.';
 
 const meta: Meta<PopupProps> = {
-    title: 'Controls/Popup',
+    title: 'Overlay/Popup',
     component: Popup,
     decorators: [InSpacingDecorator],
     parameters: {
