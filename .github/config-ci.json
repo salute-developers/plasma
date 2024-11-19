@@ -1,4 +1,4 @@
 {
     "PACKAGES_CYPRESS": ["plasma-web", "plasma-b2c", "plasma-ui"],
-    "PACKAGES_DS": ["sdds-serv"]
+    "PACKAGES_DS": ["plasma-b2c", "sdds-serv"]
 }
