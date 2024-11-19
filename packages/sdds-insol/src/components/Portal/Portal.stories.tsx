@@ -10,7 +10,7 @@ import { BodyM } from '../Typography';
 import { Portal } from '.';
 
 const meta: Meta<typeof Portal> = {
-    title: 'Controls/Portal',
+    title: 'Data Entry/Portal',
     decorators: [InSpacingDecorator],
     args: {
         disabled: false,
