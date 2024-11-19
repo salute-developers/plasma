@@ -1,4 +1,4 @@
-import type { TextFieldPrimitiveValue } from '../../TextField.types';
+import type { TextFieldPrimitiveValue, TextFieldProps } from '../../TextField.types';
 
 export interface TextFieldChipProps {
     /**
@@ -33,4 +33,8 @@ export interface TextFieldChipProps {
      * Обработчик нажатия клавиши.
      */
     onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>, chipId: string) => void;
+    /**
+     * Внешний вид chip.
+     */
+    chipType?: TextFieldProps['chipType'];
 }

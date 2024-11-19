@@ -159,6 +159,10 @@ const meta: Meta<TextFieldProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        chipType: {
+            control: 'select',
+            options: ['default', 'text'],
+        },
         ...disableProps(propsToDisable),
     },
 };
@@ -254,6 +258,11 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hintWidth: '10rem',
         hintHasArrow: true,
     },
+    parameters: {
+        controls: {
+            exclude: ['chipType'],
+        },
+    },
     render: (args) => <StoryDemo {...args} />,
 };
 
@@ -262,6 +271,7 @@ export const Chips: StoryObj<StoryPropsDefault> = {
         ...Default.args,
         enumerationType: 'chip',
         chips: ['1 value', '2 value', '3 value', '4 value'],
+        chipType: 'default',
     },
     render: (args) => <StoryDemo {...args} />,
 };

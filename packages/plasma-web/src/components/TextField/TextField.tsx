@@ -123,7 +123,7 @@ type HintProps =
 type TextFieldProps = TextFieldPropsOld & RequiredProps & ClearProps & HintProps;
 
 export type CustomTextFieldProps = TextFieldProps &
-    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips' | 'titleCaption'>;
+    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption'>;
 
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {
     success: 'positive',
@@ -155,6 +155,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         chips,
         onSearch,
         onChangeChips,
+        chipType,
 
         size = 'l',
 
@@ -190,6 +191,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
                 chips={chips}
                 hintText={String(hintText || '')}
                 onChangeChips={onChangeChips}
+                chipType={chipType}
             />
         );
     }
