@@ -19,6 +19,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
         (
             {
                 value: outerValue,
+                defaultValue,
                 onChange,
                 suggestions,
                 view,
@@ -112,6 +113,12 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
             useDidMountEffect(() => {
                 dispatchFocused({ type: 'reset' });
             }, [value]);
+
+            useDidMountEffect(() => {
+                if (defaultValue) {
+                    setInnerValue(defaultValue);
+                }
+            }, [defaultValue]);
 
             return (
                 <Root view={view} size={size} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
