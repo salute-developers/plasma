@@ -10,7 +10,7 @@ import { Editable } from '.';
 const iconSizes = ['s', 'xs'] as const;
 
 const meta: Meta<typeof Editable> = {
-    title: 'Controls/Editable',
+    title: 'Data Entry/Editable',
     decorators: [InSpacingDecorator],
     component: Editable,
     argTypes: {
