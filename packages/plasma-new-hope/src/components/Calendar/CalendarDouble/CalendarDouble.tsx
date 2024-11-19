@@ -60,7 +60,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             const [prevValue, setPrevValue] = useState(value);
             const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
 
-            const [state, dispatch] = useReducer(reducer, getInitialState(value, type, true));
+            const [state, dispatch] = useReducer(reducer, getInitialState(value, min, type, true));
 
             const { date, calendarState, startYear, size } = state;
 
