@@ -42,7 +42,7 @@ export const InputLabelWrapper = styled.div`
 export const StyledChips = styled.div`
     display: flex;
     gap: var(${tokens.chipGap});
-    margin-right: var(${tokens.chipGap});
+    margin-right: var(${tokens.chipMarginRight}, var(${tokens.chipGap}));
     user-select: none;
 `;
 
@@ -178,7 +178,9 @@ export const StyledIndicator = styled.div`
             inset: var(${tokens.indicatorLabelPlacementOuterRight});
 
             &.${classes.hasHint} {
-                right: calc(-1 * var(${tokens.indicatorSizeOuter}));
+                right: calc(
+                    -1 * var(${tokens.indicatorSizeOuter}) + var(${tokens.indicatorLabelPlacementHintOuterRight}, 0px)
+                );
             }
         }
     }
