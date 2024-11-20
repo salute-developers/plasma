@@ -3,6 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import styled from 'styled-components';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconBellFill } from '@salutejs/plasma-icons';
 
@@ -14,7 +15,7 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
@@ -191,18 +192,36 @@ type StoryPropsDefault = Omit<
     enableContentRight: boolean;
 };
 
+const StyledIconBellFill = styled(IconBellFill)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+        `}
+`;
+
 const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const iconSize = rest.size === 'xs' || rest.size === 's' ? 'xs' : 's';
+    const iconCustomSize = rest.size === 'm' ? '1.25rem' : undefined;
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
             <TextField
                 {...rest}
                 value={text}
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                contentLeft={
+                    enableContentLeft ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
+                contentRight={
+                    enableContentRight ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -217,8 +236,16 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
                 {...rest}
                 label="Uncontrolled TextField"
                 defaultValue="Дефолтное значение"
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                contentLeft={
+                    enableContentLeft ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
+                contentRight={
+                    enableContentRight ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -296,10 +323,11 @@ type StoryPropsChips = Omit<
     enableContentRight: boolean;
 };
 
-const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsChips) => {
-    const [text, setText] = useState('Значение поля');
+const StoryChips = ({ enableContentRight, view, ...rest }: StoryPropsChips) => {
+    const [text, setText] = useState('');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const iconSize = rest.size === 'xs' || rest.size === 's' ? 'xs' : 's';
+    const iconCustomSize = rest.size === 'm' ? '1.25rem' : undefined;
 
     const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 
@@ -309,8 +337,11 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             style={{ width: '70%', margin: '0 auto' }}
             enumerationType="chip"
             value={text}
-            contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+            contentRight={
+                enableContentRight ? (
+                    <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                ) : undefined
+            }
             view={view}
             onChange={(e) => {
                 setText(e.target.value);
