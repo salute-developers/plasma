@@ -3,21 +3,32 @@ import { action } from '@storybook/addon-actions';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
-import { chipConfig } from '../../../../components/Chip';
-import { mergeConfig } from '../../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../../_helpers';
+import { WithTheme } from '../../../_helpers';
 
-import { config } from './Chip.config';
 import { Chip } from './Chip';
 
 const onClear = action('onClear');
+
+const views = ['default', 'accent', 'secondary', 'positive', 'warning', 'negative'];
+const sizes = ['l', 'm', 's', 'xs'];
 
 const meta: Meta<typeof Chip> = {
     title: 'plasma_b2c/Chip',
     decorators: [WithTheme],
     component: Chip,
     argTypes: {
-        ...argTypesFromConfig(mergeConfig(chipConfig, config)),
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
         ...disableProps(['readOnly', 'onClear', 'contentLeft']),
     },
 };
