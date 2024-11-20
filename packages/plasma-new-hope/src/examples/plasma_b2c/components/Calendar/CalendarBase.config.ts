@@ -27,6 +27,7 @@ export const config = {
                 ${calendarBaseTokens.calendarContentSecondaryColor}: var(--text-secondary);
                 ${calendarBaseTokens.calendarHeaderArrowColor}: ${calendarBaseTokens.calendarContentPrimaryColor};
                 ${calendarBaseTokens.calendarDayOfWeekColor}: var(--text-secondary);
+                ${calendarBaseTokens.calendarDisabledOpacity}: 0.4;
 
                 ${calendarBaseTokens.iconButtonColor}: var(--text-primary);
                 ${calendarBaseTokens.iconButtonBackgroundColor}: var(--surface-clear);

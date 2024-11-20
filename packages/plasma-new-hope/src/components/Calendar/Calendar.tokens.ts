@@ -143,4 +143,5 @@ export const tokens = {
     calendarOutlineFocusColor: '--plasma-calendar-outline-focus-color',
     calendarContentPrimaryColor: '--plasma-calendar-content-primary-color',
     calendarContentSecondaryColor: '--plasma-calendar-content-secondary-color',
+    calendarDisabledOpacity: '--plasma-calendar-disabled-opacity',
 };
