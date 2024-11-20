@@ -120,10 +120,29 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${buttonTokens.buttonHeight}: 4rem;
+                ${buttonTokens.buttonWidth}: 12.5rem;
+                ${buttonTokens.buttonPadding}: 1.75rem;
+                ${buttonTokens.buttonRadius}: 1rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 1.5rem;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
+
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.375rem;
+            `,
             l: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
-                ${buttonTokens.buttonPadding}: 1.5rem;
+                ${buttonTokens.buttonPadding}: 1.375rem;
                 ${buttonTokens.buttonRadius}: 0.875rem;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
@@ -135,9 +154,9 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.375rem;
             `,
             lr: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
@@ -171,8 +190,8 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
             mr: css`
@@ -207,8 +226,8 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
             sr: css`
@@ -243,9 +262,9 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.125rem;
             `,
             xsr: css`
                 ${buttonTokens.buttonHeight}: 2rem;
@@ -279,9 +298,9 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 0.75rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.375rem;
             `,
         },
         disabled: {

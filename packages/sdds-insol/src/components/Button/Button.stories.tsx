@@ -2,6 +2,7 @@ import React, { useCallback, useState, useRef } from 'react';
 import type { ComponentProps } from 'react';
 import { action } from '@storybook/addon-actions';
 import type { StoryObj, Meta } from '@storybook/react';
+import styled from 'styled-components';
 import { IconMic } from '@salutejs/plasma-icons';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
@@ -12,7 +13,7 @@ import type { ButtonProps as Base } from '.';
 type ButtonProps = ComponentProps<Base>;
 
 const views = ['default', 'accent', 'accent-gradient', 'success', 'warning', 'critical', 'dark', 'light'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -108,13 +109,31 @@ type StoryPropsDefault = ComponentProps<typeof Button> & {
     enableContentRight: boolean;
 };
 
+const StyledIconMic = styled(IconMic)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+        `}
+`;
+
 const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
     const iconSize = size === 's' || size === 'xs' || size === 'xxs' ? 'xs' : 's';
+    const iconCustomSize = size === 'm' ? '1.25rem' : undefined;
 
     return (
         <Button
-            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentLeft={
+                enableContentLeft ? (
+                    <StyledIconMic customSize={iconCustomSize} size={iconSize} color="inherit" />
+                ) : undefined
+            }
+            contentRight={
+                enableContentRight ? (
+                    <StyledIconMic customSize={iconCustomSize} size={iconSize} color="inherit" />
+                ) : undefined
+            }
             size={size}
             onClick={onClick}
             onFocus={onFocus}
@@ -156,6 +175,7 @@ const StoryLoading = ({
     const intervalId = useRef<number | undefined>();
 
     const iconSize = size === 's' || size === 'xs' || size === 'xxs' ? 'xs' : 's';
+    const iconCustomSize = size === 'm' ? '1.25rem' : undefined;
 
     const onClickHandle = useCallback(
         (event) => {
@@ -184,8 +204,16 @@ const StoryLoading = ({
         <Button
             autoFocus
             onClick={onClickHandle}
-            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentLeft={
+                enableContentLeft ? (
+                    <StyledIconMic customSize={iconCustomSize} size={iconSize} color="inherit" />
+                ) : undefined
+            }
+            contentRight={
+                enableContentRight ? (
+                    <StyledIconMic customSize={iconCustomSize} size={iconSize} color="inherit" />
+                ) : undefined
+            }
             isLoading={loading}
             size={size}
             loader={<div>Loading - {count}</div>}
