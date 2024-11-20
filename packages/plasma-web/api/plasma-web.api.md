@@ -1933,7 +1933,7 @@ multiple?: boolean | undefined;
 title?: string | undefined;
 description?: string | undefined;
 icon?: ReactNode;
-iconPlacement?: "left" | "top" | undefined;
+iconPlacement?: "top" | "left" | undefined;
 size?: string | undefined;
 view?: string | undefined;
 disabled?: boolean | undefined;
