@@ -5,7 +5,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Chip } from '.';
 
-const views = ['default', 'secondary', 'positive', 'accent'];
+const views = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const sizes = ['l', 'm', 's', 'xs'];
 
 const onClear = action('onClear');
