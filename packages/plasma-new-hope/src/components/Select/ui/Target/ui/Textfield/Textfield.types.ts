@@ -25,4 +25,5 @@ export type TextfieldProps = Pick<
     | 'labelToItemMap'
     | 'chipView'
     | 'requiredProps'
+    | 'chipType'
 >;

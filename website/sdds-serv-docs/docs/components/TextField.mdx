@@ -188,7 +188,7 @@ export function App() {
 ```
 
 ### Режим ввода
-С помощью свойства `enumerationType` можно вводить элементы как теги.
+С помощью свойства `enumerationType` можно вводить элементы как теги. Свойство `chipType` изменяет внешний вид чипа.
 По нажатию Enter, после ввода нужного текста, он преобразуется в Chip:
 
 ```tsx live
@@ -205,6 +205,16 @@ export function App() {
                 enumerationType="chip"
                 helperText="Подсказка снизу"
                 chips={["Значение 1"]}
+            />
+
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                enumerationType="chip"
+                helperText="Подсказка снизу"
+                chips={["Значение 1"]}
+                chipType="text"
             />
         </div>
     );

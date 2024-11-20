@@ -630,6 +630,27 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: chipType', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '100%' }}>
+                    <Select
+                        chipType="text"
+                        multiselect
+                        value={['berlin', 'rome', 'madrid']}
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: contentLeft', () => {
         cy.viewport(1000, 1000);
 

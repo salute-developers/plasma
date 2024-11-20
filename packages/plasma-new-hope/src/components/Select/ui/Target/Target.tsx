@@ -92,6 +92,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 labelToItemMap={labelToItemMap}
                 chipView={chipView}
                 requiredProps={requiredProps}
+                chipType={selectProps.chipType}
             />
         );
     },

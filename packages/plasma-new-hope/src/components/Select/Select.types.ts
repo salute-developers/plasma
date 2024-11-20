@@ -41,6 +41,10 @@ type Target =
            * Вспомогательный текст снизу слева для поля ввода.
            */
           helperText?: string;
+          /**
+           * Внешний вид chip.
+           */
+          chipType?: 'default' | 'text';
       })
     | {
           target: 'button-like';
@@ -59,6 +63,7 @@ type Target =
           labelPlacement?: never;
           placeholder?: never;
           helperText?: never;
+          chipType?: never;
       };
 
 type IsMultiselect<K extends ItemOption> =
