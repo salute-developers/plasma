@@ -103,6 +103,11 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        chipType: {
+            control: 'select',
+            options: ['default', 'text'],
+            if: { arg: 'target', eq: 'textfield-like' },
+        },
     },
     args: {
         target: 'textfield-like',
@@ -120,6 +125,7 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        chipType: 'default',
     },
     parameters: {
         controls: {
@@ -143,6 +149,7 @@ const meta: Meta<StorySelectProps> = {
                 'optional',
                 'required',
                 'requiredPlacement',
+                'chipType',
             ],
         },
     },
@@ -381,7 +388,7 @@ const SingleStory = (args: StorySelectProps) => {
 export const Single: StoryObj<StorySelectProps> = {
     parameters: {
         controls: {
-            exclude: ['chipView', 'isTargetAmount'],
+            exclude: ['chipView', 'isTargetAmount', 'chipType'],
         },
     },
     render: (args) => <SingleStory {...args} />,

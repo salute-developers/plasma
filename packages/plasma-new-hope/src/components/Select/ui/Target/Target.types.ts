@@ -17,6 +17,7 @@ export type TargetProps = Pick<
     | 'helperText'
     | 'isTargetAmount'
     | 'chipView'
+    | 'chipType'
 > & {
     value: DefaultValueType;
     opened: boolean;

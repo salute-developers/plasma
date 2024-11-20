@@ -32,6 +32,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             labelToItemMap,
             chipView,
             requiredProps,
+            chipType,
         },
         ref,
     ) => {
@@ -111,6 +112,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                           enumerationType: 'chip',
                           chips: getChips(),
                           onChangeChips: handleChipsChange,
+                          chipType,
                       }
                     : { enumerationType: 'plain' })}
                 onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield

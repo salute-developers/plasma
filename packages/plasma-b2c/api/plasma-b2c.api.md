@@ -702,7 +702,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -737,7 +737,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -772,7 +772,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -807,7 +807,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -842,7 +842,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -877,7 +877,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -912,7 +912,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -947,7 +947,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -982,7 +982,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -1017,7 +1017,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -1052,7 +1052,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -1087,7 +1087,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -1122,7 +1122,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -1157,7 +1157,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -1192,7 +1192,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
@@ -1227,7 +1227,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chips" | "chipType" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {

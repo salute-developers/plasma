@@ -75,7 +75,7 @@ export function App() {
 ```
 
 ### Статус поля
-Статус поля задается с помощью свойства `status`. 
+Статус поля задается с помощью свойства `status`.
 Возможные значения свойства: `success`, `warning` и `error`.
 На отображение TextField так же влияют свойства `clear` и `hasDivider`:
 
@@ -164,7 +164,7 @@ export function App() {
 ```
 
 ### Режим ввода
-С помощью свойства `enumerationType` можно вводить элементы как теги.
+С помощью свойства `enumerationType` можно вводить элементы как теги. Свойство `chipType` изменяет внешний вид чипа.
 По нажатию Enter, после ввода нужного текста, он преобразуется в Chip:
 
 ```tsx live
@@ -181,6 +181,16 @@ export function App() {
                 enumerationType="chip"
                 helperText="Подсказка снизу"
                 chips={["Значение 1"]}
+            />
+
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                enumerationType="chip"
+                helperText="Подсказка снизу"
+                chips={["Значение 1"]}
+                chipType="text"
             />
         </div>
     );
