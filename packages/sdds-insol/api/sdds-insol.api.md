@@ -3310,6 +3310,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
@@ -3352,6 +3353,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
@@ -3394,6 +3396,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
@@ -3436,6 +3439,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
@@ -3478,6 +3482,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
@@ -3520,6 +3525,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
@@ -3562,6 +3568,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
@@ -3604,6 +3611,7 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
