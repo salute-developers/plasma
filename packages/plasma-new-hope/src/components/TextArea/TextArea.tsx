@@ -24,6 +24,7 @@ import {
     StyledIndicatorWrapper,
     StyledHintWrapper,
     TitleCaption,
+    StyledOutsideHelpersWrapper,
 } from './TextArea.styles';
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
@@ -103,6 +104,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             resize,
             rightHelper,
             leftHelper,
+            leftHelperPlacement = 'inner',
             contentRight,
             autoResize = false,
             minAuto = 0,
@@ -156,8 +158,12 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const hintInnerRef = useRef<HTMLDivElement>(null);
         const hintForkRef = useForkRef(hintRef, hintInnerRef);
 
+        const isInnerLeftHelperPlacement = leftHelperPlacement === 'inner';
+        const leftHelperText = leftHelper || helperText;
         const innerOptional = required ? false : optional;
-        const hasHelper = Boolean(leftHelper || rightHelper || helperText);
+        const hasLeftHelper = Boolean(leftHelper || helperText);
+        const hasRightHelper = Boolean(rightHelper);
+        const hasHelper = !isInnerLeftHelperPlacement ? hasRightHelper : hasLeftHelper || hasRightHelper;
         const hasOuterLabel = Boolean(label && labelPlacement === 'outer');
         const hasInnerLabel = Boolean(label && labelPlacement === 'inner' && size !== 'xs');
         const hasPlaceholderOptional = innerOptional && !hasOuterLabel;
@@ -332,7 +338,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         </>
                     )}
                     {contentRight && <StyledContent>{contentRight}</StyledContent>}
-                    <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
+                    <StyledTextAreaWrapper className={cx(styledTextAreaWrapper)} hasHelper={hasHelper}>
                         <StyledTextArea
                             className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
@@ -357,7 +363,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     </StyledTextAreaWrapper>
                     {hasHelper && (
                         <StyledHelpers className={styledHelpers} id={textareaHelperId}>
-                            {(leftHelper || helperText) && (
+                            {isInnerLeftHelperPlacement && (leftHelper || helperText) && (
                                 <StyledLeftHelper>{leftHelper || helperText}</StyledLeftHelper>
                             )}
                             {rightHelper && <StyledRightHelper>{rightHelper}</StyledRightHelper>}
@@ -374,6 +380,11 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         </StyledPlaceholder>
                     )}
                 </StyledContainer>
+                {hasLeftHelper && !isInnerLeftHelperPlacement && (
+                    <StyledOutsideHelpersWrapper id={textareaHelperId}>
+                        <StyledLeftHelper>{leftHelperText}</StyledLeftHelper>
+                    </StyledOutsideHelpersWrapper>
+                )}
             </Root>
         );
     });

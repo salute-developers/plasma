@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
+import { disableProps, IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { textAreaConfig } from '../../../../components/TextArea';
 import { mergeConfig } from '../../../../engines';
@@ -82,7 +82,7 @@ const meta: Meta<StoryTextAreaProps> = {
         labelPlacement: {
             options: labelPlacements,
             control: {
-                type: 'select',
+                type: 'inline-radio',
             },
         },
         hasDivider: {
@@ -132,6 +132,7 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        ...disableProps(['leftHelperPlacement']),
     },
     args: {
         id: 'example-textarea',

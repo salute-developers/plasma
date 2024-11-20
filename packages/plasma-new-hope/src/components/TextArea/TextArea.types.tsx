@@ -197,6 +197,11 @@ export type TextAreaPropsBase = {
      * Вспомогательный текст снизу справа для поля ввода.
      */
     rightHelper?: string;
+    /**
+     * Расположение вспомогательного текста слева
+     * @default 'inner'
+     */
+    leftHelperPlacement?: 'inner' | 'outer';
 } & RequiredProps &
     HintProps;
 

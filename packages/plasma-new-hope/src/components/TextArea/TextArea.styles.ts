@@ -249,6 +249,14 @@ export const StyledHelpers = styled.div`
     border-bottom-right-radius: var(${tokens.borderRadius});
 `;
 
+export const StyledOutsideHelpersWrapper = styled.div`
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: var(${tokens.clearHelpersPaddingTop});
+`;
+
 export const StyledLeftHelper = styled.span`
     ${applyEllipsis()};
 

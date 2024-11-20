@@ -167,6 +167,7 @@ const meta: Meta<StoryTextAreaProps> = {
             'height',
             'width',
             'helperText',
+            'leftHelperPlacement',
         ]),
     },
     args: {
