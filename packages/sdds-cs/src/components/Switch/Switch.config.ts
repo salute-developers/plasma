@@ -29,21 +29,23 @@ export const config = {
         },
         toggleSize: {
             l: css`
-                ${switchTokens.trackWidth}: 2.75rem;
+                ${switchTokens.trackWidth}: 3rem;
                 ${switchTokens.trackHeight}: 1.75rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
-                ${switchTokens.thumbSize}: 1.5rem;
+                ${switchTokens.thumbSize}: 1.25rem;
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbOffsetOn}: 0.25rem;
+                ${switchTokens.thumbOffsetOff}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
             `,
             s: css`
                 ${switchTokens.trackWidth}: 2rem;
                 ${switchTokens.trackHeight}: 1.25rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
-                ${switchTokens.thumbSize}: 1rem;
+                ${switchTokens.thumbSize}: 0.75rem;
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbOffsetOn}: 0.25rem;
+                ${switchTokens.thumbOffsetOff}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
             `,
         },
@@ -53,11 +55,16 @@ export const config = {
                 ${switchTokens.descriptionColor}: var(--text-secondary);
                 ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
                 ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
-                ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-default);
-                ${switchTokens.trackBackgroundColorOffHover}: var(--surface-solid-default-hover);
-                ${switchTokens.trackBorderWidth}: 0rem;
-                ${switchTokens.thumbBackgroundColorOff}: var(--on-dark-surface-solid-default);
-                ${switchTokens.thumbBackgroundColorOn}: var(--on-dark-surface-solid-default);
+                ${switchTokens.trackBackgroundColorOff}: transparent;
+                ${switchTokens.trackBackgroundColorOffHover}: transparent;
+                ${switchTokens.trackBorderWidthOn}: 0;
+                ${switchTokens.trackBorderWidthOff}: 0.125rem;
+                ${switchTokens.trackBorderColorOn}: var(--outline-accent);
+                ${switchTokens.trackBorderColorOnHover}: var(--outline-accent-hover);
+                ${switchTokens.trackBorderColorOff}: var(--outline-solid-primary);
+                ${switchTokens.trackBorderColorOffHover}: var(--outline-solid-primary-hover);
+                ${switchTokens.thumbBackgroundColorOn}: var(--surface-solid-card);
+                ${switchTokens.thumbBackgroundColorOff}: var(--surface-accent);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },
