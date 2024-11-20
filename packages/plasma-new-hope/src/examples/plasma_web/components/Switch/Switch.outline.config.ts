@@ -68,7 +68,8 @@ export const config = {
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
                 ${switchTokens.thumbSize}: 1.375rem;
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbOffsetOn}: 0.125rem;
+                ${switchTokens.thumbOffsetOff}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
             `,
             s: css`
@@ -77,7 +78,8 @@ export const config = {
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
                 ${switchTokens.thumbSize}: 0.875rem;
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbOffsetOn}: 0.125rem;
+                ${switchTokens.thumbOffsetOff}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
             `,
         },
@@ -85,13 +87,14 @@ export const config = {
             default: css`
                 ${switchTokens.labelColor}: var(--text-primary);
                 ${switchTokens.descriptionColor}: var(--text-secondary);
-                ${switchTokens.trackBorderWidth}: 0.0625rem;
-                ${switchTokens.trackBorderColorOff}: var(--outline-secondary);
-                ${switchTokens.trackBorderColorOffHover}: var(--outline-secondary-hover);
+                ${switchTokens.trackBorderWidthOn}: 0.0625rem;
+                ${switchTokens.trackBorderWidthOff}: 0.0625rem;
                 ${switchTokens.trackBorderColorOn}: var(--outline-accent);
                 ${switchTokens.trackBorderColorOnHover}: var(--outline-accent-hover);
-                ${switchTokens.thumbBackgroundColorOff}: var(--text-tertiary);
+                ${switchTokens.trackBorderColorOff}: var(--outline-secondary);
+                ${switchTokens.trackBorderColorOffHover}: var(--outline-secondary-hover);
                 ${switchTokens.thumbBackgroundColorOn}: var(--text-accent);
+                ${switchTokens.thumbBackgroundColorOff}: var(--text-tertiary);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },
