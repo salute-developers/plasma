@@ -56,7 +56,7 @@ export const StyledItem = styled.div<{ offset: number }>`
 
 const disabledItem = () => `
     cursor: not-allowed;
-    opacity: 0.4;
+    opacity: var(${tokens.calendarDisabledOpacity});
 `;
 
 const disabledCurrentItem = () => `
