@@ -139,7 +139,7 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('Закрыть').click();
     });
 
-    it.only('placement: bottom-left', () => {
+    it('placement: bottom-left', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <NotificationsProvider placement="bottom-left">
@@ -345,6 +345,70 @@ describe('plasma-web: Notification', () => {
         );
         cy.get('button').contains('Открыть').click();
         cy.get('.notification-close-icon').click();
+        cy.get('.popup-base-root').should('not.exist');
+    });
+
+    it('timeouts', () => {
+        const fiveSecNotification = '5sec notification';
+        const infiniteNotification = 'Infinite notification';
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <NotificationsProvider>
+                    <Button
+                        text="5sec"
+                        onClick={() => {
+                            addNotification(
+                                {
+                                    id: '5sec',
+                                    title: fiveSecNotification,
+                                    layout: 'horizontal',
+                                },
+                                5000,
+                            );
+                        }}
+                    />
+                    <Button
+                        text="infinite"
+                        onClick={() => {
+                            addNotification(
+                                {
+                                    id: 'infinite',
+                                    title: infiniteNotification,
+                                    layout: 'horizontal',
+                                },
+                                null,
+                            );
+                        }}
+                    />
+                    <SpaceMe />
+                    <Button
+                        text="close infinite notification"
+                        onClick={() => {
+                            closeNotification('infinite');
+                        }}
+                    />
+                </NotificationsProvider>
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.clock();
+        cy.get('button').contains('5sec').click();
+        cy.contains(fiveSecNotification).should('be.visible');
+        cy.tick(6000);
+        cy.contains(fiveSecNotification).should('not.exist');
+
+        cy.get('button').contains('infinite').click();
+        cy.tick(6000);
+        cy.contains(infiniteNotification).should('be.visible');
+        cy.get('.notification-close-icon').click({ force: true });
+        cy.tick(500); // wait close animation
+        cy.get('.popup-base-root').should('not.exist');
+
+        cy.get('button').contains('infinite').click();
+        cy.tick(6000);
+        cy.contains(infiniteNotification).should('be.visible');
+        cy.get('button').contains('close infinite notification').click({ force: true });
+        cy.tick(500); // wait close animation
         cy.get('.popup-base-root').should('not.exist');
     });
 });
