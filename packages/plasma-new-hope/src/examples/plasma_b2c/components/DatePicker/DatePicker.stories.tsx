@@ -22,7 +22,7 @@ const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
 
 const meta: Meta = {
-    title: 'plasma_b2c/DatePicker',
+    title: 'b2c/Data Entry/DatePicker',
     decorators: [WithTheme],
     argTypes: {
         view: {

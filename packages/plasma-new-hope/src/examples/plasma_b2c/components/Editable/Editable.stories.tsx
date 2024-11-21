@@ -11,7 +11,7 @@ import { Editable, typographyVariants } from './Editable';
 const iconSizes = ['s', 'xs'] as const;
 
 const meta: Meta<typeof Editable> = {
-    title: 'plasma_b2c/Editable',
+    title: 'b2c/Data Entry/Editable',
     decorators: [WithTheme],
     component: Editable,
     argTypes: {

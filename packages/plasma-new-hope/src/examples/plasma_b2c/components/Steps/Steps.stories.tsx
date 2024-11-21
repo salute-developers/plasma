@@ -10,7 +10,7 @@ import { StepItemProps } from '../../../../components/Steps/ui';
 import { Steps, mergedConfig } from './Steps';
 
 const meta: Meta<typeof Steps> = {
-    title: 'plasma_b2c/Steps',
+    title: 'b2c/Navigation/Steps',
     decorators: [WithTheme],
     component: Steps,
     argTypes: {

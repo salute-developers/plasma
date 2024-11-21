@@ -13,7 +13,7 @@ const views = ['default', 'accent', 'secondary', 'positive', 'warning', 'negativ
 const sizes = ['l', 'm', 's', 'xs'];
 
 const meta: Meta<typeof Chip> = {
-    title: 'plasma_web/Chip',
+    title: 'web/Data Display/Chip',
     decorators: [WithTheme],
     component: Chip,
     argTypes: {

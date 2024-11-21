@@ -7,7 +7,7 @@ import { WithTheme } from '../../../_helpers';
 import { Col, Grid, Row } from './Grid';
 
 const meta: Meta = {
-    title: 'plasma_b2c/Grid',
+    title: 'b2c/Layout/Grid',
     decorators: [WithTheme],
 };
 

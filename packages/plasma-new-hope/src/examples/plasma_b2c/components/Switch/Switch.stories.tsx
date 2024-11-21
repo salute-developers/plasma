@@ -14,7 +14,7 @@ import { Switch, SwitchOutline } from './Switch';
 type SwitchProps = ComponentProps<typeof Switch>;
 
 const meta: Meta<SwitchProps> = {
-    title: 'plasma_b2c/Switch',
+    title: 'b2c/Data Entry/Switch',
     decorators: [WithTheme],
     component: Switch,
     argTypes: {

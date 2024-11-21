@@ -9,7 +9,7 @@ import { Button } from './Button';
 import { config } from './Button.config';
 
 const meta: Meta<typeof Button> = {
-    title: 'typography/Old/Button',
+    title: 'Data Display/Typography/Old/Button',
     decorators: [WithTheme],
     component: Button,
     argTypes: {

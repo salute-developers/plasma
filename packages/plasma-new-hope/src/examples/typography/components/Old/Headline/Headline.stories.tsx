@@ -9,7 +9,7 @@ import { Headline } from './Headline';
 import { config } from './Headline.config';
 
 const meta: Meta<typeof Headline> = {
-    title: 'typography/Old/Headline',
+    title: 'Data Display/Typography/Old/Headline',
     decorators: [WithTheme],
     component: Headline,
     argTypes: {

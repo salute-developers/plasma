@@ -9,7 +9,7 @@ const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
 
 const meta: Meta<typeof Counter> = {
-    title: 'plasma_web/Counter',
+    title: 'web/Data Display/Counter',
     component: Counter,
     decorators: [WithTheme],
     argTypes: {

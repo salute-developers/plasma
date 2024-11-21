@@ -10,7 +10,7 @@ import { ViewContainer } from './ViewContainer';
 type StoryViewProps = ComponentProps<typeof ViewContainer>;
 
 const meta: Meta<StoryViewProps> = {
-    title: 'plasma_b2c/ViewContainer',
+    title: 'b2c/Data Display/ViewContainer',
 };
 
 export default meta;

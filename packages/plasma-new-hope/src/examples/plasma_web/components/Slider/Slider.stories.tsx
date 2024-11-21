@@ -18,7 +18,7 @@ const scaleAligns = ['side', 'bottom'];
 const orientations: Array<string> = ['vertical', 'horizontal'];
 
 const meta: Meta<typeof Slider> = {
-    title: 'plasma_web/Slider',
+    title: 'web/Data Entry/Slider',
     component: Slider,
     decorators: [WithTheme],
     argTypes: {

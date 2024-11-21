@@ -23,7 +23,7 @@ const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 
 const meta: Meta<typeof Range> = {
-    title: 'plasma_b2c/Range',
+    title: 'b2c/Data Entry/Range',
     component: Range,
     decorators: [WithTheme],
     argTypes: {

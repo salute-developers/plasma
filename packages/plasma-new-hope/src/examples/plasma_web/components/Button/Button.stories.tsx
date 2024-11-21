@@ -24,7 +24,7 @@ const pinValues = [
 const contentPlacinValues = ['default', 'relaxed'];
 
 const meta: Meta<typeof Button> = {
-    title: 'plasma_web/Button',
+    title: 'web/Data Entry/Button',
     decorators: [WithTheme],
     component: Button,
     args: {

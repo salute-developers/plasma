@@ -33,7 +33,7 @@ const getSize = (size: SizesCell): SizesAvatar => {
 };
 
 const meta: Meta<typeof Cell> = {
-    title: 'plasma_b2c/Cell',
+    title: 'b2c/Data Display/Cell',
     decorators: [WithTheme],
     argTypes: {
         size: {
