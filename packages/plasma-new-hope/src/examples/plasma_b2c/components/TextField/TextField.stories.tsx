@@ -43,7 +43,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<typeof TextField> = {
-    title: 'plasma_b2c/TextField',
+    title: 'b2c/Data Entry/TextField',
     component: TextField,
     decorators: [WithTheme],
     argTypes: {

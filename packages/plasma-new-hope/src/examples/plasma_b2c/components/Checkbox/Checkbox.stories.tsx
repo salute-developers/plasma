@@ -16,7 +16,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<typeof Checkbox> = {
-    title: 'plasma_b2c/Checkbox',
+    title: 'b2c/Data Entry/Checkbox',
     decorators: [WithTheme],
     component: Checkbox,
     argTypes: argTypesFromConfig(mergeConfig(checkboxConfig, config)),

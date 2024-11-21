@@ -9,7 +9,7 @@ import { Footnote } from './Footnote';
 import { config } from './Footnote.config';
 
 const meta: Meta<typeof Footnote> = {
-    title: 'typography/Old/Footnote',
+    title: 'Data Display/Typography/Old/Footnote',
     decorators: [WithTheme],
     component: Footnote,
     argTypes: {

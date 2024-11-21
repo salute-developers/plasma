@@ -9,7 +9,7 @@ import { Body } from '../../../typography/components/Body/Body';
 import { Portal } from '../../../../components/Portal';
 
 const meta: Meta<typeof Portal> = {
-    title: 'plasma_web/Portal',
+    title: 'web/Data Entry/Portal',
     decorators: [WithTheme],
     args: {
         disabled: false,

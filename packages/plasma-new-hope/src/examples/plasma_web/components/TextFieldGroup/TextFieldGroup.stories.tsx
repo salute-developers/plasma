@@ -23,7 +23,7 @@ const shapeValues = ['segmented', 'default'];
 const stretchingValues = ['auto', 'filled'];
 
 const meta: Meta<typeof TextFieldGroup> = {
-    title: 'plasma_web/TextFieldGroup',
+    title: 'web/Data Entry/TextFieldGroup',
     decorators: [WithTheme],
     argTypes: {
         size: {

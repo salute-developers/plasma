@@ -9,7 +9,7 @@ import { Price } from './Price';
 const currencies = ['rub', 'usd', 'eur', 'inr'];
 
 const meta: Meta<typeof Price> = {
-    title: 'plasma_web/Price',
+    title: 'web/Data Display/Price',
     decorators: [WithTheme],
     argTypes: {
         currency: {

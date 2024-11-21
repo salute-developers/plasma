@@ -70,7 +70,7 @@ type StoryProps = ComponentProps<typeof Autocomplete> & {
 };
 
 const meta: Meta<StoryProps> = {
-    title: 'plasma_web/Autocomplete',
+    title: 'web/Data Entry/Autocomplete',
     decorators: [WithTheme],
     component: Autocomplete,
     argTypes: {

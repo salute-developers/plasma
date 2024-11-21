@@ -24,7 +24,7 @@ type AccordionItemCustomProps = {
 type AccordionProps = ComponentProps<typeof Accordion> & AccordionItemCustomProps;
 
 const meta: Meta<AccordionProps> = {
-    title: 'plasma_b2c/Accordion',
+    title: 'b2c/Data Display/Accordion',
     decorators: [WithTheme],
     component: Accordion,
     args: {

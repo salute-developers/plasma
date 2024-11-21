@@ -31,7 +31,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<TooltipProps> = {
-    title: 'plasma_b2c/Tooltip',
+    title: 'b2c/Overlay/Tooltip',
     decorators: [WithTheme],
     component: Tooltip,
     parameters: {

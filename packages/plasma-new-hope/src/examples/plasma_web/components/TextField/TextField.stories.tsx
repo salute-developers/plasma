@@ -43,7 +43,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<typeof TextField> = {
-    title: 'plasma_web/TextField',
+    title: 'web/Data Entry/TextField',
     component: TextField,
     decorators: [WithTheme],
     argTypes: {
