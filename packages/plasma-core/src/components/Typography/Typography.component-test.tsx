@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
 describe('plasma-core: Typography', () => {
     const DsplS = getComponent('DsplS');
@@ -106,6 +106,30 @@ describe('plasma-core: Typography', () => {
                     <ParagraphText1 breakWord={false}>Hello ParagraphText 1</ParagraphText1>
                     <Underline breakWord={false}>Hello Underline</Underline>
                 </Container>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_noWrap', () => {
+        mount(
+            <CypressTestDecorator>
+                <style>{`
+                    body {
+                        font-family: "SB Sans Text", sans-serif;
+                    }
+                `}</style>
+
+                <div style={{ width: '200px', border: '1px solid red' }}>
+                    <Body1>Текст на русском языкe, свойство noWrap выключено</Body1>
+                    <Body2>Text in English, noWrap is false</Body2>
+                </div>
+                <PadMe />
+                <div style={{ width: '200px', border: '1px solid red' }}>
+                    <Body1 noWrap>Текст на русском языке, свойство noWrap включено</Body1>
+                    <Body2 noWrap>Text in English, noWrap is true</Body2>
+                </div>
             </CypressTestDecorator>,
         );
 
