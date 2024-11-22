@@ -24,7 +24,7 @@ export const Ul = styled.ul<{
 
     border-radius: var(${tokens.borderRadius});
     width: ${({ listWidth }) => listWidth || '100%'};
-    height: ${({ listHeight }) => listHeight || 'auto'};
+    max-height: ${({ listHeight }) => listHeight || 'auto'};
     overflow: ${({ listOverflow }) => listOverflow || 'initial'};
 
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
