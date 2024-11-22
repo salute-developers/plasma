@@ -12,9 +12,13 @@ export const base = css`
     font-weight: var(${tokens.typoFontWeight});
     margin: 0;
 
-    ${String(applyHyphensNormal)};
+    &.${classes.typoWithNoWrap} {
+        white-space: nowrap;
+    }
 
-    &.${String(classes.typoWithBreakWord)} {
-        ${String(applyHyphens)};
+    ${applyHyphensNormal};
+
+    &.${classes.typoWithBreakWord} {
+        ${applyHyphens};
     }
 `;

@@ -13,6 +13,7 @@ export type BoldProps = {
     size?: string;
 };
 export type FontProps = {
+    noWrap?: boolean;
     breakWord?: boolean;
     color?: string;
 } & SpacingProps &

@@ -10,15 +10,13 @@ export type TypographyOldProps = Omit<FontProps, 'bold'>;
 
 export const typographyOldRoot = (Root: RootProps<HTMLDivElement, TypographyOldProps>) =>
     forwardRef<HTMLDivElement, TypographyOldProps>((props, ref) => {
-        const { size, children, breakWord, color, className, style, ...rest } = props;
-
-        const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
+        const { size, children, breakWord, noWrap, color, className, style, ...rest } = props;
 
         return (
             <Root
                 size={size}
                 ref={ref}
-                className={cx(withBreakWord, className)}
+                className={cx(noWrap && classes.typoWithNoWrap, breakWord && classes.typoWithBreakWord, className)}
                 style={{ color, ...style, ...applySpacing(rest) }}
                 {...rest}
             >
