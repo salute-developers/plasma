@@ -1,4 +1,5 @@
-import type { TextFieldPrimitiveValue, TextFieldProps } from '../../TextField.types';
+import type { RootProps } from '../../../../engines';
+import type { TextFieldPrimitiveValue, TextFieldProps, TextFieldRootProps } from '../../TextField.types';
 
 export interface TextFieldChipProps {
     /**
@@ -14,6 +15,10 @@ export interface TextFieldChipProps {
      */
     value: TextFieldPrimitiveValue;
     /**
+     * Вид чипа.
+     */
+    view?: string;
+    /**
      * Компонент неактивен
      */
     disabled?: boolean;
@@ -21,6 +26,10 @@ export interface TextFieldChipProps {
      * Элемент формы не может изменяться пользователем
      */
     readOnly?: boolean;
+    /**
+     * Root обертка для применения view валидации
+     */
+    rootWrapper: RootProps<HTMLDivElement, TextFieldRootProps>;
     /**
      * Обработчик удаления выбранного значения.
      */

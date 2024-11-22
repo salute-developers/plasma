@@ -11,7 +11,19 @@ export const TextFieldChip = forwardRef<
     TextFieldChipProps & { _forceChipManipulationWithReadonly: any }
 >(
     (
-        { id, text, disabled, readOnly, onClick, onClear, onKeyDown, _forceChipManipulationWithReadonly, chipType },
+        {
+            id,
+            text,
+            disabled,
+            readOnly,
+            view,
+            _forceChipManipulationWithReadonly,
+            chipType,
+            rootWrapper: Root,
+            onClick,
+            onClear,
+            onKeyDown,
+        },
         ref,
     ) => {
         const onClearHandle = () => onClear(id);
@@ -31,20 +43,23 @@ export const TextFieldChip = forwardRef<
         };
 
         return chipType === 'default' ? (
-            <StyledChip
-                ref={ref}
-                tabIndex={-1}
-                disabled={disabled}
-                readOnly={readOnly}
-                onClick={onClick}
-                onClear={onClearHandle}
-                onKeyDown={onKeyDownHandle}
-                text={`${text}`}
-                // TODO: #1547
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                _forceChipManipulationWithReadonly={_forceChipManipulationWithReadonly}
-            />
+            <Root {...(view ? { chipView: view } : {})}>
+                <StyledChip
+                    ref={ref}
+                    tabIndex={-1}
+                    disabled={disabled}
+                    readOnly={readOnly}
+                    onClick={onClick}
+                    onClear={onClearHandle}
+                    onKeyDown={onKeyDownHandle}
+                    text={`${text}`}
+                    view={view}
+                    // TODO: #1547
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    _forceChipManipulationWithReadonly={_forceChipManipulationWithReadonly}
+                />
+            </Root>
         ) : (
             <TextChip ref={ref} tabIndex={-1} onClick={handleClick} onKeyDown={onKeyDownHandle}>
                 {text}

@@ -1,5 +1,6 @@
 export const classes = {
     hasChips: 'has-chips',
+    chipsWrapper: 'chips-wrapper',
     hasValue: 'has-value',
     keepPlaceholder: 'keep-placeholder',
     hasEmptyContentLeft: 'has-empty-content-left',

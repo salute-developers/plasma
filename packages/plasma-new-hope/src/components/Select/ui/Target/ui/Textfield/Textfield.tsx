@@ -90,11 +90,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 value={multiselect ? undefined : valueToItemMap.get(value.toString())?.label || ''}
                 size={size}
                 view={view}
-                chipView={chipView}
-                label={label}
                 labelPlacement={labelPlacement}
-                keepPlaceholder={keepPlaceholder}
                 disabled={disabled}
+                label={label}
+                keepPlaceholder={keepPlaceholder}
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
                 contentRight={
@@ -115,6 +114,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                           chips: getChips(),
                           onChangeChips: handleChipsChange,
                           chipType,
+                          chipView,
                       }
                     : { enumerationType: 'plain' })}
                 onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield

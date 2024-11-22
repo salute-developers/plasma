@@ -17,6 +17,7 @@ const onChipsChange = action('onChipsChange');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
+const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -280,6 +281,8 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
 
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
+    const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
+
     return (
         <TextField
             {...rest}
@@ -295,14 +298,25 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             onFocus={onFocus}
             onBlur={onBlur}
             onChangeChips={onChipsChange}
+            chipValidator={validateChip}
             style={{ width: '70%', margin: '0 auto' }}
         />
     );
 };
 
 export const Chips: StoryObj<StoryPropsChips> = {
+    argTypes: {
+        chipView: {
+            options: chipViews,
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         ...Default.args,
+        leftHelper: 'Для первого чипа валидация вернула view="negative"',
+        chipView: 'secondary',
         chips: ['1 value', '2 value', '3 value', '4 value'],
         chipType: 'default',
     },
