@@ -13,9 +13,13 @@ export const base = css`
 
     text-transform: uppercase;
 
-    ${String(applyHyphensNormal)};
+    &.${classes.typoWithNoWrap} {
+        white-space: nowrap;
+    }
 
-    &.${String(classes.typoWithBreakWord)} {
-        ${String(applyHyphens)};
+    ${applyHyphensNormal};
+
+    &.${classes.typoWithBreakWord} {
+        ${applyHyphens};
     }
 `;
