@@ -104,6 +104,8 @@ export type CustomTextFieldProps = (TextFieldProps &
         | 'required'
         | 'requiredPlacement'
         | 'optional'
+        | 'chipView'
+        | 'chipValidator'
     >) &
     ClearProps &
     HintProps;
@@ -143,6 +145,8 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
 
         enumerationType,
         chips,
+        chipView,
+        chipValidator,
         onSearch,
         onChangeChips,
         chipType,
@@ -191,6 +195,8 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
                 ref={ref}
                 enumerationType="chip"
                 chips={chips}
+                chipView={chipView}
+                chipValidator={chipValidator}
                 hintText={String(hintText || '')}
                 onChangeChips={onChangeChips}
                 chipType={chipType}

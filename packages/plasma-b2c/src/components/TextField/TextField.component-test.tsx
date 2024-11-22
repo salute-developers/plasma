@@ -357,7 +357,7 @@ describe('plasma-b2c: TextField', () => {
         cy.matchImageSnapshot();
     });
 
-    it('_enumerationType:chip', () => {
+    it('_enumerationType:chip, _chipView, _chipValidator', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextField
@@ -379,6 +379,51 @@ describe('plasma-b2c: TextField', () => {
                     placeholder="Placeholder"
                     helperText="Helper text"
                     animatedHint="label"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="accent"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="positive"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="negative"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2', 'Value 3']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="warning"
+                    chipValidator={(value) => (value === 'Value 1' ? { view: 'negative' } : {})}
                 />
                 <SpaceMe />
             </CypressTestDecoratorWithTypo>,
