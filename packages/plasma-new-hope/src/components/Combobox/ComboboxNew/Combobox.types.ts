@@ -138,6 +138,7 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
+    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      */

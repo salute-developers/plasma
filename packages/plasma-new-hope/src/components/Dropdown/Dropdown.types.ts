@@ -101,13 +101,14 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
+    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      * @default initial
      * @deprecated
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
-    listHeight?: number | CSSProperties['height'];
+    listHeight?: CSSProperties['height'];
     /**
      * Индекс элемента при наведении
      * @deprecated использовать onHover

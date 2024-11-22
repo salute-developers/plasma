@@ -122,11 +122,12 @@ export interface BasicProps<K extends ItemOption> {
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
+    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
-    listHeight?: number | CSSProperties['height'];
+    listHeight?: CSSProperties['height'];
     /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
@@ -242,11 +243,12 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @example listOverflow="scroll"
          */
         listOverflow?: CSSProperties['overflow'];
+        // TODO: #1584
         /**
          * Значение css height для выпадающего меню.
          * @example listHeight="11", listHeight="auto", listHeight={11}
          */
-        listHeight?: number | CSSProperties['height'];
+        listHeight?: CSSProperties['height'];
 
         /**
          * Placeholder.
