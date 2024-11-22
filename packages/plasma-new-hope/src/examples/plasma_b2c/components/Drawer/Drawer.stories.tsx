@@ -5,7 +5,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
-import { Heading } from '../../../typograpy/components/Heading/Heading';
+import { Heading } from '../../../typography/components/Heading/Heading';
 import { IconDone } from '../../../../components/_Icon';
 import { SSRProvider } from '../../../../components/SSRProvider';
 import { PopupProvider } from '../Popup/Popup';

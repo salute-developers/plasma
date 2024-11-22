@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Heading } from '../../../typograpy/components/Heading/Heading';
+import { Heading } from '../../../typography/components/Heading/Heading';
 import { WithTheme } from '../../../_helpers';
 import { Tabs } from '../Tabs/Tabs';
 import { TabItem } from '../Tabs/TabItem';
