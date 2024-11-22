@@ -8,8 +8,6 @@ sidebar_position: 2
 
 Компоненты поддерживают работу с библиотекой [React Hook Form](https://react-hook-form.com/)
 
-
-
 ```tsx live
 
 import { useForm } from 'react-hook-form';
@@ -64,23 +62,22 @@ export function App() {
 
 Свойство `name` и `onChange` лучше передавать напрямую, так как типы передаваемые из `register` в параметрах `min` и `max` несовместимы.
 
-
-
 ### Пример с валидацией
 
+[Пример CodeSendBox](https://codesandbox.io/p/sandbox/sdds-form-validation-9ls9rd)
+
 ```
-
-import { useForm } from "react-hook-form";
-import React from "react";
-import { Button, TextField, Switch, TextS } from "@salutejs/sdds-dfa";
-
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
 export function App() {
   const schema = yup
     .object({
-      login: yup.string().required("Заполните поле"),
+      email: yup
+        .string()
+        .email("Некорректная почта")
+        .required("Заполните поле"),
+      tel: yup
+        .string()
+        .required("Заполните поле")
+        .min(22, "Телефон должен содержать 11 цифр"),
       password: yup
         .string()
         .required("Заполните поле")
@@ -91,11 +88,7 @@ export function App() {
     })
     .required();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
@@ -108,18 +101,27 @@ export function App() {
       style={{ display: "flex", flexDirection: "column", gap: "20px" }}
     >
       <TextField
-        {...register("login")}
-        placeholder="Логин"
-        status={!!errors.login?.message ? "error" : ""}
-        helperText={errors.login?.message}
+        {...register("email")}
+        placeholder="Почта"
+        view={formState.errors.email?.message ? "negative" : "default"}
+        leftHelper={formState.errors.email?.message}
+        required={false}
+      />
+      <Mask
+        {...register("tel")}
+        placeholder="Телефон"
+        mask="+7 (000) 000 - 00 - 00"
+        maskChar="_"
+        view={formState.errors.email?.message ? "negative" : "default"}
+        leftHelper={formState.errors.tel?.message}
         required={false}
       />
       <TextField
         {...register("password")}
         type="password"
         placeholder="Пароль"
-        status={!!errors.password?.message ? "error" : ""}
-        helperText={errors.password?.message}
+        view={formState.errors.password?.message ? "negative" : "default"}
+        leftHelper={formState.errors.password?.message}
         required={false}
       />
       <Switch
@@ -127,15 +129,11 @@ export function App() {
         label="Я согласен с правилами сервиса"
         labelPosition="after"
       />
-      {!!errors.accept?.message && (
-        <TextS color="red">{errors.accept?.message}</TextS>
+      {formState.errors.accept?.message && (
+        <TextS color="red">{formState.errors.accept?.message}</TextS>
       )}
       <Button type="submit">Войти</Button>
     </form>
   );
 }
-
-
 ```
-
-[Пример CodeSendBox](https://codesandbox.io/p/sandbox/plasma-b2c-example-forked-qcdryl?workspaceId=e0ca307f-e975-46db-8d32-7c7a7a3970e4)
