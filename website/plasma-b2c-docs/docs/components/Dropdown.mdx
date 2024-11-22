@@ -372,7 +372,7 @@ type Items = Array<{
             const ref = useRef(null)
 
             return (
-                <div style={{ height: '300px' }} ref={ref}>
+                <div style={{ position: "relative", height: "300px" }} ref={ref}>
                     <Dropdown items={items} portal={ref}>
                         <Button text="Список стран" />
                     </Dropdown>
