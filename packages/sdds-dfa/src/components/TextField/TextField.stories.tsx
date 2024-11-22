@@ -16,6 +16,7 @@ const onChipsChange = action('onChipsChange');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
+const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -146,6 +147,19 @@ const meta: Meta<typeof TextField> = {
             'onChangeChips',
             'enumerationType',
             'values',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+            'chips',
+            'chipValidator',
+            'onFocus',
+            'onBlur',
+            'name',
+            'value',
+            'type',
+            'minLength',
+            'maxLength',
+            'checked',
         ]),
     },
 };
@@ -219,6 +233,9 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
 };
 
 export const Default: StoryObj<StoryPropsDefault> = {
+    argsTypes: {
+        ...disableProps(['chipView']),
+    },
     args: {
         id: 'example-text-field',
         size: 'm',
@@ -284,6 +301,8 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
 
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
+    const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
+
     return (
         <TextField
             {...rest}
@@ -299,14 +318,25 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            chipValidator={validateChip}
             onChangeChips={onChipsChange}
         />
     );
 };
 
 export const Chips: StoryObj<StoryPropsChips> = {
+    argTypes: {
+        chipView: {
+            options: chipViews,
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         ...Default.args,
+        leftHelper: 'Для первого чипа валидация вернула view="negative"',
+        chipView: 'secondary',
         chips: ['1 value', '2 value', '3 value', '4 value'],
         chipType: 'default',
     },
