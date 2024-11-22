@@ -12,8 +12,16 @@ const meta: Meta<typeof Footnote> = {
     title: 'typography/Old/Footnote',
     decorators: [WithTheme],
     component: Footnote,
-    argTypes: argTypesFromConfig(mergeConfig(footnoteConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(footnoteConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
     },
 };

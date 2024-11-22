@@ -12,7 +12,17 @@ const meta: Meta<typeof Subtitle> = {
     title: 'typography/Old/Subtitle',
     decorators: [WithTheme],
     component: Subtitle,
-    argTypes: argTypesFromConfig(mergeConfig(subtitleConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(subtitleConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
+    args: {
+        noWrap: false,
+    },
 };
 
 export default meta;

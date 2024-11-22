@@ -12,8 +12,16 @@ const meta: Meta<typeof Display> = {
     title: 'typography/Old/Display',
     decorators: [WithTheme],
     component: Display,
-    argTypes: argTypesFromConfig(mergeConfig(displayConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(displayConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
     },
 };

@@ -12,8 +12,16 @@ const meta: Meta<typeof Heading> = {
     title: 'typography/Heading',
     decorators: [WithTheme],
     component: Heading,
-    argTypes: argTypesFromConfig(mergeConfig(dsplConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(dsplConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
         bold: false,
     },

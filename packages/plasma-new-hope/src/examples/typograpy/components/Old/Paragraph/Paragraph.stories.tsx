@@ -12,8 +12,16 @@ const meta: Meta<typeof Paragraph> = {
     title: 'typography/Old/Paragraph',
     decorators: [WithTheme],
     component: Paragraph,
-    argTypes: argTypesFromConfig(mergeConfig(paragraphConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(paragraphConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
         resetMargin: false,
         m: 2,

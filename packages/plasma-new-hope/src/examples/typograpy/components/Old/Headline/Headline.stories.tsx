@@ -12,8 +12,16 @@ const meta: Meta<typeof Headline> = {
     title: 'typography/Old/Headline',
     decorators: [WithTheme],
     component: Headline,
-    argTypes: argTypesFromConfig(mergeConfig(headlineConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(headlineConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
     },
 };
