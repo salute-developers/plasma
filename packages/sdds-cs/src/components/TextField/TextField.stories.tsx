@@ -139,6 +139,20 @@ const meta: Meta<typeof TextField> = {
             'enumerationType',
             'values',
             'hintView',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+            'chipView',
+            'chips',
+            'chipValidator',
+            'onFocus',
+            'onBlur',
+            'name',
+            'value',
+            'type',
+            'minLength',
+            'maxLength',
+            'checked',
         ]),
     },
 };
@@ -244,60 +258,4 @@ export const Default: StoryObj<StoryPropsDefault> = {
         },
     },
     render: (args) => <StoryDemo {...args} />,
-};
-
-type StoryPropsChips = Omit<
-    ComponentProps<typeof TextField>,
-    | 'helperBlock'
-    | 'contentLeft'
-    | 'htmlSize'
-    | 'contentRight'
-    | 'type'
-    | 'name'
-    | 'onFocus'
-    | 'onBlur'
-    | 'onChange'
-    | 'onSearch'
-    | 'value'
-    | 'checked'
-    | 'maxLength'
-    | 'minLength'
-    | 'required'
-    | 'enumerationType'
-> & {
-    hasHint: boolean;
-    enableContentLeft: boolean;
-    enableContentRight: boolean;
-};
-
-const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsChips) => {
-    const [text, setText] = useState('Значение поля');
-
-    return (
-        <TextField
-            {...rest}
-            enumerationType="chip"
-            style={{ width: '70%', margin: '0 auto' }}
-            value={text}
-            contentLeft={enableContentLeft ? <IconPlasma size="s" /> : undefined}
-            contentRight={enableContentRight ? <IconPlasma size="s" /> : undefined}
-            view={view}
-            onChange={(e) => {
-                setText(e.target.value);
-                onChange(e.target.value);
-            }}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onChangeChips={onChipsChange}
-        />
-    );
-};
-
-export const Chips: StoryObj<StoryPropsChips> = {
-    args: {
-        ...Default.args,
-        chips: ['1 value', '2 value', '3 value', '4 value'],
-        chipType: 'default',
-    },
-    render: (args) => <StoryChips {...args} />,
 };
