@@ -12,8 +12,16 @@ const meta: Meta<typeof Body> = {
     title: 'typography/Body',
     decorators: [WithTheme],
     component: Body,
-    argTypes: argTypesFromConfig(mergeConfig(bodyConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(bodyConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
         bold: false,
     },

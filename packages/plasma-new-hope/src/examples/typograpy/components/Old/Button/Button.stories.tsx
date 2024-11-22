@@ -12,8 +12,16 @@ const meta: Meta<typeof Button> = {
     title: 'typography/Old/Button',
     decorators: [WithTheme],
     component: Button,
-    argTypes: argTypesFromConfig(mergeConfig(buttonTypographyConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(buttonTypographyConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
     },
 };

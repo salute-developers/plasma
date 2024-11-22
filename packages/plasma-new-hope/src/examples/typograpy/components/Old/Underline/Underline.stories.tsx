@@ -12,8 +12,16 @@ const meta: Meta<typeof Underline> = {
     title: 'typography/Old/Underline',
     decorators: [WithTheme],
     component: Underline,
-    argTypes: argTypesFromConfig(mergeConfig(underlineConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(underlineConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
     },
 };

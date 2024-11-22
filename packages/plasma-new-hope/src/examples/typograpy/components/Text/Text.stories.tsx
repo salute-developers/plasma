@@ -12,8 +12,16 @@ const meta: Meta<typeof Text> = {
     title: 'typography/Text',
     decorators: [WithTheme],
     component: Text,
-    argTypes: argTypesFromConfig(mergeConfig(textConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(textConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
         bold: false,
     },

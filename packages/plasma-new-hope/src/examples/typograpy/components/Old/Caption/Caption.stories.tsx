@@ -12,8 +12,16 @@ const meta: Meta<typeof Caption> = {
     title: 'typography/Old/Caption',
     decorators: [WithTheme],
     component: Caption,
-    argTypes: argTypesFromConfig(mergeConfig(captionConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(captionConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
     },
 };

@@ -12,8 +12,16 @@ const meta: Meta<typeof Dspl> = {
     title: 'typography/Dspl',
     decorators: [WithTheme],
     component: Dspl,
-    argTypes: argTypesFromConfig(mergeConfig(dsplConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(dsplConfig, config)),
+        color: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
     args: {
+        noWrap: false,
         breakWord: true,
         bold: false,
     },
