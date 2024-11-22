@@ -12,6 +12,10 @@ export type ChipValues = {
 
 export type EnumerationType = 'plain' | 'chip';
 
+type ChipValidatorReturn = {
+    view?: string;
+};
+
 type TextFieldChipProps =
     | {
           /**
@@ -35,6 +39,14 @@ type TextFieldChipProps =
            * Внешний вид chip.
            */
           chipType?: never;
+          /*
+           * Внешний вид чипа в варианте `enumerationType="chip"`.
+           */
+          chipView?: never;
+          /**
+           * Функция для валидации значений chip
+           */
+          chipValidator?: never;
       }
     | {
           /**
@@ -58,6 +70,14 @@ type TextFieldChipProps =
            * Внешний вид chip.
            */
           chipType?: 'default' | 'text';
+          /*
+           * Внешний вид чипа в варианте `enumerationType="chip"`.
+           */
+          chipView?: string;
+          /**
+           * Функция для валидации значений chip
+           */
+          chipValidator?: (value: string) => ChipValidatorReturn;
       };
 
 export type RequiredProps = {
@@ -236,6 +256,7 @@ export type TextFieldRootProps = {
     readOnly?: boolean;
     disabled?: boolean;
     labelPlacement?: string;
+    chipView?: string;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
 
 export interface ControlledRefs {

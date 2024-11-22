@@ -71,6 +71,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 enumerationType = 'plain',
                 requiredPlacement = 'right',
                 titleCaption,
+                chipView = 'default',
+                chipValidator,
 
                 // hint
                 hintTrigger = 'hover',
@@ -286,6 +288,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     readOnly={!disabled && readOnly}
                     clear={clear}
                     labelPlacement={innerLabelPlacementValue}
+                    chipView={chipView}
                     onClick={handleInputFocus}
                     className={cx(
                         labelPlacementClass,
@@ -392,8 +395,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                         >
                             {textBefore && <StyledTextBefore>{textBefore}</StyledTextBefore>}
                             {isChipEnumeration && Boolean(chips?.length) && (
-                                <StyledChips>
+                                <StyledChips className={classes.chipsWrapper}>
                                     {chips?.map(({ id: chipId, text }, index) => {
+                                        const validationView = chipValidator?.(String(text));
+                                        const resView = validationView?.view || chipView;
+
                                         return (
                                             <TextFieldChip
                                                 id={chipId}
@@ -407,6 +413,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                                 onClear={() => onChipClear(chipId, index)}
                                                 onClick={onChipClick}
                                                 chipType={chipType}
+                                                view={resView}
+                                                rootWrapper={Root}
                                                 // TODO: #1547
                                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                                 // @ts-ignore
