@@ -225,12 +225,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 return;
             }
 
-            outerRef.current.scrollTo({
-                top: 0,
-                left: outerRef.current.offsetLeft,
-                behavior: 'smooth',
-            });
-
             outerRef.current.focus();
         };
 
