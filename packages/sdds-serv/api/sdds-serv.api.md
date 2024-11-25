@@ -88,6 +88,7 @@ import type { DistributivePick } from '@salutejs/plasma-new-hope';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DragEvent as DragEvent_2 } from 'react';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -97,6 +98,8 @@ import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
 import { DropdownNodeSelect } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { DropdownTrigger } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { dropzoneClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { dsplL } from '@salutejs/sdds-themes/tokens';
 import { dsplLBold } from '@salutejs/sdds-themes/tokens';
 import { dsplM } from '@salutejs/sdds-themes/tokens';
@@ -104,6 +107,7 @@ import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
 import { FC } from 'react';
+import { FileProcessHandler } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { FormTypeString } from '@salutejs/plasma-new-hope/types/types/FormType';
@@ -230,6 +234,7 @@ import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
+import { ValidatorReturnType } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ViewContainerCustomProps } from '@salutejs/plasma-new-hope/types/components/ViewContainer/ViewContainer';
 import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
@@ -1883,6 +1888,39 @@ default: PolymorphicClassName;
     listHeight?: Property.Height<string | number> | undefined;
     hoverIndex?: number | undefined;
 } & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "view" | "size"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+
+// @public (undocumented)
+export const Dropzone: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+m: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & {
+multiple?: boolean | undefined;
+title?: string | undefined;
+description?: string | undefined;
+icon?: ReactNode;
+iconPlacement?: "top" | "left" | undefined;
+size?: string | undefined;
+view?: string | undefined;
+disabled?: boolean | undefined;
+stretch?: boolean | undefined;
+onDragEnter?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+onDragLeave?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+onDragOver?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+validator?: ((files: File[]) => ValidatorReturnType) | undefined;
+onDrop?: FileProcessHandler | undefined;
+onChoseFiles?: FileProcessHandler | undefined;
+} & InputHTMLAttributes_2<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
+
+export { dropzoneClasses }
+
+export { dropzoneTokens }
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {

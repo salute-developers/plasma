@@ -125,6 +125,7 @@ import type { DistributivePick } from '@salutejs/plasma-new-hope';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DragEvent as DragEvent_2 } from 'react';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -139,11 +140,14 @@ import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dr
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownTrigger } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { dropzoneClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { EditableProps } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
+import { FileProcessHandler } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-core';
 import { formatCurrency } from '@salutejs/plasma-core';
@@ -335,6 +339,7 @@ import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hop
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { ValidationResult } from '@salutejs/plasma-hope';
+import { ValidatorReturnType } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
@@ -2193,6 +2198,39 @@ export const DropdownPopup: React_2.ForwardRefExoticComponent<DropdownPopupProps
 export { DropdownPopupProps }
 
 export { DropdownProps }
+
+// @public (undocumented)
+export const Dropzone: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+m: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & {
+multiple?: boolean | undefined;
+title?: string | undefined;
+description?: string | undefined;
+icon?: ReactNode;
+iconPlacement?: "top" | "left" | undefined;
+size?: string | undefined;
+view?: string | undefined;
+disabled?: boolean | undefined;
+stretch?: boolean | undefined;
+onDragEnter?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+onDragLeave?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+onDragOver?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+validator?: ((files: File[]) => ValidatorReturnType) | undefined;
+onDrop?: FileProcessHandler | undefined;
+onChoseFiles?: FileProcessHandler | undefined;
+} & InputHTMLAttributes_3<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
+
+export { dropzoneClasses }
+
+export { dropzoneTokens }
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
