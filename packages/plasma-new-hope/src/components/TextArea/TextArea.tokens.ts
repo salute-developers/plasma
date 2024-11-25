@@ -26,6 +26,14 @@ export const classes = {
 };
 
 export const tokens = {
+    /** Цвет фона для всего компонента */
+    backgroundColor: '--plasma-textarea-background-color',
+    /** Цвет фона для всего компонента в состоянии hover */
+    backgroundColorHover: '--plasma-textarea-background-color-hover',
+    /** Цвет фона для всего компонента в состоянии active */
+    backgroundColorActive: '--plasma-textarea-background-color-active',
+    /** Цвет фона для всего компонента в состоянии focus */
+    backgroundColorFocus: '--plasma-textarea-background-color-focus',
     /** Цвет фона для элемента textarea */
     inputBackgroundColor: '--plasma-textarea-input-background-color',
     /** Цвет фона для элемента textarea в состоянии hover */
@@ -149,6 +157,8 @@ export const tokens = {
     labelInnerLineHeight: '--plasma-textarea-label-inner-line-height',
     /** Отступ сверху для элемента textarea при фокусе */
     labelInnerTop: '--plasma-textarea-label-inner-top',
+    /** Вспомогательный отступ сверху для элемента textarea при фокусе для компенсации размеров */
+    labelInnerTopHelper: '--plasma-textarea-label-inner-top-helper',
     /** Отступ между Label и TextArea */
     labelInnerMarginBottom: '--plasma-textarea-label-inner-margin-bottom',
     /** Шрифт для элемента textarea */
@@ -176,6 +186,9 @@ export const tokens = {
     /** Высота строки для элемента блока подписей снизу */
     helpersLineHeight: '--plasma-textarea-helpers-line-height',
 
+    /** Тень */
+    boxShadow: '--plasma-textarea-box-shadow',
+
     rightContentColor: '--plasma-textarea-right-content-color',
 
     /** Прозрачность для всего компонента в состоянии disabled */
@@ -190,6 +203,7 @@ export const tokens = {
     indicatorLabelPlacementOuter: '--plasma-textarea-indicator-placement-outer',
     indicatorLabelPlacementInnerRight: '--plasma-textarea-indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textarea-indicator-placement-outer-right',
+    indicatorLabelPlacementHintOuterRight: '--plasma-textfield__indicator-hint-placement-outer-right',
     clearIndicatorLabelPlacementInner: '--plasma-textarea__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textarea__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textarea__clear-indicator-hint-placement-inner-right',

@@ -322,7 +322,9 @@ export const StyledIndicator = styled.div`
             inset: var(${tokens.indicatorLabelPlacementOuterRight});
 
             &.${classes.hasHint} {
-                right: calc(-1 * var(${tokens.indicatorSizeOuter}));
+                right: calc(
+                    -1 * var(${tokens.indicatorSizeOuter}) + var(${tokens.indicatorLabelPlacementHintOuterRight}, 0px)
+                );
             }
         }
     }
