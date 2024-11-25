@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-b2c",
-  "version": "1.451.0-dev.0",
+  "version": "1.452.0-dev.0",
   "description": "Salute Design System / React UI kit for business-related web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -44,7 +44,7 @@
   "dependencies": {
     "@salutejs/plasma-core": "1.186.0",
     "@salutejs/plasma-hope": "1.321.0-dev.0",
-    "@salutejs/plasma-new-hope": "0.198.0-dev.0",
+    "@salutejs/plasma-new-hope": "0.199.0-dev.0",
     "@salutejs/plasma-themes": "0.23.0",
     "@salutejs/plasma-tokens-b2c": "0.53.0",
     "@salutejs/plasma-tokens-web": "1.58.0",
