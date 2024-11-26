@@ -934,6 +934,7 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -948,6 +949,7 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -962,6 +964,7 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -976,6 +979,7 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -990,6 +994,7 @@ size: {
 xxs: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1640,6 +1645,7 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1654,6 +1660,7 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1668,6 +1675,7 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1701,6 +1709,7 @@ size: {
 h1: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1715,6 +1724,7 @@ size: {
 h2: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1729,6 +1739,7 @@ size: {
 h3: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1743,6 +1754,7 @@ size: {
 h4: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1757,6 +1769,7 @@ size: {
 h5: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -4007,6 +4020,7 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -4021,6 +4035,7 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -4035,6 +4050,7 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -4075,6 +4091,7 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
