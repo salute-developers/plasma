@@ -702,7 +702,9 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -730,7 +732,11 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -758,7 +764,9 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -786,7 +794,11 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -814,7 +826,9 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -842,7 +856,11 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -870,7 +888,9 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -898,7 +918,11 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -1478,6 +1502,8 @@ primary: PolymorphicClassName;
 secondary: PolymorphicClassName;
 accent: PolymorphicClassName;
 positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
@@ -2289,6 +2315,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -2335,6 +2369,8 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2354,6 +2390,14 @@ outer: PolymorphicClassName;
 };
 clear: {
 true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 hintView: {
 default: PolymorphicClassName;
@@ -2401,6 +2445,10 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2420,6 +2468,14 @@ outer: PolymorphicClassName;
 };
 clear: {
 true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 hintView: {
 default: PolymorphicClassName;
@@ -2467,6 +2523,8 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2486,6 +2544,14 @@ outer: PolymorphicClassName;
 };
 clear: {
 true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 hintView: {
 default: PolymorphicClassName;
@@ -2533,6 +2599,10 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2552,6 +2622,14 @@ outer: PolymorphicClassName;
 };
 clear: {
 true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 hintView: {
 default: PolymorphicClassName;
@@ -2599,6 +2677,8 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2618,6 +2698,14 @@ outer: PolymorphicClassName;
 };
 clear: {
 true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 hintView: {
 default: PolymorphicClassName;
@@ -2665,6 +2753,10 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2684,6 +2776,14 @@ outer: PolymorphicClassName;
 };
 clear: {
 true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 hintView: {
 default: PolymorphicClassName;
@@ -2731,6 +2831,8 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2750,6 +2852,14 @@ outer: PolymorphicClassName;
 };
 clear: {
 true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 hintView: {
 default: PolymorphicClassName;
@@ -2797,6 +2907,10 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref">) & RefAttributes<HTMLInputElement>>;
 
 export { MaxLinesProps }
@@ -4043,7 +4157,7 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional'>;
+export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator'>;
 
 export { TextFieldView }
 
