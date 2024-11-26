@@ -14,9 +14,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             multiselect,
             value,
             label,
+            labelPlacement,
+            keepPlaceholder,
             placeholder,
             onKeyDown,
-            labelPlacement,
             size,
             view,
             handleClickArrow,
@@ -90,9 +91,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 size={size}
                 view={view}
                 chipView={chipView}
-                labelPlacement={labelPlacement}
-                disabled={disabled}
                 label={label}
+                labelPlacement={labelPlacement}
+                keepPlaceholder={keepPlaceholder}
+                disabled={disabled}
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
                 contentRight={

@@ -1,7 +1,7 @@
 import type { CSSProperties, ButtonHTMLAttributes } from 'react';
 import React from 'react';
 
-import { RequiredProps } from '../../TextField/TextField.types';
+import { RequiredProps, LabelProps } from '../../TextField/TextField.types';
 
 import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
@@ -105,10 +105,6 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     placement?: Placement;
     /**
-     * Метка-подпись к элементу.
-     */
-    label?: string;
-    /**
      * Placeholder.
      */
     placeholder?: string;
@@ -173,14 +169,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Вид компонента.
      */
     view?: string;
-    /**
-     * Расположение лейбла.
-     * @default outer
-     */
-    labelPlacement?: 'outer' | 'inner';
 };
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
+    LabelProps &
     ViewStateProps &
     IsMultiselect<T> &
     RequiredProps &

@@ -60,34 +60,37 @@ type TextFieldChipProps =
           chipType?: 'default' | 'text';
       };
 
-export type RequiredProps = {
-    /**
-     * Задает выравнивание индикатора обязательности поля
-     * @default right
-     */
-    requiredPlacement?: 'left' | 'right';
-} & (
+export type RequiredProps =
     | {
           /**
            * Флаг обязательности поля
            */
           required: true;
           /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: 'left' | 'right';
+          /**
            * Флаг необязательности поля
            */
-          optional?: never | false;
+          optional?: false;
       }
     | {
           /**
-           * Флаг необязательности поля
-           */
-          optional?: true;
-          /**
            * Флаг обязательности поля
            */
-          required?: never | false;
-      }
-);
+          required?: false;
+          /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: never;
+          /**
+           * Флаг необязательности поля
+           */
+          optional?: boolean;
+      };
 
 type ClearProps =
     | {
@@ -110,6 +113,21 @@ type ClearProps =
            */
           hasDivider?: never;
       };
+
+export type LabelProps = {
+    /**
+     * Метка-подпись к элементу
+     */
+    label?: string;
+    /**
+     * Расположение лейбла.
+     */
+    labelPlacement?: string;
+    /**
+     * Одновременно отображает label и placeholder (при пустом вводе)
+     */
+    keepPlaceholder?: boolean;
+};
 
 type HintProps =
     | {
@@ -172,14 +190,6 @@ type HintProps =
 
 export type TextFieldPropsBase = {
     /**
-     * Метка-подпись к элементу
-     */
-    label?: string;
-    /**
-     * Расположение лейбла.
-     */
-    labelPlacement?: 'inner' | 'outer';
-    /**
      * Метка-подпись к элементу справа.
      */
     titleCaption?: ReactNode;
@@ -207,7 +217,8 @@ export type TextFieldPropsBase = {
      * Callback по нажатию Enter
      */
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
-} & RequiredProps &
+} & LabelProps &
+    RequiredProps &
     ClearProps &
     HintProps &
     TextFieldChipProps;
@@ -240,7 +251,7 @@ export type TextFieldRootProps = {
     clear?: boolean;
     readOnly?: boolean;
     disabled?: boolean;
-    labelPlacement?: 'inner' | 'outer';
+    labelPlacement?: string;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
 
 export interface ControlledRefs {

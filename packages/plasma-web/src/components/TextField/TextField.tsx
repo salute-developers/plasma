@@ -10,34 +10,37 @@ export const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
 
-type RequiredProps = {
-    /**
-     * Задает выравнивание индикатора обязательности поля
-     * @default right
-     */
-    requiredPlacement?: 'left' | 'right';
-} & (
+export type RequiredProps =
     | {
           /**
            * Флаг обязательности поля
            */
           required: true;
           /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: 'left' | 'right';
+          /**
            * Флаг необязательности поля
            */
-          optional?: never | false;
+          optional?: false;
       }
     | {
           /**
-           * Флаг необязательности поля
-           */
-          optional?: true;
-          /**
            * Флаг обязательности поля
            */
-          required?: never | false;
-      }
-);
+          required?: false;
+          /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: never;
+          /**
+           * Флаг необязательности поля
+           */
+          optional?: boolean;
+      };
 
 type ClearProps =
     | {
@@ -123,7 +126,16 @@ type HintProps =
 type TextFieldProps = TextFieldPropsOld & RequiredProps & ClearProps & HintProps;
 
 export type CustomTextFieldProps = TextFieldProps &
-    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption'>;
+    Pick<
+        newHopeTextFieldProps,
+        | 'enumerationType'
+        | 'chips'
+        | 'chipType'
+        | 'onChangeChips'
+        | 'titleCaption'
+        | 'labelPlacement'
+        | 'keepPlaceholder'
+    >;
 
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {
     success: 'positive',
@@ -146,6 +158,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         status,
 
         label,
+        keepPlaceholder,
         placeholder,
         animatedHint,
         helperText,
@@ -167,22 +180,29 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
     const _view = status ? statusToView[status] : 'default';
     let _labelPlacement = animatedHint ? animatedHintToLabelPlacement[animatedHint] : 'outer';
     let _label = label ? String(label) : undefined;
-    if (size !== 'l' && _labelPlacement === 'inner') {
+
+    if (size !== 'l' && _labelPlacement === 'inner' && !keepPlaceholder) {
         _label = undefined;
         _labelPlacement = 'outer';
     }
+
     if (size === 'l' && animatedHint === 'placeholder' && !label) {
         _label = placeholder;
         _labelPlacement = 'inner';
     }
 
+    const labelProps = {
+        label: _label,
+        labelPlacement: _labelPlacement,
+        keepPlaceholder,
+    };
+
     if (enumerationType === 'chip') {
         return (
             <TextFieldComponent
                 {...rest}
+                {...labelProps}
                 view={_view}
-                labelPlacement={_labelPlacement}
-                label={_label}
                 size={size}
                 placeholder={placeholder}
                 leftHelper={helperText}
@@ -199,8 +219,8 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
     return (
         <TextFieldComponent
             {...rest}
+            {...labelProps}
             view={_view}
-            labelPlacement={_labelPlacement}
             label={_label}
             size={size}
             placeholder={placeholder}

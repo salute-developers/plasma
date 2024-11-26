@@ -58,6 +58,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             view,
             size,
             labelPlacement,
+            keepPlaceholder,
             readOnly = false,
             disabled = false,
             alwaysOpened = false,
@@ -367,7 +368,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     onChange={handleTextValueChange}
                                     size={size}
                                     view={view}
-                                    labelPlacement={labelPlacement}
                                     disabled={disabled}
                                     readOnly={readOnly}
                                     label={label}
@@ -393,6 +393,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     aria-activedescendant={
                                         activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''
                                     }
+                                    labelPlacement={labelPlacement}
+                                    keepPlaceholder={keepPlaceholder}
                                     {...(multiple
                                         ? {
                                               enumerationType: 'chip',

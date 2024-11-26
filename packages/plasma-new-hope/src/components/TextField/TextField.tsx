@@ -63,6 +63,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 contentRight,
                 label,
                 labelPlacement,
+                keepPlaceholder,
                 textBefore,
                 textAfter,
                 placeholder,
@@ -135,7 +136,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const hasLabelValue = Boolean(label);
             const hasInnerLabel = size !== 'xs' && labelPlacement === 'inner' && !isChipsVisible && hasLabelValue;
             const hasOuterLabel = labelPlacement === 'outer' && hasLabelValue;
-            const hasPlaceholder = Boolean(placeholder) && !hasInnerLabel;
+            const innerKeepPlaceholder = keepPlaceholder && labelPlacement === 'inner';
+            const hasPlaceholder = Boolean(placeholder) && (innerKeepPlaceholder || !hasInnerLabel);
 
             const innerLabelValue = hasInnerLabel || hasOuterLabel ? label : undefined;
             const innerLabelPlacementValue = labelPlacement === 'inner' && !hasInnerLabel ? undefined : labelPlacement;
@@ -151,6 +153,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 ? classes[`${innerLabelPlacementValue}LabelPlacement` as keyof typeof classes]
                 : undefined;
             const hasValueClass = hasValue ? classes.hasValue : undefined;
+            const keepPlaceholderClass = hasPlaceholder && placeholderShown && classes.keepPlaceholder;
 
             const wrapperWithoutLeftContent =
                 !contentLeft && isChipsVisible && chipType === 'default' ? classes.hasEmptyContentLeft : undefined;
@@ -424,7 +427,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     aria-labelledby={labelId}
                                     aria-describedby={helperTextId}
                                     placeholder={innerPlaceholderValue}
-                                    className={cx(hasValueClass)}
+                                    className={cx(hasValueClass, keepPlaceholderClass)}
                                     disabled={disabled}
                                     readOnly={!disabled && readOnly}
                                     onInput={handleInput}
@@ -439,7 +442,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     </Label>
                                 )}
                                 {placeholderShown && !hasValue && (
-                                    <InputPlaceholder>
+                                    <InputPlaceholder hasPadding={keepPlaceholder && size !== 'xs'}>
                                         {innerPlaceholderValue}
                                         {hasPlaceholderOptional && optionalTextNode}
                                     </InputPlaceholder>

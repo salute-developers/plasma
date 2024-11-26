@@ -67,6 +67,12 @@ const meta: Meta<TextFieldProps> = {
     component: TextField,
     decorators: [InSpacingDecorator],
     argTypes: {
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'animatedHint', eq: 'label' },
+        },
         requiredPlacement: {
             options: ['left', 'right'],
             control: {
@@ -230,6 +236,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         label: 'Лейбл',
         animatedHint: undefined,
         placeholder: 'Заполните поле',
+        keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
         helperText: 'Подсказка к полю',
         enumerationType: 'plain',

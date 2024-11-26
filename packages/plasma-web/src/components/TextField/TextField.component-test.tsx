@@ -9,6 +9,8 @@ import { TextField as TextFieldWeb } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
+const sizes = ['xs', 's', 'm', 'l'];
+
 describe('plasma-web: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldWeb;
 
@@ -267,6 +269,45 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    sizes.forEach((size) => {
+        it(`content: keepPlaceholder, size: ${size}`, () => {
+            const props = {
+                size,
+                value: '',
+                label: 'Label',
+                labelPlacement: 'inner',
+                placeholder: 'Placeholder',
+                animatedHint: 'label',
+                keepPlaceholder: true,
+            };
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <>
+                        <TextField {...props} />
+                        <SpaceMe />
+                        <TextField
+                            {...props}
+                            contentLeft={<IconSleep color="inherit" size="s" />}
+                            contentRight={<IconEye color="inherit" size="s" />}
+                        />
+                        <SpaceMe />
+                        <TextField {...props} value="Value" />
+                        <SpaceMe />
+                        <TextField
+                            {...props}
+                            value="Value"
+                            contentLeft={<IconSleep color="inherit" size="s" />}
+                            contentRight={<IconEye color="inherit" size="s" />}
+                        />
+                    </>
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+    });
+
     it('_animatedHint:label', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -364,14 +405,14 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
-    describe('_required', () => {
+    describe.only('_required', () => {
         const sizes = ['xs', 's', 'm', 'l'] as const;
 
         const cases = [
             { labelPlacement: 'outer' },
-            { requiredPlacement: 'right', labelPlacement: 'outer' },
-            { labelPlacement: 'inner' },
-            { requiredPlacement: 'right', labelPlacement: 'inner' },
+            { requiredPlacement: 'left', labelPlacement: 'outer' },
+            { labelPlacement: 'inner', animatedHint: 'label' },
+            { requiredPlacement: 'left', labelPlacement: 'inner', animatedHint: 'label' },
         ];
 
         sizes.forEach((size) => {

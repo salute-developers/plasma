@@ -27,6 +27,7 @@ export const datePickerRoot = (
 
                 label,
                 labelPlacement = 'outer',
+                keepPlaceholder,
                 placeholder,
                 leftHelper,
                 contentLeft,
@@ -155,7 +156,7 @@ export const datePickerRoot = (
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onKeyDown={onKeyDown}
-                    {...(innerLabelPlacement && { label, labelPlacement })}
+                    {...(innerLabelPlacement && { label, labelPlacement, keepPlaceholder })}
                 />
             );
 

@@ -118,6 +118,12 @@ const meta: Meta<TextFieldProps> = {
         label: {
             control: 'text',
         },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'view', eq: 'innerLabel' },
+        },
         hintText: {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
@@ -236,6 +242,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         label: 'Лейбл',
         animatedHint: undefined,
         placeholder: 'Заполните поле',
+        keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
         helperText: 'Подсказка к полю',
         enumerationType: 'plain',

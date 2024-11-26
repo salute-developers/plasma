@@ -9,6 +9,8 @@ import { TextField as TextFieldB2C } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
+const sizes = ['xs', 's', 'm', 'l'];
+
 describe('plasma-b2c: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldB2C;
 
@@ -267,6 +269,46 @@ describe('plasma-b2c: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    sizes.forEach((size) => {
+        it(`content: keepPlaceholder, size: ${size}`, () => {
+            const props = {
+                size,
+                value: '',
+                label: 'Label',
+                labelPlacement: 'inner',
+                placeholder: 'Placeholder',
+                view: 'innerLabel',
+                animatedHint: 'label',
+                keepPlaceholder: true,
+            };
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <>
+                        <TextField {...props} />
+                        <SpaceMe />
+                        <TextField
+                            {...props}
+                            contentLeft={<IconSleep color="inherit" size="s" />}
+                            contentRight={<IconEye color="inherit" size="s" />}
+                        />
+                        <SpaceMe />
+                        <TextField {...props} value="Value" />
+                        <SpaceMe />
+                        <TextField
+                            {...props}
+                            value="Value"
+                            contentLeft={<IconSleep color="inherit" size="s" />}
+                            contentRight={<IconEye color="inherit" size="s" />}
+                        />
+                    </>
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+    });
+
     it('_animatedHint:label', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -343,6 +385,41 @@ describe('plasma-b2c: TextField', () => {
         );
 
         cy.matchImageSnapshot();
+    });
+
+    describe('_required', () => {
+        const sizes = ['xs', 's', 'm', 'l'] as const;
+
+        const cases = [
+            { labelPlacement: 'outer' },
+            { requiredPlacement: 'left', labelPlacement: 'outer' },
+            { labelPlacement: 'inner', view: 'innerLabel' },
+            { requiredPlacement: 'left', labelPlacement: 'inner', view: 'innerLabel' },
+        ];
+
+        sizes.forEach((size) => {
+            it(`_size:${size}`, () => {
+                mount(
+                    <CypressTestDecoratorWithTypo>
+                        {cases.map((props) => (
+                            <div style={{ margin: '0 1rem' }}>
+                                <TextField
+                                    value="Value"
+                                    placeholder="Placeholder"
+                                    label="Title"
+                                    size={size}
+                                    required
+                                    {...props}
+                                />
+                                <SpaceMe />
+                            </div>
+                        ))}
+                    </CypressTestDecoratorWithTypo>,
+                );
+
+                cy.matchImageSnapshot();
+            });
+        });
     });
 
     it('chipType', () => {

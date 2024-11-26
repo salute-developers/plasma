@@ -107,6 +107,7 @@ import { CustomComboboxProps } from '@salutejs/plasma-new-hope/types/components/
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
+import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -115,7 +116,6 @@ import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/componen
 import { DatePickerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
-import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
@@ -168,6 +168,7 @@ import { InputHTMLAttributes as InputHTMLAttributes_3 } from 'react';
 import type { ItemOption } from '@salutejs/plasma-new-hope';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
+import { LabelProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { List } from '@salutejs/plasma-hope';
@@ -668,8 +669,6 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & ((BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -677,10 +676,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -702,9 +700,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -712,10 +708,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -737,9 +732,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -747,10 +740,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -772,9 +764,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -782,10 +772,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -807,9 +796,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -817,10 +804,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -842,9 +828,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -852,10 +836,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -877,9 +860,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -887,10 +868,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -912,9 +892,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -922,10 +900,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -947,9 +924,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -957,11 +932,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -982,9 +956,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -992,11 +964,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -1017,9 +988,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1027,11 +996,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -1052,9 +1020,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1062,11 +1028,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -1087,9 +1052,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1097,11 +1060,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -1122,9 +1084,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1132,11 +1092,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -1157,9 +1116,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1167,11 +1124,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -1192,9 +1148,7 @@ onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
 chipType?: undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1202,11 +1156,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -1227,7 +1180,7 @@ onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
 chipType?: "default" | "text" | undefined;
-}, "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chips" | "onChangeChips"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -1979,7 +1932,26 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & DatePickerVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
+}> & DatePickerVariationProps & {
+defaultDate?: Date | undefined;
+placeholder?: string | undefined;
+name?: string | undefined;
+valueError?: boolean | undefined;
+valueSuccess?: boolean | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onCommitDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
+onChangeValue?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value?: string | undefined) => void) | undefined;
+onChange?: ((event: {
+target: {
+value?: string | undefined;
+name?: string | undefined;
+};
+}) => void) | undefined;
+} & LabelProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
 
 export { datePickerClasses }
 
@@ -2099,7 +2071,7 @@ none: PolymorphicClassName;
 default: PolymorphicClassName;
 };
 }> & PopupBaseProps & PanelProps & {
-placement?: "top" | "right" | "bottom" | "left" | undefined;
+placement?: "left" | "right" | "top" | "bottom" | undefined;
 asModal?: boolean | undefined;
 withBlur?: boolean | undefined;
 closeOnEsc?: boolean | undefined;
@@ -2128,7 +2100,7 @@ export { DrawerFooterProps }
 // @public
 export const DrawerHeader: FunctionComponent<PropsType<Variants> & {
 hasClose?: boolean | undefined;
-closePlacement?: "right" | "left" | undefined;
+closePlacement?: "left" | "right" | undefined;
 actions?: ReactNode;
 onClose?: (() => void) | undefined;
 view?: string | undefined;
@@ -2585,8 +2557,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2594,10 +2564,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -2658,8 +2627,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2667,10 +2634,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -2731,8 +2697,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2740,10 +2704,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -2804,8 +2767,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2813,10 +2774,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: boolean | undefined;
@@ -2877,8 +2837,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2886,10 +2844,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -2950,8 +2907,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2959,10 +2914,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -3023,8 +2977,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3032,10 +2984,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -3096,8 +3047,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3105,10 +3054,9 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
+} & LabelProps & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 clear?: false | undefined;
@@ -3169,8 +3117,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3178,11 +3124,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -3242,8 +3187,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3251,11 +3194,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -3315,8 +3257,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3324,11 +3264,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -3388,8 +3327,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3397,11 +3334,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
@@ -3461,8 +3397,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3470,11 +3404,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -3534,8 +3467,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3543,11 +3474,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -3607,8 +3537,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3616,11 +3544,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -3680,8 +3607,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -3689,11 +3614,10 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
+} & LabelProps & {
 required?: false | undefined;
+requiredPlacement?: undefined;
+optional?: boolean | undefined;
 } & {
 clear?: false | undefined;
 hasDivider?: undefined;
@@ -4311,7 +4235,7 @@ value?: undefined;
 defaultValue?: number | undefined;
 } & {
 orientation?: "horizontal" | undefined;
-labelPlacement?: "none" | "top" | "left" | undefined;
+labelPlacement?: "none" | "left" | "top" | undefined;
 scaleAlign?: "none" | "bottom" | "side" | undefined;
 sliderAlign?: "none" | undefined;
 reversed?: undefined;
@@ -4340,7 +4264,7 @@ value?: undefined;
 defaultValue?: number | undefined;
 } & {
 orientation: "vertical";
-sliderAlign?: "none" | "center" | "right" | "left" | undefined;
+sliderAlign?: "none" | "center" | "left" | "right" | undefined;
 scaleAlign?: undefined;
 reversed?: boolean | undefined;
 labelReversed?: boolean | undefined;
@@ -4368,7 +4292,7 @@ name?: undefined;
 defaultValue?: undefined;
 } & {
 orientation?: "horizontal" | undefined;
-labelPlacement?: "none" | "top" | "left" | undefined;
+labelPlacement?: "none" | "left" | "top" | undefined;
 scaleAlign?: "none" | "bottom" | "side" | undefined;
 sliderAlign?: "none" | undefined;
 reversed?: undefined;
@@ -4397,7 +4321,7 @@ name?: undefined;
 defaultValue?: undefined;
 } & {
 orientation: "vertical";
-sliderAlign?: "none" | "center" | "right" | "left" | undefined;
+sliderAlign?: "none" | "center" | "left" | "right" | undefined;
 scaleAlign?: undefined;
 reversed?: boolean | undefined;
 labelReversed?: boolean | undefined;
@@ -4570,9 +4494,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText: string;
@@ -4613,9 +4536,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText: string;
@@ -4656,9 +4578,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText: string;
@@ -4699,9 +4620,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText: string;
@@ -4742,9 +4662,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText?: undefined;
@@ -4785,9 +4704,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText?: undefined;
@@ -4828,9 +4746,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText?: undefined;
@@ -4871,9 +4788,8 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 required: true;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: false | undefined;
 } & {
 hintText?: undefined;
@@ -4914,10 +4830,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -4957,10 +4872,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -5000,10 +4914,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -5043,10 +4956,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -5086,10 +4998,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -5129,10 +5040,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -5172,10 +5082,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -5215,10 +5124,9 @@ helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
 } & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
 optional?: true | undefined;
 required?: false | undefined;
+requiredPlacement?: undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -5315,7 +5223,7 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption'>;
+export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder'>;
 
 export { TextFieldView }
 
