@@ -44,12 +44,31 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.padding}: var(${tokens.textFieldPadding});
     ${textFieldTokens.labelInnerPadding}: var(${tokens.labelInnerPadding});
     ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.contentLabelInnerPadding});
+
+    ${textFieldTokens.labelOffset}: var(${tokens.labelOffset});
+
+    ${textFieldTokens.labelFontFamily}: var(${tokens.labelFontFamily});
+    ${textFieldTokens.labelFontStyle}: var(${tokens.labelFontStyle});
+    ${textFieldTokens.labelFontSize}: var(${tokens.labelFontSize});
+    ${textFieldTokens.labelFontWeight}: var(${tokens.labelFontWeight});
+    ${textFieldTokens.labelLetterSpacing}: var(${tokens.labelLetterSpacing});
+    ${textFieldTokens.labelLineHeight}: var(${tokens.labelLineHeight});
+
     ${textFieldTokens.labelInnerFontFamily}: var(${tokens.labelInnerFontFamily});
     ${textFieldTokens.labelInnerFontSize}: var(${tokens.labelInnerFontSize});
     ${textFieldTokens.labelInnerFontStyle}: var(${tokens.labelInnerFontStyle});
     ${textFieldTokens.labelInnerFontWeight}: var(${tokens.labelInnerFontWeight});
     ${textFieldTokens.labelInnerLetterSpacing}: var(${tokens.labelInnerLetterSpacing});
     ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
+    ${textFieldTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
+
+    ${textFieldTokens.indicatorColor}: var(${tokens.indicatorColor});
+    ${textFieldTokens.indicatorSizeInner}: var(${tokens.indicatorSize});
+    ${textFieldTokens.indicatorSizeOuter}: var(${tokens.indicatorSizeOuter});
+    ${textFieldTokens.indicatorLabelPlacementInner}: var(${tokens.indicatorPlacement});
+    ${textFieldTokens.indicatorLabelPlacementOuter}: var(${tokens.indicatorOuterPlacement});
+    ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.indicatorPlacementRight});
+    ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.indicatorOuterPlacementRight});
 
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
@@ -99,7 +118,5 @@ export const base = css`
         width: inherit;
     }
 `;
-
-export const StyledLabel = styled.label``;
 
 export const LeftHelper = styled.div``;

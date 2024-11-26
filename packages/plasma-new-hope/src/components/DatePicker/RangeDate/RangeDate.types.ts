@@ -27,6 +27,15 @@ type BaseRangeProps = Omit<
 
 export type DatePickerRangeFieldProps = {
     /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
+    /**
      * Значение по умолчанию для первого поля.
      */
     defaultFirstDate?: Date;
