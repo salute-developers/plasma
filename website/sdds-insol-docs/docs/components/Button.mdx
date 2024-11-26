@@ -56,7 +56,7 @@ export function App() {
 ## Примеры
 
 ### Размер кнопки
-Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"` или `"s"`:
+Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"xl"`, `"l"`, `"m"`, `"s"`, `"xs"` или `"xxs"`:
 
 ```tsx live
 import React from 'react';
@@ -65,9 +65,12 @@ import { Button } from '@salutejs/sdds-insol';
 export function App() {
     return (
         <div>
+            <Button text="Button" size="xl" />
             <Button text="Button" size="l" />
             <Button text="Button" size="m" />
             <Button text="Button" size="s" />
+            <Button text="Button" size="xs" />
+            <Button text="Button" size="xxs" />
         </div>
     );
 }
