@@ -130,6 +130,15 @@ export type RangeInnerProps = {
      */
     disabled?: boolean;
     /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
+    /**
      * Коллбэк, вызываемый при изменении первого поля ввода
      */
     onChangeFirstValue?: BaseCallbackChangeInstance;

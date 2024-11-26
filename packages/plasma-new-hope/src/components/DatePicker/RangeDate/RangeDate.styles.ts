@@ -75,6 +75,14 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.labelLetterSpacing}: var(${tokens.labelLetterSpacing});
     ${rangeTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
+    ${rangeTokens.indicatorColor}: var(${tokens.indicatorColor});
+    ${rangeTokens.indicatorSize}: var(${tokens.indicatorSize});
+    ${rangeTokens.indicatorSizeOuter}: var(${tokens.indicatorSizeOuter});
+    ${rangeTokens.indicatorPlacement}: var(${tokens.indicatorPlacement});
+    ${rangeTokens.indicatorOuterPlacement}: var(${tokens.indicatorOuterPlacement});
+    ${rangeTokens.indicatorPlacementRight}: var(${tokens.indicatorPlacementRight});
+    ${rangeTokens.indicatorOuterPlacementRight}: var(${tokens.indicatorOuterPlacementRight});
+
     ${rangeTokens.textFieldHeight}: var(${tokens.textFieldHeight});
     ${rangeTokens.textFieldBorderRadius}: var(${tokens.textFieldBorderRadius});
     ${rangeTokens.textFieldPadding}: var(${tokens.textFieldPadding});
@@ -111,7 +119,5 @@ export const StyledRange = styled(Range)`
 export const base = css`
     display: inline-block;
 `;
-
-export const StyledLabel = styled.label``;
 
 export const LeftHelper = styled.div``;

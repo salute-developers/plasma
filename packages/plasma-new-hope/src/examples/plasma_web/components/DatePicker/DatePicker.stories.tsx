@@ -20,6 +20,7 @@ const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta = {
     title: 'web/Data Entry/DatePicker',
@@ -52,6 +53,13 @@ const meta: Meta = {
             control: {
                 type: 'inline-radio',
             },
+        },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
         },
     },
 };
@@ -130,6 +138,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',
@@ -271,6 +281,8 @@ export const Range: StoryObj<StoryPropsRange> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
@@ -365,6 +377,8 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',

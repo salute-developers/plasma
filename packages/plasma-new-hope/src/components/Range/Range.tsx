@@ -15,6 +15,8 @@ import {
     StyledContentLeft,
     StyledContentRight,
     StyledDivider,
+    StyledIndicator,
+    StyledIndicatorWrapper,
     StyledInput,
     StyledLabel,
     base,
@@ -55,6 +57,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                 firstTextfieldTextAfter,
                 secondTextfieldTextAfter,
 
+                required,
+                requiredPlacement = 'right',
+
                 onChangeFirstValue,
                 onChangeSecondValue,
                 onSearchFirstValue,
@@ -71,6 +76,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
             const rangeRef = useRef<HTMLDivElement>(null);
             const firstTextFieldRef = useRef<HTMLInputElement>(null);
             const secondTextFieldRef = useRef<HTMLInputElement>(null);
+
+            const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
+
             const rangeErrorClass = firstValueError && secondValueError ? classes.rangeError : undefined;
             const firstValueErrorClass = !rangeErrorClass && firstValueError ? classes.rangeValueError : undefined;
             const secondValueErrorClass = !rangeErrorClass && secondValueError ? classes.rangeValueError : undefined;
@@ -119,8 +127,19 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                     readOnly={!disabled && readOnly}
                     {...rest}
                 >
-                    {label && <StyledLabel>{label}</StyledLabel>}
+                    {label && (
+                        <StyledIndicatorWrapper>
+                            <StyledLabel>{label}</StyledLabel>
+
+                            {required && (
+                                <StyledIndicator
+                                    className={cx(classes.requiredOuterPlacement, requiredPlacementClass)}
+                                />
+                            )}
+                        </StyledIndicatorWrapper>
+                    )}
                     <ContentWrapper className={cx(rangeErrorClass, rangeSuccessClass)}>
+                        {!label && required && <StyledIndicator className={cx(requiredPlacementClass)} />}
                         {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                         <StyledInput
                             ref={firstTextFieldRef}
