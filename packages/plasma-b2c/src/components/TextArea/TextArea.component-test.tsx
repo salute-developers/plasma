@@ -240,9 +240,9 @@ describe('plasma-b2c: TextArea', () => {
 
         const cases = [
             { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'outer' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
             { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'inner' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -334,9 +334,9 @@ describe('plasma-b2c: TextArea', () => {
 
         const cases = [
             { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'outer' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
             { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'inner' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {

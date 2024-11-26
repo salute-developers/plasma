@@ -60,37 +60,21 @@ type TextFieldChipProps =
           chipType?: 'default' | 'text';
       };
 
-export type RequiredProps =
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required: true;
-          /**
-           * Задает выравнивание индикатора обязательности поля
-           * @default right
-           */
-          requiredPlacement?: 'left' | 'right';
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: false;
-      }
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required?: false;
-          /**
-           * Задает выравнивание индикатора обязательности поля
-           * @default right
-           */
-          requiredPlacement?: never;
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: boolean;
-      };
+export type RequiredProps = {
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
+    /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+    /**
+     * Флаг необязательности поля
+     */
+    optional?: boolean;
+};
 
 type ClearProps =
     | {

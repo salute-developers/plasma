@@ -10,38 +10,6 @@ export const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
 
-export type RequiredProps =
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required: true;
-          /**
-           * Задает выравнивание индикатора обязательности поля
-           * @default right
-           */
-          requiredPlacement?: 'left' | 'right';
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: false;
-      }
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required?: false;
-          /**
-           * Задает выравнивание индикатора обязательности поля
-           * @default right
-           */
-          requiredPlacement?: never;
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: boolean;
-      };
-
 type ClearProps =
     | {
           /**
@@ -123,7 +91,7 @@ type HintProps =
           hintContentLeft?: never;
       };
 
-type TextFieldProps = TextFieldPropsOld & RequiredProps & ClearProps & HintProps;
+type TextFieldProps = TextFieldPropsOld & ClearProps & HintProps;
 
 export type CustomTextFieldProps = TextFieldProps &
     Pick<
@@ -135,6 +103,9 @@ export type CustomTextFieldProps = TextFieldProps &
         | 'titleCaption'
         | 'labelPlacement'
         | 'keepPlaceholder'
+        | 'required'
+        | 'requiredPlacement'
+        | 'optional'
     >;
 
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {
