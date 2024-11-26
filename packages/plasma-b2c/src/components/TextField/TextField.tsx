@@ -10,38 +10,6 @@ export const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = ComponentProps<typeof TextFieldComponent>;
 
-export type RequiredProps =
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required: true;
-          /**
-           * Задает выравнивание индикатора обязательности поля
-           * @default right
-           */
-          requiredPlacement?: 'left' | 'right';
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: false;
-      }
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required?: false;
-          /**
-           * Задает выравнивание индикатора обязательности поля
-           * @default right
-           */
-          requiredPlacement?: never;
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: boolean;
-      };
-
 type ClearProps =
     | {
           /**
@@ -133,8 +101,10 @@ export type CustomTextFieldProps = (TextFieldProps &
         | 'titleCaption'
         | 'labelPlacement'
         | 'keepPlaceholder'
+        | 'required'
+        | 'requiredPlacement'
+        | 'optional'
     >) &
-    RequiredProps &
     ClearProps &
     HintProps;
 
