@@ -9,6 +9,7 @@ export type TargetProps = Pick<
     | 'view'
     | 'label'
     | 'labelPlacement'
+    | 'keepPlaceholder'
     | 'placeholder'
     | 'contentLeft'
     | 'disabled'

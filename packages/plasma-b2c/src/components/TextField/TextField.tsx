@@ -10,34 +10,37 @@ export const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = ComponentProps<typeof TextFieldComponent>;
 
-type RequiredProps = {
-    /**
-     * Задает выравнивание индикатора обязательности поля
-     * @default right
-     */
-    requiredPlacement?: 'left' | 'right';
-} & (
+export type RequiredProps =
     | {
           /**
            * Флаг обязательности поля
            */
           required: true;
           /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: 'left' | 'right';
+          /**
            * Флаг необязательности поля
            */
-          optional?: never | false;
+          optional?: false;
       }
     | {
           /**
-           * Флаг необязательности поля
-           */
-          optional?: true;
-          /**
            * Флаг обязательности поля
            */
-          required?: never | false;
-      }
-);
+          required?: false;
+          /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: never;
+          /**
+           * Флаг необязательности поля
+           */
+          optional?: boolean;
+      };
 
 type ClearProps =
     | {
@@ -121,7 +124,16 @@ type HintProps =
       };
 
 export type CustomTextFieldProps = (TextFieldProps &
-    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption'>) &
+    Pick<
+        newHopeTextFieldProps,
+        | 'enumerationType'
+        | 'chips'
+        | 'chipType'
+        | 'onChangeChips'
+        | 'titleCaption'
+        | 'labelPlacement'
+        | 'keepPlaceholder'
+    >) &
     RequiredProps &
     ClearProps &
     HintProps;
@@ -148,7 +160,12 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         view,
         status,
 
+        required,
+        requiredPlacement,
+        optional,
         label,
+        labelPlacement,
+        keepPlaceholder,
         caption,
         placeholder,
         helperText,
@@ -171,19 +188,34 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
     let _placeholder = placeholder;
     // NOTE: rest.size https://github.com/salute-developers/plasma/issues/961
     // if size is undefined <TextFieldComp size={size} /> would not use defaults
-    if (rest.size === 'xs' && _labelPlacement === 'inner') {
+    if (rest.size === 'xs' && _labelPlacement === 'inner' && !keepPlaceholder) {
         _placeholder = _label;
         _label = undefined;
         _labelPlacement = 'outer';
     }
 
+    const labelProps = {
+        label: _label,
+        labelPlacement: _labelPlacement,
+        keepPlaceholder,
+    };
+
+    const requiredProps = required
+        ? {
+              required,
+              requiredPlacement,
+          }
+        : {
+              optional,
+          };
+
     if (enumerationType === 'chip') {
         return (
             <TextFieldComponent
                 {...rest}
+                {...requiredProps}
+                {...labelProps}
                 view={_view}
-                labelPlacement={_labelPlacement}
-                label={_label}
                 placeholder={_placeholder}
                 leftHelper={helperText}
                 ref={ref}
@@ -199,9 +231,9 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
     return (
         <TextFieldComponent
             {...rest}
+            {...requiredProps}
+            {...labelProps}
             view={_view}
-            labelPlacement={_labelPlacement}
-            label={_label}
             placeholder={_placeholder}
             leftHelper={helperText}
             ref={ref}

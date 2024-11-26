@@ -92,6 +92,12 @@ const meta: Meta<StoryProps> = {
                 type: 'inline-radio',
             },
         },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'labelPlacement', eq: 'inner' },
+        },
         requiredPlacement: {
             options: ['left', 'right'],
             control: {
@@ -122,6 +128,7 @@ const meta: Meta<StoryProps> = {
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',
+        keepPlaceholder: false,
         leftHelper: 'Введите имя Алексей',
         listWidth: '100%',
         listMaxHeight: '200px',

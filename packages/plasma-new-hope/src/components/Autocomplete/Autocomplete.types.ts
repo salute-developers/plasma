@@ -94,5 +94,8 @@ export type BaseProps = {
 };
 
 export type AutocompleteProps = BaseProps &
-    DistributiveOmit<TextFieldPropsBase, 'chips' | 'onChangeChips' | 'enumerationType' | 'chipType'> &
+    DistributiveOmit<
+        TextFieldPropsBase,
+        'chips' | 'onChangeChips' | 'enumerationType' | 'chipType' | 'labelPlacement'
+    > &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;

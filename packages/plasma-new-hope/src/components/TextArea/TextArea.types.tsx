@@ -77,22 +77,21 @@ export type TextAreaDimensionsProps = OneOf<
     ClearProps
 >;
 
-type RequiredProps = {
-    /**
-     * Задает выравнивание индикатора обязательности поля
-     * @default right
-     */
-    requiredPlacement?: 'left' | 'right';
-} & (
+type RequiredProps =
     | {
           /**
            * Флаг обязательности поля
            */
           required: true;
           /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: 'left' | 'right';
+          /**
            * Флаг необязательности поля
            */
-          optional?: never | false;
+          optional?: false;
       }
     | {
           /**
@@ -102,9 +101,13 @@ type RequiredProps = {
           /**
            * Флаг обязательности поля
            */
-          required?: never | false;
-      }
-);
+          required?: false;
+          /**
+           * Задает выравнивание индикатора обязательности поля
+           * @default right
+           */
+          requiredPlacement?: never;
+      };
 
 type HintProps =
     | {

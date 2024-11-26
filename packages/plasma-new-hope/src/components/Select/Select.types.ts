@@ -1,7 +1,7 @@
 import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent } from 'react';
 import React from 'react';
 
-import type { RequiredProps } from '../TextField/TextField.types';
+import type { RequiredProps, LabelProps } from '../TextField/TextField.types';
 
 import { FocusedPathState } from './reducers';
 import {
@@ -16,55 +16,51 @@ type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
 
 export type { RequiredProps };
 
-type Target =
-    | (RequiredProps & {
-          /**
-           * Стиль селекта: button-like или textfield-like.
-           * @default textfield-like
-           */
-          target?: 'textfield-like';
-          view?: 'default' | 'positive' | 'warning' | 'negative';
-          /**
-           * Слот для контента слева.
-           */
-          contentLeft?: React.ReactNode;
-          /**
-           * Расположение лейбла.
-           * @default outer
-           */
-          labelPlacement?: 'outer' | 'inner';
-          /**
-           * Placeholder.
-           */
-          placeholder?: string;
-          /**
-           * Вспомогательный текст снизу слева для поля ввода.
-           */
-          helperText?: string;
-          /**
-           * Внешний вид chip.
-           */
-          chipType?: 'default' | 'text';
-      })
-    | {
-          target: 'button-like';
-          view?:
-              | 'default'
-              | 'accent'
-              | 'secondary'
-              | 'clear'
-              | 'positive'
-              | 'warning'
-              | 'negative'
-              | 'dark'
-              | 'black'
-              | 'white';
-          contentLeft?: never;
-          labelPlacement?: never;
-          placeholder?: never;
-          helperText?: never;
-          chipType?: never;
-      };
+type Target = LabelProps &
+    (
+        | (RequiredProps & {
+              /**
+               * Стиль селекта: button-like или textfield-like.
+               * @default textfield-like
+               */
+              target?: 'textfield-like';
+              view?: 'default' | 'positive' | 'warning' | 'negative';
+              /**
+               * Слот для контента слева.
+               */
+              contentLeft?: React.ReactNode;
+              /**
+               * Placeholder.
+               */
+              placeholder?: string;
+              /**
+               * Вспомогательный текст снизу слева для поля ввода.
+               */
+              helperText?: string;
+              /**
+               * Внешний вид chip.
+               */
+              chipType?: 'default' | 'text';
+          })
+        | {
+              target: 'button-like';
+              view?:
+                  | 'default'
+                  | 'accent'
+                  | 'secondary'
+                  | 'clear'
+                  | 'positive'
+                  | 'warning'
+                  | 'negative'
+                  | 'dark'
+                  | 'black'
+                  | 'white';
+              contentLeft?: never;
+              placeholder?: never;
+              helperText?: never;
+              chipType?: never;
+          }
+    );
 
 type IsMultiselect<K extends ItemOption> =
     | {
@@ -99,10 +95,6 @@ export interface BasicProps<K extends ItemOption> {
      * @default bottom
      */
     placement?: SelectPlacement | Array<SelectPlacementBasic>;
-    /**
-     * Метка-подпись к элементу.
-     */
-    label?: string;
     /**
      * Компонент неактивен.
      * @default false
@@ -284,10 +276,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default bottom
          */
         placement?: SelectPlacement | Array<SelectPlacementBasic>;
-        /**
-         * Метка-подпись к элементу.
-         */
-        label?: string;
+
         /**
          * Коллбэк для определения достижения скроллом конца списка.
          */

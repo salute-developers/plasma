@@ -87,6 +87,12 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'labelPlacement', eq: 'inner' },
+        },
         size: {
             options: sizes,
             control: {
@@ -214,6 +220,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
+        keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
