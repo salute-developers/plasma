@@ -131,6 +131,7 @@ const StyledIconButton = styled(Button)`
     position: relative;
     width: 1.5rem;
     height: 1.5rem;
+    color: var(--text-secondary);
 `;
 
 const StoryDrawerDemo = ({

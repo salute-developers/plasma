@@ -1,10 +1,20 @@
 import { styled } from '@linaria/react';
 
-import { component } from '../../engines';
+import { component, mergeConfig } from '../../engines';
 import { popupClasses, popupConfig } from '../Popup';
+import { panelTokens, panelConfig } from '../Panel';
 
 import type { DrawerPlacement } from './Drawer.types';
 import { classes } from './Drawer.tokens';
+
+import { drawerTokens } from '.';
+
+const mergedPanelConfig = mergeConfig(panelConfig);
+const Panel = component(mergedPanelConfig);
+
+export const StyledPanel = styled(Panel)`
+    ${panelTokens.closeColor}: var(${drawerTokens.closeIconColor});
+`;
 
 const Popup = component(popupConfig);
 
