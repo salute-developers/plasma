@@ -1,9 +1,10 @@
 import React, { createContext, useState, useContext, FC, PropsWithChildren, useRef } from 'react';
 
+import { Portal } from '../Portal';
 import { hasModals } from '../Modal/ModalContext';
 import { canUseDOM, safeUseId } from '../../utils';
-import { Portal } from '../Portal';
 
+import { ClientOnlyPortal } from './ClientOnlyPortal';
 import type { PopupContextType, PopupInfo } from './Popup.types';
 import { StyledPortal } from './Popup.styles';
 
@@ -26,9 +27,16 @@ const PopupContext = createContext<PopupContextType>({
 
 export const usePopupContext = () => useContext(PopupContext);
 
-export const PopupProvider: FC<PropsWithChildren> = ({ children }) => {
+// TODO: #1599
+export const PopupProvider: FC<
+    PropsWithChildren & {
+        /**
+         * @description Только для применения в рамках SSR.
+         */
+        UNSAFE_SSR_ENABLED?: boolean;
+    }
+> = ({ children, UNSAFE_SSR_ENABLED }) => {
     const prevBodyOverflowY = useRef(canUseDOM ? document.body.style.overflowY : '');
-    // eslint-disable-next-line no-shadow
     const [items, setItems] = useState<PopupInfo[]>([]);
 
     const uuid = safeUseId();
@@ -83,7 +91,12 @@ export const PopupProvider: FC<PropsWithChildren> = ({ children }) => {
     return (
         <PopupContext.Provider value={context}>
             {children}
-            {canUseDOM && (
+
+            {UNSAFE_SSR_ENABLED ? (
+                <ClientOnlyPortal>
+                    <StyledPortal id={rootId} />
+                </ClientOnlyPortal>
+            ) : (
                 <Portal container={document.body}>
                     <StyledPortal id={rootId} />
                 </Portal>
