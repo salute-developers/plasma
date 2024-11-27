@@ -168,14 +168,16 @@ export const StyledTextArea = styled.textarea<{
     min-height: var(${tokens.inputMinHeight});
 
     padding-right: ${({ hasContentRight }) =>
-        hasContentRight ? `var(${tokens.inputPaddingRightWithRightContent})` : `var(${tokens.inputPaddingRight})`};
-    padding-left: var(${tokens.inputPaddingLeft});
+        hasContentRight
+            ? `var(${tokens.inputPaddingRightWithRightContent}, 0)`
+            : `var(${tokens.inputPaddingRight}, 0)`};
+    padding-left: var(${tokens.inputPaddingLeft}, 0);
     padding-top: 0;
     padding-bottom: 0;
 
     /* INFO: Высчитываем высоту блока с подсказками */
     --plasma_private-textarea-helpers-computed-height: calc(
-        var(${tokens.helpersPaddingTop}) + var(${tokens.helpersPaddingBottom}) + var(${tokens.helpersLineHeight})
+        var(${tokens.helpersPaddingTop}, 0) + var(${tokens.helpersPaddingBottom}, 0) + var(${tokens.helpersLineHeight})
     );
 
     --plasma_private-textarea-input-with-helpers-height: calc(

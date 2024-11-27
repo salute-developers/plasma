@@ -116,10 +116,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.chipCloseIconColor}: var(${tokens.textFieldChipCloseIconColor});
     ${textFieldTokens.chipOutlineSize}: var(${tokens.textFieldChipOutlineSize});
     ${textFieldTokens.chipWidth}: var(${tokens.textFieldChipWidth});
-    ${textFieldTokens.chipPaddingTop}: var(${tokens.textFieldChipPaddingTop});
-    ${textFieldTokens.chipPaddingRight}: var(${tokens.textFieldChipPaddingRight});
-    ${textFieldTokens.chipPaddingBottom}: var(${tokens.textFieldChipPaddingBottom});
-    ${textFieldTokens.chipPaddingLeft}: var(${tokens.textFieldChipPaddingLeft});
+    ${textFieldTokens.chipPadding}: var(${tokens.textFieldChipPadding});
     ${textFieldTokens.chipCloseIconSize}: var(${tokens.textFieldChipCloseIconSize});
     ${textFieldTokens.chipFontFamily}: var(${tokens.textFieldChipFontFamily});
     ${textFieldTokens.chipFontSize}: var(${tokens.textFieldChipFontSize});
