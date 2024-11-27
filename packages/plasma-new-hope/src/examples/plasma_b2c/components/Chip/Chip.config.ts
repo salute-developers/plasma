@@ -89,8 +89,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1.5rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 3rem;
-                ${chipTokens.paddingRight}: 1rem;
-                ${chipTokens.paddingLeft}: 1rem;
+                ${chipTokens.padding}: 0 1rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -114,8 +113,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1.25rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2.5rem;
-                ${chipTokens.paddingRight}: 0.875rem;
-                ${chipTokens.paddingLeft}: 0.875rem;
+                ${chipTokens.padding}: 0 0.875rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -139,8 +137,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2rem;
-                ${chipTokens.paddingRight}: 0.875rem;
-                ${chipTokens.paddingLeft}: 0.875rem;
+                ${chipTokens.padding}: 0 0.875rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -164,8 +161,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 0.75rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 1.5rem;
-                ${chipTokens.paddingRight}: 0.625rem;
-                ${chipTokens.paddingLeft}: 0.625rem;
+                ${chipTokens.padding}: 0 0.625rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
