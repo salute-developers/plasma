@@ -42,8 +42,7 @@ export const config = {
                 ${comboboxTokens.chipBorderRadius}: 0.125rem;
                 ${comboboxTokens.chipWidth}: auto;
                 ${comboboxTokens.chipHeight}: 1.25rem;
-                ${comboboxTokens.chipPaddingRight}: 0.375rem;
-                ${comboboxTokens.chipPaddingLeft}: 0.625rem;
+                ${comboboxTokens.chipPadding}: 0 0.375rem 0 0.625rem;
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.25rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 0.75rem;
@@ -111,8 +110,7 @@ export const config = {
                 ${comboboxTokens.chipBorderRadius}: 0.25rem;
                 ${comboboxTokens.chipWidth}: auto;
                 ${comboboxTokens.chipHeight}: 1.75rem;
-                ${comboboxTokens.chipPaddingRight}: 0.5rem;
-                ${comboboxTokens.chipPaddingLeft}: 0.75rem;
+                ${comboboxTokens.chipPadding}: 0 0.5rem 0 0.75rem;
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.375rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 0.75rem;
@@ -180,8 +178,7 @@ export const config = {
                 ${comboboxTokens.chipBorderRadius}: 0.375rem;
                 ${comboboxTokens.chipWidth}: auto;
                 ${comboboxTokens.chipHeight}: 2.25rem;
-                ${comboboxTokens.chipPaddingRight}: 0.875rem;
-                ${comboboxTokens.chipPaddingLeft}: 0.625rem;
+                ${comboboxTokens.chipPadding}: 0 0.875rem 0 0.625rem;
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.5rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 1rem;
@@ -249,8 +246,7 @@ export const config = {
                 ${comboboxTokens.chipBorderRadius}: 0.5rem;
                 ${comboboxTokens.chipWidth}: auto;
                 ${comboboxTokens.chipHeight}: 2.75rem;
-                ${comboboxTokens.chipPaddingRight}: 0.75rem;
-                ${comboboxTokens.chipPaddingLeft}: 1rem;
+                ${comboboxTokens.chipPadding}: 0 0.75rem 0 1rem;
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.625rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 1rem;
