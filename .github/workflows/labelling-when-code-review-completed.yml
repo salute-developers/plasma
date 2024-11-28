@@ -1,0 +1,54 @@
+name: Labelling when code review completed
+
+on:
+    pull_request_review:
+        types: [ submitted ]
+
+jobs:
+    notify:
+        ## if: github.event.review.state == 'approved'
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v4
+
+            -   name: Prepare environment
+                uses: ./.github/actions/prepare-environment
+
+            -   name: Get package name when dirty
+                id: packages_name
+                run: |
+                    ## jq -c '[.[] | .name]
+                    ## Получаем данные в формате ["@salutejs/plasma-new-hope","@salutejs/sdds-cs"]
+                    echo "PACKAGES_NAME=$(npx lerna la --json --since=$(git merge-base --fork-point origin/dev) --exclude-dependents | jq -c '[.[] | .name]')" >> "$GITHUB_OUTPUT"
+
+            -   name: Formatting data
+                id: data
+                uses: actions/github-script@v7
+                env:
+                    DATA: ${{ fromJSON(steps.packages_name.outputs.PACKAGES_NAME) }}
+                with:
+                    result-encoding: string
+                    script: |
+                        const data = JSON.parse(process.env.DATA) || [];
+
+                        if (!data.length) {
+                            console.log('Empty state');
+                            return '';
+                        }
+
+                        const result = data
+                            .map((item) => item.replace('@salutejs/', ''))
+                            .map((item) => {
+                                if (item === 'plasma-new-hope') {
+                                    return 'core';
+                                }
+
+                                return item;
+                            })
+                            .join('')
+
+            -   name: Add labels
+                run: |
+                    gh pr edit ${{ github.event.pull_request.number }} \
+                      --add-label "${{ steps.data.outputs.result }}"
