@@ -89,8 +89,6 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 };
             }, []);
 
-            const withContentLeft = contentLeft ? classes.hasContentLeft : undefined;
-
             return (
                 <StyledPopover
                     opened={showTooltip}
@@ -110,7 +108,6 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                         <TooltipRoot
                             ref={outerRef}
                             id={id}
-                            className={cx(withContentLeft)}
                             maxWidth={getStringValue(maxWidth)}
                             minWidth={getStringValue(minWidth)}
                         >
