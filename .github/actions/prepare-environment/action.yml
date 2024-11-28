@@ -6,14 +6,14 @@ runs:
   using: "composite"
   steps:
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4.1.0
       with:
         node-version-file: '.nvmrc'
         cache: 'npm'
 
     - name: Cache node modules
       id: node_modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4.1.2
       with:
         path: node_modules
         key: node-modules-${{ hashFiles('package-lock.json') }}
@@ -23,15 +23,15 @@ runs:
 
     - name: Cache dependencies
       id: cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4.1.2
       with:
         path: ~/.cache
         key: cache-${{ hashFiles('package-lock.json') }}
         restore-keys: |
           cache-${{ hashFiles('package-lock.json') }}
-          cache-            
+          cache-
 
     - name: Setup packages
       shell: bash
-      if: ${{ steps.cache.outputs.cache-hit != 'true' && steps.node_modules.outputs.cache-hit != 'true' }}
+      if: ${{ steps.cache.outputs.cache-hit != 'true' || steps.node_modules.outputs.cache-hit != 'true' }}
       run: npm ci --no-progress
