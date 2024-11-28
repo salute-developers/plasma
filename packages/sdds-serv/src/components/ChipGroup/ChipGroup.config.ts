@@ -37,8 +37,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.75rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 3rem;
-                ${tokens.chipPaddingRight}: 1rem;
-                ${tokens.chipPaddingLeft}: 1rem;
+                ${tokens.chipPadding}: 0 1rem;
 
                 ${tokens.chipFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.chipFontSize}: var(--plasma-typo-body-l-font-size);
@@ -61,8 +60,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.625rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.5rem;
-                ${tokens.chipPaddingRight}: 0.875rem;
-                ${tokens.chipPaddingLeft}: 0.875rem;
+                ${tokens.chipPadding}: 0 0.875rem;
 
                 ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
@@ -85,8 +83,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.5rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2rem;
-                ${tokens.chipPaddingRight}: 0.875rem;
-                ${tokens.chipPaddingLeft}: 0.875rem;
+                ${tokens.chipPadding}: 0 0.875rem;
 
                 ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
@@ -109,8 +106,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.375rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 1.5rem;
-                ${tokens.chipPaddingRight}: 0.625rem;
-                ${tokens.chipPaddingLeft}: 0.625rem;
+                ${tokens.chipPadding}: 0 0.625rem;
 
                 ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
