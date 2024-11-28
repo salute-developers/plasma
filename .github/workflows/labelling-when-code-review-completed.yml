@@ -1,8 +1,11 @@
 name: Labelling when code review completed
 
 on:
-    pull_request_review:
-        types: [ submitted ]
+    pull_request:
+        branches:
+            - dev
+      ## pull_request_review:
+        ## types: [ submitted ]
 
 jobs:
     notify:
