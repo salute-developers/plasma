@@ -30,11 +30,11 @@ jobs:
                 id: data
                 uses: actions/github-script@v7
                 env:
-                    DATA: ${{ fromJSON(steps.packages_name.outputs.PACKAGES_NAME) }}
+                    DATA: ${{ steps.packages_name.outputs.PACKAGES_NAME }}
                 with:
                     result-encoding: string
                     script: |
-                        const data = JSON.parse(process.env.DATA) || [];
+                        const data = JSON.parse(process.env.DATA || []) ;
 
                         if (!data.length) {
                             console.log('Empty state');
