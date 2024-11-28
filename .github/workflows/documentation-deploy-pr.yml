@@ -1,12 +1,7 @@
 name: Deploy documentations artefacts [PR]
 
 on:
-    pull_request_target:
-        branches:
-            - dev
-    pull_request:
-        branches:
-            - master
+ workflow_dispatch:
 
 concurrency:
     # New commit on branch cancels running workflows of the same branch

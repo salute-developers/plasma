@@ -1,12 +1,7 @@
 name: Release
 
 on:
-  pull_request:
-    branches:
-      - master
-  pull_request_target:
-    branches:
-      - dev
+ workflow_dispatch:
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
