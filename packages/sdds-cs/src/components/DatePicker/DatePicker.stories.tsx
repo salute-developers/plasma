@@ -161,7 +161,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconCalendarOutline size={iconSize} color="var(--text-accent)" />
+            <IconPlasma size={iconSize} color="var(--text-primary)" />
         </IconButton>
     );
 };
@@ -210,11 +210,15 @@ const StoryRange = ({
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={enableFirstTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? <IconDisclosureDown size={iconSize} /> : undefined
+                enableFirstTextfieldContentRight ? (
+                    <IconCalendarOutline color="var(--text-accent)" size={iconSize} />
+                ) : undefined
             }
             secondTextfieldContentLeft={enableSecondTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? <IconDisclosureDown size={iconSize} /> : undefined
+                enableSecondTextfieldContentRight ? (
+                    <IconCalendarOutline color="var(--text-accent)" size={iconSize} />
+                ) : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
@@ -273,11 +277,11 @@ export const Range: StoryObj<StoryPropsRange> = {
         disabled: false,
         readOnly: false,
         enableContentLeft: false,
-        enableContentRight: true,
+        enableContentRight: false,
         enableFirstTextfieldContentLeft: false,
-        enableFirstTextfieldContentRight: false,
+        enableFirstTextfieldContentRight: true,
         enableSecondTextfieldContentLeft: false,
-        enableSecondTextfieldContentRight: false,
+        enableSecondTextfieldContentRight: true,
 
         firstValueError: false,
         firstValueSuccess: false,
