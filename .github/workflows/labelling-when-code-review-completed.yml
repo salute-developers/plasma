@@ -41,7 +41,7 @@ jobs:
                             return '';
                         }
 
-                        const result = data
+                        return data
                             .map((item) => item.replace('@salutejs/', ''))
                             .map((item) => {
                                 if (item === 'plasma-new-hope') {
@@ -50,7 +50,7 @@ jobs:
 
                                 return item;
                             })
-                            .join('')
+                            .join('');
 
             -   name: Add labels
                 run: |
