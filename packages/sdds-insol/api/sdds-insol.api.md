@@ -72,6 +72,7 @@ import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/compo
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
+import { DateInfo } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -80,7 +81,6 @@ import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/componen
 import { DatePickerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
-import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
 import type { DistributiveOmit } from '@salutejs/plasma-new-hope';
@@ -88,12 +88,18 @@ import type { DistributivePick } from '@salutejs/plasma-new-hope';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DragEvent as DragEvent_2 } from 'react';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
+import type { DropdownItemOption } from '@salutejs/plasma-new-hope';
+import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
 import { DropdownNodeSelect } from '@salutejs/plasma-new-hope/styled-components';
-import { DropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { DropdownTrigger } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { dropzoneClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { dsplL } from '@salutejs/sdds-themes/tokens';
 import { dsplLBold } from '@salutejs/sdds-themes/tokens';
 import { dsplM } from '@salutejs/sdds-themes/tokens';
@@ -101,6 +107,7 @@ import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
 import { FC } from 'react';
+import { FileProcessHandler } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { FormTypeString } from '@salutejs/plasma-new-hope/types/types/FormType';
@@ -127,6 +134,7 @@ import type { ItemOption } from '@salutejs/plasma-new-hope';
 import type { ItemOptionSelect } from '@salutejs/plasma-new-hope';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
+import { LabelProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { MaskProps } from '@salutejs/plasma-new-hope/types/components/Mask/Mask.types';
 import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
@@ -173,6 +181,7 @@ import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
+import { RequiredProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { Row } from '@salutejs/plasma-new-hope/styled-components';
 import { ScreenConfig } from '@salutejs/plasma-new-hope/styled-components';
 import { ScreenMap } from '@salutejs/plasma-new-hope/styled-components';
@@ -208,7 +217,6 @@ import { TextFieldGroupProps } from '@salutejs/plasma-new-hope/styled-components
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
-import { TextFieldPropsBase } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { textFieldTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { textL } from '@salutejs/sdds-themes/tokens';
 import { textLBold } from '@salutejs/sdds-themes/tokens';
@@ -228,6 +236,7 @@ import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
+import { ValidatorReturnType } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ViewContainerCustomProps } from '@salutejs/plasma-new-hope/types/components/ViewContainer/ViewContainer';
 import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
@@ -508,17 +517,255 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & ((BaseProps & {
-requiredPlacement?: "right" | "left" | undefined;
+}> & ((BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
 } & {
-required: true;
-optional?: false | undefined;
-} & Omit<TextFieldPropsBase, "required" | "requiredPlacement" | "optional" | "chips" | "onChangeChips" | "enumerationType"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & {
-requiredPlacement?: "right" | "left" | undefined;
+hintText: string;
+hintTrigger?: "hover" | "click" | undefined;
+hintView?: string | undefined;
+hintSize?: string | undefined;
+hintTargetIcon?: ReactNode;
+hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
+hintHasArrow?: boolean | undefined;
+hintOffset?: [number, number] | undefined;
+hintWidth?: string | undefined;
+hintContentLeft?: ReactNode;
 } & {
-optional?: true | undefined;
-required?: false | undefined;
-} & Omit<TextFieldPropsBase, "required" | "requiredPlacement" | "optional" | "chips" | "onChangeChips" | "enumerationType"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click" | undefined;
+hintView?: string | undefined;
+hintSize?: string | undefined;
+hintTargetIcon?: ReactNode;
+hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
+hintHasArrow?: boolean | undefined;
+hintOffset?: [number, number] | undefined;
+hintWidth?: string | undefined;
+hintContentLeft?: ReactNode;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
+} & {
+hintTrigger?: undefined;
+hintText?: undefined;
+hintView?: undefined;
+hintSize?: undefined;
+hintTargetIcon?: undefined;
+hintPlacement?: undefined;
+hintHasArrow?: undefined;
+hintOffset?: undefined;
+hintWidth?: undefined;
+hintContentLeft?: undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: boolean | undefined;
+hasDivider?: boolean | undefined;
+} & {
+hintTrigger?: undefined;
+hintText?: undefined;
+hintView?: undefined;
+hintSize?: undefined;
+hintTargetIcon?: undefined;
+hintPlacement?: undefined;
+hintHasArrow?: undefined;
+hintOffset?: undefined;
+hintWidth?: undefined;
+hintContentLeft?: undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: false | undefined;
+hasDivider?: undefined;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click" | undefined;
+hintView?: string | undefined;
+hintSize?: string | undefined;
+hintTargetIcon?: ReactNode;
+hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
+hintHasArrow?: boolean | undefined;
+hintOffset?: [number, number] | undefined;
+hintWidth?: string | undefined;
+hintContentLeft?: ReactNode;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: false | undefined;
+hasDivider?: undefined;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click" | undefined;
+hintView?: string | undefined;
+hintSize?: string | undefined;
+hintTargetIcon?: ReactNode;
+hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
+hintHasArrow?: boolean | undefined;
+hintOffset?: [number, number] | undefined;
+hintWidth?: string | undefined;
+hintContentLeft?: ReactNode;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: false | undefined;
+hasDivider?: undefined;
+} & {
+hintTrigger?: undefined;
+hintText?: undefined;
+hintView?: undefined;
+hintSize?: undefined;
+hintTargetIcon?: undefined;
+hintPlacement?: undefined;
+hintHasArrow?: undefined;
+hintOffset?: undefined;
+hintWidth?: undefined;
+hintContentLeft?: undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & LabelProps & RequiredProps & {
+clear?: false | undefined;
+hasDivider?: undefined;
+} & {
+hintTrigger?: undefined;
+hintText?: undefined;
+hintView?: undefined;
+hintSize?: undefined;
+hintTargetIcon?: undefined;
+hintPlacement?: undefined;
+hintHasArrow?: undefined;
+hintOffset?: undefined;
+hintWidth?: undefined;
+hintContentLeft?: undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
+}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -583,11 +830,14 @@ true: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
 maxWidth?: Property.Width<string | number> | undefined;
 size?: string | undefined;
 view?: string | undefined;
+} & {
+contentLeft?: ReactNode;
+contentRight?: undefined;
 } & {
 children?: ReactNode;
 } & {
@@ -596,11 +846,14 @@ pilled?: false | undefined;
 transparent?: false | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
 maxWidth?: Property.Width<string | number> | undefined;
 size?: string | undefined;
 view?: string | undefined;
+} & {
+contentLeft?: ReactNode;
+contentRight?: undefined;
 } & {
 children?: ReactNode;
 } & {
@@ -609,11 +862,62 @@ transparent?: boolean | undefined;
 clear?: false | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
 maxWidth?: Property.Width<string | number> | undefined;
 size?: string | undefined;
 view?: string | undefined;
+} & {
+contentLeft?: ReactNode;
+contentRight?: undefined;
+} & {
+children?: ReactNode;
+} & {
+pilled?: boolean | undefined;
+transparent?: true | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+maxWidth?: Property.Width<string | number> | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+contentLeft?: undefined;
+contentRight?: ReactNode;
+} & {
+children?: ReactNode;
+} & {
+clear?: true | undefined;
+pilled?: false | undefined;
+transparent?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+maxWidth?: Property.Width<string | number> | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+contentLeft?: undefined;
+contentRight?: ReactNode;
+} & {
+children?: ReactNode;
+} & {
+pilled?: true | undefined;
+transparent?: boolean | undefined;
+clear?: false | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+maxWidth?: Property.Width<string | number> | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+contentLeft?: undefined;
+contentRight?: ReactNode;
 } & {
 children?: ReactNode;
 } & {
@@ -630,6 +934,7 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -644,6 +949,7 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -658,6 +964,7 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -672,6 +979,7 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -686,6 +994,7 @@ size: {
 xxs: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -731,6 +1040,7 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -980,6 +1290,9 @@ view: {
 default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
@@ -1084,7 +1397,26 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & DatePickerVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
+}> & DatePickerVariationProps & {
+defaultDate?: Date | undefined;
+placeholder?: string | undefined;
+name?: string | undefined;
+valueError?: boolean | undefined;
+valueSuccess?: boolean | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+textBefore?: string | undefined;
+textAfter?: string | undefined;
+onCommitDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
+onChangeValue?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value?: string | undefined) => void) | undefined;
+onChange?: ((event: {
+target: {
+value?: string | undefined;
+name?: string | undefined;
+};
+}) => void) | undefined;
+} & LabelProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
 
 export { datePickerClasses }
 
@@ -1240,7 +1572,7 @@ export { DrawerHeaderProps }
 export { DrawerProps }
 
 // @public (undocumented)
-export const Dropdown: FunctionComponent<PropsType<    {
+export const Dropdown: <T extends DropdownItemOption>(props: Omit<DropdownNewProps<T>, "view" | "size"> & Pick<PropsType<    {
 size: {
 l: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1250,7 +1582,64 @@ xs: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 };
-}> & DropdownProps & RefAttributes<HTMLDivElement>>;
+}> & {
+    items: DropdownItemOption[];
+    alwaysOpened?: boolean | undefined;
+    children?: React_2.ReactNode;
+    itemRole?: string | undefined;
+    onHover?: ((index: number) => void) | undefined;
+    onItemSelect?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
+    trigger?: DropdownTrigger | undefined;
+    placement?: DropdownPlacement | undefined;
+    offset?: [number, number] | undefined;
+    listWidth?: Property.Width<string | number> | undefined;
+    hasArrow?: boolean | undefined;
+    closeOnSelect?: boolean | undefined;
+    closeOnOverlayClick?: boolean | undefined;
+    onToggle?: ((isOpen: boolean, event: Event | React_2.SyntheticEvent<Element, Event>) => void) | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    variant?: "normal" | "tight" | undefined;
+    portal?: string | React_2.RefObject<HTMLElement> | undefined;
+    renderItem?: ((item: DropdownItemOption) => React_2.ReactNode) | undefined;
+    onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listHeight?: Property.Height<string | number> | undefined;
+    hoverIndex?: number | undefined;
+} & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "view" | "size"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+
+// @public (undocumented)
+export const Dropzone: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+m: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & {
+multiple?: boolean | undefined;
+title?: string | undefined;
+description?: string | undefined;
+icon?: ReactNode;
+iconPlacement?: "top" | "left" | undefined;
+size?: string | undefined;
+view?: string | undefined;
+disabled?: boolean | undefined;
+stretch?: boolean | undefined;
+onDragEnter?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+onDragLeave?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+onDragOver?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
+validator?: ((files: File[]) => ValidatorReturnType) | undefined;
+onDrop?: FileProcessHandler | undefined;
+onChoseFiles?: FileProcessHandler | undefined;
+} & InputHTMLAttributes_2<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
+
+export { dropzoneClasses }
+
+export { dropzoneTokens }
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
@@ -1258,6 +1647,7 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1272,6 +1662,7 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1286,6 +1677,7 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1319,6 +1711,7 @@ size: {
 h1: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1333,6 +1726,7 @@ size: {
 h2: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1347,6 +1741,7 @@ size: {
 h3: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1361,6 +1756,7 @@ size: {
 h4: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1375,6 +1771,7 @@ size: {
 h5: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -1398,6 +1795,7 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1406,6 +1804,7 @@ s: PolymorphicClassName;
 sr: PolymorphicClassName;
 xs: PolymorphicClassName;
 xsr: PolymorphicClassName;
+xxs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -1564,6 +1963,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -1583,8 +1990,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1592,12 +1997,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -1616,6 +2016,9 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1636,6 +2039,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -1655,8 +2066,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1664,12 +2073,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -1688,6 +2092,11 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1708,6 +2117,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -1727,8 +2144,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1736,12 +2151,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -1760,6 +2170,9 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1780,6 +2193,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -1799,8 +2220,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1808,12 +2227,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -1832,6 +2246,11 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1852,6 +2271,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -1871,8 +2298,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1880,12 +2305,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -1904,6 +2324,9 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1924,6 +2347,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -1943,8 +2374,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1952,12 +2381,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -1976,6 +2400,11 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1996,6 +2425,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -2015,8 +2452,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2024,12 +2459,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -2048,6 +2478,9 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2068,6 +2501,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -2087,8 +2528,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -2096,12 +2535,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -2120,582 +2554,11 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
 view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref">) & RefAttributes<HTMLInputElement>>;
 
 export { mediaQuery }
@@ -3447,11 +3310,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3490,11 +3353,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3533,11 +3396,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3576,11 +3439,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3619,11 +3482,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -3662,11 +3525,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -3705,11 +3568,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -3748,355 +3611,11 @@ resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: string | undefined;
 rightHelper?: string | undefined;
+leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
+required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-clear?: true | undefined;
-hasDivider?: boolean | undefined;
-} & {
-rows?: undefined;
-cols?: undefined;
-} & {
-autoResize?: undefined;
-maxAuto?: undefined;
-minAuto?: undefined;
-} & {
-height?: undefined;
-width?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-autoResize?: boolean | undefined;
-maxAuto?: number | undefined;
-minAuto?: number | undefined;
-} & {
-height?: undefined;
-width?: undefined;
-} & {
-rows?: undefined;
-cols?: undefined;
-} & {
-clear?: undefined;
-hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-height?: string | number | undefined;
-width?: string | number | undefined;
-} & {
-autoResize?: undefined;
-maxAuto?: undefined;
-minAuto?: undefined;
-} & {
-rows?: undefined;
-cols?: undefined;
-} & {
-clear?: undefined;
-hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-rows?: number | undefined;
-cols?: number | undefined;
-} & {
-autoResize?: undefined;
-maxAuto?: undefined;
-minAuto?: undefined;
-} & {
-height?: undefined;
-width?: undefined;
-} & {
-clear?: undefined;
-hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-clear?: true | undefined;
-hasDivider?: boolean | undefined;
-} & {
-rows?: undefined;
-cols?: undefined;
-} & {
-autoResize?: undefined;
-maxAuto?: undefined;
-minAuto?: undefined;
-} & {
-height?: undefined;
-width?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-autoResize?: boolean | undefined;
-maxAuto?: number | undefined;
-minAuto?: number | undefined;
-} & {
-height?: undefined;
-width?: undefined;
-} & {
-rows?: undefined;
-cols?: undefined;
-} & {
-clear?: undefined;
-hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-height?: string | number | undefined;
-width?: string | number | undefined;
-} & {
-autoResize?: undefined;
-maxAuto?: undefined;
-minAuto?: undefined;
-} & {
-rows?: undefined;
-cols?: undefined;
-} & {
-clear?: undefined;
-hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-size?: string | undefined;
-view?: string | undefined;
-} & {
-rows?: number | undefined;
-cols?: number | undefined;
-} & {
-autoResize?: undefined;
-maxAuto?: undefined;
-minAuto?: undefined;
-} & {
-height?: undefined;
-width?: undefined;
-} & {
-clear?: undefined;
-hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
-leftHelper?: string | undefined;
-rightHelper?: string | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
+optional?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -4148,6 +3667,14 @@ outer: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 hintView: {
 default: PolymorphicClassName;
 };
@@ -4167,8 +3694,6 @@ view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4176,12 +3701,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -4200,14 +3720,15 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4215,12 +3736,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -4239,14 +3755,17 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4254,12 +3773,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -4278,14 +3792,15 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4293,12 +3808,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
@@ -4317,14 +3827,17 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4332,12 +3845,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -4356,14 +3864,15 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4371,12 +3880,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -4395,14 +3899,17 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
+view?: string | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4410,12 +3917,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -4434,14 +3936,15 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+chipType?: undefined;
+chipView?: undefined;
+chipValidator?: undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
 titleCaption?: ReactNode;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -4449,12 +3952,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 textBefore?: string | undefined;
 textAfter?: string | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & {
+} & LabelProps & RequiredProps & {
 clear?: false | undefined;
 hasDivider?: undefined;
 } & {
@@ -4473,318 +3971,11 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
+chipType?: "default" | "text" | undefined;
+chipView?: string | undefined;
+chipValidator?: ((value: string) => {
 view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
-titleCaption?: ReactNode;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+}) | undefined;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public
@@ -4842,6 +4033,7 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -4856,6 +4048,7 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -4870,6 +4063,7 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
@@ -4910,6 +4104,7 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
+noWrap?: boolean | undefined;
 breakWord?: boolean | undefined;
 color?: string | undefined;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;

@@ -43,6 +43,12 @@ const meta: Meta<StorySelectProps> = {
                 eq: 'textfield-like',
             },
         },
+        placeholder: {
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
         chipView: {
             control: 'select',
             options: chip,
@@ -78,6 +84,29 @@ const meta: Meta<StorySelectProps> = {
                 eq: 'textfield-like',
             },
         },
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
+        chipType: {
+            control: 'select',
+            options: ['default', 'text'],
+            if: { arg: 'target', eq: 'textfield-like' },
+        },
     },
     args: {
         target: 'textfield-like',
@@ -92,6 +121,10 @@ const meta: Meta<StorySelectProps> = {
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
+        chipType: 'default',
     },
     parameters: {
         controls: {
@@ -112,6 +145,10 @@ const meta: Meta<StorySelectProps> = {
                 'listWidth',
                 'listOverflow',
                 'listHeight',
+                'optional',
+                'required',
+                'requiredPlacement',
+                'chipType',
             ],
         },
     },
@@ -350,7 +387,7 @@ const SingleStory = (args: StorySelectProps) => {
 export const Single: StoryObj<StorySelectProps> = {
     parameters: {
         controls: {
-            exclude: ['chipView', 'isTargetAmount'],
+            exclude: ['chipView', 'isTargetAmount', 'chipType'],
         },
     },
     render: (args) => <SingleStory {...args} />,

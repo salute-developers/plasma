@@ -134,6 +134,18 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.chipClearContentMarginLeft}: var(${tokens.textFieldChipClearContentMarginLeft});
     ${textFieldTokens.chipClearContentMarginRight}: var(${tokens.textFieldChipClearContentMarginRight});
 
+    ${textFieldTokens.indicatorColor}: var(${tokens.textFieldIndicatorColor});
+    ${textFieldTokens.indicatorSizeInner}: var(${tokens.textFieldIndicatorSizeInner});
+    ${textFieldTokens.indicatorSizeOuter}: var(${tokens.textFieldIndicatorSizeOuter});
+    ${textFieldTokens.indicatorLabelPlacementInner}: var(${tokens.textFieldIndicatorLabelPlacementInner});
+    ${textFieldTokens.indicatorLabelPlacementOuter}: var(${tokens.textFieldIndicatorLabelPlacementOuter});
+    ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.textFieldIndicatorLabelPlacementInnerRight});
+    ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.textFieldIndicatorLabelPlacementOuterRight});
+    ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${tokens.textFieldClearIndicatorLabelPlacementInner});
+    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}:
+        var(${tokens.textFieldClearIndicatorLabelPlacementInnerRight});
+    ${textFieldTokens.clearIndicatorHintInnerRight}: var(${tokens.textFieldClearIndicatorHintInnerRight});
+
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
     /* TODO: #1544 */

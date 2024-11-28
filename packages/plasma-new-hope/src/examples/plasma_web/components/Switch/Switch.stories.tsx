@@ -9,7 +9,7 @@ import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 
 import { config } from './Switch.config';
-import { Switch } from './Switch';
+import { Switch, SwitchOutline } from './Switch';
 
 type SwitchProps = ComponentProps<typeof Switch>;
 
@@ -71,4 +71,36 @@ export const Default: StoryObj<SwitchProps> = {
         disabled: false,
     },
     render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryOutline = (args: SwitchProps) => {
+    const value = 'yes';
+    const name = 'agree';
+    const [checked, setChecked] = useState(true);
+
+    return (
+        <StyledWrapper>
+            <SwitchOutline
+                value={value}
+                name={name}
+                checked={checked}
+                onChange={(event) => {
+                    setChecked(event.target.checked);
+                    onChange(event);
+                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                {...args}
+            />
+        </StyledWrapper>
+    );
+};
+
+export const Outline: StoryObj<SwitchProps> = {
+    args: {
+        size: 'm',
+        toggleSize: 'l',
+        disabled: false,
+    },
+    render: (args) => <StoryOutline {...args} />,
 };

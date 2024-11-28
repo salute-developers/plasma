@@ -630,6 +630,27 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: chipType', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '100%' }}>
+                    <Select
+                        chipType="text"
+                        multiselect
+                        value={['berlin', 'rome', 'madrid']}
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: contentLeft', () => {
         cy.viewport(1000, 1000);
 
@@ -648,6 +669,48 @@ describe('plasma-web: Select', () => {
         cy.viewport(1000, 1000);
 
         mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: required, requiredPlacement', () => {
+        cy.viewport(500, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '200px' }}>
+                        <Select required items={items} label="Label" placeholder="Placeholder" />
+                    </div>
+
+                    <div style={{ width: '200px' }}>
+                        <Select
+                            required
+                            requiredPlacement="left"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: optional', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select optional items={items} label="Label" placeholder="Placeholder" />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
 
         cy.matchImageSnapshot();
     });

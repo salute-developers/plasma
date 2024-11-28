@@ -1571,10 +1571,10 @@ describe('plasma-web: Combobox', () => {
         cy.get('.has-chips').should('exist');
         cy.get('.has-chips button').should('have.length', 6);
         cy.realPress('ArrowLeft');
-        cy.get('.has-chips button:last-child').should('have.attr', 'data-focus-visible-added');
+        cy.get('.has-chips .chips-wrapper div:last-child button').should('have.attr', 'data-focus-visible-added');
         cy.realPress('Backspace');
         cy.get('.has-chips button').should('have.length', 5);
-        cy.get('.has-chips button:last-child').should('have.attr', 'data-focus-visible-added');
+        cy.get('.has-chips .chips-wrapper div:last-child button').should('have.attr', 'data-focus-visible-added');
         cy.get('#multiple').should('not.be.focused');
         cy.realPress('Backspace');
         cy.realPress('Backspace');

@@ -43,7 +43,6 @@ export const Item: FC<ItemProps> = ({
         handleItemClick,
         variant,
         renderItem,
-        valueToItemMap,
         treeId,
     } = useContext(Context);
 
@@ -115,7 +114,7 @@ export const Item: FC<ItemProps> = ({
             </IconWrapper>
 
             {renderItem ? (
-                <StyledText>{renderItem(valueToItemMap.get(value)!)}</StyledText>
+                <StyledText>{renderItem(item)}</StyledText>
             ) : (
                 <StyledWrapper>
                     <StyledCell

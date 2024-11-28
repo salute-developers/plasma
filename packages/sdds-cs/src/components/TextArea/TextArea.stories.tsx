@@ -8,7 +8,7 @@ import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextArea } from './TextArea';
 
-const labelPlacements = ['inner', 'outer'];
+const placements = ['inner', 'outer'];
 
 type StoryTextAreaPropsCustom = {
     hasHint?: boolean;
@@ -21,7 +21,7 @@ const sizes = ['s'];
 const views = ['default', 'negative'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
-const placements: Array<PopoverPlacement> = [
+const hintPlacements: Array<PopoverPlacement> = [
     'top',
     'top-start',
     'top-end',
@@ -65,9 +65,15 @@ const meta: Meta<StoryTextAreaProps> = {
             if: { arg: 'required', truthy: false },
         },
         labelPlacement: {
-            options: labelPlacements,
+            options: placements,
             control: {
-                type: 'select',
+                type: 'inline-radio',
+            },
+        },
+        leftHelperPlacement: {
+            options: placements,
+            control: {
+                type: 'inline-radio',
             },
         },
         size: {
@@ -125,12 +131,12 @@ const meta: Meta<StoryTextAreaProps> = {
             if: { arg: 'hasHint', truthy: true },
         },
         hintPlacement: {
-            options: placements,
+            options: hintPlacements,
             control: {
                 type: 'select',
             },
             if: { arg: 'hasHint', truthy: true },
-            mappers: placements,
+            mappers: hintPlacements,
         },
         hintHasArrow: {
             control: { type: 'boolean' },
@@ -175,6 +181,7 @@ const meta: Meta<StoryTextAreaProps> = {
         label: 'Лейбл',
         titleCaption: 'Подпись к полю',
         placeholder: 'Заполните многострочное поле',
+        leftHelperPlacement: 'outer',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
         disabled: false,

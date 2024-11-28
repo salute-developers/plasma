@@ -1,4 +1,4 @@
-import type { CSSProperties, HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
+import type { HTMLAttributes, ReactNode, SyntheticEvent, CSSProperties } from 'react';
 import React from 'react';
 
 import { FocusedPathState } from './reducers/focusedPathReducer';
@@ -8,11 +8,11 @@ export type DropdownPlacement = 'auto' | 'top' | 'right' | 'bottom' | 'left';
 
 export type DropdownTrigger = 'hover' | 'click';
 
-export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
+export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     /**
      * Список элементов.
      */
-    items: Array<DropdownItemOption>;
+    items: T[];
     /**
      * Дропдаун открыт всегда.
      */
@@ -33,7 +33,7 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Обработчик выбора item.
      */
-    onItemSelect?: (item: DropdownItemOption, event: SyntheticEvent) => void;
+    onItemSelect?: (item: T, event: SyntheticEvent) => void;
     /**
      * Способ открытия дропдауна окна - наведение или клик мышью.
      * @default click
@@ -84,12 +84,16 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
     portal?: string | React.RefObject<HTMLElement>;
+    /**
+     * Callback для кастомной настройки айтема в выпадающем списке.
+     */
+    renderItem?: (item: T) => React.ReactNode;
 
     /**
      * Обработчик клика по item.
      * @deprecated использовать onItemSelect.
      */
-    onItemClick?: (item: DropdownItemOption, event: SyntheticEvent) => void;
+    onItemClick?: (item: T, event: SyntheticEvent) => void;
     /**
      * Значение css overflow для выпадающего меню.
      * @default initial
@@ -97,19 +101,20 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
+    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      * @default initial
      * @deprecated
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
-    listHeight?: number | CSSProperties['height'];
+    listHeight?: CSSProperties['height'];
     /**
      * Индекс элемента при наведении
      * @deprecated использовать onHover
      */
     hoverIndex?: number;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
 export type HandleGlobalToggleType = (opened: boolean, event: SyntheticEvent | Event) => void;
 
@@ -139,4 +144,5 @@ export type ItemContext = {
     onItemClick: DropdownProps['onItemClick'];
     hasArrow: DropdownProps['hasArrow'];
     treeId: string;
+    renderItem: DropdownProps['renderItem'];
 };

@@ -6,12 +6,14 @@ import { popupConfig, usePopupContext } from '../Popup';
 import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
 import { useFocusTrap } from '../../hooks';
+import { IconClose } from '../_Icon/Icons/IconClose';
 
 import { classes, tokens } from './Modal.tokens';
 import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
 import { getIdLastModal } from './ModalContext';
+import { CloseButton, ModalBody, ModalContent } from './Modal.styles';
 
 // issue #823
 const Popup = component(popupConfig);
@@ -40,11 +42,14 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 view,
                 opened,
                 isOpen,
+                hasBody,
+                hasClose,
                 ...rest
             },
             outerRootRef,
         ) => {
             const innerIsOpen = Boolean(isOpen || opened);
+            const innerHasClose = (hasClose === undefined && hasBody) || hasClose;
             const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef, true);
             const popupController = usePopupContext();
 
@@ -84,6 +89,18 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 [closeOnOverlayClick, onOverlayClick, onClose],
             );
 
+            const overlayNode = (
+                <Overlay
+                    className={classes.overlay}
+                    zIndex={zIndex || DEFAULT_Z_INDEX}
+                    backgroundColorProperty={overlayBackgroundToken}
+                    withBlur={withBlur}
+                    transparent={transparent}
+                    isClickable={closeOnOverlayClick}
+                    onOverlayClick={onModalOverlayKeyDown}
+                />
+            );
+
             return (
                 <Popup
                     id={innerId}
@@ -92,22 +109,25 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     popupInfo={modalInfo}
                     withAnimation={withAnimation}
                     zIndex={zIndex}
-                    overlay={
-                        <Root view={view}>
-                            <Overlay
-                                className={classes.overlay}
-                                zIndex={zIndex || DEFAULT_Z_INDEX}
-                                backgroundColorProperty={overlayBackgroundToken}
-                                withBlur={withBlur}
-                                transparent={transparent}
-                                isClickable={closeOnOverlayClick}
-                                onOverlayClick={onModalOverlayKeyDown}
-                            />
-                        </Root>
-                    }
+                    overlay={hasBody ? overlayNode : <Root view={view}>{overlayNode}</Root>}
                     {...rest}
                 >
-                    {children}
+                    {hasBody ? (
+                        <Root view={view}>
+                            <ModalBody>
+                                <ModalContent>
+                                    {innerHasClose && (
+                                        <CloseButton onClick={onClose} data-test="modal-close">
+                                            <IconClose size="s" color="currentColor" />
+                                        </CloseButton>
+                                    )}
+                                    {children}
+                                </ModalContent>
+                            </ModalBody>
+                        </Root>
+                    ) : (
+                        <>{children}</>
+                    )}
                 </Popup>
             );
         },

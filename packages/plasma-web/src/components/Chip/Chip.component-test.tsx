@@ -99,6 +99,18 @@ describe('plasma-web: Chip', () => {
                 <Chip view="accent" text="Chip_view_accent" contentLeft={<Icon />} />
                 <SpaceMe />
                 <Chip view="accent" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="positive" text="Chip_view_positive" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="positive" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="warning" text="Chip_view_warning" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="warning" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="negative" text="Chip_view_negative" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="negative" text="_disabled" disabled contentLeft={<Icon />} />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();

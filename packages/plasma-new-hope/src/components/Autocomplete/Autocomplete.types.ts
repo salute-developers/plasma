@@ -1,6 +1,7 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
 
-import { TextFieldPropsBase, RequiredProps } from '../TextField/TextField.types';
+import { DistributiveOmit } from '../../types';
+import { TextFieldPropsBase } from '../TextField/TextField.types';
 
 export type SuggestionItemType = {
     /**
@@ -86,12 +87,24 @@ export type BaseProps = {
      * Коллбэк для рендера элемента в конце выпадающего списка.
      */
     renderListEnd?: () => ReactNode;
+    /**
+     * Изначальное значение.
+     */
+    defaultValue?: string;
 };
 
 export type AutocompleteProps = BaseProps &
-    RequiredProps &
-    Omit<
+    DistributiveOmit<
         TextFieldPropsBase,
-        'chips' | 'onChangeChips' | 'enumerationType' | 'required' | 'optional' | 'requiredPlacement'
+        | 'chips'
+        | 'onChangeChips'
+        | 'enumerationType'
+        | 'required'
+        | 'optional'
+        | 'requiredPlacement'
+        | 'labelPlacement'
+        | 'chipView'
+        | 'chipValidator'
+        | 'chipType'
     > &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;

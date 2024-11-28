@@ -12,6 +12,10 @@ export type ChipValues = {
 
 export type EnumerationType = 'plain' | 'chip';
 
+type ChipValidatorReturn = {
+    view?: string;
+};
+
 type TextFieldChipProps =
     | {
           /**
@@ -31,6 +35,18 @@ type TextFieldChipProps =
            * Callback по нажатию Enter
            */
           onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
+          /**
+           * Внешний вид chip.
+           */
+          chipType?: never;
+          /*
+           * Внешний вид чипа в варианте `enumerationType="chip"`.
+           */
+          chipView?: never;
+          /**
+           * Функция для валидации значений chip
+           */
+          chipValidator?: never;
       }
     | {
           /**
@@ -50,36 +66,35 @@ type TextFieldChipProps =
            * Обработчик изменения выбранных значений.
            */
           onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+          /**
+           * Внешний вид chip.
+           */
+          chipType?: 'default' | 'text';
+          /*
+           * Внешний вид чипа в варианте `enumerationType="chip"`.
+           */
+          chipView?: string;
+          /**
+           * Функция для валидации значений chip
+           */
+          chipValidator?: (value: string) => ChipValidatorReturn;
       };
 
 export type RequiredProps = {
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
     /**
      * Задает выравнивание индикатора обязательности поля
      * @default right
      */
     requiredPlacement?: 'left' | 'right';
-} & (
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required: true;
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: never | false;
-      }
-    | {
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: true;
-          /**
-           * Флаг обязательности поля
-           */
-          required?: never | false;
-      }
-);
+    /**
+     * Флаг необязательности поля
+     */
+    optional?: boolean;
+};
 
 type ClearProps =
     | {
@@ -102,6 +117,21 @@ type ClearProps =
            */
           hasDivider?: never;
       };
+
+export type LabelProps = {
+    /**
+     * Метка-подпись к элементу
+     */
+    label?: string;
+    /**
+     * Расположение лейбла.
+     */
+    labelPlacement?: string;
+    /**
+     * Одновременно отображает label и placeholder (при пустом вводе)
+     */
+    keepPlaceholder?: boolean;
+};
 
 type HintProps =
     | {
@@ -164,14 +194,6 @@ type HintProps =
 
 export type TextFieldPropsBase = {
     /**
-     * Метка-подпись к элементу
-     */
-    label?: string;
-    /**
-     * Расположение лейбла.
-     */
-    labelPlacement?: 'inner' | 'outer';
-    /**
      * Метка-подпись к элементу справа.
      */
     titleCaption?: ReactNode;
@@ -199,7 +221,8 @@ export type TextFieldPropsBase = {
      * Callback по нажатию Enter
      */
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
-} & RequiredProps &
+} & LabelProps &
+    RequiredProps &
     ClearProps &
     HintProps &
     TextFieldChipProps;
@@ -232,7 +255,8 @@ export type TextFieldRootProps = {
     clear?: boolean;
     readOnly?: boolean;
     disabled?: boolean;
-    labelPlacement?: 'inner' | 'outer';
+    labelPlacement?: string;
+    chipView?: string;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
 
 export interface ControlledRefs {

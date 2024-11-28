@@ -73,11 +73,12 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
 
         return (
             <div
+                ref={ref}
                 id={wrappedId}
                 style={{
+                    position: 'relative',
                     display: isInner ? 'block' : 'inline-block',
                 }}
-                ref={ref}
             >
                 <div
                     ref={refs.setReference}

@@ -1,11 +1,11 @@
 import type { CSSProperties, ButtonHTMLAttributes } from 'react';
 import React from 'react';
 
-import { RequiredProps } from '../../TextField/TextField.types';
+import { RequiredProps, LabelProps } from '../../TextField/TextField.types';
 
 import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/getPathMaps';
+import type { ValueToCheckedMapType } from './hooks/getPathMaps';
 
 type Placement =
     | 'top'
@@ -105,10 +105,6 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     placement?: Placement;
     /**
-     * Метка-подпись к элементу.
-     */
-    label?: string;
-    /**
      * Placeholder.
      */
     placeholder?: string;
@@ -138,6 +134,7 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
+    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      */
@@ -172,14 +169,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Вид компонента.
      */
     view?: string;
-    /**
-     * Расположение лейбла.
-     * @default outer
-     */
-    labelPlacement?: 'outer' | 'inner';
 };
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
+    LabelProps &
     ViewStateProps &
     IsMultiselect<T> &
     RequiredProps &
@@ -205,6 +198,5 @@ export type ItemContext = {
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: ComboboxProps['variant'];
     renderItem: ComboboxProps['renderItem'];
-    valueToItemMap: ValueToItemMapType;
     treeId: string;
 };

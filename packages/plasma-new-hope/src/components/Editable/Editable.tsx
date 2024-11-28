@@ -20,10 +20,10 @@ import { base, EditButton, StyledInput, StyledPlacehpolder } from './Editable.st
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 
-export const editableRoot = (typograpyVariants: TypographyVariants) => (
-    Root: RootProps<HTMLSpanElement, Omit<EditableProps<typeof typograpyVariants>, 'textComponent'>>,
+export const editableRoot = (typographyVariants: TypographyVariants) => (
+    Root: RootProps<HTMLSpanElement, Omit<EditableProps<typeof typographyVariants>, 'textComponent'>>,
 ) =>
-    forwardRef<HTMLInputElement, EditableProps<typeof typograpyVariants>>(
+    forwardRef<HTMLInputElement, EditableProps<typeof typographyVariants>>(
         (
             {
                 textComponent,

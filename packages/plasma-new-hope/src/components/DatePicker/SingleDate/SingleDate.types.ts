@@ -2,6 +2,7 @@ import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
 import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
 import type { DateInfo } from '../../Calendar/Calendar.types';
+import { LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
 export type DatePickerPlacement = DatePickerPlacementBasic | 'auto';
@@ -27,14 +28,6 @@ export type DatePickerTextFieldProps = {
      * Корректное значение даты
      */
     valueSuccess?: boolean;
-    /**
-     * Метка-подпись к элементу
-     */
-    label?: string;
-    /**
-     * Расположение лейбла.
-     */
-    labelPlacement?: 'inner' | 'outer';
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
@@ -68,7 +61,7 @@ export type DatePickerTextFieldProps = {
      * @deprecated
      */
     onChange?: (event: { target: { value?: string; name?: string } }) => void;
-};
+} & LabelProps;
 
 export type DatePickerPopoverProps = {
     /**

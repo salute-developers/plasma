@@ -75,7 +75,7 @@ export function App() {
 ```
 
 ### Статус поля
-Статус поля задается с помощью свойства `status`. 
+Статус поля задается с помощью свойства `status`.
 Возможные значения свойства: `success`, `warning` и `error`.
 На отображение TextField так же влияют свойства `clear` и `hasDivider`:
 
@@ -164,14 +164,17 @@ export function App() {
 ```
 
 ### Режим ввода
-С помощью свойства `enumerationType` можно вводить элементы как теги.
-По нажатию Enter, после ввода нужного текста, он преобразуется в Chip:
+С помощью свойства `enumerationType` можно вводить элементы как теги. Свойство `chipType` изменяет внешний вид чипа.
+С помощью `chipView` можно задать общий вид Chip. Валидация Chip происходит с помощью функции chipValidator.
+По нажатию Enter, после ввода нужного текста, он преобразуется в Chip.
 
 ```tsx live
 import React from 'react';
 import { TextField } from '@salutejs/plasma-web';
 
 export function App() {
+    const validateChip = (value) => (value === 'Значение 1' ? { view: 'negative' } : {});
+    
     return (
         <div>
             <TextField
@@ -180,7 +183,19 @@ export function App() {
                 size="l"
                 enumerationType="chip"
                 helperText="Подсказка снизу"
+                chips={["Значение 1", "Значение 2"]}
+                chipView="positive"
+                chipValidator={validateChip}
+            />
+
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                enumerationType="chip"
+                helperText="Подсказка снизу"
                 chips={["Значение 1"]}
+                chipType="text"
             />
         </div>
     );

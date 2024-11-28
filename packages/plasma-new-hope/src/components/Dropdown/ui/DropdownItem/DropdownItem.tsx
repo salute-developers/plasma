@@ -6,7 +6,14 @@ import { IconDisclosureRight } from '../../../_Icon';
 import { Context } from '../../Dropdown';
 import { getItemId } from '../../utils';
 
-import { Wrapper, DisclosureIconWrapper, Divider, CellWrapper, StyledCell } from './DropdownItem.styles';
+import {
+    Wrapper,
+    DisclosureIconWrapper,
+    Divider,
+    CellWrapper,
+    StyledCell,
+    RenderItemWrapper,
+} from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
 export const DropdownItem: FC<DropdownItemProps> = ({
@@ -35,6 +42,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
         onItemClick,
         hasArrow,
         treeId,
+        renderItem,
     } = useContext(Context);
 
     const hasDescendants = Boolean(item.items);
@@ -99,15 +107,19 @@ export const DropdownItem: FC<DropdownItemProps> = ({
                 aria-level={ariaLevel}
                 aria-label={ariaLabel}
             >
-                <CellWrapper>
-                    <StyledCell
-                        contentLeft={contentLeft}
-                        contentRight={contentRight}
-                        alignContentLeft="center"
-                        alignContentRight="center"
-                        title={label}
-                    />
-                </CellWrapper>
+                {renderItem ? (
+                    <RenderItemWrapper>{renderItem(item)}</RenderItemWrapper>
+                ) : (
+                    <CellWrapper>
+                        <StyledCell
+                            contentLeft={contentLeft}
+                            contentRight={contentRight}
+                            alignContentLeft="center"
+                            alignContentRight="center"
+                            title={label}
+                        />
+                    </CellWrapper>
+                )}
 
                 {item.items && hasArrow && (
                     <DisclosureIconWrapper>

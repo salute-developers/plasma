@@ -5,7 +5,7 @@ import { styled } from '@linaria/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
-import { Body } from '../../../typograpy/components/Body/Body';
+import { Body } from '../../../typography/components/Body/Body';
 
 import { Sheet } from './Sheet';
 

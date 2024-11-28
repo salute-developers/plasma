@@ -50,19 +50,35 @@ type ClearViewProps =
           clear?: false;
       };
 
+type IconContentProps =
+    | {
+          /**
+           * Слот для контента слева, например `Icon`
+           */
+          contentLeft?: ReactNode;
+          /**
+           * Слот для контента справа, например `Icon`
+           */
+          contentRight?: never;
+      }
+    | {
+          contentLeft?: never;
+          contentRight?: ReactNode;
+      };
+
 type CustomBadgeProps = {
     /**
      * Текстовая надпись
      */
     text?: string;
     /**
-     * Слот для контента слева, например `Icon`
+     * Пользовательский цвет текста и иконок
      */
-    contentLeft?: ReactNode;
+    customColor?: string;
     /**
-     * Слот для контента справа, например `Icon`
+     * Пользовательский цвет фона
      */
-    contentRight?: ReactNode;
+    customBackgroundColor?: string;
     /**
      * Обрезает контент по максимальной ширине и добавляет ...
      * @default 'auto'
@@ -80,7 +96,8 @@ type CustomBadgeProps = {
      * default
      */
     view?: string;
-} & PropsWithChildren;
+} & IconContentProps &
+    PropsWithChildren;
 
 export type BadgeProps = HTMLAttributes<HTMLDivElement> & CustomBadgeProps & ClearViewProps;
 export type BadgeRootProps = HTMLAttributes<HTMLDivElement> &

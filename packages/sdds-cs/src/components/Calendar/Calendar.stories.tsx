@@ -27,7 +27,7 @@ const meta: Meta<CalendarProps> = {
             },
         },
         size: {
-            options: ['l', 'm', 's', 'xs'],
+            options: ['s'],
             control: {
                 type: 'inline-radio',
             },
@@ -56,7 +56,6 @@ export default meta;
 type CalendarProps = ComponentProps<typeof Calendar>;
 type CalendarBaseProps = ComponentProps<typeof CalendarBase>;
 type CalendarBaseRangeProps = ComponentProps<typeof CalendarBaseRange>;
-const eventColors = ['red', 'green', 'blue', 'purple'];
 const defaultMinDate = new Date(2016, 6, 1);
 const defaultMaxDate = new Date(2030, 11, 24);
 
@@ -66,8 +65,6 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
         monthIndex: 6,
         year: 2023,
     };
-
-    const colorIndex = Math.floor(Math.random() * eventColors.length);
 
     const events = [...new Array(datesNumber)].map((_, index) => {
         const eventNumber = Math.floor(Math.random() * 3 + 1);
@@ -82,7 +79,7 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
         const year = type === 'years' ? baseDate.year + index : baseDate.year;
 
         return [...new Array(eventNumber)].map(() => {
-            return { date: new Date(year, month, day), color: eventColors[colorIndex] };
+            return { date: new Date(year, month, day), color: 'var(--text-warning)' };
         });
     });
 
@@ -124,7 +121,7 @@ export const Default: StoryObj<CalendarProps> = {
         isDouble: false,
         isRange: false,
         includeEdgeDates: false,
-        size: 'm',
+        size: 's',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -207,7 +204,7 @@ export const Base: StoryObj<CalendarBaseProps & { displayDouble: boolean }> = {
         ...disableProps(['isRange', 'isDouble']),
     },
     args: {
-        size: 'm',
+        size: 's',
         min: defaultMinDate,
         max: defaultMaxDate,
         includeEdgeDates: false,
@@ -294,7 +291,7 @@ export const Range: StoryObj<CalendarBaseRangeProps & { displayDouble: boolean }
         ...disableProps(['isRange', 'isDouble']),
     },
     args: {
-        size: 'm',
+        size: 's',
         min: defaultMinDate,
         max: defaultMaxDate,
         includeEdgeDates: false,

@@ -10,35 +10,6 @@ export const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
 
-type RequiredProps = {
-    /**
-     * Задает выравнивание индикатора обязательности поля
-     * @default right
-     */
-    requiredPlacement?: 'left' | 'right';
-} & (
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required: true;
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: never | false;
-      }
-    | {
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: true;
-          /**
-           * Флаг обязательности поля
-           */
-          required?: never | false;
-      }
-);
-
 type ClearProps =
     | {
           /**
@@ -120,10 +91,24 @@ type HintProps =
           hintContentLeft?: never;
       };
 
-type TextFieldProps = TextFieldPropsOld & RequiredProps & ClearProps & HintProps;
+type TextFieldProps = TextFieldPropsOld & ClearProps & HintProps;
 
 export type CustomTextFieldProps = TextFieldProps &
-    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips' | 'titleCaption'>;
+    Pick<
+        newHopeTextFieldProps,
+        | 'enumerationType'
+        | 'chips'
+        | 'chipType'
+        | 'onChangeChips'
+        | 'titleCaption'
+        | 'labelPlacement'
+        | 'keepPlaceholder'
+        | 'required'
+        | 'requiredPlacement'
+        | 'optional'
+        | 'chipView'
+        | 'chipValidator'
+    >;
 
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {
     success: 'positive',
@@ -146,6 +131,7 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
         status,
 
         label,
+        keepPlaceholder,
         placeholder,
         animatedHint,
         helperText,
@@ -153,8 +139,11 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
 
         enumerationType,
         chips,
+        chipView,
+        chipValidator,
         onSearch,
         onChangeChips,
+        chipType,
 
         size = 'l',
 
@@ -166,30 +155,40 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
     const _view = status ? statusToView[status] : 'default';
     let _labelPlacement = animatedHint ? animatedHintToLabelPlacement[animatedHint] : 'outer';
     let _label = label ? String(label) : undefined;
-    if (size !== 'l' && _labelPlacement === 'inner') {
+
+    if (size !== 'l' && _labelPlacement === 'inner' && !keepPlaceholder) {
         _label = undefined;
         _labelPlacement = 'outer';
     }
+
     if (size === 'l' && animatedHint === 'placeholder' && !label) {
         _label = placeholder;
         _labelPlacement = 'inner';
     }
 
+    const labelProps = {
+        label: _label,
+        labelPlacement: _labelPlacement,
+        keepPlaceholder,
+    };
+
     if (enumerationType === 'chip') {
         return (
             <TextFieldComponent
                 {...rest}
+                {...labelProps}
                 view={_view}
-                labelPlacement={_labelPlacement}
-                label={_label}
                 size={size}
                 placeholder={placeholder}
                 leftHelper={helperText}
                 ref={ref}
                 enumerationType="chip"
                 chips={chips}
+                chipView={chipView}
+                chipValidator={chipValidator}
                 hintText={String(hintText || '')}
                 onChangeChips={onChangeChips}
+                chipType={chipType}
             />
         );
     }
@@ -197,8 +196,8 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
     return (
         <TextFieldComponent
             {...rest}
+            {...labelProps}
             view={_view}
-            labelPlacement={_labelPlacement}
             label={_label}
             size={size}
             placeholder={placeholder}

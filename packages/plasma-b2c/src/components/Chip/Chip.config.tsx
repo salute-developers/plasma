@@ -60,9 +60,6 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
             `,
-            /**
-             * @deprecated
-             */
             positive: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
                 ${chipTokens.background}: var(--surface-positive);
@@ -73,6 +70,30 @@ export const config = {
                 ${chipTokens.backgroundReadOnly}: var(--surface-positive);
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-positive);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+            `,
+            warning: css`
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-warning);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-warning-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-warning-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-warning);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-warning);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+            `,
+            negative: css`
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-negative);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-negative-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-negative-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-negative);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-negative);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
             `,
         },

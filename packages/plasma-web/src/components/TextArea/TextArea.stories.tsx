@@ -158,6 +158,7 @@ const meta: Meta<TextAreaProps> = {
             'onBlur',
             'helperText',
             'helperBlock',
+            'leftHelperPlacement',
         ]),
     },
     args: {

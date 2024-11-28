@@ -3,6 +3,12 @@ export const classes = {
     badgeTransparent: 'badge-transparent',
     badgeClear: 'badge-clear',
     badgeTruncate: 'badge-truncate',
+    iconOnly: 'badge-icon-only',
+};
+
+export const privateTokens = {
+    customBackground: '--plasma-badge-custom-background',
+    customColor: '--plasma-badge-custom-color',
 };
 
 export const tokens = {
@@ -11,14 +17,13 @@ export const tokens = {
     backgroundTransparent: '--plasma-badge-background-transparent',
     colorTransparent: '--plasma-badge-color-transparent',
     colorClear: '--plasma-badge-color-clear',
+    backgroundClear: '--plasma-badge-background-clear',
 
     borderRadius: '--plasma-badge-border-radius',
     pilledBorderRadius: '--plasma-badge-pilled-border-radius',
     height: '--plasma-badge-height',
-    paddingTop: '--plasma-badge-padding-top',
-    paddingRight: '--plasma-badge-padding-right',
-    paddingBottom: '--plasma-badge-padding-bottom',
-    paddingLeft: '--plasma-badge-padding-left',
+    padding: '--plasma-badge-padding',
+    paddingIconOnly: '--plasma-badge-padding-icon-only',
 
     fontFamily: '--plasma-badge-font-family',
     fontSize: '--plasma-badge-font-size',

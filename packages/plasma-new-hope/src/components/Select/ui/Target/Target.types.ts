@@ -1,7 +1,7 @@
 import type { KeyboardEvent, MutableRefObject } from 'react';
 
 import type { LabelToItemMapType, ValueToItemMapType } from '../../hooks/usePathMaps';
-import type { DefaultValueType, MergedSelectProps } from '../../Select.types';
+import type { DefaultValueType, MergedSelectProps, RequiredProps } from '../../Select.types';
 
 export type TargetProps = Pick<
     MergedSelectProps,
@@ -9,6 +9,7 @@ export type TargetProps = Pick<
     | 'view'
     | 'label'
     | 'labelPlacement'
+    | 'keepPlaceholder'
     | 'placeholder'
     | 'contentLeft'
     | 'disabled'
@@ -16,8 +17,8 @@ export type TargetProps = Pick<
     | 'multiselect'
     | 'helperText'
     | 'isTargetAmount'
-    | 'target'
     | 'chipView'
+    | 'chipType'
 > & {
     value: DefaultValueType;
     opened: boolean;
@@ -30,5 +31,6 @@ export type TargetProps = Pick<
     activeDescendantItemValue: string;
     onChange: (newValue: string | number | Array<string | number>) => void;
     labelToItemMap: LabelToItemMapType;
+    requiredProps: RequiredProps | undefined;
     separator?: string;
 };

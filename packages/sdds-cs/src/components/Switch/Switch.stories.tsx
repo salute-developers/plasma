@@ -30,9 +30,6 @@ const meta: Meta<SwitchProps> = {
             options: ['before', 'after'],
             control: { type: 'select' },
         },
-        size: {
-            control: { type: 'select' },
-        },
         toggleSize: {
             control: { type: 'select' },
         },
@@ -57,6 +54,7 @@ const meta: Meta<SwitchProps> = {
             'required',
             'minLength',
             'maxLength',
+            'size',
         ]),
     },
     args: {
@@ -95,7 +93,6 @@ const StoryDefault = (args: SwitchProps) => {
 
 export const Default: StoryObj<SwitchProps> = {
     args: {
-        size: 's',
         toggleSize: 'l',
         disabled: false,
     },

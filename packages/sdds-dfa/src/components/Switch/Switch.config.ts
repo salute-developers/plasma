@@ -66,7 +66,8 @@ export const config = {
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
                 ${switchTokens.thumbSize}: 1.5rem;
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbOffsetOn}: 0.125rem;
+                ${switchTokens.thumbOffsetOff}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
             `,
             s: css`
@@ -75,7 +76,8 @@ export const config = {
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
                 ${switchTokens.thumbSize}: 1rem;
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffset}: 0.125rem;
+                ${switchTokens.thumbOffsetOn}: 0.125rem;
+                ${switchTokens.thumbOffsetOff}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
             `,
         },
@@ -87,7 +89,10 @@ export const config = {
                 ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
                 ${switchTokens.trackBackgroundColorOff}: var(--surface-transparent-tertiary);
                 ${switchTokens.trackBackgroundColorOffHover}: var(--surface-transparent-tertiary-hover);
-                ${switchTokens.thumbBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${switchTokens.trackBorderWidthOn}: 0;
+                ${switchTokens.trackBorderWidthOff}: 0;
+                ${switchTokens.thumbBackgroundColorOn}: var(--on-dark-surface-solid-default);
+                ${switchTokens.thumbBackgroundColorOff}: var(--on-dark-surface-solid-default);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },

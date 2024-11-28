@@ -49,6 +49,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 hasArrow = true,
                 alwaysOpened = false,
                 portal,
+                renderItem,
                 ...rest
             },
             ref,
@@ -120,6 +121,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         onItemSelect,
                         hasArrow,
                         treeId,
+                        renderItem,
                     }}
                 >
                     <FloatingPopover

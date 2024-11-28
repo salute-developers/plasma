@@ -3,7 +3,7 @@ import type { FC, PropsWithChildren } from 'react';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 import { IconEye } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, PadMe, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconEye color="inherit" size="xs" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);
@@ -92,6 +92,33 @@ describe('plasma-b2c: Badge', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Badge text="Badge_view_default_transparent" view="default" transparent />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    // TODO: дополнить тестовую модель на основе тестов ниже
+    it('[PLASMA-] Badge: icon only', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge contentLeft={<Icon />} size="l" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="m" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="s" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="xs" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Badge: customBackroundColor, customColor', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge_custom" customBackgroundColor="red" customColor="purple" size="l" />
             </CypressTestDecoratorWithTypo>,
         );
 

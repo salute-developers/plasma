@@ -19,11 +19,13 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
         (
             {
                 value: outerValue,
+                defaultValue,
                 onChange,
                 suggestions,
                 view,
                 size,
                 labelPlacement,
+                keepPlaceholder,
                 disabled,
                 readOnly,
                 label,
@@ -113,6 +115,12 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 dispatchFocused({ type: 'reset' });
             }, [value]);
 
+            useDidMountEffect(() => {
+                if (defaultValue) {
+                    setInnerValue(defaultValue);
+                }
+            }, [defaultValue]);
+
             return (
                 <Root view={view} size={size} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
                     <StyledPopover
@@ -130,7 +138,6 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                 ref={ref}
                                 size={size}
                                 view={view}
-                                labelPlacement={labelPlacement}
                                 disabled={disabled}
                                 readOnly={readOnly}
                                 label={label}
@@ -147,6 +154,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                 aria-activedescendant={`${listId}/${focused}`}
                                 aria-describedby={helperTextId}
                                 hintText={String(hintText || '')}
+                                labelPlacement={labelPlacement}
+                                keepPlaceholder={keepPlaceholder}
                                 {...rest}
                             />
                         }

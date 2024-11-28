@@ -39,8 +39,8 @@ export const config = {
             s: css`
                 ${badgeTokens.borderRadius}: 0.375rem;
                 ${badgeTokens.height}: 1.5rem;
-                ${badgeTokens.paddingRight}: 0.5rem;
-                ${badgeTokens.paddingLeft}: 0.5rem;
+                ${badgeTokens.padding}: 0 0.5rem;
+                ${badgeTokens.paddingIconOnly}: 0 0.375rem;
 
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -65,7 +65,9 @@ export const config = {
             true: css``,
         },
         clear: {
-            true: css``,
+            true: css`
+                ${badgeTokens.backgroundClear}: var(--surface-clear);
+            `,
         },
     },
 };

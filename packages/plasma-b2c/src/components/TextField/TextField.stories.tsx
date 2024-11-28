@@ -16,6 +16,7 @@ const onChipsChange = action('onChipsChange');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const statuses = ['', 'success', 'warning', 'error'];
+const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -118,6 +119,12 @@ const meta: Meta<TextFieldProps> = {
         label: {
             control: 'text',
         },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'view', eq: 'innerLabel' },
+        },
         hintText: {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
@@ -158,6 +165,10 @@ const meta: Meta<TextFieldProps> = {
         hintWidth: {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
+        },
+        chipType: {
+            control: 'select',
+            options: ['default', 'text'],
         },
         ...disableProps(propsToDisable),
     },
@@ -232,6 +243,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         label: 'Лейбл',
         animatedHint: undefined,
         placeholder: 'Заполните поле',
+        keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
         helperText: 'Подсказка к полю',
         enumerationType: 'plain',
@@ -254,14 +266,58 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hintWidth: '10rem',
         hintHasArrow: true,
     },
+    parameters: {
+        controls: {
+            exclude: ['chipType'],
+        },
+    },
     render: (args) => <StoryDemo {...args} />,
 };
 
+const StoryChips = ({ status, enableContentLeft, enableContentRight, ...rest }: StoryPropsDefault) => {
+    const [text, setText] = useState('Значение поля');
+
+    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+
+    const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
+
+    return (
+        <TextField
+            {...rest}
+            enumerationType="chip"
+            value={text}
+            contentLeft={enableContentLeft ? <IconBellFill size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconBellFill size={iconSize} /> : undefined}
+            status={status || undefined}
+            onChange={(e) => {
+                setText(e.target.value);
+                onChange(e);
+            }}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onSearch={onSearch}
+            onChangeChips={onChipsChange}
+            chipValidator={validateChip}
+            style={{ width: '70%', margin: '0 auto' }}
+        />
+    );
+};
+
 export const Chips: StoryObj<StoryPropsDefault> = {
+    argTypes: {
+        chipView: {
+            options: chipViews,
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         ...Default.args,
-        enumerationType: 'chip',
+        helperText: 'Для первого чипа валидация вернула view="negative"',
+        chipView: 'secondary',
         chips: ['1 value', '2 value', '3 value', '4 value'],
+        chipType: 'default',
     },
-    render: (args) => <StoryDemo {...args} />,
+    render: (args) => <StoryChips {...args} />,
 };

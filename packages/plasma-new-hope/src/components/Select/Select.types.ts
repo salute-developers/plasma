@@ -1,61 +1,66 @@
 import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent } from 'react';
 import React from 'react';
 
+import type { RequiredProps, LabelProps } from '../TextField/TextField.types';
+
 import { FocusedPathState } from './reducers';
 import {
     ItemOption,
     MergedDropdownNode as DropdownNode,
     MergedDropdownNodeTransformed,
 } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/usePathMaps';
+import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
 type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
 type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
 
-type Target =
-    | {
-          /**
-           * Стиль селекта: button-like или textfield-like.
-           * @default textfield-like
-           */
-          target?: 'textfield-like';
-          view?: 'default' | 'positive' | 'warning' | 'negative';
-          /**
-           * Слот для контента слева.
-           */
-          contentLeft?: React.ReactNode;
-          /**
-           * Расположение лейбла.
-           * @default outer
-           */
-          labelPlacement?: 'outer' | 'inner';
-          /**
-           * Placeholder.
-           */
-          placeholder?: string;
-          /**
-           * Вспомогательный текст снизу слева для поля ввода.
-           */
-          helperText?: string;
-      }
-    | {
-          target: 'button-like';
-          view?:
-              | 'default'
-              | 'accent'
-              | 'secondary'
-              | 'clear'
-              | 'positive'
-              | 'warning'
-              | 'negative'
-              | 'dark'
-              | 'black'
-              | 'white';
-          contentLeft?: never;
-          labelPlacement?: never;
-          placeholder?: never;
-          helperText?: never;
-      };
+export type { RequiredProps };
+
+type Target = LabelProps &
+    (
+        | (RequiredProps & {
+              /**
+               * Стиль селекта: button-like или textfield-like.
+               * @default textfield-like
+               */
+              target?: 'textfield-like';
+              view?: 'default' | 'positive' | 'warning' | 'negative';
+              /**
+               * Слот для контента слева.
+               */
+              contentLeft?: React.ReactNode;
+              /**
+               * Placeholder.
+               */
+              placeholder?: string;
+              /**
+               * Вспомогательный текст снизу слева для поля ввода.
+               */
+              helperText?: string;
+              /**
+               * Внешний вид chip.
+               */
+              chipType?: 'default' | 'text';
+          })
+        | {
+              target: 'button-like';
+              view?:
+                  | 'default'
+                  | 'accent'
+                  | 'secondary'
+                  | 'clear'
+                  | 'positive'
+                  | 'warning'
+                  | 'negative'
+                  | 'dark'
+                  | 'black'
+                  | 'white';
+              contentLeft?: never;
+              placeholder?: never;
+              helperText?: never;
+              chipType?: never;
+          }
+    );
 
 type IsMultiselect<K extends ItemOption> =
     | {
@@ -91,10 +96,6 @@ export interface BasicProps<K extends ItemOption> {
      */
     placement?: SelectPlacement | Array<SelectPlacementBasic>;
     /**
-     * Метка-подпись к элементу.
-     */
-    label?: string;
-    /**
      * Компонент неактивен.
      * @default false
      */
@@ -113,11 +114,12 @@ export interface BasicProps<K extends ItemOption> {
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
+    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
-    listHeight?: number | CSSProperties['height'];
+    listHeight?: CSSProperties['height'];
     /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
@@ -172,7 +174,6 @@ export type ItemContext = {
     handleItemClick: (item: MergedDropdownNodeTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: MergedSelectProps['variant'];
     renderItem: MergedSelectProps['renderItem'];
-    valueToItemMap: ValueToItemMapType;
     treeId: string;
 };
 
@@ -234,11 +235,12 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @example listOverflow="scroll"
          */
         listOverflow?: CSSProperties['overflow'];
+        // TODO: #1584
         /**
          * Значение css height для выпадающего меню.
          * @example listHeight="11", listHeight="auto", listHeight={11}
          */
-        listHeight?: number | CSSProperties['height'];
+        listHeight?: CSSProperties['height'];
 
         /**
          * Placeholder.
@@ -274,10 +276,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default bottom
          */
         placement?: SelectPlacement | Array<SelectPlacementBasic>;
-        /**
-         * Метка-подпись к элементу.
-         */
-        label?: string;
+
         /**
          * Коллбэк для определения достижения скроллом конца списка.
          */

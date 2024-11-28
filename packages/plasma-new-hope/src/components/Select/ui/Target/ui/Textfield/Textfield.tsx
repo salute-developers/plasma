@@ -14,9 +14,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             multiselect,
             value,
             label,
+            labelPlacement,
+            keepPlaceholder,
             placeholder,
             onKeyDown,
-            labelPlacement,
             size,
             view,
             handleClickArrow,
@@ -31,6 +32,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             onChange,
             labelToItemMap,
             chipView,
+            requiredProps,
+            chipType,
         },
         ref,
     ) => {
@@ -56,7 +59,27 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
         // Обработчик чипов
         const handleChipsChange = (chipLabels: any[]) => {
-            onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+            if (!Array.isArray(value)) return;
+
+            // TODO: #1564
+            // Из лейблов чипов получаем value у item и далее прокидываем его в onChange.
+            if (renderValue && !isTargetAmount) {
+                const resultValues = [...value];
+
+                value.forEach((_, index) => {
+                    const labelAfterRenderValue = renderValue(
+                        labelToItemMap.get(valueToItemMap.get(value[index])!.label)!,
+                    );
+
+                    if (!chipLabels.includes(labelAfterRenderValue)) {
+                        resultValues.splice(index, 1);
+                    }
+                });
+
+                onChange(resultValues);
+            } else {
+                onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+            }
         };
 
         return (
@@ -67,10 +90,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 value={multiselect ? undefined : valueToItemMap.get(value.toString())?.label || ''}
                 size={size}
                 view={view}
-                chipView={chipView}
                 labelPlacement={labelPlacement}
                 disabled={disabled}
                 label={label}
+                keepPlaceholder={keepPlaceholder}
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
                 contentRight={
@@ -90,12 +113,15 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                           enumerationType: 'chip',
                           chips: getChips(),
                           onChangeChips: handleChipsChange,
+                          chipType,
+                          chipView,
                       }
                     : { enumerationType: 'plain' })}
                 onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                 opened={opened}
                 // TODO: #1547
                 _forceChipManipulationWithReadonly
+                {...requiredProps}
             />
         );
     },

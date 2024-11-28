@@ -129,4 +129,30 @@ describe('plasma-core: Badge', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('icon only', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge contentLeft={<Icon />} size="l" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="m" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="s" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="xs" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('customBackroundColor, customColor', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge_custom" customBackgroundColor="red" customColor="purple" size="l" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });

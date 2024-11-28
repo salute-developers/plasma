@@ -252,9 +252,9 @@ describe('plasma-web: TextArea', () => {
 
         const cases = [
             { labelPlacement: 'outer' },
-            { requiredPlacement: 'right', labelPlacement: 'outer' },
+            { requiredPlacement: 'left', labelPlacement: 'outer' },
             { labelPlacement: 'inner' },
-            { requiredPlacement: 'right', labelPlacement: 'inner' },
+            { requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {

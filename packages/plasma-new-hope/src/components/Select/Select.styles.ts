@@ -19,7 +19,7 @@ export const Ul = styled.ul<{
 
     border-radius: var(${tokens.borderRadius});
     width: ${({ listWidth }) => listWidth || '100%'};
-    height: ${({ listHeight }) => (listHeight ? getCorrectHeight(listHeight) : 'auto')};
+    max-height: ${({ listHeight }) => (listHeight ? getCorrectHeight(listHeight) : 'auto')};
     overflow: ${({ listOverflow }) => listOverflow || 'initial'};
 
     margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : 0)};

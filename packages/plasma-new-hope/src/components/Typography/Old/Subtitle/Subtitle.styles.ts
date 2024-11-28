@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../tokens';
+import { classes, tokens } from '../../tokens';
 import { applyHyphens } from '../../../../mixins';
 
 export const base = css`
@@ -11,5 +11,9 @@ export const base = css`
     line-height: var(${tokens.typoFontLineHeight});
     font-weight: var(${tokens.typoFontWeight});
 
-    ${String(applyHyphens)};
+    &.${classes.typoWithNoWrap} {
+        white-space: nowrap;
+    }
+
+    ${applyHyphens};
 `;

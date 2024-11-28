@@ -1,5 +1,6 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import styled from 'styled-components';
 import { IconClose } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
@@ -8,7 +9,7 @@ import { IconButton } from './IconButton';
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
 const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const pins = [
     'square-square',
     'square-clear',
@@ -55,8 +56,11 @@ const getSizeForIcon = (size) => {
         lr: 's',
         m: 's',
         l: 's',
-        sr: 's',
+        xl: 's',
+        sr: 'xs',
+        s: 'xs',
         xsr: 'xs',
+        xxs: 'xs',
     };
     if (map[size]) {
         return map[size];
@@ -64,6 +68,15 @@ const getSizeForIcon = (size) => {
 
     return size;
 };
+
+const StyledIconClose = styled(IconClose)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+        `}
+`;
 
 export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     args: {
@@ -77,7 +90,11 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     argTypes: { ...disableProps(['children']) },
     render: (args) => (
         <IconButton {...args}>
-            <IconClose color="inhert" size={getSizeForIcon(args.size)} />
+            <StyledIconClose
+                color="inherit"
+                customSize={args.size === 'm' ? '1.25rem' : undefined}
+                size={getSizeForIcon(args.size)}
+            />
         </IconButton>
     ),
 };

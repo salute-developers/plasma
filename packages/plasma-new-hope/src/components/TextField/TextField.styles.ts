@@ -67,7 +67,7 @@ export const InputContainer = styled.div`
     min-width: 60%;
 `;
 
-export const InputPlaceholder = styled.div`
+export const InputPlaceholder = styled.div<{ hasPadding?: boolean }>`
     position: absolute;
     top: 0;
     left: 0;
@@ -83,6 +83,7 @@ export const InputPlaceholder = styled.div`
     line-height: inherit;
 
     color: var(${tokens.placeholderColor});
+    padding: ${({ hasPadding }) => (hasPadding ? `var(${tokens.contentLabelInnerPadding})` : '0')};
 `;
 
 export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`

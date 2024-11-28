@@ -7,9 +7,10 @@ export type TextfieldProps = Pick<
     | 'multiselect'
     | 'value'
     | 'label'
+    | 'labelPlacement'
+    | 'keepPlaceholder'
     | 'placeholder'
     | 'onKeyDown'
-    | 'labelPlacement'
     | 'size'
     | 'view'
     | 'handleClickArrow'
@@ -24,4 +25,6 @@ export type TextfieldProps = Pick<
     | 'onChange'
     | 'labelToItemMap'
     | 'chipView'
+    | 'requiredProps'
+    | 'chipType'
 >;

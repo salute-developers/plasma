@@ -2,36 +2,12 @@ import type { TextAreaProps as TextAreaPropsBase } from '@salutejs/plasma-hope';
 import type { PopoverPlacement, PopoverPlacementBasic } from '@salutejs/plasma-new-hope';
 import type { ReactNode } from 'react';
 
-export { TextArea } from './TextArea';
+import { TextArea } from './TextArea';
 
-type RequiredProps = {
-    /**
-     * Задает выравнивание индикатора обязательности поля
-     * @default right
-     */
-    requiredPlacement?: 'left' | 'right';
-} & (
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required: true;
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: never | false;
-      }
-    | {
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: true;
-          /**
-           * Флаг обязательности поля
-           */
-          required?: never | false;
-      }
-);
+export { TextArea };
+
+type newHopeTextAreaProps = React.ComponentProps<typeof TextArea>;
+
 type HintProps =
     | {
           /**
@@ -118,16 +94,7 @@ type ClearProps =
           hasDivider?: never;
       };
 
-export type TextAreaProps = TextAreaPropsBase & {
-    /**
-     * @deprecated не используется в компоненте
-     */
-    resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-    /**
-     * Метка-подпись к элементу справа.
-     */
-    titleCaption?: ReactNode;
-} & RequiredProps &
+export type TextAreaProps = TextAreaPropsBase &
+    Pick<newHopeTextAreaProps, 'title' | 'titleCaption' | 'required' | 'requiredPlacement' | 'optional'> &
     ClearProps &
-    RequiredProps &
     HintProps;
