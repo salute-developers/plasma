@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { IconDisclosureRight } from '@salutejs/plasma-icons';
+import { IconPlasma } from '@salutejs/plasma-icons';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
@@ -114,7 +114,7 @@ const StoryLive = (args: TooltipProps) => {
             <StyledRow>
                 <Tooltip
                     target={<Button onClick={() => setIsOpen(!isOpen)}>Show tooltip</Button>}
-                    contentLeft={<IconDisclosureRight size="xs" />}
+                    contentLeft={<IconPlasma size="xs" />}
                     {...args}
                     id="example-tooltip-firstname"
                     text="Tooltip text"
