@@ -4,8 +4,6 @@ on:
     pull_request:
         branches:
             - dev
-      ## pull_request_review:
-        ## types: [ submitted ]
 
 jobs:
     notify:
@@ -14,6 +12,11 @@ jobs:
         steps:
             -   name: Checkout repository
                 uses: actions/checkout@v4
+                with:
+                    show-progress: false
+
+            -   name: Fetch dev branch
+                run: git fetch origin dev
 
             -   name: Prepare environment
                 uses: ./.github/actions/prepare-environment
