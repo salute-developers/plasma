@@ -1,10 +1,6 @@
 {
     "categories": [
         {
-            "title": "## Components",
-            "labels": ["plasma-components"]
-        },
-        {
             "title": "## Icons",
             "labels": ["plasma-icons"]
         },
@@ -22,7 +18,43 @@
         },
         {
             "title": "## Bugs",
-            "labels": ["plasma-bugs"]
+            "labels": ["bugs"]
+        },
+        {
+            "title": "## SDDS-SERV",
+            "labels": ["sdds-serv"]
+        },
+        {
+            "title": "## SDDS-DFA",
+            "labels": ["sdds-dfa"]
+        },
+        {
+            "title": "## SDDS-CS",
+            "labels": ["sdds-cs"]
+        },
+        {
+            "title": "## SDDS-FINPORTAL",
+            "labels": ["sdds-finportal"]
+        },
+        {
+            "title": "## SDDS-INSOL",
+            "labels": ["sdds-insol"]
+        },
+        {
+            "title": "## Core",
+            "labels": ["core"]
+        },
+        {
+            "title": "## PLASMA-WEB",
+            "labels": ["plasma-web"]
+        },
+        {
+            "title": "## PLASMA-B2C",
+            "labels": ["plasma-b2c"]
+        },
+        {
+            "title": "## PLASMA-UI",
+            "labels": ["plasma-ui"]
         },
         {
             "title": "## Misc",
