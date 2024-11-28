@@ -2,7 +2,7 @@ import React, { ComponentProps, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconPlasma, IconDisclosureDown } from '@salutejs/plasma-icons';
+import { IconPlasma, IconDisclosureDown, IconCalendarOutline } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -95,7 +95,7 @@ const StoryDefault = ({
             valueError={valueError}
             valueSuccess={valueSuccess}
             contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconDisclosureDown size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconCalendarOutline size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => setIsOpen(is)}
@@ -140,7 +140,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         disabled: false,
         readOnly: false,
         textBefore: '',
-        enableContentLeft: true,
+        enableContentLeft: false,
         enableContentRight: true,
         valueError: false,
         valueSuccess: false,
@@ -161,7 +161,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconDisclosureDown size={iconSize} color="var(--text-accent)" />
+            <IconCalendarOutline size={iconSize} color="var(--text-accent)" />
         </IconButton>
     );
 };
@@ -272,7 +272,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
-        enableContentLeft: true,
+        enableContentLeft: false,
         enableContentRight: true,
         enableFirstTextfieldContentLeft: false,
         enableFirstTextfieldContentRight: false,
