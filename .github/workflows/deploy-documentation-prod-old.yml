@@ -1,21 +1,27 @@
-name: Deploy documentation and storybook artifacts to DEV stage
+name: Deploy documentations artefacts [PROD]
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: [Release RC]
-    types: [completed]
-  
+
 jobs:
-  deploy:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+  build:
+    name: Build
     runs-on: ubuntu-22.04
     steps:
+      # [NOTE]: В проекте default branch - dev, что бы правильно собрать
+      # актуальную версию для branch master, нужно указать ref = 'master'
       - uses: actions/checkout@v4
+      # [DOC]: About REF. The branch, tag or SHA to checkout. When checking out the repository that
+      # triggered a workflow, this defaults to the reference or SHA for that event.
+      # Otherwise, **uses the default branch**.
+      # [DOC]: Last commit on default branch
         with:
-          fetch-depth: 0
+          ref: 'master'
           show-progress: false
-          
+
+      - name: Prepare repository
+        run: git fetch --unshallow --tags
+
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
@@ -25,57 +31,56 @@ jobs:
       - name: Prepare directories
         run: |
           mkdir -p s3_build s3_build_sb
-
       - name: Plasma Website
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build ./s3_build/next-${{ github.sha }}
-
       - name: Plasma UI Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/next-${{ github.sha }}/ui
-
       - name: Plasma Web Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
           
       - name: Plasma B2C Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/plasma-b2c-docs"
           cp -R ./website/plasma-b2c-docs/build ./s3_build/next-${{ github.sha }}/b2c
       
-      - name: Plasma SDDS SERV Docs
+      - name: SDDS-SERV Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-serv-docs"
           cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv
-
-      - name: Plasma SDDS CS Docs
+      - name: SDDS-CS Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-cs-docs"
           cp -R ./website/sdds-cs-docs/build ./s3_build/next-${{ github.sha }}/sdds-cs
-
-      - name: Plasma SDDS DFA Docs
+      - name: SDDS-DFA Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-dfa-docs"
           cp -R ./website/sdds-dfa-docs/build ./s3_build/next-${{ github.sha }}/sdds-dfa
-
-      - name: Plasma SDDS INSOL Docs
+      - name: SDDS-INSOL Docs
         run: |
+          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
           npm run build --prefix="./website/sdds-insol-docs"
           cp -R ./website/sdds-insol-docs/build ./s3_build/next-${{ github.sha }}/sdds-insol
-
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
           cp -R ./packages/plasma-ui/build-sb ./s3_build_sb/ui-storybook
-
       - name: Plasma Web Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-web"
           cp -R ./packages/plasma-web/build-sb ./s3_build_sb/web-storybook
-
       - name: Plasma B2C Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
@@ -90,31 +95,33 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/plasma-new-hope"
           cp -R ./packages/plasma-new-hope/build-sb ./s3_build_sb/new-hope-storybook
-        
+          
       - name: Plasma "SDDS SERV" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-serv"
           cp -R ./packages/sdds-serv/build-sb ./s3_build_sb/sdds-serv-storybook
-
-      - name: Plasma "SDDS CS" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/sdds-cs"
-          cp -R ./packages/sdds-cs/build-sb ./s3_build_sb/sdds-cs-storybook
-
       - name: Plasma "SDDS DFA" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-dfa"
           cp -R ./packages/sdds-dfa/build-sb ./s3_build_sb/sdds-dfa-storybook
-
+      - name: Plasma "SDDS CS" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-cs"
+          cp -R ./packages/sdds-cs/build-sb ./s3_build_sb/sdds-cs-storybook
+          
+      - name: Plasma "SDDS FinPortal" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-finportal"
+          cp -R ./packages/sdds-finportal/build-sb ./s3_build_sb/sdds-finportal-storybook
       - name: Plasma "SDDS INSOL" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-insol"
           cp -R ./packages/sdds-insol/build-sb ./s3_build_sb/sdds-insol-storybook
-
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
 
-      - name: Upload documentation build
+      - name: s3 Upload documentation build
         run: >
           s3cmd
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -127,8 +134,7 @@ jobs:
           --no-mime-magic
           sync
           ./s3_build/next-${{ github.sha }}/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/current/
-
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/current/
       - name: Upload to S3 storybook "Plasma-UI"
         run: >
           s3cmd
@@ -142,8 +148,7 @@ jobs:
           --no-mime-magic
           sync
           ./s3_build_sb/ui-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/ui-storybook/
-
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/ui-storybook/
       - name: Upload to S3 storybook "Plasma-Web"
         run: >
           s3cmd
@@ -157,8 +162,7 @@ jobs:
           --no-mime-magic
           sync
           ./s3_build_sb/web-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/web-storybook/
-
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/web-storybook/
       - name: Upload to S3 storybook "Plasma-b2c"
         run: >
           s3cmd
@@ -172,7 +176,7 @@ jobs:
           --no-mime-magic
           sync
           ./s3_build_sb/b2c-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/b2c-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/b2c-storybook/
           
       - name: Upload to S3 storybook "Plasma-ASDK"
         run: >
@@ -187,9 +191,9 @@ jobs:
           --no-mime-magic
           sync
           ./s3_build_sb/asdk-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/asdk-storybook/
-
-      - name: Upload to S3 storybook "Plasma-New-Hope"
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/asdk-storybook/
+          
+      - name: Upload to S3 storybook "Plasma-new-hope"
         run: >
           s3cmd
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -202,8 +206,7 @@ jobs:
           --no-mime-magic
           sync
           ./s3_build_sb/new-hope-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/new-hope-storybook/
-          
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/new-hope-storybook/
       - name: Upload to S3 storybook "SDDS SERV"
         run: >
           s3cmd
@@ -217,9 +220,8 @@ jobs:
           --no-mime-magic
           sync
           ./s3_build_sb/sdds-serv-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/sdds-serv-storybook/
-
-      - name: Upload to S3 storybook "SDDS INSOL"
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-serv-storybook/
+      - name: Upload to S3 storybook "SDDS DFA"
         run: >
           s3cmd
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -231,5 +233,47 @@ jobs:
           --delete-removed
           --no-mime-magic
           sync
-          ./s3_build_sb/sdds-insol-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/sdds-insol-storybook/
+          ./s3_build_sb/sdds-dfa-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-dfa-storybook/
+      - name: Upload to S3 storybook "SDDS CS"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/sdds-cs-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-cs-storybook/
+      - name: Upload to S3 storybook "SDDS FinPortal"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/sdds-finportal-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-finportal-storybook/
+          - name: Upload to S3 storybook "SDDS Insol"
+          run: >
+            s3cmd
+            --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+            --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            --host ${{ secrets.AWS_ENDPOINT }}
+            --host-bucket ${{ secrets.AWS_ENDPOINT }}
+            --bucket-location ${{ secrets.AWS_REGION }}
+            --signature-v2
+            --delete-removed
+            --no-mime-magic
+            sync
+            ./s3_build_sb/sdds-insol-storybook/
+            s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-insol-storybook/
