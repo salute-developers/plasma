@@ -2,6 +2,7 @@ import { styled } from '@linaria/react';
 
 import { mergeConfig, component } from '../../../../engines';
 import { buttonConfig } from '../../../Button';
+import { tokens as buttonTokens } from '../../../Button/Button.tokens';
 import { tokens } from '../../Panel.tokens';
 
 import { ClosePlacementType, placements } from './PanelHeader.types';
@@ -26,5 +27,7 @@ export const CloseIconWrapper = styled(Button)`
     position: relative;
     width: 1.5rem;
     min-height: 1.5rem;
-    color: var(${tokens.closeColor});
+    ${buttonTokens.buttonColor}: var(${tokens.closeColor});
+    ${buttonTokens.buttonColorHover}: var(${tokens.closeColor});
+    ${buttonTokens.buttonColorActive}: var(${tokens.closeColor});
 `;

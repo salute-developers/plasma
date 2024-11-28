@@ -5,16 +5,10 @@ import { popupClasses, popupConfig } from '../Popup';
 import { panelTokens, panelConfig } from '../Panel';
 
 import type { DrawerPlacement } from './Drawer.types';
-import { classes } from './Drawer.tokens';
-
-import { drawerTokens } from '.';
+import { classes, tokens } from './Drawer.tokens';
 
 const mergedPanelConfig = mergeConfig(panelConfig);
 const Panel = component(mergedPanelConfig);
-
-export const StyledPanel = styled(Panel)`
-    ${panelTokens.closeColor}: var(${drawerTokens.closeIconColor});
-`;
 
 const Popup = component(popupConfig);
 
@@ -103,6 +97,10 @@ const getAnimationStyles = () => {
         return acc;
     }, '');
 };
+
+export const StyledPanel = styled(Panel)`
+    ${panelTokens.closeColor}: var(${tokens.closeIconColor});
+`;
 
 export const StyledPopup = styled(Popup)<{
     placement: DrawerPlacement;
