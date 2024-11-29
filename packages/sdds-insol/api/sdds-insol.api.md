@@ -237,6 +237,7 @@ import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TreeProps } from '@salutejs/plasma-new-hope/types/components/Tree/Tree.types';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
@@ -4272,6 +4273,19 @@ export { toolbarTokens }
 export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
 
 export { TooltipProps }
+
+// @public (undocumented)
+export const Tree: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & TreeProps & RefAttributes<HTMLDivElement>>;
 
 export { usePopupContext }
 

@@ -325,6 +325,7 @@ import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
+import { TreeProps } from '@salutejs/plasma-new-hope/types/components/Tree/Tree.types';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 import { TypographyVariants } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { Upload } from '@salutejs/plasma-hope';
@@ -4417,6 +4418,19 @@ export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTM
 export { TooltipProps }
 
 export { transformStyles }
+
+// @public (undocumented)
+export const Tree: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & TreeProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Underline: FunctionComponent<PropsType<    {

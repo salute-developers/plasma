@@ -1,0 +1,1 @@
+export { sizeToIconSize } from './sizeToIconSize';
