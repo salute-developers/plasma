@@ -51,6 +51,10 @@ module.exports = function getWebpackConfig() {
         module: {
             rules: [
                 {
+                    test: /\.css$/i,
+                    use: ['style-loader', 'css-loader'],
+                },
+                {
                     test: /\.tsx$|\.ts$/,
                     exclude: [/node_modules/],
                     use: {

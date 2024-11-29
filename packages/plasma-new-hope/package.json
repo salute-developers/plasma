@@ -138,6 +138,7 @@
     "dayjs": "1.11.11",
     "focus-visible": "5.2.0",
     "lodash.throttle": "4.1.1",
+    "rc-tree": "5.11.0",
     "react-draggable": "4.4.3",
     "react-popper": "2.3.0",
     "storeon": "3.1.5"
