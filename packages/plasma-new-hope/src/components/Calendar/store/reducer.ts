@@ -70,14 +70,15 @@ export const reducer = (state: InitialState, action: Action): InitialState => {
         }
         case ActionType.PREVIOUS_YEAR: {
             const { step } = action.payload;
+            const startYear = state.date.year - step <= 0 ? 0 : state.date.year - step;
 
             return {
                 ...state,
-                startYear: state.startYear - step,
+                startYear,
                 date: {
                     day: state.date.day,
                     monthIndex: state.date.monthIndex,
-                    year: state.date.year - step,
+                    year: startYear,
                 },
             };
         }
@@ -96,10 +97,11 @@ export const reducer = (state: InitialState, action: Action): InitialState => {
         }
         case ActionType.PREVIOUS_START_YEAR: {
             const { yearsCount } = action.payload;
+            const startYear = state.startYear - yearsCount < 0 ? 0 : state.startYear - yearsCount;
 
             return {
                 ...state,
-                startYear: state.startYear - yearsCount,
+                startYear,
             };
         }
         case ActionType.NEXT_START_YEAR: {
