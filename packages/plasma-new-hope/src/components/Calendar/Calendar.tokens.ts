@@ -13,6 +13,7 @@ export const classes = {
     hoveredItem: 'item-hovered',
     doubleHeaderDate: 'double-header-date',
     doubleHeaderLastDateWrapper: 'double-header--last-date-wrapper',
+    disabledPrevButton: 'disabled-prev-button',
 };
 
 export const innerTokens = {
