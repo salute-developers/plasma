@@ -56,7 +56,8 @@ jobs:
         id: changelog
         uses: ./.github/actions/processing-release-changelog
         with:
-          data: ${{ steps.github_release.outputs.changelog }}
+          data: |
+           ${{ steps.github_release.outputs.changelog }}
 
       - name: Create release PR
         run: |
