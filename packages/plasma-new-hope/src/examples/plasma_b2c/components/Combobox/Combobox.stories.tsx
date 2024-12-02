@@ -357,7 +357,6 @@ const SingleStory = (args: StorySelectProps) => {
         <div style={{ width: '400px' }}>
             <Combobox
                 {...args}
-                name="mau"
                 items={items}
                 value={value}
                 onChange={setValue}
