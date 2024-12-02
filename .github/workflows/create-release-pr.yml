@@ -7,6 +7,9 @@ on:
       from-tag:
         description: ''
         required: false
+      to-tag:
+        description: ''
+        required: false
 
 jobs:
   release-pr:
@@ -37,7 +40,7 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v4.1.0
         with:
           fromTag: ${{ github.event.inputs.from-tag || env.FROM_TAG }}
-          toTag: '621787530afd0cd84a4058950f990e4bf54c457d',
+          toTag: ${{ github.event.inputs.to-tag }}
           configuration: "./.github/changelog-builder-config.json"
 
       - name: List pull request
