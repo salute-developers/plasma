@@ -11,3 +11,9 @@ export const keyCodes = {
     Space: 32,
     Escape: 27,
 };
+
+export const screenGroupBreakpoints = {
+    small: '0',
+    medium: '35rem',
+    large: '60rem',
+};
