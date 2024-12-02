@@ -47,10 +47,6 @@ jobs:
         # List merged pull request into dev branch
         run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
 
-      - name: echo
-        run: |
-            ${{ steps.github_release.outputs.changelog }}
-
       - name: Install dependencies
         run: |
             cd .github/actions/processing-release-changelog
