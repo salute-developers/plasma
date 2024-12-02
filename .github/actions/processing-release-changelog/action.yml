@@ -1,0 +1,16 @@
+name: processing-release-changelog
+
+description: 'Transform release changelog with group by heading'
+
+inputs:
+    data:
+        description: "Raw data for processing"
+        required: true
+
+outputs:
+    changelog:
+        description: "changelog after processing"
+
+runs:
+    using: 'node20'
+    main: 'index.js'
