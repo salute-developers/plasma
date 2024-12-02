@@ -1,30 +1,4 @@
 {
-    "categories": [
-        {
-            "title": "## Icons",
-            "labels": ["plasma-icons"]
-        },
-        {
-            "title": "## Infra",
-            "labels": ["plasma-infra"]
-        },
-        {
-            "title": "## Tokens",
-            "labels": ["plasma-tokens"]
-        },
-        {
-            "title": "## Docs",
-            "labels": ["plasma-docs"]
-        },
-        {
-            "title": "## Bugs",
-            "labels": ["bugs"]
-        },
-        {
-            "title": "## Misc",
-            "labels": []
-        }
-    ],
     "ignore_labels": ["changelog-skip"],
     "pr_template": "#{{DESC}}\n#{{TITLE}} (#{{URL}})\n",
     "custom_placeholders": [
