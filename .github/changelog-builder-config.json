@@ -1,4 +1,10 @@
 {
+    "categories": [
+        {
+            "title": "## Misc",
+            "labels": []
+        }
+    ],
     "ignore_labels": ["changelog-skip"],
     "pr_template": "#{{DESC}}\n#{{TITLE}} (#{{URL}})\n",
     "custom_placeholders": [
