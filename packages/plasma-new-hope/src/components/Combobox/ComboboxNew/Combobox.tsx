@@ -386,10 +386,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             >
                 {name && (
                     <SelectNative
+                        items={valueToItemMap}
                         name={name}
                         value={internalValue}
                         multiple={multiple}
                         onChange={onChange}
+                        onSetValue={setInternalValue}
                         ref={ref as ForwardedRef<HTMLInputElement>}
                     />
                 )}
