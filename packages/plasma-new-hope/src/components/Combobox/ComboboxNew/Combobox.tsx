@@ -304,6 +304,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             handleListToggle,
             handlePressDown,
             setTextValue,
+            multiple,
+            value,
+            textValue,
+            valueToItemMap,
         });
 
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
