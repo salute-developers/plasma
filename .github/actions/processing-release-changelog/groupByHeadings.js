@@ -1,54 +1,21 @@
 export function groupByHeadings(tree) {
     const groups = new Map();
-    const h2List = new Set();
+    let currentHeading = null;
 
-    let nodes = [...tree.children];
-    let currentGroup = null;
-    let currentNodes = [];
-
-    for (let i = 0; i < nodes.length; i++) {
-        const node = nodes[i];
-
+    // Группируем узлы по заголовкам
+    for (const node of tree.children) {
         if (node.type === 'heading' && node.depth === 2) {
-            const headingValue = node.children[0].value;
-
-            if (currentGroup) {
-                if (!groups.has(currentGroup)) {
-                    groups.set(currentGroup, []);
-                }
-
-                groups.get(currentGroup).push(...currentNodes);
-            }
-
-            currentGroup = headingValue;
-
-            if (!h2List.has(headingValue)) {
-                currentNodes = [node];
-
-                h2List.add(headingValue);
-            } else {
-                currentNodes = [];
-            }
-        } else {
-            if (currentGroup) {
-                currentNodes.push(node);
-            }
+            currentHeading = node.children[0].value;
+            // При первом появлении заголовка создаем массив с ним
+            groups.set(currentHeading, [node]);
+        } else if (currentHeading) {
+            // Добавляем узлы к текущей группе
+            groups.get(currentHeading).push(node);
         }
     }
 
-    if (currentGroup && currentNodes.length) {
-        if (!groups.has(currentGroup)) {
-            groups.set(currentGroup, []);
-        }
-
-        groups.get(currentGroup).push(...currentNodes);
-    }
-
-    const newChildren = [];
-
-    for (const [_, nodes] of groups) {
-        newChildren.push(...nodes);
-    }
-
-    return { ...tree, children: newChildren };
+    return {
+        ...tree,
+        children: [...groups.values()].flat(),
+    };
 }

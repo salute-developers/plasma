@@ -1,0 +1,12 @@
+name: write-changelog
+
+description: ''
+
+inputs:
+    token:
+        description: The GitHub token used to create an authenticated client.
+        required: true
+
+runs:
+    using: 'node20'
+    main: 'index.js'
