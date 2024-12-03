@@ -715,6 +715,54 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            beforeList="Content before list"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            afterList="Content after list"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 

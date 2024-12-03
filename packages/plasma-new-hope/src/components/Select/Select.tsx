@@ -57,6 +57,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             separator,
             closeAfterSelect: outerCloseAfterSelect,
             isTargetAmount,
+            beforeList,
+            afterList,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -346,6 +348,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 listWidth={listWidth}
                                 ref={targetRef}
                             >
+                                {beforeList}
+
                                 {transformedItems.map((item, index) => (
                                     <Inner
                                         key={`${index}/0`}
@@ -357,6 +361,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                         listWidth={listWidth}
                                     />
                                 ))}
+
+                                {afterList}
                             </Ul>
                         </Root>
                     </FloatingPopover>
