@@ -142,6 +142,14 @@ export interface BasicProps<K extends ItemOption> {
      * @default если single, то true; если multiple, то false
      */
     closeAfterSelect?: boolean;
+    /**
+     * Ячейка для контента в начале выпадающего списка.
+     */
+    beforeList?: React.ReactNode;
+    /**
+     * Ячейка для контента в конце выпадающего списка.
+     */
+    afterList?: React.ReactNode;
 
     /**
      * Размер компонента.
@@ -308,6 +316,14 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default если single, то true; если multiple, то false
          */
         closeAfterSelect?: boolean;
+        /**
+         * Ячейка для контента в начале выпадающего списка.
+         */
+        beforeList?: React.ReactNode;
+        /**
+         * Ячейка для контента в конце выпадающего списка.
+         */
+        afterList?: React.ReactNode;
 
         /**
          * Размер компонента.
