@@ -3,12 +3,12 @@ import type { Key, ReactNode, CSSProperties } from 'react';
 export type TreeItem = {
     key: Key;
     title?: ReactNode | ((data: TreeItem) => React.ReactNode);
-    checkable?: boolean;
+    // checkable?: boolean;
     selectable?: boolean;
     className?: string;
     style?: CSSProperties;
     disabled?: boolean;
-    disableCheckbox?: boolean;
+    // disableCheckbox?: boolean;
 };
 
 export type TreeProps = {
@@ -27,4 +27,8 @@ export type TreeProps = {
     expandedKeys?: Key[];
     checkedKeys?: Key[];
     selectedKeys?: Key[];
+    inverted?: boolean;
+
+    size?: string;
+    view?: string;
 };

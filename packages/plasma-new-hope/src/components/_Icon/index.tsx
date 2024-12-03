@@ -26,3 +26,4 @@ export { IconBlankTxtOutline } from './Icons/IconBlankTxtOutline';
 export { IconBlankXlsOutline } from './Icons/IconBlankXlsOutline';
 export { IconInfoCircleOutline } from './Icons/IconInfoCircleOutline';
 export { IconArrowBarDown } from './Icons/IconArrowBarDown';
+export { IconFolder } from './Icons/IconFolder';
