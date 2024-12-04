@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
 
-import { TextFieldPropsBase, RequiredProps } from '../TextField/TextField.types';
+import { TextFieldPropsBase } from '../TextField/TextField.types';
 
 export type SuggestionItemType = {
     /**
@@ -89,7 +89,6 @@ export type BaseProps = {
 };
 
 export type AutocompleteProps = BaseProps &
-    RequiredProps &
     Omit<
         TextFieldPropsBase,
         'chips' | 'onChangeChips' | 'enumerationType' | 'required' | 'optional' | 'requiredPlacement'

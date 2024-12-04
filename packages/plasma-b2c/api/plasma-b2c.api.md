@@ -661,17 +661,7 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & ((BaseProps & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-required: true;
-optional?: false | undefined;
-} & Omit<TextFieldPropsBase, "required" | "enumerationType" | "chips" | "onChangeChips" | "requiredPlacement" | "optional"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & {
-requiredPlacement?: "right" | "left" | undefined;
-} & {
-optional?: true | undefined;
-required?: false | undefined;
-} & Omit<TextFieldPropsBase, "required" | "enumerationType" | "chips" | "onChangeChips" | "requiredPlacement" | "optional"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+}> & BaseProps & Omit<TextFieldPropsBase, "required" | "enumerationType" | "chips" | "onChangeChips" | "requiredPlacement" | "optional"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {

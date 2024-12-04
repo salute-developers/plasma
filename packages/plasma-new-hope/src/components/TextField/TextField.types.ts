@@ -52,7 +52,7 @@ type TextFieldChipProps =
           onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
       };
 
-export type RequiredProps = {
+type RequiredProps = {
     /**
      * Задает выравнивание индикатора обязательности поля
      * @default right
