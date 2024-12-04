@@ -693,10 +693,6 @@ export const iconSectionsSet = {
         blankJpgOutline: 'BlankJpgOutline',
         blankPngFill: 'BlankPngFill',
         blankPngOutline: 'BlankPngOutline',
-        blankVisibilityOffFill: 'BlankVisibilityOffFill',
-        blankVisibilityOffOutline: 'BlankVisibilityOffOutline',
-        blankVisibilityOnFill: 'BlankVisibilityOnFill',
-        blankVisibilityOnOutline: 'BlankVisibilityOnOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
