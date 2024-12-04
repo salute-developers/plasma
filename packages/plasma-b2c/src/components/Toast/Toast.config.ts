@@ -4,7 +4,6 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'm',
-        closeIconType: 'default',
     },
     variations: {
         view: {
@@ -46,6 +45,9 @@ export const config = {
                 ${toastTokens.borderRadius}: 0.75rem;
                 ${toastTokens.maxWidth}: calc(100vw - 5rem);
                 ${toastTokens.padding}: 0.5625rem 0.75rem;
+
+                ${toastTokens.closeIconButtonSize}: 1rem;
+                ${toastTokens.closeIconSize}: 1.5rem;
                 ${toastTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${toastTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
                 ${toastTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -55,12 +57,6 @@ export const config = {
 
                 ${toastTokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
                 ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.5rem;
-            `,
-        },
-        closeIconType: {
-            default: css`
-                ${toastTokens.closeIconButtonSize}: 1rem;
-                ${toastTokens.closeIconSize}: 1.5rem;
             `,
         },
         pilled: {

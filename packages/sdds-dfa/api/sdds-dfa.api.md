@@ -5068,9 +5068,6 @@ light: PolymorphicClassName;
 size: {
 m: PolymorphicClassName;
 };
-closeIconType: {
-default: PolymorphicClassName;
-};
 pilled: {
 true: PolymorphicClassName;
 };
