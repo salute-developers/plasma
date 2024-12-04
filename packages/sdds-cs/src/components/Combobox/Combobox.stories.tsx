@@ -10,7 +10,7 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
 };
 
-const view = ['default', 'negative'];
+const view = ['default'];
 const size = ['s'];
 const labelPlacement = ['outer'];
 const chip = ['default', 'secondary', 'accent'];
