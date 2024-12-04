@@ -6,7 +6,6 @@ on:
             - dev
 
 jobs:
-    if: false
     labelling:
         ## if: github.event.review.state == 'approved'
         runs-on: ubuntu-latest
