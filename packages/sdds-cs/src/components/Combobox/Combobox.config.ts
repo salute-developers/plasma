@@ -37,9 +37,6 @@ export const config = {
                 ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.textFieldChipOpacityReadonly}: 0.72;
                 ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
-                ${tokens.disclosureIconColor}: var(--text-accent);
-                ${tokens.disclosureIconColorHover}: var(--text-accent-hover);
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
             `,
         },
         size: {

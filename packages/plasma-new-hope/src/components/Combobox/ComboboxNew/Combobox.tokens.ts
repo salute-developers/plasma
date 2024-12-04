@@ -34,8 +34,6 @@ export const tokens = {
     itemIconSize: '--plasma-combobox-item-icon-size',
     itemIconSizeTight: '--plasma-combobox-item-icon-size-tight',
     itemIconMargin: '--plasma-combobox-item-icon-margin',
-    itemBackground: '--plasma-combobox-item-background',
-    itemBackgroundHover: '--plasma-combobox-item-background-hover',
 
     cellPadding: '--plasma-combobox-cell-padding',
     cellPaddingLeftContent: '--plasma-combobox-cell-padding-left-content',
@@ -162,9 +160,6 @@ export const tokens = {
 
     spinnerSize: '--plasma-combobox-spinner-size',
     spinnerSizeTight: '--plasma-combobox-spinner-size-tight',
-
-    disclosureIconColor: '--plasma-combobox-disclosure-icon-color',
-    disclosureIconColorHover: '--plasma-combobox-disclosure-icon-color-hover',
 };
 
 export const constants = {
