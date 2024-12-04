@@ -139,11 +139,7 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                                 sections.map((section, indexSection) => (
                                     <>
                                         {indexSection !== 0 && (
-                                            <PaginationShorter
-                                                stretching="fixed"
-                                                disabled
-                                                className={classes.buttonDisabled}
-                                            >
+                                            <PaginationShorter stretching="fixed" disabled>
                                                 ...
                                             </PaginationShorter>
                                         )}
@@ -158,7 +154,6 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                                                     className={cx(
                                                         classes.paginationPageButton,
                                                         isActiveButton(pageValue),
-                                                        disabled.includes(pageValue) ? classes.buttonDisabled : '',
                                                     )}
                                                 >
                                                     {pageValue}

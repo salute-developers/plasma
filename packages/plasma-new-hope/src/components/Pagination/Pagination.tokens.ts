@@ -17,7 +17,6 @@ export const classes = {
     paginationPageButtonActive: 'pagination-page-button-active',
 
     paginationIconReverse: 'pagination-icon-reverse',
-    buttonDisabled: 'pagination-button-disabled',
 };
 
 export const tokens = {
@@ -44,8 +43,6 @@ export const tokens = {
     paginationCurrentButtonHoverColor: '--plasma-pagination-button-current-color-hover',
     paginationCurrentButtonActiveBackgroundColor: '--plasma-pagination-button-current-bg-color-active',
     paginationCurrentButtonActiveColor: '--plasma-pagination--button-current-color-active',
-    paginationDisabledButtonColor: '--plasma-pagination--button-color-disabled',
-    paginationDisabledButtonBackgroundColor: '--plasma-pagination--button-bg-color-disabled',
 
     buttonDisabledOpacity: '--plasma-pagination-button-disabled-opacity',
 
