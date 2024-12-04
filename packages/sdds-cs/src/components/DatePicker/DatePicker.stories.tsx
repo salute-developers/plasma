@@ -151,7 +151,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconPlasma size={iconSize} color="var(--text-accent)" />
+            <IconPlasma size={iconSize} color="var(--text-primary)" />
         </IconButton>
     );
 };

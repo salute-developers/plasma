@@ -68,8 +68,6 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.textBeforeMargin}: var(${tokens.textFieldTextBeforeMargin});
     ${textFieldTokens.textAfterMargin}: var(${tokens.textFieldTextAfterMargin});
     ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColor}, var(${tokens.textFieldColor}));
-    ${textFieldTokens.contentSlotRightColor}: var(${tokens.textFieldContentRightSlotColor}, var(${textFieldTokens.contentSlotColor}));
-    ${textFieldTokens.contentSlotRightColorHover}: var(${tokens.textFieldContentRightSlotColorHover}, var(${textFieldTokens.contentSlotRightColor}));
 
     &.${classes.datePickerError} {
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
