@@ -1,10 +1,10 @@
 export function groupByHeadings(tree) {
     const groups = new Map();
-    const h2List = new Set();
-
     let nodes = [...tree.children];
+
     let currentGroup = null;
     let currentNodes = [];
+    let isFirstMainHeading = new Set(); // Для отслеживания первого вхождения заголовка
 
     for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i];
@@ -21,12 +21,12 @@ export function groupByHeadings(tree) {
             }
 
             currentGroup = headingValue;
-
-            if (!h2List.has(headingValue)) {
+            // Добавляем заголовок в группу только если он встречается первый раз
+            if (!isFirstMainHeading.has(headingValue)) {
                 currentNodes = [node];
-
-                h2List.add(headingValue);
+                isFirstMainHeading.add(headingValue);
             } else {
+                // Пропускаем повторный заголовок
                 currentNodes = [];
             }
         } else {
@@ -36,6 +36,7 @@ export function groupByHeadings(tree) {
         }
     }
 
+    // Сохраняем последнюю группу
     if (currentGroup && currentNodes.length) {
         if (!groups.has(currentGroup)) {
             groups.set(currentGroup, []);
@@ -44,6 +45,7 @@ export function groupByHeadings(tree) {
         groups.get(currentGroup).push(...currentNodes);
     }
 
+    // Создаем новое дерево
     const newChildren = [];
 
     for (const [_, nodes] of groups) {
