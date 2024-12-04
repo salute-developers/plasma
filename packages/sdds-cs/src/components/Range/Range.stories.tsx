@@ -70,7 +70,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconSearch size={iconSize} color="var(--text-accent)" />
+            <IconSearch size={iconSize} color="var(--text-primary)" />
         </IconButton>
     );
 };
