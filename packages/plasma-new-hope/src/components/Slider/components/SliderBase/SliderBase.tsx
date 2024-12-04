@@ -20,20 +20,17 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
     rangeValuesPlacement,
     onChange,
     orientation,
+    reversed,
     size,
     sliderAlign,
-    settings = {},
 }) => {
-    const { indent = 0.75, fontSizeMultiplier = 16 } = settings;
-
     const ref = useRef<HTMLDivElement | null>(null);
-    const gap = indent * fontSizeMultiplier * 2;
     const isVertical = orientation === 'vertical';
 
     useEffect(() => {
         const resizeHandler = () => {
             if (ref.current) {
-                const railSize = isVertical ? ref.current.offsetHeight - gap : ref.current.offsetWidth - gap;
+                const railSize = isVertical ? ref.current.offsetHeight : ref.current.offsetWidth;
                 const totalSteps = max - min;
 
                 setStepSize(railSize / totalSteps);
@@ -44,7 +41,6 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
     }, [
         labelPlacement,
         rangeValuesPlacement,
-        gap,
         isVertical,
         // для перерасчета размеров
         size,
@@ -61,7 +57,7 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
         const lastPos = isVertical ? e.clientY - y : e.clientX - x;
         const sliderWidth = isVertical ? height : width;
 
-        const position = min + (lastPos / (sliderWidth - gap)) * (max - min);
+        const position = min + (lastPos / sliderWidth) * (max - min);
         const result = Math.max(min, Math.min(max, position));
 
         const data = isVertical ? { lastY: lastPos } : { lastX: lastPos };
@@ -71,7 +67,7 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
     useIsomorphicLayoutEffect(() => {
         const resizeHandler = () => {
             if (ref.current) {
-                const railSize = isVertical ? ref.current.offsetHeight - gap : ref.current.offsetWidth - gap;
+                const railSize = isVertical ? ref.current.offsetHeight : ref.current.offsetWidth;
                 const totalSteps = max - min;
 
                 setStepSize(railSize / totalSteps);
@@ -82,11 +78,19 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
         window.addEventListener('resize', resizeHandler);
 
         return () => window.removeEventListener('resize', resizeHandler);
-    }, [min, max, setStepSize, gap, labelPlacement, rangeValuesPlacement, isVertical]);
+    }, [min, max, setStepSize, labelPlacement, rangeValuesPlacement, isVertical]);
 
-    const fillStyle = isVertical
-        ? { top: `${railFillXPosition}px`, height: `${railFillWidth}px`, width: '100%' }
-        : { left: `${railFillXPosition}px`, width: `${railFillWidth}px` };
+    const fillStyle = (() => {
+        if (isVertical && reversed) {
+            return { bottom: 0, height: `calc(100% - ${railFillWidth}px)`, top: 'auto', width: '100%' };
+        }
+
+        if (isVertical) {
+            return { bottom: `${railFillXPosition}px`, height: `${railFillWidth}px`, width: '100%' };
+        }
+
+        return { left: `${railFillXPosition}px`, width: `${railFillWidth}px` };
+    })();
 
     return (
         <Slider ref={ref} className={cx(orientation === 'vertical' && classes.verticalOrientation)}>

@@ -8,6 +8,8 @@ export interface HandlerProps {
     onChangeCommitted?(value: number, data: DraggableData): void;
     side?: 'left' | 'right';
     size?: 'small' | 'large' | 'none';
+    visibility?: 'always' | 'hover';
+    isHovered?: boolean;
     orientation: 'horizontal' | 'vertical';
     bounds?: number[];
     position?: number;
