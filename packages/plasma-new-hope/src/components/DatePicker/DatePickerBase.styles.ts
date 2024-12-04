@@ -13,7 +13,6 @@ export const baseCalendarTokens = `
     padding-top: var(${tokens.calendarPaddingTop});
     box-shadow: var(${tokens.calendarShadow});
     border-radius: var(${tokens.calendarBorderRadius});
-    margin-top: var(${tokens.calendarMarginTop});
 
     ${calendarBaseTokens.calendarBackgroundColor}: var(${tokens.calendarBackgroundColor});
     ${calendarBaseTokens.calendarSelectedItemBackground}: var(${tokens.calendarSelectedItemBackground});
@@ -92,7 +91,6 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarDayFontLineHeight}: var(${tokens.calendarDayFontLineHeight});
     ${calendarBaseTokens.calendarDayFontWeight}: var(${tokens.calendarDayFontWeight});
     ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(${tokens.calendarDaySelectedFontWeight});
-    ${calendarBaseTokens.calendarDayOfWeekColor}: var(${tokens.calendarDayOfWeekColor});
     
     ${calendarBaseTokens.calendarHeaderWrapperPadding}: var(${tokens.calendarHeaderWrapperPadding});
     ${calendarBaseTokens.calendarHeaderArrowGap}: var(${tokens.calendarHeaderArrowGap});

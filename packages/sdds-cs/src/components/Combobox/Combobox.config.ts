@@ -170,15 +170,12 @@ export const config = {
             true: css`
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.disclosureIconColor}: transparent;
                 ${tokens.disclosureIconColorHover}: transparent;
-                ${tokens.textFieldPadding}: 0;
-                ${tokens.textFieldLabelOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperOffset}: 0rem;
             `,
         },
     },

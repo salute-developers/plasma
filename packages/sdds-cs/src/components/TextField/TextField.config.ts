@@ -254,7 +254,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.colorReadOnly}: var(--text-primary);
+                ${tokens.colorReadOnly}: var(--text-secondary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
