@@ -110,10 +110,6 @@ export type RangeInnerProps = {
      */
     secondTextfieldTextAfter?: string;
     /**
-     * Автозаполнение полей.
-     */
-    autoComplete?: string;
-    /**
      * Вариант отображения
      */
     view?: string;
