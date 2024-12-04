@@ -24,7 +24,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarRangeBackground}: var(--surface-transparent-secondary);
                 ${calendarDoubleTokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${calendarDoubleTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
-                ${calendarDoubleTokens.calendarHeaderArrowColor}: ${calendarBaseTokens.calendarContentPrimaryColor};
                 ${calendarDoubleTokens.calendarContentSecondaryColor}: var(--text-secondary);
 
                 ${calendarDoubleTokens.iconButtonColor}: var(--text-primary);
