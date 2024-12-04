@@ -615,7 +615,6 @@ export const iconSectionsSet = {
         starRecommendFill: 'StarRecommendFill',
         starRecommendOutline: 'StarRecommendOutline',
         numberedView: 'NumberedView',
-        starHalfFill: 'StarHalfFill',
     },
     Design: {
         blurFill: 'BlurFill',
