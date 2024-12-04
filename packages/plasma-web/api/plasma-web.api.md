@@ -1408,7 +1408,6 @@ name?: string | undefined;
 label?: string | undefined;
 view?: string | undefined;
 disabled?: boolean | undefined;
-autoComplete?: string | undefined;
 readOnly?: boolean | undefined;
 size?: string | undefined;
 contentLeft?: ReactNode;
@@ -3326,7 +3325,6 @@ secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<an
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
-autoComplete?: string | undefined;
 view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
@@ -3363,7 +3361,6 @@ secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<an
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
-autoComplete?: string | undefined;
 view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
@@ -3400,7 +3397,6 @@ secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<an
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
-autoComplete?: string | undefined;
 view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
