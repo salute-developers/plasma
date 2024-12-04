@@ -1,7 +1,7 @@
 {
   "name": "@salutejs/sdds-cs",
   "version": "0.168.0-dev.0",
-  "description": "Salute Design System / React UI kit for SDDS CS web applications11",
+  "description": "Salute Design System / React UI kit for SDDS CS web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "keywords": [
