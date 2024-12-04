@@ -12,8 +12,6 @@ export const config = {
                 ${textAreaTokens.inputHeight}: 7.312rem;
                 ${textAreaTokens.inputMinHeight}: 0.625rem;
                 ${textAreaTokens.borderRadius}: 0.5rem;
-                /* stylelint-disable-next-line number-max-precision */
-                ${textAreaTokens.borderSize}: 0.0625rem;
                 ${textAreaTokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0 0;
                 ${textAreaTokens.inputPaddingTop}: 0.563rem;
                 ${textAreaTokens.inputPaddingRight}: 0.625rem;
@@ -83,8 +81,6 @@ export const config = {
                 ${textAreaTokens.inputHeight}: 7.187rem;
                 ${textAreaTokens.inputMinHeight}: 0.625rem;
                 ${textAreaTokens.borderRadius}: 0.625rem;
-                /* stylelint-disable-next-line number-max-precision */
-                ${textAreaTokens.borderSize}: 0.0625rem;
                 ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0 0;
                 ${textAreaTokens.inputPaddingTop}: 0.688rem;
                 ${textAreaTokens.inputPaddingRight}: 0.875rem;
@@ -154,8 +150,6 @@ export const config = {
                 ${textAreaTokens.inputHeight}: 7rem;
                 ${textAreaTokens.inputMinHeight}: 1.125rem;
                 ${textAreaTokens.borderRadius}: 0.75rem;
-                /* stylelint-disable-next-line number-max-precision */
-                ${textAreaTokens.borderSize}: 0.0625rem;
                 ${textAreaTokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0 0;
                 ${textAreaTokens.inputPaddingTop}: 0.875rem;
                 ${textAreaTokens.inputPaddingRight}: 1rem;
@@ -227,8 +221,6 @@ export const config = {
                 ${textAreaTokens.inputHeight}: 6.812rem;
                 ${textAreaTokens.inputMinHeight}: 1.625rem;
                 ${textAreaTokens.borderRadius}: 0.875rem;
-                /* stylelint-disable-next-line number-max-precision */
-                ${textAreaTokens.borderSize}: 0.0625rem;
                 ${textAreaTokens.borderRadiusWithHelpers}: 0.875rem 0.875rem 0 0;
                 ${textAreaTokens.inputPaddingTop}: 1.063rem;
                 ${textAreaTokens.inputPaddingRight}: 1.125rem;
@@ -296,18 +288,14 @@ export const config = {
         },
         view: {
             default: css`
-                ${textAreaTokens.borderColor}: transparent;
-                ${textAreaTokens.borderColorFocus}: var(--outline-solid-secondary-active);
-                ${textAreaTokens.borderColorHover}: var(--outline-solid-secondary-hover);
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.labelOuterColor}: var(--text-primary);
+                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
@@ -320,7 +308,80 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
-                ${textAreaTokens.rightContentColor}: var(--text-secondary);
+
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+
+                ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+            `,
+            positive: css`
+                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-positive);
+                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-positive-hover);
+                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-positive-active);
+                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-positive);
+                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-positive);
+                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-positive-hover);
+                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-positive-active);
+                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-positive);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-positive);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-positive);
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
+                ${textAreaTokens.inputCaretColor}: var(--text-positive);
+                ${textAreaTokens.placeholderColor}: var(--text-secondary);
+                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-positive);
+                ${textAreaTokens.leftHelperColor}: var(--text-positive);
+                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+
+                ${textAreaTokens.dividerColor}: var(--surface-positive);
+                ${textAreaTokens.dividerColorHover}: var(--surface-positive);
+                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+            `,
+            /**
+             * @deprecated
+             * Использовать `default`
+             */
+            primary: css`
+                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-primary);
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
+                ${textAreaTokens.placeholderColor}: var(--text-secondary);
+                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
+                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
 
                 ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
                 ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
@@ -336,31 +397,26 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             warning: css`
-                ${textAreaTokens.borderColor}: var(--outline-warning-minor);
-                ${textAreaTokens.borderColorFocus}: var(--outline-warning-minor-active);
-                ${textAreaTokens.borderColorHover}: var(--outline-warning-minor-hover);
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.labelOuterColor}: var(--text-primary);
-                ${textAreaTokens.inputColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
-                ${textAreaTokens.clearInputColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
-                ${textAreaTokens.inputColorFocus}: color-mix(in oklab, var(--text-warning) 70%, transparent);
-                ${textAreaTokens.inputCaretColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
+                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-warning);
+                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-warning-hover);
+                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-warning-active);
+                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-warning);
+                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-warning);
+                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-warning-hover);
+                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-warning-active);
+                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-warning);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-warning);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-warning);
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
+                ${textAreaTokens.inputCaretColor}: var(--text-warning);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.leftHelperColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-warning);
+                ${textAreaTokens.leftHelperColor}: var(--text-warning);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
-                ${textAreaTokens.rightContentColor}: var(--text-secondary);
 
                 ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
                 ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
@@ -376,31 +432,26 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             negative: css`
-                ${textAreaTokens.borderColor}: var(--outline-negative-minor);
-                ${textAreaTokens.borderColorFocus}: var(--outline-negative-minor-active);
-                ${textAreaTokens.borderColorHover}: var(--outline-negative-minor-hover);
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.labelOuterColor}: var(--text-primary);
-                ${textAreaTokens.inputColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
-                ${textAreaTokens.clearInputColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
-                ${textAreaTokens.inputColorFocus}: color-mix(in oklab, var(--text-negative) 70%, transparent);
-                ${textAreaTokens.inputCaretColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
+                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-negative);
+                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-negative-hover);
+                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-negative-active);
+                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-negative);
+                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-negative-hover);
+                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
+                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-negative);
+                ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
+                ${textAreaTokens.inputCaretColor}: var(--text-negative);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.leftHelperColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
+                ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
-                ${textAreaTokens.rightContentColor}: var(--text-secondary);
 
                 ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
                 ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
@@ -481,28 +532,10 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${textAreaTokens.borderColor}: transparent;
-                ${textAreaTokens.borderColorHover}: transparent;
-                ${textAreaTokens.borderColorFocus}: transparent;
-                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.disabledOpacity}: 0.4;
                 ${textAreaTokens.inputColorDisabled}: var(--text-secondary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${textAreaTokens.titleCaptionColorReadOnly}: var(--text-secondary);
-            `,
-        },
-        readOnly: {
-            true: css`
-                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-solid-secondary);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-solid-secondary);
-                ${textAreaTokens.borderColor}: transparent;
-                ${textAreaTokens.borderColorHover}: transparent;
-                ${textAreaTokens.borderColorFocus}: transparent;
-                ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.placeholderColorFocus}: var(--text-primary);
-                ${textAreaTokens.labelOuterColor}: var(--text-primary);
             `,
         },
     },
