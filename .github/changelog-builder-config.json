@@ -6,7 +6,7 @@
         }
     ],
     "ignore_labels": ["changelog-skip"],
-    "pr_template": "#{{DESC}}\n#[{{TITLE}}](#{{URL}})\n",
+    "pr_template": "#{{DESC}}\n[PR](#{{URL}})\n",
     "custom_placeholders": [
         {
             "name": "DESC",

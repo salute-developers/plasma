@@ -28,6 +28,7 @@ on:
         required: true
 jobs:
   publish:
+    if: false
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.gh_token }}
@@ -38,29 +39,29 @@ jobs:
         with:
           show-progress: false
           ref: ${{ inputs.ref }}
-      
+
       - name: Prepare repository
         run: git fetch --unshallow --tags
-      
+
       - name: Unset header
         # https://github.com/intuit/auto/issues/1030
         run: git config --local --unset http.https://github.com/.extraheader
-      
+
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
-      
+
       - name: Lerna bootstrap
         run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,platform-test,plasma-website}"
-      
+
       - name: API Report
         run: npm run api:report
-        
+
       - name: Release Info
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
-      
+
       - name: Create Release
         run: npm run release -- ${{ inputs.auto-options }}
-      
+
       - name: Update package-lock files
         if: ${{ inputs.with-update-package-lock }}
         uses: ./.github/actions/update-package-lock

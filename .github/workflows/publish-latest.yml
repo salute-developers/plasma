@@ -20,3 +20,52 @@ jobs:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
 
+  changelog:
+      runs-on: ubuntu-latest
+      needs: [publish]
+      if: ${{ always() && contains(needs.*.result, 'success') }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.gh_token }}
+      steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+            with:
+              show-progress: false
+              fetch-depth: 0
+
+          - name: Get associated pull request by commit
+            id: data
+            uses: actions/github-script@v7
+            with:
+                result-encoding: string
+                script: |
+                    const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                        commit_sha: context.sha,
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                    });
+
+                    const data = res?.data[0].body || '';
+
+                    return data;
+
+          - name: Install dependencies
+            run: |
+                cd .github/actions/write-changelog
+                npm ci
+
+          - name: Write changelog
+            uses: ./.github/actions/write-changelog
+            with:
+              token: ${{ secrets.gh_token }}
+              data: ${{ steps.data.outputs.result }}
+
+          - name: Commit & Push changelog files
+            uses: actions-js/push@master
+            with:
+              github_token: ${{ secrets.gh_token }}
+              message: 'chore: Update CHANGELOG.md [skip ci]'
+              branch: master
+              author_name: Salute Frontend Team
+              author_email: salute.developers@gmail.com
+

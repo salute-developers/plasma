@@ -12,11 +12,14 @@ export function groupByHeadings(tree) {
         if (node.type !== 'heading') {
             const currentHeading = currentH3 || currentH2;
             const currentNodes = groups.get(currentHeading) || [];
+
             groups.set(currentHeading, [...currentNodes, node]);
+
             return state;
         }
 
         const value = node.children[0].value;
+
         if (seenHeadings.has(value)) {
             return state;
         }

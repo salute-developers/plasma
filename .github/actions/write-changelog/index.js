@@ -1,7 +1,7 @@
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkStringify from 'remark-stringify';
-import { visit, SKIP } from 'unist-util-visit';
+import { visit } from 'unist-util-visit';
 
 import * as core from '@actions/core';
 import * as github from '@actions/github';
@@ -12,24 +12,28 @@ import { processingHeadingByPackages } from './processingHeadingByPackages.js';
 import { rewriteHeadingValue } from './rewriteHeadingValue.js';
 import { groupByHeadings } from './groupHeadingsByDeep.js';
 
+import * as META from '../../meta-prod.js';
+
+const whiteList = [...Object.keys(META.default), 'plasma-icons'];
+
 async function run() {
     try {
-        const token = core.getInput('token');
+        // const token = core.getInput('token');
+        const rawData = core.getInput('data');
 
-        const octokit = new github.getOctokit(token);
-        // const context = github.context;
-        //
-        // if (context.payload.pull_request == null) {
-        //     core.setFailed('No release pull request found');
-        //
-        //     return;
-        // }
+        if (!rawData) {
+            console.log('Нет данных для записи');
 
-        const pr = await octokit.rest.pulls.get({
-            owner: 'Yakutoc',
-            repo: 'plasma-dev-stage',
-            pull_number: 40,
-        });
+            return;
+        }
+
+        // const octokit = new github.getOctokit(token);
+
+        // const pr = await octokit.rest.pulls.get({
+        //     owner: 'Yakutoc',
+        //     repo: 'plasma-dev-stage',
+        //     pull_number: number,
+        // });
 
         const tree = unified().use(remarkParse).parse(pr.data.body);
 
@@ -41,23 +45,24 @@ async function run() {
             }
         });
 
-        // TODO: Как добавляем изменения про токены?
-        // TODO: Plasma-icons точно отдельным моментом
-        const packages = data.map((item) => item.toLowerCase()).filter((item) => !['mics', 'core'].includes(item));
+        // TODO: Куда добавляем изменения про токены?
+        const packages = Array.from(new Set(data))
+            .map((item) => item.toLowerCase())
+            .filter((item) => whiteList.includes(item));
 
         for (const pkg of packages) {
-            const list = packages.filter((item) => pkg !== item);
+            let blackList = [...packages.filter((item) => pkg !== item), 'tokens'];
+
+            const isPlasmaIcons = pkg === 'plasma-icons';
 
             const changelogMD = unified()
                 .use(remarkParse)
                 .use(() => swapSectionPlace(pkg))
-                .use(() => processingHeadingByPackages(list))
-                .use(() => (tree) => {
-                    return groupByHeadings(tree);
-                })
+                .use(() => processingHeadingByPackages(isPlasmaIcons ? [...blackList, 'core'] : blackList))
+                .use(() => groupByHeadings)
                 .use(() => rewriteHeadingValue(pkg))
                 .use(remarkStringify)
-                .processSync(pr.data.body);
+                .processSync(rawData);
 
             await writeChangelog(changelogMD.toString(), pkg);
         }
