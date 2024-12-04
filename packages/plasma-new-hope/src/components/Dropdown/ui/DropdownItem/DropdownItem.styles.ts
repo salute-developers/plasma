@@ -67,11 +67,11 @@ export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
         cursor: pointer;
-        background-color: var(${tokens.itemBackgroundHover});
+        background-color: var(${constants.itemBackgroundHover}, var(${constants.itemBackgroundHover}));
     }
 
     &.${classes.dropdownItemIsActive} {
-        background-color: var(${tokens.itemBackgroundHover});
+        background-color: var(${constants.itemBackgroundHover}, var(${constants.itemBackgroundHover}));
     }
 
     &.${classes.dropdownItemIsDisabled} {

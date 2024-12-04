@@ -146,6 +146,7 @@ export const constants = {
     boxShadow: '0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04)',
     disclosureIconColor: '--text-secondary',
     itemBackground: '--plasma-colors-transparent',
+    itemBackgroundHover: '--surface-transparent-secondary',
     opacity: '0.4',
     cellTitleColor: '--text-primary',
     cellBackgroundColor: '--plasma-colors-transparent',

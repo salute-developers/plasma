@@ -158,7 +158,6 @@ export const config = {
         },
         view: {
             default: css`
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
         },
