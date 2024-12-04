@@ -122,13 +122,6 @@ export const iconSectionsSet = {
         sum: 'Sum',
         hierarchy: 'Hierarchy',
         tree: 'Tree',
-        header1: 'Header1',
-        header2: 'Header2',
-        header3: 'Header3',
-        header4: 'Header4',
-        header5: 'Header5',
-        superscriptText: 'SuperscriptText',
-        variable: 'Variable',
     },
     Animal: {
         animalFill: 'AnimalFill',
