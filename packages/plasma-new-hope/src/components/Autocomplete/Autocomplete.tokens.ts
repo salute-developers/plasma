@@ -63,7 +63,6 @@ export const tokens = {
     textFieldDisabledOpacity: '--plasma-autocomplete-textfield-disabled-opacity',
     textFieldFocusColor: '--plasma-autocomplete-textfield-focus-color',
     textFieldContentSlotColor: '--plasma-autocomplete-content-color',
-    textFieldContentSlotRightColor: '--plasma-autocomplete-content-right-color',
 
     // Токены для дропдауна
     background: '--plasma-autocomplete-background',

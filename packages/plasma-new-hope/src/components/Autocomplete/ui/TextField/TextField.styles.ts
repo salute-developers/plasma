@@ -67,5 +67,4 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.disabledOpacity}: var(${autocompleteTokens.textFieldDisabledOpacity});
     ${textFieldTokens.focusColor}: var(${autocompleteTokens.textFieldFocusColor});
     ${textFieldTokens.contentSlotColor}: var(${autocompleteTokens.textFieldContentSlotColor}, var(${autocompleteTokens.textFieldColor}));
-    ${textFieldTokens.contentSlotRightColor}: var(${autocompleteTokens.textFieldContentSlotRightColor}, var(${autocompleteTokens.textFieldColor}));
 `;
