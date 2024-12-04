@@ -37,7 +37,6 @@ export const Wrapper = styled.div`
 
     background: var(${tokens.background});
     border-radius: var(${tokens.borderRadius});
-    border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
 
     &.${classes.horizontal} {
         display: flex;

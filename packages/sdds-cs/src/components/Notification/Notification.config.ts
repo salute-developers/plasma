@@ -11,7 +11,6 @@ export const config = {
                 ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.75rem;
-                ${notificationTokens.borderColor}: var(--outline-solid-primary);
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -70,7 +69,6 @@ export const config = {
             xs: css`
                 ${notificationTokens.closeIconTop}: 0.5rem;
                 ${notificationTokens.closeIconRight}: 0.5rem;
-                ${notificationTokens.borderWidth}: 0.125rem;
 
                 ${notificationTokens.padding}: 0.75rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
@@ -85,7 +83,6 @@ export const config = {
             xxs: css`
                 ${notificationTokens.closeIconTop}: 0.8125rem;
                 ${notificationTokens.closeIconRight}: 1rem;
-                ${notificationTokens.borderWidth}: 0.125rem;
 
                 ${notificationTokens.padding}: 0.75rem 1rem 1rem 1rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;
