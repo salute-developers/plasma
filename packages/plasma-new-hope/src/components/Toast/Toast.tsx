@@ -4,7 +4,7 @@ import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
 import { IconCross } from '../_Icon/Icons/IconCross';
 
-import { classes, tokens } from './Toast.tokens';
+import { classes } from './Toast.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
@@ -64,7 +64,7 @@ export const toastRoot = (Root: RootProps<HTMLDivElement, ToastProps>) =>
                         className={cx(classes.closeIcon)}
                         stretching="fixed"
                     >
-                        <IconCross size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                        <IconCross size="s" color="inherit" />
                     </CloseIconWrapper>
                 )}
             </Root>

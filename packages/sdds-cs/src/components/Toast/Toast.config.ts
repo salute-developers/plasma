@@ -35,8 +35,6 @@ export const config = {
                 ${toastTokens.maxWidth}: calc(100vw - 5rem);
                 ${toastTokens.padding}: 0.5rem 0.5rem;
 
-                ${toastTokens.closeIconButtonSize}: 1rem;
-                ${toastTokens.closeIconSize}: 1.5rem;
                 ${toastTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${toastTokens.fontSize}: var(--plasma-typo-body-m-font-size);
                 ${toastTokens.fontStyle}: var(--plasma-typo-body-m-font-style);

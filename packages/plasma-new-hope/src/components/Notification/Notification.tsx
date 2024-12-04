@@ -4,7 +4,7 @@ import { RootProps } from '../../engines';
 import { cx } from '../../utils';
 import { IconCross } from '../_Icon/Icons/IconCross';
 
-import { classes, tokens } from './Notification.tokens';
+import { classes } from './Notification.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as layoutCSS } from './variations/_layout/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -107,7 +107,7 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                             onClick={onCloseButtonClick}
                             className={cx(classes.closeIcon, getLayoutClass(layout))}
                         >
-                            <IconCross size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                            <IconCross size="s" color="inherit" />
                         </CloseIconWrapper>
                     )}
                 </Wrapper>

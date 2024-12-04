@@ -17,8 +17,8 @@ const Button = component(mergedButtonConfig);
 
 export const CloseIconWrapper = styled(Button)`
     position: absolute;
-    width: var(${tokens.closeIconButtonSize});
-    height: var(${tokens.closeIconButtonSize});
+    width: 1.5rem;
+    height: 1.5rem;
 
     color: var(${tokens.closeIconColor});
 
