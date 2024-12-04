@@ -7,10 +7,6 @@ inputs:
         description: The GitHub token used to create an authenticated client.
         required: true
 
-    data:
-        description: ''
-        required: true
-
 runs:
     using: 'node20'
     main: 'index.js'
