@@ -122,18 +122,18 @@ export const baseContent = `
     }
 
     color: var(${tokens.buttonColor});
-    background: var(${tokens.buttonBackgroundColor});
+    background-color: var(${tokens.buttonBackgroundColor});
 
     :hover {
         color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
-        background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
+        background-color: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleHover});
     }
 
     :active {
         color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
-        background: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
+        background-color: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleActive});
     }
@@ -174,7 +174,7 @@ export const baseContent = `
             scale: none;
 
             color: var(${tokens.buttonColor});
-            background: var(${tokens.buttonBackgroundColor});
+            background-color: var(${tokens.buttonBackgroundColor});
         }
     }
 

@@ -4,22 +4,22 @@ import { tokens, classes } from '../../Button.tokens';
 
 export const base = css`
     color: var(${tokens.buttonColor});
-    background: var(${tokens.buttonBackgroundColor});
+    background-color: var(${tokens.buttonBackgroundColor});
 
     &.${classes.buttonLoading} {
-        background: var(${tokens.buttonLoadingBackgroundColor});
+        background-color: var(${tokens.buttonLoadingBackgroundColor});
     }
 
     :hover {
         color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
-        background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
+        background-color: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleHover});
     }
 
     :active {
         color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
-        background: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
+        background-color: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleActive});
     }
