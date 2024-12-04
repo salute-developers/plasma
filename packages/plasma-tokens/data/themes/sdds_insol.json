@@ -1378,72 +1378,12 @@
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #17C417 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #14A914 0%, #04BBBE 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
@@ -1737,11 +1677,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -1755,7 +1695,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -1929,72 +1869,12 @@
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #17C417 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #14A914 0%, #04BBBE 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
                 },
@@ -2288,11 +2168,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -2306,7 +2186,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -2432,15 +2312,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentCard": {
-                    "value": "rgba(255, 255, 255, 0.6)",
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "rgba(255, 255, 255, 0.52)",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "rgba(255, 255, 255, 0.64)",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardBrightness": {
@@ -2472,72 +2352,12 @@
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #18CD18 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
                     "enabled": true
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #139F13 0%, #04B1B4 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
                     "enabled": true
                 },
@@ -2839,11 +2659,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -2857,7 +2677,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -2983,15 +2803,15 @@
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCard": {
-                    "value": "rgba(255, 255, 255, 0.6)",
+                    "value": "#FFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "rgba(255, 255, 255, 0.52)",
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "rgba(255, 255, 255, 0.64)",
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
@@ -3023,72 +2843,12 @@
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #18CD18 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #139F13 0%, #04B1B4 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
@@ -3390,11 +3150,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -3408,7 +3168,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -6374,15 +6134,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCard": {
-                    "value": "rgba(255, 255, 255, 0.6)",
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "rgba(255, 255, 255, 0.52)",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "rgba(255, 255, 255, 0.64)",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
@@ -6414,72 +6174,12 @@
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #18CD18 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #139F13 0%, #04B1B4 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
@@ -6781,11 +6481,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -6799,7 +6499,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -6973,72 +6673,12 @@
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #17C417 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #14A914 0%, #04BBBE 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
                 },
@@ -7332,11 +6972,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -7350,7 +6990,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -7476,15 +7116,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentCard": {
-                    "value": "rgba(255, 255, 255, 0.6)",
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "rgba(255, 255, 255, 0.52)",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "rgba(255, 255, 255, 0.64)",
+                    "value": "#FFFFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceTransparentCardBrightness": {
@@ -7516,72 +7156,12 @@
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #18CD18 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#18CD18", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
                     "enabled": true
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #139F13 0%, #04B1B4 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#139F13", "#04B1B4"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
                     "enabled": true
                 },
@@ -7883,11 +7463,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -7901,7 +7481,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -8075,72 +7655,12 @@
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #17C417 0%, #04D9DC 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#17C417", "#04D9DC"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": false
                 },
                 "surfaceAccentGradientActive": {
-                    "value": {
-                        "origin": "linear-gradient(45deg, #14A914 0%, #04BBBE 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["#14A914", "#04BBBE"],
-                            "locations": [0, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": false
                 },
@@ -8434,11 +7954,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45deg, #15B015 0%, #04C6C9 100%)",
+                        "origin": "linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
@@ -8452,7 +7972,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#15B015", "#04C6C9"],
+                            "colors": ["#1A9E32", "#04C6C9"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
