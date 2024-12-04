@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, PropsWithChildren, ReactNode, MouseEvent } from 'react';
+import type { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 
 type CustomChipProps = {
     /**
@@ -50,14 +50,8 @@ type CustomChipProps = {
     view?: string;
     /**
      *  Коллбек при взаимодействии с элементом
-     * @deprecated
-     * Использовать onClick для закрытия
      */
     onClear?: () => void;
-    /**
-     *  Коллбек при нажатии на крестик
-     */
-    onClickClose?: (event: MouseEvent<HTMLDivElement>) => void;
 } & PropsWithChildren;
 
 export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement>, CustomChipProps {}

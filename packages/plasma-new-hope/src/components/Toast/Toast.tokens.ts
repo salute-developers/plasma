@@ -28,6 +28,4 @@ export const tokens = {
     closeIconMargin: '--plasma-toast-close-icon-margin',
     closeIconColor: '--plasma-toast-close-icon-color',
     closeIconColorOnHover: '--plasma-toast-close-icon-color-on-hover',
-    closeIconSize: '--plasma-toast-close-icon-size',
-    closeIconButtonSize: '--plasma-toast-close-icon-button-size',
 };

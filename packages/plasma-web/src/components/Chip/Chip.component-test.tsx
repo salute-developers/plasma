@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
@@ -117,30 +117,5 @@ describe('plasma-web: Chip', () => {
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
-    });
-
-    const Demo = () => {
-        const [isChipVisible, setIsChipVisible] = useState(true);
-
-        return isChipVisible ? (
-            <Chip className="chip" onClickClose={() => setIsChipVisible(false)}>
-                text
-            </Chip>
-        ) : (
-            <></>
-        );
-    };
-
-    it('click on close', () => {
-        mount(
-            <CypressTestDecorator>
-                <Demo />
-            </CypressTestDecorator>,
-        );
-
-        cy.get('.chip').click();
-        cy.get('.chip').should('exist');
-        cy.get('.chip div').last().click();
-        cy.get('.chip').should('not.exist');
     });
 });

@@ -58,19 +58,10 @@ export const ToastComponent: StoryComponent = {
     args: {
         text: 'Текст всплывающего уведомления',
         view: 'default',
-        closeIconType: 'default',
         size: 'm',
         hasClose: true,
         enableContentLeft: true,
         pilled: false,
-    },
-    argTypes: {
-        closeIconType: {
-            options: ['default', 'thin'],
-            control: {
-                type: 'select',
-            },
-        },
     },
     render: ({ enableContentLeft, ...args }) => (
         <ToastContainer>

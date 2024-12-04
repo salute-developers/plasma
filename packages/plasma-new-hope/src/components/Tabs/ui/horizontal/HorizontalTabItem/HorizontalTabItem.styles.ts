@@ -52,13 +52,6 @@ export const StyledContent = styled.div`
 
 export const TabItemValue = styled.span`
     color: var(${tokens.itemValueColor});
-
-    font-family: var(${tokens.valueFontFamily}, var(${tokens.fontFamily}));
-    font-size: var(${tokens.valueFontSize}, var(${tokens.fontSize}));
-    font-style: var(${tokens.valueFontStyle}, var(${tokens.fontStyle}));
-    font-weight: var(${tokens.valueFontWeight}, var(${tokens.fontWeight}));
-    letter-spacing: var(${tokens.valueLetterSpacing}, var(${tokens.letterSpacing}));
-    line-height: var(${tokens.valueLineHeight}, var(${tokens.lineHeight}));
 `;
 
 export const RightContent = styled.div`

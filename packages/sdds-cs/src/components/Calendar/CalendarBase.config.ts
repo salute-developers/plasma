@@ -8,25 +8,24 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${calendarBaseTokens.calendarSelectedItemBackground}: var(--surface-accent);
+                ${calendarBaseTokens.calendarSelectedItemBackground}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-accent);
+                ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
                 ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${calendarBaseTokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${calendarBaseTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-accent);
-                ${calendarBaseTokens.calendarActiveItemBackground}: var(--surface-accent);
+                ${calendarBaseTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
+                ${calendarBaseTokens.calendarActiveItemBackground}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarActiveItemColor}: var(--inverse-text-primary);
-                ${calendarBaseTokens.calendarHoveredItemBackground}: var(--surface-transparent-accent);
+                ${calendarBaseTokens.calendarHoveredItemBackground}: var(--surface-accent);
                 ${calendarBaseTokens.calendarHoveredItemColor}: var(--text-primary);
                 ${calendarBaseTokens.calendarRangeBackground}: var(--surface-transparent-secondary);
                 ${calendarBaseTokens.calendarOutlineFocusColor}: var(--surface-accent);
-                ${calendarBaseTokens.calendarContentPrimaryColor}: var(--surface-primary);
+                ${calendarBaseTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarContentSecondaryColor}: var(--text-secondary);
                 ${calendarBaseTokens.calendarDayOfWeekColor}: var(--text-secondary);
-                ${calendarBaseTokens.calendarHeaderArrowColor}: var(--text-accent);
 
-                ${calendarBaseTokens.iconButtonColor}: var(--text-accent);
+                ${calendarBaseTokens.iconButtonColor}: var(--text-primary);
                 ${calendarBaseTokens.iconButtonBackgroundColor}: var(--surface-clear);
                 ${calendarBaseTokens.iconButtonColorHover}: var(--text-primary-hover);
                 ${calendarBaseTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
@@ -91,8 +90,6 @@ export const config = {
                 ${calendarBaseTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-l-line-height);
                 ${calendarBaseTokens.calendarDayFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-
-                ${calendarBaseTokens.calendarCurrentItemBorderWidth}: 0.125rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0.5rem;
 
@@ -168,8 +165,6 @@ export const config = {
                 ${calendarBaseTokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
 
-                ${calendarBaseTokens.calendarCurrentItemBorderWidth}: 0.125rem;
-
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0.5rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.75rem;
@@ -244,8 +239,6 @@ export const config = {
                 ${calendarBaseTokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
 
-                ${calendarBaseTokens.calendarCurrentItemBorderWidth}: 0.125rem;
-
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0.5rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
@@ -319,8 +312,6 @@ export const config = {
                 ${calendarBaseTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${calendarBaseTokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-
-                ${calendarBaseTokens.calendarCurrentItemBorderWidth}: 0.125rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
 

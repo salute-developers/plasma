@@ -61,10 +61,10 @@ export const StyledContentRight = styled.div`
 
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
-    color: var(${tokens.disclosureIconColor});
+    color: var(${constants.disclosureIconColor});
 
     &:hover {
-        color: var(${tokens.disclosureIconColorHover});
+        color: var(${constants.disclosureIconColorHover});
     }
 `;
 
@@ -108,11 +108,11 @@ export const Wrapper = styled.li<{ variant: ComboboxProps['variant'] }>`
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
         cursor: pointer;
-        background-color: var(${tokens.itemBackgroundHover});
+        background-color: var(${constants.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsActive} {
-        background-color: var(${tokens.itemBackgroundHover});
+        background-color: var(${constants.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsDisabled} {

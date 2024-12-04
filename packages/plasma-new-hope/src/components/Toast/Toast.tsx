@@ -3,13 +3,11 @@ import React, { forwardRef } from 'react';
 import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
 import { IconCross } from '../_Icon/Icons/IconCross';
-import { IconCrossThin } from '../_Icon/Icons/IconCrossThin';
 
-import { classes, tokens } from './Toast.tokens';
+import { classes } from './Toast.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
-import { base as closeIconTypeCSS } from './variations/_closeIconType/base';
 import { ToastProps } from './Toast.types';
 import { CloseIconWrapper, StyledContent, StyledContentLeft, base } from './Toast.styles';
 
@@ -27,7 +25,6 @@ export const toastRoot = (Root: RootProps<HTMLDivElement, ToastProps>) =>
             pilled,
             className,
             style,
-            closeIconType,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -49,7 +46,6 @@ export const toastRoot = (Root: RootProps<HTMLDivElement, ToastProps>) =>
                 view={view}
                 size={size}
                 pilled={pilled}
-                closeIconType={closeIconType}
                 className={cx(pilledClass, className)}
                 style={{ width: width ? fixedWidth : 'unset', ...style }}
                 ref={ref}
@@ -68,11 +64,7 @@ export const toastRoot = (Root: RootProps<HTMLDivElement, ToastProps>) =>
                         className={cx(classes.closeIcon)}
                         stretching="fixed"
                     >
-                        {closeIconType === 'default' ? (
-                            <IconCross size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
-                        ) : (
-                            <IconCrossThin size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
-                        )}
+                        <IconCross size="s" color="inherit" />
                     </CloseIconWrapper>
                 )}
             </Root>
@@ -95,13 +87,9 @@ export const toastConfig = {
             css: pilledCSS,
             attrs: true,
         },
-        closeIconType: {
-            css: closeIconTypeCSS,
-        },
     },
     defaults: {
         view: 'primary',
         size: 'm',
-        closeIconType: 'default',
     },
 };

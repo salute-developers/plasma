@@ -74,7 +74,6 @@ export const RangeDatePopover = ({
                         disabledYearList={disabledYearList}
                         min={min}
                         max={max}
-                        type={type}
                         locale={lang}
                         includeEdgeDates={includeEdgeDates}
                         onChangeValue={onChangeValue}

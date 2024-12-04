@@ -50,7 +50,6 @@ interface StoryDefaultProps {
     showLeftIcon: boolean;
     layout: NotificationLayout;
     size: 'xs' | 'xxs';
-    closeIconType?: 'default' | 'thin';
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
 }
@@ -91,12 +90,6 @@ export const Default: StoryObj<StoryDefaultProps> = {
                 type: 'select',
             },
         },
-        closeIconType: {
-            options: ['default', 'thin'],
-            control: {
-                type: 'select',
-            },
-        },
         layout: {
             options: ['vertical', 'horizontal'],
             control: {
@@ -111,7 +104,6 @@ export const Default: StoryObj<StoryDefaultProps> = {
         showLeftIcon: true,
         iconPlacement: 'top',
         layout: 'vertical',
-        closeIconType: 'default',
         size: 'xs',
     },
     render: (args) => <StoryDefault {...args} />,

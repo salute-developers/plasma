@@ -34,7 +34,6 @@ export const datePickerRangeRoot = (
         (
             {
                 className,
-                autoComplete,
 
                 isDoubleCalendar = false,
                 opened = false,
@@ -283,7 +282,6 @@ export const datePickerRangeRoot = (
                     //@ts-ignore */}
                     <StyledRange
                         ref={rangeRef}
-                        autoComplete={autoComplete}
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
                         disabled={disabled}

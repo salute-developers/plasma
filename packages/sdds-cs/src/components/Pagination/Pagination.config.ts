@@ -10,16 +10,16 @@ export const config = {
         view: {
             default: css`
                 ${paginationTokens.buttonColor}: var(--text-accent);
-                ${paginationTokens.buttonColorHover}: var(--text-accent);
-                ${paginationTokens.buttonColorActive}: var(--text-accent);
+                ${paginationTokens.buttonColorHover}: var(--text-accent-hover);
+                ${paginationTokens.buttonColorActive}: var(--text-accent-active);
                 ${paginationTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${paginationTokens.buttonBackgroundColorHover}: var(--surface-clear);
                 ${paginationTokens.buttonBackgroundColorActive}: var(--surface-clear);
-                ${paginationTokens.buttonHoverColor}: var(--text-accent);
-                ${paginationTokens.buttonActiveColor}: var(--text-accent);
-                ${paginationTokens.buttonArrowColor}: var(--text-accent);
-                ${paginationTokens.buttonArrowColorHover}: var(--text-accent);
-                ${paginationTokens.buttonArrowColorActive}: var(--text-accent);
+                ${paginationTokens.buttonHoverColor}: var(--text-primary);
+                ${paginationTokens.buttonActiveColor}: var(--text-primary);
+                ${paginationTokens.buttonArrowColor}: var(--text-secondary);
+                ${paginationTokens.buttonArrowColorHover}: var(--text-secondary-hover);
+                ${paginationTokens.buttonArrowColorActive}: var(--text-secondary-hover);
 
                 ${paginationTokens.inputBackgroundColor}: var(--surface-solid-card);
                 ${paginationTokens.selectBackgroundColor}: var(--surface-solid-card);
@@ -27,8 +27,6 @@ export const config = {
 
                 ${paginationTokens.paginationColor}: var(--text-primary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
-                ${paginationTokens.paginationDisabledButtonColor}: var(--text-secondary);
-                ${paginationTokens.paginationDisabledButtonBackgroundColor}: var(--surface-clear);
             `,
         },
         viewCurrentPage: {
@@ -43,12 +41,12 @@ export const config = {
         },
         size: {
             s: css`
-                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-m-font-size);
-                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-s-font-size);
+                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${paginationTokens.buttonHeight}: 2.5rem;
                 ${paginationTokens.buttonWidth}: 2.5rem;
@@ -79,7 +77,7 @@ export const config = {
                 ${paginationTokens.inputWidth}: 3rem;
                 ${paginationTokens.inputHeight}: 2.5rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
-                ${paginationTokens.inputBorderWidth}: 0.125rem;
+                ${paginationTokens.inputBorderWidth}: 0.0625rem;
             `,
         },
         type: {

@@ -72,24 +72,6 @@ const meta: Meta<StorySelectProps> = {
             control: { type: 'number' },
             if: { arg: 'isTargetAmount', truthy: true },
         },
-        requiredPlacement: {
-            options: ['left', 'right'],
-            control: {
-                type: 'select',
-            },
-        },
-        required: {
-            control: {
-                type: 'boolean',
-            },
-            if: { arg: 'optional', truthy: false },
-        },
-        optional: {
-            control: {
-                type: 'boolean',
-            },
-            if: { arg: 'required', truthy: false },
-        },
     },
     args: {
         label: 'Label',
@@ -105,9 +87,6 @@ const meta: Meta<StorySelectProps> = {
         alwaysOpened: false,
         disabled: false,
         readOnly: false,
-        optional: false,
-        required: false,
-        requiredPlacement: 'right',
     },
     parameters: {
         controls: {
@@ -129,9 +108,6 @@ const meta: Meta<StorySelectProps> = {
                 'listWidth',
                 'listOverflow',
                 'listHeight',
-                'optional',
-                'required',
-                'requiredPlacement',
             ],
         },
     },

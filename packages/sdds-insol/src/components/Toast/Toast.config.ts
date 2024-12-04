@@ -4,7 +4,6 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'm',
-        closeIconType: 'default',
     },
     variations: {
         view: {
@@ -45,12 +44,6 @@ export const config = {
 
                 ${toastTokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
                 ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.5rem;
-            `,
-        },
-        closeIconType: {
-            default: css`
-                ${toastTokens.closeIconButtonSize}: 1rem;
-                ${toastTokens.closeIconSize}: 1.5rem;
             `,
         },
         pilled: {

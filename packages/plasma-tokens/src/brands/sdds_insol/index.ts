@@ -673,12 +673,10 @@ export const surfaceAccentHover = 'var(--surface-accent-hover, #1DAF37FF)';
 export const surfaceAccentActive = 'var(--surface-accent-active, #18952FFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradientHover =
-    'var(--surface-accent-gradient-hover, linear-gradient(45deg, #17C417 0%, #04D9DC 100%))';
+export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradientActive =
-    'var(--surface-accent-gradient-active, linear-gradient(45deg, #14A914 0%, #04BBBE 100%))';
+export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
 export const surfaceAccentMinor = 'var(--surface-accent-minor, #0A2B10)';
@@ -807,7 +805,7 @@ export const surfaceTransparentInfoHover = 'var(--surface-transparent-info-hover
 export const surfaceTransparentInfoActive = 'var(--surface-transparent-info-active, #118CDF24)';
 
 /** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradient = 'var(--surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
+export const surfaceAccentGradient = 'var(--surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #13181B)';
@@ -928,12 +926,10 @@ export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #1D
 export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #18952FFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
-export const onDarkSurfaceAccentGradientHover =
-    'var(--on-dark-surface-accent-gradient-hover, linear-gradient(45deg, #17C417 0%, #04D9DC 100%))';
+export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gradient-hover, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
-export const onDarkSurfaceAccentGradientActive =
-    'var(--on-dark-surface-accent-gradient-active, linear-gradient(45deg, #14A914 0%, #04BBBE 100%))';
+export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #0A2B10)';
@@ -1063,7 +1059,7 @@ export const onDarkSurfaceTransparentInfoActive = 'var(--on-dark-surface-transpa
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
 export const onDarkSurfaceAccentGradient =
-    'var(--on-dark-surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
+    'var(--on-dark-surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F2F5F8)';
@@ -1148,15 +1144,13 @@ export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transp
 export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #070B0E94)';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, rgba(255, 255, 255, 0.6))';
+export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, #FFFFFF)';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCardHover =
-    'var(--on-light-surface-transparent-card-hover, rgba(255, 255, 255, 0.52))';
+export const onLightSurfaceTransparentCardHover = 'var(--on-light-surface-transparent-card-hover, #FFFFFFFF)';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCardActive =
-    'var(--on-light-surface-transparent-card-active, rgba(255, 255, 255, 0.64))';
+export const onLightSurfaceTransparentCardActive = 'var(--on-light-surface-transparent-card-active, #FFFFFFFF)';
 
 /** Прозрачный фон для карточек на светлом фоне */
 export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-transparent-card-brightness, #FFFFFFFF)';
@@ -1180,12 +1174,10 @@ export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #
 export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #18952FFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
-export const onLightSurfaceAccentGradientHover =
-    'var(--on-light-surface-accent-gradient-hover, linear-gradient(45deg, #18CD18 0%, #04D9DC 100%))';
+export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-gradient-hover, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
-export const onLightSurfaceAccentGradientActive =
-    'var(--on-light-surface-accent-gradient-active, linear-gradient(45deg, #139F13 0%, #04B1B4 100%))';
+export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #9EFAAF)';
@@ -1321,7 +1313,7 @@ export const onLightSurfaceTransparentSecondary = 'var(--on-light-surface-transp
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
 export const onLightSurfaceAccentGradient =
-    'var(--on-light-surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
+    'var(--on-light-surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimary = 'var(--inverse-surface-solid-primary, #F2F5F8)';
@@ -1406,15 +1398,13 @@ export const inverseSurfaceTransparentDeepHover = 'var(--inverse-surface-transpa
 export const inverseSurfaceTransparentDeepActive = 'var(--inverse-surface-transparent-deep-active, #070B0E94)';
 
 /** Инвертированный прозрачный фон для карточек */
-export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card, rgba(255, 255, 255, 0.6))';
+export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card, #FFFFFF)';
 
 /** Инвертированный прозрачный фон для карточек */
-export const inverseSurfaceTransparentCardHover =
-    'var(--inverse-surface-transparent-card-hover, rgba(255, 255, 255, 0.52))';
+export const inverseSurfaceTransparentCardHover = 'var(--inverse-surface-transparent-card-hover, #FFFFFFFF)';
 
 /** Инвертированный прозрачный фон для карточек */
-export const inverseSurfaceTransparentCardActive =
-    'var(--inverse-surface-transparent-card-active, rgba(255, 255, 255, 0.64))';
+export const inverseSurfaceTransparentCardActive = 'var(--inverse-surface-transparent-card-active, #FFFFFFFF)';
 
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-transparent-card-brightness, #FFFFFFFF)';
@@ -1438,12 +1428,10 @@ export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #1
 export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #18952FFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
-export const inverseSurfaceAccentGradientHover =
-    'var(--inverse-surface-accent-gradient-hover, linear-gradient(45deg, #18CD18 0%, #04D9DC 100%))';
+export const inverseSurfaceAccentGradientHover = 'var(--inverse-surface-accent-gradient-hover, #FFFFFFFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
-export const inverseSurfaceAccentGradientActive =
-    'var(--inverse-surface-accent-gradient-active, linear-gradient(45deg, #139F13 0%, #04B1B4 100%))';
+export const inverseSurfaceAccentGradientActive = 'var(--inverse-surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
 export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #9EFAAF)';
@@ -1579,7 +1567,7 @@ export const inverseSurfaceTransparentSecondary = 'var(--inverse-surface-transpa
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
 export const inverseSurfaceAccentGradient =
-    'var(--inverse-surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
+    'var(--inverse-surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #060A0C)';

@@ -5,7 +5,6 @@ import { component, mergeConfig } from '../../../../engines';
 import { iconButtonConfig, iconButtonTokens } from '../../../IconButton';
 import { flexCenter } from '../../mixins';
 import { addFocus } from '../../../../mixins';
-import { IconDisclosureDownFill } from '../../../_Icon';
 
 const mergedIconButtonConfig = mergeConfig(iconButtonConfig);
 const IconButton = component(mergedIconButtonConfig);
@@ -131,8 +130,4 @@ export const StyledHeaderDouble = styled.button`
         outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
         outlineRadius: '0.563rem',
     })};
-`;
-
-export const StyledHeaderArrow = styled(IconDisclosureDownFill)`
-    color: var(${tokens.calendarHeaderArrowColor});
 `;

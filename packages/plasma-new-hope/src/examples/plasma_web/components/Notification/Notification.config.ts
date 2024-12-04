@@ -5,7 +5,6 @@ import { notificationTokens } from '../../../../components/Notification';
 export const config = {
     defaults: {
         view: 'default',
-        closeIconType: 'default',
     },
     variations: {
         view: {
@@ -100,16 +99,6 @@ export const config = {
                 ${notificationTokens.contentPaddingLeft}: 0rem;
 
                 ${notificationTokens.buttonsMarginLeft}: 2rem;
-            `,
-        },
-        closeIconType: {
-            default: css`
-                ${notificationTokens.closeIconButtonSize}: 1.5rem;
-                ${notificationTokens.closeIconSize}: 1.5rem;
-            `,
-            thin: css`
-                ${notificationTokens.closeIconButtonSize}: 1.5rem;
-                ${notificationTokens.closeIconSize}: 1.5rem;
             `,
         },
     },

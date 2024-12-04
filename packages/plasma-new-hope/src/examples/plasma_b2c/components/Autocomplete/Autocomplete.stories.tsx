@@ -92,25 +92,6 @@ const meta: Meta<StoryProps> = {
                 type: 'inline-radio',
             },
         },
-        requiredPlacement: {
-            options: ['left', 'right'],
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'required', truthy: true },
-        },
-        required: {
-            control: {
-                type: 'boolean',
-            },
-            if: { arg: 'optional', truthy: false },
-        },
-        optional: {
-            control: {
-                type: 'boolean',
-            },
-            if: { arg: 'required', truthy: false },
-        },
     },
     args: {
         view: 'default',
@@ -128,9 +109,6 @@ const meta: Meta<StoryProps> = {
         threshold: 2,
         enableContentLeft: true,
         enableContentRight: true,
-        optional: false,
-        required: false,
-        requiredPlacement: 'right',
     },
 };
 

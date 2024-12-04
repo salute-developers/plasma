@@ -85,10 +85,6 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
-                ${tokens.padding}: 0.125rem;
-                ${tokens.width}: 12.5rem;
-                ${tokens.borderRadius}: 0.625rem;
-                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 0.5rem 0.75rem;
@@ -163,17 +159,6 @@ export const config = {
         view: {
             default: css`
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${tokens.disabledOpacity}: 0.4;
-                ${tokens.borderColor}: var(--outline-solid-primary);
-                ${tokens.focusColor}: var(--surface-accent);
-                ${tokens.background}: var(--surface-solid-card-brightness);
-                ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.disclosureIconColor}: var(--text-secondary);
-                ${tokens.itemBackground}: var(--surface-clear);
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
-                ${tokens.itemColor}: var(--text-primary);
-                ${tokens.disclosureIconColor}: var(--text-accent);
-                ${tokens.dividerColor}: var(--surface-solid-primary);
             `,
         },
     },
