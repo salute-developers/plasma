@@ -95,7 +95,6 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
             selectedColor: `var(${tokens.calendarSelectedItemColor})`,
             selectableBackgroundHover: `var(${tokens.calendarSelectableItemBackgroundHover})`,
             currentBorderColor: `var(${tokens.calendarCurrentItemBorderColor})`,
-            currentBorderWidth: `var(${tokens.calendarCurrentItemBorderWidth})`,
             activeBackground: `var(${tokens.calendarActiveItemBackground})`,
             activeColor: `var(${tokens.calendarActiveItemColor})`,
         })};

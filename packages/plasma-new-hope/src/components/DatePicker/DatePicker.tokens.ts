@@ -137,7 +137,7 @@ export const tokens = {
     calendarWidth: '--plasma-date-picker-calendar-width',
     calendarHeight: '--plasma-date-picker-calendar-height',
     calendarBorderWidth: '--plasma-date-picker-calendar-border-width',
-    calendarBorderColor: '--plasma-date-picker-calendar-border-color',
+    calendarBorderColor: '--plasma-date-picker-calendar-border-width',
 
     calendarYearsPadding: '--plasma-date-picker-calendar__years-padding',
     calendarYearItemBorderRadius: '--plasma-date-picker-calendar__year-item-border-radius',
@@ -219,7 +219,6 @@ export const tokens = {
     calendarSelectedItemColor: '--plasma-date-picker-calendar__selected-item-color',
     calendarSelectableItemBackgroundHover: '--plasma-date-picker-calendar__selectable-item-background-hover',
     calendarCurrentItemBorderColor: '--plasma-date-picker-calendar__current-item-border-color',
-    calendarCurrentItemBorderWidth: '--plasma-date-picker-calendar__current-item-border-width',
     calendarCurrentItemBackgroundHover: '--plasma-date-picker-calendar__current-item-background-hover',
     calendarCurrentItemColorHover: '--plasma-date-picker-calendar__current-item-color-hover',
     calendarCurrentItemChildBackgroundHover: '--plasma-date-picker-calendar__current-item-child-background-hover',

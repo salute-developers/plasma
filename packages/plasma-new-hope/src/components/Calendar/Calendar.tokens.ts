@@ -130,7 +130,6 @@ export const tokens = {
     calendarSelectedItemColor: '--plasma-calendar-selected-item-color',
     calendarSelectableItemBackgroundHover: '--plasma-calendar-selectable-item-bg-hover',
     calendarCurrentItemBorderColor: '--plasma-calendar-current-item-border-color',
-    calendarCurrentItemBorderWidth: '--plasma-calendar-current-item-border-width',
     calendarCurrentItemBackgroundHover: '--plasma-calendar-current-item-bg-hover',
     calendarCurrentItemColorHover: '--plasma-calendar-current-item-color-hover',
     calendarCurrentItemChildBackgroundHover: '--plasma-calendar-current-item-child-bg-hover',

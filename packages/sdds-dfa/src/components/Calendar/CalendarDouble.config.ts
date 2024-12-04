@@ -91,8 +91,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
 
-                ${calendarDoubleTokens.calendarCurrentItemBorderWidth}: 0.063rem;
-
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.5rem 0 0 0;
@@ -168,8 +166,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
 
-                ${calendarDoubleTokens.calendarCurrentItemBorderWidth}: 0.063rem;
-
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.5rem 0 0 0;
@@ -243,8 +239,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-
-                ${calendarDoubleTokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0.5rem;
 
@@ -320,8 +314,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-
-                ${calendarDoubleTokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
 

@@ -49,20 +49,20 @@ export const config = {
                 ${tokens.calendarShadow}: var(--shadow-down-soft-s);
                 ${tokens.calendarSeparatorBackground}: var(--surface-transparent-secondary);
                 ${tokens.calendarBackgroundColor}: var(--surface-solid-card);
-                ${tokens.calendarSelectedItemBackground}: var(--surface-accent);
+                ${tokens.calendarSelectedItemBackground}: var(--surface-solid-default);
                 ${tokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-accent);
+                ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
                 ${tokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${tokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-accent);
-                ${tokens.calendarActiveItemBackground}: var(--surface-accent);
+                ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.calendarActiveItemBackground}: var(--surface-solid-default);
                 ${tokens.calendarActiveItemColor}: var(--inverse-text-primary);
                 ${tokens.calendarHoveredItemBackground}: var(--surface-accent);
                 ${tokens.calendarHoveredItemColor}: var(--text-primary);
                 ${tokens.calendarRangeBackground}: var(--surface-transparent-secondary);
                 ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
-                ${tokens.calendarContentPrimaryColor}: var(--text-primary);
+                ${tokens.calendarContentPrimaryColor}: var(--surface-solid-default);
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
                 ${tokens.calendarHeaderArrowColor}: var(--text-accent);
                 ${tokens.calendarBorderColor}: var(--outline-solid-primary);
@@ -186,8 +186,6 @@ export const config = {
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-
-                ${tokens.calendarCurrentItemBorderWidth}: 0.125rem;
 
                 ${tokens.calendarHeaderWrapperPadding}: 0.75rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
