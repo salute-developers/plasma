@@ -14,7 +14,9 @@ jobs:
                 uses: actions/checkout@v4
                 with:
                     show-progress: false
-                    fetch-depth: 0
+
+            -   name: Fetch dev branch
+                run: git fetch origin dev
 
             -   name: Prepare environment
                 uses: ./.github/actions/prepare-environment
