@@ -47,8 +47,8 @@ const viewMap: Record<string, ViewType> = {
 
 const themeMap: Record<string, ThemeType> = {
     typography: plasmaB2CTheme,
-    plasma_b2c: plasmaB2CTheme,
-    plasma_web: plasmaWebTheme,
+    b2c: plasmaB2CTheme,
+    web: plasmaWebTheme,
 };
 
 export const withViewContainer = (Story, context: StoryContext) => {
