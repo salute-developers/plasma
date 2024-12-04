@@ -18,7 +18,7 @@ async function run() {
             .use(remarkStringify)
             .process(data);
 
-        core.setOutput('changelog', changelog.toLocaleString());
+        core.setOutput('changelog', changelog);
     } catch (error) {
         core.setFailed(error.message);
     }
