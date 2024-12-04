@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, KeyboardEvent } from 'react';
+import React, { useRef, useState, forwardRef, KeyboardEvent } from 'react';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
 
 import { cx } from '../../../../utils';
@@ -21,6 +21,8 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
     (
         {
             size,
+            visibility,
+            isHovered,
             orientation,
             stepSize,
             onChangeCommitted,
@@ -42,6 +44,7 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
         ref,
     ) => {
         const isVertical = orientation === 'vertical';
+        const [isDrag, setIsDrag] = useState(false);
 
         const lastOnChangeValue = useRef<number>();
         const [startClientOffset, endClientOffset] = getOffsets(ref, side, isVertical);
@@ -72,7 +75,13 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
             }
         };
 
+        const onStart: DraggableEventHandler = () => {
+            setIsDrag(true);
+        };
+
         const onStop: DraggableEventHandler = (_, data) => {
+            setIsDrag(false);
+
             const newValue = getSliderThumbValue(isVertical ? data.y : data.x, stepSize, min, max);
             onChangeCommitted && onChangeCommitted(newValue, data);
         };
@@ -112,11 +121,17 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
             onChangeCommitted && onChangeCommitted(computedValue, data);
         };
 
+        let isPointerHidden = (visibility === 'hover' && !isHovered) || size === 'none';
+
+        if (isDrag) {
+            isPointerHidden = false;
+        }
         return (
             <Draggable
                 axis={isVertical ? 'y' : 'x'}
                 bounds={computedBounds}
                 grid={isVertical ? [1, stepSize] : [stepSize, 1]}
+                onStart={onStart}
                 onStop={onStop}
                 onDrag={onDrag}
                 position={dragPosition}
@@ -130,20 +145,26 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
                         valuePlacement === 'left' && classes.valuePlacementLeft,
                     )}
                     isLarge={size === 'large'}
+                    isPointerHidden={isPointerHidden}
                     onKeyDown={onKeyPress}
                 >
-                    {size !== 'none' && (
-                        <Thumb
-                            tabIndex={tabIndex}
-                            min={min}
-                            max={max}
-                            value={value}
-                            disabled={disabled}
-                            orientation={orientation}
-                            {...rest}
-                        />
+                    {(visibility === 'always' || (visibility === 'hover' && (isHovered || isDrag))) &&
+                        size !== 'none' && (
+                            <Thumb
+                                tabIndex={tabIndex}
+                                min={min}
+                                max={max}
+                                value={value}
+                                disabled={disabled}
+                                orientation={orientation}
+                                {...rest}
+                            />
+                        )}
+                    {showCurrentValueCondition && (
+                        <StyledValue isPointerHidden={(visibility === 'hover' && !isHovered) || size === 'none'}>
+                            {value}
+                        </StyledValue>
                     )}
-                    {showCurrentValueCondition && <StyledValue>{value}</StyledValue>}
                 </HandlerStyled>
             </Draggable>
         );

@@ -40,6 +40,18 @@ const meta: Meta<typeof Slider> = {
                 type: 'inline-radio',
             },
         },
+        pointerVisibility: {
+            options: ['always', 'hover'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        currentValueVisibility: {
+            options: ['always', 'hover'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
         orientation: {
             options: orientations,
             control: {
@@ -160,6 +172,7 @@ export const Default: StorySingle = {
         view: 'default',
         size: 'm',
         pointerSize: 'small',
+        pointerVisibility: 'always',
         min: 0,
         max: 100,
         orientation: 'horizontal',
@@ -171,6 +184,7 @@ export const Default: StorySingle = {
         scaleAlign: 'bottom',
         showScale: true,
         showCurrentValue: false,
+        currentValueVisibility: 'always',
         showIcon: true,
         reversed: false,
         labelReversed: false,
