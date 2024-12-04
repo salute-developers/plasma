@@ -6,11 +6,9 @@ on:
             - dev
 
 jobs:
-    labelling:
+    notify:
         ## if: github.event.review.state == 'approved'
         runs-on: ubuntu-latest
-        env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
         steps:
             -   name: Checkout repository
                 uses: actions/checkout@v4
