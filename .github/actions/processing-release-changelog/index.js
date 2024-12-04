@@ -12,7 +12,9 @@ async function run() {
 
         const changelog = await unified()
             .use(remarkParse)
-            .use(() => groupByHeadings)
+            .use(() => (tree) => {
+                return groupByHeadings(tree);
+            })
             .use(remarkStringify)
             .process(data);
 
