@@ -43,11 +43,6 @@ jobs:
         # List merged pull request into dev branch
         run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
 
-      - name: Install dependencies
-        run: |
-            cd .github/actions/processing-release-changelog
-            npm ci
-
       - name: Processing changelog data
         id: changelog
         uses: ./.github/actions/processing-release-changelog
