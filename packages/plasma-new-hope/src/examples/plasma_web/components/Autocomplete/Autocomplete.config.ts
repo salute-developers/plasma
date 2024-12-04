@@ -32,8 +32,6 @@ export const config = {
                 ${tokens.itemColor}: var(--text-primary);
                 ${tokens.focusColor}: var(--surface-accent);
 
-                ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
-                ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
                 ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
             `,
             positive: css`
@@ -58,8 +56,6 @@ export const config = {
                 ${tokens.itemColor}: var(--text-primary);
                 ${tokens.focusColor}: var(--surface-accent);
 
-                ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
-                ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
                 ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
             `,
             warning: css`
@@ -85,8 +81,6 @@ export const config = {
                 ${tokens.itemColor}: var(--text-primary);
                 ${tokens.focusColor}: var(--surface-accent);
 
-                ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
-                ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
                 ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
             `,
             negative: css`
@@ -112,8 +106,6 @@ export const config = {
                 ${tokens.itemColor}: var(--text-primary);
                 ${tokens.focusColor}: var(--surface-accent);
 
-                ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
-                ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
                 ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
             `,
         },
