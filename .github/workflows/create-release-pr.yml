@@ -10,7 +10,7 @@ on:
 
 jobs:
   release-pr:
-    name: Create release PR with changelog
+    name: Create release pull request
     runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -54,10 +54,21 @@ jobs:
         with:
           name: release-changelog-artifacts
           path: ${{ env.FILE }}
+          
+      - name: Install dependencies
+        run: |
+          cd .github/actions/preprocessing-release-changelog
+          npm ci
+          
+      - name: Processing changelog data
+        id: changelog
+        uses: ./.github/actions/preprocessing-release-changelog
+        with:
+          data: |
+            ${{ steps.github_release.outputs.changelog }}
       
       - name: Create release PR
         run: |
           changelog='${{ steps.github_release.outputs.changelog }}'
-          gh pr create --base master --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}" --body "# Release Notes
-          $changelog"
+          gh pr create --base master --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}" --body "$changelog"
 
