@@ -26,7 +26,18 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, isDisabled, contentLeft, contentRight, dividerBefore, dividerAfter } = item;
+    const {
+        value,
+        label,
+        disabled,
+        isDisabled,
+        contentLeft,
+        contentRight,
+        dividerBefore,
+        dividerAfter,
+        className,
+        ...rest
+    } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -94,8 +105,9 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             {dividerBefore && <Divider variant={variant} />}
 
             <Wrapper
+                {...rest}
                 ref={ref}
-                className={cx(isDisabledClassName, focusedClass, activeClass)}
+                className={cx(isDisabledClassName, focusedClass, activeClass, className)}
                 id={getItemId(treeId, value.toString())}
                 role={itemRole}
                 onClick={handleClick}

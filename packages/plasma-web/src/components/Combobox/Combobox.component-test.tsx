@@ -8,6 +8,8 @@ const items = [
     {
         value: 'north_america',
         label: 'Северная Америка',
+        className: 'test-classname',
+        'data-name': 'test-data-name',
     },
     {
         value: 'south_america',
@@ -1165,6 +1167,22 @@ describe('plasma-web: Combobox', () => {
         );
 
         cy.matchImageSnapshot();
+    });
+
+    it('prop: item data-attrs', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="single" items={items} label="Label" placeholder="Placeholder" />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').should('have.class', 'test-classname');
+        cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
     });
 
     it('flow: single uncontrolled', () => {

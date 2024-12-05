@@ -13,6 +13,8 @@ const items = [
         label: 'Северная Америка',
         contentLeft: <IconLocation color="inherit" />,
         contentRight: <IconLocation color="inherit" />,
+        className: 'test-classname',
+        'data-name': 'test-data-name',
     },
     {
         value: 'south_america',
@@ -546,6 +548,24 @@ describe('plasma-web: Dropdown', () => {
         cy.get('button').click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('prop: item data-attrs', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Dropdown id="#single" items={items}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </div>,
+        );
+
+        cy.get('button').realClick();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').should('have.class', 'test-classname');
+        cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
     });
 
     it('keyboard interactions', () => {
