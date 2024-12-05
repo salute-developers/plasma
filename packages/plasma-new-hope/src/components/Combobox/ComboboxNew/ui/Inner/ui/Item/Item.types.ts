@@ -13,7 +13,7 @@ export type ItemOption = {
      */
     label: string;
     /**
-     * Список дочерних items.
+     * Список дочерних items
      */
     items?: Array<ItemOption>;
     /**
@@ -28,6 +28,10 @@ export type ItemOption = {
      * Слот для контента справа
      */
     contentRight?: ReactNode;
+    /**
+     * Classname для item
+     */
+    className?: string;
 };
 
 export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };
