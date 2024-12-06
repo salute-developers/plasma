@@ -46,7 +46,7 @@ export const StyledChips = styled.div`
     user-select: none;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{ dynamicWidth?: string }>`
     box-sizing: border-box;
     appearance: none;
     border: 0;
@@ -61,10 +61,14 @@ export const Input = styled.input`
     }
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{ hasDynamicWidth?: boolean; dynamicWidth?: string }>`
     position: relative;
-    flex: 1;
-    min-width: 60%;
+    flex: ${({ hasDynamicWidth }) => (hasDynamicWidth ? '0' : '1')};
+    min-width: ${({ hasDynamicWidth }) => (hasDynamicWidth ? 'auto' : '60%')};
+
+    ${Input} {
+        field-sizing: ${({ hasDynamicWidth }) => (hasDynamicWidth ? 'content' : 'auto')};
+    }
 `;
 
 export const InputPlaceholder = styled.div<{ hasPadding?: boolean }>`
