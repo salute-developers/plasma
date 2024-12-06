@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useEffect, useRef } from 'react';
+import React, { ChangeEvent, forwardRef, useLayoutEffect, useRef } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 
 import { createEvent } from '../../../../../utils';
@@ -20,14 +20,14 @@ export const SelectNative = forwardRef<HTMLInputElement, Props>(
         const forkRef = useForkRef(selectRef, ref as any);
         const options = Array.from(items.keys());
 
-        useEffect(() => {
+        useLayoutEffect(() => {
             const event = createEvent(selectRef);
             if (onChange) {
                 onChange(event);
             }
         }, [values]);
 
-        useEffect(() => {
+        useLayoutEffect(() => {
             if (selectRef.current && !multiple) {
                 const valueInit = selectRef.current.value;
 
@@ -42,7 +42,7 @@ export const SelectNative = forwardRef<HTMLInputElement, Props>(
                     onSetValue(valuesInit);
                 }
             }
-        }, [selectRef, items]);
+        }, []);
 
         return (
             <>
