@@ -109,6 +109,33 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${buttonGroupTokens.buttonDefaultRadius}: 1rem;
+                ${buttonGroupTokens.buttonSegmentedRadius}: 0.5rem;
+                ${buttonGroupTokens.buttonSideRadius}: 1rem;
+
+                ${buttonGroupTokens.buttonHeight}: 4rem;
+                ${buttonGroupTokens.buttonPadding}: 1.75rem;
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+            `,
+            xlr: css`
+                ${buttonGroupTokens.buttonDefaultRadius}: 1rem;
+                ${buttonGroupTokens.buttonSegmentedRadius}: 0.5rem;
+                ${buttonGroupTokens.buttonSideRadius}: 1rem;
+
+                ${buttonGroupTokens.buttonHeight}: 4rem;
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+            `,
             l: css`
                 ${buttonGroupTokens.buttonDefaultRadius}: 0.875rem;
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.375rem;

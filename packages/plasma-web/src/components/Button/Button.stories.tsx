@@ -10,7 +10,7 @@ import { Button } from '.';
 type ButtonProps = ComponentProps<typeof Button>;
 
 const views = ['default', 'accent', 'success', 'warning', 'critical', 'dark', 'light'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
