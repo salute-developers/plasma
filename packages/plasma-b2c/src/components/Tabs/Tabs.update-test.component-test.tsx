@@ -2,6 +2,8 @@ import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 
+import { Counter } from '../Counter/Counter';
+
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];
 
 describe('plasma-b2c: Tabs', () => {
@@ -11,7 +13,67 @@ describe('plasma-b2c: Tabs', () => {
     const withAutoFocus = getComponent('withAutoFocus');
     const TabAutoFocus = withAutoFocus(TabItem);
 
-    it('[PLASMA-T699] Tabs: size=xs, view=divider', () => {
+    it('[PLASMA-T1655] Tabs: size=l, with divider, orientation=horizontal', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs size="l" view="divider" forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem size="l" value="Value" key={i} isActive={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1656] Tabs: size=m, without divider, stretch, contentLeft, contentRight as counter', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs size="m" stretch forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem
+                            size="m"
+                            key={i}
+                            isActive={i === 1}
+                            forwardedAs="li"
+                            contentLeft={<IconDone size="s" color="inherit" />}
+                            contentRight={<Counter size="s" count={1} view="positive" />}
+                        >
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1657] Tabs: size=s, clip=scroll, contentRight as icon', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs size="s" view="divider" clip="scroll" style={{ width: '10.5rem' }}>
+                    {items.map((item, i) => (
+                        <TabItem
+                            size="s"
+                            key={i}
+                            isActive={i === 1}
+                            contentRight={<IconDone size="xs" color="inherit" />}
+                        >
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1658] Tabs: size=xs', () => {
         mount(
             <CypressTestDecorator>
                 <Tabs size="xs" view="divider" forwardedAs="ul">
@@ -27,33 +89,18 @@ describe('plasma-b2c: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T799] Tabs: disabled', () => {
+    it('[PLASMA-T1659] Tabs: vertical', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs disabled forwardedAs="ul">
-                    {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
-                            {item.label}
-                        </TabItem>
-                    ))}
-                </Tabs>
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T800] Tabs: size=s, enableContentLeft, enableContentRight', () => {
-        mount(
-            <CypressTestDecorator>
-                <Tabs size="s" forwardedAs="ul">
+                <Tabs size="l" orientation="vertical" view="divider" forwardedAs="ul">
                     {items.map((item, i) => (
                         <TabItem
+                            size="l"
+                            orientation="vertical"
+                            view="divider"
                             key={i}
-                            isActive={i === 1}
+                            selected={i === 1}
                             forwardedAs="li"
-                            contentLeft={<IconDone size="xs" color="inherit" />}
-                            contentRight={<IconDone size="xs" color="inherit" />}
                         >
                             {item.label}
                         </TabItem>
@@ -65,28 +112,12 @@ describe('plasma-b2c: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T801] Tabs: size=m, stretch', () => {
+    it('[PLASMA-T799] Tabs: disabled', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs size="m" stretch forwardedAs="ul">
+                <Tabs size="l" view="divider" disabled forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
-                            {item.label}
-                        </TabItem>
-                    ))}
-                </Tabs>
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T802] Tabs: size=l, without divider', () => {
-        mount(
-            <CypressTestDecorator>
-                <Tabs size="l" forwardedAs="ul">
-                    {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
+                        <TabItem size="l" key={i} isActive={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
                     ))}
@@ -116,22 +147,6 @@ describe('plasma-b2c: Tabs', () => {
         cy.get('[aria-label="Предыдущий таб"]').click();
         cy.get('button').contains('Sber').should('be.visible');
         cy.get('button').contains('Joy').should('not.be.visible');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T818] Tabs: clip=scroll', () => {
-        mount(
-            <CypressTestDecorator>
-                <Tabs size="m" clip="scroll" style={{ width: '10.5rem' }}>
-                    {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1}>
-                            {item.label}
-                        </TabItem>
-                    ))}
-                </Tabs>
-            </CypressTestDecorator>,
-        );
 
         cy.matchImageSnapshot();
     });
