@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
+import { applyEllipsis } from '../../mixins';
 import { IconDisclosureRightCentered, IconFolder } from '../_Icon';
 
 import { treeTokens as tokens } from './Tree.tokens';
@@ -16,12 +17,16 @@ export const base = css`
         display: flex;
         align-items: center;
         height: auto;
+        flex: 1;
+
+        // Лайфхак для корректного обрезания текста
+        width: 1px;
     }
 
     .rc-tree .rc-tree-treenode span.rc-tree-switcher {
-        width: auto;
-        height: auto;
-        margin-right: 0;
+        width: var(${tokens.switcherSize});
+        height: var(${tokens.switcherSize});
+        margin: var(${tokens.switcherMargin});
         line-height: 0;
         vertical-align: 0;
         background: transparent;
@@ -35,7 +40,7 @@ export const base = css`
         background: transparent;
     }
 
-    .rc-tree .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher_open {
+    .rc-tree .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher_open .arrow {
         transform: rotate(90deg);
     }
 
@@ -51,6 +56,8 @@ export const base = css`
         font-weight: var(${tokens.fontWeight});
         letter-spacing: var(${tokens.letterSpacing});
         line-height: var(${tokens.lineHeight});
+
+        ${applyEllipsis()}
     }
 
     .rc-tree.tree-inverted .rc-tree-treenode {
@@ -59,6 +66,20 @@ export const base = css`
 
     .rc-tree.tree-inverted .rc-tree-treenode .rc-tree-indent-unit {
         display: none;
+    }
+
+    .rc-tree-treenode-selected {
+        background: red;
+    }
+
+    .rc-tree-node-selected {
+        opacity: 1;
+        box-shadow: none;
+        background: none;
+    }
+
+    .rc-tree-indent-unit {
+        width: 32px;
     }
 `;
 

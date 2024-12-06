@@ -15,4 +15,6 @@ export const treeTokens = {
     lineHeight: '--plasma-tree-line-height',
     itemHeight: '--plasma-tree-item-height',
     iconFolderMargin: '--plasma-tree-icon-folder-margin',
+    switcherMargin: '--plasma-tree-switcher-margin',
+    switcherSize: '--plasma-tree-switcher-size',
 };
