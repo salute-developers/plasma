@@ -1758,8 +1758,6 @@ export const outlineDefaultOutlineSolidSecondary = 'var(--outline-default-outlin
 /** Третичный непрозрачный цвет обводки */
 export const outlineDefaultOutlineSolidTertiary = 'var(--outline-default-outline-solid-tertiary, #707070)';
 
-export const outlineDefaultOutlineDefault = 'var(--outline-default-outline-default, #F9F9F9)';
-
 export const outlineDefaultOutlineDefaultHover = 'var(--outline-default-outline-default-hover, #FFFFFFFF)';
 
 export const outlineDefaultOutlineDefaultActive = 'var(--outline-default-outline-default-active, #F5F5F5FF)';
@@ -1828,6 +1826,12 @@ export const outlineDefaultOutlineInfoMinor = 'var(--outline-default-outline-inf
 /** Прозрачный цвет обводки информация */
 export const outlineDefaultOutlineTransparentInfo =
     'var(--outline-default-outline-transparent-info, rgba(82, 142, 255, 0.28))';
+
+export const outlineDefaultOutlineSolidDefault = 'var(--outline-default-outline-solid-default, #F9F9F9)';
+
+export const outlineDefaultOutlineSolidDefaultHover = 'var(--outline-default-outline-solid-default-hover, #C7C7C7FF)';
+
+export const outlineDefaultOutlineSolidDefaultActive = 'var(--outline-default-outline-solid-default-active, #E0E0E0FF)';
 
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineSolidPrimaryHover = 'var(--outline-on-dark-outline-solid-primary-hover, #303030FF)';
@@ -1989,8 +1993,6 @@ export const outlineOnDarkOutlineSolidSecondary = 'var(--outline-on-dark-outline
 /** Третичный непрозрачный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineSolidTertiary = 'var(--outline-on-dark-outline-solid-tertiary, #707070)';
 
-export const outlineOnDarkOutlineDefault = 'var(--outline-on-dark-outline-default, #F9F9F9)';
-
 /** Основной прозрачный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineTransparentPrimary =
     'var(--outline-on-dark-outline-transparent-primary, rgba(255, 255, 255, 0.12))';
@@ -2052,6 +2054,12 @@ export const outlineOnDarkOutlineInfoMinor = 'var(--outline-on-dark-outline-info
 /** Прозрачный цвет обводки информация на темном фоне */
 export const outlineOnDarkOutlineTransparentInfo =
     'var(--outline-on-dark-outline-transparent-info, rgba(82, 142, 255, 0.28))';
+
+export const outlineOnDarkOutlineSolidDefault = 'var(--outline-on-dark-outline-solid-default, #F9F9F9)';
+
+export const outlineOnDarkOutlineSolidDefaultHover = 'var(--outline-on-dark-outline-solid-default-hover, #C7C7C7FF)';
+
+export const outlineOnDarkOutlineSolidDefaultActive = 'var(--outline-on-dark-outline-solid-default-active, #E0E0E0FF)';
 
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineSolidPrimaryHover = 'var(--outline-on-light-outline-solid-primary-hover, #E8E8E8FF)';
@@ -2218,8 +2226,6 @@ export const outlineOnLightOutlineSolidSecondary = 'var(--outline-on-light-outli
 /** Третичный непрозрачный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineSolidTertiary = 'var(--outline-on-light-outline-solid-tertiary, #707070)';
 
-export const outlineOnLightOutlineDefault = 'var(--outline-on-light-outline-default, #080808)';
-
 /** Основной прозрачный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineTransparentPrimary =
     'var(--outline-on-light-outline-transparent-primary, rgba(8, 8, 8, 0.20))';
@@ -2281,6 +2287,13 @@ export const outlineOnLightOutlineInfoMinor = 'var(--outline-on-light-outline-in
 /** Прозрачный цвет обводки информация на светлом фоне */
 export const outlineOnLightOutlineTransparentInfo =
     'var(--outline-on-light-outline-transparent-info, rgba(42, 114, 248, 0.20))';
+
+export const outlineOnLightOutlineSolidDefault = 'var(--outline-on-light-outline-solid-default, #080808)';
+
+export const outlineOnLightOutlineSolidDefaultHover = 'var(--outline-on-light-outline-solid-default-hover, #FFFFFFFF)';
+
+export const outlineOnLightOutlineSolidDefaultActive =
+    'var(--outline-on-light-outline-solid-default-active, #C7C7C7FF)';
 
 /** Инвертированный основной непрозрачный цвет обводки */
 export const outlineInverseOutlineSolidPrimaryHover = 'var(--outline-inverse-outline-solid-primary-hover, #ABABABFF)';
@@ -2459,8 +2472,6 @@ export const outlineInverseOutlineTransparentTertiary =
 /** Инвертированная бесцветная обводка */
 export const outlineInverseOutlineClear = 'var(--outline-inverse-outline-clear, rgba(255,255,255,0.00))';
 
-export const outlineInverseOutlineDefault = 'var(--outline-inverse-outline-default, #080808)';
-
 export const outlineInverseOutlineDefaultHover = 'var(--outline-inverse-outline-default-hover, #FFFFFFFF)';
 
 export const outlineInverseOutlineDefaultActive = 'var(--outline-inverse-outline-default-active, #C7C7C7FF)';
@@ -2514,6 +2525,12 @@ export const outlineInverseOutlineTransparentNegative =
 /** Прозрачный инвертированный цвет обводки информация */
 export const outlineInverseOutlineTransparentInfo =
     'var(--outline-inverse-outline-transparent-info, rgba(42,114,248,0.20))';
+
+export const outlineInverseOutlineSolidDefault = 'var(--outline-inverse-outline-solid-default, #080808)';
+
+export const outlineInverseOutlineSolidDefaultHover = 'var(--outline-inverse-outline-solid-default-hover, #FFFFFFFF)';
+
+export const outlineInverseOutlineSolidDefaultActive = 'var(--outline-inverse-outline-solid-default-active, #C7C7C7FF)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
