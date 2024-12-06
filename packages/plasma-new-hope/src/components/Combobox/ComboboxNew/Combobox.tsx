@@ -1,13 +1,4 @@
-import React, {
-    forwardRef,
-    useState,
-    useReducer,
-    useMemo,
-    createContext,
-    useLayoutEffect,
-    useRef,
-    useEffect,
-} from 'react';
+import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
 import type { ChangeEvent, ForwardedRef } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
@@ -369,7 +360,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
-        useEffect(() => {
+        useLayoutEffect(() => {
             if (defaultValue) {
                 setInternalValue(defaultValue);
             }
