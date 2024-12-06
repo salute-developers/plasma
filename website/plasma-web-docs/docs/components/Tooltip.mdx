@@ -23,9 +23,30 @@ import { IconApps } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style={{marginLeft: '100px',marginBottom: '35px'}}>
+        <div style={{marginLeft: '100px', marginBottom: '35px'}}>
             <Tooltip target={( <IconApps />)} text="Высокое качество воспроизведения" placement="bottom" hasArrow opened />
         </div>
+    );
+}
+```
+
+## Отображение при взаимодействии с `target`
+
+Помимо выставления `opened` в `true/false` можно управлять отображением по ховеру или клику через свойство `trigger`.
+
+При открытии по клику доступны свойства из `Popover`, такие как `closeOnEsc` и `closeOnOverlayClick`.
+
+```tsx live
+import React from 'react';
+import { Tooltip, Button } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <Tooltip target={(<Button>trigger: hover</Button>)} text="По ховеру" placement="right" hasArrow trigger="hover" hoverTimeout={500} />
+            <br />
+            <Tooltip target={(<Button>trigger: click</Button>)} text="По клику" placement="right" hasArrow trigger="click" closeOnEsc closeOnOverlayClick />
+        </>
     );
 }
 ```

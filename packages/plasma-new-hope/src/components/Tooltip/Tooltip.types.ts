@@ -6,7 +6,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Текст тултипа.
      */
-    text: string;
+    text: ReactNode;
     /**
      * Видимость тултипа.
      */
@@ -94,4 +94,13 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * @deprecated
      */
     children?: ReactNode;
+    /**
+     * Действие по target для отображения тултипа
+     */
+    trigger?: 'click' | 'hover' | 'none';
+    /**
+     * Время автоматического скрытия тултипа по ховеру в ms
+     * @default 300
+     */
+    hoverTimeout?: number;
 }

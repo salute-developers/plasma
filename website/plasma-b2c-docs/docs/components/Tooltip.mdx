@@ -29,3 +29,24 @@ export function App() {
     );
 }
 ```
+
+## Отображение при взаимодействии с `target`
+
+Помимо выставления `opened` в `true/false` можно управлять отображением по ховеру или клику через свойство `trigger`.
+
+При открытии по клику доступны свойства из `Popover`, такие как `closeOnEsc` и `closeOnOverlayClick`.
+
+```tsx live
+import React from 'react';
+import { Tooltip, Button } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <Tooltip target={(<Button>trigger: hover</Button>)} text="По ховеру" placement="right" hasArrow trigger="hover" hoverTimeout={500} />
+            <br />
+            <Tooltip target={(<Button>trigger: click</Button>)} text="По клику" placement="right" hasArrow trigger="click" closeOnEsc closeOnOverlayClick />
+        </>
+    );
+}
+```
