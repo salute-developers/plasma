@@ -28,6 +28,16 @@ const treeData: any[] = [
                     {
                         title: 'Leaf',
                         key: '0-0-0-1',
+                        children: [
+                            {
+                                title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
+                                key: '0-0-0-0-0',
+                            },
+                            {
+                                title: 'Leaf',
+                                key: '0-0-0-0-1',
+                            },
+                        ],
                     },
                 ],
             },
@@ -38,16 +48,28 @@ const treeData: any[] = [
             },
         ],
     },
+    {
+        title: 'Parent 2',
+        key: '0-1',
+        children: [
+            {
+                title: 'Parent 2-0',
+                key: '0-1-0',
+            },
+        ],
+    },
 ];
 
 /**
  * Многоуровневый раскрывающийся список в виде дерева.
  */
 export const treeRoot = (Root: RootProps<any, any>) =>
-    forwardRef<HTMLDivElement, TreeProps>(({ inverted, size, view }, ref) => {
+    forwardRef<HTMLDivElement, TreeProps>(({ inverted, virtual, height, size, view }, ref) => {
         return (
             <Root view={view} size={size} ref={ref}>
                 <Tree
+                    height={height}
+                    virtual={virtual}
                     checkable
                     className={inverted ? classes.treeInverted : undefined}
                     // checkStrictly
@@ -68,7 +90,7 @@ export const treeRoot = (Root: RootProps<any, any>) =>
 
                         return (
                             <IconArrowWrapper>
-                                <StyledArrow size={sizeToIconSize(size)} color="inherit" />
+                                <StyledArrow size={sizeToIconSize(size)} color="inherit" className="arrow" />
                             </IconArrowWrapper>
                         );
                     }}

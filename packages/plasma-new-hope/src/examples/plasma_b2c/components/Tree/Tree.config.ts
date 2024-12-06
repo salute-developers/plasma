@@ -19,7 +19,9 @@ export const config = {
         size: {
             l: css`
                 ${tokens.itemHeight}: 3.5rem;
-                ${tokens.iconFolderMargin}: 0 0.375rem 0 0.5rem;
+                ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
+                ${tokens.switcherMargin}: 0 0.5rem 0 0;
+                ${tokens.switcherSize}: 1.5rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -30,7 +32,9 @@ export const config = {
             `,
             m: css`
                 ${tokens.itemHeight}: 3rem;
-                ${tokens.iconFolderMargin}: 0 0.375rem 0 0.5rem;
+                ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
+                ${tokens.switcherMargin}: 0 0.5rem 0 0;
+                ${tokens.switcherSize}: 1.5rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -41,7 +45,9 @@ export const config = {
             `,
             s: css`
                 ${tokens.itemHeight}: 2.5rem;
-                ${tokens.iconFolderMargin}: 0 0.25rem 0 0.375rem;
+                ${tokens.iconFolderMargin}: 0 0.25rem 0 0;
+                ${tokens.switcherMargin}: 0 0.375rem 0 0;
+                ${tokens.switcherSize}: 1.5rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -52,7 +58,9 @@ export const config = {
             `,
             xs: css`
                 ${tokens.itemHeight}: 2rem;
-                ${tokens.iconFolderMargin}: 0 0.125rem 0 0.25rem;
+                ${tokens.iconFolderMargin}: 0 0.125rem 0 0;
+                ${tokens.switcherMargin}: 0 0.25rem 0 0;
+                ${tokens.switcherSize}: 1rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
