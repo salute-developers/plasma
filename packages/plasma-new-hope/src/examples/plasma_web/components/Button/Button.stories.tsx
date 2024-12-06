@@ -9,7 +9,7 @@ import { WithTheme } from '../../../_helpers';
 import { Button } from './Button';
 
 const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
