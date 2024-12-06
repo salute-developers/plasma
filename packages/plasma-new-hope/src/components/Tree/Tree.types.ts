@@ -28,6 +28,8 @@ export type TreeProps = {
     checkedKeys?: Key[];
     selectedKeys?: Key[];
     inverted?: boolean;
+    virtual?: boolean;
+    height?: number;
 
     size?: string;
     view?: string;
