@@ -233,6 +233,41 @@ export const StyledTextArea = styled.textarea<{
     }
 `;
 
+export const StyledHiddenTextArea = styled.textarea<{
+    hasContentRight: boolean;
+    resize?: string;
+}>`
+    max-height: none !important;
+    min-height: var(${tokens.inputMinHeight}) !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: -1000 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0.0625rem !important;
+    border-width: 0;
+    padding-right: ${({ hasContentRight }) =>
+        hasContentRight
+            ? `var(${tokens.inputPaddingRightWithRightContent}, 0)`
+            : `var(${tokens.inputPaddingRight}, 0)`};
+    padding-left: var(${tokens.inputPaddingLeft}, 0);
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    text-indent: 0;
+    text-rendering: auto;
+    text-transform: none;
+    tab-size: 8;
+
+    font-family: var(${tokens.inputFontFamily});
+    font-size: var(${tokens.inputFontSize});
+    font-style: var(${tokens.inputFontStyle});
+    font-weight: var(${tokens.inputFontWeight});
+    letter-spacing: var(${tokens.inputLetterSpacing});
+    line-height: var(${tokens.inputLineHeight});
+`;
+
 export const StyledHelpers = styled.div`
     box-sizing: border-box;
     display: flex;
