@@ -793,6 +793,69 @@ describe('plasma-web: Select', () => {
         cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
     });
 
+    it('prop: renderValue', () => {
+        cy.viewport(400, 800);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 
