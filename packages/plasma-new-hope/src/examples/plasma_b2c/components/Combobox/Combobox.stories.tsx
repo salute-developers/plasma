@@ -361,6 +361,7 @@ const SingleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                onToggle={(e) => console.log(e)}
             />
         </div>
     );

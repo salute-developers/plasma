@@ -59,6 +59,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             isTargetAmount,
             beforeList,
             afterList,
+            zIndex,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -329,6 +330,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 requiredProps={requiredProps}
                             />
                         )}
+                        zIndex={zIndex}
                     >
                         <Root
                             view={view}

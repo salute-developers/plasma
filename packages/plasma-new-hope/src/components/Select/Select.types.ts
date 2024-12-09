@@ -2,6 +2,7 @@ import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent } from 'react'
 import React from 'react';
 
 import type { RequiredProps, LabelProps } from '../TextField/TextField.types';
+import { DropdownProps } from '../Dropdown/Dropdown.types';
 
 import { FocusedPathState } from './reducers';
 import {
@@ -109,6 +110,10 @@ export interface BasicProps<K extends ItemOption> {
      * @default normal
      */
     variant?: 'normal' | 'tight';
+    /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
     /**
      * Значение css overflow для выпадающего меню.
      * @example listOverflow="scroll"
@@ -295,6 +300,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          */
         variant?: 'normal' | 'tight';
         /**
+         * CSS-свойство z-index для выпадающего списка.
+         */
+        zIndex?: CSSProperties['zIndex'];
+        /**
          * Значение css width для выпадающего списка.
          * @example width="200px"
          */
@@ -363,4 +372,5 @@ export type FloatingPopoverProps = {
     portal?: MergedSelectProps['portal'];
     listWidth?: MergedSelectProps['listWidth'];
     offset?: number;
+    zIndex?: DropdownProps['zIndex'];
 };

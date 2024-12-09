@@ -2,6 +2,7 @@ import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler } from 're
 import React from 'react';
 
 import { RequiredProps, LabelProps } from '../../TextField/TextField.types';
+import { DropdownProps } from '../../Dropdown/Dropdown.types';
 
 import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
@@ -164,6 +165,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     variant?: 'normal' | 'tight';
     /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
+    /**
      * Значение css overflow для выпадающего меню.
      * @example listOverflow="scroll"
      */
@@ -221,6 +226,7 @@ export type FloatingPopoverProps = {
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
     offset?: number;
+    zIndex?: DropdownProps['zIndex'];
 };
 
 export type ItemContext = {
