@@ -166,6 +166,8 @@ import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { ratingClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { ratingTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
@@ -2838,6 +2840,47 @@ export { Range_2 as Range }
 export { RangeProps }
 
 export { rangeTokens }
+
+// @public (undocumented)
+export const Rating: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+xxs: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+displayL: PolymorphicClassName;
+displayM: PolymorphicClassName;
+displayS: PolymorphicClassName;
+};
+}> & {
+value?: number | null | undefined;
+hasValue?: boolean | undefined;
+precision?: number | undefined;
+valuePlacement?: "before" | "after" | undefined;
+iconSlot?: ReactNode;
+iconSlotOutline?: ReactNode;
+iconSlotHalf?: ReactNode;
+hasIcons?: boolean | undefined;
+iconQuantity?: 1 | 5 | 10 | undefined;
+helperText?: string | undefined;
+helperTextStretching?: "filled" | "fixed" | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>>;
+
+export { ratingClasses }
+
+export { ratingTokens }
 
 export { Ratio }
 
