@@ -13,22 +13,10 @@ describe('plasma-b2c: ButtonGroup', () => {
         <Button text="Button" />,
     ];
 
-    it('[PLASMA-T820] ButtonGroup: view=default, size=m, orientation=horizontal', () => {
+    it('[PLASMA-T1366] ButtonGroup: size=l, view=default, gap=none', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup view="default" size="m" orientation="horizontal">
-                    {getButtons()}
-                </ButtonGroup>
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T821] ButtonGroup: view=accent, size=l, shape=default', () => {
-        mount(
-            <CypressTestDecorator>
-                <ButtonGroup view="accent" size="l" shape="default">
+                <ButtonGroup view="default" size="l" gap="none">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,
@@ -38,10 +26,10 @@ describe('plasma-b2c: ButtonGroup', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T822] ButtonGroup: view=secondary, gap=none', () => {
+    it('[PLASMA-T1367] ButtonGroup: size=m, view=default, gap=dense', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup view="secondary" gap="none">
+                <ButtonGroup view="default" size="m" gap="dense">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,
@@ -50,10 +38,10 @@ describe('plasma-b2c: ButtonGroup', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T823] ButtonGroup: view=success, orientation=vertical', () => {
+    it('[PLASMA-T1368] ButtonGroup: size=s, view=secondary, gap=wide', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup view="success" orientation="vertical">
+                <ButtonGroup view="secondary" size="s" gap="wide">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,
@@ -62,10 +50,10 @@ describe('plasma-b2c: ButtonGroup', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T824] ButtonGroup: view=warning, shape=segmented', () => {
+    it('[PLASMA-T1369] ButtonGroup: size=xs, view=success, shape=segmented', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup view="warning" shape="segmented">
+                <ButtonGroup view="success" size="xs" shape="segmented">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,
@@ -74,10 +62,10 @@ describe('plasma-b2c: ButtonGroup', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T825] ButtonGroup: view=critical, stretching=filled', () => {
+    it('[PLASMA-T1370] ButtonGroup: size=xxs, view=warning, stretching=filled', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup view="critical" stretching="filled">
+                <ButtonGroup view="warning" size="xxs" stretching="filled">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,
@@ -86,10 +74,10 @@ describe('plasma-b2c: ButtonGroup', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T826] ButtonGroup: size=xxs, gap=wide', () => {
+    it('[PLASMA-T1371] ButtonGroup: size=l, view=critical, orientation=vertical', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup size="xxs" gap="wide">
+                <ButtonGroup view="critical" size="l" orientation="vertical">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,
@@ -98,22 +86,10 @@ describe('plasma-b2c: ButtonGroup', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1206] ButtonGroup: size=s, view=clear', () => {
+    it('[PLASMA-T1372] ButtonGroup: view=clear', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup size="s" view="clear">
-                    {getButtons()}
-                </ButtonGroup>
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1207] ButtonGroup: size=xs, gap=dense', () => {
-        mount(
-            <CypressTestDecorator>
-                <ButtonGroup size="xs" gap="dense">
+                <ButtonGroup view="clear" size="m" gap="dense">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,

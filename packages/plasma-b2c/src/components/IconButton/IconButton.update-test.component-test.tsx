@@ -18,10 +18,10 @@ describe('plasma-b2c: IconButton', () => {
         </CypressTestDecorator>
     );
 
-    it('[PLASMA-T925] IconButton: view=default, size=m', () => {
+    it('[PLASMA-T1396] IconButton: size=l, view=default', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton view="default" size="m">
+                <IconButton view="default" size="l">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -30,10 +30,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T926] IconButton: view=accent, size=l', () => {
+    it('[PLASMA-T1397] IconButton: size=m, view=accent', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton view="accent" size="l">
+                <IconButton view="accent" size="m">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -42,10 +42,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T927] IconButton: view=secondary, size=s', () => {
+    it('[PLASMA-T1398] IconButton: size=s, view=warning', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton view="secondary" size="s">
+                <IconButton view="warning" size="s">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -54,10 +54,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T928] IconButton: view=success, size=xs', () => {
+    it('[PLASMA-T1399] IconButton: size=xs, view=dark', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton view="success" size="xs">
+                <IconButton view="dark" size="xs">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -66,10 +66,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T929] IconButton: view=warning, isLoading', () => {
+    it('[PLASMA-T1400] IconButton: size=l, view=default, isLoading', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton view="warning" isLoading>
+                <IconButton view="default" size="l" isLoading>
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -78,10 +78,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T930] IconButton: disabled', () => {
+    it('[PLASMA-T1401] IconButton: size=l, view=default, disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton disabled>
+                <IconButton view="default" size="l" disabled>
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -90,10 +90,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T931] IconButton: view=critical, pin=square-clear', () => {
+    it('[PLASMA-T1525] IconButton: size=l, view=success, pin=square-square', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton view="critical" pin="square-clear">
+                <IconButton view="success" size="l" pin="square-square">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -102,10 +102,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T932] IconButton: view=clear, pin=clear-square', () => {
+    it('[PLASMA-T1526] IconButton: size=m, view=critical, pin=square-clear', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton view="clear" pin="clear-square">
+                <IconButton view="critical" size="m" pin="square-clear">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -114,10 +114,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T933] IconButton: pin=clear-clear', () => {
+    it('[PLASMA-T1527] IconButton: size=s, view=default, pin=clear-square', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton pin="clear-clear">
+                <IconButton view="default" size="s" pin="clear-square">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -126,10 +126,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T934] IconButton: pin=clear-circle', () => {
+    it('[PLASMA-T1528] IconButton: size=l, view=default, pin=clear-clear', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton pin="clear-circle">
+                <IconButton view="default" size="l" pin="clear-clear">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -138,10 +138,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T935] IconButton: pin=circle-clear', () => {
+    it('[PLASMA-T1529] IconButton: size=l, view=default, pin=clear-circle, focused', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton pin="circle-clear">
+                <IconButton view="default" size="l" pin="clear-circle" focused>
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,
@@ -150,10 +150,22 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T936] IconButton: pin=circle-circle', () => {
+    it('[PLASMA-T1530] IconButton: size=l, view=default, pin=circle-clear', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <IconButton pin="circle-circle">
+                <IconButton view="default" size="l" pin="circle-clear">
+                    <Icon size="s" />
+                </IconButton>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1531] IconButton: size=l, view=default, pin=circle-circle', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <IconButton view="default" size="l" pin="circle-circle">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecoratorWithTypo>,

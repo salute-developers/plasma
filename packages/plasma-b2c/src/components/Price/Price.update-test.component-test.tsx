@@ -16,23 +16,11 @@ describe('plasma-b2c: Price', () => {
         </CypressTestDecorator>
     );
 
-    it('[PLASMA-T716] Price: currency=rub', () => {
+    it('[PLASMA-T1375] Price: currency=rub, locale=ru, minimumFractionDigits=0', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <BodyM>
-                    <Price>12345.67</Price>
-                </BodyM>
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T717] Price: currency=usd, stroked', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <BodyM>
-                    <Price currency="usd" stroked>
+                    <Price currency="rub" locale="ru" minimumFractionDigits={0}>
                         12345.67
                     </Price>
                 </BodyM>
@@ -42,11 +30,25 @@ describe('plasma-b2c: Price', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T718] Price: currency=eur, minimumFractionDigits=5', () => {
+    it('[PLASMA-T1376] Price: currency=usd, stroked, minimumFractionDigits=2', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <BodyM>
-                    <Price currency="eur" minimumFractionDigits={5}>
+                    <Price currency="usd" stroked minimumFractionDigits={2}>
+                        12345.67
+                    </Price>
+                </BodyM>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1377] Price: currency=eur, locale=en, minimumFractionDigits=3', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <BodyM>
+                    <Price currency="eur" locale="en" minimumFractionDigits={3}>
                         12345.67890
                     </Price>
                 </BodyM>
@@ -56,25 +58,11 @@ describe('plasma-b2c: Price', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1124] Price: currency=inr, minimumFractionDigits=0', () => {
+    it('[PLASMA-T1378] Price: currency=inr, minimumFractionDigits=5', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <BodyM>
-                    <Price currency="inr" minimumFractionDigits={0}>
-                        12345.67
-                    </Price>
-                </BodyM>
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1138] Price: locale=en, minimumFractionDigits=1', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <BodyM>
-                    <Price locale="en" minimumFractionDigits={1}>
+                    <Price currency="inr" minimumFractionDigits={5}>
                         12345.67
                     </Price>
                 </BodyM>
