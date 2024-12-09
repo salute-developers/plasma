@@ -30,6 +30,7 @@ export type TreeProps = {
     inverted?: boolean;
     virtual?: boolean;
     height?: number;
+    itemVariant?: 'default' | 'fill';
 
     size?: string;
     view?: string;

@@ -14,11 +14,17 @@ export const config = {
                 ${tokens.arrowColorHover}: var(--text-secondary-hover);
                 ${tokens.arrowColorActive}: var(--text-secondary-active);
                 ${tokens.color}: var(--text-secondary);
+                ${tokens.colorSelected}: var(--text-primary);
+                ${tokens.itemBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.itemBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
         },
         size: {
             l: css`
                 ${tokens.itemHeight}: 3.5rem;
+                ${tokens.itemPadding}: 1rem;
+                ${tokens.itemIndent}: 2rem;
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
@@ -32,6 +38,8 @@ export const config = {
             `,
             m: css`
                 ${tokens.itemHeight}: 3rem;
+                ${tokens.itemPadding}: 0.875rem;
+                ${tokens.itemIndent}: 2rem;
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
@@ -45,6 +53,8 @@ export const config = {
             `,
             s: css`
                 ${tokens.itemHeight}: 2.5rem;
+                ${tokens.itemPadding}: 0.75rem;
+                ${tokens.itemIndent}: 1.875rem;
                 ${tokens.iconFolderMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
@@ -58,6 +68,8 @@ export const config = {
             `,
             xs: css`
                 ${tokens.itemHeight}: 2rem;
+                ${tokens.itemPadding}: 0.5rem;
+                ${tokens.itemIndent}: 1.25rem;
                 ${tokens.iconFolderMargin}: 0 0.125rem 0 0;
                 ${tokens.switcherMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherSize}: 1rem;

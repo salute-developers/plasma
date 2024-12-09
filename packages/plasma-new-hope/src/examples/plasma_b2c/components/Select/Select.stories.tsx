@@ -381,6 +381,7 @@ const SingleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
+                renderValue={() => '123123'}
             />
         </div>
     );
@@ -409,6 +410,7 @@ const MultiselectStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" color="inherit" /> : undefined}
+                renderValue={() => '123123'}
             />
         </div>
     );
