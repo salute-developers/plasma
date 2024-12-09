@@ -1185,6 +1185,18 @@ describe('plasma-b2c: Combobox', () => {
         cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
     });
 
+    it('prop: zIndex', () => {
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="single" items={items} label="Label" placeholder="Placeholder" zIndex={10000} />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
     it('flow: single uncontrolled', () => {
         cy.viewport(1000, 500);
 

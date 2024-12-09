@@ -568,6 +568,20 @@ describe('plasma-web: Dropdown', () => {
         cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
     });
 
+    it('prop: zIndex', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown items={items} zIndex={10000}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').realClick();
+
+        cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
     it('keyboard interactions', () => {
         cy.viewport(1000, 500);
 

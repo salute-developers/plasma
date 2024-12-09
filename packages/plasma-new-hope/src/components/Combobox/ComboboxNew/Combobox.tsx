@@ -69,6 +69,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             filter,
             closeAfterSelect: outerCloseAfterSelect,
             renderValue,
+            zIndex,
             ...rest
         } = props;
 
@@ -453,6 +454,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                                 />
                             )}
+                            zIndex={zIndex}
                         >
                             <Root
                                 size={size}

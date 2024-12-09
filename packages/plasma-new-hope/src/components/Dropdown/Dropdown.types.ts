@@ -88,6 +88,10 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      * Callback для кастомной настройки айтема в выпадающем списке.
      */
     renderItem?: (item: T) => React.ReactNode;
+    /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
 
     /**
      * Обработчик клика по item.
@@ -130,6 +134,7 @@ export type FloatingPopoverProps = {
     isInner?: boolean;
     portal?: DropdownProps['portal'];
     offset?: [number, number];
+    zIndex?: DropdownProps['zIndex'];
 };
 
 export type ItemContext = {
