@@ -3,6 +3,7 @@ import Tree from 'rc-tree';
 import 'rc-tree/assets/index.css';
 
 import { RootProps } from '../../engines';
+import { cx } from '../../utils';
 
 import type { TreeProps } from './Tree.types';
 import { IconArrowWrapper, StyledArrow, base, StyledFolder, IconFolderWrapper } from './Tree.styles';
@@ -64,14 +65,17 @@ const treeData: any[] = [
  * Многоуровневый раскрывающийся список в виде дерева.
  */
 export const treeRoot = (Root: RootProps<any, any>) =>
-    forwardRef<HTMLDivElement, TreeProps>(({ inverted, virtual, height, size, view }, ref) => {
+    forwardRef<HTMLDivElement, TreeProps>(({ inverted, virtual, height, size, view, itemVariant }, ref) => {
+        const invertedClass = inverted ? classes.treeInverted : undefined;
+        const itemFilledClass = itemVariant === 'fill' ? classes.treeItemFilled : undefined;
+
         return (
             <Root view={view} size={size} ref={ref}>
                 <Tree
                     height={height}
                     virtual={virtual}
                     checkable
-                    className={inverted ? classes.treeInverted : undefined}
+                    className={cx(invertedClass, itemFilledClass)}
                     // checkStrictly
                     defaultExpandAll
                     style={{ border: '1px solid #000' }}

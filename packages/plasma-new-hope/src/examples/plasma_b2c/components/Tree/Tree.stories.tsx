@@ -10,6 +10,7 @@ type StoryTreeProps = ComponentProps<typeof Tree>;
 
 const view = ['default'];
 const size = ['xs', 's', 'm', 'l'];
+const itemVariant = ['default', 'fill'];
 
 const meta: Meta<StoryTreeProps> = {
     title: 'plasma_b2c/Tree',
@@ -27,11 +28,16 @@ const meta: Meta<StoryTreeProps> = {
         inverted: {
             control: 'boolean',
         },
+        itemVariant: {
+            control: 'select',
+            options: itemVariant,
+        },
     },
     args: {
         view: 'default',
         size: 'm',
         inverted: false,
+        itemVariant: 'default',
     },
 };
 
