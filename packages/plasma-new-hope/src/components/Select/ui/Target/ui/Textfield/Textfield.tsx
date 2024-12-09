@@ -39,6 +39,18 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     ) => {
         const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
+        const getValue = () => {
+            if (multiselect || !value) {
+                return '';
+            }
+
+            if (renderValue) {
+                return renderValue(valueToItemMap.get(value.toString())!);
+            }
+
+            return valueToItemMap.get(value.toString())?.label || '';
+        };
+
         const getChips = (): string[] => {
             if (multiselect && Array.isArray(value)) {
                 if (value.length === 0) return [];
@@ -87,7 +99,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 ref={ref}
                 inputWrapperRef={inputWrapperRef}
                 readOnly
-                value={multiselect ? undefined : valueToItemMap.get(value.toString())?.label || ''}
+                value={getValue()}
                 size={size}
                 view={view}
                 labelPlacement={labelPlacement}
