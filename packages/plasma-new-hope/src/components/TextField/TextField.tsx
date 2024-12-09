@@ -42,6 +42,7 @@ import { useKeyNavigation } from './hooks';
 import { HintComponent } from './ui/Hint/Hint';
 
 const optionalText = 'optional';
+const defaultCharacterWidth = '1ch';
 
 export const base = css`
     /* NOTE: Webkit не применяет opacity к inline тегам */
@@ -121,6 +122,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const [hasValue, setHasValue] = useState(
                 Boolean(outerValue) || Boolean(inputRef?.current?.value) || Boolean(rest?.defaultValue),
             );
+            const needDynamicWidth = Boolean(textAfter);
+            const [dynamicWidth, setDynamicWidth] = useState(
+                outerValue ? `${String(outerValue).length}ch` : defaultCharacterWidth,
+            );
             const [chips, setChips] = useState<Array<ChipValues>>([]);
             const [isHintVisible, setIsHintVisible] = useState(false);
 
@@ -169,7 +174,9 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const hintForkRef = useForkRef(hintRef, hintInnerRef);
 
             const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
-                setHasValue(Boolean((event.target as HTMLInputElement).value));
+                const { value } = event.target as HTMLInputElement;
+                setHasValue(Boolean(value));
+                setDynamicWidth(value ? `${String(value).length}ch` : defaultCharacterWidth);
             };
 
             const handleHintShow = () => setIsHintVisible(true);
@@ -248,6 +255,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     onKeyDown(event);
                 }
             };
+
+            useEffect(() => {
+                setDynamicWidth(outerValue ? `${String(outerValue).length}ch` : defaultCharacterWidth);
+            }, [outerValue]);
 
             useEffect(() => {
                 if (!isChipEnumeration && !values?.length) {
@@ -427,7 +438,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     })}
                                 </StyledChips>
                             )}
-                            <InputContainer>
+                            <InputContainer
+                                hasDynamicWidth={needDynamicWidth}
+                                dynamicWidth={(needDynamicWidth && dynamicWidth) || ''}
+                            >
                                 <Input
                                     ref={inputForkRef}
                                     id={innerId}
