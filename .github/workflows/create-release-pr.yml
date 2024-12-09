@@ -69,6 +69,6 @@ jobs:
       
       - name: Create release PR
         run: |
-          changelog='${{ steps.github_release.outputs.changelog }}'
+          changelog='${{ steps.changelog.outputs.changelog }}'
           gh pr create --base master --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}" --body "$changelog"
 
