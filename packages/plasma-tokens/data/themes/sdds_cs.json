@@ -1281,17 +1281,17 @@
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryHover": {
                     "value": "#394147FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
                     "value": "#2B3136FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCard": {
                     "value": "[general.coolGray.950]",
@@ -1823,17 +1823,17 @@
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryHover": {
                     "value": "#394147FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
                     "value": "#2B3136FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCard": {
                     "value": "[general.coolGray.950]",
@@ -2365,17 +2365,17 @@
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.200]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryHover": {
                     "value": "#E2E9EEFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
                     "value": "#CFDAE2FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCard": {
                     "value": "#FFFFFF",
@@ -2907,17 +2907,17 @@
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.200]",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryHover": {
                     "value": "#E2E9EEFF",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
                     "value": "#CFDAE2FF",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCard": {
                     "value": "#FFFFFF",
@@ -6606,12 +6606,12 @@
         "surface": {
             "default": {
                 "surfaceSolidPrimaryHover": {
-                    "value": "#E2E9EEFF",
+                    "value": "#F5F8F9FF",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
                 "surfaceSolidPrimaryActive": {
-                    "value": "#C9D5DEFF",
+                    "value": "#E2E9EEFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
@@ -6625,20 +6625,15 @@
                     "comment": "Вторичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
-                "surfaceSolidTertiary": {
-                    "value": "[general.coolGray.200]",
-                    "comment": "Третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
                 "surfaceSolidTertiaryHover": {
                     "value": "#E2E9EEFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
                     "value": "#C9D5DEFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCardHover": {
                     "value": "#FFFFFFFF",
@@ -7066,7 +7061,7 @@
                     "enabled": false
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#E9EEF2FF",
+                    "value": "#FCFDFDFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
@@ -7140,8 +7135,13 @@
                     "comment": "Вторичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
-                "surfaceSolidPrimary": {
+                "surfaceSolidTertiary": {
                     "value": "[general.coolGray.200]",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceSolidPrimary": {
+                    "value": "[general.coolGray.150]",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 }
@@ -7167,20 +7167,15 @@
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на темном фоне",
                     "enabled": true
                 },
-                "surfaceSolidTertiary": {
-                    "value": "[general.coolGray.850]",
-                    "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
-                },
                 "surfaceSolidTertiaryHover": {
-                    "value": "#394147FF",
+                    "value": "#7A8790FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
-                    "value": "#272C30FF",
+                    "value": "#5D686FFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCardHover": {
                     "value": "#20282DFF",
@@ -7682,6 +7677,11 @@
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на темном фоне",
                     "enabled": true
                 },
+                "surfaceSolidTertiary": {
+                    "value": "[general.coolGray.700]",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне",
+                    "enabled": true
+                },
                 "surfaceSolidPrimary": {
                     "value": "[general.coolGray.850]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне",
@@ -7690,12 +7690,12 @@
             },
             "onLight": {
                 "surfaceSolidPrimaryHover": {
-                    "value": "#E2E9EEFF",
+                    "value": "#F5F8F9FF",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
                 "surfaceSolidPrimaryActive": {
-                    "value": "#C9D5DEFF",
+                    "value": "#E2E9EEFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
@@ -7709,20 +7709,15 @@
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
-                "surfaceSolidTertiary": {
-                    "value": "[general.coolGray.200]",
-                    "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
-                },
                 "surfaceSolidTertiaryHover": {
                     "value": "#E2E9EEFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
                     "value": "#C9D5DEFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCardHover": {
                     "value": "#FFFFFFFF",
@@ -8150,7 +8145,7 @@
                     "enabled": false
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#E9EEF2FF",
+                    "value": "#FCFDFDFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
@@ -8219,14 +8214,19 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
                     "enabled": true
                 },
-                "surfaceSolidSecondary": {
-                    "value": "[general.coolGray.100]",
-                    "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне",
+                "surfaceSolidTertiary": {
+                    "value": "[general.coolGray.200]",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
                 "surfaceSolidPrimary": {
-                    "value": "[general.coolGray.200]",
+                    "value": "[general.coolGray.150]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
+                    "enabled": true
+                },
+                "surfaceSolidSecondary": {
+                    "value": "[general.coolGray.100]",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 }
             },
@@ -8251,20 +8251,15 @@
                     "comment": "Инвертированный вторичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
-                "surfaceSolidTertiary": {
-                    "value": "[general.coolGray.850]",
-                    "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
                 "surfaceSolidTertiaryHover": {
-                    "value": "#394147FF",
+                    "value": "#7A8790FF",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidTertiaryActive": {
-                    "value": "#272C30FF",
+                    "value": "#5D686FFF",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceSolidCardHover": {
                     "value": "#20282DFF",
@@ -8691,13 +8686,8 @@
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола информация",
                     "enabled": false
                 },
-                "surfaceSolidPrimary": {
-                    "value": "[general.coolGray.850]",
-                    "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
-                    "enabled": true
-                },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#3C4348",
+                    "value": "#3D464CFF",
                     "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
@@ -8766,9 +8756,19 @@
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 },
+                "surfaceSolidPrimary": {
+                    "value": "[general.coolGray.850]",
+                    "comment": "Инвертированный основной непрозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
                 "surfaceSolidSecondary": {
                     "value": "[general.coolGray.800]",
                     "comment": "Инвертированный вторичный непрозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceSolidTertiary": {
+                    "value": "[general.coolGray.700]",
+                    "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 }
             }
