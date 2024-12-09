@@ -148,6 +148,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const [isHintVisible, setIsHintVisible] = useState(false);
         const [helperWidth, setHelperWidth] = useState<string>(width ? `${width}rem` : '100%');
         const [focused, setFocused] = useState(false);
+        // TODO: перенести в общую переменную для value снаружи и внутри
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
         const outerRef = createRef<HTMLTextAreaElement>();
@@ -204,7 +205,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         });
 
-        useAutoResize(autoResize || Boolean(clear), outerRef, value, minAuto, maxAuto, resize);
+        useAutoResize(autoResize || Boolean(clear), outerRef, value || uncontrolledValue, minAuto, maxAuto, resize);
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
