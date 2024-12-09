@@ -676,7 +676,7 @@ true: PolymorphicClassName;
 };
 }> & ((BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -706,7 +706,7 @@ chipView?: undefined;
 chipValidator?: undefined;
 }, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -738,7 +738,7 @@ view?: string | undefined;
 }) | undefined;
 }, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -768,7 +768,7 @@ chipView?: undefined;
 chipValidator?: undefined;
 }, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -800,7 +800,7 @@ view?: string | undefined;
 }) | undefined;
 }, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -830,7 +830,7 @@ chipView?: undefined;
 chipValidator?: undefined;
 }, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -862,7 +862,7 @@ view?: string | undefined;
 }) | undefined;
 }, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -892,7 +892,7 @@ chipView?: undefined;
 chipValidator?: undefined;
 }, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2362,7 +2362,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2438,7 +2438,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2516,7 +2516,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2592,7 +2592,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2670,7 +2670,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2746,7 +2746,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2824,7 +2824,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2900,7 +2900,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -3789,7 +3789,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3832,7 +3832,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3875,7 +3875,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3918,7 +3918,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3961,7 +3961,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -4004,7 +4004,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -4047,7 +4047,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -4090,7 +4090,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -4191,7 +4191,9 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "HintProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator'>) & ClearProps_2 & HintProps_2;
+export type TextFieldProps = Omit<TextFieldProps_2, 'helperText'> & {
+    helperText?: ReactNode;
+} & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator'> & ClearProps_2 & HintProps_2;
 
 export { TextFieldView }
 
