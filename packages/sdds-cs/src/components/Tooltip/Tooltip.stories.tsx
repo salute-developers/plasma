@@ -29,6 +29,23 @@ const placements: Array<string> = [
     'auto',
 ];
 
+const disabledProps = [
+    'target',
+    'children',
+    'text',
+    'opened',
+    'isOpen',
+    'isVisible',
+    'offset',
+    'frame',
+    'view',
+    'zIndex',
+    'minWidth',
+    'maxWidth',
+    'contentLeft',
+    'onDismiss',
+    'size',
+];
 const meta: Meta<TooltipProps> = {
     title: 'Overlay/Tooltip',
     decorators: [InSpacingDecorator],
@@ -72,29 +89,15 @@ const StoryDefault = (props: Pick<TooltipProps, 'hasArrow' | 'size' | 'usePortal
 
 export const Default: StoryObj<TooltipProps> = {
     argTypes: {
-        ...disableProps([
-            'target',
-            'children',
-            'text',
-            'opened',
-            'isOpen',
-            'isVisible',
-            'placement',
-            'offset',
-            'frame',
-            'view',
-            'size',
-            'zIndex',
-            'minWidth',
-            'maxWidth',
-            'contentLeft',
-            'onDismiss',
-        ]),
+        ...disableProps([...disabledProps, 'placement']),
     },
     args: {
-        size: 's',
+        maxWidth: 10,
+        minWidth: 3,
         hasArrow: true,
         usePortal: false,
+        animated: true,
+        size: 's',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -134,21 +137,7 @@ export const Live: StoryObj<TooltipProps> = {
             },
             mapping: placements,
         },
-        ...disableProps([
-            'target',
-            'children',
-            'text',
-            'opened',
-            'isOpen',
-            'isVisible',
-            'offset',
-            'frame',
-            'view',
-            'zIndex',
-            'contentLeft',
-            'onDismiss',
-            'size',
-        ]),
+        ...disableProps(disabledProps),
     },
     args: {
         placement: 'bottom',
