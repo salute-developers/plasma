@@ -3075,6 +3075,8 @@ view?: string | undefined;
 size?: "s" | "m" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "hover" | "always";
+currentValueVisibility: "hover" | "always";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
 onChange?: ((event: FormTypeNumber) => void) | undefined;
 name: string;
@@ -3103,6 +3105,8 @@ view?: string | undefined;
 size?: "s" | "m" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "hover" | "always";
+currentValueVisibility: "hover" | "always";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
 onChange?: ((value: number) => void) | undefined;
 value: number;
@@ -3132,6 +3136,8 @@ view?: string | undefined;
 size?: "s" | "m" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "hover" | "always";
+currentValueVisibility: "hover" | "always";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
 onChange?: ((value: number) => void) | undefined;
 value: number;
@@ -3160,6 +3166,8 @@ view?: string | undefined;
 size?: "s" | "m" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "hover" | "always";
+currentValueVisibility: "hover" | "always";
 } & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
 onChange?: ((event: FormTypeString) => void) | undefined;
 name?: string | undefined;

@@ -45,6 +45,7 @@ export interface SliderInternalProps {
 
 export interface SliderViewProps extends SliderBaseProps, SliderInternalProps {
     orientation: 'horizontal' | 'vertical';
+    reversed?: boolean;
     size: string;
     sliderAlign?: string;
     railFillWidth: number;
