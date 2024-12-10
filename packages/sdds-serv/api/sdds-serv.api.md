@@ -1041,6 +1041,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1123,6 +1125,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1804,6 +1808,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
