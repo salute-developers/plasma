@@ -41,8 +41,10 @@ const getSizeForIcon = (size) => {
     const map = {
         mr: 's',
         lr: 's',
+        xlr: 's',
         m: 's',
         l: 's',
+        xl: 's',
         sr: 's',
         xsr: 'xs',
     };
