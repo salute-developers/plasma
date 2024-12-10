@@ -74,3 +74,4 @@ export * from './components/Attach';
 export * from './components/ChipGroup';
 export * from './components/NumberInput';
 export * from './components/Dropzone';
+export * from './components/Rating';
