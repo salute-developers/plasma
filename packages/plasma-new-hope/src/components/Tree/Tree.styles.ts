@@ -3,6 +3,7 @@ import { css } from '@linaria/core';
 
 import { applyEllipsis } from '../../mixins';
 import { IconDisclosureRightCentered, IconFolder } from '../_Icon';
+import { Done } from '../Checkbox/IconsSvg';
 
 import { treeTokens as tokens, classes } from './Tree.tokens';
 
@@ -104,7 +105,39 @@ export const base = css`
     }
 
     .rc-tree .rc-tree-treenode span.rc-tree-checkbox {
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+        vertical-align: 0;
+        width: var(${tokens.checkboxSize});
+        height: var(${tokens.checkboxSize});
+        margin: var(${tokens.checkboxMargin});
+        background-image: none;
+    }
+
+    .rc-tree .rc-tree-treenode span.rc-tree-checkbox::before {
+        content: '';
+        display: block;
+        width: var(${tokens.checkboxInnerSize});
+        height: var(${tokens.checkboxInnerSize});
+        border: 0.125rem solid var(${tokens.checkboxBorderColor});
+        border-radius: var(${tokens.checkboxBorderRadius});
+        box-sizing: border-box;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .rc-tree .rc-tree-treenode span.rc-tree-checkbox-checked::before {
+        background-color: var(${tokens.checkboxBackgroundColor});
+        border-color: var(${tokens.checkboxBackgroundColor});
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath fill='white' d='m5.70711,8.15582c-0.39053,-0.39052 -1.02369,-0.39052 -1.41422,0c-0.39052,0.39053 -0.39052,1.02369 0,1.41422l3.70666,3.70666l6.71095,-6.70248c0.3908,-0.39027 0.3912,-1.02344 0.0009,-1.41421c-0.3903,-0.39077 -1.02344,-0.39117 -1.41421,-0.00089l-5.29674,5.29004l-2.29334,-2.29334z' /%3E%3C/svg%3E");
+    }
+
+    .rc-tree .rc-tree-treenode span.rc-tree-checkbox.rc-tree-checkbox-indeterminate::before {
+        background-color: var(${tokens.checkboxBackgroundColor});
+        border-color: var(${tokens.checkboxBackgroundColor});
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8a1 1 0 011-1h10a1 1 0 110 2H3a1 1 0 01-1-1z' fill='white'/%3E%3C/svg%3E");
     }
 
     .rc-tree-title {
