@@ -185,4 +185,20 @@ describe('plasma-web: PopupBase', () => {
         cy.get('button').contains('Open popup B').click();
         cy.matchImageSnapshot();
     });
+
+    it('prop: data-attrs', () => {
+        mount(
+            <CypressTestDecorator>
+                <PopupBaseProvider>
+                    <PopupBase opened data-testid="test-data-id">
+                        <Content>
+                            <Headline3>Popup</Headline3>
+                        </Content>
+                    </PopupBase>
+                </PopupBaseProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('.popup-base-root').should('have.attr', 'data-testid', 'test-data-id');
+    });
 });
