@@ -91,7 +91,13 @@ type HintProps =
           hintContentLeft?: never;
       };
 
-type TextFieldProps = TextFieldPropsOld & ClearProps & HintProps;
+type TextFieldProps = Omit<TextFieldPropsOld, 'helperText'> & {
+    /**
+     * Подсказка для поля ввода.
+     */
+    helperText?: ReactNode;
+} & ClearProps &
+    HintProps;
 
 export type CustomTextFieldProps = TextFieldProps &
     Pick<

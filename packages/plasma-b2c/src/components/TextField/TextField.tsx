@@ -91,8 +91,12 @@ type HintProps =
           hintContentLeft?: never;
       };
 
-export type CustomTextFieldProps = (TextFieldProps &
-    Pick<
+export type CustomTextFieldProps = Omit<TextFieldProps, 'helperText'> & {
+    /**
+     * Подсказка для поля ввода.
+     */
+    helperText?: ReactNode;
+} & Pick<
         newHopeTextFieldProps,
         | 'enumerationType'
         | 'chips'
@@ -106,7 +110,7 @@ export type CustomTextFieldProps = (TextFieldProps &
         | 'optional'
         | 'chipView'
         | 'chipValidator'
-    >) &
+    > &
     ClearProps &
     HintProps;
 
