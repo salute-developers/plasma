@@ -12,7 +12,7 @@ type StoryProps = ComponentProps<typeof ButtonGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
 const views = ['accent', 'default', 'secondary', 'positive', 'warning', 'negative', 'clear'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const orientationValues = ['horizontal', 'vertical'];
 const gapValues = ['none', 'dense', 'wide'];
 const shapeValues = ['segmented', 'default'];
