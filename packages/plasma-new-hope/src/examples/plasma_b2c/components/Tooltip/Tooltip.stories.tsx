@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { styled } from '@linaria/react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { Button } from '../Button/Button';
@@ -34,6 +35,9 @@ const meta: Meta<TooltipProps> = {
     title: 'b2c/Overlay/Tooltip',
     decorators: [WithTheme],
     component: Tooltip,
+    argTypes: {
+        ...disableProps(['isVisible', 'isOpen', 'onDismiss']),
+    },
     parameters: {
         docs: { story: { inline: false, iframeHeight: '20rem' } },
     },
@@ -147,7 +151,7 @@ export const Default: StoryObj<TooltipProps> = {
 const StyledRow = styled.div`
     display: flex;
     width: 150vw;
-    height: 150vh;
+    height: auto;
     padding: 10rem;
 `;
 
@@ -170,7 +174,6 @@ const StoryLive = (args: TooltipProps) => {
                     {...args}
                     id="example-tooltip-firstname"
                     text={text}
-                    opened
                     frame="theme-root"
                 />
             </StyledRow>
@@ -193,12 +196,22 @@ export const Live: StoryObj<TooltipProps> = {
                 type: 'select',
             },
         },
+        trigger: {
+            options: ['click', 'hover', 'none'],
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         placement: 'bottom',
         maxWidth: 10,
         minWidth: 3,
         hasArrow: true,
+        trigger: 'hover',
+        hoverTimeout: 300,
+        closeOnOverlayClick: true,
+        closeOnEsc: true,
         size: 'm',
     },
     render: (args) => <StoryLive {...args} />,

@@ -489,7 +489,7 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -519,7 +519,7 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -613,7 +613,7 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -643,7 +643,7 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -1928,7 +1928,7 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -2004,7 +2004,7 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -2236,7 +2236,7 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -2312,7 +2312,7 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -3229,7 +3229,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3272,7 +3272,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3315,7 +3315,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3358,7 +3358,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3618,7 +3618,7 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -3653,7 +3653,7 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -3762,7 +3762,7 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
@@ -3797,7 +3797,7 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
+hintTrigger?: "click" | "hover" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
