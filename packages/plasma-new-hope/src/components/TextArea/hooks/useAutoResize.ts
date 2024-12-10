@@ -42,5 +42,5 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
             ref.current.style.height = `${newHeight}rem`;
             previousHeight.current = newHeight;
         }
-    }, [ref, resize, active, value, minAuto, maxAuto]);
+    }, [resize, active, value, minAuto, maxAuto]);
 };
