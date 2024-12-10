@@ -1,0 +1,12 @@
+name: write-changelog
+
+description: ''
+
+inputs:
+    data:
+        description: ''
+        required: true
+
+runs:
+    using: 'node20'
+    main: 'index.js'
