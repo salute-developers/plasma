@@ -159,6 +159,9 @@ export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
     },
+    argTypes: {
+        ...disableProps(['enableContentRight']),
+    },
     render: (args) => <StoryDefault {...args} />,
 };
 

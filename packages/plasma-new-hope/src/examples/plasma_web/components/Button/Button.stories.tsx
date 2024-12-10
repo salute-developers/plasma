@@ -9,7 +9,7 @@ import { WithTheme } from '../../../_helpers';
 import { Button } from './Button';
 
 const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -86,8 +86,10 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: 
 
     return (
         <Button
-            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentLeft={enableContentLeft && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={
+                enableContentRight && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined
+            }
             size={size}
             {...rest}
         />
