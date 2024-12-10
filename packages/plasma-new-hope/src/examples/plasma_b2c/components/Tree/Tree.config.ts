@@ -18,6 +18,8 @@ export const config = {
                 ${tokens.itemBackgroundColor}: var(--surface-transparent-secondary);
                 ${tokens.itemBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${tokens.itemBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${tokens.checkboxBorderColor}: var(--text-secondary);
+                ${tokens.checkboxBackgroundColor}: var(--text-accent);
             `,
         },
         size: {
@@ -28,6 +30,10 @@ export const config = {
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
+                ${tokens.checkboxMargin}: 0 0.5rem 0 0;
+                ${tokens.checkboxSize}: 1.5rem;
+                ${tokens.checkboxInnerSize}: 1.25rem;
+                ${tokens.checkboxBorderRadius}: 0.375rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -43,6 +49,10 @@ export const config = {
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
+                ${tokens.checkboxMargin}: 0 0.5rem 0 0;
+                ${tokens.checkboxSize}: 1.5rem;
+                ${tokens.checkboxInnerSize}: 1.25rem;
+                ${tokens.checkboxBorderRadius}: 0.375rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -58,6 +68,10 @@ export const config = {
                 ${tokens.iconFolderMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
+                ${tokens.checkboxMargin}: 0 0.25rem 0 0;
+                ${tokens.checkboxSize}: 1.5rem;
+                ${tokens.checkboxInnerSize}: 1.25rem;
+                ${tokens.checkboxBorderRadius}: 0.375rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -73,6 +87,10 @@ export const config = {
                 ${tokens.iconFolderMargin}: 0 0.125rem 0 0;
                 ${tokens.switcherMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherSize}: 1rem;
+                ${tokens.checkboxMargin}: 0 0.25rem 0 0;
+                ${tokens.checkboxSize}: 1rem;
+                ${tokens.checkboxInnerSize}: 0.875rem;
+                ${tokens.checkboxBorderRadius}: 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
