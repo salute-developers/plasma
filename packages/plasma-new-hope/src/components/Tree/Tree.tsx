@@ -10,103 +10,74 @@ import { IconArrowWrapper, StyledArrow, base, StyledFolder, IconFolderWrapper } 
 import { sizeToIconSize } from './utils';
 import { classes } from './Tree.tokens';
 
-const treeData: any[] = [
-    {
-        title: 'Parent 1',
-        key: '0-0',
-        // checkable: false,
-        children: [
-            {
-                title: 'Parent 1-0',
-                key: '0-0-0',
-                // disabled: true,
-                children: [
-                    {
-                        title: 'Leaf',
-                        key: '0-0-0-0',
-                        disableCheckbox: true,
-                    },
-                    {
-                        title: 'Leaf',
-                        key: '0-0-0-1',
-                        children: [
-                            {
-                                title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
-                                key: '0-0-0-0-0',
-                            },
-                            {
-                                title: 'Leaf',
-                                key: '0-0-0-0-1',
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                title: 'Parent 1-1',
-                key: '0-0-1',
-                children: [{ title: 'Leaf', key: '0-0-1-0' }],
-            },
-        ],
-    },
-    {
-        title: 'Parent 2',
-        key: '0-1',
-        children: [
-            {
-                title: 'Parent 2-0',
-                key: '0-1-0',
-            },
-        ],
-    },
-];
-
 /**
  * Многоуровневый раскрывающийся список в виде дерева.
  */
-export const treeRoot = (Root: RootProps<any, any>) =>
-    forwardRef<HTMLDivElement, TreeProps>(({ inverted, virtual, height, size, view, itemVariant }, ref) => {
-        const invertedClass = inverted ? classes.treeInverted : undefined;
-        const itemFilledClass = itemVariant === 'fill' ? classes.treeItemFilled : undefined;
+export const treeRoot = (Root: RootProps<HTMLDivElement, Pick<TreeProps, 'view' | 'size'>>) =>
+    forwardRef<HTMLDivElement, TreeProps>(
+        (
+            {
+                items,
+                arrowPlacement,
+                virtual,
+                height,
+                size,
+                view,
+                fullWidthItemSelection,
+                multiple,
+                defaultExpandAll,
+                checkable,
+                defaultCheckedKeys,
+                defaultExpandedKeys,
+                defaultSelectedKeys,
+                className,
+                onSelect,
+                onCheck,
+                onExpand,
+            },
+            ref,
+        ) => {
+            const invertedClass = arrowPlacement === 'right' ? classes.treeInverted : undefined;
+            const itemFilledClass = fullWidthItemSelection ? classes.treeItemFilled : undefined;
 
-        return (
-            <Root view={view} size={size} ref={ref}>
-                <Tree
-                    height={height}
-                    virtual={virtual}
-                    checkable
-                    className={cx(invertedClass, itemFilledClass)}
-                    // checkStrictly
-                    defaultExpandAll
-                    style={{ border: '1px solid #000' }}
-                    treeData={treeData}
-                    // defaultCheckedKeys={['0-0-1']}
-                    // defaultExpandedKeys={['0-0-1']}
-                    // defaultSelectedKeys={['0-0-1', '0-0-0-0']}
-                    // defaultExpandParent={false}
-                    onSelect={(selectedKeys, info) => {
-                        console.log('selected', selectedKeys, info);
-                    }}
-                    switcherIcon={(node) => {
-                        if (node.isLeaf) {
-                            return null;
+            return (
+                <Root view={view} size={size} ref={ref}>
+                    <Tree
+                        height={height}
+                        virtual={virtual}
+                        multiple={multiple}
+                        checkable={checkable}
+                        className={cx(className, invertedClass, itemFilledClass)}
+                        defaultExpandAll={defaultExpandAll}
+                        style={{ border: '1px solid #000' }}
+                        treeData={items}
+                        defaultCheckedKeys={defaultCheckedKeys}
+                        defaultExpandedKeys={defaultExpandedKeys}
+                        defaultSelectedKeys={defaultSelectedKeys}
+                        onSelect={onSelect}
+                        onCheck={onCheck}
+                        onExpand={onExpand}
+                        switcherIcon={(node) => {
+                            if (node.isLeaf) {
+                                return null;
+                            }
+
+                            return (
+                                <IconArrowWrapper>
+                                    <StyledArrow size={sizeToIconSize(size)} color="inherit" className="arrow" />
+                                </IconArrowWrapper>
+                            );
+                        }}
+                        icon={
+                            <IconFolderWrapper>
+                                <StyledFolder size={sizeToIconSize(size)} color="inherit" />
+                            </IconFolderWrapper>
                         }
-
-                        return (
-                            <IconArrowWrapper>
-                                <StyledArrow size={sizeToIconSize(size)} color="inherit" className="arrow" />
-                            </IconArrowWrapper>
-                        );
-                    }}
-                    icon={
-                        <IconFolderWrapper>
-                            <StyledFolder size={sizeToIconSize(size)} color="inherit" />
-                        </IconFolderWrapper>
-                    }
-                />
-            </Root>
-        );
-    });
+                    />
+                </Root>
+            );
+        },
+    );
 
 export const treeConfig = {
     name: 'Tree',

@@ -3,7 +3,6 @@ import { css } from '@linaria/core';
 
 import { applyEllipsis } from '../../mixins';
 import { IconDisclosureRightCentered, IconFolder } from '../_Icon';
-import { Done } from '../Checkbox/IconsSvg';
 
 import { treeTokens as tokens, classes } from './Tree.tokens';
 
@@ -35,12 +34,24 @@ export const IconFolderWrapper = styled.div`
 export const StyledFolder = styled(IconFolder)``;
 
 export const base = css`
+    .rc-tree, .rc-tree-list {
+        border: none !important;
+    }
+
     .rc-tree .rc-tree-treenode {
         position: relative;
         display: flex;
         align-items: center;
         min-height: var(${tokens.itemHeight});
-        padding: 0 var(${tokens.itemPadding});
+        padding: 0;
+    }
+
+    .rc-tree.${classes.treeItemFilled} .rc-tree-treenode {
+        padding: 0 var(${tokens.itemPadding}) !important;
+    }
+
+    .rc-tree.${classes.treeInverted}:not(${classes.treeItemFilled}) .rc-tree-treenode {
+        padding: 0 var(${tokens.itemPaddingTight});
     }
 
     .rc-tree .rc-tree-treenode::before {
@@ -49,10 +60,14 @@ export const base = css`
         z-index: -1;
         top: 0.25rem;
         bottom: 0.25rem;
-        left: calc(var(${tokens.itemPadding}) + var(${tokens.switcherSize}));
+        left: var(${tokens.switcherSize});
         right: 0;
         background: transparent;
         border-radius: 12px;
+    }
+
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled {
+        opacity: var(${tokens.itemDisabledOpacity});
     }
 
     .rc-tree.${classes.treeItemFilled} .rc-tree-treenode::before {
@@ -64,11 +79,11 @@ export const base = css`
         background: var(${tokens.itemBackgroundColor}) !important;
     }
 
-    .rc-tree .rc-tree-treenode:hover::before {
+    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):hover::before {
         background: var(${tokens.itemBackgroundColorHover});
     }
 
-    .rc-tree .rc-tree-treenode:active::before {
+    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):active::before {
         background: var(${tokens.itemBackgroundColorActive});
     }
 
@@ -90,6 +105,10 @@ export const base = css`
         line-height: 0;
         vertical-align: 0;
         background: transparent;
+    }
+
+    .rc-tree.${classes.treeInverted} .rc-tree-treenode span.rc-tree-switcher {
+        margin: 0;
     }
 
     .rc-tree .rc-tree-treenode span.rc-tree-iconEle {
@@ -152,12 +171,12 @@ export const base = css`
         ${applyEllipsis()}
     }
 
-    .rc-tree.tree-inverted .rc-tree-treenode {
-        flex-direction: row-reverse;
+    .rc-tree.tree-inverted .rc-tree-treenode span.rc-tree-switcher {
+        order: 1;
     }
 
-    .rc-tree.tree-inverted .rc-tree-treenode .rc-tree-indent-unit {
-        display: none;
+    .rc-tree.tree-inverted .rc-tree-treenode::before {
+        left: 0;
     }
 
     .rc-tree-node-selected {

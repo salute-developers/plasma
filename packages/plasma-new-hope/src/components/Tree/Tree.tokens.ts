@@ -17,6 +17,7 @@ export const treeTokens = {
     lineHeight: '--plasma-tree-line-height',
     itemHeight: '--plasma-tree-item-height',
     itemPadding: '--plasma-tree-item-padding',
+    itemPaddingTight: '--plasma-tree-item-padding-tight',
     itemIndent: '--plasma-tree-item-indent',
     iconFolderMargin: '--plasma-tree-icon-folder-margin',
     switcherMargin: '--plasma-tree-switcher-margin',
@@ -30,4 +31,5 @@ export const treeTokens = {
     itemBackgroundColor: '--plasma-tree-item-background-color',
     itemBackgroundColorHover: '--plasma-tree-item-background-color-hover',
     itemBackgroundColorActive: '--plasma-tree-item-background-color-active',
+    itemDisabledOpacity: '--plasma-tree-item-disabled-opacity',
 };
