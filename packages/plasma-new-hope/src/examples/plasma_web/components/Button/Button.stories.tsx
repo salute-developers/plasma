@@ -104,6 +104,16 @@ export const Default: StoryObj<StoryPropsDefault> = {
     render: (args) => <StoryDefault {...args} />,
 };
 
+export const WithValue: StoryObj<StoryPropsDefault> = {
+    args: {
+        enableContentLeft: false,
+    },
+    argTypes: {
+        ...disableProps(['enableContentRight']),
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
 export const AccessibilityWithChildren: StoryObj<ComponentProps<typeof Button>> = {
     argTypes: { ...disableProps(['text']) },
     render: (props: ComponentProps<typeof Button>) => {
