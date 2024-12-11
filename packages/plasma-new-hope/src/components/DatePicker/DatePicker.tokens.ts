@@ -48,6 +48,16 @@ export const tokens = {
     labelLetterSpacing: '--plasma-date-picker__label-letter-spacing',
     labelLineHeight: '--plasma-date-picker__label-line-height',
 
+    /** Токены индикатора */
+    indicatorColor: '--plasma-date-picker__indicator-color',
+
+    indicatorSize: '--plasma-date-picker__indicator-size',
+    indicatorSizeOuter: '--plasma-date-picker__indicator-size-outer',
+    indicatorPlacement: '--plasma-date-picker__indicator-placement',
+    indicatorPlacementRight: '--plasma-date-picker__indicator-placement-right',
+    indicatorOuterPlacement: '--plasma-date-picker__indicator-placement-outer',
+    indicatorOuterPlacementRight: '--plasma-date-picker__indicator-placement-outer-right',
+
     /* label-placement-inner */
     labelInnerFontFamily: '--plasma-date-picker-placement_inner__label-font-family',
     labelInnerFontStyle: '--plasma-date-picker-placement_inner__label-font-style',

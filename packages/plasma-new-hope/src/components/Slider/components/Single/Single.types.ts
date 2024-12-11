@@ -171,4 +171,23 @@ export type SingleSliderProps = SliderBaseProps &
          * none - скрыть ползунок
          */
         pointerSize?: 'small' | 'large' | 'none';
+
+        /**
+         * Условия отображения ползунка
+         * @default always
+         * @description
+         * always - всегда отображать
+         * hover - при наведении на Slider
+         */
+
+        pointerVisibility: 'always' | 'hover';
+
+        /**
+         * Условия появления ползунка, при pointerVisibility: true
+         * @default always
+         * @description
+         * always - всегда отображать
+         * hover - при наведении на Slider
+         */
+        currentValueVisibility: 'always' | 'hover';
     };

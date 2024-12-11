@@ -14,7 +14,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledInput, StyledLabel, StyledPopover, base } from './SingleDate.styles';
+import { LeftHelper, StyledInput, StyledPopover, base } from './SingleDate.styles';
 
 export const datePickerRoot = (
     Root: RootProps<HTMLDivElement, Omit<DatePickerProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
@@ -28,6 +28,8 @@ export const datePickerRoot = (
                 label,
                 labelPlacement = 'outer',
                 keepPlaceholder,
+                required = false,
+                requiredPlacement = 'right',
                 placeholder,
                 leftHelper,
                 contentLeft,
@@ -83,8 +85,6 @@ export const datePickerRoot = (
 
             const [calendarValue, setCalendarValue] = useState(formatCalendarValue(defaultDate, format, lang));
             const [inputValue, setInputValue] = useState(formatInputValue({ value: defaultDate, format, lang }));
-
-            const innerLabelPlacement = labelPlacement === 'inner';
 
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
@@ -156,7 +156,11 @@ export const datePickerRoot = (
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onKeyDown={onKeyDown}
-                    {...(innerLabelPlacement && { label, labelPlacement, keepPlaceholder })}
+                    required={required}
+                    requiredPlacement={requiredPlacement}
+                    label={label}
+                    labelPlacement={labelPlacement}
+                    keepPlaceholder={keepPlaceholder}
                 />
             );
 
@@ -184,7 +188,6 @@ export const datePickerRoot = (
                     ref={ref}
                     {...rest}
                 >
-                    {!innerLabelPlacement && label && <StyledLabel>{label}</StyledLabel>}
                     <StyledPopover
                         opened={isInnerOpen}
                         usePortal={usePortal}

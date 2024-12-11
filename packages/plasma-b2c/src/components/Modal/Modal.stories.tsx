@@ -10,7 +10,7 @@ import { ModalsProvider, Modal } from '.';
 import type { ModalProps } from '.';
 
 const meta: Meta<ModalProps> = {
-    title: 'Controls/Modal',
+    title: 'Overlay/Modal',
     component: Modal,
     decorators: [InSpacingDecorator],
     argTypes: {

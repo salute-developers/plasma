@@ -19,7 +19,7 @@ const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/Select',
+    title: 'Data Entry/Select',
     decorators: [InSpacingDecorator],
     component: Select,
     argTypes: {

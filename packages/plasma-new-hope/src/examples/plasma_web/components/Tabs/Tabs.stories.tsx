@@ -56,7 +56,7 @@ type HorizontalStoryTabsProps = StoryTabsProps & { width: string };
 type VerticalStoryTabsProps = StoryTabsProps & { height: string };
 
 const meta: Meta<StoryTabsProps> = {
-    title: 'plasma_web/Tabs',
+    title: 'web/Navigation/Tabs',
     component: Tabs,
     decorators: [WithTheme],
     argTypes: {

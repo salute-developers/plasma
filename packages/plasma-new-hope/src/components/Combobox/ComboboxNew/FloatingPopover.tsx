@@ -5,7 +5,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 import type { FloatingPopoverProps } from './Combobox.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, listWidth, offset = 0 }, ref) => {
+    ({ target, children, opened, onToggle, placement, portal, listWidth, offset = 0, zIndex }, ref) => {
         const { refs, floatingStyles } = useFloating({
             placement,
             open: opened,
@@ -47,7 +47,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     // root - принимает ref контейнера портала.
                     // id - если есть портал - не используется, если портала нет - подставляется 'wrappedId'.
                     <FloatingPortal {...getFloatingPortalProps(portal, wrappedId)}>
-                        <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: 1 }}>
+                        <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: zIndex || 1000 }}>
                             {children}
                         </div>
                     </FloatingPortal>

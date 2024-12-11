@@ -6,7 +6,7 @@ import { Counter } from './Counter';
 const views = ['default', 'accent', 'positive', 'negative'];
 
 const meta: Meta<typeof Counter> = {
-    title: 'Content/Counter',
+    title: 'Data Display/Counter',
     component: Counter,
     decorators: [InSpacingDecorator],
     argTypes: {

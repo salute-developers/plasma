@@ -25,7 +25,7 @@ type StorySelectPropsCustom = {
 type StorySelectProps = ComponentProps<typeof Combobox> & StorySelectPropsCustom;
 
 const meta: Meta<StorySelectProps> = {
-    title: 'plasma_web/Combobox',
+    title: 'web/Data Entry/Combobox',
     decorators: [WithTheme],
     component: Combobox,
     argTypes: {

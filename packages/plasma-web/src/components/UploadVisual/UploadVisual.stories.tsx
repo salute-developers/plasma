@@ -12,7 +12,7 @@ import { UploadVisual } from '.';
 import type { UploadVisualProps } from '.';
 
 const meta: Meta<UploadVisualProps> = {
-    title: 'Controls/UploadVisual',
+    title: 'Data Entry/UploadVisual',
     component: UploadVisual,
     decorators: [InSpacingDecorator],
     argTypes: {

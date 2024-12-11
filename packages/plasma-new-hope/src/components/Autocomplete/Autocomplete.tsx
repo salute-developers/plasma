@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useReducer } from 'react';
+import React, { forwardRef, useState, useReducer, useLayoutEffect } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { useDidMountEffect, useOutsideClick } from '../../hooks';
@@ -115,7 +115,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 dispatchFocused({ type: 'reset' });
             }, [value]);
 
-            useDidMountEffect(() => {
+            useLayoutEffect(() => {
                 if (defaultValue) {
                     setInnerValue(defaultValue);
                 }

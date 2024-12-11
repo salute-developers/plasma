@@ -237,6 +237,26 @@ describe('plasma-web: DatePicker', () => {
         });
     });
 
+    it('prop: required', () => {
+        cy.viewport(500, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ padding: '1rem' }}>
+                    <Demo required label="Лейбл" />
+                    <PadMe />
+                    <Demo required requiredPlacement="left" label="Лейбл" />
+                    <PadMe />
+                    <Demo required />
+                    <PadMe />
+                    <Demo required requiredPlacement="left" />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: onToggle, outside click', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -532,6 +552,26 @@ describe('plasma-web: DatePickerRange', () => {
             failureThreshold: 0.02,
             failureThresholdType: 'percent',
         });
+    });
+
+    it('prop: required', () => {
+        cy.viewport(500, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ padding: '1rem' }}>
+                    <Demo required label="Лейбл" />
+                    <PadMe />
+                    <Demo required requiredPlacement="left" label="Лейбл" />
+                    <PadMe />
+                    <Demo required />
+                    <PadMe />
+                    <Demo required requiredPlacement="left" />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
     });
 
     it('prop: onToggle, outside click', () => {

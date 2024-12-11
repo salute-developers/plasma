@@ -35,7 +35,7 @@ const propsToDisable = [
 ];
 
 const meta: Meta<typeof Mask> = {
-    title: 'Controls/Mask',
+    title: 'Data Display/Mask',
     component: Mask,
     decorators: [InSpacingDecorator],
     argTypes: {

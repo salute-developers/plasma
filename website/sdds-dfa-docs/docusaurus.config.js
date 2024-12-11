@@ -8,7 +8,7 @@ const pckgJson = require('./package.json');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const versionsArchived = require('./versionsArchived.json');
 
-const { VERSION_NAME, PREFIX } = process.env;
+const { VERSION_NAME, PREFIX = '' } = process.env;
 const defaultUrl = PREFIX ? `/${PREFIX}/sdds-dfa/` : '/sdds-dfa/';
 const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 

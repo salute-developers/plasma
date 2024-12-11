@@ -39,7 +39,7 @@ import {
 } from '.';
 
 const meta: Meta = {
-    title: 'Content/Typography',
+    title: 'Data Display/Typography',
     component: DsplL,
     argTypes: {
         ...disableProps(['size']),

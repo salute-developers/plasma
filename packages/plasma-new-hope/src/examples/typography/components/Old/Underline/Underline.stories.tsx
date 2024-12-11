@@ -9,7 +9,7 @@ import { Underline } from './Underline';
 import { config } from './Underline.config';
 
 const meta: Meta<typeof Underline> = {
-    title: 'typography/Old/Underline',
+    title: 'Data Display/Typography/Old/Underline',
     decorators: [WithTheme],
     component: Underline,
     argTypes: {

@@ -16,7 +16,7 @@ const sizes = ['l', 'm', 's', 'xs'];
 const gapValues = ['dense', 'wide'];
 
 const meta: Meta<typeof ChipGroup> = {
-    title: 'plasma_b2c/ChipGroup',
+    title: 'b2c/Data Display/ChipGroup',
     decorators: [WithTheme],
     argTypes: {
         size: {

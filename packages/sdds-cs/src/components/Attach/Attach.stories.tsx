@@ -21,7 +21,7 @@ type StoryAttachProps = ComponentProps<typeof Attach> & {
 };
 
 const meta: Meta<StoryAttachProps> = {
-    title: 'Controls/Attach',
+    title: 'Data Entry/Attach',
     decorators: [InSpacingDecorator],
     component: Attach,
     argTypes: {

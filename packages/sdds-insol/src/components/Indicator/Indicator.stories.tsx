@@ -5,7 +5,7 @@ import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { Indicator } from './Indicator';
 
 const meta: Meta<typeof Indicator> = {
-    title: 'Content/Indicator',
+    title: 'Data Display/Indicator',
     component: Indicator,
     decorators: [InSpacingDecorator],
     argTypes: {

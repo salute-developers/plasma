@@ -36,7 +36,7 @@ const sizes = ['m', 's'];
 const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
 
 const meta: Meta<CheckboxProps> = {
-    title: 'Controls/Checkbox',
+    title: 'Data Entry/Checkbox',
     component: Checkbox,
     decorators: [InSpacingDecorator],
     argTypes: {

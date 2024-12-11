@@ -13,7 +13,7 @@ import { SSRProvider } from '../../../../components/SSRProvider';
 import { Panel, PanelContent, PanelFooter, PanelHeader } from './Panel';
 
 export default {
-    title: 'plasma_web/Panel',
+    title: 'web/Overlay/Panel',
     decorators: [WithTheme],
     argTypes: {
         borderRadius: {

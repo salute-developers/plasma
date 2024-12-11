@@ -14,7 +14,7 @@ const onOverlayClick = action('onOverlayClick');
 type StoryOverlayProps = ComponentProps<typeof Overlay>;
 
 const meta: Meta<StoryOverlayProps> = {
-    title: 'plasma_b2c/Overlay',
+    title: 'b2c/Overlay/Overlay',
     decorators: [WithTheme],
     argTypes: {
         isClickable: {

@@ -3,8 +3,9 @@ import React from 'react';
 
 import { PathAction, PathState, FocusedPathAction, FocusedPathState } from '../reducers';
 import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
+import { isEmpty } from '../../../../utils';
 
-import { PathMapType, FocusedToValueMapType } from './getPathMaps';
+import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './getPathMaps';
 
 const JUMP_SIZE = 10;
 
@@ -40,6 +41,10 @@ type Props = {
     handleListToggle: (opened: boolean) => void;
     handlePressDown: (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => void;
     setTextValue: React.Dispatch<React.SetStateAction<string>>;
+    multiple: boolean | undefined;
+    value: string | string[];
+    textValue: string;
+    valueToItemMap: ValueToItemMapType;
 };
 
 type ReturnedProps = {
@@ -56,6 +61,10 @@ export const useKeyNavigation = ({
     handleListToggle,
     handlePressDown,
     setTextValue,
+    multiple,
+    value,
+    textValue,
+    valueToItemMap,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
     const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
@@ -179,7 +188,19 @@ export const useKeyNavigation = ({
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
                 handleListToggle(false);
-                setTextValue('');
+
+                if (multiple) {
+                    setTextValue('');
+                } else if (textValue !== value) {
+                    // Проверяем, отличается ли значение в инпуте от выбранного value после нажатия Tab/Enter.
+                    // Если изменилось, то возвращаем label выбранного айтема.
+                    // Если нет выбранного элемента, то стираем значение инпута.
+                    if (isEmpty(value)) {
+                        setTextValue('');
+                    } else {
+                        setTextValue(valueToItemMap.get(value as string)?.label || '');
+                    }
+                }
 
                 break;
             }

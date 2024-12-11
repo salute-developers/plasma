@@ -16,7 +16,7 @@ const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/Combobox',
+    title: 'Data Entry/Combobox',
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {
@@ -361,7 +361,6 @@ const SingleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
-                autoComplete="off"
             />
         </div>
     );
@@ -388,7 +387,6 @@ const MultipleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
-                autoComplete="off"
             />
         </div>
     );

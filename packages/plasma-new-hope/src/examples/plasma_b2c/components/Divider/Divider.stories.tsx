@@ -9,7 +9,7 @@ import { bodyS } from '../../../../mixins';
 import { Divider } from './Divider';
 
 const meta: Meta<typeof Divider> = {
-    title: 'plasma_b2c/Divider',
+    title: 'b2c/Data Display/Divider',
     decorators: [WithTheme],
     argTypes: {
         orientation: {

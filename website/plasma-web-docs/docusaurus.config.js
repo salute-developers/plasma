@@ -13,9 +13,10 @@ const pckgJson = require('./package.json');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const versionsArchived = require('./versionsArchived.json');
 
-const { PR_NAME, VERSION_NAME } = process.env;
-const prefix = VERSION_NAME || !PR_NAME ? '' : `/pr/${PR_NAME}`;
-const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : `${prefix}/web/`;
+const { VERSION_NAME, PREFIX = '' } = process.env;
+const prPrefix = VERSION_NAME || PREFIX;
+const defaultUrl = PREFIX ? `/${PREFIX}/web/` : '/web/';
+const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
             },
             items: [
                 {
-                    href: `https://plasma.sberdevices.ru${prefix}/ui/`,
+                    href: `https://plasma.sberdevices.ru${prPrefix}/ui/`,
                     position: 'left',
                     label: 'UI',
                 },
@@ -75,7 +76,7 @@ module.exports = {
                     items: [
                         {
                             label: 'Plasma UI',
-                            to: `https://plasma.sberdevices.ru${prefix}/ui/`,
+                            to: `https://plasma.sberdevices.ru${prPrefix}/ui/`,
                         },
                         {
                             label: 'Plasma Web',

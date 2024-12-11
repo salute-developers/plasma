@@ -14,9 +14,10 @@ const sliderAligns = ['center', 'left', 'right', 'none'];
 const labelPlacements = ['top', 'left'];
 const scaleAligns = ['side', 'bottom'];
 const orientations: Array<string> = ['vertical', 'horizontal'];
+const visibility = ['always', 'hover'];
 
 const meta: Meta<typeof Slider> = {
-    title: 'Controls/Slider',
+    title: 'Data Entry/Slider',
     component: Slider,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -155,11 +156,24 @@ export const Default: StorySingle = {
             },
             if: { arg: 'orientation', eq: 'vertical' },
         },
+        pointerVisibility: {
+            options: visibility,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        currentValueVisibility: {
+            options: visibility,
+            control: {
+                type: 'inline-radio',
+            },
+        },
     },
     args: {
         view: 'default',
         size: 's',
         pointerSize: 'small',
+        pointerVisibility: 'always',
         min: 0,
         max: 100,
         orientation: 'horizontal',
@@ -171,6 +185,7 @@ export const Default: StorySingle = {
         scaleAlign: 'bottom',
         showScale: true,
         showCurrentValue: false,
+        currentValueVisibility: 'always',
         showIcon: true,
         reversed: false,
         labelReversed: false,

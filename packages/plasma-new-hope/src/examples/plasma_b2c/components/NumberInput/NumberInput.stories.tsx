@@ -17,7 +17,7 @@ const inputBackgroundTypes = ['fill', 'clear'];
 const segmentation = ['default', 'segmented', 'solid'];
 
 const meta: Meta<typeof NumberInput> = {
-    title: 'plasma_b2c/NumberInput',
+    title: 'b2c/Data Entry/NumberInput',
     component: NumberInput,
     decorators: [WithTheme],
     argTypes: {

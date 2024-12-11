@@ -9,7 +9,7 @@ import { Spinner } from './Spinner';
 import type { SpinnerProps } from '.';
 
 const meta: Meta<SpinnerProps> = {
-    title: 'Content/Spinner',
+    title: 'Data Display/Spinner',
     decorators: [InSpacing],
     component: Spinner,
     argTypes: {

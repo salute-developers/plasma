@@ -7,7 +7,7 @@ import { Button } from '../Button';
 import { Pagination } from './Pagination';
 
 const meta: Meta<typeof Pagination> = {
-    title: 'Controls/Pagination',
+    title: 'Navigation/Pagination',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {

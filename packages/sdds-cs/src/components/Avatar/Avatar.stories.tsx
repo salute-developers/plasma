@@ -5,7 +5,7 @@ import { disableProps } from '@salutejs/plasma-sb-utils';
 import { Avatar } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
-    title: 'Content/Avatar',
+    title: 'Data Display/Avatar',
     component: Avatar,
     argTypes: {
         view: { control: 'inline-radio', options: ['default'] },

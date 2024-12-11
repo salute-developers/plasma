@@ -12,7 +12,7 @@ import { Toast, useToast, ToastPosition } from '.';
 import type { ToastProps } from '.';
 
 const meta: Meta<ToastProps> = {
-    title: 'Controls/Toast',
+    title: 'Overlay/Toast',
     component: Toast,
     decorators: [InSpacingDecorator],
 };

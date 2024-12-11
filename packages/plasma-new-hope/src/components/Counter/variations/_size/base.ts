@@ -14,10 +14,7 @@ export const base = css`
 
     height: var(${tokens.height});
 
-    padding-top: var(${tokens.paddingTop});
-    padding-right: var(${tokens.paddingRight});
-    padding-bottom: var(${tokens.paddingBottom});
-    padding-left: var(${tokens.paddingLeft});
+    padding: var(${tokens.padding});
 
     &.${classes.round} {
         width: var(${tokens.height});

@@ -9,7 +9,7 @@ import { Steps } from './Steps';
 import type { StepItemProps } from '.';
 
 const meta: Meta<typeof Steps> = {
-    title: 'Controls/Steps',
+    title: 'Navigation/Steps',
     decorators: [InSpacingDecorator],
     component: Steps,
 };

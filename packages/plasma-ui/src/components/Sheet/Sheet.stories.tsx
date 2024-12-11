@@ -9,7 +9,7 @@ import { Sheet } from './Sheet';
 import type { SheetProps } from './Sheet';
 
 const meta: Meta<SheetProps> = {
-    title: 'Content/Sheet',
+    title: 'Overlay/Sheet',
     decorators: [InSpacing],
     component: Sheet,
     parameters: { viewport: { defaultViewport: '860' } },

@@ -17,7 +17,7 @@ const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'plasma_b2c/Combobox',
+    title: 'b2c/Data Entry/Combobox',
     decorators: [WithTheme],
     component: Combobox,
     argTypes: {
@@ -353,7 +353,6 @@ const items = [
 
 const SingleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState('');
-
     return (
         <div style={{ width: '400px' }}>
             <Combobox
@@ -362,6 +361,7 @@ const SingleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                onToggle={(e) => console.log(e)}
             />
         </div>
     );

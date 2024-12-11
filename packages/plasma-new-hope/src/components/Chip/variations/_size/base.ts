@@ -15,10 +15,7 @@ export const base = css`
     width: var(${tokens.width});
     height: var(${tokens.height});
 
-    padding-top: var(${tokens.paddingTop});
-    padding-right: var(${tokens.paddingRight});
-    padding-bottom: var(${tokens.paddingBottom});
-    padding-left: var(${tokens.paddingLeft});
+    padding: var(${tokens.padding});
 
     :hover {
         scale: var(${tokens.scaleHover});

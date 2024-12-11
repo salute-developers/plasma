@@ -24,7 +24,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledLabel, StyledRange, base } from './RangeDate.styles';
+import { LeftHelper, StyledRange, base } from './RangeDate.styles';
 import { RangeDatePopover } from './RangeDatePopover/RangeDatePopover';
 
 export const datePickerRangeRoot = (
@@ -68,6 +68,9 @@ export const datePickerRangeRoot = (
                 secondTextfieldTextBefore,
                 firstTextfieldTextAfter,
                 secondTextfieldTextAfter,
+
+                required,
+                requiredPlacement = 'right',
 
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
@@ -286,6 +289,9 @@ export const datePickerRangeRoot = (
                         autoComplete={autoComplete}
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
+                        label={label}
+                        required={required}
+                        requiredPlacement={requiredPlacement}
                         disabled={disabled}
                         readOnly={!disabled && readOnly}
                         firstPlaceholder={firstPlaceholder}
@@ -382,7 +388,6 @@ export const datePickerRangeRoot = (
                     readOnly={!disabled && readOnly}
                     {...rest}
                 >
-                    {label && <StyledLabel>{label}</StyledLabel>}
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         target={RangeComponent}

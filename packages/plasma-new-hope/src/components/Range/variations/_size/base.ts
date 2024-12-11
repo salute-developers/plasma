@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../Range.tokens';
+import { classes, tokens } from '../../Range.tokens';
 import {
     StyledLabel,
     LeftHelper,
@@ -8,6 +8,7 @@ import {
     StyledContentRight,
     StyledDivider,
     ContentWrapper,
+    StyledIndicator,
 } from '../../Range.styles';
 
 export const base = css`
@@ -27,13 +28,33 @@ export const base = css`
     }
 
     ${StyledLabel} {
-        margin: var(${tokens.labelOffset});
+        margin-bottom: var(${tokens.labelOffset});
         font-family: var(${tokens.labelFontFamily});
         font-size: var(${tokens.labelFontSize});
         font-style: var(${tokens.labelFontStyle});
         font-weight: var(${tokens.labelFontWeight});
         letter-spacing: var(${tokens.labelLetterSpacing});
         line-height: var(${tokens.labelLineHeight});
+    }
+
+    ${StyledIndicator} {
+        width: var(${tokens.indicatorSize});
+        height: var(${tokens.indicatorSize});
+        inset: var(${tokens.indicatorPlacement});
+
+        &.${classes.requiredAlignRight} {
+            inset: var(${tokens.indicatorPlacementRight});
+        }
+
+        &.${classes.requiredOuterPlacement} {
+            width: var(${tokens.indicatorSizeOuter});
+            height: var(${tokens.indicatorSizeOuter});
+            inset: var(${tokens.indicatorOuterPlacement});
+
+            &.${classes.requiredAlignRight} {
+                inset: var(${tokens.indicatorOuterPlacementRight});
+            }
+        }
     }
 
     ${StyledContentLeft} {

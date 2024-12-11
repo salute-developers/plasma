@@ -24,7 +24,7 @@ const pinValues = [
 const contentPlacinValues = ['default', 'relaxed'];
 
 const meta: Meta<typeof Button> = {
-    title: 'plasma_b2c/Button',
+    title: 'b2c/Data Entry/Button',
     decorators: [WithTheme],
     component: Button,
     args: {

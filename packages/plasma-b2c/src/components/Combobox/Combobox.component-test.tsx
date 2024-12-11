@@ -8,6 +8,8 @@ const items = [
     {
         value: 'north_america',
         label: 'Северная Америка',
+        className: 'test-classname',
+        'data-name': 'test-data-name',
     },
     {
         value: 'south_america',
@@ -1167,6 +1169,34 @@ describe('plasma-b2c: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: item data-attrs', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="single" items={items} label="Label" placeholder="Placeholder" />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').should('have.class', 'test-classname');
+        cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
+    });
+
+    it('prop: zIndex', () => {
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="single" items={items} label="Label" placeholder="Placeholder" zIndex={10000} />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
     it('flow: single uncontrolled', () => {
         cy.viewport(1000, 500);
 
@@ -1401,7 +1431,43 @@ describe('plasma-b2c: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
-    it('keyboard interactions', () => {
+    it('keyboard interactions: single', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            return (
+                <div style={{ width: '300px' }}>
+                    <Combobox id="single" label="Label" placeholder="Placeholder" items={items} />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('body').realClick();
+        cy.realPress('Tab');
+        cy.get('#single').should('be.focused');
+
+        // Escape
+        cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
+        cy.realPress('Escape');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.get('[id$="tree_level_3"]').should('not.exist');
+        cy.get('#single').should('be.focused');
+        cy.realPress('ArrowDown').realPress('Enter').realPress('Escape');
+        cy.get('#single').should('be.focused');
+        cy.get('#single').should('have.value', 'Северная Америка');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        // Tab
+        cy.realPress('Tab');
+        cy.get('#single').should('not.be.focused');
+        cy.get('#single').should('have.value', 'Северная Америка');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+    });
+
+    it('keyboard interactions: multiple', () => {
         cy.viewport(1000, 500);
 
         const Component = () => {

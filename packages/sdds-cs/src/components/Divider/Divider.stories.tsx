@@ -9,7 +9,7 @@ import { BodyS } from '../Typography';
 import { Divider } from './Divider';
 
 const meta: Meta<typeof Divider> = {
-    title: 'Content/Divider',
+    title: 'Data Display/Divider',
     decorators: [InSpacingDecorator],
     argTypes: {
         orientation: {

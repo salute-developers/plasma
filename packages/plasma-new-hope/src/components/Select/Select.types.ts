@@ -2,6 +2,7 @@ import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent } from 'react'
 import React from 'react';
 
 import type { RequiredProps, LabelProps } from '../TextField/TextField.types';
+import { DropdownProps } from '../Dropdown/Dropdown.types';
 
 import { FocusedPathState } from './reducers';
 import {
@@ -110,6 +111,10 @@ export interface BasicProps<K extends ItemOption> {
      */
     variant?: 'normal' | 'tight';
     /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
+    /**
      * Значение css overflow для выпадающего меню.
      * @example listOverflow="scroll"
      */
@@ -142,6 +147,14 @@ export interface BasicProps<K extends ItemOption> {
      * @default если single, то true; если multiple, то false
      */
     closeAfterSelect?: boolean;
+    /**
+     * Ячейка для контента в начале выпадающего списка.
+     */
+    beforeList?: React.ReactNode;
+    /**
+     * Ячейка для контента в конце выпадающего списка.
+     */
+    afterList?: React.ReactNode;
 
     /**
      * Размер компонента.
@@ -287,6 +300,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          */
         variant?: 'normal' | 'tight';
         /**
+         * CSS-свойство z-index для выпадающего списка.
+         */
+        zIndex?: CSSProperties['zIndex'];
+        /**
          * Значение css width для выпадающего списка.
          * @example width="200px"
          */
@@ -308,6 +325,14 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default если single, то true; если multiple, то false
          */
         closeAfterSelect?: boolean;
+        /**
+         * Ячейка для контента в начале выпадающего списка.
+         */
+        beforeList?: React.ReactNode;
+        /**
+         * Ячейка для контента в конце выпадающего списка.
+         */
+        afterList?: React.ReactNode;
 
         /**
          * Размер компонента.
@@ -347,4 +372,5 @@ export type FloatingPopoverProps = {
     portal?: MergedSelectProps['portal'];
     listWidth?: MergedSelectProps['listWidth'];
     offset?: number;
+    zIndex?: DropdownProps['zIndex'];
 };

@@ -7,7 +7,7 @@ const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
 
 const meta: Meta<typeof Counter> = {
-    title: 'Content/Counter',
+    title: 'Data Display/Counter',
     component: Counter,
     decorators: [InSpacingDecorator],
     argTypes: {

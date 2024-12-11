@@ -9,6 +9,15 @@ export type DatePickerPlacement = DatePickerPlacementBasic | 'auto';
 
 export type DatePickerTextFieldProps = {
     /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
+    /**
      * Выбранное значение.
      */
     defaultDate?: Date;

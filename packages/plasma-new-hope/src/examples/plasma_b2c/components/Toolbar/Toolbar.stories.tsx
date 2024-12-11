@@ -25,7 +25,7 @@ const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
 };
 
 const meta: Meta<typeof Toolbar> = {
-    title: 'plasma_b2c/Toolbar',
+    title: 'b2c/Overlay/Toolbar',
     component: ToolbarWrapper,
     decorators: [WithTheme],
     argTypes: {

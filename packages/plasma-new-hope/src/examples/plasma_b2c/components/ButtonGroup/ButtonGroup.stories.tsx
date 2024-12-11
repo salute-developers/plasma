@@ -19,7 +19,7 @@ const shapeValues = ['segmented', 'default'];
 const stretchingValues = ['auto', 'filled'];
 
 const meta: Meta<typeof ButtonGroup> = {
-    title: 'plasma_b2c/ButtonGroup',
+    title: 'b2c/Data Entry/ButtonGroup',
     decorators: [WithTheme],
     argTypes: {
         size: {

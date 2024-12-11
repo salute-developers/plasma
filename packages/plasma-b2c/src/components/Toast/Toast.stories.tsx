@@ -14,7 +14,7 @@ import { ToastController } from './Toast';
 import { Toast, useToast } from '.';
 
 const meta: Meta<typeof ToastController> = {
-    title: 'Controls/Toast',
+    title: 'Overlay/Toast',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {

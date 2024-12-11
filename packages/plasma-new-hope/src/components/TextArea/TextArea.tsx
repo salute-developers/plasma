@@ -25,6 +25,7 @@ import {
     StyledHintWrapper,
     TitleCaption,
     StyledOutsideHelpersWrapper,
+    StyledHiddenTextArea,
 } from './TextArea.styles';
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
@@ -148,9 +149,11 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const [isHintVisible, setIsHintVisible] = useState(false);
         const [helperWidth, setHelperWidth] = useState<string>(width ? `${width}rem` : '100%');
         const [focused, setFocused] = useState(false);
+        // TODO: перенести в общую переменную для value снаружи и внутри
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
         const outerRef = createRef<HTMLTextAreaElement>();
+        const hiddenRef = useRef<HTMLTextAreaElement | null>(null);
 
         const hintRef = useOutsideClick<HTMLDivElement>(() => {
             setIsHintVisible(false);
@@ -172,6 +175,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const textareaHelperId = id ? `${id}-helper` : undefined;
         const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
         const placeholderLabel = hasInnerLabel ? label : placeholder;
+        const applyAutoResize = autoResize || Boolean(clear);
 
         const clearClass = clear ? classes.clear : undefined;
         const hasHintClass = hintText ? classes.hasHint : undefined;
@@ -204,7 +208,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         });
 
-        useAutoResize(autoResize || Boolean(clear), outerRef, value, minAuto, maxAuto, resize);
+        useAutoResize(applyAutoResize, outerRef, value || uncontrolledValue, minAuto, maxAuto, resize, hiddenRef);
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
@@ -347,7 +351,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             applyCustomWidth={applyCustomWidth}
                             ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
-                            height={autoResize || Boolean(clear) ? minAuto : height}
+                            height={applyAutoResize ? minAuto : height}
                             width={width}
                             placeholder={placeholderLabel}
                             aria-describedby={textareaHelperId}
@@ -360,6 +364,15 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             onChange={onChangeHandler}
                             {...rest}
                         />
+                        {applyAutoResize && (
+                            <StyledHiddenTextArea
+                                aria-hidden
+                                ref={hiddenRef}
+                                hasContentRight={Boolean(contentRight)}
+                                value={value || uncontrolledValue || ' '}
+                                defaultValue={defaultValue}
+                            />
+                        )}
                     </StyledTextAreaWrapper>
                     {hasHelper && (
                         <StyledHelpers className={styledHelpers} id={textareaHelperId}>

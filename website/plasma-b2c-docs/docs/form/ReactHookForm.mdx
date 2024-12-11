@@ -14,7 +14,7 @@ sidebar_position: 2
 
 import { useForm } from 'react-hook-form';
 import React from 'react';
-import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, DatePickerRange, Autocomplete } from "@salutejs/plasma-b2c";
+import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, DatePickerRange, Combobox, Autocomplete } from "@salutejs/plasma-b2c";
 
 export function App() {
     const langName = 'language';
@@ -105,6 +105,8 @@ export function App() {
             <Slider {...register('slider')} label="Slider" type="single" min={0} max={100} />
             <Slider {...register('sliderdouble')} label="Slider Double" type="double" min={0} max={100} />
             <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
+            <Combobox {...register('combobox')} />
+            <Combobox {...register('comboboxMultiple')} />
             <Button type="submit">Отправить</Button>
         </form>
     );

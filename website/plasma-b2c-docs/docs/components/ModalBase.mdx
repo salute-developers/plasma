@@ -68,7 +68,7 @@ export function App() {
 Для использования стилизованного модального окна с отступами и крестиком для закрытия, добавьте свойство `hasBody`.
 ```tsx live
 import React, { useState } from 'react';
-import { SSRProvider, Button, Modal, PopupProvider } from '@salutejs/plasma-b2c';
+import { SSRProvider, Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpenA, setIsOpenA] = useState(false);
@@ -76,9 +76,9 @@ export function App() {
 
     return (
         <SSRProvider>
-            <PopupProvider>
-                <div style=\{{ height: "300px" }}>
-                    <div style=\{{ display: 'flex', flexDirection: 'column' }}>
+            <PopupBaseProvider>
+                <div style={{ height: "300px" }}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <Button text="Открыть A" onClick={() => setIsOpenA(true)} />
                     </div>
                     <ModalBase
@@ -92,7 +92,7 @@ export function App() {
                         <Button onClick={() => setIsOpenA(false)}>Close</Button>
                         <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
                         Content
-                        <Modal
+                        <ModalBase
                             id="modalB"
                             onClose={() => setIsOpenB(false)}
                             opened={isOpenB}
@@ -101,10 +101,10 @@ export function App() {
                         >
                             <Button onClick={() => setIsOpenB(false)}>Close</Button>
                             Content
-                        </Modal>
+                        </ModalBase>
                     </ModalBase>
                 </div>
-            </PopupProvider>
+            </PopupBaseProvider>
         </SSRProvider>
     );
 }

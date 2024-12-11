@@ -10,7 +10,7 @@ import type { PriceProps } from '.';
 type StoryPriceProps = PriceProps & { priceLabel: number; withCustomPeriodicity?: boolean };
 
 const meta: Meta<StoryPriceProps> = {
-    title: 'Content/Price',
+    title: 'Data Display/Price',
     component: Price,
     decorators: [InSpacing],
     argTypes: {

@@ -22,7 +22,7 @@ const shapeValues = ['segmented', 'default'];
 const stretchingValues = ['auto', 'filled'];
 
 const meta: Meta<typeof TextFieldGroup> = {
-    title: 'Controls/TextFieldGroup',
+    title: 'Data Entry/TextFieldGroup',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {

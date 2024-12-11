@@ -5,7 +5,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { Spinner, SpinnerProps } from '.';
 
 const meta: Meta<SpinnerProps> = {
-    title: 'Content/Spinner',
+    title: 'Data Display/Spinner',
     component: Spinner,
     decorators: [InSpacingDecorator],
     argTypes: {

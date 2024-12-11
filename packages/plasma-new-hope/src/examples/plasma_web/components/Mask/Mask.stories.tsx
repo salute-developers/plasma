@@ -13,7 +13,7 @@ const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
 
 const meta: Meta<typeof Mask> = {
-    title: 'plasma_web/Mask',
+    title: 'web/Data Display/Mask',
     component: Mask,
     decorators: [WithTheme],
     argTypes: {

@@ -42,7 +42,7 @@ describe('plasma-hope: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });
@@ -64,7 +64,7 @@ describe('plasma-hope: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });
@@ -75,8 +75,8 @@ describe('plasma-hope: TextArea', () => {
                 <Demo minAuto={3} maxAuto={5} resize="vertical" />
             </CypressTestDecorator>,
         );
-        cy.root().get('textarea').last().invoke('attr', 'style', 'height: 150px;');
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.root().get('.textarea').last().invoke('attr', 'style', 'height: 150px;');
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });

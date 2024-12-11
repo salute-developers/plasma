@@ -9,7 +9,7 @@ import { Body } from './Body';
 import { config } from './Body.config';
 
 const meta: Meta<typeof Body> = {
-    title: 'typography/Body',
+    title: 'Data Display/Typography/Body',
     decorators: [WithTheme],
     component: Body,
     argTypes: {

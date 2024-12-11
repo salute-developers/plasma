@@ -9,7 +9,7 @@ import { Caption } from './Caption';
 import { config } from './Caption.config';
 
 const meta: Meta<typeof Caption> = {
-    title: 'typography/Old/Caption',
+    title: 'Data Display/Typography/Old/Caption',
     decorators: [WithTheme],
     component: Caption,
     argTypes: {

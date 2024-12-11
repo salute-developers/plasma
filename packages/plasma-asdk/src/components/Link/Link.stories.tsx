@@ -9,7 +9,7 @@ import { Link } from '.';
 const views = ['default'] as const;
 
 const meta: Meta<typeof Link> = {
-    title: 'Content/Link',
+    title: 'Navigation/Link',
     decorators: [InSpacingDecorator],
     argTypes: {
         text: {

@@ -131,7 +131,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             );
 
             const rootNode = (
-                <Root className={cls} {...rest}>
+                <Root className={cls}>
                     {overlay}
                     <PopupRoot
                         id={innerId}
@@ -141,6 +141,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         frame={frame}
                         animationInfo={animationInfo}
                         setVisible={setVisible}
+                        {...rest}
                     >
                         {children}
                     </PopupRoot>

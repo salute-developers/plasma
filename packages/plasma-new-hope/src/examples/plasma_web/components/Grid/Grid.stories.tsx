@@ -7,7 +7,7 @@ import { WithTheme } from '../../../_helpers';
 import { Col, Grid, Row } from './Grid';
 
 const meta: Meta = {
-    title: 'plasma_web/Grid',
+    title: 'web/Layout/Grid',
     decorators: [WithTheme],
 };
 

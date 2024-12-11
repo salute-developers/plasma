@@ -10,7 +10,7 @@ const bases = ['div', 'img'];
 const ratios = ['1/1', '3/4', '4/3', '9/16', '16/9', '1/2', '2/1'];
 
 const meta: Meta<ImageProps> = {
-    title: 'plasma_web/Image',
+    title: 'web/Data Display/Image',
     component: Image,
     decorators: [InSpacingDecorator],
     argTypes: {

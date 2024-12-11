@@ -16,7 +16,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<typeof Radiobox> = {
-    title: 'plasma_b2c/Radiobox',
+    title: 'b2c/Data Entry/Radiobox',
     decorators: [WithTheme],
     component: Radiobox,
     argTypes: argTypesFromConfig(mergeConfig(radioboxConfig, config)),

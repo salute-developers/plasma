@@ -11,7 +11,7 @@ import { config } from './IconButton.config';
 import { IconButton } from './IconButton';
 
 const meta: Meta<typeof IconButton> = {
-    title: 'plasma_b2c/IconButton',
+    title: 'b2c/Data Entry/IconButton',
     decorators: [WithTheme],
     component: IconButton,
     argTypes: {

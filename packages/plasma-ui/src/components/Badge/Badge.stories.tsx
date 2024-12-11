@@ -8,7 +8,7 @@ import { Badge, badgeSizes, badgeViews } from '.';
 import type { BadgeProps } from '.';
 
 const meta: Meta<BadgeProps> = {
-    title: 'Content/Badge',
+    title: 'Data Display/Badge',
     decorators: [InSpacingDecorator],
     component: Badge,
     argTypes: {

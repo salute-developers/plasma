@@ -5,7 +5,7 @@ import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { Avatar } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
-    title: 'Content/Avatar',
+    title: 'Data Display/Avatar',
     component: Avatar,
     decorators: [InSpacingDecorator],
     argTypes: {

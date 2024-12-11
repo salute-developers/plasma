@@ -42,11 +42,12 @@ export const RailWrap = styled.div`
 
 export const Fill = styled.div`
     position: absolute;
+    width: 0;
     height: 100%;
     top: 0;
     left: 0;
+    border-radius: var(${tokens.railBorderRadius});
     background: var(${tokens.fillColor});
-    width: 0;
 `;
 
 export const InputHidden = styled.input`

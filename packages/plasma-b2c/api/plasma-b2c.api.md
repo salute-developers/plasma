@@ -239,6 +239,8 @@ import { radiuses } from '@salutejs/plasma-core';
 import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { ratingClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { ratingTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
@@ -676,7 +678,7 @@ true: PolymorphicClassName;
 };
 }> & ((BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -704,9 +706,9 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -736,9 +738,9 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -766,9 +768,9 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -798,9 +800,9 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -828,9 +830,9 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -860,9 +862,9 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -890,9 +892,9 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -922,7 +924,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "required" | "labelPlacement" | "requiredPlacement" | "optional" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -1682,6 +1684,8 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & DatePickerVariationProps & {
+requiredPlacement?: "right" | "left" | undefined;
+required?: boolean | undefined;
 defaultDate?: Date | undefined;
 placeholder?: string | undefined;
 name?: string | undefined;
@@ -1728,6 +1732,8 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & DatePickerVariationProps & {
+requiredPlacement?: "right" | "left" | undefined;
+required?: boolean | undefined;
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
 name?: string | undefined;
@@ -1747,10 +1753,12 @@ view?: string | undefined;
 disabled?: boolean | undefined;
 autoComplete?: string | undefined;
 readOnly?: boolean | undefined;
+required?: boolean | undefined;
 size?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
+requiredPlacement?: "right" | "left" | undefined;
 dividerVariant?: "none" | "icon" | "dash" | undefined;
 dividerIcon?: ReactNode;
 firstValueError?: boolean | undefined;
@@ -1890,6 +1898,7 @@ default: PolymorphicClassName;
     variant?: "normal" | "tight" | undefined;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderItem?: ((item: DropdownItemOption) => React_2.ReactNode) | undefined;
+    zIndex?: Property.ZIndex | undefined;
     onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
@@ -2356,7 +2365,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2432,7 +2441,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2510,7 +2519,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2586,7 +2595,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2664,7 +2673,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2740,7 +2749,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2818,7 +2827,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -2894,7 +2903,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 titleCaption?: ReactNode;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 textBefore?: string | undefined;
@@ -3283,6 +3292,8 @@ view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
+requiredPlacement?: "right" | "left" | undefined;
+required?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3320,6 +3331,8 @@ view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
+requiredPlacement?: "right" | "left" | undefined;
+required?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3357,6 +3370,8 @@ view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
+requiredPlacement?: "right" | "left" | undefined;
+required?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3376,6 +3391,47 @@ export { Range_2 as Range }
 export { RangeProps }
 
 export { rangeTokens }
+
+// @public (undocumented)
+export const Rating: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+xxs: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+displayL: PolymorphicClassName;
+displayM: PolymorphicClassName;
+displayS: PolymorphicClassName;
+};
+}> & {
+value?: number | null | undefined;
+hasValue?: boolean | undefined;
+precision?: number | undefined;
+valuePlacement?: "after" | "before" | undefined;
+iconSlot?: ReactNode;
+iconSlotOutline?: ReactNode;
+iconSlotHalf?: ReactNode;
+hasIcons?: boolean | undefined;
+iconQuantity?: 1 | 5 | 10 | undefined;
+helperText?: string | undefined;
+helperTextStretching?: "fixed" | "filled" | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>>;
+
+export { ratingClasses }
+
+export { ratingTokens }
 
 export { Ratio }
 
@@ -3543,6 +3599,8 @@ view?: string | undefined;
 size?: "m" | "s" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
 onChange?: ((event: FormTypeNumber) => void) | undefined;
 name: string;
@@ -3571,6 +3629,8 @@ view?: string | undefined;
 size?: "m" | "s" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
 onChange?: ((value: number) => void) | undefined;
 value: number;
@@ -3600,6 +3660,8 @@ view?: string | undefined;
 size?: "m" | "s" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
 onChange?: ((value: number) => void) | undefined;
 value: number;
@@ -3628,6 +3690,8 @@ view?: string | undefined;
 size?: "m" | "s" | "l" | undefined;
 type?: "single" | undefined;
 pointerSize?: "none" | "small" | "large" | undefined;
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
 onChange?: ((event: FormTypeString) => void) | undefined;
 name?: string | undefined;
@@ -3777,7 +3841,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3820,7 +3884,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3863,7 +3927,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3906,7 +3970,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3949,7 +4013,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -3992,7 +4056,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -4035,7 +4099,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -4078,7 +4142,7 @@ titleCaption?: ReactNode;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
-leftHelper?: string | undefined;
+leftHelper?: ReactNode;
 rightHelper?: string | undefined;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
@@ -4179,7 +4243,9 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "HintProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = (TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator'>) & ClearProps_2 & HintProps_2;
+export type TextFieldProps = Omit<TextFieldProps_2, 'helperText'> & {
+    helperText?: ReactNode;
+} & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator'> & ClearProps_2 & HintProps_2;
 
 export { TextFieldView }
 

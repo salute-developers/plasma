@@ -7,7 +7,7 @@ import { argTypesFromConfig, WithTheme } from '../../../_helpers';
 import { Avatar, mergedConfig } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
-    title: 'plasma_b2c/Avatar',
+    title: 'b2c/Data Display/Avatar',
     decorators: [WithTheme],
     component: Avatar,
     argTypes: {

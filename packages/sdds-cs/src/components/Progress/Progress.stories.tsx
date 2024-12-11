@@ -7,7 +7,7 @@ import type { ProgressProps } from '.';
 const views = ['default', 'accent', 'positive', 'negative'];
 
 const meta: Meta<typeof Progress> = {
-    title: 'Controls/Progress',
+    title: 'Overlay/Progress',
     component: Progress,
     decorators: [InSpacingDecorator],
     argTypes: {

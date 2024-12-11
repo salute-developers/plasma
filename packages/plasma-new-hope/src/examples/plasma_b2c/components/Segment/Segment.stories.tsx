@@ -52,7 +52,7 @@ const getContentRight = (contentRightOption: string, size: Size) => {
 };
 
 const meta: Meta<StorySegmentProps> = {
-    title: 'plasma_b2c/Segment',
+    title: 'b2c/Data Entry/Segment',
     decorators: [WithTheme],
     component: SegmentGroup,
     argTypes: {

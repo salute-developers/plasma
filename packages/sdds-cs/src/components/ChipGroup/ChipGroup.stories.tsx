@@ -14,7 +14,7 @@ const views = ['default', 'accent', 'secondary'];
 const gapValues = ['dense', 'wide'];
 
 const meta: Meta<typeof ChipGroup> = {
-    title: 'Controls/ChipGroup',
+    title: 'Data Display/ChipGroup',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {

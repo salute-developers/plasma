@@ -11,7 +11,7 @@ import { SmartPaginationDots, PaginationDots, PaginationDot } from '.';
 import type { SmartPaginationDotsProps, PaginationDotProps } from '.';
 
 const meta: Meta<PaginationDotProps> = {
-    title: 'Controls/PaginationDots',
+    title: 'Navigation/PaginationDots',
     component: PaginationDots,
     decorators: [InSpacingDecorator],
 };

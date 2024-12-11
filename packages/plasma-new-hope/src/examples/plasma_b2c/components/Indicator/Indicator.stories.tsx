@@ -6,7 +6,7 @@ import { argTypesFromConfig, WithTheme } from '../../../_helpers';
 import { Indicator, mergedConfig } from './Indicator';
 
 const meta: Meta<typeof Indicator> = {
-    title: 'plasma_b2c/Indicator',
+    title: 'b2c/Data Display/Indicator',
     decorators: [WithTheme],
     component: Indicator,
     argTypes: {

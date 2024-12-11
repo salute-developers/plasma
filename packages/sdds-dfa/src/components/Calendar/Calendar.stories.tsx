@@ -12,7 +12,7 @@ import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoub
 const onChangeValue = action('onChangeValue');
 
 const meta: Meta<CalendarProps> = {
-    title: 'Controls/Calendar',
+    title: 'Data Entry/Calendar',
     decorators: [InSpacingDecorator],
     component: Calendar,
     argTypes: {

@@ -12,7 +12,7 @@ const onFocus = actionWithPersistedEvent('onFocus');
 const onBlur = actionWithPersistedEvent('onBlur');
 
 const meta: Meta<ButtonProps> = {
-    title: 'Controls/Button',
+    title: 'Data Entry/Button',
     decorators: [InSpacingDecorator],
     argTypes: {
         text: {

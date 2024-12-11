@@ -12,7 +12,7 @@ export type DropdownItemOption = {
      */
     label: string;
     /**
-     * Список дочерних items.
+     * Список дочерних items
      */
     items?: Array<DropdownItemOption>;
     /**
@@ -35,6 +35,11 @@ export type DropdownItemOption = {
      * Отобразить ли разделитель после элемента
      */
     dividerAfter?: boolean;
+    /**
+     * Classname для item
+     */
+    className?: string;
+
     /**
      * Выбранный item.
      * @deprecated использовать ContentLeft || ContentRight

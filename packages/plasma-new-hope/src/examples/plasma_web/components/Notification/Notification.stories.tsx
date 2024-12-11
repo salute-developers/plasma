@@ -37,7 +37,7 @@ const getNotificationProps = (i: number) => ({
 const placements = ['top', 'left'];
 
 const meta: Meta<NotificationProps> = {
-    title: 'plasma_web/Notification',
+    title: 'web/Overlay/Notification',
     decorators: [WithTheme],
 };
 

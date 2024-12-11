@@ -18,7 +18,8 @@ export const base = css`
 
         color: var(${tokens.color});
         background-color: var(--plasma_private-textfield-bg-color);
-        box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(--plasma_private-textfield-border-color);
+        box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(--plasma_private-textfield-border-color),
+            var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
         caret-color: var(${tokens.caretColor});
 
         transition: background-color 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;

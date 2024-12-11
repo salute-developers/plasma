@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, ForwardedRef } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../engines';
@@ -27,18 +27,22 @@ import type { ItemContext, ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
+import { SelectNative } from './ui/SelectNative/SelectNative';
 
 export const Context = createContext<ItemContext>({} as ItemContext);
 
 /**
  * Поле ввода с выпадающим списком и возможностью фильтрации и выбора элементов.
  */
+
 export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items'>>) =>
     forwardRef<HTMLInputElement, ComboboxProps>((props, ref) => {
         const {
+            name,
             multiple,
             value: outerValue,
             onChange: outerOnChange,
+            defaultValue,
             isTargetAmount,
             targetAmount,
             items,
@@ -65,8 +69,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             filter,
             closeAfterSelect: outerCloseAfterSelect,
             renderValue,
+            zIndex,
             ...rest
         } = props;
+
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
@@ -127,12 +133,26 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         }, floatingPopoverRef);
 
-        const onChange = (newValue: string | Array<string>) => {
+        // Эта функция срабатывает при изменении Combobox и
+        // при изменении нативного Select для формы (срабатывает только после изменения internalValue и рендера).
+        const onChange = (newValue: string | Array<string> | ChangeEvent<HTMLSelectElement> | null) => {
+            // Условие для отправки изменений наружу
             if (outerOnChange) {
-                outerOnChange(newValue as any);
+                // Условие для отправки если комбобокс используется без формы.
+                if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
+                    outerOnChange(newValue as any);
+                }
+
+                // Условие для отправки если комбобокс используется с формой.
+                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    outerOnChange(newValue as any);
+                }
             }
 
-            setInternalValue(newValue);
+            // Условие для изменения внутреннего значения (только если newValue строка или массив строк).
+            if (typeof newValue === 'string' || Array.isArray(newValue)) {
+                setInternalValue(newValue);
+            }
         };
 
         const handleClickArrow = () => {
@@ -304,6 +324,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             handleListToggle,
             handlePressDown,
             setTextValue,
+            multiple,
+            value,
+            textValue,
+            valueToItemMap,
         });
 
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
@@ -337,8 +361,32 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
+        useLayoutEffect(() => {
+            if (defaultValue) {
+                setInternalValue(defaultValue);
+            }
+        }, [defaultValue]);
+
         return (
-            <Root size={size} view={view} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
+            <Root
+                size={size}
+                view={view}
+                labelPlacement={labelPlacement}
+                disabled={disabled}
+                readOnly={readOnly}
+                name={name}
+            >
+                {name && (
+                    <SelectNative
+                        items={valueToItemMap}
+                        name={name}
+                        value={internalValue}
+                        multiple={multiple}
+                        onChange={onChange}
+                        onSetValue={setInternalValue}
+                        ref={ref as ForwardedRef<HTMLInputElement>}
+                    />
+                )}
                 <div>
                     <Context.Provider
                         value={{
@@ -362,7 +410,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             listWidth={listWidth}
                             target={(referenceRef) => (
                                 <StyledTextField
-                                    ref={inputForkRef}
+                                    ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
                                     inputWrapperRef={referenceRef}
                                     value={textValue}
                                     onChange={handleTextValueChange}
@@ -406,6 +454,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                                 />
                             )}
+                            zIndex={zIndex}
                         >
                             <Root
                                 size={size}
@@ -413,6 +462,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 labelPlacement={labelPlacement}
                                 disabled={disabled}
                                 readOnly={readOnly}
+                                name={name}
                             >
                                 <Ul
                                     role="tree"

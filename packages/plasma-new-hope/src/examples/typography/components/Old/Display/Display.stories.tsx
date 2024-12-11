@@ -9,7 +9,7 @@ import { Display } from './Display';
 import { config } from './Display.config';
 
 const meta: Meta<typeof Display> = {
-    title: 'typography/Old/Display',
+    title: 'Data Display/Typography/Old/Display',
     decorators: [WithTheme],
     component: Display,
     argTypes: {

@@ -69,7 +69,7 @@ type StoryProps = ComponentProps<typeof Autocomplete> & {
 };
 
 const meta: Meta<StoryProps> = {
-    title: 'Controls/Autocomplete',
+    title: 'Data Entry/Autocomplete',
     decorators: [InSpacingDecorator],
     component: Autocomplete,
     argTypes: {

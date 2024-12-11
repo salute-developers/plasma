@@ -13,4 +13,5 @@ export const tokens = {
     contentBackgroundColor: '--plasma-panel-content-background-color',
     padding: '--plasma-panel-padding',
     borderRadius: '--plasma-panel-border-radius',
+    closeColor: '--plasma-panel-close-color',
 };

@@ -16,9 +16,12 @@ type RangeDemoProps = {
     secondValueError?: boolean;
     firstValueSuccess?: boolean;
     secondValueSuccess?: boolean;
+    required?: boolean;
+    requiredPlacement?: 'left' | 'right';
+    label?: string;
 };
 
-describe('plasma-b2c: Range', () => {
+describe('plasma-web: Range', () => {
     const Range = getComponent('Range');
     const IconButton = getComponent('IconButton');
 
@@ -31,12 +34,14 @@ describe('plasma-b2c: Range', () => {
 
     const Demo = ({
         size = 'm',
+        label,
         disabled,
         readOnly,
         firstValueError,
         secondValueError,
         firstValueSuccess,
         secondValueSuccess,
+        ...rest
     }: RangeDemoProps) => {
         return (
             <Range
@@ -47,7 +52,7 @@ describe('plasma-b2c: Range', () => {
                 secondValueError={secondValueError}
                 firstValueSuccess={firstValueSuccess}
                 secondValueSuccess={secondValueSuccess}
-                label="Лейбл"
+                label={label}
                 leftHelper="Подсказка к полю"
                 firstPlaceholder="Заполните поле 1"
                 secondPlaceholder="Заполните поле 2"
@@ -59,6 +64,7 @@ describe('plasma-b2c: Range', () => {
                         <IconSearch />
                     </IconButton>
                 }
+                {...rest}
             />
         );
     };
@@ -125,13 +131,13 @@ describe('plasma-b2c: Range', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo size="l" />
+                <Demo label="Лейбл" size="l" />
                 <PadMe />
-                <Demo size="m" />
+                <Demo label="Лейбл" size="m" />
                 <PadMe />
-                <Demo size="s" />
+                <Demo label="Лейбл" size="s" />
                 <PadMe />
-                <Demo size="xs" />
+                <Demo label="Лейбл" size="xs" />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
@@ -140,9 +146,9 @@ describe('plasma-b2c: Range', () => {
     it('_disabled & _readOnly', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo disabled />
+                <Demo label="Лейбл" disabled />
                 <PadMe />
-                <Demo readOnly />
+                <Demo label="Лейбл" readOnly />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
@@ -151,19 +157,39 @@ describe('plasma-b2c: Range', () => {
     it('_error & _success', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo firstValueError />
+                <Demo label="Лейбл" firstValueError />
                 <PadMe />
-                <Demo secondValueError />
+                <Demo label="Лейбл" secondValueError />
                 <PadMe />
-                <Demo firstValueError secondValueError />
+                <Demo label="Лейбл" firstValueError secondValueError />
                 <PadMe />
-                <Demo firstValueSuccess />
+                <Demo label="Лейбл" firstValueSuccess />
                 <PadMe />
-                <Demo secondValueSuccess />
+                <Demo label="Лейбл" secondValueSuccess />
                 <PadMe />
-                <Demo firstValueSuccess secondValueSuccess />
+                <Demo label="Лейбл" firstValueSuccess secondValueSuccess />
             </CypressTestDecoratorWithTypo>,
         );
+        cy.matchImageSnapshot();
+    });
+
+    it('_required', () => {
+        cy.viewport(500, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ padding: '1rem' }}>
+                    <Demo required label="Лейбл" />
+                    <PadMe />
+                    <Demo required requiredPlacement="left" label="Лейбл" />
+                    <PadMe />
+                    <Demo required />
+                    <PadMe />
+                    <Demo required requiredPlacement="left" />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
         cy.matchImageSnapshot();
     });
 });

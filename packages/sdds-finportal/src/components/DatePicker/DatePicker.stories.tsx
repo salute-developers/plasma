@@ -3,7 +3,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { IconButton } from '../IconButton/IconButton';
+import { IconButton } from '../IconButton';
 
 import { DatePicker, DatePickerRange } from './DatePicker';
 
@@ -18,9 +18,10 @@ const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta = {
-    title: 'Controls/DatePicker',
+    title: 'Data Entry/DatePicker',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {
@@ -56,6 +57,13 @@ const meta: Meta = {
             control: {
                 type: 'select',
             },
+        },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
         },
     },
 };
@@ -115,17 +123,19 @@ export const Default: StoryObj<StoryPropsDefault> = {
     },
     args: {
         label: 'Лейбл',
+        labelPlacement: 'outer',
         leftHelper: 'Подсказка к полю',
         placeholder: '30.05.2024',
         size: 'l',
         view: 'default',
         lang: 'ru',
         format: 'DD.MM.YYYY',
-        labelPlacement: 'outer',
         defaultDate: new Date(2024, 5, 14),
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',
@@ -254,13 +264,15 @@ export const Range: StoryObj<StoryPropsRange> = {
         secondTextfieldTextAfter: '',
         size: 'l',
         view: 'default',
-        lang: 'ru',
-        format: 'DD.MM.YYYY',
         isDoubleCalendar: false,
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
@@ -339,15 +351,17 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
     args: {
         label: 'Лейбл',
         leftHelper: 'Подсказка к полю',
+        lang: 'ru',
+        format: 'DD.MM.YYYY',
         placeholder: '30.05.2024',
         size: 'l',
         view: 'default',
-        lang: 'ru',
-        format: 'DD.MM.YYYY',
         labelPlacement: 'outer',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',

@@ -11,7 +11,7 @@ import { ViewContainer } from './ViewContainer';
 type StoryViewProps = ComponentProps<typeof ViewContainer>;
 
 const meta: Meta<StoryViewProps> = {
-    title: 'Layout/ViewContainer',
+    title: 'Data Display/ViewContainer',
     decorators: [InSpacingDecorator],
 };
 

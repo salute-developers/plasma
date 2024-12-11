@@ -17,7 +17,7 @@ const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'plasma_web/Combobox',
+    title: 'web/Data Entry/Combobox',
     decorators: [WithTheme],
     component: Combobox,
     argTypes: {

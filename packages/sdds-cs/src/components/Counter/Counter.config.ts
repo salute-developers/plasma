@@ -28,8 +28,7 @@ export const config = {
             s: css`
                 ${counterTokens.borderRadius}: 1.25rem;
                 ${counterTokens.height}: 1.25rem;
-                ${counterTokens.paddingRight}: 0.375rem;
-                ${counterTokens.paddingLeft}: 0.375rem;
+                ${counterTokens.padding}: 0 0.375rem;
                 ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);

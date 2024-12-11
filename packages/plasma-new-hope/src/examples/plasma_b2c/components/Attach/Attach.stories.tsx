@@ -47,7 +47,7 @@ type StoryAttachProps = ComponentProps<typeof Attach> & {
 };
 
 const meta: Meta<StoryAttachProps> = {
-    title: 'plasma_b2c/Attach',
+    title: 'b2c/Data Entry/Attach',
     decorators: [WithTheme],
     component: Attach,
     argTypes: {

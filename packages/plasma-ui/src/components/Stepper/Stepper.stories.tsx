@@ -15,7 +15,7 @@ const onFocusAction = actionWithPersistedEvent('onFocus');
 const onBlurAction = actionWithPersistedEvent('onBlur');
 
 const meta: Meta<StepperProps> = {
-    title: 'Controls/Stepper',
+    title: 'Data Entry/Stepper',
     component: Stepper,
     decorators: [InSpacingDecorator],
 };

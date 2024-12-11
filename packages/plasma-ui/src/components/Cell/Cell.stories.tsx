@@ -16,7 +16,7 @@ import { Disclosure } from './CellDisclosure';
 import { CellListItem as ListItem } from './CellListItem';
 
 const meta: Meta<CellProps> = {
-    title: 'Content/Cell',
+    title: 'Data Display/Cell',
     component: Cell,
 };
 

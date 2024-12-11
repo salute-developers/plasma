@@ -168,14 +168,16 @@ export const StyledTextArea = styled.textarea<{
     min-height: var(${tokens.inputMinHeight});
 
     padding-right: ${({ hasContentRight }) =>
-        hasContentRight ? `var(${tokens.inputPaddingRightWithRightContent})` : `var(${tokens.inputPaddingRight})`};
-    padding-left: var(${tokens.inputPaddingLeft});
+        hasContentRight
+            ? `var(${tokens.inputPaddingRightWithRightContent}, 0)`
+            : `var(${tokens.inputPaddingRight}, 0)`};
+    padding-left: var(${tokens.inputPaddingLeft}, 0);
     padding-top: 0;
     padding-bottom: 0;
 
     /* INFO: Высчитываем высоту блока с подсказками */
     --plasma_private-textarea-helpers-computed-height: calc(
-        var(${tokens.helpersPaddingTop}) + var(${tokens.helpersPaddingBottom}) + var(${tokens.helpersLineHeight})
+        var(${tokens.helpersPaddingTop}, 0) + var(${tokens.helpersPaddingBottom}, 0) + var(${tokens.helpersLineHeight})
     );
 
     --plasma_private-textarea-input-with-helpers-height: calc(
@@ -229,6 +231,41 @@ export const StyledTextArea = styled.textarea<{
         border: var(${tokens.scrollbarBorderWidth}) solid transparent;
         border-radius: 1rem;
     }
+`;
+
+export const StyledHiddenTextArea = styled.textarea<{
+    hasContentRight: boolean;
+    resize?: string;
+}>`
+    max-height: none !important;
+    min-height: var(${tokens.inputMinHeight}) !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: -1000 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0.0625rem !important;
+    border-width: 0;
+    padding-right: ${({ hasContentRight }) =>
+        hasContentRight
+            ? `var(${tokens.inputPaddingRightWithRightContent}, 0)`
+            : `var(${tokens.inputPaddingRight}, 0)`};
+    padding-left: var(${tokens.inputPaddingLeft}, 0);
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    text-indent: 0;
+    text-rendering: auto;
+    text-transform: none;
+    tab-size: 8;
+
+    font-family: var(${tokens.inputFontFamily});
+    font-size: var(${tokens.inputFontSize});
+    font-style: var(${tokens.inputFontStyle});
+    font-weight: var(${tokens.inputFontWeight});
+    letter-spacing: var(${tokens.inputLetterSpacing});
+    line-height: var(${tokens.inputLineHeight});
 `;
 
 export const StyledHelpers = styled.div`
@@ -322,7 +359,9 @@ export const StyledIndicator = styled.div`
             inset: var(${tokens.indicatorLabelPlacementOuterRight});
 
             &.${classes.hasHint} {
-                right: calc(-1 * var(${tokens.indicatorSizeOuter}));
+                right: calc(
+                    -1 * var(${tokens.indicatorSizeOuter}) + var(${tokens.indicatorLabelPlacementHintOuterRight}, 0px)
+                );
             }
         }
     }

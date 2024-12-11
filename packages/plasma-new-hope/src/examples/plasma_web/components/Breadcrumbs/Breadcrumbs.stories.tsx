@@ -13,7 +13,7 @@ import { Breadcrumbs } from './Breadcrumbs';
 type BreadcrumbsProps = ComponentProps<typeof Breadcrumbs>;
 
 const meta: Meta<BreadcrumbsProps> = {
-    title: 'plasma_web/Breadcrumbs',
+    title: 'web/Navigation/Breadcrumbs',
     decorators: [WithTheme],
     component: Breadcrumbs,
     args: {

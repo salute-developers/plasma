@@ -6,3 +6,5 @@ export { plasma_web__dark } from './plasma_web__dark';
 export { plasma_web__light } from './plasma_web__light';
 export { stylesSalute__dark } from './stylesSalute__dark';
 export { stylesSalute__light } from './stylesSalute__light';
+export { plasma_giga__dark } from './plasma_giga__dark';
+export { plasma_giga__light } from './plasma_giga__light';

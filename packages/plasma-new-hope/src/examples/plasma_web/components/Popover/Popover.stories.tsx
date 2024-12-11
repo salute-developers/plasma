@@ -9,7 +9,7 @@ import { WithTheme } from '../../../_helpers';
 import { Popover } from './Popover';
 
 const meta: Meta<typeof Popover> = {
-    title: 'plasma_web/Popover',
+    title: 'web/Overlay/Popover',
     decorators: [WithTheme],
     component: Popover,
     argTypes: {

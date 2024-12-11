@@ -13,6 +13,8 @@ import { FormTypeNumber } from '../../../../types/FormType';
 import type { SingleSliderProps } from './Single.types';
 import { Label, LabelContent, LabelWrapper, SingleWrapper, SliderBaseWrapper, StyledRangeValue } from './Single.styles';
 
+const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
+
 export const SingleSlider: FC<SingleSliderProps> = ({
     min,
     max,
@@ -38,12 +40,15 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     size = 'm',
     name,
     pointerSize = 'small',
+    pointerVisibility = 'always',
+    currentValueVisibility = 'always',
     orientation = 'horizontal',
     reversed,
     labelReversed,
     ...rest
 }) => {
     const isVertical = orientation === 'vertical';
+    const [isHovered, setIsHovered] = useState(false);
 
     const [state, setState] = useState({
         handlePosition: 0,
@@ -56,12 +61,13 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const [startOffset, setStartOffset] = useState(0);
     const [endOffset, setEndOffset] = useState(0);
 
-    const innerValue = value ?? defaultValue ?? min;
+    const innerValue = clamp(value ?? defaultValue ?? min, min, max);
     const [dragValue, setDragValue] = useState(innerValue);
 
     const { stepSize } = state;
 
     const innerShowScale = showRangeValues || showScale;
+    const innerShowCurrentValue = currentValueVisibility === 'hover' ? showCurrentValue && isHovered : showCurrentValue;
 
     const hasLabelContent =
         Boolean(label || labelContentLeft || labelContent) && (!isVertical || (isVertical && sliderAlign !== 'none'));
@@ -98,12 +104,12 @@ export const SingleSlider: FC<SingleSliderProps> = ({
             if (isNumber(endWidth)) {
                 setEndOffset(Number(endWidth));
             }
-        } else if (isVertical && innerShowScale && sliderAlign !== 'center') {
+        } else if (isVertical && innerShowScale && (sliderAlign === 'left' || sliderAlign === 'right')) {
             setStartOffset(12);
             setEndOffset(12);
         } else {
-            setStartOffset(1);
-            setEndOffset(1);
+            setStartOffset(0);
+            setEndOffset(0);
         }
 
         setState((prevState) => ({
@@ -179,9 +185,26 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         [isVertical, min, max, reversed],
     );
 
+    useEffect(() => {
+        if (value !== dragValue) {
+            const newValue = clamp(value ?? defaultValue ?? min, min, max);
+            const clampedValue = Math.max(min, Math.min(newValue, max));
+
+            setDragValue(clampedValue);
+        }
+    }, [value, defaultValue, dragValue, min, max]);
+
     const labelVerticalPlacement = reversed ? 'bottom' : 'top';
     const valuePlacement = sliderAlign === 'right' ? 'left' : 'right';
     const settings = sizeData[size][pointerSize === 'large' ? 'large' : 'small'];
+
+    const onPointerEnter = () => {
+        setIsHovered(true);
+    };
+
+    const onPointerLeave = () => {
+        setIsHovered(false);
+    };
 
     return (
         <SingleWrapper
@@ -195,6 +218,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                 labelVerticalPlacement === 'bottom' && classes.labelPlacementBottom,
                 labelReversed && classes.labelContentReversed,
             )}
+            onPointerEnter={onPointerEnter}
+            onPointerLeave={onPointerLeave}
         >
             {hasLabelContent && (
                 <LabelWrapper>
@@ -227,10 +252,13 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     labelPlacement={labelPlacement}
                     rangeValuesPlacement={rangeValuesPlacement}
                     orientation={orientation}
+                    reversed={reversed}
                     {...rest}
                 >
                     <Handler
                         size={pointerSize}
+                        visibility={pointerVisibility}
+                        isHovered={isHovered}
                         orientation={orientation}
                         stepSize={state.stepSize}
                         onChangeCommitted={onHandleChangeCommitted}
@@ -244,7 +272,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                         disabled={disabled}
                         ariaLabel={ariaLabel}
                         multipleStepSize={multipleStepSize}
-                        showCurrentValue={showCurrentValue}
+                        showCurrentValue={innerShowCurrentValue}
                         valuePlacement={valuePlacement}
                     />
                 </SliderBase>

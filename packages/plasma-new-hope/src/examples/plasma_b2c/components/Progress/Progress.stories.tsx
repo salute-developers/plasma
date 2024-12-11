@@ -9,7 +9,7 @@ import { Progress } from './Progress';
 const views = ['default', 'secondary', 'primary', 'accent', 'success', 'warning', 'error'];
 
 const meta: Meta<typeof Progress> = {
-    title: 'plasma_b2c/Progress',
+    title: 'b2c/Overlay/Progress',
     component: Progress,
     decorators: [WithTheme],
     argTypes: {

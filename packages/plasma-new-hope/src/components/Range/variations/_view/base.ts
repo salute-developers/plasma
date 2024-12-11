@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../Range.tokens';
-import { StyledLabel, LeftHelper, StyledDivider, ContentWrapper } from '../../Range.styles';
+import { StyledLabel, LeftHelper, StyledDivider, ContentWrapper, StyledIndicator } from '../../Range.styles';
 
 export const base = css`
     ${ContentWrapper} {
@@ -26,6 +26,10 @@ export const base = css`
     ${StyledLabel} {
         display: block;
         color: var(${tokens.labelColor});
+    }
+
+    ${StyledIndicator} {
+        background-color: var(${tokens.indicatorColor});
     }
 
     ${LeftHelper} {

@@ -17,7 +17,7 @@ const size = ['xs', 's', 'm', 'l'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StoryDropdownProps> = {
-    title: 'plasma_web/Dropdown',
+    title: 'web/Data Entry/Dropdown',
     decorators: [WithTheme],
     component: Dropdown,
     argTypes: {

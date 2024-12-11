@@ -1,20 +1,9 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../../../DatePicker.tokens';
-import { StyledLabel, LeftHelper } from '../../SingleDate.styles';
+import { LeftHelper } from '../../SingleDate.styles';
 
 export const base = css`
-    ${StyledLabel} {
-        margin: var(${tokens.labelOffset});
-
-        font-family: var(${tokens.labelFontFamily});
-        font-size: var(${tokens.labelFontSize});
-        font-style: var(${tokens.labelFontStyle});
-        font-weight: var(${tokens.labelFontWeight});
-        letter-spacing: var(${tokens.labelLetterSpacing});
-        line-height: var(${tokens.labelLineHeight});
-    }
-
     ${LeftHelper} {
         margin: var(${tokens.leftHelperOffset});
 

@@ -13,7 +13,7 @@ const onIncrement = action('onIncrement');
 const shapes = ['cornered', 'pilled'];
 
 const meta: Meta<typeof NumberInput> = {
-    title: 'Controls/NumberInput',
+    title: 'Data Entry/NumberInput',
     component: NumberInput,
     decorators: [InSpacingDecorator],
     argTypes: {

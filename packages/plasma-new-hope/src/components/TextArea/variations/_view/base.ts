@@ -13,9 +13,10 @@ export const base = css`
     }
 
     .${styledContainer} {
+        background-color: var(${tokens.backgroundColor});
         transition: box-shadow 0.1s ease-in-out;
         border-radius: var(${tokens.borderRadius});
-        border: var(${tokens.borderSize}) solid var(${tokens.borderColor});
+        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColor}), var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
     }
 
     .${styledTextAreaWrapper} {
@@ -32,7 +33,8 @@ export const base = css`
     }
 
     &:focus-within:not([readonly]) .${styledContainer} {
-        border: var(${tokens.borderSize}) solid var(${tokens.borderColorFocus});
+        background-color: var(${tokens.backgroundColorFocus});
+        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColorFocus}), var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
     }
 
     &:focus-within:not([readonly]) .${styledHelpers} {
@@ -40,7 +42,8 @@ export const base = css`
     }
 
     &:hover:${exclusionSelectors} .${styledContainer} {
-        border: var(${tokens.borderSize}) solid var(${tokens.borderColorHover});
+        background-color: var(${tokens.backgroundColorHover});
+        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColorHover}), var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
     }
 
     &:hover:${exclusionSelectors} .${styledTextAreaWrapper} {
@@ -55,6 +58,10 @@ export const base = css`
     &:active:${exclusionSelectors} .${styledTextAreaWrapper} {
         box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.inputBorderColorActive});
         background-color: var(${tokens.inputBackgroundColorActive});
+    }
+
+    &:active:${exclusionSelectors} .${styledContainer} {
+        background-color: var(${tokens.backgroundColorActive});
     }
 
     &:active:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {

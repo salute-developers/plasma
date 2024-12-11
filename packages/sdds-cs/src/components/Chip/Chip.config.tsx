@@ -52,8 +52,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2.5rem;
-                ${chipTokens.paddingRight}: 1rem;
-                ${chipTokens.paddingLeft}: 1rem;
+                ${chipTokens.padding}: 0 1rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);

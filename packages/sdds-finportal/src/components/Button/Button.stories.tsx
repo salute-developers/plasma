@@ -31,7 +31,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<ButtonProps> = {
-    title: 'Controls/Button',
+    title: 'Data Entry/Button',
     decorators: [InSpacingDecorator],
     component: Button,
     args: {

@@ -13,6 +13,7 @@ export const config = {
                 ${drawerTokens.contentBackgroundColor}: var(--surface-transparent-primary);
                 ${drawerTokens.drawerOverlayWithBlurColor}: var(--overlay-blur);
                 ${drawerTokens.drawerOverlayColor}: var(--overlay-soft);
+                ${drawerTokens.closeIconColor}: var(--text-accent);
             `,
         },
         size: {

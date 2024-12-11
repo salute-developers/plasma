@@ -14,7 +14,7 @@ import type { ClosePlacementType } from '../../../../components/Drawer';
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from './Drawer';
 
 export default {
-    title: 'plasma_b2c/Drawer',
+    title: 'b2c/Overlay/Divider',
     decorators: [WithTheme],
     argTypes: {
         placement: {

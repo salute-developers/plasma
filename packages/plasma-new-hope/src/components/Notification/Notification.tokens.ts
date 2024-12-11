@@ -33,6 +33,9 @@ export const tokens = {
     horizontalLayoutLeftIconMargin: '--plasma-notification-horizontal-layout-left-icon-margin',
     horizontalLayoutRightPaddingWithoutCloseIcon:
         '--plasma-notification-horizontal-layout-right-padding-without-close-icon',
+    horisontalIconLeftAlignSelf: '--plasma-notification-horizontal-icon-left-align-self',
+    horisontalActionsAlignSelf: '--plasma-notification-horizontal-actions-align-self',
+    horisontalIconCloseAlignSelf: '--plasma-notification-horizontal-icon-close-align-self',
 
     contentPaddingTop: '--plasma-notification-content-padding-top',
     contentPaddingRight: '--plasma-notification-content-padding-right',

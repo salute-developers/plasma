@@ -13,7 +13,7 @@ const sizes = ['m', 's'];
 const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
 
 const meta: Meta<RadioboxProps> = {
-    title: 'Controls/Radiobox',
+    title: 'Data Entry/Radiobox',
     component: Radiobox,
     decorators: [InSpacingDecorator],
     argTypes: {

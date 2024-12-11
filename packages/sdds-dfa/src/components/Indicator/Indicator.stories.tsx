@@ -4,7 +4,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { Indicator } from './Indicator';
 
 const meta: Meta<typeof Indicator> = {
-    title: 'Content/Indicator',
+    title: 'Data Display/Indicator',
     component: Indicator,
     argTypes: {
         view: {

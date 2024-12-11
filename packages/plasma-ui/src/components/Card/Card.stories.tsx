@@ -15,7 +15,7 @@ import type { CardProps } from '.';
 import { CardParagraph1 } from '.';
 
 const meta: Meta<CardProps> = {
-    title: 'Content/Card',
+    title: 'Data Display/Card',
     decorators: [InSpacingDecorator],
     parameters: {
         performance: {

@@ -12,7 +12,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<SwitchProps> = {
-    title: 'Controls/Switch',
+    title: 'Data Entry/Switch',
     component: Switch,
     decorators: [InSpacingDecorator],
     argTypes: {

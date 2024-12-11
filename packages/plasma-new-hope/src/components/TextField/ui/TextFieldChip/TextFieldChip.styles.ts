@@ -24,8 +24,7 @@ export const StyledChip = styled(Chip)`
     ${chipTokens.borderRadius}: var(${tokens.chipBorderRadius});
     ${chipTokens.width}: var(${tokens.chipWidth});
     ${chipTokens.height}: var(${tokens.chipHeight});
-    ${chipTokens.paddingRight}: var(${tokens.chipPaddingRight});
-    ${chipTokens.paddingLeft}: var(${tokens.chipPaddingLeft});
+    ${chipTokens.padding}: var(${tokens.chipPadding});
     ${chipTokens.fontFamily}: var(${tokens.chipFontFamily});
     ${chipTokens.fontSize}: var(${tokens.chipFontSize});
     ${chipTokens.fontStyle}: var(${tokens.chipFontStyle});

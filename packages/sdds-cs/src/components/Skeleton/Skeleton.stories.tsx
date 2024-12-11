@@ -14,7 +14,7 @@ type StoryRectSkeletonProps = ComponentProps<typeof RectSkeleton>;
 type BasicButtonProps = ComponentProps<typeof BasicButton>;
 
 const meta: Meta = {
-    title: 'Content/Skeleton',
+    title: 'Data Display/Skeleton',
     decorators: [InSpacingDecorator],
 };
 

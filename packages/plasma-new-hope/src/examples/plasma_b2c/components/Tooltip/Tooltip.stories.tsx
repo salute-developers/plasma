@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { styled } from '@linaria/react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { Button } from '../Button/Button';
@@ -30,10 +31,30 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
+const disabledProps = [
+    'target',
+    'children',
+    'text',
+    'opened',
+    'isOpen',
+    'isVisible',
+    'offset',
+    'frame',
+    'view',
+    'zIndex',
+    'minWidth',
+    'maxWidth',
+    'contentLeft',
+    'onDismiss',
+];
+
 const meta: Meta<TooltipProps> = {
-    title: 'plasma_b2c/Tooltip',
+    title: 'b2c/Overlay/Tooltip',
     decorators: [WithTheme],
     component: Tooltip,
+    argTypes: {
+        ...disableProps(['isVisible', 'isOpen', 'onDismiss']),
+    },
     parameters: {
         docs: { story: { inline: false, iframeHeight: '20rem' } },
     },
@@ -48,7 +69,7 @@ const StyledGrid = styled.div`
     padding: 3.5rem;
 `;
 
-const StoryDefault = ({ size }: TooltipProps) => {
+const StoryDefault = (args: TooltipProps) => {
     return (
         <StyledGrid>
             <Tooltip
@@ -56,7 +77,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                     <Tooltip
                         target={<Button>Btn</Button>}
                         placement="left"
-                        size={size}
+                        {...args}
                         opened
                         hasArrow
                         text="left"
@@ -64,7 +85,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                     />
                 }
                 placement="top-start"
-                size={size}
+                {...args}
                 opened
                 hasArrow
                 text="top-start"
@@ -73,7 +94,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
             <Tooltip
                 target={<Button>Btn</Button>}
                 placement="top"
-                size={size}
+                {...args}
                 opened
                 hasArrow
                 text="top"
@@ -84,7 +105,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                     <Tooltip
                         target={<Button>Btn</Button>}
                         placement="right"
-                        size={size}
+                        {...args}
                         opened
                         hasArrow
                         text="right"
@@ -92,7 +113,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
                     />
                 }
                 placement="top-end"
-                size={size}
+                {...args}
                 opened
                 hasArrow
                 text="top-end"
@@ -101,7 +122,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
             <Tooltip
                 target={<Button>Btn</Button>}
                 placement="bottom-start"
-                size={size}
+                {...args}
                 opened
                 hasArrow
                 text="bottom-start"
@@ -110,7 +131,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
             <Tooltip
                 target={<Button>Btn</Button>}
                 placement="bottom"
-                size={size}
+                {...args}
                 opened
                 hasArrow
                 text="bottom"
@@ -119,7 +140,7 @@ const StoryDefault = ({ size }: TooltipProps) => {
             <Tooltip
                 target={<Button>Btn</Button>}
                 placement="bottom-end"
-                size={size}
+                {...args}
                 opened
                 hasArrow
                 text="bottom-end"
@@ -137,8 +158,14 @@ export const Default: StoryObj<TooltipProps> = {
                 type: 'select',
             },
         },
+        ...disableProps([...disabledProps, 'placement']),
     },
     args: {
+        maxWidth: 10,
+        minWidth: 3,
+        hasArrow: true,
+        usePortal: false,
+        animated: true,
         size: 'm',
     },
     render: (args) => <StoryDefault {...args} />,
@@ -147,7 +174,7 @@ export const Default: StoryObj<TooltipProps> = {
 const StyledRow = styled.div`
     display: flex;
     width: 150vw;
-    height: 150vh;
+    height: auto;
     padding: 10rem;
 `;
 
@@ -170,7 +197,6 @@ const StoryLive = (args: TooltipProps) => {
                     {...args}
                     id="example-tooltip-firstname"
                     text={text}
-                    opened
                     frame="theme-root"
                 />
             </StyledRow>
@@ -189,6 +215,12 @@ export const Live: StoryObj<TooltipProps> = {
         },
         size: {
             options: ['m', 's'],
+            control: {
+                type: 'select',
+            },
+        },
+        trigger: {
+            options: ['click', 'hover', 'none'],
             control: {
                 type: 'select',
             },

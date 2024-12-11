@@ -50,6 +50,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 alwaysOpened = false,
                 portal,
                 renderItem,
+                zIndex,
                 ...rest
             },
             ref,
@@ -141,6 +142,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                 : '',
                             onKeyDown,
                         })}
+                        zIndex={zIndex}
                     >
                         <Root
                             className={cx(className, classes.dropdownRoot)}

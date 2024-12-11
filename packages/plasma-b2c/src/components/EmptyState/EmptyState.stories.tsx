@@ -13,7 +13,7 @@ type StoryProps = ComponentProps<typeof EmptyState> & {
 };
 
 const meta: Meta<StoryProps> = {
-    title: 'Content/EmptyState',
+    title: 'Data Entry/EmptyState',
     decorators: [InSpacingDecorator],
     component: EmptyState,
     args: {

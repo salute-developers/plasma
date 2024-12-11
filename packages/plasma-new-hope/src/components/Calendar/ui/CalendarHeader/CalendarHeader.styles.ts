@@ -75,6 +75,16 @@ export const StyledArrow = styled(IconButton)`
     ${iconButtonTokens.iconButtonPadding}: var(${tokens.iconButtonPadding});
     ${iconButtonTokens.iconButtonRadius}: var(${tokens.iconButtonRadius});
     ${iconButtonTokens.iconButtonFocusColor}: var(${tokens.iconButtonFocusColor});
+
+    &.${classes.disabledPrevButton} {
+        cursor: not-allowed;
+        opacity: 0.4;
+
+        &:hover,
+        &:active {
+            color: var(${tokens.iconButtonColor});
+        }
+    }
 `;
 
 export const StyledNavigation = styled.div`

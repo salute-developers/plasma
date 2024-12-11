@@ -3,6 +3,8 @@ export const classes = {
     rangeValueError: 'range-value-error',
     rangeSuccess: 'range-success',
     rangeValueSuccess: 'range-value-success',
+    requiredAlignRight: 'required-align-right',
+    requiredOuterPlacement: 'required-placement-outer',
 };
 
 export const tokens = {
@@ -43,6 +45,16 @@ export const tokens = {
     labelFontWeight: '--plasma-range__label-font-weight',
     labelLetterSpacing: '--plasma-range__label-letter-spacing',
     labelLineHeight: '--plasma-range__label-line-height',
+
+    /** Токены индикатора */
+    indicatorColor: '--plasma-range__indicator-color',
+
+    indicatorSize: '--plasma-range__indicator-size',
+    indicatorSizeOuter: '--plasma-range__indicator-size-outer',
+    indicatorPlacement: '--plasma-range__indicator-placement',
+    indicatorPlacementRight: '--plasma-range__indicator-placement-right',
+    indicatorOuterPlacement: '--plasma-range__indicator-placement-outer',
+    indicatorOuterPlacementRight: '--plasma-range__indicator-placement-outer-right',
 
     /** Токены вспомогательного текста */
     leftHelperColor: '--plasma-range__left-helper-color',

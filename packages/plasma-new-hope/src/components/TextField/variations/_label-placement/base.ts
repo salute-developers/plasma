@@ -47,10 +47,7 @@ export const base = css`
 
             box-sizing: border-box;
 
-            height: var(${tokens.height});
-
-            padding-top: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
-            padding-bottom: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
+            height: 100%;
         }
 
         &.${classes.clear} ${Label} {

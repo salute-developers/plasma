@@ -40,7 +40,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<typeof TextField> = {
-    title: 'Controls/TextField',
+    title: 'Data Entry/TextField',
     component: TextField,
     decorators: [InSpacingDecorator],
     argTypes: {

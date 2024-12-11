@@ -13,7 +13,7 @@ import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoub
 const onChangeValue = action('onChangeValue');
 
 const meta: Meta<typeof CalendarBase> = {
-    title: 'plasma_b2c/Calendar',
+    title: 'b2c/Data Entry/Calendar',
     decorators: [WithTheme],
     argTypes: {
         min: {

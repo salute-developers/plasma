@@ -125,10 +125,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.chipCloseIconColor}: var(${comboboxTokens.textFieldChipCloseIconColor});
     ${textFieldTokens.chipOutlineSize}: var(${comboboxTokens.textFieldChipOutlineSize});
     ${textFieldTokens.chipWidth}: var(${comboboxTokens.textFieldChipWidth});
-    ${textFieldTokens.chipPaddingTop}: var(${comboboxTokens.textFieldChipPaddingTop});
-    ${textFieldTokens.chipPaddingRight}: var(${comboboxTokens.textFieldChipPaddingRight});
-    ${textFieldTokens.chipPaddingBottom}: var(${comboboxTokens.textFieldChipPaddingBottom});
-    ${textFieldTokens.chipPaddingLeft}: var(${comboboxTokens.textFieldChipPaddingLeft});
+    ${textFieldTokens.chipPadding}: var(${comboboxTokens.textFieldChipPadding});
     ${textFieldTokens.chipCloseIconSize}: var(${comboboxTokens.textFieldChipCloseIconSize});
     ${textFieldTokens.chipFontFamily}: var(${comboboxTokens.textFieldChipFontFamily});
     ${textFieldTokens.chipFontSize}: var(${comboboxTokens.textFieldChipFontSize});

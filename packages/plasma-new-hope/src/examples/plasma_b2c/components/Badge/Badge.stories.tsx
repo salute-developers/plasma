@@ -7,7 +7,7 @@ import { WithTheme } from '../../../_helpers';
 import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
-    title: 'plasma_b2c/Badge',
+    title: 'b2c/Data Display/Badge',
     component: Badge,
     decorators: [WithTheme],
     argTypes: {

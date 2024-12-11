@@ -45,8 +45,7 @@ export const base = css`
         ${textFieldTokens.chipBorderRadius}: var(${tokens.chipBorderRadius});
         ${textFieldTokens.chipWidth}: var(${tokens.chipWidth});
         ${textFieldTokens.chipHeight}: var(${tokens.chipHeight});
-        ${textFieldTokens.chipPaddingRight}: var(${tokens.chipPaddingRight});
-        ${textFieldTokens.chipPaddingLeft}: var(${tokens.chipPaddingLeft});
+        ${textFieldTokens.chipPadding}: var(${tokens.chipPadding});
         ${textFieldTokens.chipClearContentMarginLeft}: var(${tokens.chipClearContentMarginLeft});
         ${textFieldTokens.chipClearContentMarginRight}: var(${tokens.chipClearContentMarginRight});
         ${textFieldTokens.chipCloseIconSize}: var(${tokens.chipCloseIconSize});

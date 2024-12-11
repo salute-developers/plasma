@@ -10,7 +10,7 @@ import { UploadAudio } from '.';
 import type { UploadAudioProps } from '.';
 
 const meta: Meta<UploadAudioProps> = {
-    title: 'Controls/UploadAudio',
+    title: 'Data Entry/UploadAudio',
     component: UploadAudio,
     argTypes: {
         content: {

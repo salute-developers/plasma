@@ -7,7 +7,7 @@ import { AudioPlayer } from '.';
 import type { AudioPlayerProps } from '.';
 
 const meta: Meta<AudioPlayerProps> = {
-    title: 'Controls/AudioPlayer',
+    title: 'Data Entry/AudioPlayer',
     component: AudioPlayer,
     decorators: [InSpacingDecorator],
 };

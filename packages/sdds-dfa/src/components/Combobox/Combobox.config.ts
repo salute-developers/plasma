@@ -231,8 +231,7 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.5rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 2.75rem;
-                ${tokens.textFieldChipPaddingRight}: 0.75rem;
-                ${tokens.textFieldChipPaddingLeft}: 1rem;
+                ${tokens.textFieldChipPadding}: 0 0.75rem 0 1rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.625rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1.5rem;
@@ -337,8 +336,7 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.375rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 2.25rem;
-                ${tokens.textFieldChipPaddingRight}: 0.625rem;
-                ${tokens.textFieldChipPaddingLeft}: 0.875rem;
+                ${tokens.textFieldChipPadding}: 0 0.625rem 0 0.875rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.5rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1.25rem;
@@ -443,8 +441,7 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.25rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.75rem;
-                ${tokens.textFieldChipPaddingRight}: 0.5rem;
-                ${tokens.textFieldChipPaddingLeft}: 0.75rem;
+                ${tokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1rem;
@@ -549,8 +546,7 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.125rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.25rem;
-                ${tokens.textFieldChipPaddingRight}: 0.375rem;
-                ${tokens.textFieldChipPaddingLeft}: 0.625rem;
+                ${tokens.textFieldChipPadding}: 0 0.375rem 0 0.625rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.25rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 0.75rem;

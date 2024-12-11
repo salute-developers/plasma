@@ -10,7 +10,7 @@ import { Body } from '../../../typography/components/Body/Body';
 import { Sheet } from './Sheet';
 
 const meta: Meta<typeof Sheet> = {
-    title: 'plasma_b2c/Sheet',
+    title: 'b2c/Overlay/Select',
     decorators: [WithTheme],
     args: {
         withBlur: false,
