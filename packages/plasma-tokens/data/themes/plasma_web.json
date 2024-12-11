@@ -1104,8 +1104,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1118,8 +1124,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3189,8 +3201,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3203,8 +3221,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3779,10 +3803,6 @@
                     "comment": "Третичный непрозрачный цвет обводки",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineDefaultHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
@@ -3885,6 +3905,18 @@
                     "value": "rgba(82, 142, 255, 0.28)",
                     "comment": "Прозрачный цвет обводки информация",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#E0E0E0FF",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -4256,10 +4288,6 @@
                     "comment": "Третичный непрозрачный цвет обводки на темном фоне",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(255, 255, 255, 0.12)",
                     "comment": "Основной прозрачный цвет обводки на темном фоне",
@@ -4349,6 +4377,18 @@
                     "value": "rgba(82, 142, 255, 0.28)",
                     "comment": "Прозрачный цвет обводки информация на темном фоне",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#E0E0E0FF",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -4720,10 +4760,6 @@
                     "comment": "Третичный непрозрачный цвет обводки на светлом фоне",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(8, 8, 8, 0.20)",
                     "comment": "Основной прозрачный цвет обводки на светлом фоне",
@@ -4813,6 +4849,18 @@
                     "value": "rgba(42, 114, 248, 0.20)",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -5191,10 +5239,6 @@
                     "comment": "Инвертированная бесцветная обводка",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
                 "outlineDefaultHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
@@ -5277,6 +5321,18 @@
                     "value": "rgba(42,114,248,0.20)",
                     "comment": "Прозрачный инвертированный цвет обводки информация",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
                 }
             }
         }
@@ -6371,8 +6427,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6385,8 +6447,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -8451,8 +8519,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -8465,8 +8539,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -9074,10 +9154,6 @@
                     "comment": "Бесцветная обводка",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
                 "outlineAccent": {
                     "value": "[general.electricBlue.600]",
                     "comment": "Акцентный цвет обводки",
@@ -9152,6 +9228,18 @@
                     "value": "rgba(42, 114, 248, 0.20)",
                     "comment": "Прозрачный цвет обводки информация",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -9515,10 +9603,6 @@
                     "comment": "Третичный непрозрачный цвет обводки на темном фоне",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineDefaultHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
@@ -9616,6 +9700,18 @@
                     "value": "rgba(82, 142, 255, 0.28)",
                     "comment": "Прозрачный цвет обводки информация на темном фоне",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.50]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#C7C7C7FF",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -9979,10 +10075,6 @@
                     "comment": "Третичный непрозрачный цвет обводки на светлом фоне",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
                 "outlineDefaultHover": {
                     "value": "#262626FF",
                     "comment": ""
@@ -10080,6 +10172,18 @@
                     "value": "rgba(42, 114, 248, 0.20)",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#303030FF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -10461,10 +10565,6 @@
                     "comment": "Инвертированная бесцветная обводка",
                     "enabled": true
                 },
-                "outlineDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineAccent": {
                     "value": "[general.electricBlue.500]",
                     "comment": "Инвертированный акцентный цвет обводки",
@@ -10544,6 +10644,18 @@
                     "value": "rgba(255,255,255,0.12)",
                     "comment": "Инвертированный вторичный прозрачный цвет обводки",
                     "enabled": true
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlineSolidDefaultHover": {
+                    "value": "#595959FF",
+                    "comment": ""
+                },
+                "outlineSolidDefaultActive": {
+                    "value": "#303030FF",
+                    "comment": ""
                 }
             }
         }
