@@ -22,13 +22,6 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
         const options = Array.from(items.keys());
 
         useLayoutEffect(() => {
-            const event = createEvent(selectRef);
-            if (onChange) {
-                onChange(event);
-            }
-        }, [values]);
-
-        useLayoutEffect(() => {
             if (selectRef.current && !multiselect) {
                 const valueInit = selectRef.current.value;
 
@@ -44,6 +37,13 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
                 }
             }
         }, []);
+
+        useLayoutEffect(() => {
+            const event = createEvent(selectRef);
+            if (onChange) {
+                onChange(event);
+            }
+        }, [values]);
 
         return (
             <>
