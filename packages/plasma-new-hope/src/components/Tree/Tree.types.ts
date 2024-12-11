@@ -3,35 +3,51 @@ import type { Key, ReactNode, CSSProperties } from 'react';
 export type TreeItem = {
     key: Key;
     title?: ReactNode | ((data: TreeItem) => React.ReactNode);
-    // checkable?: boolean;
-    selectable?: boolean;
     className?: string;
     style?: CSSProperties;
     disabled?: boolean;
-    // disableCheckbox?: boolean;
 };
+
+export type EventDataNode<TreeDataType> = {
+    key: Key;
+    expanded: boolean;
+    selected: boolean;
+    checked: boolean;
+    loaded: boolean;
+    loading: boolean;
+    halfChecked: boolean;
+    dragOver: boolean;
+    dragOverGapTop: boolean;
+    dragOverGapBottom: boolean;
+    pos: string;
+    active: boolean;
+} & TreeDataType;
 
 export type TreeProps = {
     items: TreeItem[];
     checkable?: boolean;
-    checkStrictly?: boolean;
+    multiple?: boolean;
     className?: string;
-    disabled?: boolean;
     defaultCheckedKeys?: Key[];
     defaultExpandedKeys?: Key[];
     defaultSelectedKeys?: Key[];
     defaultExpandAll?: boolean;
-    onSelect?: Key[];
-    onCheck?: Key[];
-    onExpand?: Key[];
-    expandedKeys?: Key[];
-    checkedKeys?: Key[];
-    selectedKeys?: Key[];
-    inverted?: boolean;
+    onSelect?: (
+        selectedKeys: Key[],
+        info: {
+            event: 'select';
+            selected: boolean;
+            node: EventDataNode<TreeItem>;
+            selectedNodes: TreeItem[];
+            nativeEvent: MouseEvent;
+        },
+    ) => void;
+    onCheck?: any;
+    onExpand?: any;
+    arrowPlacement?: 'left' | 'right';
     virtual?: boolean;
     height?: number;
-    itemVariant?: 'default' | 'fill';
-
+    fullWidthItemSelection?: boolean;
     size?: string;
     view?: string;
 };
