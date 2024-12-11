@@ -1,4 +1,4 @@
-import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent } from 'react';
+import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent, ChangeEventHandler } from 'react';
 import React from 'react';
 
 import type { RequiredProps, LabelProps } from '../TextField/TextField.types';
@@ -63,28 +63,69 @@ type Target = LabelProps &
           }
     );
 
+// type IsMultiselect<K extends ItemOption> =
+//     | {
+//           multiselect?: false;
+//           value?: string;
+//           onChange?: (value: string) => void;
+//           /**
+//            * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+//            * @default false
+//            */
+//           isTargetAmount?: never | false;
+//           /**
+//            * Callback для кастомной настройки таргета целиком.
+//            */
+//           renderTarget?: (value: K) => React.ReactNode;
+//       }
+//     | {
+//           multiselect: true;
+//           value?: Array<string>;
+//           onChange?: (value: Array<string>) => void;
+//           isTargetAmount?: boolean;
+//           renderTarget?: (value: K[]) => React.ReactNode;
+//       };
+
 type IsMultiselect<K extends ItemOption> =
-    | {
-          multiselect?: false;
-          value?: string;
-          onChange?: (value: string) => void;
-          /**
-           * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
-           * @default false
-           */
-          isTargetAmount?: never | false;
-          /**
-           * Callback для кастомной настройки таргета целиком.
-           */
-          renderTarget?: (value: K) => React.ReactNode;
-      }
-    | {
-          multiselect: true;
-          value?: Array<string>;
-          onChange?: (value: Array<string>) => void;
-          isTargetAmount?: boolean;
-          renderTarget?: (value: K[]) => React.ReactNode;
-      };
+    | ({ name?: never; defaultValue?: never } & (
+          | {
+                multiselect?: false;
+                value?: string;
+                onChange?: (value: string) => void;
+                /**
+                 * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+                 * @default false
+                 */
+                isTargetAmount?: never | false;
+                /**
+                 * Callback для кастомной настройки значения в селекте.
+                 */
+                renderTarget?: (value: K) => React.ReactNode;
+            }
+          | {
+                multiselect: true;
+                value?: Array<string>;
+                onChange?: (value: string[]) => void;
+                isTargetAmount?: true;
+                renderTarget?: (value: K[]) => React.ReactNode;
+            }
+      ))
+    | ({ name: string; onChange?: ChangeEventHandler } & (
+          | {
+                multiselect?: false;
+                defaultValue?: string;
+                value?: never;
+                isTargetAmount?: never | false;
+                renderTarget?: (value: K) => React.ReactNode;
+            }
+          | {
+                multiselect: true;
+                defaultValue?: Array<string>;
+                value?: never;
+                isTargetAmount?: true;
+                renderTarget?: (value: K[]) => React.ReactNode;
+            }
+      ));
 
 export interface BasicProps<K extends ItemOption> {
     /**
@@ -174,7 +215,10 @@ export interface BasicProps<K extends ItemOption> {
 export type SelectProps<K extends ItemOption = ItemOption> = BasicProps<K> &
     IsMultiselect<K> &
     Target &
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+    Omit<
+        ButtonHTMLAttributes<HTMLButtonElement>,
+        'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce' | 'name' | 'defaultValue'
+    >;
 
 export type { ItemOption as ItemOptionSelect };
 

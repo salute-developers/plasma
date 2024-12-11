@@ -1,4 +1,14 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
+import React, {
+    forwardRef,
+    useState,
+    useReducer,
+    useMemo,
+    createContext,
+    useLayoutEffect,
+    useRef,
+    ChangeEvent,
+    ForwardedRef,
+} from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
@@ -21,6 +31,7 @@ import { Ul, base } from './Select.styles';
 import type { ItemContext, MergedSelectProps, RequiredProps } from './Select.types';
 import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 import { FloatingPopover } from './FloatingPopover';
+import { SelectNative } from './ui/SelectNative/SelectNative';
 
 export const Context = createContext<ItemContext>({} as ItemContext);
 
@@ -60,6 +71,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             beforeList,
             afterList,
             zIndex,
+            name,
+            defaultValue,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -110,12 +123,25 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             dispatchFocusedPath({ type: 'reset' });
         }, floatingPopoverRef);
 
-        const onChange = (newValue: string | number | Array<string | number>) => {
+        const onChange = (
+            newValue?: string | number | Array<string | number> | ChangeEvent<HTMLSelectElement> | null,
+        ) => {
             if (outerOnChange) {
-                outerOnChange(newValue as any);
+                // Условие для отправки если комбобокс используется без формы.
+                if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
+                    outerOnChange(newValue as any);
+                }
+
+                // Условие для отправки если комбобокс используется с формой.
+                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    outerOnChange(newValue as any);
+                }
             }
 
-            setInternalValue(newValue);
+            // Условие для изменения внутреннего значения (только если newValue строка или массив строк).
+            if (typeof newValue === 'string' || Array.isArray(newValue)) {
+                setInternalValue(newValue);
+            }
         };
 
         const handleClickArrow = () => {
@@ -271,6 +297,12 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
+        useLayoutEffect(() => {
+            if (defaultValue) {
+                setInternalValue(defaultValue as string | string[]);
+            }
+        }, [defaultValue]);
+
         return (
             <Root
                 view={view}
@@ -280,6 +312,17 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 disabled={disabled}
                 {...(rest as any)}
             >
+                {name && (
+                    <SelectNative
+                        items={valueToItemMap}
+                        name={name}
+                        value={internalValue}
+                        multiselect={props.multiselect}
+                        onChange={onChange}
+                        onSetValue={setInternalValue}
+                        ref={ref as ForwardedRef<HTMLButtonElement>}
+                    />
+                )}
                 <Context.Provider
                     value={{
                         focusedPath,
@@ -302,7 +345,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         listWidth={listWidth}
                         target={(referenceRef) => (
                             <Target
-                                ref={ref}
+                                ref={name ? null : ref}
                                 value={value}
                                 opened={isCurrentListOpen}
                                 valueToItemMap={valueToItemMap}
