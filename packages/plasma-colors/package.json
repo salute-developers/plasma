@@ -28,8 +28,5 @@
     "Vasiliy Loginevskiy",
     "Anton Vinogradov",
     "Fanil Zubairov"
-  ],
-  "devDependencies": {
-    "typescript": "4.2.4"
-  }
+  ]
 }
