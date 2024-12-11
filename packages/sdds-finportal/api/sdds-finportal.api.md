@@ -1471,8 +1471,6 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-dividerVariant?: "none" | "dash" | "icon" | undefined;
-dividerIcon?: ReactNode;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
 firstValueSuccess?: boolean | undefined;
@@ -1483,14 +1481,16 @@ firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any
 firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldTextBefore?: string | undefined;
-secondTextfieldTextBefore?: string | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
 onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+dividerVariant?: "none" | "dash" | "icon" | undefined;
+dividerIcon?: ReactNode;
 } & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
 placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
 isDoubleCalendar?: boolean | undefined;
