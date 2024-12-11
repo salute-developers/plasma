@@ -9,7 +9,7 @@ import type { CounterProps } from './Counter.types';
 import { base } from './Counter.styles';
 import { classes } from './Counter.tokens';
 
-const MIN_COUNT = 1;
+const MIN_COUNT = 0;
 
 export const counterRoot = (Root: RootProps<HTMLDivElement, CounterProps>) =>
     forwardRef<HTMLDivElement, CounterProps>((props, ref) => {
