@@ -21,7 +21,6 @@
     "Vasiliy Loginevskiy"
   ],
   "devDependencies": {
-    "@types/styled-components": "^5.1.0",
-    "typescript": "4.2.4"
+    "@types/styled-components": "^5.1.0"
   }
 }
