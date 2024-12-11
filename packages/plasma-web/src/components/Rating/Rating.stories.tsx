@@ -53,13 +53,13 @@ const meta: Meta<typeof Rating> = {
             control: {
                 type: 'boolean',
             },
+            if: { arg: 'hasValue', truthy: true },
         },
         iconQuantity: {
             options: iconsCount,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hasIcons', truthy: true },
         },
         helperTextStretching: {
             options: helperTextStretching,
@@ -91,7 +91,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
         helperText: 'Helper text',
         helperTextStretching: 'filled',
     },
-    render: (args) => <Rating {...args} />,
+    render: ({ hasIcons, hasValue, ...args }) => (
+        <Rating hasIcons={hasValue ? hasIcons : true} hasValue={hasValue} {...args} />
+    ),
 };
 
 export const CustomIcons: StoryObj<StoryPropsDefault> = {
@@ -110,8 +112,10 @@ export const CustomIcons: StoryObj<StoryPropsDefault> = {
         helperText: 'Helper text',
         helperTextStretching: 'filled',
     },
-    render: (args) => (
+    render: ({ hasIcons, hasValue, ...args }) => (
         <Rating
+            hasIcons={hasValue ? hasIcons : true}
+            hasValue={hasValue}
             iconSlot={<IconKeyFill size="s" className={ratingClasses.customIconSizing} />}
             iconSlotOutline={<IconLockFill size="s" className={ratingClasses.customIconSizing} />}
             iconSlotHalf={<IconKeyOutline size="s" className={ratingClasses.customIconSizing} />}
