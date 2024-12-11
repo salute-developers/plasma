@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import Tree from 'rc-tree';
 import 'rc-tree/assets/index.css';
 
@@ -13,7 +13,7 @@ import { classes } from './Tree.tokens';
 /**
  * Многоуровневый раскрывающийся список в виде дерева.
  */
-export const treeRoot = (Root: RootProps<HTMLDivElement, Pick<TreeProps, 'view' | 'size'>>) =>
+export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'> & HTMLAttributes<HTMLDivElement>>) =>
     forwardRef<HTMLDivElement, TreeProps>(
         (
             {
