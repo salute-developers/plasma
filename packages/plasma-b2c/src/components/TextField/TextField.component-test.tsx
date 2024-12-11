@@ -597,4 +597,24 @@ describe('plasma-b2c: TextField keyboard navigation', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it.only(':textAfter', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField size="s" value="Value" placeholder="Placeholder" labelPlacement="outer" textAfter="%" />
+                <TextField
+                    id="outer"
+                    size="s"
+                    value="Value"
+                    placeholder="Placeholder"
+                    labelPlacement="outer"
+                    textAfter="%"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#outer input').focus();
+
+        cy.matchImageSnapshot();
+    });
 });

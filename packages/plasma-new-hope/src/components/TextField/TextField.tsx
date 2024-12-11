@@ -106,6 +106,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 onChangeChips,
                 onSearch,
                 onKeyDown,
+                onFocus,
+                onBlur,
 
                 ...rest
             },
@@ -121,6 +123,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const [hasValue, setHasValue] = useState(
                 Boolean(outerValue) || Boolean(inputRef?.current?.value) || Boolean(rest?.defaultValue),
             );
+            const [hasFocus, setHasFocus] = useState(false);
+
             const [chips, setChips] = useState<Array<ChipValues>>([]);
             const [isHintVisible, setIsHintVisible] = useState(false);
 
@@ -140,6 +144,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const hasOuterLabel = labelPlacement === 'outer' && hasLabelValue;
             const innerKeepPlaceholder = keepPlaceholder && labelPlacement === 'inner';
             const hasPlaceholder = Boolean(placeholder) && (innerKeepPlaceholder || !hasInnerLabel);
+            let hasTextAfter = Boolean(textAfter);
+            if (hasTextAfter && labelPlacement === 'inner') {
+                if (!hasValue && !hasPlaceholder && !hasFocus) {
+                    hasTextAfter = false;
+                }
+            }
 
             const innerLabelValue = hasInnerLabel || hasOuterLabel ? label : undefined;
             const innerLabelPlacementValue = labelPlacement === 'inner' && !hasInnerLabel ? undefined : labelPlacement;
@@ -169,7 +179,18 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const hintForkRef = useForkRef(hintRef, hintInnerRef);
 
             const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
-                setHasValue(Boolean((event.target as HTMLInputElement).value));
+                const { value } = event.target as HTMLInputElement;
+                setHasValue(Boolean(value));
+            };
+
+            const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+                setHasFocus(true);
+                onFocus?.(event);
+            };
+
+            const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+                setHasFocus(false);
+                onBlur?.(event);
             };
 
             const handleHintShow = () => setIsHintVisible(true);
@@ -427,7 +448,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     })}
                                 </StyledChips>
                             )}
-                            <InputContainer>
+                            <InputContainer hasDynamicWidth={hasTextAfter}>
                                 <Input
                                     ref={inputForkRef}
                                     id={innerId}
@@ -441,6 +462,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onInput={handleInput}
                                     onChange={handleChange}
                                     onKeyDown={handleOnKeyDown}
+                                    onFocus={handleFocus}
+                                    onBlur={handleBlur}
                                     {...rest}
                                 />
                                 {hasInnerLabel && (
@@ -456,7 +479,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     </InputPlaceholder>
                                 )}
                             </InputContainer>
-                            {textAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
+                            {hasTextAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
                         </InputLabelWrapper>
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                     </InputWrapper>
