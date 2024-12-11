@@ -21,13 +21,6 @@ export const SelectNative = forwardRef<HTMLInputElement, Props>(
         const options = Array.from(items.keys());
 
         useLayoutEffect(() => {
-            const event = createEvent(selectRef);
-            if (onChange) {
-                onChange(event);
-            }
-        }, [values]);
-
-        useLayoutEffect(() => {
             if (selectRef.current && !multiple) {
                 const valueInit = selectRef.current.value;
 
@@ -43,6 +36,13 @@ export const SelectNative = forwardRef<HTMLInputElement, Props>(
                 }
             }
         }, []);
+
+        useLayoutEffect(() => {
+            const event = createEvent(selectRef);
+            if (onChange) {
+                onChange(event);
+            }
+        }, [values]);
 
         return (
             <>

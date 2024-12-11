@@ -63,29 +63,6 @@ type Target = LabelProps &
           }
     );
 
-// type IsMultiselect<K extends ItemOption> =
-//     | {
-//           multiselect?: false;
-//           value?: string;
-//           onChange?: (value: string) => void;
-//           /**
-//            * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
-//            * @default false
-//            */
-//           isTargetAmount?: never | false;
-//           /**
-//            * Callback для кастомной настройки таргета целиком.
-//            */
-//           renderTarget?: (value: K) => React.ReactNode;
-//       }
-//     | {
-//           multiselect: true;
-//           value?: Array<string>;
-//           onChange?: (value: Array<string>) => void;
-//           isTargetAmount?: boolean;
-//           renderTarget?: (value: K[]) => React.ReactNode;
-//       };
-
 type IsMultiselect<K extends ItemOption> =
     | ({ name?: never; defaultValue?: never } & (
           | {

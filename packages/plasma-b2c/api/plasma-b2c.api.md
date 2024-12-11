@@ -167,8 +167,9 @@ import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
-import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/styled-components';
-import { InputHTMLAttributes as InputHTMLAttributes_3 } from 'react';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-hope';
+import { InputHTMLAttributes as InputHTMLAttributes_3 } from '@salutejs/plasma-new-hope/styled-components';
+import { InputHTMLAttributes as InputHTMLAttributes_4 } from 'react';
 import type { ItemOption } from '@salutejs/plasma-new-hope';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
@@ -704,7 +705,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -736,7 +737,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -766,7 +767,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -798,7 +799,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -828,7 +829,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -860,7 +861,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -890,7 +891,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -922,7 +923,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
+}, "labelPlacement" | "enumerationType" | "chipType" | "chipView" | "chips" | "onChangeChips" | "chipValidator"> & Omit<InputHTMLAttributes_4<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public (undocumented)
 export const Avatar: FunctionComponent<PropsType<    {
@@ -1949,7 +1950,7 @@ onDragOver?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
 validator?: ((files: File[]) => ValidatorReturnType) | undefined;
 onDrop?: FileProcessHandler | undefined;
 onChoseFiles?: FileProcessHandler | undefined;
-} & InputHTMLAttributes_3<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
+} & InputHTMLAttributes_4<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
 
 export { dropzoneClasses }
 
@@ -2391,7 +2392,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -2469,7 +2470,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -2545,7 +2546,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -2623,7 +2624,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -2699,7 +2700,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -2777,7 +2778,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -2853,7 +2854,7 @@ onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefine
 chipType?: undefined;
 chipView?: undefined;
 chipValidator?: undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
 positive: PolymorphicClassName;
@@ -2931,7 +2932,7 @@ chipView?: string | undefined;
 chipValidator?: ((value: string) => {
 view?: string | undefined;
 }) | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref">) & RefAttributes<HTMLInputElement>>;
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref">) & RefAttributes<HTMLInputElement>>;
 
 export { MaxLinesProps }
 
@@ -3045,7 +3046,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: "clear" | undefined;
 inputBackgroundType?: undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes_4<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>) | ({
 value?: number | undefined;
 min?: number | undefined;
 max?: number | undefined;
@@ -3070,7 +3071,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: string | undefined;
 inputBackgroundType?: string | undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes_4<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>))>;
 
 export { numberInputClasses }
 
@@ -3238,7 +3239,7 @@ true: PolymorphicClassName;
 focused: {
 true: PolymorphicClassName;
 };
-}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_3<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
