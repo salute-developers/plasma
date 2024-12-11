@@ -62,7 +62,7 @@ describe('plasma-web: TextArea', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('textarea:first').focus();
+        cy.get('.textarea:first').focus();
         cy.matchImageSnapshot();
     });
 
@@ -146,7 +146,7 @@ describe('plasma-web: TextArea', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.root().get('textarea').last().invoke('attr', 'style', 'width: 280px; height: 140px;');
+        cy.root().get('.textarea').last().invoke('attr', 'style', 'width: 280px; height: 140px;');
 
         cy.matchImageSnapshot();
     });
