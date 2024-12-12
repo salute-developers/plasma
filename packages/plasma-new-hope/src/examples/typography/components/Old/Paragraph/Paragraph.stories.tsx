@@ -9,7 +9,7 @@ import { Paragraph } from './Paragraph';
 import { config } from './Paragraph.config';
 
 const meta: Meta<typeof Paragraph> = {
-    title: 'typography/Old/Paragraph',
+    title: 'Data Display/Typography/Old/Paragraph',
     decorators: [WithTheme],
     component: Paragraph,
     argTypes: {

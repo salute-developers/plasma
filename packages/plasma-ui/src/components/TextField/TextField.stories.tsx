@@ -11,7 +11,7 @@ import { TextField } from '.';
 import type { TextFieldProps } from '.';
 
 const meta: Meta<TextFieldProps> = {
-    title: 'Controls/TextField',
+    title: 'Data Entry/TextField',
     component: TextField,
     decorators: [InSpacing],
     argTypes: {

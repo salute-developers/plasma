@@ -12,7 +12,7 @@ const {
 export const applyDynamicLabel = `
     .${innerPlaceholderUp} {
         .${styledTextArea} {
-            height: calc(var(--plasma_private-textarea-input-actual-height) - var(${tokens.labelInnerTop}));
+            height: calc(var(--plasma_private-textarea-input-actual-height) - var(${tokens.labelInnerTop}) - var(${tokens.labelInnerTopHelper}, 0px));
         }
 
         .${styledTextAreaWrapper} {

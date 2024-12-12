@@ -8,10 +8,7 @@ export const tokens = {
 
     borderRadius: '--plasma-counter-border-radius',
     height: '--plasma-counter-height',
-    paddingTop: '--plasma-counter-padding-top',
-    paddingRight: '--plasma-counter-padding-right',
-    paddingBottom: '--plasma-counter-padding-bottom',
-    paddingLeft: '--plasma-counter-padding-left',
+    padding: '--plasma-counter-padding',
 
     fontFamily: '--plasma-counter-font-family',
     fontSize: '--plasma-counter-font-size',

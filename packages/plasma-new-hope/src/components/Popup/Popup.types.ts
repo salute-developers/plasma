@@ -23,12 +23,12 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      * Отображение Popup.
      */
     opened?: boolean;
-    /* Позиция на экране
+    /** Позиция на экране
      * center - по умолчанию
      * left, right, top, bottom и их комбинации
      */
     placement?: PopupPlacement;
-    /* Смещение относительно текущей позиции.
+    /** Смещение относительно текущей позиции.
      * (x, y) - [number, number], [string, string].
      * При передаче number расчёт в rem.
      */

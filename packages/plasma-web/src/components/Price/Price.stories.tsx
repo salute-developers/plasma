@@ -5,7 +5,7 @@ import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { Price } from '.';
 
 const meta: Meta<typeof Price> = {
-    title: 'Content/Price',
+    title: 'Data Display/Price',
     decorators: [InSpacingDecorator],
     argTypes: {
         currency: {

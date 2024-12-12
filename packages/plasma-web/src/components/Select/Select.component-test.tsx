@@ -11,6 +11,8 @@ const items = [
         label: 'Северная Америка',
         contentLeft: <IconLocation color="inherit" />,
         contentRight: <IconLocation color="inherit" />,
+        className: 'test-classname',
+        'data-name': 'test-data-name',
     },
     {
         value: 'south_america',
@@ -711,6 +713,145 @@ describe('plasma-web: Select', () => {
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            beforeList="Content before list"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            afterList="Content after list"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: item data-attrs', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="single" items={items} label="Label" placeholder="Placeholder" />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').should('have.class', 'test-classname');
+        cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
+    });
+
+    it('prop: zIndex', () => {
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="single" items={items} label="Label" placeholder="Placeholder" zIndex={10000} />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
+    it('prop: renderValue', () => {
+        cy.viewport(400, 800);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
 
         cy.matchImageSnapshot();
     });

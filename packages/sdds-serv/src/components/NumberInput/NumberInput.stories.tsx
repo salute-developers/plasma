@@ -16,7 +16,7 @@ const inputBackgroundTypes = ['fill', 'clear'];
 const segmentation = ['default', 'segmented', 'solid'];
 
 const meta: Meta<typeof NumberInput> = {
-    title: 'Controls/NumberInput',
+    title: 'Data Entry/NumberInput',
     component: NumberInput,
     decorators: [InSpacingDecorator],
     argTypes: {

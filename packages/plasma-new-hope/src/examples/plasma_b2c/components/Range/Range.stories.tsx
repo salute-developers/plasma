@@ -21,9 +21,10 @@ const onBlurSecondTextfield = action('onBlurSecondTextfield');
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta<typeof Range> = {
-    title: 'plasma_b2c/Range',
+    title: 'b2c/Data Entry/Range',
     component: Range,
     decorators: [WithTheme],
     argTypes: {
@@ -38,6 +39,13 @@ const meta: Meta<typeof Range> = {
             control: {
                 type: 'inline-radio',
             },
+        },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
         },
     },
 };
@@ -161,6 +169,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         secondPlaceholder: 'Заполните поле 2',
         size: 'l',
         view: 'default',
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: 'С',
@@ -301,6 +311,8 @@ export const Demo: StoryObj<StoryPropsDefault> = {
         secondPlaceholder: '5',
         size: 'l',
         view: 'default',
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: '',

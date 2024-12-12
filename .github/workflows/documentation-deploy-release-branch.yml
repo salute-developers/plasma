@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       PR_NAME: pr-${{ github.event.number }}
+      PREFIX: pr/pr-${{ github.event.number }}
       ICONS_PUBLIC_URL: /icons
     steps:
       - uses: actions/checkout@v4

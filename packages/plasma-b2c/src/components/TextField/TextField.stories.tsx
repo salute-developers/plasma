@@ -64,7 +64,7 @@ const propsToDisable = [
 ];
 
 const meta: Meta<TextFieldProps> = {
-    title: 'Controls/TextField',
+    title: 'Data Entry/TextField',
     component: TextField,
     decorators: [InSpacingDecorator],
     argTypes: {

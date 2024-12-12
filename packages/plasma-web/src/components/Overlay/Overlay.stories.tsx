@@ -12,7 +12,7 @@ import { Overlay } from '.';
 const onOverlayClick = action('onOverlayClick');
 
 export default {
-    title: 'Controls/Overlay',
+    title: 'Overlay/Overlay',
     decorators: [InSpacingDecorator],
     argTypes: {
         isClickable: {

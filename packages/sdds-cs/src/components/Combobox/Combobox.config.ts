@@ -163,8 +163,7 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.25rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.75rem;
-                ${tokens.textFieldChipPaddingRight}: 0.5rem;
-                ${tokens.textFieldChipPaddingLeft}: 0.75rem;
+                ${tokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1rem;

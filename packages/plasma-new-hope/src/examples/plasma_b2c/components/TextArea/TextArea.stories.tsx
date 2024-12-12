@@ -44,7 +44,7 @@ type StoryTextAreaPropsCustom = {
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
 const meta: Meta<StoryTextAreaProps> = {
-    title: 'plasma_b2c/TextArea',
+    title: 'b2c/Data Entry/TextArea',
     decorators: [WithTheme],
     component: TextArea,
     argTypes: {

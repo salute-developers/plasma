@@ -37,7 +37,7 @@ const getNotificationProps = (i: number) => ({
 const placements = ['top', 'left'];
 
 const meta: Meta<typeof Notification> = {
-    title: 'Controls/Notification',
+    title: 'Overlay/Notification',
     decorators: [InSpacingDecorator],
 };
 
@@ -85,7 +85,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
             },
         },
         layout: {
-            options: ['vertical'],
+            options: ['vertical', 'horizontal'],
             control: {
                 type: 'select',
             },
@@ -129,7 +129,7 @@ const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
 export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
     argTypes: {
         layout: {
-            options: ['vertical'],
+            options: ['vertical', 'horizontal'],
             control: {
                 type: 'select',
             },

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { IconDisclosureRight } from '@salutejs/plasma-icons';
+import { IconPlasma } from '@salutejs/plasma-icons';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
@@ -29,8 +29,25 @@ const placements: Array<string> = [
     'auto',
 ];
 
+const disabledProps = [
+    'target',
+    'children',
+    'text',
+    'opened',
+    'isOpen',
+    'isVisible',
+    'offset',
+    'frame',
+    'view',
+    'zIndex',
+    'minWidth',
+    'maxWidth',
+    'contentLeft',
+    'onDismiss',
+    'size',
+];
 const meta: Meta<TooltipProps> = {
-    title: 'Controls/Tooltip',
+    title: 'Overlay/Tooltip',
     decorators: [InSpacingDecorator],
     component: Tooltip,
 };
@@ -72,29 +89,15 @@ const StoryDefault = (props: Pick<TooltipProps, 'hasArrow' | 'size' | 'usePortal
 
 export const Default: StoryObj<TooltipProps> = {
     argTypes: {
-        ...disableProps([
-            'target',
-            'children',
-            'text',
-            'opened',
-            'isOpen',
-            'isVisible',
-            'placement',
-            'offset',
-            'frame',
-            'view',
-            'size',
-            'zIndex',
-            'minWidth',
-            'maxWidth',
-            'contentLeft',
-            'onDismiss',
-        ]),
+        ...disableProps([...disabledProps, 'placement']),
     },
     args: {
-        size: 's',
+        maxWidth: 10,
+        minWidth: 3,
         hasArrow: true,
         usePortal: false,
+        animated: true,
+        size: 's',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -114,7 +117,7 @@ const StoryLive = (args: TooltipProps) => {
             <StyledRow>
                 <Tooltip
                     target={<Button onClick={() => setIsOpen(!isOpen)}>Show tooltip</Button>}
-                    contentLeft={<IconDisclosureRight size="xs" />}
+                    contentLeft={<IconPlasma size="xs" />}
                     {...args}
                     id="example-tooltip-firstname"
                     text="Tooltip text"
@@ -134,21 +137,7 @@ export const Live: StoryObj<TooltipProps> = {
             },
             mapping: placements,
         },
-        ...disableProps([
-            'target',
-            'children',
-            'text',
-            'opened',
-            'isOpen',
-            'isVisible',
-            'offset',
-            'frame',
-            'view',
-            'zIndex',
-            'contentLeft',
-            'onDismiss',
-            'size',
-        ]),
+        ...disableProps(disabledProps),
     },
     args: {
         placement: 'bottom',

@@ -14,7 +14,7 @@ export const getNextDate = (currentYear: number, currentMonth: number) =>
     currentMonth + 1 === MONTHS.length ? [currentYear + 1, 0] : [currentYear, currentMonth + 1];
 
 export const getPrevDate = (currentYear: number, currentMonth: number) =>
-    currentMonth - 1 < 0 ? [currentYear - 1, 11] : [currentYear, currentMonth - 1];
+    currentMonth - 1 < 0 ? [Math.abs(currentYear - 1) || 0, 11] : [currentYear, currentMonth - 1];
 
 export const getDateFromValue = (date: Date | undefined): DateObject => {
     const state = date || new Date();
@@ -22,7 +22,7 @@ export const getDateFromValue = (date: Date | undefined): DateObject => {
     return {
         day: date !== undefined ? state.getDate() : 0,
         monthIndex: state.getMonth(),
-        year: state.getFullYear(),
+        year: Math.abs(state.getFullYear()),
     };
 };
 

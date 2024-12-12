@@ -14,7 +14,7 @@ import type { ClosePlacementType } from '../../../../components/Drawer';
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from './Drawer';
 
 export default {
-    title: 'plasma_web/Drawer',
+    title: 'web/Overlay/Divider',
     decorators: [WithTheme],
     argTypes: {
         placement: {

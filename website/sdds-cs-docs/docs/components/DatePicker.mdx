@@ -192,3 +192,29 @@ export function App() {
     );
 }
 ```
+
+### Обязательность поля
+Обязательность поля задаётся с помощью свойства `required`. 
+Если поле является обязательным, то у компонента появляется специальный индикатор. 
+Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`. 
+
+```tsx live
+import React from 'react';
+import { DatePicker, IconButton } from '@salutejs/sdds-cs';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <DatePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                format="DD MMMM YYYY"
+                required
+                requiredPlacement="right"
+            />
+        </div>
+    );
+}
+```

@@ -9,7 +9,7 @@ import { Subtitle } from './Subtitle';
 import { config } from './Subtitle.config';
 
 const meta: Meta<typeof Subtitle> = {
-    title: 'typography/Old/Subtitle',
+    title: 'Data Display/Typography/Old/Subtitle',
     decorators: [WithTheme],
     component: Subtitle,
     argTypes: {

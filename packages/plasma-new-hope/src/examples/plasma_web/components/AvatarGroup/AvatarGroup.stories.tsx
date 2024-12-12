@@ -10,7 +10,7 @@ import { AvatarGroup } from './AvatarGroup';
 type Story = StoryObj<ComponentProps<typeof AvatarGroup>>;
 
 const meta: Meta<typeof AvatarGroup> = {
-    title: 'plasma_web/AvatarGroup',
+    title: 'web/Data Display/AvatarGroup',
     decorators: [WithTheme],
     component: AvatarGroup,
 };

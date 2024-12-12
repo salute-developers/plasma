@@ -14,7 +14,7 @@ import type { ClosePlacementType } from '.';
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from '.';
 
 export default {
-    title: 'Controls/Drawer',
+    title: 'Overlay/Drawer',
     decorators: [InSpacingDecorator],
     argTypes: {
         ...disableProps(['view', 'size']),
@@ -131,6 +131,7 @@ const StyledIconButton = styled(Button)`
     position: relative;
     width: 1.5rem;
     height: 1.5rem;
+    color: var(--text-secondary);
 `;
 
 const StoryDrawerDemo = ({

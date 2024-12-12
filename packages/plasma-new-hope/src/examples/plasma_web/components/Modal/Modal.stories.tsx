@@ -13,7 +13,7 @@ import { WithTheme } from '../../../_helpers';
 import { Modal, modalClasses } from './Modal';
 
 export default {
-    title: 'plasma_web/Modal',
+    title: 'web/Overlay/Modal',
     decorators: [WithTheme],
     parameters: {
         docs: { story: { inline: false, iframeHeight: '30rem' } },

@@ -194,8 +194,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.5rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.75rem;
-                ${tokens.chipPaddingRight}: 0.75rem;
-                ${tokens.chipPaddingLeft}: 1rem;
+                ${tokens.chipPadding}: 0 0.75rem 0 1rem;
                 ${tokens.chipClearContentMarginLeft}: 0.625rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1.5rem;
@@ -270,8 +269,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.375rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.25rem;
-                ${tokens.chipPaddingRight}: 0.625rem;
-                ${tokens.chipPaddingLeft}: 0.875rem;
+                ${tokens.chipPadding}: 0 0.625rem 0 0.875rem;
                 ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1.25rem;
@@ -346,8 +344,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.25rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 1.75rem;
-                ${tokens.chipPaddingRight}: 0.5rem;
-                ${tokens.chipPaddingLeft}: 0.75rem;
+                ${tokens.chipPadding}: 0 0.5rem 0 0.75rem;
                 ${tokens.chipClearContentMarginLeft}: 0.375rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1rem;
@@ -422,8 +419,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.125rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 1.25rem;
-                ${tokens.chipPaddingRight}: 0.375rem;
-                ${tokens.chipPaddingLeft}: 0.625rem;
+                ${tokens.chipPadding}: 0 0.375rem 0 0.625rem;
                 ${tokens.chipClearContentMarginLeft}: 0.25rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 0.75rem;

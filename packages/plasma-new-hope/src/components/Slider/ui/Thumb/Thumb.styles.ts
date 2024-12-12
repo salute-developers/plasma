@@ -4,10 +4,10 @@ import { addFocus } from '../../../../mixins';
 import { tokens } from '../../Slider.tokens';
 
 export const ThumbBase = styled.div<{ disabled?: boolean }>`
-    width: var(--thumb-size);
-    height: var(--thumb-size);
-    min-width: var(--thumb-size);
-    min-height: var(--thumb-size);
+    width: var(--plasma-private-thumb-size);
+    height: var(--plasma-private-thumb-size);
+    min-width: var(--plasma-private-thumb-size);
+    min-height: var(--plasma-private-thumb-size);
 
     position: relative;
     border-radius: 50%;

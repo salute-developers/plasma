@@ -10,7 +10,7 @@ import { config } from './Spinner.config';
 import { Spinner } from './Spinner';
 
 const meta: Meta<typeof Spinner> = {
-    title: 'plasma_web/Spinner',
+    title: 'web/Data Display/Spinner',
     decorators: [WithTheme],
     component: Spinner,
     args: {

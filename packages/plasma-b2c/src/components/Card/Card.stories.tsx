@@ -17,7 +17,7 @@ const roundList = [250, 32, 28, 24, 20, 18, 16, 14, 12, 8, 0] as const;
 const ratios = ['1/1', '3/4', '4/3', '9/16', '16/9', '1/2', '2/1'] as const;
 
 const meta: Meta<StoryCardProps> = {
-    title: 'Content/Card',
+    title: 'Data Display/Card',
     decorators: [InSpacingDecorator],
     component: Card,
     argTypes: {

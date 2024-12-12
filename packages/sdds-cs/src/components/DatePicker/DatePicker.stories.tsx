@@ -2,7 +2,7 @@ import React, { ComponentProps, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconPlasma, IconDisclosureDown } from '@salutejs/plasma-icons';
+import { IconPlasma, IconDisclosureDown, IconCalendarOutline } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -19,9 +19,10 @@ const sizes = ['s'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta = {
-    title: 'Controls/DatePicker',
+    title: 'Data Entry/DatePicker',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {
@@ -58,6 +59,13 @@ const meta: Meta = {
                 type: 'select',
             },
         },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
+        },
     },
 };
 
@@ -87,7 +95,7 @@ const StoryDefault = ({
             valueError={valueError}
             valueSuccess={valueSuccess}
             contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconDisclosureDown size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconCalendarOutline size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => setIsOpen(is)}
@@ -127,10 +135,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',
-        enableContentLeft: true,
+        enableContentLeft: false,
         enableContentRight: true,
         valueError: false,
         valueSuccess: false,
@@ -151,7 +161,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconDisclosureDown size={iconSize} color="var(--text-accent)" />
+            <IconPlasma size={iconSize} color="var(--text-primary)" />
         </IconButton>
     );
 };
@@ -200,11 +210,15 @@ const StoryRange = ({
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={enableFirstTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? <IconDisclosureDown size={iconSize} /> : undefined
+                enableFirstTextfieldContentRight ? (
+                    <IconCalendarOutline color="var(--text-accent)" size={iconSize} />
+                ) : undefined
             }
             secondTextfieldContentLeft={enableSecondTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? <IconDisclosureDown size={iconSize} /> : undefined
+                enableSecondTextfieldContentRight ? (
+                    <IconCalendarOutline color="var(--text-accent)" size={iconSize} />
+                ) : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
@@ -258,14 +272,16 @@ export const Range: StoryObj<StoryPropsRange> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
-        enableContentLeft: true,
-        enableContentRight: true,
+        enableContentLeft: false,
+        enableContentRight: false,
         enableFirstTextfieldContentLeft: false,
-        enableFirstTextfieldContentRight: false,
+        enableFirstTextfieldContentRight: true,
         enableSecondTextfieldContentLeft: false,
-        enableSecondTextfieldContentRight: false,
+        enableSecondTextfieldContentRight: true,
 
         firstValueError: false,
         firstValueSuccess: false,

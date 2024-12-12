@@ -44,7 +44,7 @@ type StoryTextAreaPropsCustom = {
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
 const meta: Meta<StoryTextAreaProps> = {
-    title: 'plasma_web/TextArea',
+    title: 'web/Data Entry/TextArea',
     decorators: [WithTheme],
     component: TextArea,
     argTypes: {

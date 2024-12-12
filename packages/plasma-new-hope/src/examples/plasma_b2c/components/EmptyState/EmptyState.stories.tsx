@@ -14,7 +14,7 @@ type StoryProps = ComponentProps<typeof EmptyState> & {
 };
 
 const meta: Meta<StoryProps> = {
-    title: 'plasma_b2c/EmptyState',
+    title: 'b2c/Data Entry/EmptyState',
     decorators: [WithTheme],
     component: EmptyState,
     args: {

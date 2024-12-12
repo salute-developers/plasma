@@ -14,7 +14,7 @@ import { Carousel, CarouselItem } from '.';
 import type { CarouselProps } from '.';
 
 const meta: Meta<typeof Carousel> = {
-    title: 'Controls/Carousel',
+    title: 'Navigation/Carousel',
     component: Carousel,
     decorators: [InSpacingDecorator],
     argTypes: {

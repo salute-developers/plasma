@@ -16,7 +16,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<typeof Checkbox> = {
-    title: 'plasma_web/Checkbox',
+    title: 'web/Data Entry/Checkbox',
     decorators: [WithTheme],
     component: Checkbox,
     argTypes: argTypesFromConfig(mergeConfig(checkboxConfig, config)),

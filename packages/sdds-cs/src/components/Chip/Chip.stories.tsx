@@ -11,7 +11,7 @@ const sizes = ['s'];
 const onClear = action('onClear');
 
 const meta: Meta<typeof Chip> = {
-    title: 'Controls/Chip',
+    title: 'Data Display/Chip',
     component: Chip,
     decorators: [InSpacingDecorator],
     argTypes: {

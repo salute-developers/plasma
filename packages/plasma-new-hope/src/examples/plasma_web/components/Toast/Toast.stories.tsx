@@ -17,7 +17,7 @@ import { config } from './Toast.config';
 import { Toast, ToastController, ToastProvider, useToast } from './Toast';
 
 const meta: Meta<typeof ToastController> = {
-    title: 'plasma_web/Toast',
+    title: 'web/Overlay/Toast',
     decorators: [WithTheme],
 };
 

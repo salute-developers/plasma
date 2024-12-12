@@ -9,7 +9,7 @@ import { Text } from './Text';
 import { config } from './Text.config';
 
 const meta: Meta<typeof Text> = {
-    title: 'typography/Text',
+    title: 'Data Display/Typography/Text',
     decorators: [WithTheme],
     component: Text,
     argTypes: {

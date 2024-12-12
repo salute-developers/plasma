@@ -1,0 +1,14 @@
+name: Deploy documentations artefacts [DEV SUBDIR]
+
+on:
+    workflow_dispatch:
+
+jobs:
+    run:
+        name: Deploy artifacts [DEV SUBDIR]
+        uses: ./.github/workflows/documentation-deploy-common.yml
+        with:
+            path: 'dev'
+            ref: 'dev'
+            docusaurusURLPrefix: 'dev'
+        secrets: inherit

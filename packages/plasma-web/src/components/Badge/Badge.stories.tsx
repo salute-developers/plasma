@@ -5,7 +5,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
-    title: 'Content/Badge',
+    title: 'Data Display/Badge',
     component: Badge,
     decorators: [InSpacingDecorator],
     argTypes: {

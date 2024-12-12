@@ -11,7 +11,7 @@ const onFocus = actionWithPersistedEvent('onFocus');
 const onBlur = actionWithPersistedEvent('onBlur');
 
 const meta: Meta<SwitchProps> = {
-    title: 'Controls/Switch',
+    title: 'Data Entry/Switch',
     component: Switch,
     decorators: [InSpacingDecorator],
 };

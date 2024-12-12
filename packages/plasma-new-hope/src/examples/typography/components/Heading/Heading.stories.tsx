@@ -9,7 +9,7 @@ import { Heading } from './Heading';
 import { config } from './Heading.config';
 
 const meta: Meta<typeof Heading> = {
-    title: 'typography/Heading',
+    title: 'Data Display/Typography/Heading',
     decorators: [WithTheme],
     component: Heading,
     argTypes: {

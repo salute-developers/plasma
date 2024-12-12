@@ -26,10 +26,7 @@ export const tokens = {
     chipBorderRadius: '--plasma-chip-group-items-border-radius',
     chipHeight: '--plasma-chip-group-item-height',
     chipWidth: '--plasma-chip-group-item-width',
-    chipPaddingTop: '--plasma-chip-group-item-padding-top',
-    chipPaddingRight: '--plasma-chip-group-item-padding-right',
-    chipPaddingBottom: '--plasma-chip-group-item-padding-bottom',
-    chipPaddingLeft: '--plasma-chip-group-item-padding-left',
+    chipPadding: '--plasma-chip-group-item-padding',
     chipCloseIconSize: '--plasma-chip-group-item-close-icon-size',
 
     chipFontFamily: '--plasma-chip-group-item-font-family',

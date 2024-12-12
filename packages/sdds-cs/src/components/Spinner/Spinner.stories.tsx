@@ -9,7 +9,7 @@ import { BodyL } from '../Typography';
 import { Spinner } from '.';
 
 const meta: Meta<typeof Spinner> = {
-    title: 'Content/Spinner',
+    title: 'Data Display/Spinner',
     decorators: [InSpacingDecorator],
     component: Spinner,
     argTypes: {

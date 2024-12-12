@@ -192,7 +192,7 @@ export type TextAreaPropsBase = {
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
-    leftHelper?: string;
+    leftHelper?: ReactNode;
     /**
      * Вспомогательный текст снизу справа для поля ввода.
      */

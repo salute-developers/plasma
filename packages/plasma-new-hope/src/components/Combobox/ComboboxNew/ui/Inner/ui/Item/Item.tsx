@@ -30,7 +30,7 @@ export const Item: FC<ItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, contentLeft, contentRight } = item;
+    const { value, label, disabled, contentLeft, contentRight, className, ...rest } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -83,7 +83,8 @@ export const Item: FC<ItemProps> = ({
 
     return (
         <Wrapper
-            className={cx(disabledClassName, focusedClass, activeClass)}
+            {...rest}
+            className={cx(disabledClassName, focusedClass, activeClass, className)}
             id={getItemId(treeId, value)}
             ref={ref}
             onClick={handleClick}

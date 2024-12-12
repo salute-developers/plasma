@@ -8,7 +8,7 @@ import { Button } from '../Button/Button';
 import { Pagination } from './Pagination';
 
 const meta: Meta<typeof Pagination> = {
-    title: 'plasma_web/Pagination',
+    title: 'web/Navigation/Pagination',
     component: Pagination,
     decorators: [WithTheme],
     argTypes: {

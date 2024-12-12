@@ -1,10 +1,14 @@
 import { styled } from '@linaria/react';
 
-import { component } from '../../engines';
+import { component, mergeConfig } from '../../engines';
 import { popupClasses, popupConfig } from '../Popup';
+import { panelTokens, panelConfig } from '../Panel';
 
 import type { DrawerPlacement } from './Drawer.types';
-import { classes } from './Drawer.tokens';
+import { classes, tokens } from './Drawer.tokens';
+
+const mergedPanelConfig = mergeConfig(panelConfig);
+const Panel = component(mergedPanelConfig);
 
 const Popup = component(popupConfig);
 
@@ -93,6 +97,10 @@ const getAnimationStyles = () => {
         return acc;
     }, '');
 };
+
+export const StyledPanel = styled(Panel)`
+    ${panelTokens.closeColor}: var(${tokens.closeIconColor});
+`;
 
 export const StyledPopup = styled(Popup)<{
     placement: DrawerPlacement;

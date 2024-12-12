@@ -12,7 +12,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<TextAreaProps> = {
-    title: 'Controls/TextArea',
+    title: 'Data Entry/TextArea',
     component: TextArea,
     decorators: [InSpacingDecorator],
     argTypes: {

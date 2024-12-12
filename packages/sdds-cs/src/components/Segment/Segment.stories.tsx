@@ -46,7 +46,7 @@ const getContentRight = (contentRightOption: string, size: Size) => {
 };
 
 const meta: Meta<StorySegmentProps> = {
-    title: 'Controls/Segment',
+    title: 'Data Entry/Segment',
     decorators: [InSpacingDecorator],
     component: SegmentGroup,
     argTypes: {

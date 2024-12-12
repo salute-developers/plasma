@@ -25,7 +25,7 @@ type StoryDefaultProps = CardProps & {
 };
 
 const meta: Meta<StoryDefaultProps> = {
-    title: 'Content/Card',
+    title: 'Data Display/Card',
     component: Card,
     decorators: [InSpacingDecorator],
     argTypes: {

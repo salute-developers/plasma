@@ -10,7 +10,7 @@ import { WithTheme } from '../../../_helpers';
 import { Popup, popupClasses, PopupProvider } from './Popup';
 
 const meta: Meta<typeof Popup> = {
-    title: 'plasma_b2c/Popup',
+    title: 'b2c/Overlay/Popup',
     decorators: [WithTheme],
     parameters: {
         docs: { story: { inline: false, iframeHeight: '30rem' } },

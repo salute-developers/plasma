@@ -7,6 +7,7 @@ export { IS_REACT_18, safeUseId } from './react';
 export { isNumber } from './isNumber';
 export { mergeRefs, setRefList } from './setRefList';
 export { isEmpty } from './isEmpty';
+export { createEvent } from './createEvent';
 export * as constants from './constants';
 export * from './getPopoverPlacement';
 export { noop } from './noop';
