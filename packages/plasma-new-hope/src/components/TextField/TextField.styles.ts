@@ -61,13 +61,19 @@ export const Input = styled.input`
     }
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{ hasDynamicWidth?: boolean }>`
     position: relative;
+    display: flex;
     flex: 1;
-    min-width: 60%;
+    min-width: ${({ hasDynamicWidth }) => (hasDynamicWidth ? 'auto' : '60%')};
+
+    ${Input} {
+        max-width: ${({ hasDynamicWidth }) => (hasDynamicWidth ? '100%' : 'none')};
+    }
 `;
 
 export const InputPlaceholder = styled.div<{ hasPadding?: boolean }>`
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
@@ -90,6 +96,7 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;
 
+    white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
 `;
@@ -134,7 +141,9 @@ export const StyledContentRight = styled.div`
 
 export const LeftHelper = styled.div``;
 
-export const StyledTextBefore = styled.div``;
+export const StyledTextBefore = styled.div<{ isHidden?: boolean }>`
+    visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
+`;
 
 export const StyledTextAfter = styled.div``;
 

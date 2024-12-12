@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, InputContainer, Label, StyledTextAfter, StyledTextBefore } from '../../TextField.styles';
+import { Input, InputContainer, Label } from '../../TextField.styles';
 
 export const base = css`
     &.${classes.outerLabelPlacement} {
@@ -14,10 +14,6 @@ export const base = css`
 
     &.${classes.innerLabelPlacement} {
         ${InputContainer} {
-            padding: var(${tokens.contentLabelInnerPadding});
-        }
-
-        ${StyledTextAfter}, ${StyledTextBefore} {
             padding: var(${tokens.contentLabelInnerPadding});
         }
 

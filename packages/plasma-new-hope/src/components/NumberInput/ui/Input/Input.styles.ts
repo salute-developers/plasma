@@ -48,7 +48,6 @@ export const Input = styled.input<{ dynamicWidth: string; isManualInput: boolean
     background-color: transparent;
     outline: none;
     width: ${({ dynamicWidth }) => dynamicWidth};
-    box-sizing: border-box;
     cursor: ${({ isManualInput }) => (isManualInput ? 'text' : 'default')};
     pointer-events: ${({ isManualInput }) => (isManualInput ? 'initial' : 'none')};
     transition: width 0.1s;

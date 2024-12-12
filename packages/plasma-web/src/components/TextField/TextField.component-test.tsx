@@ -356,6 +356,105 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('textBefore,textAfter', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="s"
+                    value="Outer"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    size="s"
+                    value="Outer focused"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    size="s"
+                    value="Inner"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    animatedHint="label"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    size="s"
+                    value=""
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    animatedHint="label"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    size="s"
+                    value=""
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    animatedHint="label"
+                    keepPlaceholder
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    id="focused"
+                    size="s"
+                    value=""
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    animatedHint="label"
+                    keepPlaceholder
+                    textBefore="_"
+                    textAfter="%"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#focused').focus();
+
+        cy.matchImageSnapshot();
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div id="test">
+                    <TextField
+                        id="empty"
+                        size="s"
+                        value=""
+                        placeholder=""
+                        label="Label"
+                        labelPlacement="inner"
+                        animatedHint="label"
+                        keepPlaceholder
+                        textBefore="_"
+                        textAfter="%"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#empty').focus();
+        cy.get('#test').matchImageSnapshot('empty');
+    });
+
     it('_enumerationType:chip, _chipView, _chipValidator', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -450,7 +549,7 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
-    describe.only('_required', () => {
+    describe('_required', () => {
         const sizes = ['xs', 's', 'm', 'l'] as const;
 
         const cases = [
