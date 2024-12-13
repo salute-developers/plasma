@@ -70,6 +70,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             closeAfterSelect: outerCloseAfterSelect,
             renderValue,
             zIndex,
+            beforeList,
+            afterList,
             ...rest
         } = props;
 
@@ -473,6 +475,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     listWidth={listWidth}
                                     ref={targetRef}
                                 >
+                                    {beforeList}
+
                                     {isEmpty(filteredItems) ? (
                                         <StyledEmptyState
                                             className={classes.emptyStateWrapper}
@@ -492,6 +496,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                             />
                                         ))
                                     )}
+
+                                    {afterList}
                                 </Ul>
                             </Root>
                         </FloatingPopover>

@@ -1197,6 +1197,50 @@ describe('plasma-b2c: Combobox', () => {
         cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
     });
 
+    it('prop: beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="single"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        beforeList="Content before list"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="single"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        afterList="Content after list"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('flow: single uncontrolled', () => {
         cy.viewport(1000, 500);
 

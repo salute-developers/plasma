@@ -1899,6 +1899,8 @@ default: PolymorphicClassName;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderItem?: ((item: DropdownItemOption) => React_2.ReactNode) | undefined;
     zIndex?: Property.ZIndex | undefined;
+    beforeList?: React_2.ReactNode;
+    afterList?: React_2.ReactNode;
     onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;

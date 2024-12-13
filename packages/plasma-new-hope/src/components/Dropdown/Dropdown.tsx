@@ -51,6 +51,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 portal,
                 renderItem,
                 zIndex,
+                beforeList,
+                afterList,
                 ...rest
             },
             ref,
@@ -160,6 +162,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                 listOverflow={listOverflow}
                                 listWidth={listWidth}
                             >
+                                {beforeList}
+
                                 {items.map((item, index) => (
                                     <DropdownInner
                                         key={`${index}/0`}
@@ -174,6 +178,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                         listWidth={listWidth}
                                     />
                                 ))}
+
+                                {afterList}
                             </Ul>
                         </Root>
                     </FloatingPopover>
