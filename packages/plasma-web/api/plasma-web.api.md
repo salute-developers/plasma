@@ -3846,7 +3846,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3889,7 +3889,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3932,7 +3932,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3975,7 +3975,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4018,7 +4018,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4061,7 +4061,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4104,7 +4104,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4147,7 +4147,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
