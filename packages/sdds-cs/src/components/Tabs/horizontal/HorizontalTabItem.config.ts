@@ -62,7 +62,7 @@ export const config = {
                 ${tabsTokens.itemColor}: var(--text-accent);
                 ${tabsTokens.itemValueColor}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-accent-hover);
+                ${tabsTokens.itemColorHover}: #1A9E32;
                 ${tabsTokens.itemValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemColorActive}: var(--text-accent-active);
                 ${tabsTokens.itemValueColorActive}: var(--text-secondary);
