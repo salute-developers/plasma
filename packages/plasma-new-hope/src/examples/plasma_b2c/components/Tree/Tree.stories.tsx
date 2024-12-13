@@ -62,7 +62,7 @@ const size = ['xs', 's', 'm', 'l'];
 const arrowPlacements = ['left', 'right'];
 
 const meta: Meta<StoryTreeProps> = {
-    title: 'plasma_b2c/Tree',
+    title: 'b2c/Data Entry/Tree',
     decorators: [WithTheme],
     component: Tree,
     argTypes: {
