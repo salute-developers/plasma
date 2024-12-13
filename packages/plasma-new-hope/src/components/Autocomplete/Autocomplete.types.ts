@@ -91,6 +91,14 @@ export type BaseProps = {
      * Изначальное значение.
      */
     defaultValue?: string;
+    /**
+     * Ячейка для контента в начале выпадающего списка.
+     */
+    beforeList?: ReactNode;
+    /**
+     * Ячейка для контента в конце выпадающего списка.
+     */
+    afterList?: ReactNode;
 };
 
 export type AutocompleteProps = BaseProps &

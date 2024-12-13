@@ -44,8 +44,9 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 renderList,
                 renderListEnd,
                 onSearch,
-
                 hintText,
+                beforeList,
+                afterList,
 
                 ...rest
             },
@@ -179,6 +180,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                         onScroll={onScroll}
                                         listMaxHeight={listMaxHeight}
                                     >
+                                        {beforeList}
+
                                         {finalResults.map((suggestion, index) => (
                                             <SuggestionItem
                                                 key={index}
@@ -188,6 +191,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                                 focused={focused === index}
                                             />
                                         ))}
+
+                                        {afterList}
 
                                         {renderListEnd && (
                                             <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>
