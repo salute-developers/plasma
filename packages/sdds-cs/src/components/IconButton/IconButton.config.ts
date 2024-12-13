@@ -21,7 +21,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-primary);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--text-accent-hover);
+                ${iconButtonTokens.iconButtonColorHover}: #1A9E32;
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-accent-active);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-primary-active);

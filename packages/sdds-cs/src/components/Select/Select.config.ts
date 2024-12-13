@@ -26,7 +26,7 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${selectTokens.buttonColor}: var(--text-accent);
-                ${selectTokens.buttonColorHover}: var(--text-accent-hover);
+                ${selectTokens.buttonColorHover}: #1A9E32;
                 ${selectTokens.buttonColorActive}: var(--text-accent-active);
                 ${selectTokens.buttonArrowColor}: var(--text-primary);
                 ${selectTokens.buttonArrowColorHover}: var(--text-primary-hover);
@@ -36,7 +36,7 @@ export const config = {
                 ${selectTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${selectTokens.disclosureIconColor}: var(--text-accent);
-                ${selectTokens.disclosureIconColorHover}: var(--text-accent-hover);
+                ${selectTokens.disclosureIconColorHover}: #1A9E32;
                 ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
 
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);
@@ -58,7 +58,7 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${selectTokens.buttonColor}: var(--text-accent);
-                ${selectTokens.buttonColorHover}: var(--text-accent-hover);
+                ${selectTokens.buttonColorHover}: #1A9E32;
                 ${selectTokens.buttonColorActive}: var(--text-accent-active);
                 ${selectTokens.buttonArrowColor}: var(--text-primary);
                 ${selectTokens.buttonArrowColorHover}: var(--text-primary-hover);
@@ -68,7 +68,7 @@ export const config = {
                 ${selectTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${selectTokens.disclosureIconColor}: var(--text-accent);
-                ${selectTokens.disclosureIconColorHover}: var(--text-accent-hover);
+                ${selectTokens.disclosureIconColorHover}: #1A9E32;
                 ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
 
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);

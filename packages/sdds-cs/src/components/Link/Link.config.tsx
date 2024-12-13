@@ -50,10 +50,10 @@ export const config = {
             accent: css`
                 --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-accent);
-                --plasma-link-color-hover: var(--text-accent-hover);
+                --plasma-link-color-hover: #1a9e32;
                 --plasma-link-color-active: var(--text-accent-active);
                 --plasma-link-color-visited: var(--text-accent);
-                --plasma-link-color-visited-hover: var(--text-accent-hover);
+                --plasma-link-color-visited-hover: #1a9e32;
                 --plasma-link-color-visited-active: var(--text-accent-active);
                 --plasma-link-underline-border: 0;
             `,

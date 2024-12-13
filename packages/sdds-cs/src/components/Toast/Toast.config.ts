@@ -13,7 +13,7 @@ export const config = {
                 ${toastTokens.background}: var(--surface-solid-card-brightness);
 
                 ${toastTokens.closeIconColor}: var(--text-accent);
-                ${toastTokens.closeIconColorOnHover}: var(--text-accent-hover);
+                ${toastTokens.closeIconColorOnHover}: #1A9E32;
             `,
             dark: css`
                 ${toastTokens.color}: var(--on-dark-text-primary);

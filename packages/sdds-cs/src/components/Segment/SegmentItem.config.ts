@@ -10,7 +10,7 @@ export const config = {
             default: css`
                 ${segmentTokens.itemColor}: var(--text-accent);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-accent-hover);
+                ${segmentTokens.itemColorHover}: #1A9E32;
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);
@@ -26,7 +26,7 @@ export const config = {
             secondary: css`
                 ${segmentTokens.itemColor}: var(--text-accent);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-accent-hover);
+                ${segmentTokens.itemColorHover}: #1A9E32;
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);

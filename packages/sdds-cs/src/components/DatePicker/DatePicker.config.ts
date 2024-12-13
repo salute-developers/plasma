@@ -79,7 +79,7 @@ export const config = {
                 ${tokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${tokens.textFieldContentRightSlotColor}: var(--text-accent);
-                ${tokens.textFieldContentRightSlotColorHover}: var(--text-accent-hover);
+                ${tokens.textFieldContentRightSlotColorHover}: #1A9E32;
             `,
         },
         size: {
