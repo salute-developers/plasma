@@ -4,7 +4,7 @@ export type PortalProps = {
     /**
      * Элемент, в который добавится содержимое портала.
      */
-    container: HTMLElement | (() => HTMLElement);
+    container?: HTMLElement | (() => HTMLElement);
     /**
      * Содержимое портала.
      */

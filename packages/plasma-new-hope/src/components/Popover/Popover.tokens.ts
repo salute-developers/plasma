@@ -3,6 +3,7 @@ export const classes = {
     root: 'popover-root',
     target: 'popover-target',
     arrow: 'popover-arrow',
+    targetAsRef: 'popover-target-as-ref',
 };
 
 export const tokens = {

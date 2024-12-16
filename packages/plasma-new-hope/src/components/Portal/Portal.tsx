@@ -18,8 +18,8 @@ export const Portal: FC<PortalProps> = ({ children, container, disabled = false 
 
     return (
         <>
-            {disabled && children}
-            {!disabled && ReactDOM.createPortal(children, portalContainer)}
+            {(disabled || !portalContainer) && children}
+            {!disabled && portalContainer && ReactDOM.createPortal(children, portalContainer)}
         </>
     );
 };
