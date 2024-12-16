@@ -87,6 +87,8 @@ describe('plasma-web: Button', () => {
     it('with Loader', () => {
         mount(
             <CypressTestDecoratorWithTypo>
+                <Button size="xl" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
+                <PadMe />
                 <Button size="l" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
                 <PadMe />
                 <Button size="m" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
