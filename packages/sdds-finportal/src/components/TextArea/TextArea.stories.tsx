@@ -65,8 +65,8 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        labelPlacement: {
-            options: labelPlacements,
+        status: {
+            options: statuses,
             control: {
                 type: 'select',
             },
@@ -78,8 +78,8 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'select',
             },
         },
-        view: {
-            options: views,
+        labelPlacement: {
+            options: ['inner', 'outer'],
             control: {
                 type: 'select',
             },
@@ -143,6 +143,30 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        helperText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        helperText: {
+            control: { type: 'text' },
+            if: { arg: 'helperText', truthy: true },
+        },
+        width: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
+        height: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
+        rows: {
+            control: { type: 'text' },
+            if: { arg: 'number', truthy: true },
+        },
+        cols: {
+            control: { type: 'text' },
+            if: { arg: 'number', truthy: true },
+        },
         ...disableProps([
             'helperBlock',
             '$isFocused',
@@ -162,12 +186,11 @@ const meta: Meta<StoryTextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
-            'status',
-            'resize',
-            'height',
-            'width',
-            'helperText',
             'leftHelperPlacement',
+            'status',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
         ]),
     },
     args: {
