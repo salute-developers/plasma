@@ -5,14 +5,28 @@ import { DEFAULT_Z_INDEX } from '../Popup/utils';
 import { classes, tokens } from './Popover.tokens';
 import { PopoverProps } from './Popover.types';
 
-export const StyledWrapper = styled.div`
-    display: inline-block;
-`;
-
 export const StyledRoot = styled.div`
     display: inline-flex;
     box-sizing: border-box;
     position: relative;
+`;
+
+export const StyledWrapper = styled.div`
+    display: inline-block;
+
+    &.${classes.targetAsRef} {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        ${StyledRoot} {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
 `;
 
 export const StyledArrow = styled.div`
