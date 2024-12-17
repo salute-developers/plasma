@@ -65,10 +65,9 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        status: {
-            options: statuses,
+        clear: {
             control: {
-                type: 'select',
+                type: 'boolean',
             },
         },
         size: {
@@ -78,8 +77,14 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'select',
             },
         },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
         labelPlacement: {
-            options: ['inner', 'outer'],
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -101,6 +106,11 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'number',
             },
             if: { arg: 'clear', truthy: false },
+        },
+        hasHint: {
+            control: {
+                type: 'boolean',
+            },
         },
         hintText: {
             control: { type: 'text' },
@@ -145,27 +155,21 @@ const meta: Meta<StoryTextAreaProps> = {
         },
         helperText: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        helperText: {
-            control: { type: 'text' },
-            if: { arg: 'helperText', truthy: true },
         },
         width: {
             control: { type: 'text' },
-            if: { arg: 'width', truthy: true },
         },
         height: {
             control: { type: 'text' },
-            if: { arg: 'width', truthy: true },
         },
-        rows: {
+        leftHelper: {
             control: { type: 'text' },
-            if: { arg: 'number', truthy: true },
         },
-        cols: {
+        titleCaption: {
             control: { type: 'text' },
-            if: { arg: 'number', truthy: true },
+        },
+        rightHelper: {
+            control: { type: 'text' },
         },
         ...disableProps([
             'helperBlock',
@@ -191,6 +195,7 @@ const meta: Meta<StoryTextAreaProps> = {
             'hintTargetIcon',
             'hintOffset',
             'hintContentLeft',
+            'hintView',
         ]),
     },
     args: {

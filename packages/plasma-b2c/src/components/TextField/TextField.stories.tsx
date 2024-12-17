@@ -92,12 +92,6 @@ const meta: Meta<TextFieldProps> = {
             },
             if: { arg: 'clear', truthy: true },
         },
-        status: {
-            options: statuses,
-            control: {
-                type: 'select',
-            },
-        },
         size: {
             options: sizes,
             control: {

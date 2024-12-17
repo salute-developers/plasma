@@ -8,12 +8,14 @@ import { IconPlaceholder, InSpacingDecorator, disableProps } from '../../helpers
 import { TextArea } from '.';
 import type { TextAreaProps } from '.';
 
+const labelPlacements = ['inner', 'outer'];
+
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const statuses = ['', 'success', 'warning', 'error'];
 const sizes = ['xs', 's', 'm', 'l'];
+const views = ['default', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -60,10 +62,9 @@ const meta: Meta<TextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        status: {
-            options: statuses,
+        clear: {
             control: {
-                type: 'select',
+                type: 'boolean',
             },
         },
         size: {
@@ -73,8 +74,14 @@ const meta: Meta<TextAreaProps> = {
                 type: 'select',
             },
         },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
         labelPlacement: {
-            options: ['inner', 'outer'],
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -96,6 +103,11 @@ const meta: Meta<TextAreaProps> = {
                 type: 'number',
             },
             if: { arg: 'clear', truthy: false },
+        },
+        hasHint: {
+            control: {
+                type: 'boolean',
+            },
         },
         hintText: {
             control: { type: 'text' },
@@ -140,27 +152,21 @@ const meta: Meta<TextAreaProps> = {
         },
         helperText: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        helperText: {
-            control: { type: 'text' },
-            if: { arg: 'helperText', truthy: true },
         },
         width: {
             control: { type: 'text' },
-            if: { arg: 'width', truthy: true },
         },
         height: {
             control: { type: 'text' },
-            if: { arg: 'width', truthy: true },
         },
-        rows: {
+        leftHelper: {
             control: { type: 'text' },
-            if: { arg: 'number', truthy: true },
         },
-        cols: {
+        titleCaption: {
             control: { type: 'text' },
-            if: { arg: 'number', truthy: true },
+        },
+        rightHelper: {
+            control: { type: 'text' },
         },
         ...disableProps([
             'helperBlock',
@@ -186,6 +192,7 @@ const meta: Meta<TextAreaProps> = {
             'hintTargetIcon',
             'hintOffset',
             'hintContentLeft',
+            'hintView',
         ]),
     },
     args: {
