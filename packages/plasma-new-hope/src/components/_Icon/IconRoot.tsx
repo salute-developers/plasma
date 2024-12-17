@@ -46,13 +46,14 @@ export const IconRoot: React.FC<IconRootProps> = ({
     color,
     className,
     sizeCustomProperty,
+    ...rest
 }) => {
     const c = color || 'var(--text-primary)';
 
     const w = sizeCustomProperty ? `var(${sizeCustomProperty})` : `${sizeMap[size]}rem`;
 
     return (
-        <StyledRoot aria-hidden w={w} className={className}>
+        <StyledRoot aria-hidden w={w} className={className} {...rest}>
             <IconComponent color={c} size={size} />
         </StyledRoot>
     );

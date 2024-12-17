@@ -58,6 +58,9 @@ export const tokens = {
     itemFontLineHeight: '--plasma-dropdown-item-font-weight',
     itemPadding: '--plasma-dropdown-item-padding',
     itemPaddingTight: '--plasma-dropdown-item-padding-tight',
+    itemGap: '--plasma-dropdown-item-gap',
+    itemGapTight: '--plasma-dropdown-item-gap-tight',
+    itemDisclosureIconSize: '--plasma-dropdown-item-disclosure-icon-size',
 
     cellPadding: '--plasma-dropdown-cell-padding',
     cellPaddingLeftContent: '--plasma-dropdown-cell-padding-left-content',

@@ -5,6 +5,7 @@ import { addFocus, applyEllipsis } from '../../../../mixins';
 import { DropdownProps } from '../../Dropdown.types';
 import { cellConfig, cellTokens } from '../../../Cell';
 import { component, mergeConfig } from '../../../../engines';
+import { IconDisclosureRight } from '../../../_Icon';
 
 const mergedCellConfig = mergeConfig(cellConfig);
 const Cell = component(mergedCellConfig);
@@ -34,6 +35,18 @@ export const DisclosureIconWrapper = styled.div`
     color: var(${constants.disclosureIconColor});
 `;
 
+// TODO: Удалить после поддержки JS переменных в конфиге компонент
+export const sizeMap: Record<string, string> = {
+    xs: '1rem',
+    s: '1.5rem',
+    m: '2rem',
+};
+
+export const StyledIconDisclosureRight = styled(IconDisclosureRight)`
+    width: ${({ size = 'xs' }) => `var(${tokens.itemDisclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.itemDisclosureIconSize}, ${sizeMap[size]})`};
+`;
+
 export const Divider = styled.div<{ variant: DropdownProps['variant'] }>`
     height: 1px;
     margin-top: ${({ variant }) =>
@@ -48,8 +61,9 @@ export const Divider = styled.div<{ variant: DropdownProps['variant'] }>`
 export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     display: flex;
     align-items: center;
+    gap: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemGapTight : tokens.itemGap})`};
     min-height: var(${tokens.itemHeight});
-    margin: 0;
+    margin: 0 calc(0.125rem + var(${tokens.borderWidth}, 0rem));
     box-sizing: content-box;
     padding: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTight : tokens.itemPadding})`};
     font-family: var(${tokens.itemFontFamily});
@@ -59,10 +73,8 @@ export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     letter-spacing: var(${tokens.itemFontLetterSpacing});
     line-height: var(${tokens.itemFontLineHeight});
     background-color: var(${constants.itemBackground});
-    border-radius: var(${tokens.borderRadius});
+    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem));
     user-select: none;
-    border-right: 0.125rem solid transparent;
-    border-left: 0.125rem solid transparent;
     background-clip: padding-box;
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
