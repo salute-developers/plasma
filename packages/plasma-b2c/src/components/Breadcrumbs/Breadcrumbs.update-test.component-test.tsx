@@ -52,60 +52,40 @@ describe('plasma-b2c: Breadcrumbs', () => {
         </CypressTestDecorator>
     );
 
-    it('[PLASMA-T1160] Breadcrumbs: size=m', () => {
+    it('[PLASMA-T1379] Breadcrumbs: size=l, showItems=1', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Breadcrumbs items={items} size="m" />
+                <Breadcrumbs items={items} size="l" showItems={1} />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1161] Breadcrumbs: size=l', () => {
+    it('[PLASMA-T1380] Breadcrumbs: size=m, showItems=2', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Breadcrumbs items={items} size="l" />
+                <Breadcrumbs items={items} size="m" showItems={2} />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1162] Breadcrumbs: size=s', () => {
+    it('[PLASMA-T1381] Breadcrumbs: size=s, showItems=3', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Breadcrumbs items={items} size="s" />
+                <Breadcrumbs items={items} size="s" showItems={3} />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1163] Breadcrumbs: size=xs', () => {
+    it('[PLASMA-T1382] Breadcrumbs: size=xs, showItems=4', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Breadcrumbs items={items} size="xs" />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1165] Breadcrumbs: showItems=4', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Breadcrumbs items={items} showItems={4} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1168] Breadcrumbs: showItems=1', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Breadcrumbs items={items} showItems={1} />
+                <Breadcrumbs items={items} size="xs" showItems={4} />
             </CypressTestDecoratorWithTypo>,
         );
 
