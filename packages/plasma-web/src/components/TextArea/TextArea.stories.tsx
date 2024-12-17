@@ -60,12 +60,6 @@ const meta: Meta<TextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        status: {
-            options: statuses,
-            control: {
-                type: 'select',
-            },
-        },
         size: {
             options: sizes,
             defaultValue: 'm',
@@ -140,10 +134,6 @@ const meta: Meta<TextAreaProps> = {
         },
         helperText: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        helperText: {
-            control: { type: 'text' },
             if: { arg: 'helperText', truthy: true },
         },
         width: {
@@ -153,14 +143,6 @@ const meta: Meta<TextAreaProps> = {
         height: {
             control: { type: 'text' },
             if: { arg: 'width', truthy: true },
-        },
-        rows: {
-            control: { type: 'text' },
-            if: { arg: 'number', truthy: true },
-        },
-        cols: {
-            control: { type: 'text' },
-            if: { arg: 'number', truthy: true },
         },
         ...disableProps([
             'helperBlock',
