@@ -16,80 +16,134 @@ describe('plasma-b2c: Slider', () => {
         </CypressTestDecorator>
     );
 
-    it('[PLASMA-T697] Slider: view=default, size=m, labelPlacement=outer', () => {
+    it('[PLASMA-T1694] Slider: size=l, view=default, pointerSize=small, pointerVisibility=always, orientation=horizontal, labelPlacement=top, scaleAlign=bottom, showScale, showCurrentValue, currentValueVisibility=always', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Slider label="Text" min={0} max={100} value={50} view="default" size="m" labelPlacement="outer" />
+                <Slider
+                    label="Text"
+                    view="default"
+                    size="l"
+                    min={0}
+                    max={100}
+                    value={50}
+                    pointerSize="small"
+                    pointerVisibility="always"
+                    orientation="horizontal"
+                    labelPlacement="top"
+                    scaleAlign="bottom"
+                    showScale
+                    showCurrentValue
+                    currentValueVisibility="always"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T938] Slider: view=accent, size=l, rangeValuesPlacement=outer', () => {
+    it('[PLASMA-T1695] Slider: size=m, view=accent, pointerSize=large, pointerVisibility=hover, labelPlacement=left, scaleAlign=side, showScale, showCurrentValue, currentValueVisibility=hover, showIcon', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Slider min={0} max={100} value={50} view="accent" size="l" rangeValuesPlacement="outer" />
+                <Slider
+                    label="Text"
+                    view="accent"
+                    size="m"
+                    min={0}
+                    max={100}
+                    value={50}
+                    pointerSize="large"
+                    pointerVisibility="hover"
+                    orientation="horizontal"
+                    labelPlacement="left"
+                    scaleAlign="side"
+                    showScale
+                    showCurrentValue
+                    currentValueVisibility="hover"
+                    showIcon
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('div[orientation="horizontal"]').trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1696] Slider: size=s, view=gradient, pointerSize=none, without icon', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Slider
+                    label="Text"
+                    view="gradient"
+                    size="s"
+                    min={0}
+                    max={100}
+                    value={50}
+                    pointerSize="none"
+                    pointerVisibility="always"
+                    orientation="horizontal"
+                    labelPlacement="top"
+                    scaleAlign="bottom"
+                    showScale
+                    showCurrentValue
+                    currentValueVisibility="hover"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T939] Slider: view=gradient, size=s', () => {
+    it('[PLASMA-T1697] Slider: without label, without scale, without current value', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Slider min={0} max={100} value={50} view="accent" size="l" />
+                <Slider
+                    view="default"
+                    size="l"
+                    min={0}
+                    max={100}
+                    value={50}
+                    pointerSize="none"
+                    pointerVisibility="always"
+                    orientation="horizontal"
+                    labelPlacement="top"
+                    scaleAlign="bottom"
+                    currentValueVisibility="always"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T937] Slider: disabled', () => {
+    it('[PLASMA-T1698] Slider: disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Slider min={0} max={100} value={50} disabled />
+                <Slider view="default" size="l" min={0} max={100} value={50} disabled />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T940] Slider: min=10, labelPlacement=inner', () => {
+    it('[PLASMA-T1699] Slider: orientation=vertical', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Slider label="Text" min={10} max={100} value={50} labelPlacement="inner" />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T941] Slider: max=123, rangeValuesPlacement=inner', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Slider min={0} max={123} value={50} rangeValuesPlacement="inner" />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T942] Slider: showCurrentValue', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Slider min={0} max={100} value={50} showCurrentValue />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T943] Slider: disableShowRangeValues', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Slider min={0} max={100} value={50} showRangeValues={false} />
+                <div style={{ display: 'flex', height: '20rem' }}>
+                    <Slider
+                        view="default"
+                        size="l"
+                        min={0}
+                        max={100}
+                        value={50}
+                        pointerSize="none"
+                        pointerVisibility="always"
+                        orientation="vertical"
+                        labelPlacement="top"
+                        scaleAlign="bottom"
+                        currentValueVisibility="always"
+                    />
+                </div>
             </CypressTestDecoratorWithTypo>,
         );
 
