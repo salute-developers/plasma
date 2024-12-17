@@ -1,15 +1,19 @@
 import React, { forwardRef, useRef } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
-import { canUseDOM, cx, safeUseId } from 'src/utils';
+import Draggable from 'react-draggable';
+import { Resizable } from 're-resizable';
+import type { Resizable as ResizableType } from 're-resizable';
 import { RootProps } from 'src/engines/types';
+import { canUseDOM, cx, safeUseId } from 'src/utils';
 
 import { Portal } from '../Portal';
 
+import { getRatioBasedOnPlacement, getResizeDirections, getHandleStyles } from './utils';
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
 import { PopupRoot } from './PopupRoot';
 import { usePopup } from './hooks';
 import { classes } from './Popup.tokens';
-import { StyledPortalContainer } from './Popup.styles';
+import { StyledPortalContainer, base, IconResizeDiagonalStyled } from './Popup.styles';
 
 export const handlePosition = (
     placement: PopupPlacement,
@@ -99,11 +103,14 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 popupInfo,
                 withAnimation = false,
                 className,
+                draggable,
+                resizable: outerResizable,
                 ...rest
             },
             outerRootRef,
         ) => {
             const innerIsOpen = isOpen || opened;
+            const resizable = typeof outerResizable === 'boolean' ? { disabled: !outerResizable } : outerResizable;
 
             const uniqId = safeUseId();
             const innerId = id || uniqId;
@@ -117,6 +124,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
 
             const portalRef = useRef<HTMLDivElement | null>(null);
             const contentRef = useRef<HTMLDivElement | null>(null);
+            const resizableContainer = useRef<ResizableType>(null);
 
             const innerRef = useForkRef<HTMLDivElement>(contentRef, outerRootRef);
 
@@ -130,9 +138,22 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 animationInfo?.endTransition ? classes.endTransition : '',
             );
 
+            const handleResizeStart = () => {
+                if (resizableContainer?.current && resizableContainer.current.resizable) {
+                    resizableContainer.current.resizable.classList.toggle(classes.resizableContainerNoSelect);
+                }
+            };
+
+            const handleResizeStop = () => {
+                if (resizableContainer?.current && resizableContainer.current.resizable) {
+                    resizableContainer.current.resizable.classList.toggle(classes.resizableContainerNoSelect);
+                }
+            };
+
             const rootNode = (
                 <Root className={cls}>
                     {overlay}
+
                     <PopupRoot
                         id={innerId}
                         ref={innerRef}
@@ -143,7 +164,78 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         setVisible={setVisible}
                         {...rest}
                     >
-                        {children}
+                        <Draggable
+                            defaultClassName={draggable ? classes.draggablePopupWrapper : undefined}
+                            defaultClassNameDragging={draggable ? classes.draggingPopupWrapper : undefined}
+                            disabled={!draggable}
+                            cancel={`.${classes.resizableHandleWrapper}`}
+                        >
+                            <Resizable
+                                ref={resizableContainer}
+                                enable={
+                                    resizable && !resizable.disabled ? getResizeDirections(resizable.directions) : false
+                                }
+                                resizeRatio={getRatioBasedOnPlacement(placement)}
+                                defaultSize={resizable?.defaultSize}
+                                minWidth={resizable?.minWidth}
+                                minHeight={resizable?.minHeight}
+                                maxWidth={resizable?.maxWidth}
+                                maxHeight={resizable?.maxHeight}
+                                onResizeStart={handleResizeStart}
+                                onResizeStop={handleResizeStop}
+                                handleComponent={{
+                                    topRight: resizable?.hiddenIcons?.includes('top-right') ? undefined : (
+                                        <>
+                                            {resizable?.icons?.topRight || (
+                                                <IconResizeDiagonalStyled
+                                                    className={classes.resizableTopRightIcon}
+                                                    color="inherit"
+                                                    size={resizable?.iconSize}
+                                                />
+                                            )}
+                                        </>
+                                    ),
+                                    bottomRight: resizable?.hiddenIcons?.includes('bottom-right') ? undefined : (
+                                        <>
+                                            {resizable?.icons?.bottomRight || (
+                                                <IconResizeDiagonalStyled
+                                                    className={classes.resizableBottomRightIcon}
+                                                    color="inherit"
+                                                    size={resizable?.iconSize}
+                                                />
+                                            )}
+                                        </>
+                                    ),
+                                    bottomLeft: resizable?.hiddenIcons?.includes('bottom-left') ? undefined : (
+                                        <>
+                                            {resizable?.icons?.bottomLeft || (
+                                                <IconResizeDiagonalStyled
+                                                    className={classes.resizableBottomLeftIcon}
+                                                    color="inherit"
+                                                    size={resizable?.iconSize}
+                                                />
+                                            )}
+                                        </>
+                                    ),
+                                    topLeft: resizable?.hiddenIcons?.includes('top-left') ? undefined : (
+                                        <>
+                                            {resizable?.icons?.topLeft || (
+                                                <IconResizeDiagonalStyled
+                                                    className={classes.resizableTopLeftIcon}
+                                                    color="inherit"
+                                                    size={resizable?.iconSize}
+                                                />
+                                            )}
+                                        </>
+                                    ),
+                                }}
+                                className={classes.resizableContainer}
+                                handleStyles={getHandleStyles()}
+                                handleWrapperClass={classes.resizableHandleWrapper}
+                            >
+                                {children}
+                            </Resizable>
+                        </Draggable>
                     </PopupRoot>
                 </Root>
             );
@@ -175,7 +267,7 @@ export const popupConfig = {
     name: 'Popup',
     tag: 'div',
     layout: popupRoot,
-    base: '',
+    base,
     variations: {},
     defaults: {},
 };

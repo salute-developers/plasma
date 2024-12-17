@@ -14,7 +14,7 @@ import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
 import { getIdLastModal } from './ModalContext';
-import { CloseButton, ModalBody, ModalContent } from './Modal.styles';
+import { CloseButton, ModalBody, ModalContent, base } from './Modal.styles';
 
 // issue #823
 const Popup = component(popupConfig);
@@ -45,6 +45,8 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 isOpen,
                 hasBody,
                 hasClose,
+                resizable,
+                draggable,
                 ...rest
             },
             outerRootRef,
@@ -111,6 +113,8 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     withAnimation={withAnimation}
                     zIndex={zIndex}
                     overlay={hasBody ? overlayNode : <Root view={view}>{overlayNode}</Root>}
+                    draggable={draggable}
+                    resizable={resizable}
                     {...rest}
                 >
                     {hasBody ? (
@@ -138,7 +142,7 @@ export const modalConfig = {
     name: 'Modal',
     tag: 'div',
     layout: modalRoot,
-    base: '',
+    base,
     variations: {
         view: {
             css: viewCSS,

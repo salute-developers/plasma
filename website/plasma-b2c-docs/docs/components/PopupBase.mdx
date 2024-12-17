@@ -52,21 +52,21 @@ export function App() {
             <PopupBaseProvider>
                 <div style={{height: "500px"}}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button 
+                        <Button
                             style={{
                                 marginTop: "1rem",
                                 width: "15rem"
-                            }} 
-                            text="Открыть в document" 
-                            onClick={() => setIsOpenB(true)} 
+                            }}
+                            text="Открыть в document"
+                            onClick={() => setIsOpenB(true)}
                         />
-                        <Button 
+                        <Button
                             style={{
                                 marginTop: "1rem",
                                 width: "15rem"
-                            }} 
-                            text="Открыть во Frame" 
-                            onClick={() => setIsOpenA(true)} 
+                            }}
+                            text="Открыть во Frame"
+                            onClick={() => setIsOpenA(true)}
                         />
                     </div>
                     <PopupBase
@@ -81,8 +81,8 @@ export function App() {
                             <>Content</>
                         </div>
                     </PopupBase>
-                    <div 
-                        ref={ref} 
+                    <div
+                        ref={ref}
                         style={{
                             marginTop: "1rem",
                             width: "400px",
@@ -184,13 +184,13 @@ const StyledPopupAnimation = styled(PopupBase)`
     return (
         <>
             <div>
-                <Button 
+                <Button
                     style={{
                         marginTop: "1rem",
                         width: "15rem"
-                    }} 
-                    text="Открыть" 
-                    onClick={() => setIsOpen(true)} 
+                    }}
+                    text="Открыть"
+                    onClick={() => setIsOpen(true)}
                 />
             </div>
             <StyledPopupAnimation
@@ -206,6 +206,146 @@ const StyledPopupAnimation = styled(PopupBase)`
                 </div>
             </StyledPopupAnimation>
         </>
+    );
+}
+```
+
+## Draggable
+
+Чтобы иметь возможность перетаскивать Popup по экрану нужно включить свойство `draggable`.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <PopupBase
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        draggable
+                    >
+                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </PopupBase>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
+    );
+}
+```
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popup нужно настроить свойство `resizable`. Формат следующий:
+
+```tsx
+/**
+ * Настройка resizable-режима.
+ */
+resizable?: {
+    /**
+     * Включение/выключение ресайза.
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * Направления для ресайза.
+     */
+    directions?: ResizeDirections;
+    /**
+     * Скрывать ли иконку для ресайза.
+     * @default false
+     */
+    hiddenIcons?: PopupPlacementMixed[];
+    /**
+     * Начальный размер окна ресайза.
+     */
+    defaultSize?: { width?: number; height?: number };
+    /**
+     * Минимальная ширина ресайза в px.
+     */
+    minWidth?: number;
+    /**
+     * Минимальная высота ресайза в px.
+     */
+    minHeight?: number;
+    /**
+     * Максимальная ширина ресайза в px.
+     */
+    maxWidth?: number;
+    /**
+     * Максимальная высота ресайза в px.
+     */
+    maxHeight?: number;
+    /**
+     * Размер иконки ресайза.
+     * @default s
+     */
+    iconSize?: 'xs' | 's' | 'm';
+};
+```
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <PopupBase
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        offset={[0, 0]}
+                        resizable
+                    >
+                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </PopupBase>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
     );
 }
 ```
