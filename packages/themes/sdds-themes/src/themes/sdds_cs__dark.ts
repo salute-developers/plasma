@@ -119,6 +119,9 @@ export const sdds_cs__dark = ([
   --surface-solid-secondary: #23292D;
   --surface-solid-secondary-hover: #2C343AFF;
   --surface-solid-secondary-active: #1F2528FF;
+  --surface-solid-tertiary: #30373C;
+  --surface-solid-tertiary-hover: #394147FF;
+  --surface-solid-tertiary-active: #2B3136FF;
   --surface-solid-card: #13181B;
   --surface-solid-card-brightness: #212629FF;
   --surface-solid-card-hover: #171D21FF;
@@ -163,6 +166,9 @@ export const sdds_cs__dark = ([
   --on-dark-surface-solid-secondary: #23292D;
   --on-dark-surface-solid-secondary-hover: #2C343AFF;
   --on-dark-surface-solid-secondary-active: #1F2528FF;
+  --on-dark-surface-solid-tertiary: #30373C;
+  --on-dark-surface-solid-tertiary-hover: #394147FF;
+  --on-dark-surface-solid-tertiary-active: #2B3136FF;
   --on-dark-surface-solid-card: #13181B;
   --on-dark-surface-solid-card-brightness: #212629FF;
   --on-dark-surface-solid-card-hover: #171D21FF;
@@ -210,6 +216,9 @@ export const sdds_cs__dark = ([
   --on-light-surface-solid-secondary: #E8EEF2;
   --on-light-surface-solid-secondary-hover: #F5F8F9FF;
   --on-light-surface-solid-secondary-active: #E2E9EEFF;
+  --on-light-surface-solid-tertiary: #D5DFE6;
+  --on-light-surface-solid-tertiary-hover: #E2E9EEFF;
+  --on-light-surface-solid-tertiary-active: #CFDAE2FF;
   --on-light-surface-solid-card: #FFFFFFFF;
   --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-card-hover: #FFFFFFFF;
@@ -254,6 +263,9 @@ export const sdds_cs__dark = ([
   --inverse-surface-solid-secondary: #E8EEF2;
   --inverse-surface-solid-secondary-hover: #F5F8F9FF;
   --inverse-surface-solid-secondary-active: #E2E9EEFF;
+  --inverse-surface-solid-tertiary: #D5DFE6;
+  --inverse-surface-solid-tertiary-hover: #E2E9EEFF;
+  --inverse-surface-solid-tertiary-active: #CFDAE2FF;
   --inverse-surface-solid-card: #FFFFFFFF;
   --inverse-surface-solid-card-brightness: #FFFFFFFF;
   --inverse-surface-solid-card-hover: #FFFFFFFF;

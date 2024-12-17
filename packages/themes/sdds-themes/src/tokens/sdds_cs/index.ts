@@ -348,6 +348,15 @@ export const surfaceSolidSecondaryHover = 'var(--surface-solid-secondary-hover, 
 /** Вторичный непрозрачный фон поверхности/контрола */
 export const surfaceSolidSecondaryActive = 'var(--surface-solid-secondary-active, #1F2528FF)';
 
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiary = 'var(--surface-solid-tertiary, #30373C)';
+
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiaryHover = 'var(--surface-solid-tertiary-hover, #394147FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiaryActive = 'var(--surface-solid-tertiary-active, #2B3136FF)';
+
 /** Основной фон для карточек */
 export const surfaceSolidCard = 'var(--surface-solid-card, #13181B)';
 
@@ -479,6 +488,15 @@ export const onDarkSurfaceSolidSecondaryHover = 'var(--on-dark-surface-solid-sec
 
 /** Вторичный непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidSecondaryActive = 'var(--on-dark-surface-solid-secondary-active, #1F2528FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiary = 'var(--on-dark-surface-solid-tertiary, #30373C)';
+
+/** Третичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiaryHover = 'var(--on-dark-surface-solid-tertiary-hover, #394147FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiaryActive = 'var(--on-dark-surface-solid-tertiary-active, #2B3136FF)';
 
 /** Основной фон для карточек на темном фоне */
 export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #13181B)';
@@ -621,6 +639,15 @@ export const onLightSurfaceSolidSecondaryHover = 'var(--on-light-surface-solid-s
 /** Вторичный непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidSecondaryActive = 'var(--on-light-surface-solid-secondary-active, #E2E9EEFF)';
 
+/** Третичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiary = 'var(--on-light-surface-solid-tertiary, #D5DFE6)';
+
+/** Третичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiaryHover = 'var(--on-light-surface-solid-tertiary-hover, #E2E9EEFF)';
+
+/** Третичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiaryActive = 'var(--on-light-surface-solid-tertiary-active, #CFDAE2FF)';
+
 /** Основной фон для карточек на светлом фоне */
 export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, #FFFFFFFF)';
 
@@ -752,6 +779,15 @@ export const inverseSurfaceSolidSecondaryHover = 'var(--inverse-surface-solid-se
 
 /** Инвертированный вторичный непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidSecondaryActive = 'var(--inverse-surface-solid-secondary-active, #E2E9EEFF)';
+
+/** Инвертированный третичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiary = 'var(--inverse-surface-solid-tertiary, #D5DFE6)';
+
+/** Инвертированный третичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiaryHover = 'var(--inverse-surface-solid-tertiary-hover, #E2E9EEFF)';
+
+/** Инвертированный третичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiaryActive = 'var(--inverse-surface-solid-tertiary-active, #CFDAE2FF)';
 
 /** Инвертированный основной фон для карточек */
 export const inverseSurfaceSolidCard = 'var(--inverse-surface-solid-card, #FFFFFFFF)';
@@ -1686,6 +1722,9 @@ export const viewContainer = {
         --surface-solid-secondary: var(--on-dark-surface-solid-secondary);
         --surface-solid-secondary-hover: var(--on-dark-surface-solid-secondary-hover);
         --surface-solid-secondary-active: var(--on-dark-surface-solid-secondary-active);
+        --surface-solid-tertiary: var(--on-dark-surface-solid-tertiary);
+        --surface-solid-tertiary-hover: var(--on-dark-surface-solid-tertiary-hover);
+        --surface-solid-tertiary-active: var(--on-dark-surface-solid-tertiary-active);
         --surface-solid-card: var(--on-dark-surface-solid-card);
         --surface-solid-card-brightness: var(--on-dark-surface-solid-card-brightness);
         --surface-solid-card-hover: var(--on-dark-surface-solid-card-hover);
@@ -1730,6 +1769,9 @@ export const viewContainer = {
         --inverse-surface-solid-secondary: var(--on-light-surface-solid-secondary);
         --inverse-surface-solid-secondary-hover: var(--on-light-surface-solid-secondary-hover);
         --inverse-surface-solid-secondary-active: var(--on-light-surface-solid-secondary-active);
+        --inverse-surface-solid-tertiary: var(--on-light-surface-solid-tertiary);
+        --inverse-surface-solid-tertiary-hover: var(--on-light-surface-solid-tertiary-hover);
+        --inverse-surface-solid-tertiary-active: var(--on-light-surface-solid-tertiary-active);
         --inverse-surface-solid-card: var(--on-light-surface-solid-card);
         --inverse-surface-solid-card-brightness: var(--on-light-surface-solid-card-brightness);
         --inverse-surface-solid-card-hover: var(--on-light-surface-solid-card-hover);
@@ -1887,6 +1929,8 @@ export const viewContainer = {
         --surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --surface-solid-secondary-hover: var(--on-light-surface-solid-secondary-hover);
         --surface-solid-secondary-active: var(--on-light-surface-solid-secondary-active);
+        --surface-solid-tertiary-hover: var(--on-light-surface-solid-tertiary-hover);
+        --surface-solid-tertiary-active: var(--on-light-surface-solid-tertiary-active);
         --surface-solid-card-hover: var(--on-light-surface-solid-card-hover);
         --surface-solid-card-active: var(--on-light-surface-solid-card-active);
         --surface-solid-default-hover: var(--on-light-surface-solid-default-hover);
@@ -1926,11 +1970,14 @@ export const viewContainer = {
         --surface-info: var(--on-light-surface-info);
         --surface-transparent-negative: var(--on-light-surface-transparent-negative);
         --surface-solid-secondary: var(--on-light-surface-solid-secondary);
+        --surface-solid-tertiary: var(--on-light-surface-solid-tertiary);
         --surface-solid-primary: var(--on-light-surface-solid-primary);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-secondary-hover: var(--on-dark-surface-solid-secondary-hover);
         --inverse-surface-solid-secondary-active: var(--on-dark-surface-solid-secondary-active);
+        --inverse-surface-solid-tertiary-hover: var(--on-dark-surface-solid-tertiary-hover);
+        --inverse-surface-solid-tertiary-active: var(--on-dark-surface-solid-tertiary-active);
         --inverse-surface-solid-card-hover: var(--on-dark-surface-solid-card-hover);
         --inverse-surface-solid-card-active: var(--on-dark-surface-solid-card-active);
         --inverse-surface-solid-default-hover: var(--on-dark-surface-solid-default-hover);
@@ -1955,7 +2002,6 @@ export const viewContainer = {
         --inverse-surface-negative-minor-active: var(--on-dark-surface-negative-minor-active);
         --inverse-surface-info-minor-hover: var(--on-dark-surface-info-minor-hover);
         --inverse-surface-info-minor-active: var(--on-dark-surface-info-minor-active);
-        --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
         --inverse-surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
         --inverse-surface-solid-card: var(--on-dark-surface-solid-card);
         --inverse-surface-solid-card-brightness: var(--on-dark-surface-solid-card-brightness);
@@ -1970,7 +2016,9 @@ export const viewContainer = {
         --inverse-surface-info-minor: var(--on-dark-surface-info-minor);
         --inverse-surface-info: var(--on-dark-surface-info);
         --inverse-surface-negative-minor: var(--on-dark-surface-negative-minor);
+        --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
         --inverse-surface-solid-secondary: var(--on-dark-surface-solid-secondary);
+        --inverse-surface-solid-tertiary: var(--on-dark-surface-solid-tertiary);
         --background-primary-brightness: var(--light-background-primary-brightness);
         --background-primary: var(--light-background-primary);
         --inverse-background-primary: var(--dark-background-primary);
