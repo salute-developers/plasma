@@ -11,6 +11,8 @@ import { Modal as ModalCS } from '.';
 const Content = styled.div`
     background: #f0f0f0;
     padding: 1rem;
+    height: 100%;
+    box-sizing: border-box;
 `;
 
 describe('sdds-cs: Modal', () => {
@@ -262,5 +264,73 @@ describe('sdds-cs: Modal', () => {
         cy.get('button').contains('Toggle Modal mount').click({ force: true });
         cy.get('Test modal').should('not.exist');
         cy.get('body').should('not.have.css', 'overflow-y', 'hidden');
+    });
+
+    it('draggable', () => {
+        function Draggable() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <>
+                    <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
+
+                    <Modal opened={isOpen} placement="center" draggable>
+                        <Content id="content">
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </Content>
+                    </Modal>
+                </>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <PopupProvider>
+                    <Draggable />
+                </PopupProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('#content').trigger('mousedown').trigger('mousemove', { clientX: 200, clientY: 100 }).trigger('mouseup');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('resizable', () => {
+        function Resizable() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <>
+                    <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
+
+                    <Modal opened={isOpen} placement="center" resizable>
+                        <Content id="popup-content">
+                            Content
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </Content>
+                    </Modal>
+                </>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <PopupProvider>
+                    <Resizable />
+                </PopupProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('.resizable-bottom-right-icon')
+            .trigger('mousedown')
+            .trigger('mousemove', { clientX: 400, clientY: 400 })
+            .trigger('mouseup');
+
+        cy.matchImageSnapshot();
     });
 });
