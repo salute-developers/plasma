@@ -225,6 +225,7 @@ const StyledIconBell = styled(IconBell)<{ customSize?: string }>`
         `
             width: ${customSize};
             height: ${customSize};
+            flex: 0 0 ${customSize};
         `}
 `;
 

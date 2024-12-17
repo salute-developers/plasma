@@ -1590,6 +1590,7 @@ export { DrawerProps }
 // @public (undocumented)
 export const Dropdown: <T extends DropdownItemOption>(props: Omit<DropdownNewProps<T>, "size" | "view"> & Pick<PropsType<    {
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
