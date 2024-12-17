@@ -1,5 +1,6 @@
 import React, { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import styled from 'styled-components';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconLocation } from '@salutejs/plasma-icons';
 import { action } from '@storybook/addon-actions';
@@ -12,7 +13,7 @@ type DropdownProps = ComponentProps<typeof Dropdown>;
 
 const placements: DropdownProps['placement'][] = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers: DropdownProps['trigger'][] = ['click', 'hover'];
-const size = ['xs', 's', 'm', 'l'];
+const size = ['xs', 's', 'm', 'l', 'xl'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<DropdownProps> = {
@@ -88,12 +89,29 @@ const meta: Meta<DropdownProps> = {
 
 export default meta;
 
+const StyledIconLocation = styled(IconLocation)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+            flex: 0 0 ${customSize};
+        `}
+`;
+
+const CustomIconLocation = ({ size }: { size: DropdownProps['size'] }) => {
+    const iconSize = size === 's' || size === 'xs' ? 'xs' : 's';
+    const iconCustomSize = size === 'm' ? '1.25rem' : undefined;
+
+    return <StyledIconLocation customSize={iconCustomSize} size={iconSize} color="inherit" />;
+};
+
 const items = (dropdownSize: DropdownProps['size']) => [
     {
         value: 'north_america',
         label: 'Северная Америка',
-        contentLeft: <IconLocation size={dropdownSize !== 'xs' ? 's' : 'xs'} color="inherit" />,
-        contentRight: <IconLocation size={dropdownSize !== 'xs' ? 's' : 'xs'} color="inherit" />,
+        contentLeft: <CustomIconLocation size={dropdownSize} />,
+        contentRight: <CustomIconLocation size={dropdownSize} />,
     },
     {
         value: 'south_america',
