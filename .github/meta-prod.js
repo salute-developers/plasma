@@ -9,6 +9,9 @@ const commonScope = [
 ];
 
 module.exports = {
+    'plasma-giga': {
+        scope: [...commonScope, 'plasma-themes', 'plasma-core'],
+    },
     'plasma-asdk': {
         scope: [...commonScope, 'plasma-tokens-b2b', 'plasma-themes', 'plasma-core'],
     },
