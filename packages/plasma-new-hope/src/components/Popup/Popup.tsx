@@ -1,5 +1,6 @@
 import React, { forwardRef, useRef } from 'react';
 import { useForkRef, safeUseId } from '@salutejs/plasma-core';
+import Draggable from 'react-draggable';
 
 import { RootProps } from '../../engines/types';
 import { canUseDOM, cx } from '../../utils';
@@ -99,6 +100,8 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 popupInfo,
                 withAnimation = false,
                 className,
+                draggable = false,
+                handle,
                 ...rest
             },
             outerRootRef,
@@ -143,7 +146,9 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         setVisible={setVisible}
                         {...rest}
                     >
-                        {children}
+                        <Draggable handle={handle} disabled={!draggable}>
+                            <div>{children}</div>
+                        </Draggable>
                     </PopupRoot>
                 </Root>
             );

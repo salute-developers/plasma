@@ -152,3 +152,56 @@ const StyledModal = styled(ModalBase)`
     }
 `;
 ```
+
+## Draggable
+
+Чтобы иметь возможность перетаскивать Modal по экрану нужно включить `draggable`.
+И также дополнительно указать селектор для таргета. Если этого не сделать, то весь Modal целиком станет таргетом.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
+
+import { SSRProvider, Button, ModalBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <ModalBase
+                        id="modal"
+                        isOpen={isOpen}
+                        onClose={() => setIsOpen(false)}
+                        placement="center"
+                        offset={[0, 0]}
+                        draggable
+                        handle=".handle"
+                    >
+                        <div style={{ display: "flex", flexDirection: "column", background: surfaceSolid02, padding: "1rem" }}>
+                            <div className="handle" style={{ cursor: "move", background: surfaceSolid03 }}>Draggable target</div>
+
+                            <>Content</>
+                        </div>
+                    </ModalBase>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
+    );
+}
+```

@@ -201,4 +201,38 @@ describe('plasma-web: PopupBase', () => {
 
         cy.get('.popup-base-root').should('have.attr', 'data-testid', 'test-data-id');
     });
+
+    it('draggable', () => {
+        function Draggable() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <>
+                    <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
+
+                    <PopupBase opened={isOpen} placement="center" draggable handle=".handle">
+                        <Content id="popup-content">
+                            <Headline3 className="handle">Draggable target</Headline3>
+
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </Content>
+                    </PopupBase>
+                </>
+            );
+        }
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <PopupBaseProvider>
+                    <Draggable />
+                </PopupBaseProvider>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('.handle').trigger('mousedown').trigger('mousemove', { clientX: 200, clientY: 100 }).trigger('mouseup');
+
+        cy.matchImageSnapshot();
+    });
 });
