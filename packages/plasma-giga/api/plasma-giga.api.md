@@ -109,6 +109,7 @@ import { dsplSBold } from '@salutejs/plasma-themes/tokens';
 import { FC } from 'react';
 import { FileProcessHandler } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
+import { FlowProps } from '@salutejs/plasma-new-hope/styled-components';
 import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { FormTypeString } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { ForwardRefExoticComponent } from 'react';
@@ -1709,6 +1710,11 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
 }> & Props_2 & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const Flow: FunctionComponent<PropsType<    {}> & FlowProps & {
+minColWidth?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Grid: FunctionComponent<PropsType<    {
