@@ -3,6 +3,7 @@ import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'default',
+        helperTextView: 'default',
         focused: 'true',
         size: 'm',
     },
@@ -413,10 +414,19 @@ export const config = {
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
             `,
         },
+        helperTextView: {
+            default: css`
+                ${attachTokens.helperTextColor}: var(--text-secondary);
+            `,
+            negative: css`
+                ${attachTokens.helperTextColor}: var(--text-negative);
+            `,
+        },
         size: {
             l: css`
                 ${attachTokens.horizontalGap}: 1.5rem;
                 ${attachTokens.verticalGap}: 0.5rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.625rem;
 
                 ${attachTokens.buttonHeight}: 3.5rem;
                 ${attachTokens.buttonWidth}: 12.5rem;
@@ -498,6 +508,7 @@ export const config = {
             m: css`
                 ${attachTokens.horizontalGap}: 1.25rem;
                 ${attachTokens.verticalGap}: 0.5rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.625rem;
 
                 ${attachTokens.buttonHeight}: 3rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
@@ -579,6 +590,7 @@ export const config = {
             s: css`
                 ${attachTokens.horizontalGap}: 1rem;
                 ${attachTokens.verticalGap}: 0.375rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.5rem;
 
                 ${attachTokens.buttonHeight}: 2.5rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
@@ -660,6 +672,7 @@ export const config = {
             xs: css`
                 ${attachTokens.horizontalGap}: 0.75rem;
                 ${attachTokens.verticalGap}: 0.25rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.375rem;
 
                 ${attachTokens.buttonHeight}: 2rem;
                 ${attachTokens.buttonWidth}: 10rem;
