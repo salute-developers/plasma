@@ -11,6 +11,25 @@ import { PropsTable, Description } from '@site/src/components';
 
 ## Примеры
 
+### Подсказка к кнопке
+Вид `helperText` задается с помощью свойства `helperTextView`. Возможные значения свойства:
++ `"default"` – по умолчанию;
++ `"negative"` – ошибка.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div style={{ padding: "1rem" }}>
+            <Attach helperTextView="default" helperText="Подсказка" />
+            <Attach helperTextView="negative" helperText="Подсказка" />
+        </div>
+    );
+}
+```
+
 ### Вид кнопки
 С помощью свойства `buttonType` можно менять вид кнопки: обычный или с иконкой.
 
