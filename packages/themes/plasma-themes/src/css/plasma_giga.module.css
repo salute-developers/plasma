@@ -1678,6 +1678,24 @@
 }
 
 .dark, .light {
+  --spacing-0x: 0px;
+  --spacing-1x: 2px;
+  --spacing-2x: 4px;
+  --spacing-3x: 6px;
+  --spacing-4x: 8px;
+  --spacing-6x: 12px;
+  --spacing-8x: 16px;
+  --spacing-10x: 20px;
+  --spacing-12x: 24px;
+  --spacing-16x: 32px;
+  --spacing-20x: 40px;
+  --spacing-24x: 48px;
+  --spacing-32x: 64px;
+  --spacing-40x: 80px;
+  --spacing-60x: 120px;
+}
+
+.dark, .light {
   font-size: 16px;
   --plasma-typo-overflow-wrap: break-word;
   --plasma-typo-hyphens: auto;
