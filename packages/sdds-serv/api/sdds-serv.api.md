@@ -1638,7 +1638,7 @@ borderRadius: {
 none: PolymorphicClassName;
 default: PolymorphicClassName;
 };
-}> & PopupProps & PanelProps & {
+}> & Omit<PopupProps, "draggable" | "handle" | "resizable"> & Omit<PanelProps, "draggable"> & {
 placement?: "top" | "bottom" | "right" | "left" | undefined;
 asModal?: boolean | undefined;
 customBackgroundColor?: string | undefined;
