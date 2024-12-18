@@ -262,3 +262,52 @@ export function App() {
     );
 }
 ```
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popup нужно включить `resizable`.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
+
+import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <PopupBase
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        offset={[0, 0]}
+                        resizable
+                    >
+                        <div style={{ display: "flex", flexDirection: "column", background: surfaceSolid02, padding: "1rem", height: '100%', boxSizing: 'border-box' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </PopupBase>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
+    );
+}
+```

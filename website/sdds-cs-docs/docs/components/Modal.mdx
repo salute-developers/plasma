@@ -207,3 +207,53 @@ export function App() {
 }
 ```
 
+## Resizable
+
+Чтобы иметь возможность растягивать Modal нужно включить `resizable`.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { surfaceSolidTertiary } from '@salutejs/sdds-themes/tokens';
+
+import { SSRProvider, Button, Modal, PopupProvider } from  '@salutejs/sdds-cs';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <Modal
+                        id="modal"
+                        isOpen={isOpen}
+                        onClose={() => setIsOpen(false)}
+                        placement="center"
+                        offset={[0, 0]}
+                        resizable
+                    >
+                        <div style={{ display: "flex", flexDirection: "column", background: surfaceSolidTertiary, padding: "1rem", height: '100%', boxSizing: 'border-box' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </Modal>
+                </div>
+            </PopupProvider>
+        </SSRProvider>
+    );
+}
+```
+
