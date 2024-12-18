@@ -81,10 +81,12 @@ export const Button: StoryObj<StoryAttachProps> = {
         width: '400px',
         buttonText: 'Загрузить файл',
         buttonValue: '',
+        helperText: 'Подсказка',
         enableContentLeft: false,
         enableContentRight: false,
         size: 'm',
         view: 'accent',
+        helperTextView: 'default',
     },
     argTypes: {
         view: {
@@ -134,8 +136,10 @@ export const IconButton: StoryObj<StoryAttachProps> = {
         flow: 'horizontal',
         hasAttachment: true,
         width: '400px',
+        helperText: 'Подсказка',
         size: 'm',
         view: 'accent',
+        helperTextView: 'default',
     },
     argTypes: {
         view: {

@@ -20,6 +20,10 @@ export type BaseAttachProps = {
      */
     flow?: 'horizontal' | 'vertical' | 'auto';
     /**
+     * Вспомогательный текст снизу слева под кнопкой
+     */
+    helperText?: string;
+    /**
      * Размер Attach
      */
     size?: string;
@@ -27,6 +31,10 @@ export type BaseAttachProps = {
      * Вид Attach
      */
     view?: string;
+    /**
+     * Вид вспомогательного текста
+     */
+    helperTextView?: string;
     /**
      * Callback при удалении прикрепленного файла
      */
