@@ -62,7 +62,7 @@ export const config = {
                 ${tokens.calendarActiveItemColor}: var(--inverse-text-primary);
                 ${tokens.calendarHoveredItemBackground}: var(--surface-accent);
                 ${tokens.calendarHoveredItemColor}: var(--text-primary);
-                ${tokens.calendarRangeBackground}: var(--surface-transparent-secondary);
+                ${tokens.calendarRangeBackground}: var(--surface-transparent-accent);
                 ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${tokens.calendarContentPrimaryColor}: var(--text-primary);
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
