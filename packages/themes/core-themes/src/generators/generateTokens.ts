@@ -16,6 +16,7 @@ export const generateTokens = (srcDir: string, themeName: string, themeContent: 
         themeContent.gradientTokens,
         themeContent.shadowTokens,
         themeContent.shapeTokens,
+        themeContent.spacingTokens,
         themeContent.typographyTokens.screenS,
         themeContent.viewContainerTokens,
     ].join('\n');

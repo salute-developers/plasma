@@ -15,6 +15,7 @@ export const generateCSSThemes = (srcDir: string, themeName: string, themeConten
             getSelector(themeContent[themeMode].gradientTokens),
             getSelector(themeContent[themeMode].shadowTokens),
             getSelector(themeContent[themeMode].shapeTokens),
+            getSelector(themeContent[themeMode].spacingTokens),
             getSelector(themeContent[themeMode].typographyTokens.root),
             getBreakpointSelector(themeContent[themeMode].typographyTokens.screenS, screenS.from),
             getBreakpointSelector(themeContent[themeMode].typographyTokens.screenM, screenM.from, screenM.to),

@@ -6,6 +6,7 @@ import {
     createGradientTokens,
     createShadowTokens,
     createShapeTokens,
+    createSpacingTokens,
     createTypographyTokens,
     createViewContainerTokens,
 } from './creators';
@@ -45,6 +46,9 @@ export const generate = async (themes: ThemeRequest[]) => {
         const shapeCSSVariables = createShapeTokens(variations.shape, metaGrouped.shape);
         const shapeJSVariables = createShapeTokens(variations.shape, metaGrouped.shape, isJS);
 
+        const spacingCSSVariables = createSpacingTokens(variations.spacing, metaGrouped.spacing);
+        const spacingJSVariables = createSpacingTokens(variations.spacing, metaGrouped.spacing, isJS);
+
         const shadowCSSVariables = createShadowTokens(variations.shadow, metaGrouped.shadow);
         const shadowJSVariables = createShadowTokens(variations.shadow, metaGrouped.shadow, isJS);
 
@@ -68,6 +72,7 @@ export const generate = async (themes: ThemeRequest[]) => {
                 gradientTokens: gradientCSSVariables.dark,
                 shadowTokens: shadowCSSVariables.dark,
                 shapeTokens: shapeCSSVariables.dark,
+                spacingTokens: spacingCSSVariables.dark,
                 typographyTokens: typographyCSSVariables.dark,
             },
             light: {
@@ -75,6 +80,7 @@ export const generate = async (themes: ThemeRequest[]) => {
                 gradientTokens: gradientCSSVariables.light,
                 shadowTokens: shadowCSSVariables.light,
                 shapeTokens: shapeCSSVariables.light,
+                spacingTokens: spacingCSSVariables.light,
                 typographyTokens: typographyCSSVariables.light,
             },
         };
@@ -90,6 +96,7 @@ export const generate = async (themes: ThemeRequest[]) => {
             gradientTokens: gradientJSVariables.dark,
             shadowTokens: shadowJSVariables.dark,
             shapeTokens: shapeJSVariables.dark,
+            spacingTokens: spacingJSVariables.dark,
             typographyTokens: typographyJSVariables.dark,
             viewContainerTokens: viewContainerVariables,
         });
@@ -101,6 +108,7 @@ export const generate = async (themes: ThemeRequest[]) => {
     const colorDefaultJSVariables = createColorTokens(undefined, metaGroupedDefault.color, isJS).dark;
     const gradientDefaultJSVariables = createGradientTokens(undefined, metaGroupedDefault.gradient, isJS).dark;
     const shapeDefaultJSVariables = createShapeTokens(undefined, metaGroupedDefault.shape, isJS).dark;
+    const spacingDefaultJSVariables = createSpacingTokens(undefined, metaGroupedDefault.spacing, isJS).dark;
     const shadowDefaultJSVariables = createShadowTokens(undefined, metaGroupedDefault.shadow, isJS).dark;
     const typographyDefaultJSVariables = createTypographyTokens(
         undefined,
@@ -114,6 +122,7 @@ export const generate = async (themes: ThemeRequest[]) => {
         gradientTokens: gradientDefaultJSVariables,
         shadowTokens: shadowDefaultJSVariables,
         shapeTokens: shapeDefaultJSVariables,
+        spacingTokens: spacingDefaultJSVariables,
         typographyTokens: typographyDefaultJSVariables,
     });
 
