@@ -149,6 +149,7 @@ import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import { FileProcessHandler } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
+import { FlowProps } from '@salutejs/plasma-new-hope/styled-components';
 import { FocusProps } from '@salutejs/plasma-core';
 import { formatCurrency } from '@salutejs/plasma-core';
 import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
@@ -2025,6 +2026,11 @@ xs: PolymorphicClassName;
 }> & Props & RefAttributes<HTMLDivElement>>;
 
 export { extractTextFrom }
+
+// @public (undocumented)
+export const Flow: FunctionComponent<PropsType<    {}> & FlowProps & {
+minColWidth?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
 
 export { FocusProps }
 
