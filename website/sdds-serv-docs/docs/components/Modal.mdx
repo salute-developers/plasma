@@ -153,3 +153,106 @@ const StyledModal = styled(Modal)`
     }
 `;
 ```
+
+## Draggable
+
+Чтобы иметь возможность перетаскивать Modal по экрану нужно включить `draggable`.
+И также дополнительно указать селектор для таргета. Если этого не сделать, то весь Modal целиком станет таргетом.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { surfaceSolidTertiary, surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
+
+import { SSRProvider, Button, Modal, PopupProvider } from  '@salutejs/sdds-serv';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <Modal
+                        id="modal"
+                        isOpen={isOpen}
+                        onClose={() => setIsOpen(false)}
+                        placement="center"
+                        offset={[0, 0]}
+                        draggable
+                        handle=".handle"
+                    >
+                        <div style={{ display: "flex", flexDirection: "column", background: surfaceSolidTertiary, padding: "1rem" }}>
+                            <div className="handle" style={{ cursor: "move", background: surfaceSolidSecondary }}>Draggable target</div>
+
+                            <>Content</>
+                        </div>
+                    </Modal>
+                </div>
+            </PopupProvider>
+        </SSRProvider>
+    );
+}
+```
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popup нужно включить `resizable`.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { surfaceSolidTertiary } from '@salutejs/sdds-themes/tokens';
+
+import { SSRProvider, Button, Popup, PopupProvider } from  '@salutejs/sdds-serv';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <Popup
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        offset={[0, 0]}
+                        resizable
+                    >
+                        <div style={{ display: "flex", flexDirection: "column", background: surfaceSolidTertiary, padding: "1rem", height: '100%', boxSizing: 'border-box' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </Popup>
+                </div>
+            </PopupProvider>
+        </SSRProvider>
+    );
+}
+```
+

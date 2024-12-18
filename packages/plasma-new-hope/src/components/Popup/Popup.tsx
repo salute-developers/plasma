@@ -1,5 +1,7 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, useLayoutEffect } from 'react';
 import { useForkRef, safeUseId } from '@salutejs/plasma-core';
+import Draggable from 'react-draggable';
+import { Resizable } from 're-resizable';
 
 import { RootProps } from '../../engines/types';
 import { canUseDOM, cx } from '../../utils';
@@ -99,10 +101,15 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 popupInfo,
                 withAnimation = false,
                 className,
+                draggable = false,
+                handle,
+                resizable = false,
                 ...rest
             },
             outerRootRef,
         ) => {
+            const resizableDimensions = useRef({ width: 0, height: 0 });
+
             const innerIsOpen = isOpen || opened;
 
             const uniqId = safeUseId();
@@ -120,19 +127,41 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
 
             const innerRef = useForkRef<HTMLDivElement>(contentRef, outerRootRef);
 
-            if (!isVisible && !innerIsOpen) {
-                return null;
-            }
-
             const cls = cx(
                 className,
                 animationInfo?.endAnimation ? classes.endAnimation : '',
                 animationInfo?.endTransition ? classes.endTransition : '',
             );
 
+            // Хук для получения размеров попапа, которые задаются как минимальные габариты при ресайзе.
+            useLayoutEffect(() => {
+                if (!innerIsOpen) return;
+
+                const rect = contentRef.current?.getBoundingClientRect();
+
+                if (rect) {
+                    resizableDimensions.current = {
+                        width: rect.width,
+                        height: rect.height,
+                    };
+                }
+
+                return () => {
+                    resizableDimensions.current = {
+                        width: 0,
+                        height: 0,
+                    };
+                };
+            }, [innerIsOpen]);
+
+            if (!isVisible && !innerIsOpen) {
+                return null;
+            }
+
             const rootNode = (
                 <Root className={cls}>
                     {overlay}
+
                     <PopupRoot
                         id={innerId}
                         ref={innerRef}
@@ -143,7 +172,18 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         setVisible={setVisible}
                         {...rest}
                     >
-                        {children}
+                        <Draggable handle={handle} disabled={!draggable}>
+                            <Resizable
+                                enable={resizable ? { bottomRight: true } : false}
+                                resizeRatio={2}
+                                minWidth={resizableDimensions.current.width}
+                                minHeight={resizableDimensions.current.height}
+                                handleComponent={{ bottomRight: <div>1</div> }}
+                                handleClasses={{ bottomRight: classes.handleBottomRight }}
+                            >
+                                {children}
+                            </Resizable>
+                        </Draggable>
                     </PopupRoot>
                 </Root>
             );
