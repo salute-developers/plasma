@@ -1,5 +1,8 @@
 import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+// INFO: Rounded radius. Should be removed after token will be added in theme
+const roundedRadius = '1000px';
+
 export const config = {
     defaults: {
         view: 'default',
@@ -114,7 +117,7 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 3.5rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
                 ${buttonTokens.buttonPadding}: 1.5rem;
-                ${buttonTokens.buttonRadius}: 0.875rem;
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -150,7 +153,7 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 3rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1.25rem;
-                ${buttonTokens.buttonRadius}: 0.75rem;
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -186,7 +189,7 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1rem;
-                ${buttonTokens.buttonRadius}: 0.625rem;
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -222,7 +225,7 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 2rem;
                 ${buttonTokens.buttonWidth}: 10rem;
                 ${buttonTokens.buttonPadding}: 0.75rem;
-                ${buttonTokens.buttonRadius}: 0.5rem;
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -258,7 +261,7 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 1.5rem;
                 ${buttonTokens.buttonWidth}: 8.75rem;
                 ${buttonTokens.buttonPadding}: 0.625rem;
-                ${buttonTokens.buttonRadius}: 0.375rem;
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);

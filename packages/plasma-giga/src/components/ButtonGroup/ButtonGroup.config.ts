@@ -1,5 +1,8 @@
 import { css, buttonGroupTokens, buttonGroupClasses } from '@salutejs/plasma-new-hope/styled-components';
 
+// INFO: Rounded radius. Should be removed after token will be added in theme
+const roundedRadius = '1000px';
+
 export const config = {
     defaults: {
         view: 'default',
@@ -110,9 +113,9 @@ export const config = {
         },
         size: {
             l: css`
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.875rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.375rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.875rem;
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 3.5rem;
                 ${buttonGroupTokens.buttonPadding}: 1.5rem;
@@ -124,9 +127,9 @@ export const config = {
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             lr: css`
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.875rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.375rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.875rem;
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 3.5rem;
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -138,8 +141,8 @@ export const config = {
             `,
             m: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.75rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 3rem;
                 ${buttonGroupTokens.buttonPadding}: 1.25rem;
@@ -154,8 +157,8 @@ export const config = {
             mr: css`
                 &.${buttonGroupClasses.segmented} {
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.75rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 3rem;
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -167,8 +170,8 @@ export const config = {
             `,
             s: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.625rem;
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 2.5rem;
                 ${buttonGroupTokens.buttonPadding}: 1rem;
@@ -181,8 +184,8 @@ export const config = {
             `,
             sr: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.625rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 2.5rem;
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -194,8 +197,8 @@ export const config = {
             `,
             xs: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.5rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.5rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 2rem;
                 ${buttonGroupTokens.buttonPadding}: 0.75rem;
@@ -208,8 +211,8 @@ export const config = {
             `,
             xsr: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.5rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.5rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 2rem;
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -221,8 +224,8 @@ export const config = {
             `,
             xxs: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.375rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.375rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: ${roundedRadius};
+                ${buttonGroupTokens.buttonSideRadius}: ${roundedRadius};
 
                 ${buttonGroupTokens.buttonHeight}: 1.5rem;
                 ${buttonGroupTokens.buttonPadding}: 0.625rem;
