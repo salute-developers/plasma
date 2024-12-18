@@ -110,7 +110,7 @@
     "http-server": "0.12.3",
     "husky": "^8.0.0",
     "image-loader": "0.0.1",
-    "io-ts": "2.2.20",
+    "io-ts": "2.2.22",
     "lerna": "6.5.1",
     "lint-staged": "13.1.2",
     "nyc": "15.1.0",
