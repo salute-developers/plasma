@@ -3,6 +3,7 @@ import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'accent',
+        helperTextView: 'default',
         focused: 'true',
         size: 's',
     },
@@ -132,10 +133,19 @@ export const config = {
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
             `,
         },
+        helperTextView: {
+            default: css`
+                ${attachTokens.helperTextColor}: var(--text-secondary);
+            `,
+            negative: css`
+                ${attachTokens.helperTextColor}: var(--text-negative);
+            `,
+        },
         size: {
             s: css`
                 ${attachTokens.horizontalGap}: 1rem;
                 ${attachTokens.verticalGap}: 0.375rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.5rem;
 
                 ${attachTokens.buttonHeight}: 2.5rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
