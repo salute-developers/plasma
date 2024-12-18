@@ -26,6 +26,7 @@ export const generateCSSModuleThemes = (srcDir: string, themeName: string, theme
     const breakpointContent = [
         getSelector(themeContent.dark.shadowTokens, groupSelector),
         getSelector(themeContent.dark.shapeTokens, groupSelector),
+        getSelector(themeContent.dark.spacingTokens, groupSelector),
         getSelector(themeContent.dark.typographyTokens.root, groupSelector),
         getBreakpointSelector(themeContent.dark.typographyTokens.screenS, screenS.from, screenS.to, groupSelector),
         getBreakpointSelector(themeContent.dark.typographyTokens.screenM, screenM.from, screenM.to, groupSelector),

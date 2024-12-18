@@ -12,6 +12,7 @@ export const generateDefaultTokens = (srcDir: string, themeContent: ThemeContent
         themeContent.gradientTokens,
         themeContent.shadowTokens,
         themeContent.shapeTokens,
+        themeContent.spacingTokens,
         themeContent.typographyTokens.screenS,
     ].join('\n');
 
