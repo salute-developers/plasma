@@ -46,6 +46,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 hasClose,
                 draggable,
                 handle,
+                resizable,
                 ...rest
             },
             outerRootRef,
@@ -114,6 +115,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     overlay={hasBody ? overlayNode : <Root view={view}>{overlayNode}</Root>}
                     draggable={draggable}
                     handle={handle}
+                    resizable={resizable}
                     {...rest}
                 >
                     {hasBody ? (

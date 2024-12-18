@@ -67,6 +67,11 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      * Только при draggable = true.
      */
     handle?: string;
+    /**
+     * Включение resizable.
+     * @default false
+     */
+    resizable?: boolean;
 }
 export interface PopupAnimationInfo {
     endAnimation: boolean;

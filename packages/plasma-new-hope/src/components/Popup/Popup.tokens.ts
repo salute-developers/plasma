@@ -5,4 +5,5 @@ export const classes = {
     root: 'popup-base-root',
     endAnimation: 'popup-end-animation',
     endTransition: 'popup-end-transition',
+    handleBottomRight: 'popup-handle-bottom-right',
 };

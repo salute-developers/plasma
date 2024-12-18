@@ -1830,7 +1830,7 @@ borderRadius: {
 none: PolymorphicClassName;
 default: PolymorphicClassName;
 };
-}> & PopupBaseProps & PanelProps & {
+}> & Omit<PopupBaseProps, "draggable" | "handle" | "resizable"> & Omit<PanelProps, "draggable"> & {
 placement?: "top" | "right" | "bottom" | "left" | undefined;
 asModal?: boolean | undefined;
 withBlur?: boolean | undefined;
