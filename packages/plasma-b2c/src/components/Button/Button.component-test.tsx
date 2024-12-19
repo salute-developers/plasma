@@ -131,6 +131,8 @@ describe('plasma-b2c: Button', () => {
     it('_size', () => {
         mount(
             <CypressTestDecorator>
+                <Button text="Button_size_xl" size="xl" contentLeft={<Icon />} />
+                <PadMe />
                 <Button text="Button_size_l" size="l" contentLeft={<Icon />} />
                 <PadMe />
                 <Button text="Button_size_m" size="m" contentLeft={<Icon />} />

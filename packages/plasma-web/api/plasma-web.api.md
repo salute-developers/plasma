@@ -1214,6 +1214,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1311,6 +1313,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1765,6 +1769,8 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
 requiredPlacement?: "right" | "left" | undefined;
+dividerVariant?: "none" | "icon" | "dash" | undefined;
+dividerIcon?: ReactNode;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
 firstValueSuccess?: boolean | undefined;
@@ -1775,16 +1781,14 @@ firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any
 firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
 onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-firstTextfieldTextBefore?: string | undefined;
-secondTextfieldTextBefore?: string | undefined;
-dividerVariant?: "none" | "icon" | "dash" | undefined;
-dividerIcon?: ReactNode;
 } & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
 placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
 isDoubleCalendar?: boolean | undefined;
@@ -2157,6 +2161,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -3055,7 +3061,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: "clear" | undefined;
 inputBackgroundType?: undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>) | ({
 value?: number | undefined;
 min?: number | undefined;
 max?: number | undefined;
@@ -3080,7 +3086,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: string | undefined;
 inputBackgroundType?: string | undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>))>;
 
 export { numberInputClasses }
 

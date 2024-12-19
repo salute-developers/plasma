@@ -9,7 +9,7 @@ import { WithTheme } from '../../../_helpers';
 import { Button } from './Button';
 
 const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -22,6 +22,15 @@ const pinValues = [
     'circle-circle',
 ];
 const contentPlacinValues = ['default', 'relaxed'];
+const sizeMap = {
+    xxs: '0.75rem', // 12px
+    xs: '1rem', // 16px
+    s: '1.5rem', // 24px
+    m: '1.5rem', // 36px
+    l: '1.5rem', // 44px
+    xl: '1.5rem', // 56px
+    xxl: '1.5rem', // 100px
+};
 
 const meta: Meta<typeof Button> = {
     title: 'web/Data Entry/Button',
@@ -33,7 +42,6 @@ const meta: Meta<typeof Button> = {
         contentPlacing: 'default',
         stretching: 'auto',
         text: 'Hello',
-        value: 'Value',
         disabled: false,
         focused: true,
         square: false,
@@ -71,6 +79,7 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
+        ...disableProps(['value']),
     },
 };
 
@@ -86,8 +95,16 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: 
 
     return (
         <Button
-            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentLeft={
+                enableContentLeft ? (
+                    <IconMic sizeCustomValue={sizeMap[size]} size={iconSize} color="inherit" />
+                ) : undefined
+            }
+            contentRight={
+                enableContentRight ? (
+                    <IconMic sizeCustomValue={sizeMap[size]} size={iconSize} color="inherit" />
+                ) : undefined
+            }
             size={size}
             {...rest}
         />
@@ -102,6 +119,16 @@ export const Default: StoryObj<StoryPropsDefault> = {
     render: (args) => <StoryDefault {...args} />,
 };
 
+export const WithValue: StoryObj<StoryPropsDefault> = {
+    args: {
+        enableContentLeft: false,
+    },
+    argTypes: {
+        ...disableProps(['enableContentRight']),
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
 export const AccessibilityWithChildren: StoryObj<ComponentProps<typeof Button>> = {
     argTypes: { ...disableProps(['text']) },
     render: (props: ComponentProps<typeof Button>) => {
@@ -109,7 +136,7 @@ export const AccessibilityWithChildren: StoryObj<ComponentProps<typeof Button>> 
 
         return (
             <Button {...args}>
-                <IconMic color="inherit" />
+                <IconMic color="inherit" sizeCustomValue={sizeMap[args.size]} />
                 <span>Включить микрофон</span>
             </Button>
         );
