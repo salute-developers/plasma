@@ -181,14 +181,14 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
     return (
         <>
             <H3>Тип календаря</H3>
-            <Tabs view="default" size="m">
+            <Tabs view="divider" size="s" hasDivider>
                 {Object.keys(calendarMap).map((state, i) => (
                     <TabItem
                         key={`item:${i}`}
                         view="divider"
                         selected={state === currentState}
                         onClick={() => setCurrentState(state)}
-                        size="m"
+                        size="s"
                     >
                         {state}
                     </TabItem>
@@ -234,7 +234,7 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
 
     const getCalendarComponent = ({ type, ...rest }) => {
         return displayDouble ? (
-            <CalendarBaseRange
+            <CalendarDoubleRange
                 size={size}
                 value={values}
                 min={min}
@@ -245,7 +245,7 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
                 {...rest}
             />
         ) : (
-            <CalendarDoubleRange
+            <CalendarBaseRange
                 size={size}
                 value={values}
                 min={min}
@@ -268,14 +268,14 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
     return (
         <>
             <H3>Тип календаря</H3>
-            <Tabs view="default" size="m">
+            <Tabs view="divider" size="s" hasDivider>
                 {Object.keys(calendarMap).map((state, i) => (
                     <TabItem
                         key={`item:${i}`}
                         view="divider"
                         selected={state === currentState}
                         onClick={() => setCurrentState(state)}
-                        size="m"
+                        size="s"
                     >
                         {state}
                     </TabItem>
