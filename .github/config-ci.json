@@ -10,6 +10,7 @@
         "sdds-dfa",
         "sdds-cs",
         "sdds-finportal",
-        "sdds-insol"
+        "sdds-insol",
+        "plasma-giga"
     ]
 }

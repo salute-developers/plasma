@@ -43,6 +43,9 @@ packages/plasma-typo/*
 packages/**/jest.config.*
 examples/**
 
+packages/plasma-giga/*
+!packages/plasma-giga/src
+
 packages/plasma-asdk/*
 !packages/plasma-asdk/src
 
