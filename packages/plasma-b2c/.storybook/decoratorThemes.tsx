@@ -1,7 +1,8 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
-import { b2c, dark, light } from '@salutejs/plasma-tokens-b2c';
+import { b2c } from '@salutejs/plasma-tokens-b2c';
+import { plasma_b2c__light, plasma_b2c__dark } from '@salutejs/plasma-themes';
 import { link, linkHover, linkActive } from '@salutejs/plasma-tokens-web';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
@@ -31,8 +32,8 @@ const TypoStyle = createGlobalStyle(standardTypo);
 const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
 
 const themes = {
-    light: createGlobalStyle(light),
-    dark: createGlobalStyle(dark),
+    light: createGlobalStyle(plasma_b2c__light),
+    dark: createGlobalStyle(plasma_b2c__dark),
 };
 
 export const withTheme = (Story, context) => {
