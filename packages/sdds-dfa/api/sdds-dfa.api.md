@@ -246,6 +246,10 @@ dark: PolymorphicClassName;
 black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
+helperTextView: {
+default: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 size: {
 l: PolymorphicClassName;
 m: PolymorphicClassName;

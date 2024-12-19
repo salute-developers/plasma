@@ -273,6 +273,10 @@ accent: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
 };
+helperTextView: {
+default: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 size: {
 s: PolymorphicClassName;
 };
