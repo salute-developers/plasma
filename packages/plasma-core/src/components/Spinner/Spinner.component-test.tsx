@@ -3,7 +3,7 @@ import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plas
 import styled from 'styled-components';
 
 // import { critical } from '@salutejs/plasma-tokens';
-const critical = 'var(--plasma-colors-critical, #E31227)';
+const critical = 'var(--text-negative, #E31227)';
 
 describe('plasma-core: Spinner', () => {
     const Spinner = getComponent('Spinner');

@@ -84,7 +84,7 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
 };
 
 const StyledContent = styled.div`
-    background: var(--plasma-colors-surface-solid03);
+    background: var(--surface-solid-tertiary);
     padding: 1rem;
     border-radius: 0.5rem;
 
