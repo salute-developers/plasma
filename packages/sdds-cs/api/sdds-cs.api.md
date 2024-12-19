@@ -125,6 +125,8 @@ import { h4Bold } from '@salutejs/sdds-themes/tokens';
 import { h5 } from '@salutejs/sdds-themes/tokens';
 import { h5Bold } from '@salutejs/sdds-themes/tokens';
 import { HTMLAttributes } from 'react';
+import { HTMLAttributesWithoutOnChange } from '@salutejs/plasma-new-hope/types/engines/types';
+import { HTMLAttributesWithoutOnChangeAndDefaultValue } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -2361,7 +2363,22 @@ export { modalClasses }
 export { ModalProps }
 
 // @public (undocumented)
-const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
+const Notification_2: React_2.FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+layout: {
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
+};
+size: {
+xs: PolymorphicClassName;
+xxs: PolymorphicClassName;
+};
+closeIconType: {
+thin: PolymorphicClassName;
+};
+}> & (React_2.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement> | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>)>;
 export { Notification_2 as Notification }
 
 export { NotificationIconPlacement }
