@@ -107,6 +107,13 @@ jobs:
                 run: |
                     echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/plasma-//g')" >> $GITHUB_ENV
                     echo "HAS_PACKAGE_DOCS=$([ -d "./website/${{ matrix.package }}-docs" ] && echo true || echo false)" >> $GITHUB_ENV
+                    
+            -  name: S3 Storybook path
+               env:
+                   PATH_TO_SUBDIR: ${{ secrets.AWS_S3_BUCKET_2 }}/${{ inputs.path }}/${{ env.SHORT_NAME }}-storybook/
+                   PATH_ROOT: ${{ secrets.AWS_S3_BUCKET_2 }}/${{ env.SHORT_NAME }}-storybook/
+               run: |
+                   echo "S3_STORYBOOK_PATH=${{ inputs.path == 'current' && env.PATH_ROOT || env.PATH_TO_SUBDIR }}" >> $GITHUB_ENV
 
             -   name: Computed lerna scope
                 id: scope
@@ -171,4 +178,4 @@ jobs:
                     --no-mime-magic
                     sync
                     ./s3_local_storybook_build/${{ env.SHORT_NAME }}-storybook/
-                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/${{ inputs.path }}/${{ env.SHORT_NAME }}-storybook/
+                    s3://${{ env.S3_STORYBOOK_PATH }}
