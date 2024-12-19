@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler } from 'react';
+import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler, useLayoutEffect } from 'react';
 import { css } from '@linaria/core';
 import { useForkRef, useResizeObserver } from '@salutejs/plasma-core';
 
@@ -198,6 +198,12 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 setIsHintVisible(true);
             }
         };
+
+        useLayoutEffect(() => {
+            if (outerRef.current) {
+                setUncontrolledValue(outerRef.current.value);
+            }
+        }, [outerRef]);
 
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;

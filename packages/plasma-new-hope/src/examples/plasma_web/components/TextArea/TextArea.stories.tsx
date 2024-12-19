@@ -13,6 +13,7 @@ import { config } from './TextArea.config';
 import { TextArea } from './TextArea';
 
 const labelPlacements = ['inner', 'outer'];
+const sizes = ['xs', 's', 'm', 'l'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -67,20 +68,15 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        rows: {
+        size: {
+            options: sizes,
+            defaultValue: 'm',
             control: {
-                type: 'number',
+                type: 'select',
             },
-            if: { arg: 'clear', truthy: false },
-        },
-        cols: {
-            control: {
-                type: 'number',
-            },
-            if: { arg: 'clear', truthy: false },
         },
         labelPlacement: {
-            options: labelPlacements,
+            options: ['inner', 'outer'],
             control: {
                 type: 'select',
             },
@@ -90,6 +86,18 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'boolean',
             },
             if: { arg: 'clear', truthy: true },
+        },
+        cols: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
+        },
+        rows: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
         },
         hintText: {
             control: { type: 'text' },
@@ -132,7 +140,43 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
-        ...disableProps(['leftHelperPlacement']),
+        helperText: {
+            control: { type: 'text' },
+            if: { arg: 'helperText', truthy: true },
+        },
+        width: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
+        height: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
+        ...disableProps([
+            'helperBlock',
+            '$isFocused',
+            'contentRight',
+            'autoComplete',
+            'autoFocus',
+            'dirName',
+            'form',
+            'minLength',
+            'maxLength',
+            'name',
+            'value',
+            'wrap',
+            'theme',
+            'as',
+            'forwardedAs',
+            'onChange',
+            'onFocus',
+            'onBlur',
+            'leftHelperPlacement',
+            'status',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+        ]),
     },
     args: {
         id: 'example-textarea',
