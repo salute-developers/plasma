@@ -11,11 +11,11 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 1rem 1.125rem;
                 ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
-                ${tokens.itemBorderRadius}: 0.75rem;
 
                 ${tokens.dividerMarginTop}: 0.5rem;
                 ${tokens.dividerMarginRight}: 1.125rem;
@@ -48,11 +48,11 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 15rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 0.75rem 0.875rem;
                 ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
-                ${tokens.itemBorderRadius}: 0.625rem;
 
                 ${tokens.dividerMarginTop}: 0.375rem;
                 ${tokens.dividerMarginRight}: 0.875rem;
@@ -85,15 +85,11 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
-                ${tokens.padding}: 0.125rem;
-                ${tokens.width}: 12.5rem;
-                ${tokens.borderRadius}: 0.625rem;
                 ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 0.5rem 0.75rem;
                 ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
-                ${tokens.itemBorderRadius}: 0.5rem;
 
                 ${tokens.dividerMarginTop}: 0.375rem;
                 ${tokens.dividerMarginRight}: 0.75rem;
@@ -126,11 +122,11 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 10rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.itemHeight}: 1rem;
                 ${tokens.itemPadding}: 0.5rem;
                 ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
-                ${tokens.itemBorderRadius}: 0.375rem;
 
                 ${tokens.dividerMarginTop}: 0.25rem;
                 ${tokens.dividerMarginRight}: 0.5rem;
