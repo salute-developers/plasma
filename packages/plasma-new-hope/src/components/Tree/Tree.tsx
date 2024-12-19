@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import Tree from 'rc-tree';
 import 'rc-tree/assets/index.css';
 
@@ -13,7 +13,9 @@ import { classes } from './Tree.tokens';
 /**
  * Многоуровневый раскрывающийся список в виде дерева.
  */
-export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'> & HTMLAttributes<HTMLDivElement>>) =>
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
     forwardRef<HTMLDivElement, TreeProps>(
         (
             {
@@ -35,7 +37,6 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'
                 onCheck,
                 onExpand,
                 hasIcon = false,
-                ...rest
             },
             ref,
         ) => {
@@ -43,7 +44,9 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'
             const itemFilledClass = fullWidthItemSelection ? classes.treeItemFilled : undefined;
 
             return (
-                <Root view={view} size={size} ref={ref} {...rest}>
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                <Root view={view} size={size} ref={ref}>
                     <Tree
                         height={height}
                         virtual={virtual}
