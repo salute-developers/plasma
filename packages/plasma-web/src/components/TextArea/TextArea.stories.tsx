@@ -60,12 +60,6 @@ const meta: Meta<TextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        status: {
-            options: statuses,
-            control: {
-                type: 'select',
-            },
-        },
         size: {
             options: sizes,
             defaultValue: 'm',
@@ -138,7 +132,20 @@ const meta: Meta<TextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        helperText: {
+            control: { type: 'text' },
+            if: { arg: 'helperText', truthy: true },
+        },
+        width: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
+        height: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
         ...disableProps([
+            'helperBlock',
             '$isFocused',
             'contentRight',
             'autoComplete',
@@ -156,9 +163,11 @@ const meta: Meta<TextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
-            'helperText',
-            'helperBlock',
             'leftHelperPlacement',
+            'status',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
         ]),
     },
     args: {
