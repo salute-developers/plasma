@@ -34,6 +34,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'
                 onSelect,
                 onCheck,
                 onExpand,
+                hasIcon = true,
             },
             ref,
         ) => {
@@ -69,9 +70,11 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'
                             );
                         }}
                         icon={
-                            <IconFolderWrapper>
-                                <StyledFolder size={sizeToIconSize(size)} color="inherit" />
-                            </IconFolderWrapper>
+                            hasIcon && (
+                                <IconFolderWrapper>
+                                    <StyledFolder size={sizeToIconSize(size)} color="inherit" />
+                                </IconFolderWrapper>
+                            )
                         }
                     />
                 </Root>

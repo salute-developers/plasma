@@ -63,7 +63,7 @@ export const base = css`
         left: var(${tokens.switcherSize});
         right: 0;
         background: transparent;
-        border-radius: 12px;
+        border-radius: var(${tokens.itemBorderRadius});
     }
 
     .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled {
@@ -121,6 +121,14 @@ export const base = css`
 
     .rc-tree .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher_open .arrow {
         transform: rotate(90deg);
+    }
+
+    .rc-tree.${classes.treeInverted} .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher_close .arrow {
+        transform: rotate(90deg);
+    }
+
+    .rc-tree.${classes.treeInverted} .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher_open .arrow {
+        transform: rotate(0);
     }
 
     .rc-tree .rc-tree-treenode span.rc-tree-checkbox {

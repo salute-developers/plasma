@@ -57,7 +57,6 @@ const treeData: any[] = [
 
 type StoryTreeProps = ComponentProps<typeof Tree>;
 
-const view = ['default'];
 const size = ['xs', 's', 'm', 'l'];
 const arrowPlacements = ['left', 'right'];
 
@@ -66,10 +65,6 @@ const meta: Meta<StoryTreeProps> = {
     decorators: [WithTheme],
     component: Tree,
     argTypes: {
-        view: {
-            control: 'select',
-            options: view,
-        },
         size: {
             control: 'select',
             options: size,
@@ -86,13 +81,7 @@ const meta: Meta<StoryTreeProps> = {
                 type: 'inline-radio',
             },
         },
-        checkStrictly: {
-            control: 'boolean',
-        },
         defaultExpandAll: {
-            control: 'boolean',
-        },
-        virtual: {
             control: 'boolean',
         },
         fullWidthItemSelection: {
@@ -101,18 +90,19 @@ const meta: Meta<StoryTreeProps> = {
         height: {
             control: 'number',
         },
+        hasIcon: {
+            control: 'boolean',
+        },
     },
     args: {
-        view: 'default',
         size: 'm',
         fullWidthItemSelection: false,
         checkable: false,
         multiple: false,
         arrowPlacement: 'left',
-        checkStrictly: false,
         defaultExpandAll: true,
-        virtual: false,
         height: undefined,
+        hasIcon: true,
     },
 };
 

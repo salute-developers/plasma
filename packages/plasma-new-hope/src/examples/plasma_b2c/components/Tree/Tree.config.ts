@@ -29,7 +29,8 @@ export const config = {
                 ${tokens.itemPadding}: 1rem;
                 ${tokens.itemPaddingTight}: 0.375rem;
                 ${tokens.itemIndent}: 2rem;
-                ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
+                ${tokens.itemBorderRadius}: 0.75rem;
+                ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0.5rem 0 0;
@@ -49,7 +50,8 @@ export const config = {
                 ${tokens.itemPadding}: 0.875rem;
                 ${tokens.itemPaddingTight}: 0.375rem;
                 ${tokens.itemIndent}: 2rem;
-                ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
+                ${tokens.itemBorderRadius}: 0.625rem;
+                ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0.5rem 0 0;
@@ -69,7 +71,8 @@ export const config = {
                 ${tokens.itemPadding}: 0.75rem;
                 ${tokens.itemPaddingTight}: 0.25rem;
                 ${tokens.itemIndent}: 1.875rem;
-                ${tokens.iconFolderMargin}: 0 0.25rem 0 0;
+                ${tokens.itemBorderRadius}: 0.5rem;
+                ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0.25rem 0 0;
@@ -89,7 +92,8 @@ export const config = {
                 ${tokens.itemPadding}: 0.5rem;
                 ${tokens.itemPaddingTight}: 0.125rem;
                 ${tokens.itemIndent}: 1.25rem;
-                ${tokens.iconFolderMargin}: 0 0.125rem 0 0;
+                ${tokens.itemBorderRadius}: 0.375rem;
+                ${tokens.iconFolderMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherSize}: 1rem;
                 ${tokens.checkboxMargin}: 0 0.25rem 0 0;

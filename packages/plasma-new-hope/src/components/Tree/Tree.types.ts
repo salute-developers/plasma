@@ -48,6 +48,7 @@ export type TreeProps = {
     virtual?: boolean;
     height?: number;
     fullWidthItemSelection?: boolean;
+    hasIcon?: boolean;
     size?: string;
     view?: string;
 };

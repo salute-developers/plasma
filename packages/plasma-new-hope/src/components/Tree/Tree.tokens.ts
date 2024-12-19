@@ -19,6 +19,7 @@ export const treeTokens = {
     itemPadding: '--plasma-tree-item-padding',
     itemPaddingTight: '--plasma-tree-item-padding-tight',
     itemIndent: '--plasma-tree-item-indent',
+    itemBorderRadius: '--plasma-tree-item-border-radius',
     iconFolderMargin: '--plasma-tree-icon-folder-margin',
     switcherMargin: '--plasma-tree-switcher-margin',
     switcherSize: '--plasma-tree-switcher-size',
