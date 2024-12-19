@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState, forwardRef } from 'react';
+import React, { useRef, useCallback, useEffect, useState, forwardRef, isValidElement } from 'react';
 import type { CSSProperties } from 'react';
 import { usePopper } from 'react-popper';
 import { useForkRef } from '@salutejs/plasma-core';
@@ -60,6 +60,9 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
 
             const [, forceRender] = useState(false);
+
+            const portalContainer =
+                (typeof target === 'object' && target !== null && 'current' in target && target.current) || undefined;
 
             const isAutoArray = Array.isArray(placement);
             const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
@@ -192,7 +195,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     portal = frame.current;
                 }
 
-                if (!usePortal) {
+                if (!usePortal && isValidElement(target)) {
                     portal = rootRef.current;
                 }
 
@@ -231,44 +234,50 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             }, [innerIsOpen, children, forceUpdate]);
 
             return (
-                <StyledWrapper className={classes.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                    <StyledRoot
-                        ref={handleRef}
-                        onClick={onClick}
-                        onFocus={onFocus}
-                        onBlur={onBlur}
-                        className={cx(className, classes.target)}
+                <Portal container={portalContainer} disabled={isValidElement(target)}>
+                    <StyledWrapper
+                        className={cx(classes.wrapper, !isValidElement(target) && classes.targetAsRef)}
+                        onMouseEnter={onMouseEnter}
+                        onMouseLeave={onMouseLeave}
                     >
-                        {target}
-                    </StyledRoot>
-                    {children && portalRef.current && (
-                        <Portal container={portalRef.current}>
-                            <Root view={view} className={className} {...rest}>
-                                <StyledPopover
-                                    {...attributes.popper}
-                                    className={classes.root}
-                                    ref={popoverForkRef}
-                                    style={{
-                                        ...styles.popper,
-                                        ...{ display: innerIsOpen ? 'block' : 'none' },
-                                        ...initialStyles,
-                                    }}
-                                    zIndex={zIndex}
-                                >
-                                    {hasArrow && (
-                                        <StyledArrow
-                                            className={classes.arrow}
-                                            ref={setArrowElement}
-                                            style={styles.arrow}
-                                            {...attributes.arrow}
-                                        />
-                                    )}
-                                    {children}
-                                </StyledPopover>
-                            </Root>
-                        </Portal>
-                    )}
-                </StyledWrapper>
+                        <StyledRoot
+                            ref={handleRef}
+                            onClick={onClick}
+                            onFocus={onFocus}
+                            onBlur={onBlur}
+                            className={cx(className, classes.target)}
+                        >
+                            {isValidElement(target) && target}
+                        </StyledRoot>
+                        {children && portalRef.current && (
+                            <Portal container={portalRef.current}>
+                                <Root view={view} className={className} {...rest}>
+                                    <StyledPopover
+                                        {...attributes.popper}
+                                        className={classes.root}
+                                        ref={popoverForkRef}
+                                        style={{
+                                            ...styles.popper,
+                                            ...{ display: innerIsOpen ? 'block' : 'none' },
+                                            ...initialStyles,
+                                        }}
+                                        zIndex={zIndex}
+                                    >
+                                        {hasArrow && (
+                                            <StyledArrow
+                                                className={classes.arrow}
+                                                ref={setArrowElement}
+                                                style={styles.arrow}
+                                                {...attributes.arrow}
+                                            />
+                                        )}
+                                        {children}
+                                    </StyledPopover>
+                                </Root>
+                            </Portal>
+                        )}
+                    </StyledWrapper>
+                </Portal>
             );
         },
     );
