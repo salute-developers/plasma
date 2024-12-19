@@ -18,15 +18,15 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'
         (
             {
                 items,
-                arrowPlacement,
-                virtual,
+                arrowPlacement = 'left',
+                virtual = false,
                 height,
                 size,
                 view,
-                fullWidthItemSelection,
-                multiple,
-                defaultExpandAll,
-                checkable,
+                fullWidthItemSelection = false,
+                multiple = false,
+                defaultExpandAll = false,
+                checkable = false,
                 defaultCheckedKeys,
                 defaultExpandedKeys,
                 defaultSelectedKeys,
@@ -34,7 +34,8 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'
                 onSelect,
                 onCheck,
                 onExpand,
-                hasIcon = true,
+                hasIcon = false,
+                ...rest
             },
             ref,
         ) => {
@@ -42,7 +43,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, Omit<TreeProps, 'items'
             const itemFilledClass = fullWidthItemSelection ? classes.treeItemFilled : undefined;
 
             return (
-                <Root view={view} size={size} ref={ref}>
+                <Root view={view} size={size} ref={ref} {...rest}>
                     <Tree
                         height={height}
                         virtual={virtual}

@@ -1,1 +1,2 @@
-export { treeRoot, treeConfig } from './Tree';
+export { treeConfig } from './Tree';
+export { treeTokens } from './Tree.tokens';

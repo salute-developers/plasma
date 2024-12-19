@@ -1,14 +1,6 @@
 import type { Key, ReactNode, CSSProperties } from 'react';
 
-export type TreeItem = {
-    key: Key;
-    title?: ReactNode | ((data: TreeItem) => React.ReactNode);
-    className?: string;
-    style?: CSSProperties;
-    disabled?: boolean;
-};
-
-export type EventDataNode<TreeDataType> = {
+type EventDataNode = {
     key: Key;
     expanded: boolean;
     selected: boolean;
@@ -21,34 +13,136 @@ export type EventDataNode<TreeDataType> = {
     dragOverGapBottom: boolean;
     pos: string;
     active: boolean;
-} & TreeDataType;
+} & TreeItem;
+
+interface CheckInfo {
+    event: 'check';
+    node: EventDataNode;
+    checked: boolean;
+    nativeEvent: MouseEvent;
+    checkedNodes: TreeItem[];
+    checkedNodesPositions?: { node: TreeItem; pos: string }[];
+    halfCheckedKeys?: Key[];
+}
+
+type TreeItem = {
+    /**
+     * Уникальный идентификатор элемента.
+     */
+    key: Key;
+    /**
+     * Заголовок элемента.
+     */
+    title?: ReactNode | ((data: TreeItem) => React.ReactNode);
+    /**
+     * Classname для текущего элемента.
+     */
+    className?: string;
+    /**
+     * Стиль для текущего элемента.
+     */
+    style?: CSSProperties;
+    /**
+     * Флаг выключения элемента.
+     * @default false
+     */
+    disabled?: boolean;
+};
 
 export type TreeProps = {
+    /**
+     * Список элементов.
+     */
     items: TreeItem[];
+    /**
+     * Флаг включения чекбоксов в элементах.
+     * @default false
+     */
     checkable?: boolean;
+    /**
+     * Флаг множественного выбора.
+     * @default false
+     */
     multiple?: boolean;
+    /**
+     * Classname для дерева.
+     */
     className?: string;
+    /**
+     * Выделенные элементы по умолчанию.
+     */
     defaultCheckedKeys?: Key[];
+    /**
+     * Раскрытые элементы по умолчанию.
+     */
     defaultExpandedKeys?: Key[];
+    /**
+     * Выбранные элементы по умолчанию.
+     */
     defaultSelectedKeys?: Key[];
+    /**
+     * Флаг раскрытия всех элементов по умолчанию.
+     * @default false
+     */
     defaultExpandAll?: boolean;
+    /**
+     * Callback при выборе элемента.
+     */
     onSelect?: (
         selectedKeys: Key[],
         info: {
             event: 'select';
             selected: boolean;
-            node: EventDataNode<TreeItem>;
+            node: EventDataNode;
             selectedNodes: TreeItem[];
             nativeEvent: MouseEvent;
         },
     ) => void;
-    onCheck?: any;
-    onExpand?: any;
+    /**
+     * Callback при выделении элемента.
+     */
+    onCheck?: (checked: { checked: Key[]; halfChecked: Key[] } | Key[], info: CheckInfo) => void;
+    /**
+     * Callback при раскрытии элемента.
+     */
+    onExpand?: (
+        expandedKeys: Key[],
+        info: {
+            node: EventDataNode;
+            expanded: boolean;
+            nativeEvent: MouseEvent;
+        },
+    ) => void;
+    /**
+     * Сторона иконки раскрытия элемента.
+     * @default left
+     */
     arrowPlacement?: 'left' | 'right';
+    /**
+     * Флаг включения виртуализации в дерево со скроллом.
+     * @default false
+     */
     virtual?: boolean;
+    /**
+     * Высота дерева.
+     */
     height?: number;
+    /**
+     * Флаг включения стиля на всю ширину для выбранного элемента.
+     * @default false
+     */
     fullWidthItemSelection?: boolean;
+    /**
+     * Флаг включения/отключения иконки у элемента.
+     * @default false
+     */
     hasIcon?: boolean;
+    /**
+     * Размер дерева.
+     */
     size?: string;
+    /**
+     * Вид дерева.
+     */
     view?: string;
 };
