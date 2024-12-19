@@ -121,6 +121,7 @@
     "required-path": "1.0.1",
     "semver": "7.3.7",
     "simple-scaffold": "2.2.0",
+    "style-loader": "4.0.0",
     "stylelint": "13.3.3",
     "stylelint-config-recommended": "3.0.0",
     "stylelint-config-styled-components": "0.1.1",
