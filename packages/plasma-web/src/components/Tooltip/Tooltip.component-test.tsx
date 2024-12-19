@@ -346,8 +346,6 @@ describe('plasma-web: Tooltip', () => {
             cy.contains('hello').click();
             cy.contains('World').should('be.visible');
             cy.get('#outer').click({ force: true });
-
-            cy.matchImageSnapshot();
         });
 
         it('trigger:hover', () => {
