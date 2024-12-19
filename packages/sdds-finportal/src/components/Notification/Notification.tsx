@@ -1,4 +1,4 @@
-import React, { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react';
+import React, { ReactNode } from 'react';
 import {
     component,
     mergeConfig,
@@ -18,9 +18,7 @@ export { modalClasses } from '../Modal';
 
 const mergedConfig = mergeConfig(notificationConfig, config);
 
-export const Notification = component(mergedConfig) as ForwardRefExoticComponent<
-    NotificationProps & RefAttributes<HTMLDivElement>
->;
+export const Notification = component(mergedConfig);
 
 export const NotificationsProvider: React.FC<{
     children: ReactNode;
