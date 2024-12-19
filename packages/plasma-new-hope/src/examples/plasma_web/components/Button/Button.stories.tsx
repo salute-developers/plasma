@@ -42,7 +42,6 @@ const meta: Meta<typeof Button> = {
         contentPlacing: 'default',
         stretching: 'auto',
         text: 'Hello',
-        value: 'Value',
         disabled: false,
         focused: true,
         square: false,
@@ -80,6 +79,7 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
+        ...disableProps(['value']),
     },
 };
 
