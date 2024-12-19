@@ -2,9 +2,21 @@
   "name": "@salutejs/plasma-new-hope",
   "version": "0.229.0-dev.0",
   "description": "Salute Design System blueprint",
-  "main": "cjs/index.js",
-  "module": "es/index.js",
-  "types": "types/index.d.ts",
+  "main": "./cjs/index.js",
+  "module": "./es/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./cjs/index.js",
+      "import": "./es/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./styled-components": {
+      "require": "./styled-components/cjs/index.js",
+      "import": "./styled-components/es/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
   "files": [
     "cjs",
     "es",
