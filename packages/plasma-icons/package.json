@@ -24,6 +24,11 @@
     "@babel/preset-env": "7.24.4",
     "@babel/preset-react": "7.24.1",
     "@babel/preset-typescript": "7.24.1",
+    "@ironkinoko/rollup-plugin-styles": "^4.0.3",
+    "@linaria/rollup": "^5.0.4",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/pluginutils": "^5.1.2",
     "@types/node": "^16.7.13",
     "@types/prettier": "^2.6.2",
     "@types/react": "^18.0.28",
@@ -36,6 +41,7 @@
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup": "^3.29.5",
     "sharp": "^0.32.6",
     "styled-components": "5.3.1",
     "svg2vectordrawable": "^2.9.1"
@@ -44,6 +50,7 @@
     "access": "public"
   },
   "scripts": {
+    "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma rollup -c",
     "prepare": "npm run build",
     "prebuild": "rm -rf ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons ./src-rn-build && cp -r ./src ./src-build && cp -r ./src/scalable ./src-rn-build",
     "build": "npm run generate:react && npm run build:cjs && npm run build:esm",
@@ -77,5 +84,11 @@
     "Зубаиров Фаниль Асхатович",
     "Чельцов Евгений Олегович"
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "@linaria/babel-preset": "^5.0.4",
+    "@linaria/core": "^6.2.0",
+    "@linaria/react": "^6.2.1"
+  }
 }
+
