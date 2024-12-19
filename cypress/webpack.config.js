@@ -73,6 +73,10 @@ module.exports = function getWebpackConfig() {
                         },
                     ],
                 },
+                {
+                    test: /\.css$/i,
+                    use: ['css-loader'],
+                },
             ],
         },
     };
