@@ -8,7 +8,6 @@ import { PropsTable, Description } from '@site/src/components';
 # Button
 Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
 
-## Button
 <Description name="Button" />
 <PropsTable name="Button" />
 
@@ -38,16 +37,9 @@ export function App() {
 
             <Button text="Текст" contentRight={<IconDownload color="inherit" />} />
 
-            <Button contentLeft={<IconDownload color="inherit" />} />
-
             <Button text="Текст" isLoading />
 
             <Button text="Текст" isLoading loader={<div>Loader...</div>} />
-
-            <Button>
-                <IconDownload color="inherit" />
-                <span>Текст</span>
-            </Button>
         </div>
     );
 }
@@ -97,7 +89,7 @@ export function App() {
 Позиционирование контента внутри кнопки регулируется с помощью свойства `contentPlacing`.
 Возможные значения свойства `contentPlacing`:
 + `default` – контент центрируется;
-+ `relaxed` – контент распологается по краям.
++ `relaxed` – контент располагается по краям.
 
 ```tsx live
 import React from 'react';
@@ -159,36 +151,12 @@ export function App() {
 }
 ```
 
-### Квадратные и круглые кнопки
-Для отображения иконок и/или текста в квадратных или круглых кнопках с **равными сторонами**,
-используйте компонент `Button` и свойство `contentLeft`, в которое требуется передать нужное значение.
-
-По умолчанию границы кнопки **квадратные** (со скругленными углами) — `pin="square-square"`.
-**Круглые** границы кнопки можно сделать с помощью свойства `pin` со значением `"circle-circle"`.
-
-```tsx live
-import React from 'react';
-import { Button } from '@salutejs/sdds-cs';
-import { IconDownload } from '@salutejs/plasma-icons';
-
-export function App() {
-    return (
-        <div>
-            <Button contentLeft={<IconDownload color="inherit" />} />
-
-            <Button contentLeft={<IconDownload color="inherit" />} pin="circle-circle" />
-        </div>
-    );
-}
-```
-
 ### Гиперссылка
 Компонент поддерживает вывод в виде тега `<a>`, для этого необходимо указать свойство `as`:
 
 ```tsx live
 import React from 'react';
 import { Button } from '@salutejs/sdds-cs';
-import { IconDownload } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
