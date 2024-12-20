@@ -1,0 +1,51 @@
+---
+id: Tooltip
+title: Tooltip
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Tooltip
+<Description name="Tooltip" />
+<PropsTable name="Tooltip" />
+
+## Базовое применение
+
+`Tooltip` оборачивает собой любой компонент и открывается в заданную сторону(причем можно передавать массив, тогда сторона будет определяться автоматически из переданных).
+
+Предполагается оборачивать иконки из пакета `@salutejs/plasma-icons`
+
+```tsx live
+import React from 'react';
+import { Tooltip } from '@salutejs/plasma-giga';
+import { IconApps } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{marginLeft: '100px',marginBottom: '35px'}}>
+            <Tooltip target={( <IconApps />)} text="Высокое качество воспроизведения" placement="bottom" hasArrow opened />
+        </div>
+    );
+}
+```
+
+## Отображение при взаимодействии с `target`
+
+Помимо выставления `opened` в `true/false` можно управлять отображением по ховеру или клику через свойство `trigger`.
+
+При открытии по клику доступны свойства из `Popover`, такие как `closeOnEsc` и `closeOnOverlayClick`.
+
+```tsx live
+import React from 'react';
+import { Tooltip, Button } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <>
+            <Tooltip target={(<Button>trigger: hover</Button>)} text="По ховеру" placement="right" hasArrow trigger="hover" hoverTimeout={500} />
+            <br />
+            <Tooltip target={(<Button>trigger: click</Button>)} text="По клику" placement="right" hasArrow trigger="click" closeOnEsc closeOnOverlayClick />
+        </>
+    );
+}
+```
