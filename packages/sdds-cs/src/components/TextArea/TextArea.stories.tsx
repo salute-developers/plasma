@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
-import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextArea } from './TextArea';
 
@@ -17,29 +16,9 @@ type StoryTextAreaPropsCustom = {
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
-const sizes = ['s'];
-const views = ['default', 'negative'];
+const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
-const hintPlacements: Array<PopoverPlacement> = [
-    'top',
-    'top-start',
-    'top-end',
-
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-
-    'left',
-    'left-start',
-    'left-end',
-
-    'right',
-    'right-start',
-    'right-end',
-
-    'auto',
-];
 
 const meta: Meta<StoryTextAreaProps> = {
     title: 'Data Entry/TextArea',
@@ -64,34 +43,15 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        labelPlacement: {
-            options: placements,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        leftHelperPlacement: {
-            options: placements,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        size: {
-            options: sizes,
-            defaultValue: 'm',
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
         clear: {
             control: {
                 type: 'boolean',
+            },
+        },
+        labelPlacement: {
+            options: ['inner', 'outer'],
+            control: {
+                type: 'select',
             },
         },
         hasDivider: {
@@ -112,8 +72,20 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'clear', truthy: false },
         },
+        hasHint: {
+            control: {
+                type: 'boolean',
+            },
+        },
         hintText: {
             control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
             if: { arg: 'hasHint', truthy: true },
         },
         hintSize: {
@@ -131,12 +103,12 @@ const meta: Meta<StoryTextAreaProps> = {
             if: { arg: 'hasHint', truthy: true },
         },
         hintPlacement: {
-            options: hintPlacements,
+            options: placements,
             control: {
                 type: 'select',
             },
             if: { arg: 'hasHint', truthy: true },
-            mappers: hintPlacements,
+            mappers: placements,
         },
         hintHasArrow: {
             control: { type: 'boolean' },
@@ -145,6 +117,24 @@ const meta: Meta<StoryTextAreaProps> = {
         hintWidth: {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
+        },
+        helperText: {
+            control: { type: 'text' },
+        },
+        width: {
+            control: { type: 'text' },
+        },
+        height: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        rightHelper: {
+            control: { type: 'text' },
         },
         ...disableProps([
             'helperBlock',

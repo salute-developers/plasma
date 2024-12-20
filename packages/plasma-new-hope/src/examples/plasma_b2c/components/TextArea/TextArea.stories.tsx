@@ -13,6 +13,8 @@ import { config } from './TextArea.config';
 import { TextArea } from './TextArea';
 
 const labelPlacements = ['inner', 'outer'];
+const sizes = ['xs', 's', 'm', 'l'];
+const views = ['default', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -67,22 +69,23 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        rows: {
+        size: {
+            options: sizes,
+            defaultValue: 'm',
             control: {
-                type: 'number',
+                type: 'select',
             },
-            if: { arg: 'clear', truthy: false },
         },
-        cols: {
+        view: {
+            options: views,
             control: {
-                type: 'number',
+                type: 'select',
             },
-            if: { arg: 'clear', truthy: false },
         },
         labelPlacement: {
             options: labelPlacements,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         hasDivider: {
@@ -90,6 +93,23 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'boolean',
             },
             if: { arg: 'clear', truthy: true },
+        },
+        cols: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
+        },
+        rows: {
+            control: {
+                type: 'number',
+            },
+            if: { arg: 'clear', truthy: false },
+        },
+        hasHint: {
+            control: {
+                type: 'boolean',
+            },
         },
         hintText: {
             control: { type: 'text' },
@@ -132,7 +152,50 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
-        ...disableProps(['leftHelperPlacement']),
+        helperText: {
+            control: { type: 'text' },
+        },
+        width: {
+            control: { type: 'text' },
+        },
+        height: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        rightHelper: {
+            control: { type: 'text' },
+        },
+        ...disableProps([
+            'helperBlock',
+            '$isFocused',
+            'contentRight',
+            'autoComplete',
+            'autoFocus',
+            'dirName',
+            'form',
+            'minLength',
+            'maxLength',
+            'name',
+            'value',
+            'wrap',
+            'theme',
+            'as',
+            'forwardedAs',
+            'onChange',
+            'onFocus',
+            'onBlur',
+            'leftHelperPlacement',
+            'status',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+            'hintView',
+        ]),
     },
     args: {
         id: 'example-textarea',
