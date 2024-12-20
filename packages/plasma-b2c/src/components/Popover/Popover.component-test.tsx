@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject, useRef } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 import type { PopoverTrigger } from '.';
@@ -98,6 +98,45 @@ describe('plasma-b2c: Popover', () => {
         mount(
             <CypressTestDecorator>
                 <Demo trigger="click" closeOnEsc />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').first().click();
+        cy.get('p').contains(text).should('be.visible');
+
+        cy.get('body').type('{esc}');
+        cy.get('p').contains(text).should('not.be.visible');
+    });
+
+    const TargetAsRef = () => {
+        const [isOpen, setIsOpen] = React.useState(false);
+        const targetRef = useRef<HTMLButtonElement>(null);
+
+        return (
+            <>
+                <Button ref={targetRef}>Target</Button>
+                <Popover
+                    opened={isOpen}
+                    onToggle={(is) => setIsOpen(is)}
+                    role="presentation"
+                    id="popover"
+                    target={targetRef}
+                    trigger="click"
+                    closeOnEsc
+                >
+                    <div>
+                        <P1>{text}</P1>
+                        <Button onClick={() => setIsOpen(!isOpen)}>close</Button>
+                    </div>
+                </Popover>
+            </>
+        );
+    };
+
+    it('target as ref', () => {
+        mount(
+            <CypressTestDecorator>
+                <TargetAsRef />
             </CypressTestDecorator>,
         );
 
