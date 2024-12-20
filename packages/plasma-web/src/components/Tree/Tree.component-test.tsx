@@ -115,6 +115,8 @@ describe('plasma-web: Tree', () => {
         cy.get('[title="Parent 1-0"]').click();
         cy.get('[title="Parent 1-1"]').click();
 
+        cy.get('[title="Parent 1-0"]').realHover();
+
         cy.matchImageSnapshot();
     });
 
