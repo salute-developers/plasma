@@ -3093,7 +3093,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: "clear" | undefined;
 inputBackgroundType?: undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>) | ({
 value?: number | undefined;
 min?: number | undefined;
 max?: number | undefined;
@@ -3118,7 +3118,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: string | undefined;
 inputBackgroundType?: string | undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>))>;
 
 export { numberInputClasses }
 

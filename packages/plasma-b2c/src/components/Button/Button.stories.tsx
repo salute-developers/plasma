@@ -95,6 +95,8 @@ const meta: Meta<ButtonProps> = {
             'stretch',
             'as',
             'forwardedAs',
+            'pin',
+            'focused',
         ]),
     },
 };

@@ -7,9 +7,59 @@ import { IconMic } from '../../../../components/_Icon';
 import { WithTheme } from '../../../_helpers';
 
 import { Button } from './Button';
+import { config } from './Button.config';
 
-const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
-const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+const sizesWeights = {
+    xxs: 0,
+    xxsr: 0.5,
+    xs: 1,
+    xsr: 1.5,
+    s: 2,
+    sr: 2.5,
+    m: 3,
+    mr: 3.5,
+    l: 4,
+    lr: 4.5,
+    xl: 5,
+    xlr: 5.5,
+    xxl: 6,
+    xxlr: 6.5,
+};
+
+const nonExistSizeWeight = 100;
+
+const sortSizes = (sizes: string[]) => {
+    return sizes.sort((a, b) => {
+        return (sizesWeights[a] ?? nonExistSizeWeight) - (sizesWeights[b] ?? nonExistSizeWeight);
+    });
+};
+
+const viewsWeights = {
+    default: 0,
+};
+
+const nonExistViewWeight = 100;
+
+const sortViews = (views: string[]) => {
+    return views.sort((a, b) => (viewsWeights[a] ?? nonExistViewWeight) - (viewsWeights[b] ?? nonExistViewWeight));
+};
+
+const getConfigVariations = () => {
+    const sortLexicographically = (keys: string[]) => keys.sort((a, b) => a.localeCompare(b));
+
+    const filterCss = (keys: string[]) => keys.filter((keys) => keys !== 'css');
+
+    const viewsKeys = filterCss(Object.keys(config.variations.view));
+    const sizesKeys = filterCss(Object.keys(config.variations.size));
+
+    return {
+        views: sortViews(sortLexicographically(viewsKeys)),
+        sizes: sortSizes(sizesKeys),
+    };
+};
+
+const { views, sizes } = getConfigVariations(config);
+
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -79,7 +129,7 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
-        ...disableProps(['value']),
+        ...disableProps(['value', 'focused', 'pin']),
     },
 };
 
