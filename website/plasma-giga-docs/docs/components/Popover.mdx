@@ -1,0 +1,54 @@
+---
+id: popover
+title: Popover
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Popover
+<Description name="Popover" />
+<PropsTable name="Popover" />
+
+```tsx live
+import React from 'react';
+import styled from "styled-components";
+import { surfaceSolidTertiary } from "@salutejs/plasma-themes/tokens";
+import { Popover, Button } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const StyledContent = styled.div`
+        background: ${surfaceSolidTertiary};
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `;
+
+    return (
+        <section style={{width: '20rem', height: '15rem'}}>
+            <Popover
+                opened={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                role="presentation"
+                id="popover"
+                target={<Button>Target</Button>}
+                offset={[0, 6]}
+                hasArrow
+                placement='bottom'
+                trigger='click'
+                closeOnOverlayClick
+                closeOnEsc
+                isFocusTrapped
+            >
+                <StyledContent>
+                    <>Content</>
+                    <Button onClick={() => setIsOpen(false)}>close</Button>
+                </StyledContent>
+            </Popover>
+        </section>
+    );
+}
+```
