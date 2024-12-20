@@ -156,7 +156,7 @@ describe('plasma-web: Tree', () => {
         cy.matchImageSnapshot();
     });
 
-    it('prop: defaultSelectedKeys', () => {
+    it('prop: arrowPlacement', () => {
         cy.viewport(500, 500);
 
         mount(
