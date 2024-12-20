@@ -8,7 +8,6 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 # Button
 Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
 
-## Button
 <Description name="Button" />
 <PropsTable name="Button" exclude={['css']} />
 <StorybookLink name="Button" />
@@ -66,6 +65,7 @@ import { Button } from '@salutejs/plasma-web';
 export function App() {
     return (
         <div>
+            <Button text="Button" size="xl" />
             <Button text="Button" size="l" />
             <Button text="Button" size="m" />
             <Button text="Button" size="s" />
@@ -102,7 +102,7 @@ export function App() {
 Позиционирование контента внутри кнопки регулируется с помощью свойства `contentPlacing`.
 Возможные значения свойства `contentPlacing`:
 + `default` – контент центрируется;
-+ `relaxed` – контент распологается по краям.
++ `relaxed` – контент располагается по краям.
 
 ```tsx live
 import React from 'react';
@@ -193,6 +193,7 @@ import { IconDownload } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div>
+            {/* square - свойство устарело, используйте IconButton */}
             <Button square>
                 <IconDownload color="inherit" />
             </Button>
