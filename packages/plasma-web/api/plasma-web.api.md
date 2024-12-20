@@ -4418,6 +4418,19 @@ export { TooltipProps }
 export { transformStyles }
 
 // @public (undocumented)
+export const Tree: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & (HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement> | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>)>;
+
+// @public (undocumented)
 export const Underline: FunctionComponent<PropsType<    {
 size: {
 m: PolymorphicClassName;

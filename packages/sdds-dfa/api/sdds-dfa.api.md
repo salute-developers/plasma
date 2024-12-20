@@ -121,6 +121,8 @@ import { h4Bold } from '@salutejs/sdds-themes/tokens';
 import { h5 } from '@salutejs/sdds-themes/tokens';
 import { h5Bold } from '@salutejs/sdds-themes/tokens';
 import { HTMLAttributes } from 'react';
+import { HTMLAttributesWithoutOnChange } from '@salutejs/plasma-new-hope/types/engines/types';
+import { HTMLAttributesWithoutOnChangeAndDefaultValue } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -4121,6 +4123,19 @@ export { toolbarTokens }
 export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
 
 export { TooltipProps }
+
+// @public (undocumented)
+export const Tree: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & (HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement> | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>)>;
 
 export { usePopupContext }
 

@@ -3885,6 +3885,19 @@ export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTM
 
 export { TooltipProps }
 
+// @public (undocumented)
+export const Tree: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & (HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement> | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>)>;
+
 export { usePopupContext }
 
 export { useSegment }
