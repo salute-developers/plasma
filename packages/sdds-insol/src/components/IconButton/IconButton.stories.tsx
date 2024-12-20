@@ -44,7 +44,17 @@ const meta: Meta<StoryButtonProps> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
-        ...disableProps(['children', 'theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
+        ...disableProps([
+            'focused',
+            'children',
+            'theme',
+            'loader',
+            'onClick',
+            'onFocus',
+            'onBlur',
+            'contentLeft',
+            'contentRight',
+        ]),
     },
 };
 

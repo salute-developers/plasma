@@ -1,5 +1,6 @@
 node_modules/
 .idea/
+.nx/
 tsconfig.tsbuildinfo
 tsconfig.es.tsbuildinfo
 cypress/snapshots/**/__diff_output__
