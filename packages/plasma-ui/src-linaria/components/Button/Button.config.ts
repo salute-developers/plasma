@@ -103,7 +103,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${buttonTokens.buttonFocusColor}: var(--surface-accent);
+                ${buttonTokens.buttonFocusColor}: var(--plasma-colors-button-white);
             `,
         },
         stretching: {
