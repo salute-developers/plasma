@@ -15,6 +15,11 @@
       "require": "./styled-components/cjs/index.js",
       "import": "./styled-components/es/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./emotion": {
+      "require": "./emotion/cjs/index.js",
+      "import": "./emotion/es/index.js",
+      "types": "./types/index.d.ts"
     }
   },
   "files": [

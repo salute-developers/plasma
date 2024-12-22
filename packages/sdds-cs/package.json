@@ -21,9 +21,36 @@
     "api-extractor.json",
     "CHANGELOG.md"
   ],
-  "main": "index.js",
-  "module": "es/index.js",
-  "types": "index.d.ts",
+  "main": "./index.js",
+  "module": "./es/index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./components/index.js",
+      "import": "./es/index.js",
+      "types": "./index.d.ts"
+    },
+    "./styled-components": {
+      "require": "./styled-components/cjs/index.js",
+      "import": "./styled-components/es/index.js",
+      "types": "./index.d.ts"
+    },
+    "./emotion": {
+      "require": "./emotion/cjs/index.js",
+      "import": "./emotion/es/index.js",
+      "types": "./index.d.ts"
+    },
+    "./tokens": {
+      "require": "./tokens/index.js",
+      "import": "./es/tokens/index.js",
+      "types": "./tokens/index.d.ts"
+    },
+    "./mixins": {
+      "require": "./mixins/index.js",
+      "import": "./es/mixins/index.js",
+      "types": "./mixins/index.d.ts"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
