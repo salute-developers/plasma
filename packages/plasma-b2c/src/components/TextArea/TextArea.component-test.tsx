@@ -362,6 +362,26 @@ describe('plasma-b2c: TextArea', () => {
                 cy.matchImageSnapshot();
             });
         });
+
+        it('required attribute', () => {
+            mount(
+                <CypressTestDecorator>
+                    <TextArea id="required" value="Value" placeholder="Placeholder" label="Title" required />
+                    <TextArea
+                        id="falseRequired"
+                        value="Value"
+                        placeholder="Placeholder"
+                        label="Title"
+                        required={false}
+                    />
+                    <TextArea id="notRequired" value="Value" placeholder="Placeholder" label="Title" />
+                </CypressTestDecorator>,
+            );
+
+            cy.get('#required').should('have.attr', 'required');
+            cy.get('#falseRequired').should('not.have.attr', 'required');
+            cy.get('#notRequired').should('not.have.attr', 'required');
+        });
     });
 
     describe('with hint', () => {
