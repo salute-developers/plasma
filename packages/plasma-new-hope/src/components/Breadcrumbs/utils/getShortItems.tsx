@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import type { ReactNode } from 'react';
 
 import { BreadcrumbShorter } from '../ui/BreadcrumbShorter/BreadcrumbShorter';
 import { StyledLink } from '../Breadcrumbs.styles';
@@ -16,16 +17,6 @@ export const shortItems = (items: ReactNode[], renderSeparator: ReactNode, showI
     const shorter = <BreadcrumbShorter separator={renderSeparator}>{renderItems}</BreadcrumbShorter>;
     items.splice(leftSlice, rightSlice - leftSlice, shorter);
     return items;
-};
-
-export const convertIconSize = (size?: string) => {
-    switch (size) {
-        case 's':
-        case 'xs':
-            return 'xs';
-        default:
-            return 's';
-    }
 };
 
 export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactNode, showItems?: number) => {
@@ -54,8 +45,4 @@ export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactN
     );
 
     return renderItems;
-};
-
-export const addSeparator = (items: ReactNode[], renderSeparator: ReactNode) => {
-    return items.flatMap((item, idx) => (idx < items.length - 1 ? [item, renderSeparator] : [item]));
 };

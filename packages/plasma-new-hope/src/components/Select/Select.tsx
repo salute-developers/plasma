@@ -3,7 +3,6 @@ import React, {
     useState,
     useReducer,
     useMemo,
-    createContext,
     useLayoutEffect,
     useRef,
     ChangeEvent,
@@ -28,12 +27,11 @@ import { Inner, Target } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { Ul, base } from './Select.styles';
-import type { ItemContext, MergedSelectProps, RequiredProps } from './Select.types';
+import type { MergedSelectProps, RequiredProps } from './Select.types';
 import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 import { FloatingPopover } from './FloatingPopover';
 import { SelectNative } from './ui/SelectNative/SelectNative';
-
-export const Context = createContext<ItemContext>({} as ItemContext);
+import { Context } from './Select.context';
 
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.

@@ -1,8 +1,7 @@
 import type { DateItem, DateObject, DisabledDay, EventDay } from '../Calendar.types';
-import type { CalendarStateType } from '..';
-import { CalendarState } from '../store/types';
+import { CalendarState, CalendarStateType } from '../store/types';
 
-import { getPropsMap } from '.';
+import { getPropsMap } from './calendarGridHelper';
 
 type GetDatesWithModificationsArgs = {
     dates: DateItem[];
