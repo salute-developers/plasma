@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import { getStaticVariants, getDynamicVariants } from './common';
+import { getStaticVariants, getDynamicVariants } from './utils';
 import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
 export { styled, css };
