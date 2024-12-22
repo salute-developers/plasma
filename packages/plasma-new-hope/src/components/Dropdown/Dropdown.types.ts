@@ -57,6 +57,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     /**
      * Стрелка у выпадающего списка.
      * @default true
+     * @deprecated
      */
     hasArrow?: boolean;
     /**
