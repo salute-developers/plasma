@@ -4,7 +4,7 @@ import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 import { cx, isEmpty } from '../../../../../../utils';
 import { IconDisclosureRightCentered, IconDone } from '../../../../../_Icon';
-import { Context } from '../../../../Select';
+import { Context } from '../../../../Select.context';
 import { useDidMountEffect } from '../../../../../../hooks';
 
 import { ItemProps } from './Item.types';

@@ -7,7 +7,7 @@ import { Ul } from '../../Select.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 
 import type { MergedDropdownNodeTransformed } from './ui/Item/Item.types';
-import { Item } from './ui';
+import { Item } from './ui/Item/Item';
 import { InnerProps } from './Inner.type';
 
 export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, index, listWidth }) => {

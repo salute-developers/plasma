@@ -3,7 +3,7 @@ import React, { useEffect, useRef, FC, useContext } from 'react';
 import { classes } from '../../Dropdown.tokens';
 import { cx } from '../../../../utils';
 import { IconDisclosureRight } from '../../../_Icon';
-import { Context } from '../../Dropdown';
+import { Context } from '../../Dropdown.context';
 import { getItemId } from '../../utils';
 
 import {
