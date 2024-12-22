@@ -281,6 +281,26 @@ describe('plasma-web: TextArea', () => {
                 cy.matchImageSnapshot();
             });
         });
+
+        it('required attribute', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <TextArea id="required" value="Value" placeholder="Placeholder" label="Title" required />
+                    <TextArea
+                        id="falseRequired"
+                        value="Value"
+                        placeholder="Placeholder"
+                        label="Title"
+                        required={false}
+                    />
+                    <TextArea id="notRequired" value="Value" placeholder="Placeholder" label="Title" />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('#required').should('have.attr', 'required');
+            cy.get('#falseRequired').should('not.have.attr', 'required');
+            cy.get('#notRequired').should('not.have.attr', 'required');
+        });
     });
 
     it('_size :empty', () => {

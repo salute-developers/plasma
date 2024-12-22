@@ -552,6 +552,26 @@ describe('plasma-b2c: TextField', () => {
                 cy.matchImageSnapshot();
             });
         });
+
+        it('required attribute', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <TextField id="required" value="Value" placeholder="Placeholder" label="Title" required />
+                    <TextField
+                        id="falseRequired"
+                        value="Value"
+                        placeholder="Placeholder"
+                        label="Title"
+                        required={false}
+                    />
+                    <TextField id="notRequired" value="Value" placeholder="Placeholder" label="Title" />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('#required').should('have.attr', 'required');
+            cy.get('#falseRequired').should('not.have.attr', 'required');
+            cy.get('#notRequired').should('not.have.attr', 'required');
+        });
     });
 
     it('chipType', () => {

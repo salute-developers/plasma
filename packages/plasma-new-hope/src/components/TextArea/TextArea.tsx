@@ -351,6 +351,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             applyCustomWidth={applyCustomWidth}
                             ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
+                            required={required}
                             height={applyAutoResize ? minAuto : height}
                             width={width}
                             placeholder={placeholderLabel}
