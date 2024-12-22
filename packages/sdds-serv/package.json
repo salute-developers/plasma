@@ -24,7 +24,7 @@
   ],
   "main": "./index.js",
   "module": "./es/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
       "require": "./components/index.js",
