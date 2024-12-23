@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "allowJs": false,
         "target": "ES5",
         "module": "CommonJS",
         "lib": ["dom", "dom.iterable", "esnext"],
