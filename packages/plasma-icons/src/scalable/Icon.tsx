@@ -1190,6 +1190,10 @@ export const iconSectionsSet = {
         umbrellaOutline: 'UmbrellaOutline',
         weatherFill: 'WeatherFill',
         weatherOutline: 'WeatherOutline',
+        sunriseFill: 'SunriseFill',
+        sunriseOutline: 'SunriseOutline',
+        sunsetFill: 'SunsetFill',
+        sunsetOutline: 'SunsetOutline',
     },
     Table: {
         rowHeightFill: 'RowHeightFill',
