@@ -53,10 +53,9 @@
     "access": "public"
   },
   "scripts": {
-    "build:css": "npm run replace:linaria && BABEL_ENV=esm SC_NAMESPACE=plasma rollup -c",
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons ./src-rn-build && cp -r ./src ./src-build && cp -r ./src/scalable ./src-rn-build",
-    "build": "npm run generate:react && npm run build:cjs && npm run build:esm && build:css",
+    "prebuild": "rm -rf ./css/es ./css/cjs ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons ./src-rn-build && cp -r ./src ./src-build && cp -r ./src/scalable ./src-rn-build",
+    "build": "npm run generate:react && npm run build:cjs && npm run build:esm && npm run build:css",
     "postbuild": "tsc --outDir . --emitDeclarationOnly",
     "generate:android": "npm run build:scripts && node ./scripts-build/generateAndroidArchive.js && zip -r ./archives/android-icons.zip android-icons",
     "generate:react": "npm run build:scripts && node ./scripts-build/generateReactComponents.js",
@@ -65,6 +64,7 @@
     "build:scripts": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx",
     "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src-build --out-dir . --extensions .ts,.tsx",
     "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src-build --out-dir ./es --extensions .ts,.tsx",
+    "build:css": "npm run replace:linaria && BABEL_ENV=esm SC_NAMESPACE=plasma rollup -c",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet",
     "replace:linaria": "./scripts/replace_sc_to_linaria.sh"
   },
@@ -85,6 +85,8 @@
   "contributors": [
     "salute.developers@gmail.com"
   ],
-  "sideEffects": false
+  "sideEffects": [
+    "*.css"
+  ]
 }
 

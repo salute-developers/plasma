@@ -14,6 +14,7 @@ export default {
     output: [
         {
             preserveModules: true,
+            preserveModulesRoot: inputDir,
             dir: 'css/es',
             format: 'es',
             freeze: false,
@@ -23,6 +24,7 @@ export default {
             assetFileNames: '[name][extname]',
         }, {
             preserveModules: true,
+            preserveModulesRoot: inputDir,
             dir: 'css/cjs',
             format: 'cjs',
             freeze: false,
