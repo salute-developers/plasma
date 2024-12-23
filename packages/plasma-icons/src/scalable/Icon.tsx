@@ -131,6 +131,8 @@ export const iconSectionsSet = {
         variable: 'Variable',
         history: 'History',
         space: 'Space',
+        searchError: 'SearchError',
+        searchFill: 'SearchFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
