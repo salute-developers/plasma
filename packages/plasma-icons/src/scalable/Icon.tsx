@@ -615,6 +615,7 @@ export const iconSectionsSet = {
         columnCheckboxFillOff: 'ColumnCheckboxFillOff',
         columnCheckboxOutline: 'ColumnCheckboxOutline',
         columnCheckboxOutlineOff: 'ColumnCheckboxOutlineOff',
+        clown: 'Clown',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
