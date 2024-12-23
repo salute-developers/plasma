@@ -130,6 +130,7 @@ export const iconSectionsSet = {
         superscriptText: 'SuperscriptText',
         variable: 'Variable',
         history: 'History',
+        space: 'Space',
     },
     Animal: {
         animalFill: 'AnimalFill',
