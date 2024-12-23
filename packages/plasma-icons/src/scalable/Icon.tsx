@@ -367,6 +367,8 @@ export const iconSectionsSet = {
         profileSquareOutline: 'ProfileSquareOutline',
         smileFill: 'SmileFill',
         smileOutline: 'SmileOutline',
+        kidsLockFill: 'KidsLockFill',
+        kidsLockOutline: 'KidsLockOutline',
     },
     Commerce: {
         appleFill: 'AppleFill',
