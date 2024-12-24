@@ -26,7 +26,6 @@ export type TargetProps = Pick<
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
     selectProps: MergedSelectProps;
     inputWrapperRef: MutableRefObject<HTMLDivElement>;
-    handleClickArrow: () => void;
     treeId: string;
     activeDescendantItemValue: string;
     onChange: (newValue: string | number | Array<string | number>) => void;

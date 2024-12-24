@@ -39,6 +39,7 @@ import { Context } from './Select.context';
 export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectProps, 'items'>>) =>
     forwardRef<HTMLButtonElement, MergedSelectProps>((props, ref) => {
         const {
+            id,
             value: outerValue,
             onChange: outerOnChange,
             target = 'textfield-like',
@@ -125,12 +126,12 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             newValue?: string | number | Array<string | number> | ChangeEvent<HTMLSelectElement> | null,
         ) => {
             if (outerOnChange) {
-                // Условие для отправки если комбобокс используется без формы.
+                // Условие для отправки если компонент используется без формы.
                 if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
                     outerOnChange(newValue as any);
                 }
 
-                // Условие для отправки если комбобокс используется с формой.
+                // Условие для отправки если компонент используется с формой.
                 if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
                     outerOnChange(newValue as any);
                 }
@@ -140,20 +141,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             if (typeof newValue === 'string' || Array.isArray(newValue)) {
                 setInternalValue(newValue);
             }
-        };
-
-        const handleClickArrow = () => {
-            if (disabled) {
-                return;
-            }
-
-            if (isCurrentListOpen) {
-                dispatchPath({ type: 'reset' });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-            }
-
-            dispatchFocusedPath({ type: 'reset' });
         };
 
         const handleListToggle = (opened: boolean) => {
@@ -308,6 +295,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 labelPlacement={labelPlacement}
                 chipView={chipView}
                 disabled={disabled}
+                id={id}
                 {...(rest as any)}
             >
                 {name && (
@@ -337,7 +325,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                     <FloatingPopover
                         ref={floatingPopoverRef}
                         opened={isCurrentListOpen}
-                        onToggle={(opened: boolean) => opened && handleListToggle(true)}
+                        onToggle={handleListToggle}
                         placement={placement}
                         portal={portal}
                         listWidth={listWidth}
@@ -359,7 +347,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 inputWrapperRef={referenceRef as React.MutableRefObject<HTMLDivElement>}
                                 multiselect={props.multiselect}
                                 view={view}
-                                handleClickArrow={handleClickArrow}
                                 helperText={helperText}
                                 treeId={treeId}
                                 activeDescendantItemValue={activeDescendantItemValue}
