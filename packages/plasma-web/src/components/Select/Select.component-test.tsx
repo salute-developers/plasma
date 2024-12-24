@@ -1134,4 +1134,95 @@ describe('plasma-web: Select', () => {
         cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('button').should('not.have.focus');
     });
+
+    it('flow: opening', () => {
+        cy.viewport(1300, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="button-single"
+                                target="button-like"
+                                label="Список стран single"
+                                items={items}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="button-multiple"
+                                multiselect
+                                target="button-like"
+                                label="Список стран single"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="textfield-single"
+                                target="textfield-like"
+                                items={items}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="textfield-multiple"
+                                multiselect
+                                target="textfield-like"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#button-single').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-single').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#button-single .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-single .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#button-multiple').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-multiple').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#button-multiple .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-multiple .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#textfield-single').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#textfield-single').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#textfield-multiple').realClick({ position: 'topLeft' });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#textfield-multiple').realClick({ position: 'topLeft' });
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#textfield-multiple').realClick({ position: 'center' });
+        cy.get('ul[role="tree"]').should('not.exist');
+    });
 });
