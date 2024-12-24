@@ -34,7 +34,6 @@ const config: StorybookConfig = {
         disableTelemetry: true,
     },
     docs: {
-        autodocs: true,
         defaultName: 'Docs',
     },
     async viteFinal(config) {
@@ -56,6 +55,9 @@ const config: StorybookConfig = {
                 }),
             ],
         });
+    },
+    typescript: {
+        reactDocgen: 'react-docgen-typescript',
     },
 };
 
