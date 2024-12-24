@@ -37,6 +37,9 @@ const config: StorybookConfig = {
         autodocs: false,
         defaultName: 'Docs',
     },
+    typescript: {
+        reactDocgen: false,
+    },
     async viteFinal(config) {
         return mergeConfig(config, {
             base: '',
