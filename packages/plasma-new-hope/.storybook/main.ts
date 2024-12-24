@@ -34,8 +34,10 @@ const config: StorybookConfig = {
         disableTelemetry: true,
     },
     docs: {
-        autodocs: true,
         defaultName: 'Docs',
+    },
+    typescript: {
+        reactDocgen: false,
     },
     async viteFinal(config) {
         return mergeConfig(config, {
