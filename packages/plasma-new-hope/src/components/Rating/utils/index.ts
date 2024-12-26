@@ -28,8 +28,8 @@ export const getHelperTextPlacement = (
 export const getInnerValue = (value?: number | null, precision?: number, iconQuantity = 5) => {
     let innerValue = value ? String(value) : '';
 
-    if (value && value > valueConstraints.max) {
-        innerValue = iconQuantity === 1 ? String(valueConstraints.max) : String(iconQuantity);
+    if (value && value > iconQuantity) {
+        innerValue = iconQuantity === 1 ? String(value) : String(iconQuantity);
     }
 
     if (value && value < valueConstraints.min) {
