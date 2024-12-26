@@ -76,3 +76,4 @@ export * from './components/NumberInput';
 export * from './components/Dropzone';
 export * from './components/Rating';
 export * from './components/Tree';
+export * from './components/Note';
