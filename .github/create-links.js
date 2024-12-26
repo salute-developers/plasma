@@ -9,5 +9,5 @@ module.exports = () => {
         })
         .join('\n');
 
-    return 'Documentation preview deployed!' + '\n\n' + `website:${BASE_URL}/` + '\n' + `${links}`;
+    return 'Documentation preview deployed!' + '\n\n' + `website: ${BASE_URL}/` + '\n' + `${links}`;
 };

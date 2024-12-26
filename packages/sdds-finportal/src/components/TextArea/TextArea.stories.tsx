@@ -65,10 +65,9 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        labelPlacement: {
-            options: labelPlacements,
+        clear: {
             control: {
-                type: 'select',
+                type: 'boolean',
             },
         },
         size: {
@@ -80,6 +79,12 @@ const meta: Meta<StoryTextAreaProps> = {
         },
         view: {
             options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -101,6 +106,11 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'number',
             },
             if: { arg: 'clear', truthy: false },
+        },
+        hasHint: {
+            control: {
+                type: 'boolean',
+            },
         },
         hintText: {
             control: { type: 'text' },
@@ -143,6 +153,24 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        helperText: {
+            control: { type: 'text' },
+        },
+        width: {
+            control: { type: 'text' },
+        },
+        height: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        rightHelper: {
+            control: { type: 'text' },
+        },
         ...disableProps([
             'helperBlock',
             '$isFocused',
@@ -162,12 +190,12 @@ const meta: Meta<StoryTextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
-            'status',
-            'resize',
-            'height',
-            'width',
-            'helperText',
             'leftHelperPlacement',
+            'status',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+            'hintView',
         ]),
     },
     args: {

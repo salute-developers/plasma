@@ -66,11 +66,11 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccentHover": {
-                    "value": "#90B6FEFF",
+                    "value": "#43F4C8FF",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentActive": {
-                    "value": "#216EFDFF",
+                    "value": "#0EECB5FF",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradientHover": {
@@ -84,11 +84,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#42BD9EFF",
                     "comment": "Акцентный минорный цвет"
                 },
                 "textAccentMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#328F78FF",
                     "comment": "Акцентный минорный цвет"
                 },
                 "textAccentMinorGradient": {
@@ -230,10 +230,6 @@
                     "value": "#1C62E3FF",
                     "comment": "Минорный цвет информации"
                 },
-                "textAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный цвет"
-                },
                 "textAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(90deg, #5E94FF 0%, #43DBFA 100%)",
@@ -281,10 +277,6 @@
                     "comment": "Акцентный цвет с градиентом",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Акцентный минорный цвет"
-                },
                 "textPositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет успеха"
@@ -316,6 +308,14 @@
                 "textInfo": {
                     "value": "[general.electricBlue.500]",
                     "comment": "Цвет информации"
+                },
+                "textAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный цвет"
+                },
+                "textAccentMinor": {
+                    "value": "#3AA68B",
+                    "comment": "Акцентный минорный цвет"
                 }
             },
             "onDark": {
@@ -372,11 +372,11 @@
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccentHover": {
-                    "value": "#90B6FEFF",
+                    "value": "#43F4C8FF",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentActive": {
-                    "value": "#216EFDFF",
+                    "value": "#0EECB5FF",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentGradientHover": {
@@ -390,11 +390,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#42BD9EFF",
                     "comment": "Акцентный минорный цвет на темном фоне"
                 },
                 "textAccentMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#328F78FF",
                     "comment": "Акцентный минорный цвет на темном фоне"
                 },
                 "textAccentMinorGradient": {
@@ -536,14 +536,6 @@
                     "value": "#1C62E3FF",
                     "comment": "Минорный цвет информации на темном фоне"
                 },
-                "textAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Акцентный минорный цвет на темном фоне"
-                },
                 "textAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(90deg, #5E94FF 0%, #43DBFA 100%)",
@@ -622,6 +614,14 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.800]",
                     "comment": "Минорный цвет информации на темном фоне"
+                },
+                "textAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentMinor": {
+                    "value": "#3AA68B",
+                    "comment": "Акцентный минорный цвет на темном фоне"
                 }
             },
             "onLight": {
@@ -662,11 +662,11 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccentHover": {
-                    "value": "#79A7FBFF",
+                    "value": "#2ADFB2FF",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentActive": {
-                    "value": "#0D5FF8FF",
+                    "value": "#1BB18CFF",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentGradientHover": {
@@ -680,11 +680,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#DCE8FEFF",
+                    "value": "#8BEAD3FF",
                     "comment": "Акцентный минорный цвет на светлом фоне"
                 },
                 "textAccentMinorActive": {
-                    "value": "#6FA0FBFF",
+                    "value": "#57E0C0FF",
                     "comment": "Акцентный минорный цвет на светлом фоне"
                 },
                 "textAccentMinorGradient": {
@@ -825,14 +825,6 @@
                 "textInfoMinorActive": {
                     "value": "#6FA0FBFF",
                     "comment": "Минорный цвет информации на светлом фоне"
-                },
-                "textAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Акцентный минорный цвет на светлом фоне"
                 },
                 "textAccentGradient": {
                     "value": {
@@ -928,6 +920,14 @@
                 "textParagraph": {
                     "value": "rgba(8,8,8,0.80)",
                     "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Акцентный минорный цвет на светлом фоне"
                 }
             },
             "inverse": {
@@ -968,11 +968,11 @@
                     "comment": "Инвертированный сплошной наборный текст"
                 },
                 "textAccentHover": {
-                    "value": "#79A7FBFF",
+                    "value": "#2ADFB2FF",
                     "comment": "Инвертированный акцентный цвет"
                 },
                 "textAccentActive": {
-                    "value": "#0D5FF8FF",
+                    "value": "#1BB18CFF",
                     "comment": "Инвертированный акцентный цвет"
                 },
                 "textAccentGradientHover": {
@@ -986,11 +986,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#DCE8FEFF",
+                    "value": "#8BEAD3FF",
                     "comment": "Инвертированный минорный акцентный цвет"
                 },
                 "textAccentMinorActive": {
-                    "value": "#6FA0FBFF",
+                    "value": "#57E0C0FF",
                     "comment": "Инвертированный минорный акцентный цвет"
                 },
                 "textAccentMinorGradient": {
@@ -1148,10 +1148,6 @@
                     "value": "rgba(8,8,8,0.80)",
                     "comment": "Инвертированный сплошной наборный текст"
                 },
-                "textAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Инвертированный акцентный цвет"
-                },
                 "textAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%)",
@@ -1199,10 +1195,6 @@
                     "comment": "Инвертированный акцентный цвет с градиентом",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Инвертированный минорный акцентный цвет"
-                },
                 "textPositive": {
                     "value": "[general.green.500]",
                     "comment": "Инвертированный цвет успеха"
@@ -1234,6 +1226,14 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.300]",
                     "comment": "Инвертированный минорный цвет информации"
+                },
+                "textAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Инвертированный акцентный цвет"
+                },
+                "textAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Инвертированный минорный акцентный цвет"
                 }
             }
         },
@@ -1340,11 +1340,11 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentHover": {
-                    "value": "#5D95FDFF",
+                    "value": "#4DF5CBFF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#357BFDFF",
+                    "value": "#1CF2BCFF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
@@ -1358,11 +1358,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#0A2A67FF",
+                    "value": "#106550FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#071F4BFF",
+                    "value": "#0C4B3BFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -1381,11 +1381,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#3F82FD52",
+                    "value": "#26F2BF66",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#3F82FD24",
+                    "value": "#26F2BF38",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -1645,10 +1645,6 @@
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки"
                 },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
                 "surfaceAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(90deg, #3E79F0 0%, #27C6E5 100%)",
@@ -1696,14 +1692,6 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.900]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
-                },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(63,129,253,0.20)",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех"
@@ -1739,6 +1727,18 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(63,129,253,0.20)",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация"
+                },
+                "surfaceAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#0D5442",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола"
                 }
             },
             "onDark": {
@@ -1850,11 +1850,11 @@
                     "enabled": false
                 },
                 "surfaceAccentHover": {
-                    "value": "#5D95FDFF",
+                    "value": "#4DF5CBFF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#357BFDFF",
+                    "value": "#1CF2BCFF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradientHover": {
@@ -1868,11 +1868,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#0A2A67FF",
+                    "value": "#106550FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#071F4BFF",
+                    "value": "#0C4B3BFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -1891,11 +1891,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#3F82FD52",
+                    "value": "#26F2BF66",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#3F82FD24",
+                    "value": "#26F2BF38",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -2151,14 +2151,6 @@
                     "value": "rgba(255,255,255,0.64)",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
-                },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.900]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
-                },
                 "surfaceAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%)",
@@ -2206,10 +2198,6 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
                 },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(63,129,253,0.20)",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне"
@@ -2245,6 +2233,18 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(63,129,253,0.20)",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на темном фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#0D5442",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
                 }
             },
             "onLight": {
@@ -2289,11 +2289,11 @@
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceSolidDefaultHover": {
-                    "value": "#0D0D0DFF",
+                    "value": "#3D2E4DFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceSolidDefaultActive": {
-                    "value": "#030303FF",
+                    "value": "#2E2239FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceTransparentPrimaryHover": {
@@ -2356,11 +2356,11 @@
                     "enabled": false
                 },
                 "surfaceAccentHover": {
-                    "value": "#4886F9FF",
+                    "value": "#21DEAFFF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#206CF8FF",
+                    "value": "#1DC39AFF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradientHover": {
@@ -2374,11 +2374,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#EBF1FFFF",
+                    "value": "#EBFFFAFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#D6E4FFFF",
+                    "value": "#D6FFF5FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -2397,11 +2397,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#2A72F83D",
+                    "value": "#1ECCA166",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#2A72F80F",
+                    "value": "#1ECCA138",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -2633,10 +2633,6 @@
                     "value": "#DADADA",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceSolidDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(8,8,8,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне"
@@ -2656,10 +2652,6 @@
                 "surfaceTransparentDeep": {
                     "value": "rgba(8,8,8,0.64)",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
-                },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
                     "value": {
@@ -2708,14 +2700,6 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
                     "enabled": true
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.150]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
-                },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(42,114,248,0.12)",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
@@ -2751,6 +2735,22 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(42,114,248,0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на светлом фоне"
+                },
+                "surfaceSolidDefault": {
+                    "value": "#332640",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#DEFFF7",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 }
             },
             "inverse": {
@@ -2795,11 +2795,11 @@
                     "comment": "Инвертированный основной фон для карточек"
                 },
                 "surfaceSolidDefaultHover": {
-                    "value": "#0D0D0DFF",
+                    "value": "#3D2E4DFF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceSolidDefaultActive": {
-                    "value": "#030303FF",
+                    "value": "#2E2239FF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceTransparentPrimaryHover": {
@@ -2862,11 +2862,11 @@
                     "enabled": false
                 },
                 "surfaceAccentHover": {
-                    "value": "#5D95FDFF",
+                    "value": "#4DF5CBFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#357BFDFF",
+                    "value": "#1CF2BCFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
@@ -2880,11 +2880,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#EBF1FFFF",
+                    "value": "#EBFFFAFF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#D6E4FFFF",
+                    "value": "#D6FFF5FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -2903,11 +2903,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#2A72F83D",
+                    "value": "#1ECCA166",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#2A72F80F",
+                    "value": "#1ECCA138",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -3139,10 +3139,6 @@
                     "value": "#DADADA",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола"
                 },
-                "surfaceSolidDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
-                },
                 "surfaceTransparentCard": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек"
@@ -3162,10 +3158,6 @@
                 "surfaceTransparentDeep": {
                     "value": "rgba(8,8,8,0.64)",
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
-                },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
                     "value": {
@@ -3214,14 +3206,6 @@
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.150]",
-                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
-                },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(42,114,248,0.12)",
-                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Инвертированный цвет фона поверхности/контрола успех"
@@ -3257,6 +3241,22 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(42,114,248,0.12)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола информация"
+                },
+                "surfaceSolidDefault": {
+                    "value": "#332640",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "surfaceAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#DEFFF7",
+                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
                 }
             }
         },
@@ -3273,15 +3273,11 @@
                     "enabled": false
                 },
                 "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
+                    "value": "#242326",
                     "comment": "Основной фон"
                 }
             },
             "dark": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Основной фон на темном фоне"
-                },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на темном фоне",
@@ -3291,13 +3287,13 @@
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на темном фоне",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#242326",
+                    "comment": "Основной фон на темном фоне"
                 }
             },
             "light": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Основной фон на светлом фоне"
-                },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на светлом фоне",
@@ -3307,13 +3303,13 @@
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на светлом фоне",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#EFF0F2",
+                    "comment": "Основной фон на светлом фоне"
                 }
             },
             "inverse": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Инвертированный основной фон"
-                },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный вторичный фон",
@@ -3323,6 +3319,10 @@
                     "value": "#FFFFFF",
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#EFF0F2",
+                    "comment": "Инвертированный основной фон"
                 }
             }
         },
@@ -3453,11 +3453,11 @@
                     "enabled": true
                 },
                 "outlineAccentHover": {
-                    "value": "#90B6FEFF",
+                    "value": "#43F4C8FF",
                     "comment": "Акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
-                    "value": "#216EFDFF",
+                    "value": "#0EECB5FF",
                     "comment": "Акцентный цвет обводки"
                 },
                 "outlineAccentGradient": {
@@ -3476,11 +3476,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#42BD9EFF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#328F78FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorGradient": {
@@ -3499,11 +3499,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#26F2BFFF",
                     "comment": "Прозрачный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#3F82FD56",
+                    "value": "#26F2BF56",
                     "comment": "Прозрачный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentGradient": {
@@ -3746,18 +3746,6 @@
                     "comment": "Бесцветная обводка",
                     "enabled": true
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный цвет обводки"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Акцентный минорный непрозрачный цвет обводки"
-                },
-                "outlineTransparentAccent": {
-                    "value": "rgba(63,129,253,0.28)",
-                    "comment": "Прозрачный акцентный цвет обводки"
-                },
                 "outlineInfo": {
                     "value": "[general.electricBlue.500]",
                     "comment": "Цвет обводки информация"
@@ -3769,6 +3757,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(63,129,253,0.28)",
                     "comment": "Прозрачный цвет обводки информация"
+                },
+                "outlineAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный цвет обводки"
+                },
+                "outlineAccentMinor": {
+                    "value": "#3AA68B",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный акцентный цвет обводки"
                 }
             },
             "onDark": {
@@ -3844,11 +3844,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#90B6FEFF",
+                    "value": "#43F4C8FF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
                 "outlineAccentActive": {
-                    "value": "#216EFDFF",
+                    "value": "#0EECB5FF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
                 "outlineAccentGradient": {
@@ -3867,11 +3867,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#43F4C8FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#1C62E3FF",
+                    "value": "#0EECB5FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineAccentMinorGradient": {
@@ -3890,11 +3890,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#26F2BFFF",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#3F82FD56",
+                    "value": "#26F2BF56",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 },
                 "outlineTransparentAccentGradient": {
@@ -4132,18 +4132,6 @@
                     "value": "rgba(255,255,255,0.40)",
                     "comment": "Третичный прозрачный цвет обводки на темном фоне"
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
-                },
-                "outlineTransparentAccent": {
-                    "value": "rgba(63,129,253,0.28)",
-                    "comment": "Прозрачный акцентный цвет обводки на темном фоне"
-                },
                 "outlineInfo": {
                     "value": "[general.electricBlue.500]",
                     "comment": "Цвет обводки информация на темном фоне"
@@ -4155,6 +4143,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(63,129,253,0.28)",
                     "comment": "Прозрачный цвет обводки информация на темном фоне"
+                },
+                "outlineAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный цвет обводки на темном фоне"
+                },
+                "outlineAccentMinor": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 }
             },
             "onLight": {
@@ -4230,11 +4230,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#79A7FBFF",
+                    "value": "#2ADFB2FF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
                 "outlineAccentActive": {
-                    "value": "#0D5FF8FF",
+                    "value": "#1BB18CFF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
                 "outlineAccentGradient": {
@@ -4253,11 +4253,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#DCE8FEFF",
+                    "value": "#8BEAD3FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#6FA0FBFF",
+                    "value": "#57E0C0FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineAccentMinorGradient": {
@@ -4276,11 +4276,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#1ECCA1FF",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#2A72F83D",
+                    "value": "#1ECCA156",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentAccentGradient": {
@@ -4502,18 +4502,6 @@
                     "value": "[general.gray.1000][-0.440]",
                     "comment": "Третичный прозрачный цвет обводки на светлом фоне"
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный цвет обводки на светлом фоне"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
-                },
-                "outlineTransparentAccent": {
-                    "value": "rgba(42,114,248,0.20)",
-                    "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
-                },
                 "outlineInfo": {
                     "value": "[general.electricBlue.600]",
                     "comment": "Цвет обводки информация на светлом фоне"
@@ -4541,6 +4529,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(42,114,248,0.20)",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне"
+                },
+                "outlineAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный цвет обводки на светлом фоне"
+                },
+                "outlineAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 }
             },
             "inverse": {
@@ -4616,11 +4616,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#79A7FBFF",
+                    "value": "#2ADFB2FF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
-                    "value": "#0D5FF8FF",
+                    "value": "#1BB18CFF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
                 "outlineAccentGradient": {
@@ -4639,11 +4639,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#DCE8FEFF",
+                    "value": "#8BEAD3FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#6FA0FBFF",
+                    "value": "#57E0C0FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorGradient": {
@@ -4662,11 +4662,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#1ECCA1FF",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#2A72F83D",
+                    "value": "#1ECCA156",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentGradient": {
@@ -4888,18 +4888,6 @@
                     "value": "[general.gray.1000][-0.440]",
                     "comment": "Инвертированный третичный прозрачный цвет обводки"
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Инвертированный акцентный цвет обводки"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
-                },
-                "outlineTransparentAccent": {
-                    "value": "[general.electricBlue.600][-0.80]",
-                    "comment": "Прозрачный инвертированный акцентный цвет обводки"
-                },
                 "outlinePositive": {
                     "value": "[general.green.500]",
                     "comment": "Инвертированный цвет обводки успех"
@@ -4927,6 +4915,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(42,114,248,0.20)",
                     "comment": "Прозрачный инвертированный цвет обводки информация"
+                },
+                "outlineAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Инвертированный акцентный цвет обводки"
+                },
+                "outlineAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 }
             }
         }
@@ -4971,11 +4971,11 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccentHover": {
-                    "value": "#528DFAFF",
+                    "value": "#33E1B5FF",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentActive": {
-                    "value": "#075AF2FF",
+                    "value": "#19A985FF",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradientHover": {
@@ -4989,11 +4989,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#93EBD7FF",
                     "comment": "Акцентный минорный цвет"
                 },
                 "textAccentMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#4EDFBDFF",
                     "comment": "Акцентный минорный цвет"
                 },
                 "textAccentMinorGradient": {
@@ -5151,10 +5151,6 @@
                     "value": "rgba(8,8,8,0.80)",
                     "comment": "Сплошной наборный текст"
                 },
-                "textAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный цвет"
-                },
                 "textAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(90deg, #3E79F0 0%, #27C6E5 100%)",
@@ -5202,10 +5198,6 @@
                     "comment": "Акцентный цвет с градиентом",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Акцентный минорный цвет"
-                },
                 "textPositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет успеха"
@@ -5237,6 +5229,14 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.300]",
                     "comment": "Минорный цвет информации"
+                },
+                "textAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный цвет"
+                },
+                "textAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Акцентный минорный цвет"
                 }
             },
             "onDark": {
@@ -5293,11 +5293,11 @@
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccentHover": {
-                    "value": "#689CFDFF",
+                    "value": "#4DF5CBFF",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentActive": {
-                    "value": "#1767FDFF",
+                    "value": "#0DE3ADFF",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentGradientHover": {
@@ -5311,11 +5311,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#4ABFA2FF",
                     "comment": "Акцентный минорный цвет на темном фоне"
                 },
                 "textAccentMinorActive": {
-                    "value": "#113B88FF",
+                    "value": "#308872FF",
                     "comment": "Акцентный минорный цвет на темном фоне"
                 },
                 "textAccentMinorGradient": {
@@ -5457,10 +5457,6 @@
                     "value": "#113B88FF",
                     "comment": "Минорный цвет информации на темном фоне"
                 },
-                "textAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
                 "textAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(90deg, #5E94FF 0%, #43DBFA 100%)",
@@ -5508,10 +5504,6 @@
                     "comment": "Акцентный цвет с градиентом на темном фоне",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Акцентный минорный цвет на темном фоне"
-                },
                 "textPositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет успеха на темном фоне"
@@ -5543,6 +5535,14 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.800]",
                     "comment": "Минорный цвет информации на темном фоне"
+                },
+                "textAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentMinor": {
+                    "value": "#3AA68B",
+                    "comment": "Акцентный минорный цвет на темном фоне"
                 }
             },
             "onLight": {
@@ -5583,11 +5583,11 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccentHover": {
-                    "value": "#528DFAFF",
+                    "value": "#33E1B5FF",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentActive": {
-                    "value": "#075AF2FF",
+                    "value": "#19A985FF",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentGradientHover": {
@@ -5601,11 +5601,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#93EBD7FF",
                     "comment": "Акцентный минорный цвет на светлом фоне"
                 },
                 "textAccentMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#4EDFBDFF",
                     "comment": "Акцентный минорный цвет на светлом фоне"
                 },
                 "textAccentMinorGradient": {
@@ -5763,10 +5763,6 @@
                     "value": "rgba(8,8,8,0.80)",
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
-                "textAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
                 "textAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%)",
@@ -5814,10 +5810,6 @@
                     "comment": "Акцентный цвет с градиентом на светлом фоне",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Акцентный минорный цвет на светлом фоне"
-                },
                 "textPositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
@@ -5849,6 +5841,14 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.300]",
                     "comment": "Минорный цвет информации на светлом фоне"
+                },
+                "textAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Акцентный минорный цвет на светлом фоне"
                 }
             },
             "inverse": {
@@ -5905,11 +5905,11 @@
                     "comment": "Инвертированный сплошной наборный текст"
                 },
                 "textAccentHover": {
-                    "value": "#689CFDFF",
+                    "value": "#4DF5CBFF",
                     "comment": "Инвертированный акцентный цвет"
                 },
                 "textAccentActive": {
-                    "value": "#1767FDFF",
+                    "value": "#0DE3ADFF",
                     "comment": "Инвертированный акцентный цвет"
                 },
                 "textAccentGradientHover": {
@@ -5923,11 +5923,11 @@
                     "enabled": true
                 },
                 "textAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#4ABFA2FF",
                     "comment": "Инвертированный минорный акцентный цвет"
                 },
                 "textAccentMinorActive": {
-                    "value": "#113B88FF",
+                    "value": "#308872FF",
                     "comment": "Инвертированный минорный акцентный цвет"
                 },
                 "textAccentMinorGradient": {
@@ -6069,10 +6069,6 @@
                     "value": "#113B88FF",
                     "comment": "Инвертированный минорный цвет информации"
                 },
-                "textAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Инвертированный акцентный цвет"
-                },
                 "textAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(94deg, #5E94FF 6.49%, #43DBFA 93.51%)",
@@ -6120,10 +6116,6 @@
                     "comment": "Инвертированный акцентный цвет с градиентом",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Инвертированный минорный акцентный цвет"
-                },
                 "textPositive": {
                     "value": "[general.green.500]",
                     "comment": "Инвертированный цвет успеха"
@@ -6155,6 +6147,14 @@
                 "textInfoMinor": {
                     "value": "[general.electricBlue.800]",
                     "comment": "Инвертированный минорный цвет информации"
+                },
+                "textAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Инвертированный акцентный цвет"
+                },
+                "textAccentMinor": {
+                    "value": "#3AA68B",
+                    "comment": "Инвертированный минорный акцентный цвет"
                 }
             }
         },
@@ -6201,11 +6201,11 @@
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceSolidDefaultHover": {
-                    "value": "#262626FF",
+                    "value": "#3D2E4DFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceSolidDefaultActive": {
-                    "value": "#030303FF",
+                    "value": "#291F33FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceTransparentPrimaryHover": {
@@ -6261,11 +6261,11 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentHover": {
-                    "value": "#528DFAFF",
+                    "value": "#2ADFB2FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#1665F8FF",
+                    "value": "#1CBA93FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
@@ -6279,11 +6279,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#F5F8FFFF",
+                    "value": "#F5FFFCFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#D6E4FFFF",
+                    "value": "#D6FFF5FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -6302,11 +6302,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#2A72F80A",
+                    "value": "#1ECCA133",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#2A72F829",
+                    "value": "#1ECCA152",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -6538,10 +6538,6 @@
                     "value": "#DADADA",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
-                "surfaceSolidDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
-                },
                 "surfaceTransparentCard": {
                     "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек"
@@ -6565,10 +6561,6 @@
                 "surfaceClear": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки"
-                },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
                     "value": {
@@ -6617,14 +6609,6 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.150]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
-                },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(42,114,248,0.12)",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех"
@@ -6660,6 +6644,22 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(42,114,248,0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация"
+                },
+                "surfaceSolidDefault": {
+                    "value": "#332640",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "surfaceAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#DEFFF7",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола"
                 }
             },
             "onDark": {
@@ -6771,11 +6771,11 @@
                     "enabled": false
                 },
                 "surfaceAccentHover": {
-                    "value": "#689CFDFF",
+                    "value": "#43F4C8FF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#2B74FDFF",
+                    "value": "#13F1BAFF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradientHover": {
@@ -6789,11 +6789,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#0A2A67FF",
+                    "value": "#116E57FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#061B41FF",
+                    "value": "#0A4234FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -6812,11 +6812,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#3F82FD1F",
+                    "value": "#26F2BF33",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#3F82FD3D",
+                    "value": "#26F2BF52",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -7072,10 +7072,6 @@
                     "value": "rgba(255,255,255,0.64)",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
-                },
                 "surfaceAccentGradient": {
                     "value": {
                         "origin": "linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%)",
@@ -7123,14 +7119,6 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.900]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
-                },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(63,129,253,0.20)",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне"
@@ -7166,6 +7154,18 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(63,129,253,0.20)",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на темном фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#0D5442",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
                 }
             },
             "onLight": {
@@ -7210,11 +7210,11 @@
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceSolidDefaultHover": {
-                    "value": "#262626FF",
+                    "value": "#3D2E4DFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceSolidDefaultActive": {
-                    "value": "#030303FF",
+                    "value": "#291F33FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceTransparentPrimaryHover": {
@@ -7277,11 +7277,11 @@
                     "enabled": false
                 },
                 "surfaceAccentHover": {
-                    "value": "#528DFAFF",
+                    "value": "#2ADFB2FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#1665F8FF",
+                    "value": "#1CBA93FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradientHover": {
@@ -7295,11 +7295,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#F5F8FFFF",
+                    "value": "#F5FFFCFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#D6E4FFFF",
+                    "value": "#D6FFF5FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -7318,11 +7318,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#2A72F80A",
+                    "value": "#1ECCA133",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#2A72F829",
+                    "value": "#1ECCA152",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -7554,10 +7554,6 @@
                     "value": "#DADADA",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceSolidDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
-                },
                 "surfaceTransparentCard": {
                     "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
@@ -7577,10 +7573,6 @@
                 "surfaceTransparentDeep": {
                     "value": "rgba(8,8,8,0.64)",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
-                },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
                     "value": {
@@ -7629,14 +7621,6 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
                     "enabled": true
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.150]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
-                },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(42,114,248,0.12)",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
@@ -7672,6 +7656,22 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(42,114,248,0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на светлом фоне"
+                },
+                "surfaceSolidDefault": {
+                    "value": "#332640",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#DEFFF7",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 }
             },
             "inverse": {
@@ -7783,11 +7783,11 @@
                     "enabled": false
                 },
                 "surfaceAccentHover": {
-                    "value": "#689CFDFF",
+                    "value": "#43F4C8FF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#2B74FDFF",
+                    "value": "#13F1BAFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientHover": {
@@ -7801,11 +7801,11 @@
                     "enabled": true
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#0A2A67FF",
+                    "value": "#116E57FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#061B41FF",
+                    "value": "#0A4234FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -7824,11 +7824,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#3F82FD1F",
+                    "value": "#26F2BF33",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#3F82FD3D",
+                    "value": "#26F2BF52",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -8084,22 +8084,10 @@
                     "value": "rgba(255,255,255,0.64)",
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
                 },
-                "surfaceAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола"
-                },
                 "surfaceAccentGradient": {
                     "value": "linear-gradient(94deg,#3E79F06.49%,#27C6E593.51%)",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
-                },
-                "surfaceAccentMinor": {
-                    "value": "[general.electricBlue.900]",
-                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
-                },
-                "surfaceTransparentAccent": {
-                    "value": "rgba(63,129,253,0.20)",
-                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfacePositive": {
                     "value": "[general.green.500]",
@@ -8136,15 +8124,23 @@
                 "surfaceTransparentInfo": {
                     "value": "rgba(63,129,253,0.20)",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола информация"
+                },
+                "surfaceAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#0D5442",
+                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
                 }
             }
         },
         "background": {
             "default": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Основной фон"
-                },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон",
@@ -8154,13 +8150,13 @@
                     "value": "#FFFFFF",
                     "comment": "Третичный фон",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#EFF0F2",
+                    "comment": "Основной фон"
                 }
             },
             "dark": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Основной фон на темном фоне"
-                },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на темном фоне",
@@ -8170,13 +8166,13 @@
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на темном фоне",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#242326",
+                    "comment": "Основной фон на темном фоне"
                 }
             },
             "light": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.50]",
-                    "comment": "Основной фон на светлом фоне"
-                },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон на светлом фоне",
@@ -8186,13 +8182,13 @@
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на светлом фоне",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#EFF0F2",
+                    "comment": "Основной фон на светлом фоне"
                 }
             },
             "inverse": {
-                "backgroundPrimary": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Инвертированный основной фон"
-                },
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный вторичный фон",
@@ -8202,6 +8198,10 @@
                     "value": "#FFFFFF",
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
+                },
+                "backgroundPrimary": {
+                    "value": "#242326",
+                    "comment": "Инвертированный основной фон"
                 }
             }
         },
@@ -8332,11 +8332,11 @@
                     "enabled": true
                 },
                 "outlineAccentHover": {
-                    "value": "#528DFAFF",
+                    "value": "#33E1B5FF",
                     "comment": "Акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
-                    "value": "#075AF2FF",
+                    "value": "#19A985FF",
                     "comment": "Акцентный цвет обводки"
                 },
                 "outlineAccentGradient": {
@@ -8355,11 +8355,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#93EBD7FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#4EDFBDFF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorGradient": {
@@ -8378,11 +8378,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#1ECCA1FF",
                     "comment": "Прозрачный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#2A72F83D",
+                    "value": "#1ECCA156",
                     "comment": "Прозрачный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentGradient": {
@@ -8605,18 +8605,6 @@
                     "comment": "Бесцветная обводка",
                     "enabled": true
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный цвет обводки"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Акцентный минорный непрозрачный цвет обводки"
-                },
-                "outlineTransparentAccent": {
-                    "value": "rgba(42,114,248,0.20)",
-                    "comment": "Прозрачный акцентный цвет обводки"
-                },
                 "outlinePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет обводки успех"
@@ -8648,6 +8636,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(42,114,248,0.20)",
                     "comment": "Прозрачный цвет обводки информация"
+                },
+                "outlineAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный цвет обводки"
+                },
+                "outlineAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный акцентный цвет обводки"
                 }
             },
             "onDark": {
@@ -8723,11 +8723,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#689CFDFF",
+                    "value": "#4DF5CBFF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
                 "outlineAccentActive": {
-                    "value": "#1767FDFF",
+                    "value": "#0DE3ADFF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
                 "outlineAccentGradient": {
@@ -8746,11 +8746,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#4ABFA2FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#113B88FF",
+                    "value": "#308872FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineAccentMinorGradient": {
@@ -8769,11 +8769,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#26F2BFFF",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#3F82FD56",
+                    "value": "#26F2BF56",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 },
                 "outlineTransparentAccentGradient": {
@@ -9011,18 +9011,6 @@
                     "value": "rgba(255,255,255,0.40)",
                     "comment": "Третичный прозрачный цвет обводки на темном фоне"
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Акцентный цвет обводки на темном фоне"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
-                },
-                "outlineTransparentAccent": {
-                    "value": "rgba(63,129,253,0.28)",
-                    "comment": "Прозрачный акцентный цвет обводки на темном фоне"
-                },
                 "outlineInfo": {
                     "value": "[general.electricBlue.500]",
                     "comment": "Цвет обводки информация на темном фоне"
@@ -9034,6 +9022,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(63,129,253,0.28)",
                     "comment": "Прозрачный цвет обводки информация на темном фоне"
+                },
+                "outlineAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Акцентный цвет обводки на темном фоне"
+                },
+                "outlineAccentMinor": {
+                    "value": "#3AA68B",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 }
             },
             "onLight": {
@@ -9109,11 +9109,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#528DFAFF",
+                    "value": "#33E1B5FF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
                 "outlineAccentActive": {
-                    "value": "#075AF2FF",
+                    "value": "#19A985FF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
                 "outlineAccentGradient": {
@@ -9132,11 +9132,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#B4CEFDFF",
+                    "value": "#93EBD7FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#6599FBFF",
+                    "value": "#4EDFBDFF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineAccentMinorGradient": {
@@ -9155,11 +9155,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#1ECCA1FF",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#2A72F83D",
+                    "value": "#1ECCA156",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentAccentGradient": {
@@ -9381,18 +9381,6 @@
                     "value": "rgba(8,8,8,0.56)",
                     "comment": "Третичный прозрачный цвет обводки на светлом фоне"
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.600]",
-                    "comment": "Акцентный цвет обводки на светлом фоне"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
-                },
-                "outlineTransparentAccent": {
-                    "value": "rgba(42,114,248,0.20)",
-                    "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
-                },
                 "outlinePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет обводки успех на светлом фоне"
@@ -9420,6 +9408,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(42,114,248,0.20)",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне"
+                },
+                "outlineAccent": {
+                    "value": "#1FCCA0",
+                    "comment": "Акцентный цвет обводки на светлом фоне"
+                },
+                "outlineAccentMinor": {
+                    "value": "#73E5CA",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(31,204,160,0.28)",
+                    "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 }
             },
             "inverse": {
@@ -9495,11 +9495,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#689CFDFF",
+                    "value": "#4DF5CBFF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
-                    "value": "#1767FDFF",
+                    "value": "#0DE3ADFF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
                 "outlineAccentGradient": {
@@ -9518,11 +9518,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#4ABFA2FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#113B88FF",
+                    "value": "#308872FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorGradient": {
@@ -9541,11 +9541,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#26F2BFFF",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#3F82FD56",
+                    "value": "#26F2BF56",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentGradient": {
@@ -9783,18 +9783,6 @@
                     "value": "rgba(255,255,255,0.40)",
                     "comment": "Инвертированный третичный прозрачный цвет обводки"
                 },
-                "outlineAccent": {
-                    "value": "[general.electricBlue.500]",
-                    "comment": "Инвертированный акцентный цвет обводки"
-                },
-                "outlineAccentMinor": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
-                },
-                "outlineTransparentAccent": {
-                    "value": "rgba(63,129,253,0.28)",
-                    "comment": "Прозрачный инвертированный акцентный цвет обводки"
-                },
                 "outlineInfo": {
                     "value": "[general.electricBlue.400]",
                     "comment": "Инвертированный цвет обводки информация"
@@ -9806,6 +9794,18 @@
                 "outlineTransparentInfo": {
                     "value": "rgba(63,129,253,0.28)",
                     "comment": "Прозрачный инвертированный цвет обводки информация"
+                },
+                "outlineAccent": {
+                    "value": "#24F2BF",
+                    "comment": "Инвертированный акцентный цвет обводки"
+                },
+                "outlineAccentMinor": {
+                    "value": "#3AA68B",
+                    "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
+                },
+                "outlineTransparentAccent": {
+                    "value": "rgba(36,242,191,0.28)",
+                    "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 }
             }
         }

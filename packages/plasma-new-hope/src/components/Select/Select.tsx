@@ -1,4 +1,13 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
+import React, {
+    forwardRef,
+    useState,
+    useReducer,
+    useMemo,
+    useLayoutEffect,
+    useRef,
+    ChangeEvent,
+    ForwardedRef,
+} from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
@@ -18,11 +27,11 @@ import { Inner, Target } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { Ul, base } from './Select.styles';
-import type { ItemContext, MergedSelectProps, RequiredProps } from './Select.types';
+import type { MergedSelectProps, RequiredProps } from './Select.types';
 import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 import { FloatingPopover } from './FloatingPopover';
-
-export const Context = createContext<ItemContext>({} as ItemContext);
+import { SelectNative } from './ui/SelectNative/SelectNative';
+import { Context } from './Select.context';
 
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
@@ -30,6 +39,7 @@ export const Context = createContext<ItemContext>({} as ItemContext);
 export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectProps, 'items'>>) =>
     forwardRef<HTMLButtonElement, MergedSelectProps>((props, ref) => {
         const {
+            id,
             value: outerValue,
             onChange: outerOnChange,
             target = 'textfield-like',
@@ -60,6 +70,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             beforeList,
             afterList,
             zIndex,
+            name,
+            defaultValue,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -110,26 +122,25 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             dispatchFocusedPath({ type: 'reset' });
         }, floatingPopoverRef);
 
-        const onChange = (newValue: string | number | Array<string | number>) => {
+        const onChange = (
+            newValue?: string | number | Array<string | number> | ChangeEvent<HTMLSelectElement> | null,
+        ) => {
             if (outerOnChange) {
-                outerOnChange(newValue as any);
+                // Условие для отправки если компонент используется без формы.
+                if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
+                    outerOnChange(newValue as any);
+                }
+
+                // Условие для отправки если компонент используется с формой.
+                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    outerOnChange(newValue as any);
+                }
             }
 
-            setInternalValue(newValue);
-        };
-
-        const handleClickArrow = () => {
-            if (disabled) {
-                return;
+            // Условие для изменения внутреннего значения (только если newValue строка или массив строк).
+            if (typeof newValue === 'string' || Array.isArray(newValue)) {
+                setInternalValue(newValue);
             }
-
-            if (isCurrentListOpen) {
-                dispatchPath({ type: 'reset' });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-            }
-
-            dispatchFocusedPath({ type: 'reset' });
         };
 
         const handleListToggle = (opened: boolean) => {
@@ -271,6 +282,12 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
+        useLayoutEffect(() => {
+            if (defaultValue) {
+                setInternalValue(defaultValue as string | string[]);
+            }
+        }, [defaultValue]);
+
         return (
             <Root
                 view={view}
@@ -278,8 +295,20 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 labelPlacement={labelPlacement}
                 chipView={chipView}
                 disabled={disabled}
+                id={id}
                 {...(rest as any)}
             >
+                {name && (
+                    <SelectNative
+                        items={valueToItemMap}
+                        name={name}
+                        value={internalValue}
+                        multiselect={props.multiselect}
+                        onChange={onChange}
+                        onSetValue={setInternalValue}
+                        ref={ref as ForwardedRef<HTMLButtonElement>}
+                    />
+                )}
                 <Context.Provider
                     value={{
                         focusedPath,
@@ -296,13 +325,13 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                     <FloatingPopover
                         ref={floatingPopoverRef}
                         opened={isCurrentListOpen}
-                        onToggle={(opened: boolean) => opened && handleListToggle(true)}
+                        onToggle={handleListToggle}
                         placement={placement}
                         portal={portal}
                         listWidth={listWidth}
                         target={(referenceRef) => (
                             <Target
-                                ref={ref}
+                                ref={name ? null : ref}
                                 value={value}
                                 opened={isCurrentListOpen}
                                 valueToItemMap={valueToItemMap}
@@ -318,7 +347,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 inputWrapperRef={referenceRef as React.MutableRefObject<HTMLDivElement>}
                                 multiselect={props.multiselect}
                                 view={view}
-                                handleClickArrow={handleClickArrow}
                                 helperText={helperText}
                                 treeId={treeId}
                                 activeDescendantItemValue={activeDescendantItemValue}

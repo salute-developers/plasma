@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler } from 'react';
+import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler, useLayoutEffect } from 'react';
 import { css } from '@linaria/core';
 import { useForkRef, useResizeObserver } from '@salutejs/plasma-core';
 
@@ -199,6 +199,12 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         };
 
+        useLayoutEffect(() => {
+            if (outerRef.current) {
+                setUncontrolledValue(outerRef.current.value);
+            }
+        }, [outerRef]);
+
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
 
@@ -351,6 +357,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             applyCustomWidth={applyCustomWidth}
                             ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
+                            required={required}
                             height={applyAutoResize ? minAuto : height}
                             width={width}
                             placeholder={placeholderLabel}

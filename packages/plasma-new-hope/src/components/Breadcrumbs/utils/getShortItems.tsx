@@ -1,0 +1,48 @@
+import React from 'react';
+import type { ReactNode } from 'react';
+
+import { BreadcrumbShorter } from '../ui/BreadcrumbShorter/BreadcrumbShorter';
+import { StyledLink } from '../Breadcrumbs.styles';
+import { BreadcrumbsItem } from '../Breadcrumbs.types';
+
+export const shortItems = (items: ReactNode[], renderSeparator: ReactNode, showItems?: number) => {
+    if (!showItems || showItems < 2 || items.length <= showItems) {
+        return items;
+    }
+
+    const leftSlice = Math.floor(showItems / 2);
+    const rightSlice = items.length - leftSlice - (showItems % 2);
+
+    const renderItems: ReactNode[] = items.slice(leftSlice, rightSlice);
+    const shorter = <BreadcrumbShorter separator={renderSeparator}>{renderItems}</BreadcrumbShorter>;
+    items.splice(leftSlice, rightSlice - leftSlice, shorter);
+    return items;
+};
+
+export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactNode, showItems?: number) => {
+    const renderItems = shortItems(
+        items.map((item: BreadcrumbsItem) => {
+            if (item.renderItem) {
+                return item.renderItem();
+            }
+
+            const { title, disabled, href, onClick } = item;
+
+            return (
+                <StyledLink
+                    tabIndex={0}
+                    href={href}
+                    disabled={disabled}
+                    onClick={onClick}
+                    isHref={Boolean(href || onClick)}
+                >
+                    {title}
+                </StyledLink>
+            );
+        }),
+        renderSeparator,
+        showItems,
+    );
+
+    return renderItems;
+};

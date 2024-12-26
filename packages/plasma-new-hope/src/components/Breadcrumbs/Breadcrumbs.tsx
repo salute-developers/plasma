@@ -7,7 +7,8 @@ import type { BreadcrumbsProps } from './Breadcrumbs.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base, Separator } from './Breadcrumbs.styles';
-import { addSeparator, convertIconSize, getRenderItems } from './utils';
+import { addSeparator, convertIconSize } from './utils';
+import { getRenderItems } from './utils/getShortItems';
 
 export const breadcrumbsRoot = (Root: RootProps<HTMLDivElement, BreadcrumbsProps>) =>
     forwardRef<HTMLDivElement, BreadcrumbsProps>(

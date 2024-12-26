@@ -2,7 +2,7 @@ import React from 'react';
 import type { FC } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
-import { DropdownItem } from '..';
+import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { Ul } from '../../Dropdown.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 

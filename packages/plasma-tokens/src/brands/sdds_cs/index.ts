@@ -357,6 +357,15 @@ export const surfaceSolidSecondaryHover = 'var(--surface-solid-secondary-hover, 
 /** Вторичный непрозрачный фон поверхности/контрола */
 export const surfaceSolidSecondaryActive = 'var(--surface-solid-secondary-active, #1F2528FF)';
 
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiary = 'var(--surface-solid-tertiary, #30373C)';
+
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiaryHover = 'var(--surface-solid-tertiary-hover, #394147FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола */
+export const surfaceSolidTertiaryActive = 'var(--surface-solid-tertiary-active, #2B3136FF)';
+
 /** Основной фон для карточек */
 export const surfaceSolidCard = 'var(--surface-solid-card, #13181B)';
 
@@ -488,6 +497,15 @@ export const onDarkSurfaceSolidSecondaryHover = 'var(--on-dark-surface-solid-sec
 
 /** Вторичный непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidSecondaryActive = 'var(--on-dark-surface-solid-secondary-active, #1F2528FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiary = 'var(--on-dark-surface-solid-tertiary, #30373C)';
+
+/** Третичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiaryHover = 'var(--on-dark-surface-solid-tertiary-hover, #394147FF)';
+
+/** Третичный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceSolidTertiaryActive = 'var(--on-dark-surface-solid-tertiary-active, #2B3136FF)';
 
 /** Основной фон для карточек на темном фоне */
 export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #13181B)';
@@ -630,6 +648,15 @@ export const onLightSurfaceSolidSecondaryHover = 'var(--on-light-surface-solid-s
 /** Вторичный непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidSecondaryActive = 'var(--on-light-surface-solid-secondary-active, #E2E9EEFF)';
 
+/** Третичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiary = 'var(--on-light-surface-solid-tertiary, #D5DFE6)';
+
+/** Третичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiaryHover = 'var(--on-light-surface-solid-tertiary-hover, #E2E9EEFF)';
+
+/** Третичный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceSolidTertiaryActive = 'var(--on-light-surface-solid-tertiary-active, #CFDAE2FF)';
+
 /** Основной фон для карточек на светлом фоне */
 export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, #FFFFFF)';
 
@@ -761,6 +788,15 @@ export const inverseSurfaceSolidSecondaryHover = 'var(--inverse-surface-solid-se
 
 /** Инвертированный вторичный непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidSecondaryActive = 'var(--inverse-surface-solid-secondary-active, #E2E9EEFF)';
+
+/** Инвертированный третичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiary = 'var(--inverse-surface-solid-tertiary, #D5DFE6)';
+
+/** Инвертированный третичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiaryHover = 'var(--inverse-surface-solid-tertiary-hover, #E2E9EEFF)';
+
+/** Инвертированный третичный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceSolidTertiaryActive = 'var(--inverse-surface-solid-tertiary-active, #CFDAE2FF)';
 
 /** Инвертированный основной фон для карточек */
 export const inverseSurfaceSolidCard = 'var(--inverse-surface-solid-card, #FFFFFF)';
@@ -1214,6 +1250,9 @@ export const surfaceSolid01 = 'var(--plasma-colors-surface-solid01, var(--surfac
 
 /** @deprecated instead use surfaceSolidSecondary */
 export const surfaceSolid02 = 'var(--plasma-colors-surface-solid02, var(--surface-solid-secondary))';
+
+/** @deprecated instead use surfaceSolidTertiary */
+export const surfaceSolid03 = 'var(--plasma-colors-surface-solid03, var(--surface-solid-tertiary))';
 
 /** @deprecated instead use textAccent */
 export const buttonAccent = 'var(--plasma-colors-button-accent, var(--text-accent))';

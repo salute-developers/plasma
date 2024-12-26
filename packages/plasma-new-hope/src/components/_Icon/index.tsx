@@ -35,3 +35,4 @@ export { IconStarOutline24 } from './Icons/Icon.24/IconStarOutline';
 export { IconStarFill36 } from './Icons/Icon.36/IconStarFill';
 export { IconStarHalfFill36 } from './Icons/Icon.36/IconStarHalfFill';
 export { IconStarOutline36 } from './Icons/Icon.36/IconStarOutline';
+export { IconFolder } from './Icons/IconFolder';

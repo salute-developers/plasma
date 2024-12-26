@@ -34,7 +34,7 @@ export const config = {
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
-                ${tokens.textFieldContentSlotRightColorHover}: var(--text-accent-hover);
+                ${tokens.textFieldContentSlotRightColorHover}: #1A9E32;
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.textFieldIndicatorColor}: var(--surface-negative);
@@ -55,7 +55,7 @@ export const config = {
                 ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
 
                 ${tokens.disclosureIconColor}: var(--text-accent);
-                ${tokens.disclosureIconColorHover}: var(--text-accent-hover);
+                ${tokens.disclosureIconColorHover}: #1A9E32;
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
             `,
             negative: css`
@@ -84,7 +84,7 @@ export const config = {
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
-                ${tokens.textFieldContentSlotRightColorHover}: var(--text-accent-hover);
+                ${tokens.textFieldContentSlotRightColorHover}: #1A9E32;
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.textFieldIndicatorColor}: var(--surface-negative);
@@ -105,7 +105,7 @@ export const config = {
                 ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
 
                 ${tokens.disclosureIconColor}: var(--text-accent);
-                ${tokens.disclosureIconColorHover}: var(--text-accent-hover);
+                ${tokens.disclosureIconColorHover}: #1A9E32;
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
             `,
         },

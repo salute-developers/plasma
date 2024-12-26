@@ -40,10 +40,10 @@ export const textParagraphHover = 'var(--text-paragraph-hover, #FFFFFF7A)';
 export const textParagraphActive = 'var(--text-paragraph-active, #FFFFFFA3)';
 
 /** Акцентный цвет */
-export const textAccentHover = 'var(--text-accent-hover, #90B6FEFF)';
+export const textAccentHover = 'var(--text-accent-hover, #43F4C8FF)';
 
 /** Акцентный цвет */
-export const textAccentActive = 'var(--text-accent-active, #216EFDFF)';
+export const textAccentActive = 'var(--text-accent-active, #0EECB5FF)';
 
 /** Акцентный цвет с градиентом */
 export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #CCCCCCFF)';
@@ -52,10 +52,10 @@ export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #CCCCC
 export const textAccentGradientActive = 'var(--text-accent-gradient-active, #E6E6E6FF)';
 
 /** Акцентный минорный цвет */
-export const textAccentMinorHover = 'var(--text-accent-minor-hover, #FFFFFFFF)';
+export const textAccentMinorHover = 'var(--text-accent-minor-hover, #42BD9EFF)';
 
 /** Акцентный минорный цвет */
-export const textAccentMinorActive = 'var(--text-accent-minor-active, #1C62E3FF)';
+export const textAccentMinorActive = 'var(--text-accent-minor-active, #328F78FF)';
 
 /** Цвет успеха */
 export const textPositiveHover = 'var(--text-positive-hover, #1EB83AFF)';
@@ -105,14 +105,8 @@ export const textInfoMinorHover = 'var(--text-info-minor-hover, #FFFFFFFF)';
 /** Минорный цвет информации */
 export const textInfoMinorActive = 'var(--text-info-minor-active, #1C62E3FF)';
 
-/** Акцентный цвет */
-export const textAccent = 'var(--text-accent, #3F81FD)';
-
 /** Акцентный цвет с градиентом */
 export const textAccentGradient = 'var(--text-accent-gradient, linear-gradient(90deg, #5E94FF 0%, #43DBFA 100%))';
-
-/** Акцентный минорный цвет */
-export const textAccentMinor = 'var(--text-accent-minor, #1549AB)';
 
 /** Цвет успеха */
 export const textPositive = 'var(--text-positive, #1A9E32)';
@@ -137,6 +131,12 @@ export const textInfoMinor = 'var(--text-info-minor, #1549AB)';
 
 /** Цвет информации */
 export const textInfo = 'var(--text-info, #3F81FD)';
+
+/** Акцентный цвет */
+export const textAccent = 'var(--text-accent, #24F2BF)';
+
+/** Акцентный минорный цвет */
+export const textAccentMinor = 'var(--text-accent-minor, #3AA68B)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimary = 'var(--on-dark-text-primary, rgba(255, 255, 255, 0.96))';
@@ -178,10 +178,10 @@ export const onDarkTextParagraphHover = 'var(--on-dark-text-paragraph-hover, #FF
 export const onDarkTextParagraphActive = 'var(--on-dark-text-paragraph-active, #FFFFFFA3)';
 
 /** Акцентный цвет на темном фоне */
-export const onDarkTextAccentHover = 'var(--on-dark-text-accent-hover, #90B6FEFF)';
+export const onDarkTextAccentHover = 'var(--on-dark-text-accent-hover, #43F4C8FF)';
 
 /** Акцентный цвет на темном фоне */
-export const onDarkTextAccentActive = 'var(--on-dark-text-accent-active, #216EFDFF)';
+export const onDarkTextAccentActive = 'var(--on-dark-text-accent-active, #0EECB5FF)';
 
 /** Акцентный цвет с градиентом на темном фоне */
 export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #CCCCCCFF)';
@@ -190,10 +190,10 @@ export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient
 export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradient-active, #E6E6E6FF)';
 
 /** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover, #FFFFFFFF)';
+export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover, #42BD9EFF)';
 
 /** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #1C62E3FF)';
+export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #328F78FF)';
 
 /** Цвет успеха на темном фоне */
 export const onDarkTextPositiveHover = 'var(--on-dark-text-positive-hover, #1EB83AFF)';
@@ -243,12 +243,6 @@ export const onDarkTextInfoMinorHover = 'var(--on-dark-text-info-minor-hover, #F
 /** Минорный цвет информации на темном фоне */
 export const onDarkTextInfoMinorActive = 'var(--on-dark-text-info-minor-active, #1C62E3FF)';
 
-/** Акцентный цвет на темном фоне */
-export const onDarkTextAccent = 'var(--on-dark-text-accent, #3F81FD)';
-
-/** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinor = 'var(--on-dark-text-accent-minor, #1549AB)';
-
 /** Акцентный цвет с градиентом на темном фоне */
 export const onDarkTextAccentGradient =
     'var(--on-dark-text-accent-gradient, linear-gradient(90deg, #5E94FF 0%, #43DBFA 100%))';
@@ -276,6 +270,12 @@ export const onDarkTextNegativeMinor = 'var(--on-dark-text-negative-minor, #9C14
 
 /** Минорный цвет информации на темном фоне */
 export const onDarkTextInfoMinor = 'var(--on-dark-text-info-minor, #1549AB)';
+
+/** Акцентный цвет на темном фоне */
+export const onDarkTextAccent = 'var(--on-dark-text-accent, #24F2BF)';
+
+/** Акцентный минорный цвет на темном фоне */
+export const onDarkTextAccentMinor = 'var(--on-dark-text-accent-minor, #3AA68B)';
 
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimaryHover = 'var(--on-light-text-primary-hover, #08080893)';
@@ -305,10 +305,10 @@ export const onLightTextParagraphHover = 'var(--on-light-text-paragraph-hover, #
 export const onLightTextParagraphActive = 'var(--on-light-text-paragraph-active, #080808A3)';
 
 /** Акцентный цвет на светлом фоне */
-export const onLightTextAccentHover = 'var(--on-light-text-accent-hover, #79A7FBFF)';
+export const onLightTextAccentHover = 'var(--on-light-text-accent-hover, #2ADFB2FF)';
 
 /** Акцентный цвет на светлом фоне */
-export const onLightTextAccentActive = 'var(--on-light-text-accent-active, #0D5FF8FF)';
+export const onLightTextAccentActive = 'var(--on-light-text-accent-active, #1BB18CFF)';
 
 /** Акцентный цвет с градиентом на светлом фоне */
 export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradient-hover, #CCCCCCFF)';
@@ -317,10 +317,10 @@ export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradie
 export const onLightTextAccentGradientActive = 'var(--on-light-text-accent-gradient-active, #E6E6E6FF)';
 
 /** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hover, #DCE8FEFF)';
+export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hover, #8BEAD3FF)';
 
 /** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #6FA0FBFF)';
+export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #57E0C0FF)';
 
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositiveHover = 'var(--on-light-text-positive-hover, #1EB83AFF)';
@@ -370,12 +370,6 @@ export const onLightTextInfoMinorHover = 'var(--on-light-text-info-minor-hover, 
 /** Минорный цвет информации на светлом фоне */
 export const onLightTextInfoMinorActive = 'var(--on-light-text-info-minor-active, #6FA0FBFF)';
 
-/** Акцентный цвет на светлом фоне */
-export const onLightTextAccent = 'var(--on-light-text-accent, #2A72F8)';
-
-/** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #8BB2FC)';
-
 /** Акцентный цвет с градиентом на светлом фоне */
 export const onLightTextAccentGradient =
     'var(--on-light-text-accent-gradient, linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%))';
@@ -416,6 +410,12 @@ export const onLightTextTertiary = 'var(--on-light-text-tertiary, rgba(8,8,8,0.2
 /** Сплошной наборный текст на светлом фоне */
 export const onLightTextParagraph = 'var(--on-light-text-paragraph, rgba(8,8,8,0.80))';
 
+/** Акцентный цвет на светлом фоне */
+export const onLightTextAccent = 'var(--on-light-text-accent, #1FCCA0)';
+
+/** Акцентный минорный цвет на светлом фоне */
+export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #73E5CA)';
+
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover, #08080893)';
 
@@ -444,10 +444,10 @@ export const inverseTextParagraphHover = 'var(--inverse-text-paragraph-hover, #0
 export const inverseTextParagraphActive = 'var(--inverse-text-paragraph-active, #080808A3)';
 
 /** Инвертированный акцентный цвет */
-export const inverseTextAccentHover = 'var(--inverse-text-accent-hover, #79A7FBFF)';
+export const inverseTextAccentHover = 'var(--inverse-text-accent-hover, #2ADFB2FF)';
 
 /** Инвертированный акцентный цвет */
-export const inverseTextAccentActive = 'var(--inverse-text-accent-active, #0D5FF8FF)';
+export const inverseTextAccentActive = 'var(--inverse-text-accent-active, #1BB18CFF)';
 
 /** Инвертированный акцентный цвет с градиентом */
 export const inverseTextAccentGradientHover = 'var(--inverse-text-accent-gradient-hover, #CCCCCCFF)';
@@ -456,10 +456,10 @@ export const inverseTextAccentGradientHover = 'var(--inverse-text-accent-gradien
 export const inverseTextAccentGradientActive = 'var(--inverse-text-accent-gradient-active, #E6E6E6FF)';
 
 /** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hover, #DCE8FEFF)';
+export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hover, #8BEAD3FF)';
 
 /** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #6FA0FBFF)';
+export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #57E0C0FF)';
 
 /** Инвертированный цвет успеха */
 export const inverseTextPositiveHover = 'var(--inverse-text-positive-hover, #1EB83AFF)';
@@ -521,15 +521,9 @@ export const inverseTextTertiary = 'var(--inverse-text-tertiary, rgba(8,8,8,0.28
 /** Инвертированный сплошной наборный текст */
 export const inverseTextParagraph = 'var(--inverse-text-paragraph, rgba(8,8,8,0.80))';
 
-/** Инвертированный акцентный цвет */
-export const inverseTextAccent = 'var(--inverse-text-accent, #2A72F8)';
-
 /** Инвертированный акцентный цвет с градиентом */
 export const inverseTextAccentGradient =
     'var(--inverse-text-accent-gradient, linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%))';
-
-/** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #8BB2FC)';
 
 /** Инвертированный цвет успеха */
 export const inverseTextPositive = 'var(--inverse-text-positive, #1A9E32)';
@@ -554,6 +548,12 @@ export const inverseTextNegativeMinor = 'var(--inverse-text-negative-minor, #FF8
 
 /** Инвертированный минорный цвет информации */
 export const inverseTextInfoMinor = 'var(--inverse-text-info-minor, #8BB2FC)';
+
+/** Инвертированный акцентный цвет */
+export const inverseTextAccent = 'var(--inverse-text-accent, #1FCCA0)';
+
+/** Инвертированный минорный акцентный цвет */
+export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #73E5CA)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #121212FF)';
@@ -631,10 +631,10 @@ export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFFFF)';
 export const surfaceClearActive = 'var(--surface-clear-active, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола */
-export const surfaceAccentHover = 'var(--surface-accent-hover, #5D95FDFF)';
+export const surfaceAccentHover = 'var(--surface-accent-hover, #4DF5CBFF)';
 
 /** Акцентный фон поверхности/контрола */
-export const surfaceAccentActive = 'var(--surface-accent-active, #357BFDFF)';
+export const surfaceAccentActive = 'var(--surface-accent-active, #1CF2BCFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
@@ -643,16 +643,16 @@ export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, 
 export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #0A2A67FF)';
+export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #106550FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #071F4BFF)';
+export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #0C4B3BFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #3F82FD52)';
+export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #26F2BF66)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #3F82FD24)';
+export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #26F2BF38)';
 
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositiveHover = 'var(--surface-positive-hover, #1DAF37FF)';
@@ -768,17 +768,8 @@ export const surfaceTransparentDeep = 'var(--surface-transparent-deep, rgba(255,
 /** Фон поверхности/контрола без заливки */
 export const surfaceClear = 'var(--surface-clear, #FFFFFF00)';
 
-/** Акцентный фон поверхности/контрола */
-export const surfaceAccent = 'var(--surface-accent, #3F81FD)';
-
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradient = 'var(--surface-accent-gradient, linear-gradient(90deg, #3E79F0 0%, #27C6E5 100%))';
-
-/** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinor = 'var(--surface-accent-minor, #082254)';
-
-/** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccent = 'var(--surface-transparent-accent, rgba(63,129,253,0.20))';
 
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositive = 'var(--surface-positive, #1A9E32)';
@@ -806,6 +797,15 @@ export const surfaceInfoMinor = 'var(--surface-info-minor, #082254)';
 
 /** Прозрачный цвет фона поверхности/контрола информация */
 export const surfaceTransparentInfo = 'var(--surface-transparent-info, rgba(63,129,253,0.20))';
+
+/** Акцентный фон поверхности/контрола */
+export const surfaceAccent = 'var(--surface-accent, #24F2BF)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола */
+export const surfaceAccentMinor = 'var(--surface-accent-minor, #0D5442)';
+
+/** Прозрачный акцентный фон поверхности/контрола */
+export const surfaceTransparentAccent = 'var(--surface-transparent-accent, rgba(36,242,191,0.28))';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #121212FF)';
@@ -877,10 +877,10 @@ export const onDarkSurfaceTransparentCardActive = 'var(--on-dark-surface-transpa
 export const onDarkSurfaceTransparentCardBrightness = 'var(--on-dark-surface-transparent-card-brightness, #FFFFFF1F)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #5D95FDFF)';
+export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #4DF5CBFF)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #357BFDFF)';
+export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #1CF2BCFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
 export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gradient-hover, #FFFFFFFF)';
@@ -889,16 +889,16 @@ export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gr
 export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #0A2A67FF)';
+export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #106550FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #071F4BFF)';
+export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #0C4B3BFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccentHover = 'var(--on-dark-surface-transparent-accent-hover, #3F82FD52)';
+export const onDarkSurfaceTransparentAccentHover = 'var(--on-dark-surface-transparent-accent-hover, #26F2BF66)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccentActive = 'var(--on-dark-surface-transparent-accent-active, #3F82FD24)';
+export const onDarkSurfaceTransparentAccentActive = 'var(--on-dark-surface-transparent-accent-active, #26F2BF38)';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositiveHover = 'var(--on-dark-surface-positive-hover, #1DAF37FF)';
@@ -1011,18 +1011,9 @@ export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transpare
 /** Глубокий прозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentDeep = 'var(--on-dark-surface-transparent-deep, rgba(255,255,255,0.64))';
 
-/** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #3F81FD)';
-
-/** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #082254)';
-
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
 export const onDarkSurfaceAccentGradient =
     'var(--on-dark-surface-accent-gradient, linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%))';
-
-/** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, rgba(63,129,253,0.20))';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositive = 'var(--on-dark-surface-positive, #1A9E32)';
@@ -1050,6 +1041,15 @@ export const onDarkSurfaceInfoMinor = 'var(--on-dark-surface-info-minor, #082254
 
 /** Прозрачный цвет фона поверхности/контрола информация на темном фоне */
 export const onDarkSurfaceTransparentInfo = 'var(--on-dark-surface-transparent-info, rgba(63,129,253,0.20))';
+
+/** Акцентный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #24F2BF)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #0D5442)';
+
+/** Прозрачный акцентный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, rgba(36,242,191,0.28))';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F7F7F7FF)';
@@ -1082,10 +1082,10 @@ export const onLightSurfaceSolidCardActive = 'var(--on-light-surface-solid-card-
 export const onLightSurfaceSolidCardBrightness = 'var(--on-light-surface-solid-card-brightness, #FFFFFFFF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне */
-export const onLightSurfaceSolidDefaultHover = 'var(--on-light-surface-solid-default-hover, #0D0D0DFF)';
+export const onLightSurfaceSolidDefaultHover = 'var(--on-light-surface-solid-default-hover, #3D2E4DFF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне */
-export const onLightSurfaceSolidDefaultActive = 'var(--on-light-surface-solid-default-active, #030303FF)';
+export const onLightSurfaceSolidDefaultActive = 'var(--on-light-surface-solid-default-active, #2E2239FF)';
 
 /** Основной прозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentPrimaryHover = 'var(--on-light-surface-transparent-primary-hover, #0808081C)';
@@ -1122,10 +1122,10 @@ export const onLightSurfaceTransparentCardActive = 'var(--on-light-surface-trans
 export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-transparent-card-brightness, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #4886F9FF)';
+export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #21DEAFFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #206CF8FF)';
+export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #1DC39AFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
 export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-gradient-hover, #FFFFFFFF)';
@@ -1134,16 +1134,16 @@ export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-
 export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #EBF1FFFF)';
+export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #EBFFFAFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #D6E4FFFF)';
+export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #D6FFF5FF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-transparent-accent-hover, #2A72F83D)';
+export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-transparent-accent-hover, #1ECCA166)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #2A72F80F)';
+export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #1ECCA138)';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hover, #1DAF37FF)';
@@ -1238,9 +1238,6 @@ export const onLightSurfaceSolidSecondary = 'var(--on-light-surface-solid-second
 /** Третичный непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidTertiary = 'var(--on-light-surface-solid-tertiary, #DADADA)';
 
-/** Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне */
-export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #080808)';
-
 /** Основной прозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transparent-primary, rgba(8,8,8,0.05))';
 
@@ -1256,18 +1253,9 @@ export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transpa
 /** Глубокий прозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, rgba(8,8,8,0.64))';
 
-/** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #2A72F8)';
-
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
 export const onLightSurfaceAccentGradient =
     'var(--on-light-surface-accent-gradient, linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%))';
-
-/** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #DEE9FF)';
-
-/** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, rgba(42,114,248,0.12))';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositive = 'var(--on-light-surface-positive, #1A9E32)';
@@ -1295,6 +1283,18 @@ export const onLightSurfaceInfoMinor = 'var(--on-light-surface-info-minor, #DEE9
 
 /** Прозрачный цвет фона поверхности/контрола информация на светлом фоне */
 export const onLightSurfaceTransparentInfo = 'var(--on-light-surface-transparent-info, rgba(42,114,248,0.12))';
+
+/** Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне */
+export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #332640)';
+
+/** Акцентный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #1FCCA0)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #DEFFF7)';
+
+/** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, rgba(31,204,160,0.28))';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F7F7F7FF)';
@@ -1327,10 +1327,10 @@ export const inverseSurfaceSolidCardActive = 'var(--inverse-surface-solid-card-a
 export const inverseSurfaceSolidCardBrightness = 'var(--inverse-surface-solid-card-brightness, #FFFFFFFF)';
 
 /** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
-export const inverseSurfaceSolidDefaultHover = 'var(--inverse-surface-solid-default-hover, #0D0D0DFF)';
+export const inverseSurfaceSolidDefaultHover = 'var(--inverse-surface-solid-default-hover, #3D2E4DFF)';
 
 /** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
-export const inverseSurfaceSolidDefaultActive = 'var(--inverse-surface-solid-default-active, #030303FF)';
+export const inverseSurfaceSolidDefaultActive = 'var(--inverse-surface-solid-default-active, #2E2239FF)';
 
 /** Инвертированный основной прозрачный фон поверхности/контрола */
 export const inverseSurfaceTransparentPrimaryHover = 'var(--inverse-surface-transparent-primary-hover, #0808081C)';
@@ -1367,10 +1367,10 @@ export const inverseSurfaceTransparentCardActive = 'var(--inverse-surface-transp
 export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-transparent-card-brightness, #FFFFFFFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #5D95FDFF)';
+export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #4DF5CBFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #357BFDFF)';
+export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #1CF2BCFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
 export const inverseSurfaceAccentGradientHover = 'var(--inverse-surface-accent-gradient-hover, #FFFFFFFF)';
@@ -1379,16 +1379,16 @@ export const inverseSurfaceAccentGradientHover = 'var(--inverse-surface-accent-g
 export const inverseSurfaceAccentGradientActive = 'var(--inverse-surface-accent-gradient-active, #FFFFFFFF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #EBF1FFFF)';
+export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #EBFFFAFF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #D6E4FFFF)';
+export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #D6FFF5FF)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #2A72F83D)';
+export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #1ECCA166)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccentActive = 'var(--inverse-surface-transparent-accent-active, #2A72F80F)';
+export const inverseSurfaceTransparentAccentActive = 'var(--inverse-surface-transparent-accent-active, #1ECCA138)';
 
 /** Инвертированный цвет фона поверхности/контрола успех */
 export const inverseSurfacePositiveHover = 'var(--inverse-surface-positive-hover, #1DAF37FF)';
@@ -1483,9 +1483,6 @@ export const inverseSurfaceSolidSecondary = 'var(--inverse-surface-solid-seconda
 /** Инвертированный третичный непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidTertiary = 'var(--inverse-surface-solid-tertiary, #DADADA)';
 
-/** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
-export const inverseSurfaceSolidDefault = 'var(--inverse-surface-solid-default, #080808)';
-
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card, #FFFFFF)';
 
@@ -1501,18 +1498,9 @@ export const inverseSurfaceTransparentTertiary = 'var(--inverse-surface-transpar
 /** Инвертированный глубокий прозрачный фон поверхности/контрола */
 export const inverseSurfaceTransparentDeep = 'var(--inverse-surface-transparent-deep, rgba(8,8,8,0.64))';
 
-/** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #3F81FD)';
-
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
 export const inverseSurfaceAccentGradient =
     'var(--inverse-surface-accent-gradient, linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%))';
-
-/** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #DEE9FF)';
-
-/** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, rgba(42,114,248,0.12))';
 
 /** Инвертированный цвет фона поверхности/контрола успех */
 export const inverseSurfacePositive = 'var(--inverse-surface-positive, #1A9E32)';
@@ -1541,17 +1529,29 @@ export const inverseSurfaceInfoMinor = 'var(--inverse-surface-info-minor, #DEE9F
 /** Прозрачный инвертированный цвет фона поверхности/контрола информация */
 export const inverseSurfaceTransparentInfo = 'var(--inverse-surface-transparent-info, rgba(42,114,248,0.12))';
 
+/** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
+export const inverseSurfaceSolidDefault = 'var(--inverse-surface-solid-default, #332640)';
+
+/** Инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #24F2BF)';
+
+/** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #DEFFF7)';
+
+/** Прозрачный инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, rgba(31,204,160,0.28))';
+
 /** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #080808)';
+export const backgroundPrimary = 'var(--background-primary, #242326)';
 
 /** Основной фон на темном фоне */
-export const darkBackgroundPrimary = 'var(--dark-background-primary, #080808)';
+export const darkBackgroundPrimary = 'var(--dark-background-primary, #242326)';
 
 /** Основной фон на светлом фоне */
-export const lightBackgroundPrimary = 'var(--light-background-primary, #F9F9F9)';
+export const lightBackgroundPrimary = 'var(--light-background-primary, #EFF0F2)';
 
 /** Инвертированный основной фон */
-export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F9F9F9)';
+export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #EFF0F2)';
 
 /** Цвет фона паранжи светлый */
 export const overlaySoft = 'var(--overlay-soft, #0808088F)';
@@ -1647,24 +1647,24 @@ export const outlineDefaultOutlineClearHover = 'var(--outline-default-outline-cl
 export const outlineDefaultOutlineClearActive = 'var(--outline-default-outline-clear-active, #FFFFFFFF)';
 
 /** Акцентный цвет обводки */
-export const outlineDefaultOutlineAccentHover = 'var(--outline-default-outline-accent-hover, #90B6FEFF)';
+export const outlineDefaultOutlineAccentHover = 'var(--outline-default-outline-accent-hover, #43F4C8FF)';
 
 /** Акцентный цвет обводки */
-export const outlineDefaultOutlineAccentActive = 'var(--outline-default-outline-accent-active, #216EFDFF)';
+export const outlineDefaultOutlineAccentActive = 'var(--outline-default-outline-accent-active, #0EECB5FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки */
-export const outlineDefaultOutlineAccentMinorHover = 'var(--outline-default-outline-accent-minor-hover, #FFFFFFFF)';
+export const outlineDefaultOutlineAccentMinorHover = 'var(--outline-default-outline-accent-minor-hover, #42BD9EFF)';
 
 /** Акцентный минорный непрозрачный цвет обводки */
-export const outlineDefaultOutlineAccentMinorActive = 'var(--outline-default-outline-accent-minor-active, #1C62E3FF)';
+export const outlineDefaultOutlineAccentMinorActive = 'var(--outline-default-outline-accent-minor-active, #328F78FF)';
 
 /** Прозрачный акцентный цвет обводки */
 export const outlineDefaultOutlineTransparentAccentHover =
-    'var(--outline-default-outline-transparent-accent-hover, #3F82FDFF)';
+    'var(--outline-default-outline-transparent-accent-hover, #26F2BFFF)';
 
 /** Прозрачный акцентный цвет обводки */
 export const outlineDefaultOutlineTransparentAccentActive =
-    'var(--outline-default-outline-transparent-accent-active, #3F82FD56)';
+    'var(--outline-default-outline-transparent-accent-active, #26F2BF56)';
 
 /** Цвет обводки успех */
 export const outlineDefaultOutlinePositive = 'var(--outline-default-outline-positive, #24B23E)';
@@ -1804,16 +1804,6 @@ export const outlineDefaultOutlineTransparentTertiary =
 /** Бесцветная обводка */
 export const outlineDefaultOutlineClear = 'var(--outline-default-outline-clear, #FFFFFF00)';
 
-/** Акцентный цвет обводки */
-export const outlineDefaultOutlineAccent = 'var(--outline-default-outline-accent, #3F81FD)';
-
-/** Акцентный минорный непрозрачный цвет обводки */
-export const outlineDefaultOutlineAccentMinor = 'var(--outline-default-outline-accent-minor, #1549AB)';
-
-/** Прозрачный акцентный цвет обводки */
-export const outlineDefaultOutlineTransparentAccent =
-    'var(--outline-default-outline-transparent-accent, rgba(63,129,253,0.28))';
-
 /** Цвет обводки информация */
 export const outlineDefaultOutlineInfo = 'var(--outline-default-outline-info, #3F81FD)';
 
@@ -1823,6 +1813,16 @@ export const outlineDefaultOutlineInfoMinor = 'var(--outline-default-outline-inf
 /** Прозрачный цвет обводки информация */
 export const outlineDefaultOutlineTransparentInfo =
     'var(--outline-default-outline-transparent-info, rgba(63,129,253,0.28))';
+
+/** Акцентный цвет обводки */
+export const outlineDefaultOutlineAccent = 'var(--outline-default-outline-accent, #24F2BF)';
+
+/** Акцентный минорный непрозрачный цвет обводки */
+export const outlineDefaultOutlineAccentMinor = 'var(--outline-default-outline-accent-minor, #3AA68B)';
+
+/** Прозрачный акцентный цвет обводки */
+export const outlineDefaultOutlineTransparentAccent =
+    'var(--outline-default-outline-transparent-accent, rgba(36,242,191,0.28))';
 
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineSolidPrimaryHover = 'var(--outline-on-dark-outline-solid-primary-hover, #FFFFFFFF)';
@@ -1876,24 +1876,24 @@ export const outlineOnDarkOutlineTransparentTertiaryActive =
     'var(--outline-on-dark-outline-transparent-tertiary-active, #FFFFFF7A)';
 
 /** Акцентный цвет обводки на темном фоне */
-export const outlineOnDarkOutlineAccentHover = 'var(--outline-on-dark-outline-accent-hover, #90B6FEFF)';
+export const outlineOnDarkOutlineAccentHover = 'var(--outline-on-dark-outline-accent-hover, #43F4C8FF)';
 
 /** Акцентный цвет обводки на темном фоне */
-export const outlineOnDarkOutlineAccentActive = 'var(--outline-on-dark-outline-accent-active, #216EFDFF)';
+export const outlineOnDarkOutlineAccentActive = 'var(--outline-on-dark-outline-accent-active, #0EECB5FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на темном фоне */
-export const outlineOnDarkOutlineAccentMinorHover = 'var(--outline-on-dark-outline-accent-minor-hover, #FFFFFFFF)';
+export const outlineOnDarkOutlineAccentMinorHover = 'var(--outline-on-dark-outline-accent-minor-hover, #43F4C8FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на темном фоне */
-export const outlineOnDarkOutlineAccentMinorActive = 'var(--outline-on-dark-outline-accent-minor-active, #1C62E3FF)';
+export const outlineOnDarkOutlineAccentMinorActive = 'var(--outline-on-dark-outline-accent-minor-active, #0EECB5FF)';
 
 /** Прозрачный акцентный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineTransparentAccentHover =
-    'var(--outline-on-dark-outline-transparent-accent-hover, #3F82FDFF)';
+    'var(--outline-on-dark-outline-transparent-accent-hover, #26F2BFFF)';
 
 /** Прозрачный акцентный цвет обводки на темном фоне */
 export const outlineOnDarkOutlineTransparentAccentActive =
-    'var(--outline-on-dark-outline-transparent-accent-active, #3F82FD56)';
+    'var(--outline-on-dark-outline-transparent-accent-active, #26F2BF56)';
 
 /** Цвет обводки успех на темном фоне */
 export const outlineOnDarkOutlinePositive = 'var(--outline-on-dark-outline-positive, #24B23E)';
@@ -2028,16 +2028,6 @@ export const outlineOnDarkOutlineTransparentSecondary =
 export const outlineOnDarkOutlineTransparentTertiary =
     'var(--outline-on-dark-outline-transparent-tertiary, rgba(255,255,255,0.40))';
 
-/** Акцентный цвет обводки на темном фоне */
-export const outlineOnDarkOutlineAccent = 'var(--outline-on-dark-outline-accent, #3F81FD)';
-
-/** Акцентный минорный непрозрачный цвет обводки на темном фоне */
-export const outlineOnDarkOutlineAccentMinor = 'var(--outline-on-dark-outline-accent-minor, #1549AB)';
-
-/** Прозрачный акцентный цвет обводки на темном фоне */
-export const outlineOnDarkOutlineTransparentAccent =
-    'var(--outline-on-dark-outline-transparent-accent, rgba(63,129,253,0.28))';
-
 /** Цвет обводки информация на темном фоне */
 export const outlineOnDarkOutlineInfo = 'var(--outline-on-dark-outline-info, #3F81FD)';
 
@@ -2047,6 +2037,16 @@ export const outlineOnDarkOutlineInfoMinor = 'var(--outline-on-dark-outline-info
 /** Прозрачный цвет обводки информация на темном фоне */
 export const outlineOnDarkOutlineTransparentInfo =
     'var(--outline-on-dark-outline-transparent-info, rgba(63,129,253,0.28))';
+
+/** Акцентный цвет обводки на темном фоне */
+export const outlineOnDarkOutlineAccent = 'var(--outline-on-dark-outline-accent, #24F2BF)';
+
+/** Акцентный минорный непрозрачный цвет обводки на темном фоне */
+export const outlineOnDarkOutlineAccentMinor = 'var(--outline-on-dark-outline-accent-minor, #24F2BF)';
+
+/** Прозрачный акцентный цвет обводки на темном фоне */
+export const outlineOnDarkOutlineTransparentAccent =
+    'var(--outline-on-dark-outline-transparent-accent, rgba(36,242,191,0.28))';
 
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineSolidPrimaryHover = 'var(--outline-on-light-outline-solid-primary-hover, #ADADADFF)';
@@ -2103,24 +2103,24 @@ export const outlineOnLightOutlineTransparentTertiaryActive =
     'var(--outline-on-light-outline-transparent-tertiary-active, #080808AB)';
 
 /** Акцентный цвет обводки на светлом фоне */
-export const outlineOnLightOutlineAccentHover = 'var(--outline-on-light-outline-accent-hover, #79A7FBFF)';
+export const outlineOnLightOutlineAccentHover = 'var(--outline-on-light-outline-accent-hover, #2ADFB2FF)';
 
 /** Акцентный цвет обводки на светлом фоне */
-export const outlineOnLightOutlineAccentActive = 'var(--outline-on-light-outline-accent-active, #0D5FF8FF)';
+export const outlineOnLightOutlineAccentActive = 'var(--outline-on-light-outline-accent-active, #1BB18CFF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
-export const outlineOnLightOutlineAccentMinorHover = 'var(--outline-on-light-outline-accent-minor-hover, #DCE8FEFF)';
+export const outlineOnLightOutlineAccentMinorHover = 'var(--outline-on-light-outline-accent-minor-hover, #8BEAD3FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
-export const outlineOnLightOutlineAccentMinorActive = 'var(--outline-on-light-outline-accent-minor-active, #6FA0FBFF)';
+export const outlineOnLightOutlineAccentMinorActive = 'var(--outline-on-light-outline-accent-minor-active, #57E0C0FF)';
 
 /** Прозрачный акцентный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineTransparentAccentHover =
-    'var(--outline-on-light-outline-transparent-accent-hover, #2A72F8FF)';
+    'var(--outline-on-light-outline-transparent-accent-hover, #1ECCA1FF)';
 
 /** Прозрачный акцентный цвет обводки на светлом фоне */
 export const outlineOnLightOutlineTransparentAccentActive =
-    'var(--outline-on-light-outline-transparent-accent-active, #2A72F83D)';
+    'var(--outline-on-light-outline-transparent-accent-active, #1ECCA156)';
 
 /** Цвет обводки успех на светлом фоне */
 export const outlineOnLightOutlinePositiveHover = 'var(--outline-on-light-outline-positive-hover, #1EB83AFF)';
@@ -2247,16 +2247,6 @@ export const outlineOnLightOutlineTransparentSecondary =
 export const outlineOnLightOutlineTransparentTertiary =
     'var(--outline-on-light-outline-transparent-tertiary, #0808088F)';
 
-/** Акцентный цвет обводки на светлом фоне */
-export const outlineOnLightOutlineAccent = 'var(--outline-on-light-outline-accent, #2A72F8)';
-
-/** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
-export const outlineOnLightOutlineAccentMinor = 'var(--outline-on-light-outline-accent-minor, #8BB2FC)';
-
-/** Прозрачный акцентный цвет обводки на светлом фоне */
-export const outlineOnLightOutlineTransparentAccent =
-    'var(--outline-on-light-outline-transparent-accent, rgba(42,114,248,0.20))';
-
 /** Цвет обводки информация на светлом фоне */
 export const outlineOnLightOutlineInfo = 'var(--outline-on-light-outline-info, #2A72F8)';
 
@@ -2280,6 +2270,16 @@ export const outlineOnLightOutlineTransparentWarning =
 /** Прозрачный цвет обводки информация на светлом фоне */
 export const outlineOnLightOutlineTransparentInfo =
     'var(--outline-on-light-outline-transparent-info, rgba(42,114,248,0.20))';
+
+/** Акцентный цвет обводки на светлом фоне */
+export const outlineOnLightOutlineAccent = 'var(--outline-on-light-outline-accent, #1FCCA0)';
+
+/** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
+export const outlineOnLightOutlineAccentMinor = 'var(--outline-on-light-outline-accent-minor, #73E5CA)';
+
+/** Прозрачный акцентный цвет обводки на светлом фоне */
+export const outlineOnLightOutlineTransparentAccent =
+    'var(--outline-on-light-outline-transparent-accent, rgba(31,204,160,0.28))';
 
 /** Инвертированный основной непрозрачный цвет обводки */
 export const outlineInverseOutlineSolidPrimaryHover = 'var(--outline-inverse-outline-solid-primary-hover, #ADADADFF)';
@@ -2333,24 +2333,24 @@ export const outlineInverseOutlineTransparentTertiaryActive =
     'var(--outline-inverse-outline-transparent-tertiary-active, #080808AB)';
 
 /** Инвертированный акцентный цвет обводки */
-export const outlineInverseOutlineAccentHover = 'var(--outline-inverse-outline-accent-hover, #79A7FBFF)';
+export const outlineInverseOutlineAccentHover = 'var(--outline-inverse-outline-accent-hover, #2ADFB2FF)';
 
 /** Инвертированный акцентный цвет обводки */
-export const outlineInverseOutlineAccentActive = 'var(--outline-inverse-outline-accent-active, #0D5FF8FF)';
+export const outlineInverseOutlineAccentActive = 'var(--outline-inverse-outline-accent-active, #1BB18CFF)';
 
 /** Инвертированный акцентный минорный непрозрачный цвет обводки */
-export const outlineInverseOutlineAccentMinorHover = 'var(--outline-inverse-outline-accent-minor-hover, #DCE8FEFF)';
+export const outlineInverseOutlineAccentMinorHover = 'var(--outline-inverse-outline-accent-minor-hover, #8BEAD3FF)';
 
 /** Инвертированный акцентный минорный непрозрачный цвет обводки */
-export const outlineInverseOutlineAccentMinorActive = 'var(--outline-inverse-outline-accent-minor-active, #6FA0FBFF)';
+export const outlineInverseOutlineAccentMinorActive = 'var(--outline-inverse-outline-accent-minor-active, #57E0C0FF)';
 
 /** Прозрачный инвертированный акцентный цвет обводки */
 export const outlineInverseOutlineTransparentAccentHover =
-    'var(--outline-inverse-outline-transparent-accent-hover, #2A72F8FF)';
+    'var(--outline-inverse-outline-transparent-accent-hover, #1ECCA1FF)';
 
 /** Прозрачный инвертированный акцентный цвет обводки */
 export const outlineInverseOutlineTransparentAccentActive =
-    'var(--outline-inverse-outline-transparent-accent-active, #2A72F83D)';
+    'var(--outline-inverse-outline-transparent-accent-active, #1ECCA156)';
 
 /** Инвертированный цвет обводки успех */
 export const outlineInverseOutlinePositiveHover = 'var(--outline-inverse-outline-positive-hover, #1EB83AFF)';
@@ -2474,15 +2474,6 @@ export const outlineInverseOutlineTransparentSecondary =
 export const outlineInverseOutlineTransparentTertiary =
     'var(--outline-inverse-outline-transparent-tertiary, #0808088F)';
 
-/** Инвертированный акцентный цвет обводки */
-export const outlineInverseOutlineAccent = 'var(--outline-inverse-outline-accent, #2A72F8)';
-
-/** Инвертированный акцентный минорный непрозрачный цвет обводки */
-export const outlineInverseOutlineAccentMinor = 'var(--outline-inverse-outline-accent-minor, #8BB2FC)';
-
-/** Прозрачный инвертированный акцентный цвет обводки */
-export const outlineInverseOutlineTransparentAccent = 'var(--outline-inverse-outline-transparent-accent, #2A72F833)';
-
 /** Инвертированный цвет обводки успех */
 export const outlineInverseOutlinePositive = 'var(--outline-inverse-outline-positive, #1A9E32)';
 
@@ -2506,6 +2497,16 @@ export const outlineInverseOutlineTransparentWarning =
 /** Прозрачный инвертированный цвет обводки информация */
 export const outlineInverseOutlineTransparentInfo =
     'var(--outline-inverse-outline-transparent-info, rgba(42,114,248,0.20))';
+
+/** Инвертированный акцентный цвет обводки */
+export const outlineInverseOutlineAccent = 'var(--outline-inverse-outline-accent, #1FCCA0)';
+
+/** Инвертированный акцентный минорный непрозрачный цвет обводки */
+export const outlineInverseOutlineAccentMinor = 'var(--outline-inverse-outline-accent-minor, #73E5CA)';
+
+/** Прозрачный инвертированный акцентный цвет обводки */
+export const outlineInverseOutlineTransparentAccent =
+    'var(--outline-inverse-outline-transparent-accent, rgba(31,204,160,0.28))';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';

@@ -201,6 +201,14 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     closeAfterSelect?: boolean;
     /**
+     * Ячейка для контента в начале выпадающего списка.
+     */
+    beforeList?: React.ReactNode;
+    /**
+     * Ячейка для контента в конце выпадающего списка.
+     */
+    afterList?: React.ReactNode;
+    /**
      * Размер компонента.
      */
     size?: string;

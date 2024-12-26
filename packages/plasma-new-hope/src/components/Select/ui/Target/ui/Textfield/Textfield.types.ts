@@ -13,7 +13,6 @@ export type TextfieldProps = Pick<
     | 'onKeyDown'
     | 'size'
     | 'view'
-    | 'handleClickArrow'
     | 'contentLeft'
     | 'helperText'
     | 'treeId'

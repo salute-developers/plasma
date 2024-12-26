@@ -2,8 +2,7 @@ import React, { useEffect, useRef, FC, useContext } from 'react';
 
 import { classes } from '../../Dropdown.tokens';
 import { cx } from '../../../../utils';
-import { IconDisclosureRight } from '../../../_Icon';
-import { Context } from '../../Dropdown';
+import { Context } from '../../Dropdown.context';
 import { getItemId } from '../../utils';
 
 import {
@@ -13,6 +12,7 @@ import {
     CellWrapper,
     StyledCell,
     RenderItemWrapper,
+    StyledIconDisclosureRight,
 } from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
@@ -135,7 +135,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
 
                 {item.items && hasArrow && (
                     <DisclosureIconWrapper>
-                        <IconDisclosureRight size={disclosureIconSize} color="inherit" />
+                        <StyledIconDisclosureRight size={disclosureIconSize} color="inherit" />
                     </DisclosureIconWrapper>
                 )}
             </Wrapper>

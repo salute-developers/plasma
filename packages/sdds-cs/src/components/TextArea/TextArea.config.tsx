@@ -88,14 +88,10 @@ export const config = {
                 ${textAreaTokens.borderColor}: var(--outline-solid-primary);
                 ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-solid-card);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-solid-card);
+                ${textAreaTokens.backgroundColor}: var(--surface-solid-card);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-solid-card-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-solid-card-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-solid-card);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
@@ -131,14 +127,10 @@ export const config = {
                 ${textAreaTokens.borderColor}: var(--outline-solid-primary);
                 ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-solid-card);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-solid-card);
+                ${textAreaTokens.backgroundColor}: var(--surface-solid-card);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-solid-card-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-solid-card-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-solid-card);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
@@ -170,22 +162,18 @@ export const config = {
                 ${textAreaTokens.borderColor}: var(--text-negative);
                 ${textAreaTokens.borderColorHover}: var(--text-negative-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-solid-card);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-solid-card);
+                ${textAreaTokens.backgroundColor}: var(--surface-solid-card);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-solid-card-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-solid-card-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-solid-card);
                 ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.clearInputColor}: var(--text-primary);
+                ${textAreaTokens.clearInputColor}: var(--text-negative);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-accent);
+                ${textAreaTokens.inputCaretColor}: var(--text-negative);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-secondary);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.clearPlaceholderColor}: var--text-negative);
+                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
@@ -199,9 +187,9 @@ export const config = {
                 ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
                 ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
 
-                ${textAreaTokens.dividerColor}: var(--outline-solid-primary);
-                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
-                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.dividerColor}: var(--outline-negative);
+                ${textAreaTokens.dividerColorHover}: var(--outline-negative-hover);
+                ${textAreaTokens.dividerColorFocus}: var(--outline-negative-focus);
                 ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
@@ -271,13 +259,19 @@ export const config = {
             `,
         },
         clear: {
-            true: css``,
+            true: css`
+                ${textAreaTokens.backgroundColor}: transparent;
+                ${textAreaTokens.backgroundColorFocus}: transparent;
+                ${textAreaTokens.backgroundColorHover}: transparent;
+                ${textAreaTokens.borderColor}: transparent;
+                ${textAreaTokens.borderColorHover}: transparent;
+                ${textAreaTokens.borderColorFocus}: transparent;
+            `,
         },
         disabled: {
             true: css`
                 ${textAreaTokens.disabledOpacity}: 1;
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-solid-primary);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-solid-primary);
+                ${textAreaTokens.backgroundColor}: var(--surface-solid-primary);
                 ${textAreaTokens.borderColor}: var(--surface-solid-primary);
                 ${textAreaTokens.borderColorHover}: var(--surface-solid-primary);
                 ${textAreaTokens.borderColorFocus}: var(--surface-solid-primary);
@@ -290,8 +284,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.inputBackgroundColor}: none;
-                ${textAreaTokens.helpersBackgroundColor}: none;
+                ${textAreaTokens.backgroundColor}: none;
                 ${textAreaTokens.borderColor}: transparent;
                 ${textAreaTokens.borderColorHover}: transparent;
                 ${textAreaTokens.borderColorFocus}: transparent;

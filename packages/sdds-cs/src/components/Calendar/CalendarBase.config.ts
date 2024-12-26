@@ -19,7 +19,7 @@ export const config = {
                 ${calendarBaseTokens.calendarActiveItemColor}: var(--inverse-text-primary);
                 ${calendarBaseTokens.calendarHoveredItemBackground}: var(--surface-transparent-accent);
                 ${calendarBaseTokens.calendarHoveredItemColor}: var(--text-primary);
-                ${calendarBaseTokens.calendarRangeBackground}: var(--surface-transparent-secondary);
+                ${calendarBaseTokens.calendarRangeBackground}: var(--surface-transparent-accent);
                 ${calendarBaseTokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${calendarBaseTokens.calendarContentPrimaryColor}: var(--surface-primary);
                 ${calendarBaseTokens.calendarContentSecondaryColor}: var(--text-secondary);

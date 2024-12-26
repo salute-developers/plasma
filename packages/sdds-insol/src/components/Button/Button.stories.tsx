@@ -115,6 +115,7 @@ const StyledIconMic = styled(IconMic)<{ customSize?: string }>`
         `
             width: ${customSize};
             height: ${customSize};
+            flex: 0 0 ${customSize};
         `}
 `;
 
@@ -158,6 +159,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
 export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
+    },
+    argTypes: {
+        ...disableProps(['enableContentRight']),
     },
     render: (args) => <StoryDefault {...args} />,
 };

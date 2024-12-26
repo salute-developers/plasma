@@ -20,7 +20,7 @@ export const config = {
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: var(--text-accent);
-                ${buttonTokens.buttonColorHover}: var(--text-accent-hover);
+                ${buttonTokens.buttonColorHover}: #1A9E32;
                 ${buttonTokens.buttonColorActive}: var(--text-accent-active);
                 
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);

@@ -325,6 +325,7 @@ import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
+import { TreeProps } from '@salutejs/plasma-new-hope/types/components/Tree/Tree.types';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 import { TypographyVariants } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { Upload } from '@salutejs/plasma-hope';
@@ -439,6 +440,10 @@ critical: PolymorphicClassName;
 dark: PolymorphicClassName;
 black: PolymorphicClassName;
 white: PolymorphicClassName;
+};
+helperTextView: {
+default: PolymorphicClassName;
+negative: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
@@ -1210,6 +1215,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1307,6 +1314,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1761,8 +1770,6 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-dividerVariant?: "none" | "icon" | "dash" | undefined;
-dividerIcon?: ReactNode;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
 firstValueSuccess?: boolean | undefined;
@@ -1773,14 +1780,16 @@ firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any
 firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldTextBefore?: string | undefined;
-secondTextfieldTextBefore?: string | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
 onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+dividerVariant?: "none" | "icon" | "dash" | undefined;
+dividerIcon?: ReactNode;
 } & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
 placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
 isDoubleCalendar?: boolean | undefined;
@@ -1901,6 +1910,8 @@ default: PolymorphicClassName;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderItem?: ((item: DropdownItemOption) => React_2.ReactNode) | undefined;
     zIndex?: Property.ZIndex | undefined;
+    beforeList?: React_2.ReactNode;
+    afterList?: React_2.ReactNode;
     onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
@@ -2151,6 +2162,8 @@ black: PolymorphicClassName;
 white: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
+xlr: PolymorphicClassName;
 l: PolymorphicClassName;
 lr: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -3049,7 +3062,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: "clear" | undefined;
 inputBackgroundType?: undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>) | ({
 value?: number | undefined;
 min?: number | undefined;
 max?: number | undefined;
@@ -3074,7 +3087,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: string | undefined;
 inputBackgroundType?: string | undefined;
-} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "value" | "size"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes_3<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>))>;
 
 export { numberInputClasses }
 
@@ -3844,7 +3857,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3887,7 +3900,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3930,7 +3943,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3973,7 +3986,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4016,7 +4029,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4059,7 +4072,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4102,7 +4115,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4145,7 +4158,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -4404,6 +4417,19 @@ export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTM
 export { TooltipProps }
 
 export { transformStyles }
+
+// @public (undocumented)
+export const Tree: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & TreeProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Underline: FunctionComponent<PropsType<    {

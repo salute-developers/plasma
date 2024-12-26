@@ -66,12 +66,6 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        labelPlacement: {
-            options: labelPlacements,
-            control: {
-                type: 'select',
-            },
-        },
         size: {
             options: sizes,
             defaultValue: 'm',
@@ -81,6 +75,12 @@ const meta: Meta<StoryTextAreaProps> = {
         },
         view: {
             options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -144,6 +144,18 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        helperText: {
+            control: { type: 'text' },
+            if: { arg: 'helperText', truthy: true },
+        },
+        width: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
+        height: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
         ...disableProps([
             'helperBlock',
             '$isFocused',
@@ -163,12 +175,11 @@ const meta: Meta<StoryTextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
-            'status',
-            'resize',
-            'height',
-            'width',
-            'helperText',
             'leftHelperPlacement',
+            'status',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
         ]),
     },
     args: {
@@ -214,6 +225,7 @@ const StyledIconBell = styled(IconBell)<{ customSize?: string }>`
         `
             width: ${customSize};
             height: ${customSize};
+            flex: 0 0 ${customSize};
         `}
 `;
 

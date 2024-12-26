@@ -1667,9 +1667,6 @@ export const outlineSolidSecondary = 'var(--outline-solid-secondary, #4E4E4E)';
 /** Третичный непрозрачный цвет обводки */
 export const outlineSolidTertiary = 'var(--outline-solid-tertiary, #707070)';
 
-/** dark outline default outlineDefault */
-export const outlineDefault = 'var(--outline-default, #F9F9F9)';
-
 /** dark outline default outlineDefaultHover */
 export const outlineDefaultHover = 'var(--outline-default-hover, #FFFFFFFF)';
 
@@ -1732,6 +1729,15 @@ export const outlineInfoMinor = 'var(--outline-info-minor, #1549AB)';
 
 /** Прозрачный цвет обводки информация */
 export const outlineTransparentInfo = 'var(--outline-transparent-info, #528EFF47)';
+
+/** dark outline default outlineSolidDefault */
+export const outlineSolidDefault = 'var(--outline-solid-default, #F9F9F9)';
+
+/** dark outline default outlineSolidDefaultHover */
+export const outlineSolidDefaultHover = 'var(--outline-solid-default-hover, #C7C7C7FF)';
+
+/** dark outline default outlineSolidDefaultActive */
+export const outlineSolidDefaultActive = 'var(--outline-solid-default-active, #E0E0E0FF)';
 
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidPrimaryHover = 'var(--on-dark-outline-solid-primary-hover, #303030FF)';
@@ -1874,9 +1880,6 @@ export const onDarkOutlineSolidSecondary = 'var(--on-dark-outline-solid-secondar
 /** Третичный непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidTertiary = 'var(--on-dark-outline-solid-tertiary, #707070)';
 
-/** dark outline onDark outlineDefault */
-export const onDarkOutlineDefault = 'var(--on-dark-outline-default, #F9F9F9)';
-
 /** Основной прозрачный цвет обводки на темном фоне */
 export const onDarkOutlineTransparentPrimary = 'var(--on-dark-outline-transparent-primary, #FFFFFF1F)';
 
@@ -1930,6 +1933,15 @@ export const onDarkOutlineInfoMinor = 'var(--on-dark-outline-info-minor, #1549AB
 
 /** Прозрачный цвет обводки информация на темном фоне */
 export const onDarkOutlineTransparentInfo = 'var(--on-dark-outline-transparent-info, #528EFF47)';
+
+/** dark outline onDark outlineSolidDefault */
+export const onDarkOutlineSolidDefault = 'var(--on-dark-outline-solid-default, #F9F9F9)';
+
+/** dark outline onDark outlineSolidDefaultHover */
+export const onDarkOutlineSolidDefaultHover = 'var(--on-dark-outline-solid-default-hover, #C7C7C7FF)';
+
+/** dark outline onDark outlineSolidDefaultActive */
+export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-default-active, #E0E0E0FF)';
 
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidPrimaryHover = 'var(--on-light-outline-solid-primary-hover, #E8E8E8FF)';
@@ -2073,9 +2085,6 @@ export const onLightOutlineSolidSecondary = 'var(--on-light-outline-solid-second
 /** Третичный непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidTertiary = 'var(--on-light-outline-solid-tertiary, #707070)';
 
-/** dark outline onLight outlineDefault */
-export const onLightOutlineDefault = 'var(--on-light-outline-default, #080808)';
-
 /** Основной прозрачный цвет обводки на светлом фоне */
 export const onLightOutlineTransparentPrimary = 'var(--on-light-outline-transparent-primary, #08080833)';
 
@@ -2129,6 +2138,15 @@ export const onLightOutlineInfoMinor = 'var(--on-light-outline-info-minor, #8BB2
 
 /** Прозрачный цвет обводки информация на светлом фоне */
 export const onLightOutlineTransparentInfo = 'var(--on-light-outline-transparent-info, #2A72F833)';
+
+/** dark outline onLight outlineSolidDefault */
+export const onLightOutlineSolidDefault = 'var(--on-light-outline-solid-default, #080808)';
+
+/** dark outline onLight outlineSolidDefaultHover */
+export const onLightOutlineSolidDefaultHover = 'var(--on-light-outline-solid-default-hover, #FFFFFFFF)';
+
+/** dark outline onLight outlineSolidDefaultActive */
+export const onLightOutlineSolidDefaultActive = 'var(--on-light-outline-solid-default-active, #C7C7C7FF)';
 
 /** Инвертированный основной непрозрачный цвет обводки */
 export const inverseOutlineSolidPrimaryHover = 'var(--inverse-outline-solid-primary-hover, #ABABABFF)';
@@ -2284,9 +2302,6 @@ export const inverseOutlineTransparentTertiary = 'var(--inverse-outline-transpar
 /** Инвертированная бесцветная обводка */
 export const inverseOutlineClear = 'var(--inverse-outline-clear, #FFFFFF00)';
 
-/** dark outline inverse outlineDefault */
-export const inverseOutlineDefault = 'var(--inverse-outline-default, #080808)';
-
 /** dark outline inverse outlineDefaultHover */
 export const inverseOutlineDefaultHover = 'var(--inverse-outline-default-hover, #FFFFFFFF)';
 
@@ -2337,6 +2352,15 @@ export const inverseOutlineTransparentNegative = 'var(--inverse-outline-transpar
 
 /** Прозрачный инвертированный цвет обводки информация */
 export const inverseOutlineTransparentInfo = 'var(--inverse-outline-transparent-info, #2A72F833)';
+
+/** dark outline inverse outlineSolidDefault */
+export const inverseOutlineSolidDefault = 'var(--inverse-outline-solid-default, #080808)';
+
+/** dark outline inverse outlineSolidDefaultHover */
+export const inverseOutlineSolidDefaultHover = 'var(--inverse-outline-solid-default-hover, #FFFFFFFF)';
+
+/** dark outline inverse outlineSolidDefaultActive */
+export const inverseOutlineSolidDefaultActive = 'var(--inverse-outline-solid-default-active, #C7C7C7FF)';
 
 /** @deprecated instead use onDarkTextPrimary */
 export const whitePrimary = 'var(--plasma-colors-white-primary, var(--on-dark-text-primary))';
@@ -2659,6 +2683,51 @@ export const borderRadiusXl = 'var(--border-radius-xl, 20px)';
 
 /** borderRadius xxl */
 export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
+
+/** spacing 0x */
+export const spacing0x = 'var(--spacing-0x, 0px)';
+
+/** spacing 1x */
+export const spacing1x = 'var(--spacing-1x, 2px)';
+
+/** spacing 2x */
+export const spacing2x = 'var(--spacing-2x, 4px)';
+
+/** spacing 3x */
+export const spacing3x = 'var(--spacing-3x, 6px)';
+
+/** spacing 4x */
+export const spacing4x = 'var(--spacing-4x, 8px)';
+
+/** spacing 6x */
+export const spacing6x = 'var(--spacing-6x, 12px)';
+
+/** spacing 8x */
+export const spacing8x = 'var(--spacing-8x, 16px)';
+
+/** spacing 10x */
+export const spacing10x = 'var(--spacing-10x, 20px)';
+
+/** spacing 12x */
+export const spacing12x = 'var(--spacing-12x, 24px)';
+
+/** spacing 16x */
+export const spacing16x = 'var(--spacing-16x, 32px)';
+
+/** spacing 20x */
+export const spacing20x = 'var(--spacing-20x, 40px)';
+
+/** spacing 24x */
+export const spacing24x = 'var(--spacing-24x, 48px)';
+
+/** spacing 32x */
+export const spacing32x = 'var(--spacing-32x, 64px)';
+
+/** spacing 40x */
+export const spacing40x = 'var(--spacing-40x, 80px)';
+
+/** spacing 60x */
+export const spacing60x = 'var(--spacing-60x, 120px)';
 
 /** typography s display-l */
 export const dsplL = {
@@ -3307,7 +3376,6 @@ export const viewContainer = {
         --outline-solid-primary: var(--on-dark-outline-solid-primary);
         --outline-solid-secondary: var(--on-dark-outline-solid-secondary);
         --outline-solid-tertiary: var(--on-dark-outline-solid-tertiary);
-        --outline-default: var(--on-dark-outline-default);
         --outline-default-hover: var(--on-dark-outline-default-hover);
         --outline-default-active: var(--on-dark-outline-default-active);
         --outline-transparent-primary: var(--on-dark-outline-transparent-primary);
@@ -3329,6 +3397,9 @@ export const viewContainer = {
         --outline-info: var(--on-dark-outline-info);
         --outline-info-minor: var(--on-dark-outline-info-minor);
         --outline-transparent-info: var(--on-dark-outline-transparent-info);
+        --outline-solid-default: var(--on-dark-outline-solid-default);
+        --outline-solid-default-hover: var(--on-dark-outline-solid-default-hover);
+        --outline-solid-default-active: var(--on-dark-outline-solid-default-active);
         --inverse-outline-solid-primary-hover: var(--on-light-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-light-outline-solid-primary-active);
         --inverse-outline-solid-secondary-hover: var(--on-light-outline-solid-secondary-hover);
@@ -3380,7 +3451,6 @@ export const viewContainer = {
         --inverse-outline-transparent-secondary: var(--on-light-outline-transparent-secondary);
         --inverse-outline-transparent-tertiary: var(--on-light-outline-transparent-tertiary);
         --inverse-outline-clear: var(--on-light-outline-clear);
-        --inverse-outline-default: var(--on-light-outline-default);
         --inverse-outline-default-hover: var(--on-light-outline-default-hover);
         --inverse-outline-default-active: var(--on-light-outline-default-active);
         --inverse-outline-accent: var(--on-light-outline-accent);
@@ -3398,6 +3468,9 @@ export const viewContainer = {
         --inverse-outline-transparent-warning: var(--on-light-outline-transparent-warning);
         --inverse-outline-transparent-negative: var(--on-light-outline-transparent-negative);
         --inverse-outline-transparent-info: var(--on-light-outline-transparent-info);
+        --inverse-outline-solid-default: var(--on-light-outline-solid-default);
+        --inverse-outline-solid-default-hover: var(--on-light-outline-solid-default-hover);
+        --inverse-outline-solid-default-active: var(--on-light-outline-solid-default-active);
         --text-accent-gradient-hover: var(--on-dark-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-dark-text-accent-gradient-active);
         --text-accent-gradient: var(--on-dark-text-accent-gradient);
@@ -3735,7 +3808,6 @@ export const viewContainer = {
         --outline-transparent-secondary: var(--on-light-outline-transparent-secondary);
         --outline-transparent-tertiary: var(--on-light-outline-transparent-tertiary);
         --outline-clear: var(--on-light-outline-clear);
-        --outline-default: var(--on-light-outline-default);
         --outline-accent: var(--on-light-outline-accent);
         --outline-accent-minor: var(--on-light-outline-accent-minor);
         --outline-transparent-accent: var(--on-light-outline-transparent-accent);
@@ -3751,6 +3823,9 @@ export const viewContainer = {
         --outline-info: var(--on-light-outline-info);
         --outline-info-minor: var(--on-light-outline-info-minor);
         --outline-transparent-info: var(--on-light-outline-transparent-info);
+        --outline-solid-default: var(--on-light-outline-solid-default);
+        --outline-solid-default-hover: var(--on-light-outline-solid-default-hover);
+        --outline-solid-default-active: var(--on-light-outline-solid-default-active);
         --inverse-outline-solid-primary-hover: var(--on-dark-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-dark-outline-solid-primary-active);
         --inverse-outline-solid-secondary-hover: var(--on-dark-outline-solid-secondary-hover);
@@ -3803,7 +3878,6 @@ export const viewContainer = {
         --inverse-outline-transparent-primary: var(--on-dark-outline-transparent-primary);
         --inverse-outline-transparent-tertiary: var(--on-dark-outline-transparent-tertiary);
         --inverse-outline-clear: var(--on-dark-outline-clear);
-        --inverse-outline-default: var(--on-dark-outline-default);
         --inverse-outline-accent: var(--on-dark-outline-accent);
         --inverse-outline-accent-minor: var(--on-dark-outline-accent-minor);
         --inverse-outline-transparent-accent: var(--on-dark-outline-transparent-accent);
@@ -3820,6 +3894,9 @@ export const viewContainer = {
         --inverse-outline-transparent-negative: var(--on-dark-outline-transparent-negative);
         --inverse-outline-transparent-info: var(--on-dark-outline-transparent-info);
         --inverse-outline-transparent-secondary: var(--on-dark-outline-transparent-secondary);
+        --inverse-outline-solid-default: var(--on-dark-outline-solid-default);
+        --inverse-outline-solid-default-hover: var(--on-dark-outline-solid-default-hover);
+        --inverse-outline-solid-default-active: var(--on-dark-outline-solid-default-active);
         --text-accent-gradient-hover: var(--on-light-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-light-text-accent-gradient-active);
         --text-accent-gradient: var(--on-light-text-accent-gradient);

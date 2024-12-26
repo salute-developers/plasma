@@ -582,6 +582,42 @@ describe('plasma-web: Dropdown', () => {
         cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
     });
 
+    it('prop: beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Dropdown items={items} beforeList="Content before list">
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Dropdown items={items} afterList="Content after list">
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('keyboard interactions', () => {
         cy.viewport(1000, 500);
 

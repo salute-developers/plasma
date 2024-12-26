@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
+import { styled } from '@linaria/react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
@@ -25,6 +26,10 @@ const notificationsPlacements = ['bottom-right', 'bottom-left'];
 
 const longText = `JavaScript frameworks are an essential part of modern front-end web development,
 providing developers with proven tools for building scalable, interactive web applications.
+`;
+
+const StyledWrapper = styled.div`
+    height: 100vh;
 `;
 
 const getNotificationProps = (i: number) => ({
@@ -134,7 +139,9 @@ const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
 
     return (
         <NotificationsProvider placement={placement}>
-            <Button text="Добавить уведомление" onClick={handleClick} />
+            <StyledWrapper>
+                <Button text="Добавить уведомление" onClick={handleClick} />
+            </StyledWrapper>
         </NotificationsProvider>
     );
 };
@@ -179,11 +186,13 @@ const StoryWithModal = ({ timeout, placement }: StoryWithModalProps) => {
     return (
         <NotificationsProvider placement={placement}>
             <PopupProvider>
-                <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
-                <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    <div>Hello!</div>
-                    <Button view="primary" text="Add notification" onClick={handleClick} />
-                </Modal>
+                <StyledWrapper>
+                    <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
+                    <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                        <div>Hello!</div>
+                        <Button view="primary" text="Add notification" onClick={handleClick} />
+                    </Modal>
+                </StyledWrapper>
             </PopupProvider>
         </NotificationsProvider>
     );

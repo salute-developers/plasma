@@ -23,7 +23,6 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             inputWrapperRef,
             multiselect,
             view,
-            handleClickArrow,
             helperText,
             treeId,
             activeDescendantItemValue,
@@ -79,7 +78,6 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 labelPlacement={labelPlacement}
                 size={size}
                 view={view}
-                handleClickArrow={handleClickArrow}
                 contentLeft={contentLeft}
                 helperText={helperText}
                 treeId={treeId}

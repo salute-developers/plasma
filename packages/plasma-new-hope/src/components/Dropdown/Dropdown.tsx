@@ -1,4 +1,4 @@
-import React, { createContext, forwardRef, useReducer, useRef } from 'react';
+import React, { forwardRef, useReducer, useRef } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
@@ -12,13 +12,12 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { Ul, base } from './Dropdown.styles';
 import { childrenWithProps, getItemByFocused, getItemId, getPlacement } from './utils';
-import type { DropdownProps, HandleGlobalToggleType, ItemContext } from './Dropdown.types';
+import type { DropdownProps, HandleGlobalToggleType } from './Dropdown.types';
 import { classes } from './Dropdown.tokens';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { useHashMaps } from './hooks/useHashMaps';
 import { FloatingPopover } from './FloatingPopover';
-
-export const Context = createContext<ItemContext>({} as ItemContext);
+import { Context } from './Dropdown.context';
 
 /**
  * Выпадающий список.
@@ -51,6 +50,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 portal,
                 renderItem,
                 zIndex,
+                beforeList,
+                afterList,
                 ...rest
             },
             ref,
@@ -160,6 +161,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                 listOverflow={listOverflow}
                                 listWidth={listWidth}
                             >
+                                {beforeList}
+
                                 {items.map((item, index) => (
                                     <DropdownInner
                                         key={`${index}/0`}
@@ -174,6 +177,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                         listWidth={listWidth}
                                     />
                                 ))}
+
+                                {afterList}
                             </Ul>
                         </Root>
                     </FloatingPopover>

@@ -33,6 +33,7 @@ jobs:
         with:
           show-progress: false
           fetch-depth: 0
+          ref: master
       
       - name: Get associated pull request by commit
         id: data

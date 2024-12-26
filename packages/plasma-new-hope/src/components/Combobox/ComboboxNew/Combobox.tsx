@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
+import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
 import type { ChangeEvent, ForwardedRef } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
@@ -23,13 +23,12 @@ import { Inner, StyledTextField } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
 import { Ul, base, StyledArrow, IconArrowWrapper, StyledEmptyState } from './Combobox.styles';
-import type { ItemContext, ComboboxProps } from './Combobox.types';
+import type { ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
 import { SelectNative } from './ui/SelectNative/SelectNative';
-
-export const Context = createContext<ItemContext>({} as ItemContext);
+import { Context } from './Combobox.context';
 
 /**
  * Поле ввода с выпадающим списком и возможностью фильтрации и выбора элементов.
@@ -70,6 +69,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             closeAfterSelect: outerCloseAfterSelect,
             renderValue,
             zIndex,
+            beforeList,
+            afterList,
             ...rest
         } = props;
 
@@ -473,6 +474,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     listWidth={listWidth}
                                     ref={targetRef}
                                 >
+                                    {beforeList}
+
                                     {isEmpty(filteredItems) ? (
                                         <StyledEmptyState
                                             className={classes.emptyStateWrapper}
@@ -492,6 +495,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                             />
                                         ))
                                     )}
+
+                                    {afterList}
                                 </Ul>
                             </Root>
                         </FloatingPopover>

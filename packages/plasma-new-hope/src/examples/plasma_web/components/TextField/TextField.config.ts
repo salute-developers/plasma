@@ -218,6 +218,9 @@ export const config = {
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
             `,
             m: css`
                 ${tokens.height}: 3rem;
@@ -293,6 +296,9 @@ export const config = {
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.25rem auto auto;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
@@ -368,6 +374,9 @@ export const config = {
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
@@ -443,11 +452,14 @@ export const config = {
                 ${tokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.875rem auto auto;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
             `,
         },
         labelPlacement: {
             inner: css`
-                ${tokens.placeholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--text-secondary)));
+                ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);

@@ -18,6 +18,8 @@ const viewOptions = [
     'black',
     'white',
 ];
+const helperTextViewOptions = ['default', 'negative'];
+
 const flowOptions = ['horizontal', 'vertical', 'auto'];
 const fileFormatOptions = ['all', '.doc', '.xls', '.pdf', '.csv', '.txt'];
 const sizeOptions = ['xs', 's', 'm', 'l'];
@@ -60,6 +62,12 @@ const meta: Meta<StoryAttachProps> = {
                 type: 'select',
             },
         },
+        helperTextView: {
+            options: helperTextViewOptions,
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
@@ -77,10 +85,12 @@ export const Button: StoryObj<StoryAttachProps> = {
         width: '400px',
         buttonText: 'Загрузить файл',
         buttonValue: '',
+        helperText: 'Подсказка',
         enableContentLeft: false,
         enableContentRight: false,
         size: 'm',
         view: 'accent',
+        helperTextView: 'default',
     },
     render: (args) => {
         const {
@@ -122,8 +132,10 @@ export const IconButton: StoryObj<StoryAttachProps> = {
         flow: 'horizontal',
         hasAttachment: true,
         width: '400px',
+        helperText: 'Подсказка',
         size: 'm',
         view: 'accent',
+        helperTextView: 'default',
     },
     render: (args) => {
         const {

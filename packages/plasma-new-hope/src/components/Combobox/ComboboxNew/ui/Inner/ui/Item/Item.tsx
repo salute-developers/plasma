@@ -4,7 +4,7 @@ import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Combobox.tokens';
 import { cx, isEmpty } from '../../../../../../../utils';
 import { IconDisclosureRightCentered, IconDone } from '../../../../../../_Icon';
-import { Context } from '../../../../Combobox';
+import { Context } from '../../../../Combobox.context';
 import { useDidMountEffect } from '../../../../../../../hooks';
 
 import { ItemProps } from './Item.types';

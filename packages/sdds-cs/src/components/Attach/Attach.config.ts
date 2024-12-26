@@ -3,6 +3,7 @@ import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'accent',
+        helperTextView: 'default',
         focused: 'true',
         size: 's',
     },
@@ -54,7 +55,7 @@ export const config = {
                 ${attachTokens.buttonValueColor}: var(--text-secondary);
                 ${attachTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--text-accent-hover);
+                ${attachTokens.buttonColorHover}: #1A9E32;
                 ${attachTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${attachTokens.buttonColorActive}: var(--text-accent-active);
                 ${attachTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
@@ -71,9 +72,9 @@ export const config = {
                 ${attachTokens.iconButtonColor}: var(--text-accent);
                 ${attachTokens.iconButtonBackgroundColor}: var(--surface-solid-primary);
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--text-accent-hover);
+                ${attachTokens.iconButtonColorHover}: #1A9E32;
                 ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${attachTokens.iconButtonColorActive}: var(--text-accent-hover);
+                ${attachTokens.iconButtonColorActive}: #1A9E32;
                 ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
@@ -132,10 +133,19 @@ export const config = {
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
             `,
         },
+        helperTextView: {
+            default: css`
+                ${attachTokens.helperTextColor}: var(--text-secondary);
+            `,
+            negative: css`
+                ${attachTokens.helperTextColor}: var(--text-negative);
+            `,
+        },
         size: {
             s: css`
                 ${attachTokens.horizontalGap}: 1rem;
                 ${attachTokens.verticalGap}: 0.375rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.5rem;
 
                 ${attachTokens.buttonHeight}: 2.5rem;
                 ${attachTokens.buttonWidth}: 11.25rem;

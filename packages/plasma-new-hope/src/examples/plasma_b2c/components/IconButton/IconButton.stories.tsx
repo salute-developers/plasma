@@ -41,8 +41,10 @@ const getSizeForIcon = (size) => {
     const map = {
         mr: 's',
         lr: 's',
+        xlr: 's',
         m: 's',
         l: 's',
+        xl: 's',
         sr: 's',
         xsr: 'xs',
     };
@@ -65,7 +67,7 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     argTypes: { ...disableProps(['children']) },
     render: (args) => (
         <IconButton {...args}>
-            <IconChevronLeft size={getSizeForIcon(args.size)} />
+            <IconChevronLeft color="inherit" size={getSizeForIcon(args.size)} />
         </IconButton>
     ),
 };

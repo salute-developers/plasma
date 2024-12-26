@@ -2493,6 +2493,51 @@ export const borderRadiusXl = 'var(--border-radius-xl)';
 /** borderRadius xxl */
 export const borderRadiusXxl = 'var(--border-radius-xxl)';
 
+/** spacing 0x */
+export const spacing0x = 'var(--spacing-0x)';
+
+/** spacing 1x */
+export const spacing1x = 'var(--spacing-1x)';
+
+/** spacing 2x */
+export const spacing2x = 'var(--spacing-2x)';
+
+/** spacing 3x */
+export const spacing3x = 'var(--spacing-3x)';
+
+/** spacing 4x */
+export const spacing4x = 'var(--spacing-4x)';
+
+/** spacing 6x */
+export const spacing6x = 'var(--spacing-6x)';
+
+/** spacing 8x */
+export const spacing8x = 'var(--spacing-8x)';
+
+/** spacing 10x */
+export const spacing10x = 'var(--spacing-10x)';
+
+/** spacing 12x */
+export const spacing12x = 'var(--spacing-12x)';
+
+/** spacing 16x */
+export const spacing16x = 'var(--spacing-16x)';
+
+/** spacing 20x */
+export const spacing20x = 'var(--spacing-20x)';
+
+/** spacing 24x */
+export const spacing24x = 'var(--spacing-24x)';
+
+/** spacing 32x */
+export const spacing32x = 'var(--spacing-32x)';
+
+/** spacing 40x */
+export const spacing40x = 'var(--spacing-40x)';
+
+/** spacing 60x */
+export const spacing60x = 'var(--spacing-60x)';
+
 /** typography s display-l */
 export const dsplL = {
     fontFamily: 'var(--plasma-typo-dspl-l-font-family)',

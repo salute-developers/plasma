@@ -18,14 +18,16 @@ export interface Variations<
     T3 extends any = any,
     T4 extends any = any,
     T5 extends any = any,
-    T6 extends any = any
+    T6 extends any = any,
+    T7 extends any = any
 > {
     color: T1;
     gradient: T2;
-    shape: T4;
-    shadow: T3;
-    typography: T5;
-    fontFamily: T6;
+    shape: T3;
+    spacing: T4;
+    shadow: T5;
+    typography: T6;
+    fontFamily: T7;
 }
 
 export type Variation = keyof Variations;
@@ -49,6 +51,7 @@ export interface TokensContent {
     colorTokens: string;
     gradientTokens: string;
     shapeTokens: string;
+    spacingTokens: string;
     shadowTokens: string;
     typographyTokens: {
         root: string;

@@ -6,6 +6,7 @@ const Icon = () => <IconDownload color="inherit" />;
 
 type RangeDemoProps = {
     size?: string;
+    dividerVariant?: string;
     disabled?: boolean;
     readOnly?: boolean;
     firstValueError?: boolean;
@@ -19,7 +20,8 @@ describe('plasma-b2c: Range', () => {
     const IconButton = getComponent('IconButton');
 
     const Demo = ({
-        size = 'm',
+        size = 'l',
+        dividerVariant = 'dash',
         disabled,
         readOnly,
         firstValueError,
@@ -30,6 +32,7 @@ describe('plasma-b2c: Range', () => {
         return (
             <Range
                 size={size}
+                dividerVariant={dividerVariant}
                 disabled={disabled}
                 readOnly={readOnly}
                 firstValueError={firstValueError}
@@ -52,34 +55,17 @@ describe('plasma-b2c: Range', () => {
         );
     };
 
-    it('[PLASMA-T984] Range: size=l', () => {
+    it('[PLASMA-T1383] Range: size=l, dividerVariant=none', () => {
         mount(
             <CypressTestDecorator>
-                <Demo size="l" />
+                <Demo dividerVariant="none" />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T985] Range: disabled', () => {
-        mount(
-            <CypressTestDecorator>
-                <Demo disabled />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T986] Range: readOnly', () => {
-        mount(
-            <CypressTestDecorator>
-                <Demo readOnly />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T987] Range: enableContentRight, size=m', () => {
+    it('[PLASMA-T1384] Range: size=m, dividerVariant=dash, enableContentLeft, enableFirstTextfieldContentLeft, enableSecondTextfieldContentLeft, firstValueError', () => {
         mount(
             <CypressTestDecorator>
                 <Range
@@ -90,18 +76,19 @@ describe('plasma-b2c: Range', () => {
                     secondPlaceholder="Заполните поле 2"
                     firstTextfieldTextBefore="С"
                     secondTextfieldTextBefore="ПО"
-                    contentRight={
-                        <IconButton size="s" view="clear">
-                            <IconSearch />
-                        </IconButton>
-                    }
+                    contentLeft={<Icon />}
+                    firstTextfieldContentLeft={<Icon />}
+                    secondTextfieldContentLeft={<Icon />}
+                    dividerVariant="dash"
+                    firstValueError
                 />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T988] Range: enableContentLeft, size=s', () => {
+    it('[PLASMA-T1532] Range: size=s, dividerVariant=icon, enableContentRight, enableFirstTextfieldContentRight, enableSecondTextfieldContentRight, secondValueError', () => {
         mount(
             <CypressTestDecorator>
                 <Range
@@ -112,160 +99,79 @@ describe('plasma-b2c: Range', () => {
                     secondPlaceholder="Заполните поле 2"
                     firstTextfieldTextBefore="С"
                     secondTextfieldTextBefore="ПО"
-                    contentLeft={<Icon />}
-                />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T989] Range: dividerVariant=none, size=xs', () => {
-        mount(
-            <CypressTestDecorator>
-                <Range
-                    size="xs"
-                    label="Лейбл"
-                    leftHelper="Подсказка к полю"
-                    firstPlaceholder="Заполните поле 1"
-                    secondPlaceholder="Заполните поле 2"
-                    firstTextfieldTextBefore="С"
-                    secondTextfieldTextBefore="ПО"
-                    contentLeft={<Icon />}
-                    contentRight={
-                        <IconButton size="s" view="clear">
-                            <IconSearch />
-                        </IconButton>
-                    }
-                    dividerVariant="none"
-                />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T990] Range: enableFirstTextfieldContentLeft, dividerVariant=none', () => {
-        mount(
-            <CypressTestDecorator>
-                <Range
-                    label="Лейбл"
-                    leftHelper="Подсказка к полю"
-                    firstPlaceholder="Заполните поле 1"
-                    secondPlaceholder="Заполните поле 2"
-                    firstTextfieldTextBefore="С"
-                    secondTextfieldTextBefore="ПО"
-                    contentLeft={<Icon />}
-                    contentRight={
-                        <IconButton size="s" view="clear">
-                            <IconSearch />
-                        </IconButton>
-                    }
-                    firstTextfieldContentLeft={<Icon />}
-                    dividerVariant="icon"
-                    dividerIcon={<Icon />}
-                />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T991] Range: enableFirstTextfieldContentRight, enableSecondTextfieldContentLeft', () => {
-        mount(
-            <CypressTestDecorator>
-                <Range
-                    label="Лейбл"
-                    leftHelper="Подсказка к полю"
-                    firstPlaceholder="Заполните поле 1"
-                    secondPlaceholder="Заполните поле 2"
-                    firstTextfieldTextBefore="С"
-                    secondTextfieldTextBefore="ПО"
-                    contentLeft={<Icon />}
                     contentRight={
                         <IconButton size="s" view="clear">
                             <IconSearch />
                         </IconButton>
                     }
                     firstTextfieldContentRight={<Icon />}
-                    secondTextfieldContentLeft={<Icon />}
-                />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1001] Range: enableSecondTextfieldContentRight', () => {
-        mount(
-            <CypressTestDecorator>
-                <Range
-                    label="Лейбл"
-                    leftHelper="Подсказка к полю"
-                    firstPlaceholder="Заполните поле 1"
-                    secondPlaceholder="Заполните поле 2"
-                    firstTextfieldTextBefore="С"
-                    secondTextfieldTextBefore="ПО"
-                    contentLeft={<Icon />}
-                    contentRight={
-                        <IconButton size="s" view="clear">
-                            <IconSearch />
-                        </IconButton>
-                    }
                     secondTextfieldContentRight={<Icon />}
+                    dividerVariant="icon"
+                    secondValueError
                 />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1002] Range: firstValueError', () => {
+    it('[PLASMA-T1533] Range: size=xs, firstValueSuccess', () => {
         mount(
             <CypressTestDecorator>
-                <Demo firstValueError />
+                <Demo size="xs" firstValueSuccess />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1003] Range: firstValueSuccess', () => {
-        mount(
-            <CypressTestDecorator>
-                <Demo firstValueSuccess />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1192] Range: secondValueError', () => {
-        mount(
-            <CypressTestDecorator>
-                <Demo secondValueError />
-            </CypressTestDecorator>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1193] Range: secondValueSuccess', () => {
+    it('[PLASMA-T1534] Range: secondValueSuccess', () => {
         mount(
             <CypressTestDecorator>
                 <Demo secondValueSuccess />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1004] Range: firstValueSuccess, secondValueSuccess', () => {
+    it('[PLASMA-T1535] Range: firstValueError, secondValueSuccess', () => {
         mount(
             <CypressTestDecorator>
-                <Demo firstValueSuccess secondValueSuccess />
+                <Demo size="m" firstValueError secondValueSuccess />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1005] Range: firstValueError, secondValueError', () => {
+    it('[PLASMA-T1536] Range: firstValueSuccess, secondValueError', () => {
         mount(
             <CypressTestDecorator>
-                <Demo firstValueError secondValueError />
+                <Demo size="s" firstValueSuccess secondValueError />
             </CypressTestDecorator>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1537] Range: readOnly', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo readOnly />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1538] Range: disabled', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo disabled />
+            </CypressTestDecorator>,
+        );
+
         cy.matchImageSnapshot();
     });
 

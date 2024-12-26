@@ -53,6 +53,9 @@ const meta: Meta<DropdownProps> = {
             control: { type: 'boolean' },
             if: { arg: 'alwaysOpened', truthy: false },
         },
+        listWidth: {
+            control: { type: 'text' },
+        },
     },
     args: {
         size: 'm',
@@ -60,7 +63,7 @@ const meta: Meta<DropdownProps> = {
         placement: 'bottom-start',
         trigger: 'click',
         offset: [0, 0],
-        listWidth: '',
+        listWidth: '300px',
         hasArrow: true,
         alwaysOpened: false,
         closeOnOverlayClick: true,
@@ -312,7 +315,7 @@ const StoryNormal = (args: DropdownProps) => {
                 onItemSelect={action('onItemSelect')}
                 onItemClick={action('onItemClick')}
             >
-                <Button text="Список стран" />
+                <Button text="Список стран" size={args.size} />
             </Dropdown>
         </>
     );

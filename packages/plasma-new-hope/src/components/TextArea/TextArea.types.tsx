@@ -196,7 +196,7 @@ export type TextAreaPropsBase = {
     /**
      * Вспомогательный текст снизу справа для поля ввода.
      */
-    rightHelper?: string;
+    rightHelper?: ReactNode;
     /**
      * Расположение вспомогательного текста слева
      * @default 'inner'

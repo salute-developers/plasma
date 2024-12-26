@@ -125,6 +125,8 @@ import { h4Bold } from '@salutejs/sdds-themes/tokens';
 import { h5 } from '@salutejs/sdds-themes/tokens';
 import { h5Bold } from '@salutejs/sdds-themes/tokens';
 import { HTMLAttributes } from 'react';
+import { HTMLAttributesWithoutOnChange } from '@salutejs/plasma-new-hope/types/engines/types';
+import { HTMLAttributesWithoutOnChangeAndDefaultValue } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -231,6 +233,7 @@ import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TreeProps } from '@salutejs/plasma-new-hope/types/components/Tree/Tree.types';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
@@ -254,7 +257,7 @@ size?: string | undefined;
 singleActive?: boolean | undefined;
 defaultActiveEventKey?: number[] | undefined;
 disabled?: boolean | undefined;
-stretching?: "filled" | "fixed" | undefined;
+stretching?: "fixed" | "filled" | undefined;
 onChange?: ((index?: number | undefined, value?: boolean | undefined) => void) | undefined;
 children?: ReactNode;
 className?: string | undefined;
@@ -273,6 +276,10 @@ accent: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
 };
+helperTextView: {
+default: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
 size: {
 s: PolymorphicClassName;
 };
@@ -283,7 +290,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -306,7 +313,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -332,7 +339,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -356,7 +363,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -383,7 +390,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -409,7 +416,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -432,7 +439,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -459,7 +466,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -1022,7 +1029,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -1043,7 +1050,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -1151,7 +1158,7 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 alignContentLeft?: AlignProp | undefined;
 alignContentRight?: AlignProp | undefined;
-stretching?: "auto" | "filled" | "fixed" | undefined;
+stretching?: "auto" | "fixed" | "filled" | undefined;
 content?: ReactNode;
 description?: string | undefined;
 } & {
@@ -1166,7 +1173,7 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 alignContentLeft?: AlignProp | undefined;
 alignContentRight?: AlignProp | undefined;
-stretching?: "auto" | "filled" | "fixed" | undefined;
+stretching?: "auto" | "fixed" | "filled" | undefined;
 content?: ReactNode;
 description?: string | undefined;
 } & {
@@ -1374,8 +1381,6 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
 requiredPlacement?: "right" | "left" | undefined;
-dividerVariant?: "none" | "dash" | "icon" | undefined;
-dividerIcon?: ReactNode;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
 firstValueSuccess?: boolean | undefined;
@@ -1386,14 +1391,16 @@ firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any
 firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldTextBefore?: string | undefined;
-secondTextfieldTextBefore?: string | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
 onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
 onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+dividerVariant?: "none" | "dash" | "icon" | undefined;
+dividerIcon?: ReactNode;
 } & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
 placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
 isDoubleCalendar?: boolean | undefined;
@@ -1479,7 +1486,7 @@ export { DrawerHeaderProps }
 export { DrawerProps }
 
 // @public (undocumented)
-export const Dropdown: <T extends DropdownItemOption>(props: Omit<DropdownNewProps<T>, "view" | "size"> & Pick<PropsType<    {
+export const Dropdown: <T extends DropdownItemOption>(props: Omit<DropdownNewProps<T>, "size" | "view"> & Pick<PropsType<    {
 size: {
 l: PolymorphicClassName;
 m: PolymorphicClassName;
@@ -1510,11 +1517,13 @@ default: PolymorphicClassName;
     portal?: string | React_2.RefObject<HTMLElement> | undefined;
     renderItem?: ((item: DropdownItemOption) => React_2.ReactNode) | undefined;
     zIndex?: Property.ZIndex | undefined;
+    beforeList?: React_2.ReactNode;
+    afterList?: React_2.ReactNode;
     onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
     listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     hoverIndex?: number | undefined;
-} & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "view" | "size"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+} & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "size" | "view"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
 
 // @public (undocumented)
 export const Dropzone: FunctionComponent<PropsType<    {
@@ -1718,7 +1727,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -1739,7 +1748,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "filled" | "fixed") | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -2355,7 +2364,22 @@ export { modalClasses }
 export { ModalProps }
 
 // @public (undocumented)
-const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
+const Notification_2: React_2.FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+layout: {
+horizontal: PolymorphicClassName;
+vertical: PolymorphicClassName;
+};
+size: {
+xs: PolymorphicClassName;
+xxs: PolymorphicClassName;
+};
+closeIconType: {
+thin: PolymorphicClassName;
+};
+}> & (React_2.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement> | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>)>;
 export { Notification_2 as Notification }
 
 export { NotificationIconPlacement }
@@ -3060,7 +3084,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3103,7 +3127,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3146,7 +3170,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3189,7 +3213,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3232,7 +3256,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3275,7 +3299,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3318,7 +3342,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3361,7 +3385,7 @@ contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefine
 resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 helperText?: string | undefined;
 leftHelper?: ReactNode;
-rightHelper?: string | undefined;
+rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
@@ -3861,6 +3885,19 @@ export { toolbarTokens }
 export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
 
 export { TooltipProps }
+
+// @public (undocumented)
+export const Tree: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & TreeProps & RefAttributes<HTMLDivElement>>;
 
 export { usePopupContext }
 

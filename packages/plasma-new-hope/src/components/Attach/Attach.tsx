@@ -9,7 +9,14 @@ import { IconCloseCircleOutline } from '../_Icon';
 import { AttachProps } from './Attach.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
-import { base, StyledHiddenInput, StyledHiddenInputHelper } from './Attach.styles';
+import { base as helperTextViewCSS } from './variations/_helperTextView/base';
+import {
+    base,
+    StyledHelperText,
+    StyledHiddenInput,
+    StyledHiddenInputHelper,
+    StyledAttachButtonWrapper,
+} from './Attach.styles';
 import { StyledCell } from './ui/Cell/Cell';
 import { extractExtension, getFileicon, addSeparator, separator } from './utils';
 import { classes } from './Attach.tokens';
@@ -23,8 +30,10 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             buttonType = 'button',
             hasAttachment = true,
             acceptedFileFormats,
+            helperText,
             size,
             view,
+            helperTextView,
             className,
             style,
             isLoading,
@@ -51,6 +60,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
 
         const horizontalClass = flow === 'horizontal' ? classes.horizontal : undefined;
         const verticalClass = flow === 'vertical' ? classes.vertical : undefined;
+        const withHelperTextClass = helperText ? classes.withHelperText : undefined;
         const autoClass = flow === 'auto' ? classes.auto : undefined;
         const cellHiddenClass = truncatedFilename.length === 0 ? classes.cellHidden : undefined;
 
@@ -148,10 +158,11 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
 
         return (
             <Root
-                className={cx(horizontalClass, verticalClass, autoClass, className)}
+                className={cx(horizontalClass, verticalClass, autoClass, withHelperTextClass, className)}
                 style={style}
                 size={size}
                 view={view}
+                helperTextView={helperTextView}
                 ref={ref}
             >
                 <StyledHiddenInput
@@ -164,16 +175,19 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                 />
                 <StyledHiddenInputHelper ref={inputHelperRef}>{filename}</StyledHiddenInputHelper>
 
-                <AttachButton
-                    buttonType={buttonType}
-                    view={view}
-                    size={size}
-                    onClick={handleClick}
-                    isLoading={isLoading}
-                    disabled={disabled}
-                    ref={buttonRef}
-                    {...rest}
-                />
+                <StyledAttachButtonWrapper>
+                    <AttachButton
+                        ref={buttonRef}
+                        buttonType={buttonType}
+                        isLoading={isLoading}
+                        disabled={disabled}
+                        onClick={handleClick}
+                        {...rest}
+                    />
+
+                    {helperText && <StyledHelperText>{helperText}</StyledHelperText>}
+                </StyledAttachButtonWrapper>
+
                 {hasAttachment && (
                     <StyledCell
                         stretching="fixed"
@@ -183,7 +197,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                         title={truncatedFilename}
                         contentLeft={cellContentLeft}
                         contentRight={
-                            <StyledIconButtonCancel view={view} size={size} onClick={handleClear}>
+                            <StyledIconButtonCancel onClick={handleClear}>
                                 <IconCloseCircleOutline size="xs" color="inherit" />
                             </StyledIconButtonCancel>
                         }
@@ -202,12 +216,16 @@ export const attachConfig = {
         view: {
             css: viewCSS,
         },
+        helperTextView: {
+            css: helperTextViewCSS,
+        },
         size: {
             css: sizeCSS,
         },
     },
     defaults: {
         view: 'default',
+        helperTextView: 'default',
         size: 'm',
     },
 };

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { css, SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { getStaticVariants, getDynamicVariants } from './common';
+import { getStaticVariants, getDynamicVariants } from './utils';
 import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
 export { css };

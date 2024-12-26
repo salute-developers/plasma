@@ -3,7 +3,7 @@ import { cx } from '@linaria/core';
 
 // TODO: #1008 Избавиться от импортов и переделать addFocus
 import 'focus-visible';
-import { getStaticVariants, getDynamicVariants } from './common';
+import { getStaticVariants, getDynamicVariants } from './utils';
 import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
 /* eslint-disable no-underscore-dangle */

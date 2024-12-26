@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, FC, useState, useCallback } from 'react';
 
-import { DoubleSlider } from '../index';
+import { DoubleSlider } from '../Double/Double';
 import { FormTypeString } from '../../../../types/FormType';
 
 import { DoubleUncontrolledProps } from './DoubleUncontrolled.types';

@@ -57,6 +57,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     /**
      * Стрелка у выпадающего списка.
      * @default true
+     * @deprecated
      */
     hasArrow?: boolean;
     /**
@@ -92,6 +93,14 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      * CSS-свойство z-index для выпадающего списка.
      */
     zIndex?: CSSProperties['zIndex'];
+    /**
+     * Ячейка для контента в начале выпадающего списка.
+     */
+    beforeList?: ReactNode;
+    /**
+     * Ячейка для контента в конце выпадающего списка.
+     */
+    afterList?: ReactNode;
 
     /**
      * Обработчик клика по item.

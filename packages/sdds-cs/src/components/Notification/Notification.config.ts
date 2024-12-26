@@ -54,7 +54,7 @@ export const config = {
                 ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${notificationTokens.closeIconColor}: var(--text-accent);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-accent-hover);
+                ${notificationTokens.closeIconColorOnHover}: #1A9E32;
 
                 ${notificationTokens.horizontalLayoutGap}: 0.5rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;

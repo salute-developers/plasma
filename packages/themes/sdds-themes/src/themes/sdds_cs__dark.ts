@@ -119,6 +119,9 @@ export const sdds_cs__dark = ([
   --surface-solid-secondary: #23292D;
   --surface-solid-secondary-hover: #2C343AFF;
   --surface-solid-secondary-active: #1F2528FF;
+  --surface-solid-tertiary: #30373C;
+  --surface-solid-tertiary-hover: #394147FF;
+  --surface-solid-tertiary-active: #2B3136FF;
   --surface-solid-card: #13181B;
   --surface-solid-card-brightness: #212629FF;
   --surface-solid-card-hover: #171D21FF;
@@ -163,6 +166,9 @@ export const sdds_cs__dark = ([
   --on-dark-surface-solid-secondary: #23292D;
   --on-dark-surface-solid-secondary-hover: #2C343AFF;
   --on-dark-surface-solid-secondary-active: #1F2528FF;
+  --on-dark-surface-solid-tertiary: #30373C;
+  --on-dark-surface-solid-tertiary-hover: #394147FF;
+  --on-dark-surface-solid-tertiary-active: #2B3136FF;
   --on-dark-surface-solid-card: #13181B;
   --on-dark-surface-solid-card-brightness: #212629FF;
   --on-dark-surface-solid-card-hover: #171D21FF;
@@ -210,6 +216,9 @@ export const sdds_cs__dark = ([
   --on-light-surface-solid-secondary: #E8EEF2;
   --on-light-surface-solid-secondary-hover: #F5F8F9FF;
   --on-light-surface-solid-secondary-active: #E2E9EEFF;
+  --on-light-surface-solid-tertiary: #D5DFE6;
+  --on-light-surface-solid-tertiary-hover: #E2E9EEFF;
+  --on-light-surface-solid-tertiary-active: #CFDAE2FF;
   --on-light-surface-solid-card: #FFFFFFFF;
   --on-light-surface-solid-card-brightness: #FFFFFFFF;
   --on-light-surface-solid-card-hover: #FFFFFFFF;
@@ -254,6 +263,9 @@ export const sdds_cs__dark = ([
   --inverse-surface-solid-secondary: #E8EEF2;
   --inverse-surface-solid-secondary-hover: #F5F8F9FF;
   --inverse-surface-solid-secondary-active: #E2E9EEFF;
+  --inverse-surface-solid-tertiary: #D5DFE6;
+  --inverse-surface-solid-tertiary-hover: #E2E9EEFF;
+  --inverse-surface-solid-tertiary-active: #CFDAE2FF;
   --inverse-surface-solid-card: #FFFFFFFF;
   --inverse-surface-solid-card-brightness: #FFFFFFFF;
   --inverse-surface-solid-card-hover: #FFFFFFFF;
@@ -438,6 +450,24 @@ export const sdds_cs__dark = ([
   --border-radius-l: 20px;
   --border-radius-xl: 24px;
   --border-radius-xxl: 32px;
+}
+
+:root {
+  --spacing-0x: 0px;
+  --spacing-1x: 2px;
+  --spacing-2x: 4px;
+  --spacing-3x: 6px;
+  --spacing-4x: 8px;
+  --spacing-6x: 12px;
+  --spacing-8x: 16px;
+  --spacing-10x: 20px;
+  --spacing-12x: 24px;
+  --spacing-16x: 32px;
+  --spacing-20x: 40px;
+  --spacing-24x: 48px;
+  --spacing-32x: 64px;
+  --spacing-40x: 80px;
+  --spacing-60x: 120px;
 }
 
 :root {
@@ -646,10 +676,10 @@ export const sdds_cs__dark = ([
     --plasma-typo-text-m-bold-line-height: 1.75rem;
     --plasma-typo-text-s-font-size: 0.875rem;
     --plasma-typo-text-s-font-weight: 400;
-    --plasma-typo-text-s-line-height: 1.375rem;
+    --plasma-typo-text-s-line-height: 1.25rem;
     --plasma-typo-text-s-bold-font-size: 0.875rem;
     --plasma-typo-text-s-bold-font-weight: 600;
-    --plasma-typo-text-s-bold-line-height: 1.375rem;
+    --plasma-typo-text-s-bold-line-height: 1.25rem;
     --plasma-typo-text-xs-font-size: 0.75rem;
     --plasma-typo-text-xs-font-weight: 400;
     --plasma-typo-text-xs-line-height: 1.125rem;
@@ -753,10 +783,10 @@ export const sdds_cs__dark = ([
     --plasma-typo-text-m-bold-line-height: 1.75rem;
     --plasma-typo-text-s-font-size: 0.875rem;
     --plasma-typo-text-s-font-weight: 400;
-    --plasma-typo-text-s-line-height: 1.375rem;
+    --plasma-typo-text-s-line-height: 1.25rem;
     --plasma-typo-text-s-bold-font-size: 0.875rem;
     --plasma-typo-text-s-bold-font-weight: 600;
-    --plasma-typo-text-s-bold-line-height: 1.375rem;
+    --plasma-typo-text-s-bold-line-height: 1.25rem;
     --plasma-typo-text-xs-font-size: 0.75rem;
     --plasma-typo-text-xs-font-weight: 400;
     --plasma-typo-text-xs-line-height: 1.125rem;
@@ -860,10 +890,10 @@ export const sdds_cs__dark = ([
     --plasma-typo-text-m-bold-line-height: 1.75rem;
     --plasma-typo-text-s-font-size: 0.875rem;
     --plasma-typo-text-s-font-weight: 400;
-    --plasma-typo-text-s-line-height: 1.375rem;
+    --plasma-typo-text-s-line-height: 1.25rem;
     --plasma-typo-text-s-bold-font-size: 0.875rem;
     --plasma-typo-text-s-bold-font-weight: 600;
-    --plasma-typo-text-s-bold-line-height: 1.375rem;
+    --plasma-typo-text-s-bold-line-height: 1.25rem;
     --plasma-typo-text-xs-font-size: 0.75rem;
     --plasma-typo-text-xs-font-weight: 400;
     --plasma-typo-text-xs-line-height: 1.125rem;
