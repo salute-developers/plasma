@@ -137,6 +137,8 @@ import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
+import { noteClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { noteTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { numberInputClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { numberInputTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Orientation } from '@salutejs/plasma-new-hope/types/components/TextFieldGroup/TextFieldGroup.types';
@@ -2541,6 +2543,37 @@ export const Modal: ForwardRefExoticComponent<ModalProps & RefAttributes<HTMLDiv
 export { modalClasses }
 
 export { ModalProps }
+
+// @public (undocumented)
+export const Note: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+info: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & {
+title?: string | undefined;
+text?: string | undefined;
+contentBefore?: ReactNode;
+contentBeforeSizing?: "fixed" | "scalable" | undefined;
+stretch?: boolean | undefined;
+width?: string | number | undefined;
+height?: string | number | undefined;
+view?: string | undefined;
+size?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { noteClasses }
+
+export { noteTokens }
 
 // @public (undocumented)
 export const NumberInput: FunctionComponent<PropsType<    {
