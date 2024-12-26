@@ -102,7 +102,7 @@ import { dsplM } from '@salutejs/sdds-themes/tokens';
 import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
-import type { FC } from 'react';
+import { FC } from 'react';
 import { FileProcessHandler } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
@@ -172,6 +172,7 @@ import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
+import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
 import { RequiredProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
@@ -187,6 +188,8 @@ import type { SelectProps as SelectProps_2 } from '@salutejs/plasma-new-hope';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonGradientProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
 import { SliderBaseProps } from '@salutejs/plasma-new-hope/types/components/Slider/components/SliderBase/SliderBase.types';
 import { SliderInternalProps } from '@salutejs/plasma-new-hope/types/components/Slider/components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -215,6 +218,7 @@ import { textM } from '@salutejs/sdds-themes/tokens';
 import { textMBold } from '@salutejs/sdds-themes/tokens';
 import { textS } from '@salutejs/sdds-themes/tokens';
 import { textSBold } from '@salutejs/sdds-themes/tokens';
+import { TextSkeletonBaseProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/TextSkeleton/TextSkeleton.types';
 import { textXS } from '@salutejs/sdds-themes/tokens';
 import { textXSBold } from '@salutejs/sdds-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
@@ -230,6 +234,7 @@ import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { ValidatorReturnType } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ViewContainerCustomProps } from '@salutejs/plasma-new-hope/types/components/ViewContainer/ViewContainer';
+import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 
 export { addFocus }
 
@@ -1857,6 +1862,32 @@ view: string;
 
 export { IndicatorProps }
 
+// @public (undocumented)
+export const LineSkeleton: FunctionComponent<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement>>;
+
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
@@ -2896,6 +2927,8 @@ export { ratingClasses }
 export { ratingTokens }
 
 export { Ratio }
+
+export { RectSkeleton }
 
 export { Row }
 
@@ -4049,6 +4082,32 @@ export { textS }
 export { textSBold }
 
 // @public (undocumented)
+export const TextSkeleton: FC<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement> & TextSkeletonBaseProps>;
+
+// @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
 size: {
 xs: PolymorphicClassName;
@@ -4149,6 +4208,8 @@ onDark: PolymorphicClassName;
 onLight: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & ViewContainerCustomProps & RefAttributes<HTMLAnchorElement>>;
+
+export { withSkeleton }
 
 
 export * from "@salutejs/sdds-themes/tokens/sdds_dfa";
