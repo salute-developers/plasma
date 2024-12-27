@@ -602,7 +602,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);

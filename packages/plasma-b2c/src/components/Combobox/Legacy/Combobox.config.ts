@@ -293,7 +293,7 @@ export const config = {
                 ${comboboxTokens.background}: var(--surface-solid-card-brightness);
                 ${comboboxTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04); /* TODO: Забирать из токена --shadow-down-soft-s */
 
-                ${comboboxTokens.itemBackground}: var(--plasma-colors-transparent);
+                ${comboboxTokens.itemBackground}: transparent;
                 ${comboboxTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${comboboxTokens.itemBackgroundSelectedHover}: var(--surface-transparent-secondary);
                 ${comboboxTokens.itemColor}: var(--text-primary);

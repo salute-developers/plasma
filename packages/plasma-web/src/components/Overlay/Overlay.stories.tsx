@@ -66,7 +66,7 @@ const StoryDefault = (props: StoryOverlayProps) => {
 export const Default: StoryObj<StoryOverlayProps> = {
     args: {
         zIndex: '100',
-        backgroundColorProperty: 'var(--plasma-colors-overlay-soft)',
+        backgroundColorProperty: 'var(--overlay-soft)',
         withBlur: false,
         transparent: false,
         isClickable: true,
