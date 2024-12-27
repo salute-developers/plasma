@@ -41,12 +41,25 @@ export default {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
         }
-        
+
         return !id.startsWith('.') && !path.isAbsolute(id);
     },
     plugins: [
         linaria({
             sourceMap: process.env.NODE_ENV !== 'production',
+            tagResolver: (source, tag) => {
+                if (tag === 'css') {
+                    // TODO: move to node@20
+                    // return import.meta.resolve('@linaria/core/processors/css');
+                    return require.resolve('@linaria/core/processors/css');
+                }
+
+                if (tag === 'styled') {
+                    return require.resolve('@linaria/react/processors/styled');
+                }
+
+                return null;
+            },
         }),
         nodeResolve({
             extensions: ['.tsx', '.ts'],
@@ -64,33 +77,33 @@ export default {
 function importCssPlugin() {
     const filter = createFilter(['**/*.css']);
     const styles = {};
-    
+
     return {
         name: 'importCssPlugin',
         transform(code, id) {
             if (!filter(id)) {
                 return;
             }
-            
+
             if (styles[id] !== code && (styles[id] || code)) {
                 styles[path.relative(inputDir, id)] = code;
             }
-            
+
             return { code };
         },
         generateBundle(options, bundle) {
             const files = Object.keys(bundle);
-            
+
             files.forEach((file) => {
                 const root = bundle[file].facadeModuleId;
                 const modules = this.getModuleInfo(root);
-                
+
                 // ADD IMPORT FOR CSS MODULES
                 if (file.endsWith('.css.js')) {
                     const { code } = bundle[file];
                     // TODO: #718 cjs modules => require('./file.css');
                     const importString = `import './${file.replace('.css.js', '.css.css')}';\n`;
-                    
+
                     this.emitFile({
                         type: 'asset',
                         fileName: file,
@@ -103,23 +116,23 @@ function importCssPlugin() {
                         .filter(a => a.includes(inputDir))
                         .filter(a => !a.endsWith('.module.css') && a.endsWith('.css'))
                         .map(a => path.relative(inputDir, a));
-                    
+
                     if (!cssFiles.length) {
                         return;
                     }
-                    
+
                     const imports = [];
-                    
+
                     cssFiles.forEach(cssFile => {
                         imports.push(`import './${path.relative(path.dirname(file), cssFile)}';`);
-                        
+
                         this.emitFile({
                             type: 'asset',
                             fileName: cssFile,
                             source: styles[cssFile],
                         });
                     });
-                    
+
                     if (imports.length) {
                         const { code } = bundle[file];
                         this.emitFile({
@@ -127,7 +140,7 @@ function importCssPlugin() {
                             fileName: file,
                             source: imports.join('\n') + '\n' + code,
                         });
-                        
+
                         console.log(`Added css: ${cssFiles} for ${file}`);
                     }
                 }

@@ -16,10 +16,6 @@
     "react-dom": ">=16.13.1",
     "styled-components": "^5.1.1"
   },
-  "dependencies": {
-    "@linaria/core": "^6.2.0",
-    "@linaria/react": "^6.2.1"
-  },
   "devDependencies": {
     "@babel/cli": "7.24.1",
     "@babel/core": "^7.24.4",
@@ -50,7 +46,8 @@
     "rollup-plugin-css-only": "^4.5.2",
     "sharp": "^0.32.6",
     "styled-components": "5.3.1",
-    "svg2vectordrawable": "^2.9.1"
+    "svg2vectordrawable": "^2.9.1",
+    "vite": "4.5.3"
   },
   "publishConfig": {
     "access": "public"
@@ -90,6 +87,9 @@
   ],
   "sideEffects": [
     "*.css"
-  ]
+  ],
+  "dependencies": {
+    "@linaria/core": "^6.2.0",
+    "@linaria/react": "^6.2.1"
+  }
 }
-
