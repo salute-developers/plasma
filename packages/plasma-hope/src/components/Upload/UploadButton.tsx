@@ -1,18 +1,7 @@
 import React, { ChangeEventHandler, useCallback, useState, DragEvent, ChangeEvent } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
-import {
-    surfaceLiquid01,
-    surfaceLiquid02,
-    surfaceLiquid03,
-    buttonAccent,
-    secondary,
-    tertiary,
-    transparent,
-    success,
-    critical,
-    footnote1,
-} from '@salutejs/plasma-core';
+import { footnote1 } from '@salutejs/plasma-core';
 import { FileDrop } from 'react-file-drop';
 
 import { StatusType, ValidationResult } from './types';
@@ -27,23 +16,23 @@ declare module 'react-file-drop' {
 
 const statuses = {
     error: {
-        borderColor: critical,
+        borderColor: 'var(--text-negative)',
     },
     success: {
-        borderColor: success,
+        borderColor: 'var(--text-positive)',
     },
 };
 
 const paints = {
     default: {
-        backgroundColor: surfaceLiquid01,
-        borderColor: tertiary,
-        color: secondary,
+        backgroundColor: 'var(--surface-transparent-primary)',
+        borderColor: 'var(--text-tertiary)',
+        color: 'var(--text-secondary)',
     },
     progress: {
-        backgroundColor: surfaceLiquid03,
-        borderColor: transparent,
-        color: secondary,
+        backgroundColor: 'var(--surface-transparent-tertiary)',
+        borderColor: 'transparent',
+        color: 'var(--text-secondary)',
     },
 };
 
@@ -78,15 +67,15 @@ export const StyledButton = styled.button<StyledButtonProps>`
     transition-property: transform, background-color, border-color, color;
 
     &:hover:not(:disabled) {
-        background-color: ${surfaceLiquid02};
+        background-color: var(--surface-transparent-secondary);
         transform: scale(1.04);
     }
 
     ${({ isGrabbing }) =>
         isGrabbing &&
         css`
-            border-color: ${buttonAccent};
-            background-color: ${surfaceLiquid02};
+            border-color: var(--text-accent);
+            background-color: var(--surface-transparent-secondary);
             transform: scale(1.04);
         `}
     ${({ paint }) => paints[paint]}

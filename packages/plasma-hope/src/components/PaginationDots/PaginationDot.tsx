@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { PaginationDot as DotBase, accent } from '@salutejs/plasma-core';
+import { PaginationDot as DotBase } from '@salutejs/plasma-core';
 import type { PaginationDotProps as BaseProps } from '@salutejs/plasma-core';
 
 export interface PaginationDotProps extends BaseProps {}
@@ -12,12 +12,12 @@ export const PaginationDot = styled(DotBase)<PaginationDotProps>`
     cursor: pointer;
 
     &:hover {
-        background: ${accent};
+        background: var(--text-accent);
     }
 
     ${({ isActive }) =>
         isActive &&
         css`
-            background: ${accent};
+            background: var(--text-accent);
         `}
 `;
