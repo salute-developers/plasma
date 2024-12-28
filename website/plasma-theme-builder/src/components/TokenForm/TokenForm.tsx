@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H3, Modal, Switch, TextField } from '@salutejs/plasma-b2c';
 import { surfaceLiquid01 } from '@salutejs/plasma-tokens-b2c';
@@ -11,7 +11,15 @@ import { GradientTokenValue } from '../GradientTokenValue/GradientTokenValue';
 
 import { SBSansTextMono } from '../mixins';
 import type { MultiplatformValue, InputData, Theme as ThemeType, TokenData } from '../../types';
-import { sectionToFormulaMap, getStateToken, getBrightnessTokens } from '../../utils';
+import {
+    sectionToFormulaMap,
+    getStateToken,
+    getBrightnessTokens,
+    getGradientParts,
+    parseGradientsByLayer,
+    isCamelCaseNotation,
+    isHEXFormat,
+} from '../../utils';
 
 const Form = styled.form``;
 
@@ -91,6 +99,9 @@ export const TokenForm = ({
         helpText: 'Латинские буквы и цифры без пробелов, минимум 3 символа',
     });
 
+    const solidValueRef = useRef<HTMLInputElement>(null);
+    const gradientValueRef = useRef<HTMLTextAreaElement>(null);
+
     const [value, setValue] = useState(inputData.value);
     const [comment, setComment] = useState(inputData.comment);
     const [enabled, setEnabled] = useState(inputData.enabled);
@@ -103,6 +114,8 @@ export const TokenForm = ({
         setName((preValue) => ({
             ...preValue,
             value,
+            status: undefined,
+            helpText: undefined,
         }));
     }, []);
 
@@ -124,7 +137,7 @@ export const TokenForm = ({
     const onChangeComment = useCallback((event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
 
-        setComment({ value });
+        setComment({ value, status: undefined, helpText: undefined });
     }, []);
 
     const onChangeEnabled = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -206,6 +219,72 @@ export const TokenForm = ({
             return;
         }
 
+        if (!isCamelCaseNotation(name.value)) {
+            setName({
+                value: name.value,
+                status: 'error',
+                helpText: 'Название должно быть в CamelCase нотации',
+            });
+            return;
+        }
+
+        if (name?.value && name.value?.length >= 32) {
+            setName({
+                value: name.value,
+                status: 'error',
+                helpText: 'Название не должно превышать 32 символов',
+            });
+            return;
+        }
+
+        if (name.value.toLocaleLowerCase().startsWith(inputData?.section.value.toLocaleLowerCase())) {
+            setName({
+                value: name.value,
+                status: 'error',
+                helpText: 'Название не должно начинаться с ' + inputData?.section.value,
+            });
+            return;
+        }
+
+        if (
+            name.value.toLocaleLowerCase().includes('ondark') ||
+            name.value.toLocaleLowerCase().includes('onlight') ||
+            name.value.toLocaleLowerCase().includes('inverse')
+        ) {
+            setName({
+                value: name.value,
+                status: 'error',
+                helpText: 'Название не должно содержать слова "onDark", "onLight" и "inverse"',
+            });
+            return;
+        }
+
+        if (
+            selectColorType === 'Solid' &&
+            typeof cleanedValue === 'string' &&
+            !isHEXFormat(solidValueRef.current?.value || '')
+        ) {
+            setValue({
+                value: cleanedValue,
+                status: 'error',
+                helpText: 'Значение цвета поддерживает только HEX и HEXA форматы',
+            });
+            return;
+        }
+
+        if (selectColorType === 'Gradient') {
+            const layers = parseGradientsByLayer(gradientValueRef.current?.value || '');
+
+            if (!layers) {
+                return;
+            }
+
+            // TODO: улучшить валидацию
+            if (layers.some((layer) => getGradientParts(layer).length <= 2)) {
+                return;
+            }
+        }
+
         if (comment?.value && comment.value?.length >= 120) {
             setComment({
                 value: comment?.value,
@@ -231,7 +310,18 @@ export const TokenForm = ({
             dark: getDataByThemeMode('dark'),
             light: getDataByThemeMode('light'),
         });
-    }, [themeData, themeMode, inputData, name, value, comment, enabled, onTokenFormShow, onThemeDataChange]);
+    }, [
+        inputData,
+        name.value,
+        themeData,
+        themeMode,
+        value.value,
+        selectColorType,
+        comment?.value,
+        onTokenFormShow,
+        onThemeDataChange,
+        enabled?.value,
+    ]);
 
     const onSubmit = useCallback((event: React.SyntheticEvent) => {
         event.preventDefault();
@@ -268,10 +358,14 @@ export const TokenForm = ({
                             onSelectTab={onSelectColorType}
                         />
                         {selectColorType === 'Solid' && (
-                            <SolidTokenValue value={value} onChangeValue={onChangeSolidValue} />
+                            <SolidTokenValue ref={solidValueRef} value={value} onChangeValue={onChangeSolidValue} />
                         )}
                         {selectColorType === 'Gradient' && (
-                            <GradientTokenValue value={value} onChangeValue={onChangeGradientValue} />
+                            <GradientTokenValue
+                                ref={gradientValueRef}
+                                value={value}
+                                onChangeValue={onChangeGradientValue}
+                            />
                         )}
                     </TokenValue>
                 </FormField>
