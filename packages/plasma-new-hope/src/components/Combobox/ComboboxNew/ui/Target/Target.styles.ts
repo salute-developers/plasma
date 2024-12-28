@@ -149,4 +149,5 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${comboboxTokens.textFieldClearIndicatorLabelPlacementInner});
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${comboboxTokens.textFieldClearIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${comboboxTokens.textFieldClearIndicatorHintInnerRight});
+    ${textFieldTokens.boxShadow}: var(${comboboxTokens.textFieldBoxShadow});
 `;

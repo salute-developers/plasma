@@ -12,6 +12,7 @@ export const classes = {
 
 export const tokens = {
     borderRadius: '--plasma-select-border-radius',
+    margin: '--plasma-select-margin',
     padding: '--plasma-select-padding',
 
     fontFamily: '--plasma-select-font-family',
@@ -197,8 +198,12 @@ export const tokens = {
 
     textFieldFocusColor: '--plasma-select-textfield-focus-color',
 
+    textFieldBoxShadow: '--plasma-select-textfield-box-shadow',
+
     disclosureIconColor: '--plasma-select-disclosure-icon-color',
     disclosureIconColorHover: '--plasma-select-disclosure-icon-color-hover',
+    disclosureIconSize: '--plasma-select-disclosure-icon-size',
+    disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
 };
 
 export const constants = {

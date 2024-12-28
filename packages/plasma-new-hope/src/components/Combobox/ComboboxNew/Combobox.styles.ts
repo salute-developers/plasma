@@ -28,7 +28,8 @@ export const Ul = styled.ul<{
     overflow: ${({ listOverflow }) => listOverflow || 'initial'};
 
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
-    margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : 0)};
+    margin: ${({ isInnerUl }) =>
+        isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};
     padding: var(${tokens.padding}) 0;
 
     .${classes.emptyStateWrapper} {
@@ -52,7 +53,16 @@ export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
     }
 `;
 
-export const StyledArrow = styled(IconDisclosureDownCentered)``;
+// TODO: Удалить после поддержки JS переменных в конфиге компонент
+export const sizeMap: Record<string, string> = {
+    xs: '1rem',
+    s: '1.5rem',
+};
+
+export const StyledArrow = styled(IconDisclosureDownCentered)`
+    width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+`;
 
 export const base = css``;
 
