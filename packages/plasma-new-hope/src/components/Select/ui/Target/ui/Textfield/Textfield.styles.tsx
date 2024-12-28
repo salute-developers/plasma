@@ -145,6 +145,8 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
+    ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
+
     /* TODO: #1544 */
     & div.input-wrapper:focus-within {
         background-color: var(${tokens.textFieldBackgroundColorFocus});
@@ -167,4 +169,13 @@ export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
     }
 `;
 
-export const StyledArrow = styled(IconDisclosureDownCentered)``;
+// TODO: Удалить после поддержки JS переменных в конфиге компонент
+export const sizeMap: Record<string, string> = {
+    xs: '1rem',
+    s: '1.5rem',
+};
+
+export const StyledArrow = styled(IconDisclosureDownCentered)`
+    width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+`;

@@ -15,6 +15,7 @@ export const classes = {
 export const tokens = {
     borderRadius: '--plasma-combobox-border-radius',
     padding: '--plasma-combobox-padding',
+    margin: '--plasma-combobox-margin',
     focusOffset: '--plasma-combobox-focus-offset',
 
     fontFamily: '--plasma-combobox-font-family',
@@ -191,6 +192,8 @@ export const tokens = {
 
     textFieldFocusColor: '--plasma-combobox-new-textfield-focus-color',
 
+    textFieldBoxShadow: '--plasma-select-textfield-box-shadow',
+
     textFieldIndicatorColor: '--plasma-combobox-new-textfield-indicator-color',
     textFieldIndicatorSizeInner: '--plasma-combobox-new-textfield-indicator-size-inner',
     textFieldIndicatorSizeOuter: '--plasma-combobox-new-textfield-indicator-size-outer',
@@ -218,6 +221,8 @@ export const tokens = {
 
     disclosureIconColor: '--plasma-combobox-disclosure-icon-color',
     disclosureIconColorHover: '--plasma-combobox-disclosure-icon-color-hover',
+    disclosureIconSize: '--plasma-select-disclosure-icon-size',
+    disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
 };
 
 export const constants = {

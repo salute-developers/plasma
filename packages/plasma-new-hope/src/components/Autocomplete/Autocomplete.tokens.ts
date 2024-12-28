@@ -110,11 +110,14 @@ export const tokens = {
         '--plasma-autocomplete-textfield-clear-indicator-label-placement-inner-right',
     textFieldClearIndicatorHintInnerRight: '--plasma-autocomplete-textfield-clear-indicator-hint-placement-inner-right',
 
+    textFieldBoxShadow: '--plasma-autocomplete-textfield-box-shadow',
+
     // Токены для дропдауна
     background: '--plasma-autocomplete-background',
     boxShadow: '--plasma-autocomplete-box-shadow',
     borderRadius: '--plasma-autocomplete-border-radius',
     padding: '--plasma-autocomplete-padding',
+    margin: '--plasma-autocomplete-margin',
 
     dropdownBorderColor: '--plasma-select-dropdown-border-color',
     dropdownBorderWidth: '--plasma-select-dropdown-border-width',

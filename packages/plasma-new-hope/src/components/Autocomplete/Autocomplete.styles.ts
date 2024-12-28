@@ -36,7 +36,7 @@ export const Ul = styled.ul<{
     overflow-y: scroll;
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
 
-    margin: 0;
+    margin: var(${tokens.margin}) 0 0 0;
     padding: var(${tokens.padding});
 `;
 

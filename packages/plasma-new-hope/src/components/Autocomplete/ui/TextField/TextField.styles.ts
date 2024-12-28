@@ -91,4 +91,5 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInner});
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorHintInnerRight});
+    ${textFieldTokens.boxShadow}: var(${autocompleteTokens.textFieldBoxShadow});
 `;
