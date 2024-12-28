@@ -1,8 +1,9 @@
 import { FlattenSimpleInterpolation, css, keyframes } from 'styled-components';
+
 import { Breakpoint, mediaQuery } from '@salutejs/plasma-b2c';
 
 export const SBSansTextMono = css`
-    font-family: 'SB Sans Text Mono', Helvetica, Arial, sans-serif;
+    font-family: var(--plasma-typo-text-l-font-family), Helvetica, Arial, sans-serif;
 `;
 
 export const iconButtonFade = css`
