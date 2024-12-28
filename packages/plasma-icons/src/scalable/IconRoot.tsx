@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import type { CSSProperties } from 'react';
+import { css } from 'styled-components';
 
 export const sizeMap = {
     xs: {
@@ -29,13 +30,11 @@ interface IconRootProps extends IconProps {
     icon: React.FC<IconProps>;
 }
 
-const StyledRoot = styled.div<{ w: string }>`
+const plasmaIconsRoot = css`
     display: inline-flex;
-    ${({ w }) => css`
-        width: ${w};
-        height: ${w};
-        flex: 0 0 ${w};
-    `}
+    width: var(--icon-size);
+    height: var(--icon-size);
+    flex: 0 0 var(--icon-size);
 `;
 
 export const getIconComponent = (
@@ -62,11 +61,11 @@ export const getIconComponent = (
 export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => {
     const c = color || 'var(--plasma-colors-primary)';
 
-    const w = `${sizeMap[size].scale}rem`;
+    const IconRootVars = { '--icon-size': `${sizeMap[size].scale}rem` } as CSSProperties;
 
     return (
-        <StyledRoot aria-hidden w={w} className={className}>
+        <div aria-hidden style={IconRootVars} className={`${plasmaIconsRoot} ${className || ''}`}>
             <Icon color={c} size={size} />
-        </StyledRoot>
+        </div>
     );
 };
