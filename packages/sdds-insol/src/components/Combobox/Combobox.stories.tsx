@@ -15,6 +15,10 @@ const size = ['xs', 's', 'm', 'l'];
 const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 
+const getIconSize = (size?: string) => {
+    return size === 'xs' || size === 's' ? 'xs' : 's';
+};
+
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Combobox',
     decorators: [InSpacingDecorator],
@@ -360,7 +364,7 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size={getIconSize(args.size)} /> : undefined}
             />
         </div>
     );
@@ -386,7 +390,7 @@ const MultipleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size={getIconSize(args.size)} /> : undefined}
             />
         </div>
     );

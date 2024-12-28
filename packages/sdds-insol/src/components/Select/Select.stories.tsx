@@ -18,6 +18,10 @@ const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
+const getIconSize = (size?: string) => {
+    return size === 'xs' || size === 's' ? 'xs' : 's';
+};
+
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Select',
     decorators: [InSpacingDecorator],
@@ -378,7 +382,9 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
         </div>
     );
@@ -406,7 +412,9 @@ const MultiselectStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
         </div>
     );
@@ -431,7 +439,9 @@ const PredefinedStory = (args: StorySelectProps) => {
                 items={items}
                 value={valueSingle}
                 onChange={setValueSingle}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
 
             <br />
@@ -442,7 +452,9 @@ const PredefinedStory = (args: StorySelectProps) => {
                 multiselect
                 value={valueMultiple}
                 onChange={setValueMultiple}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
         </div>
     );
@@ -508,7 +520,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValue}
                                     view="default"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -523,7 +537,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="default"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -656,7 +672,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValue}
                                     view="positive"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -671,7 +689,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="positive"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -713,7 +733,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValue}
                                     view="warning"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -728,7 +750,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="warning"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -770,7 +794,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValue}
                                     view="negative"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -785,7 +811,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="negative"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
