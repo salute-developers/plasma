@@ -102,8 +102,12 @@ function importCssPlugin() {
             // ADD IMPORT FOR CSS MODULES
             if (file.endsWith('.css.js')) {
                 const { code } = bundle[file];
-                // TODO: #718 cjs modules => require('./file.css');
-                const importString = `import './${file.replace('.css.js', '.css.css')}';\n`;
+                const data = file.replace('.css.js', '.css.css');
+                
+                const requireString = options.format === 'cjs'
+                    ? `require('./${data}');\n`
+                    : `import './${data}';\n`;
+                
                 this.emitFile({
                     type: 'asset',
                     fileName: file,
@@ -122,7 +126,14 @@ function importCssPlugin() {
                 }
                 const imports = [];
                 cssFiles.forEach(cssFile => {
-                    imports.push(`import './${path.relative(path.dirname(file), cssFile)}';`);
+                    const data = path.relative(path.dirname(file), cssFile);
+                    
+                    const importStatement = options.format === 'cjs'
+                        ? `require('./${data}');`
+                        : `import './${data}';`;
+                    
+                    imports.push(importStatement);
+                    
                     this.emitFile({
                         type: 'asset',
                         fileName: cssFile,
