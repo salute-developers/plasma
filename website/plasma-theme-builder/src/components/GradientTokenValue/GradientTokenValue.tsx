@@ -1,12 +1,12 @@
-import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { TextArea } from '@salutejs/plasma-b2c';
 
 import { PreviewColor } from '../PreviewColor/PreviewColor';
-import { TypeTabs } from '../TypeTabs/TypeTabs';
+// import { TypeTabs } from '../TypeTabs/TypeTabs';
 import { GradientTokenCSSLayer } from '../GradientTokenCSSLayer/GradientTokenCSSLayer';
-import { GradientTokenSwiftLayer } from '../GradientTokenSwiftLayer/GradientTokenSwiftLayer';
-import { GradientTokenXMLLayer } from '../GradientTokenXMLLayer/GradientTokenXMLLayer';
+// import { GradientTokenSwiftLayer } from '../GradientTokenSwiftLayer/GradientTokenSwiftLayer';
+// import { GradientTokenXMLLayer } from '../GradientTokenXMLLayer/GradientTokenXMLLayer';
 
 import { getBackgroundColor, parseGradient } from '../../utils';
 import type { MultiplatformValue, InputDataValue, Swift, XML } from '../../types';
@@ -39,111 +39,117 @@ interface GradientTokenValueProps {
     onChangeValue: (value: Record<string, string> | Array<MultiplatformValue> | MultiplatformValue) => void;
 }
 
-export const GradientTokenValue = ({ value, onChangeValue }: GradientTokenValueProps) => {
-    const platformTypeItems = ['CSS', 'Swift', 'XML'] as const;
+export const GradientTokenValue = forwardRef<HTMLTextAreaElement, GradientTokenValueProps>(
+    ({ value, onChangeValue }, ref) => {
+        const platformTypeItems = ['CSS'] as const;
 
-    const [selectPlatformType, setSelectPlatformType] = useState<typeof platformTypeItems[number]>(
-        platformTypeItems[0],
-    );
+        const [selectPlatformType] = useState<typeof platformTypeItems[number]>(platformTypeItems[0]);
 
-    const colorValue = getBackgroundColor(value.value);
-    const [gradientValue, setGradientValue] = useState(colorValue);
+        const colorValue = getBackgroundColor(value.value);
+        const [gradientValue, setGradientValue] = useState(colorValue);
 
-    const onSelectPlatformType = useCallback((value: string) => {
-        setSelectPlatformType(value as typeof platformTypeItems[number]);
-    }, []);
+        // const onSelectPlatformType = useCallback((value: string) => {
+        //     setSelectPlatformType(value as typeof platformTypeItems[number]);
+        // }, []);
 
-    const [layers, setLayers] = useState<Array<MultiplatformValue> | null>();
+        const [layers, setLayers] = useState<Array<MultiplatformValue> | null>();
 
-    const onChangeGradientValue = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
-        const { value: currentValue } = event.target;
-        const layers = parseGradient(currentValue);
+        const onChangeGradientValue = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
+            const { value: currentValue } = event.target;
+            const layers = parseGradient(currentValue);
 
-        setGradientValue(currentValue);
-        setLayers(layers);
-    }, []);
+            setGradientValue(currentValue);
+            setLayers(layers);
+        }, []);
 
-    const onChangeSwiftGradientValue = useCallback(
-        (value: Swift, index: number) => {
-            if (!layers) {
-                return;
+        // const onChangeSwiftGradientValue = useCallback(
+        //     (value: Swift, index: number) => {
+        //         if (!layers) {
+        //             return;
+        //         }
+
+        //         const newValues = layers.map((item, i) =>
+        //             index === i
+        //                 ? {
+        //                       ...item,
+        //                       swift: value,
+        //                   }
+        //                 : item,
+        //         );
+
+        //         setLayers(newValues);
+        //     },
+        //     [layers],
+        // );
+
+        // const onChangeXMLGradientValue = useCallback(
+        //     (value: XML, index: number) => {
+        //         if (!layers) {
+        //             return;
+        //         }
+
+        //         const newValues = layers.map((item, i) =>
+        //             index === i
+        //                 ? {
+        //                       ...item,
+        //                       xml: value,
+        //                   }
+        //                 : item,
+        //         );
+
+        //         setLayers(newValues);
+        //     },
+        //     [layers],
+        // );
+
+        useEffect(() => {
+            if (Array.isArray(value.value)) {
+                setLayers(value.value);
             }
 
-            const newValues = layers.map((item, i) =>
-                index === i
-                    ? {
-                          ...item,
-                          swift: value,
-                      }
-                    : item,
-            );
-
-            setLayers(newValues);
-        },
-        [layers],
-    );
-
-    const onChangeXMLGradientValue = useCallback(
-        (value: XML, index: number) => {
-            if (!layers) {
-                return;
+            // TODO: Убрать после того, как переделаем схемы на новый формат градиентов
+            if (typeof value.value === 'object' && ('swift' in value.value || 'xml' in value.value)) {
+                const singleValue = value.value as MultiplatformValue;
+                setLayers([singleValue]);
             }
+        }, [value.value]);
 
-            const newValues = layers.map((item, i) =>
-                index === i
-                    ? {
-                          ...item,
-                          xml: value,
-                      }
-                    : item,
-            );
+        useEffect(() => {
+            if (layers) {
+                const newValue = layers.length === 1 ? layers[0] : layers;
+                onChangeValue(newValue);
+            }
+        }, [layers, onChangeValue]);
 
-            setLayers(newValues);
-        },
-        [layers],
-    );
+        return (
+            <Root>
+                <GradientTokenWrapper>
+                    <PreviewColor background={gradientValue} borderRadius="0.625rem" size="5rem" />
+                    <StyledTextArea
+                        ref={ref}
+                        size="s"
+                        resize="none"
+                        helperText=""
+                        value={gradientValue}
+                        onChange={onChangeGradientValue}
+                    />
+                </GradientTokenWrapper>
 
-    useEffect(() => {
-        if (Array.isArray(value.value)) {
-            setLayers(value.value);
-        }
-
-        // TODO: Убрать после того, как переделаем схемы на новый формат градиентов
-        if (typeof value.value === 'object' && ('swift' in value.value || 'xml' in value.value)) {
-            const singleValue = value.value as MultiplatformValue;
-            setLayers([singleValue]);
-        }
-    }, [value.value]);
-
-    useEffect(() => {
-        if (layers) {
-            const newValue = layers.length === 1 ? layers[0] : layers;
-            onChangeValue(newValue);
-        }
-    }, [layers, onChangeValue]);
-
-    return (
-        <Root>
-            <GradientTokenWrapper>
-                <PreviewColor background={gradientValue} borderRadius="0.625rem" size="5rem" />
-                <StyledTextArea size="s" resize="none" value={gradientValue} onChange={onChangeGradientValue} />
-            </GradientTokenWrapper>
-
-            {layers?.length && (
-                <>
-                    <TypeTabs
+                {layers?.length && (
+                    <>
+                        {/* <TypeTabs
                         items={platformTypeItems}
                         selectedItem={selectPlatformType}
                         onSelectTab={onSelectPlatformType}
-                    />
+                    /> */}
 
-                    <GradientTokenLayers>
-                        {selectPlatformType === 'CSS' &&
-                            layers.map(({ origin }, index) => (
-                                <GradientTokenCSSLayer key={index} originalColor={origin} />
-                            ))}
+                        <GradientTokenLayers>
+                            {selectPlatformType === 'CSS' &&
+                                layers.map(({ origin }, index) => (
+                                    <GradientTokenCSSLayer key={index} originalColor={origin} />
+                                ))}
 
-                        {selectPlatformType === 'Swift' &&
+                            {/* {selectPlatformType === 'Swift' &&
                             layers.map(({ swift, origin }, index) => (
                                 <GradientTokenSwiftLayer
                                     key={index}
@@ -163,10 +169,11 @@ export const GradientTokenValue = ({ value, onChangeValue }: GradientTokenValueP
                                     index={index}
                                     onChangeXMLValue={onChangeXMLGradientValue}
                                 />
-                            ))}
-                    </GradientTokenLayers>
-                </>
-            )}
-        </Root>
-    );
-};
+                            ))} */}
+                        </GradientTokenLayers>
+                    </>
+                )}
+            </Root>
+        );
+    },
+);

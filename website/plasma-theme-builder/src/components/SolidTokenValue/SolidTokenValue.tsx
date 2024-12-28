@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Select, TextField } from '@salutejs/plasma-b2c';
 import { PlasmaSaturation } from '@salutejs/plasma-colors';
@@ -42,7 +42,7 @@ interface SolidTokenValueProps {
     onChangeValue: (value: string) => void;
 }
 
-export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) => {
+export const SolidTokenValue = forwardRef<HTMLInputElement, SolidTokenValueProps>(({ value, onChangeValue }, ref) => {
     const [paletteColor, paletteSaturation] = getPaletteColorByValue(value.value);
 
     const [selectedColor, setSelectedColor] = useState<GeneralColor | undefined>(paletteColor);
@@ -118,6 +118,7 @@ export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) 
                 />
             </StyledPaletteSelect>
             <StyledTextField
+                ref={ref}
                 size="s"
                 name="value"
                 value={normalizeColor}
@@ -127,4 +128,4 @@ export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) 
             />
         </Root>
     );
-};
+});

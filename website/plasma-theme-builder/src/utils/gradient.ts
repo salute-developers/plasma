@@ -29,9 +29,14 @@ const getLinearVectorPoints = (angle: string) => {
     };
 };
 
-const getGradientParts = (value: string) => {
+export const getGradientParts = (value: string) => {
     const gradient = value.substring(value.indexOf('(') + 1, value.lastIndexOf(')'));
     return gradient.split(/,\s(?![^(]*\))(?![^"']*["'](?:[^"']*["'][^"']*["'])*[^"']*$)/gm);
+};
+
+export const parseGradientsByLayer = (value: string) => {
+    const regex = /((rgba?|hsla?)\([\d.%\s,()#\w]*\))|(#\w{6,8})|(linear|radial)-gradient\([\d.%\s,()#\w]+?\)(?=,*\s*(linear|radial|$|rgb|hsl|#))/g;
+    return value.match(regex);
 };
 
 const getColors = (restParams: string[]) =>
@@ -53,8 +58,7 @@ const getLocations = (restParams: string[]) =>
     }, []);
 
 export const parseGradient = (gradientString: string) => {
-    const regex = /((rgba?|hsla?)\([\d.%\s,()#\w]*\))|(#\w{6,8})|(linear|radial)-gradient\([\d.%\s,()#\w]+?\)(?=,*\s*(linear|radial|$|rgb|hsl|#))/g;
-    const gradientArray = gradientString.match(regex);
+    const gradientArray = parseGradientsByLayer(gradientString);
 
     if (!gradientArray) {
         return null;
