@@ -20,7 +20,8 @@
     "tokens",
     "index.d.ts",
     "api-extractor.json",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "_virtual"
   ],
   "main": "./index.js",
   "module": "./es/index.js",
