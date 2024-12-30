@@ -79,7 +79,7 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
-        ...disableProps(['value']),
+        ...disableProps(['value', 'pin', 'focused']),
     },
 };
 
