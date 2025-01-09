@@ -1,11 +1,8 @@
 import path from 'path';
 import { createFilter } from '@rollup/pluginutils';
-
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-
 import linaria from '@linaria/rollup';
 import { babel } from '@rollup/plugin-babel';
-
 import styles from '@ironkinoko/rollup-plugin-styles';
 
 const inputDir = 'src';
@@ -35,7 +32,9 @@ export default {
             sourcemap: true,
             exports: 'named',
             assetFileNames: '[name][extname]',
-        }],
+            interop: 'auto',
+        },
+    ],
     external: (id) => {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
@@ -62,36 +61,35 @@ export default {
 function importCssPlugin() {
     const filter = createFilter(['**/*.css']);
     const styles = {};
-    
+
     return {
         name: 'importCssPlugin',
         transform(code, id) {
             if (!filter(id)) {
                 return;
             }
-            
+
             if (styles[id] !== code && (styles[id] || code)) {
                 styles[path.relative(inputDir, id)] = code;
             }
-            
+
             return { code };
         },
         generateBundle(options, bundle) {
             const files = Object.keys(bundle);
-            
+
             files.forEach((file) => {
                 const root = bundle[file].facadeModuleId;
                 const modules = this.getModuleInfo(root);
-                
+
                 // ADD IMPORT FOR CSS MODULES
                 if (file.endsWith('.css.js')) {
                     const { code } = bundle[file];
                     const data = file.replace('.css.js', '.css.css');
-                    
-                    const requireString = options.format === 'cjs'
-                        ? `require('./${data}');\n`
-                        : `import './${data}';\n`;
-                    
+
+                    const requireString =
+                        options.format === 'cjs' ? `require('./${data}');\n` : `import './${data}';\n`;
+
                     this.emitFile({
                         type: 'asset',
                         fileName: file,
@@ -101,39 +99,38 @@ function importCssPlugin() {
                     // ADD IMPORT FOR LINARIA
                     // linaria
                     const cssFiles = modules.importedIds
-                        .filter(a => a.includes(inputDir))
-                        .filter(a => !a.endsWith('.module.css') && a.endsWith('.css'))
-                        .map(a => path.relative(inputDir, a));
-                    
+                        .filter((a) => a.includes(inputDir))
+                        .filter((a) => !a.endsWith('.module.css') && a.endsWith('.css'))
+                        .map((a) => path.relative(inputDir, a));
+
                     if (!cssFiles.length) {
                         return;
                     }
-                    
+
                     const imports = [];
-                    
-                    cssFiles.forEach(cssFile => {
+
+                    cssFiles.forEach((cssFile) => {
                         const data = path.relative(path.dirname(file), cssFile);
-                        
-                        const importStatement = options.format === 'cjs'
-                            ? `require('./${data}');`
-                            : `import './${data}';`;
-                        
+
+                        const importStatement =
+                            options.format === 'cjs' ? `require('./${data}');` : `import './${data}';`;
+
                         imports.push(importStatement);
-                        
+
                         this.emitFile({
                             type: 'asset',
                             fileName: cssFile,
                             source: styles[cssFile],
                         });
                     });
-                    
+
                     if (imports.length) {
                         const { code } = bundle[file];
-                        
+
                         this.emitFile({
                             type: 'asset',
                             fileName: file,
-                            source: imports.join('\n') + '\n' + code,
+                            source: `${imports.join('\n')}\n${code}`,
                         });
                     }
                 }
@@ -141,4 +138,3 @@ function importCssPlugin() {
         },
     };
 }
-  
