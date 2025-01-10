@@ -81,66 +81,78 @@ function importCssPlugin() {
     const styles = {};
 
     return {
-      name: 'importCssPlugin',
-      transform(code, id) {
-        if (!filter(id)) {
-            return;
-        }
-  
-        if (styles[id] !== code && (styles[id] || code)) {
-          styles[path.relative(inputDir, id)] = code
-        }
-  
-        return { code };
-      },
-      generateBundle(options, bundle) {
-        const files = Object.keys(bundle);
-        files.forEach((file) => {
-            const root = bundle[file].facadeModuleId
-            const modules = this.getModuleInfo(root);
+        name: 'importCssPlugin',
+        transform(code, id) {
+            if (!filter(id)) {
+                return;
+            }
 
-            // ADD IMPORT FOR CSS MODULES
-            if (file.endsWith('.css.js')) {
-                const { code } = bundle[file];
-                // TODO: #718 cjs modules => require('./file.css');
-                const importString = `import './${file.replace('.css.js', '.css.css')}';\n`;
-                this.emitFile({
-                    type: 'asset',
-                    fileName: file,
-                    source: importString + code,
-                });
-            } else if (file.endsWith('.js')) {
-                // ADD IMPORT FOR LINARIA
-                // linaria
-                const cssFiles = modules.importedIds
-                    .filter(a => a.includes(inputDir))
-                    .filter(a => !a.endsWith('.module.css') && a.endsWith('.css'))
-                    .map(a => path.relative(inputDir, a))
+            if (styles[id] !== code && (styles[id] || code)) {
+                styles[path.relative(inputDir, id)] = code;
+            }
 
-                if (!cssFiles.length) {
-                    return;
-                }
-                const imports = [];
-                cssFiles.forEach(cssFile => {
-                    imports.push(`import './${path.relative(path.dirname(file), cssFile)}';`);
-                    this.emitFile({
-                        type: 'asset',
-                        fileName: cssFile,
-                        source: styles[cssFile],
-                    });
-                })
-                if (imports.length) {
+            return { code };
+        },
+        generateBundle(options, bundle) {
+            const files = Object.keys(bundle);
+
+            files.forEach((file) => {
+                const root = bundle[file].facadeModuleId;
+                const modules = this.getModuleInfo(root);
+
+                // ADD IMPORT FOR CSS MODULES
+                if (file.endsWith('.css.js')) {
                     const { code } = bundle[file];
+                    const data = file.replace('.css.js', '.css.css');
+
+                    const requireString =
+                        options.format === 'cjs' ? `require('./${data}');\n` : `import './${data}';\n`;
+
                     this.emitFile({
                         type: 'asset',
                         fileName: file,
-                        source: imports.join('\n') + '\n' + code,
+                        source: requireString + code,
+                    });
+                } else if (file.endsWith('.js')) {
+                    // ADD IMPORT FOR LINARIA
+                    // linaria
+                    const cssFiles = modules.importedIds
+                        .filter((a) => a.includes(inputDir))
+                        .filter((a) => !a.endsWith('.module.css') && a.endsWith('.css'))
+                        .map((a) => path.relative(inputDir, a));
+
+                    if (!cssFiles.length) {
+                        return;
+                    }
+
+                    const imports = [];
+
+                    cssFiles.forEach((cssFile) => {
+                        const data = path.relative(path.dirname(file), cssFile);
+
+                        const importStatement =
+                            options.format === 'cjs' ? `require('./${data}');` : `import './${data}';`;
+
+                        imports.push(importStatement);
+
+                        this.emitFile({
+                            type: 'asset',
+                            fileName: cssFile,
+                            source: styles[cssFile],
+                        });
                     });
 
-                    console.log(`Added css: ${cssFiles} for ${file}`);
+                    if (imports.length) {
+                        const { code } = bundle[file];
+
+                        this.emitFile({
+                            type: 'asset',
+                            fileName: file,
+                            source: `${imports.join('\n')}\n${code}`,
+                        });
+                    }
                 }
-            }
-        });
-      },
+            });
+        },
     };
-  }
+}
