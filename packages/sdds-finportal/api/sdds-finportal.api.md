@@ -67,6 +67,7 @@ import { CommitInstanceCallback } from '@salutejs/plasma-new-hope/types/componen
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomCounterProps } from '@salutejs/plasma-new-hope/types/components/Counter/Counter.types';
 import { CustomHeaderTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
@@ -793,8 +794,26 @@ fit: PolymorphicClassName;
 focused: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
-size: "xxl" | "s" | "m" | "l" | "fit";
+badgeView: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
+};
+counterView: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
+size?: string | undefined;
 name?: string | undefined;
 url?: string | undefined;
 customText?: string | undefined;
@@ -802,7 +821,46 @@ status?: "active" | "inactive" | undefined;
 isScalable?: boolean | undefined;
 focused?: boolean | undefined;
 statusLabels?: StatusLabels | undefined;
-} & RefAttributes<HTMLDivElement>>;
+hasExtra?: boolean | undefined;
+type?: "badge" | "counter" | undefined;
+extraPlacement?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | undefined;
+} & {
+badgeView?: string | undefined;
+pilled?: boolean | undefined;
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+} & {
+counterView?: undefined;
+count?: undefined;
+maxCount?: undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+size?: string | undefined;
+name?: string | undefined;
+url?: string | undefined;
+customText?: string | undefined;
+status?: "active" | "inactive" | undefined;
+isScalable?: boolean | undefined;
+focused?: boolean | undefined;
+statusLabels?: StatusLabels | undefined;
+hasExtra?: boolean | undefined;
+type?: "badge" | "counter" | undefined;
+extraPlacement?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | undefined;
+} & {
+counterView?: string | undefined;
+count?: number | undefined;
+maxCount?: number | undefined;
+} & {
+badgeView?: undefined;
+pilled?: undefined;
+text?: undefined;
+customColor?: undefined;
+customBackgroundColor?: undefined;
+contentLeft?: undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 // @public (undocumented)
 export const AvatarGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
@@ -850,11 +908,9 @@ view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: undefined;
 } & {
-children?: ReactNode;
-} & {
 clear?: true | undefined;
-pilled?: false | undefined;
-transparent?: false | undefined;
+pilled?: undefined;
+transparent?: undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 customColor?: string | undefined;
@@ -866,27 +922,9 @@ view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: undefined;
 } & {
-children?: ReactNode;
-} & {
-pilled?: true | undefined;
-transparent?: boolean | undefined;
-clear?: false | undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & {
-contentLeft?: ReactNode;
-contentRight?: undefined;
-} & {
-children?: ReactNode;
-} & {
 pilled?: boolean | undefined;
-transparent?: true | undefined;
-clear?: false | undefined;
+transparent?: boolean | undefined;
+clear?: undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 customColor?: string | undefined;
@@ -897,12 +935,10 @@ view?: string | undefined;
 } & {
 contentLeft?: undefined;
 contentRight?: ReactNode;
-} & {
-children?: ReactNode;
 } & {
 clear?: true | undefined;
-pilled?: false | undefined;
-transparent?: false | undefined;
+pilled?: undefined;
+transparent?: undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 customColor?: string | undefined;
@@ -913,28 +949,10 @@ view?: string | undefined;
 } & {
 contentLeft?: undefined;
 contentRight?: ReactNode;
-} & {
-children?: ReactNode;
-} & {
-pilled?: true | undefined;
-transparent?: boolean | undefined;
-clear?: false | undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & {
-contentLeft?: undefined;
-contentRight?: ReactNode;
-} & {
-children?: ReactNode;
 } & {
 pilled?: boolean | undefined;
-transparent?: true | undefined;
-clear?: false | undefined;
+transparent?: boolean | undefined;
+clear?: undefined;
 } & RefAttributes<HTMLDivElement>))>;
 
 export { BadgeProps }
@@ -1382,12 +1400,7 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 xxs: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
-count: number;
-maxCount?: number | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & HTMLAttributes<HTMLDivElement> & CustomCounterProps & RefAttributes<HTMLDivElement>>;
 
 export { CounterProps }
 
@@ -2716,7 +2729,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: "clear" | undefined;
 inputBackgroundType?: undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
 value?: number | undefined;
 min?: number | undefined;
 max?: number | undefined;
@@ -2742,7 +2755,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: string | undefined;
 inputBackgroundType?: string | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "onChange" | "value"> & RefAttributes<HTMLInputElement>))>;
 
 export { numberInputClasses }
 
