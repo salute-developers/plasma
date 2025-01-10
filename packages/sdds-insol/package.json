@@ -20,7 +20,8 @@
     "tokens",
     "index.d.ts",
     "api-extractor.json",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "_virtual"
   ],
   "main": "index.js",
   "module": "es/index.js",
@@ -110,8 +111,8 @@
     "build:css": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc rollup -c",
     "postbuild:css": "rm -rf src-css",
     "postbuild:emotion": "rm -rf src-emotion",
-    "remove:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
-    "generate:typings": "npm run remove:typings && tsc --outDir . --emitDeclarationOnly",
+    "pregenerate:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
+    "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "npm run storybook:sc",
     "prestorybook:emotion": "npm run prebuild:emotion",
     "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
