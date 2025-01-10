@@ -110,7 +110,6 @@
     "build:styled-components:esm": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc babel ./src --out-dir ./styled-components/es --extensions .ts,.tsx",
     "build:css": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "postbuild:styled-components": "rm -rf src-sc",
     "postbuild:emotion": "rm -rf src-emotion",
     "remove:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
     "generate:typings": "npm run remove:typings && tsc --outDir . --emitDeclarationOnly",
