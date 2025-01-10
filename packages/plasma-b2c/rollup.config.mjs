@@ -36,6 +36,7 @@ export default {
         sourcemap: true,
         exports: 'named',
         assetFileNames: "[name][extname]",
+        interop: 'auto',
     }],
     external: (id) => {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
