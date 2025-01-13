@@ -125,7 +125,7 @@ export type DatePickerPopoverProps = {
     /**
      * Событие сворачивания/разворачивания календаря.
      */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;
 };
 
 export type DatePickerProps = DatePickerVariationProps &
