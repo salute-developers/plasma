@@ -14,6 +14,7 @@ import { base as shapeCSS } from './variations/_shape/base';
 import { base as inputBackgroundTypeCSS } from './variations/_background-type/base';
 import { base as segmentationCSS } from './variations/_segmentation/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { getPreciseValue } from './utils';
 
 export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootProps>) =>
     forwardRef<HTMLInputElement, NumberInputProps>(
@@ -26,6 +27,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                 min,
                 max,
                 step = 1,
+                precision = 2,
                 isLoading,
                 loader,
                 size,
@@ -52,6 +54,8 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             const [innerValue, setInnerValue] = useState<number | string>(value ?? min ?? 0);
             const [isInputFocused, setIsInputFocused] = useState(false);
             const [isAnimationRun, setIsAnimationRun] = useState(false);
+
+            console.log('innerValue', innerValue);
 
             const innerWidth = width ? getSizeValueFromProp(width) : '100%';
 
@@ -80,7 +84,8 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     return;
                 }
 
-                const diffValue = Number(innerValue) - step;
+                const preciseDiff = getPreciseValue(Number(innerValue) - step, precision);
+                const diffValue = Number(preciseDiff);
                 const resValue = min !== undefined && diffValue <= min ? min : diffValue;
 
                 setInnerValue(resValue);
@@ -99,7 +104,8 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     return;
                 }
 
-                const diffValue = Number(innerValue) + step;
+                const preciseDiff = getPreciseValue(Number(innerValue) + step, precision);
+                const diffValue = Number(preciseDiff);
                 const resValue = max !== undefined && diffValue >= max ? max : diffValue;
 
                 setInnerValue(resValue);
@@ -163,6 +169,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                         ref={ref}
                         segmentation={segmentation}
                         value={innerValue}
+                        precision={precision}
                         min={min}
                         max={max}
                         isManualInput={isManualInput}

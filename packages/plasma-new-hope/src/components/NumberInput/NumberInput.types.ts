@@ -35,6 +35,11 @@ export type NumberInputProps = {
      */
     step?: number;
     /**
+     * Количество знаков после запятой.
+     * @default 2
+     */
+    precision?: number;
+    /**
      * Контрол в состоянии загрузки.
      */
     isLoading?: boolean;
