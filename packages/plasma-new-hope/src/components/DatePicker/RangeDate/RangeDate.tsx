@@ -1,8 +1,8 @@
 import React, { createRef, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import type {
-    ChangeEvent,
     KeyboardEvent,
-    ChangeEventHandler,
+    FocusEvent,
+    FocusEventHandler,
     MutableRefObject,
     SyntheticEvent,
     PropsWithChildren,
@@ -18,6 +18,7 @@ import { classes } from '../DatePicker.tokens';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
 import { getSortedValues } from '../../Calendar/utils';
+import type { DateInfo } from '../../Calendar/Calendar.types';
 
 import type { DatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -93,6 +94,7 @@ export const datePickerRangeRoot = (
                 placement = ['top', 'bottom'],
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
+                closeAfterDateSelect = true,
                 offset,
 
                 onToggle,
@@ -140,6 +142,10 @@ export const datePickerRangeRoot = (
             const [inputSecondValue, setInputSecondValue] = useState(
                 formatInputValue({ value: defaultSecondDate, format, lang }),
             );
+
+            const [fullDateEntered, setFullDateEntered] = useState(Boolean(calendarFirstValue && calendarSecondValue));
+
+            const [secondTextFieldClicked, setSecondTextFieldClicked] = useState(false);
 
             const setFirstInputValue = (value: React.SetStateAction<string>) => {
                 setInputFirstValue(value);
@@ -208,17 +214,17 @@ export const datePickerRangeRoot = (
                 onCommitDate: onCommitSecondDate,
             });
 
-            const handleToggle = (opened: boolean, event: SyntheticEvent | Event) => {
+            const handleToggle = (currentOpened: boolean, event?: SyntheticEvent | Event) => {
                 if (disabled || readOnly) {
                     return;
                 }
 
                 const isCalendarOpen =
-                    (firstInputRef?.current?.contains((event.target as Node) || null) ||
-                        secondInputRef?.current?.contains((event.target as Node) || null)) &&
-                    (event as KeyboardEvent<HTMLInputElement>).code !== keys.Escape
+                    (firstInputRef?.current?.contains((event?.target as Node) || null) ||
+                        secondInputRef?.current?.contains((event?.target as Node) || null)) &&
+                    (event as KeyboardEvent<HTMLInputElement>)?.code !== keys.Escape
                         ? true
-                        : opened;
+                        : currentOpened;
 
                 if (!isCalendarOpen) {
                     if (calendarFirstValue && !calendarSecondValue) {
@@ -229,6 +235,10 @@ export const datePickerRangeRoot = (
                     }
                 }
 
+                if (!isCalendarOpen) {
+                    setSecondTextFieldClicked(false);
+                }
+
                 if (onToggle) {
                     return onToggle(isCalendarOpen, event);
                 }
@@ -236,9 +246,19 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen(isCalendarOpen);
             };
 
+            const handleFocusFirstTextField = (event: FocusEvent<HTMLInputElement>) => {
+                onFocusFirstTextfield?.(event);
+                setSecondTextFieldClicked(false);
+            };
+
+            const handleFocusSecondTextField = (event: FocusEvent<HTMLInputElement>) => {
+                onFocusSecondTextfield?.(event);
+                setSecondTextFieldClicked(true);
+            };
+
             const handleBlur = (
-                event: ChangeEvent<HTMLInputElement>,
-                outerHandler?: ChangeEventHandler<HTMLInputElement>,
+                event: FocusEvent<HTMLInputElement>,
+                outerHandler?: FocusEventHandler<HTMLInputElement>,
             ) => {
                 if (!inputFirstValue || !inputSecondValue) {
                     outerHandler?.(event);
@@ -278,6 +298,40 @@ export const datePickerRangeRoot = (
                 onToggle: handleToggle,
                 closeOnEsc,
             });
+
+            const handleChangeStartOfRange = (chosenDate: Date, dateInfo?: DateInfo) => {
+                if (!fullDateEntered) {
+                    handleCommitFirstDate(chosenDate, false, true, dateInfo);
+                    handleCommitSecondDate('');
+
+                    return;
+                }
+
+                const prevValue = secondTextFieldClicked ? calendarFirstValue : calendarSecondValue;
+
+                const [first, second] = getSortedValues([prevValue, chosenDate]);
+
+                handleCommitFirstDate(first, false, true, dateInfo);
+                handleCommitSecondDate(second, false, true, dateInfo);
+
+                if (!firstValueError && !secondValueError && closeAfterDateSelect) {
+                    handleToggle(false);
+                }
+            };
+
+            const handleChangeCalendarValue = ([firstDate, secondDate]: [Date, Date?], dateInfo?: DateInfo) => {
+                if (firstDate) {
+                    handleCommitFirstDate(firstDate, false, true, dateInfo);
+                }
+
+                if (secondDate) {
+                    handleCommitSecondDate(secondDate, false, true, dateInfo);
+                }
+
+                if (firstDate && secondDate && !firstValueError && !secondValueError && closeAfterDateSelect) {
+                    handleToggle(false);
+                }
+            };
 
             const RangeComponent = (
                 <>
@@ -327,8 +381,8 @@ export const datePickerRangeRoot = (
                                 rangeRef?.current?.firstTextField()?.current?.focus();
                             }
                         }}
-                        onFocusFirstTextfield={onFocusFirstTextfield}
-                        onFocusSecondTextfield={onFocusSecondTextfield}
+                        onFocusFirstTextfield={handleFocusFirstTextField}
+                        onFocusSecondTextfield={handleFocusSecondTextField}
                         onBlurFirstTextfield={(event) => handleBlur(event, onBlurFirstTextfield)}
                         onBlurSecondTextfield={(event) => handleBlur(event, onBlurSecondTextfield)}
                         onKeyDown={onKeyDown}
@@ -362,6 +416,12 @@ export const datePickerRangeRoot = (
                 setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
                 setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
             }, [format, lang]);
+
+            useEffect(() => {
+                if (calendarFirstValue && calendarSecondValue) {
+                    setFullDateEntered(true);
+                }
+            }, [calendarFirstValue, calendarSecondValue]);
 
             const RootWrapper = useCallback<FC<PropsWithChildren>>(
                 ({ children }) => (
@@ -414,17 +474,8 @@ export const datePickerRangeRoot = (
                         lang={lang}
                         isDoubleCalendar={isDoubleCalendar}
                         rootWrapper={RootWrapper}
-                        onChangeStartOfRange={(firstDate, dateInfo) => {
-                            handleCommitFirstDate(firstDate, false, true, dateInfo);
-                            handleCommitSecondDate('');
-                        }}
-                        onChangeValue={([firstDate, secondDate], dateInfo) => {
-                            firstDate && handleCommitFirstDate(firstDate, false, true, dateInfo);
-                            secondDate && handleCommitSecondDate(secondDate, false, true, dateInfo);
-                            if (firstDate && secondDate && !firstValueError && !secondValueError) {
-                                setIsInnerOpen(false);
-                            }
-                        }}
+                        onChangeStartOfRange={handleChangeStartOfRange}
+                        onChangeValue={handleChangeCalendarValue}
                     />
                     {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
                     <InputHidden
