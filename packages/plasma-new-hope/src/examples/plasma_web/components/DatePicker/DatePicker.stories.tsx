@@ -23,7 +23,7 @@ const labelPlacements = ['outer', 'inner'];
 const requiredPlacements = ['left', 'right'];
 
 const meta: Meta = {
-    title: 'b2c/Data Entry/DatePicker',
+    title: 'web/Data Entry/DatePicker',
     decorators: [WithTheme],
     argTypes: {
         view: {
