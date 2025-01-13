@@ -5,7 +5,7 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { classes } from '../../NumberInput.tokens';
 import { cx, isNumber } from '../../../../utils';
 import { useDidMountEffect } from '../../../../hooks';
-import { defaultCharacterWidth, excludingNumberSchema, numberSchema } from '../../utils';
+import { defaultCharacterWidth, excludingNumberSchema, getPreciseValue, numberSchema } from '../../utils';
 import { keyCodes } from '../../../../utils/constants';
 
 import type { InputProps } from './Input.types';
@@ -24,6 +24,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
     (
         {
             value,
+            precision,
             min,
             max,
             isLoading,
@@ -45,7 +46,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
         ref,
     ) => {
         const [dynamicWidth, setDynamicWidth] = useState(value ? `${String(value).length}ch` : defaultCharacterWidth);
-        const [lastValidValue, setLastValidValue] = useState(Number(value));
+        const [lastValidValue, setLastValidValue] = useState<number | string>(Number(value));
         const [errorClass, setErrorClass] = useState<string | undefined>(undefined);
         const [errorValue, setErrorValue] = useState<number>();
 
@@ -70,7 +71,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             return defaultCharacterWidth;
         };
 
-        const setValues = (event: ChangeEvent<HTMLInputElement> | null, newValue: number) => {
+        const setValues = (event: ChangeEvent<HTMLInputElement> | null, newValue: number | string) => {
             setLastValidValue(newValue);
             setInnerValue(newValue);
 
@@ -82,12 +83,6 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
         const validateValue = (newValue: number | string) => {
             if (!newValue || !isNumber(newValue)) {
                 setValues(null, lastValidValue);
-                setIsAnimationRun(false);
-                return;
-            }
-
-            if (String(newValue).endsWith('.')) {
-                setValues(null, Number(newValue));
                 setIsAnimationRun(false);
                 return;
             }
@@ -104,6 +99,18 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                 setErrorClass(classes.errorAnimation);
                 setErrorValue(min);
                 setIsAnimationRun(true);
+                return;
+            }
+
+            if (String(newValue).endsWith('.')) {
+                setValues(null, Number(newValue));
+                setIsAnimationRun(false);
+                return;
+            }
+
+            if (precision !== undefined) {
+                const preciseNewValue = Number(getPreciseValue(newValue, precision));
+                setValues(null, preciseNewValue);
             }
 
             setIsAnimationRun(false);
@@ -137,12 +144,15 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                 return;
             }
 
+            console.log('here');
             const isValid = numberSchema.test(cleanValue);
 
             if (!isValid) {
+                console.log('not valid', cleanValue);
                 setValues(event, lastValidValue);
                 return;
             }
+            console.log('valid!', cleanValue);
 
             if (
                 textWrapperRef?.current &&
@@ -153,7 +163,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                     textWrapperRef.current.offsetWidth - textWrapperRef.current.offsetLeft || 0;
             }
 
-            setValues(event, Number(cleanValue));
+            setValues(event, cleanValue);
         };
 
         const handleClickInputWrapper = () => {
