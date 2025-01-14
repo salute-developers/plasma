@@ -2,7 +2,7 @@ import React, { ComponentProps, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconPlasma, IconDisclosureDown, IconCalendarOutline } from '@salutejs/plasma-icons';
+import { IconPlasma, IconCalendarOutline } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -186,7 +186,6 @@ const StoryRange = ({
     const rangeRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [firstDate, setFirstDate] = useState<string | Date>('');
 
     const iconSize = 's';
     const showDividerIcon = dividerVariant === 'icon';
@@ -233,12 +232,6 @@ const StoryRange = ({
             onChangeSecondValue={(e, currentValue) => {
                 onChangeSecondValue(e, currentValue);
             }}
-            onCommitFirstDate={(currentValue) => {
-                setFirstDate(currentValue);
-            }}
-            onCommitSecondDate={(currentValue) => {
-                firstDate && currentValue && setIsOpen(false);
-            }}
             {...dividerIconProps}
             {...rest}
         />
@@ -267,6 +260,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         view: 'default',
         lang: 'ru',
         format: 'DD.MM.YYYY',
+        closeAfterDateSelect: true,
         isDoubleCalendar: false,
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
