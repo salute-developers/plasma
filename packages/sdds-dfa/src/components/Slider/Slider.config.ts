@@ -75,7 +75,8 @@ export const config = {
 
                 ${sliderTokens.labelWrapperGap}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginBottom}: 0.25rem;
-                ${sliderTokens.labelWrapperMarginRight}: 0.875rem;
+                ${sliderTokens.labelWrapperMarginRight}: 1rem;
+                ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 1rem;
 
                 ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -125,7 +126,8 @@ export const config = {
 
                 ${sliderTokens.labelWrapperGap}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginBottom}: 0.25rem;
-                ${sliderTokens.labelWrapperMarginRight}: 0.875rem;
+                ${sliderTokens.labelWrapperMarginRight}: 1rem;
+                ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 0.75rem;
 
                 ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -175,7 +177,8 @@ export const config = {
 
                 ${sliderTokens.labelWrapperGap}: 0.25rem;
                 ${sliderTokens.labelWrapperMarginBottom}: 0.25rem;
-                ${sliderTokens.labelWrapperMarginRight}: 0.875rem;
+                ${sliderTokens.labelWrapperMarginRight}: 1rem;
+                ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 0.625rem;
 
                 ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
