@@ -27,6 +27,7 @@ export const tokens = {
     labelWrapperGap: '--plasma-slider-label-wrapper-gap',
     labelWrapperMarginBottom: '--plasma-slider-label-wrapper-margin-bottom',
     labelWrapperMarginRight: '--plasma-slider-label-wrapper-margin-right',
+    labelWrapperOnlyIconMarginRight: '--plasma-slider-label-wrapper-only-icon-margin-right',
     labelWrapperVerticalMargin: '--plasma-slider-label-wrapper-vertical-margin',
 
     labelColor: '--plasma-slider-label-color',
