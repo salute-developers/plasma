@@ -80,6 +80,7 @@ import { DatePickerPlacementBasic } from '@salutejs/plasma-new-hope/styled-compo
 import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { DatePickerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerRangePlacementBasic } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
@@ -1506,7 +1507,7 @@ secondTextfieldTextBefore?: string | undefined;
 dividerVariant?: "none" | "dash" | "icon" | undefined;
 dividerIcon?: ReactNode;
 } & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
-placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
+placement?: DatePickerRangePlacement | DatePickerRangePlacementBasic[] | undefined;
 isDoubleCalendar?: boolean | undefined;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>>;
 
