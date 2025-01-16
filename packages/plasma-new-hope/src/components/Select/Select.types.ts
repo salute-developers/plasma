@@ -1,7 +1,7 @@
 import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent, ChangeEventHandler } from 'react';
 import React from 'react';
 
-import type { RequiredProps, LabelProps } from '../TextField/TextField.types';
+import type { RequiredProps, LabelProps, HintProps } from '../TextField/TextField.types';
 import { DropdownProps } from '../Dropdown/Dropdown.types';
 
 import { FocusedPathState } from './reducers';
@@ -19,30 +19,31 @@ export type { RequiredProps };
 
 type Target = LabelProps &
     (
-        | (RequiredProps & {
-              /**
-               * Стиль селекта: button-like или textfield-like.
-               * @default textfield-like
-               */
-              target?: 'textfield-like';
-              view?: 'default' | 'positive' | 'warning' | 'negative';
-              /**
-               * Слот для контента слева.
-               */
-              contentLeft?: React.ReactNode;
-              /**
-               * Placeholder.
-               */
-              placeholder?: string;
-              /**
-               * Вспомогательный текст снизу слева для поля ввода.
-               */
-              helperText?: string;
-              /**
-               * Внешний вид chip.
-               */
-              chipType?: 'default' | 'text';
-          })
+        | (RequiredProps &
+              HintProps & {
+                  /**
+                   * Стиль селекта: button-like или textfield-like.
+                   * @default textfield-like
+                   */
+                  target?: 'textfield-like';
+                  view?: 'default' | 'positive' | 'warning' | 'negative';
+                  /**
+                   * Слот для контента слева.
+                   */
+                  contentLeft?: React.ReactNode;
+                  /**
+                   * Placeholder.
+                   */
+                  placeholder?: string;
+                  /**
+                   * Вспомогательный текст снизу слева для поля ввода.
+                   */
+                  helperText?: string;
+                  /**
+                   * Внешний вид chip.
+                   */
+                  chipType?: 'default' | 'text';
+              })
         | {
               target: 'button-like';
               view?:

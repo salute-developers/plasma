@@ -14,7 +14,7 @@ import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 /**
  * Компонент Autocomplete. Поле ввода с подсказками в выпадающем списке.
  */
-export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteProps>) =>
+export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<AutocompleteProps, 'hintText'>>) =>
     forwardRef<HTMLInputElement, AutocompleteProps>(
         (
             {
@@ -45,6 +45,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 renderListEnd,
                 onSearch,
                 hintText,
+                hintView = 'default',
+                hintSize = 'm',
                 beforeList,
                 afterList,
 
@@ -123,7 +125,15 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
             }, [defaultValue]);
 
             return (
-                <Root view={view} size={size} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
+                <Root
+                    view={view}
+                    size={size}
+                    labelPlacement={labelPlacement}
+                    disabled={disabled}
+                    readOnly={readOnly}
+                    hintView={hintView}
+                    hintSize={hintSize}
+                >
                     <StyledPopover
                         opened={isOpen}
                         offset={[0, 0]}

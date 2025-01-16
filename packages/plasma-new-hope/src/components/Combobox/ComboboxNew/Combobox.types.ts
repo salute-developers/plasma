@@ -1,7 +1,7 @@
 import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler } from 'react';
 import React from 'react';
 
-import { RequiredProps, LabelProps } from '../../TextField/TextField.types';
+import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
 import { DropdownProps } from '../../Dropdown/Dropdown.types';
 
 import { FocusedPathState } from './reducers';
@@ -223,6 +223,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     ViewStateProps &
     IsMultiselect<T> &
     RequiredProps &
+    HintProps &
     Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue'>;
 
 export type FloatingPopoverProps = {

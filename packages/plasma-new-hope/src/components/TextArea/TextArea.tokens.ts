@@ -234,6 +234,7 @@ export const tokens = {
     titleCaptionLineHeight: '--plasma-textarea__title-caption-line-height',
 
     /** Токены для tooltip */
+    hintCustomIconTargetSize: '--plasma-textarea__hint-custom-icon-target-size',
     hintMargin: '--plasma-textarea__hint-margin',
     hintTargetSize: '--plasma-textarea__hint-target-size',
     hintIconColor: '--plasma-textarea__hint-icon-color',
