@@ -56,6 +56,7 @@ export const tokens = {
     itemFontWeightBold: '--plasma-dropdown-item-letter-spacing',
     itemFontLetterSpacing: '--plasma-dropdown-item-line-height',
     itemFontLineHeight: '--plasma-dropdown-item-font-weight',
+    itemMargin: '--plasma-dropdown-item-margin',
     itemPadding: '--plasma-dropdown-item-padding',
     itemPaddingTight: '--plasma-dropdown-item-padding-tight',
     itemGap: '--plasma-dropdown-item-gap',

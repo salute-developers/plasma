@@ -32,7 +32,7 @@ export const StyledCell = styled(Cell)``;
 
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
-    color: var(${constants.disclosureIconColor});
+    color: var(${tokens.disclosureIconColor}, var(${constants.disclosureIconColor}));
 `;
 
 // TODO: Удалить после поддержки JS переменных в конфиге компонент
@@ -63,7 +63,7 @@ export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     align-items: center;
     gap: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemGapTight : tokens.itemGap})`};
     min-height: var(${tokens.itemHeight});
-    margin: 0 calc(0.125rem + var(${tokens.borderWidth}, 0rem));
+    margin: var(${tokens.itemMargin}, 0 calc(0.125rem + var(${tokens.borderWidth}, 0rem)));
     box-sizing: content-box;
     padding: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTight : tokens.itemPadding})`};
     font-family: var(${tokens.itemFontFamily});
@@ -73,7 +73,10 @@ export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     letter-spacing: var(${tokens.itemFontLetterSpacing});
     line-height: var(${tokens.itemFontLineHeight});
     background-color: var(${constants.itemBackground});
-    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem));
+    border-radius: var(
+        ${tokens.itemBorderRadius},
+        calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem))
+    );
     user-select: none;
     background-clip: padding-box;
 
