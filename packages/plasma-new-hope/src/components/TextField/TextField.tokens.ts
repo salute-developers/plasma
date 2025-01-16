@@ -14,6 +14,7 @@ export const classes = {
     textFieldGroupItem: 'text-field-group-item',
     requiredAlignRight: 'required-align-right',
     inputWrapper: 'input-wrapper',
+    contentRightCompensationMargin: 'textfield-content-right-compensation-margin',
 };
 
 export const tokens = {
@@ -59,6 +60,7 @@ export const tokens = {
     /* Токены для input */
     leftContentMargin: '--plasma-textfield__left-content-margin',
     rightContentMargin: '--plasma-textfield__right-content-margin',
+    rightContentWithHintMargin: '--plasma-textfield__right-content-with-hint-margin',
 
     fontFamily: '--plasma-textfield-font-family',
     fontStyle: '--plasma-textfield-font-style',
@@ -75,6 +77,9 @@ export const tokens = {
     contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
     contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
+
+    contentRightWrapperGap: '--plasma-textfield-content-right-wrapper-gap',
+    contentRightWrapperMargin: '--plasma-textfield-content-right-wrapper-margin',
 
     /** Токены лейбла */
     labelColor: '--plasma-textfield__label-color',
@@ -134,6 +139,7 @@ export const tokens = {
     /** Токены для tooltip */
     hintMargin: '--plasma-textfield__hint-margin',
     hintTargetSize: '--plasma-textfield__hint-target-size',
+    hintCustomIconTargetSize: '--plasma-textfield__hint-custom-icon-target-size',
     hintIconColor: '--plasma-textfield__hint-icon-color',
     hintInnerLabelPlacementOffset: '--plasma-textfield__hint-inner-label-placement-offset',
     clearHintInnerLabelPlacementOffset: '--plasma-textfield__clear-hint-inner-label-placement-offset',

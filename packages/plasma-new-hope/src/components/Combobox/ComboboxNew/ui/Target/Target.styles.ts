@@ -40,6 +40,10 @@ export const StyledTextField = styled(TextField)`
 
     ${textFieldTokens.leftContentMargin}: var(${comboboxTokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${comboboxTokens.textFieldRightContentMargin});
+    
+    ${textFieldTokens.rightContentWithHintMargin}: var(${comboboxTokens.textFieldRightContentWithHintMargin});
+    ${textFieldTokens.contentRightWrapperGap}: var(${comboboxTokens.textFieldContentRightWrapperGap});
+    ${textFieldTokens.contentRightWrapperMargin}: var(${comboboxTokens.textFieldContentRightWrapperMargin});
 
     ${textFieldTokens.fontFamily}: var(${comboboxTokens.textFieldFontFamily});
     ${textFieldTokens.fontStyle}: var(${comboboxTokens.textFieldFontStyle});
@@ -106,6 +110,35 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.textAfterMargin}: var(${comboboxTokens.textFieldTextAfterMargin});
 
     ${textFieldTokens.disabledOpacity}: var(${comboboxTokens.textFieldDisabledOpacity});
+    
+    ${textFieldTokens.hintCustomIconTargetSize}: var(${comboboxTokens.textFieldHintCustomIconTargetSize});
+    ${textFieldTokens.hintMargin}: var(${comboboxTokens.textFieldHintMargin});
+    ${textFieldTokens.hintTargetSize}: var(${comboboxTokens.textFieldHintTargetSize});
+    ${textFieldTokens.hintIconColor}: var(${comboboxTokens.textFieldHintIconColor});
+    ${textFieldTokens.hintInnerLabelPlacementOffset}: var(${comboboxTokens.textFieldHintInnerLabelPlacementOffset});
+    ${textFieldTokens.clearHintInnerLabelPlacementOffset}: var(${comboboxTokens.textFieldClearHintInnerLabelPlacementOffset});
+    ${textFieldTokens.tooltipBackgroundColor}: var(${comboboxTokens.textFieldTooltipBackgroundColor});
+    ${textFieldTokens.tooltipBoxShadow}: var(${comboboxTokens.textFieldTooltipBoxShadow});
+    ${textFieldTokens.tooltipColor}: var(${comboboxTokens.textFieldTooltipColor});
+    ${textFieldTokens.tooltipPaddingTop}: var(${comboboxTokens.textFieldTooltipPaddingTop});
+    ${textFieldTokens.tooltipPaddingRight}: var(${comboboxTokens.textFieldTooltipPaddingRight});
+    ${textFieldTokens.tooltipPaddingBottom}: var(${comboboxTokens.textFieldTooltipPaddingBottom});
+    ${textFieldTokens.tooltipPaddingLeft}: var(${comboboxTokens.textFieldTooltipPaddingLeft});
+    ${textFieldTokens.tooltipMinHeight}: var(${comboboxTokens.textFieldTooltipMinHeight});
+    ${textFieldTokens.tooltipBorderRadius}: var(${comboboxTokens.textFieldTooltipBorderRadius});
+    ${textFieldTokens.tooltipTextFontFamily}: var(${comboboxTokens.textFieldTooltipTextFontFamily});
+    ${textFieldTokens.tooltipTextFontSize}: var(${comboboxTokens.textFieldTooltipTextFontSize});
+    ${textFieldTokens.tooltipTextFontStyle}: var(${comboboxTokens.textFieldTooltipTextFontStyle});
+    ${textFieldTokens.tooltipTextFontWeight}: var(${comboboxTokens.textFieldTooltipTextFontWeight});
+    ${textFieldTokens.tooltipTextFontLetterSpacing}: var(${comboboxTokens.textFieldTooltipTextFontLetterSpacing});
+    ${textFieldTokens.tooltipTextFontLineHeight}: var(${comboboxTokens.textFieldTooltipTextFontLineHeight});
+    ${textFieldTokens.tooltipContentLeftMargin}: var(${comboboxTokens.textFieldTooltipContentLeftMargin});
+    ${textFieldTokens.tooltipArrowMaskWidth}: var(${comboboxTokens.textFieldTooltipArrowMaskWidth});
+    ${textFieldTokens.tooltipArrowMaskHeight}: var(${comboboxTokens.textFieldTooltipArrowMaskHeight});
+    ${textFieldTokens.tooltipArrowMaskImage}: var(${comboboxTokens.textFieldTooltipArrowMaskImage});
+    ${textFieldTokens.tooltipArrowHeight}: var(${comboboxTokens.textFieldTooltipArrowHeight});
+    ${textFieldTokens.tooltipArrowEdgeMargin}: var(${comboboxTokens.textFieldTooltipArrowEdgeMargin});
+    ${textFieldTokens.tooltipArrowBackground}: var(${comboboxTokens.textFieldTooltipArrowBackground});
 
     ${textFieldTokens.chipHeight}: var(${comboboxTokens.textFieldChipHeight});
     ${textFieldTokens.chipBorderRadius}: var(${comboboxTokens.textFieldChipBorderRadius});

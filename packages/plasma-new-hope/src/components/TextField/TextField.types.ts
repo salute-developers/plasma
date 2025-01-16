@@ -133,7 +133,7 @@ export type LabelProps = {
     keepPlaceholder?: boolean;
 };
 
-type HintProps =
+export type HintProps =
     | {
           /**
            * Текст тултипа
@@ -156,6 +156,12 @@ type HintProps =
            * Если свойство не задано, применится иконка по умолчанию.
            */
           hintTargetIcon?: ReactNode;
+          /**
+           * Расположение иконки подсказки, когда отсутствует label
+           * или же он имеет labelPlacement='inner'.
+           * @default `outer`
+           */
+          hintTargetPlacement?: 'inner' | 'outer';
           /**
            * Направление раскрытия тултипа.
            */
@@ -185,6 +191,7 @@ type HintProps =
           hintView?: never;
           hintSize?: never;
           hintTargetIcon?: never;
+          hintTargetPlacement?: never;
           hintPlacement?: never;
           hintHasArrow?: never;
           hintOffset?: never;

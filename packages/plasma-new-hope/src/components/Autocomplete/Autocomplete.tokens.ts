@@ -40,6 +40,10 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-autocomplete-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-autocomplete-textfield-right-content-margin',
+    textFieldRightContentWithHintMargin: '--plasma-autocomplete-textfield-right-content-with-hint-margin',
+
+    textFieldContentRightWrapperGap: '--plasma-autocomplete-textfield-content-right-wrapper-gap',
+    textFieldContentRightWrapperMargin: '--plasma-autocomplete-textfield-content-right-wrapper-margin',
 
     textFieldFontFamily: '--plasma-autocomplete-textfield-font-family',
     textFieldFontStyle: '--plasma-autocomplete-textfield-font-style',
@@ -95,6 +99,39 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-autocomplete-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-autocomplete-textfield-disabled-opacity',
+
+    /** Токены для tooltip */
+    textFieldHintCustomIconTargetSize: '--plasma-autocomplete-textfield__hint-custom-icon-target-size',
+    textFieldHintMargin: '--plasma-autocomplete-textfield__hint-margin',
+    textFieldHintTargetSize: '--plasma-autocomplete-textfield__hint-target-size',
+    textFieldHintIconColor: '--plasma-autocomplete-textfield__hint-icon-color',
+    textFieldHintInnerLabelPlacementOffset: '--plasma-autocomplete-textfield__hint-inner-label-placement-offset',
+    textFieldClearHintInnerLabelPlacementOffset:
+        '--plasma-autocomplete-textfield__clear-hint-inner-label-placement-offset',
+
+    textFieldTooltipBackgroundColor: '--plasma-autocomplete-textfield__tooltip-background-color',
+    textFieldTooltipBoxShadow: '--plasma-autocomplete-textfield__tooltip-box-shadow',
+    textFieldTooltipColor: '--plasma-autocomplete-textfield__tooltip-color',
+
+    textFieldTooltipPaddingTop: '--plasma-autocomplete-textfield__tooltip-padding-top',
+    textFieldTooltipPaddingRight: '--plasma-autocomplete-textfield__tooltip-padding-right',
+    textFieldTooltipPaddingBottom: '--plasma-autocomplete-textfield__tooltip-padding-bottom',
+    textFieldTooltipPaddingLeft: '--plasma-autocomplete-textfield__tooltip-padding-left',
+    textFieldTooltipMinHeight: '--plasma-autocomplete-textfield__tooltip-min-height',
+    textFieldTooltipBorderRadius: '--plasma-autocomplete-textfield__tooltip-border-radius',
+    textFieldTooltipTextFontFamily: '--plasma-autocomplete-textfield__tooltip-text-font-family',
+    textFieldTooltipTextFontSize: '--plasma-autocomplete-textfield__tooltip-text-font-size',
+    textFieldTooltipTextFontStyle: '--plasma-autocomplete-textfield__tooltip-text-font-style',
+    textFieldTooltipTextFontWeight: '--plasma-autocomplete-textfield__tooltip-text-font-weight',
+    textFieldTooltipTextFontLetterSpacing: '--plasma-autocomplete-textfield__tooltip-text-font-letter-spacing',
+    textFieldTooltipTextFontLineHeight: '--plasma-autocomplete-textfield__tooltip-text-font-line-height',
+    textFieldTooltipContentLeftMargin: '--plasma-autocomplete-textfield__tooltip-content-left-margin',
+    textFieldTooltipArrowMaskWidth: '--plasma-autocomplete-textfield__tooltip-arrow-mask-width',
+    textFieldTooltipArrowMaskHeight: '--plasma-autocomplete-textfield__tooltip-arrow-mask-height',
+    textFieldTooltipArrowMaskImage: '--plasma-autocomplete-textfield__tooltip-arrow-mask-image',
+    textFieldTooltipArrowHeight: '--plasma-autocomplete-textfield__tooltip-arrow-height',
+    textFieldTooltipArrowEdgeMargin: '--plasma-autocomplete-textfield__tooltip-arrow-edge-margin',
+    textFieldTooltipArrowBackground: '--plasma-autocomplete-textfield__tooltip-arrow-background',
 
     textFieldFocusColor: '--plasma-autocomplete-textfield-focus-color',
 

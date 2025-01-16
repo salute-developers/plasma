@@ -43,6 +43,10 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
 
+    ${textFieldTokens.rightContentWithHintMargin}: var(${tokens.textFieldRightContentWithHintMargin});
+    ${textFieldTokens.contentRightWrapperGap}: var(${tokens.textFieldContentRightWrapperGap});
+    ${textFieldTokens.contentRightWrapperMargin}: var(${tokens.textFieldContentRightWrapperMargin});
+
     ${textFieldTokens.fontFamily}: var(${tokens.textFieldFontFamily});
     ${textFieldTokens.fontStyle}: var(${tokens.textFieldFontStyle});
     ${textFieldTokens.fontSize}: var(${tokens.textFieldFontSize});
@@ -102,6 +106,35 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.textAfterMargin}: var(${tokens.textFieldTextAfterMargin});
 
     ${textFieldTokens.disabledOpacity}: var(${tokens.textFieldDisabledOpacity});
+
+    ${textFieldTokens.hintCustomIconTargetSize}: var(${tokens.textFieldHintCustomIconTargetSize});
+    ${textFieldTokens.hintMargin}: var(${tokens.textFieldHintMargin});
+    ${textFieldTokens.hintTargetSize}: var(${tokens.textFieldHintTargetSize});
+    ${textFieldTokens.hintIconColor}: var(${tokens.textFieldHintIconColor});
+    ${textFieldTokens.hintInnerLabelPlacementOffset}: var(${tokens.textFieldHintInnerLabelPlacementOffset});
+    ${textFieldTokens.clearHintInnerLabelPlacementOffset}: var(${tokens.textFieldClearHintInnerLabelPlacementOffset});
+    ${textFieldTokens.tooltipBackgroundColor}: var(${tokens.textFieldTooltipBackgroundColor});
+    ${textFieldTokens.tooltipBoxShadow}: var(${tokens.textFieldTooltipBoxShadow});
+    ${textFieldTokens.tooltipColor}: var(${tokens.textFieldTooltipColor});
+    ${textFieldTokens.tooltipPaddingTop}: var(${tokens.textFieldTooltipPaddingTop});
+    ${textFieldTokens.tooltipPaddingRight}: var(${tokens.textFieldTooltipPaddingRight});
+    ${textFieldTokens.tooltipPaddingBottom}: var(${tokens.textFieldTooltipPaddingBottom});
+    ${textFieldTokens.tooltipPaddingLeft}: var(${tokens.textFieldTooltipPaddingLeft});
+    ${textFieldTokens.tooltipMinHeight}: var(${tokens.textFieldTooltipMinHeight});
+    ${textFieldTokens.tooltipBorderRadius}: var(${tokens.textFieldTooltipBorderRadius});
+    ${textFieldTokens.tooltipTextFontFamily}: var(${tokens.textFieldTooltipTextFontFamily});
+    ${textFieldTokens.tooltipTextFontSize}: var(${tokens.textFieldTooltipTextFontSize});
+    ${textFieldTokens.tooltipTextFontStyle}: var(${tokens.textFieldTooltipTextFontStyle});
+    ${textFieldTokens.tooltipTextFontWeight}: var(${tokens.textFieldTooltipTextFontWeight});
+    ${textFieldTokens.tooltipTextFontLetterSpacing}: var(${tokens.textFieldTooltipTextFontLetterSpacing});
+    ${textFieldTokens.tooltipTextFontLineHeight}: var(${tokens.textFieldTooltipTextFontLineHeight});
+    ${textFieldTokens.tooltipContentLeftMargin}: var(${tokens.textFieldTooltipContentLeftMargin});
+    ${textFieldTokens.tooltipArrowMaskWidth}: var(${tokens.textFieldTooltipArrowMaskWidth});
+    ${textFieldTokens.tooltipArrowMaskHeight}: var(${tokens.textFieldTooltipArrowMaskHeight});
+    ${textFieldTokens.tooltipArrowMaskImage}: var(${tokens.textFieldTooltipArrowMaskImage});
+    ${textFieldTokens.tooltipArrowHeight}: var(${tokens.textFieldTooltipArrowHeight});
+    ${textFieldTokens.tooltipArrowEdgeMargin}: var(${tokens.textFieldTooltipArrowEdgeMargin});
+    ${textFieldTokens.tooltipArrowBackground}: var(${tokens.textFieldTooltipArrowBackground});
 
     ${textFieldTokens.chipHeight}: var(${tokens.textFieldChipHeight});
     ${textFieldTokens.chipBorderRadius}: var(${tokens.textFieldChipBorderRadius});

@@ -21,6 +21,7 @@ const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'neg
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
+const hintTargetPlacements = ['outer', 'inner'];
 const labelPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
@@ -115,6 +116,13 @@ const meta: Meta<typeof TextField> = {
             options: hintSizes,
             control: {
                 type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTargetPlacement: {
+            options: hintTargetPlacements,
+            control: {
+                type: 'inline-radio',
             },
             if: { arg: 'hasHint', truthy: true },
         },
@@ -241,6 +249,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hintTrigger: 'hover',
         hintView: 'default',
         hintSize: 'm',
+        hintTargetPlacement: 'outer',
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
