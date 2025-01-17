@@ -8,7 +8,7 @@ import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType } from './hooks/getPathMaps';
 
-type Placement =
+export type Placement =
     | 'top'
     | 'top-start'
     | 'top-end'

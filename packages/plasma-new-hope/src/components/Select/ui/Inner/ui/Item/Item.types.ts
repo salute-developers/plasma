@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 
 import type { PathState } from '../../../../reducers';
+import type { SelectPlacement, SelectPlacementBasic } from '../../../../Select.types';
 
 export type ItemOption = {
     /**
@@ -12,6 +13,11 @@ export type ItemOption = {
      * Метка-подпись к item
      */
     label: string;
+    /**
+     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     * @default right
+     */
+    placement?: SelectPlacement | Array<SelectPlacementBasic>;
     /**
      * Список дочерних items
      */
@@ -50,6 +56,11 @@ export type ItemProps = {
 export type MergedDropdownNode = {
     value: string | number;
     label: string;
+    /**
+     * Сторона открытия дропдауна относительно target элемента.
+     * @default bottom
+     */
+    placement?: SelectPlacement | Array<SelectPlacementBasic>;
     items?: MergedDropdownNode[];
     /**
      * @deprecated
