@@ -125,4 +125,36 @@ describe('plasma-web: Checkbox', () => {
         cy.get('input[type="checkbox"]').first().focus();
         cy.matchImageSnapshot();
     });
+
+    it('should check the checkbox on label click', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Checkbox label="Label" description="Description" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        // realClick приводит к падению теста Combobox
+        // https://github.com/salute-developers/plasma/issues/1708
+        // cy.get('label').realClick();
+        // cy.get('input[type="checkbox"]').should('be.checked');
+
+        cy.get('label').click();
+        cy.get('input[type="checkbox"]').should('be.checked');
+    });
+
+    it('singleLine', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '200px' }}>
+                    <Checkbox
+                        singleLine
+                        label="Label looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger"
+                        description="Description looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
