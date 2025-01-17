@@ -80,7 +80,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                     aria-describedby={uniqDescriptionId}
                     tabIndex={canFocused}
                 />
-                <StyledContentWrapper htmlFor={checkboxId}>
+                <StyledContentWrapper htmlFor={checkboxId} className={singleLineClass}>
                     <StyledTrigger className={classes.checkboxTrigger}>
                         {indeterminate ? <Indeterminate /> : <Done />}
                     </StyledTrigger>

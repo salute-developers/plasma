@@ -13,7 +13,6 @@ export const base = css`
     position: relative;
     align-items: flex-start;
     display: flex;
-    cursor: pointer;
 
     .${classes.singleLine} {
         ${applyEllipsis()};
@@ -67,8 +66,12 @@ export const StyledContentWrapper = styled.label`
     position: relative;
     align-items: flex-start;
     display: flex;
-    width: 100%;
-    cursor: inherit;
+    width: inherit;
+    cursor: pointer;
+
+    .${classes.singleLine} {
+        width: 100%;
+    }
 `;
 
 export const StyledContent = styled.div`
