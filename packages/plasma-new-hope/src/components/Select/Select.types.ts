@@ -12,8 +12,8 @@ import {
 } from './ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
-type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
+export type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
+export type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
 
 export type { RequiredProps };
 

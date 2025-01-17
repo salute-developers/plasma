@@ -28,7 +28,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
     if (!isEmpty(item?.items)) {
         return (
             <FloatingPopover
-                placement="right-start"
+                placement={item?.placement || 'right-start'}
                 opened={isCurrentListOpen}
                 onToggle={handleToggle}
                 offset={2}
