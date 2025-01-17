@@ -26,6 +26,11 @@ type Items = Array<{
          */
         label: string;
         /**
+        * Сторона открытия вложенного дропдауна относительно текущего элемента
+        * @default right
+        */
+        placement?: Placement;
+        /**
          * Список дочерних items.
          */
         items?: Array<ItemOption>;
@@ -53,7 +58,7 @@ type Items = Array<{
     <TabItem value="single" label="Single" default>
         ```tsx live
         import React from 'react';
-        import { Combobox } from '@salutejs/{{ package }}';
+        import { Combobox } from '@salutejs/sdds-serv';
 
         export function App() {
             const [value, setValue] = useState('');
@@ -99,7 +104,7 @@ type Items = Array<{
     <TabItem value="multiple" label="Multiple">
         ```tsx live
         import React from 'react';
-        import { Combobox } from '@salutejs/{{ package }}';
+        import { Combobox } from '@salutejs/sdds-serv';
 
         export function App() {
             const [value, setValue] = useState([]);
@@ -148,7 +153,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Combobox, Button } from '@salutejs/{{ package }}';
+        import { Combobox, Button } from '@salutejs/sdds-serv';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
@@ -201,7 +206,7 @@ type Items = Array<{
 
         ```tsx live
         import React, { useRef } from 'react';
-        import { Combobox } from '@salutejs/{{ package }}';
+        import { Combobox } from '@salutejs/sdds-serv';
 
         export function App() {
             const [value, setValue] = useState('');
@@ -253,7 +258,7 @@ type Items = Array<{
 
        ```tsx live
         import React from 'react';
-        import { Combobox } from '@salutejs/{{ package }}';
+        import { Combobox } from '@salutejs/sdds-serv';
 
         export function App() {
             const items = [
@@ -297,7 +302,7 @@ type Items = Array<{
 
        ```tsx live
         import React, { useState } from 'react';
-        import { Combobox, Button } from '@salutejs/{{ package }}';
+        import { Combobox, Button } from '@salutejs/sdds-serv';
 
         export function App() {
             const [alwaysOpened, setAlwaysOpened] = useState(false);

@@ -3,11 +3,12 @@ id: select
 title: Select
 ---
 
-import { PropsTable, Description } from '@site/src/components';
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Select
+
 <Description name="Select" />
 <PropsTable name="Select" />
 
@@ -25,7 +26,7 @@ type Items = Array<{
          */
         label: string;
         /**
-        * Сторона открытия вложенного дропдауна относительно текущего элемента
+        * Сторона открытия вложенного дропдауна относительно текущего элемента;
         * @default right
         */
         placement?: SelectPlacement | Array<SelectPlacementBasic>;
@@ -64,7 +65,7 @@ type Items = Array<{
 ```
 
 Тип выбора селекта - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.
-Селект может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\
+Select может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\
 Есть возможность прокидывать компонент `EmptyState` в пропс `renderList` для изменения содержимого выпадающего окна.\
 Это нужно в случаях, когда произошла ошибка при загрузке `items`, либо когда `items` пустой. Более подробно в примерах.
 
@@ -76,7 +77,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select } from '@salutejs/sdds-dfa';
+        import { Select } from '@salutejs/plasma-giga';
 
         export function App() {
             const [singleValue, setSingleValue] = useState('');
@@ -122,7 +123,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select } from '@salutejs/sdds-dfa';
+        import { Select } from '@salutejs/plasma-giga';
 
         export function App() {
             const [singleValue, setSingleValue] = useState('');
@@ -168,7 +169,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select, Button } from '@salutejs/sdds-dfa';
+        import { Select, Button } from '@salutejs/plasma-giga';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
@@ -211,7 +212,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select } from '@salutejs/sdds-dfa';
+        import { Select } from '@salutejs/plasma-giga';
 
         export function App() {
             const [singleValue, setSingleValue] = useState('');
@@ -269,7 +270,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select, Cell } from '@salutejs/sdds-dfa';
+        import { Select, Cell } from '@salutejs/plasma-giga';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState([]);
@@ -343,7 +344,7 @@ type Items = Array<{
 
         ```tsx live
         import React, { useRef } from 'react';
-        import { Select } from '@salutejs/sdds-dfa';
+        import { Select } from '@salutejs/plasma-giga';
 
         export function App() {
             const [value, setValue] = useState('');
@@ -386,7 +387,7 @@ type Items = Array<{
 
        ```tsx live
         import React from 'react';
-        import { Select } from '@salutejs/sdds-dfa';
+        import { Select } from '@salutejs/plasma-giga';
 
         export function App() {
             const items = [
