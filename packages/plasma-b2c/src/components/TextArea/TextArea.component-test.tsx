@@ -394,7 +394,7 @@ describe('plasma-b2c: TextArea', () => {
                 mount(
                     <CypressTestDecorator>
                         {cases.map((props) => (
-                            <div style={{ margin: '0 1rem' }}>
+                            <div style={{ margin: '0 3rem' }}>
                                 <TextArea
                                     value="Value"
                                     placeholder="Placeholder"
