@@ -49,6 +49,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-accent);
                 ${tokens.disclosureIconColorHover}: var(--text-accent-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             positive: css`
                 ${tokens.textFieldColor}: color-mix(in oklab, var(--text-positive) 70%, transparent);
@@ -90,6 +92,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             warning: css`
                 ${tokens.textFieldColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
@@ -131,6 +135,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             negative: css`
                 ${tokens.textFieldColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
@@ -172,6 +178,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             accent: css`
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
@@ -321,6 +329,12 @@ export const config = {
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
 
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+
                 ${tokens.textFieldChipGap}: 0.125rem;
                 ${tokens.textFieldChipBorderRadius}: 0.5rem;
                 ${tokens.textFieldChipWidth}: auto;
@@ -441,6 +455,12 @@ export const config = {
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
                 ${tokens.textFieldClearIndicatorHintInnerRight}: 1.25rem -2.25rem auto auto;
 
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+
                 ${tokens.textFieldChipGap}: 0.125rem;
                 ${tokens.textFieldChipBorderRadius}: 0.375rem;
                 ${tokens.textFieldChipWidth}: auto;
@@ -560,6 +580,14 @@ export const config = {
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
+
+                ${tokens.textFieldHintCustomIconTargetSize}:1rem;
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.1875rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -1.938rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -1.988rem auto auto;
 
                 ${tokens.textFieldChipGap}: 0.125rem;
                 ${tokens.textFieldChipBorderRadius}: 0.25rem;
@@ -682,6 +710,12 @@ export const config = {
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
                 ${tokens.textFieldClearIndicatorHintInnerRight}: 0.813rem -1.875rem auto auto;
 
+                ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
+
                 ${tokens.textFieldChipGap}: 0.125rem;
                 ${tokens.textFieldChipBorderRadius}: 0.125rem;
                 ${tokens.textFieldChipWidth}: auto;
@@ -771,6 +805,56 @@ export const config = {
                 ${tokens.textFieldChipBackground}: var(--surface-accent);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-primary);
+            `,
+        },
+        hintView: {
+            default: css`
+                ${tokens.textFieldTooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${tokens.textFieldTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.textFieldTooltipColor}: var(--text-primary);
+                ${tokens.textFieldTooltipArrowBackground}: var(--surface-solid-card);
+            `,
+        },
+        hintSize: {
+            m: css`
+                ${tokens.textFieldTooltipPaddingTop}: 0.6875rem;
+                ${tokens.textFieldTooltipPaddingRight}: 0.875rem;
+                ${tokens.textFieldTooltipPaddingBottom}: 0.6875rem;
+                ${tokens.textFieldTooltipPaddingLeft}: 0.875rem;
+                ${tokens.textFieldTooltipMinHeight}: 2.5rem;
+                ${tokens.textFieldTooltipBorderRadius}: 0.625rem;
+                ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldTooltipContentLeftMargin}: 0.375rem;
+                ${tokens.textFieldTooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.textFieldTooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.textFieldTooltipArrowHeight}: 0.5rem;
+                ${tokens.textFieldTooltipArrowEdgeMargin}: 0.625rem;
+            `,
+            s: css`
+                ${tokens.textFieldTooltipPaddingTop}: 0.5rem;
+                ${tokens.textFieldTooltipPaddingRight}: 0.75rem;
+                ${tokens.textFieldTooltipPaddingBottom}: 0.5rem;
+                ${tokens.textFieldTooltipPaddingLeft}: 0.75rem;
+                ${tokens.textFieldTooltipMinHeight}: 2rem;
+                ${tokens.textFieldTooltipBorderRadius}: 0.5rem;
+                ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldTooltipContentLeftMargin}: 0.25rem;
+                ${tokens.textFieldTooltipArrowMaskWidth}: 1rem;
+                ${tokens.textFieldTooltipArrowMaskHeight}: 1rem;
+                ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.textFieldTooltipArrowHeight}: 0.375rem;
+                ${tokens.textFieldTooltipArrowEdgeMargin}: 0.5625rem;
             `,
         },
         disabled: {
