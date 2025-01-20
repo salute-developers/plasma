@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import Tree from 'rc-tree';
-import 'rc-tree/assets/index.css';
 
 import { RootProps } from '../../engines';
 import { cx } from '../../utils';
