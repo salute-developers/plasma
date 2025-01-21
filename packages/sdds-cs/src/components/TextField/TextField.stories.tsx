@@ -4,7 +4,6 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
-import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextField } from '.';
 
@@ -12,32 +11,10 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 const onSearch = action('onSearch');
-const onChipsChange = action('onChipsChange');
 
 const sizes = ['s'];
 const views = ['default', 'negative'];
 const labelPlacements = ['outer'];
-const hintSizes = ['m', 's'];
-const hintTriggers = ['hover', 'click'];
-const placements: Array<PopoverPlacement> = [
-    'top',
-    'top-start',
-    'top-end',
-
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-
-    'left',
-    'left-start',
-    'left-end',
-
-    'right',
-    'right-start',
-    'right-end',
-
-    'auto',
-];
 
 const meta: Meta<typeof TextField> = {
     title: 'Data Entry/TextField',
@@ -92,40 +69,6 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
-        hintText: {
-            control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintSize: {
-            options: hintSizes,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintTrigger: {
-            options: hintTriggers,
-            control: {
-                type: 'inline-radio',
-            },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintPlacement: {
-            options: placements,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'hasHint', truthy: true },
-            mappers: placements,
-        },
-        hintHasArrow: {
-            control: { type: 'boolean' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintWidth: {
-            control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
-        },
         chipType: {
             control: 'select',
             options: ['default', 'text'],
@@ -153,6 +96,17 @@ const meta: Meta<typeof TextField> = {
             'minLength',
             'maxLength',
             'checked',
+            'hintText',
+            'hintTrigger',
+            'hintView',
+            'hintSize',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintPlacement',
+            'hintHasArrow',
+            'hintOffset',
+            'hintWidth',
+            'hintContentLeft',
         ]),
     },
 };
@@ -179,7 +133,6 @@ type StoryPropsDefault = Omit<
     | 'chips'
     | 'onChangeChips'
 > & {
-    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
@@ -243,14 +196,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         clear: false,
         hasDivider: false,
-        hasHint: true,
-        hintText: 'Текст подсказки',
-        hintTrigger: 'hover',
-        hintView: 'default',
-        hintSize: 'm',
-        hintPlacement: 'auto',
-        hintWidth: '10rem',
-        hintHasArrow: true,
     },
     parameters: {
         controls: {

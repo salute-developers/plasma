@@ -16,10 +16,6 @@ type StoryTextAreaPropsCustom = {
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
-const hintViews = ['default'];
-const hintSizes = ['m', 's'];
-const hintTriggers = ['hover', 'click'];
-
 const meta: Meta<StoryTextAreaProps> = {
     title: 'Data Entry/TextArea',
     decorators: [InSpacingDecorator],
@@ -72,52 +68,6 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'clear', truthy: false },
         },
-        hasHint: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        hintText: {
-            control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintView: {
-            options: hintViews,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintSize: {
-            options: hintSizes,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintTrigger: {
-            options: hintTriggers,
-            control: {
-                type: 'inline-radio',
-            },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintPlacement: {
-            options: placements,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'hasHint', truthy: true },
-            mappers: placements,
-        },
-        hintHasArrow: {
-            control: { type: 'boolean' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintWidth: {
-            control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
-        },
         helperText: {
             control: { type: 'text' },
         },
@@ -161,7 +111,17 @@ const meta: Meta<StoryTextAreaProps> = {
             'width',
             'helperText',
             'labelPlacement',
+            'hintText',
+            'hintTrigger',
             'hintView',
+            'hintSize',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintPlacement',
+            'hintHasArrow',
+            'hintOffset',
+            'hintWidth',
+            'hintContentLeft',
         ]),
     },
     args: {
@@ -186,14 +146,6 @@ const meta: Meta<StoryTextAreaProps> = {
         labelPlacement: 'outer',
         clear: false,
         hasDivider: false,
-        hasHint: true,
-        hintText: 'Текст подсказки',
-        hintTrigger: 'hover',
-        hintView: 'default',
-        hintSize: 'm',
-        hintPlacement: 'auto',
-        hintWidth: '10rem',
-        hintHasArrow: true,
     },
 };
 

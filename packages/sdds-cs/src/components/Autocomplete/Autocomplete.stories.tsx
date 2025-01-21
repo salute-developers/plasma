@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Autocomplete } from './Autocomplete';
@@ -96,6 +96,19 @@ const meta: Meta<StoryProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        ...disableProps([
+            'hintText',
+            'hintTrigger',
+            'hintView',
+            'hintSize',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintPlacement',
+            'hintHasArrow',
+            'hintOffset',
+            'hintWidth',
+            'hintContentLeft',
+        ]),
     },
     args: {
         view: 'default',
