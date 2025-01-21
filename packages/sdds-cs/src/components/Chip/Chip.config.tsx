@@ -71,6 +71,30 @@ export const config = {
 
                 ${chipTokens.closeIconSize}: 1.5rem;
             `,
+            xs: css`
+                ${chipTokens.borderRadius}: 0.38rem;
+                ${chipTokens.pilledBorderRadius}: 0.75rem;
+                ${chipTokens.width}: auto;
+                ${chipTokens.height}: 1.5rem;
+                ${chipTokens.padding}: 0.125rem 0.5rem;
+
+                ${chipTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${chipTokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${chipTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${chipTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${chipTokens.leftContentMarginLeft}: 0;
+                ${chipTokens.leftContentMarginRight}: 0.25rem;
+                ${chipTokens.clearContentMarginLeft}: 0.25rem;
+                ${chipTokens.clearContentMarginRight}: -0.25rem;
+
+                ${chipTokens.scaleHover}: 1.02;
+                ${chipTokens.scaleActive}: 0.98;
+
+                ${chipTokens.closeIconSize}: 1rem;
+            `,
         },
         disabled: {
             true: css`
