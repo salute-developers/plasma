@@ -1236,6 +1236,7 @@ accent: PolymorphicClassName;
 };
 size: {
 s: PolymorphicClassName;
+xs: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
