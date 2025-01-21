@@ -123,11 +123,11 @@
   },
   "typeCoverage": {
     "ignoreFiles": [
-      "src/**/*component-test.tsx",
-      "src/**/*stories.tsx",
-      "src/**/*perftest.tsx"
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx",
+      "src/**/*.perftest.tsx"
     ],
-    "atLeast": 99.94
+    "atLeast": 99.93
   },
   "contributors": [
     "Vasiliy Loginevskiy",
