@@ -87,3 +87,20 @@ export function App() {
     );
 }
 ```
+
+### Размер Chip
+Размер Chip задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <Chip text="Chip" size="s" view="default" />
+            <Chip text="Chip" size="xs" view="default" />
+        </div>
+    );
+}
+```
