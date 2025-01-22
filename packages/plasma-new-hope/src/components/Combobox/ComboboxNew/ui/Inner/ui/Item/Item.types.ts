@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 
 import type { PathState } from '../../../../../../Select/reducers';
+import type { Placement } from '../../../../Combobox.types';
 
 export type ItemOption = {
     /**
@@ -12,6 +13,11 @@ export type ItemOption = {
      * Метка-подпись к item
      */
     label: string;
+    /**
+     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     * @default right
+     */
+    placement?: Placement;
     /**
      * Список дочерних items
      */

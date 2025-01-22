@@ -1,6 +1,6 @@
-import type { CSSProperties, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
-type ClearViewProps =
+export type ClearViewProps =
     | {
           /**
            * view применяется с clear-токенами
@@ -13,27 +13,13 @@ type ClearViewProps =
            * @default
            * false
            */
-          pilled?: false;
+          pilled?: never;
           /**
            * view применяется с учетом прозрачности
            * @default
            * false
            */
-          transparent?: false;
-      }
-    | {
-          /**
-           * Компонент c округлым border-radius
-           */
-          pilled?: true;
-          /**
-           * view применяется с учетом прозрачности
-           */
-          transparent?: boolean;
-          /**
-           * view применяется с clear-токенами
-           */
-          clear?: false;
+          transparent?: never;
       }
     | {
           /**
@@ -43,11 +29,11 @@ type ClearViewProps =
           /**
            * view применяется с учетом прозрачности
            */
-          transparent?: true;
+          transparent?: boolean;
           /**
            * view применяется с clear-токенами
            */
-          clear?: false;
+          clear?: never;
       };
 
 type IconContentProps =
@@ -66,7 +52,7 @@ type IconContentProps =
           contentRight?: ReactNode;
       };
 
-type CustomBadgeProps = {
+export type CustomBadgeProps = {
     /**
      * Текстовая надпись
      */
@@ -96,8 +82,7 @@ type CustomBadgeProps = {
      * default
      */
     view?: string;
-} & IconContentProps &
-    PropsWithChildren;
+} & IconContentProps;
 
 export type BadgeProps = HTMLAttributes<HTMLDivElement> & CustomBadgeProps & ClearViewProps;
 export type BadgeRootProps = HTMLAttributes<HTMLDivElement> &

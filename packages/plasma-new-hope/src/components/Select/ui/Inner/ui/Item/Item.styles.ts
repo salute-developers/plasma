@@ -7,6 +7,7 @@ import { checkboxConfig, checkboxTokens } from '../../../../../Checkbox';
 import { cellConfig, cellTokens } from '../../../../../Cell';
 import { indicatorConfig, indicatorTokens } from '../../../../../Indicator';
 import type { SelectProps } from '../../../../Select.types';
+import { IconDisclosureRightCentered, IconDone } from '../../../../../_Icon';
 
 const mergedCheckboxConfig = mergeConfig(checkboxConfig);
 const Checkbox = component(mergedCheckboxConfig);
@@ -70,7 +71,24 @@ export const StyledIndicator = styled(Indicator)`
     ${indicatorTokens.color}: var(${tokens.checkboxFillColor});
 `;
 
+// TODO: Удалить после поддержки JS переменных в конфиге компонент
+export const sizeMap: Record<string, string> = {
+    xs: '1rem',
+    s: '1.5rem',
+};
+
+export const StyledArrow = styled(IconDisclosureRightCentered)`
+    width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+`;
+
+export const StyledIconDone = styled(IconDone)`
+    width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+`;
+
 export const DisclosureIconWrapper = styled.div`
+    margin: var(${tokens.disclosureIconMargin});
     line-height: 0;
     color: var(${tokens.disclosureIconColor});
 

@@ -1,15 +1,9 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
-import {
-    light as b2bLight,
-    dark as b2bDark,
-    b2b as b2bTypo,
-    link,
-    linkHover,
-    linkActive,
-} from '@salutejs/plasma-tokens-b2b';
-import { light as b2cLight, dark as b2cDark } from '@salutejs/plasma-tokens-b2c';
+import { b2b as b2bTypo, link, linkHover, linkActive } from '@salutejs/plasma-tokens-b2b';
+import { plasma_web__light as b2bLight, plasma_web__dark as b2bDark } from '@salutejs/plasma-themes';
+import { plasma_b2c__light as b2cLight, plasma_b2c__dark as b2cDark } from '@salutejs/plasma-themes';
 import { light as legacyLight, dark as legacyDark } from '@salutejs/plasma-tokens-web';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 

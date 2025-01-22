@@ -5,6 +5,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { Ul } from '../../Dropdown.styles';
 import { FloatingPopover } from '../../FloatingPopover';
+import { getPlacement } from '../../utils';
 
 import { DropdownInnerProps } from './DropdownInner.type';
 
@@ -36,7 +37,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
     if (item?.items) {
         return (
             <FloatingPopover
-                placement="right-start"
+                placement={getPlacement(item?.placement || 'right')}
                 opened={isCurrentListOpen}
                 onToggle={handleToggle}
                 trigger={trigger}

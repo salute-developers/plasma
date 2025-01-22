@@ -96,6 +96,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         segmentation: 'default',
         min: 0,
         max: 9,
+        precision: 2,
         step: 1,
         width: 188,
         isManualInput: false,

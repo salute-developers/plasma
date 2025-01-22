@@ -51,6 +51,8 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
         } = props;
 
         const txt = typeof children === 'string' ? children : text;
+        const hasRightContentMargin = Boolean(txt || value || contentRight);
+        const hasLeftContentMargin = Boolean(contentLeft ? contentLeft && (txt || value) : txt || value);
 
         const stretchingClass = stretch
             ? classes.filledStretching
@@ -90,10 +92,14 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 {...rest}
             >
                 <LoadWrap contentPlacing={contentPlacementValue} isLoading={isLoading}>
-                    {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+                    {contentLeft && (
+                        <StyledContentLeft hasContentMargin={hasRightContentMargin}>{contentLeft}</StyledContentLeft>
+                    )}
                     {txt ? <ButtonText className={contentRelaxedClass}>{txt}</ButtonText> : children}
                     {value && <ButtonValue>{value}</ButtonValue>}
-                    {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                    {contentRight && (
+                        <StyledContentRight hasContentMargin={hasLeftContentMargin}>{contentRight}</StyledContentRight>
+                    )}
                 </LoadWrap>
                 {isLoading && <Loader>{loader || <StyledSpinner />}</Loader>}
             </Root>

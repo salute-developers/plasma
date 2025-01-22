@@ -72,7 +72,7 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
                     aria-describedby={uniqDescriptionId}
                     tabIndex={canFocused}
                 />
-                <StyledContentWrapper htmlFor={radioboxId}>
+                <StyledContentWrapper htmlFor={radioboxId} className={singleLineClass}>
                     <StyledTrigger className={classes.radioboxTrigger}>
                         <StyledEllipse />
                     </StyledTrigger>

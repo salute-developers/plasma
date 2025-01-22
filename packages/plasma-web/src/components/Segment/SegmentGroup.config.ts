@@ -10,12 +10,12 @@ export const config = {
             clear: css`
                 ${segmentTokens.arrowColor}: var(--text-secondary);
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused, var(--text-accent));
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             filled: css`
                 ${segmentTokens.arrowColor}: var(--text-secondary);
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused, var(--text-accent));
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
         },
         size: {

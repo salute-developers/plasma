@@ -13,6 +13,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 import { RootProps } from '../../engines';
 import { isEmpty } from '../../utils';
 import { useOutsideClick } from '../../hooks';
+import type { HintProps } from '../TextField/TextField.types';
 
 import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
 import {
@@ -112,6 +113,21 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                       requiredPlacement: props.requiredPlacement,
                       optional: props.optional,
                   } as RequiredProps);
+
+        // Собираем объект с пропсами для hint и прокидываем их напрямую в компонент Textfield.
+        const hintProps =
+            props.target === 'button-like'
+                ? undefined
+                : ({
+                      hintText: props.hintText,
+                      hintTrigger: props.hintTrigger,
+                      hintView: props.hintView,
+                      hintSize: props.hintSize,
+                      hintTargetPlacement: props.hintTargetPlacement,
+                      hintPlacement: props.hintPlacement,
+                      hintWidth: props.hintWidth,
+                      hintHasArrow: props.hintHasArrow,
+                  } as HintProps);
 
         const targetRef = useOutsideClick<HTMLUListElement>(() => {
             if (!isCurrentListOpen) {
@@ -356,6 +372,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 chipView={chipView}
                                 separator={separator}
                                 requiredProps={requiredProps}
+                                hintProps={hintProps}
                             />
                         )}
                         zIndex={zIndex}

@@ -16,6 +16,7 @@ const meta: Meta<typeof IconButton> = {
     component: IconButton,
     argTypes: {
         ...argTypesFromConfig(mergeConfig(iconButtonConfig, config)),
+        ...disableProps(['focused']),
         pin: {
             options: [
                 'square-square',

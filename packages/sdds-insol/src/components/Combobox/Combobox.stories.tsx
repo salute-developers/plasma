@@ -3,17 +3,45 @@ import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconDone } from '@salutejs/plasma-icons';
+import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Combobox } from './Combobox';
 
 type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
+    hasHint?: boolean;
+};
+
+const getIconSize = (size?: string) => {
+    return size === 'xs' || size === 's' ? 'xs' : 's';
 };
 
 const view = ['default', 'positive', 'warning', 'negative'];
 const size = ['xs', 's', 'm', 'l'];
 const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Combobox',
@@ -89,6 +117,47 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
     },
     args: {
         label: 'Label',
@@ -107,6 +176,14 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasHint: false,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
     parameters: {
         controls: {
@@ -131,6 +208,14 @@ const meta: Meta<StorySelectProps> = {
                 'optional',
                 'required',
                 'requiredPlacement',
+                'hasHint',
+                'hintText',
+                'hintTrigger',
+                'hintView',
+                'hintSize',
+                'hintPlacement',
+                'hintWidth',
+                'hintHasArrow',
             ],
         },
     },
@@ -360,7 +445,7 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size={getIconSize(args.size)} /> : undefined}
             />
         </div>
     );
@@ -386,7 +471,7 @@ const MultipleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size={getIconSize(args.size)} /> : undefined}
             />
         </div>
     );

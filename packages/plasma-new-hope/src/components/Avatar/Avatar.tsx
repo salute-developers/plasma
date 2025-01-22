@@ -6,10 +6,10 @@ import { cx } from '../../utils';
 import { indicatorConfig, indicatorTokens } from '../Indicator';
 
 import { classes, tokens } from './Avatar.tokens';
-import { base, Wrapper, Image, StatusIcon, Text } from './Avatar.styles';
+import { base, Wrapper, Image, StatusIcon, Text, ExtraContent, ExtraCounter, ExtraBadge } from './Avatar.styles';
 import { base as viewCSS } from './variations/_size/base';
 import { base as focusedCSS } from './variations/_focused/base';
-import { getInitialsForName } from './utils';
+import { extraPlacementMap, getInitialsForName } from './utils';
 import type { AvatarProps, StatusLabels } from './Avatar.types';
 
 const StatusLabelsDefault: StatusLabels = {
@@ -77,14 +77,34 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
             focused = true,
             isScalable,
             statusLabels = StatusLabelsDefault,
+            hasExtra,
+            extraPlacement,
+
+            type,
+
+            counterView,
+            count,
+            maxCount,
+
+            badgeView,
+            text,
+            customColor,
+            customBackgroundColor,
+            contentLeft,
+            contentRight,
+            pilled,
+
             ...rest
         } = props;
 
+        const counterValue = count || 1;
         const initials = useMemo(() => getInitialsForName(name), [name]);
         const ariaLabel = getAriaLabel({
             ...props,
             statusLabels,
         });
+
+        const extraViewProp = type === 'badge' ? { badgeView } : { counterView };
 
         return (
             <Root
@@ -93,6 +113,7 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
                 className={cx(classes.avatarItem, className)}
                 aria-label={ariaLabel}
                 focused={focused}
+                {...extraViewProp}
                 {...rest}
             >
                 <Wrapper isScalable={isScalable}>{getAvatarContent({ customText, url, initials, name })}</Wrapper>
@@ -101,6 +122,26 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
                     <StatusIcon>
                         <StyledIndicator aria-label={statusLabels[status]} status={status} />
                     </StatusIcon>
+                )}
+
+                {hasExtra && avatarSize !== 'fit' && (
+                    <ExtraContent className={extraPlacementMap(extraPlacement)}>
+                        {type === 'counter' ? (
+                            <ExtraCounter view={counterView} count={counterValue} maxCount={maxCount} />
+                        ) : (
+                            avatarSize !== 's' && (
+                                <ExtraBadge
+                                    view={badgeView}
+                                    text={text}
+                                    customColor={customColor}
+                                    customBackgroundColor={customBackgroundColor}
+                                    pilled={pilled}
+                                    maxWidth="100%"
+                                    {...(contentLeft ? { contentLeft } : { contentRight })}
+                                />
+                            )
+                        )}
+                    </ExtraContent>
                 )}
             </Root>
         );

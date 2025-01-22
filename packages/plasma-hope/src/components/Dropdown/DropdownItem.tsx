@@ -1,16 +1,7 @@
 import React, { useRef, useCallback, useMemo, forwardRef } from 'react';
 import type { DetailedHTMLProps, HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
 import styled, { css } from 'styled-components';
-import {
-    body1,
-    accent,
-    primary,
-    surfaceLiquid02,
-    surfaceLiquid03,
-    applyDisabled,
-    applyEllipsis,
-    useForkRef,
-} from '@salutejs/plasma-core';
+import { body1, applyDisabled, applyEllipsis, useForkRef } from '@salutejs/plasma-core';
 import { IconChevronRight, IconDone } from '@salutejs/plasma-icons';
 
 import type { DropdownItem as DropdownItemType, DropdownNode as DropdownNodeType, OnHover } from './Dropdown.types';
@@ -67,7 +58,7 @@ const StyledDropdownItem = styled.li<StyledDropdownItemProps>`
     letter-spacing: var(--plasma-dropdown-item-letter-spacing, ${body1.letterSpacing});
 
     background-color: transparent;
-    color: ${({ $color }) => $color || primary};
+    color: ${({ $color }) => $color || 'var(--text-primary)'};
     transition: background-color 0.3s ease-in-out;
     cursor: pointer;
 
@@ -77,8 +68,8 @@ const StyledDropdownItem = styled.li<StyledDropdownItemProps>`
             /* stylelint-disable-next-line selector-nested-pattern */
             &:hover,
             &:focus {
-                color: ${$color || primary};
-                background-color: ${surfaceLiquid02};
+                color: ${$color || 'var(--text-primary)'};
+                background-color: var(--surface-transparent-secondary);
             }
         `}
 
@@ -89,12 +80,12 @@ const StyledDropdownItem = styled.li<StyledDropdownItemProps>`
     ${({ $hover, $color }) =>
         $hover &&
         css`
-            color: ${$color || primary};
-            background-color: ${surfaceLiquid02};
+            color: ${$color || 'var(--text-primary)'};
+            background-color: var(--surface-transparent-secondary);
         `}
 
     &:active {
-        background-color: ${surfaceLiquid03};
+        background-color: var(--surface-transparent-tertiary);
     }
 
     ${applyDisabled}
@@ -124,7 +115,7 @@ const StyledDot = styled.div`
     width: 0.375rem;
     height: 0.375rem;
 
-    background-color: ${accent};
+    background-color: var(--text-accent);
     border-radius: 50%;
 `;
 
@@ -166,7 +157,7 @@ export const DropdownItem = forwardRef<HTMLLIElement, DropdownItemProps>((props,
         }
 
         if (isActive) {
-            return <StyledCheck size="s" color={accent} />;
+            return <StyledCheck size="s" color="var(--text-accent)" />;
         }
 
         return null;

@@ -14,7 +14,7 @@ const SelectNewHope = component(mergedConfig);
 
 type SelectProps<K extends ItemOptionSelect> = DistributiveOmit<
     SelectPropsNewHope<K>,
-    'size' | 'view' | 'chipView' | 'disabled'
+    'size' | 'view' | 'chipView' | 'disabled' | 'hintTargetPlacement'
 > &
     DistributivePick<ComponentProps<typeof SelectNewHope>, 'size' | 'view' | 'chipView' | 'disabled'>;
 

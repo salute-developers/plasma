@@ -223,6 +223,71 @@ const items = [
     },
 ];
 
+const itemsWithPlacement = [
+    {
+        value: 'europe',
+        label: 'Европа',
+        placement: 'bottom',
+        items: [
+            {
+                value: 'france',
+                label: 'Франция',
+                placement: 'right',
+                items: [
+                    {
+                        value: 'paris',
+                        label: 'Париж',
+                        placement: 'top',
+                        items: [
+                            {
+                                value: 'antoni',
+                                label: 'Антони',
+                                placement: 'left',
+                                items: [
+                                    {
+                                        value: 'bojole',
+                                        label: 'Божоле',
+                                    },
+                                    {
+                                        value: 'Cambona',
+                                        label: 'Камбона',
+                                    },
+                                ],
+                            },
+                            {
+                                value: 'banyo',
+                                label: 'Баньё',
+                            },
+                            {
+                                value: 'pontuaz',
+                                label: 'Понтуаз',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'lyon',
+                        label: 'Лион',
+                    },
+                ],
+            },
+            {
+                value: 'germany',
+                label: 'Германия',
+                items: [
+                    {
+                        value: 'berlin',
+                        label: 'Берлин',
+                    },
+                    {
+                        value: 'munich',
+                        label: 'Мюнхен',
+                    },
+                ],
+            },
+        ],
+    },
+];
+
 describe('plasma-web: Dropdown', () => {
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
@@ -410,6 +475,27 @@ describe('plasma-web: Dropdown', () => {
                 </Dropdown>
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it.only('prop: nested dropdown placement', () => {
+        cy.viewport(1600, 1200);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ height: '400px' }} />
+                <Dropdown placement="right-start" items={itemsWithPlacement} closeOnOverlayClick={false}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('[id$="europe"]').click();
+        cy.get('[id$="france"]').click();
+        cy.get('[id$="paris"]').click();
+        cy.get('[id$="antoni"]').click();
 
         cy.matchImageSnapshot();
     });

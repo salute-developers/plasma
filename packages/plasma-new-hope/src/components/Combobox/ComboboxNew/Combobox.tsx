@@ -71,6 +71,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             zIndex,
             beforeList,
             afterList,
+            hintView,
+            hintSize,
             ...rest
         } = props;
 
@@ -376,6 +378,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 disabled={disabled}
                 readOnly={readOnly}
                 name={name}
+                hintView={hintView}
+                hintSize={hintSize}
             >
                 {name && (
                     <SelectNative

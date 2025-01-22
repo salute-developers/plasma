@@ -114,6 +114,29 @@ export const Default: StoryObj<CheckboxProps> = {
     render: (args) => <StoryDefault {...args} />,
 };
 
+const StoryLong = (props: CheckboxProps) => {
+    const { width, ...otherProps } = props;
+    return (
+        <div style={{ width }}>
+            <Checkbox {...otherProps} />
+        </div>
+    );
+};
+
+export const LongText: StoryObj<CheckboxProps> = {
+    args: {
+        name: 'item.name',
+        value: 'item.value',
+        label:
+            'Label looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger',
+        description:
+            'Description looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger',
+        singleLine: true,
+        width: '300px',
+    },
+    render: (args) => <StoryLong {...args} />,
+};
+
 const StoryComplex = (props: CheckboxProps) => {
     const [values, setValues] = useState({
         russian: true,

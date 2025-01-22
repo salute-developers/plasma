@@ -72,11 +72,12 @@ export function App() {
 
 Возможные значения свойства `view`:
 + `"default"` – по умолчанию;
++ `"accent"` – акцентная;
 + `"secondary"` – вторичная;
++ `"clear"` – без цветового сопровождения.
 + `"success"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"critical"` – ошибка;
-+ `"clear"` – без цветового сопровождения;
 + `"dark"` – темная;
 + `"black"` – черная;
 + `"white"` – белая.
@@ -88,11 +89,17 @@ import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <IconButton size="s" view="default">
                 <IconClose color="inherit" />
             </IconButton>
+            <IconButton size="s" view="accent">
+                <IconClose color="inherit" />
+            </IconButton>
             <IconButton size="s" view="secondary">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="clear">
                 <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="success">
@@ -102,9 +109,6 @@ export function App() {
                 <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="critical">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="clear">
                 <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="dark">
@@ -134,7 +138,7 @@ import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <IconButton pin="square-square">
                 <IconClose color="inherit" />
             </IconButton>

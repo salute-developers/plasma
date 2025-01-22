@@ -607,14 +607,18 @@ describe('plasma-web: TextField', () => {
     describe('with hint', () => {
         const sizes = ['xs', 's', 'm', 'l'] as const;
 
-        const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
+        const cases = [
+            { labelPlacement: 'outer' },
+            { labelPlacement: 'inner', animatedHint: 'label' },
+            { labelPlacement: 'inner', animatedHint: 'label', hintTargetPlacement: 'inner' },
+        ] as const;
 
         sizes.forEach((size) => {
             it(`_size:${size}`, () => {
                 mount(
                     <CypressTestDecoratorWithTypo>
                         {cases.map((props) => (
-                            <div style={{ margin: '0 1rem' }}>
+                            <div style={{ margin: '0 3rem' }}>
                                 <TextField
                                     value="Value"
                                     placeholder="Placeholder"

@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { surfaceSolid02, backgroundPrimary } from '@salutejs/plasma-core';
 import { IconPictureFilled } from '@salutejs/plasma-icons';
 
 import { AddionalItemProps } from './types';
@@ -11,8 +10,8 @@ const StyledErrorImage = styled.div`
     border-radius: 0.75rem;
     padding-bottom: 56.25%;
 
-    background-color: ${surfaceSolid02};
-    color: ${backgroundPrimary};
+    background-color: var(--surface-solid-secondary);
+    color: var(--surface-solid-card);
 `;
 
 const StyledIconPictureFilled = styled(IconPictureFilled)`

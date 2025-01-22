@@ -60,6 +60,8 @@ const meta: Meta<ButtonProps> = {
             'onFocus',
             'onBlur',
             'blur',
+            'pin',
+            'focused',
         ]),
     },
 };

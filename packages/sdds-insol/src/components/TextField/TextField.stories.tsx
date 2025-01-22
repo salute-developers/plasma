@@ -149,6 +149,7 @@ const meta: Meta<typeof TextField> = {
             'enumerationType',
             'values',
             'hintTargetIcon',
+            'hintTargetPlacement',
             'hintOffset',
             'hintContentLeft',
             'chips',

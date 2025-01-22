@@ -275,9 +275,9 @@ describe('plasma-b2c: DatePicker', () => {
         cy.get('.popover-root').should('be.visible');
         cy.get('#id-grid-label').click();
         cy.get('#id-grid-label').click();
-        cy.get('[aria-label="2025"]').click();
+        cy.get('[aria-label="2024"]').click();
 
-        cy.get('#id-grid-label').should('have.text', '2025');
+        cy.get('#id-grid-label').should('have.text', '2024');
 
         cy.matchImageSnapshot();
     });

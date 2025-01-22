@@ -90,6 +90,14 @@ export const SingleWrapper = styled.div`
         ${LabelWrapper} {
             margin-right: var(${tokens.labelWrapperMarginRight});
         }
+
+        ${LabelWrapper}:not(:has(${Label})):has(${LabelContent}) {
+            margin-right: var(${tokens.labelWrapperOnlyIconMarginRight});
+        }
+
+        ${LabelWrapper}:has(${Label}) {
+            margin-right: var(${tokens.labelWrapperMarginRight});
+        }
     }
 
     &.${classes.verticalOrientation} {

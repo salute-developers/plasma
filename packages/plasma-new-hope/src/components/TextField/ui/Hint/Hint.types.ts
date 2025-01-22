@@ -8,10 +8,12 @@ export type TextFieldHintProps = {
     hintTrigger: 'hover' | 'click';
     hintTargetIcon: ReactNode;
     hintPlacement: PopoverPlacement | Array<PopoverPlacementBasic>;
-    hintHasArrow?: boolean;
     hintOffset: [number, number];
-    hintWidth?: string;
     hintContentLeft: ReactNode;
+    size?: string;
+    isInnerLabel?: boolean;
+    hintHasArrow?: boolean;
+    hintWidth?: string;
     handleHintShow: () => void;
     handleHintHide: () => void;
     handleHintClick: MouseEventHandler;

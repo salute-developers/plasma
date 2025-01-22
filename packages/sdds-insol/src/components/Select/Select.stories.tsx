@@ -3,6 +3,7 @@ import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
+import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import './style.css';
 
@@ -10,6 +11,11 @@ import { Select } from './Select';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
+    hasHint?: boolean;
+};
+
+const getIconSize = (size?: string) => {
+    return size === 'xs' || size === 's' ? 'xs' : 's';
 };
 
 const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
@@ -17,6 +23,28 @@ const size = ['xs', 's', 'm', 'l'];
 const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Select',
@@ -102,6 +130,47 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
         chipType: {
             control: 'select',
             options: ['default', 'text'],
@@ -125,6 +194,14 @@ const meta: Meta<StorySelectProps> = {
         required: false,
         requiredPlacement: 'right',
         chipType: 'default',
+        hasHint: false,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
     },
     parameters: {
         controls: {
@@ -149,6 +226,14 @@ const meta: Meta<StorySelectProps> = {
                 'required',
                 'requiredPlacement',
                 'chipType',
+                'hasHint',
+                'hintText',
+                'hintTrigger',
+                'hintView',
+                'hintSize',
+                'hintPlacement',
+                'hintWidth',
+                'hintHasArrow',
             ],
         },
     },
@@ -378,7 +463,9 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
         </div>
     );
@@ -406,7 +493,9 @@ const MultiselectStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
         </div>
     );
@@ -431,7 +520,9 @@ const PredefinedStory = (args: StorySelectProps) => {
                 items={items}
                 value={valueSingle}
                 onChange={setValueSingle}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
 
             <br />
@@ -442,7 +533,9 @@ const PredefinedStory = (args: StorySelectProps) => {
                 multiselect
                 value={valueMultiple}
                 onChange={setValueMultiple}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={
+                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                }
             />
         </div>
     );
@@ -508,7 +601,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValue}
                                     view="default"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -523,7 +618,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="default"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -656,7 +753,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValue}
                                     view="positive"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -671,7 +770,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="positive"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -728,7 +829,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="warning"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -770,7 +873,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValue}
                                     view="negative"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>
@@ -785,7 +890,9 @@ const CommonStory = (args: StorySelectProps) => {
                                     onChange={setValueMultiple}
                                     view="negative"
                                     contentLeft={
-                                        enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined
+                                        enableContentLeft ? (
+                                            <IconPlasma size={getIconSize(args.size)} color="inherit" />
+                                        ) : undefined
                                     }
                                 />
                             </div>

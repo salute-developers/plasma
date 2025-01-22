@@ -8,6 +8,8 @@ export type TextAreaHintProps = {
     hintTrigger: 'hover' | 'click';
     hintTargetIcon: ReactNode;
     hintPlacement: PopoverPlacement | Array<PopoverPlacementBasic>;
+    size?: string;
+    isInnerLabel?: boolean;
     hintHasArrow?: boolean;
     hintOffset: [number, number];
     hintWidth?: string;

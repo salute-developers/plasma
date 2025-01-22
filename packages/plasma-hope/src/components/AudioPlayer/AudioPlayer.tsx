@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { primary, footnote1, surfaceLiquid03, surfaceLiquid02 } from '@salutejs/plasma-core';
+import { footnote1 } from '@salutejs/plasma-core';
 import { IconPlay, IconPause, IconTrashFilled } from '@salutejs/plasma-icons';
 
 import { useAudioPlayer, formatSecondsToMintues } from './utils';
@@ -20,12 +20,12 @@ const ButtonDelete = styled.button`
     cursor: pointer;
 
     svg {
-        color: ${surfaceLiquid03};
+        color: var(--surface-transparent-tertiary);
     }
 
     &:hover {
         svg {
-            color: ${primary};
+            color: var(--text-primary);
         }
     }
 `;
@@ -57,7 +57,7 @@ const StyledContainer = styled.div<{ isSelected: boolean; isDisabled: boolean }>
     ${({ isSelected }) =>
         isSelected &&
         css`
-            background-color: ${surfaceLiquid03};
+            background-color: var(--surface-transparent-tertiary);
         `}
 
     ${StyledControl} {
@@ -76,7 +76,7 @@ const StyledDuration = styled.div`
 
     text-align: right;
 
-    color: ${primary};
+    color: var(--text-primary);
 
     mix-blend-mode: normal;
     opacity: 0.5;
@@ -97,13 +97,13 @@ const StyledRoot = styled.div`
     }
 
     &:hover ${StyledContainer} {
-        background-color: ${surfaceLiquid02};
+        background-color: var(--surface-transparent-secondary);
     }
 `;
 
 const StyledTitle = styled.div`
     margin-left: 1rem;
-    color: ${primary};
+    color: var(--text-primary);
 `;
 
 export interface AudioPlayerProps {
