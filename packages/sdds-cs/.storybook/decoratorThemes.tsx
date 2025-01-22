@@ -3,7 +3,7 @@ import type { Decorator } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
 import { sdds_cs__light } from '@salutejs/sdds-themes';
 
-import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
+// import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 
 const DocumentStyle = createGlobalStyle`
     html:root {
@@ -57,17 +57,15 @@ const viewMap: Record<string, ViewType> = {
 
 export const withTheme: Decorator = (Story, context) => {
     const theme = context.globals.theme;
-    const viewContainerType = viewMap[context.globals.viewContainer];
+    // const viewContainerType = viewMap[context.globals.viewContainer];
 
     const Theme = themes[theme];
 
     return (
-        <div style={viewContainerType.style}>
-            <ViewContainer view={viewContainerType.view}>
-                <Theme />
-                <DocumentStyle />
-                <Story {...context} />
-            </ViewContainer>
+        <div>
+            <Theme />
+            <DocumentStyle />
+            <Story {...context} />
         </div>
     );
 };
