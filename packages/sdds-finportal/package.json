@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-finportal",
-  "version": "0.223.0-dev.0",
+  "version": "0.223.1-dev.0",
   "description": "Salute Design System / React UI kit for SDDS FinPortal web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "directory": "packages/sdds-finportal"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.246.0-dev.0",
+    "@salutejs/plasma-new-hope": "0.246.1-dev.0",
     "@salutejs/sdds-themes": "0.31.0"
   },
   "peerDependencies": {
@@ -40,7 +40,7 @@
     "@salutejs/plasma-core": "1.191.0-dev.0",
     "@salutejs/plasma-cy-utils": "0.122.0-dev.0",
     "@salutejs/plasma-icons": "1.210.0",
-    "@salutejs/plasma-sb-utils": "0.190.0-dev.0",
+    "@salutejs/plasma-sb-utils": "0.190.1-dev.0",
     "@storybook/addon-docs": "7.6.17",
     "@storybook/addon-essentials": "7.6.17",
     "@storybook/addons": "7.6.17",
