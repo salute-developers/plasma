@@ -66,6 +66,10 @@ const meta: Meta<typeof TextField> = {
             control: {
                 type: 'select',
             },
+            if: {
+                arg: 'optional',
+                truthy: false,
+            },
         },
         required: {
             control: {
@@ -353,7 +357,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     },
     parameters: {
         controls: {
-            exclude: ['chipType'],
+            exclude: ['chipType', 'chipView'],
         },
     },
     render: (args) => <StoryDemo {...args} />,
