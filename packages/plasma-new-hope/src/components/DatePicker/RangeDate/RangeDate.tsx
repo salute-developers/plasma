@@ -1,4 +1,4 @@
-import React, { createRef, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import React, { createRef, forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type {
     KeyboardEvent,
     FocusEvent,
@@ -39,6 +39,7 @@ export const datePickerRangeRoot = (
 
                 isDoubleCalendar = false,
                 opened = false,
+                value: externalValue,
 
                 label,
                 leftHelper,
@@ -121,6 +122,8 @@ export const datePickerRangeRoot = (
             const innerRefFirst = useRef<HTMLInputElement>(null);
             const innerRefSecond = useRef<HTMLInputElement>(null);
 
+            const [startExternalValue, endExternalValue] = externalValue || [];
+
             const [firstInputRef, setFirstInputRef] = useState<MutableRefObject<HTMLInputElement | null> | undefined>(
                 rangeRef?.current?.firstTextField(),
             );
@@ -130,17 +133,17 @@ export const datePickerRangeRoot = (
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const [calendarFirstValue, setCalendarFirstValue] = useState(
-                formatCalendarValue(defaultFirstDate, format, lang),
+                formatCalendarValue(startExternalValue || defaultFirstDate, format, lang),
             );
             const [inputFirstValue, setInputFirstValue] = useState(
-                formatInputValue({ value: defaultFirstDate, format, lang }),
+                formatInputValue({ value: startExternalValue || defaultFirstDate, format, lang }),
             );
 
             const [calendarSecondValue, setCalendarSecondValue] = useState(
-                formatCalendarValue(defaultSecondDate, format, lang),
+                formatCalendarValue(endExternalValue || defaultSecondDate, format, lang),
             );
             const [inputSecondValue, setInputSecondValue] = useState(
-                formatInputValue({ value: defaultSecondDate, format, lang }),
+                formatInputValue({ value: endExternalValue || defaultSecondDate, format, lang }),
             );
 
             const [fullDateEntered, setFullDateEntered] = useState(Boolean(calendarFirstValue && calendarSecondValue));
@@ -178,6 +181,7 @@ export const datePickerRangeRoot = (
             const {
                 handleChangeValue: handleChangeFirstValue,
                 handleCommitDate: handleCommitFirstDate,
+                updateExternalDate: updateExternalFirstDate,
             } = useDatePicker({
                 currentValue: inputFirstValue,
                 setInputValue: setFirstInputValue,
@@ -198,6 +202,7 @@ export const datePickerRangeRoot = (
             const {
                 handleChangeValue: handleChangeSecondValue,
                 handleCommitDate: handleCommitSecondDate,
+                updateExternalDate: updateExternalSecondDate,
             } = useDatePicker({
                 currentValue: inputSecondValue,
                 setInputValue: setSecondInputValue,
@@ -400,28 +405,20 @@ export const datePickerRangeRoot = (
             }, [opened]);
 
             useEffect(() => {
-                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
-                setInputFirstValue(formatInputValue({ value: defaultFirstDate, format, lang }));
-            }, [defaultFirstDate]);
-
-            useEffect(() => {
-                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
-                setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
-            }, [defaultSecondDate]);
-
-            useEffect(() => {
-                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
-                setInputFirstValue(formatInputValue({ value: defaultFirstDate, format, lang }));
-
-                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
-                setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
-            }, [format, lang]);
-
-            useEffect(() => {
                 if (calendarFirstValue && calendarSecondValue) {
                     setFullDateEntered(true);
                 }
             }, [calendarFirstValue, calendarSecondValue]);
+
+            useLayoutEffect(() => {
+                const externalDate = startExternalValue || defaultFirstDate;
+                updateExternalFirstDate(externalDate, setFirstInputValue, setCalendarFirstValue);
+            }, [startExternalValue, defaultFirstDate, format, lang]);
+
+            useLayoutEffect(() => {
+                const externalDate = endExternalValue || defaultSecondDate;
+                updateExternalSecondDate(externalDate, setSecondInputValue, setCalendarSecondValue);
+            }, [endExternalValue, defaultSecondDate, format, lang]);
 
             const RootWrapper = useCallback<FC<PropsWithChildren>>(
                 ({ children }) => (

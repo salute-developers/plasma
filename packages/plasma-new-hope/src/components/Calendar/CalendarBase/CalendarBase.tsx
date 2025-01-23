@@ -121,6 +121,13 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
 
                     setPrevValue(value);
                 }
+
+                if (!value) {
+                    dispatch({
+                        type: ActionType.UPDATE_DATE,
+                        payload: { value: min || new Date() },
+                    });
+                }
             }, [value, prevValue]);
 
             return (
