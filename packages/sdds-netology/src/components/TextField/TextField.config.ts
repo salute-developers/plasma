@@ -139,6 +139,90 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.height}: 4rem;
+                ${tokens.padding}: 1.3125rem 1.125rem;
+                ${tokens.paddingWithChips}: 0.375rem;
+                ${tokens.borderRadius}: 1rem;
+
+                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
+                ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.938rem auto auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.82rem -2.063rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.813rem 0 0.813rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.chipGap}: 0.125rem;
+                ${tokens.chipMarginRight}: 1rem;
+                ${tokens.chipBorderRadius}: 0.625rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 3.25rem;
+                ${tokens.chipPadding}: 0 0.75rem 0 1rem;
+                ${tokens.chipClearContentMarginLeft}: 0.625rem;
+                ${tokens.chipClearContentMarginRight}: 0rem;
+                ${tokens.chipCloseIconSize}: 1.5rem;
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.indicatorSizeInner}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.75rem -0.875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.488rem auto auto;
+            `,
             l: css`
                 ${tokens.height}: 3.5rem;
                 ${tokens.padding}: 1.063rem 1.125rem 1.063rem 1.125rem;

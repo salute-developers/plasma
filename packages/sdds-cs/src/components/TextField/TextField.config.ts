@@ -128,7 +128,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
