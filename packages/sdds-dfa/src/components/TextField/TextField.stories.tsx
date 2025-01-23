@@ -2,9 +2,11 @@ import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconBellFill, IconLockOutline } from '@salutejs/plasma-icons';
+
+import { config } from './TextField.config';
 
 import { TextField } from '.';
 
@@ -14,8 +16,8 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's', 'xs'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const { views, sizes } = getConfigVariations(config);
+
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
