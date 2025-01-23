@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconBellFill } from '@salutejs/plasma-icons';
 
-import { TextField } from '.';
+import { TextField } from './TextField';
+import { config } from './TextField.config';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -14,14 +15,14 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's', 'xs'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const { views, sizes } = getConfigVariations(config);
+
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
-const hintTargetPlacements = ['outer', 'inner'];
 const hintTriggers = ['hover', 'click'];
 const labelPlacements = ['outer', 'inner'];
+const hintTargetPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
     'top-start',

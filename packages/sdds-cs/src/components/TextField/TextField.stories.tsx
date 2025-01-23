@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
-import { TextField } from '.';
+import { TextField } from './TextField';
+import { config } from './TextField.config';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 
-const sizes = ['s'];
-const views = ['default', 'negative'];
+const { views, sizes } = getConfigVariations(config);
 const labelPlacements = ['outer'];
 
 const meta: Meta<typeof TextField> = {
