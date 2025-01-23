@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import './style.css';
 
 import { Select } from './Select';
+import { config } from './Select.config';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
 };
 
-const view = ['default', 'negative'];
+const { views } = getConfigVariations(config);
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
@@ -25,8 +26,8 @@ const meta: Meta<StorySelectProps> = {
             options: ['button-like', 'textfield-like'],
         },
         view: {
-            control: 'select',
-            options: view,
+            control: 'inline-radio',
+            options: views,
         },
         variant: {
             control: 'select',
