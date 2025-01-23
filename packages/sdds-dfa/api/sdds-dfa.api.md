@@ -1398,6 +1398,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+value?: Date | null | undefined;
 defaultDate?: Date | undefined;
 placeholder?: string | undefined;
 name?: string | undefined;
@@ -1446,6 +1447,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+value?: [Date | null | undefined, Date | null | undefined] | undefined;
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
 name?: string | undefined;
