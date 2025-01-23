@@ -161,6 +161,13 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
 
                     setPrevValue(value);
                 }
+
+                if (!value) {
+                    dispatch({
+                        type: ActionType.UPDATE_DATE,
+                        payload: { value: min || new Date() },
+                    });
+                }
             }, [value, prevValue]);
 
             useEffect(() => {
