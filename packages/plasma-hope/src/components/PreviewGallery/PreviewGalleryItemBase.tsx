@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { whiteSecondary, whiteTertiary, buttonAccent, critical, whitePrimary, Image } from '@salutejs/plasma-core';
+import { Image } from '@salutejs/plasma-core';
 import { IconDone, IconDrag } from '@salutejs/plasma-icons';
 
 import { Footnote2 } from '../Typography';
@@ -29,19 +29,19 @@ export const buttonMixin = (vPosition: 'left' | 'right', bgColor: string, color:
 `;
 
 export const StyledSelectButton = styled.button`
-    ${buttonMixin('left', buttonAccent, whitePrimary)};
+    ${buttonMixin('left', 'var(--text-accent)', 'var(--on-dark-text-primary)')};
 `;
 
 export const StyledTrashButton = styled.button`
-    ${buttonMixin('right', critical, whiteSecondary)};
+    ${buttonMixin('right', 'var(--text-negative)', 'var(--on-dark-text-secondary)')};
 
     &:hover {
-        color: ${whitePrimary};
+        color: var(--on-dark-text-primary);
     }
 `;
 
 export const StyledIconDrag = styled(IconDrag)`
-    ${buttonMixin('left', 'transparent', whitePrimary)};
+    ${buttonMixin('left', 'transparent', 'var(--on-dark-text-primary)')};
 
     svg {
         opacity: 0.24;
@@ -55,7 +55,7 @@ export const StyledCaption: styledCaption = styled(Footnote2)`
     position: absolute;
     left: 0.625rem;
     bottom: 0.5rem;
-    color: ${whiteTertiary};
+    color: var(--on-dark-text-tertiary);
 `;
 
 export const StyledItem = styled.div<{ width?: string }>`

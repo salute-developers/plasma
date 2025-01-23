@@ -5,7 +5,16 @@ import type { DateInfo } from '../../Calendar/Calendar.types';
 import { LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-export type DatePickerPlacement = DatePickerPlacementBasic | 'auto';
+export type DatePickerPlacementVariation =
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right-start'
+    | 'right-end'
+    | 'left-start'
+    | 'left-end';
+export type DatePickerPlacement = DatePickerPlacementBasic | DatePickerPlacementVariation | 'auto';
 
 export type DatePickerTextFieldProps = {
     /**
@@ -116,7 +125,7 @@ export type DatePickerPopoverProps = {
     /**
      * Событие сворачивания/разворачивания календаря.
      */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;
 };
 
 export type DatePickerProps = DatePickerVariationProps &

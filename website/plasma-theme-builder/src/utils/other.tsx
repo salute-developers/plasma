@@ -28,3 +28,7 @@ export const getFormatDate = (date: string) => {
 };
 
 export const inRange = (x: number, [from, to]: number[]) => x >= from && x <= to;
+
+export const isCamelCaseNotation = (value: string) => RegExp(/^[A-Z][a-z0-9]*(?:[A-Z][a-z0-9]+)*$/).test(value);
+
+export const isHEXFormat = (value: string) => RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$/).test(value);

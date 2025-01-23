@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { success, critical } from '@salutejs/plasma-core';
 
 import { Caption } from '../Typography';
 
@@ -7,10 +6,10 @@ import { StatusType } from './types';
 
 const statuses = {
     error: {
-        color: critical,
+        color: 'var(--text-negative)',
     },
     success: {
-        color: success,
+        color: 'var(--text-positive)',
     },
 };
 

@@ -339,9 +339,11 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                         hintOffset={hintOffset}
                                         hintWidth={hintWidth}
                                         hintContentLeft={hintContentLeft}
+                                        size={size}
                                         handleHintShow={handleHintShow}
                                         handleHintHide={handleHintHide}
                                         handleHintClick={handleHintClick}
+                                        isInnerLabel
                                     />
                                 </StyledHintWrapper>
                             )}

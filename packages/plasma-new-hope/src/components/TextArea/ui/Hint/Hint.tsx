@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import { Hint, HintIconWrapper, HintTargetWrapper } from '../../TextArea.styles';
 import { IconInfoCircleOutline } from '../../../_Icon';
 import { safeUseId } from '../../../../utils';
+import { tokens } from '../../TextArea.tokens';
 
 import type { TextAreaHintProps } from './Hint.types';
 
@@ -18,6 +19,8 @@ export const HintComponent = forwardRef<HTMLDivElement, TextAreaHintProps>(
             hintOffset,
             hintWidth,
             hintContentLeft,
+            isInnerLabel,
+            size,
             handleHintShow,
             handleHintHide,
             handleHintClick,
@@ -25,6 +28,14 @@ export const HintComponent = forwardRef<HTMLDivElement, TextAreaHintProps>(
         ref,
     ) => {
         const hintId = safeUseId();
+
+        const getInfoIconSize = () => {
+            if (!isInnerLabel || size === 'xs') {
+                return 'xs';
+            }
+
+            return 's';
+        };
 
         return (
             <Hint
@@ -42,7 +53,13 @@ export const HintComponent = forwardRef<HTMLDivElement, TextAreaHintProps>(
                                   }
                                 : { onClick: handleHintClick })}
                         >
-                            {hintTargetIcon || <IconInfoCircleOutline size="xs" color="inherit" />}
+                            {hintTargetIcon || (
+                                <IconInfoCircleOutline
+                                    size={getInfoIconSize()}
+                                    color="inherit"
+                                    sizeCustomProperty={tokens.hintCustomIconTargetSize}
+                                />
+                            )}
                         </HintIconWrapper>
                     </HintTargetWrapper>
                 }

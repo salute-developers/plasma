@@ -9,6 +9,7 @@ export type InputProps = {
 
     min?: number;
     max?: number;
+    precision?: number;
 
     isLoading?: boolean;
     loader?: ReactNode;

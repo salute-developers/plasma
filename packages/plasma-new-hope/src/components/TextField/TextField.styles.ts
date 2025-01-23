@@ -123,6 +123,11 @@ export const StyledContentLeft = styled.div<{ isDefaultView: boolean; isClear: b
     line-height: 0;
 `;
 
+export const StyledContentRightWrapper = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
 export const StyledContentRight = styled.div`
     line-height: 0;
 
@@ -170,7 +175,9 @@ export const HintTargetWrapper = styled.div`
     align-items: center;
 `;
 
-export const HintIconWrapper = styled.div``;
+export const HintIconWrapper = styled.div`
+    display: flex;
+`;
 
 export const StyledIndicator = styled.div`
     position: absolute;

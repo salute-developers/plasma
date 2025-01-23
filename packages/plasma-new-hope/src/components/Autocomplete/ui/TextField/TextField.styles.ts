@@ -91,4 +91,38 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInner});
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorHintInnerRight});
+    ${textFieldTokens.boxShadow}: var(${autocompleteTokens.textFieldBoxShadow});
+        
+    ${textFieldTokens.rightContentWithHintMargin}: var(${autocompleteTokens.textFieldRightContentWithHintMargin});
+    ${textFieldTokens.contentRightWrapperGap}: var(${autocompleteTokens.textFieldContentRightWrapperGap});
+    ${textFieldTokens.contentRightWrapperMargin}: var(${autocompleteTokens.textFieldContentRightWrapperMargin});
+            
+    ${textFieldTokens.hintCustomIconTargetSize}: var(${autocompleteTokens.textFieldHintCustomIconTargetSize});
+    ${textFieldTokens.hintMargin}: var(${autocompleteTokens.textFieldHintMargin});
+    ${textFieldTokens.hintTargetSize}: var(${autocompleteTokens.textFieldHintTargetSize});
+    ${textFieldTokens.hintIconColor}: var(${autocompleteTokens.textFieldHintIconColor});
+    ${textFieldTokens.hintInnerLabelPlacementOffset}: var(${autocompleteTokens.textFieldHintInnerLabelPlacementOffset});
+    ${textFieldTokens.clearHintInnerLabelPlacementOffset}: var(${autocompleteTokens.textFieldClearHintInnerLabelPlacementOffset});
+    ${textFieldTokens.tooltipBackgroundColor}: var(${autocompleteTokens.textFieldTooltipBackgroundColor});
+    ${textFieldTokens.tooltipBoxShadow}: var(${autocompleteTokens.textFieldTooltipBoxShadow});
+    ${textFieldTokens.tooltipColor}: var(${autocompleteTokens.textFieldTooltipColor});
+    ${textFieldTokens.tooltipPaddingTop}: var(${autocompleteTokens.textFieldTooltipPaddingTop});
+    ${textFieldTokens.tooltipPaddingRight}: var(${autocompleteTokens.textFieldTooltipPaddingRight});
+    ${textFieldTokens.tooltipPaddingBottom}: var(${autocompleteTokens.textFieldTooltipPaddingBottom});
+    ${textFieldTokens.tooltipPaddingLeft}: var(${autocompleteTokens.textFieldTooltipPaddingLeft});
+    ${textFieldTokens.tooltipMinHeight}: var(${autocompleteTokens.textFieldTooltipMinHeight});
+    ${textFieldTokens.tooltipBorderRadius}: var(${autocompleteTokens.textFieldTooltipBorderRadius});
+    ${textFieldTokens.tooltipTextFontFamily}: var(${autocompleteTokens.textFieldTooltipTextFontFamily});
+    ${textFieldTokens.tooltipTextFontSize}: var(${autocompleteTokens.textFieldTooltipTextFontSize});
+    ${textFieldTokens.tooltipTextFontStyle}: var(${autocompleteTokens.textFieldTooltipTextFontStyle});
+    ${textFieldTokens.tooltipTextFontWeight}: var(${autocompleteTokens.textFieldTooltipTextFontWeight});
+    ${textFieldTokens.tooltipTextFontLetterSpacing}: var(${autocompleteTokens.textFieldTooltipTextFontLetterSpacing});
+    ${textFieldTokens.tooltipTextFontLineHeight}: var(${autocompleteTokens.textFieldTooltipTextFontLineHeight});
+    ${textFieldTokens.tooltipContentLeftMargin}: var(${autocompleteTokens.textFieldTooltipContentLeftMargin});
+    ${textFieldTokens.tooltipArrowMaskWidth}: var(${autocompleteTokens.textFieldTooltipArrowMaskWidth});
+    ${textFieldTokens.tooltipArrowMaskHeight}: var(${autocompleteTokens.textFieldTooltipArrowMaskHeight});
+    ${textFieldTokens.tooltipArrowMaskImage}: var(${autocompleteTokens.textFieldTooltipArrowMaskImage});
+    ${textFieldTokens.tooltipArrowHeight}: var(${autocompleteTokens.textFieldTooltipArrowHeight});
+    ${textFieldTokens.tooltipArrowEdgeMargin}: var(${autocompleteTokens.textFieldTooltipArrowEdgeMargin});
+    ${textFieldTokens.tooltipArrowBackground}: var(${autocompleteTokens.textFieldTooltipArrowBackground});
 `;

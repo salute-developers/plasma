@@ -350,8 +350,8 @@ const CompositionDeprecatedStory = () => {
                         onHover={(index) => console.log(index)}
                         isActive
                     />
-                    <DropdownItem index={0} value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
-                    <DropdownItem index={1} value={100003} label="О нас" color="var(--plasma-colors-critical)" />
+                    <DropdownItem index={0} value={100002} label="Каталог" color="var(--text-accent)" />
+                    <DropdownItem index={1} value={100003} label="О нас" color="var(--text-negative)" />
                     <DropdownItem index={2} value={100004} label="Недоступно" isDisabled />
                 </DropdownList>
             </DropdownPopup>

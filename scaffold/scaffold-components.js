@@ -11,9 +11,12 @@ async function main() {
         npm_config_package: npmConfigPackage,
         npm_config_vertical: npmConfigVertical,
         npm_config_exclude: npmConfigExclude,
+        INCLUDE_COMPONENTS: npmConfigInclude,
     } = process.env || {};
 
     const excludeList = npmConfigExclude ? npmConfigExclude.split(',').map((component) => component?.trim()) : [];
+    const includeList = npmConfigInclude ? npmConfigInclude.split(',').map((component) => component?.trim()) : [];
+    const hasIncludeList = Boolean(includeList.length);
 
     if (!npmConfigPackage) {
         return;
@@ -31,9 +34,19 @@ async function main() {
 
         // INFO: Получаем актуальный список директорий компонентов
         // например ['AutoComplete','Avatar','AvatarGroup','Badge','Button','ButtonGroup','Cell']
-        const components = (await readdir(packageDir)).filter(
-            (component) => !excludeList.includes(component.toLowerCase()),
-        );
+        const components = (await readdir(packageDir)).filter((component) => {
+            const isExcluded = excludeList.includes(component.toLowerCase());
+
+            if (isExcluded) {
+                return false;
+            }
+
+            if (hasIncludeList) {
+                return includeList.includes(component.toLowerCase());
+            }
+
+            return true;
+        });
 
         // INFO: Собираем шаблоны документации для компонентов
         // [

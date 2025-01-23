@@ -47,7 +47,6 @@ import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
-import { ChangeEvent } from 'react';
 import { ChangeInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipGroupProps } from '@salutejs/plasma-new-hope/types/components/ChipGroup/ChipGroup.types';
@@ -63,6 +62,7 @@ import { CommitInstanceCallback } from '@salutejs/plasma-new-hope/types/componen
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomCounterProps } from '@salutejs/plasma-new-hope/types/components/Counter/Counter.types';
 import { CustomHeaderTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
@@ -76,6 +76,7 @@ import { DatePickerPlacementBasic } from '@salutejs/plasma-new-hope/styled-compo
 import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
 import { DatePickerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerRangePlacementBasic } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DatePickerVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
@@ -102,9 +103,11 @@ import { dsplM } from '@salutejs/sdds-themes/tokens';
 import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
-import type { FC } from 'react';
+import { FC } from 'react';
 import { FileProcessHandler } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
+import { FlowProps } from '@salutejs/plasma-new-hope/styled-components';
+import { FocusEvent as FocusEvent_2 } from 'react';
 import { FormTypeNumber } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { FormTypeString } from '@salutejs/plasma-new-hope/types/types/FormType';
 import { ForwardRefExoticComponent } from 'react';
@@ -137,6 +140,8 @@ import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
+import { noteClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { noteTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { numberInputClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { numberInputTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Orientation } from '@salutejs/plasma-new-hope/types/components/TextFieldGroup/TextFieldGroup.types';
@@ -144,6 +149,7 @@ import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
+import { Placement } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxNew/Combobox.types';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { PopoverPlacementBasic } from '@salutejs/plasma-new-hope/styled-components';
@@ -172,6 +178,7 @@ import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
+import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
 import { RequiredProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
@@ -183,10 +190,14 @@ import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectPlacement } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
+import { SelectPlacementBasic } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import type { SelectProps as SelectProps_2 } from '@salutejs/plasma-new-hope';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonGradientProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
 import { SliderBaseProps } from '@salutejs/plasma-new-hope/types/components/Slider/components/SliderBase/SliderBase.types';
 import { SliderInternalProps } from '@salutejs/plasma-new-hope/types/components/Slider/components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -215,6 +226,7 @@ import { textM } from '@salutejs/sdds-themes/tokens';
 import { textMBold } from '@salutejs/sdds-themes/tokens';
 import { textS } from '@salutejs/sdds-themes/tokens';
 import { textSBold } from '@salutejs/sdds-themes/tokens';
+import { TextSkeletonBaseProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/TextSkeleton/TextSkeleton.types';
 import { textXS } from '@salutejs/sdds-themes/tokens';
 import { textXSBold } from '@salutejs/sdds-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
@@ -230,6 +242,7 @@ import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { ValidatorReturnType } from '@salutejs/plasma-new-hope/types/components/Dropzone/Dropzone.types';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { ViewContainerCustomProps } from '@salutejs/plasma-new-hope/types/components/ViewContainer/ViewContainer';
+import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 
 export { addFocus }
 
@@ -477,6 +490,13 @@ labelPlacement: {
 inner: PolymorphicClassName;
 outer: PolymorphicClassName;
 };
+hintView: {
+default: PolymorphicClassName;
+};
+hintSize: {
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
 disabled: {
 true: PolymorphicClassName;
 };
@@ -496,10 +516,11 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -526,10 +547,11 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -562,6 +584,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -592,6 +615,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -620,10 +644,11 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -650,10 +675,11 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -686,6 +712,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -716,6 +743,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -748,8 +776,26 @@ fit: PolymorphicClassName;
 focused: {
 true: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
-size: "xxl" | "s" | "m" | "l" | "fit";
+badgeView: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
+};
+counterView: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+dark: PolymorphicClassName;
+light: PolymorphicClassName;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
+size?: string | undefined;
 name?: string | undefined;
 url?: string | undefined;
 customText?: string | undefined;
@@ -757,7 +803,46 @@ status?: "active" | "inactive" | undefined;
 isScalable?: boolean | undefined;
 focused?: boolean | undefined;
 statusLabels?: StatusLabels | undefined;
-} & RefAttributes<HTMLDivElement>>;
+hasExtra?: boolean | undefined;
+type?: "badge" | "counter" | undefined;
+extraPlacement?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | undefined;
+} & {
+badgeView?: string | undefined;
+pilled?: boolean | undefined;
+text?: string | undefined;
+customColor?: string | undefined;
+customBackgroundColor?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+} & {
+counterView?: undefined;
+count?: undefined;
+maxCount?: undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+size?: string | undefined;
+name?: string | undefined;
+url?: string | undefined;
+customText?: string | undefined;
+status?: "active" | "inactive" | undefined;
+isScalable?: boolean | undefined;
+focused?: boolean | undefined;
+statusLabels?: StatusLabels | undefined;
+hasExtra?: boolean | undefined;
+type?: "badge" | "counter" | undefined;
+extraPlacement?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | undefined;
+} & {
+counterView?: string | undefined;
+count?: number | undefined;
+maxCount?: number | undefined;
+} & {
+badgeView?: undefined;
+pilled?: undefined;
+text?: undefined;
+customColor?: undefined;
+customBackgroundColor?: undefined;
+contentLeft?: undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 // @public (undocumented)
 export const AvatarGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
@@ -805,11 +890,9 @@ view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: undefined;
 } & {
-children?: ReactNode;
-} & {
 clear?: true | undefined;
-pilled?: false | undefined;
-transparent?: false | undefined;
+pilled?: undefined;
+transparent?: undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 customColor?: string | undefined;
@@ -821,27 +904,9 @@ view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: undefined;
 } & {
-children?: ReactNode;
-} & {
-pilled?: true | undefined;
-transparent?: boolean | undefined;
-clear?: false | undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & {
-contentLeft?: ReactNode;
-contentRight?: undefined;
-} & {
-children?: ReactNode;
-} & {
 pilled?: boolean | undefined;
-transparent?: true | undefined;
-clear?: false | undefined;
+transparent?: boolean | undefined;
+clear?: undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 customColor?: string | undefined;
@@ -852,12 +917,10 @@ view?: string | undefined;
 } & {
 contentLeft?: undefined;
 contentRight?: ReactNode;
-} & {
-children?: ReactNode;
 } & {
 clear?: true | undefined;
-pilled?: false | undefined;
-transparent?: false | undefined;
+pilled?: undefined;
+transparent?: undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 text?: string | undefined;
 customColor?: string | undefined;
@@ -868,28 +931,10 @@ view?: string | undefined;
 } & {
 contentLeft?: undefined;
 contentRight?: ReactNode;
-} & {
-children?: ReactNode;
-} & {
-pilled?: true | undefined;
-transparent?: boolean | undefined;
-clear?: false | undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & {
-contentLeft?: undefined;
-contentRight?: ReactNode;
-} & {
-children?: ReactNode;
 } & {
 pilled?: boolean | undefined;
-transparent?: true | undefined;
-clear?: false | undefined;
+transparent?: boolean | undefined;
+clear?: undefined;
 } & RefAttributes<HTMLDivElement>))>;
 
 export { BadgeProps }
@@ -1327,12 +1372,7 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 xxs: PolymorphicClassName;
 };
-}> & HTMLAttributes<HTMLDivElement> & {
-count: number;
-maxCount?: number | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & HTMLAttributes<HTMLDivElement> & CustomCounterProps & RefAttributes<HTMLDivElement>>;
 
 export { CounterProps }
 
@@ -1443,17 +1483,18 @@ secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<an
 secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
-onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
 firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
 dividerVariant?: "none" | "dash" | "icon" | undefined;
 dividerIcon?: ReactNode;
 } & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
-placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
+placement?: DatePickerRangePlacement | DatePickerRangePlacementBasic[] | undefined;
 isDoubleCalendar?: boolean | undefined;
+closeAfterDateSelect?: boolean | undefined;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>>;
 
 export { DatePickerRangePlacement }
@@ -1664,6 +1705,11 @@ xs: PolymorphicClassName;
 }> & Props_2 & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
+export const Flow: FunctionComponent<PropsType<    {}> & FlowProps & {
+minColWidth?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
 export const Grid: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1857,6 +1903,32 @@ view: string;
 
 export { IndicatorProps }
 
+// @public (undocumented)
+export const LineSkeleton: FunctionComponent<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement>>;
+
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
@@ -1943,10 +2015,11 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -2019,10 +2092,11 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -2101,6 +2175,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -2177,6 +2252,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -2251,10 +2327,11 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -2327,10 +2404,11 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -2409,6 +2487,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -2485,6 +2564,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -2510,6 +2590,37 @@ export const Modal: ForwardRefExoticComponent<ModalProps & RefAttributes<HTMLDiv
 export { modalClasses }
 
 export { ModalProps }
+
+// @public (undocumented)
+export const Note: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+info: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+}> & {
+title?: string | undefined;
+text?: string | undefined;
+contentBefore?: ReactNode;
+contentBeforeSizing?: "fixed" | "scalable" | undefined;
+stretch?: boolean | undefined;
+width?: string | number | undefined;
+height?: string | number | undefined;
+view?: string | undefined;
+size?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { noteClasses }
+
+export { noteTokens }
 
 // @public (undocumented)
 export const NumberInput: FunctionComponent<PropsType<    {
@@ -2546,6 +2657,7 @@ value?: number | undefined;
 min?: number | undefined;
 max?: number | undefined;
 step?: number | undefined;
+precision?: number | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 size?: string | undefined;
@@ -2566,11 +2678,12 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: "clear" | undefined;
 inputBackgroundType?: undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>) | ({
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
 value?: number | undefined;
 min?: number | undefined;
 max?: number | undefined;
 step?: number | undefined;
+precision?: number | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 size?: string | undefined;
@@ -2591,7 +2704,7 @@ onDecrement?: ((value: number) => void) | undefined;
 } & {
 segmentation?: string | undefined;
 inputBackgroundType?: string | undefined;
-} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value"> & RefAttributes<HTMLInputElement>))>;
+} & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "onChange" | "value"> & RefAttributes<HTMLInputElement>))>;
 
 export { numberInputClasses }
 
@@ -2760,10 +2873,10 @@ onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
 onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
-onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
 } & {
 firstTextfieldTextBefore: string;
 secondTextfieldTextBefore: string;
@@ -2799,10 +2912,10 @@ onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
 onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
-onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
 } & {
 dividerVariant?: "dash" | undefined;
 dividerIcon?: undefined;
@@ -2838,10 +2951,10 @@ onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
 onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
-onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
-onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
 } & {
 dividerIcon?: ReactNode;
 dividerVariant?: "icon" | undefined;
@@ -2896,6 +3009,8 @@ export { ratingClasses }
 export { ratingTokens }
 
 export { Ratio }
+
+export { RectSkeleton }
 
 export { Row }
 
@@ -3293,7 +3408,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3336,7 +3451,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3379,7 +3494,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3422,7 +3537,7 @@ requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintOpened?: boolean | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
@@ -3682,10 +3797,11 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -3717,10 +3833,11 @@ clear?: boolean | undefined;
 hasDivider?: boolean | undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -3758,6 +3875,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -3793,6 +3911,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -3826,10 +3945,11 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -3861,10 +3981,11 @@ clear?: false | undefined;
 hasDivider?: undefined;
 } & {
 hintText: string;
-hintTrigger?: "click" | "hover" | undefined;
+hintTrigger?: "hover" | "click" | undefined;
 hintView?: string | undefined;
 hintSize?: string | undefined;
 hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "outer" | "inner" | undefined;
 hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
 hintHasArrow?: boolean | undefined;
 hintOffset?: [number, number] | undefined;
@@ -3902,6 +4023,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -3937,6 +4059,7 @@ hintText?: undefined;
 hintView?: undefined;
 hintSize?: undefined;
 hintTargetIcon?: undefined;
+hintTargetPlacement?: undefined;
 hintPlacement?: undefined;
 hintHasArrow?: undefined;
 hintOffset?: undefined;
@@ -4049,6 +4172,32 @@ export { textS }
 export { textSBold }
 
 // @public (undocumented)
+export const TextSkeleton: FC<PropsType<    {
+size: {
+bodyL: PolymorphicClassName;
+bodyM: PolymorphicClassName;
+bodyS: PolymorphicClassName;
+bodyXS: PolymorphicClassName;
+bodyXXS: PolymorphicClassName;
+dsplL: PolymorphicClassName;
+dsplM: PolymorphicClassName;
+dsplS: PolymorphicClassName;
+h1: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
+textL: PolymorphicClassName;
+textM: PolymorphicClassName;
+textS: PolymorphicClassName;
+textXS: PolymorphicClassName;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps & RefAttributes<HTMLDivElement> & TextSkeletonBaseProps>;
+
+// @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
 size: {
 xs: PolymorphicClassName;
@@ -4149,6 +4298,8 @@ onDark: PolymorphicClassName;
 onLight: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & ViewContainerCustomProps & RefAttributes<HTMLAnchorElement>>;
+
+export { withSkeleton }
 
 
 export * from "@salutejs/sdds-themes/tokens/sdds_dfa";

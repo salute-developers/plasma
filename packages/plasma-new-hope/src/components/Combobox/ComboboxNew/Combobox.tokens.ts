@@ -15,6 +15,7 @@ export const classes = {
 export const tokens = {
     borderRadius: '--plasma-combobox-border-radius',
     padding: '--plasma-combobox-padding',
+    margin: '--plasma-combobox-margin',
     focusOffset: '--plasma-combobox-focus-offset',
 
     fontFamily: '--plasma-combobox-font-family',
@@ -92,6 +93,10 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-combobox-new-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-combobox-new-textfield-right-content-margin',
+    textFieldRightContentWithHintMargin: '--plasma-combobox-textfield-right-content-with-hint-margin',
+
+    textFieldContentRightWrapperGap: '--plasma-combobox-textfield-content-right-wrapper-gap',
+    textFieldContentRightWrapperMargin: '--plasma-combobox-textfield-content-right-wrapper-margin',
 
     textFieldFontFamily: '--plasma-combobox-new-textfield-font-family',
     textFieldFontStyle: '--plasma-combobox-new-textfield-font-style',
@@ -159,6 +164,38 @@ export const tokens = {
 
     textFieldDisabledOpacity: '--plasma-combobox-new-textfield-disabled-opacity',
 
+    /** Токены для tooltip */
+    textFieldHintCustomIconTargetSize: '--plasma-combobox-textfield__hint-custom-icon-target-size',
+    textFieldHintMargin: '--plasma-combobox-textfield__hint-margin',
+    textFieldHintTargetSize: '--plasma-combobox-textfield__hint-target-size',
+    textFieldHintIconColor: '--plasma-combobox-textfield__hint-icon-color',
+    textFieldHintInnerLabelPlacementOffset: '--plasma-combobox-textfield__hint-inner-label-placement-offset',
+    textFieldClearHintInnerLabelPlacementOffset: '--plasma-combobox-textfield__clear-hint-inner-label-placement-offset',
+
+    textFieldTooltipBackgroundColor: '--plasma-combobox-textfield__tooltip-background-color',
+    textFieldTooltipBoxShadow: '--plasma-combobox-textfield__tooltip-box-shadow',
+    textFieldTooltipColor: '--plasma-combobox-textfield__tooltip-color',
+
+    textFieldTooltipPaddingTop: '--plasma-combobox-textfield__tooltip-padding-top',
+    textFieldTooltipPaddingRight: '--plasma-combobox-textfield__tooltip-padding-right',
+    textFieldTooltipPaddingBottom: '--plasma-combobox-textfield__tooltip-padding-bottom',
+    textFieldTooltipPaddingLeft: '--plasma-combobox-textfield__tooltip-padding-left',
+    textFieldTooltipMinHeight: '--plasma-combobox-textfield__tooltip-min-height',
+    textFieldTooltipBorderRadius: '--plasma-combobox-textfield__tooltip-border-radius',
+    textFieldTooltipTextFontFamily: '--plasma-combobox-textfield__tooltip-text-font-family',
+    textFieldTooltipTextFontSize: '--plasma-combobox-textfield__tooltip-text-font-size',
+    textFieldTooltipTextFontStyle: '--plasma-combobox-textfield__tooltip-text-font-style',
+    textFieldTooltipTextFontWeight: '--plasma-combobox-textfield__tooltip-text-font-weight',
+    textFieldTooltipTextFontLetterSpacing: '--plasma-combobox-textfield__tooltip-text-font-letter-spacing',
+    textFieldTooltipTextFontLineHeight: '--plasma-combobox-textfield__tooltip-text-font-line-height',
+    textFieldTooltipContentLeftMargin: '--plasma-combobox-textfield__tooltip-content-left-margin',
+    textFieldTooltipArrowMaskWidth: '--plasma-combobox-textfield__tooltip-arrow-mask-width',
+    textFieldTooltipArrowMaskHeight: '--plasma-combobox-textfield__tooltip-arrow-mask-height',
+    textFieldTooltipArrowMaskImage: '--plasma-combobox-textfield__tooltip-arrow-mask-image',
+    textFieldTooltipArrowHeight: '--plasma-combobox-textfield__tooltip-arrow-height',
+    textFieldTooltipArrowEdgeMargin: '--plasma-combobox-textfield__tooltip-arrow-edge-margin',
+    textFieldTooltipArrowBackground: '--plasma-combobox-textfield__tooltip-arrow-background',
+
     textFieldChipHeight: '--plasma-combobox-new-textfield-chip-height',
     textFieldChipBorderRadius: '--plasma-combobox-new-textfield-chip-border-radius',
     textFieldChipGap: '--plasma-combobox-new-textfield-chip-gap',
@@ -191,6 +228,8 @@ export const tokens = {
 
     textFieldFocusColor: '--plasma-combobox-new-textfield-focus-color',
 
+    textFieldBoxShadow: '--plasma-select-textfield-box-shadow',
+
     textFieldIndicatorColor: '--plasma-combobox-new-textfield-indicator-color',
     textFieldIndicatorSizeInner: '--plasma-combobox-new-textfield-indicator-size-inner',
     textFieldIndicatorSizeOuter: '--plasma-combobox-new-textfield-indicator-size-outer',
@@ -218,6 +257,8 @@ export const tokens = {
 
     disclosureIconColor: '--plasma-combobox-disclosure-icon-color',
     disclosureIconColorHover: '--plasma-combobox-disclosure-icon-color-hover',
+    disclosureIconSize: '--plasma-select-disclosure-icon-size',
+    disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
 };
 
 export const constants = {

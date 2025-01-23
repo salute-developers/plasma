@@ -58,7 +58,9 @@ export const IconRoot: React.FC<IconRootProps> = ({
 }) => {
     const c = color || 'var(--text-primary)';
 
-    const w = sizeCustomProperty ? `var(${sizeCustomProperty})` : sizeCustomValue || `${sizeMap[size]}rem`;
+    const w = sizeCustomProperty
+        ? `var(${sizeCustomProperty}, ${sizeMap[size]}rem)`
+        : sizeCustomValue || `${sizeMap[size]}rem`;
 
     return (
         <StyledRoot aria-hidden w={w} className={className} {...rest}>

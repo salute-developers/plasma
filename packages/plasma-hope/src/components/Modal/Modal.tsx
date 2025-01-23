@@ -2,7 +2,6 @@ import React, { useEffect, useCallback, useRef, useState, useContext, FC } from 
 import ReactDOM from 'react-dom';
 import styled, { css, keyframes, createGlobalStyle } from 'styled-components';
 import { useUniqId } from '@salutejs/plasma-core';
-import { darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
 
 import { useFocusTrap } from '../../hooks';
 
@@ -114,7 +113,7 @@ const StyledOverlay = styled.div<{ transparent?: boolean; $withBlur?: boolean; c
 
     ${({ $withBlur }) => {
         return css`
-            --background-color: ${$withBlur ? darkOverlayBlur : overlaySoft};
+            --background-color: ${$withBlur ? 'rgba(35, 35, 35, 0.2)' : 'rgba(8, 8, 8, 0.56)'};
             --backdrop-filter: ${$withBlur ? 'blur(1rem)' : 'none'};
         `;
     }};

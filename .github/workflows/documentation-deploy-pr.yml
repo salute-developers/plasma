@@ -45,43 +45,8 @@ jobs:
             -   name: Prepare environment
                 uses: ./.github/actions/prepare-environment
 
-            - name: Get lerna scope
-              id: lerna-scope
-              uses: actions/github-script@v7
-              env:
-                  PROCESSED_DATA: ${{ toJSON(fromJson(needs.state.outputs.STATE).PROCESSED_DATA) }}
-              with:
-                  result-encoding: string
-                  script: |
-                      const { PROCESSED_DATA } = process.env;
-
-                      const processedData = JSON.parse(PROCESSED_DATA);
-
-                      const requiredPackages = [
-                          'plasma-b2c',
-                          'plasma-tokens-b2c',
-                          'plasma-typo'
-                      ];
-
-                      // TODO: логика под рефакторинг под использование object
-                      const result = [
-                          ...processedData.filter((package) => requiredPackages.includes(package)),
-                          'plasma-website',
-                          'plasma-icons',
-                      ];
-
-
-                      // INFO: Пока не починили медленный css build for b2c/web ставим plasma-new-hope
-                      if (processedData.includes('plasma-b2c')) {
-                        result.push('plasma-new-hope');
-                        result.push('plasma-themes');
-                        result.push('core-themes');
-                      }
-                
-                      return `@salutejs/{${result.join(',')}}`;
-
             -   name: Lerna bootstrap
-                run: npx lerna bootstrap --scope="${{ steps.lerna-scope.outputs.result }}"
+                run: npx lerna bootstrap --scope="@salutejs/core-themes" --scope="@salutejs/plasma-{b2c,web,website,tokens-b2c,typo,icons,new-hope,themes}"
 
             -   name: Prepare directory
                 run: |

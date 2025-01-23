@@ -236,4 +236,67 @@ describe('plasma-web: NumberInput', () => {
             failureThresholdType: 'percent',
         });
     });
+
+    it(':dot at the end gets removed', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').type('5.').blur();
+        cy.get('input').should('have.value', '5');
+    });
+
+    it(':dot at the end gets removed; value more than max', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').type('200.').blur();
+        cy.get('input').should('have.value', '10');
+    });
+
+    it(':dot at the end gets removed; value less than min', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').type('-200.').blur();
+        cy.get('input').should('have.value', '0');
+    });
+
+    it('precision', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <NumberInput size="l" value={5} max={10} min={-10} precision={2} step={0.111} isManualInput />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').type('0').blur();
+        cy.get('input').should('have.value', '0');
+
+        cy.get('input').type('1.005').blur();
+        cy.get('input').should('have.value', '1.01');
+
+        cy.get('input').type('-1.005').blur();
+        cy.get('input').should('have.value', '-1.01');
+
+        cy.get('input').type('5.115').blur();
+        cy.get('input').should('have.value', '5.12');
+
+        cy.get('input').type('5.11111').blur();
+        cy.get('input').should('have.value', '5.11');
+
+        cy.get('button').first().click();
+        cy.get('input').should('have.value', '5');
+
+        cy.get('button').last().click();
+        cy.get('button').last().click();
+        cy.get('input').should('have.value', '5.22');
+    });
 });

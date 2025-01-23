@@ -185,7 +185,6 @@ const StoryRange = ({
     const rangeRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [firstDate, setFirstDate] = useState<string | Date>('');
 
     const iconSize = size === 'xs' ? 'xs' : 's';
     const showDividerIcon = dividerVariant === 'icon';
@@ -232,12 +231,6 @@ const StoryRange = ({
             onChangeSecondValue={(e, currentValue) => {
                 onChangeSecondValue(e, currentValue);
             }}
-            onCommitFirstDate={(currentValue) => {
-                setFirstDate(currentValue);
-            }}
-            onCommitSecondDate={(currentValue) => {
-                firstDate && currentValue && setIsOpen(false);
-            }}
             {...dividerIconProps}
             {...rest}
         />
@@ -267,6 +260,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         lang: 'ru',
         format: 'DD.MM.YYYY',
         isDoubleCalendar: false,
+        closeAfterDateSelect: true,
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),

@@ -58,7 +58,6 @@ export const base = css`
     position: relative;
     align-items: flex-start;
     display: flex;
-    cursor: pointer;
 
     .${classes.singleLine} {
         ${applyEllipsis()};

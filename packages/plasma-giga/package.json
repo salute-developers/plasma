@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-giga",
-  "version": "0.216.1",
+  "version": "0.227.2-dev.0",
   "description": "Salute Design System / React UI kit for PLASMA GIGA web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -20,7 +20,8 @@
     "tokens",
     "index.d.ts",
     "api-extractor.json",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "_virtual"
   ],
   "main": "index.js",
   "module": "es/index.js",
@@ -31,7 +32,7 @@
     "directory": "packages/plasma-giga"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.235.1",
+    "@salutejs/plasma-new-hope": "0.246.2-dev.0",
     "@salutejs/plasma-themes": "0.28.0"
   },
   "peerDependencies": {
@@ -62,10 +63,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.14.0",
-    "@salutejs/plasma-core": "1.190.0",
-    "@salutejs/plasma-cy-utils": "0.121.0",
+    "@salutejs/plasma-core": "1.191.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.122.0-dev.0",
     "@salutejs/plasma-icons": "1.210.0",
-    "@salutejs/plasma-sb-utils": "0.189.0",
+    "@salutejs/plasma-sb-utils": "0.190.1-dev.0",
     "@storybook/addon-docs": "7.6.17",
     "@storybook/addon-essentials": "7.6.17",
     "@storybook/addons": "7.6.17",
@@ -110,8 +111,8 @@
     "build:styled-components:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-giga babel ./src --out-dir ./styled-components/es --extensions .ts,.tsx",
     "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-giga rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "postbuild:styled-components": "npm run generate:typings",
-    "postbuild:emotion": "rm -rf src-emotion && npm run generate:typings",
+    "postbuild:emotion": "rm -rf src-emotion",
+    "pregenerate:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
     "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "npm run storybook:sc",
     "prestorybook:emotion": "npm run prebuild:emotion",
@@ -123,11 +124,11 @@
   },
   "typeCoverage": {
     "ignoreFiles": [
-      "src/**/*component-test.tsx",
-      "src/**/*stories.tsx",
-      "src/**/*perftest.tsx"
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx",
+      "src/**/*.perftest.tsx"
     ],
-    "atLeast": 99.96
+    "atLeast": 99.93
   },
   "contributors": [
     "Vasiliy Loginevskiy"

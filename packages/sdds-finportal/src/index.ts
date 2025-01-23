@@ -6,6 +6,7 @@ export * from './components/ButtonGroup';
 export * from './components/Breadcrumbs';
 export * from './components/Divider';
 export * from './components/Drawer';
+export * from './components/Flow';
 export * from './components/Grid';
 export * from './components/Calendar';
 export * from './components/Checkbox';
@@ -58,6 +59,7 @@ export * from './components/ViewContainer';
 export * from './components/NumberInput';
 export * from './components/Dropzone';
 export * from './components/Tree';
+export * from './components/Note';
 
 export * from './mixins';
 export * from './tokens';

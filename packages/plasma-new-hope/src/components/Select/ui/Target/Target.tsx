@@ -32,6 +32,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             chipView,
             separator,
             requiredProps,
+            hintProps,
         },
         ref,
     ) => {
@@ -90,6 +91,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 labelToItemMap={labelToItemMap}
                 chipView={chipView}
                 requiredProps={requiredProps}
+                hintProps={hintProps}
                 chipType={selectProps.chipType}
             />
         );

@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { PathState } from '../../reducers/pathReducer';
+import type { DropdownPlacement } from '../../Dropdown.types';
 
 export type DropdownItemOption = {
     /**
@@ -11,6 +12,10 @@ export type DropdownItemOption = {
      * Метка-подпись к item
      */
     label: string;
+    /**
+     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     */
+    placement: DropdownPlacement;
     /**
      * Список дочерних items
      */

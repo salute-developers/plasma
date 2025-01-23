@@ -26,6 +26,11 @@ type Items = Array<{
          */
         label: string;
         /**
+        * Сторона открытия вложенного дропдауна относительно текущего элемента
+        * @default right
+        */
+        placement?: Placement;
+        /**
          * Список дочерних items.
          */
         items?: Array<ItemOption>;

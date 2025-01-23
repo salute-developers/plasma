@@ -12,7 +12,7 @@ export const config = {
                 ${tokens.borderColor}: var(--surface-transparent-tertiary);
                 ${tokens.borderColorError}: var(--surface-negative);
                 ${tokens.borderColorSuccess}: var(--surface-positive);
-                ${tokens.borderColorHover}: var(--plasma-colors-secondary);
+                ${tokens.borderColorHover}: var(--text-secondary);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--text-primary);

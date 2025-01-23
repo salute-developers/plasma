@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-serv",
-  "version": "0.220.1",
+  "version": "0.231.2-dev.0",
   "description": "Salute Design System / React UI kit for SDDS SERV web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -23,16 +23,16 @@
     "CHANGELOG.md",
     "_virtual"
   ],
-  "main": "./index.js",
-  "module": "./es/index.js",
-  "types": "./index.d.ts",
+  "main": "index.js",
+  "module": "es/index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
     "directory": "packages/sdds-serv"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.235.1",
+    "@salutejs/plasma-new-hope": "0.246.2-dev.0",
     "@salutejs/sdds-themes": "0.31.0"
   },
   "peerDependencies": {
@@ -63,10 +63,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.14.0",
-    "@salutejs/plasma-core": "1.190.0",
-    "@salutejs/plasma-cy-utils": "0.121.0",
+    "@salutejs/plasma-core": "1.191.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.122.0-dev.0",
     "@salutejs/plasma-icons": "1.210.0",
-    "@salutejs/plasma-sb-utils": "0.189.0",
+    "@salutejs/plasma-sb-utils": "0.190.1-dev.0",
     "@storybook/addon-docs": "7.6.17",
     "@storybook/addon-essentials": "7.6.17",
     "@storybook/addons": "7.6.17",
@@ -110,10 +110,9 @@
     "build:styled-components:esm": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc babel ./src --out-dir ./styled-components/es --extensions .ts,.tsx",
     "build:css": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "postbuild:styled-components": "rm -rf src-sc",
     "postbuild:emotion": "rm -rf src-emotion",
-    "remove:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
-    "generate:typings": "npm run remove:typings && tsc --outDir . --emitDeclarationOnly",
+    "pregenerate:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
+    "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "npm run storybook:sc",
     "prestorybook:emotion": "npm run prebuild:emotion",
     "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
@@ -124,11 +123,11 @@
   },
   "typeCoverage": {
     "ignoreFiles": [
-      "src/**/*component-test.tsx",
-      "src/**/*stories.tsx",
-      "src/**/*perftest.tsx"
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx",
+      "src/**/*.perftest.tsx"
     ],
-    "atLeast": 99.94
+    "atLeast": 99.93
   },
   "contributors": [
     "Vasiliy Loginevskiy",

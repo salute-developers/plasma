@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-type CustomCounterProps = {
+export type CustomCounterProps = {
     /**
      * Отображаемое число. Не может быть меньше 1.
      */

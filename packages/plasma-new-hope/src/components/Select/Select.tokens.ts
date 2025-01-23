@@ -12,6 +12,7 @@ export const classes = {
 
 export const tokens = {
     borderRadius: '--plasma-select-border-radius',
+    margin: '--plasma-select-margin',
     padding: '--plasma-select-padding',
 
     fontFamily: '--plasma-select-font-family',
@@ -94,6 +95,10 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-select-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-select-textfield-right-content-margin',
+    textFieldRightContentWithHintMargin: '--plasma-select-textfield-right-content-with-hint-margin',
+
+    textFieldContentRightWrapperGap: '--plasma-select-textfield-content-right-wrapper-gap',
+    textFieldContentRightWrapperMargin: '--plasma-select-textfield-content-right-wrapper-margin',
 
     textFieldFontFamily: '--plasma-select-textfield-font-family',
     textFieldFontStyle: '--plasma-select-textfield-font-style',
@@ -157,6 +162,38 @@ export const tokens = {
 
     textFieldDisabledOpacity: '--plasma-select-textfield-disabled-opacity',
 
+    /** Токены для tooltip */
+    textFieldHintCustomIconTargetSize: '--plasma-select-textfield__hint-custom-icon-target-size',
+    textFieldHintMargin: '--plasma-select-textfield__hint-margin',
+    textFieldHintTargetSize: '--plasma-select-textfield__hint-target-size',
+    textFieldHintIconColor: '--plasma-select-textfield__hint-icon-color',
+    textFieldHintInnerLabelPlacementOffset: '--plasma-select-textfield__hint-inner-label-placement-offset',
+    textFieldClearHintInnerLabelPlacementOffset: '--plasma-select-textfield__clear-hint-inner-label-placement-offset',
+
+    textFieldTooltipBackgroundColor: '--plasma-select-textfield__tooltip-background-color',
+    textFieldTooltipBoxShadow: '--plasma-select-textfield__tooltip-box-shadow',
+    textFieldTooltipColor: '--plasma-select-textfield__tooltip-color',
+
+    textFieldTooltipPaddingTop: '--plasma-select-textfield__tooltip-padding-top',
+    textFieldTooltipPaddingRight: '--plasma-select-textfield__tooltip-padding-right',
+    textFieldTooltipPaddingBottom: '--plasma-select-textfield__tooltip-padding-bottom',
+    textFieldTooltipPaddingLeft: '--plasma-select-textfield__tooltip-padding-left',
+    textFieldTooltipMinHeight: '--plasma-select-textfield__tooltip-min-height',
+    textFieldTooltipBorderRadius: '--plasma-select-textfield__tooltip-border-radius',
+    textFieldTooltipTextFontFamily: '--plasma-select-textfield__tooltip-text-font-family',
+    textFieldTooltipTextFontSize: '--plasma-select-textfield__tooltip-text-font-size',
+    textFieldTooltipTextFontStyle: '--plasma-select-textfield__tooltip-text-font-style',
+    textFieldTooltipTextFontWeight: '--plasma-select-textfield__tooltip-text-font-weight',
+    textFieldTooltipTextFontLetterSpacing: '--plasma-select-textfield__tooltip-text-font-letter-spacing',
+    textFieldTooltipTextFontLineHeight: '--plasma-select-textfield__tooltip-text-font-line-height',
+    textFieldTooltipContentLeftMargin: '--plasma-select-textfield__tooltip-content-left-margin',
+    textFieldTooltipArrowMaskWidth: '--plasma-select-textfield__tooltip-arrow-mask-width',
+    textFieldTooltipArrowMaskHeight: '--plasma-select-textfield__tooltip-arrow-mask-height',
+    textFieldTooltipArrowMaskImage: '--plasma-select-textfield__tooltip-arrow-mask-image',
+    textFieldTooltipArrowHeight: '--plasma-select-textfield__tooltip-arrow-height',
+    textFieldTooltipArrowEdgeMargin: '--plasma-select-textfield__tooltip-arrow-edge-margin',
+    textFieldTooltipArrowBackground: '--plasma-select-textfield__tooltip-arrow-background',
+
     textFieldChipHeight: '--plasma-select-textfield-chip-height',
     textFieldChipBorderRadius: '--plasma-select-textfield-chip-border-radius',
     textFieldChipGap: '--plasma-select-textfield-chip-gap',
@@ -197,8 +234,12 @@ export const tokens = {
 
     textFieldFocusColor: '--plasma-select-textfield-focus-color',
 
+    textFieldBoxShadow: '--plasma-select-textfield-box-shadow',
+
     disclosureIconColor: '--plasma-select-disclosure-icon-color',
     disclosureIconColorHover: '--plasma-select-disclosure-icon-color-hover',
+    disclosureIconSize: '--plasma-select-disclosure-icon-size',
+    disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
 };
 
 export const constants = {

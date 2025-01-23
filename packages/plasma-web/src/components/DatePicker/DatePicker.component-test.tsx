@@ -606,6 +606,26 @@ describe('plasma-web: DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: change only second date', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo enableContentRight />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click().type('14.06.2023');
+        cy.realPress('Enter');
+        cy.get('body').find('[data-day="17"]').first().click();
+        cy.realPress('Escape');
+        cy.get('.input-wrapper input').last().click();
+        cy.get('body').find('[data-day="27"]').first().click();
+
+        cy.get('input').first().should('have.value', '14.06.2023');
+        cy.get('input').last().should('have.value', '27.06.2023');
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: input date, double calendar', () => {
         cy.viewport(900, 800);
 

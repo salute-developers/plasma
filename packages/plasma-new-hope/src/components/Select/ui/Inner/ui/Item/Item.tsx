@@ -3,7 +3,6 @@ import React, { useRef, FC, useContext } from 'react';
 import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 import { cx, isEmpty } from '../../../../../../utils';
-import { IconDisclosureRightCentered, IconDone } from '../../../../../_Icon';
 import { Context } from '../../../../Select.context';
 import { useDidMountEffect } from '../../../../../../hooks';
 
@@ -18,6 +17,8 @@ import {
     StyledText,
     Wrapper,
     StyledCheckboxWrapper,
+    StyledArrow,
+    StyledIconDone,
 } from './Item.styles';
 
 export const Item: FC<ItemProps> = ({
@@ -111,7 +112,7 @@ export const Item: FC<ItemProps> = ({
                 {!multiselect && checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
 
                 {!multiselect && checked.get(item.value) === 'done' && (
-                    <IconDone size={sizeToIconSize(size, variant)} color="inherit" />
+                    <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
                 )}
             </IconWrapper>
 
@@ -132,7 +133,7 @@ export const Item: FC<ItemProps> = ({
 
             {!isEmpty(item.items) && (
                 <DisclosureIconWrapper>
-                    <IconDisclosureRightCentered size={sizeToIconSize(size, variant)} color="inherit" />
+                    <StyledArrow size={sizeToIconSize(size, variant)} color="inherit" />
                 </DisclosureIconWrapper>
             )}
         </Wrapper>

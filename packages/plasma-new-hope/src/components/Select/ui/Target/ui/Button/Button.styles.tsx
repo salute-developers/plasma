@@ -24,7 +24,7 @@ export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
     ${buttonTokens.buttonFontFamily}: var(${tokens.fontFamily});
     ${buttonTokens.buttonFontSize}: var(${tokens.fontSize});
     ${buttonTokens.buttonFontStyle}: var(${tokens.fontStyle});
-    ${buttonTokens.buttonFontWeight}: 600;
+    ${buttonTokens.buttonFontWeight}: var(${tokens.fontWeight});
     ${buttonTokens.buttonLetterSpacing}: var(${tokens.fontLetterSpacing});
     ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
     ${buttonTokens.buttonDisabledOpacity}: ${constants.opacity};
@@ -45,10 +45,19 @@ export const IconArrowWrapper = styled.div`
     }
 `;
 
+// TODO: Удалить после поддержки JS переменных в конфиге компонент
+export const sizeMap: Record<string, string> = {
+    xs: '1rem',
+    s: '1.5rem',
+};
+
 export const StyledArrow = styled(IconDisclosureDownCentered)`
     transition: color 0.3s ease-in, transform 0.15s ease-in;
     pointer-events: none;
     user-select: none;
+
+    width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
 `;
 
 export const ButtonWrapper = styled.div`

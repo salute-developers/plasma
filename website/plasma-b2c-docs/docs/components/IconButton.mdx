@@ -25,7 +25,7 @@ export function App() {
     return (
         <div>
             <IconButton>
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
             </IconButton>
         </div>
     );
@@ -45,17 +45,20 @@ import { IconClose } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div>
+            <IconButton size="xl">
+                <IconClose color="inherit" />
+            </IconButton>
             <IconButton size="l">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
             </IconButton>
             <IconButton size="m">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
             </IconButton>
             <IconButton size="xs">
-                <IconClose  color="inherit" size="xs" />
+                <IconClose color="inherit" size="xs" />
             </IconButton>
         </div>
     );
@@ -63,14 +66,16 @@ export function App() {
 ```
 
 ### Вид кнопки
-Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
+Вид кнопки задается с помощью свойства `view`.
 
+Возможные значения свойства `view`:
 + `"default"` – по умолчанию;
++ `"accent"` – акцентная;
 + `"secondary"` – вторичная;
++ `"clear"` – без цветового сопровождения.
 + `"success"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"critical"` – ошибка;
-+ `"clear"` – без цветового сопровождения;
 + `"dark"` – темная;
 + `"black"` – черная;
 + `"white"` – белая.
@@ -82,33 +87,36 @@ import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <IconButton size="s" view="default">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="accent">
+                <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="secondary">
-                <IconClose  color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="success">
-                <IconClose  color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="warning">
-                <IconClose  color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="critical">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="clear">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="success">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="warning">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="critical">
+                <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="dark">
                 <IconClose  color="inherit" />
             </IconButton>
             <IconButton size="s" view="black">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="white">
-                <IconClose  color="inherit" />
+                <IconClose color="inherit" />
             </IconButton>
         </div>
     );
@@ -117,7 +125,6 @@ export function App() {
 
 ### Границы кнопки
 Границы кнопки задаются с помощью свойства `pin`. Возможные значения свойства `pin`:
-
 + `square` – обычное скругление;
 + `circle` – сильное скругление;
 + `clear` – нет скругления.
@@ -129,14 +136,28 @@ import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div>
-            <IconButton pin="square-square"><IconClose  color="inherit" /></IconButton>
-            <IconButton pin="square-clear"><IconClose  color="inherit" /></IconButton>
-            <IconButton pin="clear-square"><IconClose  color="inherit" /></IconButton>
-            <IconButton pin="clear-clear"><IconClose  color="inherit" /></IconButton>
-            <IconButton pin="clear-circle"><IconClose  color="inherit" /></IconButton>
-            <IconButton pin="circle-clear"><IconClose  color="inherit" /></IconButton>
-            <IconButton pin="circle-circle"><IconClose  color="inherit" /></IconButton>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <IconButton pin="square-square">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="square-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-square">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-circle">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="circle-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="circle-circle">
+                <IconClose color="inherit" />
+            </IconButton>
         </div>
     );
 }

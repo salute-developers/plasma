@@ -53,16 +53,18 @@ export const StyledSpinner = styled(Spinner)`
     ${spinnerTokens.color}: var(${tokens.buttonSpinnerColor});
 `;
 
-export const StyledContentLeft = styled.div`
+export const StyledContentLeft = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
-    margin: var(${tokens.buttonLeftContentMargin});
     align-self: var(${tokens.buttonLeftContentAlignSelf});
+
+    margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonLeftContentMargin})` : 0)};
 `;
 
-export const StyledContentRight = styled.div`
+export const StyledContentRight = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
-    margin: var(${tokens.buttonRightContentMargin});
     align-self: var(${tokens.buttonRightContentAlignSelf});
+
+    margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonRightContentMargin})` : 0)};
 `;
 
 export const base = css`
