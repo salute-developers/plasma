@@ -84,6 +84,10 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * Вид закрывающей иконки в Notification.
      */
     closeIconType?: 'default' | 'thin';
+    /**
+     * @description Только для применения в рамках SSR.
+     */
+    UNSAFE_SSR_ENABLED?: boolean;
 }
 
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
