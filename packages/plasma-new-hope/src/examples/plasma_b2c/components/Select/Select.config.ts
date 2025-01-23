@@ -247,6 +247,135 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.textFieldHeight}: 4rem;
+                ${tokens.textFieldPadding}: 1.25rem;
+                ${tokens.textFieldPadding}: 1.125rem;
+                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldBorderRadius}: 1rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldLabelOffset}: 0.75rem;
+                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.562rem -2.063rem auto auto;
+
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelInnerPadding}: 0.5625rem 0 0.125rem 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldChipGap}: 0.125rem;
+                ${tokens.textFieldChipBorderRadius}: 0.625rem;
+                ${tokens.textFieldChipWidth}: auto;
+                ${tokens.textFieldChipHeight}: 3.25rem;
+                ${tokens.textFieldChipPadding}: 0 0.75rem 0 1rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.625rem;
+                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${tokens.textFieldChipCloseIconSize}: 1.5rem;
+                ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.textFieldChipFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.5rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
+
+                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.625rem;
+                ${tokens.targetHeight}: 4rem;
+                ${tokens.buttonPadding}: 1.75rem 0 1.75rem;
+
+                ${tokens.padding}: 0.125rem;
+                ${tokens.borderRadius}: 1rem;
+
+                ${tokens.itemHeight}: 1.375rem;
+                ${tokens.itemPadding}: 1.25rem 1rem;
+                ${tokens.itemPaddingTight}: 1rem 1rem;
+                ${tokens.itemBorderRadius}: 0.875rem;
+                ${tokens.itemIconMargin}: 0 0.5rem 0 0;
+                ${tokens.itemIconSize}: 1.5rem;
+                ${tokens.itemIconSizeTight}: 1.5rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.5rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.checkboxTriggerSize}: 1.25rem;
+                ${tokens.checkboxTriggerSizeTight}: 1.25rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${tokens.indicatorSize}: 0.375rem;
+            `,
             l: css`
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
