@@ -7227,17 +7227,12 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#108E250A",
                     "comment": "Прозрачный акцентный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": "Прозрачный акцентный фон поверхности/контрола",
-                    "enabled": false
-                },
-                "surfaceTransparentAccent": {
-                    "value": "#FFFFFF",
+                    "value": "#108E2529",
                     "comment": "Прозрачный акцентный фон поверхности/контрола",
                     "enabled": true
                 },
@@ -7569,6 +7564,11 @@
                 "surfaceTransparentPrimary": {
                     "value": "rgba(8,8,8,0.03)",
                     "comment": "Основной прозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceTransparentAccent": {
+                    "value": "rgba(16,142,38,0.12)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола",
                     "enabled": true
                 }
             },
