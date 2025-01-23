@@ -2413,6 +2413,7 @@ export const NotificationsProvider: React_2.FC<{
     children: ReactNode;
     frame?: string;
     placement?: NotificationPlacement;
+    UNSAFE_SSR_ENABLED?: boolean;
 }>;
 
 // @public (undocumented)
