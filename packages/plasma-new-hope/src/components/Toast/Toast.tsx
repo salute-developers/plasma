@@ -29,9 +29,9 @@ export const toastRoot = (Root: RootProps<HTMLDivElement, ToastProps>) =>
             style,
             closeIconType,
             onCloseButtonClick,
+            textColor,
             ...rest
         } = props;
-
         const pilledClass = pilled ? classes.toastPilled : undefined;
         const fixedWidth = !Number.isNaN(Number(width)) ? `${width}%` : width;
 
@@ -59,7 +59,7 @@ export const toastRoot = (Root: RootProps<HTMLDivElement, ToastProps>) =>
                 {...rest}
             >
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-                <StyledContent>{text}</StyledContent>
+                <StyledContent textColor={textColor}>{text}</StyledContent>
                 {hasClose && (
                     <CloseIconWrapper
                         view="clear"
