@@ -13,11 +13,20 @@ export const NotificationsProvider: FC<{
     config: ComponentConfig<string, Variants, PropsType<Variants>, NotificationProps & HTMLAttributes<HTMLDivElement>>;
     frame?: string;
     placement?: NotificationPlacement;
-}> = ({ children, config, frame, placement }) => {
+    /**
+     * @description Только для применения в рамках SSR.
+     */
+    UNSAFE_SSR_ENABLED?: boolean;
+}> = ({ children, config, frame, placement, UNSAFE_SSR_ENABLED }) => {
     return (
         <StoreContext.Provider value={NotificationsStore}>
             {children}
-            <NotificationsPortal frame={frame} placement={placement} config={config} />
+            <NotificationsPortal
+                frame={frame}
+                placement={placement}
+                config={config}
+                UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}
+            />
         </StoreContext.Provider>
     );
 };

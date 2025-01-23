@@ -100,4 +100,8 @@ export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElem
      * @default bottom-right
      */
     placement?: NotificationPlacement;
+    /**
+     * @description Только для применения в рамках SSR.
+     */
+    UNSAFE_SSR_ENABLED?: boolean;
 }
