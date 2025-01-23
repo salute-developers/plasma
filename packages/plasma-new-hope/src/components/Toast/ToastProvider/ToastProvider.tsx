@@ -2,7 +2,7 @@ import React, { createContext, useCallback, useContext, useEffect, useRef, useSt
 import type { ReactNode, FC } from 'react';
 
 import type { CustomToastProps, ToastControllerProps, ToastProps } from '../Toast.types';
-import { DEFAULT_FADE, DEFAULT_POSITION, TIMER_DELAY } from '../utils';
+import { DEFAULT_CLOSE_ICON_TYPE, DEFAULT_FADE, DEFAULT_POSITION, TIMER_DELAY } from '../utils';
 
 import type { ShowToast, ShowToastArgs, ShowToastCallSignature, ToastContextType } from './ToastProvider.types';
 
@@ -78,6 +78,8 @@ export const ToastProviderHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
                 size,
                 view,
                 width,
+                closeIconType = DEFAULT_CLOSE_ICON_TYPE,
+                textColor,
                 onHide,
                 onShow,
             } = getShowToastCallSignature(args);
@@ -94,6 +96,8 @@ export const ToastProviderHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
                 hasClose,
                 size,
                 view,
+                closeIconType,
+                textColor,
             });
 
             setToastInfo({ timeout, onHide });

@@ -116,8 +116,11 @@ export const StyledOverlay = styled(Overlay)`
 
 export const StyledContentLeft = styled.div`
     display: flex;
-    --plasma_private-left-content-margin: var(${tokens.leftContentMargin});
-    margin: var(--plasma_private-left-content-margin);
+    --plasma_private-content-left-margin: var(${tokens.contentLeftMargin});
+    margin: var(--plasma_private-content-left-margin);
+    color: var(${tokens.contentLeftColor});
 `;
 
-export const StyledContent = styled.div``;
+export const StyledContent = styled.div<{ textColor?: string }>`
+    color: ${({ textColor }) => textColor || 'currentColor'};
+`;
