@@ -9,7 +9,7 @@ import { TextField as TextFieldWeb } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const sizes = ['xs', 's', 'm', 'l'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
 describe('plasma-web: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldWeb;
