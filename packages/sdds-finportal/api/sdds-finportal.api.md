@@ -263,6 +263,10 @@ l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
 };
 }> & {
 view?: string | undefined;
