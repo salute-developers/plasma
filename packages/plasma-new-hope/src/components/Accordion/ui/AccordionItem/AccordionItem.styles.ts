@@ -142,9 +142,9 @@ export const StyledMinus = styled(IconMinus)`
 
 export const StyledPlus = styled.div`
     position: relative;
-    height: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1rem;
+    width: var(${tokens.accordionItemIconSize}, 1rem);
+    height: var(${tokens.accordionItemIconSize}, 1rem);
 `;
