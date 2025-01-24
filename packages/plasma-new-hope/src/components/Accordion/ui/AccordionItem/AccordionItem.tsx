@@ -73,11 +73,12 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
 
         const StyledAnimationPlus = () => (
             <StyledPlus>
-                <StyledMinus size="xs" color="inherit" />
+                <StyledMinus size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />
                 <StyledMinus
                     size="xs"
                     color="inhert"
                     className={openedBodyClass ?? classes.accordionPlusAnimationElement}
+                    sizeCustomProperty={tokens.accordionItemIconSize}
                 />
             </StyledPlus>
         );
@@ -85,7 +86,11 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
         const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`, '1.5rem');
         const disabledClass = disabled ? classes.accordionDisabled : '';
 
-        const leftContent = contentLeft ?? (type === 'arrow' ? <StyledArrow size="xs" color="inherit" /> : undefined);
+        const leftContent =
+            contentLeft ??
+            (type === 'arrow' ? (
+                <StyledArrow size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />
+            ) : undefined);
         const leftContentRotate = type === 'arrow' && (opened ?? value) ? classes.accordionItemShowBody : undefined;
 
         const rightContent = contentRight ?? (type === 'sign' ? <StyledAnimationPlus /> : undefined);
