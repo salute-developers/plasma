@@ -15,7 +15,7 @@ export type DropdownItemOption = {
     /**
      * Сторона открытия вложенного дропдауна относительно текущего элемента
      */
-    placement: DropdownPlacement;
+    placement?: DropdownPlacement;
     /**
      * Список дочерних items
      */
