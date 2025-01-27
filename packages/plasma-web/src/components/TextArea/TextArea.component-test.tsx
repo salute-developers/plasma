@@ -69,7 +69,27 @@ describe('plasma-web: TextArea', () => {
     it(':disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
