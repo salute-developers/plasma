@@ -108,13 +108,13 @@ export const ToastProviderHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
         const { onHide, timeout } = toastInfo;
 
         const hideToast = useCallback(() => {
-            if (!isVisible) {
-                return;
-            }
-
             if (hideTimeout?.current) {
                 clearTimeout(hideTimeout.current);
                 hideTimeout.current = null;
+            }
+
+            if (!isVisible) {
+                return;
             }
 
             onHide?.();
@@ -131,14 +131,28 @@ export const ToastProviderHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
                 clearTimeout(animationRunTimeout.current);
                 animationRunTimeout.current = null;
             }
+
+            return () => {
+                if (animationRunTimeout?.current) {
+                    clearTimeout(animationRunTimeout.current);
+                }
+            };
         }, [timeout]);
 
+        // очистка таймаутов перенесена из ToastController, т. к. в StrictМоde react делает дополнительный unmount
         useEffect(() => {
             if (timeout && isVisible) {
                 hideTimeout.current = setTimeout(() => {
                     hideToast();
                 }, timeout);
             }
+
+            return () => {
+                if (hideTimeout?.current) {
+                    clearTimeout(hideTimeout.current);
+                    hideTimeout.current = null;
+                }
+            };
         }, [isVisible, timeout]);
 
         return (
