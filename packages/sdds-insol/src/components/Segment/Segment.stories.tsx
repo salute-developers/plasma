@@ -3,6 +3,8 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconMic } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
+import { segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 import { Counter } from '../Counter/Counter';
 
@@ -27,18 +29,40 @@ type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
 
 const sizes = ['xs', 's', 'm', 'l'] as const;
 
+const getIconSizeProps = (size: string) => {
+    switch (size) {
+        case 'xs':
+        case 's':
+            return '1rem';
+        case 'm':
+            return '1.25rem';
+        default:
+            return '1.5rem';
+    }
+};
+
+const StyledIconMic = styled(IconMic)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+            flex: 0 0 ${customSize};
+        `}
+`;
+
 const getContentLeft = (contentLeftOption: string, size: Size) => {
-    const iconSize = size === 'xs' ? 'xs' : 's';
-    return contentLeftOption === 'icon' ? <IconMic size={iconSize} color="inherit" /> : undefined;
+    return contentLeftOption === 'icon' ? (
+        <StyledIconMic customSize={getIconSizeProps(size)} color="inherit" />
+    ) : undefined;
 };
 
 const getContentRight = (contentRightOption: string, size: Size) => {
-    const iconSize = size === 'xs' ? 'xs' : 's';
     const counterSize = size === 'xs' ? 'xxs' : 'xs';
 
     switch (contentRightOption) {
         case 'icon':
-            return <IconMic size={iconSize} color="inherit" />;
+            return <StyledIconMic customSize={getIconSizeProps(size)} color="inherit" />;
         case 'counter':
             return <Counter size={counterSize} count={1} view="positive" />;
         case 'text':

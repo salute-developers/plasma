@@ -65,7 +65,7 @@ export const config = {
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-transparent-secondary);
+                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-solid-secondary);
             `,
         },
         orientation: {
