@@ -37,6 +37,10 @@ export const base = css`
             background-color: var(${tokens.itemSelectedBackgroundColorHover});
 
             ${RightContent} {
+                color: var(${tokens.itemSelectedColorHover});
+            }
+
+            ${RightContent}.${classes.segmentAdditionalText} {
                 color: var(${tokens.itemSelectedAdditionalColorHover});
             }
         }
