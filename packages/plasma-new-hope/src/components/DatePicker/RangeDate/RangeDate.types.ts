@@ -38,6 +38,10 @@ export type DatePickerRangeFieldProps = {
      */
     required?: boolean;
     /**
+     * Выбранные значения.
+     */
+    value?: [Date | null | undefined, Date | null | undefined];
+    /**
      * Значение по умолчанию для первого поля.
      */
     defaultFirstDate?: Date;
