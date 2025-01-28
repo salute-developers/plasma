@@ -34,5 +34,13 @@ export const base = css`
 
     ${LeftHelper} {
         color: var(${tokens.leftHelperColor});
+
+        &.${classes.rangeError} {
+            color: var(${tokens.leftHelperColorError});
+        }
+
+        &.${classes.rangeSuccess} {
+            color: var(${tokens.leftHelperColorSuccess});
+        }
     }
 `;

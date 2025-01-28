@@ -60,6 +60,8 @@ export const tokens = {
     leftHelperColor: '--plasma-range__left-helper-color',
     leftHelperColorReadOnly: '--plasma-range__left-helper-color-readonly',
     leftHelperOffset: '--plasma-range__left-helper-offset',
+    leftHelperColorError: '--plasma-range__left-helper-color-error',
+    leftHelperColorSuccess: '--plasma-range__left-helper-color-success',
 
     leftHelperFontFamily: '--plasma-range__left-helper-font-family',
     leftHelperFontStyle: '--plasma-range__left-helper-font-style',
