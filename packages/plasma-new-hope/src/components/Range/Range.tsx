@@ -178,7 +178,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                         />
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                     </ContentWrapper>
-                    {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper className={cx(rangeErrorClass, rangeSuccessClass)}>{leftHelper}</LeftHelper>
+                    )}
                 </Root>
             );
         },

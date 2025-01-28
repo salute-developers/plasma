@@ -150,6 +150,9 @@ export const datePickerRangeRoot = (
 
             const [secondTextFieldClicked, setSecondTextFieldClicked] = useState(false);
 
+            const rangeErrorClass = firstValueError && secondValueError ? classes.datePickerError : undefined;
+            const rangeSuccessClass = firstValueSuccess && secondValueSuccess ? classes.datePickerSuccess : undefined;
+
             const setFirstInputValue = (value: React.SetStateAction<string>) => {
                 setInputFirstValue(value);
 
@@ -474,7 +477,9 @@ export const datePickerRangeRoot = (
                         onChangeStartOfRange={handleChangeStartOfRange}
                         onChangeValue={handleChangeCalendarValue}
                     />
-                    {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper className={cx(rangeErrorClass, rangeSuccessClass)}>{leftHelper}</LeftHelper>
+                    )}
                     <InputHidden
                         name={name}
                         type="hidden"

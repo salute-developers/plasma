@@ -3,7 +3,7 @@ import { css } from '@linaria/core';
 
 import { component, mergeConfig } from '../../../engines';
 import { rangeConfig, rangeTokens } from '../../Range';
-import { tokens } from '../DatePicker.tokens';
+import { classes, tokens } from '../DatePicker.tokens';
 import { popoverConfig } from '../../Popover';
 
 const mergedRangeConfig = mergeConfig(rangeConfig);
@@ -120,4 +120,14 @@ export const base = css`
     display: inline-block;
 `;
 
-export const LeftHelper = styled.div``;
+export const LeftHelper = styled.div`
+    color: var(${tokens.leftHelperColor});
+
+    &.${classes.datePickerError} {
+        color: var(${tokens.leftHelperColorError});
+    }
+
+    &.${classes.datePickerSuccess} {
+        color: var(${tokens.leftHelperColorSuccess});
+    }
+`;

@@ -71,6 +71,8 @@ export const tokens = {
 
     /** Токены вспомогательного текста */
     leftHelperColor: '--plasma-date-picker__left-helper-color',
+    leftHelperColorError: '--plasma-date-picker__left-helper-color-error',
+    leftHelperColorSuccess: '--plasma-date-picker__left-helper-color-success',
     leftHelperColorReadOnly: '--plasma-date-picker__left-helper-color-readonly',
     leftHelperOffset: '--plasma-date-picker__left-helper-offset',
 

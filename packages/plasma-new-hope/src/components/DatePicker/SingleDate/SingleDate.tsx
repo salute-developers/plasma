@@ -231,7 +231,11 @@ export const datePickerRoot = (
                             />
                         </Root>
                     </StyledPopover>
-                    {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper className={cx(datePickerErrorClass, datePickerSuccessClass)}>
+                            {leftHelper}
+                        </LeftHelper>
+                    )}
                     <InputHidden
                         type="hidden"
                         datatype="datepicker-single"
