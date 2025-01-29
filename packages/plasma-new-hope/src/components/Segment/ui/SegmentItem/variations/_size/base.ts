@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../../../tokens';
+import { classes, tokens } from '../../../../tokens';
 
 export const base = css`
     font-family: var(${tokens.fontFamily});
@@ -17,4 +17,8 @@ export const base = css`
     height: var(${tokens.itemHeight});
 
     padding: var(${tokens.itemPadding});
+
+    &.${classes.selectedSegmentItem} {
+        font-weight: var(${tokens.fontWeightSelectedItem}, var(${tokens.fontWeight}));
+    }
 `;
