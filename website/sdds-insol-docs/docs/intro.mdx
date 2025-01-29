@@ -32,13 +32,19 @@ $ npm install --save @salutejs/sdds-insol @salutejs/sdds-themes
 $ npm install --save styled-components@5.3.1
 ```
 
-Или, если вы используете пакет @emotion, то
+Если вы используете пакет @emotion, то
 
 ```bash
 $ npm install --save @emotion/styled @emotion/react @emotion/css
 ```
 
-### Подключение тем
+Или, если вы используете препроцессоры, например `sass`, то
+
+```bash
+$ npm install --save sass
+```
+
+## Подключение тем
 
 Типографическая система основана на фирменных шрифтах. Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
 
@@ -60,7 +66,7 @@ $ npm install --save @emotion/styled @emotion/react @emotion/css
 </html>
 ```
 
-#### С помощью `styled-component`
+### С помощью `styled-component`
 
 ```jsx
 import React from 'react';
@@ -83,7 +89,7 @@ const App = () => {
 export default App;
 ```
 
-#### С помощью `emotion`
+### С помощью `emotion`
 
 ```jsx
 import React from 'react';
@@ -106,7 +112,7 @@ const App = () => {
 export default App;
 ```
 
-#### С помощью импорта `css` файла
+### С помощью импорта `css` файла
 
 ```jsx
 import React from 'react';
@@ -126,7 +132,7 @@ const App = () => {
 export default App;
 ```
 
-#### С помощью импорта модульного `css` файла
+### С помощью импорта модульного `css` файла
 
 :::caution
 Потребуется дополнительно настроить TypeScript
@@ -150,10 +156,61 @@ const App = () => {
 export default App;
 ```
 
+### С помощью импорта `sass` файла
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/sdds-insol';
+
+import './main.sass';
+
+const App = () => {
+    return (
+        <>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+```sass
+@use '@salutejs/sdds-themes/css/sdds_insol__dark.css'
+```
+
+### С помощью импорта модульного `sass` файла
+
+:::caution
+Потребуется дополнительно настроить TypeScript
+:::
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/sdds-insol';
+
+import styles from './main.module.sass';
+
+const App = () => {
+    return (
+        <div className={styles.dark}>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </div>
+    );
+};
+
+export default App;
+```
+
+```sass
+@use '@salutejs/sdds-themes/css/sdds_insol.module.css'
+```
 
 ## Смена тем
 
-Пример на `styled-components`:
+### Пример на `styled-components`:
 
 ```jsx
 import React, { useState } from 'react';
@@ -189,7 +246,7 @@ const App = () => {
 export default App;
 ```
 
-Пример на `emotion`:
+### Пример на `emotion`:
 
 ```jsx
 import React, { useState } from 'react';
@@ -223,7 +280,7 @@ const App = () => {
 export default App;
 ```
 
-Пример на `css-modules`:
+### Пример на `css-modules`:
 
 ```jsx
 import React, { useLayoutEffect, useState } from 'react';
@@ -255,7 +312,7 @@ const App = () => {
 export default App;
 ```
 
-Пример на `css`:
+### Пример на `css`:
 
 ```jsx
 import React, { useLayoutEffect, useState } from 'react';
@@ -288,14 +345,46 @@ const App = () => {
 export default App;
 ```
 
-### Корень приложения
+### Пример на `sass`:
+
+```jsx
+import React, { useLayoutEffect, useState } from 'react';
+import { Switch } from '@salutejs/sdds-insol';
+
+// добавьте импорт в sass файл
+// @use '@salutejs/sdds-themes/css/sdds_insol.module.css';
+import './style.sass';
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = theme;
+    }, [theme]);
+
+    return (
+        <div className="wrapper">
+            <Switch
+                label="dark theme: "
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
+    );
+};
+
+export default App;
+```
+
+## Корень приложения
 
 В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
 
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-Для корректной работы `SSR - insoler side rendering` приложение нужно обернуть `SSRProvider`;
+Для корректной работы `SSR - server side rendering` приложение нужно обернуть `SSRProvider`;
 
 ### Использование токенов
 
