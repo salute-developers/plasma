@@ -9,6 +9,11 @@ import { PropsTable, Description } from '@site/src/components';
 <Description name="Toast" />
 <PropsTable name="Toast" />
 
+:::caution Устаревшие значения свойства `view`
+Значения `dark` и `light` являются устаревшими.<br/>
+Для изменения фона `Toast` используйте компонент `ViewContainer` (см. <a href="#пример-использования">пример использования</a>)
+:::
+
 ## Система подсказок
 Существует готовая система текстовых подсказок, для использования которой необходимо обернуть приложение в `ToastProvider`:
 
@@ -105,6 +110,10 @@ export interface ShowToastArgs {
      */
     timeout?: number;
     /**
+     * Цвет текста (по умолчанию берётся цвет из view)
+     */
+    textColor?: string;
+    /**
      * callback срабатывающий в момент события hideToast
      */
     onHide?: () => void;
@@ -116,26 +125,81 @@ export interface ShowToastArgs {
 ```
 
 ## Пример использования
+Для изменения цветовой темы компонента `Toast` используйте свойство `view` компонента `ViewContainer`.
 
 ```jsx live
 import React from 'react'
-import { useToast, ToastProvider, Button } from '@salutejs/sdds-serv'
+import { useToast, ToastProvider, Button, ViewContainer } from '@salutejs/sdds-serv'
 
 export function App() {
 
     const ToastExample = () => {
-        const { showToast, hideToast } = useToast()
+        const { showToast } = useToast()
 
         const onShow = () => {}
         const onHide = () => {}
         const toastData = {
             text: 'Подсказка вызванная showToast',
+            textColor: 'cyan',
             position: 'bottom',
             role: 'status',
             hasClose: true,
             fade: false,
             size: 'm',
-            view: 'dark',
+            view: 'default',
+            timeout: 3000,
+            onShow,
+            onHide
+        }
+
+        return <Button onClick={() => showToast(toastData)} text="Вызвать подсказку" />
+    }
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem' }}>
+            <ViewContainer view="onLight">
+                <ToastProvider>
+                    <ToastExample />
+                </ToastProvider>
+            </ViewContainer>
+
+            <ViewContainer view="onDark">
+                <ToastProvider>
+                    <ToastExample />
+                </ToastProvider>
+            </ViewContainer>
+        </div>
+    )
+}
+```
+
+## Вид иконки
+Значения `positive` и `negative` свойства `view` изменяют цвет иконки.<br/>
+Чтобы цвет применился, установите в иконке свойство `color` со значением `inherit`:
+
+```jsx live
+import React from 'react'
+import { IconBell } from '@salutejs/plasma-icons';
+import { useToast, ToastProvider, Button, ViewContainer } from '@salutejs/sdds-serv'
+
+export function App() {
+
+    const Icon = () => <IconBell color="inherit" size="xs" />;
+
+    const ToastExample = () => {
+        const { showToast } = useToast()
+
+        const onShow = () => {}
+        const onHide = () => {}
+        const toastData = {
+            contentLeft: <Icon />,
+            text: 'Подсказка c иконкой',
+            position: 'bottom',
+            role: 'status',
+            hasClose: true,
+            fade: false,
+            size: 'm',
+            view: 'positive',
             timeout: 3000,
             onShow,
             onHide
