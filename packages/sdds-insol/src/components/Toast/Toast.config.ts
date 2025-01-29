@@ -15,6 +15,26 @@ export const config = {
                 ${toastTokens.closeIconColor}: var(--text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
             `,
+            positive: css`
+                ${toastTokens.color}: var(--text-primary);
+                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.contentLeftColor}: var(--text-positive);
+
+                ${toastTokens.closeIconColor}: var(--text-secondary);
+                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+            `,
+            negative: css`
+                ${toastTokens.color}: var(--text-primary);
+                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.contentLeftColor}: var(--text-negative);
+
+                ${toastTokens.closeIconColor}: var(--text-secondary);
+                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+            `,
+            /**
+             * @deprecated
+             * светлый и темный фон регулировать через `view` компонента `ViewContainer`
+             */
             dark: css`
                 ${toastTokens.color}: var(--on-dark-text-primary);
                 ${toastTokens.background}: var(--on-dark-surface-solid-primary-brightness);
@@ -22,6 +42,10 @@ export const config = {
                 ${toastTokens.closeIconColor}: var(--on-dark-text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-secondary);
             `,
+            /**
+             * @deprecated
+             * светлый и темный фон регулировать через `view` компонента `ViewContainer`
+             */
             light: css`
                 ${toastTokens.color}: var(--on-light-text-primary);
                 ${toastTokens.background}: var(--on-light-surface-solid-primary-brightness);
@@ -43,7 +67,7 @@ export const config = {
                 ${toastTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${toastTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${toastTokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
+                ${toastTokens.contentLeftMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
                 ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.5rem;
             `,
         },
@@ -57,7 +81,7 @@ export const config = {
             true: css`
                 ${toastTokens.pilledBorderRadius}: 1.5rem;
 
-                ${toastTokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem -0.25rem;
+                ${toastTokens.contentLeftMargin}: -0.0625rem 0.375rem -0.0625rem -0.25rem;
                 ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.375rem;
             `,
         },
