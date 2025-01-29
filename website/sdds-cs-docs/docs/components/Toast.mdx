@@ -105,6 +105,10 @@ export interface ShowToastArgs {
      */
     timeout?: number;
     /**
+     * Цвет текста (по умолчанию берётся цвет из view)
+     */
+    textColor?: string;
+    /**
      * callback срабатывающий в момент события hideToast
      */
     onHide?: () => void;
@@ -130,12 +134,13 @@ export function App() {
         const onHide = () => {}
         const toastData = {
             text: 'Подсказка вызванная showToast',
+            textColor: 'cyan',
             position: 'bottom',
             role: 'status',
             hasClose: true,
             fade: false,
             size: 's',
-            view: 'dark',
+            view: 'default',
             timeout: 3000,
             onShow,
             onHide

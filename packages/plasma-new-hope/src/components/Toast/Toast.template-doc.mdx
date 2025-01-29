@@ -105,6 +105,10 @@ export interface ShowToastArgs {
      */
     timeout?: number;
     /**
+     * Цвет текста (по умолчанию берётся цвет из view)
+     */
+    textColor?: string;
+    /**
      * callback срабатывающий в момент события hideToast
      */
     onHide?: () => void;
@@ -117,9 +121,11 @@ export interface ShowToastArgs {
 
 ## Пример использования
 
+Для изменения цветовой темы компонента `Toast` используйте свойство `view` компонента `ViewContainer`.
+
 ```jsx live
 import React from 'react'
-import { useToast, ToastProvider, Button } from '@salutejs/{{ package }}'
+import { useToast, ToastProvider, Button, ViewContainer } from '@salutejs/{{ package }}'
 
 export function App() {
 
@@ -130,12 +136,13 @@ export function App() {
         const onHide = () => {}
         const toastData = {
             text: 'Подсказка вызванная showToast',
+            textColor: 'cyan',
             position: 'bottom',
             role: 'status',
             hasClose: true,
             fade: false,
             size: 'm',
-            view: 'dark',
+            view: 'default',
             timeout: 3000,
             onShow,
             onHide
@@ -145,9 +152,19 @@ export function App() {
     }
 
     return (
-        <ToastProvider>
-            <ToastExample />
-        </ToastProvider>
+        <div style=\{{ display: 'flex', gap: '1rem' }}>
+            <ViewContainer view="onLight">
+                <ToastProvider>
+                    <ToastExample />
+                </ToastProvider>
+            </ViewContainer>
+
+            <ViewContainer view="onDark">
+                <ToastProvider>
+                    <ToastExample />
+                </ToastProvider>
+            </ViewContainer>
+        </div>
     )
 }
 ```
