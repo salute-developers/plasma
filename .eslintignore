@@ -72,6 +72,7 @@ packages/plasma-hope/*
 
 packages/plasma-ui/*
 !packages/plasma-ui/src
+!packages/plasma-ui/src-linaria
 
 packages/plasma-web/*
 !packages/plasma-web/src
