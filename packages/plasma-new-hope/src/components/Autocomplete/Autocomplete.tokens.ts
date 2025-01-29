@@ -40,10 +40,9 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-autocomplete-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-autocomplete-textfield-right-content-margin',
-    textFieldRightContentWithHintMargin: '--plasma-autocomplete-textfield-right-content-with-hint-margin',
-
-    textFieldContentRightWrapperGap: '--plasma-autocomplete-textfield-content-right-wrapper-gap',
-    textFieldContentRightWrapperMargin: '--plasma-autocomplete-textfield-content-right-wrapper-margin',
+    textFieldInnerHintContentRightMarginRight: '--plasma-autocomplete-textfield-inner-hint-content-right-margin-right',
+    textFieldClearInnerHintContentRightMarginRight:
+        '--plasma-autocomplete-textfield-clear-inner-hint-content-right-margin-right',
 
     textFieldFontFamily: '--plasma-autocomplete-textfield-font-family',
     textFieldFontStyle: '--plasma-autocomplete-textfield-font-style',

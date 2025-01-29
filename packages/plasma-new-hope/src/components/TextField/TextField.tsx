@@ -35,7 +35,7 @@ import {
     TitleCaption,
     StyledHintWrapper,
     StyledIndicatorWrapper,
-    StyledContentRightWrapper,
+    InnerHintWrapper,
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip } from './ui';
@@ -181,7 +181,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const wrapperWithoutRightContent =
                 !contentRight && isChipsVisible && chipType === 'default' ? classes.hasEmptyContentRight : undefined;
 
-            const contentRightCompensationMargin =
+            const contentRightCompensationMarginClass =
                 !hasOuterLabel && hintText && hintTargetPlacement === 'inner'
                     ? classes.contentRightCompensationMargin
                     : undefined;
@@ -358,7 +358,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     </Label>
 
                                     {hintText && (
-                                        <StyledHintWrapper>
+                                        <StyledHintWrapper className={classes.outerLabelPlacement}>
                                             <HintComponent
                                                 ref={hintForkRef}
                                                 hintText={hintText}
@@ -391,134 +391,129 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             {titleCaption && <TitleCaption>{titleCaption}</TitleCaption>}
                         </OuterLabelWrapper>
                     )}
-                    <InputWrapper
-                        // Ref для внутреннего использования. Не отдается наружу.
-                        ref={(rest as any).inputWrapperRef}
-                        // TODO: #1544, и после убрать classes.inputWrapper
-                        className={cx(
-                            withHasChips,
-                            wrapperWithoutLeftContent,
-                            wrapperWithoutRightContent,
-                            classes.inputWrapper,
-                        )}
-                    >
-                        {!hasOuterLabel && (
-                            <>
-                                {required && (
-                                    <StyledIndicator
-                                        className={cx(classes.innerLabelPlacement, requiredPlacementClass)}
-                                    />
-                                )}
-                                {hintText && hintTargetPlacement === 'outer' && (
-                                    <StyledHintWrapper className={classes.innerLabelPlacement}>
-                                        <HintComponent
-                                            ref={hintForkRef}
-                                            hintText={hintText}
-                                            hintTrigger={hintTrigger}
-                                            isHintVisible={isHintVisible}
-                                            hintTargetIcon={hintTargetIcon}
-                                            hintPlacement={hintPlacement}
-                                            hintHasArrow={hintHasArrow}
-                                            hintOffset={hintOffset}
-                                            hintWidth={hintWidth}
-                                            hintContentLeft={hintContentLeft}
-                                            size={size}
-                                            handleHintShow={handleHintShow}
-                                            handleHintHide={handleHintHide}
-                                            handleHintClick={handleHintClick}
-                                            isInnerLabel
-                                        />
-                                    </StyledHintWrapper>
-                                )}
-                            </>
-                        )}
-                        {contentLeft && (
-                            <StyledContentLeft isClear={clear} isDefaultView={isDefaultView}>
-                                {contentLeft}
-                            </StyledContentLeft>
-                        )}
-                        <InputLabelWrapper
-                            tabIndex={-1}
-                            ref={contentRef}
-                            onKeyDown={handleContentKeyDown}
-                            className={withHasChips}
+                    <InnerHintWrapper>
+                        <InputWrapper
+                            // Ref для внутреннего использования. Не отдается наружу.
+                            ref={(rest as any).inputWrapperRef}
+                            // TODO: #1544, и после убрать classes.inputWrapper
+                            className={cx(
+                                withHasChips,
+                                wrapperWithoutLeftContent,
+                                wrapperWithoutRightContent,
+                                classes.inputWrapper,
+                            )}
                         >
-                            {Boolean(textBefore && isChipEnumeration) && (
-                                <StyledTextBefore>{textBefore}</StyledTextBefore>
+                            {!hasOuterLabel && (
+                                <>
+                                    {required && (
+                                        <StyledIndicator
+                                            className={cx(classes.innerLabelPlacement, requiredPlacementClass)}
+                                        />
+                                    )}
+                                </>
                             )}
-                            {isChipEnumeration && Boolean(chips?.length) && (
-                                <StyledChips className={classes.chipsWrapper}>
-                                    {chips?.map(({ id: chipId, text }, index) => {
-                                        const validationView = chipValidator?.(String(text));
-                                        const resView = validationView?.view || chipView;
-
-                                        return (
-                                            <TextFieldChip
-                                                id={chipId}
-                                                ref={(element) => getRef(element, index)}
-                                                key={`${chipId}_${index}`}
-                                                disabled={disabled}
-                                                readOnly={readOnly}
-                                                value={text}
-                                                text={text}
-                                                onKeyDown={(event) => handleChipKeyDown(event, chipId, index)}
-                                                onClear={() => onChipClear(chipId, index)}
-                                                onClick={onChipClick}
-                                                chipType={chipType}
-                                                view={resView}
-                                                rootWrapper={Root}
-                                                // TODO: #1547
-                                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                                // @ts-ignore
-                                                _forceChipManipulationWithReadonly={
-                                                    // eslint-disable-next-line no-underscore-dangle
-                                                    (rest as any)._forceChipManipulationWithReadonly
-                                                }
-                                            />
-                                        );
-                                    })}
-                                </StyledChips>
+                            {contentLeft && (
+                                <StyledContentLeft isClear={clear} isDefaultView={isDefaultView}>
+                                    {contentLeft}
+                                </StyledContentLeft>
                             )}
-                            <InputContainer ref={inputContainerRef} hasDynamicWidth={hasTextAfter}>
-                                {hasTextBefore && <StyledTextBefore>{textBefore}</StyledTextBefore>}
-                                <Input
-                                    ref={inputForkRef}
-                                    id={innerId}
-                                    value={outerValue}
-                                    required={required}
-                                    aria-labelledby={labelId}
-                                    aria-describedby={helperTextId}
-                                    placeholder={innerPlaceholderValue}
-                                    className={cx(hasValueClass, keepPlaceholderClass)}
-                                    disabled={disabled}
-                                    readOnly={!disabled && readOnly}
-                                    onInput={handleInput}
-                                    onChange={handleChange}
-                                    onKeyDown={handleOnKeyDown}
-                                    onFocus={handleFocus}
-                                    onBlur={handleBlur}
-                                    {...rest}
-                                />
-                                {hasInnerLabel && (
-                                    <Label id={labelId} htmlFor={innerId}>
-                                        {innerLabelValue}
-                                        {optionalTextNode}
-                                    </Label>
+                            <InputLabelWrapper
+                                tabIndex={-1}
+                                ref={contentRef}
+                                onKeyDown={handleContentKeyDown}
+                                className={withHasChips}
+                            >
+                                {Boolean(textBefore && isChipEnumeration) && (
+                                    <StyledTextBefore>{textBefore}</StyledTextBefore>
                                 )}
-                                {placeholderShown && !hasValue && (
-                                    <InputPlaceholder hasPadding={hasPlaceholderPadding}>
-                                        {hasTextBefore && <StyledTextBefore isHidden>{textBefore}</StyledTextBefore>}
-                                        {innerPlaceholderValue}
-                                        {hasPlaceholderOptional && optionalTextNode}
-                                    </InputPlaceholder>
-                                )}
-                                {hasTextAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
-                            </InputContainer>
-                        </InputLabelWrapper>
-                        <StyledContentRightWrapper className={cx(contentRightCompensationMargin)}>
-                            {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                                {isChipEnumeration && Boolean(chips?.length) && (
+                                    <StyledChips className={classes.chipsWrapper}>
+                                        {chips?.map(({ id: chipId, text }, index) => {
+                                            const validationView = chipValidator?.(String(text));
+                                            const resView = validationView?.view || chipView;
 
-                            {!hasOuterLabel && hintText && hintTargetPlacement === 'inner' && (
+                                            return (
+                                                <TextFieldChip
+                                                    id={chipId}
+                                                    ref={(element) => getRef(element, index)}
+                                                    key={`${chipId}_${index}`}
+                                                    disabled={disabled}
+                                                    readOnly={readOnly}
+                                                    value={text}
+                                                    text={text}
+                                                    onKeyDown={(event) => handleChipKeyDown(event, chipId, index)}
+                                                    onClear={() => onChipClear(chipId, index)}
+                                                    onClick={onChipClick}
+                                                    chipType={chipType}
+                                                    view={resView}
+                                                    rootWrapper={Root}
+                                                    // TODO: #1547
+                                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                    // @ts-ignore
+                                                    _forceChipManipulationWithReadonly={
+                                                        // eslint-disable-next-line no-underscore-dangle
+                                                        (rest as any)._forceChipManipulationWithReadonly
+                                                    }
+                                                />
+                                            );
+                                        })}
+                                    </StyledChips>
+                                )}
+                                <InputContainer ref={inputContainerRef} hasDynamicWidth={hasTextAfter}>
+                                    {hasTextBefore && <StyledTextBefore>{textBefore}</StyledTextBefore>}
+                                    <Input
+                                        ref={inputForkRef}
+                                        id={innerId}
+                                        value={outerValue}
+                                        required={required}
+                                        aria-labelledby={labelId}
+                                        aria-describedby={helperTextId}
+                                        placeholder={innerPlaceholderValue}
+                                        className={cx(hasValueClass, keepPlaceholderClass)}
+                                        disabled={disabled}
+                                        readOnly={!disabled && readOnly}
+                                        onInput={handleInput}
+                                        onChange={handleChange}
+                                        onKeyDown={handleOnKeyDown}
+                                        onFocus={handleFocus}
+                                        onBlur={handleBlur}
+                                        {...rest}
+                                    />
+                                    {hasInnerLabel && (
+                                        <Label id={labelId} htmlFor={innerId}>
+                                            {innerLabelValue}
+                                            {optionalTextNode}
+                                        </Label>
+                                    )}
+                                    {placeholderShown && !hasValue && (
+                                        <InputPlaceholder hasPadding={hasPlaceholderPadding}>
+                                            {hasTextBefore && (
+                                                <StyledTextBefore isHidden>{textBefore}</StyledTextBefore>
+                                            )}
+                                            {innerPlaceholderValue}
+                                            {hasPlaceholderOptional && !hasTextAfter && optionalTextNode}
+                                        </InputPlaceholder>
+                                    )}
+                                    {hasTextAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
+                                    {placeholderShown &&
+                                        !hasValue &&
+                                        hasPlaceholderOptional &&
+                                        hasTextAfter &&
+                                        optionalTextNode}
+                                </InputContainer>
+                            </InputLabelWrapper>
+                            {contentRight && (
+                                <StyledContentRight
+                                    className={cx(contentRightCompensationMarginClass, clear && 'clear')}
+                                >
+                                    {contentRight}
+                                </StyledContentRight>
+                            )}
+                        </InputWrapper>
+                        {!hasOuterLabel && hintText && hintTargetPlacement === 'inner' && (
+                            <StyledHintWrapper
+                                className={cx(hasOuterLabel && classes.outerLabelPlacement, 'inner', clear && 'clear')}
+                            >
                                 <HintComponent
                                     ref={hintForkRef}
                                     hintText={hintText}
@@ -536,9 +531,33 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     handleHintClick={handleHintClick}
                                     isInnerLabel
                                 />
-                            )}
-                        </StyledContentRightWrapper>
-                    </InputWrapper>
+                            </StyledHintWrapper>
+                        )}
+                        {!hasOuterLabel && hintText && hintTargetPlacement === 'outer' && (
+                            <StyledHintWrapper
+                                className={cx(hasOuterLabel && classes.outerLabelPlacement, clear && 'clear')}
+                            >
+                                <HintComponent
+                                    ref={hintForkRef}
+                                    hintText={hintText}
+                                    hintTrigger={hintTrigger}
+                                    isHintVisible={isHintVisible}
+                                    hintTargetIcon={hintTargetIcon}
+                                    hintPlacement={hintPlacement}
+                                    hintHasArrow={hintHasArrow}
+                                    hintOffset={hintOffset}
+                                    hintWidth={hintWidth}
+                                    hintContentLeft={hintContentLeft}
+                                    size={size}
+                                    handleHintShow={handleHintShow}
+                                    handleHintHide={handleHintHide}
+                                    handleHintClick={handleHintClick}
+                                    isInnerLabel
+                                />
+                            </StyledHintWrapper>
+                        )}
+                    </InnerHintWrapper>
+
                     {leftHelper && <LeftHelper id={helperTextId}>{leftHelper}</LeftHelper>}
                 </Root>
             );

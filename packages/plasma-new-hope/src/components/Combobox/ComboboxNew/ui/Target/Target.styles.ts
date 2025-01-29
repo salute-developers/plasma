@@ -40,10 +40,9 @@ export const StyledTextField = styled(TextField)`
 
     ${textFieldTokens.leftContentMargin}: var(${comboboxTokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${comboboxTokens.textFieldRightContentMargin});
-    
-    ${textFieldTokens.rightContentWithHintMargin}: var(${comboboxTokens.textFieldRightContentWithHintMargin});
-    ${textFieldTokens.contentRightWrapperGap}: var(${comboboxTokens.textFieldContentRightWrapperGap});
-    ${textFieldTokens.contentRightWrapperMargin}: var(${comboboxTokens.textFieldContentRightWrapperMargin});
+
+    ${textFieldTokens.innerHintContentRightMarginRight}: var(${comboboxTokens.textFieldInnerHintContentRightMarginRight});
+    ${textFieldTokens.clearInnerHintContentRightMarginRight}: var(${comboboxTokens.textFieldClearInnerHintContentRightMarginRight});
 
     ${textFieldTokens.fontFamily}: var(${comboboxTokens.textFieldFontFamily});
     ${textFieldTokens.fontStyle}: var(${comboboxTokens.textFieldFontStyle});
@@ -110,7 +109,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.textAfterMargin}: var(${comboboxTokens.textFieldTextAfterMargin});
 
     ${textFieldTokens.disabledOpacity}: var(${comboboxTokens.textFieldDisabledOpacity});
-    
+
     ${textFieldTokens.hintCustomIconTargetSize}: var(${comboboxTokens.textFieldHintCustomIconTargetSize});
     ${textFieldTokens.hintMargin}: var(${comboboxTokens.textFieldHintMargin});
     ${textFieldTokens.hintTargetSize}: var(${comboboxTokens.textFieldHintTargetSize});

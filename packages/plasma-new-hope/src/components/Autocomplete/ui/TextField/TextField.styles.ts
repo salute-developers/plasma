@@ -92,11 +92,11 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorHintInnerRight});
     ${textFieldTokens.boxShadow}: var(${autocompleteTokens.textFieldBoxShadow});
-        
-    ${textFieldTokens.rightContentWithHintMargin}: var(${autocompleteTokens.textFieldRightContentWithHintMargin});
-    ${textFieldTokens.contentRightWrapperGap}: var(${autocompleteTokens.textFieldContentRightWrapperGap});
-    ${textFieldTokens.contentRightWrapperMargin}: var(${autocompleteTokens.textFieldContentRightWrapperMargin});
-            
+
+
+    ${textFieldTokens.innerHintContentRightMarginRight}: var(${autocompleteTokens.textFieldInnerHintContentRightMarginRight});
+    ${textFieldTokens.clearInnerHintContentRightMarginRight}: var(${autocompleteTokens.textFieldClearInnerHintContentRightMarginRight});
+
     ${textFieldTokens.hintCustomIconTargetSize}: var(${autocompleteTokens.textFieldHintCustomIconTargetSize});
     ${textFieldTokens.hintMargin}: var(${autocompleteTokens.textFieldHintMargin});
     ${textFieldTokens.hintTargetSize}: var(${autocompleteTokens.textFieldHintTargetSize});

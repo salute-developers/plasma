@@ -8,8 +8,6 @@ import {
     InputWrapper,
     Label,
     LeftHelper,
-    StyledContentRight,
-    StyledContentRightWrapper,
     StyledHintWrapper,
     StyledOptionalText,
     StyledTextAfter,
@@ -111,12 +109,6 @@ export const base = css`
         margin: var(${tokens.textAfterMargin});
     }
 
-    ${StyledContentRightWrapper}.${classes.contentRightCompensationMargin} {
-        gap: var(${tokens.contentRightWrapperGap});
-        margin: var(${tokens.contentRightWrapperMargin});
-
-        ${StyledContentRight} {
-            margin: var(${tokens.rightContentWithHintMargin});
-        }
+    &.${classes.contentRightCompensationMargin} {
     }
 `;

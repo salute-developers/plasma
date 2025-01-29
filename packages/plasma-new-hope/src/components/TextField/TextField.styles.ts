@@ -122,10 +122,7 @@ export const StyledContentLeft = styled.div<{ isDefaultView: boolean; isClear: b
     line-height: 0;
 `;
 
-export const StyledContentRightWrapper = styled.div`
-    display: flex;
-    align-items: center;
-`;
+export const StyledContentRightWrapper = styled.div``;
 
 export const StyledContentRight = styled.div`
     line-height: 0;
@@ -141,6 +138,14 @@ export const StyledContentRight = styled.div`
     &:active {
         color: var(${tokens.contentSlotRightColorActive}, var(${tokens.contentSlotColorActive}));
     }
+
+    &.${classes.contentRightCompensationMargin} {
+        margin-right: var(${tokens.rightContentWithInnerHintMarginRight});
+    }
+
+    &.${classes.contentRightCompensationMargin}.clear {
+        margin-right: var(${tokens.clearRightContentWithInnerHintMarginRight});
+    }
 `;
 
 export const LeftHelper = styled.div``;
@@ -155,14 +160,27 @@ export const StyledOptionalText = styled.span`
     color: var(${tokens.optionalColor});
 `;
 
-export const StyledHintWrapper = styled.div`
-    display: inline-block;
-    line-height: 0;
+export const InnerHintWrapper = styled.div`
+    position: relative;
+`;
 
-    &.${classes.innerLabelPlacement} {
+export const StyledHintWrapper = styled.div`
+    display: flex;
+    align-self: center;
+
+    :not(.${classes.outerLabelPlacement}) {
         position: absolute;
-        margin: 0;
+        margin: auto 0;
+
         inset: var(${tokens.hintInnerLabelPlacementOffset});
+
+        &.inner {
+            right: var(${tokens.innerHintContentRightMarginRight});
+        }
+
+        &.inner.clear {
+            right: var(${tokens.clearInnerHintContentRightMarginRight});
+        }
     }
 `;
 

@@ -43,9 +43,10 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
 
-    ${textFieldTokens.rightContentWithHintMargin}: var(${tokens.textFieldRightContentWithHintMargin});
-    ${textFieldTokens.contentRightWrapperGap}: var(${tokens.textFieldContentRightWrapperGap});
-    ${textFieldTokens.contentRightWrapperMargin}: var(${tokens.textFieldContentRightWrapperMargin});
+    ${textFieldTokens.innerHintContentRightMarginRight}: var(${tokens.textFieldInnerHintContentRightMarginRight});
+    ${textFieldTokens.clearInnerHintContentRightMarginRight}: var(${
+    tokens.textFieldClearInnerHintContentRightMarginRight
+});
 
     ${textFieldTokens.fontFamily}: var(${tokens.textFieldFontFamily});
     ${textFieldTokens.fontStyle}: var(${tokens.textFieldFontStyle});

@@ -60,7 +60,8 @@ export const tokens = {
     /* Токены для input */
     leftContentMargin: '--plasma-textfield__left-content-margin',
     rightContentMargin: '--plasma-textfield__right-content-margin',
-    rightContentWithHintMargin: '--plasma-textfield__right-content-with-hint-margin',
+    rightContentWithInnerHintMarginRight: '--plasma-textfield__right-content-with-inner-hint-margin-right',
+    clearRightContentWithInnerHintMarginRight: '--plasma-textfield__right-clear-content-with-inner-hint-margin-right',
 
     fontFamily: '--plasma-textfield-font-family',
     fontStyle: '--plasma-textfield-font-style',
@@ -78,8 +79,8 @@ export const tokens = {
     contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
 
-    contentRightWrapperGap: '--plasma-textfield-content-right-wrapper-gap',
-    contentRightWrapperMargin: '--plasma-textfield-content-right-wrapper-margin',
+    innerHintContentRightMarginRight: '--plasma-textfield-inner-hint-content-right-margin-right',
+    clearInnerHintContentRightMarginRight: '--plasma-textfield-clear-inner-hint-content-right-margin-right',
 
     /** Токены лейбла */
     labelColor: '--plasma-textfield__label-color',

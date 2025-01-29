@@ -93,10 +93,9 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-combobox-new-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-combobox-new-textfield-right-content-margin',
-    textFieldRightContentWithHintMargin: '--plasma-combobox-textfield-right-content-with-hint-margin',
-
-    textFieldContentRightWrapperGap: '--plasma-combobox-textfield-content-right-wrapper-gap',
-    textFieldContentRightWrapperMargin: '--plasma-combobox-textfield-content-right-wrapper-margin',
+    textFieldInnerHintContentRightMarginRight: '--plasma-combobox-textfield-inner-hint-content-right-margin-right',
+    textFieldClearInnerHintContentRightMarginRight:
+        '--plasma-combobox-textfield-clear-inner-hint-content-right-margin-right',
 
     textFieldFontFamily: '--plasma-combobox-new-textfield-font-family',
     textFieldFontStyle: '--plasma-combobox-new-textfield-font-style',

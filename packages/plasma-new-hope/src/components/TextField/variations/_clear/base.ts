@@ -60,13 +60,13 @@ export const base = css`
 
         &.${classes.hasHint} {
             ${StyledHintWrapper} {
-                &.${classes.innerLabelPlacement} {
+                :not(.${classes.outerLabelPlacement}) {
                     inset: var(${tokens.clearHintInnerLabelPlacementOffset});
                 }
             }
 
             ${StyledIndicator} {
-                &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
+                &.${classes.requiredAlignRight}:not(.${classes.outerLabelPlacement}) {
                     inset: var(${tokens.clearIndicatorHintInnerRight});
                 }
             }

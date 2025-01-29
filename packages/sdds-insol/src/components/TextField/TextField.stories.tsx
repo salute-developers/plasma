@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import styled from 'styled-components';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconBellFill } from '@salutejs/plasma-icons';
 
-import { TextField } from '.';
+import { TextField } from './TextField';
+import { config } from './TextField.config';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -15,13 +16,14 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['xl', 'l', 'm', 's', 'xs'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const { views, sizes } = getConfigVariations(config);
+
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
 const labelPlacements = ['outer', 'inner'];
+const hintTargetPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
     'top-start',
@@ -113,6 +115,13 @@ const meta: Meta<typeof TextField> = {
             },
             if: { arg: 'hasHint', truthy: true },
         },
+        hintTargetPlacement: {
+            options: hintTargetPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
         hintTrigger: {
             options: hintTriggers,
             control: {
@@ -149,7 +158,6 @@ const meta: Meta<typeof TextField> = {
             'enumerationType',
             'values',
             'hintTargetIcon',
-            'hintTargetPlacement',
             'hintOffset',
             'hintContentLeft',
             'chips',
@@ -289,6 +297,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hintTrigger: 'hover',
         hintView: 'default',
         hintSize: 'm',
+        hintTargetPlacement: 'outer',
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,

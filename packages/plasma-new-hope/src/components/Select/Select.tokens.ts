@@ -95,10 +95,9 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-select-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-select-textfield-right-content-margin',
-    textFieldRightContentWithHintMargin: '--plasma-select-textfield-right-content-with-hint-margin',
-
-    textFieldContentRightWrapperGap: '--plasma-select-textfield-content-right-wrapper-gap',
-    textFieldContentRightWrapperMargin: '--plasma-select-textfield-content-right-wrapper-margin',
+    textFieldInnerHintContentRightMarginRight: '--plasma-select-textfield-inner-hint-content-right-margin-right',
+    textFieldClearInnerHintContentRightMarginRight:
+        '--plasma-select-textfield-clear-inner-hint-content-right-margin-right',
 
     textFieldFontFamily: '--plasma-select-textfield-font-family',
     textFieldFontStyle: '--plasma-select-textfield-font-style',
