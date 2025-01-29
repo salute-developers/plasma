@@ -67,7 +67,6 @@ const StyledWrapper = styled.div`
 `;
 
 const ToastContainer = styled.div`
-    position: fixed;
     transform: translateX(50%);
 `;
 
