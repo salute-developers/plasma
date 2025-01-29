@@ -230,12 +230,14 @@ const DefaultStory = (args: StoryProps) => {
     const iconSize = args.size === 'xs' ? 'xs' : 's';
 
     return (
-        <Autocomplete
-            {...args}
-            suggestions={suggestions}
-            contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlasma size={iconSize} /> : undefined}
-        />
+        <div style={{ width: '70%', margin: '0 auto' }}>
+            <Autocomplete
+                {...args}
+                suggestions={suggestions}
+                contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            />
+        </div>
     );
 };
 
