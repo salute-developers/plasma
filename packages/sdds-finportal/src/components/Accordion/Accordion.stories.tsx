@@ -2,10 +2,19 @@ import React, { useState, ComponentProps, ReactNode } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconPlus } from '@salutejs/plasma-icons';
+import { accordionConfig } from '@salutejs/plasma-new-hope/styled-components';
 
 import { IconButton } from '../IconButton/IconButton';
+import { hasComponentDraftConfig } from '../../helpers/hasComponentDraftConfig';
+import { createComponentByConfig } from '../../helpers/createComponentByConfig';
 
-import { Accordion, AccordionItem } from './Accordion';
+import { AccordionItem } from './Accordion';
+import { config as defaultConfig } from './Accordion.config';
+import { config as draftConfig } from './Accordion.config.draft';
+
+const config = hasComponentDraftConfig() ? draftConfig : defaultConfig;
+
+const Accordion = createComponentByConfig(accordionConfig, config);
 
 type AccordionItemCustomProps = {
     type: 'arrow' | 'sign' | 'clear';
