@@ -131,7 +131,7 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { DropdownItemOption } from '@salutejs/plasma-new-hope';
+import { DropdownItemOption } from '@salutejs/plasma-new-hope';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
 import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
 import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
@@ -139,7 +139,6 @@ import type { DropdownNodeSelect } from '@salutejs/plasma-new-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
-import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownTrigger } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { dropzoneClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
@@ -1963,6 +1962,8 @@ default: PolymorphicClassName;
 // @public (undocumented)
 export const DropdownItem: React_2.ForwardRefExoticComponent<DropdownItemProps & React_2.RefAttributes<HTMLDivElement>>;
 
+export { DropdownItemOption }
+
 export { DropdownItemProps }
 
 export { DropdownItemType }
@@ -1977,7 +1978,10 @@ export const DropdownPopup: React_2.ForwardRefExoticComponent<DropdownPopupProps
 
 export { DropdownPopupProps }
 
-export { DropdownProps }
+// Warning: (ae-forgotten-export) The symbol "DropdownNewHope" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type DropdownProps<T extends DropdownItemOption> = Omit<DropdownNewProps<T>, 'size' | 'view'> & Pick<ComponentProps<typeof DropdownNewHope>, 'size' | 'view'>;
 
 // @public (undocumented)
 export const Dropzone: FunctionComponent<PropsType<    {

@@ -94,7 +94,7 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { DropdownItemOption } from '@salutejs/plasma-new-hope';
+import { DropdownItemOption } from '@salutejs/plasma-new-hope';
 import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
 import { DropdownNodeSelect } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
@@ -1533,6 +1533,13 @@ default: PolymorphicClassName;
     listHeight?: Property.Height<string | number> | undefined;
     hoverIndex?: number | undefined;
 } & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "size" | "view"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+
+export { DropdownItemOption }
+
+// Warning: (ae-forgotten-export) The symbol "DropdownNewHope" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type DropdownProps<T extends DropdownItemOption> = Omit<DropdownNewProps<T>, 'size' | 'view'> & Pick<ComponentProps<typeof DropdownNewHope>, 'size' | 'view'>;
 
 // @public (undocumented)
 export const Dropzone: FunctionComponent<PropsType<    {
