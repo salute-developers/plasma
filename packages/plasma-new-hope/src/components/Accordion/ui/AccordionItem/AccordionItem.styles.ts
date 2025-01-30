@@ -4,21 +4,6 @@ import { IconChevronDownFill, IconMinus } from '../../../_Icon';
 import { classes, tokens } from '../../Accordion.tokens';
 import { addFocus } from '../../../../mixins';
 
-export const StyledAccordionItem = styled.div`
-    background: var(${tokens.accordionItemBackground});
-    border: var(${tokens.accordionItemBorder});
-    border-bottom: var(${tokens.accordionItemBorderBottom});
-
-    &:last-child {
-        border-bottom: var(${tokens.accordionItemBorder});
-    }
-
-    &.${classes.accordionDisabled} {
-        opacity: 0.4;
-        cursor: not-allowed;
-    }
-`;
-
 export const StyledAccordionHeader = styled.button`
     width: 100%;
     border: none;
@@ -137,6 +122,7 @@ export const StyledMinus = styled(IconMinus)`
     &.${classes.accordionItemShowBody} {
         transition: 0.2s;
         transform: rotate(0deg);
+        color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemIconColor}));
     }
 `;
 
@@ -147,4 +133,30 @@ export const StyledPlus = styled.div`
     justify-content: center;
     width: var(${tokens.accordionItemIconSize}, 1rem);
     height: var(${tokens.accordionItemIconSize}, 1rem);
+`;
+
+export const StyledAccordionItem = styled.div`
+    background: var(${tokens.accordionItemBackground});
+    border: var(${tokens.accordionItemBorder});
+    border-bottom: var(${tokens.accordionItemBorderBottom});
+    box-shadow: var(${tokens.accordionItemShadow});
+
+    &:last-child {
+        border-bottom: var(${tokens.accordionItemBorder});
+    }
+
+    &.${classes.accordionDisabled} {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    &.${classes.accordionItemOpened} {
+        ${StyledArrow} {
+            color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemIconColor}));
+        }
+
+        ${StyledAccordionTitle} {
+            color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemTitleColor}));
+        }
+    }
 `;

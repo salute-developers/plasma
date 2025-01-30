@@ -84,6 +84,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
         );
 
         const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`, '1.5rem');
+        const openedClass = opened ?? value ? classes.accordionItemOpened : '';
         const disabledClass = disabled ? classes.accordionDisabled : '';
 
         const leftContent =
@@ -98,7 +99,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
 
         return (
             <StyledAccordionItem
-                className={cx(classes.accordionItem, className, disabledClass)}
+                className={cx(classes.accordionItem, className, openedClass, disabledClass)}
                 key={key}
                 ref={outerRef}
                 style={{ borderRadius: accordionBorderRadius, ...style }}

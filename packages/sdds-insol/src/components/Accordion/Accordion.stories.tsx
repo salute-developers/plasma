@@ -1,14 +1,16 @@
 import React, { useState, ComponentProps, ReactNode } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconPlus } from '@salutejs/plasma-icons';
+import { IconPlus, IconChevronDown } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
 
 import { IconButton } from '../IconButton/IconButton';
 
 import { Accordion, AccordionItem } from './Accordion';
 
 type AccordionItemCustomProps = {
-    type: 'arrow' | 'sign' | 'clear';
+    type: 'arrow' | 'clear';
+    enableRightArrow: boolean;
     title: string;
     body: ReactNode;
     pin?:
@@ -26,7 +28,7 @@ type AccordionProps = ComponentProps<typeof Accordion> & AccordionItemCustomProp
 const views = ['default', 'clear'] as const;
 const sizes = ['l', 'm', 's', 'xs', 'h2', 'h3', 'h4', 'h5'] as const;
 const stretching = ['filled', 'fixed'] as const;
-const types = ['arrow', 'sign', 'clear'] as const;
+const types = ['arrow', 'clear'] as const;
 const pins = [
     'square-square',
     'square-clear',
@@ -47,6 +49,7 @@ const meta: Meta<AccordionProps> = {
         size: 'm',
         stretching: 'filled',
         disabled: false,
+        enableRightArrow: false,
         type: 'arrow',
         pin: undefined,
         title: 'Как оплатить заправку бонусами СберСпасибо?',
@@ -78,6 +81,7 @@ const meta: Meta<AccordionProps> = {
             control: {
                 type: 'select',
             },
+            if: { arg: 'enableRightArrow', truthy: false },
         },
         pin: {
             options: pins,
@@ -89,26 +93,6 @@ const meta: Meta<AccordionProps> = {
 };
 
 export default meta;
-
-export const Default: StoryObj<AccordionProps> = {
-    render: (props: AccordionProps) => {
-        const args = { ...props, text: undefined };
-
-        return (
-            <Accordion {...args}>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
-                    {args.body}
-                </AccordionItem>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
-                    {args.body}
-                </AccordionItem>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
-                    {args.body}
-                </AccordionItem>
-            </Accordion>
-        );
-    },
-};
 
 const getSizeForIcon = (size) => (size === 'xs' ? 'xs' : 's');
 const getSizeForIconButton = (size) => {
@@ -128,6 +112,71 @@ const getSizeForIconButton = (size) => {
         default:
             return 'm';
     }
+};
+
+const getSizeForArrow = (size) => {
+    switch (size) {
+        case 'h2':
+        case 'h3':
+            return 's';
+        case 'l':
+        case 'm':
+        case 's':
+        case 'xs':
+        case 'h5':
+        case 'h4':
+            return 'xs';
+        default:
+            return 'xs';
+    }
+};
+
+const StyledArrow = styled(IconChevronDown)`
+    transition: transform 0.2s;
+`;
+
+const Wrapper = styled.div`
+    .accordion-item-opened ${StyledArrow} {
+        transform: rotate(180deg);
+        color: var(--text-accent);
+    }
+`;
+
+export const Default: StoryObj<AccordionProps> = {
+    render: ({ enableRightArrow, ...props }: AccordionProps) => {
+        const args = { ...props, text: undefined };
+
+        return (
+            <Wrapper>
+                <Accordion {...args}>
+                    <AccordionItem
+                        type={args.type}
+                        pin={args.pin}
+                        title={args.title}
+                        contentRight={enableRightArrow ? <StyledArrow size={getSizeForArrow(args.size)} /> : undefined}
+                    >
+                        {args.body}
+                    </AccordionItem>
+                    <AccordionItem
+                        type={args.type}
+                        pin={args.pin}
+                        title={args.title}
+                        contentRight={enableRightArrow ? <StyledArrow size={getSizeForArrow(args.size)} /> : undefined}
+                    >
+                        {args.body}
+                    </AccordionItem>
+                    <AccordionItem
+                        type={args.type}
+                        pin={args.pin}
+                        title={args.title}
+                        contentRight={enableRightArrow ? <StyledArrow size={getSizeForArrow(args.size)} /> : undefined}
+                    >
+                        {args.body}
+                    </AccordionItem>
+                </Accordion>
+            </Wrapper>
+        );
+    },
 };
 
 const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {

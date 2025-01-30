@@ -3,6 +3,7 @@ export const classes = {
     fixedStretching: 'accordion-stretching-fixed',
     accordionRoot: 'accordion-root',
     accordionItem: 'accordion-item',
+    accordionItemOpened: 'accordion-item-opened',
     clearAccordionItem: 'clear-accordion-item',
     accordionItemShowBody: 'accordion-item-show-body',
     accordionPlusAnimationElement: 'accordion-plus-animation-element',
@@ -16,6 +17,7 @@ export const tokens = {
     accordionBackground: '--plasma-accordion-background',
 
     accordionItemBackground: '--plasma-accordion-item-background',
+    accordionItemShadow: '--plasma-accordion-item-shadow',
     accordionItemBorderRadius: '--plasma-accordion-item-border-radius',
     accordionItemPadding: '--plasma-accordion-item-padding',
     accordionItemPaddingVertical: '--plasma-accordion-item-padding-vertical',
@@ -33,6 +35,7 @@ export const tokens = {
     accordionItemHeaderLeftGapClear: '--plasma-accordion-item-header-left-gap-clear',
 
     accordionItemTitleColor: '--plasma-accordion-item-title-color',
+    accordionItemOpenedTitleColor: '--plasma-accordion-item-title-opened-color',
     accordionItemTitleFontFamily: '--plasma-accordion-item-title-font-family',
     accordionItemTitleFontSize: '--plasma-accordion-item-title-font-size',
     accordionItemTitleFontStyle: '--plasma-accordion-item-title-font-style',
