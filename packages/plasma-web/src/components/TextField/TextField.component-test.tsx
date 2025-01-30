@@ -602,6 +602,20 @@ describe('plasma-web: TextField', () => {
             cy.get('#falseRequired').should('not.have.attr', 'required');
             cy.get('#notRequired').should('not.have.attr', 'required');
         });
+
+        it('required with chips', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <TextField enumerationType="chip" id="textfield" placeholder="Placeholder" label="Title" required />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('#textfield').should('have.attr', 'required');
+            cy.get('#textfield').type('some value{enter}');
+            cy.get('#textfield').should('not.have.attr', 'required');
+            cy.get('#textfield').type('{backspace}');
+            cy.get('#textfield').should('have.attr', 'required');
+        });
     });
 
     describe('with hint', () => {
