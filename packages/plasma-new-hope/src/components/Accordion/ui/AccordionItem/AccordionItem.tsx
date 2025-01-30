@@ -76,7 +76,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                 <StyledMinus size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />
                 <StyledMinus
                     size="xs"
-                    color="inhert"
+                    color="inherit"
                     className={openedBodyClass ?? classes.accordionPlusAnimationElement}
                     sizeCustomProperty={tokens.accordionItemIconSize}
                 />
@@ -120,11 +120,12 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                         <StyledAccordionTitle>{title}</StyledAccordionTitle>
                     </StyledAccordionHeaderLeft>
 
-                    {contentRight || (
-                        <StyledAccordionContentRight className={rightContentRotate}>
-                            {rightContent && rightContent}
-                        </StyledAccordionContentRight>
-                    )}
+                    {contentRight ||
+                        (rightContent && (
+                            <StyledAccordionContentRight className={rightContentRotate}>
+                                {rightContent && rightContent}
+                            </StyledAccordionContentRight>
+                        ))}
                 </StyledAccordionHeader>
                 <StyledAccordionBodyAnimate
                     aria-labelledby={`accordion-item-${key}`}

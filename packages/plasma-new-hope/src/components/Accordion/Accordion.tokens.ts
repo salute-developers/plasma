@@ -26,7 +26,11 @@ export const tokens = {
     accordionItemBorder: '--plasma-accordion-item-border',
     accordionItemBorderBottom: '--plasma-accordion-item-border-bottom',
     accordionItemIconColor: '--plasma-accordion-item-color-icon',
-    accordionItemIconSize: '--plasma-accordion-item-icon-szie',
+    accordionItemIconSize: '--plasma-accordion-item-icon-size',
+
+    accordionItemHeaderLeftGap: '--plasma-accordion-item-header-left-gap',
+    accordionItemHeaderLeftGapDefault: '--plasma-accordion-item-header-left-gap-default',
+    accordionItemHeaderLeftGapClear: '--plasma-accordion-item-header-left-gap-clear',
 
     accordionItemTitleColor: '--plasma-accordion-item-title-color',
     accordionItemTitleFontFamily: '--plasma-accordion-item-title-font-family',
