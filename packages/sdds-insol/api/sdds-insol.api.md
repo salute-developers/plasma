@@ -137,7 +137,6 @@ import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import type { ItemOption } from '@salutejs/plasma-new-hope';
-import type { ItemOptionSelect } from '@salutejs/plasma-new-hope';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LabelProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
@@ -201,6 +200,7 @@ import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ItemOptionSelect as SelectItemOption } from '@salutejs/plasma-new-hope';
 import { SelectPlacement } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { SelectPlacementBasic } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import type { SelectProps as SelectProps_2 } from '@salutejs/plasma-new-hope';
@@ -2908,10 +2908,15 @@ export { SegmentProvider }
 
 export { SegmentProviderProps }
 
-// Warning: (ae-forgotten-export) The symbol "SelectProps" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export const Select: <K extends SelectItemOption>(props: SelectProps<K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+
+export { SelectItemOption }
+
+// Warning: (ae-forgotten-export) The symbol "SelectNewHope" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Select: <K extends ItemOptionSelect>(props: SelectProps<K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export type SelectProps<K extends SelectItemOption> = DistributiveOmit<SelectProps_2<K>, 'size' | 'view' | 'chipView' | 'disabled' | 'hintTargetPlacement'> & DistributivePick<ComponentProps<typeof SelectNewHope>, 'size' | 'view' | 'chipView' | 'disabled'>;
 
 // @public
 export const Sheet: FunctionComponent<PropsType<    {
