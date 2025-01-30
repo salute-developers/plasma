@@ -61,7 +61,8 @@ import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
 import { ColOffsetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { ComboboxProps } from '@salutejs/plasma-new-hope';
+import { ItemOption as ComboboxItemOption } from '@salutejs/plasma-new-hope';
+import type { ComboboxProps as ComboboxProps_2 } from '@salutejs/plasma-new-hope';
 import { CommitInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -135,7 +136,6 @@ import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
-import type { ItemOption } from '@salutejs/plasma-new-hope';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LabelProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
@@ -175,7 +175,7 @@ import { priceClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PriceProps } from '@salutejs/plasma-new-hope/types/components/Price/Price.types';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Property } from 'csstype';
-import { Props as Props_2 } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
+import { Props } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -1399,10 +1399,16 @@ export { ColProps }
 
 export { ColSizeProps }
 
-// Warning: (ae-forgotten-export) The symbol "Props" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export const Combobox: <T extends ComboboxItemOption>(props: ComboboxProps<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+
+export { ComboboxItemOption }
+
+// Warning: (ae-forgotten-export) The symbol "PropsFromConfig" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ComboboxNew" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Combobox: <T extends ItemOption>(props: Props<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export type ComboboxProps<T extends ComboboxItemOption> = DistributiveOmit<ComboboxProps_2<T>, PropsFromConfig> & DistributivePick<ComponentProps<typeof ComboboxNew>, PropsFromConfig>;
 
 // @public
 export const Counter: FunctionComponent<PropsType<    {
@@ -1761,7 +1767,7 @@ m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
-}> & Props_2 & RefAttributes<HTMLDivElement>>;
+}> & Props & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Flow: FunctionComponent<PropsType<    {}> & FlowProps & {
