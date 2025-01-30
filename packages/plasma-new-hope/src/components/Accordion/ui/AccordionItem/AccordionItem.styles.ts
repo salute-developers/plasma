@@ -45,7 +45,7 @@ export const StyledAccordionHeader = styled.button`
 
 export const StyledAccordionHeaderLeft = styled.div`
     display: flex;
-    gap: var(${tokens.accordionItemGap});
+    gap: var(${tokens.accordionItemHeaderLeftGap}, var(${tokens.accordionItemGap}));
     justify-content: space-between;
     align-items: center;
 `;
