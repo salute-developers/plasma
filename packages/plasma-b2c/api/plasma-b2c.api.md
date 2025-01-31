@@ -4445,6 +4445,8 @@ export { TimingFunction }
 export const Toast: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+positive: PolymorphicClassName;
+negative: PolymorphicClassName;
 primary: PolymorphicClassName;
 dark: PolymorphicClassName;
 light: PolymorphicClassName;
