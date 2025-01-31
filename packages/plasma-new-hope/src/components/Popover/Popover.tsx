@@ -26,6 +26,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             {
                 target,
                 children,
+                animated,
                 isOpen,
                 opened,
                 trigger = 'click',
@@ -66,6 +67,9 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const isAutoArray = Array.isArray(placement);
             const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
+
+            const openClass = innerIsOpen ? classes.open : undefined;
+            const animatedClass = animated ? classes.animate : undefined;
 
             const initialStyles = {
                 visibility: innerIsOpen ? 'visible' : 'hidden',
@@ -254,11 +258,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                 <Root view={view} className={className} {...rest}>
                                     <StyledPopover
                                         {...attributes.popper}
-                                        className={classes.root}
+                                        className={cx(classes.root, openClass, animatedClass)}
                                         ref={popoverForkRef}
                                         style={{
                                             ...styles.popper,
-                                            ...{ display: innerIsOpen ? 'block' : 'none' },
                                             ...initialStyles,
                                         }}
                                         zIndex={zIndex}

@@ -49,6 +49,18 @@ export const StyledPopover = styled.div<Pick<PopoverProps, 'zIndex'>>`
     position: absolute;
     z-index: ${({ zIndex }) => zIndex || DEFAULT_Z_INDEX};
 
+    opacity: 0;
+    visibility: hidden;
+
+    &.${classes.animate} {
+        transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out; /* Уменьшена длительность до 200ms */
+    }
+
+    &.${classes.open} {
+        opacity: 1;
+        visibility: visible;
+    }
+
     /* пустой блок между target и popover, чтобы ловить onMouseEnter */
     &:before {
         content: '';

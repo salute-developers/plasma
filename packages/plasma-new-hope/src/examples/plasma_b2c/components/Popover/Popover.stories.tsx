@@ -67,6 +67,7 @@ const meta: Meta<typeof Popover> = {
         skidding: 0,
         distance: 6,
         hasArrow: true,
+        animated: true,
     },
 };
 
