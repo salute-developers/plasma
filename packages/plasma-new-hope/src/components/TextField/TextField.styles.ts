@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
 import { component, mergeConfig } from '../../engines';
 import { tooltipConfig } from '../Tooltip';
@@ -98,6 +99,8 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
+
+    --plasma-private-text-field-hint-icon-size: var(var(${tokens.hintCustomIconSize}), 1rem);
 `;
 
 export const TitleCaption = styled.div`
@@ -140,11 +143,15 @@ export const StyledContentRight = styled.div`
     }
 
     &.${classes.contentRightCompensationMargin} {
-        margin-right: var(${tokens.rightContentWithInnerHintMarginRight});
+        margin-right: calc(
+            var(--plasma-private-text-field-hint-icon-size) + var(${tokens.rightContentWithInnerHintMarginRight})
+        );
     }
 
-    &.${classes.contentRightCompensationMargin}.clear {
-        margin-right: var(${tokens.clearRightContentWithInnerHintMarginRight});
+    &.${classes.contentRightCompensationMargin}.${classes.clear} {
+        margin-right: calc(
+            var(--plasma-private-text-field-hint-icon-size) + var(${tokens.rightContentWithInnerHintMarginRight})
+        );
     }
 `;
 
@@ -164,22 +171,38 @@ export const InnerHintWrapper = styled.div`
     position: relative;
 `;
 
-export const StyledHintWrapper = styled.div`
+export const InnerHintContainer = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
     display: flex;
-    align-self: center;
+    align-items: center;
+
+    :not(.${classes.clear}) {
+        inset: var(${tokens.padding});
+    }
+`;
+
+export const StyledHintWrapper = styled.div`
+    position: absolute;
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: var(--plasma-textfield__hint-target-size);
+    height: var(--plasma-textfield__hint-target-size);
 
     :not(.${classes.outerLabelPlacement}) {
-        position: absolute;
-        margin: auto 0;
+        /* + var(tokens.borderWidth)? */
+        left: calc(100% + var(--plasma-private-text-field-hint-icon-size) / 2 + 0.065rem);
+        margin: 0 0 0 var(${tokens.hintInnerLabelPlacementOffset});
 
-        inset: var(${tokens.hintInnerLabelPlacementOffset});
-
-        &.inner {
-            right: var(${tokens.innerHintContentRightMarginRight});
-        }
-
-        &.inner.clear {
-            right: var(${tokens.clearInnerHintContentRightMarginRight});
+        &.${classes.hasInnerHint} {
+            margin: 0;
+            left: calc(100% - var(--plasma-private-text-field-hint-icon-size) / 2 + 0.065rem);
         }
     }
 `;
@@ -204,6 +227,7 @@ export const HintIconWrapper = styled.div`
 
 export const StyledIndicator = styled.div`
     position: absolute;
+    top: 0;
     border-radius: 50%;
 
     background-color: var(${tokens.indicatorColor});
@@ -211,16 +235,11 @@ export const StyledIndicator = styled.div`
     &.${classes.outerLabelPlacement} {
         width: var(${tokens.indicatorSizeOuter});
         height: var(${tokens.indicatorSizeOuter});
-        inset: var(${tokens.indicatorLabelPlacementOuter});
+        margin: var(${tokens.indicatorLabelPlacementOuter});
 
         &.${classes.requiredAlignRight} {
-            inset: var(${tokens.indicatorLabelPlacementOuterRight});
-
-            &.${classes.hasHint} {
-                right: calc(
-                    -1 * var(${tokens.indicatorSizeOuter}) + var(${tokens.indicatorLabelPlacementHintOuterRight}, 0px)
-                );
-            }
+            left: 100%;
+            margin: var(${tokens.indicatorLabelPlacementOuterRight});
         }
     }
 
@@ -233,4 +252,23 @@ export const StyledIndicator = styled.div`
             inset: var(${tokens.indicatorLabelPlacementInnerRight});
         }
     }
+`;
+
+export const base = css`
+    /* NOTE: Webkit не применяет opacity к inline тегам */
+    display: block;
+
+    --plasma-private-text-field-hint-icon-size: var(${tokens.hintCustomIconSize}, 1.5rem);
+
+    &[data-size='xs'],
+    ${OuterLabelWrapper} {
+        --plasma-private-text-field-hint-icon-size: var(${tokens.hintCustomIconSize}, 1rem);
+    }
+`;
+
+export const TestContainer = styled.div`
+    position: relative;
+    margin: var(${tokens.hintMargin});
+    width: var(--plasma-private-text-field-hint-icon-size);
+    height: var(--plasma-private-text-field-hint-icon-size);
 `;

@@ -40,9 +40,6 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-autocomplete-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-autocomplete-textfield-right-content-margin',
-    textFieldInnerHintContentRightMarginRight: '--plasma-autocomplete-textfield-inner-hint-content-right-margin-right',
-    textFieldClearInnerHintContentRightMarginRight:
-        '--plasma-autocomplete-textfield-clear-inner-hint-content-right-margin-right',
 
     textFieldFontFamily: '--plasma-autocomplete-textfield-font-family',
     textFieldFontStyle: '--plasma-autocomplete-textfield-font-style',
@@ -100,7 +97,7 @@ export const tokens = {
     textFieldDisabledOpacity: '--plasma-autocomplete-textfield-disabled-opacity',
 
     /** Токены для tooltip */
-    textFieldHintCustomIconTargetSize: '--plasma-autocomplete-textfield__hint-custom-icon-target-size',
+    textFieldHintCustomIconSize: '--plasma-autocomplete-textfield__hint-custom-icon-size',
     textFieldHintMargin: '--plasma-autocomplete-textfield__hint-margin',
     textFieldHintTargetSize: '--plasma-autocomplete-textfield__hint-target-size',
     textFieldHintIconColor: '--plasma-autocomplete-textfield__hint-icon-color',
@@ -144,7 +141,6 @@ export const tokens = {
     textFieldClearIndicatorLabelPlacementInner: '--plasma-autocomplete-textfield-clear-indicator-label-placement-inner',
     textFieldClearIndicatorLabelPlacementInnerRight:
         '--plasma-autocomplete-textfield-clear-indicator-label-placement-inner-right',
-    textFieldClearIndicatorHintInnerRight: '--plasma-autocomplete-textfield-clear-indicator-hint-placement-inner-right',
 
     textFieldBoxShadow: '--plasma-autocomplete-textfield-box-shadow',
 

@@ -10,7 +10,7 @@ export const classes = {
     hideLabel: 'hide-label',
     clear: 'textfield-clear',
     hasDivider: 'textfield-has-divider',
-    hasHint: 'textfield-has-hint',
+    hasInnerHint: 'textfield-has-inner-hint',
     textFieldGroupItem: 'text-field-group-item',
     requiredAlignRight: 'required-align-right',
     inputWrapper: 'input-wrapper',
@@ -79,9 +79,6 @@ export const tokens = {
     contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
 
-    innerHintContentRightMarginRight: '--plasma-textfield-inner-hint-content-right-margin-right',
-    clearInnerHintContentRightMarginRight: '--plasma-textfield-clear-inner-hint-content-right-margin-right',
-
     /** Токены лейбла */
     labelColor: '--plasma-textfield__label-color',
     labelColorReadOnly: '--plasma-textfield__label-color-readonly',
@@ -140,7 +137,7 @@ export const tokens = {
     /** Токены для tooltip */
     hintMargin: '--plasma-textfield__hint-margin',
     hintTargetSize: '--plasma-textfield__hint-target-size',
-    hintCustomIconTargetSize: '--plasma-textfield__hint-custom-icon-target-size',
+    hintCustomIconSize: '--plasma-textfield__hint-custom-icon-size',
     hintIconColor: '--plasma-textfield__hint-icon-color',
     hintInnerLabelPlacementOffset: '--plasma-textfield__hint-inner-label-placement-offset',
     clearHintInnerLabelPlacementOffset: '--plasma-textfield__clear-hint-inner-label-placement-offset',
@@ -211,8 +208,6 @@ export const tokens = {
     indicatorLabelPlacementOuter: '--plasma-textfield__indicator-placement-outer',
     indicatorLabelPlacementInnerRight: '--plasma-textfield__indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textfield__indicator-placement-outer-right',
-    indicatorLabelPlacementHintOuterRight: '--plasma-textfield__indicator-hint-placement-outer-right',
     clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
-    clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',
 };

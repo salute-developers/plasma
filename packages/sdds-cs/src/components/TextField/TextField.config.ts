@@ -109,8 +109,8 @@ export const config = {
                 ${tokens.rightContentWithInnerHintMarginRight}: 1.625rem;
                 ${tokens.clearRightContentWithInnerHintMarginRight}: 1.815rem;
 
-                ${tokens.innerHintContentRightMarginRight}: 0.3125rem;
-                ${tokens.clearInnerHintContentRightMarginRight}: -0.4rem;
+
+
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -175,7 +175,7 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.362rem auto auto;
+
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;

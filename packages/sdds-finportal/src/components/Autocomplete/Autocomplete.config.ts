@@ -236,7 +236,6 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
 
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.padding}: 0.125rem;
@@ -263,9 +262,6 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldInnerHintContentRightMarginRight}: 0.25rem;
-                ${tokens.textFieldClearInnerHintContentRightMarginRight}: -0.438rem -0.438rem -0.438rem 0;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -310,7 +306,6 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
 
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.padding}: 0.125rem;
@@ -337,9 +332,6 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
-
-                ${tokens.textFieldInnerHintContentRightMarginRight}: 0.25rem;
-                ${tokens.textFieldClearInnerHintContentRightMarginRight}: -0.438rem -0.438rem -0.438rem 0;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -384,7 +376,6 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
 
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.padding}: 0.125rem;
@@ -411,9 +402,6 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-
-                ${tokens.textFieldInnerHintContentRightMarginRight}: 0.25rem;
-                ${tokens.textFieldClearInnerHintContentRightMarginRight}: -0.438rem -0.438rem -0.438rem 0;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -458,7 +446,6 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
 
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.padding}: 0.125rem;
@@ -485,9 +472,6 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldInnerHintContentRightMarginRight}: 0.25rem;
-                ${tokens.textFieldClearInnerHintContentRightMarginRight}: -0.688rem -0.688rem -0.688rem 0;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -532,7 +516,6 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
 
                 ${tokens.borderRadius}: 0.5rem;
                 ${tokens.padding}: 0.125rem;

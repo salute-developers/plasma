@@ -90,14 +90,9 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${autocompleteTokens.textFieldIndicatorLabelPlacementOuterRight});
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInner});
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInnerRight});
-    ${textFieldTokens.clearIndicatorHintInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorHintInnerRight});
     ${textFieldTokens.boxShadow}: var(${autocompleteTokens.textFieldBoxShadow});
 
-
-    ${textFieldTokens.innerHintContentRightMarginRight}: var(${autocompleteTokens.textFieldInnerHintContentRightMarginRight});
-    ${textFieldTokens.clearInnerHintContentRightMarginRight}: var(${autocompleteTokens.textFieldClearInnerHintContentRightMarginRight});
-
-    ${textFieldTokens.hintCustomIconTargetSize}: var(${autocompleteTokens.textFieldHintCustomIconTargetSize});
+    ${textFieldTokens.hintCustomIconSize}: var(${autocompleteTokens.textFieldHintCustomIconSize});
     ${textFieldTokens.hintMargin}: var(${autocompleteTokens.textFieldHintMargin});
     ${textFieldTokens.hintTargetSize}: var(${autocompleteTokens.textFieldHintTargetSize});
     ${textFieldTokens.hintIconColor}: var(${autocompleteTokens.textFieldHintIconColor});

@@ -8,7 +8,6 @@ import {
     InputWrapper,
     Label,
     LeftHelper,
-    StyledHintWrapper,
     StyledOptionalText,
     StyledTextAfter,
     StyledTextBefore,
@@ -61,12 +60,6 @@ export const base = css`
         line-height: var(${tokens.labelLineHeight});
     }
 
-    ${StyledHintWrapper} {
-        margin: var(${tokens.hintMargin});
-        width: var(${tokens.hintTargetSize});
-        height: var(${tokens.hintTargetSize});
-    }
-
     ${HintTargetWrapper} {
         width: var(${tokens.hintTargetSize});
         height: var(${tokens.hintTargetSize});
@@ -107,8 +100,5 @@ export const base = css`
 
     ${StyledTextAfter} {
         margin: var(${tokens.textAfterMargin});
-    }
-
-    &.${classes.contentRightCompensationMargin} {
     }
 `;

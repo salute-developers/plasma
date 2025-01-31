@@ -1,7 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { FormEventHandler, ChangeEventHandler, KeyboardEvent, ChangeEvent, MouseEventHandler } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
-import { css } from '@linaria/core';
 
 import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
@@ -36,6 +35,9 @@ import {
     StyledHintWrapper,
     StyledIndicatorWrapper,
     InnerHintWrapper,
+    InnerHintContainer,
+    base,
+    TestContainer,
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip } from './ui';
@@ -44,11 +46,6 @@ import { HintComponent } from './ui/Hint/Hint';
 import { getInputWidth } from './getInputWidth';
 
 const optionalText = 'optional';
-
-export const base = css`
-    /* NOTE: Webkit не применяет opacity к inline тегам */
-    display: block;
-`;
 
 const HINT_DEFAULT_OFFSET: [number, number] = [0, 0];
 
@@ -122,7 +119,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const inputForkRef = useForkRef(inputRef, ref);
             const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
 
-            const controlledRefs = { contentRef, inputRef, chipsRefs };
+            const controlledRefs = {
+                contentRef,
+                inputRef,
+                chipsRefs,
+            };
 
             const [hasValue, setHasValue] = useState(
                 Boolean(outerValue) || Boolean(inputRef?.current?.value) || Boolean(rest?.defaultValue),
@@ -167,8 +168,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
 
             const clearClass = clear ? classes.clear : undefined;
             const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
-            const hasInnerHintClass = hintText && hintTargetPlacement === 'outer' ? classes.hasHint : undefined;
-            const hasHintClass = hintText ? classes.hasHint : undefined;
+            const hasInnerHintClass = hintText && hintTargetPlacement === 'inner' ? classes.hasInnerHint : undefined;
             const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
             const labelPlacementClass = innerLabelPlacementValue
                 ? classes[`${innerLabelPlacementValue}LabelPlacement` as keyof typeof classes]
@@ -346,8 +346,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                         classes.textFieldGroupItem,
                         className,
                     )}
+                    data-size={size}
                     style={style}
-                    {...(hintText && { hintView, hintSize })}
+                    {...(hintText && {
+                        hintView,
+                        hintSize,
+                    })}
                 >
                     {(hasOuterLabel || titleCaption) && (
                         <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
@@ -358,30 +362,32 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     </Label>
 
                                     {hintText && (
-                                        <StyledHintWrapper className={classes.outerLabelPlacement}>
-                                            <HintComponent
-                                                ref={hintForkRef}
-                                                hintText={hintText}
-                                                hintTrigger={hintTrigger}
-                                                isHintVisible={isHintVisible}
-                                                hintTargetIcon={hintTargetIcon}
-                                                hintPlacement={hintPlacement}
-                                                hintHasArrow={hintHasArrow}
-                                                hintOffset={hintOffset}
-                                                hintWidth={hintWidth}
-                                                hintContentLeft={hintContentLeft}
-                                                handleHintShow={handleHintShow}
-                                                handleHintHide={handleHintHide}
-                                                handleHintClick={handleHintClick}
-                                            />
-                                        </StyledHintWrapper>
+                                        <TestContainer>
+                                            <StyledHintWrapper className={classes.outerLabelPlacement}>
+                                                <HintComponent
+                                                    ref={hintForkRef}
+                                                    hintText={hintText}
+                                                    hintTrigger={hintTrigger}
+                                                    isHintVisible={isHintVisible}
+                                                    hintTargetIcon={hintTargetIcon}
+                                                    hintPlacement={hintPlacement}
+                                                    hintHasArrow={hintHasArrow}
+                                                    hintOffset={hintOffset}
+                                                    hintWidth={hintWidth}
+                                                    hintContentLeft={hintContentLeft}
+                                                    handleHintShow={handleHintShow}
+                                                    handleHintHide={handleHintHide}
+                                                    handleHintClick={handleHintClick}
+                                                />
+                                            </StyledHintWrapper>
+                                        </TestContainer>
                                     )}
                                     {required && (
                                         <StyledIndicator
                                             className={cx(
                                                 classes.outerLabelPlacement,
                                                 requiredPlacementClass,
-                                                hasHintClass,
+                                                hasInnerHintClass,
                                             )}
                                         />
                                     )}
@@ -407,7 +413,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                 <>
                                     {required && (
                                         <StyledIndicator
-                                            className={cx(classes.innerLabelPlacement, requiredPlacementClass)}
+                                            className={cx(
+                                                classes.innerLabelPlacement,
+                                                requiredPlacementClass,
+                                                hasInnerHintClass,
+                                                clearClass,
+                                            )}
                                         />
                                     )}
                                 </>
@@ -503,40 +514,40 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                 </InputContainer>
                             </InputLabelWrapper>
                             {contentRight && (
-                                <StyledContentRight
-                                    className={cx(contentRightCompensationMarginClass, clear && 'clear')}
-                                >
+                                <StyledContentRight className={cx(contentRightCompensationMarginClass, clearClass)}>
                                     {contentRight}
                                 </StyledContentRight>
                             )}
                         </InputWrapper>
                         {!hasOuterLabel && hintText && hintTargetPlacement === 'inner' && (
-                            <StyledHintWrapper
-                                className={cx(hasOuterLabel && classes.outerLabelPlacement, 'inner', clear && 'clear')}
-                            >
-                                <HintComponent
-                                    ref={hintForkRef}
-                                    hintText={hintText}
-                                    hintTrigger={hintTrigger}
-                                    isHintVisible={isHintVisible}
-                                    hintTargetIcon={hintTargetIcon}
-                                    hintPlacement={hintPlacement}
-                                    hintHasArrow={hintHasArrow}
-                                    hintOffset={hintOffset}
-                                    hintWidth={hintWidth}
-                                    hintContentLeft={hintContentLeft}
-                                    size={size}
-                                    handleHintShow={handleHintShow}
-                                    handleHintHide={handleHintHide}
-                                    handleHintClick={handleHintClick}
-                                    isInnerLabel
-                                />
-                            </StyledHintWrapper>
+                            <InnerHintContainer className={cx(clearClass)}>
+                                <StyledHintWrapper
+                                    className={cx(
+                                        hasOuterLabel && classes.outerLabelPlacement,
+                                        hasInnerHintClass,
+                                        clearClass,
+                                    )}
+                                >
+                                    <HintComponent
+                                        ref={hintForkRef}
+                                        hintText={hintText}
+                                        hintTrigger={hintTrigger}
+                                        isHintVisible={isHintVisible}
+                                        hintTargetIcon={hintTargetIcon}
+                                        hintPlacement={hintPlacement}
+                                        hintHasArrow={hintHasArrow}
+                                        hintOffset={hintOffset}
+                                        hintWidth={hintWidth}
+                                        hintContentLeft={hintContentLeft}
+                                        handleHintShow={handleHintShow}
+                                        handleHintHide={handleHintHide}
+                                        handleHintClick={handleHintClick}
+                                    />
+                                </StyledHintWrapper>
+                            </InnerHintContainer>
                         )}
                         {!hasOuterLabel && hintText && hintTargetPlacement === 'outer' && (
-                            <StyledHintWrapper
-                                className={cx(hasOuterLabel && classes.outerLabelPlacement, clear && 'clear')}
-                            >
+                            <StyledHintWrapper className={cx(hasOuterLabel && classes.outerLabelPlacement, clearClass)}>
                                 <HintComponent
                                     ref={hintForkRef}
                                     hintText={hintText}
@@ -548,11 +559,9 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     hintOffset={hintOffset}
                                     hintWidth={hintWidth}
                                     hintContentLeft={hintContentLeft}
-                                    size={size}
                                     handleHintShow={handleHintShow}
                                     handleHintHide={handleHintHide}
                                     handleHintClick={handleHintClick}
-                                    isInnerLabel
                                 />
                             </StyledHintWrapper>
                         )}

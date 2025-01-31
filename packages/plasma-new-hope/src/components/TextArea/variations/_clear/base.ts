@@ -88,12 +88,6 @@ export const base = css`
                     inset: var(${tokens.clearHintInnerLabelPlacementOffset});
                 }
             }
-
-            ${StyledIndicator} {
-                &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
-                    inset: var(${tokens.clearIndicatorHintInnerRight});
-                }
-            }
         }
 
         .${classes.styledContainer} {

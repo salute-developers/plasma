@@ -93,9 +93,6 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-combobox-new-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-combobox-new-textfield-right-content-margin',
-    textFieldInnerHintContentRightMarginRight: '--plasma-combobox-textfield-inner-hint-content-right-margin-right',
-    textFieldClearInnerHintContentRightMarginRight:
-        '--plasma-combobox-textfield-clear-inner-hint-content-right-margin-right',
 
     textFieldFontFamily: '--plasma-combobox-new-textfield-font-family',
     textFieldFontStyle: '--plasma-combobox-new-textfield-font-style',
@@ -164,7 +161,7 @@ export const tokens = {
     textFieldDisabledOpacity: '--plasma-combobox-new-textfield-disabled-opacity',
 
     /** Токены для tooltip */
-    textFieldHintCustomIconTargetSize: '--plasma-combobox-textfield__hint-custom-icon-target-size',
+    textFieldHintCustomIconSize: '--plasma-combobox-textfield__hint-custom-icon-size',
     textFieldHintMargin: '--plasma-combobox-textfield__hint-margin',
     textFieldHintTargetSize: '--plasma-combobox-textfield__hint-target-size',
     textFieldHintIconColor: '--plasma-combobox-textfield__hint-icon-color',
@@ -239,7 +236,6 @@ export const tokens = {
     textFieldClearIndicatorLabelPlacementInner: '--plasma-combobox-new-textfield-clear-indicator-placement-inner',
     textFieldClearIndicatorLabelPlacementInnerRight:
         '--plasma-combobox-new-textfield-clear-indicator-placement-inner-right',
-    textFieldClearIndicatorHintInnerRight: '--plasma-combobox-new-textfield-clear-indicator-hint-placement-inner-right',
 
     // Токены для EmptyState
     emptyStatePadding: '--plasma-combobox-new-empty-state-padding',

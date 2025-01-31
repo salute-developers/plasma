@@ -152,11 +152,7 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
-                ${tokens.rightContentWithInnerHintMarginRight}: calc(1.625rem + 0.125rem);
-                ${tokens.clearRightContentWithInnerHintMarginRight}: calc(1.75rem + 0.125rem);
-
-                ${tokens.innerHintContentRightMarginRight}: calc(0.7525rem + 0.125rem);
-                ${tokens.clearInnerHintContentRightMarginRight}: calc(-0.5rem + 0.125rem);
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -174,10 +170,10 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0 calc(-0.75rem - var(${tokens.hintTargetSize})) 0 auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0 calc(0.25rem - var(${tokens.hintTargetSize})) 0 auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 1.125rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -226,10 +222,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.75rem -0.94rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.685rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -243,11 +238,8 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
-                ${tokens.rightContentWithInnerHintMarginRight}: calc(1.625rem + 0.125rem);
-                ${tokens.clearRightContentWithInnerHintMarginRight}: calc(1.75rem + 0.125rem);
-
-                ${tokens.innerHintContentRightMarginRight}: calc(0.5625rem + 0.125rem);
-                ${tokens.clearInnerHintContentRightMarginRight}: calc(-0.4rem + 0.125rem);
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
+                ${tokens.clearRightContentWithInnerHintMarginRight}: 1.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -265,10 +257,10 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0 calc(-0.625rem - var(${tokens.hintTargetSize})) 0 auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0 calc(0.25rem - var(${tokens.hintTargetSize})) 0 auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 1rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -317,10 +309,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.81rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.685rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -334,11 +325,8 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
                 ${tokens.rightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
-                ${tokens.rightContentWithInnerHintMarginRight}: calc(1.625rem + 0.125rem);
-                ${tokens.clearRightContentWithInnerHintMarginRight}: calc(1.815rem + 0.125rem);
-
-                ${tokens.innerHintContentRightMarginRight}: calc(0.4375rem + 0.065rem);
-                ${tokens.clearInnerHintContentRightMarginRight}: calc(-0.4rem + 0.125rem);
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
+                ${tokens.clearRightContentWithInnerHintMarginRight}: 1.815rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
@@ -356,11 +344,11 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.hintCustomIconTargetSize}: 1.25rem;
-                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintCustomIconSize}: 1.25rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0 calc(-0.5rem - var(${tokens.hintTargetSize})) 0 auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0 calc(0.25rem - var(${tokens.hintTargetSize})) 0 auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.875rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -409,10 +397,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.651rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -426,11 +413,8 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
                 ${tokens.rightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
-                ${tokens.rightContentWithInnerHintMarginRight}: calc(1.625rem - 0.25rem);
-                ${tokens.clearRightContentWithInnerHintMarginRight}: calc(1.815rem + 0.125rem);
-
-                ${tokens.innerHintContentRightMarginRight}: calc(0.3125rem - 0.190rem);
-                ${tokens.clearInnerHintContentRightMarginRight}: calc(-0.4rem + 0.125rem);
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
+                ${tokens.clearRightContentWithInnerHintMarginRight}: 1.815rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
@@ -448,11 +432,11 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.hintCustomIconTargetSize}: 1rem;
-                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintCustomIconSize}: 1rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0 calc(0rem - var(${tokens.hintTargetSize})) 0 auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0 calc(0.25rem - var(${tokens.hintTargetSize})) 0 auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.75rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -501,10 +485,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.6875rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.362rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -518,11 +501,8 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.625rem;
-                ${tokens.rightContentWithInnerHintMarginRight}: calc(1.125rem + 0.125rem);
-                ${tokens.clearRightContentWithInnerHintMarginRight}: calc(1.2475rem + 0.125rem);
-
-                ${tokens.innerHintContentRightMarginRight}: calc(-0.185rem + 0.125rem);
-                ${tokens.clearInnerHintContentRightMarginRight}: calc(-0.675rem + 0.125rem);
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
+                ${tokens.clearRightContentWithInnerHintMarginRight}: 1.2475rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
@@ -542,8 +522,8 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: -0.1875rem calc(0rem - var(${tokens.hintTargetSize})) 0 auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: -0.1875rem calc(0.5rem - var(${tokens.hintTargetSize})) 0 auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.5rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -585,11 +565,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.625rem auto auto;
-                ${tokens.indicatorLabelPlacementHintOuterRight}: -0.125rem;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.918rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.25rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
