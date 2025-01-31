@@ -2,14 +2,14 @@ import React, { useEffect, forwardRef, useState, useRef } from 'react';
 import { styled } from '@linaria/react';
 
 import { RootProps, component } from '../../engines';
-import { popoverClasses, popoverConfig, popoverTokens } from '../Popover';
+import { popoverConfig, popoverTokens } from '../Popover';
 import { cx } from '../../utils';
 
 import { TooltipProps } from './Tooltip.types';
 import { StyledContentLeft, TooltipRoot } from './Tooltip.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { classes, tokens } from './Tooltip.tokens';
+import { tokens } from './Tooltip.tokens';
 
 const ESCAPE_KEYCODE = 27;
 
@@ -26,10 +26,6 @@ const StyledPopover = styled(Popover)`
     ${popoverTokens.arrowBackground}: var(${tokens.arrowBackground});
     ${popoverTokens.arrowHeight}: var(${tokens.arrowHeight});
     ${popoverTokens.arrowEdgeMargin}: var(${tokens.arrowEdgeMargin});
-
-    &.${classes.animated} .${popoverClasses.root} {
-        transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
-    }
 `;
 
 /**
@@ -77,8 +73,6 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
             const innerIsOpen = Boolean(isVisible || isOpen || opened);
             const innerHasArrow = arrow || hasArrow;
             const showTooltip = innerIsOpen && Boolean(text);
-
-            const animatedClass = animated ? classes.animated : undefined;
 
             useEffect(() => {
                 const onKeyDown = (event: KeyboardEvent) => {
@@ -136,7 +130,8 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     aria-hidden={!innerIsOpen}
                     aria-live="polite"
                     role="tooltip"
-                    className={cx(ref?.classList.toString(), animatedClass)}
+                    animated={animated}
+                    className={cx(ref?.classList.toString())}
                     {...((trigger === 'hover' || trigger === 'click') && { trigger, onToggle })}
                     {...rest}
                 >
