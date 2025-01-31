@@ -1736,7 +1736,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
-value?: Date | null | undefined;
+value?: string | Date | undefined;
 defaultDate?: Date | undefined;
 placeholder?: string | undefined;
 name?: string | undefined;
