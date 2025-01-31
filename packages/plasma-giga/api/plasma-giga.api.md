@@ -4291,6 +4291,8 @@ export { textXSBold }
 export const Toast: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+positive: PolymorphicClassName;
+negative: PolymorphicClassName;
 dark: PolymorphicClassName;
 light: PolymorphicClassName;
 };
