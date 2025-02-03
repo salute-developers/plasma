@@ -53,7 +53,7 @@ export const StyledPopover = styled.div<Pick<PopoverProps, 'zIndex'>>`
     visibility: hidden;
 
     &.${classes.animate} {
-        transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out; /* Уменьшена длительность до 200ms */
+        transition: opacity 0.2s ease-in-out, transform 0s ease-in-out, visibility 0.2s;
     }
 
     &.${classes.open} {

@@ -1,5 +1,4 @@
 import React, { useRef, useCallback, useEffect, useState, forwardRef, isValidElement } from 'react';
-import type { CSSProperties } from 'react';
 import { usePopper } from 'react-popper';
 import { useForkRef } from '@salutejs/plasma-core';
 
@@ -61,6 +60,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
 
             const [, forceRender] = useState(false);
+            const [shouldRender, setShouldRender] = useState(innerIsOpen);
 
             const portalContainer =
                 (typeof target === 'object' && target !== null && 'current' in target && target.current) || undefined;
@@ -68,13 +68,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const isAutoArray = Array.isArray(placement);
             const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
 
-            const openClass = innerIsOpen ? classes.open : undefined;
+            const openClass = innerIsOpen && shouldRender ? classes.open : undefined;
             const animatedClass = animated ? classes.animate : undefined;
-
-            const initialStyles = {
-                visibility: innerIsOpen ? 'visible' : 'hidden',
-                opacity: innerIsOpen ? 1 : 0,
-            } as CSSProperties;
 
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
                 // TODO: #1121
@@ -237,6 +232,18 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 Promise.resolve().then(forceUpdate);
             }, [innerIsOpen, children, forceUpdate]);
 
+            const handleTransitionEnd = () => {
+                if (!innerIsOpen) {
+                    setShouldRender(false);
+                }
+            };
+
+            useEffect(() => {
+                if (innerIsOpen) {
+                    setShouldRender(true);
+                }
+            }, [innerIsOpen]);
+
             return (
                 <Portal container={portalContainer} disabled={isValidElement(target)}>
                     <StyledWrapper
@@ -258,11 +265,12 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                 <Root view={view} className={className} {...rest}>
                                     <StyledPopover
                                         {...attributes.popper}
+                                        onTransitionEnd={handleTransitionEnd}
                                         className={cx(classes.root, openClass, animatedClass)}
                                         ref={popoverForkRef}
                                         style={{
                                             ...styles.popper,
-                                            ...initialStyles,
+                                            display: shouldRender || innerIsOpen ? 'block' : 'none',
                                         }}
                                         zIndex={zIndex}
                                     >
