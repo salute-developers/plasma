@@ -8,6 +8,7 @@ export const createIndex = (srcDir: string) => {
 
     const indexTsContent = `${ROBO_COMMENT}
     export * from './general';
+    export * from './generalReverted';
     export * from './additional';
     export * from './types';
 `;
