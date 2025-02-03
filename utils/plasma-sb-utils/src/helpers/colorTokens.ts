@@ -1,3 +1,5 @@
+import { generalReverted } from '@salutejs/plasma-colors';
+
 import { convertTheme } from './convertTheme';
 
 const hexLength = 7;
@@ -32,6 +34,8 @@ export interface GroupedTokens {
                     alpha: string | null;
                     parsedAlpha: string;
                 } | null;
+                tone?: string;
+                colorName?: string;
             };
         };
     };
@@ -77,6 +81,8 @@ export const getGroupedTokens = (themes: string): GroupedTokens => {
         const parsedValue =
             value.startsWith('#') && value.length === hexWithAlphaLength ? value.slice(0, hexLength) : value;
         const opacity = getOpacityFromHex(value);
+        const additionalInfo = generalReverted?.[parsedValue as keyof typeof generalReverted];
+        const colorName = additionalInfo?.name ? upperFirstLetter(additionalInfo.name) : '';
 
         acc[category] = {
             ...acc[category],
@@ -85,6 +91,8 @@ export const getGroupedTokens = (themes: string): GroupedTokens => {
                 [camelize(name)]: {
                     value: parsedValue,
                     opacity,
+                    tone: additionalInfo?.tone,
+                    colorName,
                 },
             },
         };
