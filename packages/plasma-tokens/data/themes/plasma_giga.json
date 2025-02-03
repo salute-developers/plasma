@@ -1272,15 +1272,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF3D",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF0F",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceClearHover": {
@@ -1573,10 +1573,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола"
@@ -1679,6 +1675,10 @@
                 "surfaceTransparentAccent": {
                     "value": "rgba(36,242,191,0.28)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек"
                 }
             },
             "onDark": {
@@ -1763,15 +1763,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF3D",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF0F",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClear": {
@@ -2071,10 +2071,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
@@ -2173,6 +2169,10 @@
                 "surfaceTransparentAccent": {
                     "value": "rgba(36,242,191,0.28)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
                 }
             },
             "onLight": {
@@ -6742,15 +6742,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF0A",
+                    "value": "#EBFFFD03",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF29",
+                    "value": "#EBFFFD17",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClear": {
@@ -7050,10 +7050,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
@@ -7152,6 +7148,10 @@
                 "surfaceTransparentAccent": {
                     "value": "rgba(36,242,191,0.28)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
                 }
             },
             "onLight": {
@@ -7730,15 +7730,15 @@
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF0A",
+                    "value": "#EBFFFD03",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF29",
+                    "value": "#EBFFFD17",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceClear": {
@@ -8038,10 +8038,6 @@
                     "value": "#FFFFFF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Инвертированный прозрачный фон для карточек"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.06)",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола"
@@ -8059,7 +8055,37 @@
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
-                    "value": "linear-gradient(94deg,#3E79F06.49%,#27C6E593.51%)",
+                    "value": {
+                        "origin": "linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
+                            "startPoint": {
+                                "x": 0,
+                                "y": 0.46
+                            },
+                            "endPoint": {
+                                "x": 1,
+                                "y": 0.54
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
+                            "startPoint": {
+                                "x": 0,
+                                "y": 0.46
+                            },
+                            "endPoint": {
+                                "x": 1,
+                                "y": 0.54
+                            }
+                        }
+                    },
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 },
@@ -8110,6 +8136,10 @@
                 "surfaceTransparentAccent": {
                     "value": "rgba(36,242,191,0.28)",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Инвертированный прозрачный фон для карточек"
                 }
             }
         },
