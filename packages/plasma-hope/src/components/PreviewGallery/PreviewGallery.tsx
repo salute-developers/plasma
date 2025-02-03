@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import type { FC, HTMLAttributes } from 'react';
-import { SortableContainerProps, SortableElementProps } from 'react-sortable-hoc';
+import type { DragEndEvent } from '@dnd-kit/core';
 
 import { noop } from './utils';
 import { PreviewGalleryListItems } from './PreviewGalleryItems';
@@ -16,7 +16,7 @@ export interface PreviewGalleryProps {
     /**
      * Массив элементов.
      */
-    items?: Array<PreviewGalleryItemProps & Omit<SortableElementProps, 'index'>>;
+    items?: Array<PreviewGalleryItemProps>;
     /**
      * Тип взаимодействия с галереей - выбор или перетаскивание элементов.
      */
@@ -50,7 +50,7 @@ export interface PreviewGalleryProps {
 /**
  * Компонент для создания галереи превью изображений.
  */
-export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps> = ({
+export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement>> = ({
     interactionType = 'selectable',
     items = [],
     maxHeight = 0,
@@ -59,19 +59,25 @@ export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElem
     onItemsSortEnd = noop,
     ...rest
 }) => {
-    const distance = 1;
-    const axis = 'xy';
     const [isGrabbing, setGrabbing] = useState<boolean>(false);
 
     const onSortStart = useCallback(() => setGrabbing(true), []);
 
     const onSortEnd = useCallback(
-        (indexes: SortableIndexProps) => {
+        (event: DragEndEvent) => {
             setGrabbing(false);
 
-            onItemsSortEnd(indexes);
+            const { active, over } = event;
+            if (!over || active.id === over.id) {
+                return;
+            }
+
+            const oldIndex = items.findIndex((item) => item.id === active.id);
+            const newIndex = items.findIndex((item) => item.id === over.id);
+
+            onItemsSortEnd({ oldIndex, newIndex });
         },
-        [onItemsSortEnd],
+        [items, onItemsSortEnd],
     );
 
     return (
@@ -81,8 +87,6 @@ export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElem
             onItemClick={onItemClick}
             onSortStart={onSortStart}
             onSortEnd={onSortEnd}
-            axis={axis}
-            distance={distance}
             interactionType={interactionType}
             isGrabbing={isGrabbing}
             maxHeight={maxHeight}
