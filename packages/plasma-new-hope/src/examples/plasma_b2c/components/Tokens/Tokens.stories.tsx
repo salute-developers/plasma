@@ -69,11 +69,11 @@ const StoryDemo = ({ context }) => {
 
     return (
         <>
-            {Object.entries(groupedTokens).map(([category, value]) => (
+            {Object.entries(groupedTokens).map(([category, subcategoties]) => (
                 <CategoryContainer key={category}>
                     <Category>{category}</Category>
                     <Accordion view="clear" size="s" stretching="filled" defaultActiveEventKey={[0]}>
-                        {Object.entries(value).map(([subcategory, value2], index) => (
+                        {Object.entries(subcategoties).map(([subcategory, subcategoryTokens], index) => (
                             <StyledAccordionItem
                                 key={subcategory}
                                 eventKey={index}
@@ -85,31 +85,37 @@ const StoryDemo = ({ context }) => {
                                             <ColorCircle disableShadow />
                                             Color
                                         </ColumnTitle>
+                                        <ColumnTitle>Tone</ColumnTitle>
                                         <ColumnTitle>Opacity</ColumnTitle>
                                     </AccordionInfo>
                                 }
                             >
                                 <TokenInfoWrapper>
-                                    {Object.entries(value2).map(([token, { value: value3, opacity }]) => (
-                                        <AccordionInfo key={token}>
-                                            <TokenInfo className="copy" onClick={() => copyToClipboard(token)}>
-                                                {token}
-                                            </TokenInfo>
-                                            <TokenInfo
-                                                className="color copy"
-                                                onClick={() => copyToClipboard(value3, opacity?.alpha)}
-                                            >
-                                                <ColorCircle background={value3} />
-                                                <div>
-                                                    {value3.includes('gradient') ? 'Градиент' : value3}
-                                                    {opacity && <OpacityPart>{opacity.alpha}</OpacityPart>}
-                                                </div>
-                                            </TokenInfo>
-                                            {opacity && (
-                                                <TokenInfo className="opacity">{opacity.parsedAlpha}</TokenInfo>
-                                            )}
-                                        </AccordionInfo>
-                                    ))}
+                                    {Object.entries(subcategoryTokens).map(
+                                        ([token, { value, opacity, tone, colorName }]) => (
+                                            <AccordionInfo key={token}>
+                                                <TokenInfo className="copy" onClick={() => copyToClipboard(token)}>
+                                                    {token}
+                                                </TokenInfo>
+                                                <TokenInfo
+                                                    className="color copy"
+                                                    onClick={() => copyToClipboard(value, opacity?.alpha)}
+                                                >
+                                                    <ColorCircle background={value} />
+                                                    <div>
+                                                        {value.includes('gradient') ? 'Градиент' : colorName || value}
+                                                        {!colorName && opacity && (
+                                                            <OpacityPart>{opacity.alpha}</OpacityPart>
+                                                        )}
+                                                    </div>
+                                                </TokenInfo>
+                                                <TokenInfo className="no-interaction">
+                                                    {tone !== 'none' && tone}
+                                                </TokenInfo>
+                                                <TokenInfo className="no-interaction">{opacity?.parsedAlpha}</TokenInfo>
+                                            </AccordionInfo>
+                                        ),
+                                    )}
                                 </TokenInfoWrapper>
                             </StyledAccordionItem>
                         ))}
