@@ -6,6 +6,7 @@ const commonScope = [
     'core-themes',
     'plasma-typo',
     'plasma-new-hope',
+    'plasma-colors',
 ];
 
 module.exports = {
@@ -40,6 +41,7 @@ module.exports = {
             'plasma-typo',
             'plasma-docs-ui',
             'plasma-ui-docs',
+            'plasma-colors',
         ],
     },
     'plasma-web': {
