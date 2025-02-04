@@ -23,6 +23,7 @@ export const tokens = {
     accordionItemPaddingVertical: '--plasma-accordion-item-padding-vertical',
     accordionItemPaddingHorizontal: '--plasma-accordion-item-padding-horizontal',
     accordionItemPaddingHorizontalLeft: '--plasma-accordion-item-padding-horizontal-left',
+    accordionItemBodyPaddingBottom: '--plasma-accordion-item-body-padding-bottom',
     accordionItemGap: '--plasma-accordion-item-gap',
     accordionItemFocus: '--plasma-accordion-item-focus',
     accordionItemBorder: '--plasma-accordion-item-border',

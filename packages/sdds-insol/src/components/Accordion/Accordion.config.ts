@@ -10,7 +10,7 @@ export const config = {
             default: css`
                 ${accordionTokens.accordionWidth}: 20rem;
                 ${accordionTokens.accordionItemPadding}: var(${accordionTokens.accordionItemPaddingVertical}) var(${accordionTokens.accordionItemPaddingHorizontal});
-                ${accordionTokens.accordionItemBackground}: var(--surface-solid-card);
+                ${accordionTokens.accordionItemBackground}: var(--surface-transparent-card);
                 ${accordionTokens.accordionItemShadow}: var(--shadow-down-soft-s);
                 ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
                 ${accordionTokens.accordionItemOpenedTitleColor}: var(--text-accent);
@@ -41,6 +41,7 @@ export const config = {
             l: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.0625rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.25rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.125rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
                 ${accordionTokens.accordionGap}: 1rem;
@@ -62,6 +63,7 @@ export const config = {
             m: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.875rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1rem;
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
@@ -84,6 +86,7 @@ export const config = {
             s: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.6875rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 0.875rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 0.75rem;
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.625rem;
@@ -106,6 +109,7 @@ export const config = {
             xs: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.563rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 0.625rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 0.625rem;
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
@@ -128,6 +132,7 @@ export const config = {
             h2: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.625rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.75rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.625rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1.25rem;
@@ -150,6 +155,7 @@ export const config = {
             h3: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.5rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.625rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.5rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1.125rem;
@@ -172,6 +178,7 @@ export const config = {
             h4: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.438rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.5rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.5rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1rem;
                 ${accordionTokens.accordionGap}: 1.5rem;
@@ -193,6 +200,7 @@ export const config = {
             h5: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.25rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.375rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.375rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
                 ${accordionTokens.accordionGap}: 1.25rem;

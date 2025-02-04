@@ -75,7 +75,7 @@ export const StyledAccordionBodyAnimate = styled.div`
 
     &.${classes.accordionItemShowBody} {
         grid-template-rows: 1fr;
-        padding-bottom: var(${tokens.accordionItemPaddingVertical});
+        padding-bottom: var(${tokens.accordionItemBodyPaddingBottom}, var(${tokens.accordionItemPaddingVertical}));
 
         &.${classes.accordionPlusAnimationElement} {
             transition: 0.2s;
