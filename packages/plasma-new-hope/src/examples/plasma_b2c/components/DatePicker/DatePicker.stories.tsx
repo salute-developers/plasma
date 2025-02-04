@@ -61,6 +61,7 @@ const meta: Meta = {
             },
             if: { arg: 'required', truthy: true },
         },
+        ...disableProps(['view']),
     },
 };
 
