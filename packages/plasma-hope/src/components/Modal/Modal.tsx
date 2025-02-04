@@ -209,11 +209,7 @@ export const Modal: FC<ModalProps> = ({
          * отобразилось после записи DOM элемента в portalRef.current
          */
         forceRender(true);
-
-        return () => {
-            controller.unregister(innerId);
-        };
-    }, [controller, innerId]);
+    }, []);
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
@@ -241,10 +237,15 @@ export const Modal: FC<ModalProps> = ({
         };
     }, [onClose, onEscKeyDown, closeOnEsc]);
 
+    useEffect(() => {
+        return () => {
+            controller.unregister(innerId);
+        };
+    }, [controller.unregister, innerId]);
+
     if (innerIsOpen) {
         controller.register(innerId);
     } else {
-        controller.unregister(innerId);
         return null;
     }
 
