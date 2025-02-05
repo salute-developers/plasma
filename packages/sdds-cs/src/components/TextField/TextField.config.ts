@@ -106,9 +106,11 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.rightContentWithInnerHintMarginRight}: 1.625rem;
+                ${tokens.clearRightContentWithInnerHintMarginRight}: 1.815rem;
 
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+
+
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -128,8 +130,8 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.063rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0 calc(-0.25rem - var(${tokens.hintTargetSize})) 0 auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0 calc(0.25rem - var(${tokens.hintTargetSize})) 0 auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -173,6 +175,10 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
             `,
         },
         labelPlacement: {
@@ -185,7 +191,7 @@ export const config = {
             // TODO: заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
             default: css`
                 ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.tooltipBoxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.tooltipColor}: var(--text-primary);
                 ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,

@@ -43,10 +43,6 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
 
-    ${textFieldTokens.rightContentWithHintMargin}: var(${tokens.textFieldRightContentWithHintMargin});
-    ${textFieldTokens.contentRightWrapperGap}: var(${tokens.textFieldContentRightWrapperGap});
-    ${textFieldTokens.contentRightWrapperMargin}: var(${tokens.textFieldContentRightWrapperMargin});
-
     ${textFieldTokens.fontFamily}: var(${tokens.textFieldFontFamily});
     ${textFieldTokens.fontStyle}: var(${tokens.textFieldFontStyle});
     ${textFieldTokens.fontSize}: var(${tokens.textFieldFontSize});
@@ -107,7 +103,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.disabledOpacity}: var(${tokens.textFieldDisabledOpacity});
 
-    ${textFieldTokens.hintCustomIconTargetSize}: var(${tokens.textFieldHintCustomIconTargetSize});
+    ${textFieldTokens.hintCustomIconSize}: var(${tokens.textFieldHintCustomIconSize});
     ${textFieldTokens.hintMargin}: var(${tokens.textFieldHintMargin});
     ${textFieldTokens.hintTargetSize}: var(${tokens.textFieldHintTargetSize});
     ${textFieldTokens.hintIconColor}: var(${tokens.textFieldHintIconColor});
@@ -174,7 +170,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${tokens.textFieldClearIndicatorLabelPlacementInner});
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}:
         var(${tokens.textFieldClearIndicatorLabelPlacementInnerRight});
-    ${textFieldTokens.clearIndicatorHintInnerRight}: var(${tokens.textFieldClearIndicatorHintInnerRight});
+
 
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
