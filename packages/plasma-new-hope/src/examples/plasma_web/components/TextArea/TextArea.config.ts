@@ -291,6 +291,78 @@ export const config = {
                 ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
+            xl: css`
+                ${textAreaTokens.inputWidth}: 100%;
+                ${textAreaTokens.inputHeight}: 6.812rem;
+                ${textAreaTokens.inputMinHeight}: 1.625rem;
+                ${textAreaTokens.borderRadius}: 1rem;
+                ${textAreaTokens.borderRadiusWithHelpers}: 1rem;
+                ${textAreaTokens.inputPaddingTop}: 1.313rem;
+                ${textAreaTokens.inputPaddingRight}: 1.25rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.5rem;
+                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2.5rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
+                ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.75rem;
+                ${textAreaTokens.inputPaddingLeft}: 1.25rem;
+                ${textAreaTokens.helpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.helpersPaddingRight}: 0rem;
+                ${textAreaTokens.helpersPaddingBottom}: 0rem;
+                ${textAreaTokens.helpersPaddingLeft}: 0rem;
+                ${textAreaTokens.helpersOffset}: 0.375rem;
+                ${textAreaTokens.rightContentTop}: 1.25rem;
+                ${textAreaTokens.rightContentRight}: 1.25rem;
+                ${textAreaTokens.rightContentHeight}: 1.5rem;
+                ${textAreaTokens.labelMarginBottom}: 0.75rem;
+                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
+                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.813rem;
+                ${textAreaTokens.labelInnerTopHelper}: -0.313rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.25rem;
+                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
+                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${textAreaTokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
+
+                ${textAreaTokens.scrollbarWidth}: 0.188rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.751rem -2.938rem auto auto;
+                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.751rem -2.188rem auto auto;
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
         },
         view: {
             default: css`

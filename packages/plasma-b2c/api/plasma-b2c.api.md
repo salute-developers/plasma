@@ -3922,6 +3922,7 @@ xs: PolymorphicClassName;
 s: PolymorphicClassName;
 m: PolymorphicClassName;
 l: PolymorphicClassName;
+xl: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;
