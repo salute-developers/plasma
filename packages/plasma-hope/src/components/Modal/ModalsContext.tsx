@@ -7,11 +7,21 @@ class ModalsController {
     public items: string[] = [];
 
     public register(id: string) {
+        const indexOfElement = this.items.indexOf(id);
+        if (indexOfElement >= 0) {
+            return;
+        }
+
         return this.items.push(id);
     }
 
     public unregister(id: string) {
-        this.items.splice(this.items.indexOf(id), 1);
+        const indexOfElement = this.items.indexOf(id);
+        if (indexOfElement < 0) {
+            return;
+        }
+
+        this.items.splice(indexOfElement, 1);
     }
 }
 

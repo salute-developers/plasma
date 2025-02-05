@@ -57,7 +57,27 @@ describe('plasma-b2c: TextArea', () => {
     it(':disabled', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
             </CypressTestDecorator>,
         );
 

@@ -15,6 +15,7 @@ export const tokens = {
     fontSize: '--plasma-segment-item-font-size',
     fontStyle: '--plasma-segment-item-font-style',
     fontWeight: '--plasma-segment-item-font-weight',
+    fontWeightSelectedItem: '--plasma-segment-item-font-weight-selected-item',
     letterSpacing: '--plasma-segment-item-letter-spacing',
     lineHeight: '--plasma-segment-item-lineheight',
 

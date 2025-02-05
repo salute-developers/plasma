@@ -80,8 +80,10 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
             const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
 
             const rangeErrorClass = firstValueError && secondValueError ? classes.rangeError : undefined;
+
             const firstValueErrorClass = !rangeErrorClass && firstValueError ? classes.rangeValueError : undefined;
             const secondValueErrorClass = !rangeErrorClass && secondValueError ? classes.rangeValueError : undefined;
+
             const rangeSuccessClass = firstValueSuccess && secondValueSuccess ? classes.rangeSuccess : undefined;
             const firstValueSuccessClass =
                 !rangeSuccessClass && firstValueSuccess ? classes.rangeValueSuccess : undefined;
@@ -178,7 +180,20 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                         />
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                     </ContentWrapper>
-                    {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper
+                            className={cx(
+                                rangeErrorClass,
+                                firstValueErrorClass,
+                                secondValueErrorClass,
+                                rangeSuccessClass,
+                                firstValueSuccessClass,
+                                secondValueSuccessClass,
+                            )}
+                        >
+                            {leftHelper}
+                        </LeftHelper>
+                    )}
                 </Root>
             );
         },

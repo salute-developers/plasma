@@ -16,6 +16,8 @@ export const config = {
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColorError}: var(--text-negative);
+                ${tokens.leftHelperColorSuccess}: var(--text-positive);
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 

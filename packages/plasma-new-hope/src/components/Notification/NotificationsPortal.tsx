@@ -24,7 +24,12 @@ const StyledPopup = styled(Popup)`
 /**
  * Обертка для визуального представления уведомлений.
  */
-export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame, placement = 'bottom-right' }) => {
+export const NotificationsPortal: FC<NotificationPortalProps> = ({
+    config,
+    frame,
+    placement = 'bottom-right',
+    UNSAFE_SSR_ENABLED,
+}) => {
     const { notifications } = useStoreon<NotificationsState, NotificationsEvents>('notifications');
 
     const Notification = useMemo(
@@ -33,7 +38,7 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
     );
 
     return (
-        <PopupProvider>
+        <PopupProvider UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}>
             {notifications.length > 0 && (
                 <StyledPopup opened frame={frame} placement={placement} zIndex="9100">
                     <StyledRoot placement={placement}>

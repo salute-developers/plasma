@@ -12,7 +12,7 @@ import { config } from './Select.config';
 const mergedConfig = mergeConfig(selectConfig, config);
 const SelectNewHope = component(mergedConfig);
 
-type SelectProps<T, K extends DropdownNodeSelect> = DistributiveOmit<
+export type SelectProps<T, K extends DropdownNodeSelect> = DistributiveOmit<
     MergedSelectPropsNewHope<T, K>,
     'size' | 'view' | 'chipView' | 'disabled'
 > &

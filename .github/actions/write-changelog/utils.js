@@ -27,7 +27,7 @@ async function getPackageVersion(pkg) {
         const packageJson = await fs.readFile(filePath, 'utf8');
         const { version } = JSON.parse(packageJson);
 
-        return `# ${version}`;
+        return `## ${version}`;
     } catch (error) {
         console.error('Error reading package.json:', error);
     }

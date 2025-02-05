@@ -7,6 +7,10 @@ import { IconButton } from '../IconButton/IconButton';
 
 import { Accordion, AccordionItem } from '.';
 
+const sizes = ['l', 'm', 's', 'xs', 'h2', 'h3', 'h4', 'h5'] as const;
+const stretching = ['filled', 'fixed'] as const;
+const types = ['arrow', 'sign', 'clear'] as const;
+
 const meta: Meta<typeof Accordion> = {
     title: 'Data Display/Accordion',
     component: Accordion,
@@ -22,14 +26,20 @@ const meta: Meta<typeof Accordion> = {
     },
     argTypes: {
         ...disableProps(['text']),
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
         stretching: {
-            options: ['filled', 'fixed'],
+            options: stretching,
             control: {
                 type: 'select',
             },
         },
         type: {
-            options: ['arrow', 'sign', 'clear'],
+            options: types,
             control: {
                 type: 'select',
             },
@@ -60,6 +70,24 @@ export const Default: StoryObj<ComponentProps<typeof Accordion>> = {
 };
 
 const getSizeForIcon = (size) => (size === 'xs' ? 'xs' : 's');
+const getSizeForIconButton = (size) => {
+    switch (size) {
+        case 'l':
+        case 'h2':
+        case 'h3':
+            return 'l';
+        case 'm':
+            return 'm';
+        case 's':
+        case 'h4':
+            return 's';
+        case 'xs':
+        case 'h5':
+            return 'xs';
+        default:
+            return 'm';
+    }
+};
 
 const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
     const args = { ...props, text: undefined };
@@ -71,7 +99,11 @@ const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
         <Accordion {...args}>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveFirst(!activeFirst)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveFirst(!activeFirst)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }
@@ -85,7 +117,11 @@ const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
             </AccordionItem>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveSecond(!activeSecond)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveSecond(!activeSecond)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }
@@ -99,7 +135,11 @@ const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
             </AccordionItem>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveThree(!activeThree)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveThree(!activeThree)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }

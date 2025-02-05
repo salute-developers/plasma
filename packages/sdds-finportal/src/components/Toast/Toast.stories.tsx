@@ -10,23 +10,23 @@ import { ToastController, ToastProvider } from './Toast';
 
 import { Toast, useToast } from '.';
 
+const views = ['default'];
+
 const meta: Meta<typeof ToastController> = {
     title: 'Overlay/Toast',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {
-            options: ['default', 'dark', 'light'],
+            options: views,
             control: {
                 type: 'select',
             },
         },
-        size: {
-            options: ['m'],
-            control: {
-                type: 'inline-radio',
-            },
+        textColor: {
+            control: 'color',
         },
-        ...disableProps(['role', 'onShow', 'onHide', 'contentLeft']),
+        // NOTE: контролы 'textColor' и 'view' скрыты для сторибуков sdds-cs и sdds-insol
+        ...disableProps(['textColor', 'view', 'closeIconType', 'size', 'role', 'onShow', 'onHide', 'contentLeft']),
     },
 };
 
@@ -54,7 +54,6 @@ const BellIcon = (props) => (
 );
 
 const ToastContainer = styled.div`
-    position: fixed;
     transform: translateX(50%);
 `;
 
@@ -66,7 +65,9 @@ const Container = styled.div`
 export const ToastComponent: StoryComponent = {
     args: {
         text: 'Текст всплывающего уведомления',
+        textColor: undefined,
         view: 'default',
+        closeIconType: 'default',
         size: 'm',
         hasClose: true,
         enableContentLeft: true,
@@ -90,6 +91,8 @@ const StoryLiveDemo = ({
     size,
     hasClose,
     enableContentLeft,
+    closeIconType,
+    textColor,
 }: StoryProps) => {
     const { showToast, hideToast } = useToast();
     const contentLeft = enableContentLeft && <BellIcon width="1rem" height="1rem" />;
@@ -110,6 +113,8 @@ const StoryLiveDemo = ({
                         view,
                         size,
                         hasClose,
+                        closeIconType,
+                        textColor,
                         onHide: action('onHide'),
                         onShow: action('onShow'),
                     });

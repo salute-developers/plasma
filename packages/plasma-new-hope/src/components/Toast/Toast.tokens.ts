@@ -23,7 +23,8 @@ export const tokens = {
 
     pilledBorderRadius: '--plasma-toast-pilled-border-radius',
 
-    leftContentMargin: '--plasma-toast-left-content-margin',
+    contentLeftMargin: '--plasma-toast-content-left-margin',
+    contentLeftColor: '--plasma-toast-content-left-color',
 
     closeIconMargin: '--plasma-toast-close-icon-margin',
     closeIconColor: '--plasma-toast-close-icon-color',

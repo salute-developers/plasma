@@ -485,7 +485,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     ref={inputForkRef}
                                     id={innerId}
                                     value={outerValue}
-                                    required={required}
+                                    required={enumerationType === 'chip' ? chips.length === 0 && required : required}
                                     aria-labelledby={labelId}
                                     aria-describedby={helperTextId}
                                     placeholder={innerPlaceholderValue}

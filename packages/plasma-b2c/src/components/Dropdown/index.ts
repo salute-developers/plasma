@@ -1,7 +1,8 @@
 export { withAssistiveDropdown } from '@salutejs/plasma-hope';
-export type { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 
 export { Dropdown } from './Dropdown';
+export type { DropdownProps } from './Dropdown';
+export type { DropdownItemOption } from '@salutejs/plasma-new-hope';
 
 // TODO: #1271
 export { DropdownItem } from './components/DropdownItem';

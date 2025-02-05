@@ -6,6 +6,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
+const sizes = ['xs', 's', 'm', 'l', 'h2', 'h3', 'h4', 'h5'];
+
 describe('plasma-web: Accordion', () => {
     const Accordion = getComponent('Accordion');
     const AccordionItem = getComponent('AccordionItem');
@@ -47,36 +49,20 @@ describe('plasma-web: Accordion', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Accordion size="xs">
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                    <AccordionItem size="s" title={title}>
-                        {body}
-                    </AccordionItem>
-                </Accordion>
-                <PadMe />
-                <Accordion size="s">
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                    <AccordionItem size="s" title={title}>
-                        {body}
-                    </AccordionItem>
-                </Accordion>
-                <PadMe />
-                <Accordion size="m">
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                    <AccordionItem size="s" title={title}>
-                        {body}
-                    </AccordionItem>
-                </Accordion>
-                <PadMe />
-                <Accordion size="l">
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                    <AccordionItem size="s" title={title}>
-                        {body}
-                    </AccordionItem>
-                </Accordion>
-                <PadMe />
+                {sizes.map((size) => (
+                    <>
+                        <Accordion size={size}>
+                            <AccordionItem title={title}>{body}</AccordionItem>
+                            <AccordionItem size="s" title={title}>
+                                {body}
+                            </AccordionItem>
+                        </Accordion>
+                        <PadMe />
+                    </>
+                ))}
             </CypressTestDecoratorWithTypo>,
         );
+
         cy.matchImageSnapshot();
     });
 

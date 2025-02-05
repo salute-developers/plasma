@@ -1,7 +1,7 @@
 import React, { ComponentProps, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma, IconCalendarOutline } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton/IconButton';
@@ -66,6 +66,7 @@ const meta: Meta = {
             },
             if: { arg: 'required', truthy: true },
         },
+        ...disableProps(['view']),
     },
 };
 

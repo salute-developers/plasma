@@ -14,7 +14,7 @@ const ComboboxNew = component(mergedConfig);
 
 type PropsFromConfig = keyof typeof config['variations'];
 
-type Props<T extends ItemOption> = DistributiveOmit<ComboboxProps<T>, PropsFromConfig> &
+export type Props<T extends ItemOption> = DistributiveOmit<ComboboxProps<T>, PropsFromConfig> &
     DistributivePick<ComponentProps<typeof ComboboxNew>, PropsFromConfig>;
 
 const ComboboxComponent = <T extends ItemOption>(props: Props<T>, ref: React.ForwardedRef<HTMLInputElement>) => {

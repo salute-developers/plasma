@@ -7,7 +7,7 @@ import { config } from './Dropdown.config';
 const mergedConfig = mergeConfig(dropdownConfig, config);
 const DropdownNewHope = component(mergedConfig);
 
-type DropdownProps<T extends DropdownItemOption> = Omit<DropdownNewProps<T>, 'size' | 'view'> &
+export type DropdownProps<T extends DropdownItemOption> = Omit<DropdownNewProps<T>, 'size' | 'view'> &
     Pick<ComponentProps<typeof DropdownNewHope>, 'size' | 'view'>;
 
 const DropdownComponent = <T extends DropdownItemOption>(

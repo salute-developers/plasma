@@ -81,8 +81,8 @@ export const config = {
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--text-accent);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-accent);
             `,
             default: css`
                 ${tabsTokens.itemColor}: var(--text-primary);

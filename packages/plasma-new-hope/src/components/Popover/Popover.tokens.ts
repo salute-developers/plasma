@@ -4,6 +4,8 @@ export const classes = {
     target: 'popover-target',
     arrow: 'popover-arrow',
     targetAsRef: 'popover-target-as-ref',
+    open: 'popover-open',
+    animate: 'popover-animate',
 };
 
 export const tokens = {

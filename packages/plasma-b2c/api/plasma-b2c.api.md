@@ -131,15 +131,13 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { DropdownItemOption } from '@salutejs/plasma-new-hope';
+import { DropdownItemOption } from '@salutejs/plasma-new-hope';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
 import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
 import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
-import type { DropdownNodeSelect } from '@salutejs/plasma-new-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
-import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownTrigger } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { dropzoneClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
@@ -271,9 +269,9 @@ import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectGroup } from '@salutejs/plasma-hope';
+import { DropdownNodeSelect as SelectItemOption } from '@salutejs/plasma-new-hope';
 import { SelectPlacement } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { SelectPlacementBasic } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
-import { MergedSelectProps as SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectProps as SelectPropsHope } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
@@ -376,6 +374,10 @@ l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
 };
 stretching: {
 filled: PolymorphicClassName;
@@ -1730,6 +1732,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+value?: string | Date | undefined;
 defaultDate?: Date | undefined;
 placeholder?: string | undefined;
 name?: string | undefined;
@@ -1778,6 +1781,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+value?: [Date | null | undefined, Date | null | undefined] | undefined;
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
 name?: string | undefined;
@@ -1955,6 +1959,8 @@ default: PolymorphicClassName;
 // @public (undocumented)
 export const DropdownItem: React_2.ForwardRefExoticComponent<DropdownItemProps & React_2.RefAttributes<HTMLDivElement>>;
 
+export { DropdownItemOption }
+
 export { DropdownItemProps }
 
 export { DropdownItemType }
@@ -1969,7 +1975,10 @@ export const DropdownPopup: React_2.ForwardRefExoticComponent<DropdownPopupProps
 
 export { DropdownPopupProps }
 
-export { DropdownProps }
+// Warning: (ae-forgotten-export) The symbol "DropdownNewHope" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type DropdownProps<T extends DropdownItemOption> = Omit<DropdownNewProps<T>, 'size' | 'view'> & Pick<ComponentProps<typeof DropdownNewHope>, 'size' | 'view'>;
 
 // @public (undocumented)
 export const Dropzone: FunctionComponent<PropsType<    {
@@ -3083,6 +3092,7 @@ export const NotificationsProvider: React_2.FC<{
     children: ReactNode;
     frame?: string;
     placement?: NotificationPlacement;
+    UNSAFE_SSR_ENABLED?: boolean;
 }>;
 
 // @public (undocumented)
@@ -3616,14 +3626,17 @@ export { SegmentProvider }
 
 export { SegmentProviderProps }
 
-// Warning: (ae-forgotten-export) The symbol "SelectProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const Select: <T, K extends DropdownNodeSelect>(props: SelectProps_2<T, K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export const Select: <T, K extends SelectItemOption>(props: SelectProps<T, K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
 
 export { SelectGroup }
 
-export { SelectProps }
+export { SelectItemOption }
+
+// Warning: (ae-forgotten-export) The symbol "SelectNewHope" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type SelectProps<T, K extends SelectItemOption> = DistributiveOmit<MergedSelectProps<T, K>, 'size' | 'view' | 'chipView' | 'disabled'> & DistributivePick<ComponentProps<typeof SelectNewHope>, 'size' | 'view' | 'chipView' | 'disabled'>;
 
 export { SelectPropsHope }
 
@@ -4440,6 +4453,8 @@ export { TimingFunction }
 export const Toast: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+positive: PolymorphicClassName;
+negative: PolymorphicClassName;
 primary: PolymorphicClassName;
 dark: PolymorphicClassName;
 light: PolymorphicClassName;

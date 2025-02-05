@@ -61,7 +61,8 @@ import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
 import { ColOffsetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { ComboboxProps } from '@salutejs/plasma-new-hope';
+import { ItemOption as ComboboxItemOption } from '@salutejs/plasma-new-hope';
+import type { ComboboxProps as ComboboxProps_2 } from '@salutejs/plasma-new-hope';
 import { CommitInstanceCallback } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
 import { ComponentProps } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -95,7 +96,7 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { DropdownItemOption } from '@salutejs/plasma-new-hope';
+import { DropdownItemOption } from '@salutejs/plasma-new-hope';
 import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
 import { DropdownNodeSelect } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
@@ -136,8 +137,6 @@ import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
-import type { ItemOption } from '@salutejs/plasma-new-hope';
-import type { ItemOptionSelect } from '@salutejs/plasma-new-hope';
 import { JSXElementConstructor } from 'react';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LabelProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
@@ -177,7 +176,7 @@ import { priceClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PriceProps } from '@salutejs/plasma-new-hope/types/components/Price/Price.types';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Property } from 'csstype';
-import { Props as Props_2 } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
+import { Props } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -201,6 +200,7 @@ import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ItemOptionSelect as SelectItemOption } from '@salutejs/plasma-new-hope';
 import { SelectPlacement } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { SelectPlacementBasic } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import type { SelectProps as SelectProps_2 } from '@salutejs/plasma-new-hope';
@@ -266,6 +266,10 @@ l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
+h2: PolymorphicClassName;
+h3: PolymorphicClassName;
+h4: PolymorphicClassName;
+h5: PolymorphicClassName;
 };
 }> & {
 view?: string | undefined;
@@ -1114,10 +1118,16 @@ export { ColProps }
 
 export { ColSizeProps }
 
-// Warning: (ae-forgotten-export) The symbol "Props" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export const Combobox: <T extends ComboboxItemOption>(props: ComboboxProps<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+
+export { ComboboxItemOption }
+
+// Warning: (ae-forgotten-export) The symbol "PropsFromConfig" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ComboboxNew" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Combobox: <T extends ItemOption>(props: Props<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export type ComboboxProps<T extends ComboboxItemOption> = DistributiveOmit<ComboboxProps_2<T>, PropsFromConfig | 'hintTargetPlacement'> & DistributivePick<ComponentProps<typeof ComboboxNew>, PropsFromConfig>;
 
 // @public
 export const Counter: FunctionComponent<PropsType<    {
@@ -1163,6 +1173,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+value?: string | Date | undefined;
 defaultDate?: Date | undefined;
 placeholder?: string | undefined;
 name?: string | undefined;
@@ -1211,6 +1222,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+value?: [Date | null | undefined, Date | null | undefined] | undefined;
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
 name?: string | undefined;
@@ -1382,6 +1394,13 @@ default: PolymorphicClassName;
     hoverIndex?: number | undefined;
 } & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "size" | "view"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
 
+export { DropdownItemOption }
+
+// Warning: (ae-forgotten-export) The symbol "DropdownNewHope" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type DropdownProps<T extends DropdownItemOption> = Omit<DropdownNewProps<T>, 'size' | 'view'> & Pick<ComponentProps<typeof DropdownNewHope>, 'size' | 'view'>;
+
 // @public (undocumented)
 export const Dropzone: FunctionComponent<PropsType<    {
 view: {
@@ -1468,7 +1487,7 @@ m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
-}> & Props_2 & RefAttributes<HTMLDivElement>>;
+}> & Props & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Flow: FunctionComponent<PropsType<    {}> & FlowProps & {
@@ -2426,6 +2445,7 @@ export const NotificationsProvider: React_2.FC<{
     children: ReactNode;
     frame?: string;
     placement?: NotificationPlacement;
+    UNSAFE_SSR_ENABLED?: boolean;
 }>;
 
 // @public (undocumented)
@@ -2894,10 +2914,15 @@ export { SegmentProvider }
 
 export { SegmentProviderProps }
 
-// Warning: (ae-forgotten-export) The symbol "SelectProps" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export const Select: <K extends SelectItemOption>(props: SelectProps<K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+
+export { SelectItemOption }
+
+// Warning: (ae-forgotten-export) The symbol "SelectNewHope" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Select: <K extends ItemOptionSelect>(props: SelectProps<K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export type SelectProps<K extends SelectItemOption> = DistributiveOmit<SelectProps_2<K>, 'size' | 'view' | 'chipView' | 'disabled' | 'hintTargetPlacement'> & DistributivePick<ComponentProps<typeof SelectNewHope>, 'size' | 'view' | 'chipView' | 'disabled'>;
 
 // @public
 export const Sheet: FunctionComponent<PropsType<    {
@@ -3689,6 +3714,8 @@ export { textXSBold }
 export const Toast: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+positive: PolymorphicClassName;
+negative: PolymorphicClassName;
 dark: PolymorphicClassName;
 light: PolymorphicClassName;
 };
