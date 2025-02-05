@@ -1,10 +1,10 @@
-# 0.247.0 (23 января 2025)
+## 0.247.0 (23 января 2025)
 
 ## Функциональные изменения в компонентах
 
 ### Rating
 
-* исправлена логика расчета отображаемого значения
+-   исправлена логика расчета отображаемого значения
 
 **Before**: <img width="521" alt="image" src="https://github.com/user-attachments/assets/187e7764-1a7d-440a-a027-66d9ab131401" />
 
@@ -14,7 +14,7 @@
 
 ### Note
 
-* добавлен новый компонент Note
+-   добавлен новый компонент Note
 
 <img width="454" alt="image" src="https://github.com/user-attachments/assets/01230e8f-117c-46ec-b50f-8427e648049a" />
 
@@ -28,15 +28,15 @@
 
 ### NumberInput
 
-* исправлен баг, позволявший ввести число с точкой в конце, больше максимального значения или ниже минимального значения
-* добавлено свойство `precision`, определяющее кол-во знаков после запятой
-* добавлены тесты на эти кейсы
+-   исправлен баг, позволявший ввести число с точкой в конце, больше максимального значения или ниже минимального значения
+-   добавлено свойство `precision`, определяющее кол-во знаков после запятой
+-   добавлены тесты на эти кейсы
 
 [PR](https://github.com/salute-developers/plasma/pull/1699)
 
 ### DatePicker
 
-* добавлена возможность указать место раскрытия календаря
+-   добавлена возможность указать место раскрытия календаря
 
 **After**: <img width="620" alt="image" src="https://github.com/user-attachments/assets/06764c3a-c58d-46a9-a027-49715ebe91e4" />
 
@@ -44,20 +44,20 @@
 
 ### Avatar
 
-* добавлен блок для отображения дополнительного контента в виде badge или counter
+-   добавлен блок для отображения дополнительного контента в виде badge или counter
 
 **After**: <img width="127" alt="image" src="https://github.com/user-attachments/assets/9e795ffb-4d81-44d5-8959-63234db209b8" /> <img width="116" alt="image" src="https://github.com/user-attachments/assets/452d8c47-44a4-4a75-b3a7-d7a43381469b" />
 
 [PR](https://github.com/salute-developers/plasma/pull/1696)
 
-* поля ввода даты становятся независимыми после выбора полной даты в DatePickerRange
-* добавлено свойство `closeAfterDateSelect`, позволяющее закрыть календарь после выбора даты
+-   поля ввода даты становятся независимыми после выбора полной даты в DatePickerRange
+-   добавлено свойство `closeAfterDateSelect`, позволяющее закрыть календарь после выбора даты
 
 [PR](https://github.com/salute-developers/plasma/pull/1702)
 
 ### Slider
 
-* Изменен отступ между иконкой слева и label при горизонтальном слайдере
+-   Изменен отступ между иконкой слева и label при горизонтальном слайдере
 
 [PR](https://github.com/salute-developers/plasma/pull/1703)
 
@@ -65,36 +65,36 @@
 
 Добавлена валидация при создании токена / редактировании токена:
 
-* Проверка, что токен называется в CamelCase нотации
-* Название токена не должно превышвать 32 символа
-* Название не должно начинаться с название подгруппы, в которой он создаётся
-* В названии не должно быть зарезервированных слов "onDark", "onLight", "inverse"
-* Значение обычного цвета теперь поддерживается только в HEX и HEXA форматах
-* Значение градиента допускается только в полном описании: linear|radial-gradient (<угол / радиус>, <цвет> <позиция>, <цвет> <позиция>)
+-   Проверка, что токен называется в CamelCase нотации
+-   Название токена не должно превышвать 32 символа
+-   Название не должно начинаться с название подгруппы, в которой он создаётся
+-   В названии не должно быть зарезервированных слов "onDark", "onLight", "inverse"
+-   Значение обычного цвета теперь поддерживается только в HEX и HEXA форматах
+-   Значение градиента допускается только в полном описании: linear|radial-gradient (<угол / радиус>, <цвет> <позиция>, <цвет> <позиция>)
 
 [PR](https://github.com/salute-developers/plasma/pull/1690)
 
 ### Cell
 
-* добавлена возможность передачи `restProps` в компоненты `CellTextbox`
-* исправлен пример для `CellTextbox`
+-   добавлена возможность передачи `restProps` в компоненты `CellTextbox`
+-   исправлен пример для `CellTextbox`
 
 ### Checkbox
 
-* исправлена ширина кликабельной области `label` по умолчанию (`singleLine=false`)
-* добавлена `story` для длинного названия + `singleLine`
-* добавлен тест на клик по `label` и тест для свойства `singleLine`
+-   исправлена ширина кликабельной области `label` по умолчанию (`singleLine=false`)
+-   добавлена `story` для длинного названия + `singleLine`
+-   добавлен тест на клик по `label` и тест для свойства `singleLine`
 
 ### Radiobox
 
-* исправлена ширина кликабельной области `label` по умолчанию (`singleLine=false`)
+-   исправлена ширина кликабельной области `label` по умолчанию (`singleLine=false`)
 
 [PR](https://github.com/salute-developers/plasma/pull/1701)
 
 ### TextField, Autocomplete, TextArea, Combobox, Select
 
-* исправлен размер иконки trigger для hint
-* добавлено отображение Hint внутри TextField-like компонент
+-   исправлен размер иконки trigger для hint
+-   добавлено отображение Hint внутри TextField-like компонент
 
 <img width="1080" alt="image" src="https://github.com/user-attachments/assets/99ab8bf7-b1b0-422b-a9e8-9fec18134833" />
 
@@ -102,7 +102,7 @@
 
 ### Combobox, Select, Dropdown
 
-* добавлена возможность задавать направление раскрытия вложенных дропдаунов
+-   добавлена возможность задавать направление раскрытия вложенных дропдаунов
 
 <img width="420" alt="image" src="https://github.com/user-attachments/assets/1ada8d53-f6ed-4ea7-a921-d433ddd273a0" />
 
@@ -110,81 +110,80 @@
 
 ### Button, IconButton
 
-* актуализированы примеры документации для свойств: `size`, `view`
+-   актуализированы примеры документации для свойств: `size`, `view`
 
 [PR](https://github.com/salute-developers/plasma/pull/1668)
 
 ### Tree
 
-* перенесен внешний css из rc-tree в локальную сборку
+-   перенесен внешний css из rc-tree в локальную сборку
 
 [PR](https://github.com/salute-developers/plasma/pull/1710)
 
 ### Tokens
 
-* актуализированы токены для конфигураций компонентов
+-   актуализированы токены для конфигураций компонентов
 
 [PR](https://github.com/salute-developers/plasma/pull/1646)
 
 ### Autocomplete, Select, Combobox
 
-* добавлены новые токены для более детальной кастомизации
-* исправлен токен жирности шрифта для `button-like` варианта `Select`;
+-   добавлены новые токены для более детальной кастомизации
+-   исправлен токен жирности шрифта для `button-like` варианта `Select`;
 
 [PR](https://github.com/salute-developers/plasma/pull/1675)
 
 ### Dropdown
 
-* добавлен токен `itemMargin`
-* добавлен токен `disclosureIconColor`
+-   добавлен токен `itemMargin`
+-   добавлен токен `disclosureIconColor`
 
 [PR](https://github.com/salute-developers/plasma/pull/1705)
 
-
-# 0.235.0 (26 декабря 2024)
+## 0.235.0 (26 декабря 2024)
 
 ## Функциональные изменения в компонентах
 
 ### Counter
 
-* изменили минимальное значение с 1 на 0
+-   изменили минимальное значение с 1 на 0
 
 [PR](https://github.com/salute-developers/plasma/pull/1640)
 
 ### Select, Autocomplete, Combobox
 
-* добавлены свойства beforeList и afterList, которые служат ячейками для content в выпадающем списке;
+-   добавлены свойства beforeList и afterList, которые служат ячейками для content в выпадающем списке;
 
 [PR](https://github.com/salute-developers/plasma/pull/1645)
 
 ### TextArea
 
-* изменен тип свойства `rightHelper` на `ReactNode`
+-   изменен тип свойства `rightHelper` на `ReactNode`
 
 [PR](https://github.com/salute-developers/plasma/pull/1642)
 
 ### Select
 
-* добавлена поддержка `react-hook-form`
+-   добавлена поддержка `react-hook-form`
 
 [PR](https://github.com/salute-developers/plasma/pull/1639)
 
 ### Tokens
 
-* Добавлена генерация `spacing` токенов
+-   Добавлена генерация `spacing` токенов
 
 [PR](https://github.com/salute-developers/plasma/pull/1654)
 
 ### TS
 
-* обновлена, глобально, версия TS с 4.2.4 до 4.5.5
+-   обновлена, глобально, версия TS с 4.2.4 до 4.5.5
 
 [PR](https://github.com/salute-developers/plasma/pull/1641)
 
 ### Attach
 
-* добавлено свойство `helperText`
-* добавлен `helperTextView` со значениями `default` и `negative`
+-   добавлено свойство `helperText`
+-   добавлен `helperTextView` со значениями `default` и `negative`
 
 <img width="1107" alt="helperTextView" src="https://github.com/user-attachments/assets/9a47e731-ee63-46e7-8f57-890cea762082" />
 
@@ -192,74 +191,73 @@
 
 ### Notification
 
-* исправлена типизация компонента (убран принудительный кастинг)
+-   исправлена типизация компонента (убран принудительный кастинг)
 
 [PR](https://github.com/salute-developers/plasma/pull/1664)
 
 ### Button, ButtonGroup, IconButton
 
-* Добавлен размер `xl` во все вертикали
+-   Добавлен размер `xl` во все вертикали
 
 [PR](https://github.com/salute-developers/plasma/pull/1624)
 
 ### TextField
 
-* исправлено поведение свойства `textAfter`, теперь позиция всегда рядом с текстом input
+-   исправлено поведение свойства `textAfter`, теперь позиция всегда рядом с текстом input
 
 [PR](https://github.com/salute-developers/plasma/pull/1611)
 
 ### Textarea
 
-* актуализированы примеры в storybook в соответствии с дизайном
+-   актуализированы примеры в storybook в соответствии с дизайном
 
-* исправлена работа `placeholder` при работе `react-hook-form` с defaultValues
+-   исправлена работа `placeholder` при работе `react-hook-form` с defaultValues
 
 [PR](https://github.com/salute-developers/plasma/pull/1649)
 
 ### Breadcrumbs, Calendar, Combobox, Dropdown, Select, Slider
 
-* исправлены циклические зависимости
+-   исправлены циклические зависимости
 
 [PR](https://github.com/salute-developers/plasma/pull/1666)
 
 ### Popover
 
-* в target можно передать ref на элемент, рядом с которым произойдет открытие
+-   в target можно передать ref на элемент, рядом с которым произойдет открытие
 
 [PR](https://github.com/salute-developers/plasma/pull/1647)
 
 ### Dropdown
 
-* свойство `hasArrow` помечено как `deprecated`
+-   свойство `hasArrow` помечено как `deprecated`
 
-* актуализированы примеры в `storybook`
+-   актуализированы примеры в `storybook`
 
 [PR](https://github.com/salute-developers/plasma/pull/1669)
 
-* добавлена новые токены для возможности управления расстоянием между контентом Item и иконкой DisclosureRight
-* добавлен новый токен, отвечающий за скейлинг иконки DisclosureRight в зависимости от размера компонента
-* исправлены стили скруглений и отступтов, теперь они рассчитываются по формуле, также как и в компоненет `Select`
+-   добавлена новые токены для возможности управления расстоянием между контентом Item и иконкой DisclosureRight
+-   добавлен новый токен, отвечающий за скейлинг иконки DisclosureRight в зависимости от размера компонента
+-   исправлены стили скруглений и отступтов, теперь они рассчитываются по формуле, также как и в компоненет `Select`
 
 [PR](https://github.com/salute-developers/plasma/pull/1650)
 
 ### Tree
 
-* добавлен новый компонент (многоуровневый раскрывающийся список в виде дерева);
+-   добавлен новый компонент (многоуровневый раскрывающийся список в виде дерева);
 
 [PR](https://github.com/salute-developers/plasma/pull/1603)
 
 ### TextArea, TextField
 
-* свойства required попадает в `DOM` на соотвествующие элементы
+-   свойства required попадает в `DOM` на соотвествующие элементы
 
 [PR](https://github.com/salute-developers/plasma/pull/1670)
 
-* закрытие выпадающего списка теперь возможно по повторному нажатию на таргет;
+-   закрытие выпадающего списка теперь возможно по повторному нажатию на таргет;
 
 [PR](https://github.com/salute-developers/plasma/pull/1676)
 
-
-# 0.220.0 (12 декабря 2024)
+## 0.220.0 (12 декабря 2024)
 
 ## Функциональные изменения в компонентах
 
@@ -1030,7 +1028,6 @@ feat(plasma-b2c, plasma-web): Combobox component tests (https://github.com/salut
 **After**:
 
 <img width="827" alt="after" src="https://github.com/user-attachments/assets/27ec7202-6243-43a7-91a6-b94131f3b84f">
-
 
 `plasma-*, sdds-*`: `Counter` impovements added (https://github.com/salute-developers/plasma/pull/1514)
 
