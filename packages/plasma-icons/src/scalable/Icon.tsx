@@ -133,6 +133,7 @@ export const iconSectionsSet = {
         space: 'Space',
         searchError: 'SearchError',
         searchFill: 'SearchFill',
+        save: 'Save',
     },
     Animal: {
         animalFill: 'AnimalFill',
