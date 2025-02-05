@@ -134,6 +134,8 @@ export const iconSectionsSet = {
         searchError: 'SearchError',
         searchFill: 'SearchFill',
         save: 'Save',
+        sortAlphabetAsc: 'SortAlphabetAsc',
+        sortAlphabetDesc: 'SortAlphabetDesc',
     },
     Animal: {
         animalFill: 'AnimalFill',
