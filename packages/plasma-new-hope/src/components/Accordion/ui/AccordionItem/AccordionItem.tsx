@@ -106,6 +106,11 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
             >
                 <StyledAccordionHeader
                     role="tab"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            handleOpen();
+                        }
+                    }}
                     tabIndex={0}
                     onClick={handleOpen}
                     aria-expanded={opened ?? value}

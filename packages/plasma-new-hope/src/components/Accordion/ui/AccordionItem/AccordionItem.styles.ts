@@ -4,7 +4,7 @@ import { IconChevronDownFill, IconMinus } from '../../../_Icon';
 import { classes, tokens } from '../../Accordion.tokens';
 import { addFocus } from '../../../../mixins';
 
-export const StyledAccordionHeader = styled.button`
+export const StyledAccordionHeader = styled.div`
     width: 100%;
     border: none;
     padding: var(${tokens.accordionItemPadding});
