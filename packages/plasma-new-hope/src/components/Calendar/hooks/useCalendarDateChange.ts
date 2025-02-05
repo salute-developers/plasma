@@ -55,6 +55,7 @@ export const useCalendarDateChange = ({
                 payload: {
                     calendarState: CalendarState.Days,
                     monthIndex: newDate.monthIndex,
+                    year: newDate.year,
                     size: sizeMap.Days.double,
                 },
             });
