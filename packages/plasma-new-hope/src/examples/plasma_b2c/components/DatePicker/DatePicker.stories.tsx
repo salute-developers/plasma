@@ -80,6 +80,8 @@ const StoryDefault = ({
     size,
     lang,
     format,
+    min,
+    max,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -103,6 +105,8 @@ const StoryDefault = ({
             lang={lang}
             format={format}
             onCommitDate={() => setIsOpen(false)}
+            min={min}
+            max={max}
             {...rest}
         />
     );
@@ -188,6 +192,8 @@ const StoryRange = ({
     secondValueSuccess,
     size,
     lang,
+    min,
+    max,
     ...rest
 }: StoryPropsRange) => {
     const rangeRef = useRef<RangeInputRefs>(null);
@@ -240,6 +246,8 @@ const StoryRange = ({
                 onChangeSecondValue(e, currentValue);
             }}
             lang={lang}
+            min={min}
+            max={max}
             {...dividerIconProps}
             {...rest}
         />
@@ -306,6 +314,8 @@ const StoryDeferred = ({
     valueError,
     valueSuccess,
     size,
+    min,
+    max,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -338,6 +348,8 @@ const StoryDeferred = ({
                     onChangeValue(e, currentValue);
                 }}
                 onCommitDate={() => setIsOpen(false)}
+                min={min}
+                max={max}
                 {...rest}
             />
         </>

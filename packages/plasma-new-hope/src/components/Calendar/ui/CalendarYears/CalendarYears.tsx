@@ -29,7 +29,18 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
     onSetSelected,
     onKeyDown,
 }) => {
-    const [years, selected] = useYears({ date: currentDate, value, startYear, eventList, disabledList, min, max });
+    const minDate = min ? new Date(min.getFullYear(), 0, 1) : undefined;
+    const maxDate = max ? new Date(max.getFullYear(), 11, 31) : undefined;
+
+    const [years, selected] = useYears({
+        date: currentDate,
+        value,
+        startYear,
+        eventList,
+        disabledList,
+        min: minDate,
+        max: maxDate,
+    });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
 
