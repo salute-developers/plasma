@@ -2,13 +2,12 @@ import { styled } from '@linaria/react';
 
 import { component, mergeConfig } from '../../engines';
 import { tooltipConfig } from '../Tooltip';
+import { popoverClasses } from '../Popover';
 
 import { classes, tokens } from './TextField.tokens';
 
 const mergedConfig = mergeConfig(tooltipConfig);
 const Tooltip = component(mergedConfig);
-
-export const Hint = styled(Tooltip)``;
 
 export const InputWrapper = styled.div`
     position: relative;
@@ -173,6 +172,12 @@ export const HintTargetWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+`;
+
+export const Hint = styled(Tooltip)`
+    ${HintTargetWrapper} .${popoverClasses.root} {
+        width: fit-content;
+    }
 `;
 
 export const HintIconWrapper = styled.div`

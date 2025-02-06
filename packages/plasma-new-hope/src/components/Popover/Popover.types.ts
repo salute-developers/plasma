@@ -82,6 +82,11 @@ export type CustomPopoverProps = {
      */
     usePortal?: boolean;
 
+    /**
+     * Анимированное появление Popover
+     */
+    animated?: boolean;
+
     view?: string;
 };
 

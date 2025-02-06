@@ -362,11 +362,14 @@ describe('plasma-b2c: ComboboxOld keyboard navigation', () => {
 
         // открытие по стрелке ArrowDown
         cy.focused().trigger('keydown', { code: 'ArrowDown' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
         cy.get('.popover-root').should('be.visible');
         // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(0);
+        cy.wait(200);
 
         // выбор нескольких элементов по ArrowDown и Enter
+        cy.focused().trigger('keydown', { code: 'ArrowDown' });
         cy.focused().trigger('keydown', { code: 'ArrowDown' }).trigger('keydown', { code: 'Enter' });
         cy.focused().trigger('keydown', { code: 'ArrowDown' }).trigger('keydown', { code: 'Enter' });
         cy.focused().trigger('keydown', { code: 'ArrowDown' }).trigger('keydown', { code: 'Enter' });

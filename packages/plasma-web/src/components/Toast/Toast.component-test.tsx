@@ -35,6 +35,10 @@ describe('plasma-web: Toast', () => {
         cy.matchImageSnapshot();
     });
 
+    /**
+     * @deprecated
+     * Удалить после отключения `dark` и `light` `view` в `Toast`
+     */
     it('_view', () => {
         mount(
             <CypressTestDecoratorWithToast>
@@ -43,6 +47,33 @@ describe('plasma-web: Toast', () => {
                 </div>
                 <div style={{ position: 'fixed', transform: 'translate(50%, 3rem)' }}>
                     <Toast text="Bottom Message" view="light" position="bottom" />
+                </div>
+            </CypressTestDecoratorWithToast>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_view=positive; _view=negative', () => {
+        mount(
+            <CypressTestDecoratorWithToast>
+                <div style={{ position: 'fixed', transform: 'translateX(50%)' }}>
+                    <Toast contentLeft={<Icon />} text="Positive" view="positive" position="top" />
+                </div>
+                <div style={{ position: 'fixed', transform: 'translate(50%, 3rem)' }}>
+                    <Toast contentLeft={<Icon />} text="Negative" view="negative" position="bottom" />
+                </div>
+            </CypressTestDecoratorWithToast>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_textColor', () => {
+        mount(
+            <CypressTestDecoratorWithToast>
+                <div style={{ position: 'fixed', transform: 'translateX(50%)' }}>
+                    <Toast text="Custom color" textColor="cyan" view="positive" position="top" />
                 </div>
             </CypressTestDecoratorWithToast>,
         );

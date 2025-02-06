@@ -47,6 +47,7 @@ const meta: Meta<typeof Range> = {
             },
             if: { arg: 'required', truthy: true },
         },
+        ...disableProps(['view']),
     },
 };
 

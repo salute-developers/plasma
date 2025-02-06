@@ -106,6 +106,10 @@ export interface ShowToastArgs {
      */
     timeout?: number;
     /**
+     * Цвет текста (по умолчанию берётся цвет из view)
+     */
+    textColor?: string;
+    /**
      * callback срабатывающий в момент события hideToast
      */
     onHide?: () => void;
@@ -131,12 +135,56 @@ export function App() {
         const onHide = () => {}
         const toastData = {
             text: 'Подсказка вызванная showToast',
+            textColor: 'cyan',
             position: 'bottom',
             role: 'status',
             hasClose: true,
             fade: false,
             size: 'm',
-            view: 'dark',
+            view: 'default',
+            timeout: 3000,
+            onShow,
+            onHide
+        }
+
+        return <Button onClick={() => showToast(toastData)} text="Вызвать подсказку" />
+    }
+
+    return (
+        <ToastProvider>
+            <ToastExample />
+        </ToastProvider>
+    )
+}
+```
+
+## Вид иконки
+Значения `positive` и `negative` свойства `view` изменяют цвет иконки.<br/>
+Чтобы цвет применился, установите в иконке свойство `color` со значением `inherit`:
+
+```jsx live
+import React from 'react'
+import { IconBell } from '@salutejs/plasma-icons';
+import { useToast, ToastProvider, Button, ViewContainer } from '@salutejs/plasma-web'
+
+export function App() {
+
+    const Icon = () => <IconBell color="inherit" size="xs" />;
+
+    const ToastExample = () => {
+        const { showToast } = useToast()
+
+        const onShow = () => {}
+        const onHide = () => {}
+        const toastData = {
+            contentLeft: <Icon />,
+            text: 'Подсказка c иконкой',
+            position: 'bottom',
+            role: 'status',
+            hasClose: true,
+            fade: false,
+            size: 'm',
+            view: 'positive',
             timeout: 3000,
             onShow,
             onHide

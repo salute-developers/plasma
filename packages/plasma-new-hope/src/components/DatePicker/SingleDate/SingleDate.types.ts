@@ -29,6 +29,10 @@ export type DatePickerTextFieldProps = {
     /**
      * Выбранное значение.
      */
+    value?: Date | string;
+    /**
+     * Выбранное значение по умолчанию.
+     */
     defaultDate?: Date;
     /**
      * Placeholder для поля ввода

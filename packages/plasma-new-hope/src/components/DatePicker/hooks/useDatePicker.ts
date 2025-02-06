@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import type { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
@@ -111,10 +111,35 @@ export const useDatePicker = ({
         onChange?.({ target: { value: formattedInputValue, name } });
     };
 
+    const updateExternalDate = (
+        externalDate: Date | string | undefined,
+        inputSetter: Dispatch<SetStateAction<string>>,
+        calendarSetter: Dispatch<SetStateAction<Date | undefined>>,
+    ) => {
+        inputSetter(formatInputValue({ value: externalDate, format, lang }));
+
+        if (!format) {
+            calendarSetter(formatCalendarValue(externalDate, undefined, lang));
+            return;
+        }
+
+        if (!externalDate) {
+            calendarSetter(undefined);
+            return;
+        }
+
+        const { value: newDate, isError } = getDateFromFormat(externalDate, undefined, lang);
+
+        if (!isError) {
+            calendarSetter(formatCalendarValue(newDate, format, lang));
+        }
+    };
+
     return {
         datePickerErrorClass,
         datePickerSuccessClass,
         handleChangeValue,
         handleCommitDate,
+        updateExternalDate,
     };
 };

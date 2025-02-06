@@ -73,6 +73,7 @@ const meta: Meta<typeof Popover> = {
         isFocusTrapped: true,
         skidding: 0,
         distance: 6,
+        animated: true,
     },
 };
 

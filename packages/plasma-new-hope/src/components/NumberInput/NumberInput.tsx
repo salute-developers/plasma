@@ -55,8 +55,6 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             const [isInputFocused, setIsInputFocused] = useState(false);
             const [isAnimationRun, setIsAnimationRun] = useState(false);
 
-            console.log('innerValue', innerValue);
-
             const innerWidth = width ? getSizeValueFromProp(width) : '100%';
 
             const actionIconSize = size === 'xs' ? 'xs' : 's';

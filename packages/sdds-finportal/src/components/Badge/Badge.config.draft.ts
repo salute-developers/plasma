@@ -86,11 +86,11 @@ export const config = {
                 ${badgeTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
+                ${badgeTokens.leftContentMarginLeft}: 0rem;
                 ${badgeTokens.leftContentMarginRight}: 0.25rem;
 
                 ${badgeTokens.rightContentMarginLeft}: 0.25rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${badgeTokens.rightContentMarginRight}: 0rem;
             `,
             m: css`
                 ${badgeTokens.borderRadius}: 0.375rem;
@@ -106,11 +106,11 @@ export const config = {
                 ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
+                ${badgeTokens.leftContentMarginLeft}: 0rem;
                 ${badgeTokens.leftContentMarginRight}: 0.25rem;
 
                 ${badgeTokens.rightContentMarginLeft}: 0.25rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${badgeTokens.rightContentMarginRight}: 0rem;
             `,
             s: css`
                 ${badgeTokens.borderRadius}: 0.375rem;
@@ -126,11 +126,11 @@ export const config = {
                 ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
+                ${badgeTokens.leftContentMarginLeft}: 0rem;
                 ${badgeTokens.leftContentMarginRight}: 0.125rem;
 
                 ${badgeTokens.rightContentMarginLeft}: 0.125rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${badgeTokens.rightContentMarginRight}: 0rem;
             `,
             xs: css`
                 ${badgeTokens.borderRadius}: 0.25rem;
@@ -146,11 +146,11 @@ export const config = {
                 ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
+                ${badgeTokens.leftContentMarginLeft}: 0rem;
                 ${badgeTokens.leftContentMarginRight}: 0.125rem;
 
                 ${badgeTokens.rightContentMarginLeft}: 0.125rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${badgeTokens.rightContentMarginRight}: 0rem;
             `,
         },
         pilled: {

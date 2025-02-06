@@ -20,7 +20,7 @@ export const base = css`
         }
     }
 
-    &.${String(classes.selectedSegmentItem)} {
+    &.${classes.selectedSegmentItem} {
         color: var(${tokens.itemSelectedColor});
         background-color: var(${tokens.itemSelectedBackgroundColor});
 
@@ -37,6 +37,10 @@ export const base = css`
             background-color: var(${tokens.itemSelectedBackgroundColorHover});
 
             ${RightContent} {
+                color: var(${tokens.itemSelectedColorHover});
+            }
+
+            ${RightContent}.${classes.segmentAdditionalText} {
                 color: var(${tokens.itemSelectedAdditionalColorHover});
             }
         }

@@ -119,4 +119,14 @@ export const base = css`
     }
 `;
 
-export const LeftHelper = styled.div``;
+export const LeftHelper = styled.div`
+    color: var(${tokens.leftHelperColor});
+
+    &.${classes.datePickerError} {
+        color: var(${tokens.leftHelperColorError});
+    }
+
+    &.${classes.datePickerSuccess} {
+        color: var(${tokens.leftHelperColorSuccess});
+    }
+`;
