@@ -28,6 +28,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
+    'view',
 ];
 
 const sizes = ['s'];
