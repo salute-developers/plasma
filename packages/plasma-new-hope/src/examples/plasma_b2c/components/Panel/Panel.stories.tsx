@@ -47,6 +47,16 @@ export default {
             },
             table: { defaultValue: { summary: 'right' } },
         },
+        customBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
+        customContentBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
     },
 } as Meta;
 

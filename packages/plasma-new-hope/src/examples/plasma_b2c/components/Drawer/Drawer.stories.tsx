@@ -14,7 +14,7 @@ import type { ClosePlacementType } from '../../../../components/Drawer';
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from './Drawer';
 
 export default {
-    title: 'b2c/Overlay/Divider',
+    title: 'b2c/Overlay/Drawer',
     decorators: [WithTheme],
     argTypes: {
         placement: {
@@ -83,6 +83,16 @@ export default {
             options: ['none', 'default'],
             control: {
                 type: 'select',
+            },
+        },
+        customBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
+        customContentBackgroundColor: {
+            control: {
+                type: 'color',
             },
         },
     },

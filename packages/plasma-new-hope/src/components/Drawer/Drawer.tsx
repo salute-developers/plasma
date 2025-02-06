@@ -37,6 +37,8 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 initialFocusRef,
                 focusAfterRef,
                 className,
+                customBackgroundColor,
+                customContentBackgroundColor,
                 onClose,
                 onOverlayClick,
                 onEscKeyDown,
@@ -130,7 +132,13 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                         style={{ width: innerWidth, height: innerHeight }}
                         borderRadius={borderRadius}
                     >
-                        <StyledPanel width={innerWidth} height={innerHeight} className={className}>
+                        <StyledPanel
+                            width={innerWidth}
+                            height={innerHeight}
+                            customBackgroundColor={customBackgroundColor}
+                            customContentBackgroundColor={customContentBackgroundColor}
+                            className={className}
+                        >
                             {children}
                         </StyledPanel>
                     </Root>

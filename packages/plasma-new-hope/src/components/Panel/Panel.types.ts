@@ -39,4 +39,12 @@ export interface PanelProps extends HTMLAttributes<HTMLDivElement> {
      * none
      */
     borderRadius?: BorderRadius;
+    /**
+     * Пользовательский цвет фона Panel.
+     */
+    customBackgroundColor?: string;
+    /**
+     * Пользовательский цвет фона контента Panel.
+     */
+    customContentBackgroundColor?: string;
 }

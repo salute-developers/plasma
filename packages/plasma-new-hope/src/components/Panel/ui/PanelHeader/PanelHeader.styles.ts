@@ -3,7 +3,7 @@ import { styled } from '@linaria/react';
 import { mergeConfig, component } from '../../../../engines';
 import { buttonConfig } from '../../../Button';
 import { tokens as buttonTokens } from '../../../Button/Button.tokens';
-import { tokens } from '../../Panel.tokens';
+import { privateTokens, tokens } from '../../Panel.tokens';
 
 import { ClosePlacementType, placements } from './PanelHeader.types';
 
@@ -11,7 +11,7 @@ const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
 export const ButtonWrapper = styled.div<{ placement?: ClosePlacementType }>`
-    background: var(${tokens.background});
+    background: var(${privateTokens.backgroundColor}, var(${tokens.background}));
 
     order: ${({ placement }) => (placement === placements.left ? -1 : 0)};
     padding-left: ${({ placement }) => (!placement || placement === placements.right ? '0.5rem' : '')};
