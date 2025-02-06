@@ -1,3 +1,122 @@
+## 0.238.0 (6 февраля 2025)
+
+## Функциональные изменения в компонентах
+
+### Accordion
+
+* добавлены **новые** размеры с `h2` по `h5`
+
+[PR](https://github.com/salute-developers/plasma/pull/1724)
+
+### Toast
+
+Убрана очистка таймаута в ToastContorller
+
+[PR](https://github.com/salute-developers/plasma/pull/1712)
+
+* исправлена передача свойства `closeIconType`
+* добавлено **новое** свойство `textColor`
+* добавлены новые значения для `view`:`positive`, `negative`
+* значения `view`:`dark`,`light` помечены как `deprecated`
+
+[PR](https://github.com/salute-developers/plasma/pull/1719)
+
+### Portal
+
+* исправлена ошибка гидрации в Next
+
+### Autocomplete
+
+* исправлена ширина компонента в storybook
+
+[PR](https://github.com/salute-developers/plasma/pull/1730)
+
+### DatePicker
+
+* добавлена возможность передавать внешнее значение даты в DatePicker
+
+https://github.com/user-attachments/assets/b26c67c2-1255-4831-b44e-0e876103153d
+
+[PR](https://github.com/salute-developers/plasma/pull/1720)
+
+### Range
+
+* добавлена возможность задать цвет `helperText` при статусе `error` и `success`
+
+### Datepicker
+
+* добавлена возможность задать цвет `helperText` при статусе `error` и `success`
+
+[PR](https://github.com/salute-developers/plasma/pull/1727)
+
+### Popover
+
+* Добавлен пропс `animated`, который делает плавное появления `Popover` за 200мс
+
+### Tooltip
+
+* Исправлена работа свойства `animated`, путем наследования этого свойства из `Popover`
+
+[PR](https://github.com/salute-developers/plasma/pull/1739)
+
+### Dropdown
+
+* добавлен явный экспорт типов;
+
+### Select
+
+* добавлен явный экспорт типов;
+
+[PR](https://github.com/salute-developers/plasma/pull/1732)
+
+### Textfield
+
+* исправлен баг, связанный с пропсом required в режиме с чипами;
+
+[PR](https://github.com/salute-developers/plasma/pull/1738)
+
+### TextArea
+
+* Hint остается активным при disabled состоянии
+
+<img width="417" alt="image" src="https://github.com/user-attachments/assets/6fe979b2-3532-46d7-9fa3-a8b141ad73fb" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1700)
+
+* добавлен раздел в документацию по работе с NextJs
+
+[PR](https://github.com/salute-developers/plasma/pull/1740)
+
+## Изменения в библиотеки
+
+### Tabs
+
+* исправлен цвет `divider` у `TabItem`
+
+[PR](https://github.com/salute-developers/plasma/pull/1721)
+
+### Segment
+
+* актуализированы размеры шрифта в компоненте
+* исправлен цвет иконки при наведении на выбранный сегмент
+
+<img width="373" alt="image" src="https://github.com/user-attachments/assets/7702d0d6-524b-4426-a18e-f2edbea92753" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1726)
+
+* В документацию добавлено предупреждение о том, что `view`:`dark` и `light` устарели; добавлен пример того, как переключать темы при помощи `ViewContainer`
+* В документацию добавлен пример для `view`:`positive`, `negative` с иконкой `color=inherit`
+
+[PR](https://github.com/salute-developers/plasma/pull/1719)
+
+* исправлены отступы для Header размеров
+* заголовок окрашивается в акцентный цвет у открытых элементов
+
+<img width="683" alt="image" src="https://github.com/user-attachments/assets/f44e9b4b-0ffb-41d4-a886-34e08788745d" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1736)
+
+
 # 0.225.0 (23 января 2025)
 
 ## Функциональные изменения в компонентах
