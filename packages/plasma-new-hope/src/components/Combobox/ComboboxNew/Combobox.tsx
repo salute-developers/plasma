@@ -19,7 +19,7 @@ import {
     getItemId,
     getInitialValue,
 } from './utils';
-import { Inner, StyledTextField } from './ui';
+import { Inner, StyledTextField, VirtualList } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
 import { Ul, base, StyledArrow, IconArrowWrapper, StyledEmptyState } from './Combobox.styles';
@@ -71,6 +71,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             zIndex,
             beforeList,
             afterList,
+            virtual = false,
             hintView,
             hintSize,
             ...rest
@@ -478,29 +479,33 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     listWidth={listWidth}
                                     ref={targetRef}
                                 >
-                                    {beforeList}
-
-                                    {isEmpty(filteredItems) ? (
-                                        <StyledEmptyState
-                                            className={classes.emptyStateWrapper}
-                                            size={size}
-                                            description="Ничего не найдено"
-                                        />
+                                    {virtual ? (
+                                        <VirtualList items={filteredItems} listHeight={listHeight} />
                                     ) : (
-                                        filteredItems.map((item, index) => (
-                                            <Inner
-                                                key={`${index}/0`}
-                                                item={item}
-                                                currentLevel={0}
-                                                path={path}
-                                                dispatchPath={dispatchPath}
-                                                index={index}
-                                                listWidth={listWidth}
-                                            />
-                                        ))
+                                        <>
+                                            {beforeList}
+                                            {isEmpty(filteredItems) ? (
+                                                <StyledEmptyState
+                                                    className={classes.emptyStateWrapper}
+                                                    size={size}
+                                                    description="Ничего не найдено"
+                                                />
+                                            ) : (
+                                                filteredItems.map((item, index) => (
+                                                    <Inner
+                                                        key={`${index}/0`}
+                                                        item={item}
+                                                        currentLevel={0}
+                                                        path={path}
+                                                        dispatchPath={dispatchPath}
+                                                        index={index}
+                                                        listWidth={listWidth}
+                                                    />
+                                                ))
+                                            )}
+                                            {afterList}
+                                        </>
                                     )}
-
-                                    {afterList}
                                 </Ul>
                             </Root>
                         </FloatingPopover>

@@ -209,6 +209,12 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     afterList?: React.ReactNode;
     /**
+     * Виртуализация в выпадающем списке.
+     * Не поддерживается в многоуровневых списках.
+     * @default false
+     */
+    virtual?: boolean;
+    /**
      * Размер компонента.
      */
     size?: string;
