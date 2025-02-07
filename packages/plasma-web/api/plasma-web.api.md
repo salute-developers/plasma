@@ -3331,12 +3331,12 @@ s: PolymorphicClassName;
 m: PolymorphicClassName;
 };
 view: {
+accent: PolymorphicClassName;
 default: PolymorphicClassName;
 primary: PolymorphicClassName;
 secondary: PolymorphicClassName;
 tertiary: PolymorphicClassName;
 paragraph: PolymorphicClassName;
-accent: PolymorphicClassName;
 positive: PolymorphicClassName;
 warning: PolymorphicClassName;
 negative: PolymorphicClassName;
