@@ -3,7 +3,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { SSRProvider } from '../SSRProvider';
-import { InSpacingDecorator } from '../../helpers';
+import { disableProps, InSpacingDecorator } from '../../helpers';
 import { Headline4 } from '../Typography';
 import { List, ListItem } from '../List';
 
@@ -15,7 +15,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+const views = ['accent'];
 
 const meta: Meta<RadioboxProps> = {
     title: 'Data Entry/Radiobox',
@@ -25,7 +25,7 @@ const meta: Meta<RadioboxProps> = {
         view: {
             options: views,
             control: {
-                type: 'select',
+                type: 'inline-radio',
             },
         },
         size: {
@@ -34,6 +34,7 @@ const meta: Meta<RadioboxProps> = {
                 type: 'inline-radio',
             },
         },
+        ...disableProps(['view']),
     },
 };
 
