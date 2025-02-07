@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Radiobox, RadioboxProps } from '.';
 
@@ -29,6 +29,7 @@ const meta: Meta<RadioboxProps> = {
                 type: 'select',
             },
         },
+        ...disableProps(['view']),
     },
 };
 
