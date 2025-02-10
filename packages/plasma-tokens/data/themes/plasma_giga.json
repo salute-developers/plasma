@@ -236,14 +236,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -256,14 +250,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -542,14 +530,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -562,14 +544,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -832,14 +808,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -852,14 +822,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1154,14 +1118,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1174,14 +1132,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1651,14 +1603,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -1671,14 +1617,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -2157,14 +2097,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2177,14 +2111,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2659,14 +2587,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2679,14 +2601,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3165,14 +3081,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3185,14 +3095,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -4929,6 +4833,160 @@
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 }
             }
+        },
+        "data": {
+            "default": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Желтый цвет для данных"
+                },
+                "dataYellowHover": {
+                    "value": "#F4B22FFF",
+                    "comment": "Желтый цвет для данных"
+                },
+                "dataYellowActive": {
+                    "value": "#EDA20CFF",
+                    "comment": "Желтый цвет для данных"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.700]",
+                    "comment": "Минорный желтый цвет для данных"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#B87A00FF",
+                    "comment": "Минорный желтый цвет для данных"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#996600FF",
+                    "comment": "Минорный желтый цвет для данных"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A812AD",
+                    "comment": "Прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81280",
+                    "comment": "Прозрачный желтый цвет для данных"
+                }
+            },
+            "onDark": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowHover": {
+                    "value": "#F4B22FFF",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowActive": {
+                    "value": "#EDA20CFF",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.700]",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#B87A00FF",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#996600FF",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A812AD",
+                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81280",
+                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                }
+            },
+            "onLight": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowHover": {
+                    "value": "#F4B22FFF",
+                    "comment": "Желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowActive": {
+                    "value": "#EDA20CFF",
+                    "comment": "Желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.200]",
+                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#FFDA8FFF",
+                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#FFCF70FF",
+                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A812AD",
+                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81280",
+                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                }
+            },
+            "inverse": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Инвертированный желтый цвет для данных"
+                },
+                "dataYellowHover": {
+                    "value": "#F4B22FFF",
+                    "comment": "Инвертированный желтый цвет для данных"
+                },
+                "dataYellowActive": {
+                    "value": "#EDA20CFF",
+                    "comment": "Инвертированный желтый цвет для данных"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.200]",
+                    "comment": "Инвертированный минорный желтый цвет для данных"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#FFDA8FFF",
+                    "comment": "Инвертированный минорный желтый цвет для данных"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#FFCF70FF",
+                    "comment": "Инвертированный минорный желтый цвет для данных"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A812AD",
+                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81280",
+                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                }
+            }
         }
     },
     "light": {
@@ -5157,14 +5215,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5177,14 +5229,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5463,14 +5509,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5483,14 +5523,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5769,14 +5803,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -5789,14 +5817,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6075,14 +6097,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6095,14 +6111,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6568,14 +6578,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6588,14 +6592,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -7078,14 +7076,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7098,14 +7090,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7580,14 +7566,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7600,14 +7580,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -9806,6 +9780,160 @@
                 "outlineTransparentAccent": {
                     "value": "rgba(36,242,191,0.28)",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
+                }
+            }
+        },
+        "data": {
+            "default": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Желтый цвет для данных"
+                },
+                "dataYellowHover": {
+                    "value": "#F5B638FF",
+                    "comment": "Желтый цвет для данных"
+                },
+                "dataYellowActive": {
+                    "value": "#E49C0CFF",
+                    "comment": "Желтый цвет для данных"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.200]",
+                    "comment": "Минорный желтый цвет для данных"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#FFDA8FFF",
+                    "comment": "Минорный желтый цвет для данных"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#FFCC66FF",
+                    "comment": "Минорный желтый цвет для данных"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A8127A",
+                    "comment": "Прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81299",
+                    "comment": "Прозрачный желтый цвет для данных"
+                }
+            },
+            "onDark": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowHover": {
+                    "value": "#F5B638FF",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowActive": {
+                    "value": "#E49C0CFF",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.700]",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#B87A00FF",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#8F5F00FF",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A8127A",
+                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81299",
+                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                }
+            },
+            "onLight": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowHover": {
+                    "value": "#F5B638FF",
+                    "comment": "Желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowActive": {
+                    "value": "#E49C0CFF",
+                    "comment": "Желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.200]",
+                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#FFDA8FFF",
+                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#FFCC66FF",
+                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A8127A",
+                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81299",
+                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                }
+            },
+            "inverse": {
+                "dataYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "Инвертированный желтый цвет для данных"
+                },
+                "dataYellowHover": {
+                    "value": "#F5B638FF",
+                    "comment": "Инвертированный желтый цвет для данных"
+                },
+                "dataYellowActive": {
+                    "value": "#E49C0CFF",
+                    "comment": "Инвертированный желтый цвет для данных"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.700]",
+                    "comment": "Инвертированный минорный желтый цвет для данных"
+                },
+                "dataYellowMinorHover": {
+                    "value": "#B87A00FF",
+                    "comment": "Инвертированный минорный желтый цвет для данных"
+                },
+                "dataYellowMinorActive": {
+                    "value": "#8F5F00FF",
+                    "comment": "Инвертированный минорный желтый цвет для данных"
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentHover": {
+                    "value": "#F3A8127A",
+                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                },
+                "dataYellowTransparentActive": {
+                    "value": "#F3A81299",
+                    "comment": "Инвертированный прозрачный желтый цвет для данных"
                 }
             }
         }
