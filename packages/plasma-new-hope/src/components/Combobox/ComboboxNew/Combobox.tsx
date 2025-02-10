@@ -229,7 +229,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             if (!checkedCopy.get(item.value)) {
                 checkedCopy.set(item.value, true);
-                updateDescendants(item, checkedCopy, true);
+                updateDescendants(item, checkedCopy, true, valueToItemMap);
             } else {
                 checkedCopy.set(item.value, false);
                 updateDescendants(item, checkedCopy, false);

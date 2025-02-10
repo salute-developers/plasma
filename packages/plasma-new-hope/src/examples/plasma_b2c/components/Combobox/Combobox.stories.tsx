@@ -246,6 +246,7 @@ const items = [
                     {
                         value: 'rio_de_janeiro',
                         label: 'Рио-де-Жанейро',
+                        disabled: true,
                     },
                     {
                         value: 'sao_paulo',
