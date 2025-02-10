@@ -118,6 +118,9 @@ const getDarkSet = ({ accentColor, grayscale }: Omit<ThemeConfig, 'name'>): Reco
         'dark',
         1 + 0.28,
     ),
+    'dark.data.default.yellow': '[general.amber.300]',
+    'dark.data.default.yellow-minor': '[general.amber.700]',
+    'dark.data.default.yellow-transparent': '[general.amber.300][0.56]',
 });
 
 const getLightSet = ({ accentColor, grayscale }: Omit<ThemeConfig, 'name'>): Record<string, string> => ({
@@ -241,6 +244,9 @@ const getLightSet = ({ accentColor, grayscale }: Omit<ThemeConfig, 'name'>): Rec
         'light',
         1 + 0.2,
     ),
+    'light.data.default.yellow': '[general.amber.300]',
+    'light.data.default.yellow-minor': '[general.amber.200]',
+    'light.data.default.yellow-transparent': '[general.amber.300][0.56]',
 });
 
 const getTokensNames = (name: string) => {
