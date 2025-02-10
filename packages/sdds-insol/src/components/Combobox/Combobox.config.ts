@@ -275,7 +275,7 @@ export const config = {
                 ${tokens.textFieldChipPadding}: 0 0.75rem 0 1rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.625rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
-                ${tokens.textFieldChipCloseIconSize}: 1.5rem;
+                ${tokens.textFieldChipCloseIconSize}: 1.25rem;
                 ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -398,7 +398,7 @@ export const config = {
                 ${tokens.textFieldChipPadding}: 0 0.625rem 0 0.875rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.5rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
-                ${tokens.textFieldChipCloseIconSize}: 1.25rem;
+                ${tokens.textFieldChipCloseIconSize}: 1rem;
                 ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-xs-font-style);
