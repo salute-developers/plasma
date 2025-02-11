@@ -8,6 +8,8 @@ import { WithTheme } from '../../../_helpers';
 
 import { Popover } from './Popover';
 
+import './style.css';
+
 const meta: Meta<typeof Popover> = {
     title: 'b2c/Overlay/Popover',
     decorators: [WithTheme],
@@ -81,7 +83,7 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
 const StyledContent = styled.div`
     background: var(--surface-solid-tertiary);
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: var(--popover-border-radius);
 
     display: flex;
     flex-direction: column;
