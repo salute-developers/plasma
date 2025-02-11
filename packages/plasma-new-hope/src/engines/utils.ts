@@ -1,4 +1,4 @@
-import type { ComponentConfig, HTMLAnyAttributes } from './types';
+import type { ComponentConfig, HTMLAnyAttributes, Intersection } from './types';
 
 export const getStaticVariants = (config: ComponentConfig) => {
     if (!config.variations) {
@@ -33,4 +33,22 @@ export const getDynamicVariants = (config: ComponentConfig) => {
 
         return res;
     };
+};
+
+export const getIntersectionStyles = (props: Record<string, any>, intersections?: Intersection[]) => {
+    if (!intersections) {
+        return [];
+    }
+
+    return intersections.reduce((styles: string[], item) => {
+        const hasMatchStyle = Object.entries(item)
+            .filter(([key]) => key !== 'style')
+            .every(([key, value]) => props[key] === value);
+
+        if (hasMatchStyle) {
+            styles.push(item.style);
+        }
+
+        return styles;
+    }, []);
 };
