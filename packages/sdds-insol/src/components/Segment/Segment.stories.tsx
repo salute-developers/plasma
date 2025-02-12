@@ -16,7 +16,7 @@ const contentRightOptions = ['none', 'text', 'counter', 'icon'];
 
 const segmentItemViews = ['default', 'secondary', 'accent'];
 type SegmentItemView = typeof segmentItemViews[number];
-const sizes = ['xs', 's', 'm', 'l'] as const;
+const sizes = ['xs', 's', 'm', 'l', 'xl'] as const;
 type Size = typeof sizes[number];
 
 type CustomStoryProps = {
