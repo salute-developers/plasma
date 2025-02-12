@@ -11,6 +11,7 @@ import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
 import { StyledArrow, StyledPopover, StyledRoot, StyledWrapper } from './Popover.styles';
 import { classes } from './Popover.tokens';
+import { usePopoverOffset } from './hooks/usePopoverOffset';
 
 export const ESCAPE_KEYCODE = 27;
 export const POPOVER_PORTAL_ID = 'plasma-popover-root';
@@ -52,6 +53,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const popoverRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
             const portalRef = useRef<HTMLElement | null>(null);
+            const targetRef = useRef<HTMLDivElement | null>(null);
 
             const trapRef = useFocusTrap(innerIsOpen && isFocusTrapped);
 
@@ -71,6 +73,12 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const openClass = innerIsOpen && shouldRender ? classes.open : undefined;
             const animatedClass = animated ? classes.animate : undefined;
 
+            const offsetInner = usePopoverOffset({
+                handleRef: targetRef,
+                placement: placement as string,
+                offsetOuter: offset,
+            });
+
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
                 // TODO: #1121
                 // eslint-disable-next-line no-nested-ternary
@@ -86,7 +94,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                             mainAxis: preventOverflow,
                         },
                     },
-                    { name: 'offset', options: { offset: [offset[0], offset[1]] } },
+                    { name: 'offset', options: { offset: [offsetInner[0], offsetInner[1]] } },
                     {
                         name: 'flip',
                         enabled: isAuto,
@@ -250,6 +258,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                         className={cx(classes.wrapper, !isValidElement(target) && classes.targetAsRef)}
                         onMouseEnter={onMouseEnter}
                         onMouseLeave={onMouseLeave}
+                        ref={targetRef}
                     >
                         <StyledRoot
                             ref={handleRef}
