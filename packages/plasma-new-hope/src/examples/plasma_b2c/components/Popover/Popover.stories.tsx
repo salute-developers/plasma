@@ -5,10 +5,32 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
+import { IconDisclosureRight } from '../../../../components/_Icon';
+import { IconButton } from '../IconButton/IconButton';
 
-import { Popover } from './Popover';
+import { Popover, PopoverPlacement } from './Popover';
 
 import './style.css';
+
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<typeof Popover> = {
     title: 'b2c/Overlay/Popover',
@@ -16,7 +38,7 @@ const meta: Meta<typeof Popover> = {
     component: Popover,
     argTypes: {
         placement: {
-            options: ['top', 'bottom', 'right', 'left', 'auto'],
+            options: placements,
             control: {
                 type: 'select',
             },
@@ -116,5 +138,8 @@ const StoryDefault = (args: StoryPopoverProps) => {
 };
 
 export const Default: StoryObj<StoryPopoverProps> = {
+    args: {
+        placement: 'bottom-start',
+    },
     render: (args) => <StoryDefault {...args} />,
 };
