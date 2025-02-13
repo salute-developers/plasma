@@ -3140,6 +3140,7 @@ export { StepItemProps }
 export const Steps: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+accent: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
