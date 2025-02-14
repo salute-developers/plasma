@@ -2364,6 +2364,114 @@ export const inverseOutlineTransparentInfoHover = 'var(--inverse-outline-transpa
 /** Прозрачный инвертированный цвет обводки информация */
 export const inverseOutlineTransparentInfoActive = 'var(--inverse-outline-transparent-info-active)';
 
+/** Желтый цвет для данных */
+export const dataYellow = 'var(--data-yellow)';
+
+/** Желтый цвет для данных */
+export const dataYellowHover = 'var(--data-yellow-hover)';
+
+/** Желтый цвет для данных */
+export const dataYellowActive = 'var(--data-yellow-active)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinor = 'var(--data-yellow-minor)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinorHover = 'var(--data-yellow-minor-hover)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinorActive = 'var(--data-yellow-minor-active)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparent = 'var(--data-yellow-transparent)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparentHover = 'var(--data-yellow-transparent-hover)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparentActive = 'var(--data-yellow-transparent-active)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellow = 'var(--on-dark-data-yellow)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellowHover = 'var(--on-dark-data-yellow-hover)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellowActive = 'var(--on-dark-data-yellow-active)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinor = 'var(--on-dark-data-yellow-minor)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinorHover = 'var(--on-dark-data-yellow-minor-hover)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinorActive = 'var(--on-dark-data-yellow-minor-active)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparent = 'var(--on-dark-data-yellow-transparent)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparentHover = 'var(--on-dark-data-yellow-transparent-hover)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparentActive = 'var(--on-dark-data-yellow-transparent-active)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellow = 'var(--on-light-data-yellow)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellowHover = 'var(--on-light-data-yellow-hover)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellowActive = 'var(--on-light-data-yellow-active)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinor = 'var(--on-light-data-yellow-minor)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinorHover = 'var(--on-light-data-yellow-minor-hover)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinorActive = 'var(--on-light-data-yellow-minor-active)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparent = 'var(--on-light-data-yellow-transparent)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparentHover = 'var(--on-light-data-yellow-transparent-hover)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparentActive = 'var(--on-light-data-yellow-transparent-active)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellow = 'var(--inverse-data-yellow)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellowHover = 'var(--inverse-data-yellow-hover)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellowActive = 'var(--inverse-data-yellow-active)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinor = 'var(--inverse-data-yellow-minor)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinorHover = 'var(--inverse-data-yellow-minor-hover)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinorActive = 'var(--inverse-data-yellow-minor-active)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparent = 'var(--inverse-data-yellow-transparent)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparentHover = 'var(--inverse-data-yellow-transparent-hover)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparentActive = 'var(--inverse-data-yellow-transparent-active)';
+
 /** Фон для скелетона */
 export const surfaceSkeletonGradient = 'var(--surface-skeleton-gradient)';
 
