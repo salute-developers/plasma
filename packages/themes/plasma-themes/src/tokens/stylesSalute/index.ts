@@ -3487,6 +3487,114 @@ export const inverseOutlineTransparentAccentBrandHover =
 export const inverseOutlineTransparentAccentBrandActive =
     'var(--inverse-outline-transparent-accent-brand-active, #3F82FD3D)';
 
+/** Желтый цвет для данных */
+export const dataYellow = 'var(--data-yellow, #F3A912)';
+
+/** Желтый цвет для данных */
+export const dataYellowHover = 'var(--data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных */
+export const dataYellowActive = 'var(--data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinor = 'var(--data-yellow-minor, #A16B00)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinorHover = 'var(--data-yellow-minor-hover, #B87A00FF)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinorActive = 'var(--data-yellow-minor-active, #996600FF)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparent = 'var(--data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparentHover = 'var(--data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparentActive = 'var(--data-yellow-transparent-active, #F3A81280)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellow = 'var(--on-dark-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellowHover = 'var(--on-dark-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellowActive = 'var(--on-dark-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinor = 'var(--on-dark-data-yellow-minor, #A16B00)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinorHover = 'var(--on-dark-data-yellow-minor-hover, #B87A00FF)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinorActive = 'var(--on-dark-data-yellow-minor-active, #996600FF)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparent = 'var(--on-dark-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparentHover = 'var(--on-dark-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparentActive = 'var(--on-dark-data-yellow-transparent-active, #F3A81280)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellow = 'var(--on-light-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellowHover = 'var(--on-light-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellowActive = 'var(--on-light-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinor = 'var(--on-light-data-yellow-minor, #FFD37A)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinorHover = 'var(--on-light-data-yellow-minor-hover, #FFDA8FFF)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinorActive = 'var(--on-light-data-yellow-minor-active, #FFCF70FF)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparent = 'var(--on-light-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparentHover = 'var(--on-light-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparentActive = 'var(--on-light-data-yellow-transparent-active, #F3A81280)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellow = 'var(--inverse-data-yellow, #F3A912)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellowHover = 'var(--inverse-data-yellow-hover, #F4B22FFF)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellowActive = 'var(--inverse-data-yellow-active, #EDA20CFF)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinor = 'var(--inverse-data-yellow-minor, #FFD37A)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinorHover = 'var(--inverse-data-yellow-minor-hover, #FFDA8FFF)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinorActive = 'var(--inverse-data-yellow-minor-active, #FFCF70FF)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparent = 'var(--inverse-data-yellow-transparent, #F3A9128F)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparentHover = 'var(--inverse-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparentActive = 'var(--inverse-data-yellow-transparent-active, #F3A81280)';
+
 /** Градиент Афины */
 export const textGradientAthenaHover = 'var(--text-gradient-athena-hover, #CCCCCCFF)';
 
@@ -4856,6 +4964,24 @@ export const viewContainer = {
         --inverse-outline-transparent-accent-brand: var(--on-light-outline-transparent-accent-brand);
         --inverse-outline-transparent-accent-brand-hover: var(--on-light-outline-transparent-accent-brand-hover);
         --inverse-outline-transparent-accent-brand-active: var(--on-light-outline-transparent-accent-brand-active);
+        --data-yellow: var(--on-dark-data-yellow);
+        --data-yellow-hover: var(--on-dark-data-yellow-hover);
+        --data-yellow-active: var(--on-dark-data-yellow-active);
+        --data-yellow-minor: var(--on-dark-data-yellow-minor);
+        --data-yellow-minor-hover: var(--on-dark-data-yellow-minor-hover);
+        --data-yellow-minor-active: var(--on-dark-data-yellow-minor-active);
+        --data-yellow-transparent: var(--on-dark-data-yellow-transparent);
+        --data-yellow-transparent-hover: var(--on-dark-data-yellow-transparent-hover);
+        --data-yellow-transparent-active: var(--on-dark-data-yellow-transparent-active);
+        --inverse-data-yellow: var(--on-light-data-yellow);
+        --inverse-data-yellow-hover: var(--on-light-data-yellow-hover);
+        --inverse-data-yellow-active: var(--on-light-data-yellow-active);
+        --inverse-data-yellow-minor: var(--on-light-data-yellow-minor);
+        --inverse-data-yellow-minor-hover: var(--on-light-data-yellow-minor-hover);
+        --inverse-data-yellow-minor-active: var(--on-light-data-yellow-minor-active);
+        --inverse-data-yellow-transparent: var(--on-light-data-yellow-transparent);
+        --inverse-data-yellow-transparent-hover: var(--on-light-data-yellow-transparent-hover);
+        --inverse-data-yellow-transparent-active: var(--on-light-data-yellow-transparent-active);
         --text-gradient-athena-hover: var(--on-dark-text-gradient-athena-hover);
         --text-gradient-athena-active: var(--on-dark-text-gradient-athena-active);
         --text-gradient-athena: var(--on-dark-text-gradient-athena);
@@ -5492,6 +5618,24 @@ export const viewContainer = {
         --inverse-outline-transparent-accent-joy: var(--on-dark-outline-transparent-accent-joy);
         --inverse-outline-transparent-accent-b2-e: var(--on-dark-outline-transparent-accent-b2-e);
         --inverse-outline-transparent-accent-brand: var(--on-dark-outline-transparent-accent-brand);
+        --data-yellow: var(--on-light-data-yellow);
+        --data-yellow-hover: var(--on-light-data-yellow-hover);
+        --data-yellow-active: var(--on-light-data-yellow-active);
+        --data-yellow-minor: var(--on-light-data-yellow-minor);
+        --data-yellow-minor-hover: var(--on-light-data-yellow-minor-hover);
+        --data-yellow-minor-active: var(--on-light-data-yellow-minor-active);
+        --data-yellow-transparent: var(--on-light-data-yellow-transparent);
+        --data-yellow-transparent-hover: var(--on-light-data-yellow-transparent-hover);
+        --data-yellow-transparent-active: var(--on-light-data-yellow-transparent-active);
+        --inverse-data-yellow: var(--on-dark-data-yellow);
+        --inverse-data-yellow-hover: var(--on-dark-data-yellow-hover);
+        --inverse-data-yellow-active: var(--on-dark-data-yellow-active);
+        --inverse-data-yellow-minor: var(--on-dark-data-yellow-minor);
+        --inverse-data-yellow-minor-hover: var(--on-dark-data-yellow-minor-hover);
+        --inverse-data-yellow-minor-active: var(--on-dark-data-yellow-minor-active);
+        --inverse-data-yellow-transparent: var(--on-dark-data-yellow-transparent);
+        --inverse-data-yellow-transparent-hover: var(--on-dark-data-yellow-transparent-hover);
+        --inverse-data-yellow-transparent-active: var(--on-dark-data-yellow-transparent-active);
         --text-gradient-athena-hover: var(--on-light-text-gradient-athena-hover);
         --text-gradient-athena-active: var(--on-light-text-gradient-athena-active);
         --text-gradient-athena: var(--on-light-text-gradient-athena);
