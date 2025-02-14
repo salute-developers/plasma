@@ -597,6 +597,114 @@ export const bannersDefaultBannerMalachite = 'var(--banners-default-banner-malac
 /** Бэкграунд для баннеров и всплывающих нотификаций */
 export const bannersDefaultBannerBlue = 'var(--banners-default-banner-blue, #0A162B)';
 
+/** Желтый цвет для данных */
+export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных */
+export const dataDefaultDataYellowHover = 'var(--data-default-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных */
+export const dataDefaultDataYellowActive = 'var(--data-default-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных */
+export const dataDefaultDataYellowMinor = 'var(--data-default-data-yellow-minor, #A16B00)';
+
+/** Минорный желтый цвет для данных */
+export const dataDefaultDataYellowMinorHover = 'var(--data-default-data-yellow-minor-hover, #B87A00FF)';
+
+/** Минорный желтый цвет для данных */
+export const dataDefaultDataYellowMinorActive = 'var(--data-default-data-yellow-minor-active, #996600FF)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataDefaultDataYellowTransparent = 'var(--data-default-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataDefaultDataYellowTransparentHover = 'var(--data-default-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataDefaultDataYellowTransparentActive = 'var(--data-default-data-yellow-transparent-active, #F3A81280)';
+
+/** Желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowHover = 'var(--data-on-dark-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowActive = 'var(--data-on-dark-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowMinor = 'var(--data-on-dark-data-yellow-minor, #A16B00)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowMinorHover = 'var(--data-on-dark-data-yellow-minor-hover, #B87A00FF)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowMinorActive = 'var(--data-on-dark-data-yellow-minor-active, #996600FF)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowTransparent = 'var(--data-on-dark-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowTransparentHover = 'var(--data-on-dark-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowTransparentActive = 'var(--data-on-dark-data-yellow-transparent-active, #F3A81280)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellow = 'var(--data-on-light-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowHover = 'var(--data-on-light-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowActive = 'var(--data-on-light-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowMinor = 'var(--data-on-light-data-yellow-minor, #FFD37A)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowMinorHover = 'var(--data-on-light-data-yellow-minor-hover, #FFDA8FFF)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowMinorActive = 'var(--data-on-light-data-yellow-minor-active, #FFCF70FF)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowTransparent = 'var(--data-on-light-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowTransparentHover = 'var(--data-on-light-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowTransparentActive = 'var(--data-on-light-data-yellow-transparent-active, #F3A81280)';
+
+/** Инвертированный желтый цвет для данных */
+export const dataInverseDataYellow = 'var(--data-inverse-data-yellow, #F3A912)';
+
+/** Инвертированный желтый цвет для данных */
+export const dataInverseDataYellowHover = 'var(--data-inverse-data-yellow-hover, #F4B22FFF)';
+
+/** Инвертированный желтый цвет для данных */
+export const dataInverseDataYellowActive = 'var(--data-inverse-data-yellow-active, #EDA20CFF)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const dataInverseDataYellowMinor = 'var(--data-inverse-data-yellow-minor, #FFD37A)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const dataInverseDataYellowMinorHover = 'var(--data-inverse-data-yellow-minor-hover, #FFDA8FFF)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const dataInverseDataYellowMinorActive = 'var(--data-inverse-data-yellow-minor-active, #FFCF70FF)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const dataInverseDataYellowTransparent = 'var(--data-inverse-data-yellow-transparent, #F3A9128F)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const dataInverseDataYellowTransparentHover = 'var(--data-inverse-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const dataInverseDataYellowTransparentActive = 'var(--data-inverse-data-yellow-transparent-active, #F3A81280)';
+
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
 
