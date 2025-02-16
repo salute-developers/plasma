@@ -8,6 +8,8 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${notificationTokens.titleColor}: var(--text-primary);
+                ${notificationTokens.contentLeftIconColor}: var(--text-primary);
                 ${notificationTokens.contentColor}: var(--text-secondary);
                 ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
