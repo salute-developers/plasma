@@ -64,6 +64,7 @@ export const IconWrapper = styled.div<IconPlacementType>`
     width: var(${tokens.contentLeftIconSize});
     height: var(${tokens.contentLeftIconSize});
     align-self: var(${tokens.horisontalIconLeftAlignSelf});
+    color: var(${tokens.contentLeftIconColor});
 
     margin-right: ${({ iconPlacement }) =>
         iconPlacement === placements.left ? `var(${tokens.contentLeftIconMargin})` : 'unset'};
@@ -123,6 +124,8 @@ export const StyledTitle = styled.div`
     letter-spacing: var(${tokens.titleFontLetterSpacing});
     line-height: var(${tokens.titleFontLineHeight});
     ${String(applyHyphens)};
+
+    color: var(${tokens.titleColor});
 `;
 
 export const StyledContent = styled.div`
