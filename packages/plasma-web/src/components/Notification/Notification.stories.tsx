@@ -65,7 +65,7 @@ const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIc
     return (
         <Notification
             title={title}
-            icon={showLeftIcon ? <IconDisclosureRight /> : ''}
+            icon={showLeftIcon ? <IconDisclosureRight color="inherit" /> : ''}
             iconPlacement={iconPlacement}
             actions={
                 <ButtonsWrapper>
@@ -134,7 +134,10 @@ type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
 const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
-        addNotification({ icon: <IconDisclosureRight />, ...rest, ...getNotificationProps(count.current) }, timeout);
+        addNotification(
+            { icon: <IconDisclosureRight color="inherit" />, ...rest, ...getNotificationProps(count.current) },
+            timeout,
+        );
         count.current++;
     }, [count, rest]);
 
