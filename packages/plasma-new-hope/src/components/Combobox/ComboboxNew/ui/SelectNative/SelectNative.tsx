@@ -44,6 +44,11 @@ export const SelectNative = forwardRef<HTMLInputElement, Props>(
             }
         }, [values]);
 
+        //
+        // Пустой option нужен для нативного поведения. Он автоматически выбирает первый пункт,
+        // если нет изначального значения
+        //
+
         return (
             <>
                 <SelectHidden
@@ -53,6 +58,7 @@ export const SelectNative = forwardRef<HTMLInputElement, Props>(
                     hidden
                     value={multiple ? values : values[0]}
                 >
+                    <option> </option>
                     {options.map((v) => (
                         <option key={v} value={v}>
                             {v}
