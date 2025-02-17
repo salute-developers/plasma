@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef, KeyboardEvent } from 'react';
+import React, { forwardRef, useCallback, useMemo, useState, useRef, KeyboardEvent, useLayoutEffect } from 'react';
 import type { MutableRefObject } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
@@ -8,6 +8,7 @@ import { classes } from '../../../tokens';
 import { cx } from '../../../../../utils';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { HorizontalTabsProps } from '../../../Tabs.types';
+import { getFirstOverflowingTab, getLastOverflowingTab } from '../../../utils';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -73,17 +74,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             }
 
             const scrollLeft = Math.round(scrollRef.current.scrollLeft);
-            const firstOverflowingTab = refs.items
-                .slice()
-                .reverse()
-                .find((item: MutableRefObject<HTMLElement | null>) => {
-                    if (!item.current || item.current.offsetLeft === undefined) {
-                        return;
-                    }
-                    const tabStartX = item.current.offsetLeft;
-
-                    return tabStartX < scrollLeft;
-                });
+            const firstOverflowingTab = getFirstOverflowingTab(refs.items.slice().reverse(), scrollLeft);
 
             firstOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'start' });
         }, [disabled, scrollRef, refs]);
@@ -94,14 +85,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             }
 
             const scrollRight = Math.round(scrollRef.current.scrollLeft + scrollRef.current.clientWidth);
-            const lastOverflowingTab = refs.items.find((item: MutableRefObject<HTMLElement | null>) => {
-                if (!item.current || item.current.offsetLeft === undefined) {
-                    return;
-                }
-                const tabEndX = item.current.offsetLeft + item.current.offsetWidth;
-
-                return tabEndX > scrollRight;
-            });
+            const lastOverflowingTab = getLastOverflowingTab(refs.items, scrollRight);
 
             lastOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'end' });
         }, [disabled, scrollRef, refs]);
@@ -192,19 +176,20 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             [index],
         );
 
-        useEffect(() => {
+        useLayoutEffect(() => {
             setLastItemVisible(scrollRef.current?.scrollWidth === scrollRef.current?.clientWidth);
         }, []);
 
         // Этот хук компенсирует появление левой стрелки при прокрутке
-        useEffect(() => {
+        useLayoutEffect(() => {
             if (firstItemVisible || !scrollRef.current || !leftArrowRef.current) {
                 return;
             }
 
-            scrollRef.current.scrollTo({
-                left: Math.round(scrollRef.current.scrollLeft + leftArrowRef.current.clientWidth),
-            });
+            const scrollRight = Math.round(scrollRef.current.scrollLeft + scrollRef.current.clientWidth);
+            const lastOverflowingTab = getLastOverflowingTab(refs.items, scrollRight);
+
+            lastOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'end' });
         }, [firstItemVisible, scrollRef, leftArrowRef]);
 
         return (

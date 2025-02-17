@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef, KeyboardEvent } from 'react';
+import React, { forwardRef, useCallback, useMemo, useState, useLayoutEffect, useRef, KeyboardEvent } from 'react';
 import type { MutableRefObject } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
@@ -8,6 +8,7 @@ import { cx } from '../../../../../utils';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { VerticalTabsProps } from '../../../Tabs.types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
+import { getFirstOverflowingTab, getLastOverflowingTab } from '../../../utils';
 
 import { base, StyledArrow, StyledContent, StyledContentWrapper } from './VerticalTabs.styles';
 import { base as sizeCSS } from './variations/_size/base';
@@ -62,17 +63,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
             }
 
             const scrollTop = Math.round(scrollRef.current.scrollTop);
-            const firstOverflowingTab = refs.items
-                .slice()
-                .reverse()
-                .find((item: MutableRefObject<HTMLElement | null>) => {
-                    if (!item.current || item.current.offsetTop === undefined) {
-                        return;
-                    }
-                    const tabStartY = item.current.offsetTop;
-
-                    return tabStartY < scrollTop;
-                });
+            const firstOverflowingTab = getFirstOverflowingTab(refs.items.slice().reverse(), scrollTop);
 
             firstOverflowingTab?.current?.scrollIntoView({ block: 'start', inline: 'nearest' });
         }, [disabled, scrollRef, refs]);
@@ -83,14 +74,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
             }
 
             const scrollBottom = Math.round(scrollRef.current.scrollTop + scrollRef.current.clientHeight);
-            const lastOverflowingTab = refs.items.find((item: MutableRefObject<HTMLElement | null>) => {
-                if (!item.current || item.current.offsetTop === undefined) {
-                    return;
-                }
-                const tabEndY = item.current.offsetTop + item.current.offsetHeight;
-
-                return tabEndY > scrollBottom;
-            });
+            const lastOverflowingTab = getLastOverflowingTab(refs.items, scrollBottom);
 
             lastOverflowingTab?.current?.scrollIntoView({ block: 'end', inline: 'nearest' });
         }, [disabled, scrollRef, refs]);
@@ -172,19 +156,20 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
             [index],
         );
 
-        useEffect(() => {
+        useLayoutEffect(() => {
             setLastItemVisible(scrollRef.current?.scrollHeight === scrollRef.current?.clientHeight);
         }, []);
 
         // Этот хук компенсирует появление верхней стрелки при прокрутке
-        useEffect(() => {
+        useLayoutEffect(() => {
             if (firstItemVisible || !scrollRef.current || !upArrowRef.current) {
                 return;
             }
 
-            scrollRef.current.scrollTo({
-                top: Math.round(scrollRef.current.scrollTop + upArrowRef.current.clientHeight),
-            });
+            const scrollBottom = Math.round(scrollRef.current.scrollTop + scrollRef.current.clientHeight);
+            const lastOverflowingTab = getLastOverflowingTab(refs.items, scrollBottom);
+
+            lastOverflowingTab?.current?.scrollIntoView({ block: 'end', inline: 'nearest' });
         }, [firstItemVisible, scrollRef, upArrowRef]);
 
         return (
