@@ -76,6 +76,7 @@ export const base = css`
         ${StyledIndicator} {
             &.${classes.innerLabelPlacement} {
                 inset: var(${tokens.clearIndicatorLabelPlacementInner});
+
                 &.${classes.requiredAlignRight} {
                     inset: var(${tokens.clearIndicatorLabelPlacementInnerRight});
                 }
@@ -131,12 +132,14 @@ export const base = css`
                     transition: background-color 0.1s ease-in;
                 }
             }
+
             &:not([readonly]) ${StyledTextAreaWrapper}:hover {
                 --plasma_private-textarea-divider-color: var(
                     ${tokens.dividerColorHover},
                     var(${String(tokens.dividerColor)})
                 );
             }
+
             &:not([readonly]) ${StyledTextAreaWrapper}:focus-within {
                 --plasma_private-textarea-divider-color: var(
                     ${tokens.dividerColorFocus},

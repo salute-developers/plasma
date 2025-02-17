@@ -12,7 +12,7 @@ const TextField = component(mergedConfig);
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
     width: 100%;
-    
+
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.placeholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
@@ -49,7 +49,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.lineHeight}: var(${tokens.textFieldLineHeight});
 
     ${textFieldTokens.disabledOpacity}: var(${tokens.disabledOpacity});
-    
+
     ${textFieldTokens.textBeforeColor}: var(${tokens.textFieldTextBeforeColor});
     ${textFieldTokens.textAfterColor}: var(${tokens.textFieldTextAfterColor});
     ${textFieldTokens.textBeforeMargin}: var(${tokens.textFieldTextBeforeMargin});
@@ -59,7 +59,7 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
-        
+
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
@@ -69,7 +69,7 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundSuccessColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundSuccessColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundSuccessColorFocus});
-        
+
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorSuccess});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorSuccessHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorSuccessFocus});

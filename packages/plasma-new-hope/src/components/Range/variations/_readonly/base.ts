@@ -29,10 +29,15 @@ export const base = css`
 
         ${StyledDivider} {
             color: var(${tokens.dividerColorReadOnly});
+            opacity: var(${tokens.dividerOpacityReadOnly});
         }
 
         ${StyledContentLeft}, ${StyledContentRight} {
             color: var(${tokens.textFieldColorReadOnly});
+        }
+
+        ${StyledContentRight} {
+            opacity: var(${tokens.rightContentOpacityReadOnly});
         }
     }
 `;

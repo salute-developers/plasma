@@ -601,6 +601,13 @@ export const config = {
         clear: {
             true: css``,
         },
+        readOnly: {
+            true: css`
+                ${textAreaTokens.readOnlyOpacity}: 0.4;
+                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
+            `,
+        },
         disabled: {
             true: css`
                 ${textAreaTokens.disabledOpacity}: 0.4;
