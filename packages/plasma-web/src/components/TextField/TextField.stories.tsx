@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconBellFill } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
+import { IconBellFill, IconLockOutline } from '@salutejs/plasma-icons';
 
-import { TextField } from '.';
-import type { TextFieldProps } from '.';
+import { TextField, TextFieldView } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -19,9 +19,9 @@ const statuses = ['', 'success', 'warning', 'error'];
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
-const hintTargetPlacements = ['outer', 'inner'];
 const hintTriggers = ['hover', 'click'];
-const labelPlacements = ['label', 'placeholder'];
+const hintTargetPlacements = ['outer', 'inner'];
+const labelPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
     'top-start',
@@ -42,39 +42,25 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const propsToDisable = [
-    'helperBlock',
-    'contentLeft',
-    'htmlSize',
-    '$isFocused',
-    'contentRight',
-    'onChangeChips',
-    'onSearch',
-    'type',
-    'name',
-    'onFocus',
-    'onBlur',
-    'onChange',
-    'value',
-    'checked',
-    'minLength',
-    'caption',
-    'values',
-    'enumerationType',
-    'chips',
-];
+const StyledIconLockOutline = styled(IconLockOutline)`
+    opacity: 0.4;
+`;
 
-const meta: Meta<TextFieldProps> = {
+const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+
+    if (readOnly) {
+        return <StyledIconLockOutline size={iconSize} color="var(--text-secondary)" />;
+    }
+
+    return <IconComponent size={iconSize} color="inherit" />;
+};
+
+const meta: Meta<typeof TextField> = {
     title: 'Data Entry/TextField',
     component: TextField,
     decorators: [InSpacingDecorator],
     argTypes: {
-        keepPlaceholder: {
-            control: {
-                type: 'boolean',
-            },
-            if: { arg: 'animatedHint', eq: 'label' },
-        },
         requiredPlacement: {
             options: ['left', 'right'],
             control: {
@@ -85,19 +71,54 @@ const meta: Meta<TextFieldProps> = {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'optional', truthy: false },
+            if: {
+                arg: 'optional',
+                truthy: false,
+            },
         },
         optional: {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'required', truthy: false },
+            if: {
+                arg: 'required',
+                truthy: false,
+            },
         },
         hasDivider: {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'clear', truthy: true },
+            if: {
+                arg: 'clear',
+                truthy: true,
+            },
+        },
+        view: {
+            options: { ...TextFieldView, ...{ empty: '' } },
+            control: {
+                type: 'select',
+            },
+        },
+        maxLength: {
+            control: {
+                type: 'number',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'animatedHint',
+                eq: 'label',
+            },
         },
         size: {
             options: sizes,
@@ -114,66 +135,120 @@ const meta: Meta<TextFieldProps> = {
         label: {
             control: 'text',
         },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
         hintText: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintView: {
             options: hintViews,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintSize: {
             options: hintSizes,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintTargetPlacement: {
             options: hintTargetPlacements,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintTrigger: {
             options: hintTriggers,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintPlacement: {
             options: placements,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
             mappers: placements,
         },
         hintHasArrow: {
             control: { type: 'boolean' },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintWidth: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         chipType: {
             control: 'select',
             options: ['default', 'text'],
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'contentLeft',
+            'contentRight',
+            'onChange',
+            'onSearch',
+            'onChangeChips',
+            'enumerationType',
+            'values',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+            'chips',
+            'chipValidator',
+            'onFocus',
+            'onBlur',
+            'name',
+            'value',
+            'type',
+            'minLength',
+            'maxLength',
+            'checked',
+            'caption',
+            '$isFocused',
+            'htmlSize',
+        ]),
     },
 };
 
 export default meta;
 
 type StoryPropsDefault = Omit<
-    TextFieldProps,
+    ComponentProps<typeof TextField>,
     | 'helperBlock'
     | 'contentLeft'
     | 'htmlSize'
@@ -187,46 +262,60 @@ type StoryPropsDefault = Omit<
     | 'checked'
     | 'maxLength'
     | 'minLength'
+    | 'required'
+    | 'enumerationType'
+    | 'chips'
+    | 'onChangeChips'
 > & {
     hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
 
-const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: StoryPropsDefault) => {
-    const [value, setValue] = useState('Значение поля');
+const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsDefault) => {
+    const [text, setText] = useState('Значение поля');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '2rem',
+                width: '70%',
+                margin: '0 auto',
+            }}
+        >
             <TextField
                 {...rest}
-                value={value}
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                status={status || undefined}
+                enumerationType="plain"
+                value={text}
+                readOnly={readOnly}
+                contentLeft={enableContentLeft ? getIcon(IconBellFill, rest.size) : undefined}
+                contentRight={contentRight}
+                view={view}
                 onChange={(e) => {
-                    setValue(e.target.value);
-                    onChange(e);
+                    setText(e.target.value);
+                    onChange(e.target.value);
                 }}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onSearch={onSearch}
-                onChangeChips={onChipsChange}
             />
 
             <TextField
                 {...rest}
                 label="Uncontrolled TextField"
                 defaultValue="Дефолтное значение"
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                status={status || undefined}
+                enumerationType="plain"
+                contentLeft={enableContentLeft ? getIcon(IconBellFill, rest.size) : undefined}
+                contentRight={contentRight}
+                view={view}
+                readOnly={readOnly}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onSearch={onSearch}
-                onChangeChips={onChipsChange}
             />
         </div>
     );
@@ -238,19 +327,19 @@ export const Default: StoryObj<StoryPropsDefault> = {
         size: 'l',
         label: 'Лейбл',
         animatedHint: undefined,
-        placeholder: 'Заполните поле',
         keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
-        helperText: 'Подсказка к полю',
-        enumerationType: 'plain',
-        status: '' as 'success',
+        textBefore: '',
+        textAfter: '',
+        placeholder: 'Заполните поле',
+        leftHelper: 'Подсказка к полю',
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
         enableContentRight: true,
+        optional: false,
         required: false,
         requiredPlacement: 'right',
-        optional: false,
         clear: false,
         hasDivider: false,
         hasHint: true,
@@ -271,10 +360,33 @@ export const Default: StoryObj<StoryPropsDefault> = {
     render: (args) => <StoryDemo {...args} />,
 };
 
-const StoryChips = ({ status, enableContentLeft, enableContentRight, ...rest }: StoryPropsDefault) => {
+type StoryPropsChips = Omit<
+    ComponentProps<typeof TextField>,
+    | 'helperBlock'
+    | 'contentLeft'
+    | 'htmlSize'
+    | 'contentRight'
+    | 'type'
+    | 'name'
+    | 'onFocus'
+    | 'onBlur'
+    | 'onChange'
+    | 'onSearch'
+    | 'value'
+    | 'checked'
+    | 'maxLength'
+    | 'minLength'
+    | 'enumerationType'
+> & {
+    hasHint: boolean;
+    enableContentLeft: boolean;
+    enableContentRight: boolean;
+};
+
+const StoryChips = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsChips) => {
     const [text, setText] = useState('Значение поля');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
 
     const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 
@@ -283,24 +395,27 @@ const StoryChips = ({ status, enableContentLeft, enableContentRight, ...rest }: 
             {...rest}
             enumerationType="chip"
             value={text}
-            contentLeft={enableContentLeft ? <IconBellFill size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconBellFill size={iconSize} /> : undefined}
-            status={status || undefined}
+            contentLeft={enableContentLeft ? getIcon(IconBellFill, rest.size) : undefined}
+            contentRight={contentRight}
+            view={view}
+            readOnly={readOnly}
             onChange={(e) => {
                 setText(e.target.value);
-                onChange(e);
+                onChange(e.target.value);
             }}
             onFocus={onFocus}
             onBlur={onBlur}
-            onSearch={onSearch}
             onChangeChips={onChipsChange}
             chipValidator={validateChip}
-            style={{ width: '70%', margin: '0 auto' }}
+            style={{
+                width: '70%',
+                margin: '0 auto',
+            }}
         />
     );
 };
 
-export const Chips: StoryObj<StoryPropsDefault> = {
+export const Chips: StoryObj<StoryPropsChips> = {
     argTypes: {
         chipView: {
             options: chipViews,
@@ -311,7 +426,7 @@ export const Chips: StoryObj<StoryPropsDefault> = {
     },
     args: {
         ...Default.args,
-        helperText: 'Для первого чипа валидация вернула view="negative"',
+        leftHelper: 'Для первого чипа валидация вернула view="negative"',
         chipView: 'secondary',
         chips: ['1 value', '2 value', '3 value', '4 value'],
         chipType: 'default',

@@ -1,24 +1,50 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, InputPlaceholder, InputWrapper, Label, LeftHelper, TitleCaption } from '../../TextField.styles';
+import {
+    Input,
+    InputPlaceholder,
+    InputWrapper,
+    Label,
+    LeftHelper,
+    StyledContentRight,
+    TitleCaption,
+} from '../../TextField.styles';
 
 export const base = css`
     &[readonly] {
-        ${InputWrapper} {
-            color: var(${tokens.colorReadOnly});
-            background-color: var(${String(tokens.backgroundColorReadOnly)});
-            box-shadow: inset 0 0 0 var(${String(tokens.borderWidth)}) var(${String(tokens.borderColorReadOnly)});
+        :not(&.${classes.clear}) {
+            ${InputWrapper} {
+                position: relative;
+
+                color: var(${tokens.colorReadOnly});
+                background: transparent;
+                box-shadow: none;
+
+                :before {
+                    position: absolute;
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: var(${tokens.borderRadius});
+                    background-color: var(${tokens.backgroundColorReadOnly});
+                    opacity: var(${tokens.readOnlyOpacity});
+                    box-shadow: inset 0 0 0 var(${String(tokens.borderWidth)}) var(${tokens.borderColorReadOnly});
+                    z-index: -1;
+                }
+
+                :hover {
+                    background-color: transparent;
+                }
+            }
         }
 
         &.${classes.hasDivider} ${InputWrapper} {
             &:before {
                 background-color: var(${String(tokens.dividerColorReadOnly)});
             }
-        }
-
-        ${InputWrapper}:hover {
-            background-color: var(${tokens.backgroundColorReadOnly});
         }
 
         ${InputWrapper}:focus-within ${InputPlaceholder}, ${InputPlaceholder} {
@@ -37,6 +63,11 @@ export const base = css`
 
         ${LeftHelper} {
             color: var(${tokens.leftHelperColorReadOnly});
+        }
+
+        ${StyledContentRight}:hover, ${StyledContentRight}:active {
+            cursor: default;
+            color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
         }
 
         &.${classes.outerLabelPlacement} ${Label} {

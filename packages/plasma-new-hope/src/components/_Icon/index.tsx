@@ -5,6 +5,7 @@ export { IconDisclosureRightWithOffset } from './Icons/IconDisclosureRightWithOf
 export { IconDisclosureDownFill } from './Icons/IconDisclosureDownFill';
 export { IconDisclosureDownWithOffset } from './Icons/IconDisclosureDownWithOffset';
 export { IconDisclosureUpWithOffset } from './Icons/IconDisclosureUpWithOffset';
+export { IconLock } from './Icons/IconLock';
 export { IconMic } from './Icons/IconMic';
 export { IconChevronLeft } from './Icons/IconChevronLeft';
 export { IconChevronDoubleLeft } from './Icons/IconChevronDoubleLeft';

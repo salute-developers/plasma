@@ -135,6 +135,7 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-textfield-disabled-opacity',
+    readOnlyOpacity: '--plasma-textfield-readonly-opacity',
 
     /** Токены для tooltip */
     hintMargin: '--plasma-textfield__hint-margin',

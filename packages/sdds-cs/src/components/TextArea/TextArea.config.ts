@@ -284,12 +284,12 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.backgroundColor}: none;
+                ${textAreaTokens.backgroundColor}: transparent;
                 ${textAreaTokens.borderColor}: transparent;
                 ${textAreaTokens.borderColorHover}: transparent;
                 ${textAreaTokens.borderColorFocus}: transparent;
-                ${textAreaTokens.inputColor}: var(--text-secondary);
-                ${textAreaTokens.inputColorFocus}: var(--text-secondary);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-secondary);
                 ${textAreaTokens.labelOuterColor}: var(--text-secondary);
             `,

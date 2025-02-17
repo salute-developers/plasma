@@ -3486,6 +3486,9 @@ s: PolymorphicClassName;
 clear: {
 true: PolymorphicClassName;
 };
+readOnly: {
+true: PolymorphicClassName;
+};
 disabled: {
 true: PolymorphicClassName;
 };
