@@ -17,6 +17,7 @@ import {
     StyledLabel,
     StyledTrigger,
     base,
+    StyledTriggerWrapper,
 } from './Checkbox.styles';
 import type { CheckboxProps } from './Checkbox.types';
 import { classes } from './Checkbox.tokens';
@@ -81,9 +82,11 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                     tabIndex={canFocused}
                 />
                 <StyledContentWrapper htmlFor={checkboxId} className={singleLineClass}>
-                    <StyledTrigger className={classes.checkboxTrigger}>
-                        {indeterminate ? <Indeterminate /> : <Done />}
-                    </StyledTrigger>
+                    <StyledTriggerWrapper>
+                        <StyledTrigger className={classes.checkboxTrigger}>
+                            {indeterminate ? <Indeterminate /> : <Done />}
+                        </StyledTrigger>
+                    </StyledTriggerWrapper>
                     {hasContent && (
                         <StyledContent className={singleLineClass}>
                             {label && (

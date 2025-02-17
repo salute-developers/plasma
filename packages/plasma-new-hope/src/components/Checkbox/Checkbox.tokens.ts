@@ -6,7 +6,7 @@ export const classes = {
 
 export const tokens = {
     margin: '--plasma-checkbox-margin',
-    triggerMargin: '--plasma-checkbox-trigger-margin',
+    triggerPadding: '--plasma-checkbox-trigger-padding',
     triggerSize: '--plasma-checkbox-trigger-size',
     triggerBorderRadius: '--plasma-checkbox-trigger-border-radius',
     contentTopOffset: '--plasma-checkbox-content-top-offset',

@@ -14,7 +14,7 @@ export const config = {
         size: {
             s: css`
                 ${radioboxTokens.margin}: 0;
-                ${radioboxTokens.triggerMargin}: 0;
+                ${radioboxTokens.triggerPadding}: 0.0625rem 0;
                 ${radioboxTokens.triggerSize}: 1rem;
                 ${radioboxTokens.triggerBorderRadius}: 1.125rem;
                 ${radioboxTokens.ellipseSize}: 0.5rem;
@@ -36,7 +36,7 @@ export const config = {
             `,
             m: css`
                 ${radioboxTokens.margin}: 0;
-                ${radioboxTokens.triggerMargin}: 0.063rem;
+                ${radioboxTokens.triggerPadding}: 0.0625rem;
                 ${radioboxTokens.triggerSize}: 1.375rem;
                 ${radioboxTokens.triggerBorderRadius}: 1.125rem;
                 ${radioboxTokens.ellipseSize}: 0.625rem;

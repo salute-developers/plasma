@@ -13,7 +13,7 @@ export const config = {
         size: {
             s: css`
                 ${checkboxTokens.margin}: 0;
-                ${checkboxTokens.triggerMargin}: 0.063rem;
+                ${checkboxTokens.triggerPadding}: 0.0625rem;
                 ${checkboxTokens.triggerSize}: 0.875rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.25rem;
                 ${checkboxTokens.contentTopOffset}: 0;
@@ -34,7 +34,7 @@ export const config = {
             `,
             m: css`
                 ${checkboxTokens.margin}: 0;
-                ${checkboxTokens.triggerMargin}: 0.125rem;
+                ${checkboxTokens.triggerPadding}: 0.125rem;
                 ${checkboxTokens.triggerSize}: 1.25rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.375rem;
                 ${checkboxTokens.contentTopOffset}: 0.125rem;

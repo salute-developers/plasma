@@ -33,9 +33,11 @@ export const StyledInput = styled.input`
     clip: rect(0 0 0 0);
 `;
 
-export const StyledTrigger = styled.div`
-    margin: var(${tokens.triggerMargin});
+export const StyledTriggerWrapper = styled.div`
+    padding: var(${tokens.triggerPadding});
+`;
 
+export const StyledTrigger = styled.div`
     width: var(${tokens.triggerSize});
     height: var(${tokens.triggerSize});
     border-radius: var(${tokens.triggerBorderRadius});
