@@ -1,0 +1,23 @@
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/plasma-giga';
+
+import 'index.css';
+
+const App = () => {
+    return (
+        <>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+В файле, где происходит подключение всех стилей, например `index.css`
+
+```css
+@import '@salutejs/plasma-themes/css/plasma_giga__dark.css';
+```

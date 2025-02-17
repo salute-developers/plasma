@@ -1,0 +1,23 @@
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/plasma-giga';
+
+import styles from './main.module.sass';
+
+const App = () => {
+    return (
+        <div className={styles.dark}>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </div>
+    );
+};
+
+export default App;
+```
+
+В файле, где происходит подключение всех стилей, например `index.sass`
+
+```sass
+@use '@salutejs/plasma-themes/css/plasma-giga.module.css'
+```
