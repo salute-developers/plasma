@@ -504,7 +504,7 @@ export const config = {
         hintView: {
             default: css`
                 ${textAreaTokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${textAreaTokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${textAreaTokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16), 0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${textAreaTokens.tooltipColor}: var(--text-primary);
                 ${textAreaTokens.tooltipArrowBackground}: var(--surface-solid-card);
             `,
@@ -561,6 +561,14 @@ export const config = {
         },
         clear: {
             true: css``,
+        },
+        readOnly: {
+            true: css`
+                ${textAreaTokens.readOnlyOpacity}: 0.4;
+                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
+                ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+            `,
         },
         disabled: {
             true: css`

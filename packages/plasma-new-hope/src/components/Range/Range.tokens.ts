@@ -22,6 +22,7 @@ export const tokens = {
     /** Токены разделителя */
     dividerColor: '--plasma-range__divider-color',
     dividerColorReadOnly: '--plasma-range__divider-color-readonly',
+    dividerOpacityReadOnly: '--plasma-range__divider-opacity-readonly',
     dividerPadding: '--plasma-range__divider-padding',
     dividerFontFamily: '--plasma-range__divider-font-family',
     dividerFontStyle: '--plasma-range__divider-font-style',
@@ -33,6 +34,7 @@ export const tokens = {
     /** Токены слотов для контента */
     leftContentMargin: '--plasma-range__left-content-margin',
     rightContentMargin: '--plasma-range__right-content-margin',
+    rightContentOpacityReadOnly: '--plasma-range__right-content-opacity-readonly',
 
     /** Токены лейбла */
     labelColor: '--plasma-range__label-color',
@@ -72,6 +74,7 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-range-disabled-opacity',
+    readOnlyOpacity: '--plasma-range-readonly-opacity',
 
     /** Цвет обводки поля ввода при фокусе */
     focusColor: '--plasma-range-focus-color',

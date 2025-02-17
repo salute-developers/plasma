@@ -59,13 +59,13 @@ export const getIconComponent = (
     return icon16 || icon24 || icon36;
 };
 
-export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => {
+export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className, ...rest }) => {
     const c = color || 'var(--plasma-colors-primary)';
 
     const w = `${sizeMap[size].scale}rem`;
 
     return (
-        <StyledRoot aria-hidden w={w} className={className}>
+        <StyledRoot aria-hidden w={w} className={className} {...rest}>
             <Icon color={c} size={size} />
         </StyledRoot>
     );
