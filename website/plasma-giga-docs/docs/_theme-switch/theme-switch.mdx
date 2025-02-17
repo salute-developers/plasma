@@ -1,0 +1,27 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ThemeSwitchSC from './theme-switch-sc.mdx';
+import ThemeSwitchCssModule from './theme-switch-css-module.mdx';
+import ThemeSwitchCss from './theme-switch-css.mdx';
+import ThemeSwitchSass from './theme-switch-sass.mdx';
+import ThemeSwitchSassModule from './theme-switch-sass-module.mdx';
+
+## Переключение тем
+
+<Tabs>
+    <TabItem value="sc" label="styled-components" default>
+        <ThemeSwitchSC />
+    </TabItem>
+    <TabItem value="css" label="css">
+        <ThemeSwitchCss />
+    </TabItem>
+    <TabItem value="sass" label="sass">
+        <ThemeSwitchSass />
+    </TabItem>
+    <TabItem value="css-module" label="css-module">
+        <ThemeSwitchCssModule />
+    </TabItem>
+    <TabItem value="sass-module" label="sass-module">
+        <ThemeSwitchSassModule />
+    </TabItem>
+</Tabs>
