@@ -1,0 +1,33 @@
+{
+  "name": "@salutejs/plasma-playwright",
+  "version": "0.1.0",
+  "description": "Playwright package for Plasma component testing",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "clean": "rm -rf lib",
+    "test:b2c": "PACKAGE=plasma-b2c playwright test -c playwright-ct.config.ts --project=plasma-b2c",
+    "test:web": "PACKAGE=plasma-web playwright test -c playwright-ct.config.ts --project=plasma-web",
+    "test:insol": "PACKAGE=sdds-insol playwright test -c playwright-ct.config.ts --project=sdds-insol",
+    "test:cs": "PACKAGE=sdds-cs playwright test -c playwright-ct.config.ts --project=sdds-cs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/salute-developers/plasma.git"
+  },
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salute-developers/plasma/issues"
+  },
+  "homepage": "https://github.com/salute-developers/plasma#readme",
+  "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.50.1",
+    "@types/node": "^22.13.4",
+    "typescript": "^4.5.5",
+    "vite": "^6.1.0"
+  }
+}

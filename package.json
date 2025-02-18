@@ -47,7 +47,11 @@
     "prepare": "test ! -n \"$CI\" && husky install || echo skip husky",
     "bootstrap": "npx lerna bootstrap",
     "bootstrap:since": "npm run bootstrap -- --since=$(git merge-base --fork-point origin/dev)",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "test:b2c": "npm run test:b2c --prefix=plasma-playwright",
+    "test:web": "npm run test:web --prefix=plasma-playwright",
+    "test:cs": "npm run test:cs --prefix=plasma-playwright",
+    "test:insol": "npm run test:insol --prefix=plasma-playwright"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",

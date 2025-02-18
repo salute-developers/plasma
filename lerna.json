@@ -1,7 +1,14 @@
 {
-    "packages": ["packages/*", "packages/themes/*", "utils/*", "website/*", "actions/platform-test"],
+    "packages": [
+        "packages/*",
+        "packages/themes/*",
+        "utils/*",
+        "website/*",
+        "actions/platform-test",
+        "plasma-playwright"
+    ],
     "version": "independent",
-    "ignoreChanges": ["*.md", "*.component-test.tsx", "package-lock.json"],
+    "ignoreChanges": ["*.md", "*.component-test.tsx", "*.spec.tsx", "component.export.ts", "package-lock.json"],
     "loglevel": "verbose",
     "exact": true,
     "command": {
