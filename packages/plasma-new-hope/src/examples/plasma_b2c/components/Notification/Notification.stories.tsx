@@ -23,6 +23,7 @@ const texts = ['SSH ключ успешно скопирован', 'Нельзя
 const size = ['xs', 'xxs'];
 const iconPlacement = ['top', 'left'];
 const notificationsPlacements = ['bottom-right', 'bottom-left'];
+const views = ['default', 'negative', 'positive', 'warning', 'info'];
 
 const longText = `JavaScript frameworks are an essential part of modern front-end web development,
 providing developers with proven tools for building scalable, interactive web applications.
@@ -58,14 +59,25 @@ interface StoryDefaultProps {
     closeIconType?: 'default' | 'thin';
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
+    view: 'default';
 }
 
-const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIcon, ...rest }: StoryDefaultProps) => {
+const StoryDefault = ({
+    title,
+    children,
+    iconPlacement,
+    size,
+    layout,
+    showLeftIcon,
+    view,
+    ...rest
+}: StoryDefaultProps) => {
     return (
         <Notification
             title={title}
             icon={showLeftIcon ? <IconDisclosureRight color="inherit" /> : ''}
             iconPlacement={iconPlacement}
+            view={view}
             actions={
                 <Button
                     text="text"
@@ -108,6 +120,18 @@ export const Default: StoryObj<StoryDefaultProps> = {
                 type: 'select',
             },
         },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        textColor: {
+            control: 'color',
+        },
+        iconColor: {
+            control: 'color',
+        },
     },
     args: {
         title: 'Title',
@@ -117,6 +141,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
         iconPlacement: 'top',
         layout: 'vertical',
         closeIconType: 'default',
+        view: 'default',
         size: 'xs',
     },
     render: (args) => <StoryDefault {...args} />,
@@ -134,7 +159,11 @@ const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
         addNotification(
-            { icon: <IconDisclosureRight color="inherit" />, ...rest, ...getNotificationProps(count.current) },
+            {
+                icon: <IconDisclosureRight color="inherit" />,
+                ...rest,
+                ...getNotificationProps(count.current),
+            },
             timeout,
         );
         count.current++;
