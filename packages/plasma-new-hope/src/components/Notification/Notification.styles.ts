@@ -60,11 +60,11 @@ export const ButtonsWrapper = styled.div<IconPlacementType>`
     }
 `;
 
-export const IconWrapper = styled.div<IconPlacementType>`
+export const IconWrapper = styled.div<IconPlacementType & { iconColor?: string }>`
     width: var(${tokens.contentLeftIconSize});
     height: var(${tokens.contentLeftIconSize});
     align-self: var(${tokens.horisontalIconLeftAlignSelf});
-    color: var(${tokens.contentLeftIconColor});
+    color: ${({ iconColor }) => iconColor || `var(${tokens.contentLeftIconColor})`};
 
     margin-right: ${({ iconPlacement }) =>
         iconPlacement === placements.left ? `var(${tokens.contentLeftIconMargin})` : 'unset'};
@@ -116,7 +116,7 @@ export const TextBox = styled.div<CloseIconType & IconPlacementType>`
     }
 `;
 
-export const StyledTitle = styled.div`
+export const StyledTitle = styled.div<{ textColor?: string }>`
     font-family: var(${tokens.titleFontFamily});
     font-size: var(${tokens.titleFontSize});
     font-style: var(${tokens.titleFontStyle});
@@ -125,7 +125,7 @@ export const StyledTitle = styled.div`
     line-height: var(${tokens.titleFontLineHeight});
     ${String(applyHyphens)};
 
-    color: var(${tokens.titleColor});
+    color: ${({ textColor }) => textColor || `var(${tokens.titleColor})`};
 `;
 
 export const StyledContent = styled.div`

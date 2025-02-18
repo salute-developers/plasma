@@ -41,6 +41,8 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             layout = layouts.vertical as NotificationLayout,
             icon,
             closeIconType,
+            textColor,
+            iconColor,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -82,6 +84,7 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                             <IconWrapper
                                 iconPlacement={IconPlacementInternal}
                                 className={cx(classes.icon, getLayoutClass(layout))}
+                                iconColor={iconColor}
                             >
                                 {icon}
                             </IconWrapper>
@@ -91,7 +94,11 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                             showCloseIcon={showCloseIcon}
                             className={cx(classes.textbox, getLayoutClass(layout))}
                         >
-                            {title && <StyledTitle className={classes.title}>{title}</StyledTitle>}
+                            {title && (
+                                <StyledTitle className={classes.title} textColor={textColor}>
+                                    {title}
+                                </StyledTitle>
+                            )}
                             {content && <StyledContent className={classes.text}>{content}</StyledContent>}
                         </TextBox>
                     </ContentBox>
