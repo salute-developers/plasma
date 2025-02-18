@@ -74,6 +74,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             virtual = false,
             hintView,
             hintSize,
+            onChangeValue,
             ...rest
         } = props;
 
@@ -178,6 +179,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             setTextValue(e.target.value);
             dispatchPath({ type: 'opened_first_level' });
             dispatchFocusedPath({ type: 'reset' });
+
+            if (onChangeValue) {
+                onChangeValue(e.target.value);
+            }
         };
 
         // Обработчик чипов

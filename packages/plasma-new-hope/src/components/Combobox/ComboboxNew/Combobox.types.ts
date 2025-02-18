@@ -201,6 +201,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     closeAfterSelect?: boolean;
     /**
+     * Обработчик изменения значения в строке поиска.
+     */
+    onChangeValue?: (value: string) => void;
+    /**
      * Ячейка для контента в начале выпадающего списка.
      */
     beforeList?: React.ReactNode;
