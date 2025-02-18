@@ -56,7 +56,7 @@ export const config = {
                 ${tokens.calendarSelectedItemBackground}: var(--surface-accent);
                 ${tokens.calendarSelectedItemColor}: var(--inverse-text-primary);
                 ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-accent);
-                ${tokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
+                ${tokens.calendarCurrentItemBorderColor}: var(--inverse-outline-solid-secondary);
                 ${tokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${tokens.calendarCurrentItemColorHover}: var(--text-primary);
                 ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-accent);
@@ -68,6 +68,8 @@ export const config = {
                 ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${tokens.calendarContentPrimaryColor}: var(--text-primary);
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
+                ${tokens.calendarContentPrimaryDisabledColor}: var(--text-secondary);
+                ${tokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
                 ${tokens.calendarHeaderArrowColor}: var(--text-accent);
                 ${tokens.calendarBorderColor}: var(--outline-solid-primary);
                 ${tokens.calendarDayOfWeekColor}: var(--text-secondary);
