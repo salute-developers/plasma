@@ -245,4 +245,6 @@ export const tokens = {
     calendarOutlineFocusColor: '--plasma-date-picker-calendar__outline-focus-color',
     calendarContentPrimaryColor: '--plasma-date-picker-calendar__content-primary-color',
     calendarContentSecondaryColor: '--plasma-date-picker-calendar__content-secondary-color',
+    calendarContentPrimaryDisabledColor: '--plasma-date-picker-calendar__content-primary-disabled-color',
+    calendarContentSecondaryDisabledColor: '--plasma-date-picker-calendar__content-secondary-disabled-color',
 };

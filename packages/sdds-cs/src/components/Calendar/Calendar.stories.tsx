@@ -27,6 +27,7 @@ const meta: Meta<CalendarProps> = {
             },
         },
         ...disableProps([
+            'size',
             'value',
             'onChangeValue',
             'date',

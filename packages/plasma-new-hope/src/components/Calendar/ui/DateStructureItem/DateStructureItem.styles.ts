@@ -130,10 +130,18 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
     }
 
     &.${classes.disabled} {
+        color: ${({ isDayInCurrentMonth }) =>
+            isDayInCurrentMonth
+                ? `var(${tokens.calendarContentPrimaryDisabledColor})`
+                : `var(${tokens.calendarContentSecondaryDisabledColor})`};
         ${disabledItem()};
     }
 
     &.${classes.disabledCurrent} {
+        color: ${({ isDayInCurrentMonth }) =>
+            isDayInCurrentMonth
+                ? `var(${tokens.calendarContentPrimaryDisabledColor})`
+                : `var(${tokens.calendarContentSecondaryDisabledColor})`};
         ${disabledCurrentItem()};
     }
 

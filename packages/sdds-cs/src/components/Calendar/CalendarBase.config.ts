@@ -11,7 +11,7 @@ export const config = {
                 ${calendarBaseTokens.calendarSelectedItemBackground}: var(--surface-accent);
                 ${calendarBaseTokens.calendarSelectedItemColor}: var(--inverse-text-primary);
                 ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-accent);
-                ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
+                ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(--inverse-outline-solid-secondary);
                 ${calendarBaseTokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${calendarBaseTokens.calendarCurrentItemColorHover}: var(--text-primary);
                 ${calendarBaseTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-accent);
@@ -22,7 +22,9 @@ export const config = {
                 ${calendarBaseTokens.calendarRangeBackground}: var(--surface-transparent-accent);
                 ${calendarBaseTokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${calendarBaseTokens.calendarContentPrimaryColor}: var(--surface-primary);
+                ${calendarBaseTokens.calendarContentPrimaryDisabledColor}: var(--text-secondary);
                 ${calendarBaseTokens.calendarContentSecondaryColor}: var(--text-secondary);
+                ${calendarBaseTokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
                 ${calendarBaseTokens.calendarDayOfWeekColor}: var(--text-secondary);
                 ${calendarBaseTokens.calendarHeaderArrowColor}: var(--text-accent);
                 ${calendarBaseTokens.calendarDisabledOpacity}: 1;
