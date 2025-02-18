@@ -69,11 +69,11 @@ const StoryDemo = ({ context }) => {
 
     return (
         <>
-            {Object.entries(groupedTokens).map(([category, subcategoties]) => (
+            {Object.entries(groupedTokens).map(([category, subcategories]) => (
                 <CategoryContainer key={category}>
                     <Category>{category}</Category>
                     <Accordion view="clear" size="s" stretching="filled" defaultActiveEventKey={[0]}>
-                        {Object.entries(subcategoties).map(([subcategory, subcategoryTokens], index) => (
+                        {Object.entries(subcategories).map(([subcategory, subcategoryTokens], index) => (
                             <StyledAccordionItem
                                 key={subcategory}
                                 eventKey={index}
