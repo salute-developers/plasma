@@ -15,17 +15,15 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.labelColor}: var(${tokens.textFieldLabelColor});
     ${textFieldTokens.leftHelperColor}: var(${tokens.textFieldLeftHelperColor});
+    ${textFieldTokens.leftHelperColorReadOnly}: var(${tokens.textFieldLeftHelperColorReadOnly});
 
-    ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColor});
-    ${textFieldTokens.backgroundColorReadOnly}: ${({ opened }) =>
-    opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
-    ${textFieldTokens.placeholderColorReadOnly}: ${({ opened }) =>
-    opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
+    ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
+    ${textFieldTokens.placeholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
+    ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${tokens.textFieldLeftHelperColor});
-    ${textFieldTokens.labelColorReadOnly}: var(${tokens.textFieldLabelColor});
-    ${textFieldTokens.borderColorReadOnly}: ${({ opened }) =>
-    opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
-
+    ${textFieldTokens.labelColorReadOnly}: var(${tokens.textFieldLabelColorReadOnly});
+    ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
 
     ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
@@ -82,6 +80,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.textFieldContentLabelInnerPadding});
 
     ${textFieldTokens.titleCaptionColor}: var(${tokens.textFieldTitleCaptionColor});
+    ${textFieldTokens.titleCaptionColorReadOnly}: var(${tokens.textFieldTitleCaptionColorReadOnly});
     ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.textFieldTitleCaptionInnerLabelOffset});
 
     ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.textFieldTitleCaptionFontFamily});
@@ -157,12 +156,13 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.chipFontWeight}: var(${tokens.textFieldChipFontWeight});
     ${textFieldTokens.chipLetterSpacing}: var(${tokens.textFieldChipLetterSpacing});
     ${textFieldTokens.chipLineHeight}: var(${tokens.textFieldChipLineHeight});
-    ${textFieldTokens.chipColorReadOnly}: var(${tokens.textFieldChipColor});
-    ${textFieldTokens.chipColorReadOnlyHover}: var(${tokens.textFieldChipColor});
-    ${textFieldTokens.chipBackgroundReadOnly}: var(${tokens.textFieldChipBackground});
-    ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${tokens.textFieldChipBackgroundHover});
+    ${textFieldTokens.chipColorReadOnly}: var(${tokens.textFieldChipColorReadOnly});
+    ${textFieldTokens.chipColorReadOnlyHover}: var(${tokens.textFieldChipColorReadOnlyHover});
+    ${textFieldTokens.chipBackgroundReadOnly}: var(${tokens.textFieldChipBackgroundReadOnly});
+    ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${tokens.textFieldChipBackgroundReadOnlyHover});
     ${textFieldTokens.chipClearContentMarginLeft}: var(${tokens.textFieldChipClearContentMarginLeft});
     ${textFieldTokens.chipClearContentMarginRight}: var(${tokens.textFieldChipClearContentMarginRight});
+    ${textFieldTokens.chipOpacityReadonly}: var(${tokens.textFieldChipOpacityReadonly});
 
     ${textFieldTokens.indicatorColor}: var(${tokens.textFieldIndicatorColor});
     ${textFieldTokens.indicatorSizeInner}: var(${tokens.textFieldIndicatorSizeInner});
