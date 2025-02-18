@@ -23,6 +23,7 @@ const texts = ['SSH ключ успешно скопирован', 'Нельзя
 const size = ['xs', 'xxs'];
 const iconPlacement = ['top', 'left'];
 const notificationsPlacements = ['bottom-right', 'bottom-left'];
+const views = ['default', 'negative', 'positive', 'warning', 'info'];
 
 const longText = `JavaScript frameworks are an essential part of modern front-end web development,
 providing developers with proven tools for building scalable, interactive web applications.
@@ -107,6 +108,18 @@ export const Default: StoryObj<StoryDefaultProps> = {
             control: {
                 type: 'select',
             },
+        },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        textColor: {
+            control: 'color',
+        },
+        iconColor: {
+            control: 'color',
         },
     },
     args: {
