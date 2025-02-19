@@ -1,0 +1,35 @@
+{
+  "name": "@salutejs/plasma-playwright-utils",
+  "version": "0.1.0",
+  "description": "Playwright utils package for Plasma component testing",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "clean": "rm -rf lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/salute-developers/plasma.git"
+  },
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salute-developers/plasma/issues"
+  },
+  "homepage": "https://github.com/salute-developers/plasma#readme",
+  "devDependencies": {
+    "@salutejs/plasma-themes": "0.29.0-dev.0",
+    "@salutejs/sdds-themes": "0.32.0-dev.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/react-native": "0.69.6",
+    "@types/styled-components": "5.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "5.3.1",
+    "typescript": "^4.5.5"
+  }
+}

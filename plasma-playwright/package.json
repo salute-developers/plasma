@@ -1,0 +1,34 @@
+{
+  "name": "@salutejs/plasma-playwright",
+  "version": "0.1.0",
+  "description": "Playwright package for Plasma component testing",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "clean": "rm -rf lib",
+    "checkHasUpdate": "node -e \"console.log(process.env.npm_config_update_snapshots === 'true' ? '--update-snapshots' : '')\"",
+    "test:b2c": "PACKAGE=plasma-b2c COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=plasma-b2c $(npm run checkHasUpdate --silent)",
+    "test:web": "PACKAGE=plasma-web COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=plasma-web $(npm run checkHasUpdate --silent)",
+    "test:insol": "PACKAGE=sdds-insol COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=sdds-insol $(npm run checkHasUpdate --silent)",
+    "test:cs": "PACKAGE=sdds-cs COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=sdds-cs $(npm run checkHasUpdate --silent)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/salute-developers/plasma.git"
+  },
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salute-developers/plasma/issues"
+  },
+  "homepage": "https://github.com/salute-developers/plasma#readme",
+  "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.50.1",
+    "@types/node": "^22.13.4",
+    "typescript": "^4.5.5",
+    "vite": "^6.1.0"
+  }
+}

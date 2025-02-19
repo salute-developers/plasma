@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
         "target": "ES5",
-        "module": "CommonJS",
+        "module": "ESNext",
         "lib": ["dom", "dom.iterable", "esnext"],
         "jsx": "react",
         "declaration": true,
+        "declarationMap": true,
         "sourceMap": true,
         "importHelpers": false,
 
@@ -32,19 +33,7 @@
         /* Advanced Options */
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "baseUrl": ".",
-        "outDir": "./",
-        "rootDir": "./src",
-        "paths": {
-            "react": ["./node_modules/@types/react"]
-        }
-    },
-    "include": ["./src"],
-    "exclude": [
-        "./src/__helpers",
-        "./src/**/*.stories.tsx",
-        "./src/**/*.component-test.tsx",
-        "./src/**/*.perftest.tsx",
-        "./src/**/test"
-    ]
+        "outDir": "./lib",
+        "rootDir": "./src"
+    }
 }
