@@ -128,7 +128,7 @@ export const StyledTitle = styled.div<{ textColor?: string }>`
     color: ${({ textColor }) => textColor || `var(${tokens.titleColor})`};
 `;
 
-export const StyledContent = styled.div`
+export const StyledContent = styled.div<{ textColor?: string }>`
     font-family: var(${tokens.contentFontFamily});
     font-size: var(${tokens.contentFontSize});
     font-style: var(${tokens.contentFontStyle});
@@ -137,7 +137,7 @@ export const StyledContent = styled.div`
     line-height: var(${tokens.contentFontLineHeight});
     ${String(applyHyphens)};
 
-    color: var(${tokens.contentColor});
+    color: ${({ textColor }) => textColor || `var(${tokens.contentColor})`};
 `;
 
 export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`
