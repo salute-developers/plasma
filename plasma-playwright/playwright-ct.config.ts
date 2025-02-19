@@ -1,20 +1,48 @@
 import path from 'path';
 import { defineConfig, devices } from '@playwright/experimental-ct-react';
 
-const getPackageTestsPath = (packageName: string) =>
-    path.resolve(__dirname, '..', 'packages', packageName, 'src', 'components');
-const resolveInsidePackage = (packageName: string, libName: string) =>
-    path.resolve(__dirname, '..', 'packages', packageName, 'node_modules', libName);
-const resolveComponentExport = (packageName: string) => path.resolve(__dirname, '..', 'packages', packageName);
+const packagesPath = path.resolve(__dirname, '..', 'packages');
 
-const packageName = process.env.PACKAGE;
+const newHopePath = path.resolve(packagesPath, 'plasma-new-hope', 'src', 'components');
+const getPackageTestsPath = (packageName: string) => path.resolve(packagesPath, packageName, 'src', 'components');
+const resolveInsidePackage = (packageName: string, libName: string) =>
+    path.resolve(packagesPath, packageName, 'node_modules', libName);
+const resolveComponentExport = (packageName: string) => path.resolve(packagesPath, packageName);
+
+const { PACKAGE: packageName, COMPONENTS: components } = process.env;
 
 if (!packageName) {
     throw new Error('Provide PACKAGE env to cli command');
 }
 
+const baseTestMatch = '**/*.spec.{ts,tsx}';
+
+const getTestMatch = () => {
+    const componentMatchingDirs = components
+        ? components
+              .split(',')
+              .filter((component) => Boolean(component.trim()))
+              .map((component) => {
+                  const [first, ...rest] = component.trim();
+                  const componentDir = `${first.toLocaleUpperCase()}${rest.join('')}`;
+
+                  return componentDir;
+              })
+        : [];
+
+    if (!componentMatchingDirs.length) {
+        return baseTestMatch;
+    }
+
+    if (componentMatchingDirs.length === 1) {
+        return `**/${componentMatchingDirs.join('')}/${baseTestMatch}`;
+    }
+
+    return `**/{${componentMatchingDirs.join(',')}}/${baseTestMatch}`;
+};
+
 export default defineConfig({
-    testMatch: '**/*.spec.{ts,tsx}',
+    testMatch: getTestMatch(),
     outputDir: `./results/${packageName}`,
     snapshotPathTemplate: './snapshots/{projectName}/{platform}/{testFileName}/{testName}{ext}',
     timeout: 10 * 1000,
@@ -62,6 +90,13 @@ export default defineConfig({
         {
             name: packageName,
             testDir: getPackageTestsPath(packageName),
+            use: { ...devices['Desktop Chrome'] },
+            // dependencies: ['common'],
+        },
+        {
+            name: 'common',
+            testDir: newHopePath,
+            snapshotPathTemplate: `./snapshots/${packageName}/{platform}/{testFileName}/{testName}{ext}`,
             use: { ...devices['Desktop Chrome'] },
         },
     ],

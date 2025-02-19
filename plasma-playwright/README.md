@@ -78,14 +78,8 @@ npm run test:b2c --components="Button,Accordion"
 
 ## Обновление снапшотов
 
-Для обновления снапшотов неообходимо запустить команду с флагом `--update-snapshots`, с учетом контекста. То есть, если команда выполняется из директории _plasma-playwright_, команда будет выглядеть так:
+Для обновления снапшотов необходимо запустить команду с флагом `--update-snapshots`:
 
 ```
-npm run test:b2c -- --update-snapshots
-```
-
-Если же команда запускается из **рутовой** директории, то необходимо передать два раза `--`:
-
-```
-npm run test:b2c -- -- --update-snapshots
+npm run test:b2c --update-snapshots
 ```

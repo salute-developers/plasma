@@ -9,10 +9,11 @@
     "prebuild": "npm run clean",
     "build": "tsc",
     "clean": "rm -rf lib",
-    "test:b2c": "PACKAGE=plasma-b2c playwright test -c playwright-ct.config.ts --project=plasma-b2c",
-    "test:web": "PACKAGE=plasma-web playwright test -c playwright-ct.config.ts --project=plasma-web",
-    "test:insol": "PACKAGE=sdds-insol playwright test -c playwright-ct.config.ts --project=sdds-insol",
-    "test:cs": "PACKAGE=sdds-cs playwright test -c playwright-ct.config.ts --project=sdds-cs"
+    "checkHasUpdate": "node -e \"console.log(process.env.npm_config_update_snapshots === 'true' ? '--update-snapshots' : '')\"",
+    "test:b2c": "PACKAGE=plasma-b2c COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=plasma-b2c $(npm run checkHasUpdate --silent)",
+    "test:web": "PACKAGE=plasma-web COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=plasma-web $(npm run checkHasUpdate --silent)",
+    "test:insol": "PACKAGE=sdds-insol COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=sdds-insol $(npm run checkHasUpdate --silent)",
+    "test:cs": "PACKAGE=sdds-cs COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=sdds-cs $(npm run checkHasUpdate --silent)"
   },
   "repository": {
     "type": "git",
