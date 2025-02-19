@@ -37,8 +37,6 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({
         [],
     );
 
-    console.log(notifications);
-
     return (
         <PopupProvider UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}>
             {notifications.length > 0 && (

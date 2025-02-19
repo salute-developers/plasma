@@ -93,9 +93,9 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      */
     textColor?: string;
     /**
-     * Цвет иконки (по умолчанию берётся цвет из view)
+     * Цвет заголовка (по умолчанию берётся цвет из view)
      */
-    iconColor?: string;
+    titleColor?: string;
 }
 
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {

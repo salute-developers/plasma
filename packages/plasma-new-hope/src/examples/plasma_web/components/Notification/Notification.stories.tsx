@@ -118,7 +118,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
         textColor: {
             control: 'color',
         },
-        iconColor: {
+        titleColor: {
             control: 'color',
         },
     },
