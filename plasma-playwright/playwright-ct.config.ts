@@ -84,6 +84,18 @@ export default defineConfig({
             define: {
                 'import.meta.env.PACKAGE': `"${packageName}"`,
             },
+            // plugins: [
+            //     {
+            //         name: 'rewrite-imports',
+            //         resolveId(source, importer) {
+            //             if (source === '..') {
+            //                 console.log('*****', source, importer);
+            //                 return resolveComponentExport(packageName);
+            //             }
+            //             return null;
+            //         },
+            //     },
+            // ],
         },
     },
     projects: [
