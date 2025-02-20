@@ -68,6 +68,50 @@ export function App() {
 }
 ```
 
+### Обязательный активный SegmentItem
+
+С помощью свойства `singleSelectedRequired` задается поведение, 
+при котором один сегмент должен быть активным.
+
+```tsx live
+import React from 'react';
+import { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/sdds-serv';
+
+export function App() {
+    const items = Array(8).fill(0);
+
+    const SegmentTemplate = () => {
+        const {selectedSegmentItems} = useSegment();
+
+        return (
+            <>
+                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>
+                <br />
+                <SegmentGroup hasBackground pilled clip={false}>
+                    {items.map((_, i) => (
+                        <SegmentItem
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            view='default'
+                            pilled
+                        />
+                    ))}
+                </SegmentGroup>
+            </>
+        )
+    }
+
+    return (
+        <div style={{ display: "block" }} >
+            <SegmentProvider defaultSelected={['label_1']} singleSelectedRequired>
+                <SegmentTemplate/>
+            </SegmentProvider>
+        </div>
+    );
+}
+```
+
 ### Вертикальное отображение
 
 Для смены ориентации передаем `orientation: 'vertical'`
