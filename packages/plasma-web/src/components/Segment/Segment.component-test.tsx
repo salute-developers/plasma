@@ -278,6 +278,25 @@ describe('plasma-web: Segment', () => {
         cy.matchImageSnapshot();
     });
 
+    it('single selected required', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <SegmentProvider singleSelectedRequired>
+                    <SegmentGroup view="filled" filledBackground clip>
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
+                    </SegmentGroup>
+                </SegmentProvider>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').contains('Segment 1').click();
+        cy.get('button').contains('Segment 1').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('single choice predefined', () => {
         mount(
             <CypressTestDecoratorWithTypo>
