@@ -8,6 +8,10 @@ export type SegmentProviderProps = {
      * Передается массив value сегментов, выбранных по умолчанию
      */
     defaultSelected?: Array<string>;
+    /**
+     * Один сегмент должен быть обязательно выбран.
+     */
+    singleSelectedRequired?: boolean;
 } & PropsWithChildren;
 
 export type SegmentContextType = {

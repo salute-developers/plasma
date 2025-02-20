@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import type { MouseEvent } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
@@ -29,7 +29,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
-        const { selectionMode, disabledGroup, handleSelect, selectedSegmentItems } = useSegmentInner();
+        const { disabledGroup, handleSelect, selectedSegmentItems } = useSegmentInner();
 
         const uniqId = safeUseId();
         const segmentId = id || `label-${uniqId}`;
@@ -41,17 +41,14 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
         const isSelected = selectedSegmentItems?.includes(value || ariaLabelDefault);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
 
-        const handleSelectSegment = useCallback(
-            (event: MouseEvent<HTMLButtonElement>) => {
-                if (disabledGroup) {
-                    return;
-                }
+        const handleSelectSegment = (event: MouseEvent<HTMLButtonElement>) => {
+            if (disabledGroup) {
+                return;
+            }
 
-                customHandleSelect?.(event);
-                handleSelect?.(value || ariaLabelDefault);
-            },
-            [selectionMode, disabledGroup],
-        );
+            customHandleSelect?.(event);
+            handleSelect?.(value || ariaLabelDefault);
+        };
 
         return (
             <Root
