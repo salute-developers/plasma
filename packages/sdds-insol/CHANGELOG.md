@@ -1,3 +1,134 @@
+## 0.256.0 (20 февраля 2025)
+
+## Функциональные изменения в компонентах
+
+### Calendar
+
+* исправлен выбор месяца на двойном календаре
+
+[PR](https://github.com/salute-developers/plasma/pull/1756)
+
+### Accordion
+
+* изменен тег в `AccrodionItem` с `button` на `div`
+
+[PR](https://github.com/salute-developers/plasma/pull/1758)
+
+### Combobox
+
+* добавлена опциональная виртуализация в выпадающий список
+
+[PR](https://github.com/salute-developers/plasma/pull/1761)
+
+### Popover
+
+* добавлен токен `box-shadow`
+
+* исправлены примеры в `storybooks` для корректной демонстрации
+
+[PR](https://github.com/salute-developers/plasma/pull/1767)
+
+### Drawer
+
+* добавлена возможность задавать цвет фона панели
+
+[PR](https://github.com/salute-developers/plasma/pull/1760)
+
+### Checkbox
+
+* актуализированы `view` согласно макетам
+
+[PR](https://github.com/salute-developers/plasma/pull/1762)
+
+### Radiobox
+
+* актуализированы `view` согласно макетам
+
+[PR](https://github.com/salute-developers/plasma/pull/1763)
+
+* исправлена ошибка при работе с `react-hook-form`, если не указано изначальное значение
+
+[PR](https://github.com/salute-developers/plasma/pull/1777)
+
+### Select
+
+* исправлена ошибка при работе с `react-hook-form`, если не указано изначальное значение
+
+[PR](https://github.com/salute-developers/plasma/pull/1777)
+
+### Textarea
+
+* добавлен **новый** размер `xl`
+
+[PR](https://github.com/salute-developers/plasma/pull/1759)
+
+* исправлена работа `end` и `start` при `target` меньше чем `32px`
+
+[PR](https://github.com/salute-developers/plasma/pull/1775)
+
+### Select, Combobox
+
+* исправлен баг, связанный с возможностью выбирать `disabled` item через его родителя;
+
+[PR](https://github.com/salute-developers/plasma/pull/1766)
+
+### Steps
+
+* исправлен `background`, `cursor`
+
+[PR](https://github.com/salute-developers/plasma/pull/1776)
+
+### Calendar, DatePicker
+
+* исправлена логика отрисовки календарных сеток "месяц", "квартал", "год" для минимальной и максимальной дат
+
+**Before**:
+
+https://github.com/user-attachments/assets/18943dab-5a6d-4e0f-945b-2aef7c815b23
+
+**After**:
+
+https://github.com/user-attachments/assets/1725f4c3-3db7-469a-b0d6-c1f5e275623f
+
+[PR](https://github.com/salute-developers/plasma/pull/1757)
+
+* добавлено св-во `onChangeValue` для отслеживания изменений значения в строке поиска.
+
+[PR](https://github.com/salute-developers/plasma/pull/1782)
+
+### Checkbox, Radiobox
+
+* добавлен корректный отступ для `trigger icon`
+
+[PR](https://github.com/salute-developers/plasma/pull/1781)
+
+## Изменения в библиотеки
+
+### TextField, Combobox, Select
+
+* исправлен размер иконки закрытия в `chips`
+
+[PR](https://github.com/salute-developers/plasma/pull/1765)
+
+### Segment
+
+*  добавлен `view=accent`
+
+<img width="725" alt="image" src="https://github.com/user-attachments/assets/0f32da46-e10f-49ad-860e-0b8db7b52f37" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1774)
+
+*  добавлен размер `XL`
+
+<img width="745" src="https://github.com/user-attachments/assets/93e1f234-b032-4a11-8de0-73c251f3d835" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1773)
+
+* добавлен **новый** `view accent`
+
+[PR](https://github.com/salute-developers/plasma/pull/1776)
+
+
 ## 0.238.0 (6 февраля 2025)
 
 ## Функциональные изменения в компонентах
