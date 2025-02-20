@@ -16,25 +16,26 @@ export default {
     },
     output: [
         {
-        preserveModules: true,
-        dir: 'css/es',
-        format: 'es',
-        freeze: false,
-        esModule: true,
-        sourcemap: false,
-        exports: 'named',
-        assetFileNames: '[name][extname]',
-    },
+            preserveModules: true,
+            dir: 'css/es',
+            format: 'es',
+            freeze: false,
+            esModule: true,
+            sourcemap: false,
+            exports: 'named',
+            assetFileNames: '[name][extname]',
+        },
         {
-        preserveModules: true,
-        dir: 'css/cjs',
-        format: 'cjs',
-        freeze: false,
-        esModule: true,
-        sourcemap: false,
-        exports: 'named',
-        assetFileNames: '[name][extname]',
-    }],
+            preserveModules: true,
+            dir: 'css/cjs',
+            format: 'cjs',
+            freeze: false,
+            esModule: true,
+            sourcemap: false,
+            exports: 'named',
+            assetFileNames: '[name][extname]',
+        },
+    ],
     external: (id) => {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
@@ -55,7 +56,10 @@ export default {
             mode: 'extract',
             modules: true,
         }),
-        babel({ babelHelpers: 'bundled', extensions: ['.ts', '.tsx'] }),
+        babel({
+            babelHelpers: 'bundled',
+            extensions: ['.ts', '.tsx'],
+        }),
     ],
 };
 

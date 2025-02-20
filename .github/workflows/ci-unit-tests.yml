@@ -31,9 +31,6 @@ jobs:
         run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
         continue-on-error: true
 
-      - name: Lerna TEST
-        run: npx lerna run prepare --scope=@salutejs/plasma-icons --stream
-
       - name: Unit tests
         run: npm run test
 
