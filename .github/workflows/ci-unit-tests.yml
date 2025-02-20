@@ -28,8 +28,8 @@ jobs:
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap TEST
-#        run: npx lerna run prepare --scope=@salutejs/plasma-icons --stream
-        run: npx lerna exec --scope=@salutejs/plasma-icons -- npm run prepare --stream
+        run: npx lerna run prepare --scope=@salutejs/plasma-icons --stream
+#        run: npx lerna exec --scope=@salutejs/plasma-icons -- npm run prepare --stream
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
