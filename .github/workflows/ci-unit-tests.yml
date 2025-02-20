@@ -29,7 +29,6 @@ jobs:
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
-        continue-on-error: true
 
       - name: Unit tests
         run: npm run test
