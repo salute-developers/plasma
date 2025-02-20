@@ -4,7 +4,7 @@
     "description": "Salute Design System Icons",
     "main": "index.js",
     "module": "es/index.js",
-    "types": "types/index.d.ts",
+    "types": "index.d.ts",
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git"
@@ -57,7 +57,7 @@
         "prebuild": "rm -rf ./css/es ./css/cjs ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons ./src-rn-build && cp -r ./src ./src-build && cp -r ./src/scalable ./src-rn-build",
         "prebuild:css": "node ./scripts/replaceScToLinaria.mjs",
         "build": "npm run generate:react && npm run build:cjs && npm run build:esm && npm run build:css",
-        "postbuild": "tsc --outDir ./types --emitDeclarationOnly",
+        "postbuild": "tsc --outDir . --emitDeclarationOnly",
         "generate:android": "npm run build:scripts && node ./scripts-build/generateAndroidArchive.js && zip -r ./archives/android-icons.zip android-icons",
         "generate:react": "npm run build:scripts && node ./scripts-build/generateReactComponents.js",
         "generate:react-native": "npm run build:scripts && node ./scripts-build/generateReactNativeComponents.js && rm -rf ./src-rn-build/Icon.svg.* ./src-rn-build/Icon*.tsx",
