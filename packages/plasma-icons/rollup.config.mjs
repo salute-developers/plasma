@@ -47,19 +47,19 @@ export default {
     plugins: [
         linaria({
             sourceMap: process.env.NODE_ENV !== 'production',
-            tagResolver: (source, tag) => {
-                if (tag === 'css') {
-                    // TODO: move to node@20
-                    // return import.meta.resolve('@linaria/core/processors/css');
-                    return require.resolve('@linaria/core/processors/css');
-                }
-
-                if (tag === 'styled') {
-                    return require.resolve('@linaria/react/processors/styled');
-                }
-
-                return null;
-            },
+            // tagResolver: (source, tag) => {
+            //     if (tag === 'css') {
+            //         // TODO: move to node@20
+            //         // return import.meta.resolve('@linaria/core/processors/css');
+            //         return require.resolve('@linaria/core/processors/css');
+            //     }
+            //
+            //     if (tag === 'styled') {
+            //         return require.resolve('@linaria/react/processors/styled');
+            //     }
+            //
+            //     return null;
+            // },
         }),
         nodeResolve({
             extensions: ['.tsx', '.ts'],
