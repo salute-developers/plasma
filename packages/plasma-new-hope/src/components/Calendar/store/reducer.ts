@@ -124,7 +124,7 @@ export const reducer = (state: InitialState, action: Action): InitialState => {
             };
         }
         case ActionType.UPDATE_MONTH: {
-            const { calendarState, monthIndex, size } = action.payload;
+            const { calendarState, monthIndex, year, size } = action.payload;
 
             return {
                 ...state,
@@ -133,7 +133,7 @@ export const reducer = (state: InitialState, action: Action): InitialState => {
                 date: {
                     day: state.date.day,
                     monthIndex,
-                    year: state.date.year,
+                    year,
                 },
             };
         }

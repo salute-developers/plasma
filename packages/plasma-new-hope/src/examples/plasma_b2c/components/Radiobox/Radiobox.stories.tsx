@@ -3,12 +3,10 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { RadioGroup, radioboxConfig } from '../../../../components/Radiobox';
-import { mergeConfig } from '../../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../../_helpers';
+import { RadioGroup } from '../../../../components/Radiobox';
+import { WithTheme } from '../../../_helpers';
 import { Link } from '../Link/Link';
 
-import { config } from './Radiobox.config';
 import { Radiobox } from './Radiobox';
 
 const onChange = action('onChange');
@@ -19,7 +17,20 @@ const meta: Meta<typeof Radiobox> = {
     title: 'b2c/Data Entry/Radiobox',
     decorators: [WithTheme],
     component: Radiobox,
-    argTypes: argTypesFromConfig(mergeConfig(radioboxConfig, config)),
+    argTypes: {
+        view: {
+            options: ['accent'],
+            control: {
+                type: 'radio',
+            },
+        },
+        size: {
+            options: ['m', 's'],
+            control: {
+                type: 'radio',
+            },
+        },
+    },
     args: {
         view: 'accent',
         size: 'm',

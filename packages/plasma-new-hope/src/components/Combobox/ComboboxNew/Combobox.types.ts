@@ -201,6 +201,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     closeAfterSelect?: boolean;
     /**
+     * Обработчик изменения значения в строке поиска.
+     */
+    onChangeValue?: (value: string) => void;
+    /**
      * Ячейка для контента в начале выпадающего списка.
      */
     beforeList?: React.ReactNode;
@@ -208,6 +212,12 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Ячейка для контента в конце выпадающего списка.
      */
     afterList?: React.ReactNode;
+    /**
+     * Виртуализация в выпадающем списке.
+     * Не поддерживается в многоуровневых списках.
+     * @default false
+     */
+    virtual?: boolean;
     /**
      * Размер компонента.
      */

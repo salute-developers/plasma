@@ -16,7 +16,7 @@ const onChoseFiles = action('onChoseFiles');
 const iconPlacements = ['top', 'left'];
 
 const meta: Meta<typeof Dropzone> = {
-    title: 'plasma_web/Dropzone',
+    title: 'web/Data Entry/Dropzone',
     component: Dropzone,
     decorators: [WithTheme],
     argTypes: {

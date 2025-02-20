@@ -8,12 +8,26 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as borderRadiusCSS } from './variations/_borderRadius/base';
 import type { PanelProps } from './Panel.types';
-import { classes } from './Panel.tokens';
+import { classes, privateTokens } from './Panel.tokens';
 import { StyledWrapper } from './Panel.styles';
 
 export const panelRoot = (Root: RootProps<HTMLDivElement, PanelProps>) =>
     forwardRef<HTMLDivElement, PanelProps>(
-        ({ children, view, size, width, height, className, style, ...rest }, outerRef) => {
+        (
+            {
+                children,
+                view,
+                size,
+                width,
+                height,
+                customBackgroundColor,
+                customContentBackgroundColor,
+                className,
+                style,
+                ...rest
+            },
+            outerRef,
+        ) => {
             const innerWidth = width ? getSizeValueFromProp(width) : '100%';
             const innerHeight = height ? getSizeValueFromProp(height) : '100%';
 
@@ -26,13 +40,16 @@ export const panelRoot = (Root: RootProps<HTMLDivElement, PanelProps>) =>
                     style={
                         {
                             ...style,
-                            '--plasma_private-panel-width': innerWidth,
-                            '--plasma_private-panel-height': innerHeight,
+                            [privateTokens.width]: innerWidth,
+                            [privateTokens.height]: innerHeight,
+                            [privateTokens.backgroundColor]: customBackgroundColor,
                         } as CSSProperties
                     }
                     {...rest}
                 >
-                    <StyledWrapper>{children}</StyledWrapper>
+                    <StyledWrapper customContentBackgroundColor={customContentBackgroundColor}>
+                        {children}
+                    </StyledWrapper>
                 </Root>
             );
         },

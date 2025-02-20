@@ -3,20 +3,23 @@ import { cx } from '@linaria/core';
 
 // TODO: #1008 Избавиться от импортов и переделать addFocus
 import 'focus-visible';
-import { getStaticVariants, getDynamicVariants } from './utils';
+import { getStaticVariants, getDynamicVariants, getIntersectionStyles } from './utils';
 import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, name } = componentConfig;
+    const { tag, base, name, intersections } = componentConfig;
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
+
     const Root = tag as React.ElementType;
 
     const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
         const { className, ...rest } = props;
         const variants = dynamicVariants(rest);
-        const cls = cx(className, base as string, ...(staticVariants as string[]), ...variants);
+        const intersectionStyles = getIntersectionStyles(rest, intersections);
+
+        const cls = cx(className, base as string, ...(staticVariants as string[]), ...variants, ...intersectionStyles);
 
         // styled-components do it inside
         // filter props

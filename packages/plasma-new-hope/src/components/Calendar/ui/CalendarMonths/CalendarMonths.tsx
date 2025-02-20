@@ -29,7 +29,18 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
     onKeyDown,
     locale,
 }) => {
-    const [months, selected] = useMonths({ date: currentDate, value, eventList, disabledList, min, max, locale });
+    const minDate = min ? new Date(min.getFullYear(), min.getMonth(), 1) : undefined;
+    const maxDate = max ? new Date(max.getFullYear(), max.getMonth() + 1, 0) : undefined;
+
+    const [months, selected] = useMonths({
+        date: currentDate,
+        value,
+        eventList,
+        disabledList,
+        min: minDate,
+        max: maxDate,
+        locale,
+    });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
 

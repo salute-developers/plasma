@@ -52,7 +52,7 @@ export type UpdateDateAction = { type: ActionType.UPDATE_DATE; payload: { value:
 
 export type UpdateMonthAction = {
     type: ActionType.UPDATE_MONTH;
-    payload: { calendarState: CalendarStateType; monthIndex: number; size: [number, number] };
+    payload: { calendarState: CalendarStateType; monthIndex: number; year: number; size: [number, number] };
 };
 
 export type UpdateYearAction = {

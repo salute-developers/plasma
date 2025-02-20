@@ -31,8 +31,8 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
         (
             {
                 value: externalValue,
-                min,
-                max,
+                min: minDate,
+                max: maxDate,
                 includeEdgeDates,
                 type = 'Days',
                 eventList,
@@ -59,6 +59,9 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
             const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
+
+            const min = minDate && new Date(minDate);
+            const max = maxDate && new Date(maxDate);
 
             const [state, dispatch] = useReducer(reducer, getInitialState(value, min, type, true));
 

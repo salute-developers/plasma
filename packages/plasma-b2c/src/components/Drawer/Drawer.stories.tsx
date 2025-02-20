@@ -85,6 +85,16 @@ export default {
                 type: 'select',
             },
         },
+        customBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
+        customContentBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
     },
 } as Meta;
 

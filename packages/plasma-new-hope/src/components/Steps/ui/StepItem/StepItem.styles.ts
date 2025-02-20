@@ -113,8 +113,9 @@ export const BulletIndicator = styled.button`
     margin: 0;
     border: none;
 
+    cursor: pointer;
     color: var(${tokens.completedIndicatorColor});
-    background-color: var(${tokens.completedIndicatorBackground});
+    background: var(${tokens.completedIndicatorBackground});
 
     font-family: var(${tokens.indicatorFontFamily});
     font-size: var(${tokens.indicatorFontSize});
@@ -252,7 +253,15 @@ export const StepItemStyled = styled.div`
         }
     }
 
+    ${StepItemTitle} {
+        color: var(${tokens.completedTitleColor}, ${tokens.activeTitleColor});
+    }
+
     &.${classes.active} {
+        ${BulletIndicator} {
+            cursor: default;
+        }
+
         ${StepItemTitle} {
             color: var(${tokens.activeTitleColor});
         }
@@ -260,6 +269,7 @@ export const StepItemStyled = styled.div`
 
     &.${classes.inactive} {
         color: var(${tokens.inactiveIndicatorColor});
+
         ${StepItemTitle} {
             color: var(${tokens.inactiveTitleColor});
         }
@@ -376,6 +386,7 @@ export const StepItemStyled = styled.div`
                 width: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
             }
         }
+
         &.${classes.active} {
             ${BulletIndicatorWrapper} {
                 margin-left: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / -2);
@@ -390,6 +401,7 @@ export const StepItemStyled = styled.div`
                 cursor: pointer;
                 color: var(${tokens.activeTitleColorHover});
             }
+
             ${BulletIndicator}, ${Bullet} {
                 color: var(${tokens.completedIndicatorColorHover});
                 background: var(${tokens.completedIndicatorBackgroundHover});
@@ -400,6 +412,7 @@ export const StepItemStyled = styled.div`
             ${StepItemTitle} {
                 color: var(${tokens.inactiveTitleColorHover});
             }
+
             ${BulletIndicator}, ${Bullet} {
                 color: var(${tokens.inactiveIndicatorColorHover});
                 background: var(${tokens.inactiveIndicatorBackgroundHover});
@@ -434,6 +447,7 @@ export const StepItemStyled = styled.div`
     }
 
     &.${classes.disabled} {
+        cursor: default;
         opacity: var(${tokens.disabledOpacity});
     }
 `;

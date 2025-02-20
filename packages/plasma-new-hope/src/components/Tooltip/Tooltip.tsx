@@ -44,7 +44,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 hasArrow = true,
                 arrow,
                 animated,
-                offset = [0, 8],
+                offset = [3, 8],
                 minWidth,
                 maxWidth,
                 placement = 'bottom',

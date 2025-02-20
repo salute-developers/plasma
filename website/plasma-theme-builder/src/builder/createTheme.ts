@@ -13,13 +13,20 @@ import {
     backgroundTokenGetters,
     overlayTokenGetters,
     outlineTokenGetters,
+    dataTokenGetters,
 } from './themeTokenGetters';
 
-import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
+import type {
+    TextIconsTokenName,
+    ControlsSurfacesName,
+    BackgroundName,
+    OverlayName,
+    DataName,
+} from './themeTokenGetters';
 import type { Theme, TokenData } from '../types';
 import { sectionToFormulaMap, getStateToken, getBrightnessTokens } from '../utils';
 
-const getStateTokens = (
+export const getStateTokens = (
     section: string,
     name: string,
     mode: ThemeMode,
@@ -162,6 +169,7 @@ const getThemeModeTokens = <T extends ThemeMode>(config: ThemeConfig, mode: T): 
         background: getTokensBackgroundByGroups<BackgroundName>(backgroundTokenGetters, config, mode, 'background'),
         overlay: getTokensByGroups<OverlayName>(overlayTokenGetters, config, mode, 'overlay'),
         outline: getTokensByGroups<OutlineName>(outlineTokenGetters, config, mode, 'outline'),
+        data: getTokensByGroups<DataName>(dataTokenGetters, config, mode, 'data'),
     };
 };
 

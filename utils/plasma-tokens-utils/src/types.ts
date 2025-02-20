@@ -246,6 +246,8 @@ export type BackgroundName = 'backgroundPrimary' | 'backgroundSecondary' | 'back
 
 export type OverlayName = 'overlaySoft' | 'overlayHard';
 
+export type DataName = 'dataYellow' | 'dataYellowMinor' | 'dataYellowTransparent';
+
 export enum TokenGroup {
     textIcons = 'textIcons',
     text = 'text',
@@ -326,6 +328,7 @@ export interface Theme {
         backgrounds: TokensBackgroundByType<BackgroundName>;
         overlay: TokensByType<OverlayName>;
         outline: TokensByType<OutlineName>;
+        data: TokensByType<DataName>;
     };
     light: {
         textIcons: TokensByType<TextIconsTokenName>;
@@ -333,6 +336,7 @@ export interface Theme {
         backgrounds: TokensBackgroundByType<BackgroundName>;
         overlay: TokensByType<OverlayName>;
         outline: TokensByType<OutlineName>;
+        data: TokensByType<DataName>;
     };
     shadow?: Record<string, string>;
     borderRadius?: Record<string, string>;
@@ -364,6 +368,7 @@ export type ActualTokenNames =
     | BackgroundName
     | OverlayName
     | OutlineName
+    | DataName
     | 'white'
     | 'black'
     | 'clear'

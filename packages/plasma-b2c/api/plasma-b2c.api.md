@@ -1530,12 +1530,12 @@ s: PolymorphicClassName;
 m: PolymorphicClassName;
 };
 view: {
+accent: PolymorphicClassName;
 default: PolymorphicClassName;
 primary: PolymorphicClassName;
 secondary: PolymorphicClassName;
 tertiary: PolymorphicClassName;
 paragraph: PolymorphicClassName;
-accent: PolymorphicClassName;
 positive: PolymorphicClassName;
 warning: PolymorphicClassName;
 negative: PolymorphicClassName;
@@ -1879,6 +1879,8 @@ default: PolymorphicClassName;
 }> & PopupBaseProps & PanelProps & {
 placement?: "top" | "bottom" | "right" | "left" | undefined;
 asModal?: boolean | undefined;
+customBackgroundColor?: string | undefined;
+customContentBackgroundColor?: string | undefined;
 withBlur?: boolean | undefined;
 closeOnEsc?: boolean | undefined;
 closeOnOverlayClick?: boolean | undefined;
@@ -3329,12 +3331,12 @@ s: PolymorphicClassName;
 m: PolymorphicClassName;
 };
 view: {
+accent: PolymorphicClassName;
 default: PolymorphicClassName;
 primary: PolymorphicClassName;
 secondary: PolymorphicClassName;
 tertiary: PolymorphicClassName;
 paragraph: PolymorphicClassName;
-accent: PolymorphicClassName;
 positive: PolymorphicClassName;
 warning: PolymorphicClassName;
 negative: PolymorphicClassName;
@@ -3920,6 +3922,7 @@ xs: PolymorphicClassName;
 s: PolymorphicClassName;
 m: PolymorphicClassName;
 l: PolymorphicClassName;
+xl: PolymorphicClassName;
 };
 view: {
 default: PolymorphicClassName;

@@ -285,7 +285,7 @@ export const config = {
                 ${tokens.chipPadding}: 0 0.75rem 0 1rem;
                 ${tokens.chipClearContentMarginLeft}: 0.625rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
-                ${tokens.chipCloseIconSize}: 1.5rem;
+                ${tokens.chipCloseIconSize}: 1.25rem;
                 ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);

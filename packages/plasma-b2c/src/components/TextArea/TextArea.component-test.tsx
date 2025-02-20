@@ -256,7 +256,7 @@ describe('plasma-b2c: TextArea', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
             { required: true, labelPlacement: 'outer' },
@@ -293,6 +293,8 @@ describe('plasma-b2c: TextArea', () => {
     it('_size :empty', () => {
         mount(
             <CypressTestDecorator>
+                <TextArea size="xl" {...propsDefault} />
+                <SpaceMe />
                 <TextArea size="l" {...propsDefault} />
                 <SpaceMe />
                 <TextArea size="m" {...propsDefault} />
@@ -314,6 +316,8 @@ describe('plasma-b2c: TextArea', () => {
 
         mount(
             <CypressTestDecorator>
+                <TextArea size="xl" {...props} />
+                <SpaceMe />
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -336,6 +340,8 @@ describe('plasma-b2c: TextArea', () => {
 
         mount(
             <CypressTestDecorator>
+                <TextArea size="xl" {...props} />
+                <SpaceMe />
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -350,7 +356,7 @@ describe('plasma-b2c: TextArea', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
             { required: true, labelPlacement: 'outer' },
@@ -405,7 +411,7 @@ describe('plasma-b2c: TextArea', () => {
     });
 
     describe('with hint', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
 

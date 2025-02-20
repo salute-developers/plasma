@@ -102,6 +102,7 @@ export const Item: FC<ItemProps> = ({
                 {multiselect && (
                     <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
                         <StyledCheckbox
+                            disabled={itemDisabled}
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}

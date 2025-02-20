@@ -9,6 +9,8 @@ export const classes = {
 };
 
 export const tokens = {
+    boxShadow: '--plasma-popover-box-shadow',
+
     arrowMaskWidth: '--plasma-popover-arrow-mask-width',
     arrowMaskHeight: '--plasma-popover-arrow-mask-height',
     arrowMaskImage: '--plasma-popover-arrow-mask-image',

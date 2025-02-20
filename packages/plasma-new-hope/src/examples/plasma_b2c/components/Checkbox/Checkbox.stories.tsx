@@ -3,12 +3,9 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { checkboxConfig } from '../../../../components/Checkbox';
-import { mergeConfig } from '../../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../../_helpers';
+import { WithTheme } from '../../../_helpers';
 import { Link } from '../Link/Link';
 
-import { config } from './Checkbox.config';
 import { Checkbox } from './Checkbox';
 
 const onChange = action('onChange');
@@ -19,7 +16,20 @@ const meta: Meta<typeof Checkbox> = {
     title: 'b2c/Data Entry/Checkbox',
     decorators: [WithTheme],
     component: Checkbox,
-    argTypes: argTypesFromConfig(mergeConfig(checkboxConfig, config)),
+    argTypes: {
+        view: {
+            options: ['accent'],
+            control: {
+                type: 'radio',
+            },
+        },
+        size: {
+            options: ['m', 's'],
+            control: {
+                type: 'radio',
+            },
+        },
+    },
     args: {
         view: 'accent',
         size: 'm',

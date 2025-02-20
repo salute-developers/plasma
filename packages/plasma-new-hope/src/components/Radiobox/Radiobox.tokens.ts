@@ -28,7 +28,7 @@ export const tokens = {
     contentLeftOffset: '--plasma-radiobox-content-left-offset',
     triggerSize: '--plasma-radiobox-trigger-size',
     triggerBorderRadius: '--plasma-radiobox-trigger-border-radius',
-    triggerMargin: '--plasma-radiobox-trigger-margin',
+    triggerPadding: '--plasma-radiobox-trigger-padding',
     margin: '--plasma-radiobox-margin',
 
     ellipseSize: '--plasma-radiobox-ellipse-size',

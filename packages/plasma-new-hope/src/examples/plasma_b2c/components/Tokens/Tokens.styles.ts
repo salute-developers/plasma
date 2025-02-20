@@ -15,7 +15,7 @@ export const Category = styled.h2`
 
 export const AccordionInfo = styled.div`
     display: grid;
-    grid-template-columns: 18rem 7.938rem 3.813rem;
+    grid-template-columns: 18rem 7.938rem 2.375rem 3.813rem;
     grid-column-gap: 1.5rem;
 
     font-family: var(--plasma-typo-body-m-font-family);
@@ -101,11 +101,11 @@ export const TokenInfo = styled.div`
         gap: 0.5rem;
     }
 
-    &.opacity {
+    &.no-interaction {
         text-align: right;
     }
 
-    &:not(.opacity):hover {
+    &:not(.no-interaction):hover {
         color: var(--text-paragraph-hover);
 
         ${OpacityPart} {
@@ -113,7 +113,7 @@ export const TokenInfo = styled.div`
         }
     }
 
-    &:not(.opacity):active {
+    &:not(.no-interaction):active {
         color: var(--text-paragraph-active);
 
         ${OpacityPart} {

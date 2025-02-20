@@ -5,6 +5,7 @@ const commonScope = [
     'plasma-tokens-utils',
     'plasma-themes',
     'core-themes',
+    'plasma-colors',
 ];
 
 module.exports = {
@@ -43,6 +44,7 @@ module.exports = {
             'plasma-tokens-utils',
             'plasma-core',
             'plasma-typo',
+            'plasma-colors',
         ],
         required: ['plasma-icons', 'plasma-core'],
         themes: '',

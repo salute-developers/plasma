@@ -1241,6 +1241,50 @@ describe('plasma-b2c: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('disabled item behavior', () => {
+        const items = [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                        disabled: true,
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+        ];
+
+        const Component = () => (
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Combobox id="multiple" multiple label="Список стран" items={items} />
+                </div>
+            </CypressTestDecoratorWithTypo>
+        );
+
+        mount(<Component />);
+
+        cy.get('#multiple').click();
+        cy.get('[id$="brazil"]').click();
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
+    });
+
     it('flow: single uncontrolled', () => {
         cy.viewport(1000, 500);
 

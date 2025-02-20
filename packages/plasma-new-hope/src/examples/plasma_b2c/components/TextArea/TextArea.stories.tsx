@@ -13,7 +13,7 @@ import { config } from './TextArea.config';
 import { TextArea } from './TextArea';
 
 const labelPlacements = ['inner', 'outer'];
-const sizes = ['xs', 's', 'm', 'l'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];

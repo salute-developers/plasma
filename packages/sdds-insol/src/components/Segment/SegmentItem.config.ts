@@ -55,6 +55,22 @@ export const config = {
 
                 ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
             `,
+            accent: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
+                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--inverse-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--inverse-text-secondary);
+
+                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+            `,
         },
         size: {
             xs: css`
@@ -128,6 +144,24 @@ export const config = {
                 ${segmentTokens.fontWeightSelectedItem}: var(--plasma-typo-body-s-bold-font-weight);
                 ${segmentTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${segmentTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+            `,
+            xl: css`
+                ${segmentTokens.itemBorderRadius}: 1rem;
+                ${segmentTokens.itemWidth}: auto;
+                ${segmentTokens.itemHeight}: 4rem;
+                ${segmentTokens.itemPadding}: 1.25rem 1.75rem;
+                ${segmentTokens.itemPilledPadding}: 1.25rem;
+                ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
+                ${segmentTokens.itemIconMargin}: 0.375rem;
+                ${segmentTokens.itemMarginLeft}: 0;
+
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${segmentTokens.fontWeightSelectedItem}: var(--plasma-typo-body-m-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
         disabled: {

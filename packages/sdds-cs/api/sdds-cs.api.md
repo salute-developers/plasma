@@ -1466,6 +1466,8 @@ default: PolymorphicClassName;
 }> & PopupProps & PanelProps & {
 placement?: "top" | "bottom" | "right" | "left" | undefined;
 asModal?: boolean | undefined;
+customBackgroundColor?: string | undefined;
+customContentBackgroundColor?: string | undefined;
 withBlur?: boolean | undefined;
 closeOnEsc?: boolean | undefined;
 closeOnOverlayClick?: boolean | undefined;
