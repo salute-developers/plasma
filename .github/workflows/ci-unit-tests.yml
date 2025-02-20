@@ -27,13 +27,6 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
-      - name: Install PLASMA-ICONS
-        run: npm ci --prefix="./packages/plasma-icons" --loglevel verbose
-
-      - name: Lerna bootstrap TEST
-        run: npx lerna run prepare --scope=@salutejs/plasma-icons --stream
-#        run: npx lerna exec --scope=@salutejs/plasma-icons -- npm run prepare --stream
-
       - name: Lerna bootstrap
         run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
 

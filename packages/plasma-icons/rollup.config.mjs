@@ -1,5 +1,4 @@
 import path from 'path';
-import { createRequire } from 'module';
 import { createFilter } from '@rollup/pluginutils';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
@@ -9,7 +8,6 @@ import { babel } from '@rollup/plugin-babel';
 import styles from '@ironkinoko/rollup-plugin-styles';
 
 const inputDir = 'src-build';
-const require = createRequire(import.meta.url);
 
 export default {
     input: path.join(inputDir, 'index.ts'),
@@ -47,19 +45,6 @@ export default {
     plugins: [
         linaria({
             sourceMap: process.env.NODE_ENV !== 'production',
-            // tagResolver: (source, tag) => {
-            //     if (tag === 'css') {
-            //         // TODO: move to node@20
-            //         // return import.meta.resolve('@linaria/core/processors/css');
-            //         return require.resolve('@linaria/core/processors/css');
-            //     }
-            //
-            //     if (tag === 'styled') {
-            //         return require.resolve('@linaria/react/processors/styled');
-            //     }
-            //
-            //     return null;
-            // },
         }),
         nodeResolve({
             extensions: ['.tsx', '.ts'],
