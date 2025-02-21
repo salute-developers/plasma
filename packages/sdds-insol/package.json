@@ -98,7 +98,7 @@
     "prepare": "npm run build",
     "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map && npm run prebuild:emotion && npm run prebuild:css",
     "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && npm run build:replace-st-emotion",
-    "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
+    "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh --verbose",
     "build": "npm run build:styled-components && npm run build:emotion && npm run build:css",
     "build:replace-st-emotion": "./scripts/replace-st_emotion.sh",
     "postbuild": "npm run generate:typings",
