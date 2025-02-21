@@ -32,11 +32,11 @@ export const CloseIconWrapper = styled(Button)`
     }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ backgroundColor?: string }>`
     position: relative;
     box-sizing: border-box;
 
-    background: var(${tokens.background});
+    background: ${({ backgroundColor }) => backgroundColor || `var(${tokens.background})`};
     border-radius: var(${tokens.borderRadius});
     border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
 

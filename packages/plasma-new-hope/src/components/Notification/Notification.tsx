@@ -43,6 +43,7 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             closeIconType,
             textColor,
             titleColor,
+            backgroundColor,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -75,7 +76,10 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                 aria-atomic={ariaAtomic}
                 {...rest}
             >
-                <Wrapper className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass, withoutCloseIconClass)}>
+                <Wrapper
+                    backgroundColor={backgroundColor}
+                    className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass, withoutCloseIconClass)}
+                >
                     <ContentBox
                         iconPlacement={IconPlacementInternal}
                         className={cx(classes.contentBox, getLayoutClass(layout), withoutIconClass)}
