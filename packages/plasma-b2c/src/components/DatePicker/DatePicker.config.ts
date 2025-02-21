@@ -61,8 +61,10 @@ export const config = {
                 ${tokens.calendarRangeBackground}: var(--surface-transparent-secondary);
                 ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${tokens.calendarContentPrimaryColor}: var(--surface-solid-default);
+                ${tokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
+                ${tokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
 
                 ${tokens.iconButtonColor}: var(--text-primary);
                 ${tokens.iconButtonBackgroundColor}: var(--surface-clear);
