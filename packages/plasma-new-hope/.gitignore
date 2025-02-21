@@ -16,7 +16,6 @@ emotion/*
 !emotion/package.json
 
 node_modules
-.swc
 
 # os files
 .DS_Store
