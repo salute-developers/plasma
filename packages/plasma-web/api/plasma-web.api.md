@@ -3070,6 +3070,10 @@ export { noteTokens }
 const Notification_2: React_2.FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+negative: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+info: PolymorphicClassName;
 };
 layout: {
 horizontal: PolymorphicClassName;

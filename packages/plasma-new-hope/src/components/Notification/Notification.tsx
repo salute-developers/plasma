@@ -41,6 +41,9 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             layout = layouts.vertical as NotificationLayout,
             icon,
             closeIconType,
+            textColor,
+            titleColor,
+            backgroundColor,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -73,7 +76,10 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                 aria-atomic={ariaAtomic}
                 {...rest}
             >
-                <Wrapper className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass, withoutCloseIconClass)}>
+                <Wrapper
+                    backgroundColor={backgroundColor}
+                    className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass, withoutCloseIconClass)}
+                >
                     <ContentBox
                         iconPlacement={IconPlacementInternal}
                         className={cx(classes.contentBox, getLayoutClass(layout), withoutIconClass)}
@@ -91,8 +97,16 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                             showCloseIcon={showCloseIcon}
                             className={cx(classes.textbox, getLayoutClass(layout))}
                         >
-                            {title && <StyledTitle className={classes.title}>{title}</StyledTitle>}
-                            {content && <StyledContent className={classes.text}>{content}</StyledContent>}
+                            {title && (
+                                <StyledTitle className={classes.title} textColor={titleColor}>
+                                    {title}
+                                </StyledTitle>
+                            )}
+                            {content && (
+                                <StyledContent className={classes.text} textColor={textColor}>
+                                    {content}
+                                </StyledContent>
+                            )}
                         </TextBox>
                     </ContentBox>
                     {actions && (

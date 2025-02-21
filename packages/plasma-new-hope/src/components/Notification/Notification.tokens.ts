@@ -56,6 +56,7 @@ export const tokens = {
     buttonsMarginTop: '--plasma-notification-buttons-margin-top',
     buttonsMarginLeft: '--plasma-notification-buttons-margin-left',
 
+    contentLeftIconColor: '--plasma-notification-content-left-icon-color',
     contentLeftIconSize: '--plasma-notification-content-left-icon-size',
     contentLeftIconMargin: '--plasma-notification-content-left-icon-margin',
     contentTopIconMargin: '--plasma-notification-content-top-icon-margin',

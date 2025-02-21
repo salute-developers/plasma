@@ -88,6 +88,18 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * @description Только для применения в рамках SSR.
      */
     UNSAFE_SSR_ENABLED?: boolean;
+    /**
+     * Цвет текста (по умолчанию берётся цвет из view)
+     */
+    textColor?: string;
+    /**
+     * Цвет заголовка (по умолчанию берётся цвет из view)
+     */
+    titleColor?: string;
+    /**
+     * Цвет заголовка (по умолчанию берётся цвет из view)
+     */
+    backgroundColor?: string;
 }
 
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
