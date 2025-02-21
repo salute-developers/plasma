@@ -96,6 +96,10 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * Цвет заголовка (по умолчанию берётся цвет из view)
      */
     titleColor?: string;
+    /**
+     * Цвет заголовка (по умолчанию берётся цвет из view)
+     */
+    backgroundColor?: string;
 }
 
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
