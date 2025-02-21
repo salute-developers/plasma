@@ -60,6 +60,7 @@ interface StoryDefaultProps {
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
     view: 'default';
+    iconColor?: string;
 }
 
 const StoryDefault = ({
@@ -69,13 +70,14 @@ const StoryDefault = ({
     size,
     layout,
     showLeftIcon,
+    iconColor,
     view,
     ...rest
 }: StoryDefaultProps) => {
     return (
         <Notification
             title={title}
-            icon={showLeftIcon ? <IconDisclosureRight color="inherit" /> : ''}
+            icon={showLeftIcon ? <IconDisclosureRight color={iconColor || 'inherit'} /> : ''}
             iconPlacement={iconPlacement}
             view={view}
             actions={
@@ -130,6 +132,12 @@ export const Default: StoryObj<StoryDefaultProps> = {
             control: 'color',
         },
         titleColor: {
+            control: 'color',
+        },
+        iconColor: {
+            control: 'color',
+        },
+        backgroundColor: {
             control: 'color',
         },
     },

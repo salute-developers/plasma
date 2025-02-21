@@ -49,6 +49,7 @@ export default meta;
 interface StoryDefaultProps {
     title: string;
     children: string;
+    iconColor?: string;
     showCloseIcon: boolean;
     showLeftIcon: boolean;
     layout: NotificationLayout;
@@ -62,11 +63,20 @@ const ButtonsWrapper = styled.div`
     gap: 6px;
 `;
 
-const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIcon, ...rest }: StoryDefaultProps) => {
+const StoryDefault = ({
+    title,
+    children,
+    iconPlacement,
+    size,
+    layout,
+    showLeftIcon,
+    iconColor,
+    ...rest
+}: StoryDefaultProps) => {
     return (
         <Notification
             title={title}
-            icon={showLeftIcon ? <IconDisclosureRight color="inherit" /> : ''}
+            icon={showLeftIcon ? <IconDisclosureRight color={iconColor || 'inherit'} /> : ''}
             iconPlacement={iconPlacement}
             actions={
                 <ButtonsWrapper>
@@ -121,6 +131,12 @@ export const Default: StoryObj<StoryDefaultProps> = {
             control: 'color',
         },
         titleColor: {
+            control: 'color',
+        },
+        iconColor: {
+            control: 'color',
+        },
+        backgroundColor: {
             control: 'color',
         },
     },
