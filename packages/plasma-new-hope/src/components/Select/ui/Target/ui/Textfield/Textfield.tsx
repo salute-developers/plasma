@@ -25,6 +25,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             treeId,
             activeDescendantItemValue,
             disabled,
+            readOnly,
             isTargetAmount,
             valueToItemMap,
             renderValue,
@@ -109,7 +110,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
                 contentRight={
-                    <IconArrowWrapper disabled={Boolean(disabled)}>
+                    <IconArrowWrapper disabled={Boolean(disabled || readOnly)}>
                         <StyledArrow color="inherit" size={sizeToIconSize(size)} className={withArrowInverse} />
                     </IconArrowWrapper>
                 }
