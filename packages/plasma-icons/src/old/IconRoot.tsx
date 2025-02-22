@@ -29,13 +29,13 @@ const StyledRoot = styled.div<{ w: string }>`
     `}
 `;
 
-export const IconRoot: React.FC<IconRootProps> = ({ icon: IconComponent, size, color, className }) => {
+export const IconRoot: React.FC<IconRootProps> = ({ icon: IconComponent, size, color, className, ...rest }) => {
     const c = color || 'var(--plasma-colors-primary)';
 
     const w = `${sizeMap[size]}rem`;
 
     return (
-        <StyledRoot aria-hidden w={w} className={className}>
+        <StyledRoot aria-hidden w={w} className={className} {...rest}>
             <IconComponent color={c} size={size} />
         </StyledRoot>
     );

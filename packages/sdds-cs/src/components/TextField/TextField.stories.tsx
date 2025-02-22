@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import type { ComponentProps } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconPlasma } from '@salutejs/plasma-icons';
+import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
+import { IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { TextField } from '.';
 
@@ -15,6 +16,20 @@ const onSearch = action('onSearch');
 const sizes = ['s'];
 const views = ['default', 'negative'];
 const labelPlacements = ['outer'];
+
+const StyledIconLockOutline = styled(IconLockOutline)`
+    opacity: 0.4;
+`;
+
+const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+
+    if (readOnly) {
+        return <StyledIconLockOutline size={iconSize} color="var(--text-secondary)" />;
+    }
+
+    return <IconComponent size={iconSize} color="inherit" />;
+};
 
 const meta: Meta<typeof TextField> = {
     title: 'Data Entry/TextField',
@@ -31,24 +46,38 @@ const meta: Meta<typeof TextField> = {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'optional', truthy: false },
+            if: {
+                arg: 'optional',
+                truthy: false,
+            },
         },
         optional: {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'required', truthy: false },
+            if: {
+                arg: 'required',
+                truthy: false,
+            },
         },
         hasDivider: {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'clear', truthy: true },
+            if: {
+                arg: 'clear',
+                truthy: true,
+            },
         },
         view: {
             options: views,
             control: {
                 type: 'select',
+            },
+        },
+        maxLength: {
+            control: {
+                type: 'number',
             },
         },
         labelPlacement: {
@@ -61,7 +90,10 @@ const meta: Meta<typeof TextField> = {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'labelPlacement', eq: 'inner' },
+            if: {
+                arg: 'labelPlacement',
+                eq: 'inner',
+            },
         },
         size: {
             options: sizes,
@@ -69,9 +101,11 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
-        chipType: {
-            control: 'select',
-            options: ['default', 'text'],
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
         },
         ...disableProps([
             'contentLeft',
@@ -133,20 +167,33 @@ type StoryPropsDefault = Omit<
     | 'chips'
     | 'onChangeChips'
 > & {
+    hasHint: boolean;
     enableContentLeft: boolean;
     enableContentRight: boolean;
 };
 
-const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsDefault) => {
+const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
+    const contentRight = enableContentRight || readOnly ? getIcon(IconPlasma, rest.size, readOnly) : undefined;
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '2rem',
+                width: '70%',
+                margin: '0 auto',
+            }}
+        >
             <TextField
                 {...rest}
+                enumerationType="plain"
                 value={text}
-                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
-                contentRight={enableContentRight ? <IconPlasma size="s" color="inherit" /> : undefined}
+                readOnly={readOnly}
+                contentLeft={enableContentLeft ? getIcon(IconPlasma, rest.size) : undefined}
+                contentRight={contentRight}
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -161,13 +208,11 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
                 {...rest}
                 label="Uncontrolled TextField"
                 defaultValue="Дефолтное значение"
-                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
-                contentRight={enableContentRight ? <IconPlasma size="s" color="inherit" /> : undefined}
+                enumerationType="plain"
+                contentLeft={enableContentLeft ? getIcon(IconPlasma, rest.size) : undefined}
+                contentRight={contentRight}
                 view={view}
-                onChange={(e) => {
-                    setText(e.target.value);
-                    onChange(e.target.value);
-                }}
+                readOnly={readOnly}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onSearch={onSearch}
@@ -184,16 +229,18 @@ export const Default: StoryObj<StoryPropsDefault> = {
         label: 'Лейбл',
         labelPlacement: 'outer',
         keepPlaceholder: false,
-        placeholder: 'Заполните поле',
         titleCaption: 'Подпись к полю',
+        textBefore: '',
+        textAfter: '',
+        placeholder: 'Заполните поле',
         leftHelper: 'Подсказка к полю',
         disabled: false,
         readOnly: false,
-        required: false,
-        requiredPlacement: 'right',
-        optional: false,
         enableContentLeft: true,
         enableContentRight: true,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
         clear: false,
         hasDivider: false,
     },

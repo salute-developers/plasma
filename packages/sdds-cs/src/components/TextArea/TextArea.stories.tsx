@@ -2,12 +2,27 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import styled from 'styled-components';
+import { IconBell, IconLockOutline } from '@salutejs/plasma-icons';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { TextArea } from './TextArea';
 
-const placements = ['inner', 'outer'];
+const labelPlacements = ['inner', 'outer'];
+
+const StyledIconLockOutline = styled(IconLockOutline)`
+    opacity: 0.4;
+`;
+
+const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+
+    if (readOnly) {
+        return <StyledIconLockOutline size={iconSize} color="var(--text-secondary)" />;
+    }
+
+    return <IconComponent size={iconSize} color="inherit" />;
+};
 
 type StoryTextAreaPropsCustom = {
     hasHint?: boolean;
@@ -31,13 +46,19 @@ const meta: Meta<StoryTextAreaProps> = {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'optional', truthy: false },
+            if: {
+                arg: 'optional',
+                truthy: false,
+            },
         },
         optional: {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'required', truthy: false },
+            if: {
+                arg: 'required',
+                truthy: false,
+            },
         },
         clear: {
             control: {
@@ -45,7 +66,7 @@ const meta: Meta<StoryTextAreaProps> = {
             },
         },
         labelPlacement: {
-            options: ['inner', 'outer'],
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -54,19 +75,28 @@ const meta: Meta<StoryTextAreaProps> = {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'clear', truthy: true },
+            if: {
+                arg: 'clear',
+                truthy: true,
+            },
         },
         cols: {
             control: {
                 type: 'number',
             },
-            if: { arg: 'clear', truthy: false },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
         },
         rows: {
             control: {
                 type: 'number',
             },
-            if: { arg: 'clear', truthy: false },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
         },
         helperText: {
             control: { type: 'text' },
@@ -87,7 +117,9 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
         },
         ...disableProps([
+            'size',
             'helperBlock',
+            'helperText',
             '$isFocused',
             'contentRight',
             'autoComplete',
@@ -105,6 +137,7 @@ const meta: Meta<StoryTextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
+            'leftHelperPlacement',
             'status',
             'resize',
             'height',
@@ -122,16 +155,19 @@ const meta: Meta<StoryTextAreaProps> = {
             'hintOffset',
             'hintWidth',
             'hintContentLeft',
+            'hintView',
+            'hintOpened',
         ]),
     },
     args: {
         id: 'example-textarea',
+        view: 'default',
+        size: 's',
         enableContentRight: true,
-        enableContentLeft: true,
         label: 'Лейбл',
-        titleCaption: 'Подпись к полю',
+        labelPlacement: 'outer',
         placeholder: 'Заполните многострочное поле',
-        leftHelperPlacement: 'outer',
+        titleCaption: 'Подпись к полю',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
         disabled: false,
@@ -139,11 +175,9 @@ const meta: Meta<StoryTextAreaProps> = {
         autoResize: false,
         minAuto: 0,
         maxAuto: 0,
+        optional: false,
         required: false,
         requiredPlacement: 'right',
-        size: 's',
-        optional: false,
-        labelPlacement: 'outer',
         clear: false,
         hasDivider: false,
     },
@@ -158,18 +192,22 @@ const onBlur = action('onBlur');
 const StoryDefault = (props: StoryTextAreaProps) => {
     const [value, setValue] = useState('Значение поля');
 
-    const iconSize = props.size === 'xs' ? 'xs' : 's';
-
     return (
         <TextArea
             value={value}
-            contentRight={props.enableContentRight ? <IconPlasma size={iconSize} color="inherit" /> : undefined}
+            contentRight={
+                props.enableContentRight || props.readOnly ? getIcon(IconBell, props.size, props.readOnly) : undefined
+            }
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            style={{
+                width: '70%',
+                margin: '0 auto',
+            }}
             {...props}
         />
     );

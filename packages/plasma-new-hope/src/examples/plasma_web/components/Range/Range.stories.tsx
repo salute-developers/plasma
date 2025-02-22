@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ComponentProps, Dispatch, SetStateAction, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
+import { disableProps, IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { IconChevronLeft } from '../../../../components/_Icon';
@@ -45,7 +45,10 @@ const meta: Meta<typeof Range> = {
             control: {
                 type: 'select',
             },
-            if: { arg: 'required', truthy: true },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
         },
         ...disableProps(['view']),
     },
@@ -76,10 +79,14 @@ const getSizeForIcon = (size) => {
     return size;
 };
 
-const ActionButton = ({ size }) => {
+const ActionButton = ({ size, readOnly }) => {
     return (
-        <IconButton view="clear" size={size}>
-            <IconChevronLeft size={getSizeForIcon(size)} />
+        <IconButton view="clear" size={size} disabled={readOnly}>
+            <IconChevronLeft
+                color={readOnly ? 'var(--text-secondary)' : 'inherit'}
+                size={getSizeForIcon(size)}
+                style={{ transform: 'rotate(180deg)' }}
+            />
         </IconButton>
     );
 };
@@ -115,7 +122,7 @@ const StoryDefault = ({
             firstValue={firstValue}
             secondValue={secondValue}
             contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
+            contentRight={enableContentRight ? <ActionButton size={size} readOnly={rest.readOnly} /> : undefined}
             firstTextfieldContentLeft={
                 enableFirstTextfieldContentLeft ? <IconPlaceholder size={iconSize} /> : undefined
             }
@@ -266,7 +273,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, size, ...rest }: Sto
             firstValueSuccess={firstValueSuccess}
             secondValueSuccess={secondValueSuccess}
             contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
+            contentRight={enableContentRight ? <ActionButton size={size} readOnly={rest.readOnly} /> : undefined}
             onChangeFirstValue={(e) => {
                 handleChangeValue(
                     e,

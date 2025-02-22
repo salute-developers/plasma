@@ -272,8 +272,10 @@ export const config = {
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
+                ${tokens.dividerOpacityReadOnly}: 0.4;
+                ${tokens.rightContentOpacityReadOnly}: 0.4;
 
-                ${tokens.textFieldColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
             `,
