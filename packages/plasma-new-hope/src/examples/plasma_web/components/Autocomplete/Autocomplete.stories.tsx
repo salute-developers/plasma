@@ -1,15 +1,15 @@
 import type { ComponentProps } from 'react';
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
+import { IconPlaceholder, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import type { PopoverPlacement } from '../../../../components/Popover';
 
 import { Autocomplete } from './Autocomplete';
+import { config } from './Autocomplete.config';
 
-const sizes = ['l', 'm', 's', 'xs'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const { views, sizes } = getConfigVariations(config);
 const labelPlacements = ['outer', 'inner'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
