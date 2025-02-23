@@ -84,29 +84,63 @@ describe('plasma-web: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Clicking on arrows scrolls to previous or next tab', () => {
+    it('horizontal: clicking on arrows scrolls to prev/next tab', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Tabs size="m" style={{ width: '10.5rem' }}>
+            <CypressTestDecorator>
+                <Tabs clip="scroll" size="m" style={{ width: '10.5rem' }}>
                     {items.map((item, i) => (
                         <TabItem pilled key={i} selected={i === 1}>
                             {item.label}
                         </TabItem>
                     ))}
                 </Tabs>
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
-        cy.get('button').contains('Athena').should('not.be.visible');
-        cy.get('[aria-label="Следующий таб"]').click();
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(1000);
+        cy.get('button').contains('Joy').should('not.be.visible');
         cy.get('button').contains('Athena').should('be.visible');
 
         cy.get('[aria-label="Предыдущий таб"]').click();
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(1000);
         cy.get('button').contains('Sber').should('be.visible');
+        cy.get('button').contains('Joy').should('be.visible');
+
+        cy.get('[aria-label="Следующий таб"]').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(1000);
+        cy.get('button').contains('Joy').should('not.be.visible');
+    });
+
+    it('vertical: clicking on arrows scrolls to prev/next tab', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs clip="scroll" orientation="vertical" size="m" style={{ height: '9rem' }}>
+                    {items.map((item, i) => (
+                        <TabItem orientation="vertical" pilled key={i} selected={i === 1}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(1000);
+        cy.get('button').contains('Joy').should('not.be.visible');
+        cy.get('button').contains('Athena').should('be.visible');
+
+        cy.get('[aria-label="Предыдущий таб"]').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(1000);
+        cy.get('button').contains('Sber').should('be.visible');
+        cy.get('button').contains('Joy').should('be.visible');
+
+        cy.get('[aria-label="Следующий таб"]').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(1000);
         cy.get('button').contains('Joy').should('not.be.visible');
     });
 
