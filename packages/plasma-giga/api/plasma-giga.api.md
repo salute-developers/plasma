@@ -1661,6 +1661,7 @@ default: PolymorphicClassName;
     onHover?: ((index: number) => void) | undefined;
     onItemSelect?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
     trigger?: DropdownTrigger | undefined;
+    openByRightClick?: boolean | undefined;
     placement?: DropdownPlacement | undefined;
     offset?: [number, number] | undefined;
     listWidth?: Property.Width<string | number> | undefined;
