@@ -56,7 +56,7 @@ export const usePopoverOffset = ({ handleRef, placement, offsetOuter }: UsePopov
         }
 
         setOffset([offsetX, offsetY]);
-    }, [handleRef, placement, offsetOuter]);
+    }, [handleRef, placement, offsetOuter[0], offsetOuter[1]]);
 
     return offset;
 };
