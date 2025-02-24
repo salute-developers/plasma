@@ -1,7 +1,6 @@
 ---
 id: next
 title: Работа с Next
-sidebar_position: 1
 ---
 
 Подключение библиотеки и ее компонентов не отличается от стандартного варианта, за исключением некоторых нюансов, о которых ниже.
@@ -26,7 +25,7 @@ sidebar_position: 1
     Прежде всего убедитесь, что у вас правильно настроена работа со Styled Components. Для справки: официальный [пример](https://github.com/vercel/next.js/tree/main/examples/with-styled-components) работающей реализации.
 </blockquote>
 
-```jsx
+```tsx
 import type { AppProps } from "next/app";
 import { plasma_giga__light } from '@salutejs/plasma-themes';
 import { createGlobalStyle } from "styled-components";
@@ -46,7 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ### Импорт CSS
 
-```jsx
+```tsx
 import type { AppProps } from "next/app";
 import '@salutejs/plasma-themes/css/plasma_giga__dark.css';
 
@@ -101,7 +100,9 @@ const nextConfig = {
   transpilePackages: ['@salutejs/plasma-giga', '@salutejs/plasma-new-hope']
 };
 ````
+
 И далее уже можно подключать наши компоненты:
+
 ```jsx
 import React from 'react';
 import { Button } from '@salutejs/plasma-giga'
