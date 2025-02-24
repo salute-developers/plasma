@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import type { FC } from 'react';
 
 import { SegmentContextType, SegmentProviderProps, SegmentSelectionMode } from './SegmentProvider.types';
@@ -18,24 +18,26 @@ export const useSegment = () => {
     return { selectedSegmentItems };
 };
 
-export const SegmentProvider: FC<SegmentProviderProps> = ({ children, defaultSelected }) => {
+export const SegmentProvider: FC<SegmentProviderProps> = ({ children, defaultSelected, singleSelectedRequired }) => {
     const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>(defaultSelected || []);
     const [selectionMode, setSelectionMode] = useState<SegmentSelectionMode>('single');
     const [disabledGroup, setDisabledGroup] = useState(false);
 
-    const handleSelect = useCallback(
-        (label: string) => {
-            if (selectionMode !== 'multiple') {
-                setSelectedSegmentItems((prevSelected) => (prevSelected.includes(label) ? [] : [label]));
-                return;
-            }
-
+    const handleSelect = (label: string) => {
+        if (selectionMode !== 'multiple') {
             setSelectedSegmentItems((prevSelected) =>
-                prevSelected.includes(label) ? prevSelected.filter((item) => item !== label) : [...prevSelected, label],
+                prevSelected.includes(label) && !singleSelectedRequired ? [] : [label],
             );
-        },
-        [selectionMode, setSelectedSegmentItems],
-    );
+
+            return;
+        }
+
+        setSelectedSegmentItems((prevSelected) =>
+            prevSelected.includes(label) && !singleSelectedRequired && prevSelected.length !== 1
+                ? prevSelected.filter((item) => item !== label)
+                : [...prevSelected, label],
+        );
+    };
 
     const contextValue: SegmentContextType = {
         selectedSegmentItems,
