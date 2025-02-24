@@ -13,7 +13,7 @@ import { SegmentProvider } from '.';
 const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'text', 'counter', 'icon'];
 
-const segmentItemViews = ['default', 'secondary'];
+const segmentItemViews = ['clear', 'default', 'secondary', 'accent'];
 type Size = typeof sizes[number];
 
 type CustomStoryProps = {
