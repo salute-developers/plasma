@@ -453,11 +453,11 @@ describe('plasma-b2c: Autocomplete', () => {
 
         cy.get('input').click();
         cy.focused().type('ал');
-        cy.get('.popover-root').should('not.be.visible');
+        cy.get('ul[role="listbox"]').should('not.exist');
         cy.realPress('Tab');
         cy.get('input').click();
         cy.focused().type('е');
-        cy.get('.popover-root').should('be.visible');
+        cy.get('ul[role="listbox"]').should('be.visible');
     });
 
     it('prop: portal', () => {
@@ -467,8 +467,11 @@ describe('plasma-b2c: Autocomplete', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.get('input').click();
+        cy.focused().type('алек');
+
         // Проверяем, что Popover лежит выше в DOM, чем без portal
-        cy.get('[id=parentId] > div').eq(1).find('div').and('have.class', 'popover-root');
+        cy.get('[id=parentId] > div').eq(1).and('have.attr', 'data-floating-ui-portal');
     });
 
     it('prop: required, requiredPlacement', () => {
@@ -599,7 +602,7 @@ describe('plasma-b2c: Autocomplete', () => {
         cy.get('input').click();
         cy.realPress('ArrowDown');
         cy.realPress('Enter');
-        cy.get('ul').should('not.be.visible');
+        cy.get('ul').should('not.exist');
         cy.get('input').should('have.value', 'Алексей Смирнов');
 
         // Tab
