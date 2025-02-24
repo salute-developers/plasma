@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from 'react';
+import React, { InputHTMLAttributes, ReactNode } from 'react';
 
 import { DistributiveOmit } from '../../types';
 import { TextFieldPropsBase } from '../TextField/TextField.types';
@@ -107,3 +107,12 @@ export type AutocompleteProps = BaseProps &
         'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
     > &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
+
+export type FloatingPopoverProps = {
+    target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
+    children: React.ReactNode;
+    opened: boolean;
+    portal?: BaseProps['portal'];
+    listWidth?: BaseProps['listWidth'];
+    offset?: number;
+};
