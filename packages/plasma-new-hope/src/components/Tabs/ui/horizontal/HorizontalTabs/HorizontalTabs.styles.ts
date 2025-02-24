@@ -33,8 +33,6 @@ export const StyledContentWrapper = styled.div`
 
     &.${classes.tabsClipScroll} {
         overflow: scroll;
-        scroll-padding: 0.25rem;
-        overscroll-behavior: contain;
 
         scrollbar-width: none;
         ::-webkit-scrollbar {

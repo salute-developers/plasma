@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useContext, useEffect, useCallback } from 'react';
+import React, { forwardRef, useRef, useContext, useEffect, useCallback, useLayoutEffect } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../../../engines';
@@ -54,6 +54,21 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             return () => refs.unregister(innerRef);
         }, [refs]);
 
+        useLayoutEffect(() => {
+            if (!selected || !innerRef.current) {
+                return;
+            }
+
+            const scrollEl = innerRef.current.parentElement?.parentElement;
+            if (!scrollEl) {
+                return;
+            }
+
+            scrollEl.scrollTo({
+                top: innerRef.current.offsetTop,
+            });
+        }, [selected]);
+
         const onItemFocus = useCallback<React.FocusEventHandler>(
             (event) => {
                 if (disabled) {
@@ -86,8 +101,6 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
         );
 
         const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-            event.currentTarget.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-
             if (!onClick) {
                 return;
             }
