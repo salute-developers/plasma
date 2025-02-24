@@ -3603,6 +3603,7 @@ view: {
 clear: PolymorphicClassName;
 secondary: PolymorphicClassName;
 default: PolymorphicClassName;
+accent: PolymorphicClassName;
 };
 size: {
 xs: PolymorphicClassName;
