@@ -62,12 +62,12 @@ export const config = {
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
-                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedColor}: var(--on-dark-text-primary);
                 ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
-                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary-hover);
+                ${segmentTokens.itemSelectedColorHover}: var(--on-dark-text-primary-hover);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
-                ${segmentTokens.itemSelectedAdditionalColor}: var(--inverse-text-secondary);
-                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--inverse-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--on-dark-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--on-dark-text-secondary);
 
                 ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
             `,
