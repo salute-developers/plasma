@@ -55,6 +55,22 @@ export const config = {
 
                 ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
             `,
+            accent: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
+                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--inverse-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--inverse-text-secondary);
+
+                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+            `,
         },
         size: {
             xs: css`

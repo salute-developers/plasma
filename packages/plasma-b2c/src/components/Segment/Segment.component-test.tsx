@@ -61,11 +61,12 @@ describe('plasma-web: Segment', () => {
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
-                <SegmentProvider>
-                    <SegmentGroup view="filled" clip>
+                <SegmentProvider defaultSelected={['segment_1', 'segment_2', 'segment_3', 'segment_4']}>
+                    <SegmentGroup view="filled" selectionMode="multiple" clip>
                         <SegmentItem value="segment_1" label="Segment 1" view="default" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="accent" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="secondary" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="clear" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecoratorWithTypo>,
