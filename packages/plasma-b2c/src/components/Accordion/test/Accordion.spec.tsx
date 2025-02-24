@@ -13,11 +13,9 @@ const body =
 test.describe('Accordion', () => {
     test('simple', async ({ mount }) => {
         const component = await mount(
-            <PlaywrightTestDecorator>
-                <Accordion>
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                </Accordion>
-            </PlaywrightTestDecorator>,
+            <Accordion>
+                <AccordionItem title={title}>{body}</AccordionItem>
+            </Accordion>,
         );
 
         await expect(component).toHaveScreenshot();
@@ -25,12 +23,10 @@ test.describe('Accordion', () => {
 
     test('_view:clear', async ({ mount }) => {
         const component = await mount(
-            <PlaywrightTestDecorator>
-                <Accordion view="clear">
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                </Accordion>
-            </PlaywrightTestDecorator>,
+            <Accordion view="clear">
+                <AccordionItem title={title}>{body}</AccordionItem>
+                <AccordionItem title={title}>{body}</AccordionItem>
+            </Accordion>,
         );
 
         await expect(component).toHaveScreenshot();

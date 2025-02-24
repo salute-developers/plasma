@@ -7,7 +7,7 @@ const newHopePath = path.resolve(packagesPath, 'plasma-new-hope', 'src', 'compon
 const getPackageTestsPath = (packageName: string) => path.resolve(packagesPath, packageName, 'src', 'components');
 const resolveInsidePackage = (packageName: string, libName: string) =>
     path.resolve(packagesPath, packageName, 'node_modules', libName);
-const resolveComponentExport = (packageName: string) => path.resolve(packagesPath, packageName);
+const resolveComponentExport = (packageName: string) => path.resolve(packagesPath, packageName, 'css', 'es', 'index');
 
 const { PACKAGE: packageName, COMPONENTS: components } = process.env;
 
@@ -78,7 +78,8 @@ export default defineConfig({
                         packageName,
                         '@salutejs/plasma-playwright-utils',
                     ),
-                    './component.export': resolveComponentExport(packageName),
+                    // '@salutejs/plasma-new-hope/styled-components': resolveComponentExport(packageName),
+                    // './component.export': resolveComponentExport(packageName),
                 },
             },
             define: {
@@ -88,7 +89,7 @@ export default defineConfig({
             //     {
             //         name: 'rewrite-imports',
             //         resolveId(source, importer) {
-            //             if (source === '..') {
+            //             if (source === './component.extort.ts') {
             //                 console.log('*****', source, importer);
             //                 return resolveComponentExport(packageName);
             //             }

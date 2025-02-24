@@ -1,1 +1,1 @@
-export { Accordion, AccordionItem } from '..';
+export { Accordion, AccordionItem } from '../../../../css/es/index';

@@ -1,9 +1,12 @@
 {
     "compilerOptions": {
         "target": "ES5",
-        "module": "CommonJS",
-        "lib": ["esnext"],
+        "module": "ESNext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "jsx": "react",
         "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
         "importHelpers": false,
 
         /* Strict Type-Checking Options */
@@ -32,7 +35,5 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "./lib",
         "rootDir": "./src"
-    },
-    "include": ["./src"],
-    "exclude": ["node_modules/*", "./playwright-ct.config.ts"]
+    }
 }

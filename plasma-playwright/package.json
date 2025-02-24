@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "npm run build",
     "prebuild": "npm run clean",
-    "build": "tsc",
+    "build": "tsc -p ./tsconfig.build.json",
     "clean": "rm -rf lib",
     "checkHasUpdate": "node -e \"console.log(process.env.npm_config_update_snapshots === 'true' ? '--update-snapshots' : '')\"",
     "test:b2c": "PACKAGE=plasma-b2c COMPONENTS=$npm_config_components playwright test -c playwright-ct.config.ts --project=plasma-b2c $(npm run checkHasUpdate --silent)",
@@ -27,7 +27,16 @@
   "homepage": "https://github.com/salute-developers/plasma#readme",
   "devDependencies": {
     "@playwright/experimental-ct-react": "^1.50.1",
+    "@playwright/test": "^1.50.1",
+    "@salutejs/plasma-themes": "^0.29.0",
+    "@salutejs/sdds-themes": "^0.32.0",
     "@types/node": "^22.13.4",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.1",
     "typescript": "^4.5.5",
     "vite": "^6.1.0"
   }
