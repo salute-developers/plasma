@@ -57,6 +57,22 @@ export const config = {
 
                 ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
+            accent: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--on-dark-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
+                ${segmentTokens.itemSelectedColorHover}: var(--on-dark-text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--on-dark-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--on-dark-text-secondary);
+
+                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+            `,
         },
         size: {
             xs: css`
