@@ -623,6 +623,7 @@ export const iconSectionsSet = {
         clown: 'Clown',
         checkEngine: 'CheckEngine',
         warningTriangleOutline: 'WarningTriangleOutline',
+        shower: 'Shower',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
