@@ -7,15 +7,23 @@ const newHopePath = path.resolve(packagesPath, 'plasma-new-hope', 'src', 'compon
 const getPackageTestsPath = (packageName: string) => path.resolve(packagesPath, packageName, 'src', 'components');
 const resolveInsidePackage = (packageName: string, libName: string) =>
     path.resolve(packagesPath, packageName, 'node_modules', libName);
-const resolveComponentExport = (packageName: string) => path.resolve(packagesPath, packageName, 'css', 'es', 'index');
 
-const { PACKAGE: packageName, COMPONENTS: components } = process.env;
+const { PACKAGE: packageName, COMPONENTS: components, BUILD_VARIANT: buildVariant } = process.env;
 
 if (!packageName) {
     throw new Error('Provide PACKAGE env to cli command');
 }
 
 const baseTestMatch = '**/*.spec.{ts,tsx}';
+
+/*
+ * NOTE:
+ * `emotion` сейчас не работает в sdds-* пакетах, так как проблема в sdds-themes.
+ * Там сборка происходит только в cjs формате.
+ */
+const buildVariantPath = buildVariant === 'css' || buildVariant === 'emotion' ? [buildVariant, 'es', 'index.js'] : [''];
+
+const importPathFromBuild = path.resolve(packagesPath, packageName, ...buildVariantPath);
 
 const getTestMatch = () => {
     const componentMatchingDirs = components
@@ -34,18 +42,16 @@ const getTestMatch = () => {
         return baseTestMatch;
     }
 
-    if (componentMatchingDirs.length === 1) {
-        return `**/${componentMatchingDirs.join('')}/${baseTestMatch}`;
-    }
+    const separator = componentMatchingDirs.length === 1 ? '' : ',';
 
-    return `**/{${componentMatchingDirs.join(',')}}/${baseTestMatch}`;
+    return `**/{${componentMatchingDirs.join(separator)}}/${baseTestMatch}`;
 };
 
 export default defineConfig({
     testMatch: getTestMatch(),
     outputDir: `./results/${packageName}`,
     snapshotPathTemplate: './snapshots/{projectName}/{platform}/{testFileName}/{testName}{ext}',
-    timeout: 10 * 1000,
+    timeout: 5000,
     fullyParallel: true,
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 1,
@@ -74,29 +80,34 @@ export default defineConfig({
                     react: resolveInsidePackage(packageName, 'react'),
                     'react-dom': resolveInsidePackage(packageName, 'react-dom'),
                     '@salutejs/plasma-icons': resolveInsidePackage(packageName, '@salutejs/plasma-icons'),
-                    '@salutejs/plasma-playwright-utils': resolveInsidePackage(
-                        packageName,
-                        '@salutejs/plasma-playwright-utils',
-                    ),
-                    // '@salutejs/plasma-new-hope/styled-components': resolveComponentExport(packageName),
-                    // './component.export': resolveComponentExport(packageName),
                 },
             },
             define: {
                 'import.meta.env.PACKAGE': `"${packageName}"`,
             },
-            // plugins: [
-            //     {
-            //         name: 'rewrite-imports',
-            //         resolveId(source, importer) {
-            //             if (source === './component.extort.ts') {
-            //                 console.log('*****', source, importer);
-            //                 return resolveComponentExport(packageName);
-            //             }
-            //             return null;
-            //         },
-            //     },
-            // ],
+            build: {
+                rollupOptions: {
+                    external: ['@salutejs/plasma-playwright'],
+                    plugins: [
+                        {
+                            name: 'rewrite-imports',
+                            transform(code, id) {
+                                if (id.endsWith('component.export.ts')) {
+                                    const modifiedCode = code.replace(
+                                        /from\s+['"](..|\.\.\/\.\.\/\.\.\/examples\/(.*))['"]/g,
+                                        `from "${importPathFromBuild}"`,
+                                    );
+                                    return {
+                                        code: modifiedCode,
+                                        map: null,
+                                    };
+                                }
+                                return null;
+                            },
+                        },
+                    ],
+                },
+            },
         },
     },
     projects: [
@@ -104,7 +115,7 @@ export default defineConfig({
             name: packageName,
             testDir: getPackageTestsPath(packageName),
             use: { ...devices['Desktop Chrome'] },
-            // dependencies: ['common'],
+            dependencies: ['common'],
         },
         {
             name: 'common',

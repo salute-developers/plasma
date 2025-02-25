@@ -19,7 +19,7 @@ const testPackagesThemes = {
     'sdds-cs': <ThemeCS />,
 };
 
-export const PlaywrightTestDecorator: FC<PropsWithChildren<HasSSR>> = ({ noSSR, children }) => {
+export const ThemeDecorator: FC<PropsWithChildren<HasSSR>> = ({ noSSR, children }) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const packageName = import.meta.env.PACKAGE as keyof typeof testPackagesThemes;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { test, expect } from '@salutejs/plasma-playwright';
-import { PadMe, PlaywrightTestDecorator } from '@salutejs/plasma-playwright-utils';
 
 import { Accordion, AccordionItem } from './component.export';
 
@@ -34,17 +33,16 @@ test.describe('Accordion', () => {
 
     test('_size', async ({ mount }) => {
         const component = await mount(
-            <PlaywrightTestDecorator>
+            <>
                 {sizes.map((size) => (
                     <>
                         <Accordion size={size}>
                             <AccordionItem title={title}>{body}</AccordionItem>
                             <AccordionItem title={title}>{body}</AccordionItem>
                         </Accordion>
-                        <PadMe />
                     </>
                 ))}
-            </PlaywrightTestDecorator>,
+            </>,
         );
 
         await expect(component).toHaveScreenshot();
@@ -52,19 +50,17 @@ test.describe('Accordion', () => {
 
     test('_type', async ({ mount }) => {
         const component = await mount(
-            <PlaywrightTestDecorator>
-                <Accordion>
-                    <AccordionItem type="arrow" title={title}>
-                        {body}
-                    </AccordionItem>
-                    <AccordionItem type="sign" title={title}>
-                        {body}
-                    </AccordionItem>
-                    <AccordionItem type="clear" title={title}>
-                        {body}
-                    </AccordionItem>
-                </Accordion>
-            </PlaywrightTestDecorator>,
+            <Accordion>
+                <AccordionItem type="arrow" title={title}>
+                    {body}
+                </AccordionItem>
+                <AccordionItem type="sign" title={title}>
+                    {body}
+                </AccordionItem>
+                <AccordionItem type="clear" title={title}>
+                    {body}
+                </AccordionItem>
+            </Accordion>,
         );
 
         await expect(component).toHaveScreenshot();
@@ -72,11 +68,9 @@ test.describe('Accordion', () => {
 
     test('animation', async ({ page, mount }) => {
         const component = await mount(
-            <PlaywrightTestDecorator>
-                <Accordion>
-                    <AccordionItem title={title}>{body}</AccordionItem>
-                </Accordion>
-            </PlaywrightTestDecorator>,
+            <Accordion>
+                <AccordionItem title={title}>{body}</AccordionItem>
+            </Accordion>,
         );
 
         await page.locator('.accordion-root').click();

@@ -1,6 +1,5 @@
 import React from 'react';
 import { test, expect } from '@salutejs/plasma-playwright';
-import { PlaywrightTestDecorator } from '@salutejs/plasma-playwright-utils';
 
 import { Accordion, AccordionItem } from './component.export';
 
@@ -11,12 +10,12 @@ const body =
 test.describe('Accordion', () => {
     test(' from bew hope', async ({ mount }) => {
         const component = await mount(
-            <PlaywrightTestDecorator>
+            <>
                 <h1>TEST FROM NEW-HOPE</h1>
                 <Accordion>
                     <AccordionItem title={title}>{body}</AccordionItem>
                 </Accordion>
-            </PlaywrightTestDecorator>,
+            </>,
         );
 
         await expect(component).toHaveScreenshot();

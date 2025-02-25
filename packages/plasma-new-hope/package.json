@@ -81,7 +81,6 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-playwright": "0.1.0",
-    "@salutejs/plasma-playwright-utils": "0.1.0",
     "@salutejs/plasma-sb-utils": "0.192.0-dev.0",
     "@salutejs/plasma-themes": "0.29.0-dev.0",
     "@storybook/addon-docs": "^7.6.17",
