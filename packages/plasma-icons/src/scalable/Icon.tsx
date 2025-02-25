@@ -507,6 +507,7 @@ export const iconSectionsSet = {
         currencyRuble: 'CurrencyRuble',
         currencyRupiah: 'CurrencyRupiah',
         currencyYuan: 'CurrencyYuan',
+        deliveryOutline: 'DeliveryOutline',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
