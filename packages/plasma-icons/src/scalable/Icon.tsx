@@ -328,6 +328,7 @@ export const iconSectionsSet = {
         steeringWheelOutline: 'SteeringWheelOutline',
         travelCarFill: 'TravelCarFill',
         travelCarOutline: 'TravelCarOutline',
+        wheelOutline: 'WheelOutline',
     },
     User: {
         accessibility: 'Accessibility',
@@ -625,6 +626,7 @@ export const iconSectionsSet = {
         checkEngine: 'CheckEngine',
         warningTriangleOutline: 'WarningTriangleOutline',
         shower: 'Shower',
+        towTruckOutline: 'TowTruckOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
