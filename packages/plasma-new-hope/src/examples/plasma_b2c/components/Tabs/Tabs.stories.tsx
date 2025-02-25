@@ -162,7 +162,7 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
         maxItemWidth,
     } = props;
     const items = Array(itemQuantity).fill(0);
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(5);
 
     return (
         <Tabs clip={clip} view="divider" hasDivider={hasDivider} disabled={disabled} size={size} style={{ width }}>
@@ -199,7 +199,8 @@ const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
                         size={size as Size}
                         maxItemWidth={maxItemWidth}
                     >
-                        {`${labels[i % labels.length]} ${i + 1}`}
+                        {/* {`${labels[i % labels.length]} ${i + 1}`} */}
+                        {`Label ${i + 1}`}
                     </TabItem>
                 );
             })}
