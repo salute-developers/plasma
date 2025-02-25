@@ -101,18 +101,21 @@ export function App() {
 ```
 
 ### Пример с прокруткой
+При выборе таба происходит прокрутка до выбранного таба.
 
 ```tsx live
 import React, { useState } from 'react';
-import { Tabs, TabItem } from '@salutejs/sdds-serv';
+import { Tabs, TabItem, Button } from '@salutejs/sdds-serv';
 import { IconClock } from '@salutejs/plasma-icons';
 
 export function App() {
     const items = Array(8).fill(0);
     const [index, setIndex] = useState(0);
 
+    const specificIndex = 6;
+
     return (
-        <div>
+        <div style={{ display:'flex', flexDirection: 'column', gap: '1rem' }}>
             <Tabs view="divider" size="xs" style={{ width: '15rem' }}>
                 {items.map((_, i) => (
                     <TabItem
@@ -128,6 +131,8 @@ export function App() {
                     </TabItem>
                 ))}
             </Tabs>
+
+            <Button onClick={() => setIndex(specificIndex)}>{`Выбрать элемент ${specificIndex + 1}`}</Button>
         </div>
     );
 }
