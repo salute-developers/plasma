@@ -26,12 +26,6 @@ const meta: Meta<CalendarProps> = {
                 type: 'date',
             },
         },
-        size: {
-            options: ['s'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
         ...disableProps([
             'value',
             'onChangeValue',
