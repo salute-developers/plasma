@@ -763,6 +763,8 @@ export const iconSectionsSet = {
         blankVisibilityOnOutline: 'BlankVisibilityOnOutline',
         documentInquirerFill: 'DocumentInquirerFill',
         documentInquirerOutline: 'DocumentInquirerOutline',
+        documentAttachFill: 'DocumentAttachFill',
+        documentAttachOutline: 'DocumentAttachOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
