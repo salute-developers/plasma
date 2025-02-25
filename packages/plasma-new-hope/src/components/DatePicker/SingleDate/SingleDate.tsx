@@ -1,5 +1,6 @@
 import React, { forwardRef, SyntheticEvent, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { KeyboardEvent } from 'react';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../../engines';
 import { cx, getPlacements, noop } from '../../../utils';
@@ -82,6 +83,7 @@ export const datePickerRoot = (
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
+            const inputForkRef = useForkRef(inputRef, ref);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const [calendarValue, setCalendarValue] = useState(formatCalendarValue(value || defaultDate, format, lang));
@@ -145,9 +147,13 @@ export const datePickerRoot = (
                 closeOnEsc,
             });
 
+            useEffect(() => {
+                console.log(inputValue, 'inputValue', inputRef?.current?.value);
+            });
+
             const DatePickerInput = (
                 <StyledInput
-                    ref={inputRef}
+                    ref={inputForkRef}
                     className={cx(datePickerErrorClass, datePickerSuccessClass)}
                     value={inputValue}
                     size={size}
@@ -187,7 +193,7 @@ export const datePickerRoot = (
                     className={cx(classes.datePickerRoot, className)}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
-                    ref={ref}
+                    // ref={ref}
                     {...rest}
                 >
                     <StyledPopover
