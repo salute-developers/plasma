@@ -355,6 +355,12 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * Ячейка для контента в конце выпадающего списка.
          */
         afterList?: React.ReactNode;
+        /**
+         * Виртуализация в выпадающем списке.
+         * Не поддерживается в многоуровневых списках.
+         * @default false
+         */
+        virtual?: boolean;
 
         /**
          * Размер компонента.
