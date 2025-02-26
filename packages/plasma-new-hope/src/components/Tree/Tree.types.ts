@@ -25,7 +25,7 @@ interface CheckInfo {
     halfCheckedKeys?: Key[];
 }
 
-type TreeItem = {
+export type TreeItem = {
     /**
      * Уникальный идентификатор элемента.
      */
@@ -51,6 +51,10 @@ type TreeItem = {
      * Иконка для текущего элемента.
      */
     icon?: ReactNode;
+    /**
+     * Дочерние items.
+     */
+    children?: TreeItem[];
 };
 
 export interface TreeProps extends HTMLAttributes<HTMLElement> {

@@ -331,7 +331,9 @@ import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
-import { TreeProps } from '@salutejs/plasma-new-hope/types/components/Tree/Tree.types';
+import { TreeItem } from '@salutejs/plasma-new-hope';
+import { TreeProps } from '@salutejs/plasma-new-hope';
+import { TreeProps as TreeProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 import { TypographyVariants } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { Upload } from '@salutejs/plasma-hope';
@@ -4533,7 +4535,11 @@ m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
-}> & TreeProps & RefAttributes<HTMLDivElement>>;
+}> & TreeProps_2 & RefAttributes<HTMLDivElement>>;
+
+export { TreeItem }
+
+export { TreeProps }
 
 // @public (undocumented)
 export const Underline: FunctionComponent<PropsType<    {
