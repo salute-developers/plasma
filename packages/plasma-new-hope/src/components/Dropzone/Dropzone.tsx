@@ -74,6 +74,9 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
             const innerWidth = width ? getSizeValueFromProp(width) : 'fit-content';
             const innerHeight = height ? getSizeValueFromProp(height) : 'fit-content';
 
+            const isTitleString = typeof title === 'string';
+            const isDescriptionString = typeof description === 'string';
+
             const processFiles = async (
                 rawFiles: FileList | null,
                 callback?: FileProcessHandler,
@@ -236,7 +239,7 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
 
                 let resTitleLength = 0;
 
-                if (title) {
+                if (title && isTitleString) {
                     const newTitle = title.length <= titleMaxChars ? title : `${title.slice(0, titleMaxChars - 3)}...`;
                     resTitleLength = newTitle.length;
                     setInnerTitle(newTitle);
@@ -255,7 +258,7 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
                     (availableWidth / descriptionFontWidth) * (descriptionAvailableHeight / descriptionFontHeight),
                 );
 
-                if (description) {
+                if (description && isDescriptionString) {
                     const newDescription =
                         description.length <= descriptionMaxChars
                             ? description
@@ -306,17 +309,21 @@ export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>)
                                 {icon || <IconArrowBarDown color="inherit" size="s" />}
                             </StyledIcon>
                             <ContentWrapper ref={contentWrapperRef}>
-                                {title && (
+                                {title && isTitleString ? (
                                     <>
                                         <Title ref={titleRef}>{innerTitle}</Title>
                                         <TitleHelper ref={titleHelperRef}>C</TitleHelper>
                                     </>
+                                ) : (
+                                    title
                                 )}
-                                {description && (
+                                {description && isDescriptionString ? (
                                     <>
                                         <Description ref={descriptionRef}>{innerDescription}</Description>
                                         <DescriptionHelper ref={descriptionHelperRef}>C</DescriptionHelper>
                                     </>
+                                ) : (
+                                    description
                                 )}
                             </ContentWrapper>
                         </IconWrapper>
