@@ -24,7 +24,7 @@ import {
     getView,
     getInitialValue,
 } from './utils';
-import { Inner, Target } from './ui';
+import { Inner, Target, VirtualList } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { Ul, base } from './Select.styles';
@@ -73,6 +73,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             zIndex,
             name,
             defaultValue,
+            virtual = false,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -395,21 +396,27 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 listWidth={listWidth}
                                 ref={targetRef}
                             >
-                                {beforeList}
+                                {virtual ? (
+                                    <VirtualList items={transformedItems} listHeight={listHeight} />
+                                ) : (
+                                    <>
+                                        {beforeList}
 
-                                {transformedItems.map((item, index) => (
-                                    <Inner
-                                        key={`${index}/0`}
-                                        item={item}
-                                        currentLevel={0}
-                                        path={path}
-                                        dispatchPath={dispatchPath}
-                                        index={index}
-                                        listWidth={listWidth}
-                                    />
-                                ))}
+                                        {transformedItems.map((item, index) => (
+                                            <Inner
+                                                key={`${index}/0`}
+                                                item={item}
+                                                currentLevel={0}
+                                                path={path}
+                                                dispatchPath={dispatchPath}
+                                                index={index}
+                                                listWidth={listWidth}
+                                            />
+                                        ))}
 
-                                {afterList}
+                                        {afterList}
+                                    </>
+                                )}
                             </Ul>
                         </Root>
                     </FloatingPopover>
