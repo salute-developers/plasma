@@ -1427,8 +1427,8 @@ true: PolymorphicClassName;
 };
 }> & {
 multiple?: boolean | undefined;
-title?: string | undefined;
-description?: string | undefined;
+title?: ReactNode;
+description?: ReactNode;
 icon?: ReactNode;
 iconPlacement?: "top" | "left" | undefined;
 size?: string | undefined;
