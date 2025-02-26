@@ -196,4 +196,16 @@ describe('plasma-b2c: Tree', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: renderTitle', () => {
+        cy.viewport(1000, 1000);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tree items={treeData} defaultExpandAll renderTitle={() => 'test render title'} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
