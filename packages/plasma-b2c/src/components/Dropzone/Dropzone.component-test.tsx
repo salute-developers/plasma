@@ -79,6 +79,30 @@ describe('plasma-b2c: Dropzone', () => {
         cy.matchImageSnapshot();
     });
 
+    it('title, description as ReactNode', () => {
+        const Title = () => {
+            return <span>TITLE AS REACT NODE</span>;
+        };
+
+        const Description = () => {
+            return <span>Description AS REACT NODE</span>;
+        };
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropzone
+                    title={<Title />}
+                    description={<Description />}
+                    iconPlacement="left"
+                    width={200}
+                    height={280}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('_disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
