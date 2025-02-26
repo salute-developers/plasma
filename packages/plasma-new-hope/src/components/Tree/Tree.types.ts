@@ -33,7 +33,7 @@ type TreeItem = {
     /**
      * Заголовок элемента.
      */
-    title?: ReactNode | ((data: TreeItem) => React.ReactNode);
+    title?: ReactNode | ((data: TreeItem) => ReactNode);
     /**
      * Classname для текущего элемента.
      */
@@ -50,7 +50,7 @@ type TreeItem = {
     /**
      * Иконка для текущего элемента.
      */
-    icon?: React.ReactNode;
+    icon?: ReactNode;
 };
 
 export interface TreeProps extends HTMLAttributes<HTMLElement> {
@@ -144,7 +144,7 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
     /**
      * Общая иконка для всего дерева.
      */
-    icon?: React.ReactNode;
+    icon?: ReactNode;
     /**
      * Размер дерева.
      */
@@ -153,4 +153,8 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
      * Вид дерева.
      */
     view?: string;
+    /**
+     * Callback для кастомной настройки title.
+     */
+    renderTitle?: (item: TreeItem) => ReactNode;
 }
