@@ -33,6 +33,7 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-transparent-tertiary);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-transparent-tertiary);
 
                 ${tokens.buttonColor}: var(--inverse-text-primary);
                 ${tokens.buttonColorHover}: var(--inverse-text-primary-hover);
@@ -71,6 +72,7 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-positive);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-positive);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -109,6 +111,7 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-warning);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-warning);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -147,6 +150,7 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-negative);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-negative);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -730,7 +734,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -746,18 +750,36 @@ export const config = {
                 ${tokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnly}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             secondary: css`
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             accent: css`
                 ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-accent);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnly}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
         },
         hintView: {
@@ -821,6 +843,20 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.textFieldDisabledOpacity}: 0.4;
+            `,
+        },
+        readOnly: {
+            true: css`
+                ${tokens.disclosureIconOpacityReadOnly}: 0.4;
+                ${tokens.textFieldReadOnlyOpacity}: 0.4;
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-transparent-primary);
+                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },

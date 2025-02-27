@@ -793,18 +793,36 @@ export const config = {
                 ${tokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnly}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             secondary: css`
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             accent: css`
                 ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-accent);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnly}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
         },
         hintView: {
@@ -821,15 +839,19 @@ export const config = {
                 ${tokens.textFieldTooltipPaddingRight}: 0.875rem;
                 ${tokens.textFieldTooltipPaddingBottom}: 0.6875rem;
                 ${tokens.textFieldTooltipPaddingLeft}: 0.875rem;
+
                 ${tokens.textFieldTooltipMinHeight}: 2.5rem;
                 ${tokens.textFieldTooltipBorderRadius}: 0.625rem;
+
                 ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
                 ${tokens.textFieldTooltipContentLeftMargin}: 0.375rem;
+
                 ${tokens.textFieldTooltipArrowMaskWidth}: 1.25rem;
                 ${tokens.textFieldTooltipArrowMaskHeight}: 1.25rem;
                 ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
@@ -841,15 +863,19 @@ export const config = {
                 ${tokens.textFieldTooltipPaddingRight}: 0.75rem;
                 ${tokens.textFieldTooltipPaddingBottom}: 0.5rem;
                 ${tokens.textFieldTooltipPaddingLeft}: 0.75rem;
+
                 ${tokens.textFieldTooltipMinHeight}: 2rem;
                 ${tokens.textFieldTooltipBorderRadius}: 0.5rem;
+
                 ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.textFieldTooltipContentLeftMargin}: 0.25rem;
+
                 ${tokens.textFieldTooltipArrowMaskWidth}: 1rem;
                 ${tokens.textFieldTooltipArrowMaskHeight}: 1rem;
                 ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
@@ -860,6 +886,18 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.textFieldDisabledOpacity}: 0.4;
+            `,
+        },
+        readOnly: {
+            true: css`
+                ${tokens.disclosureIconOpacityReadOnly}: 0.4;
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
+                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },

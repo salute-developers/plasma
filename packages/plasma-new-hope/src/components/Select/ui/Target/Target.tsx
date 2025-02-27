@@ -18,6 +18,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             size,
             contentLeft,
             disabled,
+            readOnly,
             renderValue,
             selectProps,
             inputWrapperRef,
@@ -60,7 +61,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 onKeyDown={onKeyDown}
                 label={label}
                 size={size}
-                disabled={disabled}
+                disabled={disabled || readOnly}
                 renderValue={renderValue}
                 selectProps={selectProps}
                 separator={separator}
@@ -85,6 +86,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 treeId={treeId}
                 activeDescendantItemValue={activeDescendantItemValue}
                 disabled={disabled}
+                readOnly={readOnly}
                 isTargetAmount={isTargetAmount}
                 valueToItemMap={valueToItemMap}
                 renderValue={renderValue}

@@ -121,6 +121,10 @@ export interface BasicProps<K extends ItemOption> {
      */
     disabled?: boolean;
     /**
+     * Компонент доступен только для чтения.
+     */
+    readOnly?: boolean;
+    /**
      * Вариант: обычный или сжатый
      * @default normal
      */
@@ -295,6 +299,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default false
          */
         disabled?: boolean;
+        /**
+         * Компонент доступен только для чтения.
+         */
+        readOnly?: boolean;
         /**
          * Список элементов.
          */
