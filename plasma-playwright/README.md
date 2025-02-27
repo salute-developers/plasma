@@ -2,14 +2,12 @@
 
 В данном пакете содержится экспорт двух методов из _Playwright_, для использования внутри `package/*`. В корень директории `plasma` установить playwright невозможно на данном этапе, так как происходит конфликт версии _vite_, с той, которая устанавливается через _storybook_.
 
-Так же в директории _utils_ находится пакет _plasma-playwright-utils_ с утилитами для удобства тестирования.
-
 ## Установка зависимостей
 
 Для запуска тестов локально необходимо выполнить bootstrap со scope из корня:
 
 ```
-npx lerna bootstrap --scope={@salutejs/plasma-b2c,@salutejs/plasma-web,@salutejs/sdds-cs,@salutejs/sdds-insol,@salutejs/plasma-playwright,@salutejs/plasma-playwright-utils}
+npx lerna bootstrap --scope={@salutejs/plasma-b2c,@salutejs/plasma-web,@salutejs/sdds-cs,@salutejs/sdds-insol,@salutejs/plasma-playwright}
 ```
 
 Если нет слинковынных тем из _plasma-themes_ и _sdds-themes_ нужно добавить их в scope
@@ -20,11 +18,9 @@ npx lerna bootstrap --scope={@salutejs/plasma-b2c,@salutejs/plasma-web,@salutejs
 
 -   основной файл с тестами имеет суффикс `.spec.tsx` (определяется параметром _testMatch_ в _playwright-ct.config.ts_)
 -   обязательно должен присутствовать файл `component.export.ts` с экспортом компонентов, необходимых для тестирования
+
     > **Warning**  
     > Без наличия экспорта компонентов из данного файла в файл с тестами, невозможно корректно разрешить путь к файлу билда тестируемого компонента
-
-> **Note**  
-> Пришлось отказаться от функционала getComponent, реализованного в рамках тестирования с помощью _cypress_. Так как там использовался контекст _Node.js_; _playwright_ запускает тесты в контексте браузера.
 
 -   данные два файла можно положить в директорию _test_
 -   внутри файла с тестами `.spec.tsx` нельзя создавать другие компоненты, например:
@@ -49,20 +45,34 @@ test('test div', async ({ mount }) => {
 такой тест упадет с ошибкой, указывающей на mount.
 
 -   для создания дополнительных оберток или же дополнительной стилизации теста, создаем отдельный файл
+-   тесты связанные с проверкой логики компонента, или же тесты, у которых будут одинаковые наборы снапшотов, следует помещать внутрь _plasma-new-hope_ рядом с ядром компонента; в файле component.export.ts копмонент импортируется из директории с примерами `examples`
 
 ## Запус тестов
 
 Под каждый пакет доступный для тестирования есть своя команда запуска. Например для тестирования plasma-b2c:
 
 ```json
-"test:b2c": "PACKAGE=plasma-b2c playwright test -c playwright-ct.config.ts --project=plasma-b2c"
+"test:b2c": "PACKAGE=plasma-b2c COMPONENTS=$npm_config_components BUILD_VARIANT=$npm_config_build playwright test -c playwright-ct.config.ts --project=plasma-b2c $(npm run check-has-update --silent)"
 ```
+
+Где
+
+-   `PACKAGE` - перемнная для корректного резолва директории, в которой находятся тесты
+-   `COMPONENTS` - переменная набора компонент, по которым нужно запустить тесты
+-   `BUILD_VARIANT` - вариант сборки, на которой нужно прогнать тесты
+-   `$(npm run check-has-update --silent)` - допольнительная команда для проверки передачи флага обновления снапшотов
 
 В рутовом _package.json_ эта команда выглядит так:
 
 ```json
 "test:b2c": "npm run test:b2c --prefix=plasma-playwright"
 ```
+
+Соответственно, доступные флаги (примеры):
+
+-   `--components="Accordion,Button"`
+-   `--build=css`
+-   `--update-snapshots`
 
 _prefix_ передает директорию, где надо выполнить команду.
 
@@ -83,3 +93,10 @@ npm run test:b2c --components="Button,Accordion"
 ```
 npm run test:b2c --update-snapshots
 ```
+
+## Запуск тестов для определенной сборки
+
+По умолчанию тестирование запускается на компонентах, собранных с помощью _styled-components_. С помощью фалага `--build` можно задать сборку: либо _css_ (для _plasma-{b2c,web}_), либо _emotion_ (для _sdds-{insol,cs}_)
+
+> **Warning**  
+> Запуск тестов для emotion пока недоступен из-за проблем со сборками тем. Происходит конфликт cjs и esm форматов. Будет исправлено в следующей итерации.

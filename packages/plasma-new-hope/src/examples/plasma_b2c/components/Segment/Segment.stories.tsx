@@ -123,14 +123,7 @@ const StoryDefault = (props: StorySegmentProps) => {
 
     return (
         <SegmentProvider>
-            <SegmentGroup
-                stretch={stretch}
-                disabled={disabled}
-                clip={false}
-                size={size}
-                orientation={orientation}
-                {...args}
-            >
+            <SegmentGroup stretch={stretch} disabled={disabled} clip size={size} orientation={orientation} {...args}>
                 {items.map((_, i) => (
                     <SegmentItem
                         view={segmentItemView}

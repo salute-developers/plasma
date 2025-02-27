@@ -42,9 +42,10 @@ const getTestMatch = () => {
         return baseTestMatch;
     }
 
-    const separator = componentMatchingDirs.length === 1 ? '' : ',';
+    const matchingDirs =
+        componentMatchingDirs.length === 1 ? `${componentMatchingDirs[0]}` : `{${componentMatchingDirs.join(',')}}`;
 
-    return `**/{${componentMatchingDirs.join(separator)}}/${baseTestMatch}`;
+    return `**/${matchingDirs}/${baseTestMatch}`;
 };
 
 export default defineConfig({
