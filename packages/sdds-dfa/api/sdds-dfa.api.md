@@ -42,6 +42,9 @@ import type { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-compo
 import { CalendarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CalendarRange } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarStateType } from '@salutejs/plasma-new-hope/styled-components';
+import { CardContent } from '@salutejs/plasma-new-hope/styled-components';
+import { CardInnerContent } from '@salutejs/plasma-new-hope/styled-components';
+import { CardProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
@@ -1218,6 +1221,30 @@ xs: PolymorphicClassName;
 export const CalendarDoubleRange: ({ value, min, max, disabledList, eventList, eventMonthList, disabledMonthList, eventYearList, disabledYearList, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
 
 export { CalendarStateType }
+
+// @public
+export const Card: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
+}> & {
+size?: string | undefined;
+view?: string | undefined;
+orientation?: "horizontal" | "vertical" | undefined;
+selected?: boolean | undefined;
+backgroundType?: "none" | "solid" | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { CardContent }
+
+export { CardInnerContent }
+
+export { CardProps }
 
 // @public
 export const Cell: FunctionComponent<PropsType<    {
