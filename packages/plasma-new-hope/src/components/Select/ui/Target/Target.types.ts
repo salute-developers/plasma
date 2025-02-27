@@ -15,6 +15,7 @@ export type TargetProps = Pick<
     | 'placeholder'
     | 'contentLeft'
     | 'disabled'
+    | 'readOnly'
     | 'renderValue'
     | 'multiselect'
     | 'helperText'

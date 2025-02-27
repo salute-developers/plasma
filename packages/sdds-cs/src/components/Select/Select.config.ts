@@ -206,6 +206,7 @@ export const config = {
                 ${tokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
         },
         disabled: {
@@ -217,6 +218,18 @@ export const config = {
                 ${tokens.textFieldBorderColorHover}: var(--surface-solid-primary);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-solid-primary);
                 ${tokens.textFieldColor}: var(--text-secondary);
+            `,
+        },
+        readOnly: {
+            true: css`
+                ${tokens.disclosureIconOpacityReadOnly}: 0.4;
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldLabelColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },
