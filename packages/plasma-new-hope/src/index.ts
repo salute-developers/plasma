@@ -12,6 +12,7 @@ export * from './components/Breadcrumbs';
 export * from './components/Chip';
 export * from './components/ChipGroup';
 export * from './components/Cell';
+export * from './components/Card';
 export * from './components/Flow';
 export * from './components/Link';
 export * from './components/Spinner';
