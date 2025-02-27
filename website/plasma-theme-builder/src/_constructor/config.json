@@ -1,0 +1,676 @@
+{
+    "data": [
+        {
+            "kind": "view",
+            "style": "default",
+            "parent": null,
+            "props": {
+                "iconColor": {
+                    "type": "color",
+                    "value": "text.inverse.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.inverse.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.inverse.primary-hover"
+                        }
+                    ]
+                },
+                "spinnerColor": {
+                    "type": "color",
+                    "value": "text.inverse.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.inverse.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.inverse.primary-hover"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "surface.default.solid-default",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "surface.default.solid-default-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "surface.default.solid-default-hover"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "view",
+            "style": "secondary",
+            "parent": null,
+            "props": {
+                "iconColor": {
+                    "type": "color",
+                    "value": "text.default.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.default.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.default.primary-hover"
+                        }
+                    ]
+                },
+                "spinnerColor": {
+                    "type": "color",
+                    "value": "text.default.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.default.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.default.primary-hover"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "surface.default.transparent-secondary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "surface.default.transparent-secondary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "surface.default.transparent-secondary-hover"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "view",
+            "style": "accent",
+            "parent": null,
+            "props": {
+                "iconColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "spinnerColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "surface.default.accent",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "surface.default.accent-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "surface.default.accent-hover"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "view",
+            "style": "positive",
+            "parent": null,
+            "props": {
+                "iconColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "spinnerColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "surface.default.positive",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "surface.default.positive-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "surface.default.positive-hover"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "view",
+            "style": "negative",
+            "parent": null,
+            "props": {
+                "iconColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "spinnerColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "surface.default.negative",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "red"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "surface.default.negative-hover"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "view",
+            "style": "warning",
+            "parent": null,
+            "props": {
+                "iconColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "spinnerColor": {
+                    "type": "color",
+                    "value": "text.on-dark.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.on-dark.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.on-dark.primary-hover"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "surface.default.warning",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "surface.default.warning-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "surface.default.warning-hover"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "view",
+            "style": "clear",
+            "parent": null,
+            "props": {
+                "iconColor": {
+                    "type": "color",
+                    "value": "text.default.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.default.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.default.primary-hover"
+                        }
+                    ]
+                },
+                "spinnerColor": {
+                    "type": "color",
+                    "value": "text.default.primary",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "text.default.primary-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "text.default.primary-hover"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "surface.default.clear",
+                    "states": [
+                        {
+                            "state": ["pressed"],
+                            "value": "surface.default.clear-active"
+                        },
+                        {
+                            "state": ["hovered"],
+                            "value": "surface.default.clear-hover"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "size",
+            "style": "l",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.l",
+                    "adjustment": -2
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 56
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "minWidth": {
+                    "type": "dimension",
+                    "value": 56
+                },
+                "iconSize": {
+                    "type": "dimension",
+                    "value": 24
+                },
+                "spinnerSize": {
+                    "type": "dimension",
+                    "value": 22
+                },
+                "spinnerStrokeWidth": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "iconMargin": {
+                    "type": "dimension",
+                    "value": 10
+                },
+                "valueMargin": {
+                    "type": "dimension",
+                    "value": 8
+                }
+            }
+        },
+        {
+            "kind": "shape",
+            "style": "l",
+            "parent": {
+                "shape": ["pilled"]
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "kind": "outline",
+            "style": "true",
+            "parent": null,
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "transparent"
+                },
+                "borderColor": {
+                    "type": "color",
+                    "value": "red"
+                }
+            }
+        },
+        {
+            "kind": "size",
+            "style": "m",
+            "parent": null,
+            "props": {
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.m.bold"
+                },
+                "shape": {
+                    "type": "shape",
+                    "value": "round.m"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 48
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 12
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 12
+                },
+                "minWidth": {
+                    "type": "dimension",
+                    "value": 48
+                },
+                "iconSize": {
+                    "type": "dimension",
+                    "value": 24
+                },
+                "spinnerSize": {
+                    "type": "dimension",
+                    "value": 22
+                },
+                "spinnerStrokeWidth": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "iconMargin": {
+                    "type": "dimension",
+                    "value": 8
+                },
+                "valueMargin": {
+                    "type": "dimension",
+                    "value": 6
+                }
+            }
+        },
+        {
+            "kind": "shape",
+            "style": "pilled",
+            "parents": {
+                "size": ["s"],
+                "view": ["secondary"]
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "kind": "view",
+            "style": "secondary",
+            "parents": {
+                "size": ["s"],
+                "shape": ["pilled"]
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.s"
+                }
+            }
+        },
+        {
+            "kind": "size",
+            "style": "s",
+            "parent": null,
+            "props": {
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.s.bold"
+                },
+                "shape": {
+                    "type": "shape",
+                    "value": "round.m",
+                    "adjustment": -2
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 40
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 8
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 8
+                },
+                "minWidth": {
+                    "type": "dimension",
+                    "value": 40
+                },
+                "iconSize": {
+                    "type": "dimension",
+                    "value": 24
+                },
+                "spinnerSize": {
+                    "type": "dimension",
+                    "value": 22
+                },
+                "spinnerStrokeWidth": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "iconMargin": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "valueMargin": {
+                    "type": "dimension",
+                    "value": 4
+                }
+            }
+        },
+        {
+            "kind": "shape",
+            "style": "s",
+            "parent": {
+                "shape": ["pilled"]
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "kind": "size",
+            "style": "xs",
+            "parent": null,
+            "props": {
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.xs.bold"
+                },
+                "shape": {
+                    "type": "shape",
+                    "value": "round.s"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 32
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 8
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 8
+                },
+                "minWidth": {
+                    "type": "dimension",
+                    "value": 32
+                },
+                "iconSize": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "spinnerSize": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "spinnerStrokeWidth": {
+                    "type": "dimension",
+                    "value": 1
+                },
+                "iconMargin": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "valueMargin": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "disableAlpha": {
+                    "type": "float",
+                    "value": 0.4
+                }
+            }
+        },
+        {
+            "kind": "shape",
+            "style": "round",
+            "parent": {
+                "size": ["xs"]
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "kind": "size",
+            "style": "xs",
+            "parent": {
+                "shape": ["pilled"]
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                }
+            }
+        },
+        {
+            "kind": "disabled",
+            "style": "xs",
+            "parent": {
+                "shape": ["pilled"]
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                }
+            }
+        },
+        {
+            "kind": null,
+            "style": null,
+            "parent": null,
+            "props": {
+                "loadingAlpha": {
+                    "type": "float",
+                    "value": 0
+                },
+                "disableAlpha": {
+                    "type": "float",
+                    "value": 0.4
+                }
+            }
+        }
+    ]
+}
