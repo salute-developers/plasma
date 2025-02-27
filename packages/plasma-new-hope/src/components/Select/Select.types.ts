@@ -121,6 +121,10 @@ export interface BasicProps<K extends ItemOption> {
      */
     disabled?: boolean;
     /**
+     * Компонент доступен только для чтения.
+     */
+    readOnly?: boolean;
+    /**
      * Коллбэк для определения достижения скроллом конца списка.
      */
     onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
@@ -290,6 +294,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default false
          */
         disabled?: boolean;
+        /**
+         * Компонент доступен только для чтения.
+         */
+        readOnly?: boolean;
         /**
          * Список элементов.
          */

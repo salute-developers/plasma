@@ -25,6 +25,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             treeId,
             activeDescendantItemValue,
             disabled,
+            readOnly,
             isTargetAmount,
             valueToItemMap,
             renderValue,
@@ -99,6 +100,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 ref={ref}
                 inputWrapperRef={inputWrapperRef}
                 readOnly
+                className={readOnly ? classes.readOnly : undefined}
                 value={getValue()}
                 size={size}
                 view={view}
@@ -109,7 +111,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
                 contentRight={
-                    <IconArrowWrapper disabled={Boolean(disabled)}>
+                    <IconArrowWrapper disabled={disabled} readOnly={readOnly}>
                         <StyledArrow color="inherit" size={sizeToIconSize(size)} className={withArrowInverse} />
                     </IconArrowWrapper>
                 }
@@ -132,7 +134,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                 opened={opened}
                 // TODO: #1547
-                _forceChipManipulationWithReadonly
+                _forceChipManipulationWithReadonly={!readOnly}
                 {...requiredProps}
                 {...hintProps}
             />
