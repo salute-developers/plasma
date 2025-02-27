@@ -18,6 +18,7 @@ export type TextfieldProps = Pick<
     | 'treeId'
     | 'activeDescendantItemValue'
     | 'disabled'
+    | 'readOnly'
     | 'isTargetAmount'
     | 'valueToItemMap'
     | 'renderValue'
