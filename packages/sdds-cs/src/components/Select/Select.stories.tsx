@@ -61,11 +61,17 @@ const meta: Meta<StorySelectProps> = {
                 eq: 'textfield-like',
             },
         },
+        readOnly: {
+            control: {
+                type: 'boolean',
+            },
+        },
         requiredPlacement: {
             options: ['left', 'right'],
             control: {
                 type: 'select',
             },
+            if: { arg: 'required', truthy: true },
         },
         required: {
             control: {
@@ -109,6 +115,7 @@ const meta: Meta<StorySelectProps> = {
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
+        readOnly: false,
         optional: false,
         required: false,
         requiredPlacement: 'right',
@@ -127,6 +134,7 @@ const meta: Meta<StorySelectProps> = {
                 'closeAfterSelect',
                 'variant',
                 'disabled',
+                'readOnly',
                 'listWidth',
                 'listOverflow',
                 'listHeight',
