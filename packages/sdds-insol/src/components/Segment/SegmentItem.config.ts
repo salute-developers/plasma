@@ -171,7 +171,8 @@ export const config = {
         },
         pilled: {
             true: css`
-                ${segmentTokens.itemPilledBorderRadius}: 1.75rem;
+                // NOTE: change on token when added
+                ${segmentTokens.itemPilledBorderRadius}: 1000px;
             `,
         },
     },

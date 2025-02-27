@@ -6,6 +6,8 @@ import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plas
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
+
 describe('plasma-web: Segment', () => {
     const SegmentProvider = getComponent('SegmentProvider');
     const SegmentItem = getComponent('SegmentItem');
@@ -186,37 +188,18 @@ describe('plasma-web: Segment', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
+                {sizes.map((size) => (
+                    <>
                 <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="xs" clip>
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="xs" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="xs" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="xs" />
+                            <SegmentGroup view="filled" filledBackground size={size} clip>
+                                <SegmentItem value="segment_1" label="Segment 1" view="default" size={size} />
+                                <SegmentItem value="segment_2" label="Segment 2" view="default" size={size} />
+                                <SegmentItem value="segment_3" label="Segment 3" view="default" size={size} />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
-                <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="s" clip>
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="s" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="s" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="s" />
-                    </SegmentGroup>
-                </SegmentProvider>
-                <PadMe />
-                <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="m" clip>
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="m" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="m" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="m" />
-                    </SegmentGroup>
-                </SegmentProvider>
-                <PadMe />
-                <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="l" clip>
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="l" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="l" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="l" />
-                    </SegmentGroup>
-                </SegmentProvider>
+                    </>
+                ))}
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
@@ -225,37 +208,18 @@ describe('plasma-web: Segment', () => {
     it('_size redesign', () => {
         mount(
             <CypressTestDecoratorWithTypo>
+                {sizes.map((size) => (
+                    <>
                 <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="xs">
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="xs" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="xs" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="xs" />
+                            <SegmentGroup view="filled" filledBackground size={size}>
+                                <SegmentItem value="segment_1" label="Segment 1" view="default" size={size} />
+                                <SegmentItem value="segment_2" label="Segment 2" view="default" size={size} />
+                                <SegmentItem value="segment_3" label="Segment 3" view="default" size={size} />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
-                <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="s">
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="s" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="s" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="s" />
-                    </SegmentGroup>
-                </SegmentProvider>
-                <PadMe />
-                <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="m">
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="m" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="m" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="m" />
-                    </SegmentGroup>
-                </SegmentProvider>
-                <PadMe />
-                <SegmentProvider>
-                    <SegmentGroup view="filled" filledBackground size="l">
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="l" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="l" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="l" />
-                    </SegmentGroup>
-                </SegmentProvider>
+                    </>
+                ))}
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
