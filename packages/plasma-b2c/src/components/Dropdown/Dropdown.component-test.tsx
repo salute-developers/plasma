@@ -7,6 +7,8 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
+
 const items = [
     {
         value: 'north_america',
@@ -318,26 +320,22 @@ describe('plasma-b2c: Dropdown', () => {
     });
 
     it('prop: size', () => {
-        cy.viewport(1500, 500);
+        cy.viewport(1300, 500);
 
         mount(
             <CypressTestDecoratorWithTypo>
-                <div style={{ display: 'flex', gap: '100px' }}>
-                    <Dropdown items={items} size="xs" closeOnOverlayClick={false}>
-                        <Button id="xs" text="Список стран XS" />
-                    </Dropdown>
-
-                    <Dropdown items={items} size="s" closeOnOverlayClick={false}>
-                        <Button id="s" text="Список стран S" />
-                    </Dropdown>
-
-                    <Dropdown items={items} size="m" closeOnOverlayClick={false}>
-                        <Button id="m" text="Список стран M" />
-                    </Dropdown>
-
-                    <Dropdown items={items} size="l" closeOnOverlayClick={false}>
-                        <Button id="l" text="Список стран L" />
-                    </Dropdown>
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: '300px 400px 500px',
+                        gridTemplateRows: '400px 500px',
+                    }}
+                >
+                    {sizes.map((size) => (
+                        <Dropdown items={items} size={size} closeOnOverlayClick={false}>
+                            <Button id={size} text={`Список стран ${size}`} size={size} />
+                        </Dropdown>
+                    ))}
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
@@ -346,30 +344,27 @@ describe('plasma-b2c: Dropdown', () => {
         cy.get('#s').click();
         cy.get('#m').click();
         cy.get('#l').click();
+        cy.get('#xl').click();
         cy.matchImageSnapshot();
     });
 
     it('prop: size, variant', () => {
-        cy.viewport(1500, 500);
+        cy.viewport(1300, 500);
 
         mount(
             <CypressTestDecoratorWithTypo>
-                <div style={{ display: 'flex', gap: '100px' }}>
-                    <Dropdown items={items} size="xs" closeOnOverlayClick={false} variant="tight">
-                        <Button id="xs" text="Список стран XS" />
-                    </Dropdown>
-
-                    <Dropdown items={items} size="s" closeOnOverlayClick={false} variant="tight">
-                        <Button id="s" text="Список стран S" />
-                    </Dropdown>
-
-                    <Dropdown items={items} size="m" closeOnOverlayClick={false} variant="tight">
-                        <Button id="m" text="Список стран M" />
-                    </Dropdown>
-
-                    <Dropdown items={items} size="l" closeOnOverlayClick={false} variant="tight">
-                        <Button id="l" text="Список стран L" />
-                    </Dropdown>
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: '300px 400px 500px',
+                        gridTemplateRows: '400px 500px',
+                    }}
+                >
+                    {sizes.map((size) => (
+                        <Dropdown items={items} size={size} closeOnOverlayClick={false} variant="tight">
+                            <Button id={size} text={`Список стран ${size}`} size={size} />
+                        </Dropdown>
+                    ))}
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
@@ -378,6 +373,7 @@ describe('plasma-b2c: Dropdown', () => {
         cy.get('#s').click();
         cy.get('#m').click();
         cy.get('#l').click();
+        cy.get('#xl').click();
         cy.matchImageSnapshot();
     });
 

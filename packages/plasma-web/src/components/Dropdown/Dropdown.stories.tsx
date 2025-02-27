@@ -12,7 +12,7 @@ type DropdownProps = ComponentProps<typeof Dropdown>;
 
 const placements: DropdownProps['placement'][] = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers: DropdownProps['trigger'][] = ['click', 'hover'];
-const size = ['xs', 's', 'm', 'l'];
+const size = ['xs', 's', 'm', 'l', 'xl'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<DropdownProps> = {
@@ -78,7 +78,6 @@ const meta: Meta<DropdownProps> = {
                 'trigger',
                 'offset',
                 'listWidth',
-                'hasArrow',
                 'closeOnOverlayClick',
                 'closeOnSelect',
             ],
