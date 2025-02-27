@@ -168,6 +168,7 @@ export const config = {
         },
         pilled: {
             true: css`
+                // NOTE: change on token when added
                 ${segmentTokens.itemPilledBorderRadius}: 1000px;
             `,
         },
