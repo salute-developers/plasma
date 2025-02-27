@@ -12,12 +12,12 @@ export const config = {
             xl: css`
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
-                ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderRadius}: 1rem;
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 1.25rem 1.125rem;
                 ${tokens.itemPaddingTight}: 1rem 1.125rem;
-                ${tokens.itemBorderRadius}: 0.875rem;
+                ${tokens.itemBorderRadius}: 1rem;
 
                 ${tokens.dividerMarginTop}: 0.625rem;
                 ${tokens.dividerMarginRight}: 1.25rem;
