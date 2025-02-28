@@ -3048,6 +3048,7 @@ xs: PolymorphicClassName;
 s: PolymorphicClassName;
 m: PolymorphicClassName;
 l: PolymorphicClassName;
+xl: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -3080,6 +3081,7 @@ xs: PolymorphicClassName;
 s: PolymorphicClassName;
 m: PolymorphicClassName;
 l: PolymorphicClassName;
+xl: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;

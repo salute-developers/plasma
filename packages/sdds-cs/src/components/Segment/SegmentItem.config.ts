@@ -66,7 +66,7 @@ export const config = {
         },
         pilled: {
             true: css`
-                ${segmentTokens.itemPilledBorderRadius}: 1.75rem;
+                ${segmentTokens.itemPilledBorderRadius}: 1000px;
             `,
         },
     },
