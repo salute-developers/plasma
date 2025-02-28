@@ -51,6 +51,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             placeholder,
             helperText,
             disabled = false,
+            readOnly = false,
             view: outerView,
             size,
             listOverflow,
@@ -103,7 +104,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value.toString() || '';
         const closeAfterSelect = outerCloseAfterSelect ?? !props.multiselect;
         const treeId = safeUseId();
-        const view = target === 'textfield-like' && disabled ? 'default' : getView(status, outerView);
+        const view = target === 'textfield-like' && (disabled || readOnly) ? 'default' : getView(status, outerView);
 
         // Собираем объект с пропсами для required и прокидываем их напрямую в компонент Textfield.
         const requiredProps =
@@ -161,7 +162,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleListToggle = (opened: boolean) => {
-            if (disabled) {
+            if (disabled || readOnly) {
                 return;
             }
 
@@ -312,6 +313,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 labelPlacement={labelPlacement}
                 chipView={chipView}
                 disabled={disabled}
+                readOnly={readOnly}
                 id={id}
                 {...(rest as any)}
             >
@@ -359,6 +361,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 size={size}
                                 contentLeft={contentLeft}
                                 disabled={disabled}
+                                readOnly={readOnly}
                                 renderValue={renderValue}
                                 selectProps={props}
                                 inputWrapperRef={referenceRef as React.MutableRefObject<HTMLDivElement>}
@@ -384,6 +387,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             labelPlacement={labelPlacement}
                             chipView={chipView}
                             disabled={disabled}
+                            readOnly={readOnly}
                             {...(rest as any)}
                         >
                             <Ul
