@@ -15,6 +15,7 @@
 src-sc
 src-linaria
 src-emotion
+src-css
 emotion/cjs
 emotion/es
 styled-components/cjs
