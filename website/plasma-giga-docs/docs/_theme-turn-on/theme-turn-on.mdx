@@ -1,7 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ThemeTurnOnSC from './theme-turn-on-sc.mdx';
-import ThemeTurnOnEmotion from './theme-turn-on-emotion.mdx';
 import ThemeTurnOnCssModule from './theme-turn-on-css-module.mdx';
 import ThemeTurnOnCss from './theme-turn-on-css.mdx';
 import ThemeTurnOnSass from './theme-turn-on-sass.mdx';
@@ -9,7 +8,7 @@ import ThemeTurnOnSassModule from './theme-turn-on-sass-module.mdx';
 
 ## Подключение темы
 
-:::caution
+:::info
 Точкой входа является корень приложения:
 
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
@@ -19,9 +18,6 @@ import ThemeTurnOnSassModule from './theme-turn-on-sass-module.mdx';
 <Tabs>
     <TabItem value="sc" label="styled-components" default>
         <ThemeTurnOnSC />
-    </TabItem>
-    <TabItem value="emotion" label="@emotion">
-        <ThemeTurnOnEmotion />
     </TabItem>
     <TabItem value="css" label="css">
         <ThemeTurnOnCss />
