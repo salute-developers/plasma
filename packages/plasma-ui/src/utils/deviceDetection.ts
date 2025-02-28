@@ -69,7 +69,9 @@ export const isTV = (): boolean => {
         ua.includes('(tv; tv)') ||
         ua.includes('(tv; huawei)') ||
         ua.includes('(huawei-tv; huawei)') ||
-        ua.includes('(huawei-tv; huawei tv)')
+        ua.includes('(huawei-tv; huawei tv)') ||
+        ua.includes('staros') ||
+        ua.includes('uifamily=tv')
     );
 };
 
@@ -82,6 +84,7 @@ export const detectDevice = (): DeviceKind => {
     if (typeof navigator === 'undefined') {
         return DeviceKindList.sberBox;
     }
+
     switch (true) {
         case isSberPortal():
             return DeviceKindList.sberPortal;
