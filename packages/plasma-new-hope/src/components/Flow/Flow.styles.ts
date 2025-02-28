@@ -146,6 +146,7 @@ export const base = css`
 
 export const Line = styled.div`
     display: flex;
+    height: 100%;
 
     gap: var(--plasma-private-gap);
 
