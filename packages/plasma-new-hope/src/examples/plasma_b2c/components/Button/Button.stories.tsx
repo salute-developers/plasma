@@ -22,7 +22,7 @@ const pinValues = [
     'circle-clear',
     'circle-circle',
 ];
-const contentPlacinValues = ['default', 'relaxed'];
+const contentPlacingValues = ['default', 'relaxed'];
 const sizeMap = {
     xxs: '0.75rem', // 12px
     xs: '1rem', // 16px
@@ -62,7 +62,7 @@ const meta: Meta<typeof Button> = {
             },
         },
         contentPlacing: {
-            options: contentPlacinValues,
+            options: contentPlacingValues,
             control: {
                 type: 'select',
             },
@@ -80,7 +80,7 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
-        ...disableProps(['value', 'focused', 'pin']),
+        ...disableProps(['focused', 'pin']),
     },
 };
 
@@ -112,6 +112,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
 
 export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
+        value: 'Value',
         enableContentLeft: false,
     },
     argTypes: {

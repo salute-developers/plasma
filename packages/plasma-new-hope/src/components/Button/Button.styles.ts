@@ -131,6 +131,10 @@ export const baseContent = `
         background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleHover});
+
+        & ${ButtonValue} {
+            color: var(${tokens.buttonValueColorHover}, var(${tokens.buttonValueColor}));
+        }
     }
 
     :active {
@@ -138,6 +142,10 @@ export const baseContent = `
         background: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleActive});
+
+        & ${ButtonValue} {
+            color: var(${tokens.buttonValueColorActive}, var(${tokens.buttonValueColor}));
+        }
     }
 
     height: var(${tokens.buttonHeight});
