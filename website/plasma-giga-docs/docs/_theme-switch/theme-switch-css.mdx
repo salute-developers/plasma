@@ -1,0 +1,40 @@
+:::tip
+Возможные дополнительные настройки в проекте bundle tools:
+
+- [webpack + css](https://webpack.js.org/loaders/css-loader/)
+- [vite](https://vite.dev/guide/features.html#css-pre-processors)
+:::
+
+```jsx
+import React, { useLayoutEffect, useState } from 'react';
+import { Switch } from '@salutejs/plasma-giga';
+
+import './index.css';
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = theme;
+    }, [theme]);
+
+    return (
+        <div className="wrapper">
+            <Switch
+                label={`app theme: ${theme}`}
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
+    );
+};
+
+export default App;
+```
+
+В файле, где происходит подключение всех стилей, например `index.css`
+
+```css
+@import '@salutejs/plasma-themes/css/plasma_giga.module.css';
+```
