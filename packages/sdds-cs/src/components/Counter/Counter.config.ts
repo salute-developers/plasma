@@ -29,12 +29,13 @@ export const config = {
                 ${counterTokens.borderRadius}: 1.25rem;
                 ${counterTokens.height}: 1.25rem;
                 ${counterTokens.padding}: 0 0.375rem;
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+
+                ${counterTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${counterTokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${counterTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${counterTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${counterTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${counterTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
             `,
         },
     },
