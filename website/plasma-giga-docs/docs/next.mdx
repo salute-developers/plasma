@@ -11,9 +11,9 @@ title: Работа с Next
 
 <br />
 
-<blockquote>
+:::note
     В дальнейшем речь пойдет исключительно для <u><b>pages</b> router'a</u>, вне зависимости от версии Next.
-</blockquote>
+:::
 
 ## Подключение тем
 
@@ -21,11 +21,11 @@ title: Работа с Next
 
 ### Styled Components
 
-<blockquote>
+:::info
     Прежде всего убедитесь, что у вас правильно настроена работа со Styled Components.
 
     Для справки: официальный [пример](https://github.com/vercel/next.js/tree/main/examples/with-styled-components) работающей реализации.
-</blockquote>
+:::
 
 ```tsx
 import type { AppProps } from "next/app";
@@ -77,7 +77,7 @@ export default function Home() {
 
 ### Пример с CSS
 
-:::caution
+:::tip
 Next не разрешает импорт CSS из сторонних модулей, поэтому важно не забыть добавить наши библиотеки в `next.config.js` следующим образом:
 :::
 
