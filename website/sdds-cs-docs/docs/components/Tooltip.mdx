@@ -64,3 +64,26 @@ export function App() {
     );
 }
 ```
+
+## Применение `onDark` и `onLight`
+
+Для изменение режима отображения компонента необходимо использовать компонент-обёртку [ViewContainer](./ViewContainer.mdx) с указанием нужного `view`.
+
+```tsx live
+import React from 'react';
+import { Tooltip, Button, ViewContainer } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <>
+            <ViewContainer view="onDark">
+                <Tooltip usePortal={false} target={(<Button>trigger: click - onDark</Button>)} text="OnDark" placement="right" hasArrow trigger="click" closeOnEsc closeOnOverlayClick />
+            </ViewContainer>
+            <br />
+            <ViewContainer view="onLight">
+                <Tooltip usePortal={false} target={(<Button>trigger: click - onLight</Button>)} text="OnLight" placement="right" hasArrow trigger="click" closeOnEsc closeOnOverlayClick />
+            </ViewContainer>
+        </>
+    );
+}
+```
