@@ -98,7 +98,11 @@ type HintProps =
           hintContentLeft?: never;
       };
 
-export type CustomTextFieldProps = Omit<TextFieldProps, 'helperText'> & {
+export type CustomTextFieldProps = Omit<TextFieldProps, 'size' | 'helperText'> & {
+    /**
+     * Доступные размеры компонента
+     */
+    size?: 'xl' | 'l' | 'm' | 's' | 'xs';
     /**
      * Подсказка для поля ввода.
      */

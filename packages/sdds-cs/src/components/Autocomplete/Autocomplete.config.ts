@@ -104,6 +104,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -123,6 +124,11 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.75rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
+
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-s-font-size);
@@ -139,10 +145,9 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.padding}: 0.125rem;
