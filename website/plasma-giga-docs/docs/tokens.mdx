@@ -13,23 +13,6 @@ export const textPrimary = 'var(--text-primary, #F5F5F5)';
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #000000)';
 ```
-
-Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
-
-```tsx
-import { CSSObject } from 'styled-components';
-
-/** Токены типографики для компонента DsplL */
-export const dsplL = ({
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)'
-} as unknown) as CSSObject;
-```
-
 ## Способы подключения
 
 Есть два пути импорта токенов:
@@ -66,5 +49,32 @@ const App = () => {
 };
 
 export default App;
+```
+
+## Типографика
+
+:::tip
+Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
+
+```ts
+import { BodyL, DsplL, H3 } from '@salutejs/plasma-giga';
+```
+:::
+
+### Токены типографики на примере компонента `DsplL`
+
+Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
+
+```tsx
+import { CSSObject } from 'styled-components';
+
+export const dsplL = ({
+    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-line-height)'
+} as unknown) as CSSObject;
 ```
 

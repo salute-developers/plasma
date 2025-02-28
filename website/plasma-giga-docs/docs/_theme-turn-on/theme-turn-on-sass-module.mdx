@@ -1,8 +1,12 @@
+import TipCssModules from '../_utils/_tip-css-modules.mdx';
+
+<TipCssModules isSass/>
+
 ```jsx
 import React from 'react';
 import { Button, BodyL } from '@salutejs/plasma-giga';
 
-import styles from './main.module.sass';
+import styles from './index.module.sass';
 
 const App = () => {
     return (
@@ -16,7 +20,7 @@ const App = () => {
 export default App;
 ```
 
-В файле, где происходит подключение всех стилей, например `index.sass`
+В файле, где происходит подключение всех стилей, например `index.module.sass`
 
 ```sass
 @use '@salutejs/plasma-themes/css/plasma-giga.module.css'

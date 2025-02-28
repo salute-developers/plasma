@@ -10,6 +10,9 @@ import TabItem from '@theme/TabItem';
 import ThemeSwitch from './_theme-switch/theme-switch.mdx';
 import ThemeTurnOn from './_theme-turn-on/theme-turn-on.mdx';
 
+import NextAppExample from './_examples/_init_next_app.mdx';
+import WepAppExample from './_examples/_init_web_app.mdx';
+
 # PLASMA-GIGA
 
 Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
@@ -19,41 +22,24 @@ import ThemeTurnOn from './_theme-turn-on/theme-turn-on.mdx';
 Библиотека реализована с помощью:
 - [typescript](https://www.typescriptlang.org/)
 - [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
-- [emotion](https://emotion.sh/)
 
 Однако их использование **необязательно**!
 
 ### Установка зависимостей
 
 ```bash
-$ npm install --save react react-dom
 $ npm install --save @salutejs/plasma-giga @salutejs/plasma-themes
 ```
-Если планируется использование пакета `styled-components`, то
+
+Для работы со `styled-components`, необходимо установить
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-Если планируется использование пакета `@emotion`, то
-
-```bash
-$ npm install --save @emotion/styled @emotion/react @emotion/css
-```
-
-### Возможные дополнительные настройки в проекте
-
-**Bundle tools:**
-- [vite](https://vite.dev/guide/features.html#css-pre-processors)
-- для корректной работы [webpack + css](https://webpack.js.org/loaders/css-loader/)
-- для корректной работы [webpack + SASS](https://webpack.js.org/loaders/sass-loader/)
-
-**Typescript**
-- [typescript-plugin-css-modules](https://www.npmjs.com/package/typescript-plugin-css-modules)
-
 ### Использование компонентов
 
-Все компоненты доступны напрямую из пакета:
+Все компоненты доступны напрямую из пакета
 
 ```jsx
 import styled from 'styled-components';
@@ -77,20 +63,11 @@ export const App = () => {
 };
 ```
 
-Так же библиотека поставляет компоненты собранные под
+Так же библиотека поставляет компоненты собранные с помощью `styled-components`
 
-<Tabs>
-    <TabItem value="sc" label="styled-components">
-        ```jsx
-        import { Button } from '@salutejs/plasma-giga/styled-components';
-        ```
-    </TabItem>
-    <TabItem value="emotion" label="emotion">
-        ```jsx
-        import { Button } from '@salutejs/plasma-giga/emotion';
-        ```
-    </TabItem>
-</Tabs>
+```js
+import { Button } from '@salutejs/plasma-giga/styled-components';
+```
 
 ## Подключение шрифтов
 
@@ -98,26 +75,16 @@ export const App = () => {
 
 Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
 
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от [используемых шрифтов](##Конфигурация-пакета) в теме.
+Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
 
-Их необходимо добавить внутрь тега `head`.
-
-Если в качестве основы web-приложения вы используете [create-react-app](https://create-react-app.dev), вам необходимо изменить файл `./public/index.html`.
-
-```html
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-        />
-    </head>
-    <body>
-        ...
-    </body>
-</html>
-```
+<Tabs>
+    <TabItem value="cra" label="html" default>
+        <WepAppExample />
+    </TabItem>
+    <TabItem value="next" label="NextJS">
+        <NextAppExample />
+    </TabItem>
+</Tabs>
 
 <ThemeTurnOn/>
 
