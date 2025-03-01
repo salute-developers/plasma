@@ -139,18 +139,15 @@ export const config = {
             `,
         },
         size: {
-            l: css`
-                ${tokens.height}: 3.5rem;
-                ${tokens.padding}: 1.063rem 1.125rem 1.063rem 1.125rem;
+            xl: css`
+                ${tokens.height}: 4rem;
+                ${tokens.padding}: 1.25rem;
                 ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderRadius}: 1rem;
 
-                ${tokens.leftContentMargin}: -0.063rem 0.5rem -0.063rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.063rem -0.125rem -0.063rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.063rem -0.438rem -0.063rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
+                ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -168,10 +165,87 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 1.125rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+
+                ${tokens.chipGap}: 0.125rem;
+                ${tokens.chipBorderRadius}: 0.625rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 3.25rem;
+                ${tokens.chipPadding}: 0 0.75rem 0 1rem;
+                ${tokens.chipClearContentMarginLeft}: 0.625rem;
+                ${tokens.chipClearContentMarginRight}: 0rem;
+                ${tokens.chipCloseIconSize}: 1.5rem;
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.indicatorSizeInner}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+            `,
+            l: css`
+                ${tokens.height}: 3.5rem;
+                ${tokens.padding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
+                ${tokens.paddingWithChips}: 0.375rem;
+                ${tokens.borderRadius}: 0.875rem;
+
+                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.clearLabelOffset}: 0.25rem;
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 1rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -212,10 +286,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -228,10 +301,7 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -249,10 +319,10 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.875rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -293,10 +363,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -309,10 +378,7 @@ export const config = {
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -330,10 +396,10 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.75rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -352,7 +418,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
-                ${tokens.contentLabelInnerPadding}: 1.063rem 0 0.3125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.25rem;
@@ -374,10 +440,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -388,12 +453,9 @@ export const config = {
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.5rem;
 
-                ${tokens.leftContentMargin}: -0.063rem 0.25rem -0.063rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.063rem -0.125rem -0.063rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.063rem -0.688rem -0.063rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
+                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.rightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
@@ -411,10 +473,10 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${tokens.hintMargin}: auto 0 auto 0.25rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.188rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.5rem;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -433,7 +495,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
-                ${tokens.contentLabelInnerPadding}: 1.063rem 0 0.3125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.125rem;
@@ -455,10 +517,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem 0 auto 0.25rem;
                 ${tokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.25rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -574,7 +635,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m);
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.tooltipColor}: var(--text-primary);
                 ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,

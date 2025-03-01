@@ -14,7 +14,7 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];

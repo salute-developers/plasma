@@ -24,7 +24,8 @@ export const base = css`
 
         transition: background-color 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
     }
-    ${InputWrapper}:hover {
+
+    &:not([disabled]) ${InputWrapper}:hover {
         --plasma_private-textfield-border-color: var(${tokens.borderColorHover}, var(${String(tokens.borderColor)}));
         --plasma_private-textfield-bg-color: var(
             ${tokens.backgroundColorHover},

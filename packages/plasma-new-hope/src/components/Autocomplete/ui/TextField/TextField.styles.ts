@@ -36,6 +36,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.padding}: var(${autocompleteTokens.textFieldPadding});
     ${textFieldTokens.leftContentMargin}: var(${autocompleteTokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${autocompleteTokens.textFieldRightContentMargin});
+    ${textFieldTokens.rightContentWithInnerHintMarginRight}: var(${autocompleteTokens.textFieldRightContentWithInnerHintMarginRight});
     ${textFieldTokens.fontFamily}: var(${autocompleteTokens.textFieldFontFamily});
     ${textFieldTokens.fontStyle}: var(${autocompleteTokens.textFieldFontStyle});
     ${textFieldTokens.fontSize}: var(${autocompleteTokens.textFieldFontSize});
@@ -90,14 +91,9 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${autocompleteTokens.textFieldIndicatorLabelPlacementOuterRight});
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInner});
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInnerRight});
-    ${textFieldTokens.clearIndicatorHintInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorHintInnerRight});
     ${textFieldTokens.boxShadow}: var(${autocompleteTokens.textFieldBoxShadow});
-        
-    ${textFieldTokens.rightContentWithHintMargin}: var(${autocompleteTokens.textFieldRightContentWithHintMargin});
-    ${textFieldTokens.contentRightWrapperGap}: var(${autocompleteTokens.textFieldContentRightWrapperGap});
-    ${textFieldTokens.contentRightWrapperMargin}: var(${autocompleteTokens.textFieldContentRightWrapperMargin});
-            
-    ${textFieldTokens.hintCustomIconTargetSize}: var(${autocompleteTokens.textFieldHintCustomIconTargetSize});
+
+    ${textFieldTokens.hintCustomIconSize}: var(${autocompleteTokens.textFieldHintCustomIconSize});
     ${textFieldTokens.hintMargin}: var(${autocompleteTokens.textFieldHintMargin});
     ${textFieldTokens.hintTargetSize}: var(${autocompleteTokens.textFieldHintTargetSize});
     ${textFieldTokens.hintIconColor}: var(${autocompleteTokens.textFieldHintIconColor});

@@ -10,8 +10,6 @@ export type TextFieldHintProps = {
     hintPlacement: PopoverPlacement | Array<PopoverPlacementBasic>;
     hintOffset: [number, number];
     hintContentLeft: ReactNode;
-    size?: string;
-    isInnerLabel?: boolean;
     hintHasArrow?: boolean;
     hintWidth?: string;
     handleHintShow: () => void;
