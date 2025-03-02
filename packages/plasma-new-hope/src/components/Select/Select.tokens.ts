@@ -103,10 +103,8 @@ export const tokens = {
 
     textFieldLeftContentMargin: '--plasma-select-textfield-left-content-margin',
     textFieldRightContentMargin: '--plasma-select-textfield-right-content-margin',
-    textFieldRightContentWithHintMargin: '--plasma-select-textfield-right-content-with-hint-margin',
-
-    textFieldContentRightWrapperGap: '--plasma-select-textfield-content-right-wrapper-gap',
-    textFieldContentRightWrapperMargin: '--plasma-select-textfield-content-right-wrapper-margin',
+    textFieldRightContentWithInnerHintMarginRight:
+        '--plasma-select-textfield-right-content-with-inner-hint-margin-right',
 
     textFieldFontFamily: '--plasma-select-textfield-font-family',
     textFieldFontStyle: '--plasma-select-textfield-font-style',
@@ -175,7 +173,7 @@ export const tokens = {
     textFieldReadOnlyOpacity: '--plasma-select-textfield-readonly-opacity',
 
     /** Токены для tooltip */
-    textFieldHintCustomIconTargetSize: '--plasma-select-textfield__hint-custom-icon-target-size',
+    textFieldHintCustomIconSize: '--plasma-select-textfield__hint-custom-icon-size',
     textFieldHintMargin: '--plasma-select-textfield__hint-margin',
     textFieldHintTargetSize: '--plasma-select-textfield__hint-target-size',
     textFieldHintIconColor: '--plasma-select-textfield__hint-icon-color',
@@ -246,7 +244,7 @@ export const tokens = {
     textFieldClearIndicatorLabelPlacementInner: '--plasma-select-new-textfield-clear-indicator-placement-inner',
     textFieldClearIndicatorLabelPlacementInnerRight:
         '--plasma-select-new-textfield-clear-indicator-placement-inner-right',
-    textFieldClearIndicatorHintInnerRight: '--plasma-select-new-textfield-clear-indicator-hint-placement-inner-right',
+
     textFieldOptionalColor: '--plasma-select-new-textfield-optional-color',
 
     textFieldFocusColor: '--plasma-select-textfield-focus-color',

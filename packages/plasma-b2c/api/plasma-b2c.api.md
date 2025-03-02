@@ -1577,6 +1577,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2440,6 +2441,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2517,6 +2519,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2596,6 +2599,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2673,6 +2677,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2752,6 +2757,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2829,6 +2835,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2908,6 +2915,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2985,6 +2993,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -4427,7 +4436,8 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "HintProps_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = Omit<TextFieldProps_2, 'helperText'> & {
+export type TextFieldProps = Omit<TextFieldProps_2, 'size' | 'helperText'> & {
+    size?: 'xl' | 'l' | 'm' | 's' | 'xs';
     helperText?: ReactNode;
 } & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator' | 'textBefore' | 'textAfter'> & ClearProps_2 & HintProps_2;
 

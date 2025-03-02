@@ -91,7 +91,11 @@ type HintProps =
           hintContentLeft?: never;
       };
 
-type TextFieldProps = Omit<TextFieldPropsOld, 'helperText'> & {
+type TextFieldProps = Omit<TextFieldPropsOld, 'size' | 'helperText'> & {
+    /**
+     * Доступные размеры компонента
+     */
+    size?: 'xl' | 'l' | 'm' | 's' | 'xs';
     /**
      * Подсказка для поля ввода.
      */
@@ -164,12 +168,14 @@ export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((pro
     let _labelPlacement = animatedHint ? animatedHintToLabelPlacement[animatedHint] : 'outer';
     let _label = label ? String(label) : undefined;
 
-    if (size !== 'l' && _labelPlacement === 'inner' && !keepPlaceholder) {
+    const isLarge = size === 'l' || size === 'xl';
+
+    if (!isLarge && _labelPlacement === 'inner' && !keepPlaceholder) {
         _label = undefined;
         _labelPlacement = 'outer';
     }
 
-    if (size === 'l' && animatedHint === 'placeholder' && !label) {
+    if (isLarge && animatedHint === 'placeholder' && !label) {
         _label = placeholder;
         _labelPlacement = 'inner';
     }

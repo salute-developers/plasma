@@ -496,6 +496,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2058,6 +2059,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2135,6 +2137,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2214,6 +2217,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2291,6 +2295,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2370,6 +2375,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2447,6 +2453,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2526,6 +2533,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -2603,6 +2611,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -3865,6 +3874,7 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;

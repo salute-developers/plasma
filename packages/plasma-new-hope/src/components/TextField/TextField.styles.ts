@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
 import { component, mergeConfig } from '../../engines';
 import { tooltipConfig } from '../Tooltip';
@@ -98,6 +99,8 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
+
+    --plasma-private-text-field-hint-icon-size: var(var(${tokens.hintCustomIconSize}), 1rem);
 `;
 
 export const TitleCaption = styled.div`
@@ -122,10 +125,7 @@ export const StyledContentLeft = styled.div<{ isDefaultView: boolean; isClear: b
     line-height: 0;
 `;
 
-export const StyledContentRightWrapper = styled.div`
-    display: flex;
-    align-items: center;
-`;
+export const StyledContentRightWrapper = styled.div``;
 
 export const StyledContentRight = styled.div`
     line-height: 0;
@@ -141,6 +141,18 @@ export const StyledContentRight = styled.div`
     &:active {
         color: var(${tokens.contentSlotRightColorActive}, var(${tokens.contentSlotColorActive}));
     }
+
+    &.${classes.contentRightCompensationMargin} {
+        margin-right: calc(
+            var(--plasma-private-text-field-hint-icon-size) + var(${tokens.rightContentWithInnerHintMarginRight})
+        );
+    }
+
+    &.${classes.contentRightCompensationMargin}.${classes.clear} {
+        margin-right: calc(
+            var(--plasma-private-text-field-hint-icon-size) + var(${tokens.rightContentWithInnerHintMarginRight})
+        );
+    }
 `;
 
 export const LeftHelper = styled.div``;
@@ -155,14 +167,43 @@ export const StyledOptionalText = styled.span`
     color: var(${tokens.optionalColor});
 `;
 
-export const StyledHintWrapper = styled.div`
-    display: inline-block;
-    line-height: 0;
+export const InnerHintWrapper = styled.div`
+    position: relative;
+`;
 
-    &.${classes.innerLabelPlacement} {
-        position: absolute;
-        margin: 0;
-        inset: var(${tokens.hintInnerLabelPlacementOffset});
+export const InnerHintContainer = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+
+    :not(.${classes.clear}) {
+        inset: var(${tokens.padding});
+    }
+`;
+
+export const StyledHintWrapper = styled.div`
+    position: absolute;
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: var(--plasma-textfield__hint-target-size);
+    height: var(--plasma-textfield__hint-target-size);
+
+    :not(.${classes.outerLabelPlacement}) {
+        /* + var(tokens.borderWidth)? */
+        left: calc(100% + var(--plasma-private-text-field-hint-icon-size) / 2 + 0.065rem);
+        margin: 0 0 0 var(${tokens.hintInnerLabelPlacementOffset});
+
+        &.${classes.hasInnerHint} {
+            margin: 0;
+            left: calc(100% - var(--plasma-private-text-field-hint-icon-size) / 2 + 0.065rem);
+        }
     }
 `;
 
@@ -186,6 +227,7 @@ export const HintIconWrapper = styled.div`
 
 export const StyledIndicator = styled.div`
     position: absolute;
+    top: 0;
     border-radius: 50%;
 
     background-color: var(${tokens.indicatorColor});
@@ -193,16 +235,11 @@ export const StyledIndicator = styled.div`
     &.${classes.outerLabelPlacement} {
         width: var(${tokens.indicatorSizeOuter});
         height: var(${tokens.indicatorSizeOuter});
-        inset: var(${tokens.indicatorLabelPlacementOuter});
+        margin: var(${tokens.indicatorLabelPlacementOuter});
 
         &.${classes.requiredAlignRight} {
-            inset: var(${tokens.indicatorLabelPlacementOuterRight});
-
-            &.${classes.hasHint} {
-                right: calc(
-                    -1 * var(${tokens.indicatorSizeOuter}) + var(${tokens.indicatorLabelPlacementHintOuterRight}, 0px)
-                );
-            }
+            left: 100%;
+            margin: var(${tokens.indicatorLabelPlacementOuterRight});
         }
     }
 
@@ -215,4 +252,23 @@ export const StyledIndicator = styled.div`
             inset: var(${tokens.indicatorLabelPlacementInnerRight});
         }
     }
+`;
+
+export const base = css`
+    /* NOTE: Webkit не применяет opacity к inline тегам */
+    display: block;
+
+    --plasma-private-text-field-hint-icon-size: var(${tokens.hintCustomIconSize}, 1.5rem);
+
+    &[data-size='xs'],
+    ${OuterLabelWrapper} {
+        --plasma-private-text-field-hint-icon-size: var(${tokens.hintCustomIconSize}, 1rem);
+    }
+`;
+
+export const HintSizeContainer = styled.div`
+    position: relative;
+    margin: var(${tokens.hintMargin});
+    width: var(--plasma-private-text-field-hint-icon-size);
+    height: var(--plasma-private-text-field-hint-icon-size);
 `;

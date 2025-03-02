@@ -551,6 +551,14 @@ describe('plasma-b2c: Select', () => {
     it('prop: size l', () => {
         cy.viewport(1000, 1200);
 
+        mount(<CommonComponent size="xl" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: size l', () => {
+        cy.viewport(1000, 1200);
+
         mount(<CommonComponent size="l" />);
 
         cy.matchImageSnapshot();
@@ -568,14 +576,6 @@ describe('plasma-b2c: Select', () => {
         cy.viewport(1000, 1000);
 
         mount(<CommonComponent size="s" />);
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prop: size xs', () => {
-        cy.viewport(1000, 1000);
-
-        mount(<CommonComponent size="xs" />);
 
         cy.matchImageSnapshot();
     });

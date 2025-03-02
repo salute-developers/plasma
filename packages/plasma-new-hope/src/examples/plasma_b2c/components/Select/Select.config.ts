@@ -74,9 +74,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}:var(--surface-positive);
-                ${tokens.buttonBackgroundColorHover}:var(--surface-positive-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--surface-positive-active);
+                ${tokens.buttonBackgroundColor}: var(--surface-positive);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-positive-active);
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -110,9 +110,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}:var(--surface-warning);
-                ${tokens.buttonBackgroundColorHover}:var(--surface-warning-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--surface-warning-active);
+                ${tokens.buttonBackgroundColor}: var(--surface-warning);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-warning-active);
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -146,9 +146,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}:var(--surface-negative);
+                ${tokens.buttonBackgroundColor}: var(--surface-negative);
                 ${tokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--surface-negative-active);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-negative-active);
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -207,9 +207,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-light-surface-transparent-deep);
-                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+                ${tokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${tokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -222,8 +222,8 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-light-surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
+                ${tokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${tokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
                 ${tokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
@@ -237,9 +237,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-light-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-light-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-light-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-dark-surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+                ${tokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${tokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
 
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.disclosureIconColor}: var(--text-secondary);
@@ -247,6 +247,133 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.textFieldHeight}: 4rem;
+                ${tokens.textFieldPadding}: 1.25rem;
+                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldBorderRadius}: 1rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
+
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldLabelOffset}: 0.75rem;
+                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 1.125rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
+
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelInnerPadding}: 0.5625rem 0 0.125rem 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldChipGap}: 0.125rem;
+                ${tokens.textFieldChipBorderRadius}: 0.625rem;
+                ${tokens.textFieldChipWidth}: auto;
+                ${tokens.textFieldChipHeight}: 3.25rem;
+                ${tokens.textFieldChipPadding}: 0 0.75rem 0 1rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.625rem;
+                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${tokens.textFieldChipCloseIconSize}: 1.5rem;
+                ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.textFieldChipFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.5rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
+
+                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.625rem;
+                ${tokens.targetHeight}: 4rem;
+                ${tokens.buttonPadding}: 1.75rem 0 1.75rem;
+
+                ${tokens.padding}: 0.125rem;
+                ${tokens.borderRadius}: 1rem;
+
+                ${tokens.itemHeight}: 1.375rem;
+                ${tokens.itemPadding}: 1.25rem 1rem;
+                ${tokens.itemPaddingTight}: 1rem 1rem;
+                ${tokens.itemBorderRadius}: 0.875rem;
+                ${tokens.itemIconMargin}: 0 0.5rem 0 0;
+                ${tokens.itemIconSize}: 1.5rem;
+                ${tokens.itemIconSizeTight}: 1.5rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.5rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.checkboxTriggerSize}: 1.25rem;
+                ${tokens.checkboxTriggerSizeTight}: 1.25rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${tokens.indicatorSize}: 0.375rem;
+            `,
             l: css`
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
@@ -255,10 +382,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -278,10 +402,10 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
-                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 1rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -299,16 +423,15 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textFieldChipGap}: 0.25rem;
                 ${tokens.textFieldChipBorderRadius}: 0.5rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 2.75rem;
-                ${tokens.textFieldChipPadding}: 0  0.75rem 0 1rem;
+                ${tokens.textFieldChipPadding}: 0 0.75rem 0 1rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.625rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1.5rem;
@@ -372,10 +495,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -395,10 +515,10 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
-                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
-                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.875rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -416,16 +536,15 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textFieldChipGap}: 0.25rem;
                 ${tokens.textFieldChipBorderRadius}: 0.375rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 2.25rem;
-                ${tokens.textFieldChipPadding}: 0  0.625rem 0 0.875rem;
+                ${tokens.textFieldChipPadding}: 0 0.625rem 0 0.875rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.5rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1.25rem;
@@ -489,10 +608,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -512,10 +628,10 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
-                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
-                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.75rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -533,16 +649,15 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.textFieldChipGap}: 0.25rem;
                 ${tokens.textFieldChipBorderRadius}: 0.25rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.75rem;
-                ${tokens.textFieldChipPadding}: 0  0.5rem 0 0.75rem;
+                ${tokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1rem;
@@ -606,10 +721,6 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -653,13 +764,12 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
 
                 ${tokens.textFieldChipGap}: 0.25rem;
                 ${tokens.textFieldChipBorderRadius}: 0.125rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.25rem;
-                ${tokens.textFieldChipPadding}: 0  0.375rem 0 0.625rem;
+                ${tokens.textFieldChipPadding}: 0 0.375rem 0 0.625rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.25rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 0.75rem;
@@ -769,7 +879,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.textFieldTooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.textFieldTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.textFieldTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16), 0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.textFieldTooltipColor}: var(--text-primary);
                 ${tokens.textFieldTooltipArrowBackground}: var(--surface-solid-card);
             `,

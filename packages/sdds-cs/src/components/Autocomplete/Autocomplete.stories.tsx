@@ -1,12 +1,38 @@
 import type { ComponentProps } from 'react';
-import * as React from 'react';
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
+import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Autocomplete } from './Autocomplete';
+import { config } from './Autocomplete.config';
 
-const views = ['default', 'negative'];
+const { views, sizes } = getConfigVariations(config);
+const labelPlacements = ['outer', 'inner'];
+const hintViews = ['default'];
+const hintSizes = ['m', 's'];
+const hintTriggers = ['hover', 'click'];
+const hintTargetPlacements = ['outer', 'inner'];
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const suggestions = [
     { label: 'Алексей Смирнов' },
@@ -64,6 +90,7 @@ const suggestions = [
 type StoryProps = ComponentProps<typeof Autocomplete> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    hasHint: boolean;
 };
 
 const meta: Meta<StoryProps> = {
@@ -76,6 +103,24 @@ const meta: Meta<StoryProps> = {
             control: {
                 type: 'select',
             },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'labelPlacement', eq: 'inner' },
         },
         requiredPlacement: {
             options: ['left', 'right'],
@@ -105,28 +150,66 @@ const meta: Meta<StoryProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        ...disableProps([
-            'hintText',
-            'hintTrigger',
-            'hintView',
-            'hintSize',
-            'hintTargetIcon',
-            'hintTargetPlacement',
-            'hintPlacement',
-            'hintHasArrow',
-            'hintOffset',
-            'hintWidth',
-            'hintContentLeft',
-        ]),
+        hintText: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintView: {
+            options: hintViews,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintSize: {
+            options: hintSizes,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTargetPlacement: {
+            options: hintTargetPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTrigger: {
+            options: hintTriggers,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+            mappers: placements,
+        },
+        hintHasArrow: {
+            control: { type: 'boolean' },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintWidth: {
+            control: { type: 'text' },
+            if: { arg: 'hasHint', truthy: true },
+        },
     },
     args: {
         view: 'default',
+        size: 'l',
+        labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
         label: 'Label',
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',
+        keepPlaceholder: false,
         leftHelper: 'Введите имя Алексей',
         listWidth: '100%',
         listMaxHeight: '200px',
@@ -136,6 +219,15 @@ const meta: Meta<StoryProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasHint: false,
+        hintText: 'Текст подсказки',
+        hintTrigger: 'hover',
+        hintView: 'default',
+        hintSize: 'm',
+        hintTargetPlacement: 'outer',
+        hintPlacement: 'auto',
+        hintWidth: '10rem',
+        hintHasArrow: true,
         hasRequiredIndicator: true,
     },
 };
@@ -145,15 +237,17 @@ export default meta;
 const DefaultStory = (args: StoryProps) => {
     const { enableContentLeft, enableContentRight } = args;
 
-    const iconSize = 's';
+    const iconSize = args.size === 'xs' ? 'xs' : 's';
 
     return (
-        <Autocomplete
-            {...args}
-            suggestions={suggestions}
-            contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlasma size={iconSize} /> : undefined}
-        />
+        <div style={{ width: '70%', margin: '0 auto' }}>
+            <Autocomplete
+                {...args}
+                suggestions={suggestions}
+                contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            />
+        </div>
     );
 };
 

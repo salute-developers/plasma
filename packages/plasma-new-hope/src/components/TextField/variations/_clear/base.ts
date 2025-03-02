@@ -53,21 +53,26 @@ export const base = css`
                 inset: var(${tokens.clearIndicatorLabelPlacementInner});
 
                 &.${classes.requiredAlignRight} {
-                    inset: var(${tokens.clearIndicatorLabelPlacementInnerRight});
+                    inset: 0 0 0 100%;
+                    margin: var(${tokens.clearIndicatorLabelPlacementInnerRight});
+                }
+
+                &.${classes.requiredAlignRight}:not(.${classes.hasInnerHint}) {
+                    background: blue;
+                    inset: 0 0 0 calc(100% + var(--plasma-private-text-field-hint-icon-size) + var(${
+                        tokens.clearHintInnerLabelPlacementOffset
+                    }));
+                    margin: var(${tokens.clearIndicatorLabelPlacementInnerRight});
                 }
             }
         }
 
-        &.${classes.hasHint} {
-            ${StyledHintWrapper} {
-                &.${classes.innerLabelPlacement} {
-                    inset: var(${tokens.clearHintInnerLabelPlacementOffset});
-                }
-            }
+        ${StyledHintWrapper} {
+            :not(.${classes.outerLabelPlacement}) {
+                /* + var(tokens.borderWidth)? */
 
-            ${StyledIndicator} {
-                &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
-                    inset: var(${tokens.clearIndicatorHintInnerRight});
+                :not(&.${classes.hasInnerHint}) {
+                    margin: 0 0 0 var(${tokens.clearHintInnerLabelPlacementOffset});
                 }
             }
         }

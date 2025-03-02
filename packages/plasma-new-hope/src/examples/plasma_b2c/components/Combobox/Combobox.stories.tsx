@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { IconDone } from '../../../../components/_Icon';
 import type { PopoverPlacement } from '../Popover/Popover';
 
 import { Combobox } from './Combobox';
+import { config } from './Combobox.config';
 
 type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
     hasHint?: boolean;
 };
 
-const view = ['default', 'positive', 'warning', 'negative'];
-const size = ['xs', 's', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
 const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 const hintViews = ['default'];
@@ -47,13 +48,13 @@ const meta: Meta<StorySelectProps> = {
     component: Combobox,
     argTypes: {
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: view,
+            options: views,
             control: {
                 type: 'select',
             },
