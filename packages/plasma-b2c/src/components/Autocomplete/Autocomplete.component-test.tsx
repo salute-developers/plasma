@@ -105,6 +105,13 @@ describe('plasma-b2c: Autocomplete', () => {
                         label="Label"
                         leftHelper="Helper Text"
                         suggestions={suggestions}
+                        size="xl"
+                    />
+                    <Autocomplete
+                        value="Алексей"
+                        label="Label"
+                        leftHelper="Helper Text"
+                        suggestions={suggestions}
                         size="l"
                     />
                     <Autocomplete
@@ -131,6 +138,14 @@ describe('plasma-b2c: Autocomplete', () => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '50px' }}>
+                    <Autocomplete
+                        value="Алексей"
+                        label="Label"
+                        leftHelper="Helper Text"
+                        suggestions={suggestions}
+                        size="xl"
+                        labelPlacement="inner"
+                    />
                     <Autocomplete
                         value="Алексей"
                         label="Label"

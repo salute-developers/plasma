@@ -9,7 +9,7 @@ import { TextField as TextFieldB2C } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const sizes = ['xs', 's', 'm', 'l'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'] as const;
 
 describe('plasma-b2c: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldB2C;
@@ -51,11 +51,18 @@ describe('plasma-b2c: TextField', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <TextField size="s" value="Small s" label="Label" placeholder="Placeholder" helperText="Helper text" />
-                <SpaceMe />
-                <TextField size="m" value="Medium m" label="Label" placeholder="Placeholder" helperText="Helper text" />
-                <SpaceMe />
-                <TextField size="l" value="Medium l" label="Label" placeholder="Placeholder" helperText="Helper text" />
+                {sizes.map((size) => (
+                    <>
+                        <TextField
+                            size={size}
+                            value={`Size ${size}`}
+                            label="Label"
+                            placeholder="Placeholder"
+                            helperText="Helper text"
+                        />
+                        <SpaceMe />
+                    </>
+                ))}
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -162,7 +169,34 @@ describe('plasma-b2c: TextField', () => {
     it(':disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
+                <TextField
+                    style={{ width: '90vw' }}
+                    size="m"
+                    value="Value"
+                    label="Label"
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    hintText="hint"
+                    textBefore="_"
+                    textAfter="%"
+                    disabled
+                />
+                <SpaceMe />
+                <TextField
+                    style={{ width: '90vw' }}
+                    size="m"
+                    value="Value"
+                    label="Label"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    hintText="hint"
+                    labelPlacement="inner"
+                    view="innerLabel"
+                    textBefore="_"
+                    textAfter="%"
+                    disabled
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -368,6 +402,7 @@ describe('plasma-b2c: TextField', () => {
                     labelPlacement="outer"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -378,6 +413,7 @@ describe('plasma-b2c: TextField', () => {
                     labelPlacement="outer"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -389,6 +425,7 @@ describe('plasma-b2c: TextField', () => {
                     view="innerLabel"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -400,6 +437,7 @@ describe('plasma-b2c: TextField', () => {
                     view="innerLabel"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -413,6 +451,7 @@ describe('plasma-b2c: TextField', () => {
                     keepPlaceholder
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -520,8 +559,6 @@ describe('plasma-b2c: TextField', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'] as const;
-
         const cases = [
             { labelPlacement: 'outer' },
             { requiredPlacement: 'left', labelPlacement: 'outer' },
@@ -608,8 +645,6 @@ describe('plasma-b2c: TextField', () => {
     });
 
     describe('with hint', () => {
-        const sizes = ['xs', 's', 'm', 'l'] as const;
-
         const cases = [
             { labelPlacement: 'outer' },
             { labelPlacement: 'inner', view: 'innerLabel' },

@@ -42,10 +42,9 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
-
-    ${textFieldTokens.rightContentWithHintMargin}: var(${tokens.textFieldRightContentWithHintMargin});
-    ${textFieldTokens.contentRightWrapperGap}: var(${tokens.textFieldContentRightWrapperGap});
-    ${textFieldTokens.contentRightWrapperMargin}: var(${tokens.textFieldContentRightWrapperMargin});
+    ${textFieldTokens.rightContentWithInnerHintMarginRight}: var(${
+    tokens.textFieldRightContentWithInnerHintMarginRight
+});
 
     ${textFieldTokens.fontFamily}: var(${tokens.textFieldFontFamily});
     ${textFieldTokens.fontStyle}: var(${tokens.textFieldFontStyle});
@@ -107,7 +106,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.disabledOpacity}: var(${tokens.textFieldDisabledOpacity});
 
-    ${textFieldTokens.hintCustomIconTargetSize}: var(${tokens.textFieldHintCustomIconTargetSize});
+    ${textFieldTokens.hintCustomIconSize}: var(${tokens.textFieldHintCustomIconSize});
     ${textFieldTokens.hintMargin}: var(${tokens.textFieldHintMargin});
     ${textFieldTokens.hintTargetSize}: var(${tokens.textFieldHintTargetSize});
     ${textFieldTokens.hintIconColor}: var(${tokens.textFieldHintIconColor});
@@ -172,15 +171,16 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.textFieldIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.textFieldIndicatorLabelPlacementOuterRight});
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${tokens.textFieldClearIndicatorLabelPlacementInner});
-    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}:
-        var(${tokens.textFieldClearIndicatorLabelPlacementInnerRight});
-    ${textFieldTokens.clearIndicatorHintInnerRight}: var(${tokens.textFieldClearIndicatorHintInnerRight});
+    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${
+    tokens.textFieldClearIndicatorLabelPlacementInnerRight
+});
 
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
     ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
 
     /* TODO: #1544 */
+
     & div.input-wrapper:focus-within {
         background-color: var(${tokens.textFieldBackgroundColorFocus});
     }

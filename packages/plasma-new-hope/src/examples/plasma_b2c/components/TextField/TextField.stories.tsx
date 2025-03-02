@@ -1,13 +1,14 @@
 import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
+import { IconPlaceholder, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { IconCross, IconLock } from '../../../../components/_Icon';
 import type { PopoverPlacement } from '../Popover/Popover';
 
 import { TextField } from './TextField';
+import { config } from './TextField.config';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -15,8 +16,8 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's', 'xs'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const { views, sizes } = getConfigVariations(config);
+
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];

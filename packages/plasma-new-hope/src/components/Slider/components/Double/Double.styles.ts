@@ -35,7 +35,7 @@ export const InputsWrapper = styled.div`
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
     flex: 1;
-    
+
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
@@ -53,16 +53,16 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.letterSpacing}: var(${tokens.textFieldLetterSpacing});
     ${textFieldTokens.lineHeight}: var(${tokens.textFieldLineHeight});
 
-    &.${classes.firstTextField} > div {
+    &.${classes.firstTextField} > div > div {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
 
-    &.${classes.secondTextField} > div {
+    &.${classes.secondTextField} > div > div {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
-    
+
     input:focus, &.${classes.textFieldActive} {
         ${textFieldTokens.color}: var(${tokens.textFiledFocusColor});
     }
