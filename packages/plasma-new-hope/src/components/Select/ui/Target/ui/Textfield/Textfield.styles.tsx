@@ -8,7 +8,7 @@ import { IconDisclosureDownCentered } from '../../../../../_Icon';
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
 
-export const StyledTextField = styled(TextField)<{ opened: boolean }>`
+export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: boolean }>`
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
     ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColor});
@@ -172,24 +172,48 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.textFieldIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.textFieldIndicatorLabelPlacementOuterRight});
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${tokens.textFieldClearIndicatorLabelPlacementInner});
-    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}:
-        var(${tokens.textFieldClearIndicatorLabelPlacementInnerRight});
+    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${
+    tokens.textFieldClearIndicatorLabelPlacementInnerRight
+});
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${tokens.textFieldClearIndicatorHintInnerRight});
 
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
-    ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
+    ${textFieldTokens.boxShadow}: ${({ disabled }) => (disabled ? 'none' : `var(${tokens.textFieldBoxShadow})`)};
 
     /* TODO: #1544 */
+
     & div.input-wrapper:focus-within {
         background-color: var(${tokens.textFieldBackgroundColorFocus});
     }
+
+    /* TextField изначально в readOnly состоянии */
+
+    &.${classes.readOnly} {
+        ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
+        ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
+        ${textFieldTokens.placeholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
+        ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
+        ${textFieldTokens.leftHelperColorReadOnly}: var(${tokens.textFieldLeftHelperColorReadOnly});
+        ${textFieldTokens.labelColorReadOnly}: var(${tokens.textFieldLabelColorReadOnly});
+        ${textFieldTokens.titleCaptionColorReadOnly}: var(${tokens.textFieldTitleCaptionColorReadOnly});
+        ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
+        ${textFieldTokens.readOnlyOpacity}: var(${tokens.textFieldReadOnlyOpacity});
+
+        ${textFieldTokens.chipColorReadOnly}: var(${tokens.textFieldChipColorReadOnly});
+        ${textFieldTokens.chipColorReadOnlyHover}: var(${tokens.textFieldChipColorReadOnlyHover});
+        ${textFieldTokens.chipBackgroundReadOnly}: var(${tokens.textFieldChipBackgroundReadOnly});
+        ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${tokens.textFieldChipBackgroundReadOnlyHover});
+        ${textFieldTokens.chipOpacityReadonly}: var(${tokens.textFieldChipOpacityReadonly});
+
+        ${textFieldTokens.boxShadow}: none;
+    }
 `;
 
-export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
+export const IconArrowWrapper = styled.div<{ disabled?: boolean; readOnly?: boolean }>`
     line-height: 0;
     color: var(${tokens.disclosureIconColor});
-    cursor: ${({ disabled }) => (disabled ? 'inherit' : 'pointer')};
+    cursor: ${({ disabled, readOnly }) => (disabled || readOnly ? 'inherit' : 'pointer')};
 
     .${classes.arrowInverse} {
         transform: rotate(-180deg);
@@ -197,9 +221,11 @@ export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
 
     &:hover,
     &:active {
-        color: ${({ disabled }) =>
-            disabled ? `var(${tokens.disclosureIconColor})` : `var(${tokens.disclosureIconColorHover})`};
+        color: ${({ disabled, readOnly }) =>
+            disabled || readOnly ? `var(${tokens.disclosureIconColor})` : `var(${tokens.disclosureIconColorHover})`};
     }
+
+    opacity: ${({ readOnly }) => (readOnly ? `var(${tokens.disclosureIconOpacityReadOnly})` : '')};
 `;
 
 // TODO: Удалить после поддержки JS переменных в конфиге компонент

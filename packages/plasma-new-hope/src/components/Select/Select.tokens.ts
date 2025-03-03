@@ -8,6 +8,7 @@ export const classes = {
     selectChipIsFocused: 'select-chip-is-focused',
     selectWithoutBoxShadow: 'select-without-box-shadow',
     selectSpinner: 'select-spinner',
+    readOnly: 'readonly',
 };
 
 export const tokens = {
@@ -86,6 +87,13 @@ export const tokens = {
     textFieldPlaceholderColor: '--plasma-select-textfield-placeholder-color',
     textFieldPlaceholderColorFocus: '--plasma-select-textfield-placeholder-color-focus',
 
+    /** Цвета для read-only состояния */
+    textFieldColorReadOnly: '--plasma-select-textfield-color-readonly',
+    textFieldBackgroundColorReadOnly: '--plasma-select-textfield-bg-color-readonly',
+    textFieldBorderColorReadOnly: '--plasma-select-textfield-border-color-readonly',
+    textFieldPlaceholderColorReadOnly: '--plasma-select-textfield__placeholder-color-readonly',
+    textFieldDividerColorReadOnly: '--plasma-select-textfield-divider-color-readonly',
+
     textFieldHeight: '--plasma-select-textfield-height',
     textFieldBorderWidth: '--plasma-select-textfield-border-width',
     textFieldBorderRadius: '--plasma-select-textfield-border-radius',
@@ -116,6 +124,7 @@ export const tokens = {
     textFieldContentSlotRightColorActive: '--plasma-select-textfield-content-right-slot-color-active',
 
     textFieldLabelColor: '--plasma-select-textfield-label-color',
+    textFieldLabelColorReadOnly: '--plasma-select-textfield__label-color-readonly',
     textFieldLabelOffset: '--plasma-select-textfield-label-offset',
 
     textFieldLabelFontFamily: '--plasma-select-textfield-label-font-family',
@@ -136,6 +145,7 @@ export const tokens = {
     textFieldContentLabelInnerPadding: '--plasma-select-textfield-placement-inner-content-padding',
 
     textFieldTitleCaptionColor: '--plasma-select-textfield-title-caption-color',
+    textFieldTitleCaptionColorReadOnly: '--plasma-select-textfield__title-caption-color-readonly',
     textFieldTitleCaptionInnerLabelOffset: '--plasma-select-textfield-title-caption-label-inner-offset',
 
     textFieldTitleCaptionFontFamily: '--plasma-select-textfield-title-caption-font-family',
@@ -146,6 +156,7 @@ export const tokens = {
     textFieldTitleCaptionLineHeight: '--plasma-select-textfield-title-caption-line-height',
 
     textFieldLeftHelperColor: '--plasma-select-textfield-left-helper-color',
+    textFieldLeftHelperColorReadOnly: '--plasma-select-textfield__left-helper-color-readonly',
     textFieldLeftHelperOffset: '--plasma-select-textfield-left-helper-offset',
 
     textFieldLeftHelperFontFamily: '--plasma-select-textfield-left-helper-font-family',
@@ -161,6 +172,7 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-select-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-select-textfield-disabled-opacity',
+    textFieldReadOnlyOpacity: '--plasma-select-textfield-readonly-opacity',
 
     /** Токены для tooltip */
     textFieldHintCustomIconTargetSize: '--plasma-select-textfield__hint-custom-icon-target-size',
@@ -202,6 +214,10 @@ export const tokens = {
     textFieldChipBackgroundHover: '--plasma-select-textfield-chip-background-hover',
     textFieldChipColorHover: '--plasma-select-textfield-chip-color-hover',
     textFieldChipScaleHover: '--plasma-select-textfield-chip-scale-hover',
+    textFieldChipBackgroundReadOnly: '--plasma-select-textfield__chip-background-readonly',
+    textFieldChipColorReadOnly: '--plasma-select-textfield__chip-color-readonly',
+    textFieldChipBackgroundReadOnlyHover: '--plasma-select-textfield__chip-background-readonly-hover',
+    textFieldChipColorReadOnlyHover: '--plasma-select-textfield__chip-color-readonly-hover',
     textFieldChipBackgroundActive: '--plasma-select-textfield-chip-background-active',
     textFieldChipColorActive: '--plasma-select-textfield-chip-color-active',
     textFieldChipScaleActive: '--plasma-select-textfield-chip-scale-active',
@@ -218,6 +234,7 @@ export const tokens = {
     textFieldChipLineHeight: '--plasma-select-textfield-chip-line-height',
     textFieldChipClearContentMarginLeft: '--plasma-select-textfield-chip-clear-content-margin-left',
     textFieldChipClearContentMarginRight: '--plasma-select-textfield-chip-clear-content-margin-right',
+    textFieldChipOpacityReadonly: '--plasma-select-textfield__chip-opacity-readonly',
 
     textFieldIndicatorColor: '--plasma-select-new-textfield-indicator-color',
     textFieldIndicatorSizeInner: '--plasma-select-new-textfield-indicator-size-inner',
@@ -240,6 +257,7 @@ export const tokens = {
     disclosureIconColorHover: '--plasma-select-disclosure-icon-color-hover',
     disclosureIconSize: '--plasma-select-disclosure-icon-size',
     disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
+    disclosureIconOpacityReadOnly: '--plasma-select-disclosure-icon-opacity-readonly',
 };
 
 export const constants = {
