@@ -1,0 +1,32 @@
+import Admonition from '@theme/Admonition';
+
+export default function TipCssModules({ isSass }) {
+
+    return (
+        <Admonition type="tip">
+            <p>Возможные дополнительные настройки в проекте:</p>
+
+            <p><strong>Bundle tools:</strong></p>
+            <ul>
+                <li><a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a></li>
+                <li><a href="https://webpack.js.org/loaders/css-loader/#modules">webpack + css-modules</a></li>
+                {isSass && <li><a href='https://webpack.js.org/loaders/sass-loader/'>webpack + sass</a></li>}
+                <li><a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a></li>
+            </ul>
+
+            <p><strong>TS:</strong></p>
+            Создайте <code>global.d.ts</code>
+
+            <pre>
+                <code>
+{`declare module "*.css" {
+  export default {
+    [index: string]: string;
+  }
+}
+`}
+                </code>
+            </pre>
+        </Admonition>
+    )
+}
