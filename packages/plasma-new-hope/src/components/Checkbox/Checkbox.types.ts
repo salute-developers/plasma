@@ -2,7 +2,7 @@ import type { InputHTMLAttributes } from '../../types';
 
 export interface BaseboxProps {
     /**
-     * Уникальный идентификатор контрола
+     * Уникальный идентификатор control
      */
     id?: string;
     /**
