@@ -14,8 +14,10 @@ export const tokens = {
     buttonValueColor: '--plasma-button-value-color',
     buttonBackgroundColor: '--plasma-button-background-color',
     buttonColorHover: '--plasma-button-color-hover',
+    buttonValueColorHover: '--plasma-button-value-color-hover',
     buttonBackgroundColorHover: '--plasma-button-background-color-hover',
     buttonColorActive: '--plasma-button-color-active',
+    buttonValueColorActive: '--plasma-button-value-color-active',
     buttonBackgroundColorActive: '--plasma-button-background-color-active',
     buttonLoadingBackgroundColor: '--plasma-button-loading-background-color',
 
