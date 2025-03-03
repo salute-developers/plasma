@@ -1,9 +1,14 @@
 import styled, { css } from 'styled-components';
 import { Container as Grid, Row, Col, BodyM, TextS, mediaQuery } from '@salutejs/plasma-b2c';
 import { secondary } from '@salutejs/plasma-tokens-b2c';
+import { useState } from 'react';
 
-import { MainMenu, MainProducts, MainCommunityMenu, IconGitHub } from '../components';
+import { MainMenu, MainProducts, MainCommunityMenu, IconGitHub, Heading } from '../components';
 import { multipleMediaQuery } from '../mixins';
+import { ArrowRight } from '../components/icons/ArrowRight';
+import { LinkItem } from '../components/main/LinkItem';
+import { ArrowTopRight } from '../components/icons/ArrowTopRight';
+import { Header } from '../components/main/Header';
 
 const StyledGrid = styled(Grid)`
     min-height: 100%;
@@ -126,6 +131,10 @@ const siteName = 'Плазма';
 const currentYear = new Date().getFullYear();
 
 export default function Home() {
+    const [openHeading, setOpenHeading] = useState(false);
+
+    const [selectedHeader, setSelectedHeader] = useState(false);
+
     return (
         <StyledGrid>
             <StyledRow>
@@ -134,12 +143,91 @@ export default function Home() {
                     <StyledMainMenu items={menu} />
                 </Col>
                 <StyledCol sizeXXL={12} sizeXL={9} sizeL={6} sizeM={6} sizeS={6}>
-                    <MainProducts items={products} />
+                    {/* <MainProducts items={products} /> */}
+                    <Header
+                        title="Header1"
+                        expanded={selectedHeader}
+                        onClick={() => setSelectedHeader(!selectedHeader)}
+                        contentRight={<ArrowRight style={{ width: '1rem', height: '1rem' }} />}
+                    />
+
+                    <Header
+                        title="Header2"
+                        expanded={selectedHeader}
+                        onClick={() => setSelectedHeader(!selectedHeader)}
+                        contentRight={<ArrowRight style={{ width: '1rem', height: '1rem' }} />}
+                    />
+
+                    <Header
+                        title="Header3"
+                        expanded={selectedHeader}
+                        onClick={() => setSelectedHeader(!selectedHeader)}
+                        contentRight={<ArrowRight style={{ width: '1rem', height: '1rem' }} />}
+                    />
+
+                    <Heading
+                        title="Heading"
+                        titleContentRight={<ArrowRight />}
+                        href="#"
+                        contentTopRight={
+                            <LinkItem
+                                href="#"
+                                title="item"
+                                contentLeft={
+                                    <ArrowRight style={{ width: '1rem', height: '1rem', transform: 'rotate(90deg)' }} />
+                                }
+                                contentRight={
+                                    <ArrowRight style={{ width: '1rem', height: '1rem', transform: 'rotate(90deg)' }} />
+                                }
+                            />
+                        }
+                        contentBottom={Array.from(Array(20).keys()).map((i) => (
+                            <LinkItem
+                                href="#"
+                                title={`scrollableItem${i}`}
+                                contentLeft={<ArrowTopRight style={{ width: '1rem', height: '1rem' }} />}
+                                contentRight={<ArrowTopRight style={{ width: '1rem', height: '1rem' }} />}
+                            />
+                        ))}
+                    />
+
+                    <Heading
+                        title="Expandable"
+                        titleContentRight={<ArrowRight />}
+                        expanded={openHeading}
+                        onClick={() => setOpenHeading(!openHeading)}
+                        contentTopRight={
+                            <LinkItem
+                                href="#"
+                                title="item"
+                                contentLeft={
+                                    <ArrowRight style={{ width: '1rem', height: '1rem', transform: 'rotate(90deg)' }} />
+                                }
+                                contentRight={
+                                    <ArrowRight style={{ width: '1rem', height: '1rem', transform: 'rotate(90deg)' }} />
+                                }
+                            />
+                        }
+                        contentBottom={Array.from(Array(20).keys()).map((i) => (
+                            <LinkItem
+                                href="#"
+                                title={`scrollableItem${i}`}
+                                contentLeft={<ArrowTopRight style={{ width: '1rem', height: '1rem' }} />}
+                                contentRight={<ArrowTopRight style={{ width: '1rem', height: '1rem' }} />}
+                            />
+                        ))}
+                    >
+                        <Heading title="Heading 1" />
+                        <Heading title="Heading 2" />
+                        <Heading title="Heading 3" />
+                        <Heading title="Heading 4" />
+                        <Heading title="Heading 5" />
+                    </Heading>
                 </StyledCol>
-                <Footer>
+                {/* <Footer>
                     <StyledMainCommunityMenu items={community} />
                     <CopyrightText>{`©${currentYear} СалютДевайсы`}</CopyrightText>
-                </Footer>
+                </Footer> */}
             </StyledRow>
         </StyledGrid>
     );
