@@ -148,8 +148,18 @@ export const datePickerRoot = (
             });
 
             useEffect(() => {
-                console.log(inputValue, 'inputValue', inputRef?.current?.value);
+                console.log(inputRef, 'inputValue', ref);
             });
+
+            useEffect(() => {
+                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
+            }, [opened]);
+
+            useEffect(() => {
+                console.log('value from setter', inputRef?.current?.value);
+                const externalDate = value || defaultDate;
+                updateExternalDate(externalDate, setInputValue, setCalendarValue);
+            }, [inputRef, value, defaultDate, format, lang]);
 
             const DatePickerInput = (
                 <StyledInput
@@ -177,15 +187,6 @@ export const datePickerRoot = (
                 />
             );
 
-            useEffect(() => {
-                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
-            }, [opened]);
-
-            useLayoutEffect(() => {
-                const externalDate = value || defaultDate;
-                updateExternalDate(externalDate, setInputValue, setCalendarValue);
-            }, [value, defaultDate, format, lang]);
-
             return (
                 <Root
                     view={view}
@@ -193,7 +194,6 @@ export const datePickerRoot = (
                     className={cx(classes.datePickerRoot, className)}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
-                    // ref={ref}
                     {...rest}
                 >
                     <StyledPopover

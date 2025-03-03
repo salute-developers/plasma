@@ -408,15 +408,15 @@ const StoryHookForm = () => {
     useEffect(() => {
         const fetchData = async () => {
             // Simulate an API call delay
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            // await new Promise((resolve) => setTimeout(resolve, 1000));
 
             // Assume this is the data fetched from the API
             const asyncData = { date: `${new Date()}` };
 
             // Set the value of the input field asynchronously
             setValue('date', asyncData.date);
-            console.log({ ...register('date') });
-            console.log(getValues('date'));
+            // console.log({ ...register('date') });
+            // console.log(getValues('date'));
         };
 
         fetchData();
