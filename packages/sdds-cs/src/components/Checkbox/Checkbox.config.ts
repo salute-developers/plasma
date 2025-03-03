@@ -41,7 +41,8 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${checkboxTokens.disabledOpacity}: 0.4;
+                ${checkboxTokens.triggerBorderColor}: var(--outline-solid-primary);
+                ${checkboxTokens.fillColor}: var(--surface-solid-tertiary);
             `,
         },
         focused: {
