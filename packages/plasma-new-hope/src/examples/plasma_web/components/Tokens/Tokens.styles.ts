@@ -14,7 +14,7 @@ export const SubthemeSwitcher = styled.div`
     width: fit-content;
 `;
 
-export const SubtemeTitle = styled.p`
+export const SubthemeTitle = styled.p`
     display: inline;
     margin-right: 0.75rem;
     color: var(--text-tertiary);
