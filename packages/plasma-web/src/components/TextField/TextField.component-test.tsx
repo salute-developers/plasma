@@ -9,7 +9,7 @@ import { TextField as TextFieldWeb } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const sizes = ['xs', 's', 'm', 'l'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'] as const;
 
 describe('plasma-web: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldWeb;
@@ -51,11 +51,18 @@ describe('plasma-web: TextField', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <TextField size="s" value="Small s" label="Label" placeholder="Placeholder" helperText="Helper text" />
-                <SpaceMe />
-                <TextField size="m" value="Medium m" label="Label" placeholder="Placeholder" helperText="Helper text" />
-                <SpaceMe />
-                <TextField size="l" value="Medium l" label="Label" placeholder="Placeholder" helperText="Helper text" />
+                {sizes.map((size) => (
+                    <>
+                        <TextField
+                            size={size}
+                            value={`Size ${size}`}
+                            label="Label"
+                            placeholder="Placeholder"
+                            helperText="Helper text"
+                        />
+                        <SpaceMe />
+                    </>
+                ))}
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -162,7 +169,34 @@ describe('plasma-web: TextField', () => {
     it(':disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
+                <TextField
+                    style={{ width: '90vw' }}
+                    size="m"
+                    value="Value"
+                    label="Label"
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    hintText="hint"
+                    textBefore="_"
+                    textAfter="%"
+                    disabled
+                />
+                <SpaceMe />
+                <TextField
+                    style={{ width: '90vw' }}
+                    size="m"
+                    value="Value"
+                    label="Label"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    hintText="hint"
+                    labelPlacement="inner"
+                    animatedHint="label"
+                    textBefore="_"
+                    textAfter="%"
+                    disabled
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -367,6 +401,7 @@ describe('plasma-web: TextField', () => {
                     labelPlacement="outer"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -377,6 +412,7 @@ describe('plasma-web: TextField', () => {
                     labelPlacement="outer"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -388,6 +424,7 @@ describe('plasma-web: TextField', () => {
                     animatedHint="label"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -399,6 +436,7 @@ describe('plasma-web: TextField', () => {
                     animatedHint="label"
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -411,6 +449,7 @@ describe('plasma-web: TextField', () => {
                     keepPlaceholder
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
                 <SpaceMe />
                 <TextField
@@ -424,6 +463,7 @@ describe('plasma-web: TextField', () => {
                     keepPlaceholder
                     textBefore="_"
                     textAfter="%"
+                    optional
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -550,8 +590,6 @@ describe('plasma-web: TextField', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'] as const;
-
         const cases = [
             { labelPlacement: 'outer' },
             { requiredPlacement: 'left', labelPlacement: 'outer' },
@@ -619,8 +657,6 @@ describe('plasma-web: TextField', () => {
     });
 
     describe('with hint', () => {
-        const sizes = ['xs', 's', 'm', 'l'] as const;
-
         const cases = [
             { labelPlacement: 'outer' },
             { labelPlacement: 'inner', animatedHint: 'label' },

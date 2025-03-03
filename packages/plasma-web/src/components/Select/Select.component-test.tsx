@@ -548,6 +548,14 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: size xl', () => {
+        cy.viewport(1000, 1200);
+
+        mount(<CommonComponent size="l" />);
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: size l', () => {
         cy.viewport(1000, 1200);
 
@@ -568,14 +576,6 @@ describe('plasma-web: Select', () => {
         cy.viewport(1000, 1000);
 
         mount(<CommonComponent size="s" />);
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prop: size xs', () => {
-        cy.viewport(1000, 1000);
-
-        mount(<CommonComponent size="xs" />);
 
         cy.matchImageSnapshot();
     });

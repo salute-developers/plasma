@@ -196,6 +196,84 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.textFieldHeight}: 4rem;
+                ${tokens.textFieldPadding}: 1.25rem;
+                ${tokens.textFieldBorderRadius}: 1rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
+
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldLabelOffset}: 0.75rem;
+                ${tokens.textFieldClearLabelOffset}: 0.25rem;
+                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 1.125rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelInnerPadding}: 0.5625rem 0 0.125rem 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.5rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
+
+                ${tokens.borderRadius}: 0.875rem;
+                ${tokens.padding}: 0.125rem;
+                ${tokens.itemPadding}: 1.25rem 1.125rem;
+                ${tokens.itemBorderRadius}: 0.75rem;
+
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.itemFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.emptyStatePadding}: 2rem 1.125rem 1.125rem 1.125rem;
+                ${tokens.emptyStateGap}: 0.75rem;
+
+                ${tokens.infiniteLoaderSpinnerSize}: 1.5rem;
+                ${tokens.infiniteLoaderGap}: 0.5rem;
+            `,
             l: css`
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
@@ -204,10 +282,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -228,10 +303,10 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
-                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 1rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -249,10 +324,9 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.padding}: 0.125rem;
@@ -280,10 +354,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -304,10 +375,10 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
-                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
-                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.875rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -325,10 +396,9 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.padding}: 0.125rem;
@@ -356,10 +426,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -380,10 +447,10 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
-                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
-                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.75rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -401,10 +468,9 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.375rem;
 
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.padding}: 0.125rem;
@@ -428,14 +494,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
-
-                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldRightContentWithInnerHintMarginRight}: 0.25rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -456,10 +518,10 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${tokens.textFieldHintMargin}: auto 0 auto 0.25rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
-                ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
-                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.5rem;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.25rem;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -477,10 +539,9 @@ export const config = {
                 ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
                 ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
                 ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.125rem 0 auto 0.25rem;
                 ${tokens.textFieldClearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: auto 0 auto 0.25rem;
 
                 ${tokens.borderRadius}: 0.5rem;
                 ${tokens.padding}: 0.125rem;

@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react';
 import { Hint, HintTargetWrapper, HintIconWrapper } from '../../TextField.styles';
 import { IconInfoCircleOutline } from '../../../_Icon';
 import { safeUseId } from '../../../../utils';
-import { tokens } from '../../TextField.tokens';
 
 import type { TextFieldHintProps } from './Hint.types';
 
@@ -19,8 +18,6 @@ export const HintComponent = forwardRef<HTMLDivElement, TextFieldHintProps>(
             hintOffset,
             hintWidth,
             hintContentLeft,
-            isInnerLabel,
-            size,
             handleHintShow,
             handleHintHide,
             handleHintClick,
@@ -28,14 +25,6 @@ export const HintComponent = forwardRef<HTMLDivElement, TextFieldHintProps>(
         ref,
     ) => {
         const hintId = safeUseId();
-
-        const getInfoIconSize = () => {
-            if (!isInnerLabel || size === 'xs') {
-                return 'xs';
-            }
-
-            return 's';
-        };
 
         return (
             <Hint
@@ -55,9 +44,8 @@ export const HintComponent = forwardRef<HTMLDivElement, TextFieldHintProps>(
                         >
                             {hintTargetIcon || (
                                 <IconInfoCircleOutline
-                                    size={getInfoIconSize()}
                                     color="inherit"
-                                    sizeCustomProperty={tokens.hintCustomIconTargetSize}
+                                    sizeCustomProperty="--plasma-private-text-field-hint-icon-size"
                                 />
                             )}
                         </HintIconWrapper>

@@ -107,7 +107,7 @@ export const config = {
                 ${tokens.indicatorPlacement}: 0 0 0 0;
                 ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem 0 auto 0.25rem;
 
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
@@ -239,7 +239,7 @@ export const config = {
                 ${tokens.indicatorPlacement}: 0 0 0 0;
                 ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem 0 auto 0.25rem;
 
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
@@ -371,7 +371,7 @@ export const config = {
                 ${tokens.indicatorPlacement}: 0 0 0 0;
                 ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem 0 auto 0.25rem;
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
@@ -503,7 +503,7 @@ export const config = {
                 ${tokens.indicatorPlacement}: 0 0 0 0;
                 ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.625rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem 0 auto 0.25rem;
 
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
