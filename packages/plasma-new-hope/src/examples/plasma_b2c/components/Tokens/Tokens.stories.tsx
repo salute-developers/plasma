@@ -115,7 +115,7 @@ const StoryDemoColor = ({ context }) => {
                                         className="color copy"
                                         onClick={() => copyToClipboard(value, opacity?.alpha)}
                                     >
-                                        <ColorCircle background={value} />
+                                        <ColorCircle background={value + (opacity?.alpha || '')} />
                                         <div>{value.includes('gradient') ? 'Градиент' : colorName || ''}</div>
                                     </TokenInfo>
                                     <TokenInfo className="no-interaction">{tone !== 'none' && tone}</TokenInfo>

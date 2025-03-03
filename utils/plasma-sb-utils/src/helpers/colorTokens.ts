@@ -57,7 +57,16 @@ export const getOpacityFromHex = (color: string) => {
 };
 
 export const getGroupedTokens = (themes: string): GroupedTokens => {
-    const tokensExclude = ['border-radius', 'shadow', 'plasma-typo', 'plasma-colors', 'brightness', 'spacing'];
+    const tokensExclude = [
+        'border-radius',
+        'shadow',
+        'plasma-typo',
+        'plasma-colors',
+        'brightness',
+        'spacing',
+        'hover',
+        'active',
+    ];
 
     const processedTokens = convertTheme(themes);
 
