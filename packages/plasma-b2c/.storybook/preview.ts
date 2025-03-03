@@ -40,7 +40,7 @@ const preview: Preview = {
         options: {
             storySort: {
                 method: 'alphabetical',
-                order: ['About', 'Layout', '*', 'Hooks'],
+                order: ['About', 'Tokens', 'Layout', '*', 'Hooks'],
             },
         },
         docs: {

@@ -6,23 +6,27 @@ import type { GroupedTokens } from '@salutejs/plasma-sb-utils';
 
 import { Accordion } from '../Accordion/Accordion';
 import { ToastProvider, useToast } from '../Toast/Toast';
+import { SegmentGroup } from '../Segment/Segment';
 import type { ShowToastArgs } from '../../../../components/Toast';
+import { SegmentProvider, useSegment } from '../../../../components/Segment/SegmentProvider';
 
 import {
     AccordionInfo,
-    Category,
-    CategoryContainer,
     ColorCircle,
+    ColorTokensWrapper,
     ColumnTitle,
     OpacityPart,
     StyledAccordionItem,
+    StyledSegmentItem,
     Subcategory,
+    SubtemeTitle,
+    SubthemeSwitcher,
     TokenInfo,
     TokenInfoWrapper,
 } from './Tokens.styles';
 
 const meta: Meta = {
-    title: 'b2c/Colors',
+    title: 'b2c/Tokens/Colors',
     decorators: [InSpacingDecorator],
 };
 
@@ -33,9 +37,10 @@ const themes: Record<string, GroupedTokens> = {
     dark: getGroupedTokens(plasma_b2c__dark[0]),
 };
 
-const StoryDemo = ({ context }) => {
+const StoryDemoColor = ({ context }) => {
     const groupedTokens = themes[context.globals.theme];
     const { showToast } = useToast();
+    const { selectedSegmentItems } = useSegment();
     const toastData = {
         view: 'default',
         size: 'm',
@@ -63,73 +68,83 @@ const StoryDemo = ({ context }) => {
         }
     };
 
-    if (!groupedTokens) {
+    if (!groupedTokens || !groupedTokens[selectedSegmentItems[0]]) {
         return null;
     }
 
+    const subcategories = groupedTokens[selectedSegmentItems[0]];
+
     return (
-        <>
-            {Object.entries(groupedTokens).map(([category, subcategories]) => (
-                <CategoryContainer key={category}>
-                    <Category>{category}</Category>
-                    <Accordion view="clear" size="s" stretching="filled" defaultActiveEventKey={[0]}>
-                        {Object.entries(subcategories).map(([subcategory, subcategoryTokens], index) => (
-                            <StyledAccordionItem
-                                key={subcategory}
-                                eventKey={index}
-                                type="arrow"
-                                title={
-                                    <AccordionInfo>
-                                        <Subcategory>{subcategory}/</Subcategory>
-                                        <ColumnTitle className="color">
-                                            <ColorCircle disableShadow />
-                                            Color
-                                        </ColumnTitle>
-                                        <ColumnTitle>Tone</ColumnTitle>
-                                        <ColumnTitle>Opacity</ColumnTitle>
-                                    </AccordionInfo>
-                                }
-                            >
-                                <TokenInfoWrapper>
-                                    {Object.entries(subcategoryTokens).map(
-                                        ([token, { value, opacity, tone, colorName }]) => (
-                                            <AccordionInfo key={token}>
-                                                <TokenInfo className="copy" onClick={() => copyToClipboard(token)}>
-                                                    {token}
-                                                </TokenInfo>
-                                                <TokenInfo
-                                                    className="color copy"
-                                                    onClick={() => copyToClipboard(value, opacity?.alpha)}
-                                                >
-                                                    <ColorCircle background={value} />
-                                                    <div>
-                                                        {value.includes('gradient') ? 'Градиент' : colorName || value}
-                                                        {!colorName && opacity && (
-                                                            <OpacityPart>{opacity.alpha}</OpacityPart>
-                                                        )}
-                                                    </div>
-                                                </TokenInfo>
-                                                <TokenInfo className="no-interaction">
-                                                    {tone !== 'none' && tone}
-                                                </TokenInfo>
-                                                <TokenInfo className="no-interaction">{opacity?.parsedAlpha}</TokenInfo>
-                                            </AccordionInfo>
-                                        ),
-                                    )}
-                                </TokenInfoWrapper>
-                            </StyledAccordionItem>
-                        ))}
-                    </Accordion>
-                </CategoryContainer>
-            ))}
-        </>
+        <ColorTokensWrapper>
+            <SubthemeSwitcher>
+                <SubtemeTitle>Подтема</SubtemeTitle>
+                <SegmentGroup view="clear" size="xs" hasBackground pilled>
+                    {Object.entries(groupedTokens).map(([category]) => (
+                        <StyledSegmentItem key={`label_${category}`} value={category} view="default" pilled>
+                            {category}
+                        </StyledSegmentItem>
+                    ))}
+                </SegmentGroup>
+            </SubthemeSwitcher>
+            <Accordion view="clear" size="s" stretching="filled" defaultActiveEventKey={[0]}>
+                {Object.entries(subcategories).map(([subcategory, subcategoryTokens], index) => (
+                    <StyledAccordionItem
+                        key={subcategory}
+                        eventKey={index}
+                        type="arrow"
+                        title={
+                            <AccordionInfo>
+                                <Subcategory>{subcategory}/</Subcategory>
+                                <ColumnTitle className="color">
+                                    <ColorCircle disableShadow />
+                                    Color
+                                </ColumnTitle>
+                                <ColumnTitle>Tone</ColumnTitle>
+                                <ColumnTitle>Opacity</ColumnTitle>
+                                <ColumnTitle>Hex</ColumnTitle>
+                            </AccordionInfo>
+                        }
+                    >
+                        <TokenInfoWrapper>
+                            {Object.entries(subcategoryTokens).map(([token, { value, opacity, tone, colorName }]) => (
+                                <AccordionInfo key={token}>
+                                    <TokenInfo className="copy" onClick={() => copyToClipboard(token)}>
+                                        {token}
+                                    </TokenInfo>
+                                    <TokenInfo
+                                        className="color copy"
+                                        onClick={() => copyToClipboard(value, opacity?.alpha)}
+                                    >
+                                        <ColorCircle background={value} />
+                                        <div>{value.includes('gradient') ? 'Градиент' : colorName || ''}</div>
+                                    </TokenInfo>
+                                    <TokenInfo className="no-interaction">{tone !== 'none' && tone}</TokenInfo>
+                                    <TokenInfo className="no-interaction">{tone && opacity?.parsedAlpha}</TokenInfo>
+                                    <TokenInfo
+                                        className="color copy"
+                                        onClick={() => copyToClipboard(value, opacity?.alpha)}
+                                    >
+                                        <div>
+                                            {value.includes('gradient') ? '' : value}
+                                            {opacity && <OpacityPart>{opacity.alpha}</OpacityPart>}
+                                        </div>
+                                    </TokenInfo>
+                                </AccordionInfo>
+                            ))}
+                        </TokenInfoWrapper>
+                    </StyledAccordionItem>
+                ))}
+            </Accordion>
+        </ColorTokensWrapper>
     );
 };
 
 export const Default: StoryObj = {
     render: (_, context) => (
         <ToastProvider>
-            <StoryDemo context={context} />
+            <SegmentProvider defaultSelected={['Default']} singleSelectedRequired>
+                <StoryDemoColor context={context} />
+            </SegmentProvider>
         </ToastProvider>
     ),
 };

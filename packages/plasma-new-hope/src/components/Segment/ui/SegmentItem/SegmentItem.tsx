@@ -27,6 +27,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
             contentRight,
             customHandleSelect,
             'aria-label': ariaLabelExternal,
+            className,
             ...rest
         } = props;
         const { selectionMode, disabledGroup, handleSelect, selectedSegmentItems } = useSegmentInner();
@@ -62,7 +63,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
                 aria-label={ariaLabelExternal || ariaLabelDefault}
                 value={value}
                 pilled={pilled}
-                className={cx(selectedClass, pilledClass, xsSize)}
+                className={cx(selectedClass, pilledClass, xsSize, className)}
                 onClick={handleSelectSegment}
                 tabIndex={disabledGroup ? -1 : 0}
                 disabled={disabledGroup}
