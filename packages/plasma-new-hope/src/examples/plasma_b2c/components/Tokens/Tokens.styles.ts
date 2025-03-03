@@ -1,21 +1,35 @@
 import { styled } from '@linaria/react';
 
 import { AccordionItem } from '../Accordion/Accordion';
-import { h2 } from '../../../../mixins';
+import { SegmentItem } from '../Segment/Segment';
+import { segmentTokens } from '../../../../components/Segment';
+import { bodyXS } from '../../../../mixins';
 
-export const CategoryContainer = styled.div`
-    margin-bottom: 1.875rem;
+export const ColorTokensWrapper = styled.div`
+    width: max-content;
 `;
 
-export const Category = styled.h2`
-    margin: 0 0 1.125rem 1.5rem;
+export const SubthemeSwitcher = styled.div`
+    margin: -0.5rem auto 2.5rem 15.75rem;
+    width: fit-content;
+`;
 
-    ${h2};
+export const SubtemeTitle = styled.p`
+    display: inline;
+    margin-right: 0.75rem;
+    color: var(--text-tertiary);
+
+    ${bodyXS};
+`;
+
+export const StyledSegmentItem = styled(SegmentItem)`
+    ${segmentTokens.itemHeight}: 1.75rem;
+    ${segmentTokens.itemPilledPadding}: 0.375rem 0.5rem;
 `;
 
 export const AccordionInfo = styled.div`
     display: grid;
-    grid-template-columns: 18rem 7.938rem 2.375rem 3.813rem;
+    grid-template-columns: 16.75rem 7.938rem 2.375rem 3.813rem 6.25rem;
     grid-column-gap: 1.5rem;
 
     font-family: var(--plasma-typo-body-m-font-family);
