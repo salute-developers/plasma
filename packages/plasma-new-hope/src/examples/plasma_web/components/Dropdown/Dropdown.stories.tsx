@@ -13,7 +13,7 @@ type StoryDropdownProps = ComponentProps<typeof Dropdown>;
 
 const placements: Array<DropdownPlacement> = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers: Array<DropdownTrigger> = ['click', 'hover'];
-const size = ['xs', 's', 'm', 'l'];
+const size = ['xs', 's', 'm', 'l', 'xl'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StoryDropdownProps> = {
@@ -64,10 +64,14 @@ const meta: Meta<StoryDropdownProps> = {
         trigger: 'click',
         offset: [0, 0],
         listWidth: '300px',
-        hasArrow: true,
         alwaysOpened: false,
         closeOnOverlayClick: true,
         closeOnSelect: true,
+    },
+    parameters: {
+        controls: {
+            exclude: ['hasArrow'],
+        },
     },
 };
 
