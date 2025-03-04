@@ -162,7 +162,7 @@ export const BulletIndicator = styled.button`
         &.${classes.simple} {
             &:before,
             &:after {
-                background: var(${tokens.inactiveIndicatorBackground});
+                background: var(${tokens.dividerColor});
             }
         }
     }
@@ -183,11 +183,12 @@ export const Bullet = styled(BulletIndicator)`
 `;
 
 export const StepItemDivider = styled.div<{ indentToken?: string }>`
+    flex: 1;
+
     width: 100%;
     height: var(${tokens.dividerThickness});
 
-    flex: 1;
-    background: var(${tokens.activeIndicatorColor});
+    background: var(${tokens.dividerColor});
 
     &.${classes.inactive} {
         background: var(${tokens.inactiveIndicatorBackground});
@@ -299,7 +300,7 @@ export const StepItemStyled = styled.div`
                 display: block;
                 width: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
                 height: var(${tokens.dividerThickness});
-                background: var(${tokens.activeIndicatorColor});
+                background: var(${tokens.dividerColor});
             }
 
             &:not(.${classes.hasIndicator}) {
@@ -399,7 +400,7 @@ export const StepItemStyled = styled.div`
         &:not(.${classes.active}) {
             ${StepItemTitle} {
                 cursor: pointer;
-                color: var(${tokens.activeTitleColorHover});
+                color: var(${tokens.completedTitleColorHover});
             }
 
             ${BulletIndicator}, ${Bullet} {
