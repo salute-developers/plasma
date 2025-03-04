@@ -13,9 +13,11 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-accent-minor);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${buttonTokens.buttonValueColorHover}: var(--on-light-text-accent-minor-hover);
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${buttonTokens.buttonValueColorActive}: var(--on-light-text-accent-minor-active);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
@@ -26,7 +28,9 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonValueColorHover}: var(--text-secondary-hover);
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${buttonTokens.buttonValueColorActive}: var(--text-secondary-active);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
             `,
             clear: css`
@@ -34,9 +38,11 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--text-accent-minor);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${buttonTokens.buttonColorHover}: var(--text-accent);
+                ${buttonTokens.buttonColorHover}: var(--text-accent-hover);
+                ${buttonTokens.buttonValueColorHover}: var(--text-accent-minor-hover);
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${buttonTokens.buttonColorActive}: var(--text-accent);
+                ${buttonTokens.buttonColorActive}: var(--text-accent-active);
+                ${buttonTokens.buttonValueColorActive}: var(--text-accent-minor-active);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-clear);
             `,
         },

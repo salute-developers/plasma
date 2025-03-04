@@ -12,9 +12,9 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
+                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
+                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`

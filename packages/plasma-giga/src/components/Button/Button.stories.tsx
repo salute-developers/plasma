@@ -24,7 +24,7 @@ const pinValues = [
     'circle-clear',
     'circle-circle',
 ];
-const contentPlacinValues = ['default', 'relaxed'];
+const contentPlacingValues = ['default', 'relaxed'];
 
 const onClick = action('onClick');
 const onFocus = action('onFocus');
@@ -65,7 +65,7 @@ const meta: Meta<ButtonProps> = {
             },
         },
         contentPlacing: {
-            options: contentPlacinValues,
+            options: contentPlacingValues,
             control: {
                 type: 'select',
             },

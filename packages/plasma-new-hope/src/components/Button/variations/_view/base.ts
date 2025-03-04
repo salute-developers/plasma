@@ -1,6 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens, classes } from '../../Button.tokens';
+import { ButtonValue } from '../../Button.styles';
 
 export const base = css`
     color: var(${tokens.buttonColor});
@@ -15,6 +16,10 @@ export const base = css`
         background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleHover});
+
+        & ${ButtonValue} {
+            color: var(${tokens.buttonValueColorHover}, var(${tokens.buttonValueColor}));
+        }
     }
 
     :active {
@@ -22,6 +27,10 @@ export const base = css`
         background: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleActive});
+
+        & ${ButtonValue} {
+            color: var(${tokens.buttonValueColorActive}, var(${tokens.buttonValueColor}));
+        }
     }
 `;
 
