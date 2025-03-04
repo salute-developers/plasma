@@ -364,9 +364,9 @@ export const config = {
         },
         view: {
             default: css`
-                ${textAreaTokens.inputBorderColor}: var(--text-tertiary);
-                ${textAreaTokens.inputBorderColorHover}: var(--text-tertiary-hover);
-                ${textAreaTokens.inputBorderColorActive}: var(--text-tertiary-hover);
+                ${textAreaTokens.inputBorderColor}: var(--outline-transparent-primary);
+                ${textAreaTokens.inputBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${textAreaTokens.inputBorderColorActive}: var(--outline-transparent-primary-active);
                 ${textAreaTokens.inputBorderColorFocus}: var(--text-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-primary);
@@ -399,9 +399,9 @@ export const config = {
              * использовать `default`
              */
             primary: css`
-                ${textAreaTokens.inputBorderColor}: var(--text-tertiary);
-                ${textAreaTokens.inputBorderColorHover}: var(--text-tertiary-hover);
-                ${textAreaTokens.inputBorderColorActive}: var(--text-tertiary-hover);
+                ${textAreaTokens.inputBorderColor}: var(--outline-transparent-primary);
+                ${textAreaTokens.inputBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${textAreaTokens.inputBorderColorActive}: var(--outline-transparent-primary-active);
                 ${textAreaTokens.inputBorderColorFocus}: var(--text-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-primary);
