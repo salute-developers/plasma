@@ -4,7 +4,7 @@ import * as Tokens from '@salutejs/sdds-themes/tokens';
 import * as Package from '@salutejs/sdds-insol/styled-components';
 import { Filler } from '@salutejs/plasma-docs-ui';
 import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 
 // Add react-live imports you need here
 const ReactLiveScope = {
@@ -12,6 +12,7 @@ const ReactLiveScope = {
     Filler,
     styled,
     useForm,
+    Controller,
     ...Icons,
     ...Tokens,
     ...Package,
