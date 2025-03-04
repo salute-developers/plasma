@@ -4,7 +4,7 @@ import * as Tokens from '@salutejs/plasma-tokens-b2b';
 import * as Web from '@salutejs/plasma-web';
 import { Filler } from '@salutejs/plasma-docs-ui';
 import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 
 // Add react-live imports you need here
 const ReactLiveScope = {
@@ -12,6 +12,7 @@ const ReactLiveScope = {
     Filler,
     styled,
     useForm,
+    Controller,
     ...Icons,
     ...Tokens,
     ...Web,
