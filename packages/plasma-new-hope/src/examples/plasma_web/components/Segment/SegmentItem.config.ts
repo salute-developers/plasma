@@ -143,6 +143,23 @@ export const config = {
                 ${segmentTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${segmentTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
             `,
+            xl: css`
+                ${segmentTokens.itemBorderRadius}: 1rem;
+                ${segmentTokens.itemWidth}: auto;
+                ${segmentTokens.itemHeight}: 4rem;
+                ${segmentTokens.itemPadding}: 1.25rem 1.75rem;
+                ${segmentTokens.itemPilledPadding}: 1.25rem;
+                ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
+                ${segmentTokens.itemIconMargin}: 0.375rem;
+                ${segmentTokens.itemMarginLeft}: 0;
+
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+            `,
         },
         disabled: {
             true: css`
@@ -151,7 +168,7 @@ export const config = {
         },
         pilled: {
             true: css`
-                ${segmentTokens.itemPilledBorderRadius}: 1.75rem;
+                ${segmentTokens.itemPilledBorderRadius}: 1000px;
             `,
         },
     },

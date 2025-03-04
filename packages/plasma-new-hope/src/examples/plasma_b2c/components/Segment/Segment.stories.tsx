@@ -29,7 +29,7 @@ type CustomStoryProps = {
 
 type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
 
-const sizes = ['xs', 's', 'm', 'l'] as const;
+const sizes = ['xs', 's', 'm', 'l', 'xl'] as const;
 
 const getContentLeft = (contentLeftOption: string, size: Size) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
