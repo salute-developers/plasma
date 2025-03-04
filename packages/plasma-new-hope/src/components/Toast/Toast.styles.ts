@@ -73,7 +73,7 @@ export const StyledRoot = styled.div<{ position: string; isVisible: boolean; off
 `;
 
 export const CloseIconWrapper = styled(Button)`
-    height: 1rem;
+    height: var(${tokens.closeIconButtonSize});
     --plasma_private-close-icon-margin: var(${tokens.closeIconMargin});
     margin: var(--plasma_private-close-icon-margin);
 
@@ -116,8 +116,11 @@ export const StyledOverlay = styled(Overlay)`
 
 export const StyledContentLeft = styled.div`
     display: flex;
-    --plasma_private-left-content-margin: var(${tokens.leftContentMargin});
-    margin: var(--plasma_private-left-content-margin);
+    --plasma_private-content-left-margin: var(${tokens.contentLeftMargin});
+    margin: var(--plasma_private-content-left-margin);
+    color: var(${tokens.contentLeftColor});
 `;
 
-export const StyledContent = styled.div``;
+export const StyledContent = styled.div<{ textColor?: string }>`
+    color: ${({ textColor }) => textColor || 'currentColor'};
+`;

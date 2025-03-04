@@ -9,17 +9,25 @@ import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 
 import { config } from './Switch.config';
-import { Switch } from './Switch';
+import { Switch, SwitchOutline } from './Switch';
 
 type SwitchProps = ComponentProps<typeof Switch>;
 
 const meta: Meta<SwitchProps> = {
-    title: 'plasma_web/Switch',
+    title: 'web/Data Entry/Switch',
     decorators: [WithTheme],
     component: Switch,
-    argTypes: argTypesFromConfig(mergeConfig(switchConfig, config), ['size', 'view', 'focused']),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(switchConfig, config), ['view', 'focused']),
+        labelPosition: {
+            options: ['before', 'after'],
+            control: { type: 'select' },
+        },
+    },
     args: {
         label: 'Label',
+        description: 'Description',
+        labelPosition: 'before',
     },
 };
 
@@ -57,5 +65,42 @@ const StoryDefault = (args: SwitchProps) => {
 };
 
 export const Default: StoryObj<SwitchProps> = {
+    args: {
+        size: 'm',
+        toggleSize: 'l',
+        disabled: false,
+    },
     render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryOutline = (args: SwitchProps) => {
+    const value = 'yes';
+    const name = 'agree';
+    const [checked, setChecked] = useState(true);
+
+    return (
+        <StyledWrapper>
+            <SwitchOutline
+                value={value}
+                name={name}
+                checked={checked}
+                onChange={(event) => {
+                    setChecked(event.target.checked);
+                    onChange(event);
+                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                {...args}
+            />
+        </StyledWrapper>
+    );
+};
+
+export const Outline: StoryObj<SwitchProps> = {
+    args: {
+        size: 'm',
+        toggleSize: 'l',
+        disabled: false,
+    },
+    render: (args) => <StoryOutline {...args} />,
 };

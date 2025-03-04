@@ -1,11 +1,14 @@
-import type { CSSProperties, ButtonHTMLAttributes } from 'react';
+import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler } from 'react';
 import React from 'react';
+
+import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
+import { DropdownProps } from '../../Dropdown/Dropdown.types';
 
 import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType, ValueToItemMapType } from './hooks/getPathMaps';
+import type { ValueToCheckedMapType } from './hooks/getPathMaps';
 
-type Placement =
+export type Placement =
     | 'top'
     | 'top-start'
     | 'top-end'
@@ -20,33 +23,67 @@ type Placement =
     | 'left-end';
 
 type IsMultiselect<T extends ItemOption = ItemOption> =
-    | {
-          multiple?: false;
-          value?: string;
-          onChange?: (value: string) => void;
-          /**
-           * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
-           * @default false
-           */
-          isTargetAmount?: never | false;
-          /**
-           * Ручная настройка количества выбранных элементов. Только при isTargetAmount === true.
-           * @default undefined
-           */
-          targetAmount?: never;
-          renderValue?: never;
-      }
-    | {
-          multiple: true;
-          value?: Array<string>;
-          onChange?: (value: Array<string>) => void;
-          isTargetAmount?: true;
-          targetAmount?: number;
-          /**
-           * Callback для кастомной настройки значения в селекте.
-           */
-          renderValue?: (item: T) => string;
-      };
+    | ({ name?: never; defaultValue?: never } & (
+          | {
+                multiple?: false;
+                value?: string;
+                onChange?: (value: string) => void;
+                /**
+                 * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+                 * @default false
+                 */
+                isTargetAmount?: never | false;
+                /**
+                 * Ручная настройка количества выбранных элементов. Только при isTargetAmount === true.
+                 * @default undefined
+                 */
+                targetAmount?: never;
+                /**
+                 * Callback для кастомной настройки значения в селекте.
+                 */
+                renderValue?: never;
+            }
+          | {
+                multiple: true;
+                value?: string[];
+                onChange?: (value: string[]) => void;
+                isTargetAmount?: true;
+                targetAmount?: number;
+                renderValue?: (item: T) => string;
+            }
+      ))
+    | ({ name: string; onChange?: ChangeEventHandler } & (
+          | {
+                multiple?: false;
+                defaultValue?: string;
+                value?: never;
+                isTargetAmount?: never | false;
+                targetAmount?: never;
+                renderValue?: never;
+            }
+          | {
+                multiple: true;
+                defaultValue?: string[];
+                value?: never;
+                isTargetAmount?: true;
+                targetAmount?: number;
+                renderValue?: (item: T) => string;
+            }
+      ));
+
+// type VS = (value: string) => void;
+// type VSA = (value: string[]) => void;
+
+// type IsMultiselect<T extends ItemOption = ItemOption> = {
+//     name?: string;
+//     multiple?: boolean;
+//     value?: string | string[];
+//     defaultValue?: string | string[];
+//     onChange?: VS | VSA | ChangeEventHandler;
+//     isTargetAmount?: boolean;
+//     targetAmount?: number;
+//     renderValue?: (item: T) => string;
+// };
 
 type ViewStateProps =
     | {
@@ -92,7 +129,7 @@ type ViewStateProps =
           alwaysOpened?: true;
       };
 
-export type ComboboxProps<T extends ItemOption = ItemOption> = {
+type BasicProps<T extends ItemOption = ItemOption> = {
     /**
      * Список элементов.
      */
@@ -102,10 +139,6 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      * @default bottom-start
      */
     placement?: Placement;
-    /**
-     * Метка-подпись к элементу.
-     */
-    label?: string;
     /**
      * Placeholder.
      */
@@ -132,10 +165,15 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      */
     variant?: 'normal' | 'tight';
     /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
+    /**
      * Значение css overflow для выпадающего меню.
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
+    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      */
@@ -148,7 +186,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
     /**
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
-    portal?: React.MutableRefObject<HTMLElement | null>;
+    portal?: string | React.RefObject<HTMLElement>;
     /**
      * Callback для кастомной настройки айтема в выпадающем списке.
      */
@@ -163,6 +201,24 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      */
     closeAfterSelect?: boolean;
     /**
+     * Обработчик изменения значения в строке поиска.
+     */
+    onChangeValue?: (value: string) => void;
+    /**
+     * Ячейка для контента в начале выпадающего списка.
+     */
+    beforeList?: React.ReactNode;
+    /**
+     * Ячейка для контента в конце выпадающего списка.
+     */
+    afterList?: React.ReactNode;
+    /**
+     * Виртуализация в выпадающем списке.
+     * Не поддерживается в многоуровневых списках.
+     * @default false
+     */
+    virtual?: boolean;
+    /**
      * Размер компонента.
      */
     size?: string;
@@ -170,14 +226,15 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = {
      * Вид компонента.
      */
     view?: string;
-    /**
-     * Расположение лейбла.
-     * @default outer
-     */
-    labelPlacement?: 'outer' | 'inner';
-} & ViewStateProps &
+};
+
+export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
+    LabelProps &
+    ViewStateProps &
     IsMultiselect<T> &
-    Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+    RequiredProps &
+    HintProps &
+    Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
@@ -188,6 +245,7 @@ export type FloatingPopoverProps = {
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
     offset?: number;
+    zIndex?: DropdownProps['zIndex'];
 };
 
 export type ItemContext = {
@@ -199,6 +257,5 @@ export type ItemContext = {
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: ComboboxProps['variant'];
     renderItem: ComboboxProps['renderItem'];
-    valueToItemMap: ValueToItemMapType;
     treeId: string;
 };

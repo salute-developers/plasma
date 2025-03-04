@@ -1,4 +1,5 @@
 export const classes = {
+    typoWithNoWrap: 'with-no-wrap',
     typoWithBreakWord: 'with-break-word',
     typoBold: 'typography-bold',
 };

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 
 import type { PathState } from '../../../../../../Select/reducers';
+import type { Placement } from '../../../../Combobox.types';
 
 export type ItemOption = {
     /**
@@ -13,7 +14,12 @@ export type ItemOption = {
      */
     label: string;
     /**
-     * Список дочерних items.
+     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     * @default right
+     */
+    placement?: Placement;
+    /**
+     * Список дочерних items
      */
     items?: Array<ItemOption>;
     /**
@@ -28,6 +34,10 @@ export type ItemOption = {
      * Слот для контента справа
      */
     contentRight?: ReactNode;
+    /**
+     * Classname для item
+     */
+    className?: string;
 };
 
 export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };

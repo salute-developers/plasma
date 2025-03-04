@@ -1,7 +1,6 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-
-const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
+import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 
 const storyMap = {
@@ -36,9 +35,13 @@ const config: StorybookConfig = {
     async viteFinal(config) {
         return mergeConfig(config, {
             base: '',
+            plugins: [
+                viteCommonjs({
+                    include: ['@salutejs/sdds-themes/tokens/sdds_cs'],
+                }),
+            ],
             resolve: {
                 dedupe: ['react', 'react-dom', 'styled-components'],
-                preserveSymlinks: true,
             },
             build: {
                 sourcemap: false,

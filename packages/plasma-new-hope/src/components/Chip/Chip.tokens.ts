@@ -26,10 +26,7 @@ export const tokens = {
     pilledBorderRadius: '--plasma-chip-pilled-border-radius',
     width: '--plasma-chip-width',
     height: '--plasma-chip-height',
-    paddingTop: '--plasma-chip-padding-top',
-    paddingRight: '--plasma-chip-padding-right',
-    paddingBottom: '--plasma-chip-padding-bottom',
-    paddingLeft: '--plasma-chip-padding-left',
+    padding: '--plasma-chip-padding',
     closeIconSize: '--plasma-chip-close-icon-size',
 
     disabledOpacity: '--plasma-chip-disabled-opacity',

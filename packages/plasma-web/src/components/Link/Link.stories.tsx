@@ -7,7 +7,7 @@ import { P1 } from '../Typography';
 import { Link } from '.';
 
 const meta: Meta<typeof Link> = {
-    title: 'Content/Link',
+    title: 'Navigation/Link',
     decorators: [InSpacingDecorator],
     component: Link,
     argTypes: {

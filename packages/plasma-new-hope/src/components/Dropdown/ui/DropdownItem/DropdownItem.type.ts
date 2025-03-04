@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { PathState } from '../../reducers/pathReducer';
+import type { DropdownPlacement } from '../../Dropdown.types';
 
 export type DropdownItemOption = {
     /**
@@ -12,7 +13,11 @@ export type DropdownItemOption = {
      */
     label: string;
     /**
-     * Список дочерних items.
+     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     */
+    placement?: DropdownPlacement;
+    /**
+     * Список дочерних items
      */
     items?: Array<DropdownItemOption>;
     /**
@@ -35,6 +40,11 @@ export type DropdownItemOption = {
      * Отобразить ли разделитель после элемента
      */
     dividerAfter?: boolean;
+    /**
+     * Classname для item
+     */
+    className?: string;
+
     /**
      * Выбранный item.
      * @deprecated использовать ContentLeft || ContentRight

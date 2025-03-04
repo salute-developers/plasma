@@ -1,6 +1,8 @@
 export const classes = {
     hasChips: 'has-chips',
+    chipsWrapper: 'chips-wrapper',
     hasValue: 'has-value',
+    keepPlaceholder: 'keep-placeholder',
     hasEmptyContentLeft: 'has-empty-content-left',
     hasEmptyContentRight: 'has-empty-content-right',
     innerLabelPlacement: 'label-placement-inner',
@@ -11,11 +13,14 @@ export const classes = {
     hasHint: 'textfield-has-hint',
     textFieldGroupItem: 'text-field-group-item',
     requiredAlignRight: 'required-align-right',
+    inputWrapper: 'input-wrapper',
+    contentRightCompensationMargin: 'textfield-content-right-compensation-margin',
 };
 
 export const tokens = {
     color: '--plasma-textfield-color',
     clearColor: '--plasma-textfield-clear-color',
+    boxShadow: '--plasma-textfield-box-shadow',
 
     backgroundColor: '--plasma-textfield-bg-color',
     backgroundColorHover: '--plasma-textfield-bg-color-hover',
@@ -55,6 +60,7 @@ export const tokens = {
     /* Токены для input */
     leftContentMargin: '--plasma-textfield__left-content-margin',
     rightContentMargin: '--plasma-textfield__right-content-margin',
+    rightContentWithHintMargin: '--plasma-textfield__right-content-with-hint-margin',
 
     fontFamily: '--plasma-textfield-font-family',
     fontStyle: '--plasma-textfield-font-style',
@@ -71,6 +77,9 @@ export const tokens = {
     contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
     contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
+
+    contentRightWrapperGap: '--plasma-textfield-content-right-wrapper-gap',
+    contentRightWrapperMargin: '--plasma-textfield-content-right-wrapper-margin',
 
     /** Токены лейбла */
     labelColor: '--plasma-textfield__label-color',
@@ -130,6 +139,7 @@ export const tokens = {
     /** Токены для tooltip */
     hintMargin: '--plasma-textfield__hint-margin',
     hintTargetSize: '--plasma-textfield__hint-target-size',
+    hintCustomIconTargetSize: '--plasma-textfield__hint-custom-icon-target-size',
     hintIconColor: '--plasma-textfield__hint-icon-color',
     hintInnerLabelPlacementOffset: '--plasma-textfield__hint-inner-label-placement-offset',
     clearHintInnerLabelPlacementOffset: '--plasma-textfield__clear-hint-inner-label-placement-offset',
@@ -162,6 +172,7 @@ export const tokens = {
     chipHeight: '--plasma-textfield__chip-height',
     chipBorderRadius: '--plasma-textfield__chip-border-radius',
     chipGap: '--plasma-textfield__chip-gap',
+    chipMarginRight: '--plasma-textfield__chip-margin-right',
     chipBackground: '--plasma-textfield__chip-background',
     chipColor: '--plasma-textfield__chip-color',
     chipBackgroundHover: '--plasma-textfield__chip-background-hover',
@@ -178,10 +189,7 @@ export const tokens = {
     chipCloseIconColor: '--plasma-textfield__chip-close-icon-color',
     chipOutlineSize: '--plasma-textfield__chip-outline-size',
     chipWidth: '--plasma-textfield__chip-width',
-    chipPaddingTop: '--plasma-textfield__chip-padding-top',
-    chipPaddingRight: '--plasma-textfield__chip-padding-right',
-    chipPaddingBottom: '--plasma-textfield__chip-padding-bottom',
-    chipPaddingLeft: '--plasma-textfield__chip-padding-left',
+    chipPadding: '--plasma-textfield__chip-padding',
     chipCloseIconSize: '--plasma-textfield__chip-close-icon-size',
     chipFontFamily: '--plasma-textfield__chip-font-family',
     chipFontSize: '--plasma-textfield__chip-font-size',
@@ -202,6 +210,7 @@ export const tokens = {
     indicatorLabelPlacementOuter: '--plasma-textfield__indicator-placement-outer',
     indicatorLabelPlacementInnerRight: '--plasma-textfield__indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textfield__indicator-placement-outer-right',
+    indicatorLabelPlacementHintOuterRight: '--plasma-textfield__indicator-hint-placement-outer-right',
     clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',

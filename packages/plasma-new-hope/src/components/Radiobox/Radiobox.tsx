@@ -10,6 +10,7 @@ import {
     StyledLabel,
     StyledContent,
     StyledTrigger,
+    StyledTriggerWrapper,
 } from '../Checkbox/Checkbox.styles';
 import { BaseboxProps } from '../Checkbox/Checkbox.types';
 import { cx } from '../../utils';
@@ -72,10 +73,12 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
                     aria-describedby={uniqDescriptionId}
                     tabIndex={canFocused}
                 />
-                <StyledContentWrapper htmlFor={radioboxId}>
-                    <StyledTrigger className={classes.radioboxTrigger}>
-                        <StyledEllipse />
-                    </StyledTrigger>
+                <StyledContentWrapper htmlFor={radioboxId} className={singleLineClass}>
+                    <StyledTriggerWrapper>
+                        <StyledTrigger className={classes.radioboxTrigger}>
+                            <StyledEllipse />
+                        </StyledTrigger>
+                    </StyledTriggerWrapper>
                     {hasContent && (
                         <StyledContent className={singleLineClass}>
                             {label && (

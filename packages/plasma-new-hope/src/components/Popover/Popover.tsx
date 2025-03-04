@@ -1,5 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState, forwardRef } from 'react';
-import type { CSSProperties } from 'react';
+import React, { useRef, useCallback, useEffect, useState, forwardRef, isValidElement } from 'react';
 import { usePopper } from 'react-popper';
 import { useForkRef } from '@salutejs/plasma-core';
 
@@ -12,6 +11,7 @@ import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
 import { StyledArrow, StyledPopover, StyledRoot, StyledWrapper } from './Popover.styles';
 import { classes } from './Popover.tokens';
+import { usePopoverOffset } from './hooks/usePopoverOffset';
 
 export const ESCAPE_KEYCODE = 27;
 export const POPOVER_PORTAL_ID = 'plasma-popover-root';
@@ -26,6 +26,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             {
                 target,
                 children,
+                animated,
                 isOpen,
                 opened,
                 trigger = 'click',
@@ -52,6 +53,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const popoverRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
             const portalRef = useRef<HTMLElement | null>(null);
+            const targetRef = useRef<HTMLDivElement | null>(null);
 
             const trapRef = useFocusTrap(innerIsOpen && isFocusTrapped);
 
@@ -60,14 +62,22 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
 
             const [, forceRender] = useState(false);
+            const [shouldRender, setShouldRender] = useState(innerIsOpen);
+
+            const portalContainer =
+                (typeof target === 'object' && target !== null && 'current' in target && target.current) || undefined;
 
             const isAutoArray = Array.isArray(placement);
             const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
 
-            const initialStyles = {
-                visibility: innerIsOpen ? 'visible' : 'hidden',
-                opacity: innerIsOpen ? 1 : 0,
-            } as CSSProperties;
+            const openClass = innerIsOpen && shouldRender ? classes.open : undefined;
+            const animatedClass = animated ? classes.animate : undefined;
+
+            const offsetInner = usePopoverOffset({
+                handleRef: targetRef,
+                placement: placement as string,
+                offsetOuter: offset,
+            });
 
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
                 // TODO: #1121
@@ -84,7 +94,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                             mainAxis: preventOverflow,
                         },
                     },
-                    { name: 'offset', options: { offset: [offset[0], offset[1]] } },
+                    { name: 'offset', options: { offset: [offsetInner[0], offsetInner[1]] } },
                     {
                         name: 'flip',
                         enabled: isAuto,
@@ -192,7 +202,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     portal = frame.current;
                 }
 
-                if (!usePortal) {
+                if (!usePortal && isValidElement(target)) {
                     portal = rootRef.current;
                 }
 
@@ -230,45 +240,64 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 Promise.resolve().then(forceUpdate);
             }, [innerIsOpen, children, forceUpdate]);
 
+            const handleTransitionEnd = () => {
+                if (!innerIsOpen) {
+                    setShouldRender(false);
+                }
+            };
+
+            useEffect(() => {
+                if (innerIsOpen) {
+                    setShouldRender(true);
+                }
+            }, [innerIsOpen]);
+
             return (
-                <StyledWrapper className={classes.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                    <StyledRoot
-                        ref={handleRef}
-                        onClick={onClick}
-                        onFocus={onFocus}
-                        onBlur={onBlur}
-                        className={cx(className, classes.target)}
+                <Portal container={portalContainer} disabled={isValidElement(target)}>
+                    <StyledWrapper
+                        className={cx(classes.wrapper, !isValidElement(target) && classes.targetAsRef)}
+                        onMouseEnter={onMouseEnter}
+                        onMouseLeave={onMouseLeave}
+                        ref={targetRef}
                     >
-                        {target}
-                    </StyledRoot>
-                    {children && portalRef.current && (
-                        <Portal container={portalRef.current}>
-                            <Root view={view} className={className} {...rest}>
-                                <StyledPopover
-                                    {...attributes.popper}
-                                    className={classes.root}
-                                    ref={popoverForkRef}
-                                    style={{
-                                        ...styles.popper,
-                                        ...{ display: innerIsOpen ? 'block' : 'none' },
-                                        ...initialStyles,
-                                    }}
-                                    zIndex={zIndex}
-                                >
-                                    {hasArrow && (
-                                        <StyledArrow
-                                            className={classes.arrow}
-                                            ref={setArrowElement}
-                                            style={styles.arrow}
-                                            {...attributes.arrow}
-                                        />
-                                    )}
-                                    {children}
-                                </StyledPopover>
-                            </Root>
-                        </Portal>
-                    )}
-                </StyledWrapper>
+                        <StyledRoot
+                            ref={handleRef}
+                            onClick={onClick}
+                            onFocus={onFocus}
+                            onBlur={onBlur}
+                            className={cx(className, classes.target)}
+                        >
+                            {isValidElement(target) && target}
+                        </StyledRoot>
+                        {children && portalRef.current && (
+                            <Portal container={portalRef.current}>
+                                <Root view={view} className={className} {...rest}>
+                                    <StyledPopover
+                                        {...attributes.popper}
+                                        onTransitionEnd={handleTransitionEnd}
+                                        className={cx(classes.root, openClass, animatedClass)}
+                                        ref={popoverForkRef}
+                                        style={{
+                                            ...styles.popper,
+                                            display: shouldRender || innerIsOpen ? 'block' : 'none',
+                                        }}
+                                        zIndex={zIndex}
+                                    >
+                                        {hasArrow && (
+                                            <StyledArrow
+                                                className={classes.arrow}
+                                                ref={setArrowElement}
+                                                style={styles.arrow}
+                                                {...attributes.arrow}
+                                            />
+                                        )}
+                                        {children}
+                                    </StyledPopover>
+                                </Root>
+                            </Portal>
+                        )}
+                    </StyledWrapper>
+                </Portal>
             );
         },
     );

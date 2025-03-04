@@ -2,11 +2,18 @@ import React, { useEffect, useRef, FC, useContext } from 'react';
 
 import { classes } from '../../Dropdown.tokens';
 import { cx } from '../../../../utils';
-import { IconDisclosureRight } from '../../../_Icon';
-import { Context } from '../../Dropdown';
+import { Context } from '../../Dropdown.context';
 import { getItemId } from '../../utils';
 
-import { Wrapper, DisclosureIconWrapper, Divider, CellWrapper, StyledCell } from './DropdownItem.styles';
+import {
+    Wrapper,
+    DisclosureIconWrapper,
+    Divider,
+    CellWrapper,
+    StyledCell,
+    RenderItemWrapper,
+    StyledIconDisclosureRight,
+} from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
 export const DropdownItem: FC<DropdownItemProps> = ({
@@ -19,7 +26,18 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, isDisabled, contentLeft, contentRight, dividerBefore, dividerAfter } = item;
+    const {
+        value,
+        label,
+        disabled,
+        isDisabled,
+        contentLeft,
+        contentRight,
+        dividerBefore,
+        dividerAfter,
+        className,
+        ...rest
+    } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -35,6 +53,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
         onItemClick,
         hasArrow,
         treeId,
+        renderItem,
     } = useContext(Context);
 
     const hasDescendants = Boolean(item.items);
@@ -86,8 +105,9 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             {dividerBefore && <Divider variant={variant} />}
 
             <Wrapper
+                {...rest}
                 ref={ref}
-                className={cx(isDisabledClassName, focusedClass, activeClass)}
+                className={cx(isDisabledClassName, focusedClass, activeClass, className)}
                 id={getItemId(treeId, value.toString())}
                 role={itemRole}
                 onClick={handleClick}
@@ -99,19 +119,23 @@ export const DropdownItem: FC<DropdownItemProps> = ({
                 aria-level={ariaLevel}
                 aria-label={ariaLabel}
             >
-                <CellWrapper>
-                    <StyledCell
-                        contentLeft={contentLeft}
-                        contentRight={contentRight}
-                        alignContentLeft="center"
-                        alignContentRight="center"
-                        title={label}
-                    />
-                </CellWrapper>
+                {renderItem ? (
+                    <RenderItemWrapper>{renderItem(item)}</RenderItemWrapper>
+                ) : (
+                    <CellWrapper>
+                        <StyledCell
+                            contentLeft={contentLeft}
+                            contentRight={contentRight}
+                            alignContentLeft="center"
+                            alignContentRight="center"
+                            title={label}
+                        />
+                    </CellWrapper>
+                )}
 
                 {item.items && hasArrow && (
                     <DisclosureIconWrapper>
-                        <IconDisclosureRight size={disclosureIconSize} color="inherit" />
+                        <StyledIconDisclosureRight size={disclosureIconSize} color="inherit" />
                     </DisclosureIconWrapper>
                 )}
             </Wrapper>

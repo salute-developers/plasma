@@ -31,7 +31,7 @@ const mappingOverride = `
     ${checkboxTokens.contentLeftOffset}: var(${tokens.contentLeftOffset});
     ${checkboxTokens.triggerSize}: var(${tokens.triggerSize});
     ${checkboxTokens.triggerBorderRadius}: var(${tokens.triggerBorderRadius});
-    ${checkboxTokens.triggerMargin}: var(${tokens.triggerMargin});
+    ${checkboxTokens.triggerPadding}: var(${tokens.triggerPadding});
 `;
 
 export const StyledEllipse = styled.div`
@@ -58,7 +58,6 @@ export const base = css`
     position: relative;
     align-items: flex-start;
     display: flex;
-    cursor: pointer;
 
     .${classes.singleLine} {
         ${applyEllipsis()};

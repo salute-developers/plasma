@@ -5,11 +5,11 @@ import { styled } from '@linaria/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
-import { Body } from '../../../typograpy/components/Body/Body';
+import { Body } from '../../../typography/components/Body/Body';
 import { Portal } from '../../../../components/Portal';
 
 const meta: Meta<typeof Portal> = {
-    title: 'plasma_web/Portal',
+    title: 'web/Data Entry/Portal',
     decorators: [WithTheme],
     args: {
         disabled: false,

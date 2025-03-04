@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
+import { styled } from '@linaria/react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
@@ -27,6 +28,10 @@ const longText = `JavaScript frameworks are an essential part of modern front-en
 providing developers with proven tools for building scalable, interactive web applications.
 `;
 
+const StyledWrapper = styled.div`
+    height: 100vh;
+`;
+
 const getNotificationProps = (i: number) => ({
     title: titles[i % 3],
     children: texts[i % 3],
@@ -37,7 +42,7 @@ const getNotificationProps = (i: number) => ({
 const placements = ['top', 'left'];
 
 const meta: Meta<NotificationProps> = {
-    title: 'plasma_b2c/Notification',
+    title: 'b2c/Overlay/Notification',
     decorators: [WithTheme],
 };
 
@@ -50,6 +55,7 @@ interface StoryDefaultProps {
     showLeftIcon: boolean;
     layout: NotificationLayout;
     size: 'xs' | 'xxs';
+    closeIconType?: 'default' | 'thin';
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
 }
@@ -90,6 +96,12 @@ export const Default: StoryObj<StoryDefaultProps> = {
                 type: 'select',
             },
         },
+        closeIconType: {
+            options: ['default', 'thin'],
+            control: {
+                type: 'select',
+            },
+        },
         layout: {
             options: ['vertical', 'horizontal'],
             control: {
@@ -104,6 +116,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
         showLeftIcon: true,
         iconPlacement: 'top',
         layout: 'vertical',
+        closeIconType: 'default',
         size: 'xs',
     },
     render: (args) => <StoryDefault {...args} />,
@@ -126,7 +139,9 @@ const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
 
     return (
         <NotificationsProvider placement={placement}>
-            <Button text="Добавить уведомление" onClick={handleClick} />
+            <StyledWrapper>
+                <Button text="Добавить уведомление" onClick={handleClick} />
+            </StyledWrapper>
         </NotificationsProvider>
     );
 };
@@ -171,11 +186,13 @@ const StoryWithModal = ({ timeout, placement }: StoryWithModalProps) => {
     return (
         <NotificationsProvider placement={placement}>
             <PopupProvider>
-                <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
-                <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    <div>Hello!</div>
-                    <Button view="primary" text="Add notification" onClick={handleClick} />
-                </Modal>
+                <StyledWrapper>
+                    <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
+                    <Modal frame="theme-root" opened={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                        <div>Hello!</div>
+                        <Button view="primary" text="Add notification" onClick={handleClick} />
+                    </Modal>
+                </StyledWrapper>
             </PopupProvider>
         </NotificationsProvider>
     );

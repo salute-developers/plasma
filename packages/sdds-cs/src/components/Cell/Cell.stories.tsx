@@ -37,7 +37,7 @@ const ChevronRight = styled(IconChevronRight)`
 `;
 
 const meta: Meta<typeof Cell> = {
-    title: 'Content/Cell',
+    title: 'Data Display/Cell',
     argTypes: {
         size: {
             options: sizes,

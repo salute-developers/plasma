@@ -40,8 +40,7 @@ export const config = {
             l: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.75rem;
-                ${counterTokens.paddingRight}: 0.625rem;
-                ${counterTokens.paddingLeft}: 0.625rem;
+                ${counterTokens.padding}: 0 0.625rem;
                 ${counterTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${counterTokens.fontSize}: var(--plasma-typo-body-s-font-size);
                 ${counterTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
@@ -52,8 +51,7 @@ export const config = {
             m: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.5rem;
-                ${counterTokens.paddingRight}: 0.5rem;
-                ${counterTokens.paddingLeft}: 0.5rem;
+                ${counterTokens.padding}: 0 0.5rem;
                 ${counterTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${counterTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
                 ${counterTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -64,8 +62,7 @@ export const config = {
             s: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.25rem;
-                ${counterTokens.paddingRight}: 0.375rem;
-                ${counterTokens.paddingLeft}: 0.375rem;
+                ${counterTokens.padding}: 0 0.375rem;
                 ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
@@ -76,8 +73,7 @@ export const config = {
             xs: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1rem;
-                ${counterTokens.paddingRight}: 0.25rem;
-                ${counterTokens.paddingLeft}: 0.25rem;
+                ${counterTokens.padding}: 0 0.25rem;
                 ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
@@ -88,8 +84,7 @@ export const config = {
             xxs: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 0.75rem;
-                ${counterTokens.paddingRight}: 0.125rem;
-                ${counterTokens.paddingLeft}: 0.125rem;
+                ${counterTokens.padding}: 0 0.125rem;
                 ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);

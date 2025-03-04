@@ -11,7 +11,7 @@ import { PopupBase, popupBaseClasses, PopupBaseProvider } from '.';
 import type { PopupBaseProps } from '.';
 
 const meta: Meta<PopupBaseProps> = {
-    title: 'Controls/PopupBase',
+    title: 'Overlay/Popup',
     component: PopupBase,
     decorators: [InSpacingDecorator],
     parameters: {

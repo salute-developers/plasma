@@ -10,7 +10,7 @@ import { Button } from '.';
 type ButtonProps = ComponentProps<typeof Button>;
 
 const views = ['default', 'accent', 'success', 'warning', 'critical', 'dark', 'light'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -29,7 +29,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<ButtonProps> = {
-    title: 'Controls/Button',
+    title: 'Data Entry/Button',
     decorators: [InSpacingDecorator],
     component: Button,
     args: {
@@ -95,6 +95,8 @@ const meta: Meta<ButtonProps> = {
             'stretch',
             'as',
             'forwardedAs',
+            'pin',
+            'focused',
         ]),
     },
 };
@@ -111,8 +113,10 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: 
 
     return (
         <Button
-            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentLeft={enableContentLeft && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={
+                enableContentRight && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined
+            }
             size={size}
             onClick={onClick}
             onFocus={onFocus}
@@ -137,6 +141,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
 export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
+    },
+    argTypes: {
+        ...disableProps(['enableContentRight']),
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -195,8 +202,10 @@ const StoryLoading = ({
         <Button
             autoFocus
             onClick={onClickHandle}
-            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentLeft={enableContentLeft && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={
+                enableContentRight && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined
+            }
             isLoading={loading}
             size={size}
             loader={<div>Loading - {count}</div>}

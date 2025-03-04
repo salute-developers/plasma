@@ -46,11 +46,11 @@ export const closeNotification = (id: string, delay = 380) => {
 };
 
 /**
- * Открыть новое окно.
- * @param props Пропсы всплывающего окна
- * @return Идентификатор нового окна
+ * Открыть новое оповещение.
+ * @param props Пропсы всплывающего оповещения
+ * @return Идентификатор нового оповещения
  */
-export function addNotification({ id: externalId, ...rest }: NotificationProps, timeout = 2000) {
+export function addNotification({ id: externalId, ...rest }: NotificationProps, timeout: number | null = 2000) {
     const id = externalId || `plasma-notification-${Date.now()}`;
     const { dispatch } = NotificationsStore;
 
@@ -60,7 +60,9 @@ export function addNotification({ id: externalId, ...rest }: NotificationProps, 
         isHidden: false,
     });
 
-    setTimeout(() => closeNotification(id), timeout);
+    if (timeout !== 0 && timeout !== null) {
+        setTimeout(() => closeNotification(id), timeout);
+    }
 
     return id;
 }

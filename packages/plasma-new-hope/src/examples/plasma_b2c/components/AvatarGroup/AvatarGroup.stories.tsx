@@ -11,7 +11,7 @@ type Story = StoryObj<ComponentProps<typeof AvatarGroup>>;
 type Avatar = ComponentProps<typeof Avatar>;
 
 const meta: Meta<typeof AvatarGroup> = {
-    title: 'plasma_b2c/AvatarGroup',
+    title: 'b2c/Data Display/AvatarGroup',
     decorators: [WithTheme],
     component: AvatarGroup,
 };

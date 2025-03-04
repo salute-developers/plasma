@@ -1,21 +1,37 @@
-import type { KeyboardEvent } from 'react';
+import type { KeyboardEvent, MutableRefObject } from 'react';
 
-import type { ValueToItemMapType, FocusedToValueMapType } from '../../hooks/usePathMaps';
-import { FocusedChipIndexState, FocusedPathState } from '../../reducers';
-import type { MergedSelectProps, DefaultValueType } from '../../Select.types';
+import type { LabelToItemMapType, ValueToItemMapType } from '../../hooks/usePathMaps';
+import type { DefaultValueType, MergedSelectProps, RequiredProps } from '../../Select.types';
+import type { HintProps } from '../../../TextField/TextField.types';
 
 export type TargetProps = Pick<
     MergedSelectProps,
-    'size' | 'label' | 'labelPlacement' | 'placeholder' | 'contentLeft' | 'disabled' | 'renderValue'
+    | 'size'
+    | 'view'
+    | 'label'
+    | 'labelPlacement'
+    | 'keepPlaceholder'
+    | 'placeholder'
+    | 'contentLeft'
+    | 'disabled'
+    | 'renderValue'
+    | 'multiselect'
+    | 'helperText'
+    | 'isTargetAmount'
+    | 'chipView'
+    | 'chipType'
 > & {
     value: DefaultValueType;
     opened: boolean;
     valueToItemMap: ValueToItemMapType;
-    onChipClick: (value: string) => void;
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
-    focusedChipIndex: FocusedChipIndexState;
-    focusedPath: FocusedPathState;
-    focusedToValueMap: FocusedToValueMapType;
     selectProps: MergedSelectProps;
+    inputWrapperRef: MutableRefObject<HTMLDivElement>;
+    treeId: string;
+    activeDescendantItemValue: string;
+    onChange: (newValue: string | number | Array<string | number>) => void;
+    labelToItemMap: LabelToItemMapType;
+    requiredProps: RequiredProps | undefined;
+    hintProps: HintProps | undefined;
     separator?: string;
 };

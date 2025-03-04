@@ -40,5 +40,14 @@
         }
     },
     "include": ["./src"],
-    "exclude": ["./src/helpers", "./src/**/*.stories.tsx", "./src/**/*.component-test.tsx", "./src/**/*.perftest.tsx"]
+    "exclude": [
+        "./src/helpers",
+        "./src/**/*.stories.tsx",
+        "./src/**/*.component-test.tsx",
+        "./src/**/*.perftest.tsx",
+        "./components",
+        "./es",
+        "./styled-components",
+        "./emotion"
+    ]
 }

@@ -5,7 +5,9 @@ import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DateP
 import type { DatePickerPopoverProps } from '../SingleDate/SingleDate.types';
 import type { DateInfo } from '../../Calendar/Calendar.types';
 
-export type DatePickerRangePlacement = 'top' | 'bottom';
+export type DatePickerRangePlacementBasic = 'top' | 'bottom';
+export type DatePickerRangePlacementVariation = 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
+export type DatePickerRangePlacement = DatePickerRangePlacementBasic | DatePickerRangePlacementVariation;
 
 export type ChangeInstanceCallback = (event: ChangeEvent<HTMLInputElement> | null, value?: string) => void;
 export type CommitInstanceCallback = (
@@ -26,6 +28,19 @@ type BaseRangeProps = Omit<
 >;
 
 export type DatePickerRangeFieldProps = {
+    /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
+    /**
+     * Выбранные значения.
+     */
+    value?: [Date | null | undefined, Date | null | undefined];
     /**
      * Значение по умолчанию для первого поля.
      */
@@ -67,11 +82,15 @@ export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placeme
      * @default
      * ["bottom", "top"]
      */
-    placement?: DatePickerRangePlacement | Array<DatePickerRangePlacement>;
+    placement?: DatePickerRangePlacement | Array<DatePickerRangePlacementBasic>;
     /**
      * Отобразить двойной календарь
      */
     isDoubleCalendar?: boolean;
+    /**
+     * Закрыть календарь после выбора дат
+     */
+    closeAfterDateSelect?: boolean;
 };
 
 export type DatePickerRangeProps = DatePickerVariationProps &

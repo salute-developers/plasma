@@ -24,7 +24,7 @@ type AccordionItemCustomProps = {
 type AccordionProps = ComponentProps<typeof Accordion> & AccordionItemCustomProps;
 
 const meta: Meta<AccordionProps> = {
-    title: 'Content/Accordion',
+    title: 'Data Display/Accordion',
     decorators: [InSpacingDecorator],
     component: Accordion,
     args: {

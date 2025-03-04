@@ -18,7 +18,7 @@ type StoryRectSkeletonProps = ComponentProps<typeof RectSkeleton>;
 type BasicButtonProps = ComponentProps<typeof BasicButton>;
 
 const meta: Meta = {
-    title: 'plasma_web/Skeleton',
+    title: 'web/Data Display/Skeleton',
     decorators: [WithTheme],
 };
 

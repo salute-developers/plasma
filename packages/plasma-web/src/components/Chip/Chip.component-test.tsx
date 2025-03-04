@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
@@ -99,6 +99,18 @@ describe('plasma-web: Chip', () => {
                 <Chip view="accent" text="Chip_view_accent" contentLeft={<Icon />} />
                 <SpaceMe />
                 <Chip view="accent" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="positive" text="Chip_view_positive" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="positive" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="warning" text="Chip_view_warning" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="warning" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="negative" text="Chip_view_negative" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="negative" text="_disabled" disabled contentLeft={<Icon />} />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
@@ -117,5 +129,30 @@ describe('plasma-web: Chip', () => {
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
+    });
+
+    const Demo = () => {
+        const [isChipVisible, setIsChipVisible] = useState(true);
+
+        return isChipVisible ? (
+            <Chip className="chip" onClickClose={() => setIsChipVisible(false)}>
+                text
+            </Chip>
+        ) : (
+            <></>
+        );
+    };
+
+    it('click on close', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('.chip').click();
+        cy.get('.chip').should('exist');
+        cy.get('.chip div').last().click();
+        cy.get('.chip').should('not.exist');
     });
 });

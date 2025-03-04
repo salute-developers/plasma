@@ -18,7 +18,7 @@ describe('plasma-hope: TextArea', () => {
         });
     });
 
-    function Demo({ minAuto, maxAuto }) {
+    function Demo({ minAuto, maxAuto, resize }) {
         const [value, setValue] = React.useState('Default value');
 
         return (
@@ -30,6 +30,7 @@ describe('plasma-hope: TextArea', () => {
                 autoResize
                 minAuto={minAuto}
                 maxAuto={maxAuto}
+                resize={resize}
             />
         );
     }
@@ -41,7 +42,7 @@ describe('plasma-hope: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });
@@ -63,7 +64,7 @@ describe('plasma-hope: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });
@@ -71,11 +72,11 @@ describe('plasma-hope: TextArea', () => {
     it('autoResize - manualResize', () => {
         mount(
             <CypressTestDecorator>
-                <Demo minAuto={3} maxAuto={5} />
+                <Demo minAuto={3} maxAuto={5} resize="vertical" />
             </CypressTestDecorator>,
         );
-        cy.root().get('textarea').last().invoke('attr', 'style', 'height: 150px;');
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.root().get('.textarea').last().invoke('attr', 'style', 'height: 150px;');
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });

@@ -25,7 +25,7 @@ const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
 };
 
 const meta: Meta<typeof Toolbar> = {
-    title: 'plasma_web/Toolbar',
+    title: 'web/Overlay/Toolbar',
     component: ToolbarWrapper,
     decorators: [WithTheme],
     argTypes: {

@@ -14,7 +14,7 @@ import type { ClosePlacementType } from '.';
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from '.';
 
 export default {
-    title: 'Controls/Drawer',
+    title: 'Overlay/Drawer',
     decorators: [InSpacingDecorator],
     argTypes: {
         placement: {
@@ -83,6 +83,16 @@ export default {
             options: ['none', 'default'],
             control: {
                 type: 'select',
+            },
+        },
+        customBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
+        customContentBackgroundColor: {
+            control: {
+                type: 'color',
             },
         },
     },

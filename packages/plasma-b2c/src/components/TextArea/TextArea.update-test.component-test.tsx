@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { IconEye } from '@salutejs/plasma-icons';
 
 describe('plasma-b2c: TextArea', () => {
@@ -94,7 +94,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').focus();
+        cy.get('.textarea').focus();
 
         cy.matchImageSnapshot();
     });
@@ -106,7 +106,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });
@@ -128,7 +128,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').type(LONG_TEXT.repeat(10));
+        cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
         cy.matchImageSnapshot();
     });
@@ -150,7 +150,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').invoke('attr', 'style', 'width: 140px');
+        cy.get('.textarea').invoke('attr', 'style', 'width: 140px');
 
         cy.matchImageSnapshot();
     });
@@ -162,7 +162,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').invoke('attr', 'style', 'height: 280px');
+        cy.get('.textarea').invoke('attr', 'style', 'height: 280px');
 
         cy.matchImageSnapshot();
     });
@@ -174,7 +174,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('textarea').invoke('attr', 'style', 'height: 280px; width: 140px');
+        cy.get('.textarea').invoke('attr', 'style', 'height: 280px; width: 140px');
 
         cy.matchImageSnapshot();
     });

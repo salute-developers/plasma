@@ -31,6 +31,10 @@ type Items = Array<{
          */
         label: string;
         /**
+        * Сторона открытия вложенного дропдауна относительно текущего элемента;
+        */
+        placement?: DropdownPlacement;
+        /**
          * Список дочерних items.
          */
         items?: Items;
@@ -181,7 +185,7 @@ type Items = Array<{
     </TabItem>
 
     <TabItem value="placement" label="Placement">
-        Параметр `placement` принимает либо строку: `"top"`,  `"right"`, `"bottom"`, `"left"`, `"auto"`, либо массив этих же значений, например: `["top", "bottom"]`.<br />
+        Параметр `placement` может принимать следующие значения : `"top"`,  `"right"`, `"bottom"`, `"left"`, `"auto"`.<br />
         Default value для placement - `"bottom"`.
 
         ```tsx live
@@ -225,28 +229,35 @@ type Items = Array<{
                     <Dropdown
                         items={items}
                     >
-                        <Button text="Список стран" />
+                        <Button text="Default (bottom)" />
                     </Dropdown>
 
                     <Dropdown
                         items={items}
                         placement="right"
                     >
-                        <Button text="Список стран" />
+                        <Button text="Right" />
                     </Dropdown>
 
                     <Dropdown
                         items={items}
                         placement="left"
                     >
-                        <Button text="Список стран" />
+                        <Button text="Left" />
                     </Dropdown>
 
                     <Dropdown
                         items={items}
-                        placement={['top', 'bottom']}
+                        placement="top"
                     >
-                        <Button text="Список стран" />
+                        <Button text="Top" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        placement="auto"
+                    >
+                        <Button text="Auto" />
                     </Dropdown>
                 </div>
             );
@@ -353,7 +364,7 @@ type Items = Array<{
             const ref = useRef(null)
 
             return (
-                <div style={{ height: '300px' }} ref={ref}>
+                <div style={{ position: "relative", height: "300px" }} ref={ref}>
                     <Dropdown items={items} portal={ref}>
                         <Button text="Список стран" />
                     </Dropdown>

@@ -53,7 +53,6 @@ export function App() {
 ## Примеры
 
 ### Размер Chip
-Размер Chip задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`:
 
 ```tsx live
 import React from 'react';
@@ -84,6 +83,23 @@ export function App() {
             <Chip text="Chip" size="s" view="default" />
             <Chip text="Chip" size="s" view="secondary" />
             <Chip text="Chip" size="s" view="accent" />
+        </div>
+    );
+}
+```
+
+### Размер Chip
+Размер Chip задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div>
+            <Chip text="Chip" size="s" view="default" />
+            <Chip text="Chip" size="xs" view="default" />
         </div>
     );
 }

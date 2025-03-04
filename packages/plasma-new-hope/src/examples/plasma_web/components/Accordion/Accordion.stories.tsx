@@ -24,7 +24,7 @@ type AccordionItemCustomProps = {
 type AccordionProps = ComponentProps<typeof Accordion> & AccordionItemCustomProps;
 
 const meta: Meta<AccordionProps> = {
-    title: 'plasma_web/Accordion',
+    title: 'web/Data Display/Accordion',
     decorators: [WithTheme],
     component: Accordion,
     args: {
@@ -95,6 +95,24 @@ export const Default: StoryObj<AccordionProps> = {
 };
 
 const getSizeForIcon = (size) => (size === 'xs' ? 'xs' : 's');
+const getSizeForIconButton = (size) => {
+    switch (size) {
+        case 'l':
+        case 'h2':
+        case 'h3':
+            return 'l';
+        case 'm':
+            return 'm';
+        case 's':
+        case 'h4':
+            return 's';
+        case 'xs':
+        case 'h5':
+            return 'xs';
+        default:
+            return 'm';
+    }
+};
 
 const ControlledAccordion = (props: AccordionProps) => {
     const args = { ...props, text: undefined };
@@ -106,7 +124,11 @@ const ControlledAccordion = (props: AccordionProps) => {
         <Accordion {...args}>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveFirst(!activeFirst)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveFirst(!activeFirst)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }
@@ -120,7 +142,11 @@ const ControlledAccordion = (props: AccordionProps) => {
             </AccordionItem>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveSecond(!activeSecond)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveSecond(!activeSecond)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }
@@ -134,7 +160,11 @@ const ControlledAccordion = (props: AccordionProps) => {
             </AccordionItem>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveThree(!activeThree)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveThree(!activeThree)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }

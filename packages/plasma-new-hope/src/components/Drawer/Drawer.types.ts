@@ -29,6 +29,14 @@ export type DrawerProps = PopupProps &
          */
         asModal?: boolean;
         /**
+         * Пользовательский цвет фона Panel.
+         */
+        customBackgroundColor?: string;
+        /**
+         * Пользовательский цвет фона контента Panel.
+         */
+        customContentBackgroundColor?: string;
+        /**
          * Нужно ли применять blur для подложки.
          */
         withBlur?: boolean;

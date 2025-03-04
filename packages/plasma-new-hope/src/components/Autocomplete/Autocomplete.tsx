@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useReducer } from 'react';
+import React, { forwardRef, useState, useReducer, useLayoutEffect } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { useDidMountEffect, useOutsideClick } from '../../hooks';
@@ -14,16 +14,18 @@ import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 /**
  * Компонент Autocomplete. Поле ввода с подсказками в выпадающем списке.
  */
-export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteProps>) =>
+export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<AutocompleteProps, 'hintText'>>) =>
     forwardRef<HTMLInputElement, AutocompleteProps>(
         (
             {
                 value: outerValue,
+                defaultValue,
                 onChange,
                 suggestions,
                 view,
                 size,
                 labelPlacement,
+                keepPlaceholder,
                 disabled,
                 readOnly,
                 label,
@@ -42,8 +44,11 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 renderList,
                 renderListEnd,
                 onSearch,
-
                 hintText,
+                hintView = 'default',
+                hintSize = 'm',
+                beforeList,
+                afterList,
 
                 ...rest
             },
@@ -113,8 +118,22 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                 dispatchFocused({ type: 'reset' });
             }, [value]);
 
+            useLayoutEffect(() => {
+                if (defaultValue) {
+                    setInnerValue(defaultValue);
+                }
+            }, [defaultValue]);
+
             return (
-                <Root view={view} size={size} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
+                <Root
+                    view={view}
+                    size={size}
+                    labelPlacement={labelPlacement}
+                    disabled={disabled}
+                    readOnly={readOnly}
+                    hintView={hintView}
+                    hintSize={hintSize}
+                >
                     <StyledPopover
                         opened={isOpen}
                         offset={[0, 0]}
@@ -130,7 +149,6 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                 ref={ref}
                                 size={size}
                                 view={view}
-                                labelPlacement={labelPlacement}
                                 disabled={disabled}
                                 readOnly={readOnly}
                                 label={label}
@@ -147,6 +165,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                 aria-activedescendant={`${listId}/${focused}`}
                                 aria-describedby={helperTextId}
                                 hintText={String(hintText || '')}
+                                labelPlacement={labelPlacement}
+                                keepPlaceholder={keepPlaceholder}
                                 {...rest}
                             />
                         }
@@ -170,6 +190,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                         onScroll={onScroll}
                                         listMaxHeight={listMaxHeight}
                                     >
+                                        {beforeList}
+
                                         {finalResults.map((suggestion, index) => (
                                             <SuggestionItem
                                                 key={index}
@@ -179,6 +201,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, AutocompleteP
                                                 focused={focused === index}
                                             />
                                         ))}
+
+                                        {afterList}
 
                                         {renderListEnd && (
                                             <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>

@@ -8,7 +8,6 @@ import { PropsTable, Description } from '@site/src/components';
 # Button
 Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
 
-## Button
 <Description name="Button" />
 <PropsTable name="Button" />
 
@@ -34,20 +33,13 @@ export function App() {
         <div>
             <Button text="Текст" />
 
-            <Button text="Текст" contentLeft={<IconDownload />} />
+            <Button text="Текст" contentLeft={<IconDownload color="inherit" />} />
 
-            <Button text="Текст" contentRight={<IconDownload />} />
-
-            <Button contentLeft={<IconDownload />} />
+            <Button text="Текст" contentRight={<IconDownload color="inherit" />} />
 
             <Button text="Текст" isLoading />
 
             <Button text="Текст" isLoading loader={<div>Loader...</div>} />
-
-            <Button>
-                <IconDownload />
-                <span>Текст</span>
-            </Button>
         </div>
     );
 }
@@ -56,7 +48,7 @@ export function App() {
 ## Примеры
 
 ### Размер кнопки
-Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"` или `"s"`:
+Размер кнопки задается с помощью свойства `size`:
 
 ```tsx live
 import React from 'react';
@@ -65,9 +57,12 @@ import { Button } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
+            <Button text="Button" size="xl" />
             <Button text="Button" size="l" />
             <Button text="Button" size="m" />
             <Button text="Button" size="s" />
+            <Button text="Button" size="xs" />
+            <Button text="Button" size="xxs" />
         </div>
     );
 }
@@ -99,7 +94,7 @@ export function App() {
 Позиционирование контента внутри кнопки регулируется с помощью свойства `contentPlacing`.
 Возможные значения свойства `contentPlacing`:
 + `default` – контент центрируется;
-+ `relaxed` – контент распологается по краям.
++ `relaxed` – контент располагается по краям.
 
 ```tsx live
 import React from 'react';
@@ -117,13 +112,17 @@ export function App() {
 
 ### Вид кнопки
 Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
-+ `"default"` – основная;
++ `"default"` – по умолчанию;
++ `"accent"` – акцентная;
++ `"primary"` – основная;
 + `"secondary"` – вторичная;
++ `"clear"` – без цветового сопровождения.
 + `"success"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"critical"` – ошибка;
-+ `"checked"` – выбранное состояние;
-+ `"clear"` – без цветового сопровождения.
++ `"dark"` – темная;
++ `"black"` – черная;
++ `"white"` – белая.
 
 ```tsx live
 import React from 'react';
@@ -131,15 +130,18 @@ import { Button } from '@salutejs/sdds-serv';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Button text="Кнопка" size="s" view="default" />
+            <Button text="Кнопка" size="s" view="primary" />
+            <Button text="Кнопка" size="s" view="accent" />
             <Button text="Кнопка" size="s" view="secondary" />
+            <Button text="Кнопка" size="s" view="clear" />
             <Button text="Кнопка" size="s" view="success" />
             <Button text="Кнопка" size="s" view="warning" />
             <Button text="Кнопка" size="s" view="critical" />
-            <Button text="Кнопка" size="s" view="checked" />
-            <Button text="Кнопка" size="s" view="overlay" />
-            <Button text="Кнопка" size="s" view="clear" />
+            <Button text="Кнопка" size="s" view="dark" />
+            <Button text="Кнопка" size="s" view="black" />
+            <Button text="Кнопка" size="s" view="white" />
         </div>
     );
 }
@@ -170,36 +172,12 @@ export function App() {
 }
 ```
 
-### Квадратные и круглые кнопки
-Для отображения иконок и/или текста в квадратных или круглых кнопках с **равными сторонами**,
-используйте компонент `Button` и свойство `contentLeft`, в которое требуется передать нужное значение.
-
-По умолчанию границы кнопки **квадратные** (со скругленными углами) — `pin="square-square"`.
-**Круглые** границы кнопки можно сделать с помощью свойства `pin` со значением `"circle-circle"`.
-
-```tsx live
-import React from 'react';
-import { Button } from '@salutejs/sdds-serv';
-import { IconDownload } from '@salutejs/plasma-icons';
-
-export function App() {
-    return (
-        <div>
-            <Button contentLeft={<IconDownload color="inherit" />} />
-
-            <Button contentLeft={<IconDownload color="inherit" />} pin="circle-circle" />
-        </div>
-    );
-}
-```
-
 ### Гиперссылка
 Компонент поддерживает вывод в виде тега `<a>`, для этого необходимо указать свойство `as`:
 
 ```tsx live
 import React from 'react';
 import { Button } from '@salutejs/sdds-serv';
-import { IconDownload } from '@salutejs/plasma-icons';
 
 export function App() {
     return (

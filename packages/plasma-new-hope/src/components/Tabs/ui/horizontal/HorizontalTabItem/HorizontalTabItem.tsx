@@ -32,6 +32,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             tabIndex,
             className,
             onClick,
+            maxItemWidth: maxWidth = 'auto',
             ...rest
         } = props;
 
@@ -45,6 +46,8 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
         const animatedClass = animated ? classes.tabItemAnimated : undefined;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
         const selectedClass = isActive || selected ? classes.selectedTabsItem : undefined;
+        const truncateClass = maxWidth !== 'auto' ? classes.tabsTruncate : undefined;
+
         const hasKeyNavigation = itemIndex !== undefined && onIndexChange !== undefined;
         const navigationTabIndex = !disabled && refs?.current === itemIndex ? 0 : -1;
 
@@ -111,9 +114,13 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
                 size={size as any}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(pilledClass, selectedClass, animatedClass, className)}
+                className={cx(pilledClass, selectedClass, animatedClass, truncateClass, className)}
                 onClick={handleClick}
                 {...rest}
+                style={{
+                    ...rest.style,
+                    maxWidth,
+                }}
             >
                 <>
                     {contentLeft && <LeftContent className={classes.tabLeftContent}>{contentLeft}</LeftContent>}

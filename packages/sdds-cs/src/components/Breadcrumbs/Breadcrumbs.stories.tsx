@@ -10,7 +10,7 @@ import { Breadcrumbs } from '.';
 type BreadcrumbsProps = ComponentProps<typeof Breadcrumbs>;
 
 const meta: Meta<BreadcrumbsProps> = {
-    title: 'Content/Breadcrumbs',
+    title: 'Navigation/Breadcrumbs',
     component: Breadcrumbs,
     args: {
         view: 'default',

@@ -1,8 +1,8 @@
 import React, { ComponentProps, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconPlasma } from '@salutejs/plasma-icons';
+import { disableProps, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconPlasma, IconCalendarOutline } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -19,9 +19,10 @@ const sizes = ['s'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta = {
-    title: 'Controls/DatePicker',
+    title: 'Data Entry/DatePicker',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {
@@ -58,6 +59,14 @@ const meta: Meta = {
                 type: 'select',
             },
         },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
+        },
+        ...disableProps(['view']),
     },
 };
 
@@ -87,7 +96,7 @@ const StoryDefault = ({
             valueError={valueError}
             valueSuccess={valueSuccess}
             contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconCalendarOutline size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => setIsOpen(is)}
@@ -127,10 +136,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',
-        enableContentLeft: true,
+        enableContentLeft: false,
         enableContentRight: true,
         valueError: false,
         valueSuccess: false,
@@ -176,7 +187,6 @@ const StoryRange = ({
     const rangeRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [firstDate, setFirstDate] = useState<string | Date>('');
 
     const iconSize = 's';
     const showDividerIcon = dividerVariant === 'icon';
@@ -199,9 +209,17 @@ const StoryRange = ({
             contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={enableFirstTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            firstTextfieldContentRight={enableFirstTextfieldContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            firstTextfieldContentRight={
+                enableFirstTextfieldContentRight ? (
+                    <IconCalendarOutline color="var(--text-accent)" size={iconSize} />
+                ) : undefined
+            }
             secondTextfieldContentLeft={enableSecondTextfieldContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-            secondTextfieldContentRight={enableSecondTextfieldContentRight ? <IconPlasma size={iconSize} /> : undefined}
+            secondTextfieldContentRight={
+                enableSecondTextfieldContentRight ? (
+                    <IconCalendarOutline color="var(--text-accent)" size={iconSize} />
+                ) : undefined
+            }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
             }
@@ -214,12 +232,6 @@ const StoryRange = ({
             }}
             onChangeSecondValue={(e, currentValue) => {
                 onChangeSecondValue(e, currentValue);
-            }}
-            onCommitFirstDate={(currentValue) => {
-                setFirstDate(currentValue);
-            }}
-            onCommitSecondDate={(currentValue) => {
-                firstDate && currentValue && setIsOpen(false);
             }}
             {...dividerIconProps}
             {...rest}
@@ -249,19 +261,22 @@ export const Range: StoryObj<StoryPropsRange> = {
         view: 'default',
         lang: 'ru',
         format: 'DD.MM.YYYY',
+        closeAfterDateSelect: true,
         isDoubleCalendar: false,
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
-        enableContentLeft: true,
-        enableContentRight: true,
+        enableContentLeft: false,
+        enableContentRight: false,
         enableFirstTextfieldContentLeft: false,
-        enableFirstTextfieldContentRight: false,
+        enableFirstTextfieldContentRight: true,
         enableSecondTextfieldContentLeft: false,
-        enableSecondTextfieldContentRight: false,
+        enableSecondTextfieldContentRight: true,
 
         firstValueError: false,
         firstValueSuccess: false,

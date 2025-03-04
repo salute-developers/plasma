@@ -1,7 +1,7 @@
 import React, { ComponentProps, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
+import { disableProps, IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { IconButton } from '../IconButton/IconButton';
@@ -20,9 +20,10 @@ const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta = {
-    title: 'plasma_b2c/DatePicker',
+    title: 'b2c/Data Entry/DatePicker',
     decorators: [WithTheme],
     argTypes: {
         view: {
@@ -53,6 +54,14 @@ const meta: Meta = {
                 type: 'inline-radio',
             },
         },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
+        },
+        ...disableProps(['view']),
     },
 };
 
@@ -71,6 +80,8 @@ const StoryDefault = ({
     size,
     lang,
     format,
+    min,
+    max,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -94,6 +105,8 @@ const StoryDefault = ({
             lang={lang}
             format={format}
             onCommitDate={() => setIsOpen(false)}
+            min={min}
+            max={max}
             {...rest}
         />
     );
@@ -130,6 +143,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',
@@ -177,12 +192,13 @@ const StoryRange = ({
     secondValueSuccess,
     size,
     lang,
+    min,
+    max,
     ...rest
 }: StoryPropsRange) => {
     const rangeRef = useRef<RangeInputRefs>(null);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [firstDate, setFirstDate] = useState<string | Date>('');
 
     const iconSize = size === 'xs' ? 'xs' : 's';
     const showDividerIcon = dividerVariant === 'icon';
@@ -229,13 +245,9 @@ const StoryRange = ({
             onChangeSecondValue={(e, currentValue) => {
                 onChangeSecondValue(e, currentValue);
             }}
-            onCommitFirstDate={(currentValue) => {
-                setFirstDate(currentValue);
-            }}
-            onCommitSecondDate={(currentValue) => {
-                firstDate && currentValue && setIsOpen(false);
-            }}
             lang={lang}
+            min={min}
+            max={max}
             {...dividerIconProps}
             {...rest}
         />
@@ -269,10 +281,13 @@ export const Range: StoryObj<StoryPropsRange> = {
         size: 'l',
         view: 'default',
         isDoubleCalendar: false,
+        closeAfterDateSelect: true,
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
@@ -299,6 +314,8 @@ const StoryDeferred = ({
     valueError,
     valueSuccess,
     size,
+    min,
+    max,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -331,6 +348,8 @@ const StoryDeferred = ({
                     onChangeValue(e, currentValue);
                 }}
                 onCommitDate={() => setIsOpen(false)}
+                min={min}
+                max={max}
                 {...rest}
             />
         </>
@@ -367,6 +386,8 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',

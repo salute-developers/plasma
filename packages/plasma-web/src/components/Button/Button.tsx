@@ -6,6 +6,6 @@ const mergedConfig = mergeConfig(buttonConfig, config);
 const ButtonComponent = component(mergedConfig);
 
 /**
- * Кнопка.
+ * Компонент Button.
  */
 export const Button = ButtonComponent;

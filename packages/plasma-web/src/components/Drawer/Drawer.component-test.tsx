@@ -17,6 +17,9 @@ type DrawerDemoProps = {
     closePlacement?: string;
     hasClose?: boolean;
     asModal?: boolean;
+    customBackgroundColor?: string;
+    customContentBackgroundColor?: string;
+    'data-testid'?: string;
 };
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
@@ -60,6 +63,9 @@ describe('plasma-b2c: Drawer', () => {
             asModal = true,
             closeOnEsc = false,
             closeOnOverlayClick = false,
+            customBackgroundColor,
+            customContentBackgroundColor,
+            'data-testid': testId,
         } = props;
 
         return (
@@ -75,6 +81,9 @@ describe('plasma-b2c: Drawer', () => {
                     closeOnOverlayClick={closeOnOverlayClick}
                     width={width}
                     height={height}
+                    data-testid={testId}
+                    customBackgroundColor={customBackgroundColor}
+                    customContentBackgroundColor={customContentBackgroundColor}
                 >
                     <DrawerHeader
                         closePlacement={closePlacement}
@@ -276,6 +285,38 @@ describe('plasma-b2c: Drawer', () => {
                     <Demo placement="bottom" width="100vw" height="40vh" />
                 </PopupBaseProvider>
             </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: data-attrs', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+
+                <PopupBaseProvider>
+                    <Demo data-testid="test-data-id" />
+                </PopupBaseProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('.popup-base-root').should('have.attr', 'data-testid', 'test-data-id');
+    });
+
+    it('props: customBackgroundColor, customContentBackgroundColor', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+
+                <PopupBaseProvider>
+                    <Demo customContentBackgroundColor="red" customBackgroundColor="blue" />
+                </PopupBaseProvider>
+            </CypressTestDecorator>,
         );
 
         cy.get('button').click();

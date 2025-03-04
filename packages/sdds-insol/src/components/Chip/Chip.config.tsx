@@ -44,6 +44,42 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
             `,
+            positive: css`
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-positive);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-positive-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-positive-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-positive);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-positive);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+            `,
+            warning: css`
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-warning);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-warning-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-warning-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-warning);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-warning);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+            `,
+            negative: css`
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-negative);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-negative-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-negative-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-negative);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-negative);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+            `,
         },
         size: {
             l: css`
@@ -51,8 +87,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1.5rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 3rem;
-                ${chipTokens.paddingRight}: 1rem;
-                ${chipTokens.paddingLeft}: 1rem;
+                ${chipTokens.padding}: 0 1rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -76,8 +111,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1.25rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2.5rem;
-                ${chipTokens.paddingRight}: 0.875rem;
-                ${chipTokens.paddingLeft}: 0.875rem;
+                ${chipTokens.padding}: 0 0.875rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -101,8 +135,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2rem;
-                ${chipTokens.paddingRight}: 0.875rem;
-                ${chipTokens.paddingLeft}: 0.875rem;
+                ${chipTokens.padding}: 0 0.875rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -126,8 +159,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 0.75rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 1.5rem;
-                ${chipTokens.paddingRight}: 0.625rem;
-                ${chipTokens.paddingLeft}: 0.625rem;
+                ${chipTokens.padding}: 0 0.625rem;
 
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-xs-font-size);

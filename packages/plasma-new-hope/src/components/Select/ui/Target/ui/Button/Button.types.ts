@@ -1,8 +1,19 @@
 import { TargetProps } from '../../Target.types';
 
-export type ButtonProps = Omit<
+export type ButtonProps = Pick<
     TargetProps,
-    'target' | 'onChipClick' | 'labelPlacement' | 'helperText' | 'focusedChipIndex' | 'contentLeft' | 'placeholder'
+    | 'opened'
+    | 'value'
+    | 'valueToItemMap'
+    | 'onKeyDown'
+    | 'label'
+    | 'size'
+    | 'disabled'
+    | 'renderValue'
+    | 'selectProps'
+    | 'separator'
+    | 'treeId'
+    | 'activeDescendantItemValue'
 >;
 
 export type GetButtonLabelProps = Pick<

@@ -3,8 +3,7 @@ import React, { useRef, FC, useContext } from 'react';
 import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Combobox.tokens';
 import { cx, isEmpty } from '../../../../../../../utils';
-import { IconDisclosureRightCentered, IconDone } from '../../../../../../_Icon';
-import { Context } from '../../../../Combobox';
+import { Context } from '../../../../Combobox.context';
 import { useDidMountEffect } from '../../../../../../../hooks';
 
 import { ItemProps } from './Item.types';
@@ -18,6 +17,8 @@ import {
     StyledIndicator,
     StyledCheckboxWrapper,
     StyledCell,
+    StyledIconDone,
+    StyledArrow,
 } from './Item.styles';
 
 export const Item: FC<ItemProps> = ({
@@ -30,7 +31,7 @@ export const Item: FC<ItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, contentLeft, contentRight } = item;
+    const { value, label, disabled, contentLeft, contentRight, className, ...rest } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -43,7 +44,6 @@ export const Item: FC<ItemProps> = ({
         handleItemClick,
         variant,
         renderItem,
-        valueToItemMap,
         treeId,
     } = useContext(Context);
 
@@ -84,7 +84,8 @@ export const Item: FC<ItemProps> = ({
 
     return (
         <Wrapper
-            className={cx(disabledClassName, focusedClass, activeClass)}
+            {...rest}
+            className={cx(disabledClassName, focusedClass, activeClass, className)}
             id={getItemId(treeId, value)}
             ref={ref}
             onClick={handleClick}
@@ -100,6 +101,7 @@ export const Item: FC<ItemProps> = ({
                 {multiple && (
                     <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
                         <StyledCheckbox
+                            disabled={disabled}
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}
@@ -110,12 +112,12 @@ export const Item: FC<ItemProps> = ({
                 {!multiple && checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
 
                 {!multiple && checked.get(item.value) === 'done' && (
-                    <IconDone size={sizeToIconSize(size, variant)} color="inherit" />
+                    <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
                 )}
             </IconWrapper>
 
             {renderItem ? (
-                <StyledText>{renderItem(valueToItemMap.get(value)!)}</StyledText>
+                <StyledText>{renderItem(item)}</StyledText>
             ) : (
                 <StyledWrapper>
                     <StyledCell
@@ -132,7 +134,7 @@ export const Item: FC<ItemProps> = ({
 
             {!isEmpty(item.items) && (
                 <DisclosureIconWrapper>
-                    <IconDisclosureRightCentered size={sizeToIconSize(size, variant)} color="inherit" />
+                    <StyledArrow size={sizeToIconSize(size, variant)} color="inherit" />
                 </DisclosureIconWrapper>
             )}
         </Wrapper>

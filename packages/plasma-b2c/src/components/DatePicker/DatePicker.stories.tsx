@@ -1,7 +1,7 @@
 import React, { ComponentProps, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -18,9 +18,10 @@ const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta = {
-    title: 'Controls/DatePicker',
+    title: 'Data Entry/DatePicker',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {
@@ -57,6 +58,14 @@ const meta: Meta = {
                 type: 'select',
             },
         },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
+        },
+        ...disableProps(['view']),
     },
 };
 
@@ -126,6 +135,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',
@@ -175,7 +186,6 @@ const StoryRange = ({
     const rangeRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [firstDate, setFirstDate] = useState<string | Date>('');
 
     const iconSize = size === 'xs' ? 'xs' : 's';
     const showDividerIcon = dividerVariant === 'icon';
@@ -222,12 +232,6 @@ const StoryRange = ({
             onChangeSecondValue={(e, currentValue) => {
                 onChangeSecondValue(e, currentValue);
             }}
-            onCommitFirstDate={(currentValue) => {
-                setFirstDate(currentValue);
-            }}
-            onCommitSecondDate={(currentValue) => {
-                firstDate && currentValue && setIsOpen(false);
-            }}
             {...dividerIconProps}
             {...rest}
         />
@@ -255,12 +259,15 @@ export const Range: StoryObj<StoryPropsRange> = {
         size: 'l',
         view: 'default',
         isDoubleCalendar: false,
+        closeAfterDateSelect: true,
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         lang: 'ru',
         format: 'DD.MM.YYYY',
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
@@ -348,6 +355,8 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         textBefore: '',

@@ -16,7 +16,7 @@ const size = ['xs', 's', 'm', 'l'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<DropdownProps> = {
-    title: 'Controls/Dropdown',
+    title: 'Data Entry/Dropdown',
     component: Dropdown,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -45,6 +45,17 @@ const meta: Meta<DropdownProps> = {
                 type: 'select',
             },
         },
+        closeOnOverlayClick: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        closeOnSelect: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        listWidth: {
+            control: { type: 'text' },
+        },
     },
     args: {
         size: 'm',
@@ -52,8 +63,9 @@ const meta: Meta<DropdownProps> = {
         placement: 'bottom-start',
         trigger: 'click',
         offset: [0, 0],
-        listWidth: '',
+        listWidth: '300px',
         hasArrow: true,
+        alwaysOpened: false,
         closeOnOverlayClick: true,
         closeOnSelect: true,
     },
@@ -303,7 +315,7 @@ const StoryNormal = (args: DropdownProps) => {
                 onItemSelect={action('onItemSelect')}
                 onItemClick={action('onItemClick')}
             >
-                <Button text="Список стран" />
+                <Button text="Список стран" size={args.size} />
             </Dropdown>
         </>
     );
@@ -338,8 +350,8 @@ const CompositionDeprecatedStory = () => {
                         onHover={(index) => console.log(index)}
                         isActive
                     />
-                    <DropdownItem index={0} value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
-                    <DropdownItem index={1} value={100003} label="О нас" color="var(--plasma-colors-critical)" />
+                    <DropdownItem index={0} value={100002} label="Каталог" color="var(--text-accent)" />
+                    <DropdownItem index={1} value={100003} label="О нас" color="var(--text-negative)" />
                     <DropdownItem index={2} value={100004} label="Недоступно" isDisabled />
                 </DropdownList>
             </DropdownPopup>

@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
+import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
 import { Placement as PopoverPlacement, ComputedPlacement as PopoverPlacementBasic } from '@popperjs/core';
 
 export type { Placement as PopoverPlacement, ComputedPlacement as PopoverPlacementBasic } from '@popperjs/core';
@@ -34,11 +34,11 @@ export type CustomPopoverProps = {
     /**
      * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
      */
-    frame?: 'document' | string | React.RefObject<HTMLElement>;
+    frame?: 'document' | string | RefObject<HTMLElement>;
     /**
-     * Элемент, рядом с которым произойдет вызов всплывающего окна.
+     * Элемент или ref на элемент, рядом с которым произойдет вызов всплывающего окна.
      */
-    target?: ReactNode;
+    target?: ReactNode | RefObject<HTMLElement>;
     /**
      * Есть ли стрелка над элементом.
      */
@@ -81,6 +81,11 @@ export type CustomPopoverProps = {
      * false
      */
     usePortal?: boolean;
+
+    /**
+     * Анимированное появление Popover
+     */
+    animated?: boolean;
 
     view?: string;
 };

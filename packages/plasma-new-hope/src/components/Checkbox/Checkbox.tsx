@@ -17,6 +17,7 @@ import {
     StyledLabel,
     StyledTrigger,
     base,
+    StyledTriggerWrapper,
 } from './Checkbox.styles';
 import type { CheckboxProps } from './Checkbox.types';
 import { classes } from './Checkbox.tokens';
@@ -80,10 +81,12 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                     aria-describedby={uniqDescriptionId}
                     tabIndex={canFocused}
                 />
-                <StyledContentWrapper htmlFor={checkboxId}>
-                    <StyledTrigger className={classes.checkboxTrigger}>
-                        {indeterminate ? <Indeterminate /> : <Done />}
-                    </StyledTrigger>
+                <StyledContentWrapper htmlFor={checkboxId} className={singleLineClass}>
+                    <StyledTriggerWrapper>
+                        <StyledTrigger className={classes.checkboxTrigger}>
+                            {indeterminate ? <Indeterminate /> : <Done />}
+                        </StyledTrigger>
+                    </StyledTriggerWrapper>
                     {hasContent && (
                         <StyledContent className={singleLineClass}>
                             {label && (

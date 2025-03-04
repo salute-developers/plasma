@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IconDownload } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
@@ -88,6 +88,18 @@ describe('plasma-b2c: Chip', () => {
                 <Chip view="accent" text="Chip_view_accent" contentLeft={<Icon />} />
                 <SpaceMe />
                 <Chip view="accent" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="positive" text="Chip_view_positive" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="positive" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="warning" text="Chip_view_warning" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="warning" text="_disabled" disabled contentLeft={<Icon />} />
+                <PadMe />
+                <Chip view="negative" text="Chip_view_negative" contentLeft={<Icon />} />
+                <SpaceMe />
+                <Chip view="negative" text="_disabled" disabled contentLeft={<Icon />} />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
@@ -106,5 +118,30 @@ describe('plasma-b2c: Chip', () => {
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
+    });
+
+    const Demo = () => {
+        const [isChipVisible, setIsChipVisible] = useState(true);
+
+        return isChipVisible ? (
+            <Chip className="chip" onClickClose={() => setIsChipVisible(false)}>
+                text
+            </Chip>
+        ) : (
+            <></>
+        );
+    };
+
+    it('click on close', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('.chip').click();
+        cy.get('.chip').should('exist');
+        cy.get('.chip div').last().click();
+        cy.get('.chip').should('not.exist');
     });
 });

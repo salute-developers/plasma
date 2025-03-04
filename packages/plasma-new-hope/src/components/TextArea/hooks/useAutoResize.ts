@@ -8,14 +8,21 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
     value?: string | ReadonlyArray<string> | number,
     minAuto?: number,
     maxAuto?: number,
+    resize?: string,
+    hiddenRef?: MutableRefObject<T | null>,
 ) => {
     const previousHeight = useRef<number | undefined>();
 
     useEffect(() => {
-        if (active && ref && ref.current) {
+        if (active && ref && ref.current && hiddenRef && hiddenRef.current) {
             // проверка на пользовательский resize (вручную)
             const height = ref.current.clientHeight / ROOT_FONT_SIZE;
-            if (previousHeight.current !== undefined && previousHeight.current !== height) {
+            if (
+                resize &&
+                resize !== 'none' &&
+                previousHeight.current !== undefined &&
+                previousHeight.current !== height
+            ) {
                 return;
             }
 
@@ -24,9 +31,9 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
             const lineHeightInRem = lineHeight / ROOT_FONT_SIZE;
 
             const minAutoHeight = minAuto ? minAuto * lineHeightInRem : 0;
-            ref.current.style.height = `${minAutoHeight}rem`;
+            hiddenRef.current.style.height = `${minAutoHeight}rem`;
 
-            const lines = Math.floor(ref.current.scrollHeight / lineHeight);
+            const lines = Math.floor(hiddenRef.current.scrollHeight / lineHeight);
             const newScrollHeight = lines * lineHeightInRem;
 
             const maxAutoHeight = maxAuto ? maxAuto * lineHeightInRem : newScrollHeight;
@@ -36,5 +43,5 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
             ref.current.style.height = `${newHeight}rem`;
             previousHeight.current = newHeight;
         }
-    }, [ref, active, value, minAuto, maxAuto]);
+    }, [resize, active, value, minAuto, maxAuto]);
 };

@@ -1,8 +1,8 @@
-import React, { createRef, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import React, { createRef, forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type {
-    ChangeEvent,
     KeyboardEvent,
-    ChangeEventHandler,
+    FocusEvent,
+    FocusEventHandler,
     MutableRefObject,
     SyntheticEvent,
     PropsWithChildren,
@@ -18,13 +18,14 @@ import { classes } from '../DatePicker.tokens';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
 import { getSortedValues } from '../../Calendar/utils';
+import type { DateInfo } from '../../Calendar/Calendar.types';
 
 import type { DatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledLabel, StyledRange, base } from './RangeDate.styles';
+import { LeftHelper, StyledRange, base } from './RangeDate.styles';
 import { RangeDatePopover } from './RangeDatePopover/RangeDatePopover';
 
 export const datePickerRangeRoot = (
@@ -34,9 +35,11 @@ export const datePickerRangeRoot = (
         (
             {
                 className,
+                autoComplete,
 
                 isDoubleCalendar = false,
                 opened = false,
+                value: externalValue,
 
                 label,
                 leftHelper,
@@ -68,6 +71,9 @@ export const datePickerRangeRoot = (
                 firstTextfieldTextAfter,
                 secondTextfieldTextAfter,
 
+                required,
+                requiredPlacement = 'right',
+
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
                 maskWithFormat,
@@ -89,6 +95,7 @@ export const datePickerRangeRoot = (
                 placement = ['top', 'bottom'],
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
+                closeAfterDateSelect = true,
                 offset,
 
                 onToggle,
@@ -115,6 +122,8 @@ export const datePickerRangeRoot = (
             const innerRefFirst = useRef<HTMLInputElement>(null);
             const innerRefSecond = useRef<HTMLInputElement>(null);
 
+            const [startExternalValue, endExternalValue] = externalValue || [];
+
             const [firstInputRef, setFirstInputRef] = useState<MutableRefObject<HTMLInputElement | null> | undefined>(
                 rangeRef?.current?.firstTextField(),
             );
@@ -124,18 +133,25 @@ export const datePickerRangeRoot = (
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const [calendarFirstValue, setCalendarFirstValue] = useState(
-                formatCalendarValue(defaultFirstDate, format, lang),
+                formatCalendarValue(startExternalValue || defaultFirstDate, format, lang),
             );
             const [inputFirstValue, setInputFirstValue] = useState(
-                formatInputValue({ value: defaultFirstDate, format, lang }),
+                formatInputValue({ value: startExternalValue || defaultFirstDate, format, lang }),
             );
 
             const [calendarSecondValue, setCalendarSecondValue] = useState(
-                formatCalendarValue(defaultSecondDate, format, lang),
+                formatCalendarValue(endExternalValue || defaultSecondDate, format, lang),
             );
             const [inputSecondValue, setInputSecondValue] = useState(
-                formatInputValue({ value: defaultSecondDate, format, lang }),
+                formatInputValue({ value: endExternalValue || defaultSecondDate, format, lang }),
             );
+
+            const [fullDateEntered, setFullDateEntered] = useState(Boolean(calendarFirstValue && calendarSecondValue));
+
+            const [secondTextFieldClicked, setSecondTextFieldClicked] = useState(false);
+
+            const rangeErrorClass = firstValueError || secondValueError ? classes.datePickerError : undefined;
+            const rangeSuccessClass = firstValueSuccess || secondValueSuccess ? classes.datePickerSuccess : undefined;
 
             const setFirstInputValue = (value: React.SetStateAction<string>) => {
                 setInputFirstValue(value);
@@ -168,6 +184,7 @@ export const datePickerRangeRoot = (
             const {
                 handleChangeValue: handleChangeFirstValue,
                 handleCommitDate: handleCommitFirstDate,
+                updateExternalDate: updateExternalFirstDate,
             } = useDatePicker({
                 currentValue: inputFirstValue,
                 setInputValue: setFirstInputValue,
@@ -188,6 +205,7 @@ export const datePickerRangeRoot = (
             const {
                 handleChangeValue: handleChangeSecondValue,
                 handleCommitDate: handleCommitSecondDate,
+                updateExternalDate: updateExternalSecondDate,
             } = useDatePicker({
                 currentValue: inputSecondValue,
                 setInputValue: setSecondInputValue,
@@ -204,17 +222,17 @@ export const datePickerRangeRoot = (
                 onCommitDate: onCommitSecondDate,
             });
 
-            const handleToggle = (opened: boolean, event: SyntheticEvent | Event) => {
+            const handleToggle = (currentOpened: boolean, event?: SyntheticEvent | Event) => {
                 if (disabled || readOnly) {
                     return;
                 }
 
                 const isCalendarOpen =
-                    (firstInputRef?.current?.contains((event.target as Node) || null) ||
-                        secondInputRef?.current?.contains((event.target as Node) || null)) &&
-                    (event as KeyboardEvent<HTMLInputElement>).code !== keys.Escape
+                    (firstInputRef?.current?.contains((event?.target as Node) || null) ||
+                        secondInputRef?.current?.contains((event?.target as Node) || null)) &&
+                    (event as KeyboardEvent<HTMLInputElement>)?.code !== keys.Escape
                         ? true
-                        : opened;
+                        : currentOpened;
 
                 if (!isCalendarOpen) {
                     if (calendarFirstValue && !calendarSecondValue) {
@@ -225,6 +243,10 @@ export const datePickerRangeRoot = (
                     }
                 }
 
+                if (!isCalendarOpen) {
+                    setSecondTextFieldClicked(false);
+                }
+
                 if (onToggle) {
                     return onToggle(isCalendarOpen, event);
                 }
@@ -232,9 +254,19 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen(isCalendarOpen);
             };
 
+            const handleFocusFirstTextField = (event: FocusEvent<HTMLInputElement>) => {
+                onFocusFirstTextfield?.(event);
+                setSecondTextFieldClicked(false);
+            };
+
+            const handleFocusSecondTextField = (event: FocusEvent<HTMLInputElement>) => {
+                onFocusSecondTextfield?.(event);
+                setSecondTextFieldClicked(true);
+            };
+
             const handleBlur = (
-                event: ChangeEvent<HTMLInputElement>,
-                outerHandler?: ChangeEventHandler<HTMLInputElement>,
+                event: FocusEvent<HTMLInputElement>,
+                outerHandler?: FocusEventHandler<HTMLInputElement>,
             ) => {
                 if (!inputFirstValue || !inputSecondValue) {
                     outerHandler?.(event);
@@ -275,6 +307,40 @@ export const datePickerRangeRoot = (
                 closeOnEsc,
             });
 
+            const handleChangeStartOfRange = (chosenDate: Date, dateInfo?: DateInfo) => {
+                if (!fullDateEntered) {
+                    handleCommitFirstDate(chosenDate, false, true, dateInfo);
+                    handleCommitSecondDate('');
+
+                    return;
+                }
+
+                const prevValue = secondTextFieldClicked ? calendarFirstValue : calendarSecondValue;
+
+                const [first, second] = getSortedValues([prevValue, chosenDate]);
+
+                handleCommitFirstDate(first, false, true, dateInfo);
+                handleCommitSecondDate(second, false, true, dateInfo);
+
+                if (!firstValueError && !secondValueError && closeAfterDateSelect) {
+                    handleToggle(false);
+                }
+            };
+
+            const handleChangeCalendarValue = ([firstDate, secondDate]: [Date, Date?], dateInfo?: DateInfo) => {
+                if (firstDate) {
+                    handleCommitFirstDate(firstDate, false, true, dateInfo);
+                }
+
+                if (secondDate) {
+                    handleCommitSecondDate(secondDate, false, true, dateInfo);
+                }
+
+                if (firstDate && secondDate && !firstValueError && !secondValueError && closeAfterDateSelect) {
+                    handleToggle(false);
+                }
+            };
+
             const RangeComponent = (
                 <>
                     {/* TODO https://github.com/salute-developers/plasma/issues/1227
@@ -282,8 +348,12 @@ export const datePickerRangeRoot = (
                     //@ts-ignore */}
                     <StyledRange
                         ref={rangeRef}
+                        autoComplete={autoComplete}
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
+                        label={label}
+                        required={required}
+                        requiredPlacement={requiredPlacement}
                         disabled={disabled}
                         readOnly={!disabled && readOnly}
                         firstPlaceholder={firstPlaceholder}
@@ -319,8 +389,8 @@ export const datePickerRangeRoot = (
                                 rangeRef?.current?.firstTextField()?.current?.focus();
                             }
                         }}
-                        onFocusFirstTextfield={onFocusFirstTextfield}
-                        onFocusSecondTextfield={onFocusSecondTextfield}
+                        onFocusFirstTextfield={handleFocusFirstTextField}
+                        onFocusSecondTextfield={handleFocusSecondTextField}
                         onBlurFirstTextfield={(event) => handleBlur(event, onBlurFirstTextfield)}
                         onBlurSecondTextfield={(event) => handleBlur(event, onBlurSecondTextfield)}
                         onKeyDown={onKeyDown}
@@ -338,22 +408,20 @@ export const datePickerRangeRoot = (
             }, [opened]);
 
             useEffect(() => {
-                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
-                setInputFirstValue(formatInputValue({ value: defaultFirstDate, format, lang }));
-            }, [defaultFirstDate]);
+                if (calendarFirstValue && calendarSecondValue) {
+                    setFullDateEntered(true);
+                }
+            }, [calendarFirstValue, calendarSecondValue]);
 
-            useEffect(() => {
-                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
-                setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
-            }, [defaultSecondDate]);
+            useLayoutEffect(() => {
+                const externalDate = startExternalValue || defaultFirstDate;
+                updateExternalFirstDate(externalDate, setFirstInputValue, setCalendarFirstValue);
+            }, [startExternalValue, defaultFirstDate, format, lang]);
 
-            useEffect(() => {
-                setCalendarFirstValue(formatCalendarValue(defaultFirstDate, format, lang));
-                setInputFirstValue(formatInputValue({ value: defaultFirstDate, format, lang }));
-
-                setCalendarSecondValue(formatCalendarValue(defaultSecondDate, format, lang));
-                setInputSecondValue(formatInputValue({ value: defaultSecondDate, format, lang }));
-            }, [format, lang]);
+            useLayoutEffect(() => {
+                const externalDate = endExternalValue || defaultSecondDate;
+                updateExternalSecondDate(externalDate, setSecondInputValue, setCalendarSecondValue);
+            }, [endExternalValue, defaultSecondDate, format, lang]);
 
             const RootWrapper = useCallback<FC<PropsWithChildren>>(
                 ({ children }) => (
@@ -380,7 +448,6 @@ export const datePickerRangeRoot = (
                     readOnly={!disabled && readOnly}
                     {...rest}
                 >
-                    {label && <StyledLabel>{label}</StyledLabel>}
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         target={RangeComponent}
@@ -407,19 +474,12 @@ export const datePickerRangeRoot = (
                         lang={lang}
                         isDoubleCalendar={isDoubleCalendar}
                         rootWrapper={RootWrapper}
-                        onChangeStartOfRange={(firstDate, dateInfo) => {
-                            handleCommitFirstDate(firstDate, false, true, dateInfo);
-                            handleCommitSecondDate('');
-                        }}
-                        onChangeValue={([firstDate, secondDate], dateInfo) => {
-                            firstDate && handleCommitFirstDate(firstDate, false, true, dateInfo);
-                            secondDate && handleCommitSecondDate(secondDate, false, true, dateInfo);
-                            if (firstDate && secondDate && !firstValueError && !secondValueError) {
-                                setIsInnerOpen(false);
-                            }
-                        }}
+                        onChangeStartOfRange={handleChangeStartOfRange}
+                        onChangeValue={handleChangeCalendarValue}
                     />
-                    {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper className={cx(rangeErrorClass, rangeSuccessClass)}>{leftHelper}</LeftHelper>
+                    )}
                     <InputHidden
                         name={name}
                         type="hidden"

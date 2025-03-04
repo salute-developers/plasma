@@ -18,7 +18,26 @@ import { Switch } from '@salutejs/sdds-cs';
 
 export function App() {
     return (
-        <Switch label="Переключатель" defaultChecked />
+        <Switch description="Описание переключателя" label="Переключатель" defaultChecked />
+    );
+}
+```
+
+## Примеры
+
+### Размер Switch
+Размер переключателя задается с помощью свойства `toggleSize`.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div style={{ alignItems: "center" }}>
+            <Switch toggleSize="s" label="Переключатель" defaultChecked />
+            <Switch toggleSize="l" label="Переключатель" defaultChecked />
+        </div>
     );
 }
 ```

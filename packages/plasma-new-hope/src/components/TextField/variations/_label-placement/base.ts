@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, InputContainer, Label, StyledTextAfter, StyledTextBefore } from '../../TextField.styles';
+import { Input, InputContainer, Label } from '../../TextField.styles';
 
 export const base = css`
     &.${classes.outerLabelPlacement} {
@@ -17,12 +17,8 @@ export const base = css`
             padding: var(${tokens.contentLabelInnerPadding});
         }
 
-        ${StyledTextAfter}, ${StyledTextBefore} {
-            padding: var(${tokens.contentLabelInnerPadding});
-        }
-
         /* поднимает label вверх при фокусе, наличии значения */
-        ${Input}:focus ~ ${Label}, ${Input}.${classes.hasValue} ~ ${Label} {
+        ${Input}:focus ~ ${Label}, ${Input}.${classes.hasValue} ~ ${Label}, ${Input}.${classes.keepPlaceholder} ~ ${Label} {
             color: var(${tokens.placeholderColor});
             align-items: flex-start;
             padding: var(${tokens.labelInnerPadding});
@@ -47,10 +43,7 @@ export const base = css`
 
             box-sizing: border-box;
 
-            height: var(${tokens.height});
-
-            padding-top: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
-            padding-bottom: calc(calc(var(${tokens.height}) - var(${tokens.labelLineHeight})) / 2);
+            height: 100%;
         }
 
         &.${classes.clear} ${Label} {

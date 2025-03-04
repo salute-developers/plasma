@@ -3,6 +3,7 @@ import { styled } from '@linaria/react';
 import { classes, tokens } from '../../Steps.tokens';
 import { component, mergeConfig } from '../../../../engines';
 import { spinnerConfig, spinnerTokens } from '../../../Spinner';
+import { addFocus } from '../../../../mixins';
 
 const mergedConfig = mergeConfig(spinnerConfig);
 const Spinner = component(mergedConfig);
@@ -54,6 +55,7 @@ export const BulletIndicatorWrapper = styled.div`
             width: 100%;
             min-height: var(${tokens.activeIndicatorSize});
         }
+
         &:not(.${classes.hasIndicator}) {
             width: 100%;
             min-height: var(${tokens.activeBulletSize});
@@ -64,11 +66,23 @@ export const BulletIndicatorWrapper = styled.div`
         }
     }
 
+    &.${classes.simple} {
+        flex: 0;
+        justify-content: center;
+
+        &.${classes.hasIndicator} {
+            width: var(${tokens.activeIndicatorSize});
+        }
+
+        &:not(.${classes.hasIndicator}) {
+            width: var(${tokens.activeBulletSize});
+        }
+    }
+
     &.${classes.verticalOrientation} {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 100%;
 
         &.${classes.hasIndicator} {
             min-width: var(${tokens.activeIndicatorSize});
@@ -83,7 +97,7 @@ export const BulletIndicatorWrapper = styled.div`
     }
 `;
 
-export const BulletIndicator = styled.div`
+export const BulletIndicator = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,8 +108,14 @@ export const BulletIndicator = styled.div`
     box-sizing: border-box;
     position: relative;
 
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    cursor: pointer;
     color: var(${tokens.completedIndicatorColor});
-    background-color: var(${tokens.completedIndicatorBackground});
+    background: var(${tokens.completedIndicatorBackground});
 
     font-family: var(${tokens.indicatorFontFamily});
     font-size: var(${tokens.indicatorFontSize});
@@ -103,6 +123,13 @@ export const BulletIndicator = styled.div`
     font-weight: var(${tokens.indicatorFontWeight});
     letter-spacing: var(${tokens.indicatorLetterSpacing});
     line-height: var(${tokens.indicatorLineHeight});
+
+    ${addFocus({
+        outlineOffset: '-0.0625rem',
+        outlineSize: '0.0625rem',
+        outlineRadius: '50%',
+        outlineColor: `var(${tokens.focusColor})`,
+    })}
 
     &.${classes.active} {
         width: var(${tokens.activeIndicatorSize});
@@ -119,15 +146,24 @@ export const BulletIndicator = styled.div`
 
         color: var(${tokens.activeIndicatorColor});
         background: var(${tokens.activeIndicatorBackground});
+
+        ${addFocus({
+            outlineOffset: '-0.1875rem',
+            outlineSize: '0.0625rem',
+            outlineRadius: '50%',
+            outlineColor: `var(${tokens.focusColor})`,
+        })}
     }
 
     &.${classes.inactive} {
         color: var(${tokens.inactiveIndicatorColor});
         background: var(${tokens.inactiveIndicatorBackground});
 
-        &:before,
-        &:after {
-            background: var(${tokens.inactiveIndicatorBackground});
+        &.${classes.simple} {
+            &:before,
+            &:after {
+                background: var(${tokens.inactiveIndicatorBackground});
+            }
         }
     }
 `;
@@ -142,7 +178,7 @@ export const Bullet = styled(BulletIndicator)`
 
         border: var(${tokens.dividerThickness}) var(${tokens.activeIndicatorBorder});
 
-        background-color: var(${tokens.activeIndicatorBackground});
+        background: var(${tokens.activeIndicatorBackground});
     }
 `;
 
@@ -151,14 +187,18 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
     height: var(${tokens.dividerThickness});
 
     flex: 1;
-    background-color: var(${tokens.activeIndicatorColor});
+    background: var(${tokens.activeIndicatorColor});
 
     &.${classes.inactive} {
-        background-color: var(${tokens.inactiveIndicatorBackground});
+        background: var(${tokens.inactiveIndicatorBackground});
+    }
+
+    &.${classes.disabled} {
+        opacity: var(${tokens.disabledOpacity});
     }
 
     &.${classes.transparentDivider} {
-        background-color: transparent;
+        background: transparent;
     }
 
     &.${classes.verticalOrientation} {
@@ -194,10 +234,14 @@ export const StepItemContentWrapper = styled.div`
 `;
 
 export const StepItemStyled = styled.div`
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     flex: 1;
+
+    color: var(${tokens.activeIndicatorColor});
 
     &.${classes.verticalOrientation} {
         flex-direction: row;
@@ -209,15 +253,145 @@ export const StepItemStyled = styled.div`
         }
     }
 
+    ${StepItemTitle} {
+        color: var(${tokens.completedTitleColor}, ${tokens.activeTitleColor});
+    }
+
     &.${classes.active} {
+        ${BulletIndicator} {
+            cursor: default;
+        }
+
         ${StepItemTitle} {
             color: var(${tokens.activeTitleColor});
         }
     }
 
     &.${classes.inactive} {
+        color: var(${tokens.inactiveIndicatorColor});
+
         ${StepItemTitle} {
             color: var(${tokens.inactiveTitleColor});
+        }
+    }
+
+    &.${classes.simple} {
+        flex: 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        height: 100%;
+
+        &.${classes.hasIndicator} {
+            min-width: var(${tokens.activeIndicatorSize});
+            min-height: var(${tokens.activeIndicatorSize});
+        }
+
+        &:not(.${classes.hasIndicator}) {
+            width: var(${tokens.activeBulletSize});
+            min-height: var(${tokens.activeBulletSize});
+        }
+
+        &.${classes.inactive}, &:not(.${classes.active}) {
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                width: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+                height: var(${tokens.dividerThickness});
+                background: var(${tokens.activeIndicatorColor});
+            }
+
+            &:not(.${classes.hasIndicator}) {
+                &:before,
+                &:after {
+                    width: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
+                }
+            }
+
+            &.${classes.verticalOrientation} {
+                flex-direction: column;
+
+                &:before,
+                &:after {
+                    width: var(${tokens.dividerThickness});
+                    height: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+                    margin: 0 auto;
+                    align-self: auto;
+                }
+
+                &:not(.${classes.hasIndicator}) {
+                    &:before,
+                    &:after {
+                        height: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
+                    }
+                }
+
+                &:after {
+                    margin: 0 auto;
+                }
+            }
+
+            &.isFirst {
+                &:before {
+                    background: transparent;
+                }
+            }
+
+            &.isLast {
+                &:after {
+                    background: transparent;
+                }
+            }
+        }
+
+        &.${classes.inactive} {
+            &:after,
+            &:before {
+                background: var(${tokens.inactiveIndicatorBackground});
+            }
+        }
+
+        &.isPrevInactive {
+            &:before {
+                background: var(${tokens.inactiveIndicatorBackground});
+            }
+        }
+
+        &.isNextInactive {
+            &:after {
+                background: var(${tokens.inactiveIndicatorBackground});
+            }
+        }
+
+        &.${classes.disabled} {
+            &:before,
+            &:after {
+                background: var(${tokens.inactiveIndicatorBackground});
+                opacity: 1;
+            }
+        }
+
+        &.${classes.transparentDivider} {
+            &:before,
+            &:after {
+                background: transparent;
+            }
+        }
+    }
+
+    &:not(.${classes.simple}):not(.${classes.verticalOrientation}) {
+        &.isNextActive {
+            ${BulletIndicatorWrapper} {
+                width: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+            }
+        }
+
+        &.${classes.active} {
+            ${BulletIndicatorWrapper} {
+                margin-left: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / -2);
+                width: calc(100% + (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+            }
         }
     }
 
@@ -227,6 +401,7 @@ export const StepItemStyled = styled.div`
                 cursor: pointer;
                 color: var(${tokens.activeTitleColorHover});
             }
+
             ${BulletIndicator}, ${Bullet} {
                 color: var(${tokens.completedIndicatorColorHover});
                 background: var(${tokens.completedIndicatorBackgroundHover});
@@ -237,6 +412,7 @@ export const StepItemStyled = styled.div`
             ${StepItemTitle} {
                 color: var(${tokens.inactiveTitleColorHover});
             }
+
             ${BulletIndicator}, ${Bullet} {
                 color: var(${tokens.inactiveIndicatorColorHover});
                 background: var(${tokens.inactiveIndicatorBackgroundHover});
@@ -270,11 +446,8 @@ export const StepItemStyled = styled.div`
         }
     }
 
-    &.${classes.simple} {
-        flex: 0;
-    }
-
     &.${classes.disabled} {
+        cursor: default;
         opacity: var(${tokens.disabledOpacity});
     }
 `;

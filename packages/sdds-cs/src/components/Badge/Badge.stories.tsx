@@ -5,7 +5,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
-    title: 'Content/Badge',
+    title: 'Data Display/Badge',
     component: Badge,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -25,6 +25,10 @@ const meta: Meta<typeof Badge> = {
             control: { type: 'boolean' },
             if: { arg: 'clear', truthy: false },
         },
+        text: {
+            control: { type: 'text' },
+            if: { arg: 'enableText', truthy: true },
+        },
         ...disableProps(['contentLeft', 'contentRight', 'transparent', 'size']),
     },
 };
@@ -34,6 +38,7 @@ export default meta;
 type StoryProps = ComponentProps<typeof Badge> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableText: boolean;
 };
 type Story = StoryObj<StoryProps>;
 
@@ -54,22 +59,25 @@ export const Default: Story = {
         },
         enableContentRight: {
             control: { type: 'boolean' },
-            if: { arg: 'enableContentLeft', truthy: false },
+            if: { arg: 'enableText', truthy: true },
         },
     },
     args: {
-        text: 'Hello',
         view: 'default',
         size: 's',
+        enableText: true,
+        text: 'Hello',
         enableContentLeft: false,
         enableContentRight: false,
         clear: false,
         pilled: false,
     },
-    render: ({ enableContentLeft, enableContentRight, size, ...rest }: StoryProps) => {
+    render: ({ enableContentLeft, enableContentRight, enableText, size, ...rest }: StoryProps) => {
         return (
             <Badge
-                contentLeft={enableContentLeft ? <BellIcon width="0.75rem" height="0.75rem" /> : undefined}
+                contentLeft={
+                    enableContentLeft || !enableText ? <BellIcon width="0.75rem" height="0.75rem" /> : undefined
+                }
                 contentRight={enableContentRight ? <BellIcon width="0.75rem" height="0.75rem" /> : undefined}
                 size={size}
                 {...rest}

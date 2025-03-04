@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-serv-docs",
-  "version": "0.148.0",
+  "version": "0.252.0",
   "description": "SDDS SERV documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -26,15 +26,15 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
   },
   "dependencies": {
-    "@docusaurus/core": "3.1.1",
-    "@docusaurus/preset-classic": "3.1.1",
-    "@docusaurus/theme-live-codeblock": "3.1.1",
+    "@docusaurus/core": "3.6.1",
+    "@docusaurus/preset-classic": "3.6.1",
+    "@docusaurus/theme-live-codeblock": "3.6.1",
     "@mdx-js/react": "3.0.0",
-    "@salutejs/plasma-docs-ui": "0.345.0",
-    "@salutejs/plasma-icons": "1.207.0",
-    "@salutejs/plasma-typo": "0.40.0",
-    "@salutejs/sdds-serv": "0.161.0",
-    "@salutejs/sdds-themes": "0.26.0",
+    "@salutejs/plasma-docs-ui": "0.443.0",
+    "@salutejs/plasma-icons": "1.211.0",
+    "@salutejs/plasma-typo": "0.41.0",
+    "@salutejs/sdds-serv": "0.261.0",
+    "@salutejs/sdds-themes": "0.32.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
@@ -46,8 +46,8 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.1.1",
-    "@docusaurus/types": "3.1.1",
+    "@docusaurus/module-type-aliases": "3.6.1",
+    "@docusaurus/types": "3.6.1",
     "@tsconfig/docusaurus": "2.0.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",

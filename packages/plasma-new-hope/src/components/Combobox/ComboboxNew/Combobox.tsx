@@ -1,5 +1,5 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect, useRef } from 'react';
-import type { ChangeEvent } from 'react';
+import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
+import type { ChangeEvent, ForwardedRef } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../engines';
@@ -19,26 +19,29 @@ import {
     getItemId,
     getInitialValue,
 } from './utils';
-import { Inner, StyledTextField } from './ui';
+import { Inner, StyledTextField, VirtualList } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
 import { Ul, base, StyledArrow, IconArrowWrapper, StyledEmptyState } from './Combobox.styles';
-import type { ItemContext, ComboboxProps } from './Combobox.types';
+import type { ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
-
-export const Context = createContext<ItemContext>({} as ItemContext);
+import { SelectNative } from './ui/SelectNative/SelectNative';
+import { Context } from './Combobox.context';
 
 /**
  * Поле ввода с выпадающим списком и возможностью фильтрации и выбора элементов.
  */
+
 export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items'>>) =>
     forwardRef<HTMLInputElement, ComboboxProps>((props, ref) => {
         const {
+            name,
             multiple,
             value: outerValue,
             onChange: outerOnChange,
+            defaultValue,
             isTargetAmount,
             targetAmount,
             items,
@@ -58,14 +61,23 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             view,
             size,
             labelPlacement,
+            keepPlaceholder,
             readOnly = false,
             disabled = false,
             alwaysOpened = false,
             filter,
             closeAfterSelect: outerCloseAfterSelect,
             renderValue,
+            zIndex,
+            beforeList,
+            afterList,
+            virtual = false,
+            hintView,
+            hintSize,
+            onChangeValue,
             ...rest
         } = props;
+
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
@@ -126,12 +138,26 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         }, floatingPopoverRef);
 
-        const onChange = (newValue: string | Array<string>) => {
+        // Эта функция срабатывает при изменении Combobox и
+        // при изменении нативного Select для формы (срабатывает только после изменения internalValue и рендера).
+        const onChange = (newValue: string | Array<string> | ChangeEvent<HTMLSelectElement> | null) => {
+            // Условие для отправки изменений наружу
             if (outerOnChange) {
-                outerOnChange(newValue as any);
+                // Условие для отправки если комбобокс используется без формы.
+                if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
+                    outerOnChange(newValue as any);
+                }
+
+                // Условие для отправки если комбобокс используется с формой.
+                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    outerOnChange(newValue as any);
+                }
             }
 
-            setInternalValue(newValue);
+            // Условие для изменения внутреннего значения (только если newValue строка или массив строк).
+            if (typeof newValue === 'string' || Array.isArray(newValue)) {
+                setInternalValue(newValue);
+            }
         };
 
         const handleClickArrow = () => {
@@ -153,11 +179,35 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             setTextValue(e.target.value);
             dispatchPath({ type: 'opened_first_level' });
             dispatchFocusedPath({ type: 'reset' });
+
+            if (onChangeValue) {
+                onChangeValue(e.target.value);
+            }
         };
 
         // Обработчик чипов
         const handleChipsChange = (chipLabels: any[]) => {
-            onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+            if (!Array.isArray(value)) return;
+
+            // TODO: #1564
+            // Из лейблов чипов получаем value у item и далее прокидываем его в onChange.
+            if (renderValue && !isTargetAmount) {
+                const resultValues = [...value];
+
+                value.forEach((_, index) => {
+                    const labelAfterRenderValue = renderValue(
+                        labelToItemMap.get(valueToItemMap.get(value[index])!.label)!,
+                    );
+
+                    if (!chipLabels.includes(labelAfterRenderValue)) {
+                        resultValues.splice(index, 1);
+                    }
+                });
+
+                onChange(resultValues);
+            } else {
+                onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+            }
         };
 
         // Обработчик открытия/закрытия выпадающего списка
@@ -184,7 +234,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             if (!checkedCopy.get(item.value)) {
                 checkedCopy.set(item.value, true);
-                updateDescendants(item, checkedCopy, true);
+                updateDescendants(item, checkedCopy, true, valueToItemMap);
             } else {
                 checkedCopy.set(item.value, false);
                 updateDescendants(item, checkedCopy, false);
@@ -282,8 +332,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             focusedToValueMap,
             handleListToggle,
             handlePressDown,
-            multiselect: multiple,
             setTextValue,
+            multiple,
+            value,
+            textValue,
+            valueToItemMap,
         });
 
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
@@ -317,8 +370,34 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
+        useLayoutEffect(() => {
+            if (defaultValue) {
+                setInternalValue(defaultValue);
+            }
+        }, [defaultValue]);
+
         return (
-            <Root size={size} view={view} labelPlacement={labelPlacement} disabled={disabled} readOnly={readOnly}>
+            <Root
+                size={size}
+                view={view}
+                labelPlacement={labelPlacement}
+                disabled={disabled}
+                readOnly={readOnly}
+                name={name}
+                hintView={hintView}
+                hintSize={hintSize}
+            >
+                {name && (
+                    <SelectNative
+                        items={valueToItemMap}
+                        name={name}
+                        value={internalValue}
+                        multiple={multiple}
+                        onChange={onChange}
+                        onSetValue={setInternalValue}
+                        ref={ref as ForwardedRef<HTMLInputElement>}
+                    />
+                )}
                 <div>
                     <Context.Provider
                         value={{
@@ -330,7 +409,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             handleItemClick,
                             variant,
                             renderItem,
-                            valueToItemMap,
                             treeId,
                         }}
                     >
@@ -343,13 +421,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             listWidth={listWidth}
                             target={(referenceRef) => (
                                 <StyledTextField
-                                    ref={inputForkRef}
+                                    ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
                                     inputWrapperRef={referenceRef}
                                     value={textValue}
                                     onChange={handleTextValueChange}
                                     size={size}
                                     view={view}
-                                    labelPlacement={labelPlacement}
                                     disabled={disabled}
                                     readOnly={readOnly}
                                     label={label}
@@ -375,6 +452,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     aria-activedescendant={
                                         activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''
                                     }
+                                    labelPlacement={labelPlacement}
+                                    keepPlaceholder={keepPlaceholder}
                                     {...(multiple
                                         ? {
                                               enumerationType: 'chip',
@@ -386,6 +465,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                                 />
                             )}
+                            zIndex={zIndex}
                         >
                             <Root
                                 size={size}
@@ -393,6 +473,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 labelPlacement={labelPlacement}
                                 disabled={disabled}
                                 readOnly={readOnly}
+                                name={name}
                             >
                                 <Ul
                                     role="tree"
@@ -403,24 +484,32 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     listWidth={listWidth}
                                     ref={targetRef}
                                 >
-                                    {isEmpty(filteredItems) ? (
-                                        <StyledEmptyState
-                                            className={classes.emptyStateWrapper}
-                                            size={size}
-                                            description="Ничего не найдено"
-                                        />
+                                    {virtual ? (
+                                        <VirtualList items={filteredItems} listHeight={listHeight} />
                                     ) : (
-                                        filteredItems.map((item, index) => (
-                                            <Inner
-                                                key={`${index}/0`}
-                                                item={item}
-                                                currentLevel={0}
-                                                path={path}
-                                                dispatchPath={dispatchPath}
-                                                index={index}
-                                                listWidth={listWidth}
-                                            />
-                                        ))
+                                        <>
+                                            {beforeList}
+                                            {isEmpty(filteredItems) ? (
+                                                <StyledEmptyState
+                                                    className={classes.emptyStateWrapper}
+                                                    size={size}
+                                                    description="Ничего не найдено"
+                                                />
+                                            ) : (
+                                                filteredItems.map((item, index) => (
+                                                    <Inner
+                                                        key={`${index}/0`}
+                                                        item={item}
+                                                        currentLevel={0}
+                                                        path={path}
+                                                        dispatchPath={dispatchPath}
+                                                        index={index}
+                                                        listWidth={listWidth}
+                                                    />
+                                                ))
+                                            )}
+                                            {afterList}
+                                        </>
                                     )}
                                 </Ul>
                             </Root>

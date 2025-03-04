@@ -62,14 +62,34 @@ describe('plasma-web: TextArea', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('textarea:first').focus();
+        cy.get('.textarea:first').focus();
         cy.matchImageSnapshot();
     });
 
     it(':disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -146,7 +166,7 @@ describe('plasma-web: TextArea', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.root().get('textarea').last().invoke('attr', 'style', 'width: 280px; height: 140px;');
+        cy.root().get('.textarea').last().invoke('attr', 'style', 'width: 280px; height: 140px;');
 
         cy.matchImageSnapshot();
     });
@@ -248,13 +268,13 @@ describe('plasma-web: TextArea', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
             { labelPlacement: 'outer' },
-            { requiredPlacement: 'right', labelPlacement: 'outer' },
+            { requiredPlacement: 'left', labelPlacement: 'outer' },
             { labelPlacement: 'inner' },
-            { requiredPlacement: 'right', labelPlacement: 'inner' },
+            { requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -281,11 +301,33 @@ describe('plasma-web: TextArea', () => {
                 cy.matchImageSnapshot();
             });
         });
+
+        it('required attribute', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <TextArea id="required" value="Value" placeholder="Placeholder" label="Title" required />
+                    <TextArea
+                        id="falseRequired"
+                        value="Value"
+                        placeholder="Placeholder"
+                        label="Title"
+                        required={false}
+                    />
+                    <TextArea id="notRequired" value="Value" placeholder="Placeholder" label="Title" />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('#required').should('have.attr', 'required');
+            cy.get('#falseRequired').should('not.have.attr', 'required');
+            cy.get('#notRequired').should('not.have.attr', 'required');
+        });
     });
 
     it('_size :empty', () => {
         mount(
             <CypressTestDecoratorWithTypo>
+                <TextArea size="xl" {...propsDefault} />
+                <SpaceMe />
                 <TextArea size="l" {...propsDefault} />
                 <SpaceMe />
                 <TextArea size="m" {...propsDefault} />
@@ -307,6 +349,8 @@ describe('plasma-web: TextArea', () => {
 
         mount(
             <CypressTestDecoratorWithTypo>
+                <TextArea size="xl" {...props} />
+                <SpaceMe />
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -329,6 +373,8 @@ describe('plasma-web: TextArea', () => {
 
         mount(
             <CypressTestDecoratorWithTypo>
+                <TextArea size="xl" {...props} />
+                <SpaceMe />
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -343,7 +389,7 @@ describe('plasma-web: TextArea', () => {
     });
 
     describe('with hint', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
 
@@ -352,7 +398,7 @@ describe('plasma-web: TextArea', () => {
                 mount(
                     <CypressTestDecoratorWithTypo>
                         {cases.map((props) => (
-                            <div style={{ margin: '0 1rem' }}>
+                            <div style={{ margin: '0 3rem' }}>
                                 <TextArea
                                     value="Value"
                                     placeholder="Placeholder"

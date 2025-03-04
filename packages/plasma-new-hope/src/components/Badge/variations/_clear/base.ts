@@ -1,11 +1,10 @@
 import { css } from '@linaria/core';
 
-import { classes, tokens } from '../../Badge.tokens';
+import { classes, privateTokens, tokens } from '../../Badge.tokens';
 
 export const base = css`
     &.${classes.badgeClear} {
-        color: var(${tokens.colorClear});
-        background-color: transparent;
-        padding: 0;
+        color: var(${privateTokens.customColor}, var(${tokens.colorClear}));
+        background-color: var(${privateTokens.customBackground}, var(${tokens.backgroundClear}));
     }
 `;

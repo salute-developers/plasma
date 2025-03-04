@@ -33,7 +33,7 @@ const getSize = (size: SizesCell): SizesAvatar => {
 };
 
 const meta: Meta<typeof Cell> = {
-    title: 'plasma_b2c/Cell',
+    title: 'b2c/Data Display/Cell',
     decorators: [WithTheme],
     argTypes: {
         size: {
@@ -118,10 +118,10 @@ export const WithContentTextboxCustom: Story = {
                 }
                 contentRight={!args.disableRightContent && <ChevronRight color="inherit" size="xs" />}
             >
-                <CellTextboxTitle>
-                    <CellTextbox>Title</CellTextbox>
+                <CellTextbox>
+                    <CellTextboxTitle>Title</CellTextboxTitle>
                     <MyStyledText>My styled Text</MyStyledText>
-                </CellTextboxTitle>
+                </CellTextbox>
             </Cell>
         );
     },

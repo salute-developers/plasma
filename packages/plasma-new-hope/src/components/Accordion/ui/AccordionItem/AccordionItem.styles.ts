@@ -4,22 +4,7 @@ import { IconChevronDownFill, IconMinus } from '../../../_Icon';
 import { classes, tokens } from '../../Accordion.tokens';
 import { addFocus } from '../../../../mixins';
 
-export const StyledAccordionItem = styled.div`
-    background: var(${tokens.accordionItemBackground});
-    border: var(${tokens.accordionItemBorder});
-    border-bottom: var(${tokens.accordionItemBorderBottom});
-
-    &:last-child {
-        border-bottom: var(${tokens.accordionItemBorder});
-    }
-
-    &.${classes.accordionDisabled} {
-        opacity: 0.4;
-        cursor: not-allowed;
-    }
-`;
-
-export const StyledAccordionHeader = styled.button`
+export const StyledAccordionHeader = styled.div`
     width: 100%;
     border: none;
     padding: var(${tokens.accordionItemPadding});
@@ -45,7 +30,7 @@ export const StyledAccordionHeader = styled.button`
 
 export const StyledAccordionHeaderLeft = styled.div`
     display: flex;
-    gap: var(${tokens.accordionItemGap});
+    gap: var(${tokens.accordionItemHeaderLeftGap}, var(${tokens.accordionItemGap}));
     justify-content: space-between;
     align-items: center;
 `;
@@ -90,7 +75,7 @@ export const StyledAccordionBodyAnimate = styled.div`
 
     &.${classes.accordionItemShowBody} {
         grid-template-rows: 1fr;
-        padding-bottom: var(${tokens.accordionItemPaddingVertical});
+        padding-bottom: var(${tokens.accordionItemBodyPaddingBottom}, var(${tokens.accordionItemPaddingVertical}));
 
         &.${classes.accordionPlusAnimationElement} {
             transition: 0.2s;
@@ -137,14 +122,41 @@ export const StyledMinus = styled(IconMinus)`
     &.${classes.accordionItemShowBody} {
         transition: 0.2s;
         transform: rotate(0deg);
+        color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemIconColor}));
     }
 `;
 
 export const StyledPlus = styled.div`
     position: relative;
-    height: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1rem;
+    width: var(${tokens.accordionItemIconSize}, 1rem);
+    height: var(${tokens.accordionItemIconSize}, 1rem);
+`;
+
+export const StyledAccordionItem = styled.div`
+    background: var(${tokens.accordionItemBackground});
+    border: var(${tokens.accordionItemBorder});
+    border-bottom: var(${tokens.accordionItemBorderBottom});
+    box-shadow: var(${tokens.accordionItemShadow});
+
+    &:last-child {
+        border-bottom: var(${tokens.accordionItemBorder});
+    }
+
+    &.${classes.accordionDisabled} {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    &.${classes.accordionItemOpened} {
+        ${StyledArrow} {
+            color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemIconColor}));
+        }
+
+        ${StyledAccordionTitle} {
+            color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemTitleColor}));
+        }
+    }
 `;

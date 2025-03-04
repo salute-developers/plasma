@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import styled from 'styled-components';
 import { action } from '@storybook/addon-actions';
 import { IconBell } from '@salutejs/plasma-icons';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
@@ -17,8 +18,8 @@ type StoryTextAreaPropsCustom = {
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
-const sizes = ['xs', 's', 'm', 'l'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
+const views = ['default', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -43,7 +44,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<StoryTextAreaProps> = {
-    title: 'Controls/TextArea',
+    title: 'Data Entry/TextArea',
     decorators: [InSpacingDecorator],
     component: TextArea,
     argTypes: {
@@ -65,12 +66,6 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        labelPlacement: {
-            options: labelPlacements,
-            control: {
-                type: 'select',
-            },
-        },
         size: {
             options: sizes,
             defaultValue: 'm',
@@ -80,6 +75,12 @@ const meta: Meta<StoryTextAreaProps> = {
         },
         view: {
             options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -143,6 +144,18 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        helperText: {
+            control: { type: 'text' },
+            if: { arg: 'helperText', truthy: true },
+        },
+        width: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
+        height: {
+            control: { type: 'text' },
+            if: { arg: 'width', truthy: true },
+        },
         ...disableProps([
             'helperBlock',
             '$isFocused',
@@ -162,16 +175,18 @@ const meta: Meta<StoryTextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
+            'leftHelperPlacement',
             'status',
-            'resize',
-            'height',
-            'width',
-            'helperText',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
         ]),
     },
     args: {
         id: 'example-textarea',
         enableContentRight: true,
+        size: 'm',
+        view: 'default',
         label: 'Лейбл',
         placeholder: 'Заполните многострочное поле',
         titleCaption: 'Подпись к полю',
@@ -204,15 +219,28 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const StyledIconBell = styled(IconBell)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+            flex: 0 0 ${customSize};
+        `}
+`;
+
 const StoryDefault = (props: StoryTextAreaProps) => {
     const [value, setValue] = useState('Значение поля');
 
-    const iconSize = props.size === 'xs' ? 'xs' : 's';
+    const iconSize = props.size === 'xs' || props.size === 's' ? 'xs' : 's';
+    const iconCustomSize = props.size === 'm' ? '1.25rem' : undefined;
 
     return (
         <TextArea
             value={value}
-            contentRight={props.enableContentRight ? <IconBell size={iconSize} /> : undefined}
+            contentRight={
+                props.enableContentRight ? <StyledIconBell customSize={iconCustomSize} size={iconSize} /> : undefined
+            }
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);

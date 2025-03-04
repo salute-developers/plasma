@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import './style.css';
@@ -16,43 +16,87 @@ const view = ['default', 'negative'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/Select',
+    title: 'Data Entry/Select',
     decorators: [InSpacingDecorator],
     component: Select,
     argTypes: {
         target: {
+            control: 'select',
             options: ['button-like', 'textfield-like'],
-            control: {
-                type: 'select',
-            },
         },
         view: {
+            control: 'select',
             options: view,
-            control: {
-                type: 'select',
-            },
         },
         variant: {
+            control: 'select',
             options: variant,
+        },
+        listWidth: {
+            control: 'text',
+        },
+        listOverflow: {
+            control: 'text',
+        },
+        listHeight: {
+            control: 'text',
+        },
+        helperText: {
+            control: 'text',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
+        placeholder: {
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
+        enableContentLeft: {
+            control: 'boolean',
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
+        requiredPlacement: {
+            options: ['left', 'right'],
             control: {
                 type: 'select',
             },
         },
-        listWidth: {
+        required: {
             control: {
-                type: 'text',
+                type: 'boolean',
             },
+            if: { arg: 'optional', truthy: false },
         },
-        listOverflow: {
+        optional: {
             control: {
-                type: 'text',
+                type: 'boolean',
             },
+            if: { arg: 'required', truthy: false },
         },
-        listHeight: {
-            control: {
-                type: 'text',
-            },
+        chipType: {
+            control: 'select',
+            options: ['default', 'text'],
+            if: { arg: 'target', eq: 'textfield-like' },
         },
+        ...disableProps([
+            'hintText',
+            'hintTrigger',
+            'hintView',
+            'hintSize',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintPlacement',
+            'hintHasArrow',
+            'hintOffset',
+            'hintWidth',
+            'hintContentLeft',
+        ]),
     },
     args: {
         target: 'textfield-like',
@@ -65,6 +109,10 @@ const meta: Meta<StorySelectProps> = {
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
+        chipType: 'default',
     },
     parameters: {
         controls: {
@@ -82,6 +130,10 @@ const meta: Meta<StorySelectProps> = {
                 'listWidth',
                 'listOverflow',
                 'listHeight',
+                'optional',
+                'required',
+                'requiredPlacement',
+                'chipType',
             ],
         },
     },
@@ -318,6 +370,11 @@ const SingleStory = (args: StorySelectProps) => {
 };
 
 export const Single: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            exclude: ['isTargetAmount', 'chipType'],
+        },
+    },
     render: (args) => <SingleStory {...args} />,
     args: {
         closeAfterSelect: true,

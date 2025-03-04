@@ -1,12 +1,10 @@
 import React, { forwardRef, useMemo } from 'react';
 import { useForkRef, safeUseId } from '@salutejs/plasma-core';
 
-import { component, mergeConfig } from '../../engines';
 import type { RootProps } from '../../engines';
 import { usePopupContext } from '../Popup';
 import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
-import { panelConfig } from '../Panel';
 import { cx, getSizeValueFromProp } from '../../utils';
 import { useFocusTrap } from '../../hooks';
 
@@ -15,13 +13,11 @@ import type { DrawerProps } from './Drawer.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as borderRadiusCSS } from './variations/_borderRadius/base';
-import { StyledPopup } from './Drawer.styles';
+import { StyledPopup, StyledPanel } from './Drawer.styles';
 import { getIdLastDrawer } from './DrawerContext';
 import { useDrawer } from './hooks';
 
 // issue #823
-const mergedPanelConfig = mergeConfig(panelConfig);
-const Panel = component(mergedPanelConfig);
 
 export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
     forwardRef<HTMLDivElement, DrawerProps>(
@@ -41,6 +37,8 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 initialFocusRef,
                 focusAfterRef,
                 className,
+                customBackgroundColor,
+                customContentBackgroundColor,
                 onClose,
                 onOverlayClick,
                 onEscKeyDown,
@@ -134,9 +132,15 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                         style={{ width: innerWidth, height: innerHeight }}
                         borderRadius={borderRadius}
                     >
-                        <Panel width={innerWidth} height={innerHeight} className={className}>
+                        <StyledPanel
+                            width={innerWidth}
+                            height={innerHeight}
+                            customBackgroundColor={customBackgroundColor}
+                            customContentBackgroundColor={customContentBackgroundColor}
+                            className={className}
+                        >
                             {children}
-                        </Panel>
+                        </StyledPanel>
                     </Root>
                 </StyledPopup>
             );

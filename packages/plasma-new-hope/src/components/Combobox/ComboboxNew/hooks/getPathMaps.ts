@@ -35,7 +35,7 @@ export const getPathMap = (items: ComboboxProps['items']) => {
 export const getTreeMaps = (items: ComboboxProps['items']) => {
     const valueToCheckedMap: ValueToCheckedMapType = new Map();
     const valueToItemMap: ValueToItemMapType = new Map();
-    const labelToItemMap: ValueToItemMapType = new Map();
+    const labelToItemMap: LabelToItemMapType = new Map();
 
     const rec = (items: ComboboxProps['items'], prevIndex = '') => {
         items?.forEach((item: ItemOptionTransformed, index: number) => {

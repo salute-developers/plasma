@@ -7,6 +7,8 @@ import { IconPlasma } from '@salutejs/plasma-icons';
 import { Attach } from './Attach';
 
 const viewOptions = ['accent', 'secondary', 'clear'];
+const helperTextViewOptions = ['default', 'negative'];
+
 const flowOptions = ['horizontal', 'vertical', 'auto'];
 const fileFormatOptions = ['all', '.doc', '.xls', '.pdf', '.csv', '.txt'];
 const sizeOptions = ['s'];
@@ -21,7 +23,7 @@ type StoryAttachProps = ComponentProps<typeof Attach> & {
 };
 
 const meta: Meta<StoryAttachProps> = {
-    title: 'Controls/Attach',
+    title: 'Data Entry/Attach',
     decorators: [InSpacingDecorator],
     component: Attach,
     argTypes: {
@@ -49,6 +51,12 @@ const meta: Meta<StoryAttachProps> = {
                 type: 'select',
             },
         },
+        helperTextView: {
+            options: helperTextViewOptions,
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
@@ -66,11 +74,12 @@ export const Button: StoryObj<StoryAttachProps> = {
         width: '400px',
         buttonText: 'Загрузить файл',
         buttonValue: '',
-        square: false,
+        helperText: 'Подсказка',
         enableContentLeft: false,
         enableContentRight: false,
         size: 's',
         view: 'accent',
+        helperTextView: 'default',
     },
     render: (args) => {
         const {
@@ -112,8 +121,10 @@ export const IconButton: StoryObj<StoryAttachProps> = {
         flow: 'horizontal',
         hasAttachment: true,
         width: '400px',
+        helperText: 'Подсказка',
         size: 's',
         view: 'accent',
+        helperTextView: 'default',
     },
     render: (args) => {
         const {

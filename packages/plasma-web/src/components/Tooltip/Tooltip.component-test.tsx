@@ -319,4 +319,65 @@ describe('plasma-web: Tooltip', () => {
 
         cy.matchImageSnapshot('multiple');
     });
+
+    describe('trigger', () => {
+        it('trigger:click', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <span id="outer" />
+                    <Tooltip
+                        target={<Button text="hello" />}
+                        text="World"
+                        placement="bottom"
+                        trigger="click"
+                        closeOnOverlayClick
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.contains('World').should('not.visible');
+
+            cy.contains('hello').click();
+            cy.contains('World').should('be.visible');
+
+            cy.contains('hello').click();
+            cy.contains('World').should('not.visible');
+
+            cy.contains('hello').click();
+            cy.contains('World').should('be.visible');
+            cy.get('#outer').click({ force: true });
+        });
+
+        it('trigger:hover', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Tooltip target={<Button text="hello" />} text="World" placement="bottom" trigger="hover" />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.contains('World').should('not.visible');
+
+            cy.get('button').first().trigger('mouseover', { force: true });
+            cy.contains('World').should('be.visible');
+
+            cy.get('button').first().trigger('mouseout', { force: true });
+            cy.contains('World').should('not.visible');
+        });
+
+        it('trigger:none', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Tooltip target={<Button text="hello" />} text="World" placement="bottom" trigger="none" />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.contains('World').should('not.visible');
+
+            cy.get('button').first().trigger('mouseover', { force: true });
+            cy.contains('World').should('not.visible');
+
+            cy.contains('hello').click();
+            cy.contains('World').should('not.visible');
+        });
+    });
 });

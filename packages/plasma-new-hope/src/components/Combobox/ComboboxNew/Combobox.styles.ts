@@ -24,11 +24,12 @@ export const Ul = styled.ul<{
 
     border-radius: var(${tokens.borderRadius});
     width: ${({ listWidth }) => listWidth || '100%'};
-    height: ${({ listHeight }) => listHeight || 'auto'};
+    max-height: ${({ listHeight }) => listHeight || 'auto'};
     overflow: ${({ listOverflow }) => listOverflow || 'initial'};
 
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
-    margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : 0)};
+    margin: ${({ isInnerUl }) =>
+        isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};
     padding: var(${tokens.padding}) 0;
 
     .${classes.emptyStateWrapper} {
@@ -38,7 +39,7 @@ export const Ul = styled.ul<{
 
 export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
     line-height: 0;
-    color: var(${constants.disclosureIconColor});
+    color: var(${tokens.disclosureIconColor});
     cursor: ${({ disabled }) => (disabled ? 'inherit' : 'pointer')};
 
     .${classes.arrowInverse} {
@@ -48,11 +49,20 @@ export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
     &:hover,
     &:active {
         color: ${({ disabled }) =>
-            disabled ? `var(${constants.disclosureIconColor})` : `var(${constants.disclosureIconColorHover})`};
+            disabled ? `var(${tokens.disclosureIconColor})` : `var(${tokens.disclosureIconColorHover})`};
     }
 `;
 
-export const StyledArrow = styled(IconDisclosureDownCentered)``;
+// TODO: Удалить после поддержки JS переменных в конфиге компонент
+export const sizeMap: Record<string, string> = {
+    xs: '1rem',
+    s: '1.5rem',
+};
+
+export const StyledArrow = styled(IconDisclosureDownCentered)`
+    width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+`;
 
 export const base = css``;
 

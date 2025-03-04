@@ -13,4 +13,8 @@ generate([
         name: 'stylesSalute',
         version: 'latest',
     },
+    {
+        name: 'plasma_giga',
+        version: 'latest',
+    },
 ]);

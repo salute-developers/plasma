@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Radiobox, RadioboxProps } from '.';
 
@@ -10,10 +10,10 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+const views = ['accent'];
 
 const meta: Meta<RadioboxProps> = {
-    title: 'Controls/Radiobox',
+    title: 'Data Entry/Radiobox',
     component: Radiobox,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -26,9 +26,10 @@ const meta: Meta<RadioboxProps> = {
         view: {
             options: views,
             control: {
-                type: 'select',
+                type: 'inline-radio',
             },
         },
+        ...disableProps(['view']),
     },
 };
 

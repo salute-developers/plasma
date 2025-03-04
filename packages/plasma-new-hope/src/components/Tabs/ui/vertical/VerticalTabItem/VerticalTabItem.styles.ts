@@ -2,7 +2,44 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { addFocus } from '../../../../../mixins';
-import { tokens } from '../../../tokens';
+import { classes, tokens } from '../../../tokens';
+
+export const StyledContent = styled.div`
+    display: inline-block;
+    width: fit-content;
+
+    padding: 0 var(${tokens.itemContentPaddingClear}, var(${tokens.itemContentPadding}));
+`;
+
+export const TabItemValue = styled.span`
+    white-space: nowrap;
+    color: var(${tokens.itemValueColor});
+
+    font-family: var(${tokens.valueFontFamily}, var(${tokens.fontFamily}));
+    font-size: var(${tokens.valueFontSize}, var(${tokens.fontSize}));
+    font-style: var(${tokens.valueFontStyle}, var(${tokens.fontStyle}));
+    font-weight: var(${tokens.valueFontWeight}, var(${tokens.fontWeight}));
+    letter-spacing: var(${tokens.valueLetterSpacing}, var(${tokens.letterSpacing}));
+    line-height: var(${tokens.valueLineHeight}, var(${tokens.lineHeight}));
+`;
+
+export const RightContent = styled.div`
+    display: flex;
+    color: inherit;
+
+    &:hover {
+        color: inherit;
+    }
+`;
+
+export const LeftContent = styled.div`
+    display: flex;
+    color: inherit;
+
+    &:hover {
+        color: inherit;
+    }
+`;
 
 export const base = css`
     position: relative;
@@ -10,7 +47,7 @@ export const base = css`
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    align-items: center;
+    white-space: nowrap;
 
     gap: var(${tokens.itemContentGap});
     padding: var(${tokens.itemPaddingOrientationVertical});
@@ -37,33 +74,16 @@ export const base = css`
             }
         `,
     })};
-`;
 
-export const StyledContent = styled.div`
-    display: inline-block;
-    width: fit-content;
+    &.${classes.tabsTruncate} {
+        ${StyledContent} {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-    padding: 0 var(${tokens.itemContentPaddingClear}, var(${tokens.itemContentPadding}));
-`;
-
-export const TabItemValue = styled.span`
-    color: var(${tokens.itemValueColor});
-`;
-
-export const RightContent = styled.div`
-    display: flex;
-    color: inherit;
-
-    &:hover {
-        color: inherit;
-    }
-`;
-
-export const LeftContent = styled.div`
-    display: flex;
-    color: inherit;
-
-    &:hover {
-        color: inherit;
+        ${TabItemValue} {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 `;

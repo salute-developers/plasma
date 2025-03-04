@@ -3,6 +3,7 @@ import {
     ControlsSurfacesName,
     BackgroundName,
     OverlayName,
+    DataName,
     TokenGenericType,
     TokenBackgroundType,
     ThemeConfig,
@@ -21,7 +22,7 @@ export type TokenGeneralColorByType<T extends string = string> = Record<
     Record<T, TokenData<string | Record<string, string> | MultiplatformValue | Array<MultiplatformValue>>>
 >;
 
-export type TokensName = TextIconsTokenName | ControlsSurfacesName | BackgroundName | OverlayName | string;
+export type TokensName = TextIconsTokenName | ControlsSurfacesName | BackgroundName | OverlayName | DataName | string;
 
 export interface Theme {
     config: ThemeConfig;

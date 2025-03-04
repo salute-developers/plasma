@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 
 import { Combobox } from './Combobox';
@@ -10,31 +10,17 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
 };
 
-const view = ['default'];
-const size = ['s'];
-const labelPlacement = ['outer'];
+const view = ['default', 'negative'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Controls/Combobox',
+    title: 'Data Entry/Combobox',
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {
-        size: {
-            options: size,
-            control: {
-                type: 'select',
-            },
-        },
         view: {
             options: view,
-            control: {
-                type: 'select',
-            },
-        },
-        labelPlacement: {
-            options: labelPlacement,
             control: {
                 type: 'select',
             },
@@ -78,13 +64,42 @@ const meta: Meta<StorySelectProps> = {
             control: { type: 'number' },
             if: { arg: 'isTargetAmount', truthy: true },
         },
+        requiredPlacement: {
+            options: ['left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        required: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'optional', truthy: false },
+        },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
+        ...disableProps([
+            'hintText',
+            'hintTrigger',
+            'hintView',
+            'hintSize',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintPlacement',
+            'hintHasArrow',
+            'hintOffset',
+            'hintWidth',
+            'hintContentLeft',
+        ]),
     },
     args: {
         label: 'Label',
-        labelPlacement: 'outer',
         placeholder: 'Placeholder',
         helperText: 'Helper text',
-        size: 's',
         view: 'default',
         chipView: 'default',
         enableContentLeft: false,
@@ -94,6 +109,9 @@ const meta: Meta<StorySelectProps> = {
         alwaysOpened: false,
         disabled: false,
         readOnly: false,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
     },
     parameters: {
         controls: {
@@ -117,6 +135,9 @@ const meta: Meta<StorySelectProps> = {
                 'listOverflow',
                 'listHeight',
                 'labelPlacement',
+                'optional',
+                'required',
+                'requiredPlacement',
             ],
         },
     },
@@ -347,7 +368,6 @@ const SingleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
-                autoComplete="off"
             />
         </div>
     );
@@ -374,7 +394,6 @@ const MultipleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
-                autoComplete="off"
             />
         </div>
     );

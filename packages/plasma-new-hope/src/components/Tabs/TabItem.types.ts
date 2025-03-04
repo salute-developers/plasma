@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
 
 import type { AsProps } from '../../types';
 
@@ -47,6 +47,11 @@ export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement
      * Индекс TabItem внутри Tabs - необходим для клавиатурной навигации
      */
     itemIndex?: number;
+    /**
+     * Обрезает контент по максимальной ширине и добавляет ...
+     * @default 'auto'
+     */
+    maxItemWidth?: CSSProperties['width'];
 }
 
 export type CustomHorizontalTabItemProps = {

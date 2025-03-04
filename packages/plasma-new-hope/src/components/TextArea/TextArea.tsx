@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler } from 'react';
+import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler, useLayoutEffect } from 'react';
 import { css } from '@linaria/core';
 import { useForkRef, useResizeObserver } from '@salutejs/plasma-core';
 
@@ -24,6 +24,8 @@ import {
     StyledIndicatorWrapper,
     StyledHintWrapper,
     TitleCaption,
+    StyledOutsideHelpersWrapper,
+    StyledHiddenTextArea,
 } from './TextArea.styles';
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
@@ -103,6 +105,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             resize,
             rightHelper,
             leftHelper,
+            leftHelperPlacement = 'inner',
             contentRight,
             autoResize = false,
             minAuto = 0,
@@ -146,9 +149,11 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const [isHintVisible, setIsHintVisible] = useState(false);
         const [helperWidth, setHelperWidth] = useState<string>(width ? `${width}rem` : '100%');
         const [focused, setFocused] = useState(false);
+        // TODO: перенести в общую переменную для value снаружи и внутри
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
         const outerRef = createRef<HTMLTextAreaElement>();
+        const hiddenRef = useRef<HTMLTextAreaElement | null>(null);
 
         const hintRef = useOutsideClick<HTMLDivElement>(() => {
             setIsHintVisible(false);
@@ -156,8 +161,12 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const hintInnerRef = useRef<HTMLDivElement>(null);
         const hintForkRef = useForkRef(hintRef, hintInnerRef);
 
+        const isInnerLeftHelperPlacement = leftHelperPlacement === 'inner';
+        const leftHelperText = leftHelper || helperText;
         const innerOptional = required ? false : optional;
-        const hasHelper = Boolean(leftHelper || rightHelper || helperText);
+        const hasLeftHelper = Boolean(leftHelper || helperText);
+        const hasRightHelper = Boolean(rightHelper);
+        const hasHelper = !isInnerLeftHelperPlacement ? hasRightHelper : hasLeftHelper || hasRightHelper;
         const hasOuterLabel = Boolean(label && labelPlacement === 'outer');
         const hasInnerLabel = Boolean(label && labelPlacement === 'inner' && size !== 'xs');
         const hasPlaceholderOptional = innerOptional && !hasOuterLabel;
@@ -166,6 +175,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const textareaHelperId = id ? `${id}-helper` : undefined;
         const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
         const placeholderLabel = hasInnerLabel ? label : placeholder;
+        const applyAutoResize = autoResize || Boolean(clear);
 
         const clearClass = clear ? classes.clear : undefined;
         const hasHintClass = hintText ? classes.hasHint : undefined;
@@ -189,6 +199,12 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         };
 
+        useLayoutEffect(() => {
+            if (outerRef.current) {
+                setUncontrolledValue(outerRef.current.value);
+            }
+        }, [outerRef]);
+
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
 
@@ -198,7 +214,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         });
 
-        useAutoResize(autoResize || Boolean(clear), outerRef, value, minAuto, maxAuto);
+        useAutoResize(applyAutoResize, outerRef, value || uncontrolledValue, minAuto, maxAuto, resize, hiddenRef);
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
@@ -224,12 +240,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             if (readOnly || disabled || !outerRef?.current) {
                 return;
             }
-
-            outerRef.current.scrollTo({
-                top: 0,
-                left: outerRef.current.offsetLeft,
-                behavior: 'smooth',
-            });
 
             outerRef.current.focus();
         };
@@ -329,16 +339,18 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                         hintOffset={hintOffset}
                                         hintWidth={hintWidth}
                                         hintContentLeft={hintContentLeft}
+                                        size={size}
                                         handleHintShow={handleHintShow}
                                         handleHintHide={handleHintHide}
                                         handleHintClick={handleHintClick}
+                                        isInnerLabel
                                     />
                                 </StyledHintWrapper>
                             )}
                         </>
                     )}
                     {contentRight && <StyledContent>{contentRight}</StyledContent>}
-                    <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
+                    <StyledTextAreaWrapper className={cx(styledTextAreaWrapper)} hasHelper={hasHelper}>
                         <StyledTextArea
                             className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
@@ -347,7 +359,8 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             applyCustomWidth={applyCustomWidth}
                             ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
-                            height={autoResize || Boolean(clear) ? minAuto : height}
+                            required={required}
+                            height={applyAutoResize ? minAuto : height}
                             width={width}
                             placeholder={placeholderLabel}
                             aria-describedby={textareaHelperId}
@@ -360,10 +373,19 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             onChange={onChangeHandler}
                             {...rest}
                         />
+                        {applyAutoResize && (
+                            <StyledHiddenTextArea
+                                aria-hidden
+                                ref={hiddenRef}
+                                hasContentRight={Boolean(contentRight)}
+                                value={value || uncontrolledValue || ' '}
+                                defaultValue={defaultValue}
+                            />
+                        )}
                     </StyledTextAreaWrapper>
                     {hasHelper && (
                         <StyledHelpers className={styledHelpers} id={textareaHelperId}>
-                            {(leftHelper || helperText) && (
+                            {isInnerLeftHelperPlacement && (leftHelper || helperText) && (
                                 <StyledLeftHelper>{leftHelper || helperText}</StyledLeftHelper>
                             )}
                             {rightHelper && <StyledRightHelper>{rightHelper}</StyledRightHelper>}
@@ -380,6 +402,11 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         </StyledPlaceholder>
                     )}
                 </StyledContainer>
+                {hasLeftHelper && !isInnerLeftHelperPlacement && (
+                    <StyledOutsideHelpersWrapper id={textareaHelperId}>
+                        <StyledLeftHelper>{leftHelperText}</StyledLeftHelper>
+                    </StyledOutsideHelpersWrapper>
+                )}
             </Root>
         );
     });

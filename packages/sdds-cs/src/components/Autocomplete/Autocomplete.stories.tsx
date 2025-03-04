@@ -1,14 +1,12 @@
 import type { ComponentProps } from 'react';
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Autocomplete } from './Autocomplete';
 
-const sizes = ['s'];
-const views = ['default'];
-const labelPlacements = ['outer'];
+const views = ['default', 'negative'];
 
 const suggestions = [
     { label: 'Алексей Смирнов' },
@@ -69,7 +67,7 @@ type StoryProps = ComponentProps<typeof Autocomplete> & {
 };
 
 const meta: Meta<StoryProps> = {
-    title: 'Controls/Autocomplete',
+    title: 'Data Entry/Autocomplete',
     decorators: [InSpacingDecorator],
     component: Autocomplete,
     argTypes: {
@@ -79,23 +77,41 @@ const meta: Meta<StoryProps> = {
                 type: 'select',
             },
         },
-        size: {
-            options: sizes,
+        requiredPlacement: {
+            options: ['left', 'right'],
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
+            if: { arg: 'required', truthy: true },
         },
-        labelPlacement: {
-            options: labelPlacements,
+        required: {
             control: {
-                type: 'inline-radio',
+                type: 'boolean',
             },
+            if: { arg: 'optional', truthy: false },
         },
+        optional: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'required', truthy: false },
+        },
+        ...disableProps([
+            'hintText',
+            'hintTrigger',
+            'hintView',
+            'hintSize',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintPlacement',
+            'hintHasArrow',
+            'hintOffset',
+            'hintWidth',
+            'hintContentLeft',
+        ]),
     },
     args: {
         view: 'default',
-        size: 's',
-        labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
         label: 'Label',
@@ -108,6 +124,9 @@ const meta: Meta<StoryProps> = {
         threshold: 2,
         enableContentLeft: true,
         enableContentRight: true,
+        optional: false,
+        required: false,
+        requiredPlacement: 'right',
     },
 };
 

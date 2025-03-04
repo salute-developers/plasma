@@ -20,7 +20,7 @@ Chips могут отображаться в нескольких размера
 Свойство `text` можно использовать вместе со свойствами `contentLeft` и `contentRight`.
 С их помощью можно размещать **иконку** слева или справа от текста.
 
-Так же есть свойство свойство `contentClearButton`, которое позволяет прокинуть кастомную **иконку**.
+Так же есть свойство `contentClearButton`, которое позволяет прокинуть кастомную **иконку**.
 Отключить отображение иконки закрытия можно с помощью свойства `hasClear`.
 
 ```tsx live
@@ -73,10 +73,7 @@ export function App() {
 ```
 
 ### Вид Chip
-Вид Chip задается с помощью свойства `view`. Возможные значения свойства `view`:
-+ `"default"` – основной;
-+ `"secondary"` – вторичный;
-+ `"accent"` – акцентый.
+Вид Chip задается с помощью свойства `view`.
 
 ```tsx live
 import React from 'react';
@@ -88,6 +85,9 @@ export function App() {
             <Chip text="Chip" size="m" view="default" />
             <Chip text="Chip" size="m" view="secondary" />
             <Chip text="Chip" size="m" view="accent" />
+            <Chip text="Chip" size="m" view="positive" />
+            <Chip text="Chip" size="m" view="warning" />
+            <Chip text="Chip" size="m" view="negative" />
         </div>
     );
 }

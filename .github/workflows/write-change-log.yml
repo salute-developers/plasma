@@ -1,0 +1,62 @@
+name: Write changelog
+
+on:
+  workflow_dispatch:
+      inputs:
+        id:
+          description: 'pull request ID'
+          required: true
+    
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.gh_token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+      
+      - name: Get associated pull request by commit
+        id: data
+        uses: actions/github-script@v7
+        env:
+          ID: ${{ github.event.inputs.id }}
+        with:
+          result-encoding: string
+          script: |
+            const id = process.env.ID;
+            
+            const { data: pr } = await github.rest.pulls.get({
+              owner: 'salute-developers',
+              repo: 'plasma',
+              pull_number: id,
+            });
+            
+            return pr.body || '';
+      
+      - name: Install dependencies
+        run: |
+          cd .github/actions/write-changelog
+          npm ci
+      
+      - name: Write changelog
+        uses: ./.github/actions/write-changelog
+        with:
+          data: ${{ steps.data.outputs.result }}
+      
+      - name: Extract branch name
+        id: branch
+        shell: bash
+        run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
+      
+      - name: Commit & Push changelog files
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.gh_token }}
+          message: 'chore: Update CHANGELOG.md [skip ci]'
+          branch: ${{ steps.branch.outputs.BRANCH }}
+          author_name: Salute Frontend Team
+          author_email: salute.developers@gmail.com

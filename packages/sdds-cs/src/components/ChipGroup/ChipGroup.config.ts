@@ -37,8 +37,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.5rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.5rem;
-                ${tokens.chipPaddingRight}: 1rem;
-                ${tokens.chipPaddingLeft}: 1rem;
+                ${tokens.chipPadding}: 0 1rem;
 
                 ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);

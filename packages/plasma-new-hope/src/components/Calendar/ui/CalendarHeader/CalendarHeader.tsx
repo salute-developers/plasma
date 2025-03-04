@@ -1,11 +1,13 @@
-import React, { useCallback, useMemo } from 'react';
+import React from 'react';
+import type { MouseEvent } from 'react';
 
-import { IconDisclosureDownFill, IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
+import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { CalendarState } from '../../store/types';
 import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../utils';
 import type { DateObject } from '../../Calendar.types';
 import { classes } from '../../Calendar.tokens';
 import { sizeMap } from '../../store/reducer';
+import { cx } from '../../../../utils';
 
 import type { CalendarHeaderProps } from './CalendarHeader.types';
 import {
@@ -17,6 +19,7 @@ import {
     StyledHeaderDate,
     StyledHeaderDouble,
     StyledNavigation,
+    StyledHeaderArrow,
 } from './CalendarHeader.styles';
 
 /**
@@ -34,7 +37,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     onUpdateCalendarState,
     locale,
 }) => {
-    const handleCalendarState = useCallback(() => {
+    const handleCalendarState = () => {
         const newSize: [number, number] = isDouble ? sizeMap.Months.double : sizeMap.Months.single;
 
         if (type === CalendarState.Days) {
@@ -44,69 +47,79 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         if (type === CalendarState.Months || type === CalendarState.Quarters) {
             onUpdateCalendarState?.(CalendarState.Years, newSize);
         }
-    }, [type, onUpdateCalendarState]);
+    };
 
-    const getHeaderContent = useCallback(
-        (date?: DateObject, secondPart?: boolean) => {
-            if (!date) {
-                return '';
-            }
+    const handlePrev = (event: MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation();
 
-            if (type === CalendarState.Days) {
-                return (
-                    <>
-                        <StyledHeaderDate>{MONTH_NAMES[locale][date.monthIndex]}</StyledHeaderDate>
-                        <StyledHeaderDate>
-                            {date.year}
-                            <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
-                        </StyledHeaderDate>
-                    </>
-                );
-            }
+        if (startYear <= 0) {
+            return;
+        }
+        onPrev();
+    };
 
-            if (type === CalendarState.Months || type === CalendarState.Quarters) {
-                return (
+    const handleNext = (event: MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation();
+
+        onNext();
+    };
+
+    const getHeaderContent = (date?: DateObject, secondPart?: boolean) => {
+        if (!date) {
+            return '';
+        }
+
+        if (type === CalendarState.Days) {
+            return (
+                <>
+                    <StyledHeaderDate>{MONTH_NAMES[locale][date.monthIndex]}</StyledHeaderDate>
                     <StyledHeaderDate>
                         {date.year}
-                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                        <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                     </StyledHeaderDate>
-                );
-            }
+                </>
+            );
+        }
 
-            if (type === CalendarState.Years) {
-                const yearValue = secondPart ? startYear + 12 : startYear;
+        if (type === CalendarState.Months || type === CalendarState.Quarters) {
+            return (
+                <StyledHeaderDate>
+                    {date.year}
+                    <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                </StyledHeaderDate>
+            );
+        }
 
-                return (
-                    <StyledHeaderDate>
-                        {yearValue}—{yearValue + YEAR_RENDER_COUNT - 1}
-                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
-                    </StyledHeaderDate>
-                );
-            }
+        if (type === CalendarState.Years) {
+            const yearValue = secondPart ? startYear + 12 : startYear;
 
-            return '';
-        },
-        [type, startYear, size, locale],
-    );
+            return (
+                <StyledHeaderDate>
+                    {yearValue}—{yearValue + YEAR_RENDER_COUNT - 1}
+                    <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                </StyledHeaderDate>
+            );
+        }
+
+        return '';
+    };
 
     const currentCalendarType = getCalendarType(type);
 
-    const PreviousButton = useMemo(
-        () => (
-            <StyledArrow aria-label={`Предыдущий ${currentCalendarType}`} onClick={() => onPrev()}>
-                <IconDisclosureLeft color="inherit" size={size === 'xs' ? 'xs' : 's'} />
-            </StyledArrow>
-        ),
-        [currentCalendarType, size, onPrev],
+    const PreviousButton = () => (
+        <StyledArrow
+            className={cx(startYear <= 0 && classes.disabledPrevButton)}
+            aria-label={`Предыдущий ${currentCalendarType}`}
+            onClick={handlePrev}
+        >
+            <IconDisclosureLeft color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+        </StyledArrow>
     );
 
-    const NextButton = useMemo(
-        () => (
-            <StyledArrow aria-label={`Следующий ${currentCalendarType}`} onClick={() => onNext()}>
-                <IconDisclosureRight color="inherit" size={size === 'xs' ? 'xs' : 's'} />
-            </StyledArrow>
-        ),
-        [currentCalendarType, size, onNext],
+    const NextButton = () => (
+        <StyledArrow aria-label={`Следующий ${currentCalendarType}`} onClick={handleNext}>
+            <IconDisclosureRight color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+        </StyledArrow>
     );
 
     return (
@@ -114,7 +127,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             {isDouble ? (
                 <StyledNavigation>
                     <StyledDoubleHeaderWrapper>
-                        {PreviousButton}
+                        <PreviousButton />
                         <StyledHeaderDouble onClick={handleCalendarState} aria-live="polite">
                             {getHeaderContent(firstDate)}
                         </StyledHeaderDouble>
@@ -123,7 +136,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                         <StyledHeaderDouble onClick={handleCalendarState} aria-live="polite">
                             {getHeaderContent(secondDate, true)}
                         </StyledHeaderDouble>
-                        {NextButton}
+                        <NextButton />
                     </StyledDoubleHeaderWrapper>
                 </StyledNavigation>
             ) : (
@@ -138,8 +151,8 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                         {getHeaderContent(firstDate)}
                     </StyledHeader>
                     <StyledArrows>
-                        {PreviousButton}
-                        {NextButton}
+                        <PreviousButton />
+                        <NextButton />
                     </StyledArrows>
                 </>
             )}

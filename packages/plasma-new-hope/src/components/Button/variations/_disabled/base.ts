@@ -18,7 +18,7 @@ export const base = css`
             scale: none;
 
             color: var(${tokens.buttonColor});
-            background-color: var(${tokens.buttonBackgroundColor});
+            background: var(${tokens.buttonBackgroundColor});
         }
     }
 `;

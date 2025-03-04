@@ -31,8 +31,8 @@ export const config = {
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--text-accent);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-accent);
             `,
         },
         size: {
@@ -113,6 +113,9 @@ export const config = {
             true: css`
                 ${tabsTokens.disabledOpacity}: 0.4;
             `,
+        },
+        truncate: {
+            true: css``,
         },
     },
 };

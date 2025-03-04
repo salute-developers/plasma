@@ -31,8 +31,8 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
         (
             {
                 value: externalValue,
-                min,
-                max,
+                min: minDate,
+                max: maxDate,
                 includeEdgeDates,
                 type = 'Days',
                 eventList,
@@ -60,7 +60,10 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             const [prevValue, setPrevValue] = useState(value);
             const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
 
-            const [state, dispatch] = useReducer(reducer, getInitialState(value, type));
+            const min = minDate && new Date(minDate);
+            const max = maxDate && new Date(maxDate);
+
+            const [state, dispatch] = useReducer(reducer, getInitialState(value, min, type));
 
             const { date, calendarState, startYear, size } = state;
 
@@ -120,6 +123,13 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                     });
 
                     setPrevValue(value);
+                }
+
+                if (!value) {
+                    dispatch({
+                        type: ActionType.UPDATE_DATE,
+                        payload: { value: min || new Date() },
+                    });
                 }
             }, [value, prevValue]);
 

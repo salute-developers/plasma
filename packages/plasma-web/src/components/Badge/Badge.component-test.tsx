@@ -51,6 +51,10 @@ describe('plasma-web: Badge', () => {
                 <SpaceMe />
                 <Badge view="light" contentLeft={<Icon />} />
                 <PadMe />
+                <Badge view="light" text="Badge_truncated_text" contentLeft={<Icon />} maxWidth="8rem" />
+                <PadMe />
+                <Badge view="light" text="Badge_truncated_text" maxWidth="8rem" />
+                <SpaceMe />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();

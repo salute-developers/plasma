@@ -2,13 +2,36 @@ import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
 import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
 import type { DateInfo } from '../../Calendar/Calendar.types';
+import { LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-export type DatePickerPlacement = DatePickerPlacementBasic | 'auto';
+export type DatePickerPlacementVariation =
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right-start'
+    | 'right-end'
+    | 'left-start'
+    | 'left-end';
+export type DatePickerPlacement = DatePickerPlacementBasic | DatePickerPlacementVariation | 'auto';
 
 export type DatePickerTextFieldProps = {
     /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
+    /**
      * Выбранное значение.
+     */
+    value?: Date | string;
+    /**
+     * Выбранное значение по умолчанию.
      */
     defaultDate?: Date;
     /**
@@ -27,14 +50,6 @@ export type DatePickerTextFieldProps = {
      * Корректное значение даты
      */
     valueSuccess?: boolean;
-    /**
-     * Метка-подпись к элементу
-     */
-    label?: string;
-    /**
-     * Расположение лейбла.
-     */
-    labelPlacement?: 'inner' | 'outer';
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
@@ -68,7 +83,7 @@ export type DatePickerTextFieldProps = {
      * @deprecated
      */
     onChange?: (event: { target: { value?: string; name?: string } }) => void;
-};
+} & LabelProps;
 
 export type DatePickerPopoverProps = {
     /**
@@ -114,7 +129,7 @@ export type DatePickerPopoverProps = {
     /**
      * Событие сворачивания/разворачивания календаря.
      */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;
 };
 
 export type DatePickerProps = DatePickerVariationProps &

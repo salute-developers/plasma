@@ -1,6 +1,6 @@
-import type { HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
-type ClearViewProps =
+export type ClearViewProps =
     | {
           /**
            * view применяется с clear-токенами
@@ -13,27 +13,13 @@ type ClearViewProps =
            * @default
            * false
            */
-          pilled?: false;
+          pilled?: never;
           /**
            * view применяется с учетом прозрачности
            * @default
            * false
            */
-          transparent?: false;
-      }
-    | {
-          /**
-           * Компонент c округлым border-radius
-           */
-          pilled?: true;
-          /**
-           * view применяется с учетом прозрачности
-           */
-          transparent?: boolean;
-          /**
-           * view применяется с clear-токенами
-           */
-          clear?: false;
+          transparent?: never;
       }
     | {
           /**
@@ -43,26 +29,47 @@ type ClearViewProps =
           /**
            * view применяется с учетом прозрачности
            */
-          transparent?: true;
+          transparent?: boolean;
           /**
            * view применяется с clear-токенами
            */
-          clear?: false;
+          clear?: never;
       };
 
-type CustomBadgeProps = {
+type IconContentProps =
+    | {
+          /**
+           * Слот для контента слева, например `Icon`
+           */
+          contentLeft?: ReactNode;
+          /**
+           * Слот для контента справа, например `Icon`
+           */
+          contentRight?: never;
+      }
+    | {
+          contentLeft?: never;
+          contentRight?: ReactNode;
+      };
+
+export type CustomBadgeProps = {
     /**
      * Текстовая надпись
      */
     text?: string;
     /**
-     * Слот для контента слева, например `Icon`
+     * Пользовательский цвет текста и иконок
      */
-    contentLeft?: ReactNode;
+    customColor?: string;
     /**
-     * Слот для контента справа, например `Icon`
+     * Пользовательский цвет фона
      */
-    contentRight?: ReactNode;
+    customBackgroundColor?: string;
+    /**
+     * Обрезает контент по максимальной ширине и добавляет ...
+     * @default 'auto'
+     */
+    maxWidth?: CSSProperties['width'];
     /**
      * Размер Badge
      * @default
@@ -75,7 +82,7 @@ type CustomBadgeProps = {
      * default
      */
     view?: string;
-} & PropsWithChildren;
+} & IconContentProps;
 
 export type BadgeProps = HTMLAttributes<HTMLDivElement> & CustomBadgeProps & ClearViewProps;
 export type BadgeRootProps = HTMLAttributes<HTMLDivElement> &

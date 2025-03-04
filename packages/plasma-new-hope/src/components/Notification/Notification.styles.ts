@@ -17,8 +17,9 @@ const Button = component(mergedButtonConfig);
 
 export const CloseIconWrapper = styled(Button)`
     position: absolute;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: var(${tokens.closeIconButtonSize});
+    height: var(${tokens.closeIconButtonSize});
+    align-self: var(${tokens.horisontalIconCloseAlignSelf});
 
     color: var(${tokens.closeIconColor});
 
@@ -37,6 +38,7 @@ export const Wrapper = styled.div`
 
     background: var(${tokens.background});
     border-radius: var(${tokens.borderRadius});
+    border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
 
     &.${classes.horizontal} {
         display: flex;
@@ -50,6 +52,8 @@ export const ButtonsWrapper = styled.div<IconPlacementType>`
     margin-left: ${({ iconPlacement }) =>
         iconPlacement === placements.left ? `var(${tokens.buttonsMarginLeft})` : 'unset'};
 
+    align-self: var(${tokens.horisontalActionsAlignSelf});
+
     &.${classes.horizontal} {
         margin-top: unset;
         margin-left: unset;
@@ -59,6 +63,7 @@ export const ButtonsWrapper = styled.div<IconPlacementType>`
 export const IconWrapper = styled.div<IconPlacementType>`
     width: var(${tokens.contentLeftIconSize});
     height: var(${tokens.contentLeftIconSize});
+    align-self: var(${tokens.horisontalIconLeftAlignSelf});
 
     margin-right: ${({ iconPlacement }) =>
         iconPlacement === placements.left ? `var(${tokens.contentLeftIconMargin})` : 'unset'};

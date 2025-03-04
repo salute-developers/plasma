@@ -57,7 +57,27 @@ describe('plasma-b2c: TextArea', () => {
     it(':disabled', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    helperText="Helper text"
+                    hintText="hint"
+                    disabled
+                    optional
+                />
             </CypressTestDecorator>,
         );
 
@@ -134,7 +154,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
-        cy.root().get('textarea').last().invoke('attr', 'style', 'width: 280px; height: 140px;');
+        cy.root().get('.textarea').last().invoke('attr', 'style', 'width: 280px; height: 140px;');
 
         cy.matchImageSnapshot();
     });
@@ -236,13 +256,13 @@ describe('plasma-b2c: TextArea', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
             { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'outer' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
             { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'inner' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -273,6 +293,8 @@ describe('plasma-b2c: TextArea', () => {
     it('_size :empty', () => {
         mount(
             <CypressTestDecorator>
+                <TextArea size="xl" {...propsDefault} />
+                <SpaceMe />
                 <TextArea size="l" {...propsDefault} />
                 <SpaceMe />
                 <TextArea size="m" {...propsDefault} />
@@ -294,6 +316,8 @@ describe('plasma-b2c: TextArea', () => {
 
         mount(
             <CypressTestDecorator>
+                <TextArea size="xl" {...props} />
+                <SpaceMe />
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -316,6 +340,8 @@ describe('plasma-b2c: TextArea', () => {
 
         mount(
             <CypressTestDecorator>
+                <TextArea size="xl" {...props} />
+                <SpaceMe />
                 <TextArea size="l" {...props} />
                 <SpaceMe />
                 <TextArea size="m" {...props} />
@@ -330,13 +356,13 @@ describe('plasma-b2c: TextArea', () => {
     });
 
     describe('_required', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
             { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'outer' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
             { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'right', labelPlacement: 'inner' },
+            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -362,10 +388,30 @@ describe('plasma-b2c: TextArea', () => {
                 cy.matchImageSnapshot();
             });
         });
+
+        it('required attribute', () => {
+            mount(
+                <CypressTestDecorator>
+                    <TextArea id="required" value="Value" placeholder="Placeholder" label="Title" required />
+                    <TextArea
+                        id="falseRequired"
+                        value="Value"
+                        placeholder="Placeholder"
+                        label="Title"
+                        required={false}
+                    />
+                    <TextArea id="notRequired" value="Value" placeholder="Placeholder" label="Title" />
+                </CypressTestDecorator>,
+            );
+
+            cy.get('#required').should('have.attr', 'required');
+            cy.get('#falseRequired').should('not.have.attr', 'required');
+            cy.get('#notRequired').should('not.have.attr', 'required');
+        });
     });
 
     describe('with hint', () => {
-        const sizes = ['xs', 's', 'm', 'l'];
+        const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
 
@@ -374,7 +420,7 @@ describe('plasma-b2c: TextArea', () => {
                 mount(
                     <CypressTestDecorator>
                         {cases.map((props) => (
-                            <div style={{ margin: '0 1rem' }}>
+                            <div style={{ margin: '0 3rem' }}>
                                 <TextArea
                                     value="Value"
                                     placeholder="Placeholder"

@@ -3,17 +3,20 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconMic } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
 
 import { Counter } from '../Counter/Counter';
 
-import { SegmentItem, SegmentGroup } from './Segment';
+import { SegmentItem, SegmentGroup, useSegment } from './Segment';
 
 import { SegmentProvider } from '.';
 
 const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'text', 'counter', 'icon'];
 
-const segmentItemViews = ['default', 'secondary'];
+const segmentItemViews = ['default', 'secondary', 'accent'];
+type SegmentItemView = typeof segmentItemViews[number];
+const sizes = ['xs', 's', 'm', 'l', 'xl'] as const;
 type Size = typeof sizes[number];
 
 type CustomStoryProps = {
@@ -25,22 +28,53 @@ type CustomStoryProps = {
 
 type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
 
-const sizes = ['xs', 's', 'm', 'l'] as const;
-
-const getContentLeft = (contentLeftOption: string, size: Size) => {
-    const iconSize = size === 'xs' ? 'xs' : 's';
-    return contentLeftOption === 'icon' ? <IconMic size={iconSize} color="inherit" /> : undefined;
+const getIconSizeProps = (size: string) => {
+    switch (size) {
+        case 'xs':
+        case 's':
+            return '1rem';
+        case 'm':
+            return '1.25rem';
+        default:
+            return '1.5rem';
+    }
 };
 
-const getContentRight = (contentRightOption: string, size: Size) => {
-    const iconSize = size === 'xs' ? 'xs' : 's';
+const StyledIconMic = styled(IconMic)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+            flex: 0 0 ${customSize};
+        `}
+`;
+
+const getContentLeft = (contentLeftOption: string, size: Size) => {
+    return contentLeftOption === 'icon' ? (
+        <StyledIconMic customSize={getIconSizeProps(size)} color="inherit" />
+    ) : undefined;
+};
+
+const getContentRight = (
+    contentRightOption: string,
+    size: Size,
+    segmentItemView?: SegmentItemView,
+    isSelected?: boolean,
+) => {
     const counterSize = size === 'xs' ? 'xxs' : 'xs';
 
     switch (contentRightOption) {
         case 'icon':
-            return <IconMic size={iconSize} color="inherit" />;
+            return <StyledIconMic customSize={getIconSizeProps(size)} color="inherit" />;
         case 'counter':
-            return <Counter size={counterSize} count={1} view="positive" />;
+            return (
+                <Counter
+                    size={counterSize}
+                    count={1}
+                    view={segmentItemView === 'accent' && isSelected ? 'light' : 'positive'}
+                />
+            );
         case 'text':
             return 'Text';
         default:
@@ -49,7 +83,7 @@ const getContentRight = (contentRightOption: string, size: Size) => {
 };
 
 const meta: Meta<StorySegmentProps> = {
-    title: 'Controls/Segment',
+    title: 'Data Entry/Segment',
     decorators: [InSpacingDecorator],
     component: SegmentGroup,
     argTypes: {
@@ -116,33 +150,37 @@ const StoryDefault = (props: StorySegmentProps) => {
     } = props;
     const items = Array(itemQuantity).fill(0);
     const isVertical = orientation === 'vertical';
+    const { selectedSegmentItems } = useSegment();
 
     return (
-        <SegmentProvider>
-            <SegmentGroup
-                stretch={stretch}
-                disabled={disabled}
-                clip={false}
-                size={size}
-                orientation={orientation}
-                {...args}
-            >
-                {items.map((_, i) => (
-                    <SegmentItem
-                        view={segmentItemView}
-                        label={`Label ${i}`}
-                        value={`label_${i}`}
-                        size={size}
-                        key={`label_${i}`}
-                        contentLeft={getContentLeft(contentLeftOption, size)}
-                        contentRight={getContentRight(contentRightOption, size)}
-                        {...args}
-                    >
-                        {`Label${i + 1}`}
-                    </SegmentItem>
-                ))}
-            </SegmentGroup>
-        </SegmentProvider>
+        <SegmentGroup
+            stretch={stretch}
+            disabled={disabled}
+            clip={false}
+            size={size}
+            orientation={orientation}
+            {...args}
+        >
+            {items.map((_, i) => (
+                <SegmentItem
+                    view={segmentItemView}
+                    label={`Label ${i}`}
+                    value={`label_${i}`}
+                    size={size}
+                    key={`label_${i}`}
+                    contentLeft={getContentLeft(contentLeftOption, size)}
+                    contentRight={getContentRight(
+                        contentRightOption,
+                        size,
+                        segmentItemView,
+                        selectedSegmentItems.includes(`label_${i}`),
+                    )}
+                    {...args}
+                >
+                    {`Label${i + 1}`}
+                </SegmentItem>
+            ))}
+        </SegmentGroup>
     );
 };
 
@@ -164,5 +202,9 @@ export const Default: StoryObj<StorySegmentProps> = {
     argTypes: {
         ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip']),
     },
-    render: (args: StorySegmentProps) => <StoryDefault {...args} />,
+    render: (args: StorySegmentProps) => (
+        <SegmentProvider>
+            <StoryDefault {...args} />
+        </SegmentProvider>
+    ),
 };

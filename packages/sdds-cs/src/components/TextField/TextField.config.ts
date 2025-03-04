@@ -29,7 +29,7 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.contentSlotRightColor}: var(--text-accent);
-                ${tokens.contentSlotRightColorHover}: var(--text-accent-hover);
+                ${tokens.contentSlotRightColorHover}: #1A9E32;
                 ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.dividerColor}: var(--outline-solid-primary);
@@ -154,8 +154,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.25rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 1.75rem;
-                ${tokens.chipPaddingRight}: 0.5rem;
-                ${tokens.chipPaddingLeft}: 0.75rem;
+                ${tokens.chipPadding}: 0 0.5rem 0 0.75rem;
                 ${tokens.chipClearContentMarginLeft}: 0.375rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1rem;
@@ -254,7 +253,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.colorReadOnly}: var(--text-secondary);
+                ${tokens.colorReadOnly}: var(--text-primary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);

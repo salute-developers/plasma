@@ -6,12 +6,12 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { Chip } from '.';
 
 const views = ['default', 'secondary', 'accent'];
-const sizes = ['s'];
+const sizes = ['s', 'xs'];
 
 const onClear = action('onClear');
 
 const meta: Meta<typeof Chip> = {
-    title: 'Controls/Chip',
+    title: 'Data Display/Chip',
     component: Chip,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -27,7 +27,7 @@ const meta: Meta<typeof Chip> = {
                 type: 'select',
             },
         },
-        ...disableProps(['readOnly', 'onClear', 'contentLeft', 'contentRight', 'contentClearButton', 'text', 'size']),
+        ...disableProps(['readOnly', 'onClear', 'contentLeft', 'contentRight', 'contentClearButton', 'text']),
     },
 };
 
@@ -64,8 +64,9 @@ export const WithIcon: Story = {
     render: (args) => {
         const iconSizeMapper = {
             s: '1.5rem',
+            xs: '1rem',
         };
-        const iconSize = args.size || 'm';
+        const iconSize = args.size || 's';
 
         return (
             <Chip

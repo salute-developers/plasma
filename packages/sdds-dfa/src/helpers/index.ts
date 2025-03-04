@@ -1,1 +1,1 @@
-export { IconPlaceholder, InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+export { IconPlaceholder, InSpacingDecorator, disableProps, getGroupedTokens } from '@salutejs/plasma-sb-utils';

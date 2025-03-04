@@ -15,6 +15,8 @@ import {
     StyledContentLeft,
     StyledContentRight,
     StyledDivider,
+    StyledIndicator,
+    StyledIndicatorWrapper,
     StyledInput,
     StyledLabel,
     base,
@@ -25,6 +27,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
     forwardRef<RangeInputRefs, RangeProps>(
         (
             {
+                autoComplete,
                 label,
                 leftHelper,
                 contentLeft,
@@ -54,6 +57,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                 firstTextfieldTextAfter,
                 secondTextfieldTextAfter,
 
+                required,
+                requiredPlacement = 'right',
+
                 onChangeFirstValue,
                 onChangeSecondValue,
                 onSearchFirstValue,
@@ -70,9 +76,14 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
             const rangeRef = useRef<HTMLDivElement>(null);
             const firstTextFieldRef = useRef<HTMLInputElement>(null);
             const secondTextFieldRef = useRef<HTMLInputElement>(null);
+
+            const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
+
             const rangeErrorClass = firstValueError && secondValueError ? classes.rangeError : undefined;
+
             const firstValueErrorClass = !rangeErrorClass && firstValueError ? classes.rangeValueError : undefined;
             const secondValueErrorClass = !rangeErrorClass && secondValueError ? classes.rangeValueError : undefined;
+
             const rangeSuccessClass = firstValueSuccess && secondValueSuccess ? classes.rangeSuccess : undefined;
             const firstValueSuccessClass =
                 !rangeSuccessClass && firstValueSuccess ? classes.rangeValueSuccess : undefined;
@@ -118,8 +129,19 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                     readOnly={!disabled && readOnly}
                     {...rest}
                 >
-                    {label && <StyledLabel>{label}</StyledLabel>}
+                    {label && (
+                        <StyledIndicatorWrapper>
+                            <StyledLabel>{label}</StyledLabel>
+
+                            {required && (
+                                <StyledIndicator
+                                    className={cx(classes.requiredOuterPlacement, requiredPlacementClass)}
+                                />
+                            )}
+                        </StyledIndicatorWrapper>
+                    )}
                     <ContentWrapper className={cx(rangeErrorClass, rangeSuccessClass)}>
+                        {!label && required && <StyledIndicator className={cx(requiredPlacementClass)} />}
                         {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                         <StyledInput
                             ref={firstTextFieldRef}
@@ -136,6 +158,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                             onSearch={handleSearchFirstValue}
                             onFocus={onFocusFirstTextfield}
                             onBlur={onBlurFirstTextfield}
+                            autoComplete={autoComplete}
                         />
                         {Divider}
                         <StyledInput
@@ -153,10 +176,24 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                             onSearch={handleSearchSecondValue}
                             onFocus={onFocusSecondTextfield}
                             onBlur={onBlurSecondTextfield}
+                            autoComplete={autoComplete}
                         />
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                     </ContentWrapper>
-                    {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper
+                            className={cx(
+                                rangeErrorClass,
+                                firstValueErrorClass,
+                                secondValueErrorClass,
+                                rangeSuccessClass,
+                                firstValueSuccessClass,
+                                secondValueSuccessClass,
+                            )}
+                        >
+                            {leftHelper}
+                        </LeftHelper>
+                    )}
                 </Root>
             );
         },

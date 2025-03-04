@@ -11,6 +11,8 @@ const items = [
         label: 'Северная Америка',
         contentLeft: <IconLocation color="inherit" />,
         contentRight: <IconLocation color="inherit" />,
+        className: 'test-classname',
+        'data-name': 'test-data-name',
     },
     {
         value: 'south_america',
@@ -630,6 +632,27 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: chipType', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '100%' }}>
+                    <Select
+                        chipType="text"
+                        multiselect
+                        value={['berlin', 'rome', 'madrid']}
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: contentLeft', () => {
         cy.viewport(1000, 1000);
 
@@ -648,6 +671,187 @@ describe('plasma-web: Select', () => {
         cy.viewport(1000, 1000);
 
         mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: required, requiredPlacement', () => {
+        cy.viewport(500, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '200px' }}>
+                        <Select required items={items} label="Label" placeholder="Placeholder" />
+                    </div>
+
+                    <div style={{ width: '200px' }}>
+                        <Select
+                            required
+                            requiredPlacement="left"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: optional', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select optional items={items} label="Label" placeholder="Placeholder" />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            beforeList="Content before list"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            afterList="Content after list"
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: item data-attrs', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="single" items={items} label="Label" placeholder="Placeholder" />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').should('have.class', 'test-classname');
+        cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
+    });
+
+    it('prop: zIndex', () => {
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="single" items={items} label="Label" placeholder="Placeholder" zIndex={10000} />
+            </div>,
+        );
+
+        cy.get('#single').realClick();
+
+        cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
+    it('prop: renderValue', () => {
+        cy.viewport(400, 800);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
 
         cy.matchImageSnapshot();
     });
@@ -695,23 +899,65 @@ describe('plasma-web: Select', () => {
         cy.get('#multiple').should('include.text', 'Париж').should('include.text', 'Лион');
 
         cy.get('#single').realClick();
-        cy.get('#single #europe').realClick();
-        cy.get('#single #france').realClick();
+        cy.get('#single [id$="europe"]').realClick();
+        cy.get('#single [id$="france"]').realClick();
 
-        cy.get('#single #paris').realClick();
-
-        cy.get('#single').realClick();
+        cy.get('#single [id$="paris"]').realClick();
 
         cy.get('#multiple').realClick();
-        cy.get('#multiple #europe').realClick();
-        cy.get('#multiple #france').realClick();
+        cy.get('#multiple [id$="europe"]').realClick();
+        cy.get('#multiple [id$="france"]').realClick();
 
-        cy.get('#multiple #lyon .select-item-checkbox').realClick();
+        cy.get('#multiple [id$="lyon"]').realClick();
 
-        cy.get('#multiple #germany .select-item-checkbox').realClick();
-        cy.get('#multiple #germany').realClick();
+        cy.get('#multiple [id$="germany"] .checkbox-trigger').realClick();
+        cy.get('#multiple [id$="germany"]').realClick();
 
         cy.matchImageSnapshot();
+    });
+
+    it('disabled item behavior', () => {
+        const items = [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                        disabled: true,
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+        ];
+
+        const Component = () => (
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Select id="multiple" multiselect label="Список стран" items={items} />
+                </div>
+            </CypressTestDecoratorWithTypo>
+        );
+
+        mount(<Component />);
+
+        cy.get('#multiple').click();
+        cy.get('[id$="brazil"]').click();
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
     });
 
     it('keyboard interactions', () => {
@@ -744,8 +990,8 @@ describe('plasma-web: Select', () => {
 
         // Arrow Down
         cy.realPress('ArrowDown');
-        cy.get('#tree_level_1').should('be.visible');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown')
             .realPress('ArrowDown')
@@ -754,123 +1000,123 @@ describe('plasma-web: Select', () => {
             .realPress('ArrowDown')
             .realPress('ArrowDown')
             .realPress('ArrowDown');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Arrow Up
         cy.realPress('ArrowUp');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('ArrowUp');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Arrows Right and Left
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowRight');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-focused');
-        cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="brazil"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
         cy.realPress('ArrowLeft');
         cy.realPress('ArrowLeft');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
         cy.realPress('ArrowDown')
             .realPress('ArrowDown')
             .realPress('ArrowRight')
             .realPress('ArrowRight')
             .realPress('ArrowRight')
             .realPress('ArrowRight');
-        cy.get('#beijing').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#asia').should('have.class', 'dropdown-item-is-active');
-        cy.get('#china').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="beijing"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="asia"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="china"]').should('have.class', 'dropdown-item-is-active');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowLeft')
             .realPress('ArrowLeft')
             .realPress('ArrowLeft')
             .realPress('ArrowLeft')
             .realPress('ArrowLeft');
-        cy.get('#tree_level_1').should('not.be.visible');
-        cy.get('#tree_level_2').should('not.be.visible');
-        cy.get('#tree_level_3').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.get('[id$="tree_level_3"]').should('not.exist');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('PageDown');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('PageUp');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('Home');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
         cy.realPress('End');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
-        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Escape
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
         cy.realPress('Escape');
-        cy.get('#tree_level_1').should('not.be.visible');
-        cy.get('#tree_level_2').should('not.be.visible');
-        cy.get('#tree_level_3').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.get('[id$="tree_level_3"]').should('not.exist');
         cy.get('button').should('have.focus');
 
         // Home
         cy.realPress('Home');
-        cy.get('#tree_level_1').should('be.visible');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('button').should('have.focus');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // End
         cy.realPress('End');
-        cy.get('#tree_level_1').should('be.visible');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('button').should('have.focus');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Page Down
         cy.realPress('PageDown');
-        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown');
         cy.realPress('PageDown');
         cy.get('button').should('have.focus');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
         // Page Up
         cy.realPress('PageUp');
-        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown');
         cy.realPress('ArrowDown');
         cy.realPress('PageUp');
         cy.get('button').should('have.focus');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');
 
@@ -879,7 +1125,7 @@ describe('plasma-web: Select', () => {
         cy.get('button').should('have.class', 'select-without-box-shadow');
         cy.realPress('Space');
         cy.get('button').should('include.text', 'Северная Америка');
-        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
         cy.get('button').should('have.class', 'select-without-box-shadow');
         cy.realPress('Space');
         cy.get('button').should('not.include.text', 'Северная Америка');
@@ -911,12 +1157,13 @@ describe('plasma-web: Select', () => {
         cy.realPress('ArrowDown');
         cy.realPress('Enter');
         cy.get('button').should('include.text', 'Список стран');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
         cy.realPress('Enter');
         cy.realPress('Enter');
         cy.realPress('Enter');
-        cy.get('#rio_de_janeiro').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="brazil"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="rio_de_janeiro"]').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Enter');
         cy.get('button').should('include.text', 'Рио-де-Жанейро');
         cy.get('button').should('not.include.text', 'Сан-Паулу');
@@ -928,7 +1175,98 @@ describe('plasma-web: Select', () => {
 
         // Tab
         cy.realPress('ArrowDown').realPress('Tab');
-        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('button').should('not.have.focus');
+    });
+
+    it('flow: opening', () => {
+        cy.viewport(1300, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="button-single"
+                                target="button-like"
+                                label="Список стран single"
+                                items={items}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="button-multiple"
+                                multiselect
+                                target="button-like"
+                                label="Список стран single"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="textfield-single"
+                                target="textfield-like"
+                                items={items}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="textfield-multiple"
+                                multiselect
+                                target="textfield-like"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#button-single').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-single').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#button-single .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-single .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#button-multiple').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-multiple').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#button-multiple .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-multiple .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#textfield-single').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#textfield-single').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#textfield-multiple').realClick({ position: 'topLeft' });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#textfield-multiple').realClick({ position: 'topLeft' });
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#textfield-multiple').realClick({ position: 'center' });
+        cy.get('ul[role="tree"]').should('not.exist');
     });
 });

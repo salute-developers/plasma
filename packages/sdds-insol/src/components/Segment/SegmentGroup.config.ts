@@ -51,6 +51,14 @@ export const config = {
                 ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 1.375rem 0;
             `,
+            xl: css`
+                ${segmentTokens.groupBorderRadius}: 1.125rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
+                ${segmentTokens.groupWidth}: auto;
+                ${segmentTokens.groupHeight}: auto;
+                ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
+                ${segmentTokens.groupVerticalArrowPadding}: 1.375rem 0;
+            `,
         },
         disabled: {
             true: css`
@@ -65,7 +73,7 @@ export const config = {
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-transparent-secondary);
+                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-solid-secondary);
             `,
         },
         orientation: {

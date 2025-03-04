@@ -2,12 +2,16 @@ export const classes = {
     auto: 'auto',
     horizontal: 'horizontal',
     vertical: 'vertical',
+    withHelperText: 'with-helper-text',
     cellHidden: 'cell-hidden',
 };
 
 export const tokens = {
     horizontalGap: '--plasma-attach-horizontal-gap',
     verticalGap: '--plasma-attach-vertical-gap',
+    verticalGapWithHelperText: '--plasma-attach-vertical-gap-with-helper-text',
+
+    helperTextColor: '--plasma-attach-helper-text-color',
 
     // Токены для Button
     buttonColor: '--plasma-attach-button-color',

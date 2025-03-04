@@ -17,7 +17,7 @@ type StoryTextAreaPropsCustom = {
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
-const sizes = ['xs', 's', 'm', 'l'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
@@ -43,7 +43,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<StoryTextAreaProps> = {
-    title: 'Controls/TextArea',
+    title: 'Data Entry/TextArea',
     decorators: [InSpacingDecorator],
     component: TextArea,
     argTypes: {
@@ -65,10 +65,9 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        labelPlacement: {
-            options: labelPlacements,
+        clear: {
             control: {
-                type: 'select',
+                type: 'boolean',
             },
         },
         size: {
@@ -80,6 +79,12 @@ const meta: Meta<StoryTextAreaProps> = {
         },
         view: {
             options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        labelPlacement: {
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -101,6 +106,11 @@ const meta: Meta<StoryTextAreaProps> = {
                 type: 'number',
             },
             if: { arg: 'clear', truthy: false },
+        },
+        hasHint: {
+            control: {
+                type: 'boolean',
+            },
         },
         hintText: {
             control: { type: 'text' },
@@ -143,6 +153,24 @@ const meta: Meta<StoryTextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        helperText: {
+            control: { type: 'text' },
+        },
+        width: {
+            control: { type: 'text' },
+        },
+        height: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        rightHelper: {
+            control: { type: 'text' },
+        },
         ...disableProps([
             'helperBlock',
             '$isFocused',
@@ -162,11 +190,12 @@ const meta: Meta<StoryTextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
+            'leftHelperPlacement',
             'status',
-            'resize',
-            'height',
-            'width',
-            'helperText',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+            'hintView',
         ]),
     },
     args: {

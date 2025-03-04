@@ -3,13 +3,21 @@ import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
+import { dividerConfig } from '@salutejs/plasma-new-hope/styled-components';
 
 import { BodyS } from '../Typography';
+import { hasComponentDraftConfig } from '../../helpers/hasComponentDraftConfig';
+import { createComponentByConfig } from '../../helpers/createComponentByConfig';
 
-import { Divider } from './Divider';
+import { config as defaultConfig } from './Divider.config';
+import { config as draftConfig } from './Divider.config.draft';
+
+const config = hasComponentDraftConfig() ? draftConfig : defaultConfig;
+
+const Divider = createComponentByConfig(dividerConfig, config);
 
 const meta: Meta<typeof Divider> = {
-    title: 'Content/Divider',
+    title: 'Data Display/Divider',
     decorators: [InSpacingDecorator],
     argTypes: {
         orientation: {

@@ -35,11 +35,13 @@ import {
     TitleCaption,
     StyledHintWrapper,
     StyledIndicatorWrapper,
+    StyledContentRightWrapper,
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip } from './ui';
 import { useKeyNavigation } from './hooks';
 import { HintComponent } from './ui/Hint/Hint';
+import { getInputWidth } from './getInputWidth';
 
 const optionalText = 'optional';
 
@@ -63,6 +65,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 contentRight,
                 label,
                 labelPlacement,
+                keepPlaceholder,
                 textBefore,
                 textAfter,
                 placeholder,
@@ -70,6 +73,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 enumerationType = 'plain',
                 requiredPlacement = 'right',
                 titleCaption,
+                chipView = 'default',
+                chipValidator,
 
                 // hint
                 hintTrigger = 'hover',
@@ -77,6 +82,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 hintView = 'default',
                 hintSize = 'm',
                 hintTargetIcon,
+                hintTargetPlacement = 'outer',
                 hintPlacement = 'auto',
                 hintHasArrow,
                 hintOffset = HINT_DEFAULT_OFFSET,
@@ -96,18 +102,22 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 // controlled
                 value: outerValue,
                 chips: values,
+                chipType = 'default',
 
                 // events
                 onChange,
                 onChangeChips,
                 onSearch,
                 onKeyDown,
+                onFocus,
+                onBlur,
 
                 ...rest
             },
             ref,
         ) => {
             const contentRef = useRef<HTMLDivElement>(null);
+            const inputContainerRef = useRef<HTMLDivElement>(null);
             const inputRef = useRef<HTMLInputElement>(null);
             const inputForkRef = useForkRef(inputRef, ref);
             const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
@@ -117,6 +127,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const [hasValue, setHasValue] = useState(
                 Boolean(outerValue) || Boolean(inputRef?.current?.value) || Boolean(rest?.defaultValue),
             );
+            const [hasFocus, setHasFocus] = useState(false);
+
             const [chips, setChips] = useState<Array<ChipValues>>([]);
             const [isHintVisible, setIsHintVisible] = useState(false);
 
@@ -134,7 +146,18 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const hasLabelValue = Boolean(label);
             const hasInnerLabel = size !== 'xs' && labelPlacement === 'inner' && !isChipsVisible && hasLabelValue;
             const hasOuterLabel = labelPlacement === 'outer' && hasLabelValue;
-            const hasPlaceholder = Boolean(placeholder) && !hasInnerLabel;
+            const innerKeepPlaceholder = keepPlaceholder && labelPlacement === 'inner';
+            const hasPlaceholder = Boolean(placeholder) && (innerKeepPlaceholder || !hasInnerLabel);
+            let hasTextAfter = Boolean(textAfter);
+            let hasTextBefore = textBefore && !isChipEnumeration;
+            if (labelPlacement === 'inner') {
+                if (!hasValue && !hasPlaceholder && !hasFocus) {
+                    hasTextAfter = false;
+                    hasTextBefore = false;
+                }
+            }
+
+            const hasPlaceholderPadding = hasInnerLabel && keepPlaceholder && size !== 'xs';
 
             const innerLabelValue = hasInnerLabel || hasOuterLabel ? label : undefined;
             const innerLabelPlacementValue = labelPlacement === 'inner' && !hasInnerLabel ? undefined : labelPlacement;
@@ -144,16 +167,24 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
 
             const clearClass = clear ? classes.clear : undefined;
             const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
+            const hasInnerHintClass = hintText && hintTargetPlacement === 'outer' ? classes.hasHint : undefined;
             const hasHintClass = hintText ? classes.hasHint : undefined;
             const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
             const labelPlacementClass = innerLabelPlacementValue
                 ? classes[`${innerLabelPlacementValue}LabelPlacement` as keyof typeof classes]
                 : undefined;
             const hasValueClass = hasValue ? classes.hasValue : undefined;
+            const keepPlaceholderClass = hasPlaceholder && placeholderShown && classes.keepPlaceholder;
 
-            const wrapperWithoutLeftContent = !contentLeft && isChipsVisible ? classes.hasEmptyContentLeft : undefined;
+            const wrapperWithoutLeftContent =
+                !contentLeft && isChipsVisible && chipType === 'default' ? classes.hasEmptyContentLeft : undefined;
             const wrapperWithoutRightContent =
-                !contentRight && isChipsVisible ? classes.hasEmptyContentRight : undefined;
+                !contentRight && isChipsVisible && chipType === 'default' ? classes.hasEmptyContentRight : undefined;
+
+            const contentRightCompensationMargin =
+                !hasOuterLabel && hintText && hintTargetPlacement === 'inner'
+                    ? classes.contentRightCompensationMargin
+                    : undefined;
 
             const hintRef = useOutsideClick<HTMLDivElement>(() => {
                 setIsHintVisible(false);
@@ -162,7 +193,31 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const hintForkRef = useForkRef(hintRef, hintInnerRef);
 
             const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
-                setHasValue(Boolean((event.target as HTMLInputElement).value));
+                const { value } = event.target as HTMLInputElement;
+                if (hasTextAfter) {
+                    const textWidth = getInputWidth(event.currentTarget, inputContainerRef.current);
+                    event.currentTarget.style.width = `${textWidth}px`;
+                }
+                setHasValue(Boolean(value));
+            };
+
+            useEffect(() => {
+                if (hasTextAfter && inputRef.current) {
+                    const textWidth = getInputWidth(inputRef.current, inputContainerRef.current);
+                    inputRef.current.style.width = `${textWidth}px`;
+                } else {
+                    inputRef.current?.style.removeProperty('width');
+                }
+            }, [hasTextAfter]);
+
+            const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+                setHasFocus(true);
+                onFocus?.(event);
+            };
+
+            const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+                setHasFocus(false);
+                onBlur?.(event);
             };
 
             const handleHintShow = () => setIsHintVisible(true);
@@ -281,12 +336,13 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     readOnly={!disabled && readOnly}
                     clear={clear}
                     labelPlacement={innerLabelPlacementValue}
+                    chipView={chipView}
                     onClick={handleInputFocus}
                     className={cx(
                         labelPlacementClass,
                         clearClass,
                         hasDividerClass,
-                        hasHintClass,
+                        hasInnerHintClass,
                         classes.textFieldGroupItem,
                         className,
                     )}
@@ -338,7 +394,13 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     <InputWrapper
                         // Ref для внутреннего использования. Не отдается наружу.
                         ref={(rest as any).inputWrapperRef}
-                        className={cx(withHasChips, wrapperWithoutLeftContent, wrapperWithoutRightContent)}
+                        // TODO: #1544, и после убрать classes.inputWrapper
+                        className={cx(
+                            withHasChips,
+                            wrapperWithoutLeftContent,
+                            wrapperWithoutRightContent,
+                            classes.inputWrapper,
+                        )}
                     >
                         {!hasOuterLabel && (
                             <>
@@ -347,7 +409,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                         className={cx(classes.innerLabelPlacement, requiredPlacementClass)}
                                     />
                                 )}
-                                {hintText && (
+                                {hintText && hintTargetPlacement === 'outer' && (
                                     <StyledHintWrapper className={classes.innerLabelPlacement}>
                                         <HintComponent
                                             ref={hintForkRef}
@@ -360,9 +422,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                             hintOffset={hintOffset}
                                             hintWidth={hintWidth}
                                             hintContentLeft={hintContentLeft}
+                                            size={size}
                                             handleHintShow={handleHintShow}
                                             handleHintHide={handleHintHide}
                                             handleHintClick={handleHintClick}
+                                            isInnerLabel
                                         />
                                     </StyledHintWrapper>
                                 )}
@@ -379,10 +443,15 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             onKeyDown={handleContentKeyDown}
                             className={withHasChips}
                         >
-                            {textBefore && <StyledTextBefore>{textBefore}</StyledTextBefore>}
+                            {Boolean(textBefore && isChipEnumeration) && (
+                                <StyledTextBefore>{textBefore}</StyledTextBefore>
+                            )}
                             {isChipEnumeration && Boolean(chips?.length) && (
-                                <StyledChips>
+                                <StyledChips className={classes.chipsWrapper}>
                                     {chips?.map(({ id: chipId, text }, index) => {
+                                        const validationView = chipValidator?.(String(text));
+                                        const resView = validationView?.view || chipView;
+
                                         return (
                                             <TextFieldChip
                                                 id={chipId}
@@ -395,25 +464,39 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                                 onKeyDown={(event) => handleChipKeyDown(event, chipId, index)}
                                                 onClear={() => onChipClear(chipId, index)}
                                                 onClick={onChipClick}
+                                                chipType={chipType}
+                                                view={resView}
+                                                rootWrapper={Root}
+                                                // TODO: #1547
+                                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                // @ts-ignore
+                                                _forceChipManipulationWithReadonly={
+                                                    // eslint-disable-next-line no-underscore-dangle
+                                                    (rest as any)._forceChipManipulationWithReadonly
+                                                }
                                             />
                                         );
                                     })}
                                 </StyledChips>
                             )}
-                            <InputContainer>
+                            <InputContainer ref={inputContainerRef} hasDynamicWidth={hasTextAfter}>
+                                {hasTextBefore && <StyledTextBefore>{textBefore}</StyledTextBefore>}
                                 <Input
                                     ref={inputForkRef}
                                     id={innerId}
                                     value={outerValue}
+                                    required={enumerationType === 'chip' ? chips.length === 0 && required : required}
                                     aria-labelledby={labelId}
                                     aria-describedby={helperTextId}
                                     placeholder={innerPlaceholderValue}
-                                    className={cx(hasValueClass)}
+                                    className={cx(hasValueClass, keepPlaceholderClass)}
                                     disabled={disabled}
                                     readOnly={!disabled && readOnly}
                                     onInput={handleInput}
                                     onChange={handleChange}
                                     onKeyDown={handleOnKeyDown}
+                                    onFocus={handleFocus}
+                                    onBlur={handleBlur}
                                     {...rest}
                                 />
                                 {hasInnerLabel && (
@@ -423,15 +506,38 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     </Label>
                                 )}
                                 {placeholderShown && !hasValue && (
-                                    <InputPlaceholder>
+                                    <InputPlaceholder hasPadding={hasPlaceholderPadding}>
+                                        {hasTextBefore && <StyledTextBefore isHidden>{textBefore}</StyledTextBefore>}
                                         {innerPlaceholderValue}
                                         {hasPlaceholderOptional && optionalTextNode}
                                     </InputPlaceholder>
                                 )}
+                                {hasTextAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
                             </InputContainer>
-                            {textAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
                         </InputLabelWrapper>
-                        {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                        <StyledContentRightWrapper className={cx(contentRightCompensationMargin)}>
+                            {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+
+                            {!hasOuterLabel && hintText && hintTargetPlacement === 'inner' && (
+                                <HintComponent
+                                    ref={hintForkRef}
+                                    hintText={hintText}
+                                    hintTrigger={hintTrigger}
+                                    isHintVisible={isHintVisible}
+                                    hintTargetIcon={hintTargetIcon}
+                                    hintPlacement={hintPlacement}
+                                    hintHasArrow={hintHasArrow}
+                                    hintOffset={hintOffset}
+                                    hintWidth={hintWidth}
+                                    hintContentLeft={hintContentLeft}
+                                    size={size}
+                                    handleHintShow={handleHintShow}
+                                    handleHintHide={handleHintHide}
+                                    handleHintClick={handleHintClick}
+                                    isInnerLabel
+                                />
+                            )}
+                        </StyledContentRightWrapper>
                     </InputWrapper>
                     {leftHelper && <LeftHelper id={helperTextId}>{leftHelper}</LeftHelper>}
                 </Root>

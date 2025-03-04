@@ -2,9 +2,9 @@ import React, { useState, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { surfaceSolid02 } from '@salutejs/plasma-tokens-web';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
-import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 import { TextField } from '../TextField';
 import { PopupBaseProvider, popupBaseClasses } from '../PopupBase';
@@ -13,13 +13,31 @@ import { ModalBase, modalBaseClasses } from '.';
 import type { ModalBaseProps } from '.';
 
 const meta: Meta<ModalBaseProps> = {
-    title: 'Controls/ModalBase',
+    title: 'Overlay/ModalBase',
     component: ModalBase,
     decorators: [InSpacingDecorator],
     parameters: {
         docs: { story: { inline: false, iframeHeight: '30rem' } },
     },
     argTypes: {
+        ...disableProps([
+            'onEscKeyDown',
+            'onOverlayClick',
+            'initialFocusRef',
+            'focusAfterRef',
+            'onClose',
+            'view',
+            'isOpen',
+            'opened',
+            'offset',
+            'frame',
+            'children',
+            'overlay',
+            'zIndex',
+            'popupInfo',
+            'withAnimation',
+            'hasBody',
+        ]),
         placement: {
             options: [
                 'center',
@@ -35,6 +53,37 @@ const meta: Meta<ModalBaseProps> = {
             control: {
                 type: 'select',
             },
+            table: { defaultValue: { summary: 'center' } },
+        },
+        offsetX: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        offsetY: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        closeOnEsc: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        closeOnOverlayClick: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        withBlur: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: false } },
         },
     },
 };
@@ -48,6 +97,7 @@ type StoryModalBaseProps = {
     closeOnEsc: boolean;
     closeOnOverlayClick: boolean;
     withBlur: boolean;
+    hasClose?: boolean;
 };
 
 const StyledButton = styled(Button)`
@@ -98,7 +148,90 @@ const StyledModal = styled(ModalBase)`
     }
 `;
 
-const StoryModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalBaseProps) => {
+const StoryCustomModalDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalBaseProps) => {
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
+    const [isOpenC, setIsOpenC] = useState(false);
+
+    return (
+        <SSRProvider>
+            <StyledWrapper>
+                <PopupBaseProvider>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
+                    </div>
+                    <StyledModal
+                        id="modalA"
+                        withAnimation
+                        onClose={() => setIsOpenA(false)}
+                        opened={isOpenA}
+                        placement={placement}
+                        offset={[offsetX, offsetY]}
+                        hasBody
+                        {...rest}
+                    >
+                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <StyledButton text="Открыть B" onClick={() => setIsOpenB(true)} />
+                        </div>
+                        <ModalBase
+                            id="modalB"
+                            onClose={() => setIsOpenB(false)}
+                            opened={isOpenB}
+                            placement="left"
+                            offset={[offsetX, offsetY]}
+                            hasBody
+                            {...rest}
+                        >
+                            <Button style={{ marginRight: '1rem' }} onClick={() => setIsOpenB(false)}>
+                                Close
+                            </Button>
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <StyledButton text="Открыть C" onClick={() => setIsOpenC(true)} />
+                            </div>
+                            <ModalBase
+                                id="modalC"
+                                onClose={() => setIsOpenC(false)}
+                                opened={isOpenC}
+                                placement="top"
+                                offset={[offsetX, offsetY]}
+                                hasBody
+                                {...rest}
+                            >
+                                <Button style={{ marginRight: '1rem' }} onClick={() => setIsOpenC(false)}>
+                                    Close
+                                </Button>
+                                <>Content</>
+                            </ModalBase>
+                        </ModalBase>
+                    </StyledModal>
+                </PopupBaseProvider>
+            </StyledWrapper>
+        </SSRProvider>
+    );
+};
+
+export const Default: StoryObj<StoryModalBaseProps> = {
+    args: {
+        placement: 'center',
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        offsetX: 0,
+        offsetY: 0,
+        hasClose: true,
+    },
+    argTypes: {
+        hasClose: {
+            control: {
+                type: 'boolean',
+            },
+        },
+    },
+    render: (args) => <StoryCustomModalDemo {...args} />,
+};
+
+const StoryCustomModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalBaseProps) => {
     const [isOpenA, setIsOpenA] = useState(false);
     const [isOpenB, setIsOpenB] = useState(false);
     const [isOpenC, setIsOpenC] = useState(false);
@@ -173,7 +306,10 @@ export const ModalBaseDemo: StoryObj<StoryModalBaseProps> = {
         offsetX: 0,
         offsetY: 0,
     },
-    render: (args) => <StoryModalBaseDemo {...args} />,
+    argTypes: {
+        ...disableProps(['hasClose']),
+    },
+    render: (args) => <StoryCustomModalBaseDemo {...args} />,
 };
 
 const StyledModalAnimation = styled(ModalBase)`
@@ -294,6 +430,9 @@ export const ModalBottomAnimation: StoryObj<StoryModalBaseProps> = {
         closeOnOverlayClick: true,
         offsetX: 0,
         offsetY: 0,
+    },
+    argTypes: {
+        ...disableProps(['hasClose']),
     },
     render: (args) => <StoryModalAnimationDemo {...args} />,
 };

@@ -77,8 +77,8 @@ export const config = {
             l: css`
                 ${badgeTokens.borderRadius}: 0.5rem;
                 ${badgeTokens.height}: 1.75rem;
-                ${badgeTokens.paddingRight}: 0.6875rem;
-                ${badgeTokens.paddingLeft}: 0.6875rem;
+                ${badgeTokens.padding}: 0 0.6875rem;
+                ${badgeTokens.paddingIconOnly}: 0 0.375rem;
 
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -96,8 +96,8 @@ export const config = {
             m: css`
                 ${badgeTokens.borderRadius}: 0.375rem;
                 ${badgeTokens.height}: 1.5rem;
-                ${badgeTokens.paddingRight}: 0.5625rem;
-                ${badgeTokens.paddingLeft}: 0.5625rem;
+                ${badgeTokens.padding}: 0 0.5625rem;
+                ${badgeTokens.paddingIconOnly}: 0 0.375rem;
 
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
@@ -115,8 +115,8 @@ export const config = {
             s: css`
                 ${badgeTokens.borderRadius}: 0.375rem;
                 ${badgeTokens.height}: 1.25rem;
-                ${badgeTokens.paddingRight}: 0.4375rem;
-                ${badgeTokens.paddingLeft}: 0.4375rem;
+                ${badgeTokens.padding}: 0 0.4375rem;
+                ${badgeTokens.paddingIconOnly}: 0 0.25rem;
 
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
@@ -134,8 +134,8 @@ export const config = {
             xs: css`
                 ${badgeTokens.borderRadius}: 0.25rem;
                 ${badgeTokens.height}: 1rem;
-                ${badgeTokens.paddingRight}: 0.25rem;
-                ${badgeTokens.paddingLeft}: 0.25rem;
+                ${badgeTokens.padding}: 0 0.25rem;
+                ${badgeTokens.paddingIconOnly}: 0 0.188rem;
 
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
@@ -160,7 +160,9 @@ export const config = {
             true: css``,
         },
         clear: {
-            true: css``,
+            true: css`
+                ${badgeTokens.backgroundClear}: var(--surface-clear);
+            `,
         },
     },
 };

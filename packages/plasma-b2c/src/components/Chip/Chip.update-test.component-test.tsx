@@ -9,60 +9,50 @@ const Icon = () => <IconDownload color="inherit" />;
 describe('plasma-b2c: Chip', () => {
     const Chip = getComponent('Chip') as typeof ChipB2C;
 
-    it('[PLASMA-T757] Chip: view=default, size=m', () => {
+    it('[PLASMA-T1442] Chip: size=l, view=default, hasClear', () => {
         mount(
             <CypressTestDecorator>
-                <Chip text="Chip_view_default_size_m" view="default" size="m" />
+                <Chip text="Chip_view_default_size_l" view="default" size="l" hasClear />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T758] Chip: view=secondary, size=s', () => {
+    it('[PLASMA-T1443] Chip: size=m, view=secondary, without Clear, pilled', () => {
         mount(
             <CypressTestDecorator>
-                <Chip text="Chip_view_secondary_size_s" view="secondary" size="s" />
+                <Chip text="Chip_view_secondary_size_m" view="secondary" size="m" hasClear={false} pilled />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T759] Chip: view=accent, size=l', () => {
+    it('[PLASMA-T1446] Chip: view=accent, size=s', () => {
         mount(
             <CypressTestDecorator>
-                <Chip text="Chip_view_accent_size_l" view="accent" size="l" />
+                <Chip text="Chip_view_accent_size_s" view="accent" size="s" />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T761] Chip: disabled', () => {
+    it('[PLASMA-T1447] Chip: size=xs, with Icon', () => {
         mount(
             <CypressTestDecorator>
-                <Chip text="Chip_disabled" disabled />
+                <Chip text="Chip_size_xs_with_icon" size="xs" contentLeft={<Icon />} />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T973] Chip: pilled, size=xs', () => {
+    it('[PLASMA-T1654] Chip: disabled', () => {
         mount(
             <CypressTestDecorator>
-                <Chip text="Chip_pilled_size_xs" pilled size="xs" />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T974] Chip: with Icon', () => {
-        mount(
-            <CypressTestDecorator>
-                <Chip text="Chip_with_icon" contentLeft={<Icon />} />
+                <Chip text="Chip_disabled" size="l" disabled />
             </CypressTestDecorator>,
         );
 
@@ -77,16 +67,6 @@ describe('plasma-b2c: Chip', () => {
                     text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
                     contentLeft={<Icon />}
                 />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1194] Chip: without Clear', () => {
-        mount(
-            <CypressTestDecorator>
-                <Chip text="Chip_without_clear" hasClear={false} />
             </CypressTestDecorator>,
         );
 

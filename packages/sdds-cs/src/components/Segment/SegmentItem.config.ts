@@ -3,20 +3,20 @@ import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components'
 export const config = {
     defaults: {
         view: 'default',
-        size: 's',
+        size: 'xs',
     },
     variations: {
         view: {
             default: css`
                 ${segmentTokens.itemColor}: var(--text-accent);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-accent-hover);
+                ${segmentTokens.itemColorHover}: #1A9E32;
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);
                 ${segmentTokens.itemSelectedColor}: var(--text-primary);
                 ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--text-secondary);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-secondary);
@@ -26,13 +26,13 @@ export const config = {
             secondary: css`
                 ${segmentTokens.itemColor}: var(--text-accent);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-accent-hover);
+                ${segmentTokens.itemColorHover}: #1A9E32;
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);
                 ${segmentTokens.itemSelectedColor}: var(--text-accent);
                 ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-accent-hover);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-accent);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-accent-minor);
@@ -41,22 +41,22 @@ export const config = {
             `,
         },
         size: {
-            s: css`
+            xs: css`
                 ${segmentTokens.itemBorderRadius}: 0.625rem;
                 ${segmentTokens.itemWidth}: auto;
-                ${segmentTokens.itemHeight}: 2.5rem;
+                ${segmentTokens.itemHeight}: 2.25rem;
                 ${segmentTokens.itemPadding}: 0.5rem 1rem;
                 ${segmentTokens.itemPilledPadding}: 0.5rem 0.5rem;
-                ${segmentTokens.itemContentPadding}: 0.1875rem 0.125rem;
-                ${segmentTokens.itemIconMargin}: 0.125rem;
+                ${segmentTokens.itemContentPadding}: 0rem 0rem;
+                ${segmentTokens.itemIconMargin}: 0.25rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
 
-                ${segmentTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${segmentTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${segmentTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${segmentTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${segmentTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
             `,
         },
         disabled: {

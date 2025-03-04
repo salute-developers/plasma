@@ -144,3 +144,57 @@ export function App() {
 Опциональное свойство для корректной озвучки значений свойства `status`.
 
 По-умолчанию стоит значение для русскоговорящих `{ active: 'Активен', inactive: 'Неактивен' }`.
+
+#### Avatar и дополнительный контент
+
+Чтобы отобразить дополнительный контент нужно передать свойство `hasExtra`. 
+Тип дополнительного контента задается с помощью свойства `type`, а его вид с помощью `badgeView` и `counterView` соответственно.
+За положение дополнительного контента отвечает `extraPlacement`:
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <>
+            <Avatar
+                size="l"
+                name="Иван Фадеев"
+                extraPlacement="top-left"
+                type="counter"
+                count={33}
+                counterView="positive"
+                hasExtra
+            />
+            <Avatar
+                size="l"
+                name="Иван Фадеев"
+                extraPlacement="top-right"
+                type="counter"
+                count={33}
+                counterView="accent"
+                hasExtra
+            />
+            <Avatar
+                size="l"
+                name="Иван Фадеев"
+                extraPlacement="bottom-right"
+                type="badge"
+                text="15"
+                badgeView="warning"
+                hasExtra
+            />
+            <Avatar
+                size="l"
+                name="Иван Фадеев"
+                extraPlacement="bottom-left"
+                type="badge"
+                text="15"
+                badgeView="negative"
+                hasExtra
+            />
+        </>
+    );
+}
+```

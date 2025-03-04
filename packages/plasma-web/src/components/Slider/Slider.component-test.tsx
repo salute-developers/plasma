@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
@@ -17,6 +17,16 @@ describe('plasma-web: Slider', () => {
         </CypressTestDecorator>
     );
 
+    const Demo: React.FC = ({ newValue }) => {
+        const [value, setValue] = useState(30);
+
+        useEffect(() => {
+            setValue(newValue);
+        }, [newValue]);
+
+        return <Slider min={0} max={100} value={value} showCurrentValue />;
+    };
+
     it('simple', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -26,6 +36,16 @@ describe('plasma-web: Slider', () => {
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
+    });
+
+    it('value', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo newValue={50} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.contains('50').should('be.visible');
     });
 
     it('focus', () => {
@@ -172,4 +192,79 @@ describe('plasma-web: Slider', () => {
             cy.matchImageSnapshot();
         }),
     );
+
+    it('pointerVisibility', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div
+                    style={{
+                        display: 'flex',
+                        height: '5rem',
+                        flexDirection: 'column',
+                    }}
+                >
+                    <Slider
+                        id="horizontal"
+                        value={30}
+                        min={0}
+                        max={100}
+                        size="s"
+                        orientation="horizontal"
+                        pointerVisibility="hover"
+                    />
+                    <PadMe />
+                    <Slider
+                        id="horizontal-all"
+                        value={30}
+                        min={0}
+                        max={100}
+                        size="s"
+                        orientation="horizontal"
+                        pointerVisibility="hover"
+                        showCurrentValue
+                        showScale
+                    />
+                    <PadMe />
+                </div>
+                <div
+                    style={{
+                        display: 'flex',
+                        height: '20rem',
+                        flexDirection: 'row',
+                    }}
+                >
+                    <Slider
+                        id="vertical"
+                        value={30}
+                        min={0}
+                        max={100}
+                        size="s"
+                        orientation="vertical"
+                        pointerVisibility="hover"
+                    />
+                    <PadMe />
+                    <Slider
+                        id="vertical-all"
+                        value={30}
+                        min={0}
+                        max={100}
+                        size="s"
+                        orientation="vertical"
+                        pointerVisibility="hover"
+                        showCurrentValue
+                        showScale
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot('before-hover');
+
+        cy.get('#horizontal').trigger('pointerover');
+        cy.get('#horizontal-all').trigger('pointerover');
+        cy.get('#vertical').trigger('pointerover');
+        cy.get('#vertical-all').trigger('pointerover');
+
+        cy.matchImageSnapshot();
+    });
 });

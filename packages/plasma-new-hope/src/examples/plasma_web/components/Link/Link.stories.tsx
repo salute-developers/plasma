@@ -10,7 +10,7 @@ import { config } from './Link.config';
 import { Link } from './Link';
 
 const meta: Meta<typeof Link> = {
-    title: 'plasma_web/Link',
+    title: 'web/Navigation/Link',
     decorators: [WithTheme],
     component: Link,
     argTypes: argTypesFromConfig(mergeConfig(linkConfig, config)),

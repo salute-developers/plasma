@@ -102,7 +102,7 @@ export const config = {
                 // TODO: #1131 Вернуть токен --shadow-down-soft-s
                 ${dropdownTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
 
-                ${dropdownTokens.itemBackground}: var(--plasma-colors-transparent);
+                ${dropdownTokens.itemBackground}: transparent;
                 ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${dropdownTokens.itemBackgroundSelected}: inherit;
                 ${dropdownTokens.itemColorSelected}: inherit;

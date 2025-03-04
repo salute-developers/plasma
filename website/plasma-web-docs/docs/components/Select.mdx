@@ -26,6 +26,11 @@ type Items = Array<{
          */
         label: string;
         /**
+        * Сторона открытия вложенного дропдауна относительно текущего элемента
+        * @default right
+        */
+        placement?: SelectPlacement | Array<SelectPlacementBasic>;
+        /**
          * Список дочерних items.
          */
         items?: Array<ItemOption>;
@@ -368,7 +373,7 @@ Select может выглядеть как Button и как Textfield. За э�
             const ref = useRef(null)
 
             return (
-                <div style={{ height: '300px' }} ref={ref}>
+                <div style={{ position: "relative", height: "300px" }} ref={ref}>
                     <div style={{width: '300px'}}>
                         <Select items={items} label="Label" placeholder="Placeholder" value={value} onChange={setValue} portal={ref} listWidth="300px" />
                     </div>

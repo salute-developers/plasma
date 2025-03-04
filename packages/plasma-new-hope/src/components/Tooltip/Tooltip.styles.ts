@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { classes, tokens } from './Tooltip.tokens';
+import { tokens } from './Tooltip.tokens';
 import { TooltipProps } from './Tooltip.types';
 
 export const TooltipRoot = styled.div<Pick<TooltipProps, 'minWidth' | 'maxWidth'>>`
@@ -28,16 +28,16 @@ export const TooltipRoot = styled.div<Pick<TooltipProps, 'minWidth' | 'maxWidth'
 
     pointer-events: none;
 
+    display: flex;
+    align-items: center;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    &.${classes.hasContentLeft} {
-        display: flex;
-    }
 `;
 
 export const StyledContentLeft = styled.div`
-    align-self: center;
+    display: flex;
+    align-items: center;
     margin-right: var(${tokens.contentLeftMargin});
     height: var(${tokens.textFontLineHeight});
 `;

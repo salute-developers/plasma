@@ -3,6 +3,7 @@ import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-compon
 export const config = {
     defaults: {
         view: 'default',
+        closeIconType: 'thin',
     },
     variations: {
         view: {
@@ -11,6 +12,7 @@ export const config = {
                 ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.75rem;
+                ${notificationTokens.borderColor}: var(--outline-solid-primary);
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -20,7 +22,7 @@ export const config = {
                 ${notificationTokens.contentPaddingTopWithoutIcon}: 0.25rem;
                 ${notificationTokens.horizontalLayoutRightPaddingWithoutCloseIcon}: 1rem;
 
-                ${notificationTokens.textboxPaddingTop}: 0.1875rem;
+                ${notificationTokens.textboxPaddingTop}: 0;
                 ${notificationTokens.textboxPaddingRight}: 0.125rem;
                 ${notificationTokens.textboxPaddingBottom}: 0.375rem;
                 ${notificationTokens.textboxPaddingLeft}: 0.125rem;
@@ -34,7 +36,7 @@ export const config = {
                 ${notificationTokens.buttonsMarginTop}: 0.375rem;
 
                 ${notificationTokens.contentLeftIconSize}: 1.5rem;
-                ${notificationTokens.contentLeftIconMargin}: 0.375rem;
+                ${notificationTokens.contentLeftIconMargin}: 0.25rem;
                 ${notificationTokens.contentTopIconMargin}: 0.25rem;
 
                 ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -52,14 +54,21 @@ export const config = {
                 ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${notificationTokens.closeIconColor}: var(--text-accent);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-accent-hover);
+                ${notificationTokens.closeIconColorOnHover}: #1A9E32;
 
-                ${notificationTokens.horizontalLayoutGap}: 0.375rem;
+                ${notificationTokens.horizontalLayoutGap}: 0.5rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
         },
         layout: {
+            horizontal: css`
+                ${notificationTokens.width}: 30rem;
+                ${notificationTokens.horizontalLayoutPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
+                ${notificationTokens.horisontalIconLeftAlignSelf}: flex-start;
+                ${notificationTokens.horisontalActionsAlignSelf}: flex-end;
+                ${notificationTokens.horisontalIconCloseAlignSelf}: flex-start;
+            `,
             vertical: css`
                 ${notificationTokens.width}: 15rem;
                 ${notificationTokens.padding}: 0.375rem;
@@ -69,6 +78,7 @@ export const config = {
             xs: css`
                 ${notificationTokens.closeIconTop}: 0.5rem;
                 ${notificationTokens.closeIconRight}: 0.5rem;
+                ${notificationTokens.borderWidth}: 0.125rem;
 
                 ${notificationTokens.padding}: 0.75rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
@@ -81,8 +91,9 @@ export const config = {
                 ${notificationTokens.buttonsMarginLeft}: 0rem;
             `,
             xxs: css`
-                ${notificationTokens.closeIconTop}: 0.8125rem;
+                ${notificationTokens.closeIconTop}: 0.875rem;
                 ${notificationTokens.closeIconRight}: 1rem;
+                ${notificationTokens.borderWidth}: 0.125rem;
 
                 ${notificationTokens.padding}: 0.75rem 1rem 1rem 1rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;
@@ -93,6 +104,12 @@ export const config = {
                 ${notificationTokens.contentPaddingLeft}: 0rem;
 
                 ${notificationTokens.buttonsMarginLeft}: 2rem;
+            `,
+        },
+        closeIconType: {
+            thin: css`
+                ${notificationTokens.closeIconButtonSize}: 1.5rem;
+                ${notificationTokens.closeIconSize}: 1.5rem;
             `,
         },
     },

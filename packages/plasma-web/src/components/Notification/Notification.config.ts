@@ -3,11 +3,12 @@ import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-compon
 export const config = {
     defaults: {
         view: 'default',
+        closeIconType: 'default',
     },
     variations: {
         view: {
             default: css`
-                ${notificationTokens.contentColor}: var(--plasma-colors-secondary);
+                ${notificationTokens.contentColor}: var(--text-secondary);
                 ${notificationTokens.background}: var(--surface-solid-card-brightness);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
@@ -51,8 +52,8 @@ export const config = {
                 ${notificationTokens.titleFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${notificationTokens.closeIconColor}: var(--plasma-colors-tertiary);
-                ${notificationTokens.closeIconColorOnHover}: var(--plasma-colors-primary);
+                ${notificationTokens.closeIconColor}: var(--text-tertiary);
+                ${notificationTokens.closeIconColorOnHover}: var(--text-primary);
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
@@ -67,6 +68,12 @@ export const config = {
             vertical: css`
                 ${notificationTokens.width}: 15rem;
                 ${notificationTokens.padding}: 0.375rem;
+            `,
+        },
+        closeIconType: {
+            default: css`
+                ${notificationTokens.closeIconButtonSize}: 1.5rem;
+                ${notificationTokens.closeIconSize}: 1.5rem;
             `,
         },
         size: {

@@ -801,6 +801,42 @@ export const sdds_os__dark = ([
   --inverse-outline-transparent-secondary: #08080847;
   --inverse-outline-transparent-tertiary: #0808088F;
   --inverse-outline-solid-secondary: #B3B3B3;
+  --data-yellow: #F3A912;
+  --data-yellow-hover: #F4B22FFF;
+  --data-yellow-active: #EDA20CFF;
+  --data-yellow-minor: #A16B00;
+  --data-yellow-minor-hover: #B87A00FF;
+  --data-yellow-minor-active: #996600FF;
+  --data-yellow-transparent: #F3A9128F;
+  --data-yellow-transparent-hover: #F3A812AD;
+  --data-yellow-transparent-active: #F3A81280;
+  --on-dark-data-yellow: #F3A912;
+  --on-dark-data-yellow-hover: #F4B22FFF;
+  --on-dark-data-yellow-active: #EDA20CFF;
+  --on-dark-data-yellow-minor: #A16B00;
+  --on-dark-data-yellow-minor-hover: #B87A00FF;
+  --on-dark-data-yellow-minor-active: #996600FF;
+  --on-dark-data-yellow-transparent: #F3A9128F;
+  --on-dark-data-yellow-transparent-hover: #F3A812AD;
+  --on-dark-data-yellow-transparent-active: #F3A81280;
+  --on-light-data-yellow: #F3A912;
+  --on-light-data-yellow-hover: #F4B22FFF;
+  --on-light-data-yellow-active: #EDA20CFF;
+  --on-light-data-yellow-minor: #FFD37A;
+  --on-light-data-yellow-minor-hover: #FFDA8FFF;
+  --on-light-data-yellow-minor-active: #FFCF70FF;
+  --on-light-data-yellow-transparent: #F3A9128F;
+  --on-light-data-yellow-transparent-hover: #F3A812AD;
+  --on-light-data-yellow-transparent-active: #F3A81280;
+  --inverse-data-yellow: #F3A912;
+  --inverse-data-yellow-hover: #F4B22FFF;
+  --inverse-data-yellow-active: #EDA20CFF;
+  --inverse-data-yellow-minor: #FFD37A;
+  --inverse-data-yellow-minor-hover: #FFDA8FFF;
+  --inverse-data-yellow-minor-active: #FFCF70FF;
+  --inverse-data-yellow-transparent: #F3A9128F;
+  --inverse-data-yellow-transparent-hover: #F3A812AD;
+  --inverse-data-yellow-transparent-active: #F3A81280;
   color: var(--text-primary);
   background-color: var(--background-primary);
 }
@@ -923,6 +959,24 @@ export const sdds_os__dark = ([
   --border-radius-l: 20px;
   --border-radius-xl: 24px;
   --border-radius-xxl: 32px;
+}
+
+:root {
+  --spacing-0x: 0px;
+  --spacing-1x: 2px;
+  --spacing-2x: 4px;
+  --spacing-3x: 6px;
+  --spacing-4x: 8px;
+  --spacing-6x: 12px;
+  --spacing-8x: 16px;
+  --spacing-10x: 20px;
+  --spacing-12x: 24px;
+  --spacing-16x: 32px;
+  --spacing-20x: 40px;
+  --spacing-24x: 48px;
+  --spacing-32x: 64px;
+  --spacing-40x: 80px;
+  --spacing-60x: 120px;
 }
 
 :root {

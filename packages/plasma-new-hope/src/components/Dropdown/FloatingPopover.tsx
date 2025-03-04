@@ -12,7 +12,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 import { FloatingPopoverProps } from './Dropdown.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, offset = [0, 0], isInner, trigger }, ref) => {
+    ({ target, children, opened, onToggle, placement, portal, offset = [0, 0], isInner, trigger, zIndex }, ref) => {
         const { refs, floatingStyles } = useFloating({
             placement: placement === 'auto' ? undefined : placement,
             open: opened,
@@ -73,11 +73,12 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
 
         return (
             <div
+                ref={ref}
                 id={wrappedId}
                 style={{
+                    position: 'relative',
                     display: isInner ? 'block' : 'inline-block',
                 }}
-                ref={ref}
             >
                 <div
                     ref={refs.setReference}
@@ -95,7 +96,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                             onMouseLeave={handleFloatingMouseLeave}
                             style={{
                                 ...floatingStyles,
-                                zIndex: 1,
+                                zIndex: zIndex || 1000,
                             }}
                         >
                             {children}
@@ -108,7 +109,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
 );
 
 type FloatingPortalReturnedProps = {
-    root?: HTMLElement | null | React.MutableRefObject<HTMLElement | null>;
+    root?: React.RefObject<HTMLElement>;
     id?: string;
 };
 

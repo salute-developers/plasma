@@ -5,7 +5,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 import type { FloatingPopoverProps } from './Combobox.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, listWidth, offset = 0 }, ref) => {
+    ({ target, children, opened, onToggle, placement, portal, listWidth, offset = 0, zIndex }, ref) => {
         const { refs, floatingStyles } = useFloating({
             placement,
             open: opened,
@@ -38,7 +38,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         const isTargetAsFunction = typeof target === 'function';
 
         return (
-            <div ref={ref} id={wrappedId}>
+            <div ref={ref} id={wrappedId} style={{ position: 'relative' }}>
                 <div ref={isTargetAsFunction ? undefined : refs.setReference} onClick={handleClick}>
                     {typeof target === 'function' ? target(refs.setReference as any) : target}
                 </div>
@@ -46,8 +46,8 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                 {opened && (
                     // root - принимает ref контейнера портала.
                     // id - если есть портал - не используется, если портала нет - подставляется 'wrappedId'.
-                    <FloatingPortal root={portal} id={portal ? undefined : wrappedId}>
-                        <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: 1 }}>
+                    <FloatingPortal {...getFloatingPortalProps(portal, wrappedId)}>
+                        <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: zIndex || 1000 }}>
                             {children}
                         </div>
                     </FloatingPortal>
@@ -56,5 +56,27 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         );
     },
 );
+
+type FloatingPortalReturnedProps = {
+    root?: React.RefObject<HTMLElement>;
+    id?: string;
+};
+
+// root - принимает ref контейнера портала.
+// id - если есть портал - не используется, если портала нет - подставляется 'wrappedId'.
+const getFloatingPortalProps = (
+    portal: FloatingPopoverProps['portal'],
+    wrappedId: string,
+): FloatingPortalReturnedProps => {
+    if (!portal) {
+        return { id: wrappedId };
+    }
+
+    if (typeof portal === 'string') {
+        return { id: portal };
+    }
+
+    return { root: portal };
+};
 
 export { FloatingPopover };

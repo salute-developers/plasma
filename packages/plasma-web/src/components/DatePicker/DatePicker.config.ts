@@ -12,12 +12,14 @@ export const config = {
                 ${tokens.borderColor}: var(--surface-transparent-tertiary);
                 ${tokens.borderColorError}: var(--surface-negative);
                 ${tokens.borderColorSuccess}: var(--surface-positive);
-                ${tokens.borderColorHover}: var(--plasma-colors-secondary);
+                ${tokens.borderColorHover}: var(--text-secondary);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColorError}: var(--text-negative);
+                ${tokens.leftHelperColorSuccess}: var(--text-positive);
 
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
@@ -29,6 +31,8 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.indicatorColor}: var(--surface-negative);
 
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
                 ${tokens.textFieldBorderColorError}: var(--surface-negative);
@@ -59,6 +63,7 @@ export const config = {
                 ${tokens.calendarRangeBackground}: var(--surface-transparent-secondary);
                 ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${tokens.calendarContentPrimaryColor}: var(--surface-solid-default);
+                ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
 
                 ${tokens.iconButtonColor}: var(--text-primary);
@@ -87,7 +92,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 1rem;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0 0 0.75rem 0;
+                ${tokens.labelOffset}: 0.75rem;
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
 
@@ -97,6 +102,13 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.indicatorSize}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
@@ -178,6 +190,8 @@ export const config = {
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
 
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
                 ${tokens.calendarHeaderWrapperPadding}: 0.875rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
 
@@ -213,7 +227,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 0.875rem;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0 0 0.625rem 0;
+                ${tokens.labelOffset}: 0.625rem;
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
@@ -223,6 +237,13 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.indicatorSize}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
 
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
@@ -303,6 +324,8 @@ export const config = {
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
 
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
                 ${tokens.calendarHeaderWrapperPadding}: 0.75rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
 
@@ -338,7 +361,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0.375rem 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0 0 0.5rem 0;
+                ${tokens.labelOffset}: 0.5rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
@@ -348,6 +371,13 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.indicatorSize}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
@@ -428,6 +458,8 @@ export const config = {
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
 
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
                 ${tokens.calendarHeaderWrapperPadding}: 0.75rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
 
@@ -463,7 +495,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 0.5rem;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0 0 0.375rem 0;
+                ${tokens.labelOffset}: 0.375rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
@@ -473,6 +505,13 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.indicatorSize}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.625rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.6875rem auto auto;
 
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
@@ -554,6 +593,8 @@ export const config = {
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
 
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
                 ${tokens.calendarHeaderWrapperPadding}: 0.5rem 0.75rem 0 0.75rem;
                 ${tokens.calendarHeaderArrowGap}: 0;
 
@@ -583,6 +624,7 @@ export const config = {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-clear);
                 ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);

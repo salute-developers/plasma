@@ -1,5 +1,4 @@
 import styled, { css, InterpolationFunction } from 'styled-components';
-import { backgroundPrimary } from '@salutejs/plasma-core';
 import { CSSProperties } from 'react';
 
 /**
@@ -14,7 +13,7 @@ export const DropdownList = styled.ul`
 
     border-radius: var(--plasma-dropdown-border-radius, 0);
 
-    background-color: var(--plasma-dropdown-background, ${backgroundPrimary});
+    background-color: var(--plasma-dropdown-background, var(--surface-solid-card));
 
     box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.08);
     transition: opacity 0.3s ease-in-out;

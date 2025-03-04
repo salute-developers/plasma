@@ -5,13 +5,13 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Chip } from '.';
 
-const views = ['default', 'secondary', 'accent'];
+const views = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const sizes = ['l', 'm', 's', 'xs'];
 
 const onClear = action('onClear');
 
 const meta: Meta<typeof Chip> = {
-    title: 'Controls/Chip',
+    title: 'Data Display/Chip',
     component: Chip,
     decorators: [InSpacingDecorator],
     argTypes: {

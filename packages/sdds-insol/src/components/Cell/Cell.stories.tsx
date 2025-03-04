@@ -37,7 +37,7 @@ const ChevronRight = styled(IconChevronRight)`
 `;
 
 const meta: Meta<typeof Cell> = {
-    title: 'Content/Cell',
+    title: 'Data Display/Cell',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
@@ -69,6 +69,16 @@ const meta: Meta<typeof Cell> = {
 
 export default meta;
 
+const StyledChevronRight = styled(ChevronRight)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+            flex: 0 0 ${customSize};
+        `}
+`;
+
 export const Default: Story = {
     args: {
         size: 'm',
@@ -82,6 +92,9 @@ export const Default: Story = {
         label: 'Label',
     },
     render: ({ ...args }: StoryProps) => {
+        const iconSize = args.size === 's' || args.size === 'xs' ? 'xs' : 's';
+        const iconCustomSize = args.size === 'm' ? '1.25rem' : undefined;
+
         return (
             <Cell
                 contentLeft={
@@ -89,7 +102,11 @@ export const Default: Story = {
                         <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
                     )
                 }
-                contentRight={!args.disableRightContent && <ChevronRight color="inherit" size="xs" />}
+                contentRight={
+                    !args.disableRightContent && (
+                        <StyledChevronRight customSize={iconCustomSize} size={iconSize} color="inherit" />
+                    )
+                }
                 {...args}
             />
         );
@@ -107,12 +124,13 @@ export const WithContentTextboxCustom: Story = {
             font-weight: 600;
             opacity: 0.5;
         `;
+        const iconSize = args.size === 's' || args.size === 'xs' ? 'xs' : 's';
+        const iconCustomSize = args.size === 'm' ? '1.25rem' : undefined;
+
         return (
             <Cell
-                contentLeft={
-                    <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
-                }
-                contentRight={<ChevronRight color="inheart" size="xs" />}
+                contentLeft={<Avatar size="s" url="https://avatars.githubusercontent.com/u/1813468?v=4" />}
+                contentRight={<StyledChevronRight customSize={iconCustomSize} size={iconSize} color="inherit" />}
                 view="default"
                 size={args.size}
                 stretching={args.stretching}

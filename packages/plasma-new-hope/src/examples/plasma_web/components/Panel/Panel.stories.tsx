@@ -5,7 +5,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
-import { Heading } from '../../../typograpy/components/Heading/Heading';
+import { Heading } from '../../../typography/components/Heading/Heading';
 import { IconDone } from '../../../../components/_Icon';
 import { ClosePlacementType } from '../../../../components/Panel';
 import { SSRProvider } from '../../../../components/SSRProvider';
@@ -13,7 +13,7 @@ import { SSRProvider } from '../../../../components/SSRProvider';
 import { Panel, PanelContent, PanelFooter, PanelHeader } from './Panel';
 
 export default {
-    title: 'plasma_web/Panel',
+    title: 'web/Overlay/Panel',
     decorators: [WithTheme],
     argTypes: {
         borderRadius: {
@@ -46,6 +46,16 @@ export default {
                 type: 'select',
             },
             table: { defaultValue: { summary: 'right' } },
+        },
+        customBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
+        customContentBackgroundColor: {
+            control: {
+                type: 'color',
+            },
         },
     },
 } as Meta;

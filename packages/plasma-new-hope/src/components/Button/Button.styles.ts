@@ -53,16 +53,18 @@ export const StyledSpinner = styled(Spinner)`
     ${spinnerTokens.color}: var(${tokens.buttonSpinnerColor});
 `;
 
-export const StyledContentLeft = styled.div`
+export const StyledContentLeft = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
-    margin: var(${tokens.buttonLeftContentMargin});
     align-self: var(${tokens.buttonLeftContentAlignSelf});
+
+    margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonLeftContentMargin})` : 0)};
 `;
 
-export const StyledContentRight = styled.div`
+export const StyledContentRight = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
-    margin: var(${tokens.buttonRightContentMargin});
     align-self: var(${tokens.buttonRightContentAlignSelf});
+
+    margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonRightContentMargin})` : 0)};
 `;
 
 export const base = css`
@@ -122,18 +124,18 @@ export const baseContent = `
     }
 
     color: var(${tokens.buttonColor});
-    background-color: var(${tokens.buttonBackgroundColor});
+    background: var(${tokens.buttonBackgroundColor});
 
     :hover {
         color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
-        background-color: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
+        background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleHover});
     }
 
     :active {
         color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
-        background-color: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
+        background: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
         scale: var(${tokens.buttonScaleActive});
     }
@@ -174,7 +176,7 @@ export const baseContent = `
             scale: none;
 
             color: var(${tokens.buttonColor});
-            background-color: var(${tokens.buttonBackgroundColor});
+            background: var(${tokens.buttonBackgroundColor});
         }
     }
 

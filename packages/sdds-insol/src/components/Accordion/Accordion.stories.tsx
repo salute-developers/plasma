@@ -1,14 +1,16 @@
 import React, { useState, ComponentProps, ReactNode } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconPlus } from '@salutejs/plasma-icons';
+import { IconPlus, IconChevronDown } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
 
 import { IconButton } from '../IconButton/IconButton';
 
 import { Accordion, AccordionItem } from './Accordion';
 
 type AccordionItemCustomProps = {
-    type: 'arrow' | 'sign' | 'clear';
+    type: 'arrow' | 'clear';
+    enableRightArrow: boolean;
     title: string;
     body: ReactNode;
     pin?:
@@ -23,8 +25,22 @@ type AccordionItemCustomProps = {
 
 type AccordionProps = ComponentProps<typeof Accordion> & AccordionItemCustomProps;
 
+const views = ['default', 'clear'] as const;
+const sizes = ['l', 'm', 's', 'xs', 'h2', 'h3', 'h4', 'h5'] as const;
+const stretching = ['filled', 'fixed'] as const;
+const types = ['arrow', 'clear'] as const;
+const pins = [
+    'square-square',
+    'square-clear',
+    'clear-square',
+    'clear-clear',
+    'clear-circle',
+    'circle-clear',
+    'circle-circle',
+] as const;
+
 const meta: Meta<AccordionProps> = {
-    title: 'Content/Accordion',
+    title: 'Data Display/Accordion',
     decorators: [InSpacingDecorator],
     component: Accordion,
     args: {
@@ -33,6 +49,7 @@ const meta: Meta<AccordionProps> = {
         size: 'm',
         stretching: 'filled',
         disabled: false,
+        enableRightArrow: false,
         type: 'arrow',
         pin: undefined,
         title: 'Как оплатить заправку бонусами СберСпасибо?',
@@ -42,39 +59,32 @@ const meta: Meta<AccordionProps> = {
     argTypes: {
         ...disableProps(['text']),
         view: {
-            options: ['default', 'clear'],
+            options: views,
             control: {
                 type: 'select',
             },
         },
         size: {
-            options: ['xs', 's', 'm', 'l'],
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         stretching: {
-            options: ['filled', 'fixed'],
+            options: stretching,
             control: {
                 type: 'select',
             },
         },
         type: {
-            options: ['arrow', 'sign', 'clear'],
+            options: types,
             control: {
                 type: 'select',
             },
+            if: { arg: 'enableRightArrow', truthy: false },
         },
         pin: {
-            options: [
-                'square-square',
-                'square-clear',
-                'clear-square',
-                'clear-clear',
-                'clear-circle',
-                'circle-clear',
-                'circle-circle',
-            ],
+            options: pins,
             control: {
                 type: 'select',
             },
@@ -84,27 +94,90 @@ const meta: Meta<AccordionProps> = {
 
 export default meta;
 
+const getSizeForIcon = (size) => (size === 'xs' ? 'xs' : 's');
+const getSizeForIconButton = (size) => {
+    switch (size) {
+        case 'l':
+        case 'h2':
+        case 'h3':
+            return 'l';
+        case 'm':
+            return 'm';
+        case 's':
+        case 'h4':
+            return 's';
+        case 'xs':
+        case 'h5':
+            return 'xs';
+        default:
+            return 'm';
+    }
+};
+
+const getSizeForArrow = (size) => {
+    switch (size) {
+        case 'h2':
+        case 'h3':
+            return 's';
+        case 'l':
+        case 'm':
+        case 's':
+        case 'xs':
+        case 'h5':
+        case 'h4':
+            return 'xs';
+        default:
+            return 'xs';
+    }
+};
+
+const StyledArrow = styled(IconChevronDown)`
+    transition: transform 0.2s;
+`;
+
+const Wrapper = styled.div`
+    .accordion-item-opened ${StyledArrow} {
+        transform: rotate(180deg);
+        color: var(--text-accent);
+    }
+`;
+
 export const Default: StoryObj<AccordionProps> = {
-    render: (props: AccordionProps) => {
+    render: ({ enableRightArrow, ...props }: AccordionProps) => {
         const args = { ...props, text: undefined };
 
         return (
-            <Accordion {...args}>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
-                    {args.body}
-                </AccordionItem>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
-                    {args.body}
-                </AccordionItem>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
-                    {args.body}
-                </AccordionItem>
-            </Accordion>
+            <Wrapper>
+                <Accordion {...args}>
+                    <AccordionItem
+                        type={args.type}
+                        pin={args.pin}
+                        title={args.title}
+                        contentRight={enableRightArrow ? <StyledArrow size={getSizeForArrow(args.size)} /> : undefined}
+                    >
+                        {args.body}
+                    </AccordionItem>
+                    <AccordionItem
+                        type={args.type}
+                        pin={args.pin}
+                        title={args.title}
+                        contentRight={enableRightArrow ? <StyledArrow size={getSizeForArrow(args.size)} /> : undefined}
+                    >
+                        {args.body}
+                    </AccordionItem>
+                    <AccordionItem
+                        type={args.type}
+                        pin={args.pin}
+                        title={args.title}
+                        contentRight={enableRightArrow ? <StyledArrow size={getSizeForArrow(args.size)} /> : undefined}
+                    >
+                        {args.body}
+                    </AccordionItem>
+                </Accordion>
+            </Wrapper>
         );
     },
 };
-
-const getSizeForIcon = (size) => (size === 'xs' ? 'xs' : 's');
 
 const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
     const args = { ...props, text: undefined };
@@ -116,7 +189,11 @@ const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
         <Accordion {...args}>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveFirst(!activeFirst)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveFirst(!activeFirst)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }
@@ -130,7 +207,11 @@ const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
             </AccordionItem>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveSecond(!activeSecond)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveSecond(!activeSecond)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }
@@ -144,7 +225,11 @@ const ControlledAccordion = (props: ComponentProps<typeof Accordion>) => {
             </AccordionItem>
             <AccordionItem
                 contentRight={
-                    <IconButton view="secondary" size={args.size} onClick={() => setActiveThree(!activeThree)}>
+                    <IconButton
+                        view="secondary"
+                        size={getSizeForIconButton(args.size)}
+                        onClick={() => setActiveThree(!activeThree)}
+                    >
                         <IconPlus size={getSizeForIcon(args.size)} />
                     </IconButton>
                 }

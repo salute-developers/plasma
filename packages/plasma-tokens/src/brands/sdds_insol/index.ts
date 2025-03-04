@@ -673,10 +673,12 @@ export const surfaceAccentHover = 'var(--surface-accent-hover, #1DAF37FF)';
 export const surfaceAccentActive = 'var(--surface-accent-active, #18952FFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
+export const surfaceAccentGradientHover =
+    'var(--surface-accent-gradient-hover, linear-gradient(45deg, #17C417 0%, #04D9DC 100%))';
 
 /** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active, #FFFFFFFF)';
+export const surfaceAccentGradientActive =
+    'var(--surface-accent-gradient-active, linear-gradient(45deg, #14A914 0%, #04BBBE 100%))';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
 export const surfaceAccentMinor = 'var(--surface-accent-minor, #0A2B10)';
@@ -805,7 +807,7 @@ export const surfaceTransparentInfoHover = 'var(--surface-transparent-info-hover
 export const surfaceTransparentInfoActive = 'var(--surface-transparent-info-active, #118CDF24)';
 
 /** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradient = 'var(--surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
+export const surfaceAccentGradient = 'var(--surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #13181B)';
@@ -926,10 +928,12 @@ export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #1D
 export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #18952FFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
-export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gradient-hover, #FFFFFFFF)';
+export const onDarkSurfaceAccentGradientHover =
+    'var(--on-dark-surface-accent-gradient-hover, linear-gradient(45deg, #17C417 0%, #04D9DC 100%))';
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
-export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-gradient-active, #FFFFFFFF)';
+export const onDarkSurfaceAccentGradientActive =
+    'var(--on-dark-surface-accent-gradient-active, linear-gradient(45deg, #14A914 0%, #04BBBE 100%))';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #0A2B10)';
@@ -1059,7 +1063,7 @@ export const onDarkSurfaceTransparentInfoActive = 'var(--on-dark-surface-transpa
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
 export const onDarkSurfaceAccentGradient =
-    'var(--on-dark-surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
+    'var(--on-dark-surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F2F5F8)';
@@ -1144,13 +1148,15 @@ export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transp
 export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #070B0E94)';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, #FFFFFF)';
+export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, rgba(255, 255, 255, 0.6))';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCardHover = 'var(--on-light-surface-transparent-card-hover, #FFFFFFFF)';
+export const onLightSurfaceTransparentCardHover =
+    'var(--on-light-surface-transparent-card-hover, rgba(255, 255, 255, 0.52))';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCardActive = 'var(--on-light-surface-transparent-card-active, #FFFFFFFF)';
+export const onLightSurfaceTransparentCardActive =
+    'var(--on-light-surface-transparent-card-active, rgba(255, 255, 255, 0.64))';
 
 /** Прозрачный фон для карточек на светлом фоне */
 export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-transparent-card-brightness, #FFFFFFFF)';
@@ -1174,10 +1180,12 @@ export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #
 export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #18952FFF)';
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
-export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-gradient-hover, #FFFFFFFF)';
+export const onLightSurfaceAccentGradientHover =
+    'var(--on-light-surface-accent-gradient-hover, linear-gradient(45deg, #18CD18 0%, #04D9DC 100%))';
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
-export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent-gradient-active, #FFFFFFFF)';
+export const onLightSurfaceAccentGradientActive =
+    'var(--on-light-surface-accent-gradient-active, linear-gradient(45deg, #139F13 0%, #04B1B4 100%))';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #9EFAAF)';
@@ -1313,7 +1321,7 @@ export const onLightSurfaceTransparentSecondary = 'var(--on-light-surface-transp
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
 export const onLightSurfaceAccentGradient =
-    'var(--on-light-surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
+    'var(--on-light-surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimary = 'var(--inverse-surface-solid-primary, #F2F5F8)';
@@ -1398,13 +1406,15 @@ export const inverseSurfaceTransparentDeepHover = 'var(--inverse-surface-transpa
 export const inverseSurfaceTransparentDeepActive = 'var(--inverse-surface-transparent-deep-active, #070B0E94)';
 
 /** Инвертированный прозрачный фон для карточек */
-export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card, #FFFFFF)';
+export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card, rgba(255, 255, 255, 0.6))';
 
 /** Инвертированный прозрачный фон для карточек */
-export const inverseSurfaceTransparentCardHover = 'var(--inverse-surface-transparent-card-hover, #FFFFFFFF)';
+export const inverseSurfaceTransparentCardHover =
+    'var(--inverse-surface-transparent-card-hover, rgba(255, 255, 255, 0.52))';
 
 /** Инвертированный прозрачный фон для карточек */
-export const inverseSurfaceTransparentCardActive = 'var(--inverse-surface-transparent-card-active, #FFFFFFFF)';
+export const inverseSurfaceTransparentCardActive =
+    'var(--inverse-surface-transparent-card-active, rgba(255, 255, 255, 0.64))';
 
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-transparent-card-brightness, #FFFFFFFF)';
@@ -1428,10 +1438,12 @@ export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #1
 export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #18952FFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
-export const inverseSurfaceAccentGradientHover = 'var(--inverse-surface-accent-gradient-hover, #FFFFFFFF)';
+export const inverseSurfaceAccentGradientHover =
+    'var(--inverse-surface-accent-gradient-hover, linear-gradient(45deg, #18CD18 0%, #04D9DC 100%))';
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
-export const inverseSurfaceAccentGradientActive = 'var(--inverse-surface-accent-gradient-active, #FFFFFFFF)';
+export const inverseSurfaceAccentGradientActive =
+    'var(--inverse-surface-accent-gradient-active, linear-gradient(45deg, #139F13 0%, #04B1B4 100%))';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
 export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #9EFAAF)';
@@ -1567,7 +1579,7 @@ export const inverseSurfaceTransparentSecondary = 'var(--inverse-surface-transpa
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
 export const inverseSurfaceAccentGradient =
-    'var(--inverse-surface-accent-gradient, linear-gradient(45deg, #1A9E32 0%, #04C6C9 100%))';
+    'var(--inverse-surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #060A0C)';
@@ -2550,6 +2562,114 @@ export const outlineInverseOutlineTransparentInfoHover =
 /** Прозрачный инвертированный цвет обводки информация */
 export const outlineInverseOutlineTransparentInfoActive =
     'var(--outline-inverse-outline-transparent-info-active, #0B7ECB3D)';
+
+/** Желтый цвет для данных */
+export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных */
+export const dataDefaultDataYellowHover = 'var(--data-default-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных */
+export const dataDefaultDataYellowActive = 'var(--data-default-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных */
+export const dataDefaultDataYellowMinor = 'var(--data-default-data-yellow-minor, #A16B00)';
+
+/** Минорный желтый цвет для данных */
+export const dataDefaultDataYellowMinorHover = 'var(--data-default-data-yellow-minor-hover, #B87A00FF)';
+
+/** Минорный желтый цвет для данных */
+export const dataDefaultDataYellowMinorActive = 'var(--data-default-data-yellow-minor-active, #996600FF)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataDefaultDataYellowTransparent = 'var(--data-default-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataDefaultDataYellowTransparentHover = 'var(--data-default-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataDefaultDataYellowTransparentActive = 'var(--data-default-data-yellow-transparent-active, #F3A81280)';
+
+/** Желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowHover = 'var(--data-on-dark-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowActive = 'var(--data-on-dark-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowMinor = 'var(--data-on-dark-data-yellow-minor, #A16B00)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowMinorHover = 'var(--data-on-dark-data-yellow-minor-hover, #B87A00FF)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowMinorActive = 'var(--data-on-dark-data-yellow-minor-active, #996600FF)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowTransparent = 'var(--data-on-dark-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowTransparentHover = 'var(--data-on-dark-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowTransparentActive = 'var(--data-on-dark-data-yellow-transparent-active, #F3A81280)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellow = 'var(--data-on-light-data-yellow, #F3A912)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowHover = 'var(--data-on-light-data-yellow-hover, #F4B22FFF)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowActive = 'var(--data-on-light-data-yellow-active, #EDA20CFF)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowMinor = 'var(--data-on-light-data-yellow-minor, #FFD37A)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowMinorHover = 'var(--data-on-light-data-yellow-minor-hover, #FFDA8FFF)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowMinorActive = 'var(--data-on-light-data-yellow-minor-active, #FFCF70FF)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowTransparent = 'var(--data-on-light-data-yellow-transparent, #F3A9128F)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowTransparentHover = 'var(--data-on-light-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowTransparentActive = 'var(--data-on-light-data-yellow-transparent-active, #F3A81280)';
+
+/** Инвертированный желтый цвет для данных */
+export const dataInverseDataYellow = 'var(--data-inverse-data-yellow, #F3A912)';
+
+/** Инвертированный желтый цвет для данных */
+export const dataInverseDataYellowHover = 'var(--data-inverse-data-yellow-hover, #F4B22FFF)';
+
+/** Инвертированный желтый цвет для данных */
+export const dataInverseDataYellowActive = 'var(--data-inverse-data-yellow-active, #EDA20CFF)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const dataInverseDataYellowMinor = 'var(--data-inverse-data-yellow-minor, #FFD37A)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const dataInverseDataYellowMinorHover = 'var(--data-inverse-data-yellow-minor-hover, #FFDA8FFF)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const dataInverseDataYellowMinorActive = 'var(--data-inverse-data-yellow-minor-active, #FFCF70FF)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const dataInverseDataYellowTransparent = 'var(--data-inverse-data-yellow-transparent, #F3A9128F)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const dataInverseDataYellowTransparentHover = 'var(--data-inverse-data-yellow-transparent-hover, #F3A812AD)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const dataInverseDataYellowTransparentActive = 'var(--data-inverse-data-yellow-transparent-active, #F3A81280)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';

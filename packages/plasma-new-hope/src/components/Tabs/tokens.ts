@@ -15,6 +15,7 @@ export const classes = {
     tabsHasBottomArrow: 'tabs-has-bottom-arrow',
     tabsClipScroll: 'tabs-clip-scroll',
     tabsClipShowAll: 'tabs-clip-show-all',
+    tabsTruncate: 'tabs-truncate',
 };
 
 export const tokens = {
@@ -91,4 +92,11 @@ export const tokens = {
     fontWeight: '--plasma-tab-item-font-weight',
     letterSpacing: '--plasma-tab-item-letter-spacing',
     lineHeight: '--plasma-tab-item-lineheight',
+
+    valueFontFamily: '--plasma-tab-item-value-font-family',
+    valueFontSize: '--plasma-tab-item-value-font-size',
+    valueFontStyle: '--plasma-tab-item-value-font-style',
+    valueFontWeight: '--plasma-tab-item-value-font-weight',
+    valueLetterSpacing: '--plasma-tab-item-value-letter-spacing',
+    valueLineHeight: '--plasma-tab-item-value-lineheight',
 };

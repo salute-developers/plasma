@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 
 import type { PathState } from '../../../../reducers';
+import type { SelectPlacement, SelectPlacementBasic } from '../../../../Select.types';
 
 export type ItemOption = {
     /**
@@ -13,7 +14,12 @@ export type ItemOption = {
      */
     label: string;
     /**
-     * Список дочерних items.
+     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     * @default right
+     */
+    placement?: SelectPlacement | Array<SelectPlacementBasic>;
+    /**
+     * Список дочерних items
      */
     items?: Array<ItemOption>;
     /**
@@ -28,6 +34,10 @@ export type ItemOption = {
      * Слот для контента справа
      */
     contentRight?: ReactNode;
+    /**
+     * Classname для item
+     */
+    className?: string;
 };
 
 export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };
@@ -46,14 +56,32 @@ export type ItemProps = {
 export type MergedDropdownNode = {
     value: string | number;
     label: string;
+    /**
+     * Сторона открытия дропдауна относительно target элемента.
+     * @default bottom
+     */
+    placement?: SelectPlacement | Array<SelectPlacementBasic>;
     items?: MergedDropdownNode[];
+    /**
+     * @deprecated
+     */
     isActive?: boolean;
+    /**
+     * @deprecated Использовать disabled
+     */
     isDisabled?: boolean;
+    /**
+     * @deprecated
+     */
     color?: string;
     contentLeft?: React.ReactNode;
 
     disabled?: boolean;
     contentRight?: ReactNode;
+    /**
+     * Classname для item
+     */
+    className?: string;
 };
 
 export type MergedDropdownNodeTransformed = MergedDropdownNode & { parent?: MergedDropdownNode | null };

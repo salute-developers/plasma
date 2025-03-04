@@ -8,7 +8,6 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 # Button
 Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
 
-## Button
 <Description name="Button" />
 <PropsTable name="Button" exclude={['css']} />
 <StorybookLink name="Button" />
@@ -35,20 +34,13 @@ export function App() {
         <div>
             <Button text="Текст" />
 
-            <Button text="Текст" contentLeft={<IconDownload  color="inherit" />} />
+            <Button text="Текст" contentLeft={<IconDownload color="inherit" />} />
 
-            <Button text="Текст" contentRight={<IconDownload  color="inherit" />} />
-
-            <Button contentLeft={<IconDownload  color="inherit" />} />
+            <Button text="Текст" contentRight={<IconDownload color="inherit" />} />
 
             <Button text="Текст" isLoading />
 
             <Button text="Текст" isLoading loader={<div>Loader...</div>} />
-
-            <Button>
-                <IconDownload  color="inherit" />
-                <span>Текст</span>
-            </Button>
         </div>
     );
 }
@@ -57,7 +49,7 @@ export function App() {
 ## Примеры
 
 ### Размер кнопки
-Размер кнопки задается с помощью свойства `size`.
+Размер кнопки задается с помощью свойства `size`:
 
 ```tsx live
 import React from 'react';
@@ -66,6 +58,7 @@ import { Button } from '@salutejs/plasma-web';
 export function App() {
     return (
         <div>
+            <Button text="Button" size="xl" />
             <Button text="Button" size="l" />
             <Button text="Button" size="m" />
             <Button text="Button" size="s" />
@@ -102,7 +95,7 @@ export function App() {
 Позиционирование контента внутри кнопки регулируется с помощью свойства `contentPlacing`.
 Возможные значения свойства `contentPlacing`:
 + `default` – контент центрируется;
-+ `relaxed` – контент распологается по краям.
++ `relaxed` – контент располагается по краям.
 
 ```tsx live
 import React from 'react';
@@ -121,12 +114,13 @@ export function App() {
 ### Вид кнопки
 Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
 + `"default"` – по умолчанию;
++ `"accent"` – акцентная;
 + `"primary"` – основная;
 + `"secondary"` – вторичная;
++ `"clear"` – без цветового сопровождения.
 + `"success"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"critical"` – ошибка;
-+ `"clear"` – без цветового сопровождения;
 + `"dark"` – темная;
 + `"black"` – черная;
 + `"white"` – белая.
@@ -137,14 +131,15 @@ import { Button } from '@salutejs/plasma-web';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Button text="Кнопка" size="s" view="default" />
             <Button text="Кнопка" size="s" view="primary" />
+            <Button text="Кнопка" size="s" view="accent" />
             <Button text="Кнопка" size="s" view="secondary" />
+            <Button text="Кнопка" size="s" view="clear" />
             <Button text="Кнопка" size="s" view="success" />
             <Button text="Кнопка" size="s" view="warning" />
             <Button text="Кнопка" size="s" view="critical" />
-            <Button text="Кнопка" size="s" view="clear" />
             <Button text="Кнопка" size="s" view="dark" />
             <Button text="Кнопка" size="s" view="black" />
             <Button text="Кнопка" size="s" view="white" />
@@ -178,40 +173,12 @@ export function App() {
 }
 ```
 
-### Квадратные и круглые кнопки
-Для отображения иконок и/или текста в квадратных или круглых кнопках с **равными сторонами**,
-используйте компонент `Button` и свойство `contentLeft`, в которое требуется передать нужное значение.
-
-По умолчанию границы кнопки **квадратные** (со скругленными углами) — `pin="square-square"`.
-**Круглые** границы кнопки можно сделать с помощью свойства `pin` со значением `"circle-circle"`.
-
-```tsx live
-import React from 'react';
-import { Button } from '@salutejs/plasma-web';
-import { IconDownload } from '@salutejs/plasma-icons';
-
-export function App() {
-    return (
-        <div>
-            <Button square>
-                <IconDownload color="inherit" />
-            </Button>
-
-            <Button pin="circle-circle" square >
-                <IconDownload color="inherit" />
-            </Button>
-        </div>
-    );
-}
-```
-
 ### Гиперссылка
 Компонент поддерживает вывод в виде тега `<a>`, для этого необходимо указать свойство `as`:
 
 ```tsx live
 import React from 'react';
 import { Button } from '@salutejs/plasma-web';
-import { IconDownload } from '@salutejs/plasma-icons';
 
 export function App() {
     return (

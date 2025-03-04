@@ -11,12 +11,8 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-type StorySwitchProps = {
-    labelPosition: 'before' | 'after';
-} & SwitchProps;
-
-const meta: Meta<StorySwitchProps> = {
-    title: 'Controls/Switch',
+const meta: Meta<SwitchProps> = {
+    title: 'Data Entry/Switch',
     component: Switch,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -25,11 +21,20 @@ const meta: Meta<StorySwitchProps> = {
                 type: 'text',
             },
         },
+        description: {
+            control: {
+                type: 'text',
+            },
+        },
         labelPosition: {
             options: ['before', 'after'],
-            control: {
-                type: 'select',
-            },
+            control: { type: 'select' },
+        },
+        size: {
+            control: { type: 'select' },
+        },
+        toggleSize: {
+            control: { type: 'select' },
         },
         ...disableProps([
             'id',
@@ -38,14 +43,26 @@ const meta: Meta<StorySwitchProps> = {
             'onChange',
             'value',
             'checked',
-            'description',
             'focused',
             'pressed',
             'outlined',
             'theme',
             'as',
             'forwardedAs',
+            'view',
+            'placeholder',
+            'name',
+            'type',
+            'readOnly',
+            'required',
+            'minLength',
+            'maxLength',
         ]),
+    },
+    args: {
+        label: 'Label',
+        description: 'Description',
+        labelPosition: 'before',
     },
 };
 
@@ -55,7 +72,7 @@ const StyledWrapper = styled.div`
     width: 13.75rem;
 `;
 
-const StoryDefault = (args: StorySwitchProps) => {
+const StoryDefault = (args: SwitchProps) => {
     const value = 0;
     const [checked, setChecked] = useState(true);
 
@@ -76,10 +93,10 @@ const StoryDefault = (args: StorySwitchProps) => {
     );
 };
 
-export const Default: StoryObj<StorySwitchProps> = {
+export const Default: StoryObj<SwitchProps> = {
     args: {
-        label: 'Label',
-        labelPosition: 'after',
+        size: 'm',
+        toggleSize: 'l',
         disabled: false,
     },
     render: (args) => <StoryDefault {...args} />,

@@ -1,11 +1,20 @@
 import React, { ComponentProps } from 'react';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
+import { badgeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-import { Badge } from './Badge';
+import { hasComponentDraftConfig } from '../../helpers/hasComponentDraftConfig';
+import { createComponentByConfig } from '../../helpers/createComponentByConfig';
+
+import { config as defaultConfig } from './Badge.config';
+import { config as draftConfig } from './Badge.config.draft';
+
+const config = hasComponentDraftConfig() ? draftConfig : defaultConfig;
+
+const Badge = createComponentByConfig(badgeConfig, config);
 
 const meta: Meta<typeof Badge> = {
-    title: 'Content/Badge',
+    title: 'Data Display/Badge',
     component: Badge,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -29,6 +38,13 @@ const meta: Meta<typeof Badge> = {
             control: { type: 'boolean' },
             if: { arg: 'clear', truthy: false },
         },
+        maxWidth: {
+            control: { type: 'text' },
+        },
+        text: {
+            control: { type: 'text' },
+            if: { arg: 'enableText', truthy: true },
+        },
         ...disableProps(['contentLeft', 'contentRight']),
     },
 };
@@ -38,6 +54,7 @@ export default meta;
 type StoryProps = ComponentProps<typeof Badge> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableText: boolean;
 };
 type Story = StoryObj<StoryProps>;
 
@@ -58,26 +75,39 @@ export const Default: Story = {
         },
         enableContentRight: {
             control: { type: 'boolean' },
-            if: { arg: 'enableContentLeft', truthy: false },
+            if: { arg: 'enableText', truthy: true },
         },
     },
     args: {
-        text: 'Hello',
         view: 'default',
         size: 'm',
+        enableText: true,
+        text: 'Hello',
         enableContentLeft: false,
         enableContentRight: false,
         clear: false,
         pilled: false,
         transparent: false,
+        maxWidth: '',
     },
-    render: ({ enableContentLeft, enableContentRight, size, ...rest }: StoryProps) => {
-        const iconSize = size === 'l' ? '1rem' : '0.75rem';
+    render: ({ enableContentLeft, enableContentRight, enableText, size, ...rest }: StoryProps) => {
+        const iconSize = () => {
+            switch (size) {
+                case 'l':
+                    return '1rem';
+                case 'xs':
+                    return '0.625rem';
+                default:
+                    return '0.75rem';
+            }
+        };
 
         return (
             <Badge
-                contentLeft={enableContentLeft ? <BellIcon width={iconSize} height={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <BellIcon width={iconSize} height={iconSize} /> : undefined}
+                contentLeft={
+                    enableContentLeft || !enableText ? <BellIcon width={iconSize()} height={iconSize()} /> : undefined
+                }
+                contentRight={enableContentRight ? <BellIcon width={iconSize()} height={iconSize()} /> : undefined}
                 size={size}
                 {...rest}
             />

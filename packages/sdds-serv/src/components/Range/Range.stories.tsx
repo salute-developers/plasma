@@ -1,10 +1,10 @@
 import React, { ChangeEvent, ComponentProps, Dispatch, SetStateAction, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconSearch, IconSber, IconArrowRight } from '@salutejs/plasma-icons';
 
-import { Button } from '../Button/Button';
+import { IconButton } from '../IconButton';
 
 import { Range } from './Range';
 
@@ -20,9 +20,10 @@ const onBlurSecondTextfield = action('onBlurSecondTextfield');
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
+const requiredPlacements = ['left', 'right'];
 
 const meta: Meta<typeof Range> = {
-    title: 'Controls/Range',
+    title: 'Data Entry/Range',
     component: Range,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -38,6 +39,14 @@ const meta: Meta<typeof Range> = {
                 type: 'inline-radio',
             },
         },
+        requiredPlacement: {
+            options: requiredPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'required', truthy: true },
+        },
+        ...disableProps(['view']),
     },
 };
 
@@ -68,9 +77,9 @@ const getSizeForIcon = (size) => {
 
 const ActionButton = ({ size }) => {
     return (
-        <Button view="clear" style={{ color: 'inherit' }} size={size}>
+        <IconButton style={{ color: 'inherit' }} view="clear" size={size}>
             <IconSearch color="inherit" size={getSizeForIcon(size)} />
-        </Button>
+        </IconButton>
     );
 };
 
@@ -160,6 +169,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         secondPlaceholder: 'Заполните поле 2',
         size: 'l',
         view: 'default',
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: 'С',
@@ -304,6 +315,8 @@ export const Demo: StoryObj<StoryPropsDefault> = {
         secondPlaceholder: '5',
         size: 'l',
         view: 'default',
+        required: false,
+        requiredPlacement: 'right',
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: '',

@@ -9,6 +9,7 @@ export type ValueToCheckedMapType = Map<
     boolean | 'done' | 'dot' | 'indeterminate'
 >;
 export type ValueToItemMapType = Map<MergedDropdownNodeTransformed['value'], MergedDropdownNodeTransformed>;
+export type LabelToItemMapType = Map<MergedDropdownNodeTransformed['label'], MergedDropdownNodeTransformed>;
 
 // Рекурсивно проходим по дереву items и создаем 4 мапы: открытых путей, фокусов, выбранных элементов и айтемов.
 export const usePathMaps = (items: MergedSelectProps['items']) => {
@@ -16,12 +17,13 @@ export const usePathMaps = (items: MergedSelectProps['items']) => {
     const focusedToValueMap: FocusedToValueMapType = new Map();
     const valueToCheckedMap: ValueToCheckedMapType = new Map();
     const valueToItemMap: ValueToItemMapType = new Map();
+    const labelToItemMap: LabelToItemMapType = new Map();
 
     pathMap.set('root', items?.length || 0);
 
     const rec = (items: MergedSelectProps['items'], prevIndex = '') => {
         items?.forEach((item: MergedDropdownNodeTransformed, index: number) => {
-            const { value, items: innerItems } = item;
+            const { value, label, items: innerItems } = item;
 
             const currIndex = `${prevIndex}/${index}`.replace(/^(\/)/, '');
             focusedToValueMap.set(currIndex, item);
@@ -30,6 +32,7 @@ export const usePathMaps = (items: MergedSelectProps['items']) => {
 
             if (isEmpty(innerItems) || !innerItems) {
                 valueToItemMap.set(value, item);
+                labelToItemMap.set(label, item);
             } else {
                 pathMap.set(value, innerItems.length);
                 rec(innerItems, currIndex);
@@ -38,10 +41,11 @@ export const usePathMaps = (items: MergedSelectProps['items']) => {
     };
     rec(items);
 
-    return [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] as [
+    return [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap, labelToItemMap] as [
         PathMapType,
         FocusedToValueMapType,
         ValueToCheckedMapType,
         ValueToItemMapType,
+        LabelToItemMapType,
     ];
 };

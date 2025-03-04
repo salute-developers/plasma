@@ -1,179 +1,214 @@
 import { styled } from '@linaria/react';
 
-import { isEmpty } from '../../../../../../utils';
-import { applyEllipsis, addFocus } from '../../../../../../mixins';
-import { IconDisclosureDownCentered } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
-import { buttonConfig, buttonTokens } from '../../../../../Button';
-import { tokens, classes, constants } from '../../../../Select.tokens';
-import type { MergedSelectProps } from '../../../../Select.types';
+import { textFieldConfig, textFieldTokens } from '../../../../../TextField';
+import { tokens, classes } from '../../../../Select.tokens';
+import { IconDisclosureDownCentered } from '../../../../../_Icon';
 
-const mergedButtonConfig = mergeConfig(buttonConfig);
-const Button = component(mergedButtonConfig);
+const mergedConfig = mergeConfig(textFieldConfig);
+const TextField = component(mergedConfig);
 
-export const TextfieldWrapper = styled.div<{ opened: boolean; value: MergedSelectProps['value'] }>`
-    display: inline;
+export const StyledTextField = styled(TextField)<{ opened: boolean }>`
+    ${textFieldTokens.color}: var(${tokens.textFieldColor});
+    ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
+    ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColor});
+    ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
+    ${textFieldTokens.labelColor}: var(${tokens.textFieldLabelColor});
+    ${textFieldTokens.leftHelperColor}: var(${tokens.textFieldLeftHelperColor});
 
-    .${classes.textfieldTarget} {
-        transition: 100ms;
-        background: ${({ opened }) =>
-            opened
-                ? `var(${tokens.targetTextfieldBackgroundColorOpened})`
-                : `var(${tokens.targetTextfieldBackgroundColor})`};
-        padding: ${({ value }) =>
-            Array.isArray(value) && !isEmpty(value)
-                ? `0 var(${tokens.targetTextfieldChipPadding})`
-                : `0 var(${tokens.targetTextfieldPadding})`};
-        border: ${({ opened }) =>
-            opened
-                ? `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderOpenedColor})`
-                : `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderColor})`};
-    }
+    ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColor});
+    ${textFieldTokens.backgroundColorReadOnly}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
+    ${textFieldTokens.placeholderColorReadOnly}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.leftHelperColorReadOnly}: var(${tokens.textFieldLeftHelperColor});
+    ${textFieldTokens.labelColorReadOnly}: var(${tokens.textFieldLabelColor});
+    ${textFieldTokens.borderColorReadOnly}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
 
-    .${classes.textfieldTarget}:hover {
-        transition: 100ms;
-        border: ${({ opened }) =>
-            opened
-                ? `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderOpenedColor})`
-                : `var(${tokens.targetTextfieldBorderSize}) solid var(${tokens.targetTextfieldBorderColorHover})`};
-    }
+    ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
 
-    .${classes.selectWithoutBoxShadow}::before {
-        box-shadow: none !important;
+    ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
+    ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+
+    ${textFieldTokens.optionalColor}: var(${tokens.textFieldOptionalColor});
+
+    ${textFieldTokens.height}: var(${tokens.textFieldHeight});
+    ${textFieldTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
+    ${textFieldTokens.borderRadius}: var(${tokens.textFieldBorderRadius});
+
+    ${textFieldTokens.padding}: var(${tokens.textFieldPadding});
+    ${textFieldTokens.paddingWithChips}: var(${tokens.textFieldPaddingWithChips});
+
+    ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
+    ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
+
+    ${textFieldTokens.rightContentWithHintMargin}: var(${tokens.textFieldRightContentWithHintMargin});
+    ${textFieldTokens.contentRightWrapperGap}: var(${tokens.textFieldContentRightWrapperGap});
+    ${textFieldTokens.contentRightWrapperMargin}: var(${tokens.textFieldContentRightWrapperMargin});
+
+    ${textFieldTokens.fontFamily}: var(${tokens.textFieldFontFamily});
+    ${textFieldTokens.fontStyle}: var(${tokens.textFieldFontStyle});
+    ${textFieldTokens.fontSize}: var(${tokens.textFieldFontSize});
+    ${textFieldTokens.fontWeight}: var(${tokens.textFieldFontWeight});
+    ${textFieldTokens.letterSpacing}: var(${tokens.textFieldLetterSpacing});
+    ${textFieldTokens.lineHeight}: var(${tokens.textFieldLineHeight});
+
+    ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColor});
+    ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorHover});
+    ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorActive});
+
+    ${textFieldTokens.contentSlotRightColor}: var(${tokens.textFieldContentSlotRightColor});
+    ${textFieldTokens.contentSlotRightColorHover}: var(${tokens.textFieldContentSlotRightColorHover});
+    ${textFieldTokens.contentSlotRightColorActive}: var(${tokens.textFieldContentSlotRightColorActive});
+
+    ${textFieldTokens.labelOffset}: var(${tokens.textFieldLabelOffset});
+
+    ${textFieldTokens.labelFontFamily}: var(${tokens.textFieldLabelFontFamily});
+    ${textFieldTokens.labelFontStyle}: var(${tokens.textFieldLabelFontStyle});
+    ${textFieldTokens.labelFontSize}: var(${tokens.textFieldLabelFontSize});
+    ${textFieldTokens.labelFontWeight}: var(${tokens.textFieldLabelFontWeight});
+    ${textFieldTokens.labelLetterSpacing}: var(${tokens.textFieldLabelLetterSpacing});
+    ${textFieldTokens.labelLineHeight}: var(${tokens.textFieldLabelLineHeight});
+
+    ${textFieldTokens.labelInnerFontFamily}: var(${tokens.textFieldLabelInnerFontFamily});
+    ${textFieldTokens.labelInnerFontStyle}: var(${tokens.textFieldLabelInnerFontStyle});
+    ${textFieldTokens.labelInnerFontSize}: var(${tokens.textFieldLabelInnerFontSize});
+    ${textFieldTokens.labelInnerFontWeight}: var(${tokens.textFieldLabelInnerFontWeight});
+    ${textFieldTokens.labelInnerLetterSpacing}: var(${tokens.textFieldLabelInnerLetterSpacing});
+    ${textFieldTokens.labelInnerLineHeight}: var(${tokens.textFieldLabelInnerLineHeight});
+
+    ${textFieldTokens.labelInnerPadding}: var(${tokens.textFieldLabelInnerPadding});
+    ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.textFieldContentLabelInnerPadding});
+
+    ${textFieldTokens.titleCaptionColor}: var(${tokens.textFieldTitleCaptionColor});
+    ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.textFieldTitleCaptionInnerLabelOffset});
+
+    ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.textFieldTitleCaptionFontFamily});
+    ${textFieldTokens.titleCaptionFontStyle}: var(${tokens.textFieldTitleCaptionFontStyle});
+    ${textFieldTokens.titleCaptionFontSize}: var(${tokens.textFieldTitleCaptionFontSize});
+    ${textFieldTokens.titleCaptionFontWeight}: var(${tokens.textFieldTitleCaptionFontWeight});
+    ${textFieldTokens.titleCaptionLetterSpacing}: var(${tokens.textFieldTitleCaptionLetterSpacing});
+    ${textFieldTokens.titleCaptionLineHeight}: var(${tokens.textFieldTitleCaptionLineHeight});
+
+    ${textFieldTokens.leftHelperOffset}: var(${tokens.textFieldLeftHelperOffset});
+
+    ${textFieldTokens.leftHelperFontFamily}: var(${tokens.textFieldLeftHelperFontFamily});
+    ${textFieldTokens.leftHelperFontStyle}: var(${tokens.textFieldLeftHelperFontStyle});
+    ${textFieldTokens.leftHelperFontSize}: var(${tokens.textFieldLeftHelperFontSize});
+    ${textFieldTokens.leftHelperFontWeight}: var(${tokens.textFieldLeftHelperFontWeight});
+    ${textFieldTokens.leftHelperLetterSpacing}: var(${tokens.textFieldLeftHelperLetterSpacing});
+    ${textFieldTokens.leftHelperLineHeight}: var(${tokens.textFieldLeftHelperLineHeight});
+
+    ${textFieldTokens.textBeforeColor}: var(${tokens.textFieldTextBeforeColor});
+    ${textFieldTokens.textAfterColor}: var(${tokens.textFieldTextAfterColor});
+    ${textFieldTokens.textBeforeMargin}: var(${tokens.textFieldTextBeforeMargin});
+    ${textFieldTokens.textAfterMargin}: var(${tokens.textFieldTextAfterMargin});
+
+    ${textFieldTokens.disabledOpacity}: var(${tokens.textFieldDisabledOpacity});
+
+    ${textFieldTokens.hintCustomIconTargetSize}: var(${tokens.textFieldHintCustomIconTargetSize});
+    ${textFieldTokens.hintMargin}: var(${tokens.textFieldHintMargin});
+    ${textFieldTokens.hintTargetSize}: var(${tokens.textFieldHintTargetSize});
+    ${textFieldTokens.hintIconColor}: var(${tokens.textFieldHintIconColor});
+    ${textFieldTokens.hintInnerLabelPlacementOffset}: var(${tokens.textFieldHintInnerLabelPlacementOffset});
+    ${textFieldTokens.clearHintInnerLabelPlacementOffset}: var(${tokens.textFieldClearHintInnerLabelPlacementOffset});
+    ${textFieldTokens.tooltipBackgroundColor}: var(${tokens.textFieldTooltipBackgroundColor});
+    ${textFieldTokens.tooltipBoxShadow}: var(${tokens.textFieldTooltipBoxShadow});
+    ${textFieldTokens.tooltipColor}: var(${tokens.textFieldTooltipColor});
+    ${textFieldTokens.tooltipPaddingTop}: var(${tokens.textFieldTooltipPaddingTop});
+    ${textFieldTokens.tooltipPaddingRight}: var(${tokens.textFieldTooltipPaddingRight});
+    ${textFieldTokens.tooltipPaddingBottom}: var(${tokens.textFieldTooltipPaddingBottom});
+    ${textFieldTokens.tooltipPaddingLeft}: var(${tokens.textFieldTooltipPaddingLeft});
+    ${textFieldTokens.tooltipMinHeight}: var(${tokens.textFieldTooltipMinHeight});
+    ${textFieldTokens.tooltipBorderRadius}: var(${tokens.textFieldTooltipBorderRadius});
+    ${textFieldTokens.tooltipTextFontFamily}: var(${tokens.textFieldTooltipTextFontFamily});
+    ${textFieldTokens.tooltipTextFontSize}: var(${tokens.textFieldTooltipTextFontSize});
+    ${textFieldTokens.tooltipTextFontStyle}: var(${tokens.textFieldTooltipTextFontStyle});
+    ${textFieldTokens.tooltipTextFontWeight}: var(${tokens.textFieldTooltipTextFontWeight});
+    ${textFieldTokens.tooltipTextFontLetterSpacing}: var(${tokens.textFieldTooltipTextFontLetterSpacing});
+    ${textFieldTokens.tooltipTextFontLineHeight}: var(${tokens.textFieldTooltipTextFontLineHeight});
+    ${textFieldTokens.tooltipContentLeftMargin}: var(${tokens.textFieldTooltipContentLeftMargin});
+    ${textFieldTokens.tooltipArrowMaskWidth}: var(${tokens.textFieldTooltipArrowMaskWidth});
+    ${textFieldTokens.tooltipArrowMaskHeight}: var(${tokens.textFieldTooltipArrowMaskHeight});
+    ${textFieldTokens.tooltipArrowMaskImage}: var(${tokens.textFieldTooltipArrowMaskImage});
+    ${textFieldTokens.tooltipArrowHeight}: var(${tokens.textFieldTooltipArrowHeight});
+    ${textFieldTokens.tooltipArrowEdgeMargin}: var(${tokens.textFieldTooltipArrowEdgeMargin});
+    ${textFieldTokens.tooltipArrowBackground}: var(${tokens.textFieldTooltipArrowBackground});
+
+    ${textFieldTokens.chipHeight}: var(${tokens.textFieldChipHeight});
+    ${textFieldTokens.chipBorderRadius}: var(${tokens.textFieldChipBorderRadius});
+    ${textFieldTokens.chipGap}: var(${tokens.textFieldChipGap});
+    ${textFieldTokens.chipColor}: var(${tokens.textFieldChipColor});
+    ${textFieldTokens.chipColorHover}: var(${tokens.textFieldChipColorHover});
+    ${textFieldTokens.chipScaleHover}: var(${tokens.textFieldChipScaleHover});
+    ${textFieldTokens.chipBackground}: var(${tokens.textFieldChipBackground});
+    ${textFieldTokens.chipBackgroundActive}: var(${tokens.textFieldChipBackgroundActive});
+    ${textFieldTokens.chipColorActive}: var(${tokens.textFieldChipColorActive});
+    ${textFieldTokens.chipScaleActive}: var(${tokens.textFieldChipScaleActive});
+    ${textFieldTokens.chipCloseIconColor}: var(${tokens.textFieldChipCloseIconColor});
+    ${textFieldTokens.chipOutlineSize}: var(${tokens.textFieldChipOutlineSize});
+    ${textFieldTokens.chipWidth}: var(${tokens.textFieldChipWidth});
+    ${textFieldTokens.chipPadding}: var(${tokens.textFieldChipPadding});
+    ${textFieldTokens.chipCloseIconSize}: var(${tokens.textFieldChipCloseIconSize});
+    ${textFieldTokens.chipFontFamily}: var(${tokens.textFieldChipFontFamily});
+    ${textFieldTokens.chipFontSize}: var(${tokens.textFieldChipFontSize});
+    ${textFieldTokens.chipFontStyle}: var(${tokens.textFieldChipFontStyle});
+    ${textFieldTokens.chipFontWeight}: var(${tokens.textFieldChipFontWeight});
+    ${textFieldTokens.chipLetterSpacing}: var(${tokens.textFieldChipLetterSpacing});
+    ${textFieldTokens.chipLineHeight}: var(${tokens.textFieldChipLineHeight});
+    ${textFieldTokens.chipColorReadOnly}: var(${tokens.textFieldChipColor});
+    ${textFieldTokens.chipColorReadOnlyHover}: var(${tokens.textFieldChipColor});
+    ${textFieldTokens.chipBackgroundReadOnly}: var(${tokens.textFieldChipBackground});
+    ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${tokens.textFieldChipBackgroundHover});
+    ${textFieldTokens.chipClearContentMarginLeft}: var(${tokens.textFieldChipClearContentMarginLeft});
+    ${textFieldTokens.chipClearContentMarginRight}: var(${tokens.textFieldChipClearContentMarginRight});
+
+    ${textFieldTokens.indicatorColor}: var(${tokens.textFieldIndicatorColor});
+    ${textFieldTokens.indicatorSizeInner}: var(${tokens.textFieldIndicatorSizeInner});
+    ${textFieldTokens.indicatorSizeOuter}: var(${tokens.textFieldIndicatorSizeOuter});
+    ${textFieldTokens.indicatorLabelPlacementInner}: var(${tokens.textFieldIndicatorLabelPlacementInner});
+    ${textFieldTokens.indicatorLabelPlacementOuter}: var(${tokens.textFieldIndicatorLabelPlacementOuter});
+    ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.textFieldIndicatorLabelPlacementInnerRight});
+    ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.textFieldIndicatorLabelPlacementOuterRight});
+    ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${tokens.textFieldClearIndicatorLabelPlacementInner});
+    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}:
+        var(${tokens.textFieldClearIndicatorLabelPlacementInnerRight});
+    ${textFieldTokens.clearIndicatorHintInnerRight}: var(${tokens.textFieldClearIndicatorHintInnerRight});
+
+    ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
+
+    ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
+
+    /* TODO: #1544 */
+    & div.input-wrapper:focus-within {
+        background-color: var(${tokens.textFieldBackgroundColorFocus});
     }
 `;
 
-export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
-    ${buttonTokens.buttonColor}: var(${constants.textfieldTargetColor});
-    ${buttonTokens.buttonColorHover}: var(${constants.textfieldTargetColor});
-    ${buttonTokens.buttonColorActive}: var(${constants.textfieldTargetColor});
-    ${buttonTokens.buttonHeight}: ${({ renderTarget }) => (renderTarget ? 'auto' : `var(${tokens.targetHeight})`)};
-    ${buttonTokens.buttonWidth}: 100%;
-    ${buttonTokens.buttonPadding}: var(${tokens.targetTextfieldPadding});
-    ${buttonTokens.buttonRadius}: var(${tokens.borderRadius});
-    ${buttonTokens.buttonFontFamily}: var(${tokens.fontFamily});
-    ${buttonTokens.buttonFontSize}: var(${tokens.fontSize});
-    ${buttonTokens.buttonFontStyle}: var(${tokens.fontStyle});
-    ${buttonTokens.buttonFontWeight}:var(${tokens.fontWeight});
-    ${buttonTokens.buttonLetterSpacing}: var(${tokens.fontLetterSpacing});
-    ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
-    ${buttonTokens.buttonDisabledOpacity}: ${constants.opacity};
-    ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
-    box-shadow: inset 0 0 0 ${tokens.targetTextfieldBorderSize} var(${tokens.targetTextfieldBorderColor});
-    text-align: left;
-
-    ${addFocus({
-        outlineOffset: tokens.targetTextfieldBorderSize,
-        outlineSize: constants.focusSize,
-        outlineRadius: `calc(var(${tokens.borderRadius}) - ${tokens.targetTextfieldBorderSize})`,
-        outlineColor: `var(${constants.focusColor})`,
-    })}
-`;
-
-export const StyledArrow = styled(IconDisclosureDownCentered)``;
-
-export const IconArrowWrapper = styled.div`
+export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
     line-height: 0;
-    margin: var(${tokens.targetTextfieldArrowMargin});
-    color: var(${tokens.targetTextfieldArrowColor});
-
-    &:hover {
-        color: var(${tokens.targetTextfieldArrowColorHover});
-    }
-
-    &:active {
-        color: var(${tokens.targetTextfieldArrowColorActive});
-    }
-`;
-
-export const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    color: var(${tokens.disclosureIconColor});
+    cursor: ${({ disabled }) => (disabled ? 'inherit' : 'pointer')};
 
     .${classes.arrowInverse} {
         transform: rotate(-180deg);
     }
-`;
 
-export const ChipWrapper = styled.div<{
-    multiselect: MergedSelectProps['multiselect'];
-    value: MergedSelectProps['value'];
-}>`
-    width: 100%;
-    display: flex;
-    min-width: 0;
-    padding: ${({ multiselect, value }) =>
-        `calc(${constants.focusSize} + ${
-            multiselect && value && value.toString().length > 0 ? `var(${tokens.focusOffset})` : 0
-        })`};
-    gap: 0.25rem;
-    overflow-x: scroll;
-    border-top-right-radius: var(${tokens.chipBorderRadius});
-    border-bottom-right-radius: var(${tokens.chipBorderRadius});
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-        display: none;
+    &:hover,
+    &:active {
+        color: ${({ disabled }) =>
+            disabled ? `var(${tokens.disclosureIconColor})` : `var(${tokens.disclosureIconColorHover})`};
     }
 `;
 
-export const Label = styled.label`
-    color: var(${constants.textfieldInnerLabelColor});
-    font-family: var(${tokens.fontFamily});
-    font-size: var(${tokens.fontSize});
-    font-style: var(${tokens.fontStyle});
-    font-weight: var(${tokens.fontWeight});
-    letter-spacing: var(${tokens.fontLetterSpacing});
-    line-height: var(${tokens.fontLineHeight});
-`;
+// TODO: Удалить после поддержки JS переменных в конфиге компонент
+export const sizeMap: Record<string, string> = {
+    xs: '1rem',
+    s: '1.5rem',
+};
 
-export const Placeholder = styled.div`
-    color: var(${constants.textfieldPlaceholderColor});
-    font-family: var(${tokens.fontFamily});
-    font-size: var(${tokens.fontSize});
-    font-style: var(${tokens.fontStyle});
-    font-weight: var(${tokens.fontWeight});
-    letter-spacing: var(${tokens.fontLetterSpacing});
-    line-height: var(${tokens.fontLineHeight});
-`;
-
-export const InnerLabelWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    row-gap: var(${tokens.innerLabelGap});
-    font-family: var(${tokens.fontFamily});
-    font-size: var(${tokens.fontSize});
-    font-style: var(${tokens.fontStyle});
-    font-weight: var(${tokens.fontWeight});
-    letter-spacing: var(${tokens.fontLetterSpacing});
-    line-height: var(${tokens.fontLineHeight});
-`;
-
-export const InnerLabel = styled.label`
-    color: var(${constants.textfieldInnerLabelColor});
-    font-family: var(${constants.fontFamily});
-    font-size: var(${constants.fontSize});
-    font-style: var(${constants.fontStyle});
-    font-weight: var(${constants.fontWeight});
-    letter-spacing: var(${constants.fontLetterSpacing});
-    line-height: var(${constants.fontLineHeight});
-    text-align: left;
-`;
-
-export const ContentLeftWrapper = styled.div`
-    flex: none;
-    margin-left: -0.125rem;
-    margin-right: 0.375rem;
-    line-height: 0;
-    color: var(${tokens.contentLeftColor}, --text-secondary);
-`;
-
-export const Value = styled.span`
-    ${applyEllipsis()}
+export const StyledArrow = styled(IconDisclosureDownCentered)`
+    width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+    height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
 `;

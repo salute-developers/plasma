@@ -1,162 +1,141 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { cx, isEmpty } from '../../../../../../utils';
+import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
-import { sizeToIconSize } from '../../../../utils';
 
-import { TextfieldProps, GetTextfieldLabelProps } from './Textfield.types';
-import { Chip } from './ui';
-import {
-    StyledButton,
-    StyledArrow,
-    Wrapper,
-    ChipWrapper,
-    TextfieldWrapper,
-    IconArrowWrapper,
-    Label,
-    Placeholder,
-    InnerLabel,
-    InnerLabelWrapper,
-    ContentLeftWrapper,
-    Value,
-} from './Textfield.styles';
+import { IconArrowWrapper, StyledArrow, StyledTextField } from './Textfield.styles';
+import { TextfieldProps } from './Textfield.types';
 
-const getLabel = ({
-    value,
-    isTargetAmount,
-    valueToItemMap,
-    onChipClick,
-    label,
-    placeholder,
-    focusedChipIndex,
-    labelPlacement,
-    size,
-    renderValue,
-}: GetTextfieldLabelProps) => {
-    if (isEmpty(value) && typeof value !== 'number') {
-        if (!label || labelPlacement === 'outer') {
-            return <Placeholder>{placeholder}</Placeholder>;
-        }
+export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
+    (
+        {
+            inputWrapperRef,
+            opened,
+            multiselect,
+            value,
+            label,
+            labelPlacement,
+            keepPlaceholder,
+            placeholder,
+            onKeyDown,
+            size,
+            view,
+            contentLeft,
+            helperText,
+            treeId,
+            activeDescendantItemValue,
+            disabled,
+            isTargetAmount,
+            valueToItemMap,
+            renderValue,
+            onChange,
+            labelToItemMap,
+            chipView,
+            requiredProps,
+            chipType,
+            hintProps,
+        },
+        ref,
+    ) => {
+        const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
-        return <Label>{label}</Label>;
-    }
+        const getValue = () => {
+            if (multiselect || !value) {
+                return '';
+            }
 
-    if (Array.isArray(value) && isTargetAmount) {
-        return <Chip text={`Выбрано: ${value.length}`} isTargetAmount={isTargetAmount} />;
-    }
+            if (renderValue) {
+                return renderValue(valueToItemMap.get(value.toString())!);
+            }
 
-    if (Array.isArray(value)) {
-        return value.map((currentValue, index) => {
-            const itemLabel = valueToItemMap.get(currentValue)!.label;
+            return valueToItemMap.get(value.toString())?.label || '';
+        };
 
-            return (
-                <Chip
-                    text={renderValue ? renderValue(valueToItemMap.get(currentValue)!) : itemLabel}
-                    onClick={(e: React.MouseEvent<HTMLElement>) => {
-                        e.stopPropagation();
-                        onChipClick(currentValue.toString());
-                    }}
-                    focused={focusedChipIndex === index}
-                />
-            );
-        });
-    }
+        const getChips = (): string[] => {
+            if (multiselect && Array.isArray(value)) {
+                if (value.length === 0) return [];
 
-    const itemLabel = valueToItemMap.get(value)!.label;
+                if (isTargetAmount) {
+                    return [`Выбрано ${value.length}`];
+                }
 
-    if (!label || labelPlacement === 'outer') {
-        return <Value>{renderValue ? renderValue(valueToItemMap.get(value)!) : itemLabel}</Value>;
-    }
+                const renderValueMapper =
+                    renderValue && ((stringValue: string | number) => renderValue(valueToItemMap.get(stringValue)!));
+                const valueToItemMapper = (stringValue: string | number) => valueToItemMap.get(stringValue)!.label;
 
-    return (
-        <InnerLabelWrapper>
-            {size !== 'xs' && <InnerLabel>{label}</InnerLabel>}
-            <Value>{renderValue ? renderValue(valueToItemMap.get(value)!) : itemLabel}</Value>
-        </InnerLabelWrapper>
-    );
-};
+                return value.map(renderValueMapper || valueToItemMapper);
+            }
 
-export const Textfield: React.FC<TextfieldProps> = ({
-    opened,
-    value,
-    valueToItemMap,
-    onChipClick,
-    label,
-    placeholder,
-    onKeyDown,
-    focusedChipIndex,
-    labelPlacement,
-    size,
-    contentLeft,
-    disabled,
-    renderValue,
-    focusedPath,
-    focusedToValueMap,
-    selectProps,
-}) => {
-    const withArrowInverse = opened ? classes.arrowInverse : undefined;
+            return [];
+        };
 
-    const getActiveDescendant = () => {
-        const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
-        return focusedToValueMap?.get(focusedPathAsString)?.value.toString();
-    };
+        // Обработчик чипов
+        const handleChipsChange = (chipLabels: any[]) => {
+            if (!Array.isArray(value)) return;
 
-    return (
-        <TextfieldWrapper opened={opened} value={value}>
-            <StyledButton
-                stretching="filled"
-                className={cx(
-                    classes.textfieldTarget,
-                    opened || focusedChipIndex !== null ? classes.selectWithoutBoxShadow : undefined,
-                )}
-                onKeyDown={onKeyDown}
+            // TODO: #1564
+            // Из лейблов чипов получаем value у item и далее прокидываем его в onChange.
+            if (renderValue && !isTargetAmount) {
+                const resultValues = [...value];
+
+                value.forEach((_, index) => {
+                    const labelAfterRenderValue = renderValue(
+                        labelToItemMap.get(valueToItemMap.get(value[index])!.label)!,
+                    );
+
+                    if (!chipLabels.includes(labelAfterRenderValue)) {
+                        resultValues.splice(index, 1);
+                    }
+                });
+
+                onChange(resultValues);
+            } else {
+                onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+            }
+        };
+
+        return (
+            <StyledTextField
+                ref={ref}
+                inputWrapperRef={inputWrapperRef}
+                readOnly
+                value={getValue()}
+                size={size}
+                view={view}
+                labelPlacement={labelPlacement}
                 disabled={disabled}
-                role="combobox"
-                aria-controls="tree_level_1"
-                aria-expanded={opened}
-                aria-activedescendant={getActiveDescendant()}
-                aria-label={label}
-                renderTarget={Boolean(selectProps.renderTarget)}
-            >
-                <Wrapper>
-                    {selectProps?.renderTarget ? (
-                        selectProps.renderTarget(
-                            Array.isArray(value)
-                                ? value.map((value) => valueToItemMap.get(value)!)
-                                : valueToItemMap.get(value)!,
-                        )
-                    ) : (
-                        <>
-                            {contentLeft && (!selectProps.multiselect || isEmpty(value)) && (
-                                <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>
-                            )}
-
-                            <ChipWrapper multiselect={selectProps.multiselect} value={value}>
-                                {getLabel({
-                                    value,
-                                    valueToItemMap,
-                                    onChipClick,
-                                    focusedChipIndex,
-                                    label,
-                                    labelPlacement,
-                                    placeholder,
-                                    isTargetAmount: selectProps.isTargetAmount,
-                                    renderValue,
-                                    size,
-                                })}
-                            </ChipWrapper>
-                        </>
-                    )}
-
-                    <IconArrowWrapper>
-                        <StyledArrow
-                            size={sizeToIconSize(size)}
-                            color="inherit"
-                            className={cx(classes.selectTargetArrow, withArrowInverse)}
-                        />
+                label={label}
+                keepPlaceholder={keepPlaceholder}
+                placeholder={value instanceof Array && value.length ? '' : placeholder}
+                contentLeft={contentLeft as React.ReactElement}
+                contentRight={
+                    <IconArrowWrapper disabled={Boolean(disabled)}>
+                        <StyledArrow color="inherit" size={sizeToIconSize(size)} className={withArrowInverse} />
                     </IconArrowWrapper>
-                </Wrapper>
-            </StyledButton>
-        </TextfieldWrapper>
-    );
-};
+                }
+                onKeyDown={onKeyDown}
+                leftHelper={helperText}
+                role="combobox"
+                aria-autocomplete="list"
+                aria-controls={`${treeId}_tree_level_1`}
+                aria-expanded={opened}
+                aria-activedescendant={activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''}
+                {...(multiselect
+                    ? {
+                          enumerationType: 'chip',
+                          chips: getChips(),
+                          onChangeChips: handleChipsChange,
+                          chipType,
+                          chipView,
+                      }
+                    : { enumerationType: 'plain' })}
+                onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
+                opened={opened}
+                // TODO: #1547
+                _forceChipManipulationWithReadonly
+                {...requiredProps}
+                {...hintProps}
+            />
+        );
+    },
+);

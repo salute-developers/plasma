@@ -13,7 +13,6 @@ export const base = css`
     position: relative;
     align-items: flex-start;
     display: flex;
-    cursor: pointer;
 
     .${classes.singleLine} {
         ${applyEllipsis()};
@@ -34,9 +33,11 @@ export const StyledInput = styled.input`
     clip: rect(0 0 0 0);
 `;
 
-export const StyledTrigger = styled.div`
-    margin: var(${tokens.triggerMargin});
+export const StyledTriggerWrapper = styled.div`
+    padding: var(${tokens.triggerPadding});
+`;
 
+export const StyledTrigger = styled.div`
     width: var(${tokens.triggerSize});
     height: var(${tokens.triggerSize});
     border-radius: var(${tokens.triggerBorderRadius});
@@ -67,8 +68,12 @@ export const StyledContentWrapper = styled.label`
     position: relative;
     align-items: flex-start;
     display: flex;
-    width: 100%;
-    cursor: inherit;
+    width: inherit;
+    cursor: pointer;
+
+    .${classes.singleLine} {
+        width: 100%;
+    }
 `;
 
 export const StyledContent = styled.div`

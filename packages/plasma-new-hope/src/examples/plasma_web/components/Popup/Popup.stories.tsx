@@ -10,7 +10,7 @@ import { WithTheme } from '../../../_helpers';
 import { Popup, popupClasses, PopupProvider } from './Popup';
 
 const meta: Meta<typeof Popup> = {
-    title: 'plasma_web/Popup',
+    title: 'web/Overlay/Popup',
     decorators: [WithTheme],
     parameters: {
         docs: { story: { inline: false, iframeHeight: '30rem' } },
@@ -58,13 +58,13 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledWrapper = styled.div`
-    height: 1200px;
+    height: 100vh;
 `;
 
 const OtherContent = styled.div`
     width: 50%;
     height: 50%;
-    background: var(--plasma-colors-surface-solid03);
+    background: var(--surface-solid-tertiary);
     position: absolute;
 
     display: flex;
@@ -77,7 +77,7 @@ const OtherContent = styled.div`
 `;
 
 const Content = styled.div`
-    background: var(--plasma-colors-surface-solid02);
+    background: var(--surface-solid-secondary);
     padding: 1rem;
 `;
 

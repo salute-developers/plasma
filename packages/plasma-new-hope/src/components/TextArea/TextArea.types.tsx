@@ -79,32 +79,19 @@ export type TextAreaDimensionsProps = OneOf<
 
 type RequiredProps = {
     /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
+    /**
      * Задает выравнивание индикатора обязательности поля
      * @default right
      */
     requiredPlacement?: 'left' | 'right';
-} & (
-    | {
-          /**
-           * Флаг обязательности поля
-           */
-          required: true;
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: never | false;
-      }
-    | {
-          /**
-           * Флаг необязательности поля
-           */
-          optional?: true;
-          /**
-           * Флаг обязательности поля
-           */
-          required?: never | false;
-      }
-);
+    /**
+     * Флаг необязательности поля
+     */
+    optional?: boolean;
+};
 
 type HintProps =
     | {
@@ -205,11 +192,16 @@ export type TextAreaPropsBase = {
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
-    leftHelper?: string;
+    leftHelper?: ReactNode;
     /**
      * Вспомогательный текст снизу справа для поля ввода.
      */
-    rightHelper?: string;
+    rightHelper?: ReactNode;
+    /**
+     * Расположение вспомогательного текста слева
+     * @default 'inner'
+     */
+    leftHelperPlacement?: 'inner' | 'outer';
 } & RequiredProps &
     HintProps;
 

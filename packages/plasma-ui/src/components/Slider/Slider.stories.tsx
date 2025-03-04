@@ -9,7 +9,7 @@ import { Slider } from '.';
 import type { SliderProps } from '.';
 
 const meta: Meta<SliderProps> = {
-    title: 'Controls/Slider',
+    title: 'Data Entry/Slider',
     component: Slider,
     decorators: [InSpacingDecorator],
     argTypes: {

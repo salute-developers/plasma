@@ -11,14 +11,14 @@ type StoryProps = ComponentProps<typeof ButtonGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
 const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 const orientationValues = ['horizontal', 'vertical'];
 const gapValues = ['none', 'dense', 'wide'];
 const shapeValues = ['segmented', 'default'];
 const stretchingValues = ['auto', 'filled'];
 
 const meta: Meta<typeof ButtonGroup> = {
-    title: 'Controls/ButtonGroup',
+    title: 'Data Entry/ButtonGroup',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {

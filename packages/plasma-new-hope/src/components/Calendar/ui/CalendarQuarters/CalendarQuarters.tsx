@@ -28,7 +28,17 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
     onSetSelected,
     onKeyDown,
 }) => {
-    const [quarters, selected] = useQuarters({ date: currentDate, value, eventList, disabledList, min, max });
+    const minDate = min ? new Date(min.getFullYear(), min.getMonth(), 1) : undefined;
+    const maxDate = max ? new Date(max.getFullYear(), max.getMonth() + 1, 0) : undefined;
+
+    const [quarters, selected] = useQuarters({
+        date: currentDate,
+        value,
+        eventList,
+        disabledList,
+        min: minDate,
+        max: maxDate,
+    });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
 

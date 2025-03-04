@@ -3,6 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import styled from 'styled-components';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconBellFill } from '@salutejs/plasma-icons';
 
@@ -14,8 +15,9 @@ const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
+const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -41,7 +43,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<typeof TextField> = {
-    title: 'Controls/TextField',
+    title: 'Data Entry/TextField',
     component: TextField,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -80,6 +82,12 @@ const meta: Meta<typeof TextField> = {
             control: {
                 type: 'inline-radio',
             },
+        },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'labelPlacement', eq: 'inner' },
         },
         size: {
             options: sizes,
@@ -128,6 +136,10 @@ const meta: Meta<typeof TextField> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        chipType: {
+            control: 'select',
+            options: ['default', 'text'],
+        },
         ...disableProps([
             'contentLeft',
             'contentRight',
@@ -136,6 +148,20 @@ const meta: Meta<typeof TextField> = {
             'onChangeChips',
             'enumerationType',
             'values',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintOffset',
+            'hintContentLeft',
+            'chips',
+            'chipValidator',
+            'onFocus',
+            'onBlur',
+            'name',
+            'value',
+            'type',
+            'minLength',
+            'maxLength',
+            'checked',
         ]),
     },
 };
@@ -167,18 +193,37 @@ type StoryPropsDefault = Omit<
     enableContentRight: boolean;
 };
 
+const StyledIconBellFill = styled(IconBellFill)<{ customSize?: string }>`
+    ${({ customSize }) =>
+        customSize &&
+        `
+            width: ${customSize};
+            height: ${customSize};
+            flex: 0 0 ${customSize};
+        `}
+`;
+
 const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const iconSize = rest.size === 'xs' || rest.size === 's' ? 'xs' : 's';
+    const iconCustomSize = rest.size === 'm' ? '1.25rem' : undefined;
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
             <TextField
                 {...rest}
                 value={text}
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                contentLeft={
+                    enableContentLeft ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
+                contentRight={
+                    enableContentRight ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -193,8 +238,16 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
                 {...rest}
                 label="Uncontrolled TextField"
                 defaultValue="Дефолтное значение"
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                contentLeft={
+                    enableContentLeft ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
+                contentRight={
+                    enableContentRight ? (
+                        <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                    ) : undefined
+                }
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -209,12 +262,16 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
 };
 
 export const Default: StoryObj<StoryPropsDefault> = {
+    argsTypes: {
+        ...disableProps(['chipView']),
+    },
     args: {
         id: 'example-text-field',
         size: 'm',
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
+        keepPlaceholder: false,
         placeholder: 'Заполните поле',
         titleCaption: 'Подпись к полю',
         leftHelper: 'Подсказка к полю',
@@ -235,6 +292,11 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+    },
+    parameters: {
+        controls: {
+            exclude: ['chipType'],
+        },
     },
     render: (args) => <StoryDemo {...args} />,
 };
@@ -263,10 +325,13 @@ type StoryPropsChips = Omit<
     enableContentRight: boolean;
 };
 
-const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsChips) => {
-    const [text, setText] = useState('Значение поля');
+const StoryChips = ({ enableContentRight, view, ...rest }: StoryPropsChips) => {
+    const [text, setText] = useState('');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const iconSize = rest.size === 'xs' || rest.size === 's' ? 'xs' : 's';
+    const iconCustomSize = rest.size === 'm' ? '1.25rem' : undefined;
+
+    const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 
     return (
         <TextField
@@ -274,8 +339,11 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             style={{ width: '70%', margin: '0 auto' }}
             enumerationType="chip"
             value={text}
-            contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+            contentRight={
+                enableContentRight ? (
+                    <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />
+                ) : undefined
+            }
             view={view}
             onChange={(e) => {
                 setText(e.target.value);
@@ -283,15 +351,27 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            chipValidator={validateChip}
             onChangeChips={onChipsChange}
         />
     );
 };
 
 export const Chips: StoryObj<StoryPropsChips> = {
+    argTypes: {
+        chipView: {
+            options: chipViews,
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         ...Default.args,
+        leftHelper: 'Для первого чипа валидация вернула view="negative"',
+        chipView: 'secondary',
         chips: ['1 value', '2 value', '3 value', '4 value'],
+        chipType: 'default',
     },
     render: (args) => <StoryChips {...args} />,
 };

@@ -3,7 +3,7 @@ import { css } from '@linaria/core';
 
 import { component, mergeConfig } from '../../../engines';
 import { rangeConfig, rangeTokens } from '../../Range';
-import { tokens } from '../DatePicker.tokens';
+import { classes, tokens } from '../DatePicker.tokens';
 import { popoverConfig } from '../../Popover';
 
 const mergedRangeConfig = mergeConfig(rangeConfig);
@@ -75,6 +75,14 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.labelLetterSpacing}: var(${tokens.labelLetterSpacing});
     ${rangeTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
+    ${rangeTokens.indicatorColor}: var(${tokens.indicatorColor});
+    ${rangeTokens.indicatorSize}: var(${tokens.indicatorSize});
+    ${rangeTokens.indicatorSizeOuter}: var(${tokens.indicatorSizeOuter});
+    ${rangeTokens.indicatorPlacement}: var(${tokens.indicatorPlacement});
+    ${rangeTokens.indicatorOuterPlacement}: var(${tokens.indicatorOuterPlacement});
+    ${rangeTokens.indicatorPlacementRight}: var(${tokens.indicatorPlacementRight});
+    ${rangeTokens.indicatorOuterPlacementRight}: var(${tokens.indicatorOuterPlacementRight});
+
     ${rangeTokens.textFieldHeight}: var(${tokens.textFieldHeight});
     ${rangeTokens.textFieldBorderRadius}: var(${tokens.textFieldBorderRadius});
     ${rangeTokens.textFieldPadding}: var(${tokens.textFieldPadding});
@@ -112,6 +120,14 @@ export const base = css`
     display: inline-block;
 `;
 
-export const StyledLabel = styled.label``;
+export const LeftHelper = styled.div`
+    color: var(${tokens.leftHelperColor});
 
-export const LeftHelper = styled.div``;
+    &.${classes.datePickerError} {
+        color: var(${tokens.leftHelperColorError});
+    }
+
+    &.${classes.datePickerSuccess} {
+        color: var(${tokens.leftHelperColorSuccess});
+    }
+`;

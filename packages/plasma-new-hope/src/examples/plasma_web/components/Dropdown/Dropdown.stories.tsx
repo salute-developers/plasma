@@ -17,7 +17,7 @@ const size = ['xs', 's', 'm', 'l'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StoryDropdownProps> = {
-    title: 'plasma_web/Dropdown',
+    title: 'web/Data Entry/Dropdown',
     decorators: [WithTheme],
     component: Dropdown,
     argTypes: {
@@ -45,6 +45,17 @@ const meta: Meta<StoryDropdownProps> = {
                 type: 'select',
             },
         },
+        closeOnOverlayClick: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        closeOnSelect: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        listWidth: {
+            control: { type: 'text' },
+        },
     },
     args: {
         size: 'm',
@@ -52,8 +63,9 @@ const meta: Meta<StoryDropdownProps> = {
         placement: 'bottom-start',
         trigger: 'click',
         offset: [0, 0],
-        listWidth: '',
+        listWidth: '300px',
         hasArrow: true,
+        alwaysOpened: false,
         closeOnOverlayClick: true,
         closeOnSelect: true,
     },
@@ -285,7 +297,7 @@ const StoryNormal = (args: StoryDropdownProps) => {
             onItemSelect={action('onItemSelect')}
             onItemClick={action('onItemClick')}
         >
-            <Button text="Список стран" />
+            <Button text="Список стран" size={args.size} />
         </Dropdown>
     );
 };

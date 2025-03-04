@@ -58,8 +58,7 @@ type CustomButtonProps = {
     loader?: ReactNode;
     /**
      * Кнопка растягивается на всю доступную ширину
-     * @deprecated
-     * Использовать stretching
+     * @deprecated Использовать stretching
      */
     stretch?: boolean;
     /**
@@ -73,6 +72,7 @@ type CustomButtonProps = {
     stretching?: Stretching;
     /**
      * Кнопка принимает соотношение сторон 1:1
+     * @deprecated Использовать для этого случая IconButton
      */
     square?: boolean;
     /**
@@ -80,7 +80,7 @@ type CustomButtonProps = {
      */
     focused?: boolean;
     /**
-     * кнопка неактивна
+     * Кнопка неактивна
      */
     disabled?: boolean;
     /**
@@ -97,8 +97,7 @@ type CustomButtonProps = {
     size?: string;
     /**
      * Добавить рамку при фокусе
-     * @deprecated
-     * использовать focused
+     * @deprecated использовать focused
      */
     outlined?: boolean;
     /**
@@ -113,8 +112,7 @@ type CustomButtonProps = {
     shiftRight?: boolean;
     /**
      * Степень размытия фона
-     * @deprecated
-     * для кнопок без прозрачности не работает
+     * @deprecated для кнопок без прозрачности не работает
      */
     blur?: Blur;
 };

@@ -1,480 +1,826 @@
 import { css } from '@linaria/core';
 
-import { selectTokens } from '../../../..';
+import { selectTokens as tokens } from '../../../..';
 
 export const config = {
     defaults: {
         view: 'default',
-        chipView: 'default',
         size: 'm',
+        labelPlacement: 'outer',
+        chipView: 'default',
     },
     variations: {
-        size: {
-            xs: css`
-                ${selectTokens.padding}: 0.125rem;
-                ${selectTokens.borderRadius}: 0.5rem;
-                ${selectTokens.focusOffset}: 0.125rem;
-
-                ${selectTokens.itemHeight}: 1rem;
-                ${selectTokens.itemPadding}: 0.5rem 0.5rem 0.5rem 0.375rem;
-                ${selectTokens.itemPaddingTight}: 0.25rem 0.5rem 0.25rem 0.375rem;
-                ${selectTokens.itemBorderRadius}: 0.375rem;
-                ${selectTokens.itemIconSize}: 1rem;
-                ${selectTokens.itemIconSizeTight}: 1rem;
-                ${selectTokens.itemIconMargin}: 0 0.25rem 0 0;
-
-                ${selectTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${selectTokens.checkboxTriggerSize}: 0.875rem;
-                ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
-                ${selectTokens.checkboxTriggerBorderRadius}: 0.25rem;
-                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
-                ${selectTokens.checkboxFillColor}: var(--text-accent);
-                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
-
-                ${selectTokens.indicatorSize}: 0.375rem;
-
-                ${selectTokens.chipGap}: 0.25rem;
-                ${selectTokens.chipBorderRadius}: 0.125rem;
-                ${selectTokens.chipHeight}: 1.25rem;
-                ${selectTokens.chipPaddingRight}: 0.375rem;
-                ${selectTokens.chipPaddingLeft}: 0.625rem;
-                ${selectTokens.chipClearContentMarginLeft}: 0.25rem;
-                ${selectTokens.chipClearContentMarginRight}: 0rem;
-                ${selectTokens.chipCloseIconSize}: 0.75rem;
-
-                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.25rem;
-                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.375rem;
-                ${selectTokens.targetHeight}: 2rem;
-                ${selectTokens.targetButtonPadding}: 0.75rem 0 0.75rem;
-                ${selectTokens.targetTextfieldPadding}: 0.5rem 0 0.625rem;
-                ${selectTokens.targetTextfieldChipPadding}: 0.5rem 0 0.25rem;
-
-                ${selectTokens.labelOffset}: 0.375rem;
-
-                ${selectTokens.innerLabelGap}: 0;
-
-                ${selectTokens.helperTextOffset}: 0.25rem;
-
-                ${selectTokens.spinnerSize}: 1rem;
-                ${selectTokens.spinnerSizeTight}: 1rem;
-            `,
-            s: css`
-                ${selectTokens.padding}: 0.125rem;
-                ${selectTokens.borderRadius}: 0.625rem;
-                ${selectTokens.focusOffset}: 0.125rem;
-
-                ${selectTokens.itemHeight}: 1.5rem;
-                ${selectTokens.itemPadding}: 0.5rem 0.75rem 0.5rem 0.675rem;
-                ${selectTokens.itemPaddingTight}: 0.25rem 0.75rem 0.25rem 0.675rem;
-                ${selectTokens.itemBorderRadius}: 0.5rem;
-                ${selectTokens.itemIconSize}: 1.5rem;
-                ${selectTokens.itemIconSizeTight}: 1rem;
-                ${selectTokens.itemIconMargin}: 0 0.375rem 0 0;
-
-                ${selectTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${selectTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${selectTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${selectTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${selectTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${selectTokens.checkboxTriggerSize}: 1.25rem;
-                ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
-                ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
-                ${selectTokens.checkboxFillColor}: var(--text-accent);
-                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
-
-                ${selectTokens.indicatorSize}: 0.375rem;
-
-                ${selectTokens.chipGap}: 0.25rem;
-                ${selectTokens.chipBorderRadius}: 0.25rem;
-                ${selectTokens.chipHeight}: 1.75rem;
-                ${selectTokens.chipPaddingRight}: 0.5rem;
-                ${selectTokens.chipPaddingLeft}: 0.75rem;
-                ${selectTokens.chipClearContentMarginLeft}: 0.375rem;
-                ${selectTokens.chipClearContentMarginRight}: 0rem;
-                ${selectTokens.chipCloseIconSize}: 0.75rem;
-
-                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.25rem;
-                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.375rem;
-                ${selectTokens.targetHeight}: 2.5rem;
-                ${selectTokens.targetButtonPadding}: 1rem 0 1rem;
-                ${selectTokens.targetTextfieldPadding}: 0.75rem 0 0.875rem;
-                ${selectTokens.targetTextfieldChipPadding}: 0.75rem 0 0.25rem;
-
-                ${selectTokens.labelOffset}: 0.5rem;
-
-                ${selectTokens.innerLabelGap}: 0;
-
-                ${selectTokens.helperTextOffset}: 0.25rem;
-
-                ${selectTokens.spinnerSize}: 1.5rem;
-                ${selectTokens.spinnerSizeTight}: 1rem;
-            `,
-            m: css`
-                ${selectTokens.padding}: 0.125rem;
-                ${selectTokens.borderRadius}: 0.75rem;
-                ${selectTokens.focusOffset}: 0.125rem;
-
-                ${selectTokens.itemHeight}: 1.5rem;
-                ${selectTokens.itemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
-                ${selectTokens.itemPaddingTight}: 0.5rem 0.75rem 0.5rem 0.75rem;
-                ${selectTokens.itemBorderRadius}: 0.625rem;
-                ${selectTokens.itemIconMargin}: 0 0.375rem 0 0;
-                ${selectTokens.itemIconSize}: 1.5rem;
-                ${selectTokens.itemIconSizeTight}: 1.5rem;
-
-                ${selectTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${selectTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${selectTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${selectTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
-
-                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${selectTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
-                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-m-line-height);
-
-                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${selectTokens.checkboxTriggerSize}: 1.25rem;
-                ${selectTokens.checkboxTriggerSizeTight}: 1.25rem;
-                ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
-                ${selectTokens.checkboxFillColor}: var(--text-accent);
-                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
-
-                ${selectTokens.indicatorSize}: 0.375rem;
-
-                ${selectTokens.chipGap}: 0.25rem;
-                ${selectTokens.chipBorderRadius}: 0.375rem;
-                ${selectTokens.chipHeight}: 2.25rem;
-                ${selectTokens.chipPaddingRight}: 0.875rem;
-                ${selectTokens.chipPaddingLeft}: 0.625rem;
-                ${selectTokens.chipClearContentMarginLeft}: 0.5rem;
-                ${selectTokens.chipClearContentMarginRight}: 0rem;
-                ${selectTokens.chipCloseIconSize}: 1rem;
-
-                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.375rem;
-                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.625rem;
-                ${selectTokens.targetHeight}: 3rem;
-                ${selectTokens.targetButtonPadding}: 1.25rem 0 1.25rem;
-                ${selectTokens.targetTextfieldPadding}: 0.875rem 0 1rem;
-                ${selectTokens.targetTextfieldChipPadding}: 0.875rem 0 0.25rem;
-
-                ${selectTokens.labelOffset}: 0.625rem;
-
-                ${selectTokens.innerLabelGap}: 0.125rem;
-
-                ${selectTokens.helperTextOffset}: 0.25rem;
-
-                ${selectTokens.spinnerSize}: 1.5rem;
-                ${selectTokens.spinnerSizeTight}: 1.5rem;
-            `,
-            l: css`
-                ${selectTokens.padding}: 0.125rem;
-                ${selectTokens.borderRadius}: 0.875rem;
-                ${selectTokens.focusOffset}: 0.125rem;
-
-                ${selectTokens.itemHeight}: 1.5rem;
-                ${selectTokens.itemPadding}: 1rem 1rem 1rem 0.875rem;
-                ${selectTokens.itemPaddingTight}: 0.75rem 1rem 0.75rem 0.875rem;
-                ${selectTokens.itemBorderRadius}: 0.75rem;
-                ${selectTokens.itemIconMargin}: 0 0.5rem 0 0;
-                ${selectTokens.itemIconSize}: 1.5rem;
-                ${selectTokens.itemIconSizeTight}: 1.5rem;
-
-                ${selectTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${selectTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${selectTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${selectTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${selectTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${selectTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
-                ${selectTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${selectTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${selectTokens.labelFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${selectTokens.labelFontLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${selectTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectTokens.helperTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectTokens.helperTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${selectTokens.checkboxTriggerSize}: 1.25rem;
-                ${selectTokens.checkboxTriggerSizeTight}: 1.25rem;
-                ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
-                ${selectTokens.checkboxFillColor}: var(--text-accent);
-                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
-
-                ${selectTokens.indicatorSize}: 0.375rem;
-
-                ${selectTokens.chipGap}: 0.25rem;
-                ${selectTokens.chipBorderRadius}: 0.5rem;
-                ${selectTokens.chipHeight}: 2.75rem;
-                ${selectTokens.chipPaddingRight}: 0.75rem;
-                ${selectTokens.chipPaddingLeft}: 1rem;
-                ${selectTokens.chipClearContentMarginLeft}: 0.625rem;
-                ${selectTokens.chipClearContentMarginRight}: 0rem;
-                ${selectTokens.chipCloseIconSize}: 1rem;
-
-                ${selectTokens.targetButtonArrowMargin}: 0 -0.125rem 0 0.5rem;
-                ${selectTokens.targetTextfieldArrowMargin}: 0 0 0 0.75rem;
-                ${selectTokens.targetHeight}: 3.5rem;
-                ${selectTokens.targetButtonPadding}: 1.5rem 0 1.5rem;
-                ${selectTokens.targetTextfieldPadding}: 1rem 0 1.125rem;
-                ${selectTokens.targetTextfieldChipPadding}: 1rem 0 0.25rem;
-
-                ${selectTokens.labelOffset}: 0.75rem;
-
-                ${selectTokens.innerLabelGap}: 0.125rem;
-
-                ${selectTokens.helperTextOffset}: 0.25rem;
-
-                ${selectTokens.spinnerSize}: 1.5rem;
-                ${selectTokens.spinnerSizeTight}: 1.5rem;
-            `,
-        },
         view: {
             default: css`
-                ${selectTokens.helperTextColor}: var(--text-secondary);
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--inverse-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--inverse-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--inverse-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--inverse-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--inverse-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--inverse-text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
-                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonBackgroundColor}: var(--surface-solid-default);
-                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-solid-default-hover);
-                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBorderColor}: var(--surface-transparent-tertiary);
+                ${tokens.textFieldColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-clear);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
+                ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
+                ${tokens.textFieldBorderColor}: var(--surface-transparent-tertiary);
+
+                ${tokens.buttonColor}: var(--inverse-text-primary);
+                ${tokens.buttonColorHover}: var(--inverse-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--inverse-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--inverse-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--inverse-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--inverse-text-secondary-hover);
+                ${tokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-solid-default-hover);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             positive: css`
-                ${selectTokens.helperTextColor}: var(--text-positive);
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
-                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonBackgroundColor}:var(--surface-positive);
-                ${selectTokens.targetButtonBackgroundColorHover}:var(--surface-positive-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}:var(--surface-positive-active);
-                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBorderColor}: var(--surface-positive);
+                ${tokens.textFieldColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-clear);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-positive);
+                ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
+                ${tokens.textFieldBorderColor}: var(--surface-positive);
+
+                ${tokens.buttonColor}: var(--on-dark-text-primary);
+                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonBackgroundColor}:var(--surface-positive);
+                ${tokens.buttonBackgroundColorHover}:var(--surface-positive-hover);
+                ${tokens.buttonBackgroundColorActive}:var(--surface-positive-active);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             warning: css`
-                ${selectTokens.helperTextColor}: var(--text-warning);
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
-                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonBackgroundColor}:var(--surface-warning);
-                ${selectTokens.targetButtonBackgroundColorHover}:var(--surface-warning-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}:var(--surface-warning-active);
-                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBorderColor}: var(--surface-warning);
+                ${tokens.textFieldColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-clear);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-warning);
+                ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
+                ${tokens.textFieldBorderColor}: var(--surface-warning);
+
+                ${tokens.buttonColor}: var(--on-dark-text-primary);
+                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonBackgroundColor}:var(--surface-warning);
+                ${tokens.buttonBackgroundColorHover}:var(--surface-warning-hover);
+                ${tokens.buttonBackgroundColorActive}:var(--surface-warning-active);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             negative: css`
-                ${selectTokens.helperTextColor}: var(--text-negative);
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColor}: var(--text-secondary);
-                ${selectTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonBackgroundColor}:var(--surface-negative);
-                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-negative-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}:var(--surface-negative-active);
-                ${selectTokens.targetTextfieldBackgroundColor}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBackgroundColorOpened}: var(--surface-clear);
-                ${selectTokens.targetTextfieldBorderColor}: var(--surface-negative);
+                ${tokens.textFieldColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-clear);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-negative);
+                ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
+                ${tokens.textFieldBorderColor}: var(--surface-negative);
+
+                ${tokens.buttonColor}: var(--on-dark-text-primary);
+                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonBackgroundColor}:var(--surface-negative);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
+                ${tokens.buttonBackgroundColorActive}:var(--surface-negative-active);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             accent: css`
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetButtonBackgroundColor}: var(--surface-accent);
-                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-accent-active);
+                ${tokens.buttonColor}: var(--on-dark-text-primary);
+                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonBackgroundColor}: var(--surface-accent);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-accent-active);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
             `,
             secondary: css`
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonBackgroundColor}: var(--surface-transparent-secondary);
-                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${tokens.buttonColor}: var(--text-primary);
+                ${tokens.buttonColorHover}: var(--text-primary-hover);
+                ${tokens.buttonColorActive}: var(--text-primary-active);
+                ${tokens.buttonArrowColor}: var(--text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--text-secondary-hover);
+                ${tokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
             `,
             clear: css`
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--text-secondary-active);
-                ${selectTokens.targetButtonBackgroundColor}: var(--surface-clear);
-                ${selectTokens.targetButtonBackgroundColorHover}: var(--surface-clear);
-                ${selectTokens.targetButtonBackgroundColorActive}: var(--surface-clear);
+                ${tokens.buttonColor}: var(--text-primary);
+                ${tokens.buttonColorHover}: var(--text-primary-hover);
+                ${tokens.buttonColorActive}: var(--text-primary-active);
+                ${tokens.buttonArrowColor}: var(--text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--text-secondary-active);
+                ${tokens.buttonBackgroundColor}: var(--surface-clear);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-clear);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-clear);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
             `,
             dark: css`
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${selectTokens.targetButtonBackgroundColor}:var(--on-light-surface-transparent-deep);
-                ${selectTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+                ${tokens.buttonColor}: var(--on-dark-text-primary);
+                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
+                ${tokens.buttonBackgroundColor}:var(--on-light-surface-transparent-deep);
+                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
+                ${tokens.buttonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
             `,
             black: css`
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--on-dark-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--on-dark-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${selectTokens.targetButtonBackgroundColor}:var(--on-light-surface-solid-default);
-                ${selectTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+                ${tokens.buttonColor}: var(--on-dark-text-primary);
+                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
+                ${tokens.buttonBackgroundColor}:var(--on-light-surface-solid-default);
+                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
             `,
             white: css`
-                ${selectTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${selectTokens.disclosureIconColor}: var(--text-secondary);
-                ${selectTokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${selectTokens.targetButtonColor}: var(--on-light-text-primary);
-                ${selectTokens.targetButtonColorHover}: var(--on-light-text-primary-hover);
-                ${selectTokens.targetButtonColorActive}: var(--on-light-text-primary-active);
-                ${selectTokens.targetButtonArrowColor}: var(--on-light-text-secondary);
-                ${selectTokens.targetButtonArrowColorHover}: var(--on-light-text-secondary-hover);
-                ${selectTokens.targetButtonArrowColorActive}: var(--on-light-text-secondary-active);
-                ${selectTokens.targetButtonBackgroundColor}:var(--on-dark-surface-solid-default);
-                ${selectTokens.targetButtonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
-                ${selectTokens.targetButtonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+                ${tokens.buttonColor}: var(--on-light-text-primary);
+                ${tokens.buttonColorHover}: var(--on-light-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--on-light-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--on-light-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--on-light-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--on-light-text-secondary-active);
+                ${tokens.buttonBackgroundColor}:var(--on-dark-surface-solid-default);
+                ${tokens.buttonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
+                ${tokens.buttonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
             `,
+        },
+        size: {
+            l: css`
+                ${tokens.textFieldHeight}: 3.5rem;
+                ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
+                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldBorderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldLabelOffset}: 0.75rem;
+                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelInnerPadding}: 0.5625rem 0 0.125rem 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.5rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+
+                ${tokens.textFieldChipGap}: 0.25rem;
+                ${tokens.textFieldChipBorderRadius}: 0.5rem;
+                ${tokens.textFieldChipWidth}: auto;
+                ${tokens.textFieldChipHeight}: 2.75rem;
+                ${tokens.textFieldChipPadding}: 0 0.75rem 0 1rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.625rem;
+                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${tokens.textFieldChipCloseIconSize}: 1.5rem;
+                ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldChipFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.5rem;
+                ${tokens.targetHeight}: 3.5rem;
+                ${tokens.buttonPadding}: 1.5rem 0 1.5rem;
+
+                ${tokens.padding}: 0.125rem;
+                ${tokens.borderRadius}: 0.875rem;
+
+                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemPadding}: 1rem 1.125rem;
+                ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
+                ${tokens.itemBorderRadius}: 0.75rem;
+                ${tokens.itemIconMargin}: 0 0.5rem 0 0;
+                ${tokens.itemIconSize}: 1.5rem;
+                ${tokens.itemIconSizeTight}: 1.5rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.checkboxTriggerSize}: 1.25rem;
+                ${tokens.checkboxTriggerSizeTight}: 1.25rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${tokens.indicatorSize}: 0.375rem;
+            `,
+            m: css`
+                ${tokens.textFieldHeight}: 3rem;
+                ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
+                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.textFieldLabelOffset}: 0.625rem;
+                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelInnerPadding}: 0.375rem 0 0.125rem 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.5rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+
+                ${tokens.textFieldChipGap}: 0.25rem;
+                ${tokens.textFieldChipBorderRadius}: 0.375rem;
+                ${tokens.textFieldChipWidth}: auto;
+                ${tokens.textFieldChipHeight}: 2.25rem;
+                ${tokens.textFieldChipPadding}: 0 0.625rem 0 0.875rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.5rem;
+                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${tokens.textFieldChipCloseIconSize}: 1.25rem;
+                ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.textFieldChipFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.375rem;
+                ${tokens.targetHeight}: 3rem;
+                ${tokens.buttonPadding}: 1.25rem 0 1.25rem;
+
+                ${tokens.padding}: 0.125rem;
+                ${tokens.borderRadius}: 0.75rem;
+
+                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemPadding}: 0.75rem 0.875rem;
+                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
+                ${tokens.itemBorderRadius}: 0.625rem;
+                ${tokens.itemIconMargin}: 0 0.375rem 0 0;
+                ${tokens.itemIconSize}: 1.5rem;
+                ${tokens.itemIconSizeTight}: 1.5rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.checkboxTriggerSize}: 1.25rem;
+                ${tokens.checkboxTriggerSizeTight}: 1.25rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${tokens.indicatorSize}: 0.375rem;
+            `,
+            s: css`
+                ${tokens.textFieldHeight}: 2.5rem;
+                ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
+                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.textFieldLabelOffset}: 0.5rem;
+                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.375rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+
+                ${tokens.textFieldChipGap}: 0.25rem;
+                ${tokens.textFieldChipBorderRadius}: 0.25rem;
+                ${tokens.textFieldChipWidth}: auto;
+                ${tokens.textFieldChipHeight}: 1.75rem;
+                ${tokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
+                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${tokens.textFieldChipCloseIconSize}: 1rem;
+                ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.textFieldChipFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
+                ${tokens.targetHeight}: 2.5rem;
+                ${tokens.buttonPadding}: 1rem 0 1rem;
+
+                ${tokens.padding}: 0.125rem;
+                ${tokens.borderRadius}: 0.625rem;
+
+                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemPadding}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
+                ${tokens.itemBorderRadius}: 0.5rem;
+                ${tokens.itemIconSize}: 1.5rem;
+                ${tokens.itemIconSizeTight}: 1rem;
+                ${tokens.itemIconMargin}: 0 0.375rem 0 0;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.checkboxTriggerSize}: 1.25rem;
+                ${tokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${tokens.indicatorSize}: 0.375rem;
+            `,
+            xs: css`
+                ${tokens.textFieldHeight}: 2rem;
+                ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
+                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldBorderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelOffset}: 0.375rem;
+                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.375rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
+
+                ${tokens.textFieldChipGap}: 0.25rem;
+                ${tokens.textFieldChipBorderRadius}: 0.125rem;
+                ${tokens.textFieldChipWidth}: auto;
+                ${tokens.textFieldChipHeight}: 1.25rem;
+                ${tokens.textFieldChipPadding}: 0 0.375rem 0 0.625rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.25rem;
+                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${tokens.textFieldChipCloseIconSize}: 0.75rem;
+                ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldChipFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
+                ${tokens.targetHeight}: 2rem;
+                ${tokens.buttonPadding}: 0.75rem 0 0.75rem;
+
+                ${tokens.padding}: 0.125rem;
+                ${tokens.borderRadius}: 0.5rem;
+
+                ${tokens.itemHeight}: 1rem;
+                ${tokens.itemPadding}: 0.5rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
+                ${tokens.itemBorderRadius}: 0.375rem;
+                ${tokens.itemIconSize}: 1rem;
+                ${tokens.itemIconSizeTight}: 1rem;
+                ${tokens.itemIconMargin}: 0 0.25rem 0 0;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.25rem;
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.checkboxTriggerSize}: 0.875rem;
+                ${tokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${tokens.indicatorSize}: 0.375rem;
+            `,
+        },
+        labelPlacement: {
+            inner: css`
+                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
+            outer: css``,
         },
         chipView: {
             default: css`
-                ${selectTokens.chipColor}: var(--inverse-text-primary);
-                ${selectTokens.chipBackground}: var(--surface-solid-default);
-                ${selectTokens.chipBackgroundHover}: var(--surface-solid-default-hover);
-                ${selectTokens.chipBackgroundActive}: var(--surface-solid-default-active);
+                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-solid-default);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
             `,
             secondary: css`
-                ${selectTokens.chipColor}: var(--text-primary);
-                ${selectTokens.chipBackground}: var(--surface-transparent-secondary);
-                ${selectTokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${selectTokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
+                ${tokens.textFieldChipColor}: var(--text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--text-primary);
             `,
             accent: css`
-                ${selectTokens.chipColor}: var(--on-dark-text-primary);
-                ${selectTokens.chipBackground}: var(--surface-accent);
-                ${selectTokens.chipBackgroundHover}: var(--surface-accent-hover);
-                ${selectTokens.chipBackgroundActive}: var(--surface-accent-active);
+                ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-accent);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-primary);
+            `,
+        },
+        hintView: {
+            default: css`
+                ${tokens.textFieldTooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${tokens.textFieldTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.textFieldTooltipColor}: var(--text-primary);
+                ${tokens.textFieldTooltipArrowBackground}: var(--surface-solid-card);
+            `,
+        },
+        hintSize: {
+            m: css`
+                ${tokens.textFieldTooltipPaddingTop}: 0.6875rem;
+                ${tokens.textFieldTooltipPaddingRight}: 0.875rem;
+                ${tokens.textFieldTooltipPaddingBottom}: 0.6875rem;
+                ${tokens.textFieldTooltipPaddingLeft}: 0.875rem;
+
+                ${tokens.textFieldTooltipMinHeight}: 2.5rem;
+                ${tokens.textFieldTooltipBorderRadius}: 0.625rem;
+
+                ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.textFieldTooltipContentLeftMargin}: 0.375rem;
+
+                ${tokens.textFieldTooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.textFieldTooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.textFieldTooltipArrowHeight}: 0.5rem;
+                ${tokens.textFieldTooltipArrowEdgeMargin}: 0.625rem;
+            `,
+            s: css`
+                ${tokens.textFieldTooltipPaddingTop}: 0.5rem;
+                ${tokens.textFieldTooltipPaddingRight}: 0.75rem;
+                ${tokens.textFieldTooltipPaddingBottom}: 0.5rem;
+                ${tokens.textFieldTooltipPaddingLeft}: 0.75rem;
+
+                ${tokens.textFieldTooltipMinHeight}: 2rem;
+                ${tokens.textFieldTooltipBorderRadius}: 0.5rem;
+
+                ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldTooltipContentLeftMargin}: 0.25rem;
+
+                ${tokens.textFieldTooltipArrowMaskWidth}: 1rem;
+                ${tokens.textFieldTooltipArrowMaskHeight}: 1rem;
+                ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.textFieldTooltipArrowHeight}: 0.375rem;
+                ${tokens.textFieldTooltipArrowEdgeMargin}: 0.5625rem;
+            `,
+        },
+        disabled: {
+            true: css`
+                ${tokens.textFieldDisabledOpacity}: 0.4;
             `,
         },
     },

@@ -14,6 +14,8 @@ export const tokens = {
     padding: '--plasma-dropdown-padding',
     disclosureIconColor: '--plasma-dropdown-disclosure-icon-color',
     disabledOpacity: '--plasma-dropdown-disabled-opacity',
+    borderColor: '--plasma-dropdown-border-color',
+    borderWidth: '--plasma-dropdown-border-width',
     focusColor: '--plasma-dropdown-focus-color', // Old
 
     dividerColor: '--plasma-dropdown-divider-color',
@@ -54,8 +56,12 @@ export const tokens = {
     itemFontWeightBold: '--plasma-dropdown-item-letter-spacing',
     itemFontLetterSpacing: '--plasma-dropdown-item-line-height',
     itemFontLineHeight: '--plasma-dropdown-item-font-weight',
+    itemMargin: '--plasma-dropdown-item-margin',
     itemPadding: '--plasma-dropdown-item-padding',
     itemPaddingTight: '--plasma-dropdown-item-padding-tight',
+    itemGap: '--plasma-dropdown-item-gap',
+    itemGapTight: '--plasma-dropdown-item-gap-tight',
+    itemDisclosureIconSize: '--plasma-dropdown-item-disclosure-icon-size',
 
     cellPadding: '--plasma-dropdown-cell-padding',
     cellPaddingLeftContent: '--plasma-dropdown-cell-padding-left-content',
@@ -144,7 +150,6 @@ export const constants = {
     boxShadow: '0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04)',
     disclosureIconColor: '--text-secondary',
     itemBackground: '--plasma-colors-transparent',
-    itemBackgroundHover: '--surface-transparent-secondary',
     opacity: '0.4',
     cellTitleColor: '--text-primary',
     cellBackgroundColor: '--plasma-colors-transparent',

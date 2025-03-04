@@ -1,3 +1,475 @@
+# v1.209.0 (Thu Nov 28 2024)
+
+### Release Notes
+
+#### Release by 27.11.2024 ([#1597](https://github.com/salute-developers/plasma/pull/1597))
+
+## Core
+
+### Switch Outline
+
+- добавлен отдельный `config` для вариации `outline`
+- добавлена соответствующая поддержка во все библиотеки
+
+core: Switch outline design (https://github.com/salute-developers/plasma/pull/1560)
+
+### Switch
+
+- исправлены токены целью добавления возможности реализации нового дизайна
+
+plasma-new-hope: fix Switch design (https://github.com/salute-developers/plasma/pull/1569)
+
+### Dropdown
+- добавлено новое свойство `renderItem`;
+
+feat(plasma-*, sdds-*): Add renderItem prop in Dropdown. Fix issues with Select and Combobox. (https://github.com/salute-developers/plasma/pull/1562)
+
+### Select/Combobox
+- улучшено поведение свойства `renderItem` при работе с вложенными списками;
+- исправлен баг, приводящий к неправильной работе чипов в режиме multiple при renderValue;
+
+ 
+feat(plasma-*, sdds-*): Add renderItem prop in Dropdown. Fix issues with Select and Combobox. (https://github.com/salute-developers/plasma/pull/1562)
+
+### Badge
+
+- добавлен surfaceClear токен для варианта clear
+- добавлены padding для варианта clear
+- реализован вариант только с иконкой
+- добавлена возможность передать пользовательский цвет для текста и фона
+
+ 
+feat(plasma-*,sdds-*): Icon only badge (https://github.com/salute-developers/plasma/pull/1546)
+
+### Select
+- добавлены св-ва required, requiredPlacement и optional;
+![plasma-b2c Select -- prop required, requiredPlacement snap](https://github.com/user-attachments/assets/42fcb1fe-6a37-434b-843f-d285b4e6f279)
+
+feat(plasma-*, sdds-*): Add required functionality in Select (https://github.com/salute-developers/plasma/pull/1561)
+
+
+### TextField, Select
+
+- добавлен новый проп `chipType`, который позволяет менять внешний вид для чипа в режиме multiselect;
+![plasma-b2c Select -- prop chipType snap](https://github.com/user-attachments/assets/66c5cb36-bd40-444f-bace-1fb8dec2f130)
+
+feat(plasma-*, sdds-*): Add chipType prop in TextField & Select (https://github.com/salute-developers/plasma/pull/1577)
+
+### Calendar
+
+- при отсутствии значения календарная сетка отображается с минимальной даты
+
+**Before**:
+<img width="484" src="https://github.com/user-attachments/assets/e3ea6e68-f8d4-4c9a-95ca-fba28ca282f5" />
+
+**After**:
+<img width="464" src="https://github.com/user-attachments/assets/d7a53b4b-4a28-4eda-9c91-7a82d9f03466" />
+
+ 
+feat(plasma-new-hope): Add displaying date from min value in Calendar (https://github.com/salute-developers/plasma/pull/1572)
+
+### Notification
+
+- добавлена возможность отображать вечные оповещения
+
+plasma-*: Add infinite Notification (https://github.com/salute-developers/plasma/pull/1582)
+
+
+### Autocomplete
+
+- добавлена поддержка `react-hook-form`
+- добавлена документация по использованию с нативной формой и `react-hook-form`
+
+feat(new-hope): add react hook form support in autocomplite (https://github.com/salute-developers/plasma/pull/1574)
+
+### Dropzone
+
+- добавлен новый компонент
+
+<img width="515" src="https://github.com/user-attachments/assets/30f2131c-f1d1-48ba-b8e5-57f56c65b97d" />
+
+
+feat(plasma-new-hope): Dropzone (https://github.com/salute-developers/plasma/pull/1534)
+
+### Button, IconButton
+
+- добавлены размеры `XL`
+- добавлен размер `XXS` для компонента `IconButton`
+
+feat(sdds-insol): Update `Button` and `IconButton` design (https://github.com/salute-developers/plasma/pull/1576)
+
+### TextField
+
+- добавлено свойство keepPlaceholder для одновременного отображения label и placeholder 
+
+![image](https://github.com/user-attachments/assets/d3c1ad74-c214-4ddd-96fa-3467871e3a4c)
+
+feat: add keepPlaceholder prop to TextField (https://github.com/salute-developers/plasma/pull/1556)
+
+### TextField
+
+- добавлено свойство `chipView`
+- добавлен callback `chipValidator`
+
+### Chip
+
+- добавлены статусные `view`: `positive`, `negative`, `warning`
+
+feat(plasma-new-hope): Add chip views and chip validator for TextField (https://github.com/salute-developers/plasma/pull/1589)
+
+### Modal
+
+- добавлен базовый дизайн с пропсами `hasBody` и `hasClose`
+- старые примеры в сторибуках перенесены в `Custom Modal Demo`
+
+<img width="247" src="https://github.com/user-attachments/assets/23d2f8dc-739f-4ef9-8820-93ac3caeffa2" />
+
+feat: add Modal designed body (https://github.com/salute-developers/plasma/pull/1558)
+
+### TextArea
+
+- добавлено свойство для выноса левого helper за пределы TextArea
+ 
+feat: add leftHelperPlacement prop to TextArea (https://github.com/salute-developers/plasma/pull/1579)
+
+### TextField, TextArea
+
+- упростили типы связанный со свойством `required`
+ 
+fix: "RequiredProps" unions in TextField & TextArea (https://github.com/salute-developers/plasma/pull/1593)
+
+## PLASMA-ASDK
+
+### Switch
+- обновлена конфигурация компонента
+- обновлены примеры в `storybook`
+
+## SDDS-CS
+
+### Textarea
+
+- изменен `view negative` в соответствии с макетом
+
+fix(sdds-cs): edit view negative in textarea sdds-cs (https://github.com/salute-developers/plasma/pull/1567)
+
+
+### Segment
+
+- изменен конфиг компонента в соответсвии с макетам
+
+fix(sdds-cs): Segment config edit (https://github.com/salute-developers/plasma/pull/1573)
+
+
+### Сalendar
+
+- изменен конфиг компонента в соответсвии с макетам
+
+fix(sdds-cs): edit tokens calendar for sdds cs (https://github.com/salute-developers/plasma/pull/1566)
+
+### Switch
+- исправлены токены в соответствие с макетом
+- убран `control` для свойства `size` в `storybook`
+ 
+sdds-cs: fix Switch design (https://github.com/salute-developers/plasma/pull/1569)
+
+
+## SDDS-SERV
+
+### Switch
+
+- добавлен в сборку для `linaria`
+
+feat(sdds-serv): Add switch to linaria build (https://github.com/salute-developers/plasma/pull/1583)
+
+## Bugs
+
+### Select, Combobox, Dropdown
+
+- исправлен баг, возникающий когда проп `listHeight` был больше, чем актуальная высота списка, что приводило к пустым пробелам в этом же выпадающем списке.
+
+ 
+feat(plasma-new-hope): listHeight prop stands for a css maxHeight now (https://github.com/salute-developers/plasma/pull/1585)
+
+### Select, Combobox, Dropdown
+
+- исправлено некорректное поведение выпадающего списка при использовании его внутри скролла, не являющегося скроллом вьюпорта;
+
+ 
+feat(plasma-*, sdds-*): Position relative is set by default for target in Select, Combobox, Dropdown (https://github.com/salute-developers/plasma/pull/1586)
+
+### TextArea
+
+- убран автоподскролл по фокусу
+ 
+fix: TextArea auto scroll on focus (https://github.com/salute-developers/plasma/pull/1590)
+
+## Icons
+
+### React-native
+
+- добавлена генерация иконок для платформы `react-native`
+ 
+feat(plasma-icons): Add react-native icons generator (https://github.com/salute-developers/plasma/pull/1563)
+
+## Docs
+
+- добавлены примеры с валидацией формы в раздел "Формы"
+ 
+docs: Add validation examples docs (https://github.com/salute-developers/plasma/pull/1587)
+
+
+## Misc
+
+### Typography
+- добавлено свойство `noWrap`, запрещающее перенос текста по пробелам
+- обновлены `storybooks`, тесты и документация
+- исправлена опечатка в названии папки `typograpy` -> `typography`
+
+ 
+`plasma-*, sdds-*`: Typography noWrap prop (https://github.com/salute-developers/plasma/pull/1588)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 27.11.2024 [#1597](https://github.com/salute-developers/plasma/pull/1597) ([@denivladislav](https://github.com/denivladislav) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@iljs](https://github.com/iljs) [@neretin-trike](https://github.com/neretin-trike) [@vadim-kudr](https://github.com/vadim-kudr))
+- feat(plasma-icons): Add react-native icons generator [#1563](https://github.com/salute-developers/plasma/pull/1563) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 8
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vlad Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
+# v1.208.0 (Thu Nov 14 2024)
+
+### Release Notes
+
+#### Release by 13.11.2024 ([#1559](https://github.com/salute-developers/plasma/pull/1559))
+
+## Components
+
+### Autocomplete
+
+- добавлены новые св-ва `required`, `requiredPlacement` и `optional`;
+ 
+feat(plasma-*, sdds-*): Add required functionality in Autocomplete (https://github.com/salute-developers/plasma/pull/1522)
+
+### Combobox
+
+- добавлены новые св-ва `required`, `requiredPlacement` и `optional`;
+
+feat(plasma-*, sdds-*): Add required functionality in Combobox (https://github.com/salute-developers/plasma/pull/1527)
+
+### Range, DatePickerRange
+
+- добавлена возможность передать свойство `autoComplete`
+
+feat(plasma-new-hope): Add autoComplete prop to Range (https://github.com/salute-developers/plasma/pull/1530)
+
+### Chip
+
+- добавлено событие `onClickClose` по клику на крестик
+- `onClear` помечено как deprecated
+- написан тест на onClickClose
+
+feat(plasma-new-hope): Divide chip events (https://github.com/salute-developers/plasma/pull/1536)
+
+### Badge, Tabs
+
+- реализована возможность обрезания текста по максимальной ширине
+
+feat: add Badge & Tabs truncate props (https://github.com/salute-developers/plasma/pull/1500)
+
+### NumberInput
+
+- компонент включен в поставку `plasma-*` и `sdds-*` библиотек
+
+**After**:
+<img width="216" alt="image" src="https://github.com/user-attachments/assets/4b51c0e6-099d-41d7-af07-88344f7f77b0" />
+
+feat(plasma-new-hope): Add NumberInput component (https://github.com/salute-developers/plasma/pull/1511)
+
+### Dropdown
+
+- добавлено свойство alwaysOpened
+- добавлен тест на новое свойство
+
+feat(plasma-new-hope): Add alwaysOpened prop for Dropdown (https://github.com/salute-developers/plasma/pull/1538)
+
+### TextField
+
+- добавлен токен изменения цвета фона компонента при наведении
+
+feat(plasma-*,sdds-*): Fix TextField hover tokens (https://github.com/salute-developers/plasma/pull/1551)
+
+### Tabs
+
+- для `sdds-cs` исправлены значения токенов `itemSelectedDividerColor` и `itemSelectedDividerColorHover`
+- для `sdds-dfa` исправлены токены для состояния `disabled`
+- исправлены `argTypes` в stories
+
+### Breadcrumbs
+
+- исправлен курсор при наведении на текущий `Breadcrumb`
+- исправлены токены для `hover` и `active` состояний у `Breadcrumb` 
+
+`plasma-new-hope, sdds-cs`: fix `Tabs` and `Breadcrumbs` (https://github.com/salute-developers/plasma/pull/1532)
+
+### Switch
+- добавлены размеры `s`, `l`
+- добавлено свойство `description`
+- добавлено свойство `toggleSize`
+- обновлены документация и тесты
+
+`plasma-*, sdds-*`: `Switch` sizes added (https://github.com/salute-developers/plasma/pull/1539)
+
+### Attach, Button
+
+- свойство `square` у `Button` помечено как `deprecated`
+- свойство `square` удалено из storybooks для `Attach`
+- для размеров `m`, `l` у `Attach` исправлен размер иконки по умолчанию в варианте `IconButton`
+- исправлены токены для view=secondary в пакете `sdds-cs`
+
+### IconButton
+- исправлены токены для view=secondary в пакете `sdds-cs`
+
+`plasma-*, sdds-*`: fix `Attach` `square` prop (https://github.com/salute-developers/plasma/pull/1525)
+
+### Steps
+
+- исправлены смещающиеся активные элементы
+- добавлен фокус 
+- добавлены тесты
+ 
+plasma-*: Fix `Steps` jumping bullets (https://github.com/salute-developers/plasma/pull/1517)
+
+### Select
+
+- осуществлен переход на `floating-ui`
+- расширена типизация, позволяющая использовать компонент в режиме uncontrolled (b2c и web)
+- исправлено некорректное отображение ячейки выпадающего списка при длинных значениях
+- расширены возможности использования компонента через портал. Теперь помимо рефки можно пробросить id `dom-элемента`
+- исправлены UI-баги при использовании портала
+- улучшена поддержка типов
+ 
+feat(plasma-*, sdds-*): Select improvements (https://github.com/salute-developers/plasma/pull/1550)
+
+### Tabs
+
+- вернули возможность использовать `TabItemProps`, `TabsProps` во все пакетах
+
+`plasma-*, sdds-*`: `TabItemProps`, `TabsProps` exported (https://github.com/salute-developers/plasma/pull/1545)
+
+
+## Вертикали 
+
+### `SDDS-CS`
+
+- добавлен view `negative` для `Combobox` 
+- добавлен view `negative` для `Autocomplete`
+
+plasma(sdds-cs): Add view negative to combobox and autocomplite (https://github.com/salute-developers/plasma/pull/1523)
+
+Добавлены новые токены для компонентов: 
+
+- `Autocomplete`, 
+- `Combobox`, 
+- `Dropdown`, 
+- `Notifications`, 
+- `Range`, 
+- `Pagination`, 
+- `Tabs`, 
+- `DatePicker`
+ 
+feat(new-hope): Add new tokens to components (https://github.com/salute-developers/plasma/pull/1506)
+ 
+### `SDDS-INSOL`
+
+- обновлена тема `sdds_insol`
+- обновлено свойство `background-color` на background в компоненте `Button` для поддержки градиентов в значениях у токенов.
+- обновлены конфигурации для компонентов `Button`, `TextArea` и  `TextField`
+
+feat(sdds-insol): Update configs for `Button`, `TextArea` and  `TextField` components [part 1] (https://github.com/salute-developers/plasma/pull/1526)
+
+## Docs
+
+### Edit docs components for correctly view
+
+- изменена документация ( значения `size` ) для корректного отображения в документации в вертикали `sdds-cs`
+
+fix(sdds-cs-docs): Edit docs components for correctly view (https://github.com/salute-developers/plasma/pull/1557)
+
+### Theme documentation
+
+- добавлен подраздел примеры смены тем
+ 
+feat: change theme docs (https://github.com/salute-developers/plasma/pull/1516)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 13.11.2024 [#1559](https://github.com/salute-developers/plasma/pull/1559) ([@iljs](https://github.com/iljs) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@neretin-trike](https://github.com/neretin-trike) [@Yakutoc](https://github.com/Yakutoc) [@vadim-kudr](https://github.com/vadim-kudr) [@TitanKuzmich](https://github.com/TitanKuzmich) [@denivladislav](https://github.com/denivladislav) [@luizasok](https://github.com/luizasok))
+- feat(plasma-icons): add icons Star [36x36] [#1529](https://github.com/salute-developers/plasma/pull/1529) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Star [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Star [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons document inquirer [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons document inquirer [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons document inquirer [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons arrow diagonal [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons arrow diagonal [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons arrow diagonal [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons History [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons History [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons History [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons dots [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons dots [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons dots [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons files [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons files [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons files [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons list view [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons list view [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons list view [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Operation Write [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Operation Write [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Operation Write [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Tree [36x36] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Tree [24x24] ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-icons): add icons Tree [16x16] ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 9
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Luiza_Sok ([@luizasok](https://github.com/luizasok))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vadim ([@vadim-kudr](https://github.com/vadim-kudr))
+- Vlad Denisov  ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # v1.207.0 (Thu Oct 31 2024)
 
 ### Release Notes

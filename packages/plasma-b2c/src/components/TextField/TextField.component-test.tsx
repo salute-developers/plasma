@@ -9,6 +9,8 @@ import { TextField as TextFieldB2C } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
+const sizes = ['xs', 's', 'm', 'l'];
+
 describe('plasma-b2c: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldB2C;
 
@@ -267,6 +269,46 @@ describe('plasma-b2c: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    sizes.forEach((size) => {
+        it(`content: keepPlaceholder, size: ${size}`, () => {
+            const props = {
+                size,
+                value: '',
+                label: 'Label',
+                labelPlacement: 'inner',
+                placeholder: 'Placeholder',
+                view: 'innerLabel',
+                animatedHint: 'label',
+                keepPlaceholder: true,
+            };
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <>
+                        <TextField {...props} />
+                        <SpaceMe />
+                        <TextField
+                            {...props}
+                            contentLeft={<IconSleep color="inherit" size="s" />}
+                            contentRight={<IconEye color="inherit" size="s" />}
+                        />
+                        <SpaceMe />
+                        <TextField {...props} value="Value" />
+                        <SpaceMe />
+                        <TextField
+                            {...props}
+                            value="Value"
+                            contentLeft={<IconSleep color="inherit" size="s" />}
+                            contentRight={<IconEye color="inherit" size="s" />}
+                        />
+                    </>
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+    });
+
     it('_animatedHint:label', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -315,7 +357,94 @@ describe('plasma-b2c: TextField', () => {
         cy.matchImageSnapshot();
     });
 
-    it('_enumerationType:chip', () => {
+    it('textBefore,textAfter', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="s"
+                    value="Outer"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    size="s"
+                    value="Outer focused"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="outer"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    size="s"
+                    value="Inner"
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    view="innerLabel"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    size="s"
+                    value=""
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    view="innerLabel"
+                    textBefore="_"
+                    textAfter="%"
+                />
+                <SpaceMe />
+                <TextField
+                    id="focused"
+                    size="s"
+                    value=""
+                    placeholder="Placeholder"
+                    label="Label"
+                    labelPlacement="inner"
+                    view="innerLabel"
+                    keepPlaceholder
+                    textBefore="_"
+                    textAfter="%"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#focused').focus();
+
+        cy.matchImageSnapshot();
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div id="test">
+                    <TextField
+                        id="empty"
+                        size="s"
+                        value=""
+                        placeholder=""
+                        label="Label"
+                        labelPlacement="inner"
+                        view="innerLabel"
+                        keepPlaceholder
+                        textBefore="_"
+                        textAfter="%"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#empty').focus();
+        cy.get('#test').matchImageSnapshot('empty');
+    });
+
+    it('_enumerationType:chip, _chipView, _chipValidator', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextField
@@ -339,6 +468,139 @@ describe('plasma-b2c: TextField', () => {
                     animatedHint="label"
                 />
                 <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="accent"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="positive"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="negative"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2', 'Value 3']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    chipView="warning"
+                    chipValidator={(value) => (value === 'Value 1' ? { view: 'negative' } : {})}
+                />
+                <SpaceMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    describe('_required', () => {
+        const sizes = ['xs', 's', 'm', 'l'] as const;
+
+        const cases = [
+            { labelPlacement: 'outer' },
+            { requiredPlacement: 'left', labelPlacement: 'outer' },
+            { labelPlacement: 'inner', view: 'innerLabel' },
+            { requiredPlacement: 'left', labelPlacement: 'inner', view: 'innerLabel' },
+        ];
+
+        sizes.forEach((size) => {
+            it(`_size:${size}`, () => {
+                mount(
+                    <CypressTestDecoratorWithTypo>
+                        {cases.map((props) => (
+                            <div style={{ margin: '0 1rem' }}>
+                                <TextField
+                                    value="Value"
+                                    placeholder="Placeholder"
+                                    label="Title"
+                                    size={size}
+                                    required
+                                    {...props}
+                                />
+                                <SpaceMe />
+                            </div>
+                        ))}
+                    </CypressTestDecoratorWithTypo>,
+                );
+
+                cy.matchImageSnapshot();
+            });
+        });
+
+        it('required attribute', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <TextField id="required" value="Value" placeholder="Placeholder" label="Title" required />
+                    <TextField
+                        id="falseRequired"
+                        value="Value"
+                        placeholder="Placeholder"
+                        label="Title"
+                        required={false}
+                    />
+                    <TextField id="notRequired" value="Value" placeholder="Placeholder" label="Title" />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('#required').should('have.attr', 'required');
+            cy.get('#falseRequired').should('not.have.attr', 'required');
+            cy.get('#notRequired').should('not.have.attr', 'required');
+        });
+
+        it('required with chips', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <TextField enumerationType="chip" id="textfield" placeholder="Placeholder" label="Title" required />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('#textfield').should('have.attr', 'required');
+            cy.get('#textfield').type('some value{enter}');
+            cy.get('#textfield').should('not.have.attr', 'required');
+            cy.get('#textfield').type('{backspace}');
+            cy.get('#textfield').should('have.attr', 'required');
+        });
+    });
+
+    it('chipType', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    chipType="text"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -348,14 +610,18 @@ describe('plasma-b2c: TextField', () => {
     describe('with hint', () => {
         const sizes = ['xs', 's', 'm', 'l'] as const;
 
-        const cases = [{ labelPlacement: 'outer' }, { labelPlacement: 'inner' }];
+        const cases = [
+            { labelPlacement: 'outer' },
+            { labelPlacement: 'inner', view: 'innerLabel' },
+            { labelPlacement: 'inner', view: 'innerLabel', hintTargetPlacement: 'inner' },
+        ] as const;
 
         sizes.forEach((size) => {
             it(`_size:${size}`, () => {
                 mount(
                     <CypressTestDecoratorWithTypo>
                         {cases.map((props) => (
-                            <div style={{ margin: '0 1rem' }}>
+                            <div style={{ margin: '0 3rem' }}>
                                 <TextField
                                     value="Value"
                                     placeholder="Placeholder"

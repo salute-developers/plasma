@@ -2364,6 +2364,114 @@ export const inverseOutlineTransparentInfoHover = 'var(--inverse-outline-transpa
 /** Прозрачный инвертированный цвет обводки информация */
 export const inverseOutlineTransparentInfoActive = 'var(--inverse-outline-transparent-info-active)';
 
+/** Желтый цвет для данных */
+export const dataYellow = 'var(--data-yellow)';
+
+/** Желтый цвет для данных */
+export const dataYellowHover = 'var(--data-yellow-hover)';
+
+/** Желтый цвет для данных */
+export const dataYellowActive = 'var(--data-yellow-active)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinor = 'var(--data-yellow-minor)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinorHover = 'var(--data-yellow-minor-hover)';
+
+/** Минорный желтый цвет для данных */
+export const dataYellowMinorActive = 'var(--data-yellow-minor-active)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparent = 'var(--data-yellow-transparent)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparentHover = 'var(--data-yellow-transparent-hover)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataYellowTransparentActive = 'var(--data-yellow-transparent-active)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellow = 'var(--on-dark-data-yellow)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellowHover = 'var(--on-dark-data-yellow-hover)';
+
+/** Желтый цвет для данных на темном фоне */
+export const onDarkDataYellowActive = 'var(--on-dark-data-yellow-active)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinor = 'var(--on-dark-data-yellow-minor)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinorHover = 'var(--on-dark-data-yellow-minor-hover)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowMinorActive = 'var(--on-dark-data-yellow-minor-active)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparent = 'var(--on-dark-data-yellow-transparent)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparentHover = 'var(--on-dark-data-yellow-transparent-hover)';
+
+/** Прозрачный желтый цвет для данных на темном фоне */
+export const onDarkDataYellowTransparentActive = 'var(--on-dark-data-yellow-transparent-active)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellow = 'var(--on-light-data-yellow)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellowHover = 'var(--on-light-data-yellow-hover)';
+
+/** Желтый цвет для данных на светлом фоне */
+export const onLightDataYellowActive = 'var(--on-light-data-yellow-active)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinor = 'var(--on-light-data-yellow-minor)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinorHover = 'var(--on-light-data-yellow-minor-hover)';
+
+/** Минорный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowMinorActive = 'var(--on-light-data-yellow-minor-active)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparent = 'var(--on-light-data-yellow-transparent)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparentHover = 'var(--on-light-data-yellow-transparent-hover)';
+
+/** Прозрачный желтый цвет для данных на светлом фоне */
+export const onLightDataYellowTransparentActive = 'var(--on-light-data-yellow-transparent-active)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellow = 'var(--inverse-data-yellow)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellowHover = 'var(--inverse-data-yellow-hover)';
+
+/** Инвертированный желтый цвет для данных */
+export const inverseDataYellowActive = 'var(--inverse-data-yellow-active)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinor = 'var(--inverse-data-yellow-minor)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinorHover = 'var(--inverse-data-yellow-minor-hover)';
+
+/** Инвертированный минорный желтый цвет для данных */
+export const inverseDataYellowMinorActive = 'var(--inverse-data-yellow-minor-active)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparent = 'var(--inverse-data-yellow-transparent)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparentHover = 'var(--inverse-data-yellow-transparent-hover)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const inverseDataYellowTransparentActive = 'var(--inverse-data-yellow-transparent-active)';
+
 /** Фон для скелетона */
 export const surfaceSkeletonGradient = 'var(--surface-skeleton-gradient)';
 
@@ -2492,6 +2600,51 @@ export const borderRadiusXl = 'var(--border-radius-xl)';
 
 /** borderRadius xxl */
 export const borderRadiusXxl = 'var(--border-radius-xxl)';
+
+/** spacing 0x */
+export const spacing0x = 'var(--spacing-0x)';
+
+/** spacing 1x */
+export const spacing1x = 'var(--spacing-1x)';
+
+/** spacing 2x */
+export const spacing2x = 'var(--spacing-2x)';
+
+/** spacing 3x */
+export const spacing3x = 'var(--spacing-3x)';
+
+/** spacing 4x */
+export const spacing4x = 'var(--spacing-4x)';
+
+/** spacing 6x */
+export const spacing6x = 'var(--spacing-6x)';
+
+/** spacing 8x */
+export const spacing8x = 'var(--spacing-8x)';
+
+/** spacing 10x */
+export const spacing10x = 'var(--spacing-10x)';
+
+/** spacing 12x */
+export const spacing12x = 'var(--spacing-12x)';
+
+/** spacing 16x */
+export const spacing16x = 'var(--spacing-16x)';
+
+/** spacing 20x */
+export const spacing20x = 'var(--spacing-20x)';
+
+/** spacing 24x */
+export const spacing24x = 'var(--spacing-24x)';
+
+/** spacing 32x */
+export const spacing32x = 'var(--spacing-32x)';
+
+/** spacing 40x */
+export const spacing40x = 'var(--spacing-40x)';
+
+/** spacing 60x */
+export const spacing60x = 'var(--spacing-60x)';
 
 /** typography s display-l */
 export const dsplL = {

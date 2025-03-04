@@ -3,7 +3,7 @@ import type { FC, PropsWithChildren } from 'react';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 import { IconEye } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, PadMe, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconEye color="inherit" size="xs" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);
@@ -18,80 +18,116 @@ describe('plasma-b2c: Badge', () => {
         </CypressTestDecorator>
     );
 
-    it('[PLASMA-T707] Badge: view=default, size=m', () => {
+    it('[PLASMA-T1356] Badge: size=l, view=default, enableContentLeft', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_default_size_m" view="default" size="m" />
+                <Badge text="Badge_view_default_size_l" view="default" size="l" contentLeft={<Icon />} />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T708] Badge: view=positive, size=s', () => {
+    it('[PLASMA-T1357] Badge: size=m, view=accent, enableContentRight', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_positive_size_s" view="positive" size="s" />
+                <Badge text="Badge_view_accent_size_m" view="accent" size="m" contentRight={<Icon />} />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T709] Badge: view=negative, with Icon', () => {
+    it('[PLASMA-T1358] Badge: size=s, view=positive, pilled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_negative_with_icon" view="negative" contentLeft={<Icon />} />
+                <Badge text="Badge_view_positive_size_s" view="positive" size="s" pilled />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T716] Badge: view=accent, pilled', () => {
+    it('[PLASMA-T1359] Badge: size=xs, view=warning', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_accent_pilled" view="accent" pilled />
+                <Badge text="Badge_warning_size_xs" view="warning" size="xs" />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T717] Badge: view=warning, size=l', () => {
+    it('[PLASMA-T1360] Badge: size=l, view=negative', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_warning_size_l" view="warning" size="l" />
+                <Badge text="Badge_view_negative_size_l" view="negative" size="l" />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T718] Badge: view=dark', () => {
+    it('[PLASMA-T1361] Badge: size=m, view=dark', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_dark" view="dark" />
+                <Badge text="Badge_view_dark_size_m" view="dark" size="m" />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T719] Badge: view=light', () => {
+    it('[PLASMA-T1362] Badge: size=s, view=light', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_light" view="light" />
+                <Badge text="Badge_view_light_size_s" view="light" size="s" />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T720] Badge: view=default, transparent', () => {
+    it('[PLASMA-T1363] Badge: size=l, view=default, clear', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge_view_default_transparent" view="default" transparent />
+                <Badge text="Badge_view_default_size_l_clear" view="default" size="l" clear />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1364] Badge: size=l, view=default, transparent', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge_view_default_size_l_transparent" view="default" size="l" transparent />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-1651] Badge: icon only', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge contentLeft={<Icon />} size="l" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="m" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="s" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="xs" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-1652] Badge: customBackgroundColor, customColor', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge_custom" customBackgroundColor="red" customColor="white" size="l" />
             </CypressTestDecoratorWithTypo>,
         );
 

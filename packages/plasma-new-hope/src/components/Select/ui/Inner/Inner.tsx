@@ -1,11 +1,13 @@
 import React from 'react';
 import type { FC } from 'react';
+import { safeUseId } from '@salutejs/plasma-core';
 
 import { isEmpty } from '../../../../utils';
-import { Ul, StyledPopover } from '../../Select.styles';
+import { Ul } from '../../Select.styles';
+import { FloatingPopover } from '../../FloatingPopover';
 
 import type { MergedDropdownNodeTransformed } from './ui/Item/Item.types';
-import { Item } from './ui';
+import { Item } from './ui/Item/Item';
 import { InnerProps } from './Inner.type';
 
 export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, index, listWidth }) => {
@@ -19,16 +21,17 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
 
     const isCurrentListOpen = path[currentLevel + 1] === item.value.toString();
 
-    const listId = `tree_level_${currentLevel + 2}`;
+    const treeId = safeUseId();
+    const listId = `${treeId}_tree_level_${currentLevel + 2}`;
     const nextLevel = currentLevel + 1;
 
     if (!isEmpty(item?.items)) {
         return (
-            <StyledPopover
+            <FloatingPopover
+                placement={item?.placement || 'right'}
                 opened={isCurrentListOpen}
-                usePortal={false}
-                placement="right-start"
-                trigger="click"
+                onToggle={handleToggle}
+                offset={2}
                 target={
                     <Item
                         item={item}
@@ -41,9 +44,6 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                         ariaLabel={item.label}
                     />
                 }
-                onToggle={handleToggle}
-                isFocusTrapped={false}
-                preventOverflow={false}
             >
                 <Ul role="group" id={listId} isInnerUl listWidth={listWidth}>
                     {item.items?.map((innerItem: MergedDropdownNodeTransformed, innerIndex: number) => (
@@ -58,7 +58,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                         />
                     ))}
                 </Ul>
-            </StyledPopover>
+            </FloatingPopover>
         );
     }
 

@@ -1,4 +1,12 @@
-import type { KeyboardEvent, ChangeEvent, ReactNode, ReactElement, MutableRefObject, HTMLAttributes } from 'react';
+import type {
+    KeyboardEvent,
+    FocusEvent,
+    ChangeEvent,
+    ReactNode,
+    ReactElement,
+    MutableRefObject,
+    HTMLAttributes,
+} from 'react';
 
 export type TextfieldPrimitiveValue = string | number;
 
@@ -110,6 +118,10 @@ export type RangeInnerProps = {
      */
     secondTextfieldTextAfter?: string;
     /**
+     * Автозаполнение полей.
+     */
+    autoComplete?: string;
+    /**
      * Вариант отображения
      */
     view?: string;
@@ -125,6 +137,15 @@ export type RangeInnerProps = {
      * Компонент неактивен
      */
     disabled?: boolean;
+    /**
+     * Задает выравнивание индикатора обязательности поля
+     * @default right
+     */
+    requiredPlacement?: 'left' | 'right';
+    /**
+     * Флаг обязательности поля
+     */
+    required?: boolean;
     /**
      * Коллбэк, вызываемый при изменении первого поля ввода
      */
@@ -145,19 +166,19 @@ export type RangeInnerProps = {
     /**
      * Коллбэк, вызываемый при фокусе на первое поле ввода
      */
-    onFocusFirstTextfield?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onFocusFirstTextfield?: (event: FocusEvent<HTMLInputElement>) => void;
     /**
      * Коллбэк, вызываемый при фокусе на второе поле ввода
      */
-    onFocusSecondTextfield?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onFocusSecondTextfield?: (event: FocusEvent<HTMLInputElement>) => void;
     /**
      * Коллбэк, вызываемый при потере фокуса первым полем ввода
      */
-    onBlurFirstTextfield?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onBlurFirstTextfield?: (event: FocusEvent<HTMLInputElement>) => void;
     /**
      * Коллбэк, вызываемый при потере фокуса вторым полем ввода
      */
-    onBlurSecondTextfield?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onBlurSecondTextfield?: (event: FocusEvent<HTMLInputElement>) => void;
 } & RangeDividerVariants;
 
 export type RangeProps = RangeInnerProps & HTMLAttributes<HTMLDivElement>;

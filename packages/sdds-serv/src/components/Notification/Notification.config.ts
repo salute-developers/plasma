@@ -3,6 +3,7 @@ import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-compon
 export const config = {
     defaults: {
         view: 'default',
+        closeIconType: 'default',
     },
     variations: {
         view: {
@@ -67,6 +68,12 @@ export const config = {
             vertical: css`
                 ${notificationTokens.width}: 15rem;
                 ${notificationTokens.padding}: 0.375rem;
+            `,
+        },
+        closeIconType: {
+            default: css`
+                ${notificationTokens.closeIconButtonSize}: 1.5rem;
+                ${notificationTokens.closeIconSize}: 1.5rem;
             `,
         },
         size: {

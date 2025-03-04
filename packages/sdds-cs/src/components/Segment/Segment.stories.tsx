@@ -25,7 +25,7 @@ type CustomStoryProps = {
 
 type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
 
-const sizes = ['s'] as const;
+const sizes = ['xs'] as const;
 
 const getContentLeft = (contentLeftOption: string, size: Size) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
@@ -35,7 +35,7 @@ const getContentLeft = (contentLeftOption: string, size: Size) => {
 const getContentRight = (contentRightOption: string, size: Size) => {
     switch (contentRightOption) {
         case 'icon':
-            return <IconMic size="s" color="inherit" />;
+            return <IconMic size="xs" color="inherit" />;
         case 'counter':
             return <Counter size="s" count={1} view="positive" />;
         case 'text':
@@ -46,11 +46,11 @@ const getContentRight = (contentRightOption: string, size: Size) => {
 };
 
 const meta: Meta<StorySegmentProps> = {
-    title: 'Controls/Segment',
+    title: 'Data Entry/Segment',
     decorators: [InSpacingDecorator],
     component: SegmentGroup,
     argTypes: {
-        ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip']),
+        ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip', 'size']),
         stretch: {
             control: {
                 type: 'boolean',
@@ -140,7 +140,7 @@ const StoryDefault = (props: StorySegmentProps) => {
 export const Default: StoryObj<StorySegmentProps> = {
     args: {
         itemQuantity: 8,
-        size: 's',
+        size: 'xs',
         segmentItemView: 'default',
         selectionMode: 'single',
         pilled: false,

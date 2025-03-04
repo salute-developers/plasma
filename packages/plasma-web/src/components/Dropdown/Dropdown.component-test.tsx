@@ -13,6 +13,8 @@ const items = [
         label: 'Северная Америка',
         contentLeft: <IconLocation color="inherit" />,
         contentRight: <IconLocation color="inherit" />,
+        className: 'test-classname',
+        'data-name': 'test-data-name',
     },
     {
         value: 'south_america',
@@ -221,6 +223,71 @@ const items = [
     },
 ];
 
+const itemsWithPlacement = [
+    {
+        value: 'europe',
+        label: 'Европа',
+        placement: 'bottom',
+        items: [
+            {
+                value: 'france',
+                label: 'Франция',
+                placement: 'right',
+                items: [
+                    {
+                        value: 'paris',
+                        label: 'Париж',
+                        placement: 'top',
+                        items: [
+                            {
+                                value: 'antoni',
+                                label: 'Антони',
+                                placement: 'left',
+                                items: [
+                                    {
+                                        value: 'bojole',
+                                        label: 'Божоле',
+                                    },
+                                    {
+                                        value: 'Cambona',
+                                        label: 'Камбона',
+                                    },
+                                ],
+                            },
+                            {
+                                value: 'banyo',
+                                label: 'Баньё',
+                            },
+                            {
+                                value: 'pontuaz',
+                                label: 'Понтуаз',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'lyon',
+                        label: 'Лион',
+                    },
+                ],
+            },
+            {
+                value: 'germany',
+                label: 'Германия',
+                items: [
+                    {
+                        value: 'berlin',
+                        label: 'Берлин',
+                    },
+                    {
+                        value: 'munich',
+                        label: 'Мюнхен',
+                    },
+                ],
+            },
+        ],
+    },
+];
+
 describe('plasma-web: Dropdown', () => {
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
@@ -392,6 +459,47 @@ describe('plasma-web: Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: placement, alwaysOpened', () => {
+        cy.viewport(500, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown placement="right-start" items={items} closeOnOverlayClick={false} alwaysOpened>
+                    <Button text="Список стран" />
+                </Dropdown>
+
+                <div style={{ height: '600px' }} />
+
+                <Dropdown placement="top-start" items={items} closeOnOverlayClick={false} alwaysOpened>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it.only('prop: nested dropdown placement', () => {
+        cy.viewport(1600, 1200);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ height: '400px' }} />
+                <Dropdown placement="right-start" items={itemsWithPlacement} closeOnOverlayClick={false}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('[id$="europe"]').click();
+        cy.get('[id$="france"]').click();
+        cy.get('[id$="paris"]').click();
+        cy.get('[id$="antoni"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: offset', () => {
         cy.viewport(1000, 500);
 
@@ -520,6 +628,74 @@ describe('plasma-web: Dropdown', () => {
                 <Dropdown items={items} listOverflow="scroll" listHeight={6}>
                     <Button text="Список стран" />
                 </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: item data-attrs', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Dropdown id="#single" items={items}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </div>,
+        );
+
+        cy.get('button').realClick();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').should('have.class', 'test-classname');
+        cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
+    });
+
+    it('prop: zIndex', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown items={items} zIndex={10000}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').realClick();
+
+        cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
+    it('prop: beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Dropdown items={items} beforeList="Content before list">
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Dropdown items={items} afterList="Content after list">
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
             </CypressTestDecoratorWithTypo>,
         );
 

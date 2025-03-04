@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { FC } from 'react';
 
 import { classes } from './Toast.tokens';
@@ -11,7 +11,7 @@ export const ToastControllerHoc = <T extends ToastProps>(ToastComponent: FC<T>) 
     function ToastController(props: ToastControllerProps) {
         const { position = 'bottom', offset, fade, text, ...rest } = props;
 
-        const { hideToast, isVisible, hideTimeout, animationRunTimeout } = useToastInner();
+        const { hideToast, isVisible } = useToastInner();
         const toastKey = `${text}${position}`;
 
         const showedClass = isVisible ? classes.toastShowed : classes.toastHidden;
@@ -22,17 +22,6 @@ export const ToastControllerHoc = <T extends ToastProps>(ToastComponent: FC<T>) 
             onCloseButtonClick: hideToast,
             ...rest,
         } as T;
-
-        useEffect(() => {
-            return () => {
-                if (hideTimeout?.current) {
-                    clearTimeout(hideTimeout.current);
-                }
-                if (animationRunTimeout?.current) {
-                    clearTimeout(animationRunTimeout.current);
-                }
-            };
-        }, []);
 
         if (!text) {
             return null;

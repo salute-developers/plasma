@@ -5,17 +5,25 @@ export interface SwitchPropsPropsBase {
      * Метка-подпись к элементу
      */
     label?: string;
+    /**
+     * Дополнительное описание
+     */
+    description?: string;
 }
 
 export interface SwitchPropsVariations extends SwitchPropsPropsBase {
     /**
-     * Размер контрола.
+     * Размер компонента.
      */
     size?: string;
     /**
-     * Вид контрола.
+     * Вид компонента.
      */
     view?: string;
+    /**
+     * Размер toggle.
+     */
+    toggleSize?: string;
     /**
      * Расположение подпись
      */

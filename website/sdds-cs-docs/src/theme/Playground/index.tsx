@@ -6,7 +6,6 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import { usePrismTheme, useColorMode } from '@docusaurus/theme-common';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
 import { sdds_cs__light } from '@salutejs/sdds-themes';
-import { standard } from '@salutejs/plasma-typo';
 import Translate from '@docusaurus/Translate';
 import clsx from 'clsx';
 
@@ -16,6 +15,13 @@ import styles from './styles.module.css';
 
 // Именно в этом файле подключаются/управляются темы/токены
 const LightTheme = createGlobalStyle(sdds_cs__light);
+
+// INFO: По договоренности с командой дизайна
+const BackgroundPrimaryTokenOverwrite = createGlobalStyle`
+    :root {
+        --background-primary: rgb(255, 255, 255);
+    }
+`;
 
 const StyledWrap = styled.div`
     width: fit-content;
@@ -46,6 +52,7 @@ const ResultWithHeader: FC = () => {
     return (
         <>
             <LightTheme />
+            <BackgroundPrimaryTokenOverwrite />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
                     Result

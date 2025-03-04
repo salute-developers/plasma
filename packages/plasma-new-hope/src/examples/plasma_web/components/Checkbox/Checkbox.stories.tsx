@@ -3,12 +3,9 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { checkboxConfig } from '../../../../components/Checkbox';
-import { mergeConfig } from '../../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../../_helpers';
+import { WithTheme } from '../../../_helpers';
 import { Link } from '../Link/Link';
 
-import { config } from './Checkbox.config';
 import { Checkbox } from './Checkbox';
 
 const onChange = action('onChange');
@@ -16,10 +13,23 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<typeof Checkbox> = {
-    title: 'plasma_web/Checkbox',
+    title: 'web/Data Entry/Checkbox',
     decorators: [WithTheme],
     component: Checkbox,
-    argTypes: argTypesFromConfig(mergeConfig(checkboxConfig, config)),
+    argTypes: {
+        view: {
+            options: ['accent'],
+            control: {
+                type: 'radio',
+            },
+        },
+        size: {
+            options: ['m', 's'],
+            control: {
+                type: 'radio',
+            },
+        },
+    },
     args: {
         view: 'accent',
         size: 'm',
@@ -112,6 +122,29 @@ const StoryDefault = (props: CheckboxProps) => {
 
 export const Default: StoryObj<CheckboxProps> = {
     render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryLong = (props: CheckboxProps) => {
+    const { width, ...otherProps } = props;
+    return (
+        <div style={{ width }}>
+            <Checkbox {...otherProps} />
+        </div>
+    );
+};
+
+export const LongText: StoryObj<CheckboxProps> = {
+    args: {
+        name: 'item.name',
+        value: 'item.value',
+        label:
+            'Label looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger',
+        description:
+            'Description looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger',
+        singleLine: true,
+        width: '300px',
+    },
+    render: (args) => <StoryLong {...args} />,
 };
 
 const StoryComplex = (props: CheckboxProps) => {

@@ -80,6 +80,14 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * Размер Notification (необходимо связать с размером используемых Button).
      */
     size?: string;
+    /**
+     * Вид закрывающей иконки в Notification.
+     */
+    closeIconType?: 'default' | 'thin';
+    /**
+     * @description Только для применения в рамках SSR.
+     */
+    UNSAFE_SSR_ENABLED?: boolean;
 }
 
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -96,4 +104,8 @@ export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElem
      * @default bottom-right
      */
     placement?: NotificationPlacement;
+    /**
+     * @description Только для применения в рамках SSR.
+     */
+    UNSAFE_SSR_ENABLED?: boolean;
 }

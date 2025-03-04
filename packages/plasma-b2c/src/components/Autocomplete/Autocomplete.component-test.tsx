@@ -471,6 +471,92 @@ describe('plasma-b2c: Autocomplete', () => {
         cy.get('[id=parentId] > div').eq(1).find('div').and('have.class', 'popover-root');
     });
 
+    it('prop: required, requiredPlacement', () => {
+        cy.viewport(500, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '200px' }}>
+                        <Autocomplete required label="Label" placeholder="Placeholder" suggestions={suggestions} />
+                    </div>
+
+                    <div style={{ width: '200px' }}>
+                        <Autocomplete
+                            required
+                            requiredPlacement="left"
+                            label="Label"
+                            placeholder="Placeholder"
+                            suggestions={suggestions}
+                        />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: optional', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Autocomplete optional label="Label" placeholder="Placeholder" suggestions={suggestions} />
+                    </div>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Autocomplete
+                        label="Label"
+                        placeholder="Placeholder"
+                        suggestions={suggestions}
+                        beforeList="Content before list"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').click();
+        cy.focused().type('алексей');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Autocomplete
+                        label="Label"
+                        placeholder="Placeholder"
+                        suggestions={suggestions}
+                        afterList="Content after list"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').click();
+        cy.focused().type('алексей');
+
+        cy.matchImageSnapshot();
+    });
+
     it('keyboard interactions', () => {
         cy.viewport(1000, 500);
 

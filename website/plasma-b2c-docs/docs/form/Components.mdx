@@ -4,7 +4,7 @@ title: Поддержка компонентов
 sidebar_position: 4
 ---
 
-### TextField, TextArea, Radiobox, Checkbox и Switch
+### TextField, TextArea, Radiobox, Checkbox, Autocomplite и Switch
 
 #### React Hook Form
 
@@ -74,3 +74,40 @@ sidebar_position: 4
 ]
 ```
 
+
+
+### Combobox и Select
+
+#### React Hook Form
+
+Изначальные значения задаются в defaultValue через параметр в компоненте. Возвращаемый и изначальный тип `string`.
+
+#### Нативная форма 
+
+Изначальные значения задаются в defaultValue через параметр в компоненте. Возвращаемый и изначальный тип `string`.
+
+
+### Combobox Multiple и Multiselect
+
+#### React Hook Form
+
+Изначальные значения задаются в defaultValue (`string[]`) через параметр в компоненте. Возвращаемый тип `string[]`.
+
+#### Нативная форма 
+
+Изначальные значения задаются в defaultValue (`number[]`) через параметр в компоненте. Возвращается количество выбранных элементов с ключем `name` и значением `value`. 
+```
+
+[
+    ['textfield': 'test'],
+    ...
+    ['combobox': 'test_1'],
+    ['combobox': 'test_2'],
+    ...
+    ['select': 'test_1'],
+    ['select': 'test_2'],
+    ...
+    ['textfield2': 'test'],
+]
+
+```

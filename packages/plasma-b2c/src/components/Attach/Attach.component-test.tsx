@@ -12,6 +12,7 @@ const inputSelector = 'input';
 
 const sizes = ['xs', 's', 'm', 'l'];
 const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear'];
+const helperTextViews = ['default', 'negative'];
 const buttonTypes = ['button', 'iconButton'];
 const flows = ['horizontal', 'vertical', 'auto'];
 const filenameTruncationWidths = ['400px', '350px', '300px', '180px', '0px'];
@@ -67,6 +68,25 @@ describe('plasma-b2c: Attach', () => {
         cy.matchImageSnapshot();
     });
 
+    it('_helperTextView', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                {helperTextViews.map((helperTextView) => (
+                    <>
+                        <Attach helperTextView={helperTextView} helperText="helperText" />
+                        <PadMe />
+                        <PadMe />
+                        <PadMe />
+                    </>
+                ))}
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.get(inputSelector).each(($element) => cy.wrap($element).attachFile(FIXTURE_PATH));
+        cy.get(cellRootSelector).should('have.length', helperTextViews.length);
+
+        cy.matchImageSnapshot();
+    });
+
     it('_hasAttachment=false', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -102,6 +122,25 @@ describe('plasma-b2c: Attach', () => {
                 {flows.map((flow) => (
                     <>
                         <Attach flow={flow} />
+                        <PadMe />
+                    </>
+                ))}
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.get(inputSelector).each(($element) => cy.wrap($element).attachFile(FIXTURE_PATH));
+        cy.get(cellRootSelector).should('have.length', flows.length);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_flow with helperText', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                {flows.map((flow) => (
+                    <>
+                        <Attach flow={flow} helperText="helperText" />
+                        <PadMe />
+                        <PadMe />
                         <PadMe />
                     </>
                 ))}

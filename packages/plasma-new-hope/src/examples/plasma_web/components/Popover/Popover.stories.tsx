@@ -8,8 +8,10 @@ import { WithTheme } from '../../../_helpers';
 
 import { Popover } from './Popover';
 
+import './style.css';
+
 const meta: Meta<typeof Popover> = {
-    title: 'plasma_web/Popover',
+    title: 'web/Overlay/Popover',
     decorators: [WithTheme],
     component: Popover,
     argTypes: {
@@ -66,6 +68,7 @@ const meta: Meta<typeof Popover> = {
         isFocusTrapped: true,
         skidding: 0,
         distance: 6,
+        animated: true,
     },
 };
 
@@ -77,9 +80,9 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
 };
 
 const StyledContent = styled.div`
-    background: var(--plasma-colors-surface-solid03);
+    background: var(--surface-solid-tertiary);
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: var(--popover-border-radius);
 
     display: flex;
     flex-direction: column;

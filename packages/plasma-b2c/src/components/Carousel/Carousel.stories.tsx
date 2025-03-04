@@ -11,7 +11,7 @@ import { Headline4, Footnote1 } from '../Typography';
 import { Carousel, CarouselItem } from '.';
 
 const meta: Meta<typeof Carousel> = {
-    title: 'Controls/Carousel',
+    title: 'Navigation/Carousel',
     component: Carousel,
     decorators: [InSpacingDecorator],
     argTypes: {

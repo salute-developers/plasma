@@ -12,7 +12,7 @@ import type { TabsProps, TabsControllerProps } from '.';
 const icons = ['clock', 'settings', 'house', 'trash'];
 
 const meta: Meta<TabsProps> = {
-    title: 'Controls/Tabs',
+    title: 'Navigation/Tabs',
     component: Tabs,
     decorators: [InContainerDecorator],
     argTypes: {

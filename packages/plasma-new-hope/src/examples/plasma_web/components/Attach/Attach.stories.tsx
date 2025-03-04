@@ -47,7 +47,7 @@ type StoryAttachProps = ComponentProps<typeof Attach> & {
 };
 
 const meta: Meta<StoryAttachProps> = {
-    title: 'plasma_web/Attach',
+    title: 'web/Data Entry/Attach',
     decorators: [WithTheme],
     component: Attach,
     argTypes: {
@@ -81,11 +81,12 @@ export const Button: StoryObj<StoryAttachProps> = {
         width: '400px',
         buttonText: 'Загрузить файл',
         buttonValue: '',
-        square: false,
+        helperText: 'Подсказка',
         enableContentLeft: false,
         enableContentRight: false,
         size: 'm',
         view: 'accent',
+        helperTextView: 'default',
     },
     argTypes: {
         view: {
@@ -126,8 +127,10 @@ export const IconButton: StoryObj<StoryAttachProps> = {
         flow: 'horizontal',
         hasAttachment: true,
         width: '400px',
+        helperText: 'Подсказка',
         size: 'm',
         view: 'accent',
+        helperTextView: 'default',
     },
     argTypes: {
         view: {

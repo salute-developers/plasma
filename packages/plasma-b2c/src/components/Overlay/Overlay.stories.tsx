@@ -12,7 +12,7 @@ import { Overlay } from '.';
 const onOverlayClick = action('onOverlayClick');
 
 export default {
-    title: 'Controls/Overlay',
+    title: 'Overlay/Overlay',
     decorators: [InSpacingDecorator],
     argTypes: {
         isClickable: {
@@ -66,7 +66,7 @@ const StoryDefault = (props: StoryOverlayProps) => {
 export const Default: StoryObj<StoryOverlayProps> = {
     args: {
         zIndex: '100',
-        backgroundColorProperty: 'var(--plasma-colors-overlay-soft)',
+        backgroundColorProperty: 'var(--overlay-soft)',
         withBlur: false,
         transparent: false,
         isClickable: true,

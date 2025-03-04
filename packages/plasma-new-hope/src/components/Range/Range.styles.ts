@@ -82,11 +82,23 @@ export const base = css`
 
 export const StyledLabel = styled.label``;
 
+export const StyledIndicatorWrapper = styled.div`
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+`;
+
+export const StyledIndicator = styled.div`
+    position: absolute;
+    border-radius: 50%;
+`;
+
 export const LeftHelper = styled.div``;
 
 export const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
 `;
 
 export const StyledDivider = styled.div``;

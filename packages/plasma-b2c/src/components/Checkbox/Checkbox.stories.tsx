@@ -26,6 +26,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
+    'view',
 ];
 
 const onChange = action('onChange');
@@ -33,10 +34,10 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+const views = ['accent'];
 
 const meta: Meta<CheckboxProps> = {
-    title: 'Controls/Checkbox',
+    title: 'Data Entry/Checkbox',
     component: Checkbox,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -53,7 +54,7 @@ const meta: Meta<CheckboxProps> = {
         view: {
             options: views,
             control: {
-                type: 'select',
+                type: 'inline-radio',
             },
         },
         size: {

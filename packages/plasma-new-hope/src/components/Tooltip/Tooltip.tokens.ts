@@ -1,5 +1,4 @@
 export const classes = {
-    hasContentLeft: 'has-content-left',
     animated: 'tooltip-animated',
 };
 

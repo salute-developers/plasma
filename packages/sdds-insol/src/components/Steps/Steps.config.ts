@@ -30,6 +30,30 @@ export const config = {
 
                 ${tokens.disabledOpacity}: 0.4;
             `,
+            accent: css`
+                ${tokens.activeTitleColor}: var(--text-primary);
+                ${tokens.activeTitleColorHover}: var(--text-primary-hover);
+                ${tokens.activeIndicatorBorder}: solid var(--text-accent);
+                ${tokens.activeIndicatorColor}: var(--text-accent);
+                ${tokens.activeIndicatorBackground}: var(--surface-clear);
+
+                ${tokens.completedTitleColor}: var(--text-primary);
+                ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
+                ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
+                ${tokens.completedIndicatorBackground}: var(--surface-accent-gradient);
+                ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-gradient-hover);
+
+                ${tokens.inactiveTitleColor}: var(--text-secondary);
+                ${tokens.inactiveTitleColorHover}: var(--text-secondary-hover);
+                ${tokens.inactiveIndicatorColor}: var(--text-secondary);
+                ${tokens.inactiveIndicatorColorHover}: var(--text-secondary);
+                ${tokens.inactiveIndicatorBackground}: var(--surface-transparent-secondary);
+                ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-transparent-secondary-hover);
+
+                ${tokens.contentColor}: var(--text-secondary);
+
+                ${tokens.disabledOpacity}: 0.4;
+            `,
         },
         size: {
             l: css`

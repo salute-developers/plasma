@@ -5,16 +5,40 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
+import { IconDisclosureRight } from '../../../../components/_Icon';
+import { IconButton } from '../IconButton/IconButton';
 
-import { Popover } from './Popover';
+import { Popover, PopoverPlacement } from './Popover';
+
+import './style.css';
+
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<typeof Popover> = {
-    title: 'plasma_b2c/Popover',
+    title: 'b2c/Overlay/Popover',
     decorators: [WithTheme],
     component: Popover,
     argTypes: {
         placement: {
-            options: ['top', 'bottom', 'right', 'left', 'auto'],
+            options: placements,
             control: {
                 type: 'select',
             },
@@ -67,6 +91,7 @@ const meta: Meta<typeof Popover> = {
         skidding: 0,
         distance: 6,
         hasArrow: true,
+        animated: true,
     },
 };
 
@@ -78,9 +103,9 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
 };
 
 const StyledContent = styled.div`
-    background: var(--plasma-colors-surface-solid03);
+    background: var(--surface-solid-tertiary);
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: var(--popover-border-radius);
 
     display: flex;
     flex-direction: column;
@@ -113,5 +138,8 @@ const StoryDefault = (args: StoryPopoverProps) => {
 };
 
 export const Default: StoryObj<StoryPopoverProps> = {
+    args: {
+        placement: 'bottom-start',
+    },
     render: (args) => <StoryDefault {...args} />,
 };

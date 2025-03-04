@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Heading } from '../../../typograpy/components/Heading/Heading';
+import { Heading } from '../../../typography/components/Heading/Heading';
 import { WithTheme } from '../../../_helpers';
 import { Tabs } from '../Tabs/Tabs';
 import { TabItem } from '../Tabs/TabItem';
@@ -13,7 +13,7 @@ import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoub
 const onChangeValue = action('onChangeValue');
 
 const meta: Meta<typeof CalendarBase> = {
-    title: 'plasma_b2c/Calendar',
+    title: 'b2c/Data Entry/Calendar',
     decorators: [WithTheme],
     argTypes: {
         min: {
@@ -100,11 +100,11 @@ const StoryDefault = (args: CalendarProps) => {
             isDouble={isDouble}
             date={date}
             value={(isRange ? valueRange : value) as Date & [Date, Date?]}
-            min={min}
-            max={max}
             includeEdgeDates={includeEdgeDates}
             locale={locale}
             onChangeValue={(isRange ? handleOnRangeChange : handleOnChange) as (value: Date | [Date, Date?]) => void}
+            min={min}
+            max={max}
         />
     );
 };
@@ -146,24 +146,24 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
             <CalendarDouble
                 size={size}
                 value={value}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 locale={locale}
                 onChangeValue={handleOnChange}
+                min={min}
+                max={max}
                 {...rest}
             />
         ) : (
             <CalendarBase
                 size={size}
                 value={value}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 locale={locale}
                 onChangeValue={handleOnChange}
+                min={min}
+                max={max}
                 {...rest}
             />
         );
@@ -233,24 +233,24 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
             <CalendarBaseRange
                 size={size}
                 value={values}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 onChangeValue={handleOnChange}
                 locale={locale}
+                min={min}
+                max={max}
                 {...rest}
             />
         ) : (
             <CalendarDoubleRange
                 size={size}
                 value={values}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
                 onChangeValue={handleOnChange}
                 locale={locale}
+                min={min}
+                max={max}
                 {...rest}
             />
         );

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { backgroundPrimary } from '@salutejs/plasma-core';
 import { IconClose } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
@@ -37,7 +36,7 @@ const StyledBody = styled.div`
     max-width: 100%;
 
     border-radius: 1.25rem;
-    background-color: ${backgroundPrimary};
+    background-color: var(--surface-solid-card);
 
     pointer-events: all;
 `;

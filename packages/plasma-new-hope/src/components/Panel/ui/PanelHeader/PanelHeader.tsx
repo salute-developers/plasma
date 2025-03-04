@@ -24,7 +24,7 @@ export const panelHeaderRoot = (Root: RootProps<HTMLDivElement, PanelHeaderProps
                     {actions && <ButtonWrapper>{actions}</ButtonWrapper>}
                     {hasClose && (
                         <ButtonWrapper placement={closePlacement}>
-                            <CloseIconWrapper view="clear" size="s" onClick={onClose}>
+                            <CloseIconWrapper view="clear" size="s" onClick={onClose} color="inherit">
                                 <IconClose size="s" color="inherit" />
                             </CloseIconWrapper>
                         </ButtonWrapper>

@@ -5,7 +5,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
-import { Heading } from '../../../typograpy/components/Heading/Heading';
+import { Heading } from '../../../typography/components/Heading/Heading';
 import { IconDone } from '../../../../components/_Icon';
 import { SSRProvider } from '../../../../components/SSRProvider';
 import { PopupProvider } from '../Popup/Popup';
@@ -14,7 +14,7 @@ import type { ClosePlacementType } from '../../../../components/Drawer';
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from './Drawer';
 
 export default {
-    title: 'plasma_web/Drawer',
+    title: 'web/Overlay/Drawer',
     decorators: [WithTheme],
     argTypes: {
         placement: {
@@ -85,6 +85,16 @@ export default {
                 type: 'select',
             },
         },
+        customBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
+        customContentBackgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
     },
 } as Meta;
 
@@ -103,7 +113,7 @@ type StoryDrawerProps = ComponentProps<typeof Drawer> & {
 };
 
 const StyledWrapper = styled.div`
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -188,11 +198,6 @@ const StoryDrawerDemo = ({
                     </StyledContentWrapper>
                     <StyledSection />
                 </StyledWrapper>
-                <StyledContent>
-                    <Heading style={{ margin: '2rem' }} size="h2">
-                        Some basic content
-                    </Heading>
-                </StyledContent>
             </PopupProvider>
         </SSRProvider>
     );

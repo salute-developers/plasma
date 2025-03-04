@@ -1,4 +1,4 @@
-import React, { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react';
+import React, { ReactNode } from 'react';
 import {
     component,
     mergeConfig,
@@ -18,17 +18,16 @@ export { modalClasses } from '../Modal';
 
 const mergedConfig = mergeConfig(notificationConfig, config);
 
-export const Notification = component(mergedConfig) as ForwardRefExoticComponent<
-    NotificationProps & RefAttributes<HTMLDivElement>
->;
+export const Notification = component(mergedConfig);
 
 export const NotificationsProvider: React.FC<{
     children: ReactNode;
     frame?: string;
     placement?: NotificationPlacement;
-}> = ({ children, frame = 'document', placement }) => {
+    UNSAFE_SSR_ENABLED?: boolean;
+}> = ({ children, frame = 'document', placement, UNSAFE_SSR_ENABLED }) => {
     return (
-        <Provider config={mergedConfig} frame={frame} placement={placement}>
+        <Provider config={mergedConfig} frame={frame} placement={placement} UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}>
             {children}
         </Provider>
     );

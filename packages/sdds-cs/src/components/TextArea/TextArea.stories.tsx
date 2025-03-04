@@ -4,11 +4,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
-import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextArea } from './TextArea';
 
-const labelPlacements = ['inner', 'outer'];
+const placements = ['inner', 'outer'];
 
 type StoryTextAreaPropsCustom = {
     hasHint?: boolean;
@@ -17,32 +16,8 @@ type StoryTextAreaPropsCustom = {
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
 
-const sizes = ['s'];
-const views = ['default', 'negative'];
-const hintSizes = ['m', 's'];
-const hintTriggers = ['hover', 'click'];
-const placements: Array<PopoverPlacement> = [
-    'top',
-    'top-start',
-    'top-end',
-
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-
-    'left',
-    'left-start',
-    'left-end',
-
-    'right',
-    'right-start',
-    'right-end',
-
-    'auto',
-];
-
 const meta: Meta<StoryTextAreaProps> = {
-    title: 'Controls/TextArea',
+    title: 'Data Entry/TextArea',
     decorators: [InSpacingDecorator],
     component: TextArea,
     argTypes: {
@@ -64,28 +39,15 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        labelPlacement: {
-            options: labelPlacements,
-            control: {
-                type: 'select',
-            },
-        },
-        size: {
-            options: sizes,
-            defaultValue: 'm',
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
         clear: {
             control: {
                 type: 'boolean',
+            },
+        },
+        labelPlacement: {
+            options: ['inner', 'outer'],
+            control: {
+                type: 'select',
             },
         },
         hasDivider: {
@@ -106,39 +68,23 @@ const meta: Meta<StoryTextAreaProps> = {
             },
             if: { arg: 'clear', truthy: false },
         },
-        hintText: {
+        helperText: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
         },
-        hintSize: {
-            options: hintSizes,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintTrigger: {
-            options: hintTriggers,
-            control: {
-                type: 'inline-radio',
-            },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintPlacement: {
-            options: placements,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'hasHint', truthy: true },
-            mappers: placements,
-        },
-        hintHasArrow: {
-            control: { type: 'boolean' },
-            if: { arg: 'hasHint', truthy: true },
-        },
-        hintWidth: {
+        width: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
+        },
+        height: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        rightHelper: {
+            control: { type: 'text' },
         },
         ...disableProps([
             'helperBlock',
@@ -165,7 +111,17 @@ const meta: Meta<StoryTextAreaProps> = {
             'width',
             'helperText',
             'labelPlacement',
+            'hintText',
+            'hintTrigger',
             'hintView',
+            'hintSize',
+            'hintTargetIcon',
+            'hintTargetPlacement',
+            'hintPlacement',
+            'hintHasArrow',
+            'hintOffset',
+            'hintWidth',
+            'hintContentLeft',
         ]),
     },
     args: {
@@ -175,6 +131,7 @@ const meta: Meta<StoryTextAreaProps> = {
         label: 'Лейбл',
         titleCaption: 'Подпись к полю',
         placeholder: 'Заполните многострочное поле',
+        leftHelperPlacement: 'outer',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
         disabled: false,
@@ -189,14 +146,6 @@ const meta: Meta<StoryTextAreaProps> = {
         labelPlacement: 'outer',
         clear: false,
         hasDivider: false,
-        hasHint: true,
-        hintText: 'Текст подсказки',
-        hintTrigger: 'hover',
-        hintView: 'default',
-        hintSize: 'm',
-        hintPlacement: 'auto',
-        hintWidth: '10rem',
-        hintHasArrow: true,
     },
 };
 

@@ -7,12 +7,14 @@ import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { TextArea } from '.';
 import type { TextAreaProps } from '.';
 
+const labelPlacements = ['inner', 'outer'];
+
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const statuses = ['', 'success', 'warning', 'error'];
-const sizes = ['xs', 's', 'm', 'l'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
+const views = ['default', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -37,7 +39,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<TextAreaProps> = {
-    title: 'Controls/TextArea',
+    title: 'Data Entry/TextArea',
     component: TextArea,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -59,10 +61,9 @@ const meta: Meta<TextAreaProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
-        status: {
-            options: statuses,
+        clear: {
             control: {
-                type: 'select',
+                type: 'boolean',
             },
         },
         size: {
@@ -72,8 +73,14 @@ const meta: Meta<TextAreaProps> = {
                 type: 'select',
             },
         },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
         labelPlacement: {
-            options: ['inner', 'outer'],
+            options: labelPlacements,
             control: {
                 type: 'select',
             },
@@ -95,6 +102,11 @@ const meta: Meta<TextAreaProps> = {
                 type: 'number',
             },
             if: { arg: 'clear', truthy: false },
+        },
+        hasHint: {
+            control: {
+                type: 'boolean',
+            },
         },
         hintText: {
             control: { type: 'text' },
@@ -137,6 +149,24 @@ const meta: Meta<TextAreaProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        helperText: {
+            control: { type: 'text' },
+        },
+        width: {
+            control: { type: 'text' },
+        },
+        height: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        rightHelper: {
+            control: { type: 'text' },
+        },
         ...disableProps([
             'helperBlock',
             '$isFocused',
@@ -156,6 +186,12 @@ const meta: Meta<TextAreaProps> = {
             'onChange',
             'onFocus',
             'onBlur',
+            'leftHelperPlacement',
+            'status',
+            'hintTargetIcon',
+            'hintOffset',
+            'hintContentLeft',
+            'hintView',
         ]),
     },
     args: {

@@ -2,13 +2,12 @@ import { styled } from '@linaria/react';
 
 import { component, mergeConfig } from '../../engines';
 import { tooltipConfig } from '../Tooltip';
+import { popoverClasses } from '../Popover';
 
 import { classes, tokens } from './TextField.tokens';
 
 const mergedConfig = mergeConfig(tooltipConfig);
 const Tooltip = component(mergedConfig);
-
-export const Hint = styled(Tooltip)``;
 
 export const InputWrapper = styled.div`
     position: relative;
@@ -42,7 +41,7 @@ export const InputLabelWrapper = styled.div`
 export const StyledChips = styled.div`
     display: flex;
     gap: var(${tokens.chipGap});
-    margin-right: var(${tokens.chipGap});
+    margin-right: var(${tokens.chipMarginRight}, var(${tokens.chipGap}));
     user-select: none;
 `;
 
@@ -61,13 +60,19 @@ export const Input = styled.input`
     }
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{ hasDynamicWidth?: boolean }>`
     position: relative;
+    display: flex;
     flex: 1;
-    min-width: 60%;
+    min-width: ${({ hasDynamicWidth }) => (hasDynamicWidth ? 'auto' : '60%')};
+
+    ${Input} {
+        max-width: ${({ hasDynamicWidth }) => (hasDynamicWidth ? '100%' : 'none')};
+    }
 `;
 
-export const InputPlaceholder = styled.div`
+export const InputPlaceholder = styled.div<{ hasPadding?: boolean }>`
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
@@ -83,12 +88,14 @@ export const InputPlaceholder = styled.div`
     line-height: inherit;
 
     color: var(${tokens.placeholderColor});
+    padding: ${({ hasPadding }) => (hasPadding ? `var(${tokens.contentLabelInnerPadding})` : '0')};
 `;
 
 export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;
 
+    white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
 `;
@@ -108,14 +115,16 @@ export const Label = styled.label`
     display: inline-flex;
 `;
 
-const StyledContentSlot = styled.div<{ isDefaultView: boolean; isClear: boolean }>`
+export const StyledContentLeft = styled.div<{ isDefaultView: boolean; isClear: boolean }>`
+    margin: var(${tokens.leftContentMargin});
     color: ${({ isDefaultView, isClear }) =>
         !isDefaultView && isClear ? `var(${tokens.clearColor})` : `var(${tokens.contentSlotColor})`};
     line-height: 0;
 `;
 
-export const StyledContentLeft = styled(StyledContentSlot)`
-    margin: var(${tokens.leftContentMargin});
+export const StyledContentRightWrapper = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 export const StyledContentRight = styled.div`
@@ -125,7 +134,6 @@ export const StyledContentRight = styled.div`
     color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
 
     &:hover {
-        color: var(${tokens.contentSlotColorHover});
         color: var(${tokens.contentSlotRightColorHover}, var(${tokens.contentSlotColorHover}));
         cursor: pointer;
     }
@@ -137,7 +145,9 @@ export const StyledContentRight = styled.div`
 
 export const LeftHelper = styled.div``;
 
-export const StyledTextBefore = styled.div``;
+export const StyledTextBefore = styled.div<{ isHidden?: boolean }>`
+    visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
+`;
 
 export const StyledTextAfter = styled.div``;
 
@@ -164,7 +174,15 @@ export const HintTargetWrapper = styled.div`
     align-items: center;
 `;
 
-export const HintIconWrapper = styled.div``;
+export const Hint = styled(Tooltip)`
+    ${HintTargetWrapper} .${popoverClasses.root} {
+        width: fit-content;
+    }
+`;
+
+export const HintIconWrapper = styled.div`
+    display: flex;
+`;
 
 export const StyledIndicator = styled.div`
     position: absolute;
@@ -181,7 +199,9 @@ export const StyledIndicator = styled.div`
             inset: var(${tokens.indicatorLabelPlacementOuterRight});
 
             &.${classes.hasHint} {
-                right: calc(-1 * var(${tokens.indicatorSizeOuter}));
+                right: calc(
+                    -1 * var(${tokens.indicatorSizeOuter}) + var(${tokens.indicatorLabelPlacementHintOuterRight}, 0px)
+                );
             }
         }
     }

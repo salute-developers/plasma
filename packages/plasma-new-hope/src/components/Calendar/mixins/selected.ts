@@ -30,6 +30,10 @@ export type SelectedProps = {
      */
     currentBorderColor?: string;
     /**
+     * Толщина границы сегодняшнего дня.
+     */
+    currentBorderWidth?: string;
+    /**
      * Цвет фона нажатого элемента.
      */
     activeBackground?: string;
@@ -48,6 +52,7 @@ export const addSelected = (args: SelectedProps) => {
         selectedColor,
         selectableBackgroundHover,
         currentBorderColor,
+        currentBorderWidth,
     } = args;
 
     return `
@@ -75,7 +80,7 @@ export const addSelected = (args: SelectedProps) => {
         };
 
         &.${classes.currentItem} {
-            border: 0.063rem solid ${currentBorderColor};
+            border: ${currentBorderWidth} solid ${currentBorderColor};
 
             &.${classes.selectedItem} {
                 background-color: initial;

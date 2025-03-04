@@ -1,15 +1,15 @@
-import React, { useEffect, forwardRef, useState } from 'react';
+import React, { useEffect, forwardRef, useState, useRef } from 'react';
 import { styled } from '@linaria/react';
 
 import { RootProps, component } from '../../engines';
-import { popoverClasses, popoverConfig, popoverTokens } from '../Popover';
+import { popoverConfig, popoverTokens } from '../Popover';
 import { cx } from '../../utils';
 
 import { TooltipProps } from './Tooltip.types';
 import { StyledContentLeft, TooltipRoot } from './Tooltip.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { classes, tokens } from './Tooltip.tokens';
+import { tokens } from './Tooltip.tokens';
 
 const ESCAPE_KEYCODE = 27;
 
@@ -26,10 +26,6 @@ const StyledPopover = styled(Popover)`
     ${popoverTokens.arrowBackground}: var(${tokens.arrowBackground});
     ${popoverTokens.arrowHeight}: var(${tokens.arrowHeight});
     ${popoverTokens.arrowEdgeMargin}: var(${tokens.arrowEdgeMargin});
-
-    &.${classes.animated} .${popoverClasses.root} {
-        transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
-    }
 `;
 
 /**
@@ -48,7 +44,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 hasArrow = true,
                 arrow,
                 animated,
-                offset = [0, 8],
+                offset = [3, 8],
                 minWidth,
                 maxWidth,
                 placement = 'bottom',
@@ -62,18 +58,21 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 zIndex = '9200',
                 className,
                 style,
+                hoverTimeout = 300,
+                trigger,
                 ...rest
             },
             outerRef,
         ) => {
             const [ref, setRef] = useState<HTMLDivElement | null>(null);
+            const timeoutRef = useRef<number | undefined>();
+            const [isOpened, setIsOpened] = useState(false);
+            const [isHovered, setIsHovered] = useState(false);
 
             // TODO убрать после отказа от старого API
             const innerIsOpen = Boolean(isVisible || isOpen || opened);
             const innerHasArrow = arrow || hasArrow;
-            const showTooltip = innerIsOpen && Boolean(text?.length);
-
-            const animatedClass = animated ? classes.animated : undefined;
+            const showTooltip = innerIsOpen && Boolean(text);
 
             useEffect(() => {
                 const onKeyDown = (event: KeyboardEvent) => {
@@ -89,11 +88,39 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 };
             }, []);
 
-            const withContentLeft = contentLeft ? classes.hasContentLeft : undefined;
+            const onMouseEnter = () => {
+                clearTimeout(timeoutRef.current);
+                setIsHovered(true);
+            };
+
+            const onMouseLeave = () => {
+                timeoutRef.current = setTimeout(() => {
+                    setIsHovered(false);
+                }, hoverTimeout);
+            };
+
+            useEffect(() => {
+                return () => clearTimeout(timeoutRef.current);
+            }, [trigger]);
+
+            const onToggle = (isOpen: boolean) => {
+                if (trigger === 'hover') {
+                    if (isOpen) {
+                        clearTimeout(timeoutRef.current);
+                        setIsOpened(true);
+                    } else {
+                        timeoutRef.current = setTimeout(() => {
+                            setIsOpened(false);
+                        }, hoverTimeout);
+                    }
+                } else {
+                    setIsOpened(isOpen);
+                }
+            };
 
             return (
                 <StyledPopover
-                    opened={showTooltip}
+                    opened={showTooltip || isOpened || isHovered}
                     placement={placement}
                     offset={offset}
                     zIndex={zIndex}
@@ -103,14 +130,22 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     aria-hidden={!innerIsOpen}
                     aria-live="polite"
                     role="tooltip"
-                    className={cx(ref?.classList.toString(), animatedClass)}
+                    animated={animated}
+                    className={cx(ref?.classList.toString())}
+                    {...((trigger === 'hover' || trigger === 'click') && { trigger, onToggle })}
                     {...rest}
                 >
-                    <Root view={view} size={size} ref={setRef} className={className} style={style}>
+                    <Root
+                        view={view}
+                        size={size}
+                        ref={setRef}
+                        className={className}
+                        style={style}
+                        {...(trigger === 'hover' && { onMouseEnter, onMouseLeave })}
+                    >
                         <TooltipRoot
                             ref={outerRef}
                             id={id}
-                            className={cx(withContentLeft)}
                             maxWidth={getStringValue(maxWidth)}
                             minWidth={getStringValue(minWidth)}
                         >

@@ -8,10 +8,7 @@ export const base = css`
         ${chipTokens.height}: var(${tokens.chipHeight});
         ${chipTokens.width}: var(${tokens.chipWidth});
         ${chipTokens.borderRadius}: var(${tokens.chipBorderRadius});
-        ${chipTokens.paddingTop}: var(${tokens.chipPaddingTop});
-        ${chipTokens.paddingRight}: var(${tokens.chipPaddingRight});
-        ${chipTokens.paddingBottom}: var(${tokens.chipPaddingBottom});
-        ${chipTokens.paddingLeft}: var(${tokens.chipPaddingLeft});
+        ${chipTokens.padding}: var(${tokens.chipPadding});
         ${chipTokens.closeIconSize}: var(${tokens.chipCloseIconSize});
 
         ${chipTokens.fontFamily}: var(${tokens.chipFontFamily});

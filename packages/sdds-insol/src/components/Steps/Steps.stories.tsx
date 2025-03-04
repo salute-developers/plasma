@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconMic } from '@salutejs/plasma-icons';
 
 import { Steps } from './Steps';
+import { config } from './Steps.config';
 
 import type { StepItemProps } from '.';
 
+const { views, sizes } = getConfigVariations(config);
+
 const meta: Meta<typeof Steps> = {
-    title: 'Controls/Steps',
+    title: 'Navigation/Steps',
     decorators: [InSpacingDecorator],
     component: Steps,
 };
@@ -78,20 +81,44 @@ const DefaultStory = (args) => {
             curItems.map((item, index) => {
                 if (indicatorType === 'numbered') {
                     return simple
-                        ? { ...item, indicator: index + 1 }
-                        : { ...item, title: innerTitle, content, indicator: index + 1 };
+                        ? {
+                              ...item,
+                              indicator: index + 1,
+                          }
+                        : {
+                              ...item,
+                              title: innerTitle,
+                              content,
+                              indicator: index + 1,
+                          };
                 }
 
                 if (indicatorType === 'bullet') {
                     return simple
-                        ? { ...item, indicator: undefined }
-                        : { ...item, title: innerTitle, content, indicator: undefined };
+                        ? {
+                              ...item,
+                              indicator: undefined,
+                          }
+                        : {
+                              ...item,
+                              title: innerTitle,
+                              content,
+                              indicator: undefined,
+                          };
                 }
 
                 if (indicatorType === 'icon') {
                     return simple
-                        ? { ...item, indicator: renderIndicator }
-                        : { ...item, title: innerTitle, content, indicator: renderIndicator };
+                        ? {
+                              ...item,
+                              indicator: renderIndicator,
+                          }
+                        : {
+                              ...item,
+                              title: innerTitle,
+                              content,
+                              indicator: renderIndicator,
+                          };
                 }
 
                 return item;
@@ -100,7 +127,12 @@ const DefaultStory = (args) => {
     }, [indicatorType, innerTitle, content, simple]);
 
     useEffect(() => {
-        setItems((curItems) => curItems.map((item) => ({ ...item, disabled })));
+        setItems((curItems) =>
+            curItems.map((item) => ({
+                ...item,
+                disabled,
+            })),
+        );
     }, [disabled]);
 
     const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
@@ -114,7 +146,12 @@ const DefaultStory = (args) => {
     };
 
     return (
-        <div style={{ maxWidth, height: '400px' }}>
+        <div
+            style={{
+                maxWidth,
+                height: '400px',
+            }}
+        >
             <Steps
                 size={size}
                 items={items}
@@ -132,6 +169,7 @@ export const Default: Story = {
         maxWidth: '100%',
         quantity: 6,
         size: 'm',
+        view: 'default',
         title: 'Title',
         content: 'Content',
         contentAlign: 'left',
@@ -149,8 +187,14 @@ export const Default: Story = {
                 type: 'text',
             },
         },
+        view: {
+            options: views,
+            control: {
+                type: 'inline-radio',
+            },
+        },
         size: {
-            options: ['xs', 's', 'm', 'l'],
+            options: sizes,
             control: {
                 type: 'inline-radio',
             },
@@ -166,7 +210,10 @@ export const Default: Story = {
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'orientation', eq: 'horizontal' },
+            if: {
+                arg: 'orientation',
+                eq: 'horizontal',
+            },
         },
         indicatorType: {
             options: ['numbered', 'bullet', 'icon'],
@@ -185,7 +232,6 @@ export const Default: Story = {
                 type: 'boolean',
             },
         },
-        ...disableProps(['view']),
     },
     render: (args) => <DefaultStory {...args} />,
 };

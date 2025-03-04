@@ -8,7 +8,7 @@ import { IconButton } from './IconButton';
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
 const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['xl', 'l', 'm', 's', 'xs'];
 const pins = [
     'square-square',
     'square-clear',
@@ -21,7 +21,7 @@ const pins = [
 ];
 
 const meta: Meta<StoryButtonProps> = {
-    title: 'Controls/IconButton',
+    title: 'Data Entry/IconButton',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
@@ -53,8 +53,10 @@ const getSizeForIcon = (size) => {
     const map = {
         mr: 's',
         lr: 's',
+        xlr: 's',
         m: 's',
         l: 's',
+        xl: 's',
         sr: 's',
         xsr: 'xs',
     };

@@ -73,19 +73,25 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
 
         const StyledAnimationPlus = () => (
             <StyledPlus>
-                <StyledMinus size="xs" color="inherit" />
+                <StyledMinus size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />
                 <StyledMinus
                     size="xs"
-                    color="inhert"
+                    color="inherit"
                     className={openedBodyClass ?? classes.accordionPlusAnimationElement}
+                    sizeCustomProperty={tokens.accordionItemIconSize}
                 />
             </StyledPlus>
         );
 
         const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`, '1.5rem');
+        const openedClass = opened ?? value ? classes.accordionItemOpened : '';
         const disabledClass = disabled ? classes.accordionDisabled : '';
 
-        const leftContent = contentLeft ?? (type === 'arrow' ? <StyledArrow size="xs" color="inherit" /> : undefined);
+        const leftContent =
+            contentLeft ??
+            (type === 'arrow' ? (
+                <StyledArrow size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />
+            ) : undefined);
         const leftContentRotate = type === 'arrow' && (opened ?? value) ? classes.accordionItemShowBody : undefined;
 
         const rightContent = contentRight ?? (type === 'sign' ? <StyledAnimationPlus /> : undefined);
@@ -93,13 +99,18 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
 
         return (
             <StyledAccordionItem
-                className={cx(classes.accordionItem, className, disabledClass)}
+                className={cx(classes.accordionItem, className, openedClass, disabledClass)}
                 key={key}
                 ref={outerRef}
                 style={{ borderRadius: accordionBorderRadius, ...style }}
             >
                 <StyledAccordionHeader
                     role="tab"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            handleOpen();
+                        }
+                    }}
                     tabIndex={0}
                     onClick={handleOpen}
                     aria-expanded={opened ?? value}
@@ -115,11 +126,12 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                         <StyledAccordionTitle>{title}</StyledAccordionTitle>
                     </StyledAccordionHeaderLeft>
 
-                    {contentRight || (
-                        <StyledAccordionContentRight className={rightContentRotate}>
-                            {rightContent && rightContent}
-                        </StyledAccordionContentRight>
-                    )}
+                    {contentRight ||
+                        (rightContent && (
+                            <StyledAccordionContentRight className={rightContentRotate}>
+                                {rightContent && rightContent}
+                            </StyledAccordionContentRight>
+                        ))}
                 </StyledAccordionHeader>
                 <StyledAccordionBodyAnimate
                     aria-labelledby={`accordion-item-${key}`}

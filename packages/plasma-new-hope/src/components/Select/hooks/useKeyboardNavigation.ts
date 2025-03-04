@@ -1,18 +1,10 @@
 import type { KeyboardEvent, Dispatch } from 'react';
 import React from 'react';
 
-import {
-    PathAction,
-    PathState,
-    FocusedPathAction,
-    FocusedPathState,
-    FocusedChipIndexState,
-    FocusedChipIndexAction,
-} from '../reducers';
-import { SelectProps, DefaultValueType } from '../Select.types';
+import { PathAction, PathState, FocusedPathAction, FocusedPathState } from '../reducers';
 import type { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
 
-import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './usePathMaps';
+import { PathMapType, FocusedToValueMapType } from './usePathMaps';
 
 const JUMP_SIZE = 10;
 
@@ -32,7 +24,7 @@ export const keys = {
     PageDown: 'PageDown',
 };
 
-const getFurtherPath = (focusedPath: FocusedPathState, focusedToValueMap: FocusedToValueMapType) => {
+export const getItemByFocused = (focusedPath: FocusedPathState, focusedToValueMap: FocusedToValueMapType) => {
     const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
 
     return focusedToValueMap.get(focusedPathAsString);
@@ -45,14 +37,8 @@ type Props = {
     dispatchPath: Dispatch<PathAction>;
     pathMap: PathMapType;
     focusedToValueMap: FocusedToValueMapType;
-    handleToggle: (opened: boolean) => void;
+    handleListToggle: (opened: boolean) => void;
     handlePressDown: (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => void;
-    focusedChipIndex: FocusedChipIndexState;
-    dispatchFocusedChipIndex: Dispatch<FocusedChipIndexAction>;
-    value: DefaultValueType;
-    valueToItemMap: ValueToItemMapType;
-    multiselect: SelectProps['multiselect'];
-    isTargetAmount: SelectProps['isTargetAmount'];
 };
 
 type ReturnedProps = {
@@ -66,14 +52,8 @@ export const useKeyNavigation = ({
     dispatchPath,
     pathMap,
     focusedToValueMap,
-    handleToggle,
+    handleListToggle,
     handlePressDown,
-    focusedChipIndex,
-    dispatchFocusedChipIndex,
-    value,
-    valueToItemMap,
-    multiselect,
-    isTargetAmount,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
     const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
@@ -92,11 +72,7 @@ export const useKeyNavigation = ({
                 } else {
                     dispatchPath({ type: 'opened_first_level' });
                     dispatchFocusedPath({ type: 'set_initial_focus' });
-                    handleToggle(true);
-                }
-
-                if (Array.isArray(value)) {
-                    dispatchFocusedChipIndex({ type: 'reset' });
+                    handleListToggle(true);
                 }
 
                 break;
@@ -114,11 +90,7 @@ export const useKeyNavigation = ({
                 } else {
                     dispatchPath({ type: 'opened_first_level' });
                     dispatchFocusedPath({ type: 'set_initial_focus' });
-                    handleToggle(true);
-                }
-
-                if (Array.isArray(value)) {
-                    dispatchFocusedChipIndex({ type: 'reset' });
+                    handleListToggle(true);
                 }
 
                 break;
@@ -135,10 +107,8 @@ export const useKeyNavigation = ({
                     }
 
                     if (path.length === 1) {
-                        handleToggle(false);
+                        handleListToggle(false);
                     }
-                } else if (Array.isArray(value) && !isTargetAmount) {
-                    dispatchFocusedChipIndex({ type: 'moveLeft' });
                 }
 
                 break;
@@ -150,7 +120,7 @@ export const useKeyNavigation = ({
                         break;
                     }
 
-                    const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
+                    const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
 
                     if (currentItem?.items) {
                         if (path.length > focusedPath.length) {
@@ -158,32 +128,6 @@ export const useKeyNavigation = ({
                         } else {
                             dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
                         }
-                    }
-                } else if (Array.isArray(value) && !isTargetAmount) {
-                    dispatchFocusedChipIndex({ type: 'moveRight', total: value.length });
-                }
-
-                break;
-            }
-
-            case keys.Backspace: {
-                if (!multiselect || !Array.isArray(value)) break;
-
-                if (focusedChipIndex !== null) {
-                    const currentItem = valueToItemMap.get(value[focusedChipIndex])!;
-
-                    handlePressDown(currentItem);
-
-                    if (value.length === 1) {
-                        dispatchFocusedChipIndex({ type: 'reset' });
-
-                        break;
-                    }
-
-                    if (focusedChipIndex === value.length - 1) {
-                        dispatchFocusedChipIndex({ type: 'moveLeft' });
-
-                        break;
                     }
                 }
 
@@ -193,7 +137,7 @@ export const useKeyNavigation = ({
             case keys.Space: {
                 event.preventDefault();
 
-                const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
+                const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
 
                 if (!path[0]) {
                     dispatchPath({ type: 'opened_first_level' });
@@ -213,11 +157,7 @@ export const useKeyNavigation = ({
             case keys.Enter: {
                 event.preventDefault();
 
-                if (Array.isArray(value)) {
-                    dispatchFocusedChipIndex({ type: 'reset' });
-                }
-
-                const currentItem = getFurtherPath(focusedPath, focusedToValueMap)!;
+                const currentItem = getItemByFocused(focusedPath, focusedToValueMap)!;
 
                 if (currentItem?.disabled) {
                     break;
@@ -248,8 +188,7 @@ export const useKeyNavigation = ({
             case keys.Escape: {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
-                dispatchFocusedChipIndex({ type: 'reset' });
-                handleToggle(false);
+                handleListToggle(false);
 
                 break;
             }
@@ -265,7 +204,7 @@ export const useKeyNavigation = ({
                     dispatchPath({ type: 'opened_first_level' });
                     dispatchFocusedPath({ type: 'set_initial_focus' });
 
-                    handleToggle(true);
+                    handleListToggle(true);
                 }
 
                 break;
@@ -282,7 +221,7 @@ export const useKeyNavigation = ({
                     dispatchPath({ type: 'opened_first_level' });
                     dispatchFocusedPath({ type: 'change_last_focus', value: (pathMap.get('root') || 0) - 1 });
 
-                    handleToggle(true);
+                    handleListToggle(true);
                 }
 
                 break;

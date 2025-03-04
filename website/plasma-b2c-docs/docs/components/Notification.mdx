@@ -38,10 +38,11 @@ ReactDOM.render(
 ### Вызов уведомления
 После подключения `NotificationsProvider` станет возможен вызов функции `addNotification`, который приведет к отображению оповещения.
 Функция принимает значения свойств компонента `Notification`, включая необязательное поле `id`. И возвращает сгенерированный или переданный `id`, по которому можно закрыть оповещение через вызов `closeNotification`.
+Оповещение закроется автоматически по истечению указанного `timeout` в миллисекундах или будет висеть вечно, если передан `0` или `null`.
 
 ```tsx live
 import React from 'react';
-import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/{{ package }}';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-b2c';
 
 export function App() {
     const handleShow = React.useCallback(() => {

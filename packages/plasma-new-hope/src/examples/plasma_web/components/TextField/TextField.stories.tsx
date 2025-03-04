@@ -17,9 +17,11 @@ const onChipsChange = action('onChipsChange');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
+const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
+const hintTargetPlacements = ['outer', 'inner'];
 const labelPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
@@ -42,7 +44,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 
 const meta: Meta<typeof TextField> = {
-    title: 'plasma_web/TextField',
+    title: 'web/Data Entry/TextField',
     component: TextField,
     decorators: [WithTheme],
     argTypes: {
@@ -87,6 +89,12 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
+        keepPlaceholder: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'labelPlacement', eq: 'inner' },
+        },
         size: {
             options: sizes,
             control: {
@@ -108,6 +116,13 @@ const meta: Meta<typeof TextField> = {
             options: hintSizes,
             control: {
                 type: 'select',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
+        hintTargetPlacement: {
+            options: hintTargetPlacements,
+            control: {
+                type: 'inline-radio',
             },
             if: { arg: 'hasHint', truthy: true },
         },
@@ -133,6 +148,10 @@ const meta: Meta<typeof TextField> = {
         hintWidth: {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
+        },
+        chipType: {
+            control: 'select',
+            options: ['default', 'text'],
         },
     },
 };
@@ -210,6 +229,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
+        keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
@@ -219,19 +239,25 @@ export const Default: StoryObj<StoryPropsDefault> = {
         readOnly: false,
         enableContentLeft: true,
         enableContentRight: true,
-        clear: false,
-        hasDivider: false,
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        clear: false,
+        hasDivider: false,
         hasHint: true,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
         hintView: 'default',
         hintSize: 'm',
+        hintTargetPlacement: 'outer',
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+    },
+    parameters: {
+        controls: {
+            exclude: ['chipType'],
+        },
     },
     render: (args) => <StoryDemo {...args} />,
 };
@@ -264,6 +290,8 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
 
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
 
+    const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
+
     return (
         <TextField
             {...rest}
@@ -279,15 +307,27 @@ const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: St
             onFocus={onFocus}
             onBlur={onBlur}
             onChangeChips={onChipsChange}
+            chipValidator={validateChip}
             style={{ width: '70%', margin: '0 auto' }}
         />
     );
 };
 
 export const Chips: StoryObj<StoryPropsChips> = {
+    argTypes: {
+        chipView: {
+            options: chipViews,
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         ...Default.args,
+        leftHelper: 'Для первого чипа валидация вернула view="negative"',
+        chipView: 'secondary',
         chips: ['1 value', '2 value', '3 value', '4 value'],
+        chipType: 'default',
     },
     render: (args) => <StoryChips {...args} />,
 };

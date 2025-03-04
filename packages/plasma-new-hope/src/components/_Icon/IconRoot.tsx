@@ -26,6 +26,13 @@ export interface IconProps {
      * <Icon sizeCustomProperty={token} {...rest}/>
      */
     sizeCustomProperty?: string;
+    /*
+     * Прорпс, который принимает значение ширины иконки
+     * В значении может быть как rem, так и другая единица измерения.
+     * @example
+     * <Icon sizeCustomValue="1.5rem" {...rest}/>
+     */
+    sizeCustomValue?: string;
 }
 
 interface IconRootProps extends IconProps {
@@ -46,13 +53,17 @@ export const IconRoot: React.FC<IconRootProps> = ({
     color,
     className,
     sizeCustomProperty,
+    sizeCustomValue,
+    ...rest
 }) => {
     const c = color || 'var(--text-primary)';
 
-    const w = sizeCustomProperty ? `var(${sizeCustomProperty})` : `${sizeMap[size]}rem`;
+    const w = sizeCustomProperty
+        ? `var(${sizeCustomProperty}, ${sizeMap[size]}rem)`
+        : sizeCustomValue || `${sizeMap[size]}rem`;
 
     return (
-        <StyledRoot aria-hidden w={w} className={className}>
+        <StyledRoot aria-hidden w={w} className={className} {...rest}>
             <IconComponent color={c} size={size} />
         </StyledRoot>
     );

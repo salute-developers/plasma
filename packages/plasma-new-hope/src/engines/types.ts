@@ -58,6 +58,10 @@ export type Filter<T extends {} = {}, U extends string = string> = {
     [k in keyof T]: k extends U ? unknown : T[k];
 };
 
+export interface Intersection {
+    style: string;
+}
+
 export interface ComponentConfig<
     Tag extends HTMLTagList = React.ElementType,
     VariantList extends Variants = Variants,
@@ -70,4 +74,5 @@ export interface ComponentConfig<
     base: PolymorphicClassName;
     variations: VariantList;
     defaults: Partial<Record<string, string>>;
+    intersections?: Intersection[];
 }
