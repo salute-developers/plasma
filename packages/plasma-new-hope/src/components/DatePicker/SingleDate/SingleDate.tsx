@@ -83,13 +83,14 @@ export const datePickerRoot = (
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
-            const inputForkRef = useForkRef(inputRef, ref);
+            // const inputForkRef = useForkRef(inputRef, ref);
+            const inputForkRef = useForkRef(innerRef, ref);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
-            const [calendarValue, setCalendarValue] = useState(formatCalendarValue(value || defaultDate, format, lang));
-            const [inputValue, setInputValue] = useState(
-                formatInputValue({ value: value || defaultDate, format, lang }),
-            );
+            const externalDate = innerRef?.current?.value || value || defaultDate;
+
+            const [calendarValue, setCalendarValue] = useState(formatCalendarValue(externalDate, format, lang));
+            const [inputValue, setInputValue] = useState(formatInputValue({ value: externalDate, format, lang }));
 
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
@@ -148,22 +149,24 @@ export const datePickerRoot = (
             });
 
             useEffect(() => {
-                console.log(inputRef, 'inputValue', ref);
-            });
+                console.log(innerRef?.current?.value, 'inputValue');
+            }, [innerRef?.current?.value]);
 
             useEffect(() => {
                 setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
             }, [opened]);
 
-            useEffect(() => {
-                console.log('value from setter', inputRef?.current?.value);
+            useLayoutEffect(() => {
+                // setTimeout(() => {
+                console.log('value from setter', innerRef?.current?.value);
+                // }, 1100);
                 const externalDate = value || defaultDate;
                 updateExternalDate(externalDate, setInputValue, setCalendarValue);
-            }, [inputRef, value, defaultDate, format, lang]);
+            }, [innerRef?.current?.value, value, defaultDate, format, lang]);
 
             const DatePickerInput = (
                 <StyledInput
-                    ref={inputForkRef}
+                    ref={inputRef}
                     className={cx(datePickerErrorClass, datePickerSuccessClass)}
                     value={inputValue}
                     size={size}
@@ -247,7 +250,7 @@ export const datePickerRoot = (
                         datatype="datepicker-single"
                         name={name}
                         value={inputValue}
-                        ref={innerRef}
+                        ref={inputForkRef}
                         {...noop}
                     />
                 </Root>

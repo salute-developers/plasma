@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { WithTheme } from '../../../_helpers';
 import { IconButton } from '../IconButton/IconButton';
 import { Button } from '../Button/Button';
+import { TextField } from '../TextField/TextField';
 import { RangeInputRefs } from '../../../../components/Range/Range.types';
 
 import { DatePicker, DatePickerRange } from './DatePicker';
@@ -402,21 +403,24 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
 };
 
 const StoryHookForm = () => {
-    const { register, handleSubmit, setValue, getValues } = useForm();
+    const { register, handleSubmit, setValue } = useForm();
+
+    // const date = watch('date');
 
     // Simulate an asynchronous operation (e.g., fetching data from an API)
     useEffect(() => {
         const fetchData = async () => {
             // Simulate an API call delay
-            // await new Promise((resolve) => setTimeout(resolve, 1000));
+            await new Promise((resolve) => setTimeout(resolve, 1000));
 
             // Assume this is the data fetched from the API
-            const asyncData = { date: `${new Date()}` };
+            const asyncData = { date: `${new Date()}`, text: 'asynchronous' };
 
             // Set the value of the input field asynchronously
             setValue('date', asyncData.date);
+            setValue('text', asyncData.text);
             // console.log({ ...register('date') });
-            // console.log(getValues('date'));
+            // console.log('******', watch('date'));
         };
 
         fetchData();
@@ -429,6 +433,7 @@ const StoryHookForm = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <DatePicker {...register('date')} />
+            <TextField {...register('text')} />
             <Button type="submit">Отправить</Button>
         </form>
     );
