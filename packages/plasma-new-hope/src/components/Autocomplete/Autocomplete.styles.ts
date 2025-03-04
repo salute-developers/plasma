@@ -8,6 +8,7 @@ export const base = css``;
 
 export const Ul = styled.ul<{
     listMaxHeight: AutocompleteProps['listMaxHeight'];
+    virtual: AutocompleteProps['virtual'];
 }>`
     box-sizing: border-box;
 
@@ -16,8 +17,8 @@ export const Ul = styled.ul<{
 
     border-radius: var(${tokens.borderRadius});
     height: auto;
-    max-height: ${({ listMaxHeight }) => listMaxHeight || 'none'};
-    overflow-y: scroll;
+    max-height: ${({ listMaxHeight, virtual }) => (virtual ? 'auto' : listMaxHeight || 'none')};
+    overflow-y: ${({ virtual }) => (virtual ? 'none' : 'scroll')};
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
 
     margin: var(${tokens.margin}) 0 0 0;
