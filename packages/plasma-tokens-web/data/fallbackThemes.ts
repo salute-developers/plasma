@@ -279,6 +279,9 @@ export const fallbackThemeDark = getFormattedTokensForFallbackTheme({
     '--outline-solid-secondary': '#4E4E4E',
     '--outline-solid-secondary-hover': '#595959FF',
     '--outline-accent': '#3F81FD',
+    '--outline-transparent-primary': '#FFFFFF1F',
+    '--outline-transparent-primary-hover': '#FFFFFF3D',
+    '--outline-transparent-primary-active': '#FFFFFF0F',
     '--text-info': '#528EFF',
     '--surface-transparent-info': '#3F81FD33',
 });
@@ -561,6 +564,9 @@ export const fallbackThemeLight = getFormattedTokensForFallbackTheme({
     '--outline-solid-secondary': '#949494',
     '--outline-solid-secondary-hover': '#A3A3A3FF',
     '--outline-accent': '#2A72F8',
+    '--outline-transparent-primary': '#08080833',
+    '--outline-transparent-primary-hover': '#0808081F',
+    '--outline-transparent-primary-active': '#0808083D',
     '--text-info': '#2A72F8',
     '--surface-transparent-info': '#2A72F81F',
 });
