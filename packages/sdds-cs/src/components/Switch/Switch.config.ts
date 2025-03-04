@@ -55,8 +55,8 @@ export const config = {
                 ${switchTokens.descriptionColor}: var(--text-secondary);
                 ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
                 ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
-                ${switchTokens.trackBackgroundColorOff}: transparent;
-                ${switchTokens.trackBackgroundColorOffHover}: transparent;
+                ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-card);
+                ${switchTokens.trackBackgroundColorOffHover}: var(--surface-solid-card-hover);
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0.125rem;
                 ${switchTokens.trackBorderColorOn}: var(--outline-accent);
