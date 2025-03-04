@@ -28,8 +28,8 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.borderColor}: var(--surface-transparent-tertiary);
-                ${tokens.borderColorHover}: var(--text-secondary);
+                ${tokens.borderColor}: var(--outline-transparent-primary);
+                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
