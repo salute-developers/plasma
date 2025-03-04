@@ -29,6 +29,8 @@ export const config = {
                 ${tokens.contentColor}: var(--text-secondary);
                 ${tokens.focusColor}: var(--surface-accent);
 
+                ${tokens.dividerColor}: var(--text-positive);
+
                 ${tokens.disabledOpacity}: 0.4;
             `,
         },
