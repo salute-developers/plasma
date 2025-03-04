@@ -75,6 +75,7 @@ export const tokens = {
     activeIndicatorBackground: '--plasma-step-item-active-indicator-background',
 
     completedTitleColor: '--plasma-step-item-completed-title-color',
+    completedTitleColorHover: '--plasma-step-item-completed-title-color-hover',
     completedIndicatorColor: '--plasma-step-item-completed-indicator-color',
     completedIndicatorColorHover: '--plasma-step-item-completed-indicator-color-hover',
     completedIndicatorBackground: '--plasma-step-item-completed-indicator-background',
@@ -88,4 +89,5 @@ export const tokens = {
     disabledOpacity: '--plasma-step-item-disabled-opacity',
 
     dividerThickness: '--plasma-step-item-divider-thickness',
+    dividerColor: '--plasma-step-item-divider-color',
 };
