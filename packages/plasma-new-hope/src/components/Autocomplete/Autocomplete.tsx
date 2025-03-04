@@ -6,10 +6,14 @@ import { RootProps } from '../../engines';
 
 import { FloatingPopover } from './FloatingPopover';
 import { focusedReducer } from './reducers/focusedReducer';
-import { SuggestionItem, StyledTextField } from './ui';
+import { SuggestionItem, StyledTextField, VirtualList } from './ui';
 import { Ul, InfiniteLoaderWrapper, base } from './Autocomplete.styles';
 import type { AutocompleteProps, SuggestionItemType } from './Autocomplete.types';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
+
+// Пороговое значение количества результирующих элементов в списке,
+// при котором возможна виртуализация (при virtual=true);
+const VIRTUAL_ITEM_AMOUNT_THRESHOLD = 10;
 
 /**
  * Компонент Autocomplete. Поле ввода с подсказками в выпадающем списке.
@@ -49,6 +53,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 hintSize = 'm',
                 beforeList,
                 afterList,
+                virtual = false,
                 ...rest
             },
             ref,
@@ -104,6 +109,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
             };
 
             const finalResults = suggestions?.filter(filter || defaultFilterCallback) || [];
+
+            virtual = virtual && finalResults.length > VIRTUAL_ITEM_AMOUNT_THRESHOLD;
 
             const { onKeyDown } = useKeyNavigation({
                 isOpen,
@@ -185,22 +192,35 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                         id={listId}
                                         role="listbox"
                                         aria-label={label}
-                                        onScroll={onScroll}
+                                        onScroll={virtual ? undefined : onScroll}
                                         listMaxHeight={listMaxHeight}
+                                        virtual={virtual}
                                     >
-                                        {beforeList}
-
-                                        {finalResults.map((suggestion, index) => (
-                                            <SuggestionItem
-                                                key={index}
-                                                item={suggestion}
+                                        {virtual ? (
+                                            <VirtualList
+                                                items={finalResults}
                                                 onClick={handleItemClick}
-                                                id={`${listId}/${index}`}
-                                                focused={focused === index}
+                                                listId={listId}
+                                                listMaxHeight={listMaxHeight}
+                                                onScroll={onScroll}
                                             />
-                                        ))}
+                                        ) : (
+                                            <>
+                                                {beforeList}
 
-                                        {afterList}
+                                                {finalResults.map((suggestion, index) => (
+                                                    <SuggestionItem
+                                                        key={index}
+                                                        item={suggestion}
+                                                        onClick={handleItemClick}
+                                                        id={`${listId}/${index}`}
+                                                        focused={focused === index}
+                                                    />
+                                                ))}
+
+                                                {afterList}
+                                            </>
+                                        )}
 
                                         {renderListEnd && (
                                             <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>

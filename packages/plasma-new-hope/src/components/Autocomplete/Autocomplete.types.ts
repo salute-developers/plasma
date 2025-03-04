@@ -99,6 +99,11 @@ export type BaseProps = {
      * Ячейка для контента в конце выпадающего списка.
      */
     afterList?: ReactNode;
+    /**
+     * Виртуализация в выпадающем списке.
+     * @default false
+     */
+    virtual?: boolean;
 };
 
 export type AutocompleteProps = BaseProps &
