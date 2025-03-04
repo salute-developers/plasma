@@ -18,7 +18,7 @@ import {
     StyledAccordionItem,
     StyledSegmentItem,
     Subcategory,
-    SubtemeTitle,
+    SubthemeTitle,
     SubthemeSwitcher,
     TokenInfo,
     TokenInfoWrapper,
@@ -75,7 +75,7 @@ const StoryDemoColor = ({ context }) => {
     return (
         <ColorTokensWrapper>
             <SubthemeSwitcher>
-                <SubtemeTitle>Подтема</SubtemeTitle>
+                <SubthemeTitle>Подтема</SubthemeTitle>
                 <SegmentGroup view="clear" size="xs" hasBackground pilled>
                     {Object.entries(groupedTokens).map(([category]) => (
                         <StyledSegmentItem key={`label_${category}`} value={category} view="default" pilled>
