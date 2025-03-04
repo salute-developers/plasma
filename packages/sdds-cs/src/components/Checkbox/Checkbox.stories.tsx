@@ -29,9 +29,9 @@ const propsToDisable = [
     'onFocus',
     'onBlur',
     'view',
+    'size',
 ];
 
-const sizes = ['s'];
 const views = ['accent'];
 
 const meta: Meta<CheckboxProps> = {
@@ -47,12 +47,6 @@ const meta: Meta<CheckboxProps> = {
         description: {
             control: {
                 type: 'text',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
             },
         },
         view: {
@@ -231,7 +225,7 @@ export const Live: Story = {
         disabled: false,
     },
     argTypes: {
-        ...disableProps(['label', 'description']),
+        ...disableProps(['label', 'description', 'size']),
     },
     render: (args) => <StoryLive {...args} />,
 };

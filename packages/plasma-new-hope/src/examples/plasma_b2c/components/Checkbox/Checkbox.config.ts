@@ -61,6 +61,7 @@ export const config = {
             accent: css`
                 ${checkboxTokens.fillColor}: var(--text-accent);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+                ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);

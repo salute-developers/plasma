@@ -85,10 +85,13 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledLabel = styled.span`
+    color: var(${tokens.labelColor});
+
     font-family: var(${tokens.labelFontFamily});
     font-size: var(${tokens.labelFontSize});
     font-style: var(${tokens.labelFontStyle});
     font-weight: var(${tokens.labelFontWeight});
+
     letter-spacing: var(${tokens.labelLetterSpacing});
     line-height: var(${tokens.labelLineHeight});
 `;

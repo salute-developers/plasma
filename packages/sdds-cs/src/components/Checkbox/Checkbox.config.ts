@@ -34,6 +34,7 @@ export const config = {
             accent: css`
                 ${checkboxTokens.fillColor}: var(--text-accent);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+                ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: var(--surface-solid-card);
                 ${checkboxTokens.triggerBorderColor}: var(--outline-accent);
@@ -41,7 +42,9 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${checkboxTokens.disabledOpacity}: 0.4;
+                ${checkboxTokens.triggerBorderColor}: var(--outline-solid-primary);
+                ${checkboxTokens.fillColor}: var(--surface-solid-tertiary);
+                ${checkboxTokens.labelColor}: var(--text-secondary);
             `,
         },
         focused: {
