@@ -1,0 +1,34 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ThemeTurnOnSC from './theme-turn-on-sc.mdx';
+import ThemeTurnOnCssModule from './theme-turn-on-css-module.mdx';
+import ThemeTurnOnCss from './theme-turn-on-css.mdx';
+import ThemeTurnOnSass from './theme-turn-on-sass.mdx';
+import ThemeTurnOnSassModule from './theme-turn-on-sass-module.mdx';
+
+## Подключение темы
+
+:::info
+Точкой входа является корень приложения:
+
+-   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
+-   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+:::
+
+<Tabs>
+    <TabItem value="sc" label="styled-components" default>
+        <ThemeTurnOnSC />
+    </TabItem>
+    <TabItem value="css" label="css">
+        <ThemeTurnOnCss />
+    </TabItem>
+    <TabItem value="sass" label="sass">
+        <ThemeTurnOnSass />
+    </TabItem>
+    <TabItem value="css-module" label="css-module">
+        <ThemeTurnOnCssModule />
+    </TabItem>
+    <TabItem value="sass-module" label="sass-module">
+        <ThemeTurnOnSassModule />
+    </TabItem>
+</Tabs>
