@@ -41,6 +41,14 @@ export const StyledContent = styled.div`
 
 export const StyledDescription = styled.div`
     position: relative;
+
+    ${applyEllipsis()}
+
+    display: -webkit-box;
+    line-clamp: var(${tokens.descriptionMaxLines});
+    -webkit-line-clamp: var(${tokens.descriptionMaxLines}); /* Ограничиваем количество строк */
+    -webkit-box-orient: vertical;
+    white-space: wrap;
 `;
 
 export const StyledInput = styled.input`
