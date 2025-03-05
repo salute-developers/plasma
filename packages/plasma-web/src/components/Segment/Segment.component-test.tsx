@@ -190,14 +190,14 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecoratorWithTypo>
                 {sizes.map((size) => (
                     <>
-                <SegmentProvider>
+                        <SegmentProvider>
                             <SegmentGroup view="filled" filledBackground size={size} clip>
                                 <SegmentItem value="segment_1" label="Segment 1" view="default" size={size} />
                                 <SegmentItem value="segment_2" label="Segment 2" view="default" size={size} />
                                 <SegmentItem value="segment_3" label="Segment 3" view="default" size={size} />
-                    </SegmentGroup>
-                </SegmentProvider>
-                <PadMe />
+                            </SegmentGroup>
+                        </SegmentProvider>
+                        <PadMe />
                     </>
                 ))}
             </CypressTestDecoratorWithTypo>,
@@ -210,14 +210,14 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecoratorWithTypo>
                 {sizes.map((size) => (
                     <>
-                <SegmentProvider>
+                        <SegmentProvider>
                             <SegmentGroup view="filled" filledBackground size={size}>
                                 <SegmentItem value="segment_1" label="Segment 1" view="default" size={size} />
                                 <SegmentItem value="segment_2" label="Segment 2" view="default" size={size} />
                                 <SegmentItem value="segment_3" label="Segment 3" view="default" size={size} />
-                    </SegmentGroup>
-                </SegmentProvider>
-                <PadMe />
+                            </SegmentGroup>
+                        </SegmentProvider>
+                        <PadMe />
                     </>
                 ))}
             </CypressTestDecoratorWithTypo>,
