@@ -87,6 +87,7 @@ export const config = {
             default: css`
                 ${switchTokens.labelColor}: var(--text-primary);
                 ${switchTokens.descriptionColor}: var(--text-secondary);
+                ${switchTokens.descriptionMaxLines}: initial;
                 ${switchTokens.trackBorderWidthOn}: 0.0625rem;
                 ${switchTokens.trackBorderWidthOff}: 0.0625rem;
                 ${switchTokens.trackBorderColorOn}: var(--outline-accent);
