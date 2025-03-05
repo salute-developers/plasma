@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-icons",
-  "version": "1.211.0",
+  "version": "1.214.0-dev.0",
   "description": "Salute Design System Icons",
   "main": "index.js",
   "module": "es/index.js",
@@ -24,6 +24,12 @@
     "@babel/preset-env": "7.24.4",
     "@babel/preset-react": "7.24.1",
     "@babel/preset-typescript": "7.24.1",
+    "@ironkinoko/rollup-plugin-styles": "^4.0.3",
+    "@linaria/babel-preset": "^5.0.4",
+    "@linaria/rollup": "^5.0.4",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/pluginutils": "^5.1.2",
     "@types/node": "^16.7.13",
     "@types/prettier": "^2.6.2",
     "@types/react": "^18.0.28",
@@ -36,25 +42,30 @@
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup": "^3.29.5",
+    "rollup-plugin-css-only": "^4.5.2",
     "sharp": "^0.32.6",
     "styled-components": "5.3.1",
-    "svg2vectordrawable": "^2.9.1"
+    "svg2vectordrawable": "^2.9.1",
+    "vite": "4.5.3"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons ./src-rn-build && cp -r ./src ./src-build && cp -r ./src/scalable ./src-rn-build",
-    "build": "npm run generate:react && npm run build:cjs && npm run build:esm",
+    "prebuild": "rm -rf ./css/es ./css/cjs ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons ./src-rn-build && cp -r ./src ./src-build && cp -r ./src/scalable ./src-rn-build",
+    "prebuild:css": "node ./scripts/replaceScToLinaria.mjs",
+    "build": "npm run generate:react && npm run build:cjs && npm run build:esm && npm run build:css",
     "postbuild": "tsc --outDir . --emitDeclarationOnly",
     "generate:android": "npm run build:scripts && node ./scripts-build/generateAndroidArchive.js && zip -r ./archives/android-icons.zip android-icons",
     "generate:react": "npm run build:scripts && node ./scripts-build/generateReactComponents.js",
     "generate:react-native": "npm run build:scripts && node ./scripts-build/generateReactNativeComponents.js && rm -rf ./src-rn-build/Icon.svg.* ./src-rn-build/Icon*.tsx",
     "generate:ios": "node ./scripts/generateIconsIos.mjs",
-    "build:scripts": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx",
-    "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src-build --out-dir . --extensions .ts,.tsx",
-    "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src-build --out-dir ./es --extensions .ts,.tsx",
+    "build:scripts": "BABEL_ENV=cjs babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx",
+    "build:cjs": "BABEL_ENV=cjs babel ./src-build --out-dir . --extensions .ts,.tsx",
+    "build:esm": "BABEL_ENV=esm babel ./src-build --out-dir ./es --extensions .ts,.tsx",
+    "build:css": "rollup -c",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "files": [
@@ -68,14 +79,18 @@
     "IconRoot.js",
     "es",
     "scalable",
-    "old"
+    "old",
+    "css",
+    "types"
   ],
   "contributors": [
-    "Vasiliy Loginevskiy",
-    "Антонов Игорь Александрович",
-    "Виноградов Антон Александрович",
-    "Зубаиров Фаниль Асхатович",
-    "Чельцов Евгений Олегович"
+    "salute.developers@gmail.com"
   ],
-  "sideEffects": false
+  "sideEffects": [
+    "*.css"
+  ],
+  "dependencies": {
+    "@linaria/core": "5.0.2",
+    "@linaria/react": "5.0.3"
+  }
 }

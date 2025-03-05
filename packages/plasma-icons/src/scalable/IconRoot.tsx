@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import type { CSSProperties } from 'react';
+import styled from 'styled-components';
 
 export const sizeMap = {
     xs: {
@@ -22,6 +23,7 @@ export interface IconProps {
     size?: IconSize;
     color?: string;
     className?: string;
+    style?: CSSProperties;
 }
 
 interface IconRootProps extends IconProps {
@@ -29,13 +31,11 @@ interface IconRootProps extends IconProps {
     icon: React.FC<IconProps>;
 }
 
-const StyledRoot = styled.div<{ w: string }>`
+const IconsRoot = styled.div`
     display: inline-flex;
-    ${({ w }) => css`
-        width: ${w};
-        height: ${w};
-        flex: 0 0 ${w};
-    `}
+    width: var(--icon-size);
+    height: var(--icon-size);
+    flex: 0 0 var(--icon-size);
 `;
 
 export const getIconComponent = (
@@ -59,14 +59,12 @@ export const getIconComponent = (
     return icon16 || icon24 || icon36;
 };
 
-export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => {
-    const c = color || 'var(--plasma-colors-primary)';
-
-    const w = `${sizeMap[size].scale}rem`;
-
-    return (
-        <StyledRoot aria-hidden w={w} className={className}>
-            <Icon color={c} size={size} />
-        </StyledRoot>
-    );
-};
+export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className, style, ...rest }) => (
+    <IconsRoot
+        aria-hidden
+        style={{ '--icon-size': `${sizeMap[size].scale}rem`, ...style } as CSSProperties}
+        className={className || ''}
+    >
+        <Icon color={color || 'var(--plasma-colors-primary)'} size={size} {...rest} />
+    </IconsRoot>
+);

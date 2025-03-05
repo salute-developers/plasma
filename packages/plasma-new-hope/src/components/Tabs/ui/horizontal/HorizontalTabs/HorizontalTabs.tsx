@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef, KeyboardEvent } from 'react';
+import React, { forwardRef, useCallback, useMemo, useState, useRef, KeyboardEvent, useLayoutEffect } from 'react';
 import type { MutableRefObject } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
@@ -8,6 +8,7 @@ import { classes } from '../../../tokens';
 import { cx } from '../../../../../utils';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { HorizontalTabsProps } from '../../../Tabs.types';
+import { getFirstOverflowingTab, getLastOverflowingTab } from '../../../utils';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -45,7 +46,10 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             ...rest
         } = props;
         const [firstItemVisible, setFirstItemVisible] = useState(true);
-        const [lastItemVisible, setLastItemVisible] = useState(true);
+        const [lastItemVisible, setLastItemVisible] = useState(false);
+
+        // Триггер доп. скролла при появлении левой стрелки, которая отъедает ширину scroll-контейнера
+        const [shouldTriggerAdditionalScroll, setShouldTriggerAdditionalScroll] = useState(false);
 
         const refs = useMemo(() => new TabItemRefs(index), []);
 
@@ -72,20 +76,21 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                 return;
             }
 
-            const scrollLeft = Math.round(scrollRef.current.scrollLeft);
-            const firstOverflowingTab = refs.items
-                .slice()
-                .reverse()
-                .find((item: MutableRefObject<HTMLElement | null>) => {
-                    if (!item.current || item.current.offsetLeft === undefined) {
-                        return;
-                    }
-                    const tabStartX = item.current.offsetLeft;
+            const { scrollLeft } = scrollRef.current;
+            const firstOverflowingTab = getFirstOverflowingTab(
+                refs.items.slice().reverse(),
+                scrollLeft,
+                rest.orientation,
+            );
 
-                    return tabStartX < scrollLeft;
-                });
+            if (!firstOverflowingTab?.current) {
+                return;
+            }
 
-            firstOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'start' });
+            const scrollElStyle = getComputedStyle(scrollRef.current);
+            scrollRef.current.scrollTo({
+                left: firstOverflowingTab.current.offsetLeft - parseInt(scrollElStyle.paddingLeft, 10),
+            });
         }, [disabled, scrollRef, refs]);
 
         const onNext = useCallback(() => {
@@ -94,17 +99,26 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             }
 
             const scrollRight = Math.round(scrollRef.current.scrollLeft + scrollRef.current.clientWidth);
-            const lastOverflowingTab = refs.items.find((item: MutableRefObject<HTMLElement | null>) => {
-                if (!item.current || item.current.offsetLeft === undefined) {
-                    return;
-                }
-                const tabEndX = item.current.offsetLeft + item.current.offsetWidth;
+            const lastOverflowingTab = getLastOverflowingTab(refs.items, scrollRight, rest.orientation);
 
-                return tabEndX > scrollRight;
+            if (!lastOverflowingTab?.current) {
+                return;
+            }
+
+            if (firstItemVisible) {
+                setShouldTriggerAdditionalScroll(true);
+            }
+
+            const scrollElStyle = getComputedStyle(scrollRef.current);
+            scrollRef.current.scrollTo({
+                left: Math.round(
+                    lastOverflowingTab.current.offsetLeft +
+                        lastOverflowingTab.current.offsetWidth -
+                        scrollRef.current.clientWidth +
+                        parseInt(scrollElStyle.paddingRight, 10),
+                ),
             });
-
-            lastOverflowingTab?.current?.scrollIntoView({ block: 'nearest', inline: 'end' });
-        }, [disabled, scrollRef, refs]);
+        }, [firstItemVisible, disabled, scrollRef, refs]);
 
         const PreviousButton = useMemo(
             () => (
@@ -143,10 +157,15 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
         const handleScroll = useCallback(
             (event: React.UIEvent<HTMLElement>): void => {
                 event.stopPropagation();
-                const maxScrollLeft = event.currentTarget.scrollWidth - event.currentTarget.clientWidth;
+                const scrollElStyle = getComputedStyle(event.currentTarget);
+                const minScrollLeft = parseInt(scrollElStyle.paddingLeft, 10);
+                const maxScrollLeft =
+                    event.currentTarget.scrollWidth -
+                    event.currentTarget.clientWidth -
+                    parseInt(scrollElStyle.paddingRight, 10);
                 const scrollLeft = Math.round(event.currentTarget.scrollLeft);
 
-                setFirstItemVisible(scrollLeft <= 0);
+                setFirstItemVisible(scrollLeft <= minScrollLeft);
                 setLastItemVisible(scrollLeft >= maxScrollLeft);
             },
             [setFirstItemVisible, setLastItemVisible],
@@ -192,20 +211,23 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             [index],
         );
 
-        useEffect(() => {
+        useLayoutEffect(() => {
             setLastItemVisible(scrollRef.current?.scrollWidth === scrollRef.current?.clientWidth);
         }, []);
 
         // Этот хук компенсирует появление левой стрелки при прокрутке
-        useEffect(() => {
-            if (firstItemVisible || !scrollRef.current || !leftArrowRef.current) {
+        useLayoutEffect(() => {
+            if (firstItemVisible || !shouldTriggerAdditionalScroll || !scrollRef.current || !leftArrowRef.current) {
                 return;
             }
-
+            const style = getComputedStyle(scrollRef.current);
             scrollRef.current.scrollTo({
-                left: Math.round(scrollRef.current.scrollLeft + leftArrowRef.current.clientWidth),
+                left: Math.round(
+                    scrollRef.current.scrollLeft + leftArrowRef.current.clientWidth + parseInt(style.paddingLeft, 10),
+                ),
             });
-        }, [firstItemVisible, scrollRef, leftArrowRef]);
+            setShouldTriggerAdditionalScroll(false);
+        }, [firstItemVisible, shouldTriggerAdditionalScroll, scrollRef, leftArrowRef]);
 
         return (
             <TabsContext.Provider value={refs}>

@@ -328,6 +328,7 @@ export const iconSectionsSet = {
         steeringWheelOutline: 'SteeringWheelOutline',
         travelCarFill: 'TravelCarFill',
         travelCarOutline: 'TravelCarOutline',
+        wheelOutline: 'WheelOutline',
     },
     User: {
         accessibility: 'Accessibility',
@@ -507,6 +508,7 @@ export const iconSectionsSet = {
         currencyRuble: 'CurrencyRuble',
         currencyRupiah: 'CurrencyRupiah',
         currencyYuan: 'CurrencyYuan',
+        deliveryOutline: 'DeliveryOutline',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
@@ -621,6 +623,10 @@ export const iconSectionsSet = {
         columnCheckboxOutline: 'ColumnCheckboxOutline',
         columnCheckboxOutlineOff: 'ColumnCheckboxOutlineOff',
         clown: 'Clown',
+        checkEngine: 'CheckEngine',
+        warningTriangleOutline: 'WarningTriangleOutline',
+        shower: 'Shower',
+        towTruckOutline: 'TowTruckOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -763,6 +769,8 @@ export const iconSectionsSet = {
         blankVisibilityOnOutline: 'BlankVisibilityOnOutline',
         documentInquirerFill: 'DocumentInquirerFill',
         documentInquirerOutline: 'DocumentInquirerOutline',
+        documentAttachFill: 'DocumentAttachFill',
+        documentAttachOutline: 'DocumentAttachOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',

@@ -500,7 +500,7 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--inverse-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--inverse-text-secondary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.chipOpacityReadonly}: 1;
             `,
             secondary: css`
                 ${tokens.chipColor}: var(--text-primary);
@@ -515,7 +515,7 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.chipOpacityReadonly}: 1;
             `,
             accent: css`
                 ${tokens.chipColor}: var(--on-dark-text-primary);
@@ -530,7 +530,7 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.chipOpacityReadonly}: 1;
             `,
             positive: css`
                 ${tokens.chipColor}: var(--on-dark-text-primary);
@@ -545,7 +545,7 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.chipOpacityReadonly}: 1;
             `,
             warning: css`
                 ${tokens.chipColor}: var(--on-dark-text-primary);
@@ -560,7 +560,7 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.chipOpacityReadonly}: 1;
             `,
             negative: css`
                 ${tokens.chipColor}: var(--on-dark-text-primary);
@@ -575,7 +575,7 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.chipOpacityReadonly}: 1;
             `,
         },
         hintView: {
@@ -643,13 +643,15 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.colorReadOnly}: var(--text-secondary);
-                ${tokens.backgroundColorReadOnly}: var(--surface-clear);
+                ${tokens.readOnlyOpacity}: 0.4;
+                ${tokens.colorReadOnly}: var(--text-primary);
+                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
-                ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.labelColorReadOnly}: var(--text-primary);
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },

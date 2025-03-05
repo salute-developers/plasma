@@ -32,11 +32,11 @@ export const CloseIconWrapper = styled(Button)`
     }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ backgroundColor?: string }>`
     position: relative;
     box-sizing: border-box;
 
-    background: var(${tokens.background});
+    background: ${({ backgroundColor }) => backgroundColor || `var(${tokens.background})`};
     border-radius: var(${tokens.borderRadius});
     border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
 
@@ -60,10 +60,11 @@ export const ButtonsWrapper = styled.div<IconPlacementType>`
     }
 `;
 
-export const IconWrapper = styled.div<IconPlacementType>`
+export const IconWrapper = styled.div<IconPlacementType & { iconColor?: string }>`
     width: var(${tokens.contentLeftIconSize});
     height: var(${tokens.contentLeftIconSize});
     align-self: var(${tokens.horisontalIconLeftAlignSelf});
+    color: ${({ iconColor }) => iconColor || `var(${tokens.contentLeftIconColor})`};
 
     margin-right: ${({ iconPlacement }) =>
         iconPlacement === placements.left ? `var(${tokens.contentLeftIconMargin})` : 'unset'};
@@ -115,7 +116,7 @@ export const TextBox = styled.div<CloseIconType & IconPlacementType>`
     }
 `;
 
-export const StyledTitle = styled.div`
+export const StyledTitle = styled.div<{ textColor?: string }>`
     font-family: var(${tokens.titleFontFamily});
     font-size: var(${tokens.titleFontSize});
     font-style: var(${tokens.titleFontStyle});
@@ -123,9 +124,11 @@ export const StyledTitle = styled.div`
     letter-spacing: var(${tokens.titleFontLetterSpacing});
     line-height: var(${tokens.titleFontLineHeight});
     ${String(applyHyphens)};
+
+    color: ${({ textColor }) => textColor || `var(${tokens.titleColor})`};
 `;
 
-export const StyledContent = styled.div`
+export const StyledContent = styled.div<{ textColor?: string }>`
     font-family: var(${tokens.contentFontFamily});
     font-size: var(${tokens.contentFontSize});
     font-style: var(${tokens.contentFontStyle});
@@ -134,7 +137,7 @@ export const StyledContent = styled.div`
     line-height: var(${tokens.contentFontLineHeight});
     ${String(applyHyphens)};
 
-    color: var(${tokens.contentColor});
+    color: ${({ textColor }) => textColor || `var(${tokens.contentColor})`};
 `;
 
 export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`

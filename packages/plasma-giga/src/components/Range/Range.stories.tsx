@@ -44,7 +44,10 @@ const meta: Meta<typeof Range> = {
             control: {
                 type: 'select',
             },
-            if: { arg: 'required', truthy: true },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
         },
         ...disableProps(['view']),
     },
@@ -75,10 +78,10 @@ const getSizeForIcon = (size) => {
     return size;
 };
 
-const ActionButton = ({ size }) => {
+const ActionButton = ({ size, readOnly }) => {
     return (
-        <IconButton style={{ color: 'inherit' }} view="clear" size={size}>
-            <IconSearch color="inherit" size={getSizeForIcon(size)} />
+        <IconButton view="clear" size={size} disabled={readOnly}>
+            <IconSearch color={readOnly ? 'var(--text-secondary)' : 'inherit'} size={getSizeForIcon(size)} />
         </IconButton>
     );
 };
@@ -114,18 +117,22 @@ const StoryDefault = ({
             firstValue={firstValue}
             secondValue={secondValue}
             contentLeft={enableContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
+            contentRight={enableContentRight ? <ActionButton size={size} readOnly={rest.readOnly} /> : undefined}
             firstTextfieldContentLeft={
                 enableFirstTextfieldContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? <IconSber color="inherit" size={iconSize} /> : undefined
+                enableFirstTextfieldContentRight ? (
+                    <IconSber color="inherit" size={iconSize} readOnly={rest.readOnly} />
+                ) : undefined
             }
             secondTextfieldContentLeft={
                 enableSecondTextfieldContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? <IconSber color="inherit" size={iconSize} /> : undefined
+                enableSecondTextfieldContentRight ? (
+                    <IconSber color="inherit" size={iconSize} readOnly={rest.readOnly} />
+                ) : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
@@ -226,14 +233,10 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, size, ...rest }: Sto
         setter(value);
     };
 
-    const firstValueConstraint = (currentValue: number) =>
-        currentValue <= 0 ||
-        currentValue >= 9 ||
-        Boolean(secondValue && currentValue >= Number(secondValue) && !secondValueError);
-    const secondValueConstraint = (currentValue: number) =>
-        currentValue <= 0 ||
-        currentValue > 10 ||
-        Boolean(firstValue && currentValue <= Number(firstValue) && !firstValueError);
+    const firstValueConstraint = (value: number) =>
+        value <= 0 || value >= 9 || (secondValue && value >= Number(secondValue) && !secondValueError);
+    const secondValueConstraint = (value: number) =>
+        value <= 0 || value > 10 || (firstValue && value <= Number(firstValue) && !firstValueError);
 
     const handleCommitValue = (
         value: string,
@@ -269,7 +272,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, size, ...rest }: Sto
             firstValueSuccess={firstValueSuccess}
             secondValueSuccess={secondValueSuccess}
             contentLeft={enableContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
+            contentRight={enableContentRight ? <ActionButton size={size} readOnly={rest.readOnly} /> : undefined}
             onChangeFirstValue={(e) => {
                 handleChangeValue(
                     e,

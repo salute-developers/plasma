@@ -1,15 +1,19 @@
-import React, { forwardRef, useState, useReducer, useLayoutEffect } from 'react';
+import React, { forwardRef, useState, useReducer, useLayoutEffect, useRef } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { useDidMountEffect, useOutsideClick } from '../../hooks';
 import { RootProps } from '../../engines';
-import { getPlacements } from '../../utils';
 
+import { FloatingPopover } from './FloatingPopover';
 import { focusedReducer } from './reducers/focusedReducer';
-import { SuggestionItem, StyledTextField } from './ui';
-import { StyledPopover, Ul, LeftHelper, base, InfiniteLoaderWrapper } from './Autocomplete.styles';
+import { SuggestionItem, StyledTextField, VirtualList } from './ui';
+import { Ul, InfiniteLoaderWrapper, base } from './Autocomplete.styles';
 import type { AutocompleteProps, SuggestionItemType } from './Autocomplete.types';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
+
+// Пороговое значение количества результирующих элементов в списке,
+// при котором возможна виртуализация (при virtual=true);
+const VIRTUAL_ITEM_AMOUNT_THRESHOLD = 10;
 
 /**
  * Компонент Autocomplete. Поле ввода с подсказками в выпадающем списке.
@@ -49,7 +53,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 hintSize = 'm',
                 beforeList,
                 afterList,
-
+                virtual = false,
                 ...rest
             },
             ref,
@@ -62,10 +66,11 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
             const value = outerValue ?? innerValue;
 
             const helperTextId = safeUseId();
+            const floatingPopoverRef = useRef<HTMLDivElement>(null);
 
-            const targetRef = useOutsideClick<HTMLDivElement>(() => {
+            const targetRef = useOutsideClick<HTMLUListElement>(() => {
                 setIsOpen(false);
-            });
+            }, floatingPopoverRef);
 
             const handleFocus = () => {
                 if (value.toString().length >= threshold) {
@@ -105,6 +110,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
 
             const finalResults = suggestions?.filter(filter || defaultFilterCallback) || [];
 
+            virtual = virtual && finalResults.length > VIRTUAL_ITEM_AMOUNT_THRESHOLD;
+
             const { onKeyDown } = useKeyNavigation({
                 isOpen,
                 setIsOpen,
@@ -134,19 +141,18 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                     hintView={hintView}
                     hintSize={hintSize}
                 >
-                    <StyledPopover
+                    <FloatingPopover
+                        ref={floatingPopoverRef}
                         opened={isOpen}
-                        offset={[0, 0]}
-                        placement={getPlacements('bottom')}
-                        isFocusTrapped={false}
-                        usePortal={Boolean(portal)}
-                        frame={portal}
-                        target={
+                        portal={portal}
+                        listWidth={listWidth}
+                        target={(referenceRef) => (
                             <StyledTextField
+                                ref={ref}
+                                inputWrapperRef={referenceRef}
                                 value={value}
                                 onChange={handleChange}
                                 onSearch={focused === null ? onSearch : undefined}
-                                ref={ref}
                                 size={size}
                                 view={view}
                                 disabled={disabled}
@@ -167,12 +173,10 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                 hintText={String(hintText || '')}
                                 labelPlacement={labelPlacement}
                                 keepPlaceholder={keepPlaceholder}
+                                leftHelper={leftHelper}
                                 {...rest}
                             />
-                        }
-                        preventOverflow={false}
-                        ref={targetRef}
-                        listWidth={listWidth}
+                        )}
                     >
                         {(renderList && renderList(finalResults)) ||
                             (Boolean(finalResults.length) && (
@@ -184,25 +188,39 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                     readOnly={readOnly}
                                 >
                                     <Ul
+                                        ref={targetRef}
                                         id={listId}
                                         role="listbox"
                                         aria-label={label}
-                                        onScroll={onScroll}
+                                        onScroll={virtual ? undefined : onScroll}
                                         listMaxHeight={listMaxHeight}
+                                        virtual={virtual}
                                     >
-                                        {beforeList}
-
-                                        {finalResults.map((suggestion, index) => (
-                                            <SuggestionItem
-                                                key={index}
-                                                item={suggestion}
+                                        {virtual ? (
+                                            <VirtualList
+                                                items={finalResults}
                                                 onClick={handleItemClick}
-                                                id={`${listId}/${index}`}
-                                                focused={focused === index}
+                                                listId={listId}
+                                                listMaxHeight={listMaxHeight}
+                                                onScroll={onScroll}
                                             />
-                                        ))}
+                                        ) : (
+                                            <>
+                                                {beforeList}
 
-                                        {afterList}
+                                                {finalResults.map((suggestion, index) => (
+                                                    <SuggestionItem
+                                                        key={index}
+                                                        item={suggestion}
+                                                        onClick={handleItemClick}
+                                                        id={`${listId}/${index}`}
+                                                        focused={focused === index}
+                                                    />
+                                                ))}
+
+                                                {afterList}
+                                            </>
+                                        )}
 
                                         {renderListEnd && (
                                             <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>
@@ -210,14 +228,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                     </Ul>
                                 </Root>
                             ))}
-                    </StyledPopover>
-
-                    {/* TODO: Дублируем хелпер для корректного позиционирования списка подсказок */}
-                    {leftHelper && (
-                        <LeftHelper id={helperTextId} disabled={disabled} readOnly={readOnly}>
-                            {leftHelper}
-                        </LeftHelper>
-                    )}
+                    </FloatingPopover>
                 </Root>
             );
         },

@@ -420,6 +420,32 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="virtual" label="Virtual">
+        Свойство `virtual` позволяет виртуализировать выпадающий список. Для настройки высоты списка можно использовать свойство `listHeight`.
+        Работает только в одноуровневых списках.
+
+       ```tsx live
+        import React, { useState } from 'react';
+        import { Select } from '@salutejs/sdds-cs';
+
+        export function App() {
+            const items = Array(5000).fill(1).map((_, i) => ({ value: i.toString(), label: i.toString() }));
+
+            return (
+                <div style={{ width: "300px", height: "300px" }}>
+                    <Select
+                        items={items}
+                        virtual
+                        listHeight="200px"
+                        placeholder="Placeholder"
+                        label="Label"
+                        helperText="Helper text"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация

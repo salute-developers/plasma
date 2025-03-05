@@ -1,7 +1,7 @@
 # Отдельный workflow для pull request из ветки release_**-**-** в master.
 # Собирает storybook для всех пакетов (plasma-{web,b2c,ui,asdk,etc}) без каких либо условий.
 # Мотивация - нужен стенд для проведения регрессионного тестирования релизных изменений.
-name: Deploy documentations artefacts [RELEASE BRANCH]
+name: Deploy release branch artefacts
 
 on:
   pull_request:
@@ -14,147 +14,191 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  documentation:
-    name: Deploy documentation
+  prepare-config-deploy:
+    name: Prepare deploy config
     if: ${{ startsWith(github.head_ref, 'release') }}
-    
+    outputs:
+      MATRIX: ${{ steps.matrix.outputs.result }}
+    runs-on: ubuntu-22.04
+    steps:
+      -   uses: actions/checkout@v4
+          with:
+            ref: refs/pull/${{github.event.pull_request.number}}/merge
+            show-progress: false
+      
+      -   name: Read meta config
+          id: matrix
+          uses: actions/github-script@v7
+          with:
+            script: |
+              const fs = require('fs');
+              const data = '.github/config-ci.json';
+              const config = JSON.parse(fs.readFileSync(data, 'utf8'));
+              
+              return config.PACKAGES_DS;
+  deploy-website:
+    name: Deploy website artifacts
+    needs: [ prepare-config-deploy ]
     runs-on: ubuntu-22.04
     env:
       PR_NAME: pr-${{ github.event.number }}
       PREFIX: pr/pr-${{ github.event.number }}
-      ICONS_PUBLIC_URL: /icons
     steps:
-      - uses: actions/checkout@v4
-        with:
-          show-progress: false
+      -   uses: actions/checkout@v4
+          with:
+            ref: refs/pull/${{github.event.pull_request.number}}/merge
+            show-progress: false
       
-      - name: Prepare environment
-        uses: ./.github/actions/prepare-environment
+      -   name: Prepare environment
+          uses: ./.github/actions/prepare-environment
       
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap
+      -   name: Lerna bootstrap
+          run: npx lerna bootstrap --scope="@salutejs/{plasma-b2c,plasma-web,plasma-website,plasma-tokens-b2c,plasma-typo,plasma-icons,plasma-new-hope,plasma-themes,core-themes}"
       
-      - name: Prepare directory
-        run: mkdir -p s3_build/${PR_NAME}
+      -   name: Prepare directory
+          run: |
+            mkdir -p s3_build/${PR_NAME}
+        
+        # TODO: https://github.com/salute-developers/plasma/issues/603
+      -   name: Build Plasma website
+          run: |
+            npm run build --prefix="./website/plasma-website"
+            cp -R ./website/plasma-website/build/. ./s3_build/${PR_NAME}
       
-      # TODO: https://github.com/salute-developers/plasma/issues/603
-      - name: Plasma Website
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          npm run build --prefix="./website/plasma-website"
-          cp -R ./website/plasma-website/build/. ./s3_build/${PR_NAME}
-
-      - name: Plasma UI Docs
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
-          npm run build --prefix="./website/plasma-ui-docs"
-          cp -R ./website/plasma-ui-docs/build ./s3_build/${PR_NAME}/ui
+      -   name: Install s3cmd
+          run: pip3 install s3cmd
       
-      - name: Plasma Web Docs
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
-          npm run build --prefix="./website/plasma-web-docs"
-          cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
-          
-      - name: Plasma B2C Docs
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=8192 --openssl-legacy-provider"
-          npm run build --prefix="./website/plasma-b2c-docs"
-          cp -R ./website/plasma-b2c-docs/build ./s3_build/${PR_NAME}/b2c
+      -   name: s3 Upload
+          run: >
+            s3cmd
+            --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+            --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            --host ${{ secrets.AWS_ENDPOINT }}
+            --host-bucket ${{ secrets.AWS_ENDPOINT }}
+            --bucket-location ${{ secrets.AWS_REGION }}
+            --signature-v2
+            --no-mime-magic
+            sync
+            ./s3_build/${PR_NAME}/
+            s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/
+  
+  deploy-artifacts:
+    name: Deploy artifacts
+    needs: [ prepare-config-deploy, deploy-website]
+    runs-on: ubuntu-22.04
+    env:
+      PR_NAME: pr-${{ github.event.number }}
+      PREFIX: pr/pr-${{ github.event.number }}
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJSON(needs.prepare-config-deploy.outputs.MATRIX) }}
+    
+    steps:
+      -   uses: actions/checkout@v4
+          with:
+            ref: refs/pull/${{github.event.pull_request.number}}/merge
+            show-progress: false
       
-      - name: Plasma UI Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/plasma-ui"
-          cp -R ./packages/plasma-ui/build-sb ./s3_build/${PR_NAME}/ui-storybook
+      -   name: Prepare environment
+          uses: ./.github/actions/prepare-environment
       
-      - name: Plasma Web Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/plasma-web"
-          cp -R ./packages/plasma-web/build-sb ./s3_build/${PR_NAME}/web-storybook
+      -   name: Set job environment variables
+          run: |
+            echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/plasma-//g')" >> $GITHUB_ENV
+            echo "HAS_PACKAGE_DOCS=$([ -d "./website/${{ matrix.package }}-docs" ] && echo true || echo false)" >> $GITHUB_ENV
       
-      - name: Plasma B2C Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/plasma-b2c"
-          cp -R ./packages/plasma-b2c/build-sb ./s3_build/${PR_NAME}/b2c-storybook
+      -   name: Computed lerna scope
+          id: scope
+          uses: actions/github-script@v7
+          env:
+            PACKAGE: ${{ matrix.package }}
+          with:
+            result-encoding: string
+            script: |
+              const fs = require('fs');
+              const META = require('.github/meta-prod.js');
+              const packageName = process.env.PACKAGE;
+              
+              return META[packageName].scope;
       
-      - name: Plasma "New Hope" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/plasma-new-hope"
-          cp -R ./packages/plasma-new-hope/build-sb ./s3_build/${PR_NAME}/new-hope-storybook
+      -   name: Lerna bootstrap
+          run: npx lerna bootstrap --scope="@salutejs/${{ matrix.package }}" --scope="@salutejs/{${{ steps.scope.outputs.result }}}"
       
-      - name: Plasma "ASDK" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/plasma-asdk"
-          cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
-          
-      - name: Plasma "SDDS SERV" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/sdds-serv"
-          cp -R ./packages/sdds-serv/build-sb ./s3_build/${PR_NAME}/sdds-serv-storybook
-
-      - name: Plasma "SDDS CS" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/sdds-cs"
-          cp -R ./packages/sdds-cs/build-sb ./s3_build/${PR_NAME}/sdds-cs-storybook
-
-      - name: Plasma "SDDS DFA" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/sdds-dfa"
-          cp -R ./packages/sdds-dfa/build-sb ./s3_build/${PR_NAME}/sdds-dfa-storybook
-          
-      - name: Plasma "SDDS FinPortal" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/sdds-finportal"
-          cp -R ./packages/sdds-finportal/build-sb ./s3_build/${PR_NAME}/sdds-finportal-storybook
-
-      - name: Plasma "SDDS INSOL" Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/sdds-insol"
-          cp -R ./packages/sdds-insol/build-sb ./s3_build/${PR_NAME}/sdds-insol-storybook
-          
-      - name: Install s3cmd
-        run: pip3 install s3cmd
+      -   name: Prepare directory
+          run: mkdir -p s3_build/${PR_NAME}
       
-      - name: s3 Upload builds
-        run: >
-          s3cmd
-          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
-          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          --host ${{ secrets.AWS_ENDPOINT }}
-          --host-bucket ${{ secrets.AWS_ENDPOINT }}
-          --bucket-location ${{ secrets.AWS_REGION }}
-          --signature-v2
-          --delete-removed
-          --no-mime-magic
-          sync
-          ./s3_build/${PR_NAME}/
-          s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/
+      -   name: Build documentation - "${{ matrix.package }}"
+          if: ${{ fromJSON(env.HAS_PACKAGE_DOCS) }}
+          run: |
+            npm run build --prefix="./website/${{ matrix.package }}-docs" -- --no-minify
+            cp -R ./website/${{ matrix.package }}-docs/build ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}
       
-      - name: Post success comment
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{secrets.GH_TOKEN}}
-          script: |
-            const {
-              issue: { number },
-              repo: { owner, repo }
-            } = context;
-            
-            github.rest.issues.createComment({
-              issue_number: number,
-              owner,
-              repo,
-              body: `Documentation preview deployed!
-              website: http://plasma.sberdevices.ru/pr/pr-${number}/
-              b2c storybook: http://plasma.sberdevices.ru/pr/pr-${number}/b2c-storybook/
-              web storybook: http://plasma.sberdevices.ru/pr/pr-${number}/web-storybook/
-              ui storybook: http://plasma.sberdevices.ru/pr/pr-${number}/ui-storybook/
-              new-hope storybook: http://plasma.sberdevices.ru/pr/pr-${number}/new-hope-storybook/
-              asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/
-              sdds-serv storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-serv-storybook/
-              sdds-cs storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-cs-storybook/
-              sdds-dfa storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-dfa-storybook/
-              sdds-finportal storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-finportal-storybook/
-              sdds-insol storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-insol-storybook/
-              `
-            });
+      -   name: Build storybook - "${{ matrix.package }}"
+          run: |
+            npm run storybook:build --prefix="./packages/${{ matrix.package }}"
+            cp -R ./packages/${{ matrix.package }}/build-sb ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-storybook
+      
+      -   name: Install s3cmd
+          run: pip3 install s3cmd
+      
+      -   name: s3 upload docs
+          if: ${{ fromJSON(env.HAS_PACKAGE_DOCS) }}
+          run: >
+            s3cmd
+            --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+            --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            --host ${{ secrets.AWS_ENDPOINT }}
+            --host-bucket ${{ secrets.AWS_ENDPOINT }}
+            --bucket-location ${{ secrets.AWS_REGION }}
+            --signature-v2
+            --delete-removed
+            --no-mime-magic
+            sync
+            ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}/
+            s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}/
+      
+      -   name: s3 upload storybook
+          run: >
+            s3cmd
+            --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+            --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            --host ${{ secrets.AWS_ENDPOINT }}
+            --host-bucket ${{ secrets.AWS_ENDPOINT }}
+            --bucket-location ${{ secrets.AWS_REGION }}
+            --signature-v2
+            --delete-removed
+            --no-mime-magic
+            sync
+            ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-storybook/
+            s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}-storybook/
+  
+  attache-comment:
+    name: Attached comment
+    needs: [ prepare-config-deploy, deploy-website, deploy-artifacts ]
+    if: ${{ always() && (contains(needs.deploy-website.result, 'success') || contains(needs.deploy-artifacts.result, 'success')) }}
+    runs-on: ubuntu-22.04
+    steps:
+      -   uses: actions/checkout@v4
+          with:
+            ref: refs/pull/${{github.event.pull_request.number}}/merge
+            show-progress: false
+      
+      -   name: Create comment
+          id: comment-link
+          uses: actions/github-script@v7
+          env:
+            PACKAGES_DS: ${{ toJSON(fromJSON(needs.prepare-config-deploy.outputs.MATRIX)) }}
+            BASE_URL: ${{ vars.STAGE_STABLE_URL }}/pr/pr-${{ github.event.number }}
+          with:
+            result-encoding: string
+            script: |
+              const createLinks = require('./.github/create-links.js');
+              
+              return createLinks();
+      
+      -   name: Attach comment
+          uses: marocchino/sticky-pull-request-comment@v2
+          with:
+            header: Links
+            message: ${{ steps.comment-link.outputs.result }}

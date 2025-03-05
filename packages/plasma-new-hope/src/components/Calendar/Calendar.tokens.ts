@@ -143,6 +143,8 @@ export const tokens = {
     calendarRangeBackground: '--plasma-calendar-range-background',
     calendarOutlineFocusColor: '--plasma-calendar-outline-focus-color',
     calendarContentPrimaryColor: '--plasma-calendar-content-primary-color',
+    calendarContentPrimaryDisabledColor: '--plasma-calendar-content-primary-disabled-color',
     calendarContentSecondaryColor: '--plasma-calendar-content-secondary-color',
+    calendarContentSecondaryDisabledColor: '--plasma-calendar-content-secondary-disabled-color',
     calendarDisabledOpacity: '--plasma-calendar-disabled-opacity',
 };

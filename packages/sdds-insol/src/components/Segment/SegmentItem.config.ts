@@ -62,12 +62,12 @@ export const config = {
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
-                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedColor}: var(--on-dark-text-primary);
                 ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
-                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary-hover);
+                ${segmentTokens.itemSelectedColorHover}: var(--on-dark-text-primary-hover);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
-                ${segmentTokens.itemSelectedAdditionalColor}: var(--inverse-text-secondary);
-                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--inverse-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--on-dark-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--on-dark-text-secondary);
 
                 ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
             `,
@@ -78,7 +78,7 @@ export const config = {
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 2rem;
                 ${segmentTokens.itemPadding}: 0.5rem 0.75rem;
-                ${segmentTokens.itemPilledPadding}: 0.5rem 0.5rem;
+                ${segmentTokens.itemPilledPadding}: 0.5rem 0.625rem;
                 ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
                 ${segmentTokens.itemIconMargin}: 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0;
@@ -95,8 +95,8 @@ export const config = {
                 ${segmentTokens.itemBorderRadius}: 0.625rem;
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 2.5rem;
-                ${segmentTokens.itemPadding}: 0.5rem 1rem;
-                ${segmentTokens.itemPilledPadding}: 0.5rem 0.5rem;
+                ${segmentTokens.itemPadding}: 0.75rem 1rem;
+                ${segmentTokens.itemPilledPadding}: 0.75rem 0.75rem;
                 ${segmentTokens.itemContentPadding}: 0.1875rem 0.125rem;
                 ${segmentTokens.itemIconMargin}: 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
@@ -113,8 +113,8 @@ export const config = {
                 ${segmentTokens.itemBorderRadius}: 0.75rem;
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 3rem;
-                ${segmentTokens.itemPadding}: 0.75rem 1.25rem;
-                ${segmentTokens.itemPilledPadding}: 0.75rem 0.75rem;
+                ${segmentTokens.itemPadding}: 0.875rem 1.25rem;
+                ${segmentTokens.itemPilledPadding}: 0.875rem 1rem;
                 ${segmentTokens.itemContentPadding}: 0.125rem;
                 ${segmentTokens.itemIconMargin}: 0.25rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
@@ -131,8 +131,8 @@ export const config = {
                 ${segmentTokens.itemBorderRadius}: 0.875rem;
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 3.5rem;
-                ${segmentTokens.itemPadding}: 1rem 1.5rem; /* 1.625 */
-                ${segmentTokens.itemPilledPadding}: 1rem 1rem;
+                ${segmentTokens.itemPadding}: 1rem 1.5rem;
+                ${segmentTokens.itemPilledPadding}: 1rem 1.25rem;
                 ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
                 ${segmentTokens.itemIconMargin}: 0.375rem;
                 ${segmentTokens.itemMarginLeft}: 0;
@@ -150,7 +150,7 @@ export const config = {
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 4rem;
                 ${segmentTokens.itemPadding}: 1.25rem 1.75rem;
-                ${segmentTokens.itemPilledPadding}: 1.25rem;
+                ${segmentTokens.itemPilledPadding}: 1.25rem 1.5rem;
                 ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
                 ${segmentTokens.itemIconMargin}: 0.375rem;
                 ${segmentTokens.itemMarginLeft}: 0;
@@ -171,7 +171,8 @@ export const config = {
         },
         pilled: {
             true: css`
-                ${segmentTokens.itemPilledBorderRadius}: 1.75rem;
+                // NOTE: change on token when added
+                ${segmentTokens.itemPilledBorderRadius}: 1000px;
             `,
         },
     },

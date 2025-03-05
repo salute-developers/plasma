@@ -24,6 +24,7 @@ type CustomStoryProps = {
     contentLeft: string;
     contentRight: string;
     segmentItemView?: 'default' | 'secondary';
+    singleSelectedRequired?: boolean;
 };
 
 type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
@@ -195,6 +196,7 @@ export const Default: StoryObj<StorySegmentProps> = {
         hasBackground: false,
         disabled: false,
         stretch: false,
+        singleSelectedRequired: false,
         orientation: 'horizontal',
         contentRight: 'none',
         contentLeft: 'none',
@@ -202,8 +204,8 @@ export const Default: StoryObj<StorySegmentProps> = {
     argTypes: {
         ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip']),
     },
-    render: (args: StorySegmentProps) => (
-        <SegmentProvider>
+    render: ({ singleSelectedRequired, ...args }: StorySegmentProps) => (
+        <SegmentProvider singleSelectedRequired={singleSelectedRequired}>
             <StoryDefault {...args} />
         </SegmentProvider>
     ),

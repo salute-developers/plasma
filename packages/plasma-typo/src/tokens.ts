@@ -14,6 +14,11 @@ export const dsplLBold = ({
     fontWeight: 'var(--plasma-typo-dspl-l-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const dsplLMedium = ({
+    ...dsplL,
+    fontWeight: 'var(--plasma-typo-dspl-l-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const dsplM = ({
     fontFamily: 'var(--plasma-typo-dspl-m-font-family)',
     fontSize: 'var(--plasma-typo-dspl-m-font-size)',
@@ -26,6 +31,11 @@ export const dsplM = ({
 export const dsplMBold = ({
     ...dsplM,
     fontWeight: 'var(--plasma-typo-dspl-m-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const dsplMMedium = ({
+    ...dsplM,
+    fontWeight: 'var(--plasma-typo-dspl-m-medium-font-weight)',
 } as unknown) as CSSObject;
 
 export const dsplS = ({
@@ -42,6 +52,11 @@ export const dsplSBold = ({
     fontWeight: 'var(--plasma-typo-dspl-s-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const dsplSMedium = ({
+    ...dsplS,
+    fontWeight: 'var(--plasma-typo-dspl-s-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const h1 = ({
     fontFamily: 'var(--plasma-typo-h1-font-family)',
     fontSize: 'var(--plasma-typo-h1-font-size)',
@@ -54,6 +69,11 @@ export const h1 = ({
 export const h1Bold = ({
     ...h1,
     fontWeight: 'var(--plasma-typo-h1-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const h1Medium = ({
+    ...h1,
+    fontWeight: 'var(--plasma-typo-h1-medium-font-weight)',
 } as unknown) as CSSObject;
 
 export const h2 = ({
@@ -70,6 +90,11 @@ export const h2Bold = ({
     fontWeight: 'var(--plasma-typo-h2-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const h2Medium = ({
+    ...h2,
+    fontWeight: 'var(--plasma-typo-h2-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const h3 = ({
     fontFamily: 'var(--plasma-typo-h3-font-family)',
     fontSize: 'var(--plasma-typo-h3-font-size)',
@@ -82,6 +107,11 @@ export const h3 = ({
 export const h3Bold = ({
     ...h3,
     fontWeight: 'var(--plasma-typo-h3-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const h3Medium = ({
+    ...h3,
+    fontWeight: 'var(--plasma-typo-h3-medium-font-weight)',
 } as unknown) as CSSObject;
 
 export const h4 = ({
@@ -98,6 +128,11 @@ export const h4Bold = ({
     fontWeight: 'var(--plasma-typo-h4-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const h4Medium = ({
+    ...h4,
+    fontWeight: 'var(--plasma-typo-h4-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const h5 = ({
     fontFamily: 'var(--plasma-typo-h5-font-family)',
     fontSize: 'var(--plasma-typo-h5-font-size)',
@@ -110,6 +145,11 @@ export const h5 = ({
 export const h5Bold = ({
     ...h5,
     fontWeight: 'var(--plasma-typo-h5-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const h5Medium = ({
+    ...h5,
+    fontWeight: 'var(--plasma-typo-h5-medium-font-weight)',
 } as unknown) as CSSObject;
 
 export const bodyL = ({
@@ -126,6 +166,11 @@ export const bodyLBold = ({
     fontWeight: 'var(--plasma-typo-body-l-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const bodyLMedium = ({
+    ...bodyL,
+    fontWeight: 'var(--plasma-typo-body-l-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const bodyM = ({
     fontFamily: 'var(--plasma-typo-body-m-font-family)',
     fontSize: 'var(--plasma-typo-body-m-font-size)',
@@ -138,6 +183,11 @@ export const bodyM = ({
 export const bodyMBold = ({
     ...bodyM,
     fontWeight: 'var(--plasma-typo-body-m-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const bodyMMedium = ({
+    ...bodyM,
+    fontWeight: 'var(--plasma-typo-body-m-medium-font-weight)',
 } as unknown) as CSSObject;
 
 export const bodyS = ({
@@ -154,6 +204,11 @@ export const bodySBold = ({
     fontWeight: 'var(--plasma-typo-body-s-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const bodySMedium = ({
+    ...bodyS,
+    fontWeight: 'var(--plasma-typo-body-s-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const bodyXS = ({
     fontFamily: 'var(--plasma-typo-body-xs-font-family)',
     fontSize: 'var(--plasma-typo-body-xs-font-size)',
@@ -166,6 +221,11 @@ export const bodyXS = ({
 export const bodyXSBold = ({
     ...bodyXS,
     fontWeight: 'var(--plasma-typo-body-xs-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const bodyXSMedium = ({
+    ...bodyXS,
+    fontWeight: 'var(--plasma-typo-body-xs-medium-font-weight)',
 } as unknown) as CSSObject;
 
 export const bodyXXS = ({
@@ -182,6 +242,11 @@ export const bodyXXSBold = ({
     fontWeight: 'var(--plasma-typo-body-xxs-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const bodyXXSMedium = ({
+    ...bodyXXS,
+    fontWeight: 'var(--plasma-typo-body-xxs-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const textL = ({
     fontFamily: 'var(--plasma-typo-text-l-font-family)',
     fontSize: 'var(--plasma-typo-text-l-font-size)',
@@ -194,6 +259,11 @@ export const textL = ({
 export const textLBold = ({
     ...textL,
     fontWeight: 'var(--plasma-typo-text-l-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const textLMedium = ({
+    ...textL,
+    fontWeight: 'var(--plasma-typo-text-l-medium-font-weight)',
 } as unknown) as CSSObject;
 
 export const textM = ({
@@ -210,6 +280,11 @@ export const textMBold = ({
     fontWeight: 'var(--plasma-typo-text-m-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const textMMedium = ({
+    ...textM,
+    fontWeight: 'var(--plasma-typo-text-m-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const textS = ({
     fontFamily: 'var(--plasma-typo-text-s-font-family)',
     fontSize: 'var(--plasma-typo-text-s-font-size)',
@@ -224,6 +299,11 @@ export const textSBold = ({
     fontWeight: 'var(--plasma-typo-text-s-bold-font-weight)',
 } as unknown) as CSSObject;
 
+export const textSMedium = ({
+    ...textS,
+    fontWeight: 'var(--plasma-typo-text-s-medium-font-weight)',
+} as unknown) as CSSObject;
+
 export const textXS = ({
     fontFamily: 'var(--plasma-typo-text-xs-font-family)',
     fontSize: 'var(--plasma-typo-text-xs-font-size)',
@@ -236,4 +316,9 @@ export const textXS = ({
 export const textXSBold = ({
     ...textXS,
     fontWeight: 'var(--plasma-typo-text-xs-bold-font-weight)',
+} as unknown) as CSSObject;
+
+export const textXSMedium = ({
+    ...textXS,
+    fontWeight: 'var(--plasma-typo-text-xs-medium-font-weight)',
 } as unknown) as CSSObject;
