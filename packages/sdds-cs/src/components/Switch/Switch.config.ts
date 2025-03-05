@@ -53,6 +53,7 @@ export const config = {
             default: css`
                 ${switchTokens.labelColor}: var(--text-primary);
                 ${switchTokens.descriptionColor}: var(--text-secondary);
+                ${switchTokens.descriptionMaxLines}: 2;
                 ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
                 ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
                 ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-card);
