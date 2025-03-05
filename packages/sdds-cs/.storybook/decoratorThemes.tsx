@@ -8,7 +8,7 @@ import { sdds_cs__light } from '@salutejs/sdds-themes';
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
-        background-color: var(--background-primary);
+        background-color: var(--surface-solid-card);
     }
 
     a {
