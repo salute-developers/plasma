@@ -56,7 +56,7 @@ const treeData: any[] = [
 
 type StoryTreeProps = ComponentProps<typeof Tree>;
 
-const size = ['xs', 's', 'm', 'l'];
+const size = ['s'];
 const arrowPlacements = ['left', 'right'];
 
 const meta: Meta<StoryTreeProps> = {
@@ -94,7 +94,7 @@ const meta: Meta<StoryTreeProps> = {
         },
     },
     args: {
-        size: 'm',
+        size: 's',
         fullWidthItemSelection: false,
         checkable: false,
         multiple: false,
