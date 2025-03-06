@@ -64,6 +64,27 @@ describe('plasma-b2c: Tree', () => {
         </CypressTestDecorator>
     );
 
+    const ControlledTree: FC<any> = () => {
+        const [expanded, setExpanded] = React.useState([]);
+        const [checked, setChecked] = React.useState([]);
+        const [selected, setSelected] = React.useState([]);
+
+        return (
+            <CypressTestDecoratorWithTypo>
+                <Tree
+                    items={treeData}
+                    checkable
+                    expandedKeys={expanded}
+                    onTreeExpand={setExpanded}
+                    checkedKeys={checked}
+                    onTreeCheck={setChecked}
+                    selectedKeys={selected}
+                    onTreeSelect={setSelected}
+                />
+            </CypressTestDecoratorWithTypo>
+        );
+    };
+
     it('default', () => {
         cy.viewport(500, 500);
 
@@ -118,6 +139,8 @@ describe('plasma-b2c: Tree', () => {
         cy.get('[title="Parent 1-0"]').realHover();
 
         cy.matchImageSnapshot();
+
+        cy.get('body').realHover({ position: 'bottomRight' });
     });
 
     it('prop: defaultCheckedKeys', () => {
@@ -205,6 +228,18 @@ describe('plasma-b2c: Tree', () => {
                 <Tree items={treeData} defaultExpandAll renderTitle={() => 'test render title'} />
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow: controlled', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<ControlledTree />);
+
+        cy.get('.rc-tree-switcher').first().click();
+        cy.get('[title="Parent 1-0"]').click();
+        cy.get('[aria-label="Select Parent 1-1"]').click();
 
         cy.matchImageSnapshot();
     });
