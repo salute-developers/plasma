@@ -12,9 +12,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
@@ -30,10 +28,8 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${iconButtonTokens.iconButtonColorHover}: var(--text-accent);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${iconButtonTokens.iconButtonColorActive}: var(--text-accent);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-accent-active);
             `,
         },
         size: {
