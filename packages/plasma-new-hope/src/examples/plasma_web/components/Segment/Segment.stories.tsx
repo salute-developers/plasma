@@ -16,7 +16,7 @@ import { SegmentItem, SegmentGroup } from './Segment';
 const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'text', 'counter', 'icon'];
 
-const segmentItemViews = ['default', 'secondary'];
+const segmentItemViews = ['clear', 'default', 'secondary', 'accent'];
 type Size = typeof sizes[number];
 
 type CustomStoryProps = {
@@ -24,11 +24,12 @@ type CustomStoryProps = {
     contentLeft: string;
     contentRight: string;
     segmentItemView?: 'default' | 'secondary';
+    singleSelectedRequired?: boolean;
 };
 
 type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
 
-const sizes = ['xs', 's', 'm', 'l'] as const;
+const sizes = ['xs', 's', 'm', 'l', 'xl'] as const;
 
 const getContentLeft = (contentLeftOption: string, size: Size) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
@@ -107,6 +108,7 @@ export default meta;
 
 const StoryDefault = (props: StorySegmentProps) => {
     const {
+        singleSelectedRequired,
         disabled,
         itemQuantity,
         size,
@@ -122,7 +124,7 @@ const StoryDefault = (props: StorySegmentProps) => {
     const isVertical = orientation === 'vertical';
 
     return (
-        <SegmentProvider>
+        <SegmentProvider singleSelectedRequired={singleSelectedRequired}>
             <SegmentGroup
                 stretch={stretch}
                 disabled={disabled}
@@ -161,6 +163,7 @@ export const Default: StoryObj<StorySegmentProps> = {
         hasBackground: false,
         disabled: false,
         stretch: false,
+        singleSelectedRequired: false,
         orientation: 'horizontal',
         contentRight: 'none',
         contentLeft: 'none',

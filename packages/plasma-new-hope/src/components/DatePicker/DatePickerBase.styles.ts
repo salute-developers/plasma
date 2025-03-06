@@ -31,7 +31,9 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarRangeBackground}: var(${tokens.calendarRangeBackground});
     ${calendarBaseTokens.calendarOutlineFocusColor}: var(${tokens.calendarOutlineFocusColor});
     ${calendarBaseTokens.calendarContentPrimaryColor}: var(${tokens.calendarContentPrimaryColor});
+    ${calendarBaseTokens.calendarContentPrimaryDisabledColor}: var(${tokens.calendarContentPrimaryDisabledColor});
     ${calendarBaseTokens.calendarContentSecondaryColor}: var(${tokens.calendarContentSecondaryColor});
+    ${calendarBaseTokens.calendarContentSecondaryDisabledColor}: var(${tokens.calendarContentSecondaryDisabledColor});
 
     ${calendarBaseTokens.iconButtonColor}: var(${tokens.iconButtonColor});
     ${calendarBaseTokens.iconButtonBackgroundColor}: var(${tokens.iconButtonBackgroundColor});

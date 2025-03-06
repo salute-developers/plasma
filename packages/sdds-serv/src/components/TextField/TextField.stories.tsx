@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import type { ComponentProps } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
-import { IconBellFill } from '@salutejs/plasma-icons';
+import { IconBellFill, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { TextField } from '.';
 
@@ -19,8 +19,8 @@ const views = ['default', 'positive', 'warning', 'negative'];
 const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
-const hintTargetPlacements = ['outer', 'inner'];
 const hintTriggers = ['hover', 'click'];
+const hintTargetPlacements = ['outer', 'inner'];
 const labelPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
@@ -42,6 +42,20 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
+const StyledIconLockOutline = styled(IconLockOutline)`
+    opacity: 0.4;
+`;
+
+const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+
+    if (readOnly) {
+        return <StyledIconLockOutline size={iconSize} color="var(--text-secondary)" />;
+    }
+
+    return <IconComponent size={iconSize} color="inherit" />;
+};
+
 const meta: Meta<typeof TextField> = {
     title: 'Data Entry/TextField',
     component: TextField,
@@ -57,24 +71,38 @@ const meta: Meta<typeof TextField> = {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'optional', truthy: false },
+            if: {
+                arg: 'optional',
+                truthy: false,
+            },
         },
         optional: {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'required', truthy: false },
+            if: {
+                arg: 'required',
+                truthy: false,
+            },
         },
         hasDivider: {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'clear', truthy: true },
+            if: {
+                arg: 'clear',
+                truthy: true,
+            },
         },
         view: {
             options: views,
             control: {
                 type: 'select',
+            },
+        },
+        maxLength: {
+            control: {
+                type: 'number',
             },
         },
         labelPlacement: {
@@ -87,7 +115,10 @@ const meta: Meta<typeof TextField> = {
             control: {
                 type: 'boolean',
             },
-            if: { arg: 'labelPlacement', eq: 'inner' },
+            if: {
+                arg: 'labelPlacement',
+                eq: 'inner',
+            },
         },
         size: {
             options: sizes,
@@ -95,53 +126,83 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
+        titleCaption: {
+            control: { type: 'text' },
+        },
+        leftHelper: {
+            control: { type: 'text' },
+        },
         hintText: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintView: {
             options: hintViews,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintSize: {
             options: hintSizes,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintTargetPlacement: {
             options: hintTargetPlacements,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintTrigger: {
             options: hintTriggers,
             control: {
                 type: 'inline-radio',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintPlacement: {
             options: placements,
             control: {
                 type: 'select',
             },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
             mappers: placements,
         },
         hintHasArrow: {
             control: { type: 'boolean' },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         hintWidth: {
             control: { type: 'text' },
-            if: { arg: 'hasHint', truthy: true },
+            if: {
+                arg: 'hasHint',
+                truthy: true,
+            },
         },
         chipType: {
             control: 'select',
@@ -199,18 +260,28 @@ type StoryPropsDefault = Omit<
     enableContentRight: boolean;
 };
 
-const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsDefault) => {
+const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '70%', margin: '0 auto' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '2rem',
+                width: '70%',
+                margin: '0 auto',
+            }}
+        >
             <TextField
                 {...rest}
+                enumerationType="plain"
                 value={text}
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                readOnly={readOnly}
+                contentLeft={enableContentLeft ? getIcon(IconBellFill, rest.size) : undefined}
+                contentRight={contentRight}
                 view={view}
                 onChange={(e) => {
                     setText(e.target.value);
@@ -225,13 +296,11 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
                 {...rest}
                 label="Uncontrolled TextField"
                 defaultValue="Дефолтное значение"
-                contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+                enumerationType="plain"
+                contentLeft={enableContentLeft ? getIcon(IconBellFill, rest.size) : undefined}
+                contentRight={contentRight}
                 view={view}
-                onChange={(e) => {
-                    setText(e.target.value);
-                    onChange(e.target.value);
-                }}
+                readOnly={readOnly}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onSearch={onSearch}
@@ -241,9 +310,6 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: Sto
 };
 
 export const Default: StoryObj<StoryPropsDefault> = {
-    argsTypes: {
-        ...disableProps(['chipView']),
-    },
     args: {
         id: 'example-text-field',
         size: 'm',
@@ -251,16 +317,18 @@ export const Default: StoryObj<StoryPropsDefault> = {
         label: 'Лейбл',
         labelPlacement: 'outer',
         keepPlaceholder: false,
-        placeholder: 'Заполните поле',
         titleCaption: 'Подпись к полю',
+        textBefore: '',
+        textAfter: '',
+        placeholder: 'Заполните поле',
         leftHelper: 'Подсказка к полю',
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
         enableContentRight: true,
+        optional: false,
         required: false,
         requiredPlacement: 'right',
-        optional: false,
         clear: false,
         hasDivider: false,
         hasHint: true,
@@ -297,7 +365,6 @@ type StoryPropsChips = Omit<
     | 'checked'
     | 'maxLength'
     | 'minLength'
-    | 'required'
     | 'enumerationType'
 > & {
     hasHint: boolean;
@@ -305,30 +372,34 @@ type StoryPropsChips = Omit<
     enableContentRight: boolean;
 };
 
-const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsChips) => {
+const StoryChips = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsChips) => {
     const [text, setText] = useState('Значение поля');
 
-    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
 
     const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 
     return (
         <TextField
             {...rest}
-            style={{ width: '70%', margin: '0 auto' }}
             enumerationType="chip"
             value={text}
-            contentLeft={enableContentLeft ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconBellFill color="inherit" size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? getIcon(IconBellFill, rest.size) : undefined}
+            contentRight={contentRight}
             view={view}
+            readOnly={readOnly}
             onChange={(e) => {
                 setText(e.target.value);
                 onChange(e.target.value);
             }}
             onFocus={onFocus}
             onBlur={onBlur}
-            chipValidator={validateChip}
             onChangeChips={onChipsChange}
+            chipValidator={validateChip}
+            style={{
+                width: '70%',
+                margin: '0 auto',
+            }}
         />
     );
 };

@@ -11,17 +11,17 @@ export type FileProcessHandler = (files: FileArgs) => Promise<void> | void;
 
 export type DropzoneProps = {
     /**
-     * Позовляет выбирать несколько файлов для загрузки
+     * Позволяет выбирать несколько файлов для загрузки
      */
     multiple?: boolean;
     /**
      * Слот для Title
      */
-    title?: string;
+    title?: ReactNode;
     /**
      * Слот для описания
      */
-    description?: string;
+    description?: ReactNode;
     /**
      * Слот для иконки
      */

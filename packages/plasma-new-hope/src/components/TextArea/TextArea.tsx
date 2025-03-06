@@ -31,6 +31,7 @@ import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as clearCSS } from './variations/_clear/base';
+import { base as readOnlyCSS } from './variations/_read-only/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as hintViewCSS } from './variations/_hint-view/base';
 import { base as hintSizeCSS } from './variations/_hint-size/base';
@@ -273,7 +274,10 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 style={{ width: helperWidth, ...style }}
                 className={cx(clearClass, hasDividerClass, hasHintClass, className)}
                 onClick={handleTextAreaFocus}
-                {...(hintText && { hintView, hintSize })}
+                {...(hintText && {
+                    hintView,
+                    hintSize,
+                })}
             >
                 {(hasOuterLabel || titleCaption) && (
                     <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
@@ -427,11 +431,12 @@ export const textAreaConfig = {
             css: clearCSS,
             attrs: true,
         },
-        disabled: {
-            css: disabledCSS,
+        readOnly: {
+            css: readOnlyCSS,
             attrs: true,
         },
-        readOnly: {
+        disabled: {
+            css: disabledCSS,
             attrs: true,
         },
         hintView: {

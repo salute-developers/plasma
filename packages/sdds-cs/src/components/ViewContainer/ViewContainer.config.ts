@@ -7,6 +7,9 @@ export const config = {
             onLight: css`
                 ${viewContainer.light}
             `,
+            onDark: css`
+                ${viewContainer.dark}
+            `,
         },
     },
 };

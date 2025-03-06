@@ -1,0 +1,35 @@
+---
+id: mixins
+title: Миксины
+---
+
+# Миксины (mixins)
+
+Раздел содержит функции, которые можно применять для стилизации компонент.
+
+## `applyPaper`
+
+Позволяет создать базовый стиль подложки для любого блока, со следующим набором свойств, значения которых доступны из темы `sdds_dfa`:
+- backgroundColor - отвечает за цвет подложки в котором можно выбрать токены цветов и градиентов;
+- borderRadius - отвечает за скругление углов блока;
+- shadow - отвечает за применение стилей теней для блока;
+- styles - отвечает за все доступные css свойства.
+
+```tsx
+import { applyPaper } from '@salutejs/sdds-dfa';
+
+<div
+    style={applyPaper({
+        backgroundColor: 'surfaceAccent',
+        borderRadius: 'borderRadiusM',
+        shadow: 'shadowDownHardM',
+        styles: {
+            color: 'white',
+            width: '10rem',
+            height: '10rem',
+        },
+    })}
+>
+    Test card
+</div>
+```

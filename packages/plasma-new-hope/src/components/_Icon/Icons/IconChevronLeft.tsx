@@ -3,7 +3,7 @@ import React from 'react';
 import { ChevronLeft } from '../Icon.assets/ChevronLeft';
 import { IconRoot, IconProps } from '../IconRoot';
 
-export const IconChevronLeft: React.FC<IconProps> = ({ size = 's', color, className, sizeCustomProperty }) => {
+export const IconChevronLeft: React.FC<IconProps> = ({ size = 's', color, className, sizeCustomProperty, ...rest }) => {
     return (
         <IconRoot
             className={className}
@@ -11,6 +11,7 @@ export const IconChevronLeft: React.FC<IconProps> = ({ size = 's', color, classN
             color={color}
             icon={ChevronLeft}
             sizeCustomProperty={sizeCustomProperty}
+            {...rest}
         />
     );
 };

@@ -15,7 +15,23 @@ export const base = css`
         cursor: default;
 
         ${ContentWrapper} {
-            background: var(${tokens.backgroundReadOnly});
+            position: relative;
+            box-shadow: none;
+            background: transparent;
+
+            :before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: var(${tokens.borderRadius});
+                box-shadow: inset 0 0 0 var(${tokens.borderWidth}, 1px) var(${tokens.borderColorReadOnly});
+                background: var(${tokens.backgroundReadOnly});
+                opacity: var(${tokens.readOnlyOpacity});
+                z-index: -1;
+            }
         }
 
         ${StyledLabel} {
@@ -29,10 +45,15 @@ export const base = css`
 
         ${StyledDivider} {
             color: var(${tokens.dividerColorReadOnly});
+            opacity: var(${tokens.dividerOpacityReadOnly});
         }
 
         ${StyledContentLeft}, ${StyledContentRight} {
             color: var(${tokens.textFieldColorReadOnly});
+        }
+
+        ${StyledContentRight} {
+            opacity: var(${tokens.rightContentOpacityReadOnly});
         }
     }
 `;

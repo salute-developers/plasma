@@ -107,9 +107,14 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-solid-card);
-                ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.labelColorReadOnly}: var(--text-primary);
+                ${tokens.borderColorReadOnly}: var(--outline-solid-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
+                ${tokens.readOnlyOpacity}: 1;
+                ${tokens.dividerOpacityReadOnly}: 1;
+                ${tokens.rightContentOpacityReadOnly}: 0.4;
+
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);

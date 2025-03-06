@@ -22,5 +22,6 @@
 /scripts-build
 /src-build
 /src-rn-build
-build-sb
-build-storybook.log
+
+css/*
+!css/package.json

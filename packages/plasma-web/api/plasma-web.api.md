@@ -331,7 +331,9 @@ import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
-import { TreeProps } from '@salutejs/plasma-new-hope/types/components/Tree/Tree.types';
+import { TreeItem } from '@salutejs/plasma-new-hope';
+import { TreeProps } from '@salutejs/plasma-new-hope';
+import { TreeProps as TreeProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 import { TypographyVariants } from '@salutejs/plasma-new-hope/types/components/Editable/Editable.types';
 import { Upload } from '@salutejs/plasma-hope';
@@ -1923,6 +1925,7 @@ export { DrawerProps }
 // @public (undocumented)
 export const Dropdown: <T extends DropdownItemOption>(props: Omit<DropdownNewProps<T>, "view" | "size"> & Pick<PropsType<    {
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
@@ -1997,8 +2000,8 @@ true: PolymorphicClassName;
 };
 }> & {
 multiple?: boolean | undefined;
-title?: string | undefined;
-description?: string | undefined;
+title?: ReactNode;
+description?: ReactNode;
 icon?: ReactNode;
 iconPlacement?: "top" | "left" | undefined;
 size?: string | undefined;
@@ -3070,6 +3073,10 @@ export { noteTokens }
 const Notification_2: React_2.FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
+negative: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+info: PolymorphicClassName;
 };
 layout: {
 horizontal: PolymorphicClassName;
@@ -3573,6 +3580,7 @@ xs: PolymorphicClassName;
 s: PolymorphicClassName;
 m: PolymorphicClassName;
 l: PolymorphicClassName;
+xl: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -3599,12 +3607,14 @@ view: {
 clear: PolymorphicClassName;
 secondary: PolymorphicClassName;
 default: PolymorphicClassName;
+accent: PolymorphicClassName;
 };
 size: {
 xs: PolymorphicClassName;
 s: PolymorphicClassName;
 m: PolymorphicClassName;
 l: PolymorphicClassName;
+xl: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
@@ -4529,7 +4539,11 @@ m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
-}> & TreeProps & RefAttributes<HTMLDivElement>>;
+}> & TreeProps_2 & RefAttributes<HTMLDivElement>>;
+
+export { TreeItem }
+
+export { TreeProps }
 
 // @public (undocumented)
 export const Underline: FunctionComponent<PropsType<    {

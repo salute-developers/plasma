@@ -56,6 +56,7 @@ export const config = {
                 ${checkboxTokens.fillColor}: var(--text-accent);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
             `,

@@ -53,6 +53,15 @@ export const config = {
                 ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 1.375rem 0;
             `,
+            xl: css`
+                ${segmentTokens.groupBorderRadius}: 1.125rem;
+                // NOTE: change on token when added
+                ${segmentTokens.groupPilledBorderRadius}: 1000px;
+                ${segmentTokens.groupWidth}: auto;
+                ${segmentTokens.groupHeight}: auto;
+                ${segmentTokens.groupArrowPadding}: 1.25rem 1.5rem;
+                ${segmentTokens.groupVerticalArrowPadding}: 1.5rem 0;
+            `,
         },
         disabled: {
             true: css`

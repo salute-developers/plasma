@@ -22,7 +22,9 @@ export const config = {
                 ${calendarBaseTokens.calendarRangeBackground}: var(--surface-transparent-secondary);
                 ${calendarBaseTokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${calendarBaseTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
+                ${calendarBaseTokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarContentSecondaryColor}: var(--text-secondary);
+                ${calendarBaseTokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
                 ${calendarBaseTokens.calendarHeaderArrowColor}: ${calendarBaseTokens.calendarContentPrimaryColor};
                 ${calendarBaseTokens.calendarDayOfWeekColor}: var(--text-secondary);
                 ${calendarBaseTokens.calendarDisabledOpacity}: 0.4;

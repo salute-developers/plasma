@@ -15,7 +15,6 @@ const onFocus = action('onFocus');
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
 
-const sizes = ['s'];
 const views = ['default'];
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
@@ -27,12 +26,6 @@ const meta: Meta = {
     argTypes: {
         view: {
             options: views,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        size: {
-            options: sizes,
             control: {
                 type: 'inline-radio',
             },
@@ -66,7 +59,7 @@ const meta: Meta = {
             },
             if: { arg: 'required', truthy: true },
         },
-        ...disableProps(['view']),
+        ...disableProps(['view', 'size']),
     },
 };
 

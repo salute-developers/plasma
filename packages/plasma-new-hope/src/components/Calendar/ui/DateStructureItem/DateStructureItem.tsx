@@ -55,12 +55,12 @@ export const DateStructureItem = memo(
                 <StyledItemRoot
                     ref={outerRef}
                     className={cx(
+                        disabledClass,
+                        disabledCurrentClass,
                         dayOfWeekClass,
                         selectableClass,
                         selectedClass,
                         currentClass,
-                        disabledClass,
-                        disabledCurrentClass,
                         hoveredClass,
                         dayInCurrentMonthClass,
                     )}

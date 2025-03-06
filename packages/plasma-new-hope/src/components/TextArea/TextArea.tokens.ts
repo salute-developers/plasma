@@ -61,6 +61,10 @@ export const tokens = {
     /** Цвет текста для элемента textarea */
     inputColor: '--plasma-textarea-input-color',
     clearInputColor: '--plasma-textarea-input-clear-color',
+    inputColorReadOnly: '--plasma-textarea-input-color-read-only',
+    backgroundColorReadOnly: '--plasma-textarea-background-color-read-only',
+    readOnlyOpacity: '--plasma-textarea-read-only-opacity',
+
     /** Цвет текста для элемента textarea в состоянии focus */
     inputColorFocus: '--plasma-textarea-input-color-focus',
     /** Цвет каретки для элемента textarea */
@@ -79,6 +83,8 @@ export const tokens = {
     rightHelperColor: '--plasma-textarea-right-helper-color',
     /** Цвета границы для всего компонента */
     borderColor: '--plasma-textarea-border-color',
+    borderColorReadOnly: '--plasma-textarea-border-color-readonly',
+
     /** Цвета границы для всего компонента в состоянии hover */
     borderColorHover: '--plasma-textarea-border-color-hover',
     /** Цвета границы для всего компонента в состоянии focus */

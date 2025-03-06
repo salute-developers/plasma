@@ -66,3 +66,42 @@ export function App() {
     );
 }
 ```
+
+## Вид иконки и текста
+Значения `positive`, `negative`, `warning` и `info` свойства `view` изменяют цвет иконки и текста.<br/>
+Чтобы цвет применился, установите в иконке свойство `color` со значением `inherit`:
+
+Также для изменения цвета можно исипользовать свойства `iconColor` и `textColor`
+
+```jsx live
+import React from 'react';
+import { IconBell } from '@salutejs/plasma-icons';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-giga';
+
+export function App() {
+    const Icon = () => <IconBell color="inherit" size="xs" />;
+    const handleShow = React.useCallback(() => {
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            icon: <Icon />,
+            children: 'Принять?',
+            view: 'positive',
+            textColor: 'black'
+        }, 3000);
+    }, []);
+
+    const handleHide = React.useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup>
+                <Button text="Показать оповещение" onClick={handleShow} />
+                <Button text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```

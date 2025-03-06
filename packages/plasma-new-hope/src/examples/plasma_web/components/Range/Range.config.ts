@@ -271,11 +271,14 @@ export const config = {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-clear);
                 ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
-                ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
+                ${tokens.readOnlyOpacity}: 0.4;
+                ${tokens.dividerOpacityReadOnly}: 0.4;
+                ${tokens.rightContentOpacityReadOnly}: 0.4;
 
-                ${tokens.textFieldColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
             `,

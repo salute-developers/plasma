@@ -35,6 +35,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                 onTreeExpand,
                 hasIcon = false,
                 icon,
+                renderTitle,
             },
             ref,
         ) => {
@@ -77,6 +78,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                                 </IconFolderWrapper>
                             ))
                         }
+                        titleRender={renderTitle}
                     />
                 </Root>
             );
