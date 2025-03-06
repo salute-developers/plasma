@@ -1,15 +1,16 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { disableProps } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { IconMic } from '../../../../components/_Icon';
 import { WithTheme } from '../../../_helpers';
 
 import { Button } from './Button';
+import { config } from './Button.config';
 
-const views = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
-const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+const { views, sizes } = getConfigVariations(config);
+
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -21,7 +22,7 @@ const pinValues = [
     'circle-clear',
     'circle-circle',
 ];
-const contentPlacinValues = ['default', 'relaxed'];
+const contentPlacingValues = ['default', 'relaxed'];
 const sizeMap = {
     xxs: '0.75rem', // 12px
     xs: '1rem', // 16px
@@ -61,7 +62,7 @@ const meta: Meta<typeof Button> = {
             },
         },
         contentPlacing: {
-            options: contentPlacinValues,
+            options: contentPlacingValues,
             control: {
                 type: 'select',
             },
@@ -79,7 +80,7 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
-        ...disableProps(['value', 'pin', 'focused']),
+        ...disableProps(['pin', 'focused']),
     },
 };
 
@@ -121,6 +122,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
 
 export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
+        value: 'Value',
         enableContentLeft: false,
     },
     argTypes: {
