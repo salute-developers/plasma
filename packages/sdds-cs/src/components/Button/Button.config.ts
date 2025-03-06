@@ -13,9 +13,7 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-accent-minor);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
@@ -34,10 +32,8 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--text-accent-minor);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${buttonTokens.buttonColorHover}: var(--text-accent);
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${buttonTokens.buttonColorActive}: var(--text-accent);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-clear);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-accent-active);
             `,
         },
         size: {
