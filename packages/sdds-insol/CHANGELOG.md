@@ -1,3 +1,127 @@
+## 0.274.0 (6 марта 2025)
+
+## Функциональные изменения в компонентах
+
+### Notification
+
+* добавлен логика для переопределения color: `title`, `icon`, `content`
+
+[PR](https://github.com/salute-developers/plasma/pull/1778)
+
+### Tabs
+
+* при программном выборе таба происходит скролл к выбранному табу
+
+[PR](https://github.com/salute-developers/plasma/pull/1780)
+
+### Autocomplete
+
+* переведен на **новую** архитектуру с использованием `@floating-ui`
+
+[PR](https://github.com/salute-developers/plasma/pull/1794)
+
+### Calendar
+
+* Добавлены новые токены цвета текста при `disabled`
+
+### Datepicker
+
+* Добавлены новые токены цвета текста при `disabled`
+
+[PR](https://github.com/salute-developers/plasma/pull/1785)
+
+### Select
+
+* добавлена опциональная виртуализация в выпадающий список;
+
+[PR](https://github.com/salute-developers/plasma/pull/1797)
+
+### Tree
+
+* добавлен пропс `renderTitle`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1799)
+
+* добавлен явный экспорт типов;
+
+[PR](https://github.com/salute-developers/plasma/pull/1798)
+
+### createApplyPaperMixin
+
+* Добавлен билдер миксина `applyPaper`
+
+### Dropzone
+
+* изменен `type` на ReactNode для свойств `title`, `description`
+
+[PR](https://github.com/salute-developers/plasma/pull/1801)
+
+### Segment
+
+* добавлено свойство `singleSelectedRequired`, которое делает один сегмент обязательно активным
+
+- добавлен `view=accent` для SegmentItem
+
+[PR](https://github.com/salute-developers/plasma/pull/1793)
+
+* добавлена опциональная виртуализация в выпадающий список;
+
+[PR](https://github.com/salute-developers/plasma/pull/1817)
+
+### Dropdown
+
+* добавлен размер `xl`
+
+[PR](https://github.com/salute-developers/plasma/pull/1803)
+
+* добавлен размер `xl`
+
+[PR](https://github.com/salute-developers/plasma/pull/1802)
+
+### Checkbox
+
+* добавлен токен `labelColor`
+
+### TextField, TextArea, Range
+
+* обновлено отображение readOnly
+
+[PR](https://github.com/salute-developers/plasma/pull/1770)
+
+## Изменения в библиотеки
+
+### applyPaper
+
+* Добавлен миксин `applyPaper`, который позволяет создать базовый стиль подложки для любого блока, со следующим набором свойств, значения которых доступны из темы sdds\_insol:
+  * backgroundColor - отвечает за цвет подложки в котором можно выбрать токены цветов и градиентов;
+  * borderRadius - отвечает за скругление углов блока;
+  * shadow - отвечает за применение стилей теней для блока;
+  * styles - отвечает за все доступные css свойства.
+
+Например:
+
+```ts
+        <div
+            style={applyPaper({
+                backgroundColor: surfaceAccent,
+                borderRadius: borderRadiusM,
+                shadow: shadowDownHardM,
+                styles: {
+                    color: white,
+                    width: 10rem,
+                    height: 10rem,
+                },
+            })}
+        >
+            Test card
+        </div>
+```
+
+* исправлены отступы и скругления
+
+[PR](https://github.com/salute-developers/plasma/pull/1787)
+
+
 ## 0.256.0 (20 февраля 2025)
 
 ## Функциональные изменения в компонентах

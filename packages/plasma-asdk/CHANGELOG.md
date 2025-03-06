@@ -1,3 +1,94 @@
+## 0.305.0 (6 марта 2025)
+
+## Функциональные изменения в компонентах
+
+### Notification
+
+* добавлен логика для переопределения color: `title`, `icon`, `content`
+
+[PR](https://github.com/salute-developers/plasma/pull/1778)
+
+### Tabs
+
+* при программном выборе таба происходит скролл к выбранному табу
+
+[PR](https://github.com/salute-developers/plasma/pull/1780)
+
+### Autocomplete
+
+* переведен на **новую** архитектуру с использованием `@floating-ui`
+
+[PR](https://github.com/salute-developers/plasma/pull/1794)
+
+### Calendar
+
+* Добавлены новые токены цвета текста при `disabled`
+
+### Datepicker
+
+* Добавлены новые токены цвета текста при `disabled`
+
+[PR](https://github.com/salute-developers/plasma/pull/1785)
+
+### Select
+
+* добавлена опциональная виртуализация в выпадающий список;
+
+[PR](https://github.com/salute-developers/plasma/pull/1797)
+
+### Tree
+
+* добавлен пропс `renderTitle`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1799)
+
+* добавлен явный экспорт типов;
+
+[PR](https://github.com/salute-developers/plasma/pull/1798)
+
+### createApplyPaperMixin
+
+* Добавлен билдер миксина `applyPaper`
+
+### Dropzone
+
+* изменен `type` на ReactNode для свойств `title`, `description`
+
+[PR](https://github.com/salute-developers/plasma/pull/1801)
+
+### Segment
+
+* добавлено свойство `singleSelectedRequired`, которое делает один сегмент обязательно активным
+
+- добавлен `view=accent` для SegmentItem
+
+[PR](https://github.com/salute-developers/plasma/pull/1793)
+
+* добавлена опциональная виртуализация в выпадающий список;
+
+[PR](https://github.com/salute-developers/plasma/pull/1817)
+
+### Dropdown
+
+* добавлен размер `xl`
+
+[PR](https://github.com/salute-developers/plasma/pull/1803)
+
+* добавлен размер `xl`
+
+[PR](https://github.com/salute-developers/plasma/pull/1802)
+
+### Checkbox
+
+* добавлен токен `labelColor`
+
+### TextField, TextArea, Range
+
+* обновлено отображение readOnly
+
+[PR](https://github.com/salute-developers/plasma/pull/1770)
+
+
 ## 0.287.0 (20 февраля 2025)
 
 ## Функциональные изменения в компонентах
