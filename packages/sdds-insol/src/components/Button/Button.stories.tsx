@@ -4,16 +4,15 @@ import { action } from '@storybook/addon-actions';
 import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { IconMic } from '@salutejs/plasma-icons';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { InSpacingDecorator, disableProps } from '../../helpers';
+import { config } from './Button.config';
 
 import { Button } from '.';
-import type { ButtonProps as Base } from '.';
 
-type ButtonProps = ComponentProps<Base>;
+type ButtonProps = ComponentProps<typeof Button>;
 
-const views = ['default', 'accent', 'accent-gradient', 'success', 'warning', 'critical', 'dark', 'light'];
-const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+const { views, sizes } = getConfigVariations(config);
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -25,7 +24,7 @@ const pinValues = [
     'circle-clear',
     'circle-circle',
 ];
-const contentPlacinValues = ['default', 'relaxed'];
+const contentPlacingValues = ['default', 'relaxed'];
 
 const onClick = action('onClick');
 const onFocus = action('onFocus');
@@ -66,7 +65,7 @@ const meta: Meta<ButtonProps> = {
             },
         },
         contentPlacing: {
-            options: contentPlacinValues,
+            options: contentPlacingValues,
             control: {
                 type: 'select',
             },

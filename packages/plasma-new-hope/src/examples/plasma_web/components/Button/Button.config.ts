@@ -71,24 +71,24 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             black: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             white: css`
                 ${buttonTokens.buttonColor}: var(--on-light-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
             `,
         },
         size: {
