@@ -4,6 +4,8 @@ title: Tree
 ---
 
 import { PropsTable } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Tree
 Многоуровневый раскрывающийся список в виде дерева с возможностью выбора (selection) и выделения (checkbox).
@@ -38,65 +40,146 @@ type TreeItem = {
 };
 ```
 
-## Пример использования
-```tsx live
-import React from 'react';
-import { Tree } from '@salutejs/sdds-dfa';
+## Примеры
 
-export function App() {
-    const treeData = [
-        {
-            title: 'Parent 1',
-            key: '0-0',
-            children: [
+<Tabs>
+    <TabItem value="uncontrolled" label="Uncontrolled" default>
+        ```tsx live
+        import React from 'react';
+        import { Tree } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const treeData = [
                 {
-                    title: 'Parent 1-0',
-                    key: '0-0-0',
+                    title: 'Parent 1',
+                    key: '0-0',
                     children: [
                         {
-                            title: 'Leaf',
-                            key: '0-0-0-0',
-                            disabled: true,
-                        },
-                        {
-                            title: 'Leaf',
-                            key: '0-0-0-1',
+                            title: 'Parent 1-0',
+                            key: '0-0-0',
                             children: [
                                 {
-                                    title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
-                                    key: '0-0-0-0-0',
+                                    title: 'Leaf',
+                                    key: '0-0-0-0',
+                                    disabled: true,
                                 },
                                 {
                                     title: 'Leaf',
-                                    key: '0-0-0-0-1',
+                                    key: '0-0-0-1',
+                                    children: [
+                                        {
+                                            title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
+                                            key: '0-0-0-0-0',
+                                        },
+                                        {
+                                            title: 'Leaf',
+                                            key: '0-0-0-0-1',
+                                        },
+                                    ],
                                 },
                             ],
+                        },
+                        {
+                            title: 'Parent 1-1',
+                            key: '0-0-1',
+                            children: [{ title: 'Leaf', key: '0-0-1-0' }],
                         },
                     ],
                 },
                 {
-                    title: 'Parent 1-1',
-                    key: '0-0-1',
-                    children: [{ title: 'Leaf', key: '0-0-1-0' }],
+                    title: 'Parent 2',
+                    key: '0-1',
+                    children: [
+                        {
+                            title: 'Parent 2-0',
+                            key: '0-1-0',
+                        },
+                    ],
                 },
-            ],
-        },
-        {
-            title: 'Parent 2',
-            key: '0-1',
-            children: [
-                {
-                    title: 'Parent 2-0',
-                    key: '0-1-0',
-                },
-            ],
-        },
-    ];
+            ];
 
-    return (
-        <div style={{ display: 'block' }}>
-            <Tree items={treeData} defaultExpandAll />
-        </div>
-    );
-}
-```
+            return (
+                <div style={{ display: 'block' }}>
+                    <Tree items={treeData} defaultExpandAll />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controlled" label="Controlled">
+        ```tsx live
+        import React from 'react';
+        import { Tree } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const treeData = [
+                {
+                    title: 'Parent 1',
+                    key: '0-0',
+                    children: [
+                        {
+                            title: 'Parent 1-0',
+                            key: '0-0-0',
+                            children: [
+                                {
+                                    title: 'Leaf',
+                                    key: '0-0-0-0',
+                                    disabled: true,
+                                },
+                                {
+                                    title: 'Leaf',
+                                    key: '0-0-0-1',
+                                    children: [
+                                        {
+                                            title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
+                                            key: '0-0-0-0-0',
+                                        },
+                                        {
+                                            title: 'Leaf',
+                                            key: '0-0-0-0-1',
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Parent 1-1',
+                            key: '0-0-1',
+                            children: [{ title: 'Leaf', key: '0-0-1-0' }],
+                        },
+                    ],
+                },
+                {
+                    title: 'Parent 2',
+                    key: '0-1',
+                    children: [
+                        {
+                            title: 'Parent 2-0',
+                            key: '0-1-0',
+                        },
+                    ],
+                },
+            ];
+
+            const [expanded, setExpanded] = React.useState<React.Key>([]);
+            const [checked, setChecked] = React.useState<React.Key>([]);
+            const [selected, setSelected] = React.useState<React.Key>([]);
+
+            return (
+                <div style={{ display: 'block' }}>
+                    <Tree
+                        items={treeData}
+                        checkable
+                        expandedKeys={expanded}
+                        onTreeExpand={setExpanded}
+                        checkedKeys={checked}
+                        onTreeCheck={setChecked}
+                        selectedKeys={selected}
+                        onTreeSelect={setSelected}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>

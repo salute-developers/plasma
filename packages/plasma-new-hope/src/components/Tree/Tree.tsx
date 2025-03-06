@@ -26,6 +26,9 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                 multiple = false,
                 defaultExpandAll = false,
                 checkable = false,
+                checkedKeys,
+                expandedKeys,
+                selectedKeys,
                 defaultCheckedKeys,
                 defaultExpandedKeys,
                 defaultSelectedKeys,
@@ -53,11 +56,15 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                         defaultExpandAll={defaultExpandAll}
                         style={{ border: '1px solid #000' }}
                         treeData={items}
+                        {...(checkedKeys !== undefined ? { checkedKeys } : {})}
+                        {...(expandedKeys !== undefined ? { expandedKeys } : {})}
+                        {...(selectedKeys !== undefined ? { selectedKeys } : {})}
                         defaultCheckedKeys={defaultCheckedKeys}
                         defaultExpandedKeys={defaultExpandedKeys}
                         defaultSelectedKeys={defaultSelectedKeys}
                         onSelect={onTreeSelect}
-                        onCheck={onTreeCheck}
+                        // Тайп кастинг для упрощения API
+                        onCheck={onTreeCheck as any}
                         onExpand={onTreeExpand}
                         switcherIcon={(node) => {
                             if (node.isLeaf) {
