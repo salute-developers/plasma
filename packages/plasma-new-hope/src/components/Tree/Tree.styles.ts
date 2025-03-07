@@ -27,7 +27,7 @@ export const StyledArrow = styled(IconDisclosureRightCentered)`
 
 export const IconFolderWrapper = styled.div`
     line-height: 0;
-    color: var(${tokens.arrowColor});
+    color: var(${tokens.iconFolderColor});
     margin: var(${tokens.iconFolderMargin});
 `;
 
@@ -267,8 +267,8 @@ export const base = css`
         content: '';
         position: absolute;
         z-index: -1;
-        top: 0.25rem;
-        bottom: 0.25rem;
+        top: var(${tokens.itemTop});
+        bottom: var(${tokens.itemBottom});
         left: var(${tokens.switcherSize});
         right: 0;
         background: transparent;
