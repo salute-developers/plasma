@@ -21,7 +21,17 @@ const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
 const size = ['xs', 'xxs'];
 const iconPlacement = ['top', 'left'];
-const notificationsPlacements = ['bottom-right', 'bottom-left'];
+const notificationsPlacements = [
+    'center',
+    'top',
+    'bottom',
+    'right',
+    'left',
+    'top-right',
+    'top-left',
+    'bottom-right',
+    'bottom-left',
+];
 
 const longText = `JavaScript frameworks are an essential part of modern front-end web development,
 providing developers with proven tools for building scalable, interactive web applications.

@@ -17,8 +17,10 @@ import { PropsTable, Description } from '@site/src/components';
 Также есть часть `actions`, в которой предполагается отображение кнопок для взаимодействия.
 
 ### Провайдер контекста
+<PropsTable name="NotificationsProvider" />
+
 Поместите `NotificationsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна.
-В качестве свойств можно указать контейнер для оповещений через `frame` и расположение в контейнере через свойство `placement`, как `bottom-right` _(по умолчанию)_ или `bottom-left`.
+В качестве свойств можно указать контейнер для оповещений через `frame`.
 
 ```tsx title="index.ts"
 import ReactDOM from 'react-dom';
@@ -34,25 +36,34 @@ ReactDOM.render(
 );
 ```
 
+### Позиционирование
+
+Позиционирование компонента регулируется с помощью свойства `placement`.
+
+```ts
+type NotificationPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
+````
+И производные комбинации, например `bottom-left` или `top-right`.
+
 ### Вызов уведомления
 После подключения `NotificationsProvider` станет возможен вызов функции `addNotification`, который приведет к отображению оповещения.
 Функция принимает значения свойств компонента `Notification`, включая необязательное поле `id`. И возвращает сгенерированный или переданный `id`, по которому можно закрыть оповещение через вызов `closeNotification`.
 Оповещение закроется автоматически по истечению указанного `timeout` в миллисекундах или будет висеть вечно, если передан `0` или `null`.
 
 ```tsx live
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-giga';
 
 export function App() {
-    const handleShow = React.useCallback(() => {
+    const handleShow = useCallback(() => {
         addNotification({
             id: 'incoming-call',
             title: 'Входящий вызов',
             children: 'Принять?',
-        }, 1000);
+        }, 3000);
     }, []);
 
-    const handleHide = React.useCallback(() => {
+    const handleHide = useCallback(() => {
         closeNotification('incoming-call');
     }, []);
 
@@ -68,30 +79,35 @@ export function App() {
 ```
 
 ## Вид иконки и текста
-Значения `positive`, `negative`, `warning` и `info` свойства `view` изменяют цвет иконки и текста.<br/>
-Чтобы цвет применился, установите в иконке свойство `color` со значением `inherit`:
+:::tip
+Чтобы компонент иконки наследовал `color` от `view` используйте значение `inherit`.
 
-Также для изменения цвета можно исипользовать свойства `iconColor` и `textColor`
+```tsx
+<IconBell color="inherit" size="xs" />
+```
+:::
+
+Также имеются свойства `titleColor, textColor` для **переопределения** `color` текста контента и заголовка.
 
 ```jsx live
-import React from 'react';
+import React, { useCallback } from 'react';
 import { IconBell } from '@salutejs/plasma-icons';
 import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-giga';
 
 export function App() {
-    const Icon = () => <IconBell color="inherit" size="xs" />;
-    const handleShow = React.useCallback(() => {
+    const handleShow = useCallback(() => {
         addNotification({
             id: 'incoming-call',
             title: 'Входящий вызов',
-            icon: <Icon />,
+            icon: <IconBell color="inherit" size="xs" />,
             children: 'Принять?',
             view: 'positive',
-            textColor: 'black'
+            textColor: 'black',
+            titleColor: 'blue'
         }, 3000);
     }, []);
 
-    const handleHide = React.useCallback(() => {
+    const handleHide = useCallback(() => {
         closeNotification('incoming-call');
     }, []);
 
