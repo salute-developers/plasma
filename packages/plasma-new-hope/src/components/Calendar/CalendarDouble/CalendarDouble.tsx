@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
-import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate } from '../utils';
+import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate, ARIA_LABELS } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines/types';
@@ -180,7 +180,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             }, [date, calendarState]);
 
             return (
-                <Root ref={outerRootRef} aria-label="Выбор даты" {...rest}>
+                <Root ref={outerRootRef} aria-label={ARIA_LABELS.selectDate[locale]} {...rest}>
                     {isOutOfRange && (
                         <IsOutOfRange
                             key={outOfRangeKey}
