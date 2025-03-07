@@ -135,6 +135,15 @@ const meta: Meta<StoryProps> = {
             },
             if: { arg: 'optional', truthy: false },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         optional: {
             control: {
                 type: 'boolean',
@@ -210,6 +219,7 @@ const meta: Meta<StoryProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         hasHint: false,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
