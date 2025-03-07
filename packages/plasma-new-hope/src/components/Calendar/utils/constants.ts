@@ -104,3 +104,34 @@ export const MONTH_NAMES: LocalMap = {
     ru: MONTHS.map(callbackMonthFormatter('ru', { month: 'long' })),
     en: MONTHS.map(callbackMonthFormatter('en', { month: 'long' })),
 };
+
+export const I18N = {
+    next: {
+        ru: 'Следующий',
+        en: 'Next',
+    },
+    previous: {
+        ru: 'Предыдущий',
+        en: 'Previous',
+    },
+    selectDate: {
+        ru: 'Выбор даты',
+        en: 'Date selection',
+    },
+    navigationByShift: {
+        ru: 'Для навигации только по доступным датам удерживайте клавишу Shift.',
+        en: 'To navigate exclusively among the available dates, hold down the Shift key.',
+    },
+    year: {
+        ru: 'год',
+        en: 'year',
+    },
+    period: {
+        ru: 'период',
+        en: 'period',
+    },
+    month: {
+        ru: 'месяц',
+        en: 'month',
+    },
+};
