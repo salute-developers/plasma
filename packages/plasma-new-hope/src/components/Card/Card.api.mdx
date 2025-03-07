@@ -1,0 +1,69 @@
+---
+id: card
+title: Card
+---
+
+отличия от https://plasma.sberdevices.ru/b2c/components/card/:
+* избавляемся от CardBody
+* убираем дублирование disabled
+
+примеры дизайна https://www.figma.com/design/MXl0ZkXEqEhIFDS2H6b3yk/StarDS-Cards?node-id=2-690&node-type=instance&t=TJN8Nqyiky3Dfw2T-0
+
+другие либы:
+https://ant.design/components/card#
+https://mui.com/material-ui/react-card/
+
+```tsx live
+
+```
+
+```tsx live
+<Card title="Title" subtitle="Subtitle">
+  <CardContent placement="top-left">
+    <SomeIcon />
+  </CardContent>
+  <CardContent placement="top-right">
+    <SaveButton saved={isSaved} />
+  </CardContent>
+  <CardContent placement="bottom-right">18+</CardContent>
+</Card>;
+
+<Card title="Title" subtitle="Subtitle">
+  <CardContent
+    topLeft={<SomeIcon />}
+    topRight={<SaveButton saved={isSaved} />}
+    bottomRight="18+"
+  />
+</Card>;
+
+<Card title="Title" subtitle="Subtitle">
+  <CardMedia src={someSrc} alt="trailer" />
+  <CardContent
+    topLeft={<SomeIcon />}
+    topRight={<SaveButton saved={isSaved} />}
+    bottomRight="18+"
+  />
+  <CardTimeline text="еще 1ч 23мин" progress={56} />
+</Card>;
+
+<Card title="Title" subtitle="Subtitle">
+  <CardContent topLeft={<SomeIcon />} topRight={<SaveButton saved={isSaved} />}>
+    <CardMedia src={someSrc} alt="trailer" />
+  </CardContent>
+  <CardTimeline text="еще 1ч 23мин" progress={56} />
+</Card>;
+
+<Card
+  title="Title"
+  subtitle="Subtitle"
+  // как в ant, но кажется, что так менее гибко
+  cover={<CardMedia src={someSrc} alt="trailer" />}
+  square
+>
+  <CardContent
+    topLeft={<SomeIcon />}
+    topRight={<SaveButton saved={isSaved} />}
+  />
+  <CardTimeline text="еще 1ч 23мин" progress={56} />
+</Card>;
+```
