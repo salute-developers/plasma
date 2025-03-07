@@ -72,6 +72,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 leftHelper,
                 enumerationType = 'plain',
                 requiredPlacement = 'right',
+                hasRequiredIndicator = true,
                 titleCaption,
                 chipView = 'default',
                 chipValidator,
@@ -376,7 +377,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                             />
                                         </StyledHintWrapper>
                                     )}
-                                    {required && (
+                                    {required && hasRequiredIndicator && (
                                         <StyledIndicator
                                             className={cx(
                                                 classes.outerLabelPlacement,
@@ -404,7 +405,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     >
                         {!hasOuterLabel && (
                             <>
-                                {required && (
+                                {required && hasRequiredIndicator && (
                                     <StyledIndicator
                                         className={cx(classes.innerLabelPlacement, requiredPlacementClass)}
                                     />

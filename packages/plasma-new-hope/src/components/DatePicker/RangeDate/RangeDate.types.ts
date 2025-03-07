@@ -38,6 +38,11 @@ export type DatePickerRangeFieldProps = {
      */
     required?: boolean;
     /**
+     * Флаг наличия индикатора обязательности поля
+     * @default true
+     */
+    hasRequiredIndicator?: boolean;
+    /**
      * Выбранные значения.
      */
     value?: [Date | null | undefined, Date | null | undefined];

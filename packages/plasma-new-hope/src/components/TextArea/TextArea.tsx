@@ -122,6 +122,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             disabled,
             required = false,
             requiredPlacement = 'right',
+            hasRequiredIndicator = true,
             optional = false,
             clear,
             hasDivider,
@@ -304,7 +305,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                         />
                                     </StyledHintWrapper>
                                 )}
-                                {required && (
+                                {required && hasRequiredIndicator && (
                                     <StyledIndicator
                                         className={cx(
                                             classes.outerLabelPlacement,
@@ -327,7 +328,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 >
                     {!hasOuterLabel && (
                         <>
-                            {required && (
+                            {required && hasRequiredIndicator && (
                                 <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
                             )}
                             {hintText && (
