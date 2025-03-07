@@ -63,9 +63,9 @@ export const getGroupedTokens = (themes: string): GroupedTokens => {
         'plasma-typo',
         'plasma-colors',
         'brightness',
+        'spacing',
         'hover',
         'active',
-        'spacing',
     ];
 
     const processedTokens = convertTheme(themes);

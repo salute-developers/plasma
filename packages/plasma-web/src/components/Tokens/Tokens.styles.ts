@@ -1,19 +1,33 @@
 import styled from 'styled-components';
+import { segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-import { H2 } from '../Typography';
 import { AccordionItem } from '../Accordion';
+import { SegmentItem } from '../Segment/Segment';
+import { BodyXS } from '../Typography';
 
-export const CategoryContainer = styled.div`
-    margin-bottom: 1.875rem;
+export const ColorTokensWrapper = styled.div`
+    width: max-content;
 `;
 
-export const Category = styled(H2)`
-    margin: 0 0 1.125rem 1.5rem;
+export const SubthemeSwitcher = styled.div`
+    margin: 0.5rem auto 2.5rem 15.75rem;
+    width: fit-content;
+`;
+
+export const SubthemeTitle = styled(BodyXS)`
+    display: inline;
+    margin-right: 0.75rem;
+    color: var(--text-tertiary);
+`;
+
+export const StyledSegmentItem = styled(SegmentItem)`
+    ${segmentTokens.itemHeight}: 1.75rem;
+    ${segmentTokens.itemPilledPadding}: 0.375rem 0.5rem;
 `;
 
 export const AccordionInfo = styled.div`
     display: grid;
-    grid-template-columns: 18rem 7.938rem 2.375rem 3.813rem;
+    grid-template-columns: 16.75rem 7.938rem 2.375rem 3.813rem 6.25rem;
     grid-column-gap: 1.5rem;
 
     font-family: var(--plasma-typo-body-m-font-family);
@@ -102,13 +116,14 @@ export const TokenInfo = styled.div`
     &.no-interaction {
         text-align: right;
     }
-
     &:not(.no-interaction):hover {
         color: var(--text-paragraph-hover);
+
         ${OpacityPart} {
             color: var(--text-paragraph-hover);
         }
     }
+
     &:not(.no-interaction):active {
         color: var(--text-paragraph-active);
 
@@ -123,6 +138,6 @@ export const ColorCircle = styled.div<{ background?: string; disableShadow?: boo
     height: 1.25rem;
     border-radius: 50%;
 
-    background: ${(props) => props.background};
+    background: ${(props) => props.background || 'transparent'};
     box-shadow: ${(props) => (props.disableShadow ? 'none' : 'inset 0px 0px 0px 1px rgba(8, 8, 8, 0.12)')};
 `;
