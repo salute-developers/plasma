@@ -112,6 +112,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 : ({
                       required: props.required,
                       requiredPlacement: props.requiredPlacement,
+                      hasRequiredIndicator: props.hasRequiredIndicator,
                       optional: props.optional,
                   } as RequiredProps);
 

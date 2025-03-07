@@ -91,6 +91,11 @@ type RequiredProps = {
      * Флаг необязательности поля
      */
     optional?: boolean;
+    /**
+     * Флаг наличия индикатора обязательности поля
+     * @default true
+     */
+    hasRequiredIndicator?: boolean;
 };
 
 type HintProps =
