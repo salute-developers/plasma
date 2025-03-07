@@ -49,6 +49,15 @@ const meta: Meta<typeof Range> = {
                 truthy: true,
             },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         ...disableProps(['view']),
     },
 };
@@ -179,6 +188,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: 'С',
@@ -321,6 +331,7 @@ export const Demo: StoryObj<StoryPropsDefault> = {
         view: 'default',
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: '',
