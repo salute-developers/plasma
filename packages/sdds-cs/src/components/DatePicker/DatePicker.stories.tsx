@@ -59,6 +59,15 @@ const meta: Meta = {
             },
             if: { arg: 'required', truthy: true },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         ...disableProps(['view', 'size']),
     },
 };
@@ -131,6 +140,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         maskWithFormat: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         disabled: false,
         readOnly: false,
         textBefore: '',
@@ -262,6 +272,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         maskWithFormat: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         disabled: false,
         readOnly: false,
         enableContentLeft: false,
