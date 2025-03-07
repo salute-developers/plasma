@@ -33,6 +33,11 @@ const meta: Meta<StoryDropdownProps> = {
                 type: 'select',
             },
         },
+        openByRightClick: {
+            control: {
+                type: 'boolean',
+            },
+        },
         size: {
             options: size,
             control: {
@@ -62,6 +67,7 @@ const meta: Meta<StoryDropdownProps> = {
         variant: 'normal',
         placement: 'bottom-start',
         trigger: 'click',
+        openByRightClick: false,
         offset: [0, 0],
         listWidth: '300px',
         alwaysOpened: false,
