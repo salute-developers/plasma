@@ -10,6 +10,7 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.iconFolderColor}: var(--text-secondary);
                 ${tokens.arrowColor}: var(--text-secondary);
                 ${tokens.arrowColorHover}: var(--text-secondary-hover);
                 ${tokens.arrowColorActive}: var(--text-secondary-active);
@@ -30,6 +31,8 @@ export const config = {
                 ${tokens.itemPaddingTight}: 0.375rem;
                 ${tokens.itemIndent}: 2rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
+                ${tokens.itemTop}: 0.25rem;
+                ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
@@ -51,6 +54,8 @@ export const config = {
                 ${tokens.itemPaddingTight}: 0.375rem;
                 ${tokens.itemIndent}: 2rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
+                ${tokens.itemTop}: 0.25rem;
+                ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
@@ -72,6 +77,8 @@ export const config = {
                 ${tokens.itemPaddingTight}: 0.25rem;
                 ${tokens.itemIndent}: 1.875rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
+                ${tokens.itemTop}: 0.25rem;
+                ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherSize}: 1.5rem;
@@ -93,6 +100,8 @@ export const config = {
                 ${tokens.itemPaddingTight}: 0.125rem;
                 ${tokens.itemIndent}: 1.25rem;
                 ${tokens.itemBorderRadius}: 0.375rem;
+                ${tokens.itemTop}: 0.25rem;
+                ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherSize}: 1rem;
