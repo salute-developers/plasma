@@ -2,6 +2,7 @@ import type { AsProps } from '@salutejs/plasma-core';
 import { HTMLAttributes, ReactNode } from 'react';
 
 import { ComponentConfig, PropsType, Variants } from '../../engines/types';
+import type { PopupPlacement } from '../Popup';
 
 export const layouts = {
     horizontal: 'horizontal',
@@ -16,7 +17,7 @@ export const placements = {
 };
 
 export type NotificationIconPlacement = keyof typeof placements;
-export type NotificationPlacement = 'bottom-right' | 'bottom-left';
+export type NotificationPlacement = PopupPlacement;
 
 export type LayoutType = {
     layout?: NotificationLayout;
@@ -44,7 +45,7 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      */
     actions?: ReactNode;
     /**
-     * Cхема расположение блоков Notification.
+     * Схема расположение блоков Notification.
      */
     layout?: NotificationLayout;
     /**
@@ -62,7 +63,7 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      */
     showCloseIcon?: boolean;
     /**
-     * Колбек при нажатии на кнопку закрытия.
+     * Callback при нажатии на кнопку закрытия.
      */
     onCloseButtonClick?: () => void;
     /**
@@ -104,7 +105,7 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
 
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     /**
-     * Конфиг компонента Notification.
+     * Конфигурация компонента Notification.
      */
     config: ComponentConfig<string, Variants, PropsType<Variants>, NotificationProps & HTMLAttributes<HTMLDivElement>>;
     /**
