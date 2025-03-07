@@ -135,6 +135,15 @@ const meta: Meta<StoryProps> = {
             },
             if: { arg: 'optional', truthy: false },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         optional: {
             control: {
                 type: 'boolean',
@@ -210,6 +219,7 @@ const meta: Meta<StoryProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         hasHint: false,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
@@ -228,6 +238,8 @@ const DefaultStory = (args: StoryProps) => {
     const { enableContentLeft, enableContentRight } = args;
 
     const iconSize = args.size === 'xs' ? 'xs' : 's';
+
+    console.log(args.hasRequiredIndicator);
 
     return (
         <div style={{ width: '70%', margin: '0 auto' }}>
