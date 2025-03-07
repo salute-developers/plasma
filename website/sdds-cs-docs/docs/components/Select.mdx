@@ -448,6 +448,143 @@ type Items = Array<{
     </TabItem>
 </Tabs>
 
+## Использование с React Hook Form
+
+Этот компонент поддерживает работу с `react-hook-form`
+
+<Tabs>
+    <TabItem value="default" label="Default" default>
+        ```tsx live
+        import React from 'react';
+        import { useForm } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const { register, handleSubmit } = useForm({
+                defaultValues: {
+                    select: 'north_america',
+                    selectMulti: ['brazil']
+                }
+            });
+            const onSubmit = (data) => {
+                console.log(data);
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <Select
+                            items={items}
+                            {...register('select')}
+                        />
+                        <Select
+                            items={items}
+                            {...register('selectMulti')}
+                            multiselect
+                        />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controller" label="Controller">
+        ```tsx live
+        import React from 'react';
+        import { useForm, Controller } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const { control, handleSubmit } = useForm({
+                defaultValues: {
+                    select: 'north_america',
+                    selectMulti: ['brazil']
+                }
+            });
+            const onSubmit = (data) => {
+                console.log(data);
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <Controller
+                            control={control}
+                            name="select"
+                            render={({ field: { onChange, value, ref } }) => (
+                            <Select
+                                items={items}
+                                ref={ref}
+                                value={value}
+                                onChange={onChange}
+                            />
+                            )}
+                        />
+                        <Controller
+                            control={control}
+                            name="selectMulti"
+                            render={({ field: { onChange, value, ref } }) => (
+                            <Select
+                                items={items}
+                                ref={ref}
+                                value={value}
+                                onChange={onChange}
+                                multiselect
+                            />
+                            )}
+                        />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
