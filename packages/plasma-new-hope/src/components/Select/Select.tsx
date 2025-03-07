@@ -91,6 +91,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             outerValue !== null && outerValue !== undefined
                 ? getInitialValue(outerValue, valueToItemMap)
                 : internalValue;
+        // console.log(1, value);
 
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
 
@@ -150,6 +151,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 }
 
                 // Условие для отправки если компонент используется с формой.
+                // Убрать условие "typeof ref === 'function'" в PLASMA 2.0
                 if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
                     outerOnChange(newValue as any);
                 }
