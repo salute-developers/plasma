@@ -42,7 +42,7 @@ export const SelectNative = forwardRef<HTMLInputElement, Props>(
             if (onChange) {
                 onChange(event);
             }
-        }, [values]);
+        }, [value]);
 
         //
         // Пустой option нужен для нативного поведения. Он автоматически выбирает первый пункт,
