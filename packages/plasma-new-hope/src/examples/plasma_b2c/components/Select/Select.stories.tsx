@@ -123,6 +123,15 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'optional', truthy: false },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         optional: {
             control: {
                 type: 'boolean',
@@ -199,6 +208,7 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         chipType: 'default',
         hasHint: false,
         hintText: 'Текст подсказки',
@@ -232,6 +242,7 @@ const meta: Meta<StorySelectProps> = {
                 'optional',
                 'required',
                 'requiredPlacement',
+                'hasRequiredIndicator',
                 'chipType',
                 'hasHint',
                 'hintText',

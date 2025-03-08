@@ -73,6 +73,7 @@ export const datePickerRangeRoot = (
 
                 required,
                 requiredPlacement = 'right',
+                hasRequiredIndicator = true,
 
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
@@ -354,6 +355,7 @@ export const datePickerRangeRoot = (
                         label={label}
                         required={required}
                         requiredPlacement={requiredPlacement}
+                        hasRequiredIndicator={hasRequiredIndicator}
                         disabled={disabled}
                         readOnly={!disabled && readOnly}
                         firstPlaceholder={firstPlaceholder}

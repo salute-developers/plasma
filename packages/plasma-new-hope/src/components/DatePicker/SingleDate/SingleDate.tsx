@@ -31,6 +31,7 @@ export const datePickerRoot = (
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
+                hasRequiredIndicator = true,
                 placeholder,
                 leftHelper,
                 contentLeft,
@@ -165,6 +166,7 @@ export const datePickerRoot = (
                     onKeyDown={onKeyDown}
                     required={required}
                     requiredPlacement={requiredPlacement}
+                    hasRequiredIndicator={hasRequiredIndicator}
                     label={label}
                     labelPlacement={labelPlacement}
                     keepPlaceholder={keepPlaceholder}
