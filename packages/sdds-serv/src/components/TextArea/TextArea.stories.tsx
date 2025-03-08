@@ -76,6 +76,15 @@ const meta: Meta<StoryTextAreaProps> = {
                 truthy: false,
             },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         optional: {
             control: {
                 type: 'boolean',
@@ -261,6 +270,7 @@ const meta: Meta<StoryTextAreaProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         clear: false,
         hasDivider: false,
         hasHint: true,
