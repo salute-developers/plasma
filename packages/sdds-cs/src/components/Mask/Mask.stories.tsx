@@ -50,6 +50,15 @@ const meta: Meta<typeof Mask> = {
             },
             if: { arg: 'optional', truthy: false },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         optional: {
             control: {
                 type: 'boolean',
@@ -160,6 +169,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         readOnly: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         optional: false,
     },
     render: (args) => <StoryDemo {...args} />,
