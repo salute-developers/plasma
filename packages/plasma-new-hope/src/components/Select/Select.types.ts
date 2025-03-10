@@ -69,7 +69,7 @@ type IsMultiselect<K extends ItemOption> =
           | {
                 multiselect?: false;
                 value?: string;
-                onChange?: (value: string) => void;
+                onChange?: (value: string, item: K | null) => void;
                 /**
                  * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
                  * @default false
@@ -83,7 +83,7 @@ type IsMultiselect<K extends ItemOption> =
           | {
                 multiselect: true;
                 value?: Array<string>;
-                onChange?: (value: string[]) => void;
+                onChange?: (value: string[], item: K | null) => void;
                 isTargetAmount?: true;
                 renderTarget?: (value: K[]) => React.ReactNode;
             }
@@ -264,7 +264,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
           }
     ) & {
         value?: T;
-        onChange?: (value: T) => void;
+        onChange?: (value: T, item: K | null) => void;
         /**
          * Значение css overflow для выпадающего меню.
          * @example listOverflow="scroll"
