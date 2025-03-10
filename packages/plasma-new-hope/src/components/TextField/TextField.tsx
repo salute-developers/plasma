@@ -195,10 +195,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
 
             const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
                 const { value } = event.target as HTMLInputElement;
-                if (hasTextAfter) {
-                    const textWidth = getInputWidth(event.currentTarget, inputContainerRef.current);
-                    event.currentTarget.style.width = `${textWidth}px`;
-                }
+
                 setHasValue(Boolean(value));
             };
 
@@ -249,6 +246,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 }
 
                 onChange?.(event);
+
+                if (hasTextAfter) {
+                    const textWidth = getInputWidth(event.currentTarget, inputContainerRef.current);
+                    event.currentTarget.style.width = `${textWidth}px`;
+                }
             };
 
             const updateChips = (newChips: Array<ChipValues>, newValues: Array<TextFieldPrimitiveValue>) => {
