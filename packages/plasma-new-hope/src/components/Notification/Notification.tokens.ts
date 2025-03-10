@@ -1,6 +1,6 @@
 export const classes = {
-    textbox: 'notificaiton-textbox',
-    contentBox: 'notificaiton-content-box',
+    textbox: 'notification-textbox',
+    contentBox: 'notification-content-box',
     title: 'notification-title',
     text: 'notification-text',
     wrapper: 'notification-wrapper',
@@ -17,10 +17,12 @@ export const classes = {
     notificationItemOpened: 'notification-item-opened',
     notificationItemHidden: 'notification-item-hidden',
     notificationLeftToRightAnimation: 'notification-left-to-right-animation',
+    notificationTopToCenterAnimation: 'notification-top-to-center-animation',
+    notificationBottomToCenterAnimation: 'notification-bottom-to-center-animation',
 };
 
 export const tokens = {
-    background: '--plasma-notification-backgorund',
+    background: '--plasma-notification-background',
     padding: '--plasma-notification-padding',
     horizontalLayoutPadding: '--plasma-notification-horizontal-layout-padding',
     width: '--plasma-notification-width',

@@ -150,6 +150,14 @@ export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`
         &.${classes.notificationLeftToRightAnimation} {
             animation: 0.4s showLeftToRightAnimation ease-out;
         }
+
+        &.${classes.notificationTopToCenterAnimation} {
+            animation: 0.4s showTopToCenterAnimation ease-out;
+        }
+
+        &.${classes.notificationBottomToCenterAnimation} {
+            animation: 0.4s showBottomToCenterAnimation ease-out;
+        }
     }
 
     &&.${classes.notificationItemHidden} {
@@ -157,6 +165,30 @@ export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`
 
         &.${classes.notificationLeftToRightAnimation} {
             animation: 0.4s hideLeftToRightAnimation ease-out;
+        }
+    }
+
+    @keyframes showTopToCenterAnimation {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes showBottomToCenterAnimation {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
         }
     }
 

@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import { styled } from '@linaria/react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
@@ -10,24 +11,25 @@ import {
     NotificationIconPlacement,
     NotificationLayout,
     addNotification,
-} from '../../../../../src/components/Notification';
+} from '../../../../components/Notification';
 import { WithTheme } from '../../../_helpers';
 import { PopupProvider } from '../Popup/Popup';
-import { NotificationProps } from '../../../../components/Notification';
+import type { NotificationProps } from '../../../../components/Notification';
 import { IconDisclosureRight } from '../../../../components/_Icon';
+import {
+    titles,
+    size,
+    notificationsPlacements,
+    iconPlacement,
+    texts,
+    longText,
+    IconPlacements,
+} from '../../../fixtures/Notification';
 
 import { Notification, NotificationsProvider } from './Notification';
+import { config } from './Notification.config';
 
-const titles = ['Выполнено', 'Внимание', 'Ошибка'];
-const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
-const size = ['xs', 'xxs'];
-const iconPlacement = ['top', 'left'];
-const notificationsPlacements = ['bottom-right', 'bottom-left'];
-const views = ['default', 'negative', 'positive', 'warning', 'info'];
-
-const longText = `JavaScript frameworks are an essential part of modern front-end web development,
-providing developers with proven tools for building scalable, interactive web applications.
-`;
+const { views } = getConfigVariations(config);
 
 const StyledWrapper = styled.div`
     height: 100vh;
@@ -40,8 +42,6 @@ const getNotificationProps = (i: number) => ({
     iconPlacement: iconPlacement[i % 2] as NotificationIconPlacement,
 });
 
-const placements = ['top', 'left'];
-
 const meta: Meta<NotificationProps> = {
     title: 'web/Overlay/Notification',
     decorators: [WithTheme],
@@ -52,7 +52,6 @@ export default meta;
 interface StoryDefaultProps {
     title: string;
     children: string;
-    iconColor?: string;
     showCloseIcon: boolean;
     showLeftIcon: boolean;
     layout: NotificationLayout;
@@ -60,6 +59,11 @@ interface StoryDefaultProps {
     closeIconType?: 'default' | 'thin';
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
+    view: 'default';
+    iconColor?: string;
+    textColor?: string;
+    titleColor?: string;
+    backgroundColor?: string;
 }
 
 const StoryDefault = ({
@@ -70,6 +74,7 @@ const StoryDefault = ({
     layout,
     showLeftIcon,
     iconColor,
+    view,
     ...rest
 }: StoryDefaultProps) => {
     return (
@@ -77,6 +82,7 @@ const StoryDefault = ({
             title={title}
             icon={showLeftIcon ? <IconDisclosureRight color={iconColor || 'inherit'} /> : ''}
             iconPlacement={iconPlacement}
+            view={view}
             actions={
                 <Button
                     text="text"
@@ -96,7 +102,7 @@ const StoryDefault = ({
 export const Default: StoryObj<StoryDefaultProps> = {
     argTypes: {
         iconPlacement: {
-            options: placements,
+            options: IconPlacements,
             control: {
                 type: 'select',
             },
@@ -146,6 +152,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
         iconPlacement: 'top',
         layout: 'vertical',
         closeIconType: 'default',
+        view: 'default',
         size: 'xs',
     },
     render: (args) => <StoryDefault {...args} />,
@@ -163,7 +170,11 @@ const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
         addNotification(
-            { icon: <IconDisclosureRight color="inherit" />, ...rest, ...getNotificationProps(count.current) },
+            {
+                icon: <IconDisclosureRight color="inherit" />,
+                ...rest,
+                ...getNotificationProps(count.current),
+            },
             timeout,
         );
         count.current++;
