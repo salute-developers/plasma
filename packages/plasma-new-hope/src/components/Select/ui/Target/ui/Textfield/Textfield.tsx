@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { sizeToIconSize, getItemId } from '../../../../utils';
+import { sizeToIconSize, getItemId, getRemovedElement } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 
 import { IconArrowWrapper, StyledArrow, StyledTextField } from './Textfield.styles';
@@ -88,9 +88,14 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     }
                 });
 
-                onChange(resultValues);
+                const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
+
+                onChange(resultValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
             } else {
-                onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value);
+                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
+
+                onChange(newValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
             }
         };
 
