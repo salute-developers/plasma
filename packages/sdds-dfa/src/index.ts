@@ -58,6 +58,7 @@ export * from './components/Rating';
 export * from './components/Tree';
 export * from './components/Skeleton';
 export * from './components/Note';
+export * from './components/LinkButton';
 
 export * from './mixins';
 export * from './tokens';
