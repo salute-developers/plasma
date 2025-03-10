@@ -2384,6 +2384,38 @@ true: PolymorphicClassName;
 };
 }> & AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps & RefAttributes<HTMLAnchorElement>>;
 
+// @public (undocumented)
+export const LinkButton: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+xl: PolymorphicClassName;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+xxs: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & AnchorHTMLAttributes<HTMLAnchorElement> & {
+text?: string | undefined;
+contentRight?: ReactNode;
+contentLeft?: ReactNode;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+disabled?: boolean | undefined;
+view?: string | undefined;
+size?: string | undefined;
+} & RefAttributes<HTMLAnchorElement>>;
+
 export { List }
 
 export { ListItem }
