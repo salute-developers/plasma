@@ -26,10 +26,9 @@ type Items = Array<{
          */
         label: string;
         /**
-        * Сторона открытия вложенного дропдауна относительно текущего элемента
-        * @default right
+        * Сторона открытия вложенного дропдауна относительно текущего элемента;
         */
-        placement?: SelectPlacement | Array<SelectPlacementBasic>;
+        placement: SelectPlacement | Array<SelectPlacementBasic>;
         /**
          * Список дочерних items.
          */
@@ -449,25 +448,35 @@ Select может выглядеть как Button и как Textfield. За э�
     </TabItem>
 </Tabs>
 
-## Использование с React Hook Form
+## Использование с React Hook Form и нативной формой
 
-Этот компонент поддерживает работу с `react-hook-form`
+:::caution Использование атрибута `name`
+Используйте  свойство `name` только когда это необходимо. Оно влияет на выходной тип в `onChange`.
+:::
 
 <Tabs>
     <TabItem value="default" label="Default" default>
+        Работа с `react-hook-form` через `register`.
+
         ```tsx live
         import React from 'react';
-        import { useForm } from 'react-hook-form';
-        import { Select, Button } from '@salutejs/plasma-b2c';
+        import { useForm, SubmitHandler } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/plasma-web';
 
         export function App() {
-            const { register, handleSubmit } = useForm({
+            type Inputs = {
+                Select: string,
+                SelectMulti: string[]
+            }
+
+            const { register, handleSubmit } = useForm<Inputs>({
                 defaultValues: {
-                    select: 'north_america',
-                    selectMulti: ['brazil']
+                    Select: 'north_america',
+                    SelectMulti: ['brazil']
                 }
             });
-            const onSubmit = (data) => {
+
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data);
             };
 
@@ -497,11 +506,11 @@ Select может выглядеть как Button и как Textfield. За э�
                     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         <Select
                             items={items}
-                            {...register('select')}
+                            {...register('Select')}
                         />
                         <Select
                             items={items}
-                            {...register('selectMulti')}
+                            {...register('SelectMulti')}
                             multiselect
                         />
                         <Button type="submit">Отправить</Button>
@@ -512,19 +521,25 @@ Select может выглядеть как Button и как Textfield. За э�
         ```
     </TabItem>
     <TabItem value="controller" label="Controller">
+        Работа с `react-hook-form` через `controller`.
+
         ```tsx live
         import React from 'react';
-        import { useForm, Controller } from 'react-hook-form';
-        import { Select, Button } from '@salutejs/plasma-b2c';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/plasma-web';
 
         export function App() {
-            const { control, handleSubmit } = useForm({
+            type Inputs = {
+                select: string,
+                selectMulti: string[]
+            }
+            const { control, handleSubmit } = useForm<Inputs>({
                 defaultValues: {
                     select: 'north_america',
                     selectMulti: ['brazil']
                 }
             });
-            const onSubmit = (data) => {
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data);
             };
 
@@ -554,7 +569,7 @@ Select может выглядеть как Button и как Textfield. За э�
                     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         <Controller
                             control={control}
-                            name="select"
+                            name="Select"
                             render={({ field: { onChange, value, ref } }) => (
                             <Select
                                 items={items}
@@ -566,7 +581,7 @@ Select может выглядеть как Button и как Textfield. За э�
                         />
                         <Controller
                             control={control}
-                            name="selectMulti"
+                            name="SelectMulti"
                             render={({ field: { onChange, value, ref } }) => (
                             <Select
                                 items={items}
@@ -584,11 +599,61 @@ Select может выглядеть как Button и как Textfield. За э�
         }
         ```
     </TabItem>
+    <TabItem value="native" label="Native Form">
+        Работа с нативной формой.
+
+        ```tsx live
+        import React from 'react';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/plasma-web';
+
+        export function App() {
+            const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+                const formData = new FormData(event.currentTarget);
+                for (const [name, value] of formData) {
+                    console.log(name, value);
+                }
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <Select label="Select" name="Select" defaultValue={"brazil"} items={items} />
+                        <Select label="Select" name="SelectMulti" defaultValue={["brazil"]} items={items} multiselect />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
 
-Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+Данный компонент соответствует требования W3C: [Select](https://www.w3.org/WAI/ARIA/apg/patterns/Select/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
 - `Tab` - закрывает дропдаун. Перемещает фокус на следующий элемент на странице;
 - `Enter` - открывает/закрывает дропдаун. Если на элементе - выбирает его. Если у элемента есть дочерний дропдаун - открывает его, выбор элемента не происходит;
