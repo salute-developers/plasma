@@ -1,3 +1,6 @@
+import { createApplyPaperMixin } from '@salutejs/plasma-new-hope';
+import * as allTokens from '@salutejs/plasma-themes/tokens/plasma_b2c';
+
 export {
     addFocus,
     syntheticFocus,
@@ -34,3 +37,5 @@ export type {
     SpacingProps,
     BreakWordProps,
 } from '@salutejs/plasma-core';
+
+export const applyPaper = createApplyPaperMixin(allTokens);
