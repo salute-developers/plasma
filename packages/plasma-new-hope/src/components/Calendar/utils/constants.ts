@@ -105,17 +105,21 @@ export const MONTH_NAMES: LocalMap = {
     en: MONTHS.map(callbackMonthFormatter('en', { month: 'long' })),
 };
 
-export const ARIA_LABELS = {
+export const I18N = {
     next: {
-        ru: 'следующий',
-        en: 'next',
+        ru: 'Следующий',
+        en: 'Next',
     },
     previous: {
-        ru: 'предыдущий',
-        en: 'previous',
+        ru: 'Предыдущий',
+        en: 'Previous',
     },
     selectDate: {
         ru: 'Выбор даты',
         en: 'Date selection',
+    },
+    navigationByShift: {
+        ru: 'Для навигации только по доступным датам удерживайте клавишу Shift.',
+        en: 'To navigate exclusively among the available dates, hold down the Shift key.',
     },
 };
