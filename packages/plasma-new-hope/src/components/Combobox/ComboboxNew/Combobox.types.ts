@@ -27,7 +27,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
           | {
                 multiple?: false;
                 value?: string;
-                onChange?: (value: string) => void;
+                onChange?: (value: string, item: T | null) => void;
                 /**
                  * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
                  * @default false
@@ -46,7 +46,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
           | {
                 multiple: true;
                 value?: string[];
-                onChange?: (value: string[]) => void;
+                onChange?: (value: string[], item: T | null) => void;
                 isTargetAmount?: true;
                 targetAmount?: number;
                 renderValue?: (item: T) => string;

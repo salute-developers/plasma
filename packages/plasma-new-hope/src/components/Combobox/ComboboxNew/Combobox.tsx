@@ -18,6 +18,7 @@ import {
     filterItems,
     getItemId,
     getInitialValue,
+    getRemovedElement,
 } from './utils';
 import { Inner, StyledTextField, VirtualList } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
@@ -26,7 +27,7 @@ import { Ul, base, StyledArrow, IconArrowWrapper, StyledEmptyState } from './Com
 import type { ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
+import type { ItemOptionTransformed, ItemOption } from './ui/Inner/ui/Item/Item.types';
 import { SelectNative } from './ui/SelectNative/SelectNative';
 import { Context } from './Combobox.context';
 
@@ -140,17 +141,20 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         // Эта функция срабатывает при изменении Combobox и
         // при изменении нативного Select для формы (срабатывает только после изменения internalValue и рендера).
-        const onChange = (newValue: string | Array<string> | ChangeEvent<HTMLSelectElement> | null) => {
+        const onChange = (
+            newValue: string | Array<string> | ChangeEvent<HTMLSelectElement> | null,
+            item?: ItemOption | null,
+        ) => {
             // Условие для отправки изменений наружу
-            if (outerOnChange) {
+            if (props.onChange) {
                 // Условие для отправки если комбобокс используется без формы.
-                if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
-                    outerOnChange(newValue as any);
+                if (!props.name && (typeof newValue === 'string' || Array.isArray(newValue))) {
+                    props.onChange(newValue as any, item || null);
                 }
 
                 // Условие для отправки если комбобокс используется с формой.
-                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
-                    outerOnChange(newValue as any);
+                if (props.name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    props.onChange(newValue as any);
                 }
             }
 
@@ -204,9 +208,14 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                     }
                 });
 
-                onChange(resultValues);
+                const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
+
+                onChange(resultValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
             } else {
-                onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value);
+                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
+
+                onChange(newValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
             }
         };
 
@@ -256,7 +265,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
 
             if (onChange) {
-                onChange(newValues);
+                onChange(newValues, item);
             }
 
             // После выбора/снятия чекбокса скроллим к инпуту
@@ -293,7 +302,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
 
             if (onChange) {
-                onChange(isCurrentChecked ? '' : item.value);
+                onChange(isCurrentChecked ? '' : item.value, item);
             }
         };
 
