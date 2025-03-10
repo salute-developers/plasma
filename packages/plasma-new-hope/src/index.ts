@@ -71,3 +71,4 @@ export * from './components/Tree';
 export * from './components/Rating';
 export * from './components/Note';
 export * from './components/LinkButton';
+export * from './components/NumberFormat';
