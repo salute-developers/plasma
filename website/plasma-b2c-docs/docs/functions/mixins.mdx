@@ -72,3 +72,34 @@ const ShortenedLine = styled.span`
 
 <ShortenedLine>Текст сократится, если не поместится в строке</ShortenedLine>;
 ```
+
+## `applyPaper`
+
+:::caution
+Данный миксин будет работать только если тема подключена [`новым способом`](../../#подключение-тем/)
+:::
+
+Позволяет создать базовый стиль подложки для любого блока, со следующим набором свойств, значения которых доступны из темы `plasma_b2c`:
+- backgroundColor - отвечает за цвет подложки в котором можно выбрать токены цветов и градиентов;
+- borderRadius - отвечает за скругление углов блока;
+- shadow - отвечает за применение стилей теней для блока;
+- styles - отвечает за все доступные css свойства.
+
+```tsx
+import { applyPaper } from '@salutejs/plasma-b2c';
+
+<div
+    style={applyPaper({
+        backgroundColor: 'surfaceAccent',
+        borderRadius: 'borderRadiusM',
+        shadow: 'shadowDownHardM',
+        styles: {
+            color: 'white',
+            width: '10rem',
+            height: '10rem',
+        },
+    })}
+>
+    Test card
+</div>
+```
