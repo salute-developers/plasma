@@ -26,7 +26,7 @@ type Items = Array<{
          */
         label: string;
         /**
-        * Сторона открытия вложенного дропдауна относительно текущего элемента
+        * Сторона открытия вложенного дропдауна относительно текущего элемента;
         * @default right
         */
         placement?: Placement;
@@ -61,7 +61,7 @@ type Items = Array<{
         import { Combobox } from '@salutejs/sdds-insol';
 
         export function App() {
-            const [value, setValue] = useState('');
+           const [value, setValue] = useState<string>('');
 
             const items = [
                 {
@@ -107,7 +107,7 @@ type Items = Array<{
         import { Combobox } from '@salutejs/sdds-insol';
 
         export function App() {
-            const [value, setValue] = useState([]);
+           const [value, setValue] = useState<string[]>([]);
 
             const items = [
                 {
@@ -156,7 +156,7 @@ type Items = Array<{
         import { Combobox, Button } from '@salutejs/sdds-insol';
 
         export function App() {
-            const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
+            const [multipleValue, setMultipleValue] = useState<string[]>(['brazil', 'north_america']);
 
             const items = [
                 {
@@ -209,7 +209,7 @@ type Items = Array<{
         import { Combobox } from '@salutejs/sdds-insol';
 
         export function App() {
-            const [value, setValue] = useState('');
+           const [value, setValue] = useState<string>('');
 
             const items = [
                 {
@@ -375,25 +375,35 @@ type Items = Array<{
     </TabItem>
 </Tabs>
 
-## Использование с React Hook Form
+## Использование с React Hook Form и нативной формой
 
-Этот компонент поддерживает работу с `react-hook-form`
+:::caution Использование атрибута `name`
+Используйте  свойство `name` только когда это необходимо. Оно влияет на выходной тип в `onChange`.
+:::
 
 <Tabs>
     <TabItem value="default" label="Default" default>
+        Работа с `react-hook-form` через `register`.
+
         ```tsx live
         import React from 'react';
-        import { useForm } from 'react-hook-form';
-        import { Combobox, Button } from '@salutejs/plasma-b2c';
+        import { useForm, SubmitHandler } from 'react-hook-form';
+        import { Combobox, Button } from '@salutejs/sdds-insol';
 
         export function App() {
-            const { register, handleSubmit } = useForm({
+            type Inputs = {
+                combobox: string,
+                comboboxMulti: string[]
+            }
+
+            const { register, handleSubmit } = useForm<Inputs>({
                 defaultValues: {
                     combobox: 'north_america',
                     comboboxMulti: ['brazil']
                 }
             });
-            const onSubmit = (data) => {
+
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data);
             };
 
@@ -438,19 +448,25 @@ type Items = Array<{
         ```
     </TabItem>
     <TabItem value="controller" label="Controller">
+        Работа с `react-hook-form` через `controller`.
+
         ```tsx live
         import React from 'react';
-        import { useForm, Controller } from 'react-hook-form';
-        import { Combobox, Button } from '@salutejs/plasma-b2c';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Combobox, Button } from '@salutejs/sdds-insol';
 
         export function App() {
-            const { control, handleSubmit } = useForm({
+            type Inputs = {
+                combobox: string,
+                comboboxMulti: string[]
+            }
+            const { control, handleSubmit } = useForm<Inputs>({
                 defaultValues: {
                     combobox: 'north_america',
                     comboboxMulti: ['brazil']
                 }
             });
-            const onSubmit = (data) => {
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data);
             };
 
@@ -503,6 +519,56 @@ type Items = Array<{
                             />
                             )}
                         />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="native" label="Native Form">
+        Работа с нативной формой.
+
+        ```tsx live
+        import React from 'react';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Combobox, Button } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+                const formData = new FormData(event.currentTarget);
+                for (const [name, value] of formData) {
+                    console.log(name, value);
+                }
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <Combobox label="Combobox" name="combobox" defaultValue={"brazil"} items={items} />
+                        <Combobox label="Combobox" name="comboboxMulti" defaultValue={["brazil"]} items={items} multiple />
                         <Button type="submit">Отправить</Button>
                     </form>
                 </div>

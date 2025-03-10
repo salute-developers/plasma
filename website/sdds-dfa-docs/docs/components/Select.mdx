@@ -3,11 +3,12 @@ id: select
 title: Select
 ---
 
-import { PropsTable, Description } from '@site/src/components';
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Select
+
 <Description name="Select" />
 <PropsTable name="Select" />
 
@@ -25,10 +26,9 @@ type Items = Array<{
          */
         label: string;
         /**
-        * Сторона открытия вложенного дропдауна относительно текущего элемента
-        * @default right
+        * Сторона открытия вложенного дропдауна относительно текущего элемента;
         */
-        placement?: SelectPlacement | Array<SelectPlacementBasic>;
+        placement: SelectPlacement | Array<SelectPlacementBasic>;
         /**
          * Список дочерних items.
          */
@@ -64,7 +64,7 @@ type Items = Array<{
 ```
 
 Тип выбора селекта - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.
-Селект может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\
+Select может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\
 Есть возможность прокидывать компонент `EmptyState` в пропс `renderList` для изменения содержимого выпадающего окна.\
 Это нужно в случаях, когда произошла ошибка при загрузке `items`, либо когда `items` пустой. Более подробно в примерах.
 
@@ -168,7 +168,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select, Button } from '@salutejs/sdds-dfa';
+        import { Select, Button } from '@salutejs/sdds-cs';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
@@ -269,7 +269,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select, Cell } from '@salutejs/sdds-dfa';
+        import { Select, Cell } from '@salutejs/sdds-cs';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState([]);
@@ -448,25 +448,36 @@ type Items = Array<{
     </TabItem>
 </Tabs>
 
-## Использование с React Hook Form
 
-Этот компонент поддерживает работу с `react-hook-form`
+## Использование с React Hook Form и нативной формой
+
+:::caution Использование атрибута `name`
+Используйте  свойство `name` только когда это необходимо. Оно влияет на выходной тип в `onChange`.
+:::
 
 <Tabs>
     <TabItem value="default" label="Default" default>
+        Работа с `react-hook-form` через `register`.
+
         ```tsx live
         import React from 'react';
-        import { useForm } from 'react-hook-form';
-        import { Select, Button } from '@salutejs/plasma-b2c';
+        import { useForm, SubmitHandler } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/sdds-cs';
 
         export function App() {
-            const { register, handleSubmit } = useForm({
+            type Inputs = {
+                Select: string,
+                SelectMulti: string[]
+            }
+
+            const { register, handleSubmit } = useForm<Inputs>({
                 defaultValues: {
-                    select: 'north_america',
-                    selectMulti: ['brazil']
+                    Select: 'north_america',
+                    SelectMulti: ['brazil']
                 }
             });
-            const onSubmit = (data) => {
+
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data);
             };
 
@@ -496,11 +507,11 @@ type Items = Array<{
                     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         <Select
                             items={items}
-                            {...register('select')}
+                            {...register('Select')}
                         />
                         <Select
                             items={items}
-                            {...register('selectMulti')}
+                            {...register('SelectMulti')}
                             multiselect
                         />
                         <Button type="submit">Отправить</Button>
@@ -511,19 +522,25 @@ type Items = Array<{
         ```
     </TabItem>
     <TabItem value="controller" label="Controller">
+        Работа с `react-hook-form` через `controller`.
+
         ```tsx live
         import React from 'react';
-        import { useForm, Controller } from 'react-hook-form';
-        import { Select, Button } from '@salutejs/plasma-b2c';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/sdds-cs';
 
         export function App() {
-            const { control, handleSubmit } = useForm({
+            type Inputs = {
+                select: string,
+                selectMulti: string[]
+            }
+            const { control, handleSubmit } = useForm<Inputs>({
                 defaultValues: {
                     select: 'north_america',
                     selectMulti: ['brazil']
                 }
             });
-            const onSubmit = (data) => {
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data);
             };
 
@@ -553,7 +570,7 @@ type Items = Array<{
                     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         <Controller
                             control={control}
-                            name="select"
+                            name="Select"
                             render={({ field: { onChange, value, ref } }) => (
                             <Select
                                 items={items}
@@ -565,7 +582,7 @@ type Items = Array<{
                         />
                         <Controller
                             control={control}
-                            name="selectMulti"
+                            name="SelectMulti"
                             render={({ field: { onChange, value, ref } }) => (
                             <Select
                                 items={items}
@@ -583,11 +600,61 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="native" label="Native Form">
+        Работа с нативной формой.
+
+        ```tsx live
+        import React from 'react';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Select, Button } from '@salutejs/sdds-cs';
+
+        export function App() {
+            const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+                const formData = new FormData(event.currentTarget);
+                for (const [name, value] of formData) {
+                    console.log(name, value);
+                }
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <Select label="Select" name="Select" defaultValue={"brazil"} items={items} />
+                        <Select label="Select" name="SelectMulti" defaultValue={["brazil"]} items={items} multiselect />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
 
-Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+Данный компонент соответствует требования W3C: [Select](https://www.w3.org/WAI/ARIA/apg/patterns/Select/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
 - `Tab` - закрывает дропдаун. Перемещает фокус на следующий элемент на странице;
 - `Enter` - открывает/закрывает дропдаун. Если на элементе - выбирает его. Если у элемента есть дочерний дропдаун - открывает его, выбор элемента не происходит;

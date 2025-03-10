@@ -91,7 +91,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             outerValue !== null && outerValue !== undefined
                 ? getInitialValue(outerValue, valueToItemMap)
                 : internalValue;
-        // console.log(1, value);
 
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
 
