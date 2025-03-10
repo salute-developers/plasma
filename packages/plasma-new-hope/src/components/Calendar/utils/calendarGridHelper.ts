@@ -1,4 +1,4 @@
-import type { CalendarValueType, DateObject, DisabledDay, EventDay, ItemProps } from '../Calendar.types';
+import type { CalendarValueType, DateObject, DisabledDay, EventDay, ItemProps, Locales } from '../Calendar.types';
 import type { CalendarStateType } from '../store/types';
 
 import { isSelectProcess } from './calendarRangeHelper';
@@ -144,14 +144,32 @@ export const getMatrix = <T extends ItemProps>(items: T[], rowSize = 7): readonl
     return [result, selected] as const;
 };
 
-export const getCalendarType = (type: CalendarStateType) => {
+export const getCalendarType = (type: CalendarStateType, locale: Locales) => {
     switch (type) {
         case 'Months':
-        case 'Quarters':
-            return 'год';
-        case 'Years':
-            return 'период';
-        default:
-            return 'месяц';
+        case 'Quarters': {
+            const date = {
+                ru: 'год',
+                en: 'year',
+            };
+
+            return date[locale];
+        }
+        case 'Years': {
+            const date = {
+                ru: 'период',
+                en: 'period',
+            };
+
+            return date[locale];
+        }
+        default: {
+            const date = {
+                ru: 'месяц',
+                en: 'month',
+            };
+
+            return date[locale];
+        }
     }
 };

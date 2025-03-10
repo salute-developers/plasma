@@ -3,7 +3,7 @@ import type { MouseEvent } from 'react';
 
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { CalendarState } from '../../store/types';
-import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../utils';
+import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT, I18N } from '../../utils';
 import type { DateObject } from '../../Calendar.types';
 import { classes } from '../../Calendar.tokens';
 import { sizeMap } from '../../store/reducer';
@@ -104,12 +104,12 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         return '';
     };
 
-    const currentCalendarType = getCalendarType(type);
+    const currentCalendarType = getCalendarType(type, locale);
 
     const PreviousButton = () => (
         <StyledArrow
             className={cx(startYear <= 0 && classes.disabledPrevButton)}
-            aria-label={`Предыдущий ${currentCalendarType}`}
+            aria-label={`${I18N.previous[locale]} ${currentCalendarType}`}
             onClick={handlePrev}
         >
             <IconDisclosureLeft color="inherit" size={size === 'xs' ? 'xs' : 's'} />
@@ -117,7 +117,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     );
 
     const NextButton = () => (
-        <StyledArrow aria-label={`Следующий ${currentCalendarType}`} onClick={handleNext}>
+        <StyledArrow aria-label={`${I18N.next[locale]} ${currentCalendarType}`} onClick={handleNext}>
             <IconDisclosureRight color="inherit" size={size === 'xs' ? 'xs' : 's'} />
         </StyledArrow>
     );

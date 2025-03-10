@@ -12,7 +12,7 @@ import React, {
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
-import { isValueUpdate } from '../utils';
+import { I18N, isValueUpdate } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines';
@@ -134,7 +134,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             }, [value, prevValue]);
 
             return (
-                <Root ref={outerRootRef} aria-label="Выбор даты" {...rest}>
+                <Root ref={outerRootRef} aria-label={I18N.selectDate[locale]} {...rest}>
                     {isOutOfRange && (
                         <IsOutOfRange
                             key={outOfRangeKey}

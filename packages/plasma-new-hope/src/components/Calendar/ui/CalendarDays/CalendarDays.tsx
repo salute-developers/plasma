@@ -10,6 +10,7 @@ import {
     isSelectProcess,
     ROW_STEP,
     SHORT_DAY_NAMES,
+    I18N,
 } from '../../utils';
 import { DateStructureItem } from '../DateStructureItem/DateStructureItem';
 import { DateItem } from '../../Calendar.types';
@@ -130,9 +131,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
             onKeyDown={onKeyDown}
             onMouseLeave={handleMouseOutGrid}
         >
-            <StyledCalendarDaysHint id="withShift">
-                Для навигации только по доступным датам удерживайте клавишу Shift.
-            </StyledCalendarDaysHint>
+            <StyledCalendarDaysHint id="withShift">{I18N.navigationByShift[locale]}</StyledCalendarDaysHint>
             <StyledFlex role="row">
                 {SHORT_DAY_NAMES[locale].map((name) => (
                     <DateStructureItem
