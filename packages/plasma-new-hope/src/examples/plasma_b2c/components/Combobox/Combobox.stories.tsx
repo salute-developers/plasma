@@ -76,11 +76,9 @@ const meta: Meta<StorySelectProps> = {
             },
         },
         listOverflow: {
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
-        listHeight: {
+        listMaxHeight: {
             control: {
                 type: 'text',
             },
@@ -224,7 +222,7 @@ const meta: Meta<StorySelectProps> = {
                 'readOnly',
                 'listWidth',
                 'listOverflow',
-                'listHeight',
+                'listMaxHeight',
                 'optional',
                 'required',
                 'requiredPlacement',

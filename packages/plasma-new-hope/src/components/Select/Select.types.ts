@@ -135,15 +135,12 @@ export interface BasicProps<K extends ItemOption> {
     zIndex?: CSSProperties['zIndex'];
     /**
      * Значение css overflow для выпадающего меню.
-     * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
-    // TODO: #1584
     /**
-     * Значение css height для выпадающего меню.
-     * @example listHeight="11", listHeight="auto", listHeight={11}
+     * Максимальная высота выпадающего списка.
      */
-    listHeight?: CSSProperties['height'];
+    listMaxHeight?: CSSProperties['height'];
     /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
@@ -174,6 +171,12 @@ export interface BasicProps<K extends ItemOption> {
      * Ячейка для контента в конце выпадающего списка.
      */
     afterList?: React.ReactNode;
+    /**
+     * Виртуализация в выпадающем списке.
+     * Не поддерживается в многоуровневых списках.
+     * @default false
+     */
+    virtual?: boolean;
 
     /**
      * Размер компонента.
@@ -187,6 +190,11 @@ export interface BasicProps<K extends ItemOption> {
      * Внешний вид чипа в варианте textfield-like multiselect.
      */
     chipView?: string;
+
+    /**
+     * @deprecated
+     */
+    listHeight?: CSSProperties['height'];
 }
 
 // Тип нового селекта
@@ -266,18 +274,6 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
         value?: T;
         onChange?: (value: T, item: K | null) => void;
         /**
-         * Значение css overflow для выпадающего меню.
-         * @example listOverflow="scroll"
-         */
-        listOverflow?: CSSProperties['overflow'];
-        // TODO: #1584
-        /**
-         * Значение css height для выпадающего меню.
-         * @example listHeight="11", listHeight="auto", listHeight={11}
-         */
-        listHeight?: CSSProperties['height'];
-
-        /**
          * Placeholder.
          */
         placeholder?: string;
@@ -325,6 +321,14 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * CSS-свойство z-index для выпадающего списка.
          */
         zIndex?: CSSProperties['zIndex'];
+        /**
+         * Значение css overflow для выпадающего меню.
+         */
+        listOverflow?: CSSProperties['overflow'];
+        /**
+         * Максимальная высота выпадающего списка.
+         */
+        listMaxHeight?: CSSProperties['height'];
         /**
          * Значение css width для выпадающего списка.
          * @example width="200px"
@@ -387,6 +391,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @deprecated
          */
         isOpen?: boolean;
+        /**
+         * @deprecated
+         */
+        listHeight?: CSSProperties['height'];
     } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
 
 export type { DropdownNode as DropdownNodeSelect };

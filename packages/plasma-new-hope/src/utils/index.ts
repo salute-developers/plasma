@@ -11,6 +11,7 @@ export { createEvent } from './createEvent';
 export * as constants from './constants';
 export * from './getPopoverPlacement';
 export { noop } from './noop';
+export { getHeightAsNumber } from './getHeightAsNumber';
 
 export const cx = (...classes: (string | boolean | undefined)[]) => classes.filter((classItem) => classItem).join(' ');
 

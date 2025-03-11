@@ -170,14 +170,12 @@ type BasicProps<T extends ItemOption = ItemOption> = {
     zIndex?: CSSProperties['zIndex'];
     /**
      * Значение css overflow для выпадающего меню.
-     * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
-    // TODO: #1584
     /**
-     * Значение css height для выпадающего меню.
+     * Максимальная высота выпадающего списка.
      */
-    listHeight?: CSSProperties['height'];
+    listMaxHeight?: CSSProperties['height'];
     /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
@@ -230,6 +228,11 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Текст для состояния когда нет результата.
      */
     emptyStateDescription?: string;
+
+    /**
+     * @deprecated
+     */
+    listHeight?: CSSProperties['height'];
 };
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &

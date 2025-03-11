@@ -95,7 +95,7 @@ const meta: Meta<StorySelectProps> = {
         listOverflow: {
             control: 'text',
         },
-        listHeight: {
+        listMaxHeight: {
             control: 'text',
         },
         helperText: {
@@ -231,7 +231,7 @@ const meta: Meta<StorySelectProps> = {
                 'disabled',
                 'listWidth',
                 'listOverflow',
-                'listHeight',
+                'listMaxHeight',
                 'optional',
                 'required',
                 'requiredPlacement',

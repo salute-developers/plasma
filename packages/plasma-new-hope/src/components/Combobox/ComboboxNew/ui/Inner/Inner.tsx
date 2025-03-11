@@ -45,7 +45,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                     />
                 }
             >
-                <Ul role="group" id={listId} isInnerUl listWidth={listWidth}>
+                <Ul role="group" id={listId} isInnerUl listWidth={listWidth} virtual={false}>
                     {item.items?.map((innerItem: ItemOptionTransformed, innerIndex: number) => (
                         <Inner
                             key={`${innerIndex}/${currentLevel}`}

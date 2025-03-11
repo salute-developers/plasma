@@ -6,8 +6,9 @@ import { SelectProps } from './Select.types';
 import { tokens, constants } from './Select.tokens';
 
 export const Ul = styled.ul<{
+    virtual: SelectProps['virtual'];
     listOverflow?: SelectProps['listOverflow'];
-    listHeight?: SelectProps['listHeight'];
+    listMaxHeight?: SelectProps['listMaxHeight'];
     listWidth?: SelectProps['listWidth'];
     isInnerUl?: boolean;
 }>`
@@ -19,8 +20,11 @@ export const Ul = styled.ul<{
 
     border-radius: var(${tokens.borderRadius});
     width: ${({ listWidth }) => listWidth || '100%'};
-    max-height: ${({ listHeight }) => (listHeight ? getCorrectHeight(listHeight) : 'auto')};
-    overflow: ${({ listOverflow }) => listOverflow || 'initial'};
+
+    max-height: ${({ virtual, listMaxHeight }) =>
+        // eslint-disable-next-line no-nested-ternary
+        virtual ? 'auto' : listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto'};
+    overflow-y: ${({ listOverflow }) => listOverflow || 'visible'};
 
     margin: ${({ isInnerUl }) =>
         isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};
