@@ -16,7 +16,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
     dispatchPath,
     index,
     trigger,
-    listHeight,
+    listMaxHeight,
     listOverflow,
     listWidth,
 }) => {
@@ -59,7 +59,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                     id={listId}
                     role="group"
                     isInnerUl
-                    listHeight={listHeight}
+                    listMaxHeight={listMaxHeight}
                     listOverflow={listOverflow}
                     listWidth={listWidth}
                 >
@@ -72,7 +72,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                             dispatchPath={dispatchPath}
                             index={innerIndex}
                             trigger={trigger}
-                            listHeight={listHeight}
+                            listMaxHeight={listMaxHeight}
                             listOverflow={listOverflow}
                             listWidth={listWidth}
                         />
