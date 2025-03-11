@@ -44,8 +44,8 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
         const forkRef = useForkRef(inputRef, ref);
 
         useEffect(() => {
-            if (inputRef.current) {
-                inputRef.current.indeterminate = Boolean(indeterminate);
+            if (inputRef.current && indeterminate) {
+                inputRef.current.indeterminate = rest.checked === undefined ? Boolean(indeterminate) : rest.checked;
             }
         }, [inputRef, indeterminate]);
 
