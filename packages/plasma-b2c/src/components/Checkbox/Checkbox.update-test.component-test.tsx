@@ -52,7 +52,6 @@ describe('plasma-b2c: Checkbox', () => {
             name,
             value: 'artificial',
             label: 'Искусственные языки',
-            checked: false,
             indeterminate: true,
             disabled: false,
         },
