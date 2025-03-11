@@ -11,7 +11,6 @@
     "react"
   ],
   "files": [
-    "emotion",
     "styled-components",
     "components",
     "mixins",
@@ -36,8 +35,6 @@
     "@salutejs/sdds-themes": "0.35.0"
   },
   "peerDependencies": {
-    "@emotion/react": ">=11",
-    "@emotion/styled": ">=11",
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
     "styled-components": "^5.3.1"
@@ -50,9 +47,6 @@
     "@babel/preset-env": "7.24.4",
     "@babel/preset-react": "7.24.1",
     "@babel/preset-typescript": "7.24.1",
-    "@emotion/babel-plugin": "11.11.0",
-    "@emotion/react": ">=11",
-    "@emotion/styled": ">=11",
     "@ironkinoko/rollup-plugin-styles": "^4.0.3",
     "@linaria/core": "5.0.2",
     "@linaria/react": "5.0.3",
@@ -96,26 +90,18 @@
     "preapi-report": "npm run generate:typings",
     "api-report": "npx api-extractor run --local",
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map && npm run prebuild:emotion && npm run prebuild:css",
-    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && npm run build:replace-st-emotion",
+    "build": "npm run build:styled-components && npm run build:css",
+    "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map && npm run prebuild:css",
     "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
-    "build": "npm run build:styled-components && npm run build:emotion && npm run build:css",
-    "build:replace-st-emotion": "./scripts/replace-st_emotion.sh",
     "postbuild": "npm run generate:typings",
-    "build:emotion": "npm run build:emotion:esm && npm run build:emotion:cjs",
-    "build:emotion:cjs": "rm -rf emotion/cjs && BABEL_ENV=cjs EMOTION=true SC_NAMESPACE=sdds-srvc babel ./src-emotion --out-dir ./emotion/cjs --extensions .ts,.tsx --copy-files",
-    "build:emotion:esm": "rm -rf emotion/es && BABEL_ENV=esm EMOTION=true SC_NAMESPACE=sdds-srvc babel ./src-emotion --out-dir ./emotion/es --extensions .ts,.tsx --copy-files",
     "build:styled-components": "npm run build:styled-components:esm && npm run build:styled-components:cjs",
     "build:styled-components:cjs": "BABEL_ENV=cjs SC_NAMESPACE=sdds-srvc babel ./src --out-dir ./styled-components/cjs --extensions .ts,.tsx",
     "build:styled-components:esm": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc babel ./src --out-dir ./styled-components/es --extensions .ts,.tsx",
     "build:css": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "postbuild:emotion": "rm -rf src-emotion",
     "pregenerate:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
     "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "npm run storybook:sc",
-    "prestorybook:emotion": "npm run prebuild:emotion",
-    "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "typescript-coverage": "npx typescript-coverage-report > /dev/null",
@@ -130,7 +116,7 @@
     "atLeast": 99.9
   },
   "contributors": [
-    "Vasiliy Loginevskiy"
+    "salute.developers@gmail.com"
   ],
   "sideEffects": [
     "*.css"
