@@ -115,9 +115,12 @@ export type CustomPaginationProps = {
     listWidth?: CSSProperties['width'];
 
     /*
-     * Функция которая исполняeтся при изменении
+     * Функция которая исполняeтся при изменении page и perPage
      */
-    onChangePageValue?: (page?: number) => void;
+    onChangePageValue?: (page?: number, perPage?: number) => void;
+    /**
+     * Функция которая исполняeтся при изменении perPage
+     */
     onChangePerPageValue?: (perpage?: number) => void;
 };
 
