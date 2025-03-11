@@ -1,6 +1,6 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-import linaria from '@linaria/vite';
+import linaria from '@wyw-in-js/rollup';
 
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 
