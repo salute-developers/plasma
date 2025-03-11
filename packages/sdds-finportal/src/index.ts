@@ -61,6 +61,7 @@ export * from './components/Dropzone';
 export * from './components/Tree';
 export * from './components/Note';
 export * from './components/LinkButton';
+export * from './components/NumberFormat';
 
 export * from './mixins';
 export * from './tokens';
