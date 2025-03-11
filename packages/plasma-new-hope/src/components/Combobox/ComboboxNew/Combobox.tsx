@@ -56,6 +56,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             variant = 'normal',
             listOverflow,
             listHeight,
+            listMaxHeight,
             listWidth,
             portal,
             renderItem,
@@ -489,13 +490,17 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     role="tree"
                                     id={`${treeId}_tree_level_1`}
                                     aria-multiselectable={Boolean(multiple)}
-                                    listHeight={listHeight}
-                                    listOverflow={listOverflow}
+                                    listMaxHeight={listMaxHeight || listHeight}
                                     listWidth={listWidth}
                                     ref={targetRef}
+                                    virtual={virtual}
+                                    listOverflow={listOverflow}
                                 >
                                     {virtual ? (
-                                        <VirtualList items={filteredItems} listHeight={listHeight} />
+                                        <VirtualList
+                                            items={filteredItems}
+                                            listMaxHeight={listMaxHeight || listHeight}
+                                        />
                                     ) : (
                                         <>
                                             {beforeList}

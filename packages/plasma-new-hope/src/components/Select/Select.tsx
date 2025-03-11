@@ -55,6 +55,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             size,
             listOverflow,
             listHeight,
+            listMaxHeight,
             listWidth,
             contentLeft,
             onScrollBottom,
@@ -393,14 +394,15 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 role="tree"
                                 id={`${treeId}_tree_level_1`}
                                 aria-multiselectable={Boolean(props.multiselect)}
-                                listHeight={listHeight}
                                 listOverflow={listOverflow}
+                                listMaxHeight={listMaxHeight || listHeight}
                                 onScroll={handleScroll}
                                 listWidth={listWidth}
                                 ref={targetRef}
+                                virtual={virtual}
                             >
                                 {virtual ? (
-                                    <VirtualList items={transformedItems} listHeight={listHeight} />
+                                    <VirtualList items={transformedItems} listMaxHeight={listMaxHeight || listHeight} />
                                 ) : (
                                     <>
                                         {beforeList}
