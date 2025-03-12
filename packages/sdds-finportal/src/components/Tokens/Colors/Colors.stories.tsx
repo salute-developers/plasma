@@ -1,28 +1,30 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { sdds_serv__dark, sdds_serv__light } from '@salutejs/sdds-themes/es/themes';
+import { sdds_finportal__dark, sdds_finportal__light } from '@salutejs/sdds-themes/es/themes';
+import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens } from '@salutejs/plasma-sb-utils';
 
-import { InSpacingDecorator, getGroupedTokens } from '../../helpers';
-import { Accordion } from '../Accordion';
-import { ToastProvider, useToast } from '../Toast';
-import type { ShowToastArgs } from '../Toast';
-import { SegmentProvider, useSegment, SegmentGroup } from '../Segment';
+import { Accordion } from '../../Accordion/Accordion';
+import { ToastProvider, useToast } from '../../Toast/Toast';
+import { SegmentGroup } from '../../Segment/Segment';
+import type { ShowToastArgs } from '../../Toast';
+import { SegmentProvider, useSegment } from '../../Segment';
 
 import {
     AccordionInfo,
     ColorCircle,
     ColorTokensWrapper,
     ColumnTitle,
-    OpacityPart,
     StyledAccordionItem,
     StyledSegmentItem,
     Subcategory,
     SubthemeTitle,
     SubthemeSwitcher,
-    TokenInfo,
     TokenInfoWrapper,
-} from './Tokens.styles';
+    ColorTokenDataWrapper,
+    StateDataWrapper,
+} from './Colors.styles';
+import { ColorTokenData } from './Colors';
 
 const meta: Meta = {
     title: 'Tokens/Colors',
@@ -32,8 +34,8 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, GroupedTokens> = {
-    'sdds-serv:light': getGroupedTokens(sdds_serv__light[0]),
-    'sdds-serv:dark': getGroupedTokens(sdds_serv__dark[0]),
+    'sdds-finportal:light': getGroupedTokens(sdds_finportal__light[0]),
+    'sdds-finportal:dark': getGroupedTokens(sdds_finportal__dark[0]),
 };
 
 const StoryDemoColor = ({ context }) => {
@@ -105,30 +107,29 @@ const StoryDemoColor = ({ context }) => {
                         }
                     >
                         <TokenInfoWrapper>
-                            {Object.entries(subcategoryTokens).map(([token, { value, opacity, tone, colorName }]) => (
-                                <AccordionInfo key={token}>
-                                    <TokenInfo className="copy" onClick={() => copyToClipboard(token)}>
-                                        {token}
-                                    </TokenInfo>
-                                    <TokenInfo
-                                        className="color copy"
-                                        onClick={() => copyToClipboard(value, opacity?.alpha)}
-                                    >
-                                        <ColorCircle background={value + (opacity?.alpha || '')} />
-                                        <div>{value.includes('gradient') ? 'Градиент' : colorName || ''}</div>
-                                    </TokenInfo>
-                                    <TokenInfo className="no-interaction">{tone !== 'none' && tone}</TokenInfo>
-                                    <TokenInfo className="no-interaction">{tone && opacity?.parsedAlpha}</TokenInfo>
-                                    <TokenInfo
-                                        className="color copy"
-                                        onClick={() => copyToClipboard(value, opacity?.alpha)}
-                                    >
-                                        <div>
-                                            {value.includes('gradient') ? '' : value}
-                                            {opacity && <OpacityPart>{opacity.alpha}</OpacityPart>}
-                                        </div>
-                                    </TokenInfo>
-                                </AccordionInfo>
+                            {Object.entries(subcategoryTokens).map(([token, { states, ...tokenData }]) => (
+                                <ColorTokenDataWrapper>
+                                    <ColorTokenData
+                                        key={token}
+                                        token={token}
+                                        tokenData={tokenData}
+                                        copyToClipboard={copyToClipboard}
+                                    />
+                                    {states && Object.keys(states).length > 0 && (
+                                        <StateDataWrapper>
+                                            {Object.entries(states).map(([state, stateTokenData]) => (
+                                                <ColorTokenData
+                                                    key={state}
+                                                    token={state}
+                                                    tokenData={stateTokenData}
+                                                    copyToClipboard={copyToClipboard}
+                                                    className="state"
+                                                    initialTokenName={token + upperFirstLetter(state)}
+                                                />
+                                            ))}
+                                        </StateDataWrapper>
+                                    )}
+                                </ColorTokenDataWrapper>
                             ))}
                         </TokenInfoWrapper>
                     </StyledAccordionItem>

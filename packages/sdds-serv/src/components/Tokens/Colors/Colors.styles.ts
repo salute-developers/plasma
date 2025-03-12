@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import { segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { segmentTokens } from '@salutejs/plasma-new-hope';
 
-import { AccordionItem } from '../Accordion';
-import { SegmentItem } from '../Segment/Segment';
-import { BodyXS } from '../Typography';
+import { AccordionItem } from '../../Accordion';
+import { SegmentItem } from '../../Segment/Segment';
+import { BodyXS } from '../../Typography';
 
 export const ColorTokensWrapper = styled.div`
     width: max-content;
 `;
 
 export const SubthemeSwitcher = styled.div`
-    margin: 0.5rem auto 2.5rem 15.75rem;
+    margin: -0.5rem auto 2.5rem 15.75rem;
     width: fit-content;
 `;
 
@@ -65,7 +65,7 @@ export const StyledAccordionItem = styled(AccordionItem)`
     }
 
     .accordion-item-body {
-        margin-bottom: 1.125rem;
+        margin-bottom: 2.375rem;
         padding-top: 0.125rem;
         transition: margin-bottom 0.2s, padding-top 0.2s;
     }
@@ -75,6 +75,8 @@ export const StyledAccordionItem = styled(AccordionItem)`
     }
 
     [aria-expanded='false'] {
+        margin-bottom: 1.125rem;
+
         ${AccordionInfo} ${ColumnTitle} {
             opacity: 0;
         }
@@ -91,6 +93,19 @@ export const TokenInfoWrapper = styled.div`
     flex-direction: column;
     gap: 0.75rem;
     margin-top: -0.125rem;
+`;
+
+export const ColorTokenDataWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`;
+
+export const StateDataWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
 `;
 
 export const OpacityPart = styled.span`
@@ -116,6 +131,7 @@ export const TokenInfo = styled.div`
     &.no-interaction {
         text-align: right;
     }
+
     &:not(.no-interaction):hover {
         color: var(--text-paragraph-hover);
 
@@ -128,6 +144,19 @@ export const TokenInfo = styled.div`
         color: var(--text-paragraph-active);
 
         ${OpacityPart} {
+            color: var(--text-secondary-active);
+        }
+    }
+
+    &.state {
+        padding-left: 1.5rem;
+        color: var(--text-secondary);
+
+        &:hover {
+            color: var(--text-secondary);
+        }
+
+        &:active {
             color: var(--text-secondary-active);
         }
     }
