@@ -25,6 +25,7 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
+                ${tokens.textFieldBorderColorHover}: var(--text-secondary);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
                 ${tokens.textFieldBorderColorError}: var(--surface-negative);
                 ${tokens.textFieldBorderColorErrorFocus}: var(--surface-accent);

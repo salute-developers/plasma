@@ -25,6 +25,7 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
+                ${tokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
                 ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);

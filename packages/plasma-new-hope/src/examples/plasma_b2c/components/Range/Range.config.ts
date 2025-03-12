@@ -24,6 +24,7 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
+                ${tokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
                 ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
