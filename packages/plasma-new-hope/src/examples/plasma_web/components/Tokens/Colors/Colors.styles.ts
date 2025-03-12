@@ -1,9 +1,9 @@
 import { styled } from '@linaria/react';
 
-import { AccordionItem } from '../Accordion/Accordion';
-import { SegmentItem } from '../Segment/Segment';
-import { segmentTokens } from '../../../../components/Segment';
-import { bodyXS } from '../../../../mixins';
+import { AccordionItem } from '../../Accordion/Accordion';
+import { SegmentItem } from '../../Segment/Segment';
+import { segmentTokens } from '../../../../../components/Segment';
+import { bodyXS } from '../../../../../mixins';
 
 export const ColorTokensWrapper = styled.div`
     width: max-content;
@@ -67,7 +67,7 @@ export const StyledAccordionItem = styled(AccordionItem)`
     }
 
     .accordion-item-body {
-        margin-bottom: 1.125rem;
+        margin-bottom: 2.375rem;
         padding-top: 0.125rem;
         transition: margin-bottom 0.2s, padding-top 0.2s;
     }
@@ -77,6 +77,8 @@ export const StyledAccordionItem = styled(AccordionItem)`
     }
 
     [aria-expanded='false'] {
+        margin-bottom: 1.125rem;
+
         ${AccordionInfo} ${ColumnTitle} {
             opacity: 0;
         }
@@ -93,6 +95,19 @@ export const TokenInfoWrapper = styled.div`
     flex-direction: column;
     gap: 0.75rem;
     margin-top: -0.125rem;
+`;
+
+export const ColorTokenDataWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`;
+
+export const StateDataWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
 `;
 
 export const OpacityPart = styled.span`
@@ -131,6 +146,19 @@ export const TokenInfo = styled.div`
         color: var(--text-paragraph-active);
 
         ${OpacityPart} {
+            color: var(--text-secondary-active);
+        }
+    }
+
+    &.state {
+        padding-left: 1.5rem;
+        color: var(--text-secondary);
+
+        &:hover {
+            color: var(--text-secondary);
+        }
+
+        &:active {
             color: var(--text-secondary-active);
         }
     }
