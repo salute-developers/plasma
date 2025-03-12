@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { formatedPaletteColors, colorsForGradient, colorsHSL } from '../../utils';
+import { formattedPaletteColors, colorsForGradient, colorsHSL } from '../../utils';
 
 import { Header } from './Header';
 import { PaletteItem } from './PaletteItem';
@@ -39,7 +39,7 @@ export const Palette: React.FC = () => {
                 <Header text="Палитра" link="/" />
                 <GradientScroll hsl={colorsHSL} colors={colorsForGradient} scrollRef={scrollRef} />
                 <PaletteColors>
-                    {formatedPaletteColors.map((color, index) => (
+                    {formattedPaletteColors.map((color, index) => (
                         <PaletteItem key={index} paletteColor={color} />
                     ))}
                 </PaletteColors>
