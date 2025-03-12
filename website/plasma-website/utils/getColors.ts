@@ -12,7 +12,7 @@ export const paletteColors: {
     };
 } = _.omit(general, ['gray', 'coolGray']);
 
-export const formatedPaletteColors = Object.keys(paletteColors)
+export const formattedPaletteColors = Object.keys(paletteColors)
     .map((key) => ({
         name: key,
         colors: Object.keys(_.omit(paletteColors[key], '50')).map((colorKey) => {
@@ -28,11 +28,11 @@ export const formatedPaletteColors = Object.keys(paletteColors)
         return a.h - b.h;
     });
 
-export const colorsForGradient = formatedPaletteColors.map(
+export const colorsForGradient = formattedPaletteColors.map(
     (paletteColor) => paletteColor.colors.find((color) => color.code === '500')?.color ?? '',
 );
 
-export const colorsHSL = formatedPaletteColors.map((color) => color.h);
+export const colorsHSL = formattedPaletteColors.map((color) => color.h);
 
 export const checkColor = (color: string, colorCode: string) => {
     const keys = Object.keys(paletteColors);
