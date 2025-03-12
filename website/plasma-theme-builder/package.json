@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-theme-builder",
-  "version": "1.401.3-dev.0",
+  "version": "1.402.0-dev.0",
   "description": "Plasma Theme Builder.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "private": true,
@@ -10,7 +10,7 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
   },
   "dependencies": {
-    "@salutejs/plasma-b2c": "1.547.3-dev.0",
+    "@salutejs/plasma-b2c": "1.548.0-dev.0",
     "@salutejs/plasma-colors": "0.15.0",
     "@salutejs/plasma-icons": "1.214.0",
     "@salutejs/plasma-tokens-b2b": "1.47.1-dev.0",
