@@ -29,7 +29,7 @@ const config: StorybookConfig = {
         disableTelemetry: true,
     },
     docs: {
-        autodocs: true,
+        autodocs: false,
         defaultName: 'Docs',
     },
     async viteFinal(config) {
