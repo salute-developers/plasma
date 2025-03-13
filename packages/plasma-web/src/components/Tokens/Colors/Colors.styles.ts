@@ -1,21 +1,46 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
+import { segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-import { AccordionItem } from '../Accordion/Accordion';
-import { h2 } from '../../../../mixins';
+import { AccordionItem } from '../../Accordion';
+import { SegmentItem } from '../../Segment/Segment';
 
-export const CategoryContainer = styled.div`
-    margin-bottom: 1.875rem;
+export const ColorTokensWrapper = styled.div`
+    padding-top: 1.5rem;
+    width: 100%;
 `;
 
-export const Category = styled.h2`
-    margin: 0 0 1.125rem 1.5rem;
+export const SubthemeSwitcher = styled.div`
+    margin: -0.5rem auto 2.5rem auto;
+    width: fit-content;
 
-    ${h2};
+    position: relative;
+
+    &:before {
+        content: 'Подтема';
+        position: absolute;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        left: -0.75rem;
+        color: var(--text-tertiary);
+
+        font-family: var(--plasma-typo-body-xs-font-family);
+        font-size: var(--plasma-typo-body-xs-font-size);
+        font-style: var(--plasma-typo-body-xs-font-style);
+        font-weight: var(--plasma-typo-body-xs-font-weight);
+        bold-font-weight: var(--plasma-typo-body-xs-bold-font-weight);
+        letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+        line-height: var(--plasma-typo-body-xs-line-height);
+    }
+`;
+
+export const StyledSegmentItem = styled(SegmentItem)`
+    ${segmentTokens.itemHeight}: 1.75rem;
+    ${segmentTokens.itemPilledPadding}: 0.375rem 0.5rem;
 `;
 
 export const AccordionInfo = styled.div`
     display: grid;
-    grid-template-columns: 18rem 7.938rem 2.375rem 3.813rem;
+    grid-template-columns: 16.75rem 9.938rem 2.375rem 3.813rem 9.313rem;
     grid-column-gap: 1.5rem;
 
     font-family: var(--plasma-typo-body-m-font-family);
@@ -37,7 +62,11 @@ export const ColumnTitle = styled.div`
     &.color {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 2.5rem;
+    }
+
+    &.hex {
+        padding-left: 3.75rem;
     }
 `;
 
@@ -46,14 +75,14 @@ export const StyledAccordionItem = styled(AccordionItem)`
     --plasma-accordion-item-padding-vertical: 0;
 
     border-bottom: unset;
-    width: max-content;
+    width: 50.375rem;
 
     div > div > div > svg {
         color: var(--text-secondary);
     }
 
     .accordion-item-body {
-        margin-bottom: 1.125rem;
+        margin-bottom: 2.375rem;
         padding-top: 0.125rem;
         transition: margin-bottom 0.2s, padding-top 0.2s;
     }
@@ -63,6 +92,8 @@ export const StyledAccordionItem = styled(AccordionItem)`
     }
 
     [aria-expanded='false'] {
+        margin-bottom: 1.125rem;
+
         ${AccordionInfo} ${ColumnTitle} {
             opacity: 0;
         }
@@ -79,6 +110,19 @@ export const TokenInfoWrapper = styled.div`
     flex-direction: column;
     gap: 0.75rem;
     margin-top: -0.125rem;
+`;
+
+export const ColorTokenDataWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`;
+
+export const StateDataWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
 `;
 
 export const OpacityPart = styled.span`
@@ -98,11 +142,15 @@ export const TokenInfo = styled.div`
     &.color {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 2.5rem;
     }
 
     &.no-interaction {
         text-align: right;
+    }
+
+    &.hex {
+        padding-left: 3.75rem;
     }
 
     &:not(.no-interaction):hover {
@@ -117,6 +165,19 @@ export const TokenInfo = styled.div`
         color: var(--text-paragraph-active);
 
         ${OpacityPart} {
+            color: var(--text-secondary-active);
+        }
+    }
+
+    &.state {
+        padding-left: 1.5rem;
+        color: var(--text-secondary);
+
+        &:hover {
+            color: var(--text-secondary);
+        }
+
+        &:active {
             color: var(--text-secondary-active);
         }
     }
