@@ -117,6 +117,8 @@ export type CustomTextFieldProps = Omit<TextFieldProps, 'helperText'> & {
         | 'optional'
         | 'chipView'
         | 'chipValidator'
+        | 'textBefore'
+        | 'textAfter'
     > &
     ClearProps &
     HintProps;

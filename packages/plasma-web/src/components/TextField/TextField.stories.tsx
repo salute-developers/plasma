@@ -341,7 +341,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',
-        leftHelper: 'Подсказка к полю',
+        helperText: 'Подсказка к полю',
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
