@@ -3,7 +3,7 @@ import { css, SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { getStaticVariants, getDynamicVariants, getIntersectionStyles } from './utils';
-import type { ComponentConfig, HTMLAnyAttributes } from './types';
+import { ComponentConfig, HTMLAnyAttributes, PolymorphicClassName } from './types';
 
 export { css };
 
@@ -11,7 +11,7 @@ const Root = styled.div<{
     base: string | SerializedStyles;
     staticVariants: (string | SerializedStyles)[];
     dynamicVariants: (props: HTMLAnyAttributes) => any[];
-    intersectionStyles: string[];
+    intersectionStyles: PolymorphicClassName[];
 }>`
     ${({ base }) => base};
     ${({ staticVariants }) => staticVariants};

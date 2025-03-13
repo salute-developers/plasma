@@ -59,7 +59,7 @@ export type Filter<T extends {} = {}, U extends string = string> = {
 };
 
 export interface Intersection {
-    style: string;
+    style: PolymorphicClassName;
 }
 
 export interface ComponentConfig<
