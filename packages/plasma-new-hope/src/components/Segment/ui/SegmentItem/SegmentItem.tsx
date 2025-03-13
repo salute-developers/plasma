@@ -19,6 +19,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
         const {
             size,
             view = 'default',
+            className,
             id,
             label,
             value,
@@ -59,7 +60,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
                 aria-label={ariaLabelExternal || ariaLabelDefault}
                 value={value}
                 pilled={pilled}
-                className={cx(selectedClass, pilledClass, xsSize)}
+                className={cx(selectedClass, pilledClass, xsSize, className)}
                 onClick={handleSelectSegment}
                 tabIndex={disabledGroup ? -1 : 0}
                 disabled={disabledGroup}
