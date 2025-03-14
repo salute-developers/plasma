@@ -76,8 +76,9 @@ type StoryPropsDefault = ComponentProps<typeof Range> & {
 
 const getSizeForIcon = (size) => {
     const map = {
-        m: 's',
+        xl: 's',
         l: 's',
+        m: 's',
         s: 's',
         xs: 'xs',
     };
