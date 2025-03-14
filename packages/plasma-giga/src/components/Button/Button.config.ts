@@ -93,6 +93,42 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${buttonTokens.buttonHeight}: 4rem;
+                ${buttonTokens.buttonWidth}: 12.5rem;
+                ${buttonTokens.buttonPadding}: 1.75rem;
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 1.5rem;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
+
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+            `,
+            xlr: css`
+                ${buttonTokens.buttonHeight}: 4rem;
+                ${buttonTokens.buttonWidth}: 12.5rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 1.5rem;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
+
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 0;
+                ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.625rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+            `,
             l: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
