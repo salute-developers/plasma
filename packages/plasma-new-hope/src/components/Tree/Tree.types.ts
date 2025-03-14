@@ -77,19 +77,34 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
      */
     className?: string;
     /**
+     * Выделенные элементы в controlled-варианте.
+     */
+    checkedKeys?: Key[];
+    /**
      * Выделенные элементы по умолчанию.
+     * Работает только при uncontrolled-варианте.
      */
     defaultCheckedKeys?: Key[];
+    /**
+     * Раскрытые элементы в controlled-варианте.
+     */
+    expandedKeys?: Key[];
     /**
      * Раскрытые элементы по умолчанию.
      */
     defaultExpandedKeys?: Key[];
     /**
+     * Выбранные элементы в controlled-варианте.
+     */
+    selectedKeys?: Key[];
+    /**
      * Выбранные элементы по умолчанию.
+     * Работает только при uncontrolled-варианте.
      */
     defaultSelectedKeys?: Key[];
     /**
      * Флаг раскрытия всех элементов по умолчанию.
+     * Работает только при uncontrolled-варианте.
      * @default false
      */
     defaultExpandAll?: boolean;
@@ -109,7 +124,7 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
     /**
      * Callback при выделении элемента.
      */
-    onTreeCheck?: (checked: { checked: Key[]; halfChecked: Key[] } | Key[], info: CheckInfo) => void;
+    onTreeCheck?: (checked: Key[], info: CheckInfo) => void;
     /**
      * Callback при раскрытии элемента.
      */
