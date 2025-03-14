@@ -25,8 +25,6 @@
     "@babel/preset-react": "7.24.1",
     "@babel/preset-typescript": "7.24.1",
     "@ironkinoko/rollup-plugin-styles": "^4.0.3",
-    "@linaria/babel-preset": "^5.0.4",
-    "@linaria/rollup": "^5.0.4",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/pluginutils": "^5.1.2",
@@ -35,6 +33,9 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.0",
+    "@wyw-in-js/babel-preset": "^0.5.5",
+    "@wyw-in-js/rollup": "^0.5.5",
+    "@wyw-in-js/vite": "^0.5.5",
     "babel-loader": "^8.2.2",
     "babel-plugin-annotate-pure-calls": "0.4.0",
     "babel-plugin-styled-components": "^1.13.2",
@@ -90,7 +91,7 @@
     "*.css"
   ],
   "dependencies": {
-    "@linaria/core": "5.0.2",
-    "@linaria/react": "5.0.3"
+    "@linaria/core": "^6.2.0",
+    "@linaria/react": "^6.2.1"
   }
 }

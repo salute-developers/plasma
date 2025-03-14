@@ -4,7 +4,7 @@ import { createFilter } from '@rollup/pluginutils'
 
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
-import linaria from '@linaria/rollup';
+import linaria from '@wyw-in-js/rollup';
 import { babel } from '@rollup/plugin-babel';
 
 import styles from "@ironkinoko/rollup-plugin-styles";
