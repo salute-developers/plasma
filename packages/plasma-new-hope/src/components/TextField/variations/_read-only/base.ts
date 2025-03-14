@@ -73,5 +73,11 @@ export const base = css`
         &.${classes.outerLabelPlacement} ${Label} {
             color: var(${tokens.labelColorReadOnly});
         }
+
+        ${StyledContentRight} {
+            &:hover {
+                cursor: default;
+            }
+        }
     }
 `;
