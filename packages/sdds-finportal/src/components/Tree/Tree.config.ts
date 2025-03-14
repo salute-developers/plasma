@@ -20,6 +20,8 @@ export const config = {
                 ${tokens.checkboxBorderColor}: var(--text-secondary);
                 ${tokens.checkboxBackgroundColor}: var(--text-accent);
                 ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledBorderColor}: var(--text-secondary);
+                ${tokens.itemDisabledColor}: var(--text-secondary);
             `,
         },
         size: {

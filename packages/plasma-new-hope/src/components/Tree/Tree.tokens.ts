@@ -36,4 +36,6 @@ export const treeTokens = {
     itemBackgroundColorHover: '--plasma-tree-item-background-color-hover',
     itemBackgroundColorActive: '--plasma-tree-item-background-color-active',
     itemDisabledOpacity: '--plasma-tree-item-disabled-opacity',
+    itemDisabledColor: '--plasma-tree-item-disabled-color',
+    itemDisabledBorderColor: '--plasma-tree-item-disabled-border-color',
 };

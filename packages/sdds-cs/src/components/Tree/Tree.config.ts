@@ -19,7 +19,9 @@ export const config = {
                 ${tokens.itemBackgroundColorActive}: var(--surface-solid-primary-active);
                 ${tokens.checkboxBorderColor}: var(--text-accent);
                 ${tokens.checkboxBackgroundColor}: var(--text-accent);
-                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledOpacity}: 1;
+                ${tokens.itemDisabledBorderColor}: var(--text-secondary);
+                ${tokens.itemDisabledColor}: var(--text-secondary);
             `,
         },
         size: {
