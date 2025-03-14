@@ -142,16 +142,17 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
 
         const onChange = (
             newValue?: string | number | Array<string | number> | ChangeEvent<HTMLSelectElement> | null,
+            item?: MergedDropdownNodeTransformed | null,
         ) => {
-            if (outerOnChange) {
+            if (props.onChange) {
                 // Условие для отправки если компонент используется без формы.
-                if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
-                    outerOnChange(newValue as any);
+                if (!props.name && (typeof newValue === 'string' || Array.isArray(newValue))) {
+                    props.onChange(newValue as any, item || null);
                 }
 
                 // Условие для отправки если компонент используется с формой.
-                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
-                    outerOnChange(newValue as any);
+                if (props.name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    props.onChange(newValue as any, item || null);
                 }
             }
 
@@ -205,7 +206,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
 
             if (onChange) {
-                onChange(newValues);
+                onChange(newValues, item);
             }
         };
 
@@ -231,7 +232,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
 
             if (onChange) {
-                onChange(isCurrentChecked ? '' : item.value);
+                onChange(isCurrentChecked ? '' : item.value, item);
             }
 
             if (onItemSelect) {
