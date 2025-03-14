@@ -91,6 +91,9 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        emptyStateDescription: {
+            control: { type: 'text' },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -122,6 +125,7 @@ const meta: Meta<StorySelectProps> = {
         required: false,
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
+        emptyStateDescription: '',
     },
     parameters: {
         controls: {
@@ -149,6 +153,7 @@ const meta: Meta<StorySelectProps> = {
                 'required',
                 'requiredPlacement',
                 'hasRequiredIndicator',
+                'emptyStateDescription',
             ],
         },
     },
