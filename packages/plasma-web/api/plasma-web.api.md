@@ -104,6 +104,7 @@ import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomComboboxProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxOld/Combobox.types';
 import { CustomCounterProps } from '@salutejs/plasma-new-hope/types/components/Counter/Counter.types';
+import type { CustomNumberFormatProps } from '@salutejs/plasma-new-hope';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
@@ -3142,6 +3143,11 @@ export const NotificationsProvider: React_2.FC<{
     UNSAFE_SSR_ENABLED?: boolean;
 }>;
 
+// Warning: (ae-forgotten-export) The symbol "NumberFormatProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const NumberFormat: ForwardRefExoticComponent<NumberFormatProps>;
+
 // @public (undocumented)
 export const NumberInput: FunctionComponent<PropsType<    {
 view: {
@@ -4412,7 +4418,7 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator'>;
+export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator' | 'textBefore' | 'textAfter'>;
 
 export { TextFieldView }
 
