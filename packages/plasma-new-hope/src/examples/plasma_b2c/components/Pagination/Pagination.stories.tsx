@@ -1,6 +1,6 @@
 import { disableProps } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import { WithTheme } from '../../../_helpers';
 import { Button } from '../Button/Button';
@@ -51,26 +51,9 @@ export default meta;
 
 type Story = StoryObj<typeof Pagination>;
 
-export const Default: Story = {
-    args: {
-        count: 2000,
-        value: 1,
-        slots: 9,
-        type: 'default',
-        view: 'clear',
-        viewCurrentPage: 'secondary',
-        size: 'xs',
-        hasQuickJump: true,
-        hasPerPage: true,
-        pilled: false,
-        square: true,
-        listWidth: '5rem',
-    },
-};
-
-const PaginationContent = (agrs) => {
-    const [pageValue, setPageValue] = useState(agrs.value);
-    const [perPageValue, setPerPageValue] = useState(agrs.perPage);
+const PaginationDefault = (args) => {
+    const [pageValue, setPageValue] = useState(args.value);
+    const [perPageValue, setPerPageValue] = useState(args.perPage);
 
     const handleChangePage = useCallback(
         (page: number) => {
@@ -89,7 +72,51 @@ const PaginationContent = (agrs) => {
     return (
         <>
             <Pagination
-                {...agrs}
+                {...args}
+                value={pageValue}
+                perPage={perPageValue}
+                onChangePageValue={handleChangePage}
+                onChangePerPageValue={handleChangePerpage}
+            />
+        </>
+    );
+};
+
+export const Default: Story = {
+    args: {
+        count: 2000,
+        value: 1,
+        slots: 9,
+        perPage: 20,
+        type: 'default',
+        view: 'clear',
+        viewCurrentPage: 'secondary',
+        size: 'xs',
+        hasQuickJump: true,
+        hasPerPage: true,
+        pilled: false,
+        square: true,
+        listWidth: '5rem',
+    },
+    render: (args) => <PaginationDefault {...args} />,
+};
+
+const PaginationContent = (args) => {
+    const [pageValue, setPageValue] = useState(args.value);
+    const [perPageValue, setPerPageValue] = useState(args.perPage);
+
+    const handleChangePage = useCallback(
+        (page: number, perPage) => {
+            setPageValue(page);
+            setPerPageValue(perPage);
+        },
+        [pageValue, perPageValue, setPageValue, setPerPageValue],
+    );
+
+    return (
+        <>
+            <Pagination
+                {...args}
                 value={pageValue}
                 perPage={perPageValue}
                 leftContent={
@@ -111,7 +138,6 @@ const PaginationContent = (agrs) => {
                     </Button>
                 }
                 onChangePageValue={handleChangePage}
-                onChangePerPageValue={handleChangePerpage}
             />
         </>
     );
@@ -122,6 +148,7 @@ export const Content: Story = {
         count: 2000,
         value: 1,
         slots: 9,
+        perPage: 20,
         type: 'default',
         view: 'clear',
         viewCurrentPage: 'secondary',

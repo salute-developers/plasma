@@ -92,12 +92,13 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                     return;
                 }
                 setPageValue(pageValue);
-                onChangePageValue?.(pageValue);
+                onChangePageValue?.(pageValue, perPageValue);
             };
 
             const handlerSetPerPage = (newPerPageValue?: number) => {
-                handlerSetPage(1);
+                handlerSetPage(page);
                 setPerPageValue(newPerPageValue);
+                onChangePageValue?.(page, newPerPageValue);
                 onChangePerPageValue?.(newPerPageValue);
 
                 handlerSetPages(newPerPageValue);
@@ -109,11 +110,11 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
 
             useEffect(() => {
                 handlerSetPages(perPage);
-            }, [perPage, count, handlerSetPages]);
+            }, [value, perPage, count, handlerSetPages]);
 
             useEffect(() => {
                 handlerSetPage(value);
-            }, [value]);
+            }, [value, perPage]);
 
             useEffect(() => {
                 setSections(getSections(page, pages, slots));

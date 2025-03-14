@@ -212,9 +212,9 @@ describe('plasma-new-hope: Pagination Content', () => {
         </CypressTestDecorator>
     );
 
-    const PaginationContent = (agrs) => {
-        const [pageValue, setPageValue] = useState(agrs.value);
-        const [perPageValue, setPerPageValue] = useState(agrs.perPage);
+    const PaginationContent = (args) => {
+        const [pageValue, setPageValue] = useState(args.value);
+        const [perPageValue, setPerPageValue] = useState(args.perPage);
 
         const handleChangePerpage = useCallback(
             (perPage: number) => {
@@ -233,7 +233,7 @@ describe('plasma-new-hope: Pagination Content', () => {
         return (
             <>
                 <Pagination
-                    {...agrs}
+                    {...args}
                     value={pageValue}
                     perPage={perPageValue}
                     count={count}
