@@ -1,5 +1,6 @@
 import React, { forwardRef, SyntheticEvent, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { KeyboardEvent } from 'react';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../../engines';
 import { cx, getPlacements, noop } from '../../../utils';
@@ -83,12 +84,14 @@ export const datePickerRoot = (
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
+            // const inputForkRef = useForkRef(inputRef, ref);
+            const inputForkRef = useForkRef(innerRef, ref);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
-            const [calendarValue, setCalendarValue] = useState(formatCalendarValue(value || defaultDate, format, lang));
-            const [inputValue, setInputValue] = useState(
-                formatInputValue({ value: value || defaultDate, format, lang }),
-            );
+            const externalDate = innerRef?.current?.value || value || defaultDate;
+
+            const [calendarValue, setCalendarValue] = useState(formatCalendarValue(externalDate, format, lang));
+            const [inputValue, setInputValue] = useState(formatInputValue({ value: externalDate, format, lang }));
 
             const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
 
@@ -146,6 +149,22 @@ export const datePickerRoot = (
                 closeOnEsc,
             });
 
+            useEffect(() => {
+                console.log(innerRef?.current?.value, 'inputValue');
+            }, [innerRef?.current?.value]);
+
+            useEffect(() => {
+                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
+            }, [opened]);
+
+            useLayoutEffect(() => {
+                // setTimeout(() => {
+                console.log('value from setter', innerRef?.current?.value);
+                // }, 1100);
+                const externalDate = value || defaultDate;
+                updateExternalDate(externalDate, setInputValue, setCalendarValue);
+            }, [innerRef?.current?.value, value, defaultDate, format, lang]);
+
             const DatePickerInput = (
                 <StyledInput
                     ref={inputRef}
@@ -173,15 +192,6 @@ export const datePickerRoot = (
                 />
             );
 
-            useEffect(() => {
-                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
-            }, [opened]);
-
-            useLayoutEffect(() => {
-                const externalDate = value || defaultDate;
-                updateExternalDate(externalDate, setInputValue, setCalendarValue);
-            }, [value, defaultDate, format, lang]);
-
             return (
                 <Root
                     view={view}
@@ -189,7 +199,6 @@ export const datePickerRoot = (
                     className={cx(classes.datePickerRoot, className)}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
-                    ref={ref}
                     {...rest}
                 >
                     <StyledPopover
@@ -243,7 +252,7 @@ export const datePickerRoot = (
                         datatype="datepicker-single"
                         name={name}
                         value={inputValue}
-                        ref={innerRef}
+                        ref={inputForkRef}
                         {...noop}
                     />
                 </Root>
