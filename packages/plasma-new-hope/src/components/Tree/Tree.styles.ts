@@ -27,7 +27,7 @@ export const StyledArrow = styled(IconDisclosureRightCentered)`
 
 export const IconFolderWrapper = styled.div`
     line-height: 0;
-    color: var(${tokens.arrowColor});
+    color: var(${tokens.iconFolderColor});
     margin: var(${tokens.iconFolderMargin});
 `;
 
@@ -267,8 +267,8 @@ export const base = css`
         content: '';
         position: absolute;
         z-index: -1;
-        top: 0.25rem;
-        bottom: 0.25rem;
+        top: var(${tokens.itemTop});
+        bottom: var(${tokens.itemBottom});
         left: var(${tokens.switcherSize});
         right: 0;
         background: transparent;
@@ -364,6 +364,10 @@ export const base = css`
         background-repeat: no-repeat;
     }
 
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled span.rc-tree-checkbox::before {
+        border: 0.125rem solid var(${tokens.itemDisabledBorderColor});
+    }
+
     .rc-tree .rc-tree-treenode span.rc-tree-checkbox-checked::before {
         background-color: var(${tokens.checkboxBackgroundColor});
         border-color: var(${tokens.checkboxBackgroundColor});
@@ -406,8 +410,16 @@ export const base = css`
         color: var(${tokens.colorSelected});
     }
 
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-title {
+        color: var(${tokens.itemDisabledColor});
+    }
+
     .rc-tree-node-selected ${IconFolderWrapper} {
         color: var(${tokens.colorSelected});
+    }
+
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled ${IconFolderWrapper} {
+        color: var(${tokens.itemDisabledColor});;
     }
 
     .rc-tree-indent-unit {
