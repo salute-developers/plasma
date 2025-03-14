@@ -172,6 +172,9 @@ const meta: Meta<StorySelectProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        emptyStateDescription: {
+            control: { type: 'text' },
+        },
     },
     args: {
         label: 'Label',
@@ -200,6 +203,7 @@ const meta: Meta<StorySelectProps> = {
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+        emptyStateDescription: '',
     },
     parameters: {
         controls: {
@@ -234,6 +238,7 @@ const meta: Meta<StorySelectProps> = {
                 'hintPlacement',
                 'hintWidth',
                 'hintHasArrow',
+                'emptyStateDescription',
             ],
         },
     },

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import type { PopoverPlacement } from '../Popover/Popover';
 import { WithTheme } from '../../../_helpers';
 import { IconDone } from '../../../../components/_Icon';
 
@@ -171,6 +172,9 @@ const meta: Meta<StorySelectProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        emptyStateDescription: {
+            control: { type: 'text' },
+        },
     },
     args: {
         label: 'Label',
@@ -199,6 +203,7 @@ const meta: Meta<StorySelectProps> = {
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+        emptyStateDescription: '',
     },
     parameters: {
         controls: {
@@ -233,6 +238,7 @@ const meta: Meta<StorySelectProps> = {
                 'hintPlacement',
                 'hintWidth',
                 'hintHasArrow',
+                'emptyStateDescription',
             ],
         },
     },
@@ -454,7 +460,6 @@ const items = [
 
 const SingleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState('');
-
     return (
         <div style={{ width: '400px' }}>
             <Combobox
