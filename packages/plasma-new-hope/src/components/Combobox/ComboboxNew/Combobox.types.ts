@@ -226,6 +226,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Вид компонента.
      */
     view?: string;
+    /**
+     * Текст для состояния когда нет результата.
+     */
+    emptyStateDescription?: string;
 };
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &

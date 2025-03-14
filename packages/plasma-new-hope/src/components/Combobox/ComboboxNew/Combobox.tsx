@@ -75,6 +75,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             hintView,
             hintSize,
             onChangeValue,
+            emptyStateDescription,
             ...rest
         } = props;
 
@@ -493,7 +494,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                 <StyledEmptyState
                                                     className={classes.emptyStateWrapper}
                                                     size={size}
-                                                    description="Ничего не найдено"
+                                                    description={emptyStateDescription || 'Ничего не найдено'}
                                                 />
                                             ) : (
                                                 filteredItems.map((item, index) => (
