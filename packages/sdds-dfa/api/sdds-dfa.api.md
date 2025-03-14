@@ -67,6 +67,7 @@ import { CSSProperties } from 'react';
 import { CustomCounterProps } from '@salutejs/plasma-new-hope/types/components/Counter/Counter.types';
 import { CustomHeaderTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
+import type { CustomNumberFormatProps } from '@salutejs/plasma-new-hope';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
@@ -2686,6 +2687,11 @@ size?: string | undefined;
 export { noteClasses }
 
 export { noteTokens }
+
+// Warning: (ae-forgotten-export) The symbol "NumberFormatProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const NumberFormat: ForwardRefExoticComponent<NumberFormatProps>;
 
 // @public (undocumented)
 export const NumberInput: FunctionComponent<PropsType<    {
