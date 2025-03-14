@@ -80,6 +80,34 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${iconButtonTokens.iconButtonHeight}: 4rem;
+                ${iconButtonTokens.iconButtonWidth}: 4rem;
+                ${iconButtonTokens.iconButtonPadding}: 1.75rem;
+                ${iconButtonTokens.iconButtonRadius}: 1rem;
+                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
+                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
+            `,
+            xlr: css`
+                ${iconButtonTokens.iconButtonHeight}: 4rem;
+                ${iconButtonTokens.iconButtonWidth}: 4rem;
+                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
+                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
+            `,
             l: css`
                 ${iconButtonTokens.iconButtonHeight}: 3.5rem;
                 ${iconButtonTokens.iconButtonWidth}: 3.5rem;

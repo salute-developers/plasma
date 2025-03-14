@@ -1,14 +1,14 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconClose } from '@salutejs/plasma-icons';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { IconButton } from './IconButton';
+import { config } from './IconButton.config';
 
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
-const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
-const sizes = ['l', 'm', 's', 'xs'];
+const { views, sizes } = getConfigVariations(config);
 const pins = [
     'square-square',
     'square-clear',
@@ -61,6 +61,8 @@ export default meta;
 
 const getSizeForIcon = (size) => {
     const map = {
+        xl: 's',
+        xlr: 's',
         mr: 's',
         lr: 's',
         m: 's',

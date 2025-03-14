@@ -1,17 +1,17 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';
 
 import { ButtonGroup } from './ButtonGroup';
+import { config } from './ButtonGroup.config';
 
 type StoryProps = ComponentProps<typeof ButtonGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
-const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const { views, sizes } = getConfigVariations(config);
 const orientationValues = ['horizontal', 'vertical'];
 const gapValues = ['none', 'dense', 'wide'];
 const shapeValues = ['segmented', 'default'];
