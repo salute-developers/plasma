@@ -36,6 +36,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 view,
                 itemRole = 'treeitem',
                 className,
+                listMaxHeight,
                 listWidth,
                 listHeight,
                 listOverflow,
@@ -172,8 +173,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                 ref={targetRef}
                                 id={`${treeId}_tree_level_1`}
                                 role="tree"
-                                listHeight={listHeight}
                                 listOverflow={listOverflow}
+                                listMaxHeight={listMaxHeight || listHeight}
                                 listWidth={listWidth}
                             >
                                 {beforeList}
@@ -187,8 +188,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                         path={path}
                                         dispatchPath={dispatchPath}
                                         index={index}
-                                        listHeight={listHeight}
                                         listOverflow={listOverflow}
+                                        listMaxHeight={listMaxHeight || listHeight}
                                         listWidth={listWidth}
                                     />
                                 ))}

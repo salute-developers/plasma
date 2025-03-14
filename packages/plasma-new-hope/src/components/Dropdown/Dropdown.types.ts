@@ -55,6 +55,14 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      */
     offset?: [number, number];
     /**
+     * Значение css overflow для выпадающего меню.
+     */
+    listOverflow?: CSSProperties['overflow'];
+    /**
+     * Максимальная высота выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
+    /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
      */
@@ -112,14 +120,6 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      * @deprecated использовать onItemSelect.
      */
     onItemClick?: (item: T, event: SyntheticEvent) => void;
-    /**
-     * Значение css overflow для выпадающего меню.
-     * @default initial
-     * @deprecated
-     * @example listOverflow="scroll"
-     */
-    listOverflow?: CSSProperties['overflow'];
-    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      * @default initial

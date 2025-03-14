@@ -421,7 +421,7 @@ type Items = Array<{
         ```
     </TabItem>
     <TabItem value="virtual" label="Virtual">
-        Свойство `virtual` позволяет виртуализировать выпадающий список. Для настройки высоты списка можно использовать свойство `listHeight`.
+        Свойство `virtual` позволяет виртуализировать выпадающий список. Для настройки высоты списка можно использовать свойство `listMaxHeight`.
         Работает только в одноуровневых списках.
 
        ```tsx live
@@ -436,7 +436,7 @@ type Items = Array<{
                     <Select
                         items={items}
                         virtual
-                        listHeight="200px"
+                        listMaxHeight="200px"
                         placeholder="Placeholder"
                         label="Label"
                         helperText="Helper text"

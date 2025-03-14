@@ -923,19 +923,103 @@ describe('plasma-web: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
-    it('prop: listWidth, listHeight, listOverflow', () => {
+    it('prop: listWidth', () => {
         cy.viewport(500, 500);
 
+        mount(<Combobox listWidth="400px" items={items} label="Label" placeholder="Placeholder" alwaysOpened />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: listMaxHeight', () => {
+        cy.viewport(1000, 500);
+
         mount(
-            <Combobox
-                listWidth="400px"
-                listHeight="200px"
-                listOverflow="scroll"
-                items={items}
-                label="Label"
-                placeholder="Placeholder"
-                alwaysOpened
-            />,
+            <div
+                style={{
+                    display: 'grid',
+                    gap: '20px',
+                    gridTemplateColumns: 'repeat(2, 400px)',
+                }}
+            >
+                <Combobox listMaxHeight="400px" items={items} label="Label" placeholder="Placeholder" alwaysOpened />
+                <Combobox listMaxHeight="20rem" items={items} label="Label" placeholder="Placeholder" alwaysOpened />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: listMaxHeight with long list', () => {
+        cy.viewport(1000, 500);
+
+        const itemsHuge = Array(100)
+            .fill(1)
+            .map((_, i) => ({ value: i.toString(), label: i.toString() }));
+
+        mount(
+            <div
+                style={{
+                    display: 'grid',
+                    gap: '20px',
+                    gridTemplateColumns: 'repeat(2, 400px)',
+                }}
+            >
+                <Combobox
+                    listMaxHeight="400px"
+                    listOverflow="scroll"
+                    items={itemsHuge}
+                    label="Label"
+                    placeholder="Placeholder"
+                    alwaysOpened
+                />
+                <Combobox
+                    listMaxHeight="20rem"
+                    listOverflow="scroll"
+                    items={itemsHuge}
+                    label="Label"
+                    placeholder="Placeholder"
+                    alwaysOpened
+                />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: virtual', () => {
+        cy.viewport(1500, 600);
+
+        const itemsHuge = Array(100)
+            .fill(1)
+            .map((_, i) => ({ value: i.toString(), label: i.toString() }));
+
+        mount(
+            <div
+                style={{
+                    display: 'grid',
+                    gap: '20px',
+                    gridTemplateColumns: 'repeat(3, 400px)',
+                }}
+            >
+                <Combobox items={itemsHuge} label="Label" placeholder="Placeholder" alwaysOpened virtual />
+                <Combobox
+                    listMaxHeight="400px"
+                    items={itemsHuge}
+                    label="Label"
+                    placeholder="Placeholder"
+                    alwaysOpened
+                    virtual
+                />
+                <Combobox
+                    listMaxHeight="20rem"
+                    items={itemsHuge}
+                    label="Label"
+                    placeholder="Placeholder"
+                    alwaysOpened
+                    virtual
+                />
+            </div>,
         );
 
         cy.matchImageSnapshot();
