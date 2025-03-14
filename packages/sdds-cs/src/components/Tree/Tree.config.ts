@@ -15,11 +15,13 @@ export const config = {
                 ${tokens.color}: var(--text-primary);
                 ${tokens.colorSelected}: var(--text-primary);
                 ${tokens.itemBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.itemBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.itemBackgroundColorHover}: var(--surface-transparent-accent-hover);
                 ${tokens.itemBackgroundColorActive}: var(--surface-solid-primary-active);
                 ${tokens.checkboxBorderColor}: var(--text-accent);
                 ${tokens.checkboxBackgroundColor}: var(--text-accent);
-                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledOpacity}: 1;
+                ${tokens.itemDisabledBorderColor}: var(--text-secondary);
+                ${tokens.itemDisabledColor}: var(--text-secondary);
             `,
         },
         size: {
@@ -34,7 +36,7 @@ export const config = {
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0.5rem;
                 ${tokens.switcherMargin}: 0 0 0 0;
                 ${tokens.switcherSize}: 1.5rem;
-                ${tokens.checkboxMargin}: 0 0.25rem 0 0.375rem;
+                ${tokens.checkboxMargin}: 0 0 0 0.5rem;
                 ${tokens.checkboxSize}: 1.5rem;
                 ${tokens.checkboxInnerSize}: 1.25rem;
                 ${tokens.checkboxBorderRadius}: 0.375rem;
