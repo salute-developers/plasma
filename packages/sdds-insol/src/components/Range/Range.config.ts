@@ -8,9 +8,21 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.background}: var(--surface-transparent-card);
+                ${tokens.backgroundError}: var(--surface-transparent-card);
+                ${tokens.backgroundSuccess}: var(--surface-transparent-card);
+
+                ${tokens.borderColor}: var(--outline-clear);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-clear);
+
+                ${tokens.borderColorSuccess}: var(--outline-positive-minor);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-positive-minor-active);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-positive-minor-hover);
+
+                ${tokens.borderColorError}: var(--outline-negative-minor);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative-minor-active);
+                ${tokens.textFieldBorderColorErrorHover}: var(--outline-negative-minor-hover);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -25,11 +37,11 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-card-active);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-card-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -40,6 +52,7 @@ export const config = {
         size: {
             l: css`
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -69,6 +82,7 @@ export const config = {
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
                 ${tokens.textFieldHeight}: 3.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -93,6 +107,7 @@ export const config = {
             `,
             m: css`
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -122,6 +137,7 @@ export const config = {
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
 
                 ${tokens.textFieldHeight}: 3rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -146,6 +162,7 @@ export const config = {
             `,
             s: css`
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -175,6 +192,7 @@ export const config = {
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
                 ${tokens.textFieldHeight}: 2.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -199,6 +217,7 @@ export const config = {
             `,
             xs: css`
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -228,6 +247,7 @@ export const config = {
                 ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.6875rem auto auto;
 
                 ${tokens.textFieldHeight}: 2rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
