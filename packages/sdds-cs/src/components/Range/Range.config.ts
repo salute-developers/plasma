@@ -26,6 +26,7 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
+                ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldBorderColorError}: var(--outline-negative);
                 ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative);
