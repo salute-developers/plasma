@@ -80,6 +80,7 @@ export const datePickerRangeRoot = (
                 maskWithFormat,
                 min,
                 max,
+                renderFromDate,
                 includeEdgeDates = false,
                 eventList,
                 disabledList,
@@ -465,6 +466,7 @@ export const datePickerRangeRoot = (
                         disabledYearList={disabledYearList}
                         min={min}
                         max={max}
+                        renderFromDate={renderFromDate}
                         frame={frame}
                         usePortal={usePortal}
                         placement={placement}
