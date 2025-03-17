@@ -53,7 +53,7 @@ export const config = {
                 ${cellTokens.cellPaddingRightContent}: 0rem;
 
                 ${cellTokens.cellTextboxGap}: 0.125rem;
-                ${cellTokens.cellGap}: 0.375rem;
+                ${cellTokens.cellGap}: 0.5rem;
 
                 ${cellTokens.cellLabelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${cellTokens.cellLabelFontSize}: var(--plasma-typo-body-s-font-size);
@@ -117,7 +117,7 @@ export const config = {
                 ${cellTokens.cellPaddingRightContent}: 0rem;
 
                 ${cellTokens.cellTextboxGap}: 0.125rem;
-                ${cellTokens.cellGap}: 0.25rem;
+                ${cellTokens.cellGap}: 0.375rem;
 
                 ${cellTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${cellTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);
