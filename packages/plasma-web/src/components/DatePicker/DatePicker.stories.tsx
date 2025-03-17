@@ -46,6 +46,11 @@ const meta: Meta = {
                 type: 'date',
             },
         },
+        renderFromDate: {
+            control: {
+                type: 'date',
+            },
+        },
         lang: {
             options: ['ru', 'en'],
             control: {
@@ -141,6 +146,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         lang: 'ru',
         format: 'DD.MM.YYYY',
         defaultDate: new Date(2024, 5, 14),
+        renderFromDate: new Date(2024, 4, 14),
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
@@ -275,6 +281,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         dividerVariant: 'dash',
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        renderFromDate: new Date(2024, 4, 14),
         maskWithFormat: false,
         required: false,
         requiredPlacement: 'right',
