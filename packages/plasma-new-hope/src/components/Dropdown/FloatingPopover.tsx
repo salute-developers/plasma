@@ -5,6 +5,7 @@ import {
     FloatingPortal,
     offset as offsetMiddleware,
     autoPlacement,
+    autoUpdate,
 } from '@floating-ui/react';
 import React, { forwardRef, MouseEvent } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
@@ -14,6 +15,13 @@ import { FloatingPopoverProps } from './Dropdown.types';
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
     ({ target, children, opened, onToggle, placement, portal, offset = [0, 0], isInner, trigger, zIndex }, ref) => {
         const { refs, floatingStyles } = useFloating({
+            whileElementsMounted(referenceEl, floatingEl, update) {
+                return autoUpdate(referenceEl, floatingEl, update, {
+                    ancestorScroll: false,
+                    ancestorResize: false,
+                    layoutShift: false,
+                });
+            },
             placement: placement === 'auto' ? undefined : placement,
             open: opened,
             middleware: [

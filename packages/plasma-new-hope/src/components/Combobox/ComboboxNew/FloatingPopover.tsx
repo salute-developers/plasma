@@ -1,4 +1,12 @@
-import { flip, shift, size, useFloating, FloatingPortal, offset as offsetMiddleware } from '@floating-ui/react';
+import {
+    flip,
+    shift,
+    size,
+    useFloating,
+    FloatingPortal,
+    offset as offsetMiddleware,
+    autoUpdate,
+} from '@floating-ui/react';
 import React, { forwardRef } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
@@ -7,6 +15,13 @@ import type { FloatingPopoverProps } from './Combobox.types';
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
     ({ target, children, opened, onToggle, placement, portal, listWidth, offset = 0, zIndex }, ref) => {
         const { refs, floatingStyles } = useFloating({
+            whileElementsMounted(referenceEl, floatingEl, update) {
+                return autoUpdate(referenceEl, floatingEl, update, {
+                    ancestorScroll: false,
+                    ancestorResize: false,
+                    layoutShift: false,
+                });
+            },
             placement,
             open: opened,
             middleware: [
