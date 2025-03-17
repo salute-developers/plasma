@@ -138,6 +138,17 @@ describe('plasma-b2c: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: renderFromDate', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo renderFromDate={new Date(2023, 5, 14)} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
     it('prop: valueError, valueSuccess', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -516,6 +527,17 @@ describe('plasma-b2c: DatePickerRange', () => {
                     enableFirstTextfieldContentRight
                     enableSecondTextfieldContentRight
                 />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: renderFromDate', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo renderFromDate={new Date(2023, 5, 14)} />
             </CypressTestDecoratorWithTypo>,
         );
 
