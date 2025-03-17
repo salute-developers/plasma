@@ -79,6 +79,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             emptyStateDescription,
             onChangeValue,
             onScroll,
+            onToggle,
             ...rest
         } = props;
 
@@ -129,6 +130,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             dispatchPath({ type: 'reset' });
             dispatchFocusedPath({ type: 'reset' });
+
+            if (onToggle) {
+                onToggle(false);
+            }
 
             // Проверяем, отличается ли значение в инпуте от выбранного value после закрытия дропдауна.
             // Если изменилось, то возвращаем label выбранного айтема.
@@ -233,6 +238,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+            }
+
+            if (onToggle) {
+                onToggle(opened);
             }
         };
 
@@ -427,7 +436,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                         <FloatingPopover
                             ref={floatingPopoverRef}
                             opened={isCurrentListOpen}
-                            onToggle={(opened: boolean) => opened && handleListToggle(true)}
+                            onToggle={handleListToggle}
                             placement={placement}
                             portal={portal}
                             listWidth={listWidth}
