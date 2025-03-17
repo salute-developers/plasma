@@ -285,7 +285,8 @@ Select может выглядеть как Button и как Textfield. За э�
                 },
             ];
 
-            const renderTarget = (itemData) => {
+            const renderTarget = (itemData, opened) => {
+                console.log(opened);
                 if (Array.isArray(itemData)) {
                     if (itemData.length === 0) {
                         return (
