@@ -59,6 +59,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             listWidth,
             contentLeft,
             onScrollBottom,
+            onScroll,
             chipView,
             variant = 'normal',
             portal,
@@ -251,6 +252,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleScroll = (e: React.UIEvent<HTMLUListElement>) => {
+            if (onScroll) {
+                onScroll(e);
+            }
+
             if (!onScrollBottom) return;
 
             const { target } = e;
@@ -396,32 +401,34 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 aria-multiselectable={Boolean(props.multiselect)}
                                 listOverflow={listOverflow}
                                 listMaxHeight={listMaxHeight || listHeight}
-                                onScroll={handleScroll}
+                                onScroll={virtual ? undefined : handleScroll}
                                 listWidth={listWidth}
                                 ref={targetRef}
                                 virtual={virtual}
                             >
+                                {beforeList}
+
                                 {virtual ? (
-                                    <VirtualList items={transformedItems} listMaxHeight={listMaxHeight || listHeight} />
+                                    <VirtualList
+                                        items={transformedItems}
+                                        listMaxHeight={listMaxHeight || listHeight}
+                                        onScroll={onScroll}
+                                    />
                                 ) : (
-                                    <>
-                                        {beforeList}
-
-                                        {transformedItems.map((item, index) => (
-                                            <Inner
-                                                key={`${index}/0`}
-                                                item={item}
-                                                currentLevel={0}
-                                                path={path}
-                                                dispatchPath={dispatchPath}
-                                                index={index}
-                                                listWidth={listWidth}
-                                            />
-                                        ))}
-
-                                        {afterList}
-                                    </>
+                                    transformedItems.map((item, index) => (
+                                        <Inner
+                                            key={`${index}/0`}
+                                            item={item}
+                                            currentLevel={0}
+                                            path={path}
+                                            dispatchPath={dispatchPath}
+                                            index={index}
+                                            listWidth={listWidth}
+                                        />
+                                    ))
                                 )}
+
+                                {afterList}
                             </Ul>
                         </Root>
                     </FloatingPopover>

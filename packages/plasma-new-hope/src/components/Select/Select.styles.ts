@@ -24,7 +24,7 @@ export const Ul = styled.ul<{
     max-height: ${({ virtual, listMaxHeight }) =>
         // eslint-disable-next-line no-nested-ternary
         virtual ? 'auto' : listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto'};
-    overflow-y: ${({ listOverflow }) => listOverflow || 'visible'};
+    overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
 
     margin: ${({ isInnerUl }) =>
         isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};

@@ -26,7 +26,7 @@ export const Ul = styled.ul<{
     border-radius: var(${tokens.borderRadius});
     width: ${({ listWidth }) => listWidth || '100%'};
     max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
-    overflow-y: ${({ listOverflow }) => listOverflow || 'visible'};
+    overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
     margin: ${({ isInnerUl }) =>
         isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};
