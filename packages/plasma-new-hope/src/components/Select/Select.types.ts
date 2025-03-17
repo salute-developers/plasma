@@ -78,14 +78,14 @@ type IsMultiselect<K extends ItemOption> =
                 /**
                  * Callback для кастомной настройки значения в селекте.
                  */
-                renderTarget?: (value: K) => React.ReactNode;
+                renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
             }
           | {
                 multiselect: true;
                 value?: Array<string>;
                 onChange?: (value: string[], item: K | null) => void;
                 isTargetAmount?: true;
-                renderTarget?: (value: K[]) => React.ReactNode;
+                renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
             }
       ))
     | ({ name: string; onChange?: ChangeEventHandler } & (
@@ -94,14 +94,14 @@ type IsMultiselect<K extends ItemOption> =
                 defaultValue?: string;
                 value?: never;
                 isTargetAmount?: never | false;
-                renderTarget?: (value: K) => React.ReactNode;
+                renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
             }
           | {
                 multiselect: true;
                 defaultValue?: Array<string>;
                 value?: never;
                 isTargetAmount?: true;
-                renderTarget?: (value: K[]) => React.ReactNode;
+                renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
             }
       ));
 
@@ -305,7 +305,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
         /**
          * Callback для кастомной настройки таргета целиком.
          */
-        renderTarget?: (item: K | K[]) => React.ReactNode;
+        renderTarget?: (item: K | K[], opened?: boolean) => React.ReactNode;
         /**
          * Сторона открытия дропдауна относительно target элемента.
          * @default bottom
