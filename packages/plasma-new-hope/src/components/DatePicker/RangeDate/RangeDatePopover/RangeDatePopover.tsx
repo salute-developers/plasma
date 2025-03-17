@@ -17,6 +17,7 @@ export const RangeDatePopover = ({
     calendarValue,
     min,
     max,
+    renderFromDate,
     includeEdgeDates,
     eventList,
     disabledList,
@@ -74,6 +75,7 @@ export const RangeDatePopover = ({
                         disabledYearList={disabledYearList}
                         min={min}
                         max={max}
+                        renderFromDate={renderFromDate}
                         type={type}
                         locale={lang}
                         includeEdgeDates={includeEdgeDates}
@@ -112,6 +114,7 @@ export const RangeDatePopover = ({
                     disabledQuarterList={disabledQuarterList}
                     eventYearList={eventYearList}
                     disabledYearList={disabledYearList}
+                    renderFromDate={renderFromDate}
                     min={min}
                     max={max}
                     type={type}
