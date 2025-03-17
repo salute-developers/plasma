@@ -76,6 +76,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             name,
             defaultValue,
             virtual = false,
+            onToggle,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -140,6 +141,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
 
             dispatchPath({ type: 'reset' });
             dispatchFocusedPath({ type: 'reset' });
+
+            if (onToggle) {
+                onToggle(false);
+            }
         }, floatingPopoverRef);
 
         const onChange = (
@@ -175,6 +180,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+            }
+
+            if (onToggle) {
+                onToggle(opened);
             }
         };
 

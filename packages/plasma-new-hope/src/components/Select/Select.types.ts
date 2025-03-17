@@ -177,6 +177,10 @@ export interface BasicProps<K extends ItemOption> {
      * Коллбэк, срабатывающий при скролле.
      */
     onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    /**
+     * Событие сворачивания/разворачивания выпадающего списка.
+     */
+    onToggle?: (isOpen: boolean) => void;
 
     /**
      * Размер компонента.
@@ -370,6 +374,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * Коллбэк, срабатывающий при скролле.
          */
         onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+        /**
+         * Событие сворачивания/разворачивания выпадающего списка.
+         */
+        onToggle?: (isOpen: boolean) => void;
 
         /**
          * Размер компонента.

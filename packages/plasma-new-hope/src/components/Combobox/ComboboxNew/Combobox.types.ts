@@ -207,6 +207,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
     /**
+     * Событие сворачивания/разворачивания выпадающего списка.
+     */
+    onToggle?: (isOpen: boolean) => void;
+    /**
      * Ячейка для контента в начале выпадающего списка.
      */
     beforeList?: React.ReactNode;
