@@ -121,10 +121,6 @@ export interface BasicProps<K extends ItemOption> {
      */
     disabled?: boolean;
     /**
-     * Коллбэк для определения достижения скроллом конца списка.
-     */
-    onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
-    /**
      * Вариант: обычный или сжатый
      * @default normal
      */
@@ -177,6 +173,10 @@ export interface BasicProps<K extends ItemOption> {
      * @default false
      */
     virtual?: boolean;
+    /**
+     * Коллбэк, срабатывающий при скролле.
+     */
+    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
 
     /**
      * Размер компонента.
@@ -195,6 +195,11 @@ export interface BasicProps<K extends ItemOption> {
      * @deprecated
      */
     listHeight?: CSSProperties['height'];
+    /**
+     * Коллбэк для определения достижения скроллом конца списка.
+     * @deprecated
+     */
+    onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
 }
 
 // Тип нового селекта
@@ -309,10 +314,6 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
         placement?: SelectPlacement | Array<SelectPlacementBasic>;
 
         /**
-         * Коллбэк для определения достижения скроллом конца списка.
-         */
-        onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
-        /**
          * Вариант: обычный или сжатый
          * @default normal
          */
@@ -365,6 +366,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default false
          */
         virtual?: boolean;
+        /**
+         * Коллбэк, срабатывающий при скролле.
+         */
+        onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
 
         /**
          * Размер компонента.
@@ -395,6 +400,11 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @deprecated
          */
         listHeight?: CSSProperties['height'];
+        /**
+         * Коллбэк для определения достижения скроллом конца списка.
+         * @deprecated
+         */
+        onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
     } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
 
 export type { DropdownNode as DropdownNodeSelect };

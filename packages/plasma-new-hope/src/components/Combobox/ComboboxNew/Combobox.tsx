@@ -76,8 +76,9 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             virtual = false,
             hintView,
             hintSize,
-            onChangeValue,
             emptyStateDescription,
+            onChangeValue,
+            onScroll,
             ...rest
         } = props;
 
@@ -495,15 +496,18 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     ref={targetRef}
                                     virtual={virtual}
                                     listOverflow={listOverflow}
+                                    onScroll={virtual ? undefined : onScroll}
                                 >
+                                    {beforeList}
+
                                     {virtual ? (
                                         <VirtualList
                                             items={filteredItems}
                                             listMaxHeight={listMaxHeight || listHeight}
+                                            onScroll={onScroll}
                                         />
                                     ) : (
                                         <>
-                                            {beforeList}
                                             {isEmpty(filteredItems) ? (
                                                 <StyledEmptyState
                                                     className={classes.emptyStateWrapper}
@@ -523,9 +527,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                     />
                                                 ))
                                             )}
-                                            {afterList}
                                         </>
                                     )}
+
+                                    {afterList}
                                 </Ul>
                             </Root>
                         </FloatingPopover>

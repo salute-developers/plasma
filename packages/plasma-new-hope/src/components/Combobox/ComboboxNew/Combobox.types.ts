@@ -203,6 +203,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     onChangeValue?: (value: string) => void;
     /**
+     * Коллбэк, срабатывающий при скролле.
+     */
+    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    /**
      * Ячейка для контента в начале выпадающего списка.
      */
     beforeList?: React.ReactNode;

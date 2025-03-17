@@ -447,6 +447,67 @@ Select может выглядеть как Button и как Textfield. За э�
         }
         ```
     </TabItem>
+    <TabItem value="infinite" label="Infinite Loading">
+        Пример с бесконечной загрузкой элементов в списке.
+
+       ```tsx live
+        import React, { useState } from 'react';
+        import { Select } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            function getRandomData() {
+                return Array(10)
+                    .fill(1)
+                    .map(() => {
+                        const n = Math.floor(Math.random() * 90000000) + 10000000;
+                        return { value: n.toString(), label: n.toString() };
+                    });
+            };
+
+            const [items, setItems] = useState(getRandomData());
+            const [isInfiniteLoading, setIsInfiniteLoading] = useState(false);
+
+            const getData = async () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(getRandomData());
+                    }, 1500);
+                });
+            };
+
+            const handleScroll = async (e) => {
+                if (isInfiniteLoading) return;
+
+                if (e.target.scrollTop + e.target.offsetHeight + 10 > e.target.scrollHeight) {
+                    setIsInfiniteLoading(true);
+
+                    const res = await getData();
+
+                    setItems([...items, ...res]);
+
+                    setIsInfiniteLoading(false);
+                }
+            };
+
+            return (
+                <div style={{ height: "300px" }}>
+                    <div style={{ width: "300px" }}>
+                        <Select
+                            items={items}
+                            listMaxHeight="200px"
+                            listOverflow="scroll"
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                            onScroll={handleScroll}
+                            afterList={isInfiniteLoading ? <center>Загружаю...</center> : undefined}
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 
