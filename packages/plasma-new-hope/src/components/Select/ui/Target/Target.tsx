@@ -45,6 +45,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                         Array.isArray(value)
                             ? value.map((value) => valueToItemMap.get(value)!)
                             : valueToItemMap.get(value)!,
+                        opened,
                     )}
                 </div>
             );
