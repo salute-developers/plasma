@@ -281,7 +281,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 })}
             >
                 {(hasOuterLabel || titleCaption) && (
-                    <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
+                    <OuterLabelWrapper width={helperWidth} isInnerLabel={labelPlacement === 'inner'}>
                         {hasOuterLabel && (
                             <StyledIndicatorWrapper>
                                 <StyledLabel>{label}</StyledLabel>
