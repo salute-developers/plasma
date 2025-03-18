@@ -2,7 +2,7 @@ export { disableProps } from './disableProps';
 export { flattenPalette } from './flattenPalette';
 export { extractCanvasThemeColors, extractWebThemeColors } from './themeColors';
 export { getOpacityFromHex, getGroupedTokens } from './colorTokens';
-export { getGroupedCornerRadiusTokens } from './numberTokens';
+export { getGroupedCornerRadiusTokens, getGroupedSpacingTokens } from './numberTokens';
 export { getConfigVariations } from './getConfigVariations';
 export { upperFirstLetter } from './colorTokens';
 
