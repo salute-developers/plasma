@@ -1,4 +1,4 @@
-import type { HTMLAttributes, CSSProperties } from 'react';
+import type { HTMLAttributes } from 'react';
 
 type RowSelection = {
     selectedRowKeys?: Record<string, any>[];
@@ -20,8 +20,6 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     setData: (e: any) => void;
     columns: Column[];
     pagination?: boolean;
-    virtual?: boolean;
-    listHeight?: CSSProperties['height'];
     sticky?: boolean;
     editable?: boolean;
 

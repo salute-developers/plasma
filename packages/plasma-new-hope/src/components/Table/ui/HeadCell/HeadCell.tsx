@@ -3,25 +3,25 @@ import React, { useState, useEffect } from 'react';
 
 import { Th, StyledCheckbox } from '../../Table.styles';
 import {
-    IconArrowsMoveVertical,
-    IconDisclosureDownCentered,
-    IconDisclosureUpCentered,
+    // IconArrowsMoveVertical,
+    // IconDisclosureDownCentered,
+    // IconDisclosureUpCentered,
     IconFilterFunnel,
 } from '../../../_Icon';
 
 import { ControlButtons, StyledPopover, ThWrapper, FilterWrapper } from './HeadCell.styles';
 
-function Filter({ column }: { column: any }) {
-    const columnFilterValue = column.getFilterValue();
-
-    return (
-        <input
-            type="text"
-            value={(columnFilterValue ?? '') as string}
-            onChange={(value) => column.setFilterValue(value.target.value)}
-        />
-    );
-}
+// function Filter({ column }: { column: any }) {
+//     const columnFilterValue = column.getFilterValue();
+//
+//     return (
+//         <input
+//             type="text"
+//             value={(columnFilterValue ?? '') as string}
+//             onChange={(value) => column.setFilterValue(value.target.value)}
+//         />
+//     );
+// }
 
 const getIconSize = (size?: string) => {
     return size === 's' ? 'xs' : 's';
@@ -108,30 +108,32 @@ export const HeadCell: React.FC<any> = ({
                                                 );
                                             })}
 
-                                            <button onClick={handleFilterSubmit}>OK</button>
+                                            <button type="button" onClick={handleFilterSubmit}>
+                                                OK
+                                            </button>
                                         </FilterWrapper>
                                     </StyledPopover>
                                 </span>
                             )}
 
-                            <span
-                                style={{ lineHeight: 0, cursor: 'pointer' }}
-                                onClick={header.column.getToggleSortingHandler()}
-                            >
-                                {{
-                                    asc: <IconDisclosureUpCentered size={getIconSize(size)} />,
-                                    desc: <IconDisclosureDownCentered size={getIconSize(size)} />,
-                                }[header.column.getIsSorted() as string] ??
-                                    (header.column.getCanSort() ? (
-                                        <IconArrowsMoveVertical size={getIconSize(size)} />
-                                    ) : null)}
-                            </span>
+                            {/* <span */}
+                            {/*     style={{ lineHeight: 0, cursor: 'pointer' }} */}
+                            {/*     onClick={header.column.getToggleSortingHandler()} */}
+                            {/* > */}
+                            {/*     {{ */}
+                            {/*         asc: <IconDisclosureUpCentered size={getIconSize(size)} />, */}
+                            {/*         desc: <IconDisclosureDownCentered size={getIconSize(size)} />, */}
+                            {/*     }[header.column.getIsSorted() as string] ?? */}
+                            {/*         (header.column.getCanSort() ? ( */}
+                            {/*             <IconArrowsMoveVertical size={getIconSize(size)} /> */}
+                            {/*         ) : null)} */}
+                            {/* </span> */}
 
-                            {header.column.getCanFilter() ? (
-                                <div>
-                                    <Filter column={header.column} />
-                                </div>
-                            ) : null}
+                            {/* {header.column.getCanFilter() ? ( */}
+                            {/*     <div> */}
+                            {/*         <Filter column={header.column} /> */}
+                            {/*     </div> */}
+                            {/* ) : null} */}
                         </ControlButtons>
                     </ThWrapper>
                 </>
