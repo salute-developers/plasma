@@ -21,3 +21,9 @@ export const addGradient = css`
 
     animation: 0.3s ${gradientAnimation} forwards;
 `;
+
+export const removeGradient = css`
+    background: none;
+    -webkit-text-fill-color: inherit;
+    animation: none;
+`;
