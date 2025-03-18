@@ -26,10 +26,13 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
+                ${tokens.textFieldBorderColorHover}: var(--text-secondary);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
                 ${tokens.textFieldBorderColorError}: var(--surface-negative);
+                ${tokens.textFieldBorderColorErrorHover}: var(--surface-negative-hover);
                 ${tokens.textFieldBorderColorErrorFocus}: var(--surface-accent);
                 ${tokens.textFieldBorderColorSuccess}: var(--surface-positive);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--surface-positive-hover);
                 ${tokens.textFieldBorderColorSuccessFocus}: var(--surface-accent);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
