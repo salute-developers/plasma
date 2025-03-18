@@ -42,9 +42,15 @@ const meta: Meta = {
 
 export default meta;
 
-const themes: Record<string, GroupedTokens> = {
-    light: getGroupedTokens(plasma_web__light[0]),
-    dark: getGroupedTokens(plasma_web__dark[0]),
+const getThemes = (theme) => {
+    switch (theme) {
+        case 'b2b:light':
+        case 'b2c:light':
+        case 'light (legacy)':
+            return getGroupedTokens(plasma_web__light[0]);
+        default:
+            return getGroupedTokens(plasma_web__dark[0]);
+    }
 };
 
 const ColorTokenData: FC<ColorTokenDataProps> = ({
@@ -81,7 +87,7 @@ const ColorTokenData: FC<ColorTokenDataProps> = ({
 };
 
 const StoryDemoColor = ({ context }) => {
-    const groupedTokens = themes[context.globals.theme];
+    const groupedTokens = getThemes(context.globals.theme);
     const { showToast } = useToast();
     const { selectedSegmentItems } = useSegment();
     const toastData = {
