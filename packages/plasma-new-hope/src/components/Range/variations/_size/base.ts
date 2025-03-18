@@ -15,6 +15,11 @@ export const base = css`
     ${ContentWrapper} {
         width: inherit;
         border-radius: var(${tokens.borderRadius});
+
+        &:before {
+            border-radius: var(${tokens.borderRadius});
+            box-shadow: var(${tokens.shadow});
+        }
     }
 
     ${StyledDivider} {
