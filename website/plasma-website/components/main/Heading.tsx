@@ -5,7 +5,7 @@ import { ReactNode, useEffect, useRef, useState } from 'react';
 
 import { addGradient, multipleMediaQuery } from '../../mixins';
 
-interface HeadingProps {
+export interface HeadingProps {
     title?: string;
     titleContentRight?: ReactNode;
     contentTopRight?: ReactNode;
@@ -31,7 +31,6 @@ const TitleContentRightWrapper = styled.div<{ expanded?: boolean }>`
 `;
 
 const TitleWrapper = styled.a`
-    width: 100%;
     height: 5.75rem;
 
     cursor: pointer;
@@ -54,7 +53,10 @@ const TitleWrapper = styled.a`
 
     &:hover {
         text-decoration: none;
-        ${addGradient};
+
+        & ${Title} {
+            ${addGradient};
+        }
 
         & ${TitleContentRightWrapper} {
             color: ${accent};
@@ -63,12 +65,15 @@ const TitleWrapper = styled.a`
 `;
 
 const MainContent = styled.div`
+    width: 100%;
+
     display: flex;
     gap: 1rem;
 `;
 
 const TopRightContentWrapper = styled.div`
     height: min-content;
+    margin-left: auto;
 
     display: flex;
 `;
@@ -93,17 +98,7 @@ const ExpandableContent = styled.div<{ height: number; expanded?: boolean }>`
     max-height: ${({ expanded, height }) => (expanded ? `${height}px` : '0')};
 `;
 
-const HeadingWrapper = styled.div`
-    margin-bottom: 1.25rem;
-
-    ${multipleMediaQuery(['M'])(css`
-        margin-bottom: 1.125rem;
-    `)}
-
-    ${multipleMediaQuery(['S'])(css`
-        margin-bottom: 1rem;
-    `)}
-`;
+const HeadingWrapper = styled.div``;
 
 export const Heading = ({
     title,
@@ -132,10 +127,10 @@ export const Heading = ({
                     <TitleContentRightWrapper expanded={expanded}>{titleContentRight}</TitleContentRightWrapper>
                 </TitleWrapper>
 
-                <TopRightContentWrapper>{contentTopRight}</TopRightContentWrapper>
+                {contentTopRight && <TopRightContentWrapper>{contentTopRight}</TopRightContentWrapper>}
             </MainContent>
 
-            <BottomContentWrapper>{contentBottom}</BottomContentWrapper>
+            {contentBottom && <BottomContentWrapper>{contentBottom}</BottomContentWrapper>}
 
             {children && (
                 <ExpandableContent ref={contentRef} expanded={expanded} height={height}>

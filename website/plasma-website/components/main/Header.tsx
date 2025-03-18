@@ -25,6 +25,7 @@ const ContentRightWrapper = styled.div<{ expanded?: boolean }>`
 `;
 
 const HeaderWrapper = styled.button`
+    height: 1rem;
     color: ${whitePrimary};
     background-color: transparent;
     padding: 0;
