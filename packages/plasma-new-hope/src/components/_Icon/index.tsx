@@ -38,3 +38,6 @@ export { IconStarHalfFill36 } from './Icons/Icon.36/IconStarHalfFill';
 export { IconStarOutline36 } from './Icons/Icon.36/IconStarOutline';
 export { IconFolder } from './Icons/IconFolder';
 export { IconSaluteOutline16 } from './Icons/Icon.16/IconSaluteOutline';
+export { IconArrowsMoveVertical } from './Icons/IconArrowsMoveVertical';
+export { IconDisclosureUpCentered } from './Icons/IconDisclosureUpCentered';
+export { IconFilterFunnel } from './Icons/IconFilterFunnel';
