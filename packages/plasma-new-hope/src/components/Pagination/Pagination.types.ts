@@ -117,8 +117,12 @@ export type CustomPaginationProps = {
     /*
      * Функция которая исполняeтся при изменении
      */
+    onChange?: (page?: number, perpage?: number) => void;
     onChangePageValue?: (page?: number) => void;
     onChangePerPageValue?: (perpage?: number) => void;
 };
 
-export interface PaginationProps extends HTMLAttributes<HTMLDivElement>, AsProps, CustomPaginationProps {}
+export interface PaginationProps
+    extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>,
+        AsProps,
+        CustomPaginationProps {}
