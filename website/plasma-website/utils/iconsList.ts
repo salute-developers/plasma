@@ -115,3 +115,4 @@ const data = keys.reduce((acc, key) => {
 }, [] as IconGroups);
 
 export const iconsList = data;
+export const iconListGroupNames = keys;
