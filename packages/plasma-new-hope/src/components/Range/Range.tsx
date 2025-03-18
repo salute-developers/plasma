@@ -162,6 +162,8 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                             onFocus={onFocusFirstTextfield}
                             onBlur={onBlurFirstTextfield}
                             autoComplete={autoComplete}
+                            data-error={firstValueError}
+                            data-success={firstValueSuccess}
                         />
                         {Divider}
                         <StyledInput
