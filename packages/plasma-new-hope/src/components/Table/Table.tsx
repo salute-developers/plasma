@@ -5,9 +5,10 @@ import {
     useReactTable,
     ColumnDef,
     getSortedRowModel,
-    // getFilteredRowModel,
+    getFilteredRowModel,
     // getPaginationRowModel,
     OnChangeFn,
+    ColumnFiltersState,
 } from '@tanstack/react-table';
 
 import { RootProps } from '../../engines';
@@ -38,10 +39,11 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
             sorted: outerSorted,
         }) => {
             const [internalSelectedRowKeys, setInternalSelectedRowKeys] = useState<React.Key[]>([]);
-            const [innerFiltered, setInnerFiltered] = useState<Record<string, string[]>>({});
 
+            const [innerFiltered, setInnerFiltered] = useState<ColumnFiltersState>([]);
             const [innerSorted, setInnerSorted] = useState<SortingState>([]);
 
+            const filtered = outerFiltered || innerFiltered;
             const sorted: SortingState = outerSorted || innerSorted;
 
             const handleSorting: OnChangeFn<SortingState> = (updaterOrValue) => {
@@ -56,7 +58,19 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 }
             };
 
-            const filtered = outerFiltered || innerFiltered;
+            const handleFiltering: OnChangeFn<ColumnFiltersState> = (updaterOrValue) => {
+                if (!outerFiltered) {
+                    setInnerFiltered(
+                        typeof updaterOrValue === 'function' ? updaterOrValue(innerFiltered) : updaterOrValue,
+                    );
+                }
+
+                if (onChange) {
+                    onChange({
+                        filtered: typeof updaterOrValue === 'function' ? updaterOrValue(filtered) : updaterOrValue,
+                    });
+                }
+            };
 
             const selectedRowKeys = rowSelection?.selectedRowKeys || internalSelectedRowKeys;
 
@@ -89,8 +103,9 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             // label,
                             filters,
                             enableSorting = false,
-                            // enableColumnFilter = false,
+                            enableColumnFilter = false,
                             // enableResizing = false,
+                            filterFn,
                         }) => {
                             return {
                                 accessorKey: id,
@@ -125,7 +140,8 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 //     return getValue();
                                 // },
                                 enableSorting,
-                                // enableColumnFilter,
+                                enableColumnFilter,
+                                filterFn,
                                 // enableResizing,
                                 meta: {
                                     filters,
@@ -142,11 +158,14 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 getCoreRowModel: getCoreRowModel(),
                 getSortedRowModel: getSortedRowModel(),
                 manualSorting: Boolean(outerSorted),
+                manualFiltering: Boolean(outerFiltered),
                 state: {
+                    columnFilters: filtered,
                     sorting: sorted,
                 },
                 onSortingChange: handleSorting,
-                // getFilteredRowModel: getFilteredRowModel(),
+                getFilteredRowModel: getFilteredRowModel(),
+                onColumnFiltersChange: handleFiltering,
                 // getPaginationRowModel: pagination ? getPaginationRowModel() : undefined,
                 // columnResizeMode: 'onChange',
                 // columnResizeDirection: 'ltr',

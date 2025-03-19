@@ -118,6 +118,18 @@ export const HeadCell: React.FC<any> = ({
                             {/*     </span> */}
                             {/* )} */}
 
+                            {header.column.getCanFilter() && (
+                                <select
+                                    onChange={(e) => header.column.setFilterValue(e.target.value)}
+                                    value={header.columnFilterValue?.toString()}
+                                >
+                                    {/* See faceted column filters example for dynamic select options */}
+                                    <option value="">All</option>
+                                    <option value={30}>30</option>
+                                    <option value={40}>40</option>
+                                </select>
+                            )}
+
                             {header.column.getCanSort() && (
                                 <span
                                     style={{
