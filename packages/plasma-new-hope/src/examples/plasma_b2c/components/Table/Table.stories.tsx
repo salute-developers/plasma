@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
@@ -35,19 +35,19 @@ export default meta;
 
 const data = [
     {
-        key: 1,
+        id: 1,
         firstName: 'tanner',
         lastName: 'linsley',
-        age: 24,
-    },
-    {
-        key: 2,
-        firstName: 'tandy',
-        lastName: 'miller',
         age: 40,
     },
     {
-        key: 3,
+        id: 2,
+        firstName: 'tandy',
+        lastName: 'miller',
+        age: 24,
+    },
+    {
+        id: 3,
         firstName: 'joe',
         lastName: 'dirte',
         age: 45,
@@ -76,27 +76,27 @@ const columns = [
 ];
 
 const StoryDefault = (args: StoryTreeProps) => {
-    const [filtered, setFiltered] = React.useState({});
+    // const [filtered, setFiltered] = React.useState({});
+    const [sorted, setSorted] = useState([]);
 
-    console.log('filtered', filtered);
-
-    const handleChange = (filters) => {
-        setFiltered(filters);
+    const handleChange = ({ sorted }) => {
+        setSorted(sorted);
     };
 
     return (
-        <>
-            <button onClick={() => setFiltered({})}>clear filters</button>
+        <div style={{ display: 'flex', gap: '30px' }}>
+            <div>
+                <Table {...args} data={data} columns={columns} />
+            </div>
 
-            <Table
-                data={data}
-                columns={columns}
-                {...args}
-                rowSelection={{}}
-                filtered={filtered}
-                onChange={handleChange}
-            />
-        </>
+            <div>
+                <button type="button" onClick={() => setSorted([])}>
+                    clear sorting
+                </button>
+
+                <Table {...args} data={data} columns={columns} onChange={handleChange} sorted={sorted} />
+            </div>
+        </div>
     );
 };
 

@@ -17,8 +17,8 @@ type Column = {
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     data: any[];
-    setData: (e: any) => void;
     columns: Column[];
+    onChange?: (e: any) => void;
     pagination?: boolean;
     sticky?: boolean;
     editable?: boolean;
@@ -27,4 +27,8 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     variant?: 'no-border' | 'border-rows' | 'border-header' | 'border-all' | 'border-all-bg';
     rowSelection?: RowSelection;
     filtered?: Record<string, string[]>;
+    sorted?: {
+        id: string;
+        desc: boolean;
+    }[];
 }

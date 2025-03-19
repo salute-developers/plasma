@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 
 import { Th, StyledCheckbox } from '../../Table.styles';
 import {
-    // IconArrowsMoveVertical,
-    // IconDisclosureDownCentered,
-    // IconDisclosureUpCentered,
+    IconArrowsMoveVertical,
+    IconDisclosureDownCentered,
+    IconDisclosureUpCentered,
     IconFilterFunnel,
 } from '../../../_Icon';
 
@@ -36,40 +36,40 @@ export const HeadCell: React.FC<any> = ({
     outerFiltered,
     onChange,
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [localFiltered, setLocalFiltered] = useState(filtered[header.id] || []);
+    // const [isOpen, setIsOpen] = useState(false);
+    // const [localFiltered, setLocalFiltered] = useState(filtered[header.id] || []);
 
-    const { filters, onFilter } = header.column.columnDef.meta;
-
-    const handleFilterClick = (value) => {
-        if (localFiltered.some((k) => k === value)) {
-            setLocalFiltered(localFiltered.filter((e) => e !== value));
-        } else {
-            setLocalFiltered([...localFiltered, value]);
-        }
-    };
-
-    const handleFilterSubmit = () => {
-        if (onChange) {
-            onChange({
-                ...filtered,
-                [header.id]: localFiltered,
-            });
-        }
-
-        setInnerFiltered({
-            ...filtered,
-            [header.id]: localFiltered,
-        });
-
-        setIsOpen(false);
-    };
-
-    useEffect(() => {
-        if (outerFiltered) {
-            setLocalFiltered(outerFiltered[header.id] || []);
-        }
-    }, [outerFiltered]);
+    // const { filters, onFilter } = header.column.columnDef.meta;
+    //
+    // const handleFilterClick = (value) => {
+    //     if (localFiltered.some((k) => k === value)) {
+    //         setLocalFiltered(localFiltered.filter((e) => e !== value));
+    //     } else {
+    //         setLocalFiltered([...localFiltered, value]);
+    //     }
+    // };
+    //
+    // const handleFilterSubmit = () => {
+    //     if (onChange) {
+    //         onChange({
+    //             ...filtered,
+    //             [header.id]: localFiltered,
+    //         });
+    //     }
+    //
+    //     setInnerFiltered({
+    //         ...filtered,
+    //         [header.id]: localFiltered,
+    //     });
+    //
+    //     setIsOpen(false);
+    // };
+    //
+    // useEffect(() => {
+    //     if (outerFiltered) {
+    //         setLocalFiltered(outerFiltered[header.id] || []);
+    //     }
+    // }, [outerFiltered]);
 
     return (
         <Th key={header.id} colSpan={header.colSpan} style={{ width: header.getSize() }} variant={variant}>
@@ -79,55 +79,62 @@ export const HeadCell: React.FC<any> = ({
                         {flexRender(header.column.columnDef.header, header.getContext())}
 
                         <ControlButtons>
-                            {filters && (
+                            {/* {filters && ( */}
+                            {/*     <span */}
+                            {/*         style={{ */}
+                            {/*             lineHeight: 0, */}
+                            {/*             cursor: 'pointer', */}
+                            {/*         }} */}
+                            {/*     > */}
+                            {/*         <StyledPopover */}
+                            {/*             opened={isOpen} */}
+                            {/*             onToggle={(is) => setIsOpen(is)} */}
+                            {/*             placement="bottom" */}
+                            {/*             target={<IconFilterFunnel size={getIconSize(size)} />} */}
+                            {/*             closeOnOverlayClick */}
+                            {/*         > */}
+                            {/*             <FilterWrapper> */}
+                            {/*                 {filters?.map((filter) => { */}
+                            {/*                     return ( */}
+                            {/*                         <div */}
+                            {/* eslint-disable-next-line max-len */}
+                            {/*                             style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} */}
+                            {/*                         > */}
+                            {/*                             <StyledCheckbox */}
+                            {/*                                 onClick={() => handleFilterClick(filter.value)} */}
+                            {/* eslint-disable-next-line max-len */}
+                            {/*                                 checked={localFiltered.some((val) => filter.value === val)} */}
+                            {/*                                 label={filter.label} */}
+                            {/*                             /> */}
+                            {/*                         </div> */}
+                            {/*                     ); */}
+                            {/*                 })} */}
+
+                            {/*                 <button type="button" onClick={handleFilterSubmit}> */}
+                            {/*                     OK */}
+                            {/*                 </button> */}
+                            {/*             </FilterWrapper> */}
+                            {/*         </StyledPopover> */}
+                            {/*     </span> */}
+                            {/* )} */}
+
+                            {header.column.getCanSort() && (
                                 <span
                                     style={{
                                         lineHeight: 0,
                                         cursor: 'pointer',
+                                        userSelect: 'none',
                                     }}
+                                    onClick={header.column.getToggleSortingHandler()}
                                 >
-                                    <StyledPopover
-                                        opened={isOpen}
-                                        onToggle={(is) => setIsOpen(is)}
-                                        placement="bottom"
-                                        target={<IconFilterFunnel size={getIconSize(size)} />}
-                                        closeOnOverlayClick
-                                    >
-                                        <FilterWrapper>
-                                            {filters?.map((filter) => {
-                                                return (
-                                                    <div
-                                                        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                                                    >
-                                                        <StyledCheckbox
-                                                            onClick={() => handleFilterClick(filter.value)}
-                                                            checked={localFiltered.some((val) => filter.value === val)}
-                                                            label={filter.label}
-                                                        />
-                                                    </div>
-                                                );
-                                            })}
-
-                                            <button type="button" onClick={handleFilterSubmit}>
-                                                OK
-                                            </button>
-                                        </FilterWrapper>
-                                    </StyledPopover>
+                                    {{
+                                        asc: <IconDisclosureUpCentered size={getIconSize(size)} />,
+                                        desc: <IconDisclosureDownCentered size={getIconSize(size)} />,
+                                    }[header.column.getIsSorted() as string] ?? (
+                                        <IconArrowsMoveVertical size={getIconSize(size)} />
+                                    )}
                                 </span>
                             )}
-
-                            {/* <span */}
-                            {/*     style={{ lineHeight: 0, cursor: 'pointer' }} */}
-                            {/*     onClick={header.column.getToggleSortingHandler()} */}
-                            {/* > */}
-                            {/*     {{ */}
-                            {/*         asc: <IconDisclosureUpCentered size={getIconSize(size)} />, */}
-                            {/*         desc: <IconDisclosureDownCentered size={getIconSize(size)} />, */}
-                            {/*     }[header.column.getIsSorted() as string] ?? */}
-                            {/*         (header.column.getCanSort() ? ( */}
-                            {/*             <IconArrowsMoveVertical size={getIconSize(size)} /> */}
-                            {/*         ) : null)} */}
-                            {/* </span> */}
 
                             {/* {header.column.getCanFilter() ? ( */}
                             {/*     <div> */}

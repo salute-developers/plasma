@@ -4,9 +4,10 @@ import {
     getCoreRowModel,
     useReactTable,
     ColumnDef,
-    // getSortedRowModel,
+    getSortedRowModel,
     // getFilteredRowModel,
     // getPaginationRowModel,
+    OnChangeFn,
 } from '@tanstack/react-table';
 
 import { RootProps } from '../../engines';
@@ -14,6 +15,12 @@ import { RootProps } from '../../engines';
 import { HeadCell } from './ui';
 import { TableProps } from './Table.types';
 import { base, Table, Tr, Th, Td, Thead, StyledCheckbox } from './Table.styles';
+
+type ColumnSort = {
+    id: string;
+    desc: boolean;
+};
+type SortingState = ColumnSort[];
 
 export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
     forwardRef<HTMLDivElement, TableProps>(
@@ -28,9 +35,26 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
             variant,
             rowSelection,
             filtered: outerFiltered,
+            sorted: outerSorted,
         }) => {
             const [internalSelectedRowKeys, setInternalSelectedRowKeys] = useState<React.Key[]>([]);
             const [innerFiltered, setInnerFiltered] = useState<Record<string, string[]>>({});
+
+            const [innerSorted, setInnerSorted] = useState<SortingState>([]);
+
+            const sorted: SortingState = outerSorted || innerSorted;
+
+            const handleSorting: OnChangeFn<SortingState> = (updaterOrValue) => {
+                if (!outerSorted) {
+                    setInnerSorted(typeof updaterOrValue === 'function' ? updaterOrValue(innerSorted) : updaterOrValue);
+                }
+
+                if (onChange) {
+                    onChange({
+                        sorted: typeof updaterOrValue === 'function' ? updaterOrValue(sorted) : updaterOrValue,
+                    });
+                }
+            };
 
             const filtered = outerFiltered || innerFiltered;
 
@@ -64,7 +88,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             id,
                             // label,
                             filters,
-                            // enableSorting = false,
+                            enableSorting = false,
                             // enableColumnFilter = false,
                             // enableResizing = false,
                         }) => {
@@ -100,7 +124,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 //     }
                                 //     return getValue();
                                 // },
-                                // enableSorting,
+                                enableSorting,
                                 // enableColumnFilter,
                                 // enableResizing,
                                 meta: {
@@ -116,7 +140,12 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 data,
                 columns: columnsData,
                 getCoreRowModel: getCoreRowModel(),
-                // getSortedRowModel: getSortedRowModel(),
+                getSortedRowModel: getSortedRowModel(),
+                manualSorting: Boolean(outerSorted),
+                state: {
+                    sorting: sorted,
+                },
+                onSortingChange: handleSorting,
                 // getFilteredRowModel: getFilteredRowModel(),
                 // getPaginationRowModel: pagination ? getPaginationRowModel() : undefined,
                 // columnResizeMode: 'onChange',
