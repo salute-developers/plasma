@@ -79,7 +79,7 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     argTypes: { ...disableProps(['children']) },
     render: (args) => (
         <IconButton {...args}>
-            <IconClose color="inhert" size={getSizeForIcon(args.size)} />
+            <IconClose color="inherit" size={getSizeForIcon(args.size)} />
         </IconButton>
     ),
 };

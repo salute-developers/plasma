@@ -247,7 +247,7 @@ export const PaletteColorPage: React.FC<{
                                         <ColorItemWrapperOpacityText>rgb&nbsp;</ColorItemWrapperOpacityText>
                                         {`${rgb.red},${rgb.green},${rgb.blue}`}
                                     </ColorItemWrapperText>
-                                    <ColorItemWrapperIconCopy className="copyIcon" color="inhert" size="m" />
+                                    <ColorItemWrapperIconCopy className="copyIcon" color="inherit" size="m" />
                                 </ColorIndex>
                                 <ColorIndex
                                     direction={direction}
@@ -258,7 +258,7 @@ export const PaletteColorPage: React.FC<{
                                         <ColorItemWrapperOpacityText>#</ColorItemWrapperOpacityText>
                                         {selectedColor.slice(1)}
                                     </ColorItemWrapperText>
-                                    <ColorItemWrapperIconCopy className="copyIcon" color="inhert" size="m" />
+                                    <ColorItemWrapperIconCopy className="copyIcon" color="inherit" size="m" />
                                 </ColorIndex>
                             </ColorItemText>
                         )}
