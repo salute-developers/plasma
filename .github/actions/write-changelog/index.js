@@ -8,7 +8,6 @@ import * as core from '@actions/core';
 import { writeChangelog } from './utils.js';
 import { processingHeadingByPackages } from './processingHeadingByPackages.js';
 import { rewriteHeadingValue } from './rewriteHeadingValue.js';
-import { groupByHeadings } from './groupHeadingsByDeep.js';
 
 import * as META from '../../meta-prod.js';
 
@@ -53,14 +52,13 @@ async function run() {
         // INFO: В коллекции будут или все пакеты так как были изменения в core,
         // INFO: или только те библиотеки в которых были изменения
         for (const pkg of Array.from(headings)) {
-            const blackList = [...packages.filter((item) => pkg !== item), 'tokens', 'bugs'];
+            const blackList = [...packages.filter((item) => pkg !== item), 'bugs'];
 
             const isPlasmaIcons = pkg === 'plasma-icons';
 
             const changelogMD = unified()
                 .use(remarkParse)
                 .use(() => processingHeadingByPackages(isPlasmaIcons ? [...blackList, 'core'] : blackList))
-                .use(() => groupByHeadings)
                 .use(() => rewriteHeadingValue(pkg))
                 .use(remarkStringify)
                 .processSync(rawData);
