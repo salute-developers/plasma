@@ -2718,6 +2718,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
+xl: PolymorphicClassName;
 l: PolymorphicClassName;
 m: PolymorphicClassName;
 s: PolymorphicClassName;
