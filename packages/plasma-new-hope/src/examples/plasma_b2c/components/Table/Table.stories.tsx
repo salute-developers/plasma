@@ -59,9 +59,10 @@ const columns = [
         id: 'firstName',
         label: 'First Name',
         filters: [
-            { value: 'joe', label: 'Joe' },
-            { value: 'tandy', label: 'Tandy' },
+            { value: 'an', label: 'an' },
+            { value: 'oe', label: 'oe' },
         ],
+        filterFn: (filterValue, cellValue) => cellValue.includes(filterValue),
     },
     {
         id: 'lastName',
@@ -72,8 +73,6 @@ const columns = [
         id: 'age',
         label: 'Age',
         enableSorting: true,
-        enableColumnFilter: true,
-        filterFn: 'equalsString',
     },
 ];
 
@@ -81,7 +80,7 @@ const StoryDefault = (args: StoryTreeProps) => {
     const [filtered, setFiltered] = React.useState([]);
     const [sorted, setSorted] = useState([]);
 
-    console.log(filtered, sorted);
+    // console.log(filtered, sorted);
 
     const handleChange = ({ sorted, filtered }) => {
         setSorted(sorted);

@@ -8,12 +8,10 @@ type RowSelection = {
 type Column = {
     id: string;
     label: string;
-    enableSorting: boolean;
-    enableColumnFilter: boolean;
+    enableSorting?: boolean;
 
-    filters: { value: string; label: string }[];
-    onFilter: () => any;
-    filterFn: any;
+    filters?: { value: string; label: string }[];
+    filterFn?: (filteredValue: string, cellValue: any) => boolean;
 };
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {

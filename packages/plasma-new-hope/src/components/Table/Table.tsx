@@ -53,6 +53,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
                 if (onChange) {
                     onChange({
+                        filtered,
                         sorted: typeof updaterOrValue === 'function' ? updaterOrValue(sorted) : updaterOrValue,
                     });
                 }
@@ -68,6 +69,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 if (onChange) {
                     onChange({
                         filtered: typeof updaterOrValue === 'function' ? updaterOrValue(filtered) : updaterOrValue,
+                        sorted,
                     });
                 }
             };
@@ -103,9 +105,8 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             // label,
                             filters,
                             enableSorting = false,
-                            enableColumnFilter = false,
                             // enableResizing = false,
-                            filterFn,
+                            filterFn: outerFilterFn,
                         }) => {
                             return {
                                 accessorKey: id,
@@ -140,8 +141,25 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 //     return getValue();
                                 // },
                                 enableSorting,
-                                enableColumnFilter,
-                                filterFn,
+                                filterFn: (row, columnId, filterArr) => {
+                                    if (outerFilterFn && filterArr && Array.isArray(filterArr)) {
+                                        if (filterArr.length === 0) {
+                                            return true;
+                                        }
+
+                                        for (let i = 0; i < filterArr.length; i++) {
+                                            const filterValue = filterArr[i];
+
+                                            if (outerFilterFn(filterValue, row.getValue(columnId))) {
+                                                return true;
+                                            }
+                                        }
+
+                                        return false;
+                                    }
+
+                                    return true;
+                                },
                                 // enableResizing,
                                 meta: {
                                     filters,
@@ -224,17 +242,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                     </Th>
 
                                     {headerGroup.headers.map((header) => {
-                                        return (
-                                            <HeadCell
-                                                header={header}
-                                                size={size}
-                                                variant={variant}
-                                                filtered={filtered}
-                                                setInnerFiltered={setInnerFiltered}
-                                                outerFiltered={outerFiltered}
-                                                onChange={onChange}
-                                            />
-                                        );
+                                        return <HeadCell header={header} size={size} variant={variant} />;
                                     })}
                                 </Tr>
                             ))}
