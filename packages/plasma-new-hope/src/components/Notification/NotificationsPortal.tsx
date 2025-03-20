@@ -37,6 +37,8 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({
         [],
     );
 
+    const hasLeftAnimationClass = ['left', 'bottom-left', 'top-left'].includes(placement);
+
     return (
         <PopupProvider UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}>
             {notifications.length > 0 && (
@@ -47,7 +49,9 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({
                                 key={id}
                                 className={cx(
                                     isHidden ? classes.notificationItemHidden : classes.notificationItemOpened,
-                                    placement === 'bottom-left' && classes.notificationLeftToRightAnimation,
+                                    hasLeftAnimationClass && classes.notificationLeftToRightAnimation,
+                                    placement === 'top' && classes.notificationTopToCenterAnimation,
+                                    placement === 'bottom' && classes.notificationBottomToCenterAnimation,
                                 )}
                                 isHidden={isHidden || false}
                             >

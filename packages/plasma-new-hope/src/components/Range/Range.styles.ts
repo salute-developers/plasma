@@ -56,6 +56,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.textAfterMargin}: var(${tokens.textFieldTextAfterMargin});
 
     &.${classes.rangeValueError} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorError}, var(${tokens.textFieldColor}));
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
@@ -66,6 +67,7 @@ export const StyledInput = styled(TextField)`
     }
 
     &.${classes.rangeValueSuccess} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorSuccess}, var(${tokens.textFieldColor}));
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundSuccessColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundSuccessColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundSuccessColorFocus});
@@ -99,6 +101,13 @@ export const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
 `;
 
 export const StyledDivider = styled.div``;

@@ -114,6 +114,8 @@ export type CustomTextFieldProps = TextFieldProps &
         | 'optional'
         | 'chipView'
         | 'chipValidator'
+        | 'textBefore'
+        | 'textAfter'
     >;
 
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {

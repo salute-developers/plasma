@@ -45,6 +45,9 @@ import { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components
 import { CalendarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CalendarRange } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarStateType } from '@salutejs/plasma-new-hope/styled-components';
+import { CardContent } from '@salutejs/plasma-new-hope/styled-components';
+import { CardInnerContent } from '@salutejs/plasma-new-hope/styled-components';
+import { CardProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
@@ -71,6 +74,7 @@ import { CSSProperties } from 'react';
 import { CustomCounterProps } from '@salutejs/plasma-new-hope/types/components/Counter/Counter.types';
 import { CustomHeaderTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
 import { CustomHorizontalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
+import type { CustomNumberFormatProps } from '@salutejs/plasma-new-hope';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
@@ -1267,6 +1271,30 @@ export { CalendarProps }
 export { CalendarStateType }
 
 // @public
+export const Card: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
+}> & {
+size?: string | undefined;
+view?: string | undefined;
+orientation?: "horizontal" | "vertical" | undefined;
+selected?: boolean | undefined;
+backgroundType?: "none" | "solid" | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { CardContent }
+
+export { CardInnerContent }
+
+export { CardProps }
+
+// @public
 export const Cell: FunctionComponent<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -1465,6 +1493,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 value?: string | Date | undefined;
 defaultDate?: Date | undefined;
 placeholder?: string | undefined;
@@ -1514,6 +1543,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 value?: [Date | null | undefined, Date | null | undefined] | undefined;
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
@@ -1540,6 +1570,7 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
 requiredPlacement?: "right" | "left" | undefined;
+hasRequiredIndicator?: boolean | undefined;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
 firstValueSuccess?: boolean | undefined;
@@ -1667,8 +1698,11 @@ default: PolymorphicClassName;
     onHover?: ((index: number) => void) | undefined;
     onItemSelect?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
     trigger?: DropdownTrigger | undefined;
+    openByRightClick?: boolean | undefined;
     placement?: DropdownPlacement | undefined;
     offset?: [number, number] | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listMaxHeight?: Property.Height<string | number> | undefined;
     listWidth?: Property.Width<string | number> | undefined;
     hasArrow?: boolean | undefined;
     closeOnSelect?: boolean | undefined;
@@ -1683,7 +1717,6 @@ default: PolymorphicClassName;
     beforeList?: React_2.ReactNode;
     afterList?: React_2.ReactNode;
     onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
-    listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     hoverIndex?: number | undefined;
 } & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "size" | "view"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
@@ -2028,6 +2061,34 @@ focused: {
 true: PolymorphicClassName;
 };
 }> & AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps & RefAttributes<HTMLAnchorElement>>;
+
+// @public (undocumented)
+export const LinkButton: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & AnchorHTMLAttributes<HTMLAnchorElement> & {
+text?: string | undefined;
+contentRight?: ReactNode;
+contentLeft?: ReactNode;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+disabled?: boolean | undefined;
+view?: string | undefined;
+size?: string | undefined;
+} & RefAttributes<HTMLAnchorElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "LinkComponent" needs to be exported by the entry point index.d.ts
 //
@@ -2738,6 +2799,11 @@ export const NotificationsProvider: React_2.FC<{
     UNSAFE_SSR_ENABLED?: boolean;
 }>;
 
+// Warning: (ae-forgotten-export) The symbol "NumberFormatProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const NumberFormat: ForwardRefExoticComponent<NumberFormatProps>;
+
 // @public (undocumented)
 export const NumberInput: FunctionComponent<PropsType<    {
 view: {
@@ -2985,6 +3051,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3024,6 +3091,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3063,6 +3131,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3490,6 +3559,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3533,6 +3603,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3576,6 +3647,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3619,6 +3691,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -3662,6 +3735,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -3705,6 +3779,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -3748,6 +3823,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -3791,6 +3867,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;

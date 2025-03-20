@@ -102,8 +102,10 @@ import { GridProps as ContainerProps } from '@salutejs/plasma-new-hope/styled-co
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CSSProperties } from 'react';
 import { CustomComboboxProps } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxOld/Combobox.types';
 import { CustomCounterProps } from '@salutejs/plasma-new-hope/types/components/Counter/Counter.types';
+import type { CustomNumberFormatProps } from '@salutejs/plasma-new-hope';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { CustomVerticalTabsProps } from '@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types';
@@ -420,6 +422,14 @@ export { applyHyphens }
 export { applyMaxLines }
 
 export { applyNoSelect }
+
+// @public (undocumented)
+export const applyPaper: ({ backgroundColor, shadow, borderRadius, styles }: {
+    backgroundColor?: ("text" | "accent" | "primary" | "secondary" | "tertiary" | "paragraph" | "warning" | "overlay" | "success" | "critical" | "textPrimaryHover" | "textPrimaryActive" | "textPrimary" | "textPrimaryBrightness" | "textSecondaryHover" | "textSecondaryActive" | "textSecondary" | "textTertiaryHover" | "textTertiaryActive" | "textTertiary" | "textParagraphHover" | "textParagraphActive" | "textParagraph" | "textAccentHover" | "textAccentActive" | "textAccentMinorHover" | "textAccentMinorActive" | "textPositiveHover" | "textPositiveActive" | "textWarningHover" | "textWarningActive" | "textNegativeHover" | "textNegativeActive" | "textInfoHover" | "textInfoActive" | "textPositiveMinorHover" | "textPositiveMinorActive" | "textWarningMinorHover" | "textWarningMinorActive" | "textNegativeMinorHover" | "textNegativeMinorActive" | "textInfoMinorHover" | "textInfoMinorActive" | "textAccent" | "textAccentMinor" | "textPositive" | "textWarning" | "textNegative" | "textPositiveMinor" | "textWarningMinor" | "textNegativeMinor" | "textInfo" | "textInfoMinor" | "onDarkTextPrimaryHover" | "onDarkTextPrimaryActive" | "onDarkTextPrimary" | "onDarkTextPrimaryBrightness" | "onDarkTextSecondaryHover" | "onDarkTextSecondaryActive" | "onDarkTextSecondary" | "onDarkTextTertiaryHover" | "onDarkTextTertiaryActive" | "onDarkTextTertiary" | "onDarkTextParagraphHover" | "onDarkTextParagraphActive" | "onDarkTextParagraph" | "onDarkTextAccentHover" | "onDarkTextAccentActive" | "onDarkTextAccent" | "onDarkTextAccentMinorHover" | "onDarkTextAccentMinorActive" | "onDarkTextPositiveHover" | "onDarkTextPositiveActive" | "onDarkTextWarningHover" | "onDarkTextWarningActive" | "onDarkTextNegativeHover" | "onDarkTextNegativeActive" | "onDarkTextInfoHover" | "onDarkTextInfoActive" | "onDarkTextPositiveMinorHover" | "onDarkTextPositiveMinorActive" | "onDarkTextWarningMinorHover" | "onDarkTextWarningMinorActive" | "onDarkTextNegativeMinorHover" | "onDarkTextNegativeMinorActive" | "onDarkTextInfoMinorHover" | "onDarkTextInfoMinorActive" | "onDarkTextAccentMinor" | "onDarkTextPositive" | "onDarkTextWarning" | "onDarkTextNegative" | "onDarkTextPositiveMinor" | "onDarkTextWarningMinor" | "onDarkTextNegativeMinor" | "onDarkTextInfo" | "onDarkTextInfoMinor" | "onLightTextPrimaryHover" | "onLightTextPrimaryActive" | "onLightTextPrimary" | "onLightTextPrimaryBrightness" | "onLightTextSecondaryHover" | "onLightTextSecondaryActive" | "onLightTextSecondary" | "onLightTextTertiaryHover" | "onLightTextTertiaryActive" | "onLightTextTertiary" | "onLightTextParagraphHover" | "onLightTextParagraphActive" | "onLightTextParagraph" | "onLightTextAccentHover" | "onLightTextAccentActive" | "onLightTextAccent" | "onLightTextAccentMinorHover" | "onLightTextAccentMinorActive" | "onLightTextPositiveHover" | "onLightTextPositiveActive" | "onLightTextWarningHover" | "onLightTextWarningActive" | "onLightTextNegativeHover" | "onLightTextNegativeActive" | "onLightTextInfoHover" | "onLightTextInfoActive" | "onLightTextPositiveMinorHover" | "onLightTextPositiveMinorActive" | "onLightTextWarningMinorHover" | "onLightTextWarningMinorActive" | "onLightTextNegativeMinorHover" | "onLightTextNegativeMinorActive" | "onLightTextInfoMinorHover" | "onLightTextInfoMinorActive" | "onLightTextAccentMinor" | "onLightTextPositive" | "onLightTextWarning" | "onLightTextNegative" | "onLightTextPositiveMinor" | "onLightTextWarningMinor" | "onLightTextNegativeMinor" | "onLightTextInfo" | "onLightTextInfoMinor" | "inverseTextPrimaryHover" | "inverseTextPrimaryActive" | "inverseTextPrimary" | "inverseTextPrimaryBrightness" | "inverseTextSecondaryHover" | "inverseTextSecondaryActive" | "inverseTextSecondary" | "inverseTextTertiaryHover" | "inverseTextTertiaryActive" | "inverseTextTertiary" | "inverseTextParagraphHover" | "inverseTextParagraphActive" | "inverseTextParagraph" | "inverseTextAccentHover" | "inverseTextAccentActive" | "inverseTextAccentMinorHover" | "inverseTextAccentMinorActive" | "inverseTextPositiveHover" | "inverseTextPositiveActive" | "inverseTextWarningHover" | "inverseTextWarningActive" | "inverseTextNegativeHover" | "inverseTextNegativeActive" | "inverseTextInfoHover" | "inverseTextInfoActive" | "inverseTextPositiveMinorHover" | "inverseTextPositiveMinorActive" | "inverseTextWarningMinorHover" | "inverseTextWarningMinorActive" | "inverseTextNegativeMinorHover" | "inverseTextNegativeMinorActive" | "inverseTextInfoMinorHover" | "inverseTextInfoMinorActive" | "inverseTextAccent" | "inverseTextAccentMinor" | "inverseTextPositive" | "inverseTextWarning" | "inverseTextNegative" | "inverseTextInfo" | "inverseTextPositiveMinor" | "inverseTextWarningMinor" | "inverseTextNegativeMinor" | "inverseTextInfoMinor" | "surfaceSolidPrimaryHover" | "surfaceSolidPrimaryActive" | "surfaceSolidPrimary" | "surfaceSolidPrimaryBrightness" | "surfaceSolidSecondaryHover" | "surfaceSolidSecondaryActive" | "surfaceSolidSecondary" | "surfaceSolidTertiaryHover" | "surfaceSolidTertiaryActive" | "surfaceSolidTertiary" | "surfaceSolidCardHover" | "surfaceSolidCardActive" | "surfaceSolidCard" | "surfaceSolidCardBrightness" | "surfaceSolidDefaultHover" | "surfaceSolidDefaultActive" | "surfaceSolidDefault" | "surfaceTransparentPrimaryHover" | "surfaceTransparentPrimaryActive" | "surfaceTransparentPrimary" | "surfaceTransparentSecondaryHover" | "surfaceTransparentSecondaryActive" | "surfaceTransparentSecondary" | "surfaceTransparentTertiaryHover" | "surfaceTransparentTertiaryActive" | "surfaceTransparentTertiary" | "surfaceTransparentDeepHover" | "surfaceTransparentDeepActive" | "surfaceTransparentDeep" | "surfaceTransparentCardHover" | "surfaceTransparentCardActive" | "surfaceTransparentCard" | "surfaceTransparentCardBrightness" | "surfaceClearHover" | "surfaceClearActive" | "surfaceClear" | "surfaceAccentHover" | "surfaceAccentActive" | "surfaceAccent" | "surfaceAccentMinorHover" | "surfaceAccentMinorActive" | "surfaceTransparentAccentHover" | "surfaceTransparentAccentActive" | "surfacePositiveHover" | "surfacePositiveActive" | "surfacePositive" | "surfaceWarningHover" | "surfaceWarningActive" | "surfaceWarning" | "surfaceNegativeHover" | "surfaceNegativeActive" | "surfaceNegative" | "surfaceInfoHover" | "surfaceInfoActive" | "surfacePositiveMinorHover" | "surfacePositiveMinorActive" | "surfaceWarningMinorHover" | "surfaceWarningMinorActive" | "surfaceNegativeMinorHover" | "surfaceNegativeMinorActive" | "surfaceInfoMinorHover" | "surfaceInfoMinorActive" | "surfaceTransparentPositiveHover" | "surfaceTransparentPositiveActive" | "surfaceTransparentWarningHover" | "surfaceTransparentWarningActive" | "surfaceTransparentNegativeHover" | "surfaceTransparentNegativeActive" | "surfaceTransparentInfoHover" | "surfaceTransparentInfoActive" | "surfaceAccentMinor" | "surfacePositiveMinor" | "surfaceWarningMinor" | "surfaceNegativeMinor" | "surfaceTransparentPositive" | "surfaceTransparentWarning" | "surfaceTransparentNegative" | "surfaceInfo" | "surfaceInfoMinor" | "surfaceTransparentAccent" | "surfaceTransparentInfo" | "onDarkSurfaceSolidPrimaryHover" | "onDarkSurfaceSolidPrimaryActive" | "onDarkSurfaceSolidPrimary" | "onDarkSurfaceSolidPrimaryBrightness" | "onDarkSurfaceSolidSecondaryHover" | "onDarkSurfaceSolidSecondaryActive" | "onDarkSurfaceSolidSecondary" | "onDarkSurfaceSolidTertiaryHover" | "onDarkSurfaceSolidTertiaryActive" | "onDarkSurfaceSolidTertiary" | "onDarkSurfaceSolidCardHover" | "onDarkSurfaceSolidCardActive" | "onDarkSurfaceSolidCard" | "onDarkSurfaceSolidCardBrightness" | "onDarkSurfaceSolidDefaultHover" | "onDarkSurfaceSolidDefaultActive" | "onDarkSurfaceSolidDefault" | "onDarkSurfaceTransparentPrimaryHover" | "onDarkSurfaceTransparentPrimaryActive" | "onDarkSurfaceTransparentPrimary" | "onDarkSurfaceTransparentSecondaryHover" | "onDarkSurfaceTransparentSecondaryActive" | "onDarkSurfaceTransparentSecondary" | "onDarkSurfaceTransparentTertiaryHover" | "onDarkSurfaceTransparentTertiaryActive" | "onDarkSurfaceTransparentTertiary" | "onDarkSurfaceTransparentDeepHover" | "onDarkSurfaceTransparentDeepActive" | "onDarkSurfaceTransparentDeep" | "onDarkSurfaceTransparentCardHover" | "onDarkSurfaceTransparentCardActive" | "onDarkSurfaceTransparentCard" | "onDarkSurfaceTransparentCardBrightness" | "onDarkSurfaceAccentHover" | "onDarkSurfaceAccentActive" | "onDarkSurfaceAccent" | "onDarkSurfaceAccentMinorHover" | "onDarkSurfaceAccentMinorActive" | "onDarkSurfaceTransparentAccentHover" | "onDarkSurfaceTransparentAccentActive" | "onDarkSurfacePositiveHover" | "onDarkSurfacePositiveActive" | "onDarkSurfacePositive" | "onDarkSurfaceWarningHover" | "onDarkSurfaceWarningActive" | "onDarkSurfaceWarning" | "onDarkSurfaceNegativeHover" | "onDarkSurfaceNegativeActive" | "onDarkSurfaceNegative" | "onDarkSurfaceInfoHover" | "onDarkSurfaceInfoActive" | "onDarkSurfacePositiveMinorHover" | "onDarkSurfacePositiveMinorActive" | "onDarkSurfaceWarningMinorHover" | "onDarkSurfaceWarningMinorActive" | "onDarkSurfaceNegativeMinorHover" | "onDarkSurfaceNegativeMinorActive" | "onDarkSurfaceInfoMinorHover" | "onDarkSurfaceInfoMinorActive" | "onDarkSurfaceTransparentPositiveHover" | "onDarkSurfaceTransparentPositiveActive" | "onDarkSurfaceTransparentWarningHover" | "onDarkSurfaceTransparentWarningActive" | "onDarkSurfaceTransparentNegativeHover" | "onDarkSurfaceTransparentNegativeActive" | "onDarkSurfaceTransparentInfoHover" | "onDarkSurfaceTransparentInfoActive" | "onDarkSurfaceAccentMinor" | "onDarkSurfaceTransparentAccent" | "onDarkSurfacePositiveMinor" | "onDarkSurfaceWarningMinor" | "onDarkSurfaceNegativeMinor" | "onDarkSurfaceTransparentPositive" | "onDarkSurfaceTransparentWarning" | "onDarkSurfaceTransparentNegative" | "onDarkSurfaceInfo" | "onDarkSurfaceInfoMinor" | "onDarkSurfaceTransparentInfo" | "onLightSurfaceSolidPrimaryHover" | "onLightSurfaceSolidPrimaryActive" | "onLightSurfaceSolidPrimary" | "onLightSurfaceSolidPrimaryBrightness" | "onLightSurfaceSolidSecondaryHover" | "onLightSurfaceSolidSecondaryActive" | "onLightSurfaceSolidSecondary" | "onLightSurfaceSolidTertiaryHover" | "onLightSurfaceSolidTertiaryActive" | "onLightSurfaceSolidTertiary" | "onLightSurfaceSolidCardHover" | "onLightSurfaceSolidCardActive" | "onLightSurfaceSolidCard" | "onLightSurfaceSolidCardBrightness" | "onLightSurfaceSolidDefaultHover" | "onLightSurfaceSolidDefaultActive" | "onLightSurfaceSolidDefault" | "onLightSurfaceTransparentPrimaryHover" | "onLightSurfaceTransparentPrimaryActive" | "onLightSurfaceTransparentPrimary" | "onLightSurfaceTransparentSecondaryHover" | "onLightSurfaceTransparentSecondaryActive" | "onLightSurfaceTransparentSecondary" | "onLightSurfaceTransparentTertiaryHover" | "onLightSurfaceTransparentTertiaryActive" | "onLightSurfaceTransparentTertiary" | "onLightSurfaceTransparentDeepHover" | "onLightSurfaceTransparentDeepActive" | "onLightSurfaceTransparentDeep" | "onLightSurfaceTransparentCardHover" | "onLightSurfaceTransparentCardActive" | "onLightSurfaceTransparentCard" | "onLightSurfaceTransparentCardBrightness" | "onLightSurfaceAccentHover" | "onLightSurfaceAccentActive" | "onLightSurfaceAccent" | "onLightSurfaceAccentMinorHover" | "onLightSurfaceAccentMinorActive" | "onLightSurfaceTransparentAccentHover" | "onLightSurfaceTransparentAccentActive" | "onLightSurfacePositiveHover" | "onLightSurfacePositiveActive" | "onLightSurfaceWarningHover" | "onLightSurfaceWarningActive" | "onLightSurfaceNegativeHover" | "onLightSurfaceNegativeActive" | "onLightSurfaceInfoHover" | "onLightSurfaceInfoActive" | "onLightSurfacePositiveMinorHover" | "onLightSurfacePositiveMinorActive" | "onLightSurfaceWarningMinorHover" | "onLightSurfaceWarningMinorActive" | "onLightSurfaceNegativeMinorHover" | "onLightSurfaceNegativeMinorActive" | "onLightSurfaceInfoMinorHover" | "onLightSurfaceInfoMinorActive" | "onLightSurfaceTransparentPositiveHover" | "onLightSurfaceTransparentPositiveActive" | "onLightSurfaceTransparentWarningHover" | "onLightSurfaceTransparentWarningActive" | "onLightSurfaceTransparentNegativeHover" | "onLightSurfaceTransparentNegativeActive" | "onLightSurfaceTransparentInfoHover" | "onLightSurfaceTransparentInfoActive" | "onLightSurfaceAccentMinor" | "onLightSurfaceTransparentAccent" | "onLightSurfacePositive" | "onLightSurfaceWarning" | "onLightSurfaceNegative" | "onLightSurfacePositiveMinor" | "onLightSurfaceWarningMinor" | "onLightSurfaceNegativeMinor" | "onLightSurfaceTransparentPositive" | "onLightSurfaceTransparentWarning" | "onLightSurfaceTransparentNegative" | "onLightSurfaceInfo" | "onLightSurfaceInfoMinor" | "onLightSurfaceTransparentInfo" | "inverseSurfaceSolidPrimaryHover" | "inverseSurfaceSolidPrimaryActive" | "inverseSurfaceSolidPrimaryBrightness" | "inverseSurfaceSolidSecondaryHover" | "inverseSurfaceSolidSecondaryActive" | "inverseSurfaceSolidTertiaryHover" | "inverseSurfaceSolidTertiaryActive" | "inverseSurfaceSolidCardHover" | "inverseSurfaceSolidCardActive" | "inverseSurfaceSolidCardBrightness" | "inverseSurfaceSolidDefaultHover" | "inverseSurfaceSolidDefaultActive" | "inverseSurfaceTransparentPrimaryHover" | "inverseSurfaceTransparentPrimaryActive" | "inverseSurfaceTransparentSecondaryHover" | "inverseSurfaceTransparentSecondaryActive" | "inverseSurfaceTransparentTertiaryHover" | "inverseSurfaceTransparentTertiaryActive" | "inverseSurfaceTransparentDeepHover" | "inverseSurfaceTransparentDeepActive" | "inverseSurfaceTransparentCardHover" | "inverseSurfaceTransparentCardActive" | "inverseSurfaceTransparentCardBrightness" | "inverseSurfaceClearHover" | "inverseSurfaceClearActive" | "inverseSurfaceAccentHover" | "inverseSurfaceAccentActive" | "inverseSurfaceAccentMinorHover" | "inverseSurfaceAccentMinorActive" | "inverseSurfaceTransparentAccentHover" | "inverseSurfaceTransparentAccentActive" | "inverseSurfacePositiveHover" | "inverseSurfacePositiveActive" | "inverseSurfaceWarningHover" | "inverseSurfaceWarningActive" | "inverseSurfaceNegativeHover" | "inverseSurfaceNegativeActive" | "inverseSurfaceInfoHover" | "inverseSurfaceInfoActive" | "inverseSurfacePositiveMinorHover" | "inverseSurfacePositiveMinorActive" | "inverseSurfaceWarningMinorHover" | "inverseSurfaceWarningMinorActive" | "inverseSurfaceNegativeMinorHover" | "inverseSurfaceNegativeMinorActive" | "inverseSurfaceInfoMinorHover" | "inverseSurfaceInfoMinorActive" | "inverseSurfaceTransparentPositiveHover" | "inverseSurfaceTransparentPositiveActive" | "inverseSurfaceTransparentWarningHover" | "inverseSurfaceTransparentWarningActive" | "inverseSurfaceTransparentNegativeHover" | "inverseSurfaceTransparentNegativeActive" | "inverseSurfaceTransparentInfoHover" | "inverseSurfaceTransparentInfoActive" | "inverseSurfaceSolidCard" | "inverseSurfaceSolidPrimary" | "inverseSurfaceSolidSecondary" | "inverseSurfaceSolidTertiary" | "inverseSurfaceSolidDefault" | "inverseSurfaceTransparentCard" | "inverseSurfaceTransparentPrimary" | "inverseSurfaceTransparentSecondary" | "inverseSurfaceTransparentTertiary" | "inverseSurfaceTransparentDeep" | "inverseSurfaceClear" | "inverseSurfaceAccent" | "inverseSurfaceAccentMinor" | "inverseSurfaceTransparentAccent" | "inverseSurfacePositive" | "inverseSurfaceWarning" | "inverseSurfaceNegative" | "inverseSurfaceInfo" | "inverseSurfacePositiveMinor" | "inverseSurfaceWarningMinor" | "inverseSurfaceNegativeMinor" | "inverseSurfaceInfoMinor" | "inverseSurfaceTransparentPositive" | "inverseSurfaceTransparentWarning" | "inverseSurfaceTransparentNegative" | "inverseSurfaceTransparentInfo" | "backgroundPrimary" | "backgroundPrimaryBrightness" | "darkBackgroundPrimary" | "lightBackgroundPrimary" | "inverseBackgroundPrimaryBrightness" | "inverseBackgroundPrimary" | "overlaySoft" | "overlayHard" | "overlayBlur" | "onDarkOverlaySoft" | "onDarkOverlayHard" | "onDarkOverlayBlur" | "onLightOverlaySoft" | "onLightOverlayHard" | "onLightOverlayBlur" | "inverseOverlaySoft" | "inverseOverlayHard" | "inverseOverlayBlur" | "outlineSolidPrimaryHover" | "outlineSolidPrimaryActive" | "outlineSolidSecondaryHover" | "outlineSolidSecondaryActive" | "outlineSolidTertiaryHover" | "outlineSolidTertiaryActive" | "outlineTransparentPrimaryHover" | "outlineTransparentPrimaryActive" | "outlineTransparentSecondaryHover" | "outlineTransparentSecondaryActive" | "outlineTransparentTertiaryHover" | "outlineTransparentTertiaryActive" | "outlineClearHover" | "outlineClearActive" | "outlineAccentHover" | "outlineAccentActive" | "outlineAccentMinorHover" | "outlineAccentMinorActive" | "outlineTransparentAccentHover" | "outlineTransparentAccentActive" | "outlinePositiveHover" | "outlinePositiveActive" | "outlineWarningHover" | "outlineWarningActive" | "outlineNegativeHover" | "outlineNegativeActive" | "outlineInfoHover" | "outlineInfoActive" | "outlinePositiveMinorHover" | "outlinePositiveMinorActive" | "outlineWarningMinorHover" | "outlineWarningMinorActive" | "outlineNegativeMinorHover" | "outlineNegativeMinorActive" | "outlineInfoMinorHover" | "outlineInfoMinorActive" | "outlineTransparentPositiveHover" | "outlineTransparentPositiveActive" | "outlineTransparentWarningHover" | "outlineTransparentWarningActive" | "outlineTransparentNegativeHover" | "outlineTransparentNegativeActive" | "outlineTransparentInfoHover" | "outlineTransparentInfoActive" | "outlineSolidPrimary" | "outlineSolidSecondary" | "outlineSolidTertiary" | "outlineDefaultHover" | "outlineDefaultActive" | "outlineTransparentPrimary" | "outlineTransparentSecondary" | "outlineTransparentTertiary" | "outlineClear" | "outlineAccent" | "outlineAccentMinor" | "outlineTransparentAccent" | "outlinePositive" | "outlineWarning" | "outlineNegative" | "outlinePositiveMinor" | "outlineWarningMinor" | "outlineNegativeMinor" | "outlineTransparentPositive" | "outlineTransparentWarning" | "outlineTransparentNegative" | "outlineInfo" | "outlineInfoMinor" | "outlineTransparentInfo" | "outlineSolidDefault" | "outlineSolidDefaultHover" | "outlineSolidDefaultActive" | "onDarkOutlineSolidPrimaryHover" | "onDarkOutlineSolidPrimaryActive" | "onDarkOutlineSolidSecondaryHover" | "onDarkOutlineSolidSecondaryActive" | "onDarkOutlineSolidTertiaryHover" | "onDarkOutlineSolidTertiaryActive" | "onDarkOutlineTransparentPrimaryHover" | "onDarkOutlineTransparentPrimaryActive" | "onDarkOutlineTransparentSecondaryHover" | "onDarkOutlineTransparentSecondaryActive" | "onDarkOutlineTransparentTertiaryHover" | "onDarkOutlineTransparentTertiaryActive" | "onDarkOutlineAccentHover" | "onDarkOutlineAccentActive" | "onDarkOutlineAccentMinorHover" | "onDarkOutlineAccentMinorActive" | "onDarkOutlineTransparentAccentHover" | "onDarkOutlineTransparentAccentActive" | "onDarkOutlinePositiveHover" | "onDarkOutlinePositiveActive" | "onDarkOutlineWarningHover" | "onDarkOutlineWarningActive" | "onDarkOutlineNegativeHover" | "onDarkOutlineNegativeActive" | "onDarkOutlineInfoHover" | "onDarkOutlineInfoActive" | "onDarkOutlinePositiveMinorHover" | "onDarkOutlinePositiveMinorActive" | "onDarkOutlineWarningMinorHover" | "onDarkOutlineWarningMinorActive" | "onDarkOutlineNegativeMinorHover" | "onDarkOutlineNegativeMinorActive" | "onDarkOutlineInfoMinorHover" | "onDarkOutlineInfoMinorActive" | "onDarkOutlineTransparentPositiveHover" | "onDarkOutlineTransparentPositiveActive" | "onDarkOutlineTransparentWarningHover" | "onDarkOutlineTransparentWarningActive" | "onDarkOutlineTransparentNegativeHover" | "onDarkOutlineTransparentNegativeActive" | "onDarkOutlineTransparentInfoHover" | "onDarkOutlineTransparentInfoActive" | "onDarkOutlineDefaultHover" | "onDarkOutlineDefaultActive" | "onDarkOutlineSolidPrimary" | "onDarkOutlineSolidSecondary" | "onDarkOutlineSolidTertiary" | "onDarkOutlineTransparentPrimary" | "onDarkOutlineTransparentSecondary" | "onDarkOutlineTransparentTertiary" | "onDarkOutlineAccent" | "onDarkOutlineAccentMinor" | "onDarkOutlineTransparentAccent" | "onDarkOutlinePositive" | "onDarkOutlineWarning" | "onDarkOutlineNegative" | "onDarkOutlinePositiveMinor" | "onDarkOutlineWarningMinor" | "onDarkOutlineNegativeMinor" | "onDarkOutlineTransparentPositive" | "onDarkOutlineTransparentWarning" | "onDarkOutlineTransparentNegative" | "onDarkOutlineInfo" | "onDarkOutlineInfoMinor" | "onDarkOutlineTransparentInfo" | "onDarkOutlineSolidDefault" | "onDarkOutlineSolidDefaultHover" | "onDarkOutlineSolidDefaultActive" | "onLightOutlineSolidPrimaryHover" | "onLightOutlineSolidPrimaryActive" | "onLightOutlineSolidSecondaryHover" | "onLightOutlineSolidSecondaryActive" | "onLightOutlineSolidTertiaryHover" | "onLightOutlineSolidTertiaryActive" | "onLightOutlineTransparentPrimaryHover" | "onLightOutlineTransparentPrimaryActive" | "onLightOutlineTransparentSecondaryHover" | "onLightOutlineTransparentSecondaryActive" | "onLightOutlineTransparentTertiaryHover" | "onLightOutlineTransparentTertiaryActive" | "onLightOutlineAccentHover" | "onLightOutlineAccentActive" | "onLightOutlineAccentMinorHover" | "onLightOutlineAccentMinorActive" | "onLightOutlineTransparentAccentHover" | "onLightOutlineTransparentAccentActive" | "onLightOutlinePositiveHover" | "onLightOutlinePositiveActive" | "onLightOutlineWarningHover" | "onLightOutlineWarningActive" | "onLightOutlineNegativeHover" | "onLightOutlineNegativeActive" | "onLightOutlineInfoHover" | "onLightOutlineInfoActive" | "onLightOutlinePositiveMinorHover" | "onLightOutlinePositiveMinorActive" | "onLightOutlineWarningMinorHover" | "onLightOutlineWarningMinorActive" | "onLightOutlineNegativeMinorHover" | "onLightOutlineNegativeMinorActive" | "onLightOutlineInfoMinorHover" | "onLightOutlineInfoMinorActive" | "onLightOutlineTransparentPositiveHover" | "onLightOutlineTransparentPositiveActive" | "onLightOutlineTransparentWarningHover" | "onLightOutlineTransparentWarningActive" | "onLightOutlineTransparentNegativeHover" | "onLightOutlineTransparentNegativeActive" | "onLightOutlineTransparentInfoHover" | "onLightOutlineTransparentInfoActive" | "onLightOutlineDefaultHover" | "onLightOutlineDefaultActive" | "onLightOutlineSolidPrimary" | "onLightOutlineSolidSecondary" | "onLightOutlineSolidTertiary" | "onLightOutlineTransparentPrimary" | "onLightOutlineTransparentSecondary" | "onLightOutlineTransparentTertiary" | "onLightOutlineAccent" | "onLightOutlineAccentMinor" | "onLightOutlineTransparentAccent" | "onLightOutlinePositive" | "onLightOutlineWarning" | "onLightOutlineNegative" | "onLightOutlinePositiveMinor" | "onLightOutlineWarningMinor" | "onLightOutlineNegativeMinor" | "onLightOutlineTransparentPositive" | "onLightOutlineTransparentWarning" | "onLightOutlineTransparentNegative" | "onLightOutlineInfo" | "onLightOutlineInfoMinor" | "onLightOutlineTransparentInfo" | "onLightOutlineSolidDefault" | "onLightOutlineSolidDefaultHover" | "onLightOutlineSolidDefaultActive" | "inverseOutlineSolidPrimaryHover" | "inverseOutlineSolidPrimaryActive" | "inverseOutlineSolidSecondaryHover" | "inverseOutlineSolidSecondaryActive" | "inverseOutlineSolidTertiaryHover" | "inverseOutlineSolidTertiaryActive" | "inverseOutlineTransparentPrimaryHover" | "inverseOutlineTransparentPrimaryActive" | "inverseOutlineTransparentSecondaryHover" | "inverseOutlineTransparentSecondaryActive" | "inverseOutlineTransparentTertiaryHover" | "inverseOutlineTransparentTertiaryActive" | "inverseOutlineClearHover" | "inverseOutlineClearActive" | "inverseOutlineAccentHover" | "inverseOutlineAccentActive" | "inverseOutlineAccentMinorHover" | "inverseOutlineAccentMinorActive" | "inverseOutlineTransparentAccentHover" | "inverseOutlineTransparentAccentActive" | "inverseOutlinePositiveHover" | "inverseOutlinePositiveActive" | "inverseOutlineWarningHover" | "inverseOutlineWarningActive" | "inverseOutlineNegativeHover" | "inverseOutlineNegativeActive" | "inverseOutlineInfoHover" | "inverseOutlineInfoActive" | "inverseOutlinePositiveMinorHover" | "inverseOutlinePositiveMinorActive" | "inverseOutlineWarningMinorHover" | "inverseOutlineWarningMinorActive" | "inverseOutlineNegativeMinorHover" | "inverseOutlineNegativeMinorActive" | "inverseOutlineInfoMinorHover" | "inverseOutlineInfoMinorActive" | "inverseOutlineTransparentPositiveHover" | "inverseOutlineTransparentPositiveActive" | "inverseOutlineTransparentWarningHover" | "inverseOutlineTransparentWarningActive" | "inverseOutlineTransparentNegativeHover" | "inverseOutlineTransparentNegativeActive" | "inverseOutlineTransparentInfoHover" | "inverseOutlineTransparentInfoActive" | "inverseOutlineSolidPrimary" | "inverseOutlineSolidSecondary" | "inverseOutlineSolidTertiary" | "inverseOutlineTransparentPrimary" | "inverseOutlineTransparentSecondary" | "inverseOutlineTransparentTertiary" | "inverseOutlineClear" | "inverseOutlineDefaultHover" | "inverseOutlineDefaultActive" | "inverseOutlineAccent" | "inverseOutlineAccentMinor" | "inverseOutlineTransparentAccent" | "inverseOutlinePositive" | "inverseOutlineWarning" | "inverseOutlineNegative" | "inverseOutlineInfo" | "inverseOutlinePositiveMinor" | "inverseOutlineWarningMinor" | "inverseOutlineNegativeMinor" | "inverseOutlineInfoMinor" | "inverseOutlineTransparentPositive" | "inverseOutlineTransparentWarning" | "inverseOutlineTransparentNegative" | "inverseOutlineTransparentInfo" | "inverseOutlineSolidDefault" | "inverseOutlineSolidDefaultHover" | "inverseOutlineSolidDefaultActive" | "dataYellow" | "dataYellowHover" | "dataYellowActive" | "dataYellowMinor" | "dataYellowMinorHover" | "dataYellowMinorActive" | "dataYellowTransparent" | "dataYellowTransparentHover" | "dataYellowTransparentActive" | "onDarkDataYellow" | "onDarkDataYellowHover" | "onDarkDataYellowActive" | "onDarkDataYellowMinor" | "onDarkDataYellowMinorHover" | "onDarkDataYellowMinorActive" | "onDarkDataYellowTransparent" | "onDarkDataYellowTransparentHover" | "onDarkDataYellowTransparentActive" | "onLightDataYellow" | "onLightDataYellowHover" | "onLightDataYellowActive" | "onLightDataYellowMinor" | "onLightDataYellowMinorHover" | "onLightDataYellowMinorActive" | "onLightDataYellowTransparent" | "onLightDataYellowTransparentHover" | "onLightDataYellowTransparentActive" | "inverseDataYellow" | "inverseDataYellowHover" | "inverseDataYellowActive" | "inverseDataYellowMinor" | "inverseDataYellowMinorHover" | "inverseDataYellowMinorActive" | "inverseDataYellowTransparent" | "inverseDataYellowTransparentHover" | "inverseDataYellowTransparentActive" | "whitePrimary" | "whiteSecondary" | "whiteTertiary" | "blackPrimary" | "blackSecondary" | "blackTertiary" | "buttonBlack" | "buttonBlackSecondary" | "buttonWhite" | "buttonWhiteSecondary" | "background" | "surfaceLiquid01" | "surfaceLiquid02" | "surfaceLiquid03" | "surfaceSolid01" | "surfaceSolid02" | "surfaceSolid03" | "surfaceCard" | "buttonSecondary" | "buttonAccent" | "buttonSuccess" | "buttonWarning" | "buttonCritical" | "textAccentGradientHover" | "textAccentGradientActive" | "textAccentGradient" | "onDarkTextAccentGradientHover" | "onDarkTextAccentGradientActive" | "onDarkTextAccentGradient" | "onLightTextAccentGradientHover" | "onLightTextAccentGradientActive" | "onLightTextAccentGradient" | "inverseTextAccentGradientHover" | "inverseTextAccentGradientActive" | "inverseTextAccentGradient" | "surfaceAccentGradientHover" | "surfaceAccentGradientActive" | "surfaceAccentGradient" | "surfaceSkeletonGradient" | "surfaceSkeletonGradientHover" | "surfaceSkeletonGradientActive" | "surfaceSkeletonDeepGradient" | "surfaceSkeletonDeepGradientHover" | "surfaceSkeletonDeepGradientActive" | "onDarkSurfaceAccentGradientHover" | "onDarkSurfaceAccentGradientActive" | "onDarkSurfaceAccentGradient" | "onDarkSurfaceSkeletonGradient" | "onDarkSurfaceSkeletonGradientHover" | "onDarkSurfaceSkeletonGradientActive" | "onDarkSurfaceSkeletonDeepGradient" | "onDarkSurfaceSkeletonDeepGradientHover" | "onDarkSurfaceSkeletonDeepGradientActive" | "onLightSurfaceAccentGradientHover" | "onLightSurfaceAccentGradientActive" | "onLightSurfaceAccentGradient" | "onLightSurfaceSkeletonGradient" | "onLightSurfaceSkeletonGradientHover" | "onLightSurfaceSkeletonGradientActive" | "onLightSurfaceSkeletonDeepGradient" | "onLightSurfaceSkeletonDeepGradientHover" | "onLightSurfaceSkeletonDeepGradientActive" | "inverseSurfaceAccentGradientHover" | "inverseSurfaceAccentGradientActive" | "inverseSurfaceAccentGradient" | "inverseSurfaceSkeletonGradient" | "inverseSurfaceSkeletonGradientHover" | "inverseSurfaceSkeletonGradientActive" | "inverseSurfaceSkeletonDeepGradient" | "inverseSurfaceSkeletonDeepGradientHover" | "inverseSurfaceSkeletonDeepGradientActive") | undefined;
+    shadow?: "shadowDownSoftS" | "shadowDownSoftM" | "shadowDownSoftL" | "shadowDownHardS" | "shadowDownHardM" | "shadowDownHardL" | "shadowUpSoftS" | "shadowUpSoftM" | "shadowUpSoftL" | "shadowUpHardS" | "shadowUpHardM" | "shadowUpHardL" | undefined;
+    borderRadius?: "borderRadiusXxs" | "borderRadiusXs" | "borderRadiusS" | "borderRadiusM" | "borderRadiusL" | "borderRadiusXl" | "borderRadiusXxl" | undefined;
+    styles?: CSSProperties | undefined;
+}) => CSSProperties;
 
 export { applyRoundness }
 
@@ -1736,6 +1746,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 value?: string | Date | undefined;
 defaultDate?: Date | undefined;
 placeholder?: string | undefined;
@@ -1785,6 +1796,7 @@ true: PolymorphicClassName;
 }> & DatePickerVariationProps & {
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 value?: [Date | null | undefined, Date | null | undefined] | undefined;
 defaultFirstDate?: Date | undefined;
 defaultSecondDate?: Date | undefined;
@@ -1811,6 +1823,7 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
 requiredPlacement?: "right" | "left" | undefined;
+hasRequiredIndicator?: boolean | undefined;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
 firstValueSuccess?: boolean | undefined;
@@ -1942,8 +1955,11 @@ default: PolymorphicClassName;
     onHover?: ((index: number) => void) | undefined;
     onItemSelect?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
     trigger?: DropdownTrigger | undefined;
+    openByRightClick?: boolean | undefined;
     placement?: DropdownPlacement | undefined;
     offset?: [number, number] | undefined;
+    listOverflow?: Property.Overflow | undefined;
+    listMaxHeight?: Property.Height<string | number> | undefined;
     listWidth?: Property.Width<string | number> | undefined;
     hasArrow?: boolean | undefined;
     closeOnSelect?: boolean | undefined;
@@ -1958,7 +1974,6 @@ default: PolymorphicClassName;
     beforeList?: React_2.ReactNode;
     afterList?: React_2.ReactNode;
     onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
-    listOverflow?: Property.Overflow | undefined;
     listHeight?: Property.Height<string | number> | undefined;
     hoverIndex?: number | undefined;
 } & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "view" | "size"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
@@ -2381,6 +2396,38 @@ focused: {
 true: PolymorphicClassName;
 };
 }> & AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps & RefAttributes<HTMLAnchorElement>>;
+
+// @public (undocumented)
+export const LinkButton: FunctionComponent<PropsType<    {
+view: {
+default: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+xl: PolymorphicClassName;
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+xxs: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+}> & AnchorHTMLAttributes<HTMLAnchorElement> & {
+text?: string | undefined;
+contentRight?: ReactNode;
+contentLeft?: ReactNode;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+disabled?: boolean | undefined;
+view?: string | undefined;
+size?: string | undefined;
+} & RefAttributes<HTMLAnchorElement>>;
 
 export { List }
 
@@ -3106,6 +3153,11 @@ export const NotificationsProvider: React_2.FC<{
     UNSAFE_SSR_ENABLED?: boolean;
 }>;
 
+// Warning: (ae-forgotten-export) The symbol "NumberFormatProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const NumberFormat: ForwardRefExoticComponent<NumberFormatProps>;
+
 // @public (undocumented)
 export const NumberInput: FunctionComponent<PropsType<    {
 view: {
@@ -3410,6 +3462,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3449,6 +3502,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3488,6 +3542,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 required?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
 onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
 onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
@@ -3971,6 +4026,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -4014,6 +4070,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -4057,6 +4114,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -4100,6 +4158,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText: string;
 hintTrigger?: "hover" | "click" | undefined;
@@ -4143,6 +4202,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -4186,6 +4246,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -4229,6 +4290,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -4272,6 +4334,7 @@ leftHelperPlacement?: "outer" | "inner" | undefined;
 required?: boolean | undefined;
 requiredPlacement?: "right" | "left" | undefined;
 optional?: boolean | undefined;
+hasRequiredIndicator?: boolean | undefined;
 } & {
 hintText?: undefined;
 hintOpened?: undefined;
@@ -4365,7 +4428,7 @@ export { TextFieldGroupProps }
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator'>;
+export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'chipType' | 'onChangeChips' | 'titleCaption' | 'labelPlacement' | 'keepPlaceholder' | 'required' | 'requiredPlacement' | 'optional' | 'chipView' | 'chipValidator' | 'textBefore' | 'textAfter'>;
 
 export { TextFieldView }
 

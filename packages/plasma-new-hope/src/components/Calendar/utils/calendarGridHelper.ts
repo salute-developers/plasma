@@ -1,8 +1,8 @@
-import type { CalendarValueType, DateObject, DisabledDay, EventDay, ItemProps } from '../Calendar.types';
+import type { CalendarValueType, DateObject, DisabledDay, EventDay, ItemProps, Locales } from '../Calendar.types';
 import type { CalendarStateType } from '../store/types';
 
 import { isSelectProcess } from './calendarRangeHelper';
-import { MONTHS, YEAR_RENDER_COUNT } from './constants';
+import { MONTHS, YEAR_RENDER_COUNT, I18N } from './constants';
 
 export const getDaysInMonth = (monthIndex: number, year: number) => new Date(year, monthIndex + 1, 0).getDate();
 
@@ -144,14 +144,14 @@ export const getMatrix = <T extends ItemProps>(items: T[], rowSize = 7): readonl
     return [result, selected] as const;
 };
 
-export const getCalendarType = (type: CalendarStateType) => {
+export const getCalendarType = (type: CalendarStateType, locale: Locales) => {
     switch (type) {
         case 'Months':
         case 'Quarters':
-            return 'год';
+            return I18N.year[locale];
         case 'Years':
-            return 'период';
+            return I18N.period[locale];
         default:
-            return 'месяц';
+            return I18N.month[locale];
     }
 };

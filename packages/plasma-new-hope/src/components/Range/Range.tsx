@@ -59,6 +59,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
 
                 required,
                 requiredPlacement = 'right',
+                hasRequiredIndicator = true,
 
                 onChangeFirstValue,
                 onChangeSecondValue,
@@ -133,7 +134,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                         <StyledIndicatorWrapper>
                             <StyledLabel>{label}</StyledLabel>
 
-                            {required && (
+                            {required && hasRequiredIndicator && (
                                 <StyledIndicator
                                     className={cx(classes.requiredOuterPlacement, requiredPlacementClass)}
                                 />
@@ -141,7 +142,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                         </StyledIndicatorWrapper>
                     )}
                     <ContentWrapper className={cx(rangeErrorClass, rangeSuccessClass)}>
-                        {!label && required && <StyledIndicator className={cx(requiredPlacementClass)} />}
+                        {!label && required && hasRequiredIndicator && (
+                            <StyledIndicator className={cx(requiredPlacementClass)} />
+                        )}
                         {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                         <StyledInput
                             ref={firstTextFieldRef}
@@ -159,6 +162,8 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                             onFocus={onFocusFirstTextfield}
                             onBlur={onBlurFirstTextfield}
                             autoComplete={autoComplete}
+                            data-error={firstValueError}
+                            data-success={firstValueSuccess}
                         />
                         {Divider}
                         <StyledInput

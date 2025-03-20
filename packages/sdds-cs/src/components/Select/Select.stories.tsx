@@ -38,7 +38,7 @@ const meta: Meta<StorySelectProps> = {
         listOverflow: {
             control: 'text',
         },
-        listHeight: {
+        listMaxHeight: {
             control: 'text',
         },
         helperText: {
@@ -61,17 +61,32 @@ const meta: Meta<StorySelectProps> = {
                 eq: 'textfield-like',
             },
         },
+        readOnly: {
+            control: {
+                type: 'boolean',
+            },
+        },
         requiredPlacement: {
             options: ['left', 'right'],
             control: {
                 type: 'select',
             },
+            if: { arg: 'required', truthy: true },
         },
         required: {
             control: {
                 type: 'boolean',
             },
             if: { arg: 'optional', truthy: false },
+        },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
         },
         optional: {
             control: {
@@ -109,9 +124,11 @@ const meta: Meta<StorySelectProps> = {
         isTargetAmount: false,
         variant: 'normal',
         disabled: false,
+        readOnly: false,
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         chipType: 'default',
     },
     parameters: {
@@ -127,12 +144,14 @@ const meta: Meta<StorySelectProps> = {
                 'closeAfterSelect',
                 'variant',
                 'disabled',
+                'readOnly',
                 'listWidth',
                 'listOverflow',
-                'listHeight',
+                'listMaxHeight',
                 'optional',
                 'required',
                 'requiredPlacement',
+                'hasRequiredIndicator',
                 'chipType',
             ],
         },

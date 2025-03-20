@@ -16,7 +16,7 @@ export const base = css`
         :not(&.${classes.clear}) {
             ${InputWrapper} {
                 position: relative;
-
+                z-index: 0;
                 color: var(${tokens.colorReadOnly});
                 background: transparent;
                 box-shadow: none;
@@ -72,6 +72,12 @@ export const base = css`
 
         &.${classes.outerLabelPlacement} ${Label} {
             color: var(${tokens.labelColorReadOnly});
+        }
+
+        ${StyledContentRight} {
+            &:hover {
+                cursor: default;
+            }
         }
     }
 `;

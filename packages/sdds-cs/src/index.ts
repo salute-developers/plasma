@@ -9,6 +9,7 @@ export * from './components/Drawer';
 export * from './components/Flow';
 export * from './components/Grid';
 export * from './components/Calendar';
+export * from './components/Card';
 export * from './components/Checkbox';
 export * from './components/Chip';
 export * from './components/ChipGroup';
@@ -58,6 +59,7 @@ export * from './components/ViewContainer';
 export * from './components/NumberInput';
 export * from './components/Dropzone';
 export * from './components/Tree';
+export * from './components/NumberFormat';
 
 export * from './mixins';
 export * from './tokens';

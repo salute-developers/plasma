@@ -51,13 +51,16 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             placeholder,
             helperText,
             disabled = false,
+            readOnly = false,
             view: outerView,
             size,
             listOverflow,
             listHeight,
+            listMaxHeight,
             listWidth,
             contentLeft,
             onScrollBottom,
+            onScroll,
             chipView,
             variant = 'normal',
             portal,
@@ -74,6 +77,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             name,
             defaultValue,
             virtual = false,
+            onToggle,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -103,7 +107,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value.toString() || '';
         const closeAfterSelect = outerCloseAfterSelect ?? !props.multiselect;
         const treeId = safeUseId();
-        const view = target === 'textfield-like' && disabled ? 'default' : getView(status, outerView);
+        const view = target === 'textfield-like' && (disabled || readOnly) ? 'default' : getView(status, outerView);
 
         // Собираем объект с пропсами для required и прокидываем их напрямую в компонент Textfield.
         const requiredProps =
@@ -112,6 +116,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 : ({
                       required: props.required,
                       requiredPlacement: props.requiredPlacement,
+                      hasRequiredIndicator: props.hasRequiredIndicator,
                       optional: props.optional,
                   } as RequiredProps);
 
@@ -137,20 +142,26 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
 
             dispatchPath({ type: 'reset' });
             dispatchFocusedPath({ type: 'reset' });
+
+            if (onToggle) {
+                onToggle(false);
+            }
         }, floatingPopoverRef);
 
         const onChange = (
             newValue?: string | number | Array<string | number> | ChangeEvent<HTMLSelectElement> | null,
+            item?: MergedDropdownNodeTransformed | null,
         ) => {
-            if (outerOnChange) {
+            if (props.onChange) {
                 // Условие для отправки если компонент используется без формы.
-                if (!name && (typeof newValue === 'string' || Array.isArray(newValue))) {
-                    outerOnChange(newValue as any);
+                if (!props.name && (typeof newValue === 'string' || Array.isArray(newValue))) {
+                    props.onChange(newValue as any, item || null);
                 }
 
                 // Условие для отправки если компонент используется с формой.
-                if (name && typeof newValue === 'object' && !Array.isArray(newValue)) {
-                    outerOnChange(newValue as any);
+                // Убрать условие "typeof ref === 'function'" в PLASMA 2.0
+                if (props.name && typeof newValue === 'object' && !Array.isArray(newValue)) {
+                    props.onChange(newValue as any, item || null);
                 }
             }
 
@@ -161,7 +172,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleListToggle = (opened: boolean) => {
-            if (disabled) {
+            if (disabled || readOnly) {
                 return;
             }
 
@@ -170,6 +181,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+            }
+
+            if (onToggle) {
+                onToggle(opened);
             }
         };
 
@@ -204,7 +219,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
 
             if (onChange) {
-                onChange(newValues);
+                onChange(newValues, item);
             }
         };
 
@@ -230,7 +245,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
 
             if (onChange) {
-                onChange(isCurrentChecked ? '' : item.value);
+                onChange(isCurrentChecked ? '' : item.value, item);
             }
 
             if (onItemSelect) {
@@ -247,6 +262,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleScroll = (e: React.UIEvent<HTMLUListElement>) => {
+            if (onScroll) {
+                onScroll(e);
+            }
+
             if (!onScrollBottom) return;
 
             const { target } = e;
@@ -312,6 +331,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 labelPlacement={labelPlacement}
                 chipView={chipView}
                 disabled={disabled}
+                readOnly={readOnly}
                 id={id}
                 {...(rest as any)}
             >
@@ -359,6 +379,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 size={size}
                                 contentLeft={contentLeft}
                                 disabled={disabled}
+                                readOnly={readOnly}
                                 renderValue={renderValue}
                                 selectProps={props}
                                 inputWrapperRef={referenceRef as React.MutableRefObject<HTMLDivElement>}
@@ -384,39 +405,43 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             labelPlacement={labelPlacement}
                             chipView={chipView}
                             disabled={disabled}
+                            readOnly={readOnly}
                             {...(rest as any)}
                         >
                             <Ul
                                 role="tree"
                                 id={`${treeId}_tree_level_1`}
                                 aria-multiselectable={Boolean(props.multiselect)}
-                                listHeight={listHeight}
                                 listOverflow={listOverflow}
-                                onScroll={handleScroll}
+                                listMaxHeight={listMaxHeight || listHeight}
+                                onScroll={virtual ? undefined : handleScroll}
                                 listWidth={listWidth}
                                 ref={targetRef}
+                                virtual={virtual}
                             >
+                                {beforeList}
+
                                 {virtual ? (
-                                    <VirtualList items={transformedItems} listHeight={listHeight} />
+                                    <VirtualList
+                                        items={transformedItems}
+                                        listMaxHeight={listMaxHeight || listHeight}
+                                        onScroll={onScroll}
+                                    />
                                 ) : (
-                                    <>
-                                        {beforeList}
-
-                                        {transformedItems.map((item, index) => (
-                                            <Inner
-                                                key={`${index}/0`}
-                                                item={item}
-                                                currentLevel={0}
-                                                path={path}
-                                                dispatchPath={dispatchPath}
-                                                index={index}
-                                                listWidth={listWidth}
-                                            />
-                                        ))}
-
-                                        {afterList}
-                                    </>
+                                    transformedItems.map((item, index) => (
+                                        <Inner
+                                            key={`${index}/0`}
+                                            item={item}
+                                            currentLevel={0}
+                                            path={path}
+                                            dispatchPath={dispatchPath}
+                                            index={index}
+                                            listWidth={listWidth}
+                                        />
+                                    ))
                                 )}
+
+                                {afterList}
                             </Ul>
                         </Root>
                     </FloatingPopover>

@@ -31,6 +31,7 @@ export const datePickerRoot = (
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
+                hasRequiredIndicator = true,
                 placeholder,
                 leftHelper,
                 contentLeft,
@@ -51,6 +52,7 @@ export const datePickerRoot = (
                 maskWithFormat,
                 min,
                 max,
+                renderFromDate,
                 includeEdgeDates = false,
                 eventList,
                 disabledList,
@@ -165,6 +167,7 @@ export const datePickerRoot = (
                     onKeyDown={onKeyDown}
                     required={required}
                     requiredPlacement={requiredPlacement}
+                    hasRequiredIndicator={hasRequiredIndicator}
                     label={label}
                     labelPlacement={labelPlacement}
                     keepPlaceholder={keepPlaceholder}
@@ -224,6 +227,7 @@ export const datePickerRoot = (
                                 disabledYearList={disabledYearList}
                                 min={min}
                                 max={max}
+                                renderFromDate={renderFromDate}
                                 includeEdgeDates={includeEdgeDates}
                                 isRange={false}
                                 locale={lang}

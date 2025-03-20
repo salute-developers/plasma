@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { sizeToIconSize, getItemId } from '../../../../utils';
+import { sizeToIconSize, getItemId, getRemovedElement } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 
 import { IconArrowWrapper, StyledArrow, StyledTextField } from './Textfield.styles';
@@ -25,6 +25,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             treeId,
             activeDescendantItemValue,
             disabled,
+            readOnly,
             isTargetAmount,
             valueToItemMap,
             renderValue,
@@ -88,9 +89,14 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     }
                 });
 
-                onChange(resultValues);
+                const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
+
+                onChange(resultValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
             } else {
-                onChange(chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value));
+                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value);
+                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
+
+                onChange(newValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
             }
         };
 
@@ -99,6 +105,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 ref={ref}
                 inputWrapperRef={inputWrapperRef}
                 readOnly
+                className={readOnly ? classes.readOnly : undefined}
                 value={getValue()}
                 size={size}
                 view={view}
@@ -109,7 +116,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
                 contentRight={
-                    <IconArrowWrapper disabled={Boolean(disabled)}>
+                    <IconArrowWrapper disabled={disabled} readOnly={readOnly}>
                         <StyledArrow color="inherit" size={sizeToIconSize(size)} className={withArrowInverse} />
                     </IconArrowWrapper>
                 }
@@ -132,7 +139,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                 opened={opened}
                 // TODO: #1547
-                _forceChipManipulationWithReadonly
+                _forceChipManipulationWithReadonly={!readOnly}
                 {...requiredProps}
                 {...hintProps}
             />

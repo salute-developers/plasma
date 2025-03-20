@@ -18,6 +18,7 @@ export const tokens = {
     borderColorError: '--plasma-range-border-color-error',
     borderColorSuccess: '--plasma-range-border-color-success',
     borderColorReadOnly: '--plasma-range-border-color-readonly',
+    shadow: '--plasma-range-shadow',
 
     /** Токены разделителя */
     dividerColor: '--plasma-range__divider-color',
@@ -81,6 +82,8 @@ export const tokens = {
 
     /** Токены полей ввода */
     textFieldColor: '--plasma-range-textfield-color',
+    textFieldColorError: '--plasma-range-textfield-color-error',
+    textFieldColorSuccess: '--plasma-range-textfield-color-success',
     textFieldFocusColor: '--plasma-range-textfield-focus-color',
     textFieldPlaceholderColor: '--plasma-range-textfield-placeholder-color',
     textFieldCaretColor: '--plasma-range-textfield-caret-color',

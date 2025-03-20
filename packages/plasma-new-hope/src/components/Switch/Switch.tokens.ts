@@ -21,6 +21,7 @@ export const tokens = {
     /* Цвет описания */
     descriptionColor: '--plasma-switch__description-color',
     descriptionOffset: '--plasma-switch__description-offset',
+    descriptionMaxLines: '--plasma-switch__description-max-lines',
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-switch-disabled-opacity',

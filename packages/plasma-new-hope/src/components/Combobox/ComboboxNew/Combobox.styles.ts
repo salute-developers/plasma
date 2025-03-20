@@ -12,8 +12,9 @@ const mergedConfig = mergeConfig(emptyStateConfig);
 const EmptyState = component(mergedConfig);
 
 export const Ul = styled.ul<{
+    virtual: ComboboxProps['virtual'];
     listOverflow?: ComboboxProps['listOverflow'];
-    listHeight?: ComboboxProps['listHeight'];
+    listMaxHeight?: ComboboxProps['listMaxHeight'];
     listWidth?: ComboboxProps['listWidth'];
     isInnerUl?: boolean;
 }>`
@@ -24,9 +25,8 @@ export const Ul = styled.ul<{
 
     border-radius: var(${tokens.borderRadius});
     width: ${({ listWidth }) => listWidth || '100%'};
-    max-height: ${({ listHeight }) => listHeight || 'auto'};
-    overflow: ${({ listOverflow }) => listOverflow || 'initial'};
-
+    max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
+    overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
     margin: ${({ isInnerUl }) =>
         isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};

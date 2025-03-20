@@ -123,6 +123,10 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      */
     max?: Date;
     /**
+     * Дата с которой начинается календарная сетка.
+     */
+    renderFromDate?: Date;
+    /**
      * Должны ли значения минимального и максимального дня включаться в диапазон.
      */
     includeEdgeDates?: boolean;

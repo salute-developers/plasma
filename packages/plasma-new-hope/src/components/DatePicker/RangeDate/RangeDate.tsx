@@ -73,12 +73,14 @@ export const datePickerRangeRoot = (
 
                 required,
                 requiredPlacement = 'right',
+                hasRequiredIndicator = true,
 
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
                 maskWithFormat,
                 min,
                 max,
+                renderFromDate,
                 includeEdgeDates = false,
                 eventList,
                 disabledList,
@@ -354,6 +356,7 @@ export const datePickerRangeRoot = (
                         label={label}
                         required={required}
                         requiredPlacement={requiredPlacement}
+                        hasRequiredIndicator={hasRequiredIndicator}
                         disabled={disabled}
                         readOnly={!disabled && readOnly}
                         firstPlaceholder={firstPlaceholder}
@@ -463,6 +466,7 @@ export const datePickerRangeRoot = (
                         disabledYearList={disabledYearList}
                         min={min}
                         max={max}
+                        renderFromDate={renderFromDate}
                         frame={frame}
                         usePortal={usePortal}
                         placement={placement}

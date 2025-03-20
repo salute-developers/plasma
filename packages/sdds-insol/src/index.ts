@@ -9,6 +9,7 @@ export * from './components/Drawer';
 export * from './components/Flow';
 export * from './components/Grid';
 export * from './components/Calendar';
+export * from './components/Card';
 export * from './components/Checkbox';
 export * from './components/Chip';
 export * from './components/ChipGroup';
@@ -61,6 +62,8 @@ export * from './components/Dropzone';
 export * from './components/Rating';
 export * from './components/Tree';
 export * from './components/Note';
+export * from './components/LinkButton';
+export * from './components/NumberFormat';
 
 export * from './mixins';
 export * from './tokens';

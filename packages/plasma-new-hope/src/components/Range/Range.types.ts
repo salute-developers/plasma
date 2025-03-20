@@ -147,6 +147,11 @@ export type RangeInnerProps = {
      */
     required?: boolean;
     /**
+     * Флаг наличия индикатора обязательности поля
+     * @default true
+     */
+    hasRequiredIndicator?: boolean;
+    /**
      * Коллбэк, вызываемый при изменении первого поля ввода
      */
     onChangeFirstValue?: BaseCallbackChangeInstance;

@@ -72,6 +72,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 leftHelper,
                 enumerationType = 'plain',
                 requiredPlacement = 'right',
+                hasRequiredIndicator = true,
                 titleCaption,
                 chipView = 'default',
                 chipValidator,
@@ -194,10 +195,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
 
             const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
                 const { value } = event.target as HTMLInputElement;
-                if (hasTextAfter) {
-                    const textWidth = getInputWidth(event.currentTarget, inputContainerRef.current);
-                    event.currentTarget.style.width = `${textWidth}px`;
-                }
+
                 setHasValue(Boolean(value));
             };
 
@@ -248,6 +246,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 }
 
                 onChange?.(event);
+
+                if (hasTextAfter) {
+                    const textWidth = getInputWidth(event.currentTarget, inputContainerRef.current);
+                    event.currentTarget.style.width = `${textWidth}px`;
+                }
             };
 
             const updateChips = (newChips: Array<ChipValues>, newValues: Array<TextFieldPrimitiveValue>) => {
@@ -376,7 +379,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                             />
                                         </StyledHintWrapper>
                                     )}
-                                    {required && (
+                                    {required && hasRequiredIndicator && (
                                         <StyledIndicator
                                             className={cx(
                                                 classes.outerLabelPlacement,
@@ -404,7 +407,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     >
                         {!hasOuterLabel && (
                             <>
-                                {required && (
+                                {required && hasRequiredIndicator && (
                                     <StyledIndicator
                                         className={cx(classes.innerLabelPlacement, requiredPlacementClass)}
                                     />

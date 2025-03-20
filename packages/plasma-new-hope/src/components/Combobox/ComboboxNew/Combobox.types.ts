@@ -27,7 +27,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
           | {
                 multiple?: false;
                 value?: string;
-                onChange?: (value: string) => void;
+                onChange?: (value: string, item: T | null) => void;
                 /**
                  * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
                  * @default false
@@ -46,7 +46,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
           | {
                 multiple: true;
                 value?: string[];
-                onChange?: (value: string[]) => void;
+                onChange?: (value: string[], item: T | null) => void;
                 isTargetAmount?: true;
                 targetAmount?: number;
                 renderValue?: (item: T) => string;
@@ -170,14 +170,12 @@ type BasicProps<T extends ItemOption = ItemOption> = {
     zIndex?: CSSProperties['zIndex'];
     /**
      * Значение css overflow для выпадающего меню.
-     * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
-    // TODO: #1584
     /**
-     * Значение css height для выпадающего меню.
+     * Максимальная высота выпадающего списка.
      */
-    listHeight?: CSSProperties['height'];
+    listMaxHeight?: CSSProperties['height'];
     /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
@@ -205,6 +203,14 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     onChangeValue?: (value: string) => void;
     /**
+     * Коллбэк, срабатывающий при скролле.
+     */
+    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    /**
+     * Событие сворачивания/разворачивания выпадающего списка.
+     */
+    onToggle?: (isOpen: boolean) => void;
+    /**
      * Ячейка для контента в начале выпадающего списка.
      */
     beforeList?: React.ReactNode;
@@ -226,6 +232,15 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Вид компонента.
      */
     view?: string;
+    /**
+     * Текст для состояния когда нет результата.
+     */
+    emptyStateDescription?: string;
+
+    /**
+     * @deprecated
+     */
+    listHeight?: CSSProperties['height'];
 };
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &

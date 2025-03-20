@@ -1,7 +1,15 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../Range.tokens';
-import { StyledLabel, LeftHelper, StyledDivider, ContentWrapper, StyledIndicator } from '../../Range.styles';
+import {
+    StyledLabel,
+    LeftHelper,
+    StyledDivider,
+    ContentWrapper,
+    StyledIndicator,
+    StyledInput,
+} from '../../Range.styles';
+import { textFieldTokens } from '../../../TextField';
 
 export const base = css`
     ${ContentWrapper} {
@@ -11,11 +19,23 @@ export const base = css`
         &.${classes.rangeError} {
             background-color: var(${tokens.backgroundError});
             box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorError});
+            
+            ${StyledInput} {
+                ${textFieldTokens.color}: var(${tokens.textFieldColorError}, var(${tokens.textFieldColor}));
+            }
         }
 
         &.${classes.rangeSuccess} {
             background-color: var(${tokens.backgroundSuccess});
             box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorSuccess});
+            
+            ${StyledInput} {
+                ${textFieldTokens.color}: var(${tokens.textFieldColorSuccess}, var(${tokens.textFieldColor}));
+            }
+        }
+
+        &:before {
+            box-shadow: var(${tokens.shadow});
         }
     }
 

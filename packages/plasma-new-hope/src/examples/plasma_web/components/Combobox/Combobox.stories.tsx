@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import type { PopoverPlacement } from '../Popover/Popover';
 import { WithTheme } from '../../../_helpers';
 import { IconDone } from '../../../../components/_Icon';
 
@@ -75,11 +76,9 @@ const meta: Meta<StorySelectProps> = {
             },
         },
         listOverflow: {
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
-        listHeight: {
+        listMaxHeight: {
             control: {
                 type: 'text',
             },
@@ -107,6 +106,15 @@ const meta: Meta<StorySelectProps> = {
                 type: 'boolean',
             },
             if: { arg: 'optional', truthy: false },
+        },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
         },
         optional: {
             control: {
@@ -162,6 +170,9 @@ const meta: Meta<StorySelectProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        emptyStateDescription: {
+            control: { type: 'text' },
+        },
     },
     args: {
         label: 'Label',
@@ -180,6 +191,7 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         hasHint: false,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
@@ -189,6 +201,7 @@ const meta: Meta<StorySelectProps> = {
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+        emptyStateDescription: '',
     },
     parameters: {
         controls: {
@@ -209,10 +222,11 @@ const meta: Meta<StorySelectProps> = {
                 'readOnly',
                 'listWidth',
                 'listOverflow',
-                'listHeight',
+                'listMaxHeight',
                 'optional',
                 'required',
                 'requiredPlacement',
+                'hasRequiredIndicator',
                 'hasHint',
                 'hintText',
                 'hintTrigger',
@@ -222,6 +236,7 @@ const meta: Meta<StorySelectProps> = {
                 'hintPlacement',
                 'hintWidth',
                 'hintHasArrow',
+                'emptyStateDescription',
             ],
         },
     },
@@ -443,7 +458,6 @@ const items = [
 
 const SingleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState('');
-
     return (
         <div style={{ width: '400px' }}>
             <Combobox

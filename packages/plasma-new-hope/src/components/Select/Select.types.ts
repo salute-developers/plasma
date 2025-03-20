@@ -69,7 +69,7 @@ type IsMultiselect<K extends ItemOption> =
           | {
                 multiselect?: false;
                 value?: string;
-                onChange?: (value: string) => void;
+                onChange?: (value: string, item: K | null) => void;
                 /**
                  * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
                  * @default false
@@ -78,14 +78,14 @@ type IsMultiselect<K extends ItemOption> =
                 /**
                  * Callback для кастомной настройки значения в селекте.
                  */
-                renderTarget?: (value: K) => React.ReactNode;
+                renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
             }
           | {
                 multiselect: true;
                 value?: Array<string>;
-                onChange?: (value: string[]) => void;
+                onChange?: (value: string[], item: K | null) => void;
                 isTargetAmount?: true;
-                renderTarget?: (value: K[]) => React.ReactNode;
+                renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
             }
       ))
     | ({ name: string; onChange?: ChangeEventHandler } & (
@@ -94,14 +94,14 @@ type IsMultiselect<K extends ItemOption> =
                 defaultValue?: string;
                 value?: never;
                 isTargetAmount?: never | false;
-                renderTarget?: (value: K) => React.ReactNode;
+                renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
             }
           | {
                 multiselect: true;
                 defaultValue?: Array<string>;
                 value?: never;
                 isTargetAmount?: true;
-                renderTarget?: (value: K[]) => React.ReactNode;
+                renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
             }
       ));
 
@@ -121,9 +121,9 @@ export interface BasicProps<K extends ItemOption> {
      */
     disabled?: boolean;
     /**
-     * Коллбэк для определения достижения скроллом конца списка.
+     * Компонент доступен только для чтения.
      */
-    onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+    readOnly?: boolean;
     /**
      * Вариант: обычный или сжатый
      * @default normal
@@ -135,15 +135,12 @@ export interface BasicProps<K extends ItemOption> {
     zIndex?: CSSProperties['zIndex'];
     /**
      * Значение css overflow для выпадающего меню.
-     * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
-    // TODO: #1584
     /**
-     * Значение css height для выпадающего меню.
-     * @example listHeight="11", listHeight="auto", listHeight={11}
+     * Максимальная высота выпадающего списка.
      */
-    listHeight?: CSSProperties['height'];
+    listMaxHeight?: CSSProperties['height'];
     /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
@@ -174,6 +171,20 @@ export interface BasicProps<K extends ItemOption> {
      * Ячейка для контента в конце выпадающего списка.
      */
     afterList?: React.ReactNode;
+    /**
+     * Виртуализация в выпадающем списке.
+     * Не поддерживается в многоуровневых списках.
+     * @default false
+     */
+    virtual?: boolean;
+    /**
+     * Коллбэк, срабатывающий при скролле.
+     */
+    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    /**
+     * Событие сворачивания/разворачивания выпадающего списка.
+     */
+    onToggle?: (isOpen: boolean) => void;
 
     /**
      * Размер компонента.
@@ -187,6 +198,16 @@ export interface BasicProps<K extends ItemOption> {
      * Внешний вид чипа в варианте textfield-like multiselect.
      */
     chipView?: string;
+
+    /**
+     * @deprecated
+     */
+    listHeight?: CSSProperties['height'];
+    /**
+     * Коллбэк для определения достижения скроллом конца списка.
+     * @deprecated
+     */
+    onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
 }
 
 // Тип нового селекта
@@ -264,19 +285,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
           }
     ) & {
         value?: T;
-        onChange?: (value: T) => void;
-        /**
-         * Значение css overflow для выпадающего меню.
-         * @example listOverflow="scroll"
-         */
-        listOverflow?: CSSProperties['overflow'];
-        // TODO: #1584
-        /**
-         * Значение css height для выпадающего меню.
-         * @example listHeight="11", listHeight="auto", listHeight={11}
-         */
-        listHeight?: CSSProperties['height'];
-
+        onChange?: (value: T, item: K | null) => void;
         /**
          * Placeholder.
          */
@@ -290,6 +299,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default false
          */
         disabled?: boolean;
+        /**
+         * Компонент доступен только для чтения.
+         */
+        readOnly?: boolean;
         /**
          * Список элементов.
          */
@@ -305,17 +318,13 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
         /**
          * Callback для кастомной настройки таргета целиком.
          */
-        renderTarget?: (item: K | K[]) => React.ReactNode;
+        renderTarget?: (item: K | K[], opened?: boolean) => React.ReactNode;
         /**
          * Сторона открытия дропдауна относительно target элемента.
          * @default bottom
          */
         placement?: SelectPlacement | Array<SelectPlacementBasic>;
 
-        /**
-         * Коллбэк для определения достижения скроллом конца списка.
-         */
-        onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
         /**
          * Вариант: обычный или сжатый
          * @default normal
@@ -325,6 +334,14 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * CSS-свойство z-index для выпадающего списка.
          */
         zIndex?: CSSProperties['zIndex'];
+        /**
+         * Значение css overflow для выпадающего меню.
+         */
+        listOverflow?: CSSProperties['overflow'];
+        /**
+         * Максимальная высота выпадающего списка.
+         */
+        listMaxHeight?: CSSProperties['height'];
         /**
          * Значение css width для выпадающего списка.
          * @example width="200px"
@@ -361,6 +378,14 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default false
          */
         virtual?: boolean;
+        /**
+         * Коллбэк, срабатывающий при скролле.
+         */
+        onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+        /**
+         * Событие сворачивания/разворачивания выпадающего списка.
+         */
+        onToggle?: (isOpen: boolean) => void;
 
         /**
          * Размер компонента.
@@ -387,6 +412,15 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @deprecated
          */
         isOpen?: boolean;
+        /**
+         * @deprecated
+         */
+        listHeight?: CSSProperties['height'];
+        /**
+         * Коллбэк для определения достижения скроллом конца списка.
+         * @deprecated
+         */
+        onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
     } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
 
 export type { DropdownNode as DropdownNodeSelect };

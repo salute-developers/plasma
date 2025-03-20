@@ -43,11 +43,9 @@ const meta: Meta<StorySelectProps> = {
             },
         },
         listOverflow: {
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
-        listHeight: {
+        listMaxHeight: {
             control: {
                 type: 'text',
             },
@@ -76,11 +74,23 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'optional', truthy: false },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         optional: {
             control: {
                 type: 'boolean',
             },
             if: { arg: 'required', truthy: false },
+        },
+        emptyStateDescription: {
+            control: { type: 'text' },
         },
         ...disableProps([
             'hintText',
@@ -112,6 +122,8 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
+        emptyStateDescription: '',
     },
     parameters: {
         controls: {
@@ -133,11 +145,13 @@ const meta: Meta<StorySelectProps> = {
                 'readOnly',
                 'listWidth',
                 'listOverflow',
-                'listHeight',
+                'listMaxHeight',
                 'labelPlacement',
                 'optional',
                 'required',
                 'requiredPlacement',
+                'hasRequiredIndicator',
+                'emptyStateDescription',
             ],
         },
     },

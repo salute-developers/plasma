@@ -1,12 +1,13 @@
 import React, { ChangeEvent, ComponentProps, Dispatch, SetStateAction, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconSearch, IconSber, IconArrowRight } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton';
 
 import { Range } from './Range';
+import { config } from './Range.config';
 
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
@@ -17,8 +18,8 @@ const onFocusSecondTextfield = action('onFocusSecondTextfield');
 const onBlurFirstTextfield = action('onBlurFirstTextfield');
 const onBlurSecondTextfield = action('onBlurSecondTextfield');
 
-const sizes = ['l', 'm', 's', 'xs'];
-const views = ['default'];
+const { sizes, views } = getConfigVariations(config);
+
 const dividers = ['none', 'dash', 'icon'];
 const requiredPlacements = ['left', 'right'];
 
@@ -49,6 +50,15 @@ const meta: Meta<typeof Range> = {
                 truthy: true,
             },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         ...disableProps(['view']),
     },
 };
@@ -66,8 +76,9 @@ type StoryPropsDefault = ComponentProps<typeof Range> & {
 
 const getSizeForIcon = (size) => {
     const map = {
-        m: 's',
+        xl: 's',
         l: 's',
+        m: 's',
         s: 's',
         xs: 'xs',
     };
@@ -178,6 +189,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: 'С',
@@ -320,6 +332,7 @@ export const Demo: StoryObj<StoryPropsDefault> = {
         view: 'default',
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         disabled: false,
         readOnly: false,
         firstTextfieldTextBefore: '',

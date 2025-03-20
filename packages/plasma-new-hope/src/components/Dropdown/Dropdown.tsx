@@ -1,4 +1,4 @@
-import React, { forwardRef, useReducer, useRef } from 'react';
+import React, { forwardRef, useCallback, useReducer, useRef } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
@@ -36,6 +36,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 view,
                 itemRole = 'treeitem',
                 className,
+                listMaxHeight,
                 listWidth,
                 listHeight,
                 listOverflow,
@@ -44,6 +45,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 onItemSelect,
                 onItemClick,
                 trigger = 'click',
+                openByRightClick = false,
                 variant = 'normal',
                 hasArrow = true,
                 alwaysOpened = false,
@@ -58,6 +60,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
         ) => {
             const [path, dispatchPath] = useReducer(pathReducer, []);
             const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
+
+            const isCurrentListOpen = alwaysOpened || Boolean(path[0]);
 
             const [pathMap, focusedToValueMap] = useHashMaps(items);
 
@@ -94,6 +98,19 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 }
             };
 
+            const onContextMenu = useCallback(
+                (e: React.MouseEvent) => {
+                    e.preventDefault();
+
+                    if (alwaysOpened) {
+                        return;
+                    }
+
+                    handleGlobalToggle(!isCurrentListOpen, e);
+                },
+                [handleGlobalToggle, isCurrentListOpen, alwaysOpened],
+            );
+
             const { onKeyDown } = useKeyNavigation({
                 focusedPath,
                 dispatchFocusedPath,
@@ -106,8 +123,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 onItemSelect,
                 onItemClick,
             });
-
-            const isCurrentListOpen = alwaysOpened || Boolean(path[0]);
 
             return (
                 <Context.Provider
@@ -142,6 +157,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                 ? getItemId(treeId, activeDescendantItemValue.toString())
                                 : '',
                             onKeyDown,
+                            onContextMenu: openByRightClick ? onContextMenu : undefined,
                         })}
                         zIndex={zIndex}
                     >
@@ -157,8 +173,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                 ref={targetRef}
                                 id={`${treeId}_tree_level_1`}
                                 role="tree"
-                                listHeight={listHeight}
                                 listOverflow={listOverflow}
+                                listMaxHeight={listMaxHeight || listHeight}
                                 listWidth={listWidth}
                             >
                                 {beforeList}
@@ -172,8 +188,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                         path={path}
                                         dispatchPath={dispatchPath}
                                         index={index}
-                                        listHeight={listHeight}
                                         listOverflow={listOverflow}
+                                        listMaxHeight={listMaxHeight || listHeight}
                                         listWidth={listWidth}
                                     />
                                 ))}

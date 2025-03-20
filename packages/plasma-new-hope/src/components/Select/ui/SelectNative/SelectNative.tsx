@@ -40,15 +40,11 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
 
         useLayoutEffect(() => {
             const event = createEvent(selectRef);
+
             if (onChange) {
                 onChange(event);
             }
-        }, [values]);
-
-        //
-        // Пустой option нужен для нативного поведения. Он автоматически выбирает первый пункт,
-        // если нет изначального значения
-        //
+        }, [value]);
 
         return (
             <>
@@ -59,7 +55,10 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
                     hidden
                     value={multiselect ? values : values[0]}
                 >
+                    {/* Пустой option нужен для нативного поведения. Он автоматически выбирает первый пункт,
+                        если нет изначального значения */}
                     <option> </option>
+
                     {options.map((v) => (
                         <option key={v} value={v}>
                             {v}

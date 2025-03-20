@@ -1,4 +1,4 @@
-import { flip, shift, size, useFloating, FloatingPortal } from '@floating-ui/react';
+import { flip, shift, size, useFloating, FloatingPortal, autoUpdate } from '@floating-ui/react';
 import React, { forwardRef } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
@@ -7,6 +7,13 @@ import type { FloatingPopoverProps } from './Autocomplete.types';
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
     ({ target, children, opened, portal, listWidth }, ref) => {
         const { refs, floatingStyles } = useFloating({
+            whileElementsMounted(referenceEl, floatingEl, update) {
+                return autoUpdate(referenceEl, floatingEl, update, {
+                    ancestorScroll: false,
+                    ancestorResize: false,
+                    layoutShift: false,
+                });
+            },
             placement: 'bottom-start',
             open: opened,
             middleware: [

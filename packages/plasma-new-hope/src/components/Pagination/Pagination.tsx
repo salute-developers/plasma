@@ -1,7 +1,7 @@
 import React, { useEffect, useState, forwardRef } from 'react';
 
 import { cx, isNumber } from '../../utils';
-import { RootProps } from '../../engines';
+import { RootPropsOmitOnChange } from '../../engines';
 
 import {
     PaginationPages,
@@ -21,7 +21,7 @@ import { classes } from './Pagination.tokens';
 import { PaginationQuickJumpToPage } from './ui/PaginationQuickJumpToPage/PaginationQuickJumpToPage';
 import { PaginationSelectPerPage } from './ui/PaginationSelectPerPage/PaginationSelectPerPage';
 
-export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>) =>
+export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, PaginationProps>) =>
     forwardRef<HTMLDivElement, PaginationProps>(
         (
             {
@@ -55,6 +55,7 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
 
                 onChangePageValue,
                 onChangePerPageValue,
+                onChange,
                 ...rest
             },
             ref,
@@ -93,11 +94,13 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                 }
                 setPageValue(pageValue);
                 onChangePageValue?.(pageValue);
+                onChange?.(pageValue, perPageValue);
             };
 
             const handlerSetPerPage = (newPerPageValue?: number) => {
-                handlerSetPage(1);
+                handlerSetPage(page);
                 setPerPageValue(newPerPageValue);
+                onChange?.(page, newPerPageValue);
                 onChangePerPageValue?.(newPerPageValue);
 
                 handlerSetPages(newPerPageValue);
@@ -109,7 +112,7 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
 
             useEffect(() => {
                 handlerSetPages(perPage);
-            }, [perPage, count, handlerSetPages]);
+            }, [value, perPage, count, handlerSetPages]);
 
             useEffect(() => {
                 handlerSetPage(value);

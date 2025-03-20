@@ -52,7 +52,6 @@ describe('plasma-web: Checkbox', () => {
             name,
             value: 'artificial',
             label: 'Искусственные языки',
-            checked: false,
             indeterminate: true,
             disabled: false,
         },
@@ -156,5 +155,31 @@ describe('plasma-web: Checkbox', () => {
         );
 
         cy.matchImageSnapshot();
+    });
+
+    it('indeterminate', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '200px' }}>
+                    <Checkbox indeterminate label="Label" description="Description" />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot('indeterminate_click');
+    });
+
+    it('indeterminate_controlled', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '200px' }}>
+                    <Checkbox checked={false} indeterminate label="Label" description="Description" />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot('indeterminate_unchecked_before_click');
+        cy.get('label').click();
+        cy.matchImageSnapshot('indeterminate_unchecked_after_click');
     });
 });

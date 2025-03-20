@@ -11,7 +11,7 @@ export interface DropdownInnerProps {
     dispatchPath: Dispatch<PathAction>;
     index: number;
     trigger: DropdownProps['trigger'];
-    listHeight: DropdownProps['listHeight'];
+    listMaxHeight: DropdownProps['listHeight'];
     listOverflow: DropdownProps['listOverflow'];
     listWidth: DropdownProps['listWidth'];
 }

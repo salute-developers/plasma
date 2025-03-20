@@ -3,11 +3,11 @@ import React, { Children, HTMLAttributes, ElementType, cloneElement, isValidElem
 
 import type { DropdownProps } from '../Dropdown.types';
 
-export const getCorrectHeight = (listHeight: Required<DropdownProps>['listHeight']): string => {
-    if (Number.isNaN(Number(listHeight))) {
-        return listHeight.toString();
+export const getCorrectHeight = (listMaxHeight: Required<DropdownProps>['listMaxHeight']): string => {
+    if (Number.isNaN(Number(listMaxHeight))) {
+        return listMaxHeight.toString();
     }
-    return `${listHeight}rem`;
+    return `${listMaxHeight}rem`;
 };
 
 export const childrenWithProps = (children: ReactNode, additionalProps: HTMLAttributes<HTMLLIElement>) =>

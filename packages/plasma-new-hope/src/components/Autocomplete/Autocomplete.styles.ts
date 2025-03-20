@@ -17,8 +17,9 @@ export const Ul = styled.ul<{
 
     border-radius: var(${tokens.borderRadius});
     height: auto;
-    max-height: ${({ listMaxHeight, virtual }) => (virtual ? 'auto' : listMaxHeight || 'none')};
-    overflow-y: ${({ virtual }) => (virtual ? 'none' : 'scroll')};
+    max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
+    overflow: auto;
+
     border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
 
     margin: var(${tokens.margin}) 0 0 0;

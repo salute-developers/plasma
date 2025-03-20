@@ -73,6 +73,15 @@ const meta: Meta<typeof TextField> = {
                 truthy: false,
             },
         },
+        hasRequiredIndicator: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'required',
+                truthy: true,
+            },
+        },
         optional: {
             control: {
                 type: 'boolean',
@@ -304,6 +313,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
+        hasRequiredIndicator: true,
         clear: false,
         hasDivider: false,
         hasHint: true,

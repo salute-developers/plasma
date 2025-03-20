@@ -35,20 +35,33 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      */
     onItemSelect?: (item: T, event: SyntheticEvent) => void;
     /**
-     * Способ открытия дропдауна окна - наведение или клик мышью.
+     * Способ открытия Dropdown окна - наведение или клик мышью.
      * @default click
      */
     trigger?: DropdownTrigger;
     /**
-     * Сторона открытия дропдауна относительно target элемента.
+     * Открывает дропдаун окно по правому клику мышью
+     * @default false
+     */
+    openByRightClick?: boolean;
+    /**
+     * Сторона открытия Dropdown относительно target элемента.
      * @default bottom
      */
     placement?: DropdownPlacement;
     /**
-     * Отступ дропдауна относительно элемента, у которого оно вызвано.
+     * Отступ Dropdown относительно элемента, у которого оно вызвано.
      * @default [0, 0]
      */
     offset?: [number, number];
+    /**
+     * Значение css overflow для выпадающего меню.
+     */
+    listOverflow?: CSSProperties['overflow'];
+    /**
+     * Максимальная высота выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
     /**
      * Значение css width для выпадающего списка.
      * @example width="200px"
@@ -66,12 +79,12 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      */
     closeOnSelect?: boolean;
     /**
-     * Закрывать окно при нажатии вне области дропдауна.
+     * Закрывать окно при нажатии вне области Dropdown.
      * @default true
      */
     closeOnOverlayClick?: boolean;
     /**
-     * Событие сворачивания/разворачивания дропдауна.
+     * Событие сворачивания/разворачивания Dropdown.
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
     size?: string;
@@ -107,14 +120,6 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      * @deprecated использовать onItemSelect.
      */
     onItemClick?: (item: T, event: SyntheticEvent) => void;
-    /**
-     * Значение css overflow для выпадающего меню.
-     * @default initial
-     * @deprecated
-     * @example listOverflow="scroll"
-     */
-    listOverflow?: CSSProperties['overflow'];
-    // TODO: #1584
     /**
      * Значение css height для выпадающего меню.
      * @default initial
