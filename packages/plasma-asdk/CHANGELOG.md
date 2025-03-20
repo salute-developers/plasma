@@ -1,3 +1,196 @@
+## 0.324.0 (20 марта 2025)
+
+## Функциональные изменения в компонентах
+
+### Button
+
+* исправлены токены для `hover`,  `active`
+
+[PR](https://github.com/salute-developers/plasma/pull/1809)
+
+### IconButton
+
+* исправлены токены для `hover`,  `active`
+
+[PR](https://github.com/salute-developers/plasma/pull/1809)
+
+### Calendar
+
+* добавлены переводы для aria-label на `eng`
+
+[PR](https://github.com/salute-developers/plasma/pull/1829)
+
+### Dropdown
+
+* добавлено **новое** свойство `openByRightClick` для открытия по правому клику мыши
+
+[PR](https://github.com/salute-developers/plasma/pull/1791)
+
+* добавлено свойство `listMaxHeight`
+* свойство `listHeight` теперь deprecated
+
+[PR](https://github.com/salute-developers/plasma/pull/1835)
+
+### TextField
+
+* добавлено **новое** свойство `hasRequiredIndicator`, которое регулирует наличие индикатора обязательности поля
+
+[PR](https://github.com/salute-developers/plasma/pull/1826)
+
+### TextArea
+
+* добавлено  **новое** свойство `hasRequiredIndicator`, которое регулирует наличие индикатора обязательности поля
+
+[PR](https://github.com/salute-developers/plasma/pull/1826)
+
+### Range
+
+* добавлено  **новое** свойство `hasRequiredIndicator`, которое регулирует наличие индикатора обязательности поля
+
+[PR](https://github.com/salute-developers/plasma/pull/1826)
+
+### DatePicker
+
+* добавлено  **новое** свойство `hasRequiredIndicator`, которое регулирует наличие индикатора обязательности поля
+
+[PR](https://github.com/salute-developers/plasma/pull/1826)
+
+### Select
+
+* добавлено  **новое** свойство `hasRequiredIndicator`, которое регулирует наличие индикатора обязательности поля
+
+[PR](https://github.com/salute-developers/plasma/pull/1826)
+
+* добавлена документация по использованию `react-hook-form` с помощью `Controller`
+
+[PR](https://github.com/salute-developers/plasma/pull/1813)
+
+* расширено свойство `onChange?: (value: string[], item: T | null)`
+
+[PR](https://github.com/salute-developers/plasma/pull/1831)
+
+* расширили свойство `renderTarget?: (value: K[], opened?: boolean)`
+
+[PR](https://github.com/salute-developers/plasma/pull/1846)
+
+* добавлено свойство `listMaxHeight`
+* свойство `listHeight` теперь deprecated
+* добавлено свойство `onScroll` для возможности бесконечной подгрузки
+* добавлено свойство `onToggle`
+
+[PR](https://github.com/salute-developers/plasma/pull/1835)
+
+* добавлено состояние `readOnly`
+* исправлен UI для состояния disabled
+
+[PR](https://github.com/salute-developers/plasma/pull/1859)
+
+### Switch
+
+* добавлен новый токен, для изменения кол-ва строк в `description`
+
+[PR](https://github.com/salute-developers/plasma/pull/1819)
+
+### Notification
+
+* добавлены новые значения для `NotificationPlacement`. `top`, `center`, `left`, `bottom`, `right` и производные комбинации.
+
+[PR](https://github.com/salute-developers/plasma/pull/1832)
+
+### Combobox
+
+* добавлена документация по использованию `react-hook-form` с помощью `Controller`
+
+[PR](https://github.com/salute-developers/plasma/pull/1813)
+
+* расширено свойство `onChange?: (value: string[], item: T | null)`
+
+[PR](https://github.com/salute-developers/plasma/pull/1831)
+
+* добавлено **новое** свойство `emptyStateDescription `
+
+[PR](https://github.com/salute-developers/plasma/pull/1844)
+
+* добавлено свойство `listMaxHeight`
+* свойство `listHeight` теперь deprecated
+* добавлено св-во `onScroll` для возможности бесконечной подгрузки
+* добавлено св-во `onToggle`
+
+[PR](https://github.com/salute-developers/plasma/pull/1835)
+
+* исправлен баг с позиционированием выпадающего списка при динамическом изменении его высоты
+
+[PR](https://github.com/salute-developers/plasma/pull/1858)
+
+### Checkbox
+
+* исправлено поведение в `controlled` при состоянии `indeterminate`
+
+[PR](https://github.com/salute-developers/plasma/pull/1837)
+
+### LinkButton
+
+* добавлен новый компонент LinkButton
+
+<img width="201" src="https://github.com/user-attachments/assets/dec05088-3ccf-44c2-aeec-ea124af27369" />
+
+<img width="197" src="https://github.com/user-attachments/assets/94f83864-ac3a-4591-aa78-5f4c3676cbfb" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1830)
+
+### NumberFormat
+
+* добавлен компонент для ввода чисел с форматированием
+
+<img width="494" src="https://github.com/user-attachments/assets/16c78262-5bc8-4e69-a682-1c4d1e04b1e3" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1834)
+
+### Tree
+
+* добавлена возможность использовать компонент в `controlled-варианте`
+
+[PR](https://github.com/salute-developers/plasma/pull/1824)
+
+### Textfield
+
+* исправлен баг в режиме `readOnly`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1838)
+
+### Cell
+
+* изменен `gap` между элементами в размерах `xs` и `m`
+
+[PR](https://github.com/salute-developers/plasma/pull/1850)
+
+### Pagination
+
+* добавлено новое свойство `onChange?: (page?: number, perpage?: number)`
+
+[PR](https://github.com/salute-developers/plasma/pull/1836)
+
+### Autocomplete
+
+* исправлен баг с позиционированием выпадающего списка при динамическом изменении его высоты;
+
+[PR](https://github.com/salute-developers/plasma/pull/1858)
+
+### Calendar, DatePicker
+
+* добавлено свойство `renderFromDate`, для регулирования даты отрисовки календарной сетки
+
+[PR](https://github.com/salute-developers/plasma/pull/1848)
+
+### Card
+
+* добавлен новый компонент Card
+
+<img width="354" src="https://github.com/user-attachments/assets/d1e4f778-6462-4444-835d-48d66b3e1b52" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1806)
+
+
 ## 0.305.0 (6 марта 2025)
 
 ## Функциональные изменения в компонентах
