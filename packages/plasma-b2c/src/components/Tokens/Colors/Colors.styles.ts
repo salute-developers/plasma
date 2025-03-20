@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+import { bodyXS } from '../../../tokens';
 import { AccordionItem } from '../../Accordion';
 import { SegmentItem } from '../../Segment/Segment';
 
@@ -23,13 +24,7 @@ export const SubthemeSwitcher = styled.div`
         left: -0.75rem;
         color: var(--text-tertiary);
 
-        font-family: var(--plasma-typo-body-xs-font-family);
-        font-size: var(--plasma-typo-body-xs-font-size);
-        font-style: var(--plasma-typo-body-xs-font-style);
-        font-weight: var(--plasma-typo-body-xs-font-weight);
-        bold-font-weight: var(--plasma-typo-body-xs-bold-font-weight);
-        letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
-        line-height: var(--plasma-typo-body-xs-line-height);
+        ${bodyXS};
     }
 `;
 
