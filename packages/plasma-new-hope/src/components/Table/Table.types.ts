@@ -1,17 +1,14 @@
 import type { HTMLAttributes } from 'react';
-
-type RowSelection = {
-    selectedRowKeys?: Record<string, any>[];
-    onChange?: (e: any) => void;
-};
+import { RowSelectionState } from '@tanstack/react-table';
 
 type Column = {
     id: string;
     label: string;
     enableSorting?: boolean;
-
+    enableResizing?: boolean;
     filters?: { value: string; label: string }[];
     filterFn?: (filteredValue: string, cellValue: any) => boolean;
+    size?: number;
 };
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
@@ -24,7 +21,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
 
     size?: string;
     variant?: 'no-border' | 'border-rows' | 'border-header' | 'border-all' | 'border-all-bg';
-    rowSelection?: RowSelection;
+    selected?: RowSelectionState;
     filtered?: {
         id: string;
         value: unknown;

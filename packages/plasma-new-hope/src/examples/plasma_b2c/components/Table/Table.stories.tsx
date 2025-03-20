@@ -63,6 +63,7 @@ const columns = [
             { value: 'oe', label: 'oe' },
         ],
         filterFn: (filterValue, cellValue) => cellValue.includes(filterValue),
+        enableResizing: true,
     },
     {
         id: 'lastName',
@@ -77,12 +78,14 @@ const columns = [
 ];
 
 const StoryDefault = (args: StoryTreeProps) => {
+    const [selected, setSelected] = React.useState<Record<string, boolean>>({});
     const [filtered, setFiltered] = React.useState([]);
     const [sorted, setSorted] = useState([]);
 
-    // console.log(filtered, sorted);
+    const handleChange = ({ selected, sorted, filtered }) => {
+        console.log('handleChange', selected, sorted, filtered);
 
-    const handleChange = ({ sorted, filtered }) => {
+        setSelected(selected);
         setSorted(sorted);
         setFiltered(filtered);
     };
@@ -94,6 +97,10 @@ const StoryDefault = (args: StoryTreeProps) => {
             </div>
 
             <div>
+                <button type="button" onClick={() => setSelected({})}>
+                    clear selection
+                </button>
+
                 <button type="button" onClick={() => setSorted([])}>
                     clear sorting
                 </button>
@@ -107,6 +114,7 @@ const StoryDefault = (args: StoryTreeProps) => {
                     data={data}
                     columns={columns}
                     onChange={handleChange}
+                    selected={selected}
                     sorted={sorted}
                     filtered={filtered}
                 />

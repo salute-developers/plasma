@@ -9,13 +9,16 @@ import {
     // getPaginationRowModel,
     OnChangeFn,
     ColumnFiltersState,
+    RowSelectionState,
 } from '@tanstack/react-table';
 
 import { RootProps } from '../../engines';
 
 import { HeadCell } from './ui';
 import { TableProps } from './Table.types';
-import { base, Table, Tr, Th, Td, Thead, StyledCheckbox } from './Table.styles';
+import { base, Table, Tr, Td, Thead, StyledCheckbox, Resizer } from './Table.styles';
+
+export const SELECT_COLUMN_ID = 'select#65768756432';
 
 type ColumnSort = {
     id: string;
@@ -34,25 +37,40 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
             // editable,
             size,
             variant,
-            rowSelection,
+            selected: outerSelected,
             filtered: outerFiltered,
             sorted: outerSorted,
         }) => {
-            const [internalSelectedRowKeys, setInternalSelectedRowKeys] = useState<React.Key[]>([]);
+            const [innerSelected, innerSetSelected] = useState<RowSelectionState>(outerSelected || {});
+            const [innerFiltered, setInnerFiltered] = useState<ColumnFiltersState>(outerFiltered || []);
+            const [innerSorted, setInnerSorted] = useState<SortingState>(outerSorted || []);
 
-            const [innerFiltered, setInnerFiltered] = useState<ColumnFiltersState>([]);
-            const [innerSorted, setInnerSorted] = useState<SortingState>([]);
-
+            const selected = outerSelected || innerSelected;
             const filtered = outerFiltered || innerFiltered;
             const sorted: SortingState = outerSorted || innerSorted;
 
-            const handleSorting: OnChangeFn<SortingState> = (updaterOrValue) => {
-                if (!outerSorted) {
-                    setInnerSorted(typeof updaterOrValue === 'function' ? updaterOrValue(innerSorted) : updaterOrValue);
+            const handleRowSelection: OnChangeFn<RowSelectionState> = (updaterOrValue) => {
+                if (!outerSelected) {
+                    innerSetSelected(updaterOrValue);
                 }
 
                 if (onChange) {
                     onChange({
+                        selected: typeof updaterOrValue === 'function' ? updaterOrValue(selected) : updaterOrValue,
+                        filtered,
+                        sorted,
+                    });
+                }
+            };
+
+            const handleSorting: OnChangeFn<SortingState> = (updaterOrValue) => {
+                if (!outerSorted) {
+                    setInnerSorted(updaterOrValue);
+                }
+
+                if (onChange) {
+                    onChange({
+                        selected,
                         filtered,
                         sorted: typeof updaterOrValue === 'function' ? updaterOrValue(sorted) : updaterOrValue,
                     });
@@ -61,87 +79,56 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
             const handleFiltering: OnChangeFn<ColumnFiltersState> = (updaterOrValue) => {
                 if (!outerFiltered) {
-                    setInnerFiltered(
-                        typeof updaterOrValue === 'function' ? updaterOrValue(innerFiltered) : updaterOrValue,
-                    );
+                    setInnerFiltered(updaterOrValue);
                 }
 
                 if (onChange) {
                     onChange({
+                        selected,
                         filtered: typeof updaterOrValue === 'function' ? updaterOrValue(filtered) : updaterOrValue,
                         sorted,
                     });
                 }
             };
 
-            const selectedRowKeys = rowSelection?.selectedRowKeys || internalSelectedRowKeys;
-
-            const handleSelectedChange = (rowKey: React.Key) => {
-                if (selectedRowKeys.some((key) => key === rowKey)) {
-                    setInternalSelectedRowKeys(internalSelectedRowKeys.filter((key) => key !== rowKey));
-                } else {
-                    setInternalSelectedRowKeys([...internalSelectedRowKeys, rowKey]);
-                }
-            };
-
-            const handleAllSelectedChange = () => {
-                if (
-                    selectedRowKeys.length === 0 ||
-                    (selectedRowKeys.length > 0 && selectedRowKeys.length !== data.length)
-                ) {
-                    setInternalSelectedRowKeys(data.map(({ key }) => key));
-                } else if (selectedRowKeys.length === data.length) {
-                    setInternalSelectedRowKeys([]);
-                }
-            };
-
             const tableContainerRef = useRef<HTMLTableSectionElement>(null);
 
             const columnsData = useMemo<ColumnDef<any>[]>(
-                () =>
-                    columns.map(
+                () => [
+                    {
+                        id: SELECT_COLUMN_ID,
+                        header: ({ table }) => (
+                            <StyledCheckbox
+                                checked={table.getIsAllRowsSelected()}
+                                indeterminate={table.getIsSomeRowsSelected()}
+                                onClick={table.getToggleAllRowsSelectedHandler()}
+                            />
+                        ),
+                        cell: ({ row }) => (
+                            <StyledCheckbox
+                                checked={row.getIsSelected()}
+                                indeterminate={row.getIsSomeSelected()}
+                                onClick={row.getToggleSelectedHandler()}
+                            />
+                        ),
+                        enableResizing: false,
+                    },
+                    ...columns.map(
                         ({
                             id,
                             // label,
                             filters,
                             enableSorting = false,
-                            // enableResizing = false,
+                            enableResizing = false,
                             filterFn: outerFilterFn,
+                            size: columnSize,
                         }) => {
                             return {
                                 accessorKey: id,
-                                // cell: ({ getValue, row: { index }, column: { id }, table }) => {
-                                //     if (editable) {
-                                //         // console.log('column cell', info);
-                                //         // info.getValue()
-                                //         const initialValue = getValue();
-                                //         // We need to keep and update the state of the cell normally
-                                //         // eslint-disable-next-line react-hooks/rules-of-hooks
-                                //         const [value, setValue] = useState(initialValue);
-                                //
-                                //         // When the input is blurred, we'll call our table meta's updateData function
-                                //         const onBlur = () => {
-                                //             table.options.meta?.updateData(index, id, value);
-                                //         };
-                                //
-                                //         // If the initialValue is changed external, sync it up with our state
-                                //         // eslint-disable-next-line react-hooks/rules-of-hooks
-                                //         useEffect(() => {
-                                //             setValue(initialValue);
-                                //         }, [initialValue]);
-                                //
-                                //         return (
-                                //             <input
-                                //                 value={value as string}
-                                //                 onChange={(e) => setValue(e.target.value)}
-                                //                 onBlur={onBlur}
-                                //             />
-                                //         );
-                                //     }
-                                //     return getValue();
-                                // },
+                                size: columnSize,
                                 enableSorting,
-                                filterFn: (row, columnId, filterArr) => {
+                                enableResizing,
+                                filterFn: (row: any, columnId: any, filterArr: any) => {
                                     if (outerFilterFn && filterArr && Array.isArray(filterArr)) {
                                         if (filterArr.length === 0) {
                                             return true;
@@ -160,33 +147,36 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
                                     return true;
                                 },
-                                // enableResizing,
                                 meta: {
                                     filters,
                                 },
                             };
                         },
                     ),
+                ],
                 [columns],
             );
 
             const table = useReactTable({
                 data,
                 columns: columnsData,
+                getRowId: (row) => row.id,
                 getCoreRowModel: getCoreRowModel(),
                 getSortedRowModel: getSortedRowModel(),
                 manualSorting: Boolean(outerSorted),
                 manualFiltering: Boolean(outerFiltered),
                 state: {
+                    rowSelection: selected,
                     columnFilters: filtered,
                     sorting: sorted,
                 },
                 onSortingChange: handleSorting,
                 getFilteredRowModel: getFilteredRowModel(),
                 onColumnFiltersChange: handleFiltering,
+                onRowSelectionChange: handleRowSelection,
                 // getPaginationRowModel: pagination ? getPaginationRowModel() : undefined,
-                // columnResizeMode: 'onChange',
-                // columnResizeDirection: 'ltr',
+                columnResizeMode: 'onChange',
+                columnResizeDirection: 'ltr',
                 // meta: {
                 //     updateData: (rowIndex, columnId, value) => {
                 //         // Skip page index reset until after next rerender
@@ -212,7 +202,6 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                         {...{
                             style: {
                                 display: 'table',
-                                width: table.getCenterTotalSize(),
                             },
                         }}
                         variant={variant}
@@ -231,16 +220,6 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                         >
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <Tr key={headerGroup.id} variant={variant}>
-                                    <Th variant={variant} selectionCell>
-                                        <StyledCheckbox
-                                            checked={selectedRowKeys.length === data.length}
-                                            indeterminate={
-                                                selectedRowKeys.length > 0 && selectedRowKeys.length !== data.length
-                                            }
-                                            onClick={handleAllSelectedChange}
-                                        />
-                                    </Th>
-
                                     {headerGroup.headers.map((header) => {
                                         return <HeadCell header={header} size={size} variant={variant} />;
                                     })}
@@ -250,22 +229,16 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
                         <tbody>
                             {table.getRowModel().rows.map((row) => (
-                                <Tr
-                                    key={row.id}
-                                    variant={variant}
-                                    selected={selectedRowKeys.some((key) => key === row.original.key)}
-                                >
-                                    <Td variant={variant} selectionCell>
-                                        <StyledCheckbox
-                                            // Дооптимизировать через Set
-                                            checked={selectedRowKeys.some((key) => key === row.original.key)}
-                                            onClick={() => handleSelectedChange(row.original.key)}
-                                        />
-                                    </Td>
-
+                                <Tr key={row.id} variant={variant} selected={row.getIsSelected()}>
                                     {row.getVisibleCells().map((cell) => (
-                                        <Td key={cell.id} variant={variant} selectionCell={false}>
+                                        <Td
+                                            key={cell.id}
+                                            variant={variant}
+                                            selectionCell={cell.column.id === SELECT_COLUMN_ID}
+                                        >
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
+
+                                            {cell.column.getIsResizing() && <Resizer isResizing />}
                                         </Td>
                                     ))}
                                 </Tr>

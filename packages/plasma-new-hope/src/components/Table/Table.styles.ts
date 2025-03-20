@@ -47,6 +47,20 @@ export const Thead = styled.thead`
     }
 `;
 
+export const Resizer = styled.div<{ isResizing: boolean }>`
+    display: ${({ isResizing }) => (isResizing ? 'block' : 'none')};
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    bottom: -1px;
+    right: -2px;
+    width: 0.1875rem;
+    background: var(--outline-accent);
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+`;
+
 export const Th = styled.th<{ variant: TableProps['variant']; selectionCell?: boolean }>`
     padding: ${({ selectionCell }) =>
         selectionCell ? `var(${tokens.checkboxCellPadding})` : `var(${tokens.cellPadding})`};
@@ -68,9 +82,16 @@ export const Th = styled.th<{ variant: TableProps['variant']; selectionCell?: bo
         variant === 'border-header'
             ? '#DDDDDD'
             : 'transparent'};
+
+    &:hover {
+        ${Resizer} {
+            display: block;
+        }
+    }
 `;
 
-export const Td = styled.td<{ variant: TableProps['variant']; selectionCell: boolean }>`
+export const Td = styled.td<{ variant: TableProps['variant']; selectionCell?: boolean }>`
+    position: relative;
     padding: ${({ selectionCell }) =>
         selectionCell ? `var(${tokens.checkboxCellPadding})` : `var(${tokens.cellPadding})`};
     height: var(${tokens.rowHeight});
@@ -89,5 +110,5 @@ export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.triggerBorderRadius}: var(${tokens.checkboxTriggerBorderRadius});
     ${checkboxTokens.fillColor}: var(--text-accent);
     ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-   ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+    ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
 `;
