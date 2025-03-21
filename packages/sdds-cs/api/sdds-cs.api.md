@@ -270,7 +270,7 @@ size?: string | undefined;
 singleActive?: boolean | undefined;
 defaultActiveEventKey?: number[] | undefined;
 disabled?: boolean | undefined;
-stretching?: "fixed" | "filled" | undefined;
+stretching?: "filled" | "fixed" | undefined;
 onChange?: ((index?: number | undefined, value?: boolean | undefined) => void) | undefined;
 children?: ReactNode;
 className?: string | undefined;
@@ -311,7 +311,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -334,7 +334,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -360,7 +360,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -384,7 +384,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -411,7 +411,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -437,7 +437,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -460,7 +460,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -487,7 +487,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -1029,70 +1029,7 @@ showItems?: number | undefined;
 export { BreadcrumbsProps }
 
 // @public
-export const Button: FunctionComponent<PropsType<    {
-view: {
-accent: PolymorphicClassName;
-secondary: PolymorphicClassName;
-clear: PolymorphicClassName;
-};
-size: {
-s: PolymorphicClassName;
-sr: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-focused: {
-true: PolymorphicClassName;
-};
-stretching: {
-auto: PolymorphicClassName;
-filled: PolymorphicClassName;
-fixed: PolymorphicClassName;
-};
-}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
-} & {
-value?: string | number | undefined;
-contentRight?: undefined;
-} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
-} & {
-value?: undefined;
-contentRight?: ReactNode;
-} & RefAttributes<HTMLButtonElement>))>;
+export const Button: ({ onClick, isLoading, ...props }: ButtonProps) => JSX.Element;
 
 export { ButtonBase }
 
@@ -1131,7 +1068,7 @@ export { ButtonGroupProps }
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type ButtonProps = typeof ButtonComponent;
+export type ButtonProps = ComponentProps<typeof ButtonComponent>;
 
 // @public (undocumented)
 export const Calendar: FC<CalendarProps>;
@@ -1210,7 +1147,7 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 alignContentLeft?: AlignProp | undefined;
 alignContentRight?: AlignProp | undefined;
-stretching?: "auto" | "fixed" | "filled" | undefined;
+stretching?: "auto" | "filled" | "fixed" | undefined;
 content?: ReactNode;
 description?: string | undefined;
 } & {
@@ -1225,7 +1162,7 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 alignContentLeft?: AlignProp | undefined;
 alignContentRight?: AlignProp | undefined;
-stretching?: "auto" | "fixed" | "filled" | undefined;
+stretching?: "auto" | "filled" | "fixed" | undefined;
 content?: ReactNode;
 description?: string | undefined;
 } & {
@@ -1363,7 +1300,7 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & DatePickerVariationProps & {
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 required?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 value?: string | Date | undefined;
@@ -1410,7 +1347,7 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & DatePickerVariationProps & {
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 required?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 value?: [Date | null | undefined, Date | null | undefined] | undefined;
@@ -1438,7 +1375,7 @@ size?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
 leftHelper?: string | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 hasRequiredIndicator?: boolean | undefined;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
@@ -1506,7 +1443,7 @@ none: PolymorphicClassName;
 default: PolymorphicClassName;
 };
 }> & PopupProps & PanelProps & {
-placement?: "top" | "bottom" | "right" | "left" | undefined;
+placement?: "left" | "right" | "top" | "bottom" | undefined;
 asModal?: boolean | undefined;
 customBackgroundColor?: string | undefined;
 customContentBackgroundColor?: string | undefined;
@@ -1537,7 +1474,7 @@ export { DrawerFooterProps }
 // @public
 export const DrawerHeader: FunctionComponent<PropsType<Variants> & {
 hasClose?: boolean | undefined;
-closePlacement?: "right" | "left" | undefined;
+closePlacement?: "left" | "right" | undefined;
 actions?: ReactNode;
 onClose?: (() => void) | undefined;
 view?: string | undefined;
@@ -1609,7 +1546,7 @@ multiple?: boolean | undefined;
 title?: ReactNode;
 description?: ReactNode;
 icon?: ReactNode;
-iconPlacement?: "top" | "left" | undefined;
+iconPlacement?: "left" | "top" | undefined;
 size?: string | undefined;
 view?: string | undefined;
 disabled?: boolean | undefined;
@@ -1800,7 +1737,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -1821,7 +1758,7 @@ contentPlacing?: ("default" | "relaxed") | undefined;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
 stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
 square?: boolean | undefined;
 focused?: boolean | undefined;
 disabled?: boolean | undefined;
@@ -2697,7 +2634,7 @@ view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 required?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
@@ -2737,7 +2674,7 @@ view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 required?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
@@ -2777,7 +2714,7 @@ view?: string | undefined;
 size?: string | undefined;
 readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 required?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
@@ -2916,7 +2853,7 @@ value?: undefined;
 defaultValue?: number | undefined;
 } & {
 orientation?: "horizontal" | undefined;
-labelPlacement?: "none" | "top" | "left" | undefined;
+labelPlacement?: "none" | "left" | "top" | undefined;
 scaleAlign?: "none" | "bottom" | "side" | undefined;
 sliderAlign?: "none" | undefined;
 reversed?: undefined;
@@ -2947,7 +2884,7 @@ value?: undefined;
 defaultValue?: number | undefined;
 } & {
 orientation: "vertical";
-sliderAlign?: "none" | "center" | "right" | "left" | undefined;
+sliderAlign?: "none" | "center" | "left" | "right" | undefined;
 scaleAlign?: undefined;
 reversed?: boolean | undefined;
 labelReversed?: boolean | undefined;
@@ -2977,7 +2914,7 @@ name?: undefined;
 defaultValue?: undefined;
 } & {
 orientation?: "horizontal" | undefined;
-labelPlacement?: "none" | "top" | "left" | undefined;
+labelPlacement?: "none" | "left" | "top" | undefined;
 scaleAlign?: "none" | "bottom" | "side" | undefined;
 sliderAlign?: "none" | undefined;
 reversed?: undefined;
@@ -3008,7 +2945,7 @@ name?: undefined;
 defaultValue?: undefined;
 } & {
 orientation: "vertical";
-sliderAlign?: "none" | "center" | "right" | "left" | undefined;
+sliderAlign?: "none" | "center" | "left" | "right" | undefined;
 scaleAlign?: undefined;
 reversed?: boolean | undefined;
 labelReversed?: boolean | undefined;
@@ -3172,7 +3109,7 @@ true: PolymorphicClassName;
 readOnly: {
 true: PolymorphicClassName;
 };
-}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3185,7 +3122,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
@@ -3216,7 +3153,7 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3229,7 +3166,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
@@ -3260,7 +3197,7 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3273,7 +3210,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
@@ -3304,7 +3241,7 @@ width?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3317,7 +3254,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
@@ -3348,7 +3285,7 @@ minAuto?: undefined;
 } & {
 height?: undefined;
 width?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3361,7 +3298,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
@@ -3392,7 +3329,7 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3405,7 +3342,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
@@ -3436,7 +3373,7 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3449,7 +3386,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
@@ -3480,7 +3417,7 @@ width?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "required" | "cols"> & {
 status?: "" | "warning" | "success" | "error" | undefined;
 label?: string | undefined;
 labelPlacement?: "outer" | "inner" | undefined;
@@ -3493,7 +3430,7 @@ rightHelper?: ReactNode;
 leftHelperPlacement?: "outer" | "inner" | undefined;
 } & {
 required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: "left" | "right" | undefined;
 optional?: boolean | undefined;
 hasRequiredIndicator?: boolean | undefined;
 } & {
