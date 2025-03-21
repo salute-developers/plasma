@@ -15,6 +15,7 @@ packages/sdds-serv/api/
 packages/sdds-dfa/api/
 packages/sdds-cs/api/
 packages/sdds-finportal/api/
+packages/sdds-clfd-auto/api/
 packages/sdds-insol/api/
 packages/plasma-giga/api/
 
