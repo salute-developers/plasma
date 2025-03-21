@@ -33,13 +33,14 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
             onChange,
             columns,
             // pagination,
-            sticky,
             // editable,
             size,
             variant,
             selected: outerSelected,
             filtered: outerFiltered,
             sorted: outerSorted,
+            maxHeight,
+            stickyHeader,
         }) => {
             const [innerSelected, innerSetSelected] = useState<RowSelectionState>(outerSelected || {});
             const [innerFiltered, setInnerFiltered] = useState<ColumnFiltersState>(outerFiltered || []);
@@ -197,27 +198,16 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
             });
 
             return (
-                <Root className="p-2" ref={tableContainerRef} data={data} columns={columns} size={size}>
-                    <Table
-                        {...{
-                            style: {
-                                display: 'table',
-                            },
-                        }}
-                        variant={variant}
-                    >
-                        <Thead
-                            style={
-                                sticky
-                                    ? {
-                                          display: 'grid',
-                                          position: 'sticky',
-                                          top: 0,
-                                          zIndex: 1,
-                                      }
-                                    : undefined
-                            }
-                        >
+                <Root
+                    className="p-2"
+                    ref={tableContainerRef}
+                    data={data}
+                    columns={columns}
+                    size={size}
+                    style={{ maxHeight: maxHeight || 'none' }}
+                >
+                    <Table variant={variant} stickyHeader={stickyHeader}>
+                        <Thead stickyHeader={stickyHeader}>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <Tr key={headerGroup.id} variant={variant}>
                                     {headerGroup.headers.map((header) => {

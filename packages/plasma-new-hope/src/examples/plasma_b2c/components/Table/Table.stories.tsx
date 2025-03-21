@@ -24,10 +24,14 @@ const meta: Meta<StoryTreeProps> = {
             control: 'select',
             options: variant,
         },
+        stickyHeader: {
+            control: 'boolean',
+        },
     },
     args: {
         size: 'm',
         variant: 'border-all-bg',
+        stickyHeader: false,
     },
 };
 
@@ -51,6 +55,24 @@ const data = [
         firstName: 'joe',
         lastName: 'dirte',
         age: 45,
+    },
+    {
+        id: 4,
+        firstName: 'gustavo',
+        lastName: 'fring',
+        age: 39,
+    },
+    {
+        id: 5,
+        firstName: 'walter',
+        lastName: 'white',
+        age: 150,
+    },
+    {
+        id: 6,
+        firstName: 'lalo',
+        lastName: 'salamanca',
+        age: 20,
     },
 ];
 
@@ -93,7 +115,7 @@ const StoryDefault = (args: StoryTreeProps) => {
     return (
         <div style={{ display: 'flex', gap: '30px' }}>
             <div>
-                <Table {...args} data={data} columns={columns} />
+                <Table {...args} data={data} columns={columns} maxHeight="300px" />
             </div>
 
             <div>

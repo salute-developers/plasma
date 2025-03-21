@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, CSSProperties } from 'react';
 import { RowSelectionState } from '@tanstack/react-table';
 
 type Column = {
@@ -16,9 +16,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     columns: Column[];
     onChange?: (e: any) => void;
     pagination?: boolean;
-    sticky?: boolean;
     editable?: boolean;
-
     size?: string;
     variant?: 'no-border' | 'border-rows' | 'border-header' | 'border-all' | 'border-all-bg';
     selected?: RowSelectionState;
@@ -30,4 +28,6 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
         id: string;
         desc: boolean;
     }[];
+    maxHeight?: CSSProperties['maxHeight'];
+    stickyHeader?: boolean;
 }

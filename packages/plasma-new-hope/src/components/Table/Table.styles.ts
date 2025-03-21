@@ -10,9 +10,11 @@ import { tableTokens as tokens } from './Table.tokens';
 const mergedCheckboxConfig = mergeConfig(checkboxConfig);
 const Checkbox = component(mergedCheckboxConfig);
 
-export const base = css``;
+export const base = css`
+    overflow-y: auto;
+`;
 
-export const Table = styled.table<{ variant: TableProps['variant'] }>`
+export const Table = styled.table<{ variant: TableProps['variant']; stickyHeader?: boolean }>`
     width: fit-content;
 
     font-family: var(${tokens.fontFamily});
@@ -22,11 +24,20 @@ export const Table = styled.table<{ variant: TableProps['variant'] }>`
     letter-spacing: var(${tokens.letterSpacing});
     line-height: var(${tokens.lineHeight});
 
-    border-collapse: collapse;
-    border-width: 1px;
+    border-collapse: ${({ stickyHeader }) => (stickyHeader ? 'separate' : 'collapse')};
+    border-spacing: 1px;
+
+    border-width: 0px;
+    border-top: 0;
     border-style: solid;
     border-color: ${({ variant }) =>
         variant === 'border-all' || variant === 'border-all-bg' ? '#DDDDDD' : 'transparent'};
+
+    th,
+    td {
+        box-shadow: ${({ stickyHeader }) => (stickyHeader ? '0 0 0 1px #ddd' : 'none')};
+        border-width: ${({ stickyHeader }) => (stickyHeader ? '0' : '1px')};
+    }
 `;
 
 export const Tr = styled.tr<{ variant: TableProps['variant']; selected?: boolean }>`
@@ -41,7 +52,12 @@ export const Tr = styled.tr<{ variant: TableProps['variant']; selected?: boolean
     }
 `;
 
-export const Thead = styled.thead`
+export const Thead = styled.thead<{ stickyHeader?: boolean }>`
+    position: ${({ stickyHeader }) => (stickyHeader ? 'sticky' : 'static')};
+    top: 1px;
+    background: ${({ stickyHeader }) => (stickyHeader ? '#F9F9F9' : 'transparent')};
+    z-index: 1;
+
     ${Tr} {
         background: transparent;
     }
