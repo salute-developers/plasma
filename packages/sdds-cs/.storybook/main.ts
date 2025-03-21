@@ -1,21 +1,8 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
-const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 
-const storyMap = {
-    'styled-components': ['../src/**/*.stories.tsx'],
-    emotion: ['../src-emotion/**/*.stories.tsx'],
-};
-
-const stories = ['../README.stories.mdx'];
-
-if (USE_EMOTION_COMPONENTS) {
-    stories.push(...storyMap['emotion']);
-} else {
-    // default
-    stories.push(...storyMap['styled-components']);
-}
+const stories = ['../README.stories.mdx', '../src/**/*.stories.tsx'];
 
 const config: StorybookConfig = {
     staticDirs: ['public'],
