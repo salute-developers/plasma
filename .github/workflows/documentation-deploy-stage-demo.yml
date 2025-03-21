@@ -97,7 +97,12 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/sdds-cs"
           cp -R ./packages/sdds-cs/build-sb ./s3_build/sdds-cs-storybook
-
+          
+      - name: Plasma "SDDS CLFD AUTO" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-clfd-auto"
+          cp -R ./packages/sdds-clfd-auto/build-sb ./s3_build_sb/sdds-clfd-auto-storybook
+  
       - name: Plasma "SDDS DFA" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-dfa"

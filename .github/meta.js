@@ -68,6 +68,18 @@ module.exports = {
         required: ['plasma-new-hope', 'plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
+    'sdds-clfd-auto': {
+        scope: [
+            ...commonScope,
+            'plasma-core',
+            'plasma-new-hope',
+            'plasma-tokens-b2c',
+            'plasma-tokens-web',
+            'plasma-typo',
+        ],
+        required: ['plasma-new-hope', 'plasma-core', 'core-themes'],
+        themes: 'plasma-themes',
+    },
     'sdds-dfa': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
         required: ['plasma-core', 'core-themes'],

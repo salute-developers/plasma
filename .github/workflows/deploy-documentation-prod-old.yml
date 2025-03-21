@@ -108,7 +108,10 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/sdds-cs"
           cp -R ./packages/sdds-cs/build-sb ./s3_build_sb/sdds-cs-storybook
-          
+      - name: Plasma "SDDS CLFD AUTO" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-clfd-auto"
+          cp -R ./packages/sdds-clfd-auto/build-sb ./s3_build_sb/sdds-clfd-auto-storybook
       - name: Plasma "SDDS FinPortal" Storybook
         run: |
           npm run storybook:build --prefix="./packages/sdds-finportal"
@@ -249,6 +252,20 @@ jobs:
           sync
           ./s3_build_sb/sdds-cs-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-cs-storybook/
+      - name: Upload to S3 storybook "SDDS CLFD AUTO"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/sdds-clfd-auto-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-clfd-auto-storybook/
       - name: Upload to S3 storybook "SDDS FinPortal"
         run: >
           s3cmd
