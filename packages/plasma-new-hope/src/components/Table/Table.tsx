@@ -207,7 +207,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                     style={{ maxHeight: maxHeight || 'none' }}
                 >
                     <Table variant={variant} stickyHeader={stickyHeader}>
-                        <Thead stickyHeader={stickyHeader}>
+                        <Thead variant={variant} stickyHeader={stickyHeader}>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <Tr key={headerGroup.id} variant={variant}>
                                     {headerGroup.headers.map((header) => {

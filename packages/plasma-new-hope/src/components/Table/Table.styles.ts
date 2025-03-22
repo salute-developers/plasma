@@ -24,20 +24,12 @@ export const Table = styled.table<{ variant: TableProps['variant']; stickyHeader
     letter-spacing: var(${tokens.letterSpacing});
     line-height: var(${tokens.lineHeight});
 
-    border-collapse: ${({ stickyHeader }) => (stickyHeader ? 'separate' : 'collapse')};
-    border-spacing: 1px;
+    border-collapse: collapse;
 
-    border-width: 0px;
-    border-top: 0;
+    border-width: 0;
     border-style: solid;
     border-color: ${({ variant }) =>
         variant === 'border-all' || variant === 'border-all-bg' ? '#DDDDDD' : 'transparent'};
-
-    th,
-    td {
-        box-shadow: ${({ stickyHeader }) => (stickyHeader ? '0 0 0 1px #ddd' : 'none')};
-        border-width: ${({ stickyHeader }) => (stickyHeader ? '0' : '1px')};
-    }
 `;
 
 export const Tr = styled.tr<{ variant: TableProps['variant']; selected?: boolean }>`
@@ -52,11 +44,18 @@ export const Tr = styled.tr<{ variant: TableProps['variant']; selected?: boolean
     }
 `;
 
-export const Thead = styled.thead<{ stickyHeader?: boolean }>`
+export const Thead = styled.thead<{ variant: TableProps['variant']; stickyHeader?: boolean }>`
     position: ${({ stickyHeader }) => (stickyHeader ? 'sticky' : 'static')};
-    top: 1px;
+    top: 0;
     background: ${({ stickyHeader }) => (stickyHeader ? '#F9F9F9' : 'transparent')};
     z-index: 1;
+    box-shadow: ${({ variant }) =>
+        // eslint-disable-next-line no-nested-ternary
+        variant === 'no-border'
+            ? 'none'
+            : variant === 'border-header' || variant === 'border-rows'
+            ? 'inset 0 -1px 0 0 #ddd'
+            : 'inset 0 1px 0 0 #ddd, inset 0 -1px 0 0 #ddd'};
 
     ${Tr} {
         background: transparent;
@@ -88,16 +87,11 @@ export const Th = styled.th<{ variant: TableProps['variant']; selectionCell?: bo
     color: inherit;
 
     border-width: 1px;
+    border-top-width: 0;
+    border-bottom-width: 0;
     border-style: solid;
     border-color: ${({ variant }) =>
         variant === 'border-all' || variant === 'border-all-bg' ? '#DDDDDD' : 'transparent'};
-    border-bottom-color: ${({ variant }) =>
-        variant === 'border-all' ||
-        variant === 'border-all-bg' ||
-        variant === 'border-rows' ||
-        variant === 'border-header'
-            ? '#DDDDDD'
-            : 'transparent'};
 
     &:hover {
         ${Resizer} {
@@ -112,6 +106,7 @@ export const Td = styled.td<{ variant: TableProps['variant']; selectionCell?: bo
         selectionCell ? `var(${tokens.checkboxCellPadding})` : `var(${tokens.cellPadding})`};
     height: var(${tokens.rowHeight});
     border-width: 1px;
+    border-top-width: 0;
     border-style: solid;
     border-color: ${({ variant }) =>
         variant === 'border-all' || variant === 'border-all-bg' ? '#DDDDDD' : 'transparent'};
