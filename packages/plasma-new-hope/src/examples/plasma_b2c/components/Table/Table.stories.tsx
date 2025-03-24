@@ -37,23 +37,23 @@ const meta: Meta<StoryTreeProps> = {
 
 export default meta;
 
-const data = [
+const mockData = [
     {
         id: 1,
-        firstName: 'tanner',
-        lastName: 'linsley',
+        firstName: 'hank',
+        lastName: 'shrader',
         age: 40,
     },
     {
         id: 2,
-        firstName: 'tandy',
-        lastName: 'miller',
+        firstName: 'saul',
+        lastName: 'goodman',
         age: 24,
     },
     {
         id: 3,
-        firstName: 'joe',
-        lastName: 'dirte',
+        firstName: 'mike',
+        lastName: 'ehrmantraut',
         age: 45,
     },
     {
@@ -86,6 +86,7 @@ const columns = [
         ],
         filterFn: (filterValue, cellValue) => cellValue.includes(filterValue),
         enableResizing: true,
+        enableEditing: true,
     },
     {
         id: 'lastName',
@@ -100,6 +101,8 @@ const columns = [
 ];
 
 const StoryDefault = (args: StoryTreeProps) => {
+    const [data, setData] = useState(mockData);
+
     const [selected, setSelected] = React.useState<Record<string, boolean>>({});
     const [filtered, setFiltered] = React.useState([]);
     const [sorted, setSorted] = useState([]);
@@ -112,10 +115,24 @@ const StoryDefault = (args: StoryTreeProps) => {
         setFiltered(filtered);
     };
 
+    const handleCellUpdate = (rowId, columnId, value) => {
+        const newData = data.map((item) => {
+            if (item.id === rowId) {
+                return {
+                    ...item,
+                    [columnId]: value,
+                };
+            }
+            return item;
+        });
+
+        setData(newData);
+    };
+
     return (
         <div style={{ display: 'flex', gap: '30px' }}>
             <div>
-                <Table {...args} data={data} columns={columns} maxHeight="300px" />
+                <Table {...args} data={mockData} columns={columns} maxHeight="300px" />
             </div>
 
             <div>
@@ -139,6 +156,7 @@ const StoryDefault = (args: StoryTreeProps) => {
                     selected={selected}
                     sorted={sorted}
                     filtered={filtered}
+                    onCellUpdate={handleCellUpdate}
                 />
             </div>
         </div>

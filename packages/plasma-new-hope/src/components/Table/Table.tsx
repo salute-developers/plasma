@@ -1,22 +1,27 @@
 import React, { forwardRef, useState, useMemo, useRef } from 'react';
 import {
-    flexRender,
     getCoreRowModel,
     useReactTable,
     ColumnDef,
     getSortedRowModel,
     getFilteredRowModel,
-    // getPaginationRowModel,
     OnChangeFn,
     ColumnFiltersState,
     RowSelectionState,
+    RowData,
 } from '@tanstack/react-table';
 
 import { RootProps } from '../../engines';
 
-import { HeadCell } from './ui';
+import { HeadCell, Cell, EditableCell } from './ui';
 import { TableProps } from './Table.types';
-import { base, Table, Tr, Td, Thead, StyledCheckbox, Resizer } from './Table.styles';
+import { base, Table, Tr, Thead, StyledCheckbox } from './Table.styles';
+
+declare module '@tanstack/react-table' {
+    interface TableMeta<TData extends RowData> {
+        updateData: (rowIndex: number, columnId: string, value: unknown) => void;
+    }
+}
 
 export const SELECT_COLUMN_ID = 'select#65768756432';
 
@@ -41,6 +46,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
             sorted: outerSorted,
             maxHeight,
             stickyHeader,
+            onCellUpdate,
         }) => {
             const [innerSelected, innerSetSelected] = useState<RowSelectionState>(outerSelected || {});
             const [innerFiltered, setInnerFiltered] = useState<ColumnFiltersState>(outerFiltered || []);
@@ -123,6 +129,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             enableResizing = false,
                             filterFn: outerFilterFn,
                             size: columnSize,
+                            enableEditing = false,
                         }) => {
                             return {
                                 accessorKey: id,
@@ -150,6 +157,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 },
                                 meta: {
                                     filters,
+                                    enableEditing,
                                 },
                             };
                         },
@@ -178,23 +186,13 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 // getPaginationRowModel: pagination ? getPaginationRowModel() : undefined,
                 columnResizeMode: 'onChange',
                 columnResizeDirection: 'ltr',
-                // meta: {
-                //     updateData: (rowIndex, columnId, value) => {
-                //         // Skip page index reset until after next rerender
-                //         // skipAutoResetPageIndex();
-                //         onChange((old) =>
-                //             old.map((row, index) => {
-                //                 if (index === rowIndex) {
-                //                     return {
-                //                         ...old[rowIndex]!,
-                //                         [columnId]: value,
-                //                     };
-                //                 }
-                //                 return row;
-                //             }),
-                //         );
-                //     },
-                // },
+                meta: {
+                    updateData: (rowIndex, columnId, value) => {
+                        if (onCellUpdate) {
+                            onCellUpdate(rowIndex, columnId, value);
+                        }
+                    },
+                },
             });
 
             return (
@@ -220,94 +218,19 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                         <tbody>
                             {table.getRowModel().rows.map((row) => (
                                 <Tr key={row.id} variant={variant} selected={row.getIsSelected()}>
-                                    {row.getVisibleCells().map((cell) => (
-                                        <Td
-                                            key={cell.id}
-                                            variant={variant}
-                                            selectionCell={cell.column.id === SELECT_COLUMN_ID}
-                                        >
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-
-                                            {cell.column.getIsResizing() && <Resizer isResizing />}
-                                        </Td>
-                                    ))}
+                                    {row.getVisibleCells().map((cell) =>
+                                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                        // @ts-ignore
+                                        cell?.column?.columnDef?.meta?.enableEditing ? (
+                                            <EditableCell cell={cell} variant={variant} table={table} />
+                                        ) : (
+                                            <Cell cell={cell} variant={variant} />
+                                        ),
+                                    )}
                                 </Tr>
                             ))}
                         </tbody>
                     </Table>
-
-                    {/* {pagination && ( */}
-                    {/*     <> */}
-                    {/*         <div className="flex items-center gap-2"> */}
-                    {/*             <button */}
-                    {/*                 className="border rounded p-1" */}
-                    {/*                 onClick={() => table.firstPage()} */}
-                    {/*                 disabled={!table.getCanPreviousPage()} */}
-                    {/*             > */}
-                    {/*                 {'<<'} */}
-                    {/*             </button> */}
-                    {/*             <button */}
-                    {/*                 className="border rounded p-1" */}
-                    {/*                 onClick={() => table.previousPage()} */}
-                    {/*                 disabled={!table.getCanPreviousPage()} */}
-                    {/*             > */}
-                    {/*                 {'<'} */}
-                    {/*             </button> */}
-                    {/*             <button */}
-                    {/*                 className="border rounded p-1" */}
-                    {/*                 onClick={() => table.nextPage()} */}
-                    {/*                 disabled={!table.getCanNextPage()} */}
-                    {/*             > */}
-                    {/*                 {'>'} */}
-                    {/*             </button> */}
-                    {/*             <button */}
-                    {/*                 className="border rounded p-1" */}
-                    {/*                 onClick={() => table.lastPage()} */}
-                    {/*                 disabled={!table.getCanNextPage()} */}
-                    {/*             > */}
-                    {/*                 {'>>'} */}
-                    {/*             </button> */}
-                    {/*             <span className="flex items-center gap-1"> */}
-                    {/*                 <div>Page</div> */}
-                    {/*                 <strong> */}
-                    {/*                     {table.getState().pagination.pageIndex + 1} of{' '} */}
-                    {/*                     {table.getPageCount().toLocaleString()} */}
-                    {/*                 </strong> */}
-                    {/*             </span> */}
-                    {/*             <span className="flex items-center gap-1"> */}
-                    {/*                 | Go to page: */}
-                    {/*                 <input */}
-                    {/*                     type="number" */}
-                    {/*                     min="1" */}
-                    {/*                     max={table.getPageCount()} */}
-                    {/*                     defaultValue={table.getState().pagination.pageIndex + 1} */}
-                    {/*                     onChange={(e) => { */}
-                    {/*                         const page = e.target.value ? Number(e.target.value) - 1 : 0; */}
-                    {/*                         table.setPageIndex(page); */}
-                    {/*                     }} */}
-                    {/*                     className="border p-1 rounded w-16" */}
-                    {/*                 /> */}
-                    {/*             </span> */}
-                    {/*             <select */}
-                    {/*                 value={table.getState().pagination.pageSize} */}
-                    {/*                 onChange={(e) => { */}
-                    {/*                     table.setPageSize(Number(e.target.value)); */}
-                    {/*                 }} */}
-                    {/*             > */}
-                    {/*                 {[10, 20, 30, 40, 50].map((pageSize) => ( */}
-                    {/*                     <option key={pageSize} value={pageSize}> */}
-                    {/*                         Show {pageSize} */}
-                    {/*                     </option> */}
-                    {/*                 ))} */}
-                    {/*             </select> */}
-                    {/*         </div> */}
-                    {/*         <div> */}
-                    {/*             Showing {table.getRowModel().rows.length.toLocaleString()} of{' '} */}
-                    {/*             {table.getRowCount().toLocaleString()} Rows */}
-                    {/*         </div> */}
-                    {/*         <pre>{JSON.stringify(table.getState().pagination, null, 2)}</pre> */}
-                    {/*     </> */}
-                    {/* )} */}
                 </Root>
             );
         },

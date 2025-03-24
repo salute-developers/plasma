@@ -44,3 +44,4 @@ export { IconFilterFunnel } from './Icons/IconFilterFunnel';
 export { IconSwapVert } from './Icons/IconSwapVert';
 export { IconArrowDown } from './Icons/IconArrowDown';
 export { IconArrowUp } from './Icons/IconArrowUp';
+export { IconEditOutline } from './Icons/IconEditOutline';

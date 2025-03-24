@@ -9,6 +9,7 @@ type Column = {
     filters?: { value: string; label: string }[];
     filterFn?: (filteredValue: string, cellValue: any) => boolean;
     size?: number;
+    enableEditing?: boolean;
 };
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
@@ -30,4 +31,5 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     }[];
     maxHeight?: CSSProperties['maxHeight'];
     stickyHeader?: boolean;
+    onCellUpdate?: (rowId: any, columnId: any, value: any) => void;
 }

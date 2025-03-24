@@ -27,7 +27,7 @@ export const HeadCell: React.FC<any> = ({ header, size, variant }) => {
         }
     };
 
-    console.log('header', header.column);
+    // console.log('header', header.column);
 
     const handleFilterSubmit = () => {
         header.column.setFilterValue(localFiltered);
