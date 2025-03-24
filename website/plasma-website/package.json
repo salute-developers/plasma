@@ -25,7 +25,6 @@
     "@salutejs/plasma-tokens": "1.110.0",
     "@salutejs/plasma-tokens-b2c": "0.59.0",
     "@salutejs/plasma-typo": "0.42.0",
-    "@zeit/next-css": "^1.0.1",
     "contrast-ratio-checker": "^1.1.7",
     "next": "^12.3.4",
     "react": "17.0.2",
