@@ -1,4 +1,4 @@
-import { createApplyPaperMixin } from '@salutejs/plasma-new-hope';
+import { createApplyPaperMixin } from '@salutejs/plasma-new-hope/styled-components';
 import * as allTokens from '@salutejs/plasma-themes/tokens/plasma_b2c';
 
 export {
