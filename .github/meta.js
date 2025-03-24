@@ -63,6 +63,11 @@ module.exports = {
         required: ['plasma-new-hope', 'plasma-core'],
         themes: 'plasma-themes',
     },
+    'sdds-clfd-auto': {
+        scope: [...commonScope, 'plasma-new-hope'],
+        required: ['plasma-new-hope', 'plasma-core', 'core-themes'],
+        themes: 'plasma-themes',
+    },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
         required: ['plasma-new-hope', 'plasma-core', 'core-themes'],
