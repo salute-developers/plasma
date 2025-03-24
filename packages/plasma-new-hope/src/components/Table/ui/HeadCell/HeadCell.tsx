@@ -2,12 +2,7 @@ import { flexRender } from '@tanstack/react-table';
 import React, { useState, useEffect } from 'react';
 
 import { Th, StyledCheckbox, Resizer } from '../../Table.styles';
-import {
-    IconArrowsMoveVertical,
-    IconDisclosureDownCentered,
-    IconDisclosureUpCentered,
-    IconFilterFunnel,
-} from '../../../_Icon';
+import { IconFilterFunnel, IconSwapVert, IconArrowDown, IconArrowUp } from '../../../_Icon';
 import { SELECT_COLUMN_ID } from '../../Table';
 
 import { ControlButtons, StyledPopover, ThWrapper, FilterWrapper } from './HeadCell.styles';
@@ -31,6 +26,8 @@ export const HeadCell: React.FC<any> = ({ header, size, variant }) => {
             setLocalFiltered([...localFiltered, value]);
         }
     };
+
+    console.log('header', header.column);
 
     const handleFilterSubmit = () => {
         header.column.setFilterValue(localFiltered);
@@ -112,10 +109,10 @@ export const HeadCell: React.FC<any> = ({ header, size, variant }) => {
                                         onClick={header.column.getToggleSortingHandler()}
                                     >
                                         {{
-                                            asc: <IconDisclosureUpCentered size={getIconSize(size)} />,
-                                            desc: <IconDisclosureDownCentered size={getIconSize(size)} />,
+                                            asc: <IconArrowUp size={getIconSize(size)} />,
+                                            desc: <IconArrowDown size={getIconSize(size)} />,
                                         }[header.column.getIsSorted() as string] ?? (
-                                            <IconArrowsMoveVertical size={getIconSize(size)} />
+                                            <IconSwapVert size={getIconSize(size)} />
                                         )}
                                     </span>
                                 )}
