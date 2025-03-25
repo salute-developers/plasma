@@ -499,7 +499,7 @@ export const plasma_giga__light = {
         '--inverse-surface-transparent-secondary': 'rgba(255,255,255,0.10)',
         '--inverse-surface-transparent-tertiary': 'rgba(255,255,255,0.15)',
         '--inverse-surface-transparent-deep': 'rgba(255,255,255,0.64)',
-        '--inverse-surface-accent-gradient': 'linear-gradient(94deg,#3E79F06.49%,#27C6E593.51%)',
+        '--inverse-surface-accent-gradient': 'linear-gradient(94deg, #3E79F0 6.49%, #27C6E5 93.51%)',
         '--inverse-surface-positive': '#1A9E32',
         '--inverse-surface-warning': '#FA5F05',
         '--inverse-surface-negative': '#FF293E',
