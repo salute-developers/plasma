@@ -5,7 +5,14 @@ import { Th, StyledCheckbox, Resizer } from '../../Table.styles';
 import { IconFilterFunnel, IconSwapVert, IconArrowDown, IconArrowUp } from '../../../_Icon';
 import { SELECT_COLUMN_ID } from '../../Table';
 
-import { ControlButtons, StyledPopover, ThWrapper, FilterWrapper } from './HeadCell.styles';
+import {
+    ControlButtons,
+    StyledPopover,
+    ThWrapper,
+    FilterWrapper,
+    IconFilterWrapper,
+    StyledIndicator,
+} from './HeadCell.styles';
 
 const getIconSize = (size?: string) => {
     return size === 's' ? 'xs' : 's';
@@ -26,8 +33,6 @@ export const HeadCell: React.FC<any> = ({ header, size, variant }) => {
             setLocalFiltered([...localFiltered, value]);
         }
     };
-
-    // console.log('header', header.column);
 
     const handleFilterSubmit = () => {
         header.column.setFilterValue(localFiltered);
@@ -67,7 +72,15 @@ export const HeadCell: React.FC<any> = ({ header, size, variant }) => {
                                             opened={isOpen}
                                             onToggle={(is) => setIsOpen(is)}
                                             placement="bottom"
-                                            target={<IconFilterFunnel size={getIconSize(size)} />}
+                                            target={
+                                                <IconFilterWrapper>
+                                                    <IconFilterFunnel size={getIconSize(size)} />
+
+                                                    {filtered.length ? (
+                                                        <StyledIndicator size="s" view="accent" />
+                                                    ) : undefined}
+                                                </IconFilterWrapper>
+                                            }
                                             closeOnOverlayClick
                                         >
                                             <FilterWrapper>
