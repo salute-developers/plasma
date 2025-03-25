@@ -2,7 +2,6 @@ import React from 'react';
 import type { Decorator } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
 import { plasma_b2c__light, plasma_b2c__dark } from '@salutejs/plasma-themes';
-import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
 import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 
@@ -33,9 +32,6 @@ export const SDDS_CLFD_AUTO_DARK_THEME = 'dark';
 export const DEFAULT_MODE = 'default';
 export const ON_DARK_MODE = 'onDark';
 export const ON_LIGHT_MODE = 'onLight';
-
-const TypoStyle = createGlobalStyle(standardTypo);
-const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
 
 const themes = {
     [SDDS_CLFD_AUTO_LIGHT_THEME]: createGlobalStyle(plasma_b2c__dark),
@@ -81,8 +77,6 @@ export const withTheme: Decorator = (Story, context) => {
     return (
         <div style={viewContainerType.style}>
             <ViewContainer view={viewContainerType.view}>
-                <TypoStyle breakWord={context.globals.breakWord === 'yes'} />
-                <CompatibleTypoStyle />
                 <Theme />
                 <DocumentStyle />
                 <Story {...context} />
