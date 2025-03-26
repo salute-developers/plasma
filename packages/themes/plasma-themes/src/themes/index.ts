@@ -8,3 +8,5 @@ export { stylesSalute__dark } from './stylesSalute__dark';
 export { stylesSalute__light } from './stylesSalute__light';
 export { plasma_giga__dark } from './plasma_giga__dark';
 export { plasma_giga__light } from './plasma_giga__light';
+export { plasma_giga_app__dark } from './plasma_giga_app__dark';
+export { plasma_giga_app__light } from './plasma_giga_app__light';

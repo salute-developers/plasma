@@ -2548,107 +2548,6 @@ export const inverseDataYellowTransparentHover = 'var(--inverse-data-yellow-tran
 /** Инвертированный прозрачный желтый цвет для данных */
 export const inverseDataYellowTransparentActive = 'var(--inverse-data-yellow-transparent-active, #F3A81280)';
 
-/** @deprecated instead use onDarkTextPrimary */
-export const whitePrimary = 'var(--plasma-colors-white-primary, var(--on-dark-text-primary))';
-
-/** @deprecated instead use onDarkTextSecondary */
-export const whiteSecondary = 'var(--plasma-colors-white-secondary, var(--on-dark-text-secondary))';
-
-/** @deprecated instead use onDarkTextTertiary */
-export const whiteTertiary = 'var(--plasma-colors-white-tertiary, var(--on-dark-text-tertiary))';
-
-/** @deprecated instead use onLightTextPrimary */
-export const blackPrimary = 'var(--plasma-colors-black-primary, var(--on-light-text-primary))';
-
-/** @deprecated instead use onLightTextSecondary */
-export const blackSecondary = 'var(--plasma-colors-black-secondary, var(--on-light-text-secondary))';
-
-/** @deprecated instead use onLightTextTertiary */
-export const blackTertiary = 'var(--plasma-colors-black-tertiary, var(--on-light-text-tertiary))';
-
-/** @deprecated instead use onLightSurfaceSolidDefault */
-export const buttonBlack = 'var(--plasma-colors-button-black, var(--on-light-surface-solid-default))';
-
-/** @deprecated instead use onLightSurfaceTransparentSecondary */
-export const buttonBlackSecondary =
-    'var(--plasma-colors-button-black-secondary, var(--on-light-surface-transparent-secondary))';
-
-/** @deprecated instead use onDarkSurfaceSolidDefault */
-export const buttonWhite = 'var(--plasma-colors-button-white, var(--on-dark-surface-solid-default))';
-
-/** @deprecated instead use onDarkSurfaceTransparentSecondary */
-export const buttonWhiteSecondary =
-    'var(--plasma-colors-button-white-secondary, var(--on-dark-surface-transparent-secondary))';
-
-/** @deprecated instead use textPrimary */
-export const text = 'var(--plasma-colors-text, var(--text-primary))';
-
-/** @deprecated instead use textPrimary */
-export const primary = 'var(--plasma-colors-primary, var(--text-primary))';
-
-/** @deprecated instead use textSecondary */
-export const secondary = 'var(--plasma-colors-secondary, var(--text-secondary))';
-
-/** @deprecated instead use textTertiary */
-export const tertiary = 'var(--plasma-colors-tertiary, var(--text-tertiary))';
-
-/** @deprecated instead use textParagraph */
-export const paragraph = 'var(--plasma-colors-paragraph, var(--text-paragraph))';
-
-/** @deprecated instead use backgroundPrimary */
-export const background = 'var(--plasma-colors-background, var(--background-primary))';
-
-/** @deprecated instead use textAccent */
-export const accent = 'var(--plasma-colors-accent, var(--text-accent))';
-
-/** @deprecated instead use textPositive */
-export const success = 'var(--plasma-colors-success, var(--text-positive))';
-
-/** @deprecated instead use textWarning */
-export const warning = 'var(--plasma-colors-warning, var(--text-warning))';
-
-/** @deprecated instead use textNegative */
-export const critical = 'var(--plasma-colors-critical, var(--text-negative))';
-
-/** @deprecated instead use overlaySoft */
-export const overlay = 'var(--plasma-colors-overlay, var(--overlay-soft))';
-
-/** @deprecated instead use surfaceTransparentPrimary */
-export const surfaceLiquid01 = 'var(--plasma-colors-surface-liquid01, var(--surface-transparent-primary))';
-
-/** @deprecated instead use surfaceTransparentSecondary */
-export const surfaceLiquid02 = 'var(--plasma-colors-surface-liquid02, var(--surface-transparent-secondary))';
-
-/** @deprecated instead use surfaceTransparentTertiary */
-export const surfaceLiquid03 = 'var(--plasma-colors-surface-liquid03, var(--surface-transparent-tertiary))';
-
-/** @deprecated instead use surfaceSolidPrimary */
-export const surfaceSolid01 = 'var(--plasma-colors-surface-solid01, var(--surface-solid-primary))';
-
-/** @deprecated instead use surfaceSolidSecondary */
-export const surfaceSolid02 = 'var(--plasma-colors-surface-solid02, var(--surface-solid-secondary))';
-
-/** @deprecated instead use surfaceSolidTertiary */
-export const surfaceSolid03 = 'var(--plasma-colors-surface-solid03, var(--surface-solid-tertiary))';
-
-/** @deprecated instead use surfaceTransparentCard */
-export const surfaceCard = 'var(--plasma-colors-surface-card, var(--surface-transparent-card))';
-
-/** @deprecated instead use surfaceTransparentSecondary */
-export const buttonSecondary = 'var(--plasma-colors-button-secondary, var(--surface-transparent-secondary))';
-
-/** @deprecated instead use textAccent */
-export const buttonAccent = 'var(--plasma-colors-button-accent, var(--text-accent))';
-
-/** @deprecated instead use surfacePositive */
-export const buttonSuccess = 'var(--plasma-colors-button-success, var(--surface-positive))';
-
-/** @deprecated instead use surfaceWarning */
-export const buttonWarning = 'var(--plasma-colors-button-warning, var(--surface-warning))';
-
-/** @deprecated instead use surfaceNegative */
-export const buttonCritical = 'var(--plasma-colors-button-critical, var(--surface-negative))';
-
 /** Акцентный цвет с градиентом */
 export const textAccentGradient =
     'var(--text-accent-gradient, linear-gradient(89.83deg, #5E94FFFF 0%, #43DBFAFF 100%))';
@@ -2853,19 +2752,19 @@ export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px #0000
 export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
 
 /** borderRadius xs */
-export const borderRadiusXs = 'var(--border-radius-xs, 6px)';
+export const borderRadiusXs = 'var(--border-radius-xs, 8px)';
 
 /** borderRadius s */
-export const borderRadiusS = 'var(--border-radius-s, 8px)';
+export const borderRadiusS = 'var(--border-radius-s, 12px)';
 
 /** borderRadius m */
-export const borderRadiusM = 'var(--border-radius-m, 12px)';
+export const borderRadiusM = 'var(--border-radius-m, 16px)';
 
 /** borderRadius l */
-export const borderRadiusL = 'var(--border-radius-l, 16px)';
+export const borderRadiusL = 'var(--border-radius-l, 20px)';
 
 /** borderRadius xl */
-export const borderRadiusXl = 'var(--border-radius-xl, 20px)';
+export const borderRadiusXl = 'var(--border-radius-xl, 24px)';
 
 /** borderRadius xxl */
 export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';

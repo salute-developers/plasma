@@ -8,6 +8,12 @@ const fontMap: Record<string, string> = {
     text: 'var(--plasma-typo-text-font-family)',
 };
 
+const fontWeightMap: Record<string, string> = {
+    bold: 'bold',
+    medium: 'medium',
+    normal: '',
+};
+
 const formattedTokenName = (nameParts: string[]) => {
     const nameMap: Record<string, string> = {
         display: 'dspl',
@@ -17,7 +23,7 @@ const formattedTokenName = (nameParts: string[]) => {
 
     const tokenName = [...nameParts];
     tokenName[0] = nameMap[tokenName[0]];
-    tokenName[2] = tokenName[2] === 'bold' ? 'bold' : '';
+    tokenName[2] = fontWeightMap[tokenName[2]];
 
     return tokenName.filter(Boolean).join('-');
 };
