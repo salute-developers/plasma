@@ -1,11 +1,11 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-import linaria from '@wyw-in-js/rollup';
+import linaria from '@linaria/vite';
 
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 
 const storyMap = {
-    'styled-components': ['../src/**/*.stories.tsx'],
+    linaria: ['../src/**/*.stories.tsx'],
     emotion: ['../src-emotion/**/*.stories.tsx'],
 };
 
@@ -15,7 +15,7 @@ if (USE_EMOTION_COMPONENTS) {
     stories.push(...storyMap['emotion']);
 } else {
     // default
-    stories.push(...storyMap['styled-components']);
+    stories.push(...storyMap['linaria']);
 }
 
 const config: StorybookConfig = {
@@ -43,6 +43,15 @@ const config: StorybookConfig = {
             build: {
                 sourcemap: false,
             },
+            plugins: [
+                linaria({
+                    exclude: ['../../../'],
+                    displayName: true,
+                    babelOptions: {
+                        presets: ['@babel/preset-typescript', '@babel/preset-react'],
+                    },
+                }),
+            ],
         });
     },
 };
