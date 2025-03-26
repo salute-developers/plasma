@@ -4,47 +4,110 @@ import { flexRender } from '@tanstack/react-table';
 import { Resizer } from '../../Table.styles';
 import { SELECT_COLUMN_ID } from '../../Table';
 import { useOutsideClick } from '../../../../hooks';
-import { IconEditOutline } from '../../../_Icon';
-import { Td } from '../Cell/Cell.styles';
+import { IconEditOutline, IconResetOutline, IconDoneCircleOutline } from '../../../_Icon';
+import { getIconSize } from '../HeadCell/HeadCell';
 
-import { ContentWrapper } from './EditableCell.styles';
+import {
+    ContentWrapper,
+    Td,
+    IconDoneButton,
+    Input,
+    InnerWrapper,
+    InputWrapper,
+    EditModeWrapper,
+    IconResetButton,
+} from './EditableCell.styles';
 
-export const EditableCell: React.FC<any> = ({ cell, variant, table }) => {
+const keys = {
+    Enter: 'Enter',
+    Tab: 'Tab',
+    Escape: 'Escape',
+};
+
+export const EditableCell: React.FC<any> = ({ size, cell, variant, table }) => {
     const [value, setValue] = useState<string>(cell.getValue());
     const [editingMode, setEditingMode] = useState(false);
 
     const { updateData } = table.options.meta;
 
-    const ref = useOutsideClick<HTMLInputElement>(() => {
+    const ref = useOutsideClick<HTMLTableDataCellElement>(() => {
         setEditingMode(false);
-
-        updateData(cell.row.id, cell.column.id, value);
     });
 
     const handleEditClick = (e: React.MouseEvent<HTMLSpanElement>) => {
         e.stopPropagation();
 
         setEditingMode(true);
+        setValue(cell.getValue());
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+
+    const handleReset = () => {
+        setValue(cell.getValue());
+    };
+
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
+        updateData(cell.row.id, cell.column.id, value);
+        setEditingMode(false);
+    };
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+        switch (event.code) {
+            case keys.Enter: {
+                updateData(cell.row.id, cell.column.id, value);
+                setEditingMode(false);
+
+                break;
+            }
+
+            case keys.Escape:
+            case keys.Tab: {
+                setEditingMode(false);
+
+                break;
+            }
+
+            default: {
+                break;
+            }
+        }
     };
 
     return (
-        <Td key={cell.id} variant={variant} selectionCell={cell.column.id === SELECT_COLUMN_ID}>
-            {cell?.column?.columnDef?.meta?.enableEditing ? (
-                <>
-                    {editingMode ? (
-                        // eslint-disable-next-line jsx-a11y/no-autofocus
-                        <input value={value} onChange={(e) => setValue(e.target.value)} ref={ref} autoFocus />
-                    ) : (
-                        <ContentWrapper onClick={handleEditClick}>
-                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+        <Td
+            key={cell.id}
+            variant={variant}
+            selectionCell={cell.column.id === SELECT_COLUMN_ID}
+            onClick={handleEditClick}
+            editingMode={editingMode}
+            ref={ref}
+        >
+            <InnerWrapper>
+                {editingMode ? (
+                    <EditModeWrapper>
+                        <InputWrapper>
+                            {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+                            <Input value={value} onChange={handleChange} autoFocus onKeyDown={handleKeyDown} />
 
-                            <IconEditOutline size="s" className="editIcon" />
-                        </ContentWrapper>
-                    )}
-                </>
-            ) : (
-                flexRender(cell.column.columnDef.cell, cell.getContext())
-            )}
+                            <IconResetButton onClick={handleReset} tabIndex={-1}>
+                                <IconResetOutline size={getIconSize(size)} />
+                            </IconResetButton>
+                        </InputWrapper>
+
+                        <IconDoneButton onClick={handleSubmit} tabIndex={-1}>
+                            <IconDoneCircleOutline size={getIconSize(size)} />
+                        </IconDoneButton>
+                    </EditModeWrapper>
+                ) : (
+                    <ContentWrapper>
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+
+                        <IconEditOutline size={getIconSize(size)} className="editIcon" color="var(--text-secondary)" />
+                    </ContentWrapper>
+                )}
+            </InnerWrapper>
 
             {cell.column.getIsResizing() && <Resizer isResizing />}
         </Td>

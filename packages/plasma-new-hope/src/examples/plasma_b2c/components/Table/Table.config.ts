@@ -16,13 +16,22 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.headerRowHeight}: 4rem;
-                ${tokens.rowHeight}: 4rem;
+                ${tokens.headerRowHeight}: 3.5rem;
+                ${tokens.rowHeight}: 3.5rem;
                 ${tokens.cellPadding}: 0 1rem;
                 ${tokens.checkboxCellPadding}: 0 1rem;
 
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+
+                ${tokens.editableCellIconGap}: 0.5rem;
+                ${tokens.editableCellIconButtonWidth}: 3rem;
+                ${tokens.editableCellIconButtonHeight}: 100%;
+                ${tokens.editableCellPadding}: 0.25rem;
+                ${tokens.editableCellInputBorderRadius}: 0.875rem;
+                ${tokens.editableCellInputPadding}: 0 0.75rem;
+
+                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
             `,
             m: css`
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
@@ -32,13 +41,22 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.headerRowHeight}: 3.5rem;
-                ${tokens.rowHeight}: 3.5rem;
+                ${tokens.headerRowHeight}: 3rem;
+                ${tokens.rowHeight}: 3rem;
                 ${tokens.cellPadding}: 0 0.875rem;
                 ${tokens.checkboxCellPadding}: 0 0.75rem;
 
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+
+                ${tokens.editableCellIconGap}: 0.375rem;
+                ${tokens.editableCellIconButtonWidth}: 2.5rem;
+                ${tokens.editableCellIconButtonHeight}: 100%;
+                ${tokens.editableCellPadding}: 0.25rem;
+                ${tokens.editableCellInputBorderRadius}: 0.625rem;
+                ${tokens.editableCellInputPadding}: 0 0.625rem;
+
+                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
             `,
             s: css`
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
@@ -48,13 +66,22 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.headerRowHeight}: 3rem;
-                ${tokens.rowHeight}: 3rem;
+                ${tokens.headerRowHeight}: 2.25rem;
+                ${tokens.rowHeight}: 2.25rem;
                 ${tokens.cellPadding}: 0 0.5rem;
                 ${tokens.checkboxCellPadding}: 0 0.625rem;
 
                 ${tokens.checkboxTriggerSize}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
+
+                ${tokens.editableCellIconGap}: 0.25rem;
+                ${tokens.editableCellIconButtonWidth}: 2rem;
+                ${tokens.editableCellIconButtonHeight}: 100%;
+                ${tokens.editableCellPadding}: 0.125rem;
+                ${tokens.editableCellInputBorderRadius}: 0.5rem;
+                ${tokens.editableCellInputPadding}: 0 0.375rem;
+
+                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
             `,
         },
     },

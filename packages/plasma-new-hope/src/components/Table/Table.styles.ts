@@ -34,7 +34,6 @@ export const Table = styled.table<{ variant: TableProps['variant']; stickyHeader
 
 export const Tr = styled.tr<{ variant: TableProps['variant']; selected?: boolean }>`
     width: fit-content;
-    height: 30px;
     background-color: ${({ selected }) => (selected ? 'var(--surface-transparent-accent)' : 'transparent')};
 
     &:nth-child(2n - 1) {

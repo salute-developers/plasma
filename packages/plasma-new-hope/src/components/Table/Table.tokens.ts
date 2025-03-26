@@ -13,4 +13,13 @@ export const tableTokens = {
 
     checkboxTriggerSize: '--plasma-table-checkbox-trigger-size',
     checkboxTriggerBorderRadius: '--plasma-table-checkbox-trigger-border-radius',
+
+    editableCellIconGap: '--plasma-table-editable-cell-icon-gap',
+    editableCellIconButtonWidth: '--plasma-table-editable-cell-icon-button-width',
+    editableCellIconButtonHeight: '--plasma-table-editable-cell-icon-button-height',
+    editableCellPadding: '--plasma-table-editable-cell-padding',
+    editableCellInputBorderRadius: '--plasma-table-editable-cell-input-border-radius',
+    editableCellInputPadding: '--plasma-table-editable-cell-input-padding',
+    editableCellInputBackground: '--plasma-table-editable-cell-input-background',
+    editableCellInputBorderColor: '--plasma-table-editable-cell-input-border-color',
 };

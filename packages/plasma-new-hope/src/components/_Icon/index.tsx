@@ -45,3 +45,5 @@ export { IconSwapVert } from './Icons/IconSwapVert';
 export { IconArrowDown } from './Icons/IconArrowDown';
 export { IconArrowUp } from './Icons/IconArrowUp';
 export { IconEditOutline } from './Icons/IconEditOutline';
+export { IconResetOutline } from './Icons/IconResetOutline';
+export { IconDoneCircleOutline } from './Icons/IconDoneCircleOutline';

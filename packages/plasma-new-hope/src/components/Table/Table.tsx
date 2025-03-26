@@ -222,7 +222,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                         // @ts-ignore
                                         cell?.column?.columnDef?.meta?.enableEditing ? (
-                                            <EditableCell cell={cell} variant={variant} table={table} />
+                                            <EditableCell size={size} cell={cell} variant={variant} table={table} />
                                         ) : (
                                             <Cell cell={cell} variant={variant} />
                                         ),

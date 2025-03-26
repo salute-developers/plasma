@@ -17,4 +17,5 @@ export const Td = styled.td<{ variant: TableProps['variant']; selectionCell?: bo
         variant === 'border-all' || variant === 'border-all-bg' || variant === 'border-rows'
             ? '#DDDDDD'
             : 'transparent'};
+    box-sizing: border-box;
 `;

@@ -14,7 +14,7 @@ import {
     StyledIndicator,
 } from './HeadCell.styles';
 
-const getIconSize = (size?: string) => {
+export const getIconSize = (size?: string) => {
     return size === 's' ? 'xs' : 's';
 };
 
