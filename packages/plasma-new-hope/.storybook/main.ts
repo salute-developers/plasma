@@ -1,6 +1,6 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-import wyw from '@wyw-in-js/vite';
+import linaria from '@linaria/vite';
 
 const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
@@ -47,7 +47,7 @@ const config: StorybookConfig = {
                 sourcemap: false,
             },
             plugins: [
-                wyw({
+                linaria({
                     exclude: ['../../../'],
                     displayName: true,
                     babelOptions: {
