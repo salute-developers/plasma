@@ -6,6 +6,8 @@ export { plasma_giga__dark, darkPlasma_giga } from './plasma_giga__dark';
 export { plasma_giga__light, lightPlasma_giga } from './plasma_giga__light';
 export { plasma_giga_app__dark, darkPlasma_giga_app } from './plasma_giga_app__dark';
 export { plasma_giga_app__light, lightPlasma_giga_app } from './plasma_giga_app__light';
+export { plasma_stards__dark, darkPlasma_stards } from './plasma_stards__dark';
+export { plasma_stards__light, lightPlasma_stards } from './plasma_stards__light';
 export { plasma_web__dark, darkPlasma_web } from './plasma_web__dark';
 export { plasma_web__light, lightPlasma_web } from './plasma_web__light';
 export { sberHealth__dark, darkSberHealth } from './sberHealth__dark';
