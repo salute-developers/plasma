@@ -1,4 +1,4 @@
-import type { HTMLAttributes, CSSProperties } from 'react';
+import type { ReactNode, HTMLAttributes, CSSProperties } from 'react';
 import { RowSelectionState } from '@tanstack/react-table';
 
 type Column = {
@@ -10,6 +10,7 @@ type Column = {
     filterFn?: (filteredValue: string, cellValue: any) => boolean;
     size?: number;
     enableEditing?: boolean;
+    renderCell?: (value: any, row: any, rowIndex: number) => ReactNode;
 };
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {

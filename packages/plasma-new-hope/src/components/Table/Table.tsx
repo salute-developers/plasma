@@ -130,6 +130,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             filterFn: outerFilterFn,
                             size: columnSize,
                             enableEditing = false,
+                            renderCell,
                         }) => {
                             return {
                                 accessorKey: id,
@@ -158,6 +159,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 meta: {
                                     filters,
                                     enableEditing,
+                                    renderCell,
                                 },
                             };
                         },
