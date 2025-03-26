@@ -1813,6 +1813,176 @@ export const textXSBold = {
     lineHeight: 'var(--plasma-typo-text-xs-bold-line-height)',
 };
 
+/** typography s display-l-medium */
+export const dsplLMedium = {
+    fontFamily: 'var(--plasma-typo-dspl-l-medium-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-medium-line-height)',
+};
+
+/** typography s display-m-medium */
+export const dsplMMedium = {
+    fontFamily: 'var(--plasma-typo-dspl-m-medium-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-m-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-m-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-m-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-m-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-m-medium-line-height)',
+};
+
+/** typography s display-s-medium */
+export const dsplSMedium = {
+    fontFamily: 'var(--plasma-typo-dspl-s-medium-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-s-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-s-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-s-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-s-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-s-medium-line-height)',
+};
+
+/** typography s header-h1-medium */
+export const h1Medium = {
+    fontFamily: 'var(--plasma-typo-h1-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h1-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h1-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h1-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h1-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h1-medium-line-height)',
+};
+
+/** typography s header-h2-medium */
+export const h2Medium = {
+    fontFamily: 'var(--plasma-typo-h2-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h2-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h2-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h2-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h2-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h2-medium-line-height)',
+};
+
+/** typography s header-h3-medium */
+export const h3Medium = {
+    fontFamily: 'var(--plasma-typo-h3-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h3-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h3-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h3-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h3-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h3-medium-line-height)',
+};
+
+/** typography s header-h4-medium */
+export const h4Medium = {
+    fontFamily: 'var(--plasma-typo-h4-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h4-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h4-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h4-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h4-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h4-medium-line-height)',
+};
+
+/** typography s header-h5-medium */
+export const h5Medium = {
+    fontFamily: 'var(--plasma-typo-h5-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h5-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h5-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h5-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h5-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h5-medium-line-height)',
+};
+
+/** typography s body-l-medium */
+export const bodyLMedium = {
+    fontFamily: 'var(--plasma-typo-body-l-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-l-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-l-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-l-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-l-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-l-medium-line-height)',
+};
+
+/** typography s body-m-medium */
+export const bodyMMedium = {
+    fontFamily: 'var(--plasma-typo-body-m-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-m-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-m-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-m-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-m-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-m-medium-line-height)',
+};
+
+/** typography s body-s-medium */
+export const bodySMedium = {
+    fontFamily: 'var(--plasma-typo-body-s-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-s-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-s-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-s-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-s-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-s-medium-line-height)',
+};
+
+/** typography s body-xs-medium */
+export const bodyXSMedium = {
+    fontFamily: 'var(--plasma-typo-body-xs-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-xs-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xs-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xs-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xs-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xs-medium-line-height)',
+};
+
+/** typography s body-xxs-medium */
+export const bodyXXSMedium = {
+    fontFamily: 'var(--plasma-typo-body-xxs-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-xxs-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xxs-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xxs-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xxs-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xxs-medium-line-height)',
+};
+
+/** typography s text-l-medium */
+export const textLMedium = {
+    fontFamily: 'var(--plasma-typo-text-l-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-l-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-l-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-l-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-l-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-l-medium-line-height)',
+};
+
+/** typography s text-m-medium */
+export const textMMedium = {
+    fontFamily: 'var(--plasma-typo-text-m-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-m-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-m-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-m-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-m-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-m-medium-line-height)',
+};
+
+/** typography s text-s-medium */
+export const textSMedium = {
+    fontFamily: 'var(--plasma-typo-text-s-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-s-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-s-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-s-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-s-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-s-medium-line-height)',
+};
+
+/** typography s text-xs-medium */
+export const textXSMedium = {
+    fontFamily: 'var(--plasma-typo-text-xs-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-xs-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-xs-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-xs-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-xs-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-xs-medium-line-height)',
+};
+
 export const viewContainer = {
     dark: `
         --text-primary: var(--on-dark-text-primary);
