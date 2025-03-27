@@ -51,10 +51,7 @@ jobs:
       
       - name: Lerna bootstrap
         run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,platform-test,plasma-website}"
-      
-      - name: API Report
-        run: npm run api:report
-        
+
       - name: Release Info
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
       
