@@ -6,10 +6,10 @@ type Column = {
     label: string;
     enableSorting?: boolean;
     enableResizing?: boolean;
+    enableEditing?: boolean;
     filters?: { value: string; label: string }[];
     filterFn?: (filteredValue: string, cellValue: any) => boolean;
     size?: number;
-    enableEditing?: boolean;
     renderCell?: (value: any, row: any, rowIndex: number) => ReactNode;
 };
 
@@ -21,6 +21,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     editable?: boolean;
     size?: string;
     variant?: 'no-border' | 'border-rows' | 'border-header' | 'border-all' | 'border-all-bg';
+    enableSelection?: boolean;
     selected?: RowSelectionState;
     filtered?: {
         id: string;

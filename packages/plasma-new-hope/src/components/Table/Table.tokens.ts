@@ -13,6 +13,14 @@ export const tableTokens = {
 
     checkboxTriggerSize: '--plasma-table-checkbox-trigger-size',
     checkboxTriggerBorderRadius: '--plasma-table-checkbox-trigger-border-radius',
+    checkboxLabelFontFamily: '--plasma-table-checkbox-label-font-family',
+    checkboxLabelFontSize: '--plasma-table-checkbox-label-font-size',
+    checkboxLabelFontStyle: '--plasma-table-checkbox-label-font-style',
+    checkboxLabelFontWeight: '--plasma-table-checkbox-label-font-weight',
+    checkboxLabelLetterSpacing: '--plasma-table-checkbox-label-letter-spacing',
+    checkboxLabelLineHeight: '--plasma-table-checkbox-label-line-height',
+    checkboxContentTopOffset: '--plasma-table-checkbox-content-top-offset',
+    checkboxContentLeftOffset: '--plasma-table-checkbox-content-left-offset',
 
     editableCellIconGap: '--plasma-table-editable-cell-icon-gap',
     editableCellIconButtonWidth: '--plasma-table-editable-cell-icon-button-width',
@@ -22,4 +30,12 @@ export const tableTokens = {
     editableCellInputPadding: '--plasma-table-editable-cell-input-padding',
     editableCellInputBackground: '--plasma-table-editable-cell-input-background',
     editableCellInputBorderColor: '--plasma-table-editable-cell-input-border-color',
+
+    filterPopoverWidth: '--plasma-table-filter-popover-width',
+    filterPopoverPadding: '--plasma-table-filter-popover-padding',
+    filterPopoverBorderRadius: '--plasma-table-filter-popover-border-radius',
+    filterCheckboxPadding: '--plasma-table-filter-checkbox-padding',
+    filterDividerMargin: '--plasma-table-filter-divider-margin',
+
+    buttonHeight: '--plasma-table-button-height',
 };

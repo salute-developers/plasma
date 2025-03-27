@@ -3,6 +3,8 @@ import { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
+import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
+import { Button } from '../Button/Button';
 
 import { Table } from './Table';
 
@@ -27,6 +29,12 @@ const meta: Meta<StoryTreeProps> = {
         stickyHeader: {
             control: 'boolean',
         },
+        maxHeight: {
+            control: 'text',
+        },
+        enableSelection: {
+            control: 'boolean',
+        },
     },
     args: {
         size: 'm',
@@ -37,71 +45,199 @@ const meta: Meta<StoryTreeProps> = {
 
 export default meta;
 
-const mockData = [
+const rows = [
+    {
+        id: 0,
+        country: 'Канада',
+        capital: 'Оттава',
+        population: 38,
+        continent: 'Северная Америка',
+        currency: 'Канадский доллар',
+        officialLanguage: 'Английский, Французский',
+        area: 9984,
+    },
     {
         id: 1,
-        firstName: 'hank',
-        lastName: 'shrader',
-        age: 40,
+        country: 'Бразилия',
+        capital: 'Бразилиа',
+        population: 213,
+        continent: 'Южная Америка',
+        currency: 'Бразильский реал',
+        officialLanguage: 'Португальский',
+        area: 8515,
     },
     {
         id: 2,
-        firstName: 'saul',
-        lastName: 'goodman',
-        age: 24,
+        country: 'Германия',
+        capital: 'Берлин',
+        population: 83,
+        continent: 'Европа',
+        currency: 'Евро',
+        officialLanguage: 'Немецкий',
+        area: 357,
     },
     {
         id: 3,
-        firstName: 'mike',
-        lastName: 'ehrmantraut',
-        age: 45,
+        country: 'Япония',
+        capital: 'Токио',
+        population: 126,
+        continent: 'Азия',
+        currency: 'Йена',
+        officialLanguage: 'Японский',
+        area: 377,
     },
     {
         id: 4,
-        firstName: 'gustavo',
-        lastName: 'fring',
-        age: 39,
+        country: 'Австралия',
+        capital: 'Канберра',
+        population: 26,
+        continent: 'Океания',
+        currency: 'Австралийский доллар',
+        officialLanguage: 'Английский',
+        area: 7692,
     },
     {
         id: 5,
-        firstName: 'walter',
-        lastName: 'white',
-        age: 150,
+        country: 'Нигерия',
+        capital: 'Абуджа',
+        population: 206,
+        continent: 'Африка',
+        currency: 'Найра',
+        officialLanguage: 'Английский',
+        area: 923,
     },
     {
         id: 6,
-        firstName: 'lalo',
-        lastName: 'salamanca',
-        age: 20,
+        country: 'Индия',
+        capital: 'Нью-Дели',
+        population: 1400,
+        continent: 'Азия',
+        currency: 'Индийская рупия',
+        officialLanguage: 'Хинди, Английский',
+        area: 3287,
+    },
+    {
+        id: 7,
+        country: 'Франция',
+        capital: 'Париж',
+        population: 67,
+        continent: 'Европа',
+        currency: 'Евро',
+        officialLanguage: 'Французский',
+        area: 643,
+    },
+    {
+        id: 8,
+        country: 'Россия',
+        capital: 'Москва',
+        population: 143,
+        continent: 'Европа/Азия',
+        currency: 'Российский рубль',
+        officialLanguage: 'Русский',
+        area: 17098,
+    },
+    {
+        id: 9,
+        country: 'Южная Африка',
+        capital: 'Претория',
+        population: 59,
+        continent: 'Африка',
+        currency: 'Южноафриканский ранд',
+        officialLanguage: 'Зулу, Коса, Африкаанс, Английский',
+        area: 1221,
     },
 ];
 
-const columns = [
+const columnsBasic = [
     {
-        id: 'firstName',
-        label: 'First Name',
-        filters: [
-            { value: 'an', label: 'an' },
-            { value: 'oe', label: 'oe' },
-        ],
-        filterFn: (filterValue, cellValue) => cellValue.includes(filterValue),
+        id: 'country',
+        label: 'Страна',
+    },
+    {
+        id: 'capital',
+        label: 'Столица',
+    },
+    {
+        id: 'population',
+        label: 'Население, млн',
+    },
+    {
+        id: 'continent',
+        label: 'Континент',
+    },
+    {
+        id: 'currency',
+        label: 'Валюта',
+    },
+    {
+        id: 'officialLanguage',
+        label: 'Язык',
+    },
+    {
+        id: 'area',
+        label: 'Площадь, тыс. км²',
+    },
+];
+
+const columnsAllInOne = [
+    {
+        id: 'country',
+        label: 'Страна',
         enableResizing: true,
-        enableEditing: true,
     },
     {
-        id: 'lastName',
-        label: 'Last Name',
-        // enableColumnFilter: true,
+        id: 'capital',
+        label: 'Столица',
+        enableResizing: true,
     },
     {
-        id: 'age',
-        label: 'Age',
+        id: 'population',
+        label: 'Население, млн',
         enableSorting: true,
+        enableResizing: true,
+        filters: [
+            { value: 'small', label: '< 50' },
+            { value: 'big', label: '> 100' },
+        ],
+    },
+    {
+        id: 'continent',
+        label: 'Континент',
+        enableResizing: true,
+    },
+    {
+        id: 'currency',
+        label: 'Валюта',
+        enableResizing: true,
+    },
+    {
+        id: 'officialLanguage',
+        label: 'Язык',
+        enableResizing: true,
+    },
+    {
+        id: 'area',
+        label: 'Площадь, тыс. км²',
+        enableSorting: true,
+        enableResizing: true,
     },
 ];
 
-const StoryDefault = (args: StoryTreeProps) => {
-    const [data, setData] = useState(mockData);
+const StoryBasic = (args: StoryTreeProps) => {
+    return <Table {...args} data={rows} columns={columnsBasic} />;
+};
+
+export const Basic: StoryObj<StoryTreeProps> = {
+    render: (args) => <StoryBasic {...args} />,
+    parameters: {
+        controls: {
+            exclude: ['stickyHeader', 'maxHeight', 'enableSelection'],
+        },
+    },
+};
+
+const StoryAllInOne = (args: StoryTreeProps) => {
+    const [data, setData] = useState(rows);
 
     const [selected, setSelected] = React.useState<Record<string, boolean>>({});
     const [filtered, setFiltered] = React.useState([]);
@@ -130,39 +266,35 @@ const StoryDefault = (args: StoryTreeProps) => {
     };
 
     return (
-        <div style={{ display: 'flex', gap: '30px' }}>
-            <div>
-                <Table {...args} data={mockData} columns={columns} maxHeight="300px" />
-            </div>
+        <div>
+            <ButtonGroup size="xs" view="positive">
+                <Button text="Очистить выбранные" view="default" size="xs" onClick={() => setSelected({})} />
+                <Button text="Убрать сортировку" view="negative" onClick={() => setSorted([])} />
+                <Button text="Очистить фильтры" view="positive" onClick={() => setFiltered([])} />
+            </ButtonGroup>
 
-            <div>
-                <button type="button" onClick={() => setSelected({})}>
-                    clear selection
-                </button>
+            <br />
+            <br />
 
-                <button type="button" onClick={() => setSorted([])}>
-                    clear sorting
-                </button>
-
-                <button type="button" onClick={() => setFiltered([])}>
-                    clear filters
-                </button>
-
-                <Table
-                    {...args}
-                    data={data}
-                    columns={columns}
-                    onChange={handleChange}
-                    selected={selected}
-                    sorted={sorted}
-                    filtered={filtered}
-                    onCellUpdate={handleCellUpdate}
-                />
-            </div>
+            <Table
+                {...args}
+                data={data}
+                columns={columnsAllInOne}
+                onChange={handleChange}
+                selected={selected}
+                sorted={sorted}
+                filtered={filtered}
+                onCellUpdate={handleCellUpdate}
+            />
         </div>
     );
 };
 
-export const Default: StoryObj<StoryTreeProps> = {
-    render: (args) => <StoryDefault {...args} />,
+export const AllInOne: StoryObj<StoryTreeProps> = {
+    render: (args) => <StoryAllInOne {...args} />,
+    args: {
+        maxHeight: '400px',
+        stickyHeader: true,
+        enableSelection: true,
+    },
 };

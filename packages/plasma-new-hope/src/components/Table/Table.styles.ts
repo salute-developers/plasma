@@ -3,6 +3,8 @@ import { css } from '@linaria/core';
 
 import { component, mergeConfig } from '../../engines';
 import { checkboxConfig, checkboxTokens } from '../Checkbox';
+import { dividerConfig, dividerTokens } from '../Divider';
+import { buttonConfig, buttonTokens } from '../Button';
 
 import { TableProps } from './Table.types';
 import { tableTokens as tokens } from './Table.tokens';
@@ -10,7 +12,14 @@ import { tableTokens as tokens } from './Table.tokens';
 const mergedCheckboxConfig = mergeConfig(checkboxConfig);
 const Checkbox = component(mergedCheckboxConfig);
 
+const mergedButtonConfig = mergeConfig(buttonConfig);
+const ButtonBase = component(mergedButtonConfig);
+
+const mergedDividerConfig = mergeConfig(dividerConfig);
+const Divider = component(mergedDividerConfig);
+
 export const base = css`
+    display: inline-block;
     overflow-y: auto;
 `;
 
@@ -105,4 +114,40 @@ export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.fillColor}: var(--text-accent);
     ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
     ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+
+    ${checkboxTokens.labelFontFamily}: var(${tokens.checkboxLabelFontFamily});
+    ${checkboxTokens.labelFontSize}: var(${tokens.checkboxLabelFontSize});
+    ${checkboxTokens.labelFontStyle}: var(${tokens.checkboxLabelFontStyle});
+    ${checkboxTokens.labelFontWeight}: var(${tokens.checkboxLabelFontWeight});
+    ${checkboxTokens.labelLetterSpacing}: var(${tokens.checkboxLabelLetterSpacing});
+    ${checkboxTokens.labelLineHeight}: var(${tokens.checkboxLabelLineHeight});
+
+    ${checkboxTokens.contentTopOffset}: var(${tokens.checkboxContentTopOffset});
+    ${checkboxTokens.contentLeftOffset}: var(${tokens.checkboxContentLeftOffset});
+`;
+
+export const StyledDivider = styled(Divider)`
+    ${dividerTokens.baseSideSize}: 0.0625rem;
+    ${dividerTokens.background}: var(--surface-transparent-tertiary);
+    ${dividerTokens.borderRadius}: 0.0625rem;
+`;
+
+export const Button = styled(ButtonBase)`
+    ${buttonTokens.buttonHeight}: var(${tokens.buttonHeight});
+`;
+
+export const ButtonClear = styled(Button)`
+    ${buttonTokens.buttonColor}: var(--text-primary);
+    ${buttonTokens.buttonValueColor}: var(--text-secondary);
+    ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
+    ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+    ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+`;
+
+export const ButtonAccent = styled(Button)`
+    ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+    ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
+    ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
+    ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
+    ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
 `;

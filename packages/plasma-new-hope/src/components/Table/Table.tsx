@@ -8,7 +8,6 @@ import {
     OnChangeFn,
     ColumnFiltersState,
     RowSelectionState,
-    RowData,
 } from '@tanstack/react-table';
 
 import { RootProps } from '../../engines';
@@ -16,12 +15,6 @@ import { RootProps } from '../../engines';
 import { HeadCell, Cell, EditableCell } from './ui';
 import { TableProps } from './Table.types';
 import { base, Table, Tr, Thead, StyledCheckbox } from './Table.styles';
-
-declare module '@tanstack/react-table' {
-    interface TableMeta<TData extends RowData> {
-        updateData: (rowIndex: number, columnId: string, value: unknown) => void;
-    }
-}
 
 export const SELECT_COLUMN_ID = 'select#65768756432';
 
@@ -33,21 +26,23 @@ type SortingState = ColumnSort[];
 
 export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
     forwardRef<HTMLDivElement, TableProps>(
-        ({
-            data,
-            onChange,
-            columns,
-            // pagination,
-            // editable,
-            size,
-            variant,
-            selected: outerSelected,
-            filtered: outerFiltered,
-            sorted: outerSorted,
-            maxHeight,
-            stickyHeader,
-            onCellUpdate,
-        }) => {
+        (
+            {
+                data,
+                onChange,
+                columns,
+                size,
+                variant,
+                enableSelection,
+                selected: outerSelected,
+                filtered: outerFiltered,
+                sorted: outerSorted,
+                maxHeight,
+                stickyHeader,
+                onCellUpdate,
+            },
+            ref,
+        ) => {
             const [innerSelected, innerSetSelected] = useState<RowSelectionState>(outerSelected || {});
             const [innerFiltered, setInnerFiltered] = useState<ColumnFiltersState>(outerFiltered || []);
             const [innerSorted, setInnerSorted] = useState<SortingState>(outerSorted || []);
@@ -102,28 +97,42 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
             const columnsData = useMemo<ColumnDef<any>[]>(
                 () => [
-                    {
-                        id: SELECT_COLUMN_ID,
-                        header: ({ table }) => (
-                            <StyledCheckbox
-                                checked={table.getIsAllRowsSelected()}
-                                indeterminate={table.getIsSomeRowsSelected()}
-                                onClick={table.getToggleAllRowsSelectedHandler()}
-                            />
-                        ),
-                        cell: ({ row }) => (
-                            <StyledCheckbox
-                                checked={row.getIsSelected()}
-                                indeterminate={row.getIsSomeSelected()}
-                                onClick={row.getToggleSelectedHandler()}
-                            />
-                        ),
-                        enableResizing: false,
-                    },
+                    ...(enableSelection
+                        ? [
+                              {
+                                  id: SELECT_COLUMN_ID,
+                                  header: ({ table }) => {
+                                      console.log(
+                                          'checkbox',
+                                          table.getIsSomeRowsSelected(),
+                                          table.getIsAllRowsSelected(),
+                                      );
+
+                                      return (
+                                          <StyledCheckbox
+                                              checked={table.getIsSomeRowsSelected() || table.getIsAllRowsSelected()}
+                                              indeterminate={table.getIsSomeRowsSelected()}
+                                              onChange={table.getToggleAllRowsSelectedHandler()}
+                                          />
+                                      );
+                                  },
+                                  cell: ({ row }) => {
+                                      return (
+                                          <StyledCheckbox
+                                              checked={row.getIsSelected()}
+                                              indeterminate={row.getIsSomeSelected()}
+                                              onChange={row.getToggleSelectedHandler()}
+                                          />
+                                      );
+                                  },
+                                  enableResizing: false,
+                              },
+                          ]
+                        : []),
                     ...columns.map(
                         ({
                             id,
-                            // label,
+                            label,
                             filters,
                             enableSorting = false,
                             enableResizing = false,
@@ -133,6 +142,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             renderCell,
                         }) => {
                             return {
+                                header: label,
                                 accessorKey: id,
                                 size: columnSize,
                                 enableSorting,
@@ -165,7 +175,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                         },
                     ),
                 ],
-                [columns],
+                [enableSelection, columns],
             );
 
             const table = useReactTable({
@@ -211,7 +221,14 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <Tr key={headerGroup.id} variant={variant}>
                                     {headerGroup.headers.map((header) => {
-                                        return <HeadCell header={header} size={size} variant={variant} />;
+                                        return (
+                                            <HeadCell
+                                                key={header.index}
+                                                header={header}
+                                                size={size}
+                                                variant={variant}
+                                            />
+                                        );
                                     })}
                                 </Tr>
                             ))}
@@ -224,9 +241,15 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                         // @ts-ignore
                                         cell?.column?.columnDef?.meta?.enableEditing ? (
-                                            <EditableCell size={size} cell={cell} variant={variant} table={table} />
+                                            <EditableCell
+                                                key={cell.id}
+                                                size={size}
+                                                cell={cell}
+                                                variant={variant}
+                                                table={table}
+                                            />
                                         ) : (
-                                            <Cell cell={cell} variant={variant} />
+                                            <Cell key={cell.id} cell={cell} variant={variant} />
                                         ),
                                     )}
                                 </Tr>
