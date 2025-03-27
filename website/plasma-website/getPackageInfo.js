@@ -29,6 +29,7 @@ const getLatestReleaseVersion = (name) => {
 module.exports = {
     '@salutejs/plasma-b2c': getLatestReleaseVersion('plasma-b2c'),
     '@salutejs/plasma-web': getLatestReleaseVersion('plasma-web'),
+    '@salutejs/plasma-giga': getLatestReleaseVersion('plasma-giga'),
     '@salutejs/sdds-cs': getLatestReleaseVersion('sdds-cs'),
     '@salutejs/sdds-dfa': getLatestReleaseVersion('sdds-dfa'),
     '@salutejs/sdds-finportal': getLatestReleaseVersion('sdds-finportal'),

@@ -1,6 +1,4 @@
 export { Menu as MainMenu } from './main/Menu';
-export { ProductList } from './main/ProductList';
-export { Heading } from './main/Heading';
 export { CommunityMenu as MainCommunityMenu } from './main/CommunityMenu';
 export { GitHub as IconGitHub } from './icons/GitHub';
 export { Telegram as IconTelegram } from './icons/Telegram';
