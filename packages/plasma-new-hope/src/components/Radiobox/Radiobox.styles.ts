@@ -24,8 +24,11 @@ const mappingOverride = `
 
     ${checkboxTokens.fillColor}: var(${tokens.fillColor});
     ${checkboxTokens.descriptionColor}: var(${tokens.descriptionColor});
+    ${checkboxTokens.triggerBorderWidth}: var(${tokens.triggerBorderWidth});
     ${checkboxTokens.triggerBorderColor}: var(${tokens.triggerBorderColor});
     ${checkboxTokens.triggerBackgroundColor}: var(${tokens.triggerBackgroundColor});
+    ${checkboxTokens.triggerBorderColorChecked}: var(${tokens.triggerBorderColorChecked});
+    ${checkboxTokens.triggerBackgroundColorChecked}: var(${tokens.triggerBackgroundColorChecked});
 
     ${checkboxTokens.contentTopOffset}: var(${tokens.contentTopOffset});
     ${checkboxTokens.contentLeftOffset}: var(${tokens.contentLeftOffset});

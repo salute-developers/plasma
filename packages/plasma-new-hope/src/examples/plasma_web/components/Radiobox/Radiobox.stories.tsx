@@ -36,6 +36,7 @@ const meta: Meta<typeof Radiobox> = {
         size: 'm',
         disabled: false,
         focused: true,
+        outline: false,
     },
 };
 

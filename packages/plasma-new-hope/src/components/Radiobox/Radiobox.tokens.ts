@@ -22,7 +22,10 @@ export const tokens = {
     fillColor: '--plasma-radiobox-fill-color',
     descriptionColor: '--plasma-radiobox-description-color',
     triggerBorderColor: '--plasma-radiobox-trigger-border-color',
+    triggerBorderColorChecked: '--plasma-radiobox-trigger-border-color-checked',
+    triggerBorderWidth: '--plasma-radiobox-trigger-border-width',
     triggerBackgroundColor: '--plasma-radiobox-trigger-background-color',
+    triggerBackgroundColorChecked: '--plasma-radiobox-trigger-background-color-checked',
 
     contentTopOffset: '--plasma-radiobox-content-top-offset',
     contentLeftOffset: '--plasma-radiobox-content-left-offset',

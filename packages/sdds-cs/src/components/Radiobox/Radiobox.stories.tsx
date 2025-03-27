@@ -59,7 +59,7 @@ const items = [
     { langName, value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-const StoryDefault = ({ name, label, description, disabled, singleLine, size, view }: RadioboxProps) => {
+const StoryDefault = ({ name, label, description, disabled, singleLine, size, view, outline }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
@@ -74,6 +74,7 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size, vi
             singleLine={singleLine}
             size={size}
             view={view}
+            outline={outline}
             onChange={(event) => {
                 event.persist();
 

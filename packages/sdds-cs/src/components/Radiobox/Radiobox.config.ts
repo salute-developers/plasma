@@ -51,6 +51,20 @@ export const config = {
                 ${radioboxTokens.disabledOpacity}: 0.4;
             `,
         },
+        outline: {
+            true: css`
+                ${radioboxTokens.triggerBorderWidth}: 0.0625rem;
+                ${radioboxTokens.ellipseColor}: var(${radioboxTokens.fillColor});
+                ${radioboxTokens.triggerBorderColor}: var(${radioboxTokens.fillColor});
+                ${radioboxTokens.triggerBorderColorChecked}: var(${radioboxTokens.fillColor});
+                ${radioboxTokens.triggerBackgroundColorChecked}: transparent;
+            `,
+            false: css`
+                ${radioboxTokens.triggerBorderWidth}: 0.125rem;
+                ${radioboxTokens.triggerBackgroundColorChecked}: var(${radioboxTokens.fillColor});
+                ${radioboxTokens.triggerBorderColorChecked}: transparent;
+            `,
+        },
         focused: {
             true: css`
                 ${radioboxTokens.focusColor}: var(--text-accent);

@@ -36,6 +36,7 @@ const meta: Meta<typeof Radiobox> = {
         size: 'm',
         disabled: false,
         focused: true,
+        outline: false,
     },
 };
 
@@ -101,6 +102,11 @@ export const LongText: StoryObj<RadioboxProps> = {
         label: 'Ооооооооооооооооооооочень длинный label',
         description: 'Ооооооооооооооооооооочень длинный description',
         name: 'long',
+        disabled: false,
+        focused: true,
+        outline: false,
+        view: 'accent',
+        size: 'm',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -120,6 +126,8 @@ const StoryRadioGroup = () => {
                     value={item.value}
                     label={item.label}
                     disabled={item.disabled}
+                    view="accent"
+                    size="m"
                     checked={value[item.value]}
                     description={item.description}
                     onChange={(event) => {

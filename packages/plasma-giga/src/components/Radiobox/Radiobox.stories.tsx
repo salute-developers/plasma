@@ -59,7 +59,7 @@ const items = [
     { langName, value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-const StoryDefault = ({ name, label, description, disabled, singleLine, size, view }: RadioboxProps) => {
+const StoryDefault = ({ name, label, description, disabled, singleLine, size, view, outline }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
@@ -95,6 +95,7 @@ export const Default: Story = {
         singleLine: false,
         size: 'm',
         view: 'accent',
+        outline: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

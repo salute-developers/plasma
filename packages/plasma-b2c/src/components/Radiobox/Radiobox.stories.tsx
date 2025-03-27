@@ -34,6 +34,11 @@ const meta: Meta<RadioboxProps> = {
                 type: 'inline-radio',
             },
         },
+        outline: {
+            control: {
+                type: 'boolean',
+            },
+        },
         ...disableProps(['view']),
     },
 };
@@ -66,7 +71,7 @@ const items = [
     { name: 'language', value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-const StoryDefault = ({ name, label, description, disabled, singleLine, size, view }: RadioboxProps) => {
+const StoryDefault = ({ name, label, description, disabled, singleLine, size, view, outline }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = useState(true);
 
@@ -82,6 +87,7 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size, vi
                 singleLine={singleLine}
                 size={size}
                 view={view}
+                outline={outline}
                 onChange={(event) => {
                     event.persist();
 
@@ -104,6 +110,7 @@ export const Default: StoryObj<RadioboxProps> = {
         description: 'Description',
         disabled: false,
         singleLine: false,
+        outline: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
