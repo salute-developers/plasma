@@ -1,0 +1,139 @@
+---
+id: popover
+title: Popover
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Popover
+<Description name="Popover" />
+<PropsTable name="Popover" />
+
+:::info
+`target` может быть как ReactNode, так и RefObject:
+:::
+
+<Tabs>
+    <TabItem value="reactNode" label="React Node" default>
+        ```tsx live
+        import React from 'react';
+        import styled from "styled-components";
+        import { surfaceSolidTertiary } from "@salutejs/plasma-themes/tokens";
+        import { Popover, Button } from '@salutejs/sdds-clfd-auto';
+
+        export function App() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            const StyledContent = styled.div`
+                background: ${surfaceSolidTertiary};
+                padding: 1rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            `;
+
+            return (
+                <section style={{width: '20rem', height: '15rem'}}>
+                    <Popover
+                        opened={isOpen}
+                        onToggle={(is) => setIsOpen(is)}
+                        role="presentation"
+                        id="popover"
+                        target={<Button>Target</Button>}
+                        offset={[0, 6]}
+                        placement='bottom'
+                        trigger='click'
+                        hasArrow
+                        closeOnOverlayClick
+                        closeOnEsc
+                        isFocusTrapped
+                    >
+                        <StyledContent>
+                            <>Content</>
+                            <Button onClick={() => setIsOpen(false)}>close</Button>
+                        </StyledContent>
+                    </Popover>
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="refObject" label="RefObject">
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import styled from "styled-components";
+        import { surfaceSolidTertiary } from "@salutejs/plasma-themes/tokens";
+        import { Popover, Button } from '@salutejs/sdds-clfd-auto';
+
+        export function App() {
+            const [isOpen, setIsOpen] = useState(false);
+
+            const targetRef = useRef<HTMLButtonElement | null>(null);
+            const targetRef2 = useRef<HTMLButtonElement | null>(null);
+            const targetRef3 = useRef<HTMLButtonElement | null>(null);
+
+            const refs = [targetRef, targetRef2, targetRef3];
+
+            const [currRefIndex, setCurrentRefIndex] = useState(0);
+            const [currentRef, setCurrentRef] = useState(targetRef);
+
+            const changeRef = () => {
+                let ind = currRefIndex + 1;
+
+                if (ind > refs.length - 1) {
+                    setCurrentRefIndex(0);
+                    ind = 0;
+                }
+
+                setCurrentRefIndex(ind);
+                setCurrentRef(refs[ind]);
+            };
+            
+            const StyledContent = styled.div`
+                background: ${surfaceSolidTertiary};
+                padding: 1rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            `;
+
+            return (
+                <>
+                    <Button ref={targetRef}>Target 0</Button>
+                    <Button style={{ margin: '0 5rem' }} onClick={changeRef}>
+                        Change targetAsRef to Target {currRefIndex + 1 > refs.length - 1 ? 0 : currRefIndex + 1}
+                    </Button>
+                    <Button ref={targetRef2}>Target 1</Button>
+                    <Popover
+                        opened={isOpen}
+                        onToggle={(is) => setIsOpen(is)}
+                        role="presentation"
+                        id="popover"
+                        target={currentRef}
+                        offset={[0, 6]}
+                        placement='bottom'
+                        trigger='click'
+                        hasArrow
+                        closeOnOverlayClick
+                        closeOnEsc
+                        isFocusTrapped
+                    >
+                        <StyledContent>
+                            <>Content</>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        </StyledContent>
+                    </Popover>
+
+                    <div style={{ padding: '5rem' }}>Current Target: {currRefIndex}</div>
+                    <Button ref={targetRef3}>Target 2</Button>
+                </>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+

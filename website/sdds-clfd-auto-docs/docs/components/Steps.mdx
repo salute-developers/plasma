@@ -1,0 +1,85 @@
+---
+id: steps
+title: Steps
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Steps
+Отображают прогресс через последовательность логических шагов. Также могут использоваться для навигации.
+
+## Steps
+
+<Description name="Steps" />
+<PropsTable name="Steps" />
+
+## Вариант использования с управлением текущим элементом из вне
+
+```tsx live
+import React, { useState } from 'react';
+import { Steps, Button } from '@salutejs/sdds-clfd-auto';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+    }, {
+        indicator: 2,
+    }, {
+        indicator: 3,
+    }];
+
+    const [current, setCurrent] = useState<number>(0);
+    const onClick = () => setCurrent(() => current + 1);
+
+    return (
+        <section>
+            <Steps items={items} current={current} />
+            <br />
+            <Button view="secondary" onClick={onClick}>
+                Next
+            </Button>
+        </section>
+    );
+}
+```
+
+## Вариант более гибкого использования через onChange и status в items
+
+```tsx live
+import React, { useState } from 'react';
+import { Steps, StepItemProps  } from '@salutejs/sdds-clfd-auto';
+
+export function App() {
+        const initialItems = [{
+        indicator: 1,
+        title: 'Title',
+        content: 'Content',
+    }, {
+        indicator: 2,
+        title: 'Title',
+        content: 'Content',
+    }, {
+        indicator: 3,
+        title: 'Title',
+        content: 'Content',
+    }];
+
+    const [items, setItems] = useState(initialItems);
+
+    const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+        if (prevIndex !== undefined) {
+            items[prevIndex].status = 'completed';
+        }
+
+        items[index].status = 'active';
+
+        setItems([...items]);
+    };
+
+    return (
+        <section>
+            <Steps items={items} onChange={onChange} />
+        </section>
+    );
+}
+```
