@@ -1,7 +1,7 @@
 {
   "name": "@salutejs/sdds-clfd-auto-docs",
   "version": "0.291.0-dev.0",
-  "description": "SDDS SERV documentation",
+  "description": "SDDS CLFD AUTO documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "repository": {

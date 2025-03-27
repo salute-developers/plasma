@@ -32,12 +32,6 @@ $ npm install --save @salutejs/sdds-clfd-auto @salutejs/plasma-themes
 $ npm install --save styled-components@5.3.1
 ```
 
-Или, если вы используете пакет @emotion, то
-
-```bash
-$ npm install --save @emotion/styled @emotion/react @emotion/css
-```
-
 ### Подключение тем
 
 Типографическая система основана на фирменных шрифтах. Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
@@ -66,9 +60,9 @@ $ npm install --save @emotion/styled @emotion/react @emotion/css
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Button, BodyL } from '@salutejs/sdds-clfd-auto';
-import { sdds_serv__light } from '@salutejs/plasma-themes';
+import { plasma_b2c__light } from '@salutejs/plasma-themes';
 
-const Theme = createGlobalStyle(sdds_serv__light);
+const Theme = createGlobalStyle(plasma_b2c__light);
 
 const App = () => {
     return (
@@ -89,9 +83,9 @@ export default App;
 import React from 'react';
 import { Global, css } from '@emotion/react';
 import { Button, BodyL } from '@salutejs/sdds-clfd-auto';
-import { sdds_serv__light } from '@salutejs/plasma-themes';
+import { plasma_b2c__light } from '@salutejs/plasma-themes';
 
-const themeStyle = css(sdds_serv__light);
+const themeStyle = css(plasma_b2c__light);
 
 const App = () => {
     return (
@@ -112,7 +106,7 @@ export default App;
 import React from 'react';
 import { Button, BodyL } from '@salutejs/sdds-clfd-auto';
 
-import '@salutejs/plasma-themes/css/sdds_serv__dark.css';
+import '@salutejs/plasma-themes/css/plasma_b2c__dark.css';
 
 const App = () => {
     return (
@@ -136,7 +130,7 @@ export default App;
 import React from 'react';
 import { Button, BodyL } from '@salutejs/sdds-clfd-auto';
 
-import styles from '@salutejs/plasma-themes/css/sdds_serv.module.css';
+import styles from '@salutejs/plasma-themes/css/plasma_b2c.module.css';
 
 const App = () => {
     return (
@@ -159,12 +153,12 @@ import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { Switch } from '@salutejs/sdds-clfd-auto';
-import { sdds_serv__light, sdds_serv__dark } from '@salutejs/plasma-themes';
+import { plasma_b2c__light, plasma_b2c__dark } from '@salutejs/plasma-themes';
 
 import './style.css';
 
-const LightTheme = createGlobalStyle(sdds_serv__light);
-const DarkTheme = createGlobalStyle(sdds_serv__dark);
+const LightTheme = createGlobalStyle(plasma_b2c__light);
+const DarkTheme = createGlobalStyle(plasma_b2c__dark);
 
 const App = () => {
     const [theme, setTheme] = useState('light');
@@ -188,39 +182,6 @@ const App = () => {
 export default App;
 ```
 
-Пример на `emotion`:
-
-```jsx
-import React, { useState } from 'react';
-
-import { Global, css } from '@emotion/react';
-import { Switch } from '@salutejs/sdds-clfd-auto';
-import { sdds_serv__light, sdds_serv__dark } from '@salutejs/plasma-themes';
-
-import './style.css';
-
-const lightThemeStyle = css(sdds_serv__light);
-const darkThemeStyle = css(sdds_serv__dark);
-
-const App = () => {
-    const [theme, setTheme] = useState('light');
-
-    return (
-        <>
-            <Global styles={theme === 'light' ? lightThemeStyle : darkThemeStyle} />
-
-            <div className="wrapper">
-                <Switch
-                    label="dark theme: "
-                    onChange={() => setTheme((theme) => (theme === 'light' ? 'dark' : 'light'))}
-                />
-            </div>
-        </>
-    );
-};
-
-export default App;
-```
 
 Пример на `css-modules`:
 
@@ -228,7 +189,7 @@ export default App;
 import React, { useLayoutEffect, useState } from 'react';
 
 import { Switch } from '@salutejs/sdds-clfd-auto';
-import webThemes from '@salutejs/plasma-themes/css/sdds_serv.module.css';
+import webThemes from '@salutejs/plasma-themes/css/plasma_b2c.module.css';
 
 import './style.css';
 
@@ -262,7 +223,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { Switch } from '@salutejs/sdds-clfd-auto';
 
 // добавьте импорт в css файл
-// @import '@salutejs/plasma-themes/css/sdds_serv.module.css';
+// @import '@salutejs/plasma-themes/css/plasma_b2c.module.css';
 import './style.css';
 
 const App = () => {
@@ -324,7 +285,7 @@ export const dsplL = ({
 Есть два пути импорта токенов:
 
 * Из вертикали `@salutejs/plasma-themes/tokens` - подходит в большинстве случаев, т.к. там лежит весь базовый набор токенов.
-* Непосредственно из темы `@salutejs/plasma-themes/tokens/sdds_serv` - следует использовать, когда необходимо импортировать уникальные токены, которые лежат только в этой теме.
+* Непосредственно из темы `@salutejs/plasma-themes/tokens/plasma_b2c` - следует использовать, когда необходимо импортировать уникальные токены, которые лежат только в этой теме.
 
 Пример использования:
 

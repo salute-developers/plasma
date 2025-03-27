@@ -5,7 +5,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { usePrismTheme, useColorMode } from '@docusaurus/theme-common';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
-import { sdds_serv__dark, sdds_serv__light } from '@salutejs/plasma-themes';
+import { plasma_b2c__light, plasma_b2c__dark } from '@salutejs/plasma-themes';
+import { standard } from '@salutejs/plasma-typo';
 import Translate from '@docusaurus/Translate';
 import clsx from 'clsx';
 
@@ -14,8 +15,8 @@ import { CodeSandbox } from '../../components';
 import styles from './styles.module.css';
 
 // Именно в этом файле подключаются/управляются темы/токены
-const LightTheme = createGlobalStyle(sdds_serv__light);
-const DarkTheme = createGlobalStyle(sdds_serv__dark);
+const LightTheme = createGlobalStyle(plasma_b2c__light);
+const DarkTheme = createGlobalStyle(plasma_b2c__dark);
 
 const StyledWrap = styled.div`
     width: fit-content;
@@ -27,6 +28,8 @@ const StyledWrap = styled.div`
 const StyledPlayground = styled.div`
     position: relative;
 `;
+
+const StandardTypo = createGlobalStyle(standard);
 
 const getSourceWithoutImports = (source: string) => {
     const regexp = /import\s+?(?:(?:(?:[\w*\s{},]*)\s+from\s+?)|)(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g;
@@ -46,6 +49,7 @@ const ResultWithHeader: FC = () => {
     return (
         <>
             {colorMode === 'dark' ? <DarkTheme /> : <LightTheme />}
+            <StandardTypo />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
                     Result

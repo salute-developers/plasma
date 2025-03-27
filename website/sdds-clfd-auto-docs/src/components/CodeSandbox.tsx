@@ -19,12 +19,12 @@ const sberdevicesDependencies = Object.entries(packageJson.dependencies)
 const indexSource = `import React from "react";
 import ReactDOM from "react-dom";
 import styled, { createGlobalStyle } from "styled-components";
-import { sdds_serv__light } from '@salutejs/plasma-themes';
+import { plasma_b2c__light } from '@salutejs/plasma-themes';
 
 import { App } from "./App";
 import "./style.css";
 
-const Theme = createGlobalStyle(sdds_serv__light);
+const Theme = createGlobalStyle(plasma_b2c__light);
 
 const StyledPreview = styled.div\`
     padding: 1rem; 
