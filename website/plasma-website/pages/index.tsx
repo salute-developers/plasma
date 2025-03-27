@@ -1,360 +1,59 @@
-import styled, { css } from 'styled-components';
-import { Container as Grid, Row, Col, BodyM, TextS, mediaQuery } from '@salutejs/plasma-b2c';
-import { background, tertiary } from '@salutejs/plasma-tokens-b2c';
-import { useEffect, useMemo, useRef } from 'react';
+import styled from 'styled-components';
+import { BodyXXS } from '@salutejs/plasma-b2c';
+import { tertiary } from '@salutejs/plasma-tokens-b2c';
+import { useEffect, useRef, useState } from 'react';
 
-import { MainMenu, ProductList, MainCommunityMenu, IconGitHub, Heading } from '../components';
-import { multipleMediaQuery } from '../mixins';
-import { formattedPaletteColors, iconsList } from '../utils';
-import { iconListGroupNames } from '../utils/iconsList';
-import { ArrowTopRight } from '../components/icons/ArrowTopRight';
-import { ProductProps } from '../components/main/Product';
-import { ArrowRight } from '../components/icons/ArrowRight';
-import { CardstackOutline } from '../components/icons/CardstackOutline';
-import { useVisibility } from '../hooks/useVisibility';
-import { LinkItem } from '../components/main/LinkItem';
+import { Menu, Product, ProductList, LinkItem, StickyNav, StickyNavItem } from '../components/main';
+import type { ProductProps } from '../components/main';
+import { currentYear, products, stickyNavSnapVariant, verticals, verticalsMap } from '../utils';
 
-type PackagesInfo = {
-    [k: string]: readonly [string, string];
-};
-
-type GroupData = {
-    group: string;
-    index: number;
-};
-
-const StyledWrapper = styled.div`
-    min-height: 100%;
-    min-width: 35rem;
-    position: relative;
-
-    padding: 0 4rem;
-    height: 100vh;
-
-    ${multipleMediaQuery(['M', 'S'])(css`
-        padding: 0 3.5rem;
-        overflow: visible;
-        height: auto;
-    `)}
-`;
-
-// const StyledGrid = styled(Grid)`
-//     min-height: 100%;
-//     min-width: 35rem;
-
-//     padding: 0 4rem;
-//     overflow: hidden;
-//     height: 100vh;
-
-//     ${multipleMediaQuery(['M', 'S'])(css`
-//         padding: 0 3.5rem;
-//         overflow: visible;
-//         height: auto;
-//     `)}
-// `;
-// const StyledRow = styled(Row)`
-//     position: relative;
-
-//     display: flex;
-//     height: 100%;
-// `;
-
-const HeaderWrapper = styled.div`
-    padding: 1.5rem 0;
-`;
-
-const ProductNav = styled.div`
-    padding: 1.5rem 4rem;
+const CopyrightText = styled(BodyXXS)`
     position: fixed;
-    top: 0;
-    left: 0;
-    background: ${background};
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    z-index: 1;
-`;
-
-const TopDisclosedGroupNav = styled.div`
-    position: fixed;
-    background: ${background};
-
-    top: 4rem;
-    right: 4rem;
-
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-
-    z-index: 100;
-`;
-
-const BottomDisclosedGroupNav = styled.div`
-    position: fixed;
-    background: ${background};
-
-    bottom: 4rem;
-    right: 4rem;
-
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-
-    z-index: 100;
-`;
-
-// const StyledCol = styled(Col)`
-//     overflow-y: auto;
-//     height: 100%;
-
-//     ${multipleMediaQuery(['M', 'S'])(css`
-//         overflow-y: visible;
-//         height: auto;
-//     `)}
-// `;
-// const StyledMainMenu = styled(MainMenu)`
-//     ${multipleMediaQuery(['M', 'S'])(css`
-//         display: flex;
-//     `)}
-// `;
-// const SiteName = styled(BodyM)`
-//     white-space: pre-line;
-
-//     margin-top: 2rem;
-//     margin-bottom: 3.5rem;
-
-//     ${mediaQuery('L')(
-//         css`
-//             margin-bottom: 2.5rem;
-//         `,
-//     )}
-
-//     ${multipleMediaQuery(['M', 'S'])(css`
-//         margin-bottom: 1.5rem;
-//     `)}
-// `;
-// const Footer = styled.footer`
-//     position: absolute;
-//     bottom: 2rem;
-//     left: 0.5rem;
-
-//     ${multipleMediaQuery(['M', 'S'])(css`
-//         position: relative;
-//     `)}
-// `;
-// const StyledMainCommunityMenu = styled(MainCommunityMenu)`
-//     margin-bottom: 2rem;
-//     margin-top: 5rem;
-// `;
-const CopyrightText = styled(TextS)`
-    position: fixed;
-    bottom: 4rem;
-    right: -3rem;
-    rotate: -90deg;
+    transform-origin: bottom right;
+    right: 0.5rem;
+    bottom: 0.75rem;
+    transform: rotate(-90deg) translateX(100%);
     color: ${tertiary};
 `;
 
-const ProductListWrapper = styled.div`
-    overflow: auto;
+const ScrollContainer = styled.div`
+    overflow-y: scroll;
+    max-height: 100vh;
+    background-color: #171717;
+`;
+
+const ScrollBlock = styled.div`
+    padding: 5.5rem 0 4rem;
+    box-sizing: border-box;
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: space-between;
+`;
+
+const Products = styled.div`
+    padding: 11.5rem 0 4rem;
     position: relative;
 `;
 
-// const prPath = process.env.BASE_PATH ? '/pr' : '';
-// const prName = (process.env.BASE_PATH || '').replace('/pr/pr', '-pr');
-const PACKAGES_INFO = (process.env.PACKAGES_INFO as unknown) as PackagesInfo;
-const basePath = process.env.BASE_PATH || '';
-const baseColorCode = '600';
-
-// const menu = [
-//     { title: 'Темы', href: `${prPath}/plasma-theme-builder${prName}/`, state: 'альфа' },
-//     { title: 'Иконки', href: `${basePath}/icons/` },
-//     { title: 'Палитра', href: `${basePath}/palette/` },
-// ];
-
-// const community = [
-//     {
-//         title: 'GitHub',
-//         contentLeft: <IconGitHub />,
-//         href: 'https://github.com/salute-developers/plasma',
-//     },
-// ];
-
-const verticalsMap = [
-    {
-        title: 'SD Service',
-        package: '@salutejs/plasma-b2c',
-        group: 'Плазма',
-        href: `${basePath}/b2c/`,
-        items: [
-            { text: 'Сторибук', href: `${basePath}/b2c-storybook/`, contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: `${basePath}/b2c/`, contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/plasma-b2c'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-    {
-        title: 'SD Mid',
-        package: '@salutejs/plasma-web',
-        group: 'Плазма',
-        href: `${basePath}/web/`,
-        items: [
-            { text: 'Сторибук', href: `${basePath}/web-storybook/`, contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: `${basePath}/web/`, contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/plasma-web'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-    {
-        title: 'SDDS Service',
-        package: '@salutejs/sdds-serv',
-        group: 'SDDS Masterbrand',
-        href: `${basePath}/sdds-serv/`,
-        items: [
-            { text: 'Сторибук', href: `${basePath}/sdds-serv-storybook/`, contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: `${basePath}/sdds-serv/`, contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/sdds-serv'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-    {
-        title: 'SDDS Finportal',
-        package: '@salutejs/sdds-finportal',
-        group: 'SDDS Masterbrand',
-        href: `${basePath}/sdds-finportal/`,
-        items: [
-            { text: 'Сторибук', href: `${basePath}/sdds-finportal-storybook/`, contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: `${basePath}/sdds-finportal/`, contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/sdds-finportal'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-    {
-        title: 'SDDS DFA',
-        package: '@salutejs/sdds-dfa',
-        group: 'SDDS Masterbrand',
-        href: `${basePath}/sdds-dfa/`,
-        items: [
-            { text: 'Сторибук', href: `${basePath}/sdds-dfa-storybook/`, contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: `${basePath}/sdds-dfa/`, contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/sdds-dfa'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-    {
-        title: 'SDDS CS',
-        package: '@salutejs/sdds-cs',
-        group: 'SDDS Masterbrand',
-        href: `${basePath}/sdds-cs/`,
-        items: [
-            { text: 'Сторибук', href: `${basePath}/sdds-cs-storybook/`, contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: `${basePath}/sdds-cs/`, contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/sdds-cs'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-    {
-        title: 'SDDS Insol',
-        package: '@salutejs/sdds-insol',
-        group: 'Отдельные сборки',
-        href: `${basePath}/sdds-insol/`,
-        items: [
-            { text: 'Сторибук', href: `${basePath}/sdds-insol-storybook/`, contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: `${basePath}/sdds-insol/`, contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/sdds-insol'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-];
-
-const products = [
-    // {
-    //     title: 'Web B2C',
-    //     name: '@salutejs/plasma-b2c',
-    //     support: 'https://t.me/+mAruh4Kpwq9kNDVi',
-    //     items: [
-    //         { text: 'Документация', href: `${basePath}/b2c/` },
-    //         { text: 'Сторибук', href: `${basePath}/b2c-storybook/` },
-    //     ],
-    // },
-    // {
-    //     title: 'Web B2E',
-    //     name: '@salutejs/plasma-web',
-    //     support: 'https://t.me/+mAruh4Kpwq9kNDVi',
-    //     items: [
-    //         { text: 'Документация', href: `${basePath}/web/` },
-    //         { text: 'Сторибук', href: `${basePath}/web-storybook/` },
-    //     ],
-    // },
-    // {
-    //     title: 'Canvas Apps',
-    //     name: '@salutejs/plasma-ui',
-    //     support: 'https://t.me/+cd3wk0JEA90zMzI6',
-    //     items: [
-    //         { text: 'Документация', href: `${basePath}/ui/` },
-    //         { text: 'Сторибук', href: `${basePath}/ui-storybook/` },
-    //     ],
-    // },
-    {
-        title: 'Палитра',
-        titleContentRight: <ArrowRight />,
-        href: `${basePath}/palette/`,
-        items: formattedPaletteColors.map(({ name }) => ({
-            text: name,
-            href: `${basePath}/palette/color/${name}/code/${baseColorCode}`,
-        })),
-    },
-    {
-        title: 'Пиктограммы',
-        titleContentRight: <ArrowRight />,
-        href: `${basePath}/icons/`,
-        items: iconListGroupNames.map((groupName) => ({
-            text: groupName,
-            href: `${basePath}/icons/`,
-        })),
-    },
-    {
-        title: 'Билдер',
-        titleContentRight: <ArrowRight />,
-        href: `${basePath}/plasma-theme-builder/`,
-    },
-];
-
-const verticals = [
-    {
-        title: 'Вертикали',
-        titleContentRight: <ArrowRight style={{ rotate: '90deg' }} />,
-        items: verticalsMap.map(({ title, href }) => ({
-            text: title,
-            href,
-            contentRight: <ArrowTopRight />,
-        })),
-    },
-];
-
-// const siteName = 'Плазма';
-
-const currentYear = new Date().getFullYear();
-
-const scrollToElement = (el: HTMLElement | null, offset = 0) => {
-    if (!el) {
-        return;
-    }
-
-    window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - offset,
-        behavior: 'smooth',
-    });
-};
+const ProductsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    position: relative;
+`;
 
 export default function Home() {
+    const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+    const scrollSnapBlock = useRef<HTMLDivElement | null>(null);
+    const productsRef = useRef<HTMLDivElement | null>(null);
     const groupRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const productsRef = useRef<(HTMLDivElement | null)[]>([]);
-    const productNavRef = useRef<HTMLDivElement | null>(null);
-    const verticalsRef = useRef<HTMLDivElement | null>(null);
+    const stickyNavRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const isScrolling = useRef(false);
+    const firstBlockHeight = useRef(0);
 
-    const productsVisibility = useVisibility(productsRef.current);
-    const groupsVisibility = useVisibility(groupRefs.current, productNavRef.current?.offsetHeight);
-
-    const areProductsVisible = productsVisibility.every((isVisible) => isVisible);
+    const [menuExpanded, setMenuExpanded] = useState(false);
 
     const groups = verticalsMap.reduce((acc, vertical) => {
         const { group } = vertical;
@@ -366,117 +65,304 @@ export default function Home() {
         return acc;
     }, {} as { [key: string]: Array<ProductProps> });
 
-    const topDisclosedGroupData: GroupData[] = [];
-    const bottomDisclosedGroupData: GroupData[] = [];
-    groupsVisibility.forEach((isVisible, i) => {
-        if (isVisible) {
-            return;
-        }
-
-        const group = groupRefs.current[i];
-        if (!group) {
-            return;
-        }
-
-        const rect = group.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-
-        if (rect.top >= viewportHeight) {
-            bottomDisclosedGroupData.push({ group: Object.keys(groups)[i], index: i });
-        } else {
-            topDisclosedGroupData.push({ group: Object.keys(groups)[i], index: i });
-        }
-    });
-
-    const handleScrollIntoView = ({ index }: GroupData) => {
-        scrollToElement(groupRefs.current[index], productNavRef.current?.offsetHeight);
-    };
-
     const handleScrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (!menuExpanded) {
+            return;
+        }
+
+        scrollContainerRef?.current?.scrollTo({ top: 0, behavior: 'smooth' });
+        setMenuExpanded(false);
+        handleChangeSideNavPos();
     };
 
-    const handleScrollToVertical = () => {
-        scrollToElement(verticalsRef.current, productNavRef.current?.offsetHeight);
+    const handleScrollToVerticals = () => {
+        if (!scrollContainerRef?.current || !scrollSnapBlock?.current) {
+            return;
+        }
+
+        const containerBlock = scrollContainerRef.current;
+        const snapBlock = scrollSnapBlock.current;
+
+        containerBlock.scrollTo({
+            top: snapBlock.offsetHeight,
+            behavior: 'smooth',
+        });
+        setMenuExpanded(true);
     };
+
+    const getNavPosRecalculationId = () => {
+        const recalculateStickyNavPosition = () => {
+            handleChangeSideNavPos();
+
+            requestAnimationFrame(recalculateStickyNavPosition);
+        };
+
+        requestAnimationFrame(recalculateStickyNavPosition);
+    };
+    const cancelAllAnimationFrames = () => {
+        let id = window.requestAnimationFrame(() => {});
+        while (id--) {
+            window.cancelAnimationFrame(id);
+        }
+    };
+
+    const handleScrollToProductGroup = (groupIndex: number) => {
+        const groupToScroll = groupRefs.current[groupIndex];
+        if (!groupToScroll || !scrollContainerRef.current || !productsRef.current) {
+            return;
+        }
+        const productsOffesPosition = productsRef.current.offsetTop;
+        const scrollDistance = productsOffesPosition + groupToScroll.offsetTop - groupToScroll.offsetHeight / 6;
+
+        getNavPosRecalculationId();
+
+        setTimeout(() => {
+            cancelAllAnimationFrames();
+        }, 500);
+        scrollContainerRef.current.scrollTo({ top: scrollDistance, behavior: 'smooth' });
+    };
+
+    const scrollViewProcess = (
+        scrollHeight: number,
+        isMenuExpanded: boolean,
+        timeout: number,
+        containerBlock: HTMLDivElement,
+    ) => {
+        isScrolling.current = true;
+        containerBlock.scrollTo({
+            top: scrollHeight,
+            behavior: 'smooth',
+        });
+
+        getNavPosRecalculationId();
+
+        setMenuExpanded(isMenuExpanded);
+        setTimeout(() => {
+            isScrolling.current = false;
+            cancelAllAnimationFrames();
+        }, timeout);
+    };
+
+    const handleScrollViews = (event: WheelEvent) => {
+        if (isScrolling.current || !scrollSnapBlock?.current || !scrollContainerRef.current) {
+            return;
+        }
+        const containerBlock = scrollContainerRef.current;
+        const snapBlock = scrollSnapBlock.current;
+
+        firstBlockHeight.current = snapBlock.offsetHeight;
+
+        const { scrollTop } = containerBlock;
+
+        const scrollDownCondition = event.deltaY > 0 && Math.abs(event.deltaX) < 1;
+        const scrollUpCondition = event.deltaY < 0 && Math.abs(event.deltaX) < 1;
+
+        if (scrollTop > 50 && scrollTop < firstBlockHeight.current && scrollDownCondition) {
+            scrollViewProcess(firstBlockHeight.current - 20, true, 800, containerBlock);
+        } else if (scrollTop <= 50 && scrollDownCondition) {
+            scrollViewProcess(0, false, 400, containerBlock);
+        } else if (scrollTop < firstBlockHeight.current - 100 && scrollUpCondition) {
+            scrollViewProcess(0, false, 800, containerBlock);
+        } else if (
+            scrollTop >= firstBlockHeight.current - 100 &&
+            scrollTop < firstBlockHeight.current &&
+            scrollUpCondition
+        ) {
+            scrollViewProcess(firstBlockHeight.current - 80, true, 400, containerBlock);
+        }
+    };
+
+    const handleChangeSideNavPos = () => {
+        if (!scrollContainerRef?.current || !productsRef?.current || !groupRefs.current) {
+            return;
+        }
+
+        const productsOffesPosition = productsRef.current.offsetTop;
+        const scrollPosition = scrollContainerRef.current.scrollTop;
+        const viewportHeight = scrollContainerRef.current.clientHeight;
+
+        stickyNavRefs.current.forEach((navItem, index) => {
+            const initialSection = groupRefs.current[index];
+            if (!navItem || !initialSection) {
+                return;
+            }
+
+            const initialSectionTop = initialSection.offsetTop;
+            const sectionStart = productsOffesPosition + initialSectionTop;
+            const stickyNavElementTop = navItem.offsetTop;
+            const offsetIndex = Object.keys(groups).length - (index + 1);
+            const stickyNavElementHeight = navItem.clientHeight;
+            const extraLineHeightOffset = Array(index)
+                .fill(stickyNavElementHeight)
+                .reduce((acc, curr) => {
+                    acc += curr;
+                    return acc;
+                }, 0);
+            const extraLineHeightBottomOffset = Array(offsetIndex)
+                .fill(stickyNavElementHeight)
+                .reduce((acc, curr) => {
+                    acc += curr;
+                    return acc;
+                }, 0);
+            const extraOffset = Array(offsetIndex)
+                .fill(0.75 * 16)
+                .reduce((acc, curr) => {
+                    acc += curr;
+                    return acc;
+                }, 0);
+
+            const actualScroll = scrollPosition + extraOffset + extraLineHeightOffset;
+            const bottomScroll = scrollPosition + viewportHeight - extraOffset - extraLineHeightBottomOffset - 244;
+
+            // NOTE: above product section
+            if (bottomScroll < initialSectionTop + viewportHeight) {
+                const needExtraOffset = index !== 0;
+                const actualNavItemTop = `calc(100% - 4rem - ${extraLineHeightBottomOffset / 16}rem ${
+                    needExtraOffset ? `- ${extraOffset / 16}rem` : ''
+                })`;
+
+                if (navItem.style.top !== stickyNavSnapVariant.bottomOfViewport) {
+                    navItem.style.position = 'sticky';
+                    navItem.style.top = actualNavItemTop;
+                    navItem.dataset.snap = stickyNavSnapVariant.bottomOfViewport;
+                }
+            }
+
+            // NOTE: inside product section
+            if (
+                stickyNavElementTop >= initialSection.offsetTop - 5 &&
+                actualScroll < sectionStart - 5 &&
+                bottomScroll > initialSectionTop + viewportHeight
+            ) {
+                if (navItem.dataset.snap !== stickyNavSnapVariant.topOfSection) {
+                    navItem.style.position = 'absolute';
+                    navItem.style.top = `${initialSection.offsetTop}px`;
+                    navItem.dataset.snap = stickyNavSnapVariant.topOfSection;
+                }
+            }
+
+            // NOTE: under product section
+            if (actualScroll >= sectionStart) {
+                const needExtraOffset = index !== 0;
+                const actualNavItemTop = `calc(12.5rem + ${extraLineHeightOffset / 16}rem ${
+                    needExtraOffset ? `+ ${extraOffset / 16}rem` : ''
+                })`;
+
+                if (navItem.dataset.snap !== stickyNavSnapVariant.topOfViewport) {
+                    navItem.style.position = 'sticky';
+                    navItem.style.top = actualNavItemTop;
+                    navItem.dataset.snap = stickyNavSnapVariant.topOfViewport;
+                }
+            }
+        });
+    };
+
+    const handleScroll = (event: WheelEvent) => {
+        handleChangeSideNavPos();
+        handleScrollViews(event);
+    };
+
+    useEffect(() => {
+        const containerBlock = scrollContainerRef.current;
+        if (!containerBlock) {
+            return;
+        }
+
+        handleChangeSideNavPos();
+
+        containerBlock.addEventListener('wheel', handleScroll, { passive: false });
+        return () => containerBlock.removeEventListener('wheel', handleScroll);
+    }, []);
 
     return (
-        <StyledWrapper>
-            {/* <StyledRow> */}
-            {/* <Col sizeXXL={4} sizeXL={3} sizeL={2} sizeM={6} sizeS={6}>
-                    <SiteName bold>{siteName}</SiteName>
-                    <StyledMainMenu items={menu} />
-                </Col> */}
-            {/* <StyledCol sizeXXL={12} sizeXL={9} sizeL={6} sizeM={6} sizeS={6}> */}
-            <ProductNav style={{ visibility: areProductsVisible ? 'hidden' : 'visible' }} ref={productNavRef}>
-                <LinkItem
-                    title="ЕДС"
-                    onClick={handleScrollToTop}
-                    contentRight={<ArrowRight style={{ rotate: '-90deg' }} />}
-                />
-                {products.map((product) => (
-                    <LinkItem href={product.href} title={product.title} contentRight={<ArrowRight />} />
-                ))}
-            </ProductNav>
-
-            <ProductListWrapper style={{ minHeight: '100vh', justifyContent: 'space-between' }}>
-                <div>
-                    <HeaderWrapper>
-                        <LinkItem title="ЕДС" />
-                    </HeaderWrapper>
-                    <ProductList
-                        items={products}
-                        ref={(el) => {
-                            productsRef.current[0] = el;
-                        }}
-                    />
-                </div>
-                <ProductList
-                    onClick={handleScrollToVertical}
-                    items={verticals}
-                    ref={verticalsRef}
-                    style={{ marginBottom: '4rem' }}
-                />
-            </ProductListWrapper>
-
-            <ProductListWrapper style={{ gap: '5rem' }}>
-                <TopDisclosedGroupNav>
-                    {topDisclosedGroupData.map((groupData) => (
-                        <LinkItem
-                            onClick={() => handleScrollIntoView(groupData)}
-                            title={groupData.group}
-                            contentLeft={<ArrowRight style={{ rotate: '-90deg' }} />}
+        <ScrollContainer ref={scrollContainerRef}>
+            <Menu products={products} expanded={menuExpanded} handleScrollToTop={handleScrollToTop} />
+            <ScrollBlock ref={scrollSnapBlock}>
+                <ProductList>
+                    {products.map(({ title, href, items }) => (
+                        <Product
+                            key={title + href}
+                            href={href}
+                            title={title}
+                            additionalInfo={items?.map(({ text, href }) => (
+                                <LinkItem key={text + href} title={text} href={href} />
+                            ))}
+                            alwaysShowIcon
                         />
                     ))}
-                </TopDisclosedGroupNav>
-                {Object.entries(groups).map(([group, products], i) => (
-                    <ProductList
-                        key={group}
-                        items={products}
-                        group={group}
-                        ref={(el) => {
-                            groupRefs.current[i] = el;
-                        }}
-                    />
-                ))}
-                <BottomDisclosedGroupNav>
-                    {bottomDisclosedGroupData.map((groupData) => (
-                        <LinkItem
-                            onClick={() => handleScrollIntoView(groupData)}
-                            title={groupData.group}
-                            contentLeft={<ArrowRight style={{ rotate: '90deg' }} />}
+                </ProductList>
+                <ProductList>
+                    {verticals.map(({ title, items }) => (
+                        <Product
+                            key={title}
+                            title={title}
+                            onClickTitle={handleScrollToVerticals}
+                            additionalInfo={items?.map(({ text, href, contentRight }) => (
+                                <LinkItem key={text + href} title={text} href={href} contentRight={contentRight} />
+                            ))}
+                            iconRotation="bottom"
+                            alwaysShowIcon
                         />
                     ))}
-                </BottomDisclosedGroupNav>
-            </ProductListWrapper>
+                </ProductList>
+            </ScrollBlock>
+            <Products ref={productsRef}>
+                <ProductsWrapper>
+                    {Object.entries(groups).map(([group, currentProducts], i) => (
+                        <ProductList
+                            ref={(el) => {
+                                groupRefs.current[i] = el;
+                            }}
+                            key={group}
+                        >
+                            {currentProducts.map(({ title, href, items }) => (
+                                <Product
+                                    key={group + title}
+                                    title={title}
+                                    href={href}
+                                    iconRotation="topRightCorner"
+                                    {...(items?.length && {
+                                        additionalInfo: items.map(
+                                            ({ text, href: itemHref, contentRight, contentLeft, isMeta }) => {
+                                                return (
+                                                    <LinkItem
+                                                        key={text + itemHref}
+                                                        title={text}
+                                                        href={itemHref}
+                                                        contentRight={contentRight}
+                                                        contentLeft={contentLeft}
+                                                        isMeta={isMeta}
+                                                    />
+                                                );
+                                            },
+                                        ),
+                                    })}
+                                />
+                            ))}
+                        </ProductList>
+                    ))}
+                </ProductsWrapper>
 
+                <StickyNav>
+                    {Object.keys(groups).map((group, index) => {
+                        const offsetIndex = Object.keys(groups).length - (index + 1);
+                        const needExtraOffset = index !== Object.keys(groups).length - 1;
+
+                        return (
+                            <StickyNavItem
+                                key={`${group}_${offsetIndex + index}`}
+                                index={index}
+                                offsetIndex={offsetIndex}
+                                group={group}
+                                needExtraOffset={needExtraOffset}
+                                stickyNavRefs={stickyNavRefs}
+                                onClick={() => handleScrollToProductGroup(index)}
+                            />
+                        );
+                    })}
+                </StickyNav>
+            </Products>
             <CopyrightText>{`©${currentYear} Девайсы`}</CopyrightText>
-            {/* </StyledCol> */}
-            {/* <Footer>
-                    <StyledMainCommunityMenu items={community} />
-                    <CopyrightText>{`©${currentYear} СалютДевайсы`}</CopyrightText>
-                </Footer> */}
-            {/* </StyledRow> */}
-        </StyledWrapper>
+        </ScrollContainer>
     );
 }
