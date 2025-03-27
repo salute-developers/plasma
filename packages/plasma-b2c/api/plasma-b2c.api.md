@@ -1555,6 +1555,10 @@ negative: PolymorphicClassName;
 disabled: {
 true: PolymorphicClassName;
 };
+outline: {
+true: PolymorphicClassName;
+false: PolymorphicClassName;
+};
 focused: {
 true: PolymorphicClassName;
 };
@@ -3402,6 +3406,10 @@ negative: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
+};
+outline: {
+true: PolymorphicClassName;
+false: PolymorphicClassName;
 };
 focused: {
 true: PolymorphicClassName;

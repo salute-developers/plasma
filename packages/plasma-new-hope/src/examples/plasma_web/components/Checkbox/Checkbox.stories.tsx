@@ -29,12 +29,18 @@ const meta: Meta<typeof Checkbox> = {
                 type: 'radio',
             },
         },
+        outline: {
+            control: {
+                type: 'boolean',
+            },
+        },
     },
     args: {
         view: 'accent',
         size: 'm',
         disabled: false,
         focused: true,
+        outline: false,
     },
 };
 

@@ -63,6 +63,11 @@ const meta: Meta<CheckboxProps> = {
                 type: 'inline-radio',
             },
         },
+        outline: {
+            control: {
+                type: 'boolean',
+            },
+        },
         ...disableProps(propsToDisable),
     },
 };
@@ -190,6 +195,7 @@ export const Default: StoryObj<CheckboxProps> = {
         disabled: false,
         singleLine: false,
         focused: true,
+        outline: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

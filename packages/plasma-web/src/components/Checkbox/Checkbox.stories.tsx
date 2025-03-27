@@ -40,30 +40,32 @@ const meta: Meta<CheckboxProps> = {
     title: 'Data Entry/Checkbox',
     component: Checkbox,
     decorators: [InSpacingDecorator],
-    argTypes: {
-        label: {
-            control: {
-                type: 'text',
-            },
+    label: {
+        control: {
+            type: 'text',
         },
-        description: {
-            control: {
-                type: 'text',
-            },
+    },
+    description: {
+        control: {
+            type: 'text',
         },
-        view: {
-            options: views,
-            control: {
-                type: 'inline-radio',
-            },
+    },
+    view: {
+        options: views,
+        control: {
+            type: 'inline-radio',
         },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
+    },
+    size: {
+        options: sizes,
+        control: {
+            type: 'inline-radio',
         },
-        ...disableProps(propsToDisable),
+    },
+    outline: {
+        control: {
+            type: 'boolean',
+        },
     },
 };
 
@@ -190,6 +192,7 @@ export const Default: StoryObj<CheckboxProps> = {
         disabled: false,
         singleLine: false,
         focused: true,
+        outline: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

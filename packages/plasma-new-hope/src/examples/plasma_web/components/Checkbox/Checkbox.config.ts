@@ -128,6 +128,20 @@ export const config = {
                 ${checkboxTokens.disabledOpacity}: 0.4;
             `,
         },
+        outline: {
+            true: css`
+                ${checkboxTokens.triggerBorderWidth}: 0.0625rem;
+                ${checkboxTokens.iconColor}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColor}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColorChecked}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBackgroundColorChecked}: transparent;
+            `,
+            false: css`
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
+                ${checkboxTokens.triggerBackgroundColorChecked}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColorChecked}: transparent;
+            `,
+        },
         focused: {
             true: css`
                 ${checkboxTokens.focusColor}: var(--text-accent);

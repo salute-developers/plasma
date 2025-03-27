@@ -186,6 +186,7 @@ export const Default: StoryObj<CheckboxProps> = {
         size: 'm',
         view: 'accent',
         focused: true,
+        outline: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
