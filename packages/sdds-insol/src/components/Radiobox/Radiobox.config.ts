@@ -133,7 +133,6 @@ export const config = {
             true: css`
                 ${radioboxTokens.triggerBorderWidth}: 0.0625rem;
                 ${radioboxTokens.ellipseColor}: var(${radioboxTokens.fillColor});
-                ${radioboxTokens.triggerBorderColor}: var(${radioboxTokens.fillColor});
                 ${radioboxTokens.triggerBorderColorChecked}: var(${radioboxTokens.fillColor});
                 ${radioboxTokens.triggerBackgroundColorChecked}: transparent;
             `,

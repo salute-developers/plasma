@@ -125,7 +125,6 @@ export const config = {
             true: css`
                 ${checkboxTokens.triggerBorderWidth}: 0.0625rem;
                 ${checkboxTokens.iconColor}: var(${checkboxTokens.fillColor});
-                ${checkboxTokens.triggerBorderColor}: var(${checkboxTokens.fillColor});
                 ${checkboxTokens.triggerBorderColorChecked}: var(${checkboxTokens.fillColor});
                 ${checkboxTokens.triggerBackgroundColorChecked}: transparent;
             `,

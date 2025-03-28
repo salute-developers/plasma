@@ -74,6 +74,7 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size, vi
             singleLine={singleLine}
             size={size}
             view={view}
+            outline={outline}
             onChange={(event) => {
                 event.persist();
 
