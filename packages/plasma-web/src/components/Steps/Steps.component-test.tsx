@@ -358,6 +358,20 @@ describe('plasma-web: Steps', () => {
         cy.matchImageSnapshot();
     });
 
+    it('itemView:negative', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                {new Array(simpleItems.length + 1).fill(null).map((size, index) => (
+                    <>
+                        <Steps current={index} items={simpleItems} itemView="negative" />
+                        <PadMe />
+                    </>
+                ))}
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.matchImageSnapshot();
+    });
+
     describe('vertical', () => {
         it('simple', () => {
             mount(
@@ -548,6 +562,34 @@ describe('plasma-web: Steps', () => {
                     </VerticalWrapper>
                 </CypressTestDecoratorWithTypo>,
             );
+            cy.matchImageSnapshot();
+        });
+
+        it('item view: negative', () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <VerticalWrapper>
+                        {new Array(simpleItems.length + 1).fill(null).map((size, index) => (
+                            <>
+                                <Steps current={index} items={simpleItems} orientation="vertical" itemView="negative" />
+                                <PadMe />
+                            </>
+                        ))}
+                        {new Array(simpleBulletItems.length + 1).fill(null).map((size, index) => (
+                            <>
+                                <Steps
+                                    current={index}
+                                    items={simpleBulletItems}
+                                    orientation="vertical"
+                                    itemView="negative"
+                                />
+                                <PadMe />
+                            </>
+                        ))}
+                    </VerticalWrapper>
+                </CypressTestDecoratorWithTypo>,
+            );
+
             cy.matchImageSnapshot();
         });
     });
