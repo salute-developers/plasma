@@ -10,7 +10,9 @@ export const tokens = {
     triggerPadding: '--plasma-checkbox-trigger-padding',
     triggerSize: '--plasma-checkbox-trigger-size',
     triggerBorderRadius: '--plasma-checkbox-trigger-border-radius',
+    triggerBorderWidth: '--plasma-checkbox-trigger-border-width',
     triggerBorderColor: '--plasma-checkbox-trigger-border-color',
+    triggerBorderCheckedColor: '--plasma-checkbox-trigger-border-checked-color',
     triggerBackgroundColor: '--plasma-checkbox-trigger-background-color',
 
     fillColor: '--plasma-checkbox-fill-color',
