@@ -61,6 +61,12 @@ const meta: Meta<CheckboxProps> = {
                 type: 'inline-radio',
             },
         },
+        appereanc: {
+            options: ['default', 'outline'],
+            control: {
+                type: 'radio',
+            },
+        },
         ...disableProps(propsToDisable),
     },
 };
@@ -167,6 +173,7 @@ export const Default: Story = {
         size: 'm',
         view: 'accent',
         focused: true,
+        appereanc: 'default',
     },
     render: (args) => <StoryDefault {...args} />,
 };
