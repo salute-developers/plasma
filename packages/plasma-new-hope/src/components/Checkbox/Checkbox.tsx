@@ -8,6 +8,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as focusedCSS } from './variations/_focused/base';
+import { base as outlineCSS } from './variations/_outline/base';
 import { Done, Indeterminate } from './IconsSvg';
 import {
     StyledContent,
@@ -35,6 +36,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
             indeterminate,
             style,
             className,
+            outline = false,
             singleLine = false,
             'aria-label': ariaLabelExternal,
             ...rest
@@ -47,7 +49,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
             if (inputRef.current && indeterminate) {
                 inputRef.current.indeterminate = rest.checked === undefined ? Boolean(indeterminate) : rest.checked;
             }
-        }, [inputRef, indeterminate]);
+        }, [inputRef, indeterminate, rest.checked]);
 
         const uniqId = safeUseId();
         const uniqLabelId = `label-${uniqId}`;
@@ -67,6 +69,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                 size={size}
                 disabled={disabled}
                 focused={focused}
+                outline={outline}
                 style={style}
                 className={className}
                 tabIndex={-1}
@@ -130,6 +133,9 @@ export const checkboxConfig = {
         },
         focused: {
             css: focusedCSS,
+        },
+        outline: {
+            css: outlineCSS,
         },
     },
     defaults: {

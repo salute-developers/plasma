@@ -108,18 +108,31 @@ export const config = {
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
             `,
-            // deprecated
             negative: css`
                 ${checkboxTokens.fillColor}: var(--text-negative);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: var(--text-negative);
             `,
         },
         disabled: {
             true: css`
                 ${checkboxTokens.disabledOpacity}: 0.4;
+            `,
+        },
+        outline: {
+            true: css`
+                ${checkboxTokens.triggerBorderWidth}: 0.0625rem;
+                ${checkboxTokens.iconColor}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColor}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColorChecked}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBackgroundColorChecked}: transparent;
+            `,
+            false: css`
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
+                ${checkboxTokens.triggerBackgroundColorChecked}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColorChecked}: transparent;
             `,
         },
         focused: {

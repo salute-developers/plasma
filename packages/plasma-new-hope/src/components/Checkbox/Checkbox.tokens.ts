@@ -11,10 +11,14 @@ export const tokens = {
     triggerSize: '--plasma-checkbox-trigger-size',
     triggerBorderRadius: '--plasma-checkbox-trigger-border-radius',
     triggerBorderColor: '--plasma-checkbox-trigger-border-color',
+    triggerBorderColorChecked: '--plasma-checkbox-trigger-border-color-checked',
+    triggerBorderWidth: '--plasma-checkbox-trigger-border-width',
     triggerBackgroundColor: '--plasma-checkbox-trigger-background-color',
+    triggerBackgroundColorChecked: '--plasma-checkbox-trigger-background-color-checked',
 
     fillColor: '--plasma-checkbox-fill-color',
     iconColor: '--plasma-checkbox-icon-color',
+    outlineIconColor: '--plasma-checkbox-outline-icon-color',
     contentTopOffset: '--plasma-checkbox-content-top-offset',
     contentLeftOffset: '--plasma-checkbox-content-left-offset',
 

@@ -19,6 +19,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as focusedCSS } from './variations/_focused/base';
+import { base as outlineCSS } from './variations/_outline/base';
 import { StyledEllipse, base } from './Radiobox.styles';
 import { classes } from './Radiobox.tokens';
 
@@ -36,10 +37,13 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
             description,
             style,
             className,
+            outline = false,
             singleLine = false,
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
+
+        console.log(outline);
 
         const uniqId = safeUseId();
         const uniqLabelId = `label-${uniqId}`;
@@ -57,6 +61,7 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
             <Root
                 view={view}
                 size={size}
+                outline={outline}
                 disabled={disabled}
                 focused={focused}
                 style={style}
@@ -119,6 +124,9 @@ export const radioboxConfig = {
         },
         focused: {
             css: focusedCSS,
+        },
+        outline: {
+            css: outlineCSS,
         },
     },
     defaults: {

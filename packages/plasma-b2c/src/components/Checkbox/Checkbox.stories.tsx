@@ -26,7 +26,6 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
-    'view',
 ];
 
 const onChange = action('onChange');
@@ -34,7 +33,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['accent'];
+const views = ['accent', 'negative'];
 
 const meta: Meta<CheckboxProps> = {
     title: 'Data Entry/Checkbox',
@@ -61,6 +60,11 @@ const meta: Meta<CheckboxProps> = {
             options: sizes,
             control: {
                 type: 'inline-radio',
+            },
+        },
+        outline: {
+            control: {
+                type: 'boolean',
             },
         },
         ...disableProps(propsToDisable),
@@ -190,6 +194,7 @@ export const Default: StoryObj<CheckboxProps> = {
         disabled: false,
         singleLine: false,
         focused: true,
+        outline: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

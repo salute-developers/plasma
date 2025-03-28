@@ -61,8 +61,8 @@ export const config = {
             accent: css`
                 ${checkboxTokens.fillColor}: var(--text-accent);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-                ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
             `,
@@ -126,6 +126,20 @@ export const config = {
         disabled: {
             true: css`
                 ${checkboxTokens.disabledOpacity}: 0.4;
+            `,
+        },
+        outline: {
+            true: css`
+                ${checkboxTokens.triggerBorderWidth}: 0.0625rem;
+                ${checkboxTokens.iconColor}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColor}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColorChecked}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBackgroundColorChecked}: transparent;
+            `,
+            false: css`
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
+                ${checkboxTokens.triggerBackgroundColorChecked}: var(${checkboxTokens.fillColor});
+                ${checkboxTokens.triggerBorderColorChecked}: transparent;
             `,
         },
         focused: {
