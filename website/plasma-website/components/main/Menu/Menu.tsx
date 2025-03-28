@@ -22,7 +22,7 @@ export const Menu: FC<MenuProps> = ({ products, expanded, handleScrollToTop }) =
         <MenuWrapper>
             <List>
                 <Item className={cls({ [classes.removeItemHover]: !expanded })} onClick={handleScrollToTop}>
-                    <Title bold>EDS</Title>
+                    <Title bold>ЕДС</Title>
                     {expanded && (
                         <Icon>
                             <ArrowRight style={{ rotate: '-90deg' }} />

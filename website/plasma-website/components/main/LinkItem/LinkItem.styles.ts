@@ -1,5 +1,5 @@
 import { TextS } from '@salutejs/plasma-b2c';
-import { accent, secondary, whitePrimary } from '@salutejs/plasma-tokens-b2c';
+import { secondary, whitePrimary } from '@salutejs/plasma-tokens-b2c';
 import styled, { css } from 'styled-components';
 
 import { addGradient } from '../../../mixins';
@@ -49,7 +49,7 @@ export const LinkItemWrapper = styled.a<{ isMeta?: boolean }>`
         }
 
         & ${ContentRightWrapper} {
-            color: ${accent};
+            color: #2a72f8;
         }
     }
 `;

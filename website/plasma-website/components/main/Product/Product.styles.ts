@@ -72,7 +72,7 @@ export const ProductMainInfo = styled.a<{ alwaysShowIcon?: boolean }>`
         }
 
         & ${Icon} {
-            color: ${accent};
+            color: #2a72f8;
             opacity: 1;
         }
     }
@@ -89,7 +89,7 @@ export const ProductAdditionalInfo = styled.div`
         display: none;
     }
 
-    padding: 0 4rem;
+    padding-left: 4rem;
 
     ${multipleMediaQuery(['M', 'S'])(css`
         padding-left: 3.5rem;
