@@ -108,13 +108,12 @@ export const config = {
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
             `,
-            // deprecated
             negative: css`
                 ${checkboxTokens.fillColor}: var(--text-negative);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: var(--text-negative);
             `,
         },
         disabled: {

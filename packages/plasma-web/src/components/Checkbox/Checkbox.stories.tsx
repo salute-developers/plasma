@@ -26,7 +26,6 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
-    'view',
 ];
 
 const onChange = action('onChange');
@@ -34,7 +33,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['accent'];
+const views = ['accent', 'negative'];
 
 const meta: Meta<CheckboxProps> = {
     title: 'Data Entry/Checkbox',

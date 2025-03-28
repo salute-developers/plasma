@@ -60,6 +60,13 @@ export const config = {
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
             `,
+            negative: css`
+                ${checkboxTokens.fillColor}: var(--text-negative);
+                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBackgroundColor}: transparent;
+                ${checkboxTokens.triggerBorderColor}: var(--text-negative);
+            `,
             // deprecated
             default: css`
                 ${checkboxTokens.fillColor}: var(--text-primary);
@@ -103,14 +110,6 @@ export const config = {
             // deprecated
             warning: css`
                 ${checkboxTokens.fillColor}: var(--text-warning);
-                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
-                ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
-            `,
-            // deprecated
-            negative: css`
-                ${checkboxTokens.fillColor}: var(--text-negative);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;

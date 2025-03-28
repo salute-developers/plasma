@@ -1544,6 +1544,7 @@ m: PolymorphicClassName;
 };
 view: {
 accent: PolymorphicClassName;
+negative: PolymorphicClassName;
 default: PolymorphicClassName;
 primary: PolymorphicClassName;
 secondary: PolymorphicClassName;
@@ -1551,7 +1552,6 @@ tertiary: PolymorphicClassName;
 paragraph: PolymorphicClassName;
 positive: PolymorphicClassName;
 warning: PolymorphicClassName;
-negative: PolymorphicClassName;
 };
 disabled: {
 true: PolymorphicClassName;
