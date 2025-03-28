@@ -48,7 +48,7 @@ const meta: Meta<StoryTreeProps> = {
 export default meta;
 
 type DataRow = {
-    id: number;
+    id: string;
     country: string;
     capital: string;
     population: number;
@@ -60,7 +60,7 @@ type DataRow = {
 
 const rows: DataRow[] = [
     {
-        id: 0,
+        id: '0',
         country: 'Канада',
         capital: 'Оттава',
         population: 38,
@@ -70,7 +70,7 @@ const rows: DataRow[] = [
         area: 9984,
     },
     {
-        id: 1,
+        id: '1',
         country: 'Бразилия',
         capital: 'Бразилиа',
         population: 213,
@@ -80,7 +80,7 @@ const rows: DataRow[] = [
         area: 8515,
     },
     {
-        id: 2,
+        id: '2',
         country: 'Германия',
         capital: 'Берлин',
         population: 83,
@@ -90,7 +90,7 @@ const rows: DataRow[] = [
         area: 357,
     },
     {
-        id: 3,
+        id: '3',
         country: 'Япония',
         capital: 'Токио',
         population: 126,
@@ -100,7 +100,7 @@ const rows: DataRow[] = [
         area: 377,
     },
     {
-        id: 4,
+        id: '4',
         country: 'Австралия',
         capital: 'Канберра',
         population: 26,
@@ -110,7 +110,7 @@ const rows: DataRow[] = [
         area: 7692,
     },
     {
-        id: 5,
+        id: '5',
         country: 'Нигерия',
         capital: 'Абуджа',
         population: 206,
@@ -120,7 +120,7 @@ const rows: DataRow[] = [
         area: 923,
     },
     {
-        id: 6,
+        id: '6',
         country: 'Индия',
         capital: 'Нью-Дели',
         population: 1400,
@@ -130,7 +130,7 @@ const rows: DataRow[] = [
         area: 3287,
     },
     {
-        id: 7,
+        id: '7',
         country: 'Франция',
         capital: 'Париж',
         population: 67,
@@ -140,7 +140,7 @@ const rows: DataRow[] = [
         area: 643,
     },
     {
-        id: 8,
+        id: '8',
         country: 'Россия',
         capital: 'Москва',
         population: 143,
@@ -150,7 +150,7 @@ const rows: DataRow[] = [
         area: 17098,
     },
     {
-        id: 9,
+        id: '9',
         country: 'Южная Африка',
         capital: 'Претория',
         population: 59,
@@ -305,13 +305,14 @@ const useBackendImitation: (
     filtered: any[];
     sorted: any[];
     onChange: ({ selected, sorted, filtered }) => void;
-    deleteItem: (rowId: number) => void;
+    deleteItem: (rowId: string) => void;
     updateRow: (rowId, columnId, value) => void;
     clearSelected: () => void;
     clearFiltered: () => void;
     clearSorted: () => void;
     clearAll: () => void;
     addRow: () => void;
+    selectRow: (rowId: string) => void;
 } = () => {
     const [data, setData] = useState(rows);
 
@@ -319,13 +320,15 @@ const useBackendImitation: (
     const [filtered, setFiltered] = useState([]);
     const [sorted, setSorted] = useState([]);
 
+    console.log(selected);
+
     const onChange = ({ selected, sorted, filtered }) => {
         setSelected(selected);
         setFiltered(filtered);
         setSorted(sorted);
     };
 
-    const deleteItem = (rowId: number) => {
+    const deleteItem = (rowId: string) => {
         setData(data.filter(({ id }) => id !== rowId));
     };
 
@@ -356,7 +359,7 @@ const useBackendImitation: (
         setData([
             ...data,
             {
-                id: data[data.length - 1].id + 1,
+                id: (Math.floor(Math.random() * (10000 - 100 + 1)) + 100).toString(),
                 country: '',
                 capital: '',
                 population: null,
@@ -366,6 +369,10 @@ const useBackendImitation: (
                 area: null,
             },
         ]);
+    };
+
+    const selectRow = (rowId: string) => {
+        setSelected({ ...selected, [rowId]: true });
     };
 
     return {
@@ -381,10 +388,11 @@ const useBackendImitation: (
         clearSorted,
         clearAll,
         addRow,
+        selectRow,
     };
 };
 
-const StoryAllInOne = (args: StoryTreeProps) => {
+const StoryKitchenSink = (args: StoryTreeProps) => {
     const {
         data,
         selected,
@@ -398,11 +406,12 @@ const StoryAllInOne = (args: StoryTreeProps) => {
         clearSorted,
         clearAll,
         addRow,
+        selectRow,
     } = useBackendImitation(rows);
 
     const ref = useRef(null);
 
-    const columnsAllInOne = [
+    const columns = [
         {
             id: 'country',
             label: 'Страна',
@@ -459,12 +468,31 @@ const StoryAllInOne = (args: StoryTreeProps) => {
         {
             id: 'control',
             label: '',
-            size: 0,
+            width: 0,
             renderCell: (_, row) => (
                 <Dropdown
                     portal={ref}
-                    items={[{ value: 'delete', label: 'Удалить' }]}
-                    onItemSelect={() => deleteItem(row.id)}
+                    items={[
+                        { value: 'choose', label: 'Выбрать' },
+                        { value: 'delete', label: 'Удалить' },
+                    ]}
+                    onItemSelect={({ value }) => {
+                        switch (value) {
+                            case 'choose': {
+                                selectRow(row.id);
+                                break;
+                            }
+
+                            case 'delete': {
+                                deleteItem(row.id);
+                                break;
+                            }
+
+                            default: {
+                                break;
+                            }
+                        }
+                    }}
                 >
                     <IconButton view="clear" size="xs">
                         <IconEditOutline />
@@ -490,7 +518,7 @@ const StoryAllInOne = (args: StoryTreeProps) => {
             <Table
                 {...args}
                 data={data}
-                columns={columnsAllInOne}
+                columns={columns}
                 onChange={onChange}
                 selected={selected}
                 sorted={sorted}
@@ -502,8 +530,8 @@ const StoryAllInOne = (args: StoryTreeProps) => {
     );
 };
 
-export const AllInOne: StoryObj<StoryTreeProps> = {
-    render: (args) => <StoryAllInOne {...args} />,
+export const KitchenSink: StoryObj<StoryTreeProps> = {
+    render: (args) => <StoryKitchenSink {...args} />,
     args: {
         maxHeight: '400px',
         stickyHeader: true,

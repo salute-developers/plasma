@@ -1,25 +1,31 @@
 import type { ReactNode, HTMLAttributes, CSSProperties } from 'react';
 import { RowSelectionState } from '@tanstack/react-table';
 
-type Column = {
+export type TableRowData = {
+    id: string;
+    [key: string]: string | number;
+};
+
+export type TableColumnData = {
     id: string;
     label: string;
+    width?: number;
     enableSorting?: boolean;
     enableResizing?: boolean;
     enableEditing?: boolean;
     filters?: { value: string; label: string }[];
-    filterFn?: (filteredValue: string, cellValue: any) => boolean;
-    size?: number;
-    renderCell?: (value: any, row: any, rowIndex: number) => ReactNode;
+    filterFn?: (filteredValue: string, cellValue: unknown) => boolean;
+    renderCell?: (value: unknown, row: TableRowData, rowIndex: number) => ReactNode;
 };
 
-export interface TableProps extends HTMLAttributes<HTMLDivElement> {
-    data: any[];
-    columns: Column[];
-    onChange?: (e: any) => void;
-    pagination?: boolean;
-    editable?: boolean;
-    size?: string;
+export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+    data: TableRowData[];
+    columns: TableColumnData[];
+    onChange?: (data: {
+        selected: TableProps['selected'];
+        filtered: TableProps['filtered'];
+        sorted: TableProps['sorted'];
+    }) => void;
     variant?: 'no-border' | 'border-rows' | 'border-header' | 'border-all' | 'border-all-bg';
     enableSelection?: boolean;
     selected?: RowSelectionState;
@@ -33,5 +39,6 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
     }[];
     maxHeight?: CSSProperties['maxHeight'];
     stickyHeader?: boolean;
-    onCellUpdate?: (rowId: any, columnId: any, value: any) => void;
+    onCellUpdate?: (rowIndex: string, columnId: string, value: unknown) => void;
+    size?: string;
 }

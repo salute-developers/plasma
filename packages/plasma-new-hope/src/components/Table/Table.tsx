@@ -8,13 +8,16 @@ import {
     OnChangeFn,
     ColumnFiltersState,
     RowSelectionState,
+    RowData,
+    Table as TableType,
+    Row,
 } from '@tanstack/react-table';
 import { useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
 
 import { HeadCell, Cell, EditableCell } from './ui';
-import { TableProps } from './Table.types';
+import { TableProps, TableColumnData } from './Table.types';
 import { base, Table, Tr, Thead, StyledCheckbox } from './Table.styles';
 
 export const SELECT_COLUMN_ID = 'select#65768756432';
@@ -25,7 +28,20 @@ type ColumnSort = {
 };
 type SortingState = ColumnSort[];
 
-export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
+declare module '@tanstack/react-table' {
+    interface ColumnMeta<TData extends RowData, TValue> {
+        filters?: TableColumnData['filters'];
+        enableEditing?: boolean;
+        renderCell?: TableColumnData['renderCell'];
+    }
+}
+declare module '@tanstack/react-table' {
+    interface TableMeta<TData extends RowData> {
+        updateData: (rowId: string, columnId: string, value: unknown) => void;
+    }
+}
+
+export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
     forwardRef<HTMLDivElement, TableProps>(
         (
             {
@@ -98,20 +114,20 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
             const rootRef = useForkRef(tableContainerRef, ref);
 
-            const columnsData = useMemo<ColumnDef<any>[]>(
+            const columnsData = useMemo<ColumnDef<typeof data[number]>[]>(
                 () => [
                     ...(enableSelection
                         ? [
                               {
                                   id: SELECT_COLUMN_ID,
-                                  header: ({ table }) => (
+                                  header: ({ table }: { table: TableType<typeof data[number]> }) => (
                                       <StyledCheckbox
                                           checked={table.getIsSomeRowsSelected() || table.getIsAllRowsSelected()}
                                           indeterminate={table.getIsSomeRowsSelected()}
                                           onChange={table.getToggleAllRowsSelectedHandler()}
                                       />
                                   ),
-                                  cell: ({ row }) => (
+                                  cell: ({ row }: { row: Row<typeof data[number]> }) => (
                                       <StyledCheckbox
                                           checked={row.getIsSelected()}
                                           indeterminate={row.getIsSomeSelected()}
@@ -130,42 +146,40 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             enableSorting = false,
                             enableResizing = false,
                             filterFn: outerFilterFn,
-                            size: columnSize,
+                            width: columnSize,
                             enableEditing = false,
                             renderCell,
-                        }) => {
-                            return {
-                                header: label,
-                                accessorKey: id,
-                                size: columnSize,
-                                enableSorting,
-                                enableResizing,
-                                filterFn: (row: any, columnId: any, filterArr: any) => {
-                                    if (outerFilterFn && filterArr && Array.isArray(filterArr)) {
-                                        if (filterArr.length === 0) {
-                                            return true;
-                                        }
-
-                                        for (let i = 0; i < filterArr.length; i++) {
-                                            const filterValue = filterArr[i];
-
-                                            if (outerFilterFn(filterValue, row.getValue(columnId))) {
-                                                return true;
-                                            }
-                                        }
-
-                                        return false;
+                        }) => ({
+                            header: label,
+                            accessorKey: id,
+                            size: columnSize,
+                            enableSorting,
+                            enableResizing,
+                            filterFn: (row: Row<typeof data[number]>, columnId: string, filterArr: any) => {
+                                if (outerFilterFn && filterArr && Array.isArray(filterArr)) {
+                                    if (filterArr.length === 0) {
+                                        return true;
                                     }
 
-                                    return true;
-                                },
-                                meta: {
-                                    filters,
-                                    enableEditing,
-                                    renderCell,
-                                },
-                            };
-                        },
+                                    for (let i = 0; i < filterArr.length; i++) {
+                                        const filterValue = filterArr[i];
+
+                                        if (outerFilterFn(filterValue, row.getValue(columnId))) {
+                                            return true;
+                                        }
+                                    }
+
+                                    return false;
+                                }
+
+                                return true;
+                            },
+                            meta: {
+                                filters,
+                                enableEditing,
+                                renderCell,
+                            },
+                        }),
                     ),
                 ],
                 [enableSelection, columns],
@@ -191,9 +205,9 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 columnResizeMode: 'onChange',
                 columnResizeDirection: 'ltr',
                 meta: {
-                    updateData: (rowIndex, columnId, value) => {
+                    updateData: (rowId, columnId, value) => {
                         if (onCellUpdate) {
-                            onCellUpdate(rowIndex, columnId, value);
+                            onCellUpdate(rowId, columnId, value);
                         }
                     },
                 },
@@ -201,7 +215,6 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
             return (
                 <Root
-                    className="p-2"
                     ref={rootRef}
                     data={data}
                     columns={columns}
@@ -212,18 +225,16 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                         <Thead variant={variant} stickyHeader={stickyHeader}>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <Tr key={headerGroup.id} variant={variant}>
-                                    {headerGroup.headers.map((header) => {
-                                        return (
-                                            <HeadCell
-                                                key={header.index}
-                                                header={header}
-                                                size={size}
-                                                variant={variant}
-                                                outerFiltered={outerFiltered}
-                                                tableContainerRef={tableContainerRef}
-                                            />
-                                        );
-                                    })}
+                                    {headerGroup.headers.map((header) => (
+                                        <HeadCell
+                                            key={header.index}
+                                            header={header}
+                                            size={size}
+                                            variant={variant}
+                                            outerFiltered={outerFiltered}
+                                            tableContainerRef={tableContainerRef}
+                                        />
+                                    ))}
                                 </Tr>
                             ))}
                         </Thead>

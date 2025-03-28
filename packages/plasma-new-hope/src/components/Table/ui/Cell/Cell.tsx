@@ -1,12 +1,18 @@
 import React from 'react';
-import { flexRender } from '@tanstack/react-table';
+import { flexRender, Cell as CellType } from '@tanstack/react-table';
 
 import { Resizer } from '../../Table.styles';
 import { SELECT_COLUMN_ID } from '../../Table';
+import { TableProps, TableRowData } from '../../Table.types';
 
 import { Td } from './Cell.styles';
 
-export const Cell: React.FC<any> = ({ cell, variant }) => {
+export type CellProps = {
+    cell: CellType<TableRowData, unknown>;
+    variant: TableProps['variant'];
+};
+
+export const Cell: React.FC<CellProps> = ({ cell, variant }) => {
     const renderCell = cell.column.columnDef.meta?.renderCell;
 
     return (
