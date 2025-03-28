@@ -31,7 +31,7 @@ const isFilterChanged = (outerFiltered: string[], localFiltered: string[]) => {
     );
 };
 
-export const Filter: React.FC<any> = ({ header, size, outerFiltered }) => {
+export const Filter: React.FC<any> = ({ header, size, outerFiltered, tableContainerRef }) => {
     const filtered = header.column.getFilterValue() || [];
 
     const [localFiltered, setLocalFiltered] = useState(filtered || []);
@@ -74,6 +74,7 @@ export const Filter: React.FC<any> = ({ header, size, outerFiltered }) => {
                 </IconFilterWrapper>
             )}
             items={filters}
+            portal={tableContainerRef}
             listWidth={getSelectWidth(size)}
             onToggle={handleToggle}
             afterList={

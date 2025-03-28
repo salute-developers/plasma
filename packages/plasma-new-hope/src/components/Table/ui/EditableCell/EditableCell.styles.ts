@@ -50,7 +50,7 @@ export const InnerWrapper = styled.div`
 export const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: var(${tokens.editableCellIconGap});
+    gap: 0.25rem;
 `;
 
 export const EditModeWrapper = styled.div`

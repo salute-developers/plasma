@@ -1,10 +1,12 @@
-import * as React from 'react';
-import { ComponentProps, useState } from 'react';
+import React, { useRef, ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
 import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
 import { Button } from '../Button/Button';
+import { IconButton } from '../IconButton/IconButton';
+import { IconEditOutline } from '../../../../components/_Icon';
+import { Dropdown } from '../Dropdown/Dropdown';
 
 import { Table } from './Table';
 
@@ -190,54 +192,6 @@ const columnsBasic = [
     },
 ];
 
-const columnsAllInOne = [
-    {
-        id: 'country',
-        label: 'Страна',
-        enableResizing: true,
-    },
-    {
-        id: 'capital',
-        label: 'Столица',
-        enableResizing: true,
-    },
-    {
-        id: 'population',
-        label: 'Население, млн',
-        enableSorting: true,
-        enableResizing: true,
-        filters: [
-            { value: 'small', label: '< 50' },
-            { value: 'big', label: '> 100' },
-        ],
-    },
-    {
-        id: 'continent',
-        label: 'Континент',
-        enableResizing: true,
-    },
-    {
-        id: 'currency',
-        label: 'Валюта',
-        enableResizing: true,
-    },
-    {
-        id: 'officialLanguage',
-        label: 'Язык',
-        enableResizing: true,
-        filters: [
-            { value: 'eng', label: 'Английский' },
-            { value: 'rus', label: 'Русский' },
-        ],
-    },
-    {
-        id: 'area',
-        label: 'Площадь, тыс. км²',
-        enableSorting: true,
-        enableResizing: true,
-    },
-];
-
 const StoryBasic = (args: StoryTreeProps) => {
     return <Table {...args} data={rows} columns={columnsBasic} />;
 };
@@ -251,7 +205,7 @@ export const Basic: StoryObj<StoryTreeProps> = {
     },
 };
 
-const filterHelper: (filtered: { id: string; value: string[] }[]) => DataRow[] = (filtered) => {
+const filterHelper: (rows: DataRow[], filtered: { id: string; value: string[] }[]) => DataRow[] = (rows, filtered) => {
     let newData = [...rows];
 
     filtered.forEach(({ id, value }) => {
@@ -288,13 +242,18 @@ const filterHelper: (filtered: { id: string; value: string[] }[]) => DataRow[] =
                 newData = newData.filter(({ officialLanguage }) => {
                     for (const val of value) {
                         switch (val) {
-                            case 'eng': {
+                            case 'en': {
                                 if (officialLanguage.toLowerCase().includes('английский')) return true;
                                 break;
                             }
 
-                            case 'rus': {
+                            case 'ru': {
                                 if (officialLanguage.toLowerCase().includes('русский')) return true;
+                                break;
+                            }
+
+                            case 'it': {
+                                if (officialLanguage.toLowerCase().includes('итальянский')) return true;
                                 break;
                             }
 
@@ -319,8 +278,8 @@ const filterHelper: (filtered: { id: string; value: string[] }[]) => DataRow[] =
     return newData;
 };
 
-const sortedHelper: (data: DataRow[], sorted: { id: string; desc: boolean }[]) => DataRow[] = (data, sorted) => {
-    const newData = [...data];
+const sortedHelper: (rows: DataRow[], sorted: { id: string; desc: boolean }[]) => DataRow[] = (rows, sorted) => {
+    const newData = [...rows];
 
     if (sorted.length === 0) return newData;
 
@@ -338,64 +297,191 @@ const sortedHelper: (data: DataRow[], sorted: { id: string; desc: boolean }[]) =
     return newData;
 };
 
-const StoryAllInOne = (args: StoryTreeProps) => {
+const useBackendImitation: (
+    rows: DataRow[],
+) => {
+    data: DataRow[];
+    selected: Record<string, boolean>;
+    filtered: any[];
+    sorted: any[];
+    onChange: ({ selected, sorted, filtered }) => void;
+    deleteItem: (rowId: number) => void;
+    updateRow: (rowId, columnId, value) => void;
+    clearSelected: () => void;
+    clearFiltered: () => void;
+    clearSorted: () => void;
+    clearAll: () => void;
+    addRow: () => void;
+} = () => {
     const [data, setData] = useState(rows);
 
-    const [selected, setSelected] = React.useState<Record<string, boolean>>({});
-    const [filtered, setFiltered] = React.useState([]);
+    const [selected, setSelected] = useState<Record<string, boolean>>({});
+    const [filtered, setFiltered] = useState([]);
     const [sorted, setSorted] = useState([]);
 
-    const handleChange = ({ selected, sorted, filtered }) => {
+    const onChange = ({ selected, sorted, filtered }) => {
         setSelected(selected);
-        setSorted(sorted);
         setFiltered(filtered);
-
-        const filteredData = filterHelper(filtered);
-        const sortedData = sortedHelper(filteredData, sorted);
-
-        setData(sortedData);
+        setSorted(sorted);
     };
 
-    const handleCellUpdate = (rowId, columnId, value) => {
-        const newData = data.map((item) => {
-            if (item.id === rowId) {
-                return {
-                    ...item,
-                    [columnId]: value,
-                };
-            }
-            return item;
-        });
-
-        setData(newData);
+    const deleteItem = (rowId: number) => {
+        setData(data.filter(({ id }) => id !== rowId));
     };
+
+    const updateRow = (rowId, columnId, value) => {
+        setData(
+            data.map((item) => {
+                if (item.id === rowId) {
+                    return {
+                        ...item,
+                        [columnId]: value,
+                    };
+                }
+                return item;
+            }),
+        );
+    };
+
+    const clearSelected = () => setSelected({});
+    const clearFiltered = () => setFiltered([]);
+    const clearSorted = () => setSorted([]);
+    const clearAll = () => {
+        clearSelected();
+        clearFiltered();
+        clearSorted();
+    };
+
+    const addRow = () => {
+        setData([
+            ...data,
+            {
+                id: data[data.length - 1].id + 1,
+                country: '',
+                capital: '',
+                population: null,
+                continent: '',
+                currency: '',
+                officialLanguage: '',
+                area: null,
+            },
+        ]);
+    };
+
+    return {
+        data: sortedHelper(filterHelper(data, filtered), sorted),
+        selected,
+        filtered,
+        sorted,
+        onChange,
+        deleteItem,
+        updateRow,
+        clearSelected,
+        clearFiltered,
+        clearSorted,
+        clearAll,
+        addRow,
+    };
+};
+
+const StoryAllInOne = (args: StoryTreeProps) => {
+    const {
+        data,
+        selected,
+        filtered,
+        sorted,
+        onChange,
+        deleteItem,
+        updateRow,
+        clearSelected,
+        clearFiltered,
+        clearSorted,
+        clearAll,
+        addRow,
+    } = useBackendImitation(rows);
+
+    const ref = useRef(null);
+
+    const columnsAllInOne = [
+        {
+            id: 'country',
+            label: 'Страна',
+            enableResizing: true,
+            enableEditing: true,
+        },
+        {
+            id: 'capital',
+            label: 'Столица',
+            enableResizing: true,
+            enableEditing: true,
+        },
+        {
+            id: 'population',
+            label: 'Население, млн',
+            enableSorting: true,
+            enableResizing: true,
+            filters: [
+                { value: 'small', label: '< 50' },
+                { value: 'big', label: '> 100' },
+            ],
+            enableEditing: true,
+        },
+        {
+            id: 'continent',
+            label: 'Континент',
+            enableResizing: true,
+            enableEditing: true,
+        },
+        {
+            id: 'currency',
+            label: 'Валюта',
+            enableResizing: true,
+            enableEditing: true,
+        },
+        {
+            id: 'officialLanguage',
+            label: 'Язык',
+            enableResizing: true,
+            filters: [
+                { value: 'en', label: 'Английский' },
+                { value: 'ru', label: 'Русский' },
+                { value: 'it', label: 'Итальянский' },
+            ],
+            enableEditing: true,
+        },
+        {
+            id: 'area',
+            label: 'Площадь, тыс. км²',
+            enableSorting: true,
+            enableResizing: true,
+            enableEditing: true,
+        },
+        {
+            id: 'control',
+            label: '',
+            size: 0,
+            renderCell: (_, row) => (
+                <Dropdown
+                    portal={ref}
+                    items={[{ value: 'delete', label: 'Удалить' }]}
+                    onItemSelect={() => deleteItem(row.id)}
+                >
+                    <IconButton view="clear" size="xs">
+                        <IconEditOutline />
+                    </IconButton>
+                </Dropdown>
+            ),
+        },
+    ];
 
     return (
         <div>
-            <ButtonGroup size="xs" view="positive">
-                <Button text="Очистить выбранные" view="default" size="xs" onClick={() => setSelected({})} />
-                <Button
-                    text="Убрать сортировку"
-                    view="negative"
-                    onClick={() => {
-                        handleChange({
-                            selected,
-                            sorted: [],
-                            filtered,
-                        });
-                    }}
-                />
-                <Button
-                    text="Очистить фильтры"
-                    view="positive"
-                    onClick={() => {
-                        handleChange({
-                            selected,
-                            sorted,
-                            filtered: [],
-                        });
-                    }}
-                />
+            <ButtonGroup size="xs" isCommonButtonStyles={false}>
+                <Button text="Очистить выбранные" view="warning" size="xs" onClick={clearSelected} />
+                <Button text="Убрать сортировку" view="warning" size="xs" onClick={clearSorted} />
+                <Button text="Очистить фильтры" view="warning" size="xs" onClick={clearFiltered} />
+                <Button text="Очистить все" view="negative" size="xs" onClick={clearAll} />
+                <Button text="Добавить строку" view="positive" size="xs" onClick={addRow} />
             </ButtonGroup>
 
             <br />
@@ -405,11 +491,12 @@ const StoryAllInOne = (args: StoryTreeProps) => {
                 {...args}
                 data={data}
                 columns={columnsAllInOne}
-                onChange={handleChange}
+                onChange={onChange}
                 selected={selected}
                 sorted={sorted}
                 filtered={filtered}
-                onCellUpdate={handleCellUpdate}
+                onCellUpdate={updateRow}
+                ref={ref}
             />
         </div>
     );

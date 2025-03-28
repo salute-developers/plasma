@@ -104,7 +104,7 @@ export const EditableCell: React.FC<any> = ({ size, cell, variant, table }) => {
                     <ContentWrapper>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
 
-                        <IconEditOutline size={getIconSize(size)} className="editIcon" color="var(--text-secondary)" />
+                        <IconEditOutline size="xs" className="editIcon" color="var(--text-secondary)" />
                     </ContentWrapper>
                 )}
             </InnerWrapper>

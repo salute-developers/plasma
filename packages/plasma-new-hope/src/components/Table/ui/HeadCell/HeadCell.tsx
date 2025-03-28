@@ -12,7 +12,7 @@ export const getIconSize = (size?: string) => {
     return size === 's' ? 'xs' : 's';
 };
 
-export const HeadCell: React.FC<any> = ({ header, size, variant, outerFiltered }) => {
+export const HeadCell: React.FC<any> = ({ header, size, variant, outerFiltered, tableContainerRef }) => {
     const { filters } = header?.column?.columnDef?.meta || {};
 
     return (
@@ -30,7 +30,14 @@ export const HeadCell: React.FC<any> = ({ header, size, variant, outerFiltered }
 
                         {header.column.id !== SELECT_COLUMN_ID && (
                             <ControlButtons>
-                                {filters && <Filter header={header} size={size} outerFiltered={outerFiltered} />}
+                                {filters && (
+                                    <Filter
+                                        header={header}
+                                        size={size}
+                                        outerFiltered={outerFiltered}
+                                        tableContainerRef={tableContainerRef}
+                                    />
+                                )}
 
                                 {header.column.getCanSort() && (
                                     <span

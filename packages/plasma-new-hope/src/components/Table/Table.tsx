@@ -9,6 +9,7 @@ import {
     ColumnFiltersState,
     RowSelectionState,
 } from '@tanstack/react-table';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
 
@@ -93,7 +94,9 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 }
             };
 
-            const tableContainerRef = useRef<HTMLTableSectionElement>(null);
+            const tableContainerRef = useRef<HTMLDivElement>(null);
+
+            const rootRef = useForkRef(tableContainerRef, ref);
 
             const columnsData = useMemo<ColumnDef<any>[]>(
                 () => [
@@ -199,7 +202,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
             return (
                 <Root
                     className="p-2"
-                    ref={tableContainerRef}
+                    ref={rootRef}
                     data={data}
                     columns={columns}
                     size={size}
@@ -217,6 +220,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                                 size={size}
                                                 variant={variant}
                                                 outerFiltered={outerFiltered}
+                                                tableContainerRef={tableContainerRef}
                                             />
                                         );
                                     })}
