@@ -48,7 +48,7 @@ export const StyledTrigger = styled.div`
     justify-content: center;
 
     background: var(${tokens.triggerBackgroundColor});
-    border: 0.125rem solid var(${tokens.triggerBorderColor});
+    border: var(${tokens.triggerBorderWidth}) solid var(${tokens.triggerBorderColor});
     box-sizing: border-box;
 
     flex-shrink: 0;

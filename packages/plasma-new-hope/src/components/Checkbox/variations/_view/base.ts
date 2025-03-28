@@ -5,14 +5,12 @@ import { tokens } from '../../Checkbox.tokens';
 
 export const base = css`
     input[type='checkbox']:indeterminate + ${StyledContentWrapper} ${StyledTrigger} {
-        border: none;
         background: var(${tokens.fillColor});
-        border-color: var(${tokens.fillColor});
+        border-color: var(${tokens.triggerBorderCheckedColor});
     }
 
     input:checked + ${StyledContentWrapper} ${StyledTrigger} {
-        border: none;
         background: var(${tokens.fillColor});
-        border-color: var(${tokens.fillColor});
+        border-color: var(${tokens.triggerBorderCheckedColor});
     }
 `;

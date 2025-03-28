@@ -16,6 +16,7 @@ export const config = {
                 ${checkboxTokens.triggerPadding}: 0.063rem;
                 ${checkboxTokens.triggerSize}: 0.875rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.25rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0;
                 ${checkboxTokens.contentLeftOffset}: 0.5rem;
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
@@ -37,6 +38,7 @@ export const config = {
                 ${checkboxTokens.triggerPadding}: 0.125rem;
                 ${checkboxTokens.triggerSize}: 1.25rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.375rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0.125rem;
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;

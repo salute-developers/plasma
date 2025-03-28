@@ -16,6 +16,7 @@ export const config = {
                 ${checkboxTokens.triggerPadding}: 0.0625rem;
                 ${checkboxTokens.triggerSize}: 0.875rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.25rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0;
                 ${checkboxTokens.contentLeftOffset}: 0.5rem;
                 ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -37,6 +38,7 @@ export const config = {
                 ${checkboxTokens.triggerPadding}: 0.125rem;
                 ${checkboxTokens.triggerSize}: 1.25rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.375rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0.125rem;
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
                 ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -65,6 +67,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: var(--text-accent);
             `,
             // deprecated
             default: css`
@@ -73,6 +76,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             secondary: css`
@@ -81,6 +85,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             tertiary: css`
@@ -89,6 +94,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             paragraph: css`
@@ -97,6 +103,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             positive: css`
@@ -105,6 +112,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             warning: css`
@@ -113,6 +121,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             negative: css`
@@ -121,6 +130,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },
         disabled: {
