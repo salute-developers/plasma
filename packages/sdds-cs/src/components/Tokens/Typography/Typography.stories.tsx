@@ -1,20 +1,24 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { plasma_web__dark, plasma_web__light } from '@salutejs/plasma-themes/es/themes';
-import { getGroupedTypographyTokens, typographyPangrams, upperFirstLetter } from '@salutejs/plasma-sb-utils';
+import { sdds_cs__light } from '@salutejs/plasma-themes/es/themes';
+import {
+    InSpacingDecorator,
+    getGroupedTypographyTokens,
+    typographyPangrams,
+    upperFirstLetter,
+} from '@salutejs/plasma-sb-utils';
 import type {
+    TypographyStructure,
     Breakpoint,
     TypographyProperties,
-    TypographyStructure,
     TypographyWeight,
 } from '@salutejs/plasma-sb-utils';
 
-import { WithTheme } from '../../../../_helpers';
 import { Accordion } from '../../Accordion/Accordion';
 import { ToastProvider, useToast } from '../../Toast/Toast';
 import { SegmentGroup } from '../../Segment/Segment';
-import type { ShowToastArgs } from '../../../../../components/Toast';
-import { SegmentProvider, useSegment } from '../../../../../components/Segment/SegmentProvider';
+import type { ShowToastArgs } from '../../Toast';
+import { SegmentProvider, useSegment } from '../../Segment';
 
 import {
     AccordionInfo,
@@ -37,15 +41,14 @@ import {
 } from './Typography.styles';
 
 const meta: Meta = {
-    title: 'web/Tokens/Typography',
-    decorators: [WithTheme],
+    title: 'giga/Tokens/Typography',
+    decorators: [InSpacingDecorator],
 };
 
 export default meta;
 
 const themes: Record<string, TypographyStructure> = {
-    light: getGroupedTypographyTokens(plasma_web__light[0]),
-    dark: getGroupedTypographyTokens(plasma_web__dark[0]),
+    'sdds-srvc:light': getGroupedTypographyTokens(sdds_cs__light[0]),
 };
 
 type FontWeightControllerProps = {

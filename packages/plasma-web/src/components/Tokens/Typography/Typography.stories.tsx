@@ -1,7 +1,12 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { plasma_web__dark, plasma_web__light } from '@salutejs/plasma-themes/es/themes';
-import { getGroupedTypographyTokens, typographyPangrams, upperFirstLetter } from '@salutejs/plasma-sb-utils';
+import {
+    InSpacingDecorator,
+    getGroupedTypographyTokens,
+    typographyPangrams,
+    upperFirstLetter,
+} from '@salutejs/plasma-sb-utils';
 import type {
     Breakpoint,
     TypographyProperties,
@@ -9,12 +14,11 @@ import type {
     TypographyWeight,
 } from '@salutejs/plasma-sb-utils';
 
-import { WithTheme } from '../../../../_helpers';
 import { Accordion } from '../../Accordion/Accordion';
 import { ToastProvider, useToast } from '../../Toast/Toast';
 import { SegmentGroup } from '../../Segment/Segment';
-import type { ShowToastArgs } from '../../../../../components/Toast';
-import { SegmentProvider, useSegment } from '../../../../../components/Segment/SegmentProvider';
+import type { ShowToastArgs } from '../../Toast';
+import { SegmentProvider, useSegment } from '../../Segment';
 
 import {
     AccordionInfo,
@@ -38,14 +42,20 @@ import {
 
 const meta: Meta = {
     title: 'web/Tokens/Typography',
-    decorators: [WithTheme],
+    decorators: [InSpacingDecorator],
 };
 
 export default meta;
 
-const themes: Record<string, TypographyStructure> = {
-    light: getGroupedTypographyTokens(plasma_web__light[0]),
-    dark: getGroupedTypographyTokens(plasma_web__dark[0]),
+const getThemes = (theme) => {
+    switch (theme) {
+        case 'b2b:light':
+        case 'b2c:light':
+        case 'light (legacy)':
+            return getGroupedTypographyTokens(plasma_web__light[0]);
+        default:
+            return getGroupedTypographyTokens(plasma_web__dark[0]);
+    }
 };
 
 type FontWeightControllerProps = {
@@ -187,7 +197,7 @@ const TokenData: FC<TokenDataProps> = ({ title, token, size, fontFamily, fontWei
 };
 
 const StoryDemoTypography = ({ context }) => {
-    const groupedTokens = themes[context.globals.theme];
+    const groupedTokens = getThemes(context.globals.theme);
 
     const actualFontWeights = Object.keys(groupedTokens) as Array<TypographyWeight>;
     const [fontWeight, setFontWeight] = useState<TypographyWeight>(actualFontWeights[0]);

@@ -15,7 +15,6 @@ import { ToastProvider, useToast } from '../../Toast/Toast';
 import { SegmentGroup } from '../../Segment/Segment';
 import type { ShowToastArgs } from '../../../../../components/Toast';
 import { SegmentProvider, useSegment } from '../../../../../components/Segment/SegmentProvider';
-import { cx } from '../../../../../utils';
 
 import {
     AccordionInfo,

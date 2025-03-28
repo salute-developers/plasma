@@ -1,9 +1,8 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
+import { segmentTokens } from '@salutejs/plasma-new-hope';
 
-import { AccordionItem } from '../../Accordion/Accordion';
+import { AccordionItem } from '../../Accordion';
 import { SegmentItem } from '../../Segment/Segment';
-import { segmentTokens } from '../../../../../components/Segment';
-import { bodyXS } from '../../../../../mixins';
 
 export const TypographyTokensWrapper = styled.div`
     width: 100%;
@@ -38,7 +37,12 @@ export const BreakpointSwitcher = styled.div`
         left: -0.75rem;
         color: var(--text-tertiary);
 
-        ${bodyXS};
+        font-family: var(--plasma-typo-body-xs-font-family);
+        font-size: var(--plasma-typo-body-xs-font-size);
+        font-style: var(--plasma-typo-body-xs-font-style);
+        font-weight: var(--plasma-typo-body-xs-font-weight);
+        letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+        line-height: var(--plasma-typo-body-xs-line-height);
     }
 `;
 
