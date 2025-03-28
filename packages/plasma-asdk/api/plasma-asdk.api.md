@@ -4,11 +4,10 @@
 
 ```ts
 
-/// <reference types="react" />
-
 import { AnchorHTMLAttributes } from 'react';
 import { AsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Blur } from '@salutejs/plasma-new-hope/styled-components';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
@@ -20,6 +19,7 @@ import { HtmlHTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
+import { Pin } from '@salutejs/plasma-new-hope/types/utils/roundness';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
@@ -40,9 +40,9 @@ size: {
 body1: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -51,9 +51,9 @@ size: {
 body2: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -62,9 +62,9 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -73,9 +73,9 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -84,9 +84,9 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -95,9 +95,9 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -106,9 +106,9 @@ size: {
 xxs: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public
@@ -150,47 +150,47 @@ auto: PolymorphicClassName;
 filled: PolymorphicClassName;
 fixed: PolymorphicClassName;
 };
-}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("fixed" | "auto" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "large" | "medium" | undefined;
+stretch?: boolean;
+stretching?: "fixed" | "auto" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: string | number | undefined;
-contentRight?: undefined;
-} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+value?: string | number;
+contentRight?: never;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("fixed" | "auto" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "large" | "medium" | undefined;
+stretch?: boolean;
+stretching?: "fixed" | "auto" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: undefined;
+value?: never;
 contentRight?: ReactNode;
 } & RefAttributes<HTMLButtonElement>))>;
 
@@ -248,9 +248,9 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -259,9 +259,9 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -270,9 +270,9 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -295,9 +295,9 @@ size: {
 h1: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -306,9 +306,9 @@ size: {
 h2: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -317,9 +317,9 @@ size: {
 h3: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -328,9 +328,9 @@ size: {
 h4: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -339,15 +339,15 @@ size: {
 h5: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const HeaderArrow: FunctionComponent<PropsType<Variants> & ButtonHTMLAttributes<HTMLButtonElement> & {
-arrow?: "back" | "minimize" | undefined;
-iconSize?: "s" | "m" | "xxs" | "xs" | "l" | "xl" | "xxl" | undefined;
+arrow?: "back" | "minimize";
+iconSize?: IconSize;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public
@@ -370,9 +370,9 @@ m: PolymorphicClassName;
 s: PolymorphicClassName;
 };
 }> & HtmlHTMLAttributes<HTMLDivElement> & {
-size?: string | undefined;
-gradientColor?: string | undefined;
-view?: string | undefined;
+size?: string;
+gradientColor?: string;
+view?: string;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public
@@ -380,12 +380,12 @@ export const HeaderTitle: ({ children, ...rest }: React_2.HTMLAttributes<HTMLDiv
 
 // @public (undocumented)
 export const HeaderTitleWrapper: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-label?: string | undefined;
-title?: string | undefined;
-subTitle?: string | undefined;
-caption?: string | undefined;
+label?: string;
+title?: string;
+subTitle?: string;
+caption?: string;
 children?: ReactNode;
-withBigTitle?: boolean | undefined;
+withBigTitle?: boolean;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -481,22 +481,20 @@ view: {
 accent: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
-width?: undefined;
-height?: undefined;
-size?: string | undefined;
-view?: string | undefined;
+width?: never;
+height?: never;
+size?: string;
+view?: string;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: number;
 height: number;
-size?: undefined; /**
-* @deprecated
-*/
-view?: string | undefined;
+size?: never;
+view?: string;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: string;
 height: string;
-size?: undefined;
-view?: string | undefined;
+size?: never;
+view?: string;
 } & RefAttributes<HTMLDivElement>))>, any, {}, never>;
 
 // @public (undocumented)
@@ -546,9 +544,9 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -557,9 +555,9 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -568,9 +566,9 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -579,9 +577,9 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -590,6 +588,10 @@ size: {
 m: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
+
+// Warnings were encountered during analysis:
+//
+// components/Header/Header.d.ts:21:5 - (ae-forgotten-export) The symbol "IconSize" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

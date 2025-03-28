@@ -4,8 +4,6 @@
 
 ```ts
 
-/// <reference types="react" />
-
 import { AccordionItem } from '@salutejs/plasma-new-hope/styled-components';
 import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -22,6 +20,7 @@ import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/co
 import { BaseProps } from '@salutejs/plasma-new-hope/types/components/Autocomplete/Autocomplete.types';
 import { BaseTabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseTabsProps } from '@salutejs/plasma-new-hope/styled-components';
+import { Blur } from '@salutejs/plasma-new-hope/styled-components';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -99,8 +98,10 @@ import { DragEvent as DragEvent_2 } from 'react';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerPlacement } from '@salutejs/plasma-new-hope/types/components/Drawer/Drawer.types';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownItemOption } from '@salutejs/plasma-new-hope';
+import { DropdownItemOption as DropdownItemOption_2 } from '@salutejs/plasma-new-hope/types/components/Dropdown';
 import type { DropdownNewProps } from '@salutejs/plasma-new-hope';
 import { DropdownNodeSelect } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
@@ -163,6 +164,7 @@ import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
+import { Pin } from '@salutejs/plasma-new-hope/types/utils/roundness';
 import { Placement } from '@salutejs/plasma-new-hope/types/components/Combobox/ComboboxNew/Combobox.types';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -179,7 +181,6 @@ import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { priceClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PriceProps } from '@salutejs/plasma-new-hope/types/components/Price/Price.types';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
-import { Property } from 'csstype';
 import { Props } from '@salutejs/plasma-new-hope/types/components/EmptyState/EmptyState.types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
@@ -194,8 +195,8 @@ import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
-import { RefObject } from 'react';
 import { RequiredProps } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
+import { Roundness } from '@salutejs/plasma-new-hope/styled-components';
 import { Row } from '@salutejs/plasma-new-hope/styled-components';
 import { ScreenConfig } from '@salutejs/plasma-new-hope/styled-components';
 import { ScreenMap } from '@salutejs/plasma-new-hope/styled-components';
@@ -278,15 +279,15 @@ h4: PolymorphicClassName;
 h5: PolymorphicClassName;
 };
 }> & {
-view?: string | undefined;
-size?: string | undefined;
-singleActive?: boolean | undefined;
-defaultActiveEventKey?: number[] | undefined;
-disabled?: boolean | undefined;
-stretching?: "fixed" | "filled" | undefined;
-onChange?: ((index?: number | undefined, value?: boolean | undefined) => void) | undefined;
-children?: ReactNode;
-className?: string | undefined;
+view?: string;
+size?: string;
+singleActive?: boolean;
+defaultActiveEventKey?: number[];
+disabled?: boolean;
+stretching?: "fixed" | "filled";
+onChange?: (index?: number, value?: boolean) => void;
+children?: React.ReactNode;
+className?: string;
 } & RefAttributes<HTMLDivElement>>;
 
 export { AccordionItem }
@@ -300,7 +301,7 @@ export const applyPaper: ({ backgroundColor, shadow, borderRadius, styles }: {
     backgroundColor?: ("textPrimaryHover" | "textPrimaryActive" | "textPrimary" | "textPrimaryBrightness" | "textSecondaryHover" | "textSecondaryActive" | "textSecondary" | "textTertiaryHover" | "textTertiaryActive" | "textTertiary" | "textParagraphHover" | "textParagraphActive" | "textParagraph" | "textAccentHover" | "textAccentActive" | "textAccent" | "textAccentMinorHover" | "textAccentMinorActive" | "textPositiveHover" | "textPositiveActive" | "textPositive" | "textWarningHover" | "textWarningActive" | "textWarning" | "textNegativeHover" | "textNegativeActive" | "textNegative" | "textInfoHover" | "textInfoActive" | "textPositiveMinorHover" | "textPositiveMinorActive" | "textWarningMinorHover" | "textWarningMinorActive" | "textNegativeMinorHover" | "textNegativeMinorActive" | "textInfoMinorHover" | "textInfoMinorActive" | "textInfo" | "textPositiveMinor" | "textAccentMinor" | "textInfoMinor" | "textNegativeMinor" | "textWarningMinor" | "onDarkTextPrimaryHover" | "onDarkTextPrimaryActive" | "onDarkTextPrimary" | "onDarkTextPrimaryBrightness" | "onDarkTextSecondaryHover" | "onDarkTextSecondaryActive" | "onDarkTextSecondary" | "onDarkTextTertiaryHover" | "onDarkTextTertiaryActive" | "onDarkTextTertiary" | "onDarkTextParagraphHover" | "onDarkTextParagraphActive" | "onDarkTextParagraph" | "onDarkTextAccentHover" | "onDarkTextAccentActive" | "onDarkTextAccent" | "onDarkTextAccentMinorHover" | "onDarkTextAccentMinorActive" | "onDarkTextPositiveHover" | "onDarkTextPositiveActive" | "onDarkTextPositive" | "onDarkTextWarningHover" | "onDarkTextWarningActive" | "onDarkTextWarning" | "onDarkTextNegativeHover" | "onDarkTextNegativeActive" | "onDarkTextNegative" | "onDarkTextPositiveMinorHover" | "onDarkTextPositiveMinorActive" | "onDarkTextWarningMinorHover" | "onDarkTextWarningMinorActive" | "onDarkTextNegativeMinorHover" | "onDarkTextNegativeMinorActive" | "onDarkTextInfoMinorHover" | "onDarkTextInfoMinorActive" | "onDarkTextInfo" | "onDarkTextPositiveMinor" | "onDarkTextAccentMinor" | "onDarkTextNegativeMinor" | "onDarkTextInfoMinor" | "onDarkTextWarningMinor" | "onLightTextPrimaryHover" | "onLightTextPrimaryActive" | "onLightTextPrimary" | "onLightTextPrimaryBrightness" | "onLightTextSecondaryHover" | "onLightTextSecondaryActive" | "onLightTextSecondary" | "onLightTextTertiaryHover" | "onLightTextTertiaryActive" | "onLightTextTertiary" | "onLightTextParagraphHover" | "onLightTextParagraphActive" | "onLightTextParagraph" | "onLightTextAccentHover" | "onLightTextAccentActive" | "onLightTextAccent" | "onLightTextAccentMinorHover" | "onLightTextAccentMinorActive" | "onLightTextPositiveHover" | "onLightTextPositiveActive" | "onLightTextPositive" | "onLightTextWarningHover" | "onLightTextWarningActive" | "onLightTextWarning" | "onLightTextNegativeHover" | "onLightTextNegativeActive" | "onLightTextNegative" | "onLightTextInfoHover" | "onLightTextInfoActive" | "onLightTextPositiveMinorHover" | "onLightTextPositiveMinorActive" | "onLightTextWarningMinorHover" | "onLightTextWarningMinorActive" | "onLightTextNegativeMinorHover" | "onLightTextNegativeMinorActive" | "onLightTextInfoMinorHover" | "onLightTextInfoMinorActive" | "onLightTextAccentMinor" | "onLightTextInfo" | "onLightTextInfoMinor" | "onLightTextNegativeMinor" | "onLightTextWarningMinor" | "onLightTextPositiveMinor" | "inverseTextPrimaryHover" | "inverseTextPrimaryActive" | "inverseTextPrimary" | "inverseTextPrimaryBrightness" | "inverseTextSecondaryHover" | "inverseTextSecondaryActive" | "inverseTextSecondary" | "inverseTextTertiaryHover" | "inverseTextTertiaryActive" | "inverseTextTertiary" | "inverseTextParagraphHover" | "inverseTextParagraphActive" | "inverseTextParagraph" | "inverseTextAccentHover" | "inverseTextAccentActive" | "inverseTextAccent" | "inverseTextAccentMinorHover" | "inverseTextAccentMinorActive" | "inverseTextPositiveHover" | "inverseTextPositiveActive" | "inverseTextPositive" | "inverseTextWarningHover" | "inverseTextWarningActive" | "inverseTextWarning" | "inverseTextNegativeHover" | "inverseTextNegativeActive" | "inverseTextNegative" | "inverseTextInfoHover" | "inverseTextInfoActive" | "inverseTextPositiveMinorHover" | "inverseTextPositiveMinorActive" | "inverseTextWarningMinorHover" | "inverseTextWarningMinorActive" | "inverseTextNegativeMinorHover" | "inverseTextNegativeMinorActive" | "inverseTextInfoMinorHover" | "inverseTextInfoMinorActive" | "inverseTextAccentMinor" | "inverseTextInfo" | "inverseTextPositiveMinor" | "inverseTextNegativeMinor" | "inverseTextWarningMinor" | "inverseTextInfoMinor" | "surfaceSolidPrimaryHover" | "surfaceSolidPrimaryActive" | "surfaceSolidPrimary" | "surfaceSolidPrimaryBrightness" | "surfaceSolidSecondaryHover" | "surfaceSolidSecondaryActive" | "surfaceSolidSecondary" | "surfaceSolidTertiaryHover" | "surfaceSolidTertiaryActive" | "surfaceSolidTertiary" | "surfaceSolidCardHover" | "surfaceSolidCardActive" | "surfaceSolidCard" | "surfaceSolidCardBrightness" | "surfaceSolidDefaultHover" | "surfaceSolidDefaultActive" | "surfaceSolidDefault" | "surfaceTransparentPrimaryHover" | "surfaceTransparentPrimaryActive" | "surfaceTransparentPrimary" | "surfaceTransparentSecondaryHover" | "surfaceTransparentSecondaryActive" | "surfaceTransparentSecondary" | "surfaceTransparentTertiaryHover" | "surfaceTransparentTertiaryActive" | "surfaceTransparentTertiary" | "surfaceTransparentDeepHover" | "surfaceTransparentDeepActive" | "surfaceTransparentDeep" | "surfaceTransparentCardHover" | "surfaceTransparentCardActive" | "surfaceTransparentCard" | "surfaceTransparentCardBrightness" | "surfaceClearHover" | "surfaceClearActive" | "surfaceClear" | "surfaceAccentHover" | "surfaceAccentActive" | "surfaceAccent" | "surfaceAccentMinorHover" | "surfaceAccentMinorActive" | "surfaceTransparentAccentHover" | "surfaceTransparentAccentActive" | "surfacePositiveHover" | "surfacePositiveActive" | "surfacePositive" | "surfaceWarningHover" | "surfaceWarningActive" | "surfaceWarning" | "surfaceNegativeHover" | "surfaceNegativeActive" | "surfaceNegative" | "surfaceInfoHover" | "surfaceInfoActive" | "surfacePositiveMinorHover" | "surfacePositiveMinorActive" | "surfaceWarningMinorHover" | "surfaceWarningMinorActive" | "surfaceNegativeMinorHover" | "surfaceNegativeMinorActive" | "surfaceInfoMinorHover" | "surfaceInfoMinorActive" | "surfaceTransparentPositiveHover" | "surfaceTransparentPositiveActive" | "surfaceTransparentWarningHover" | "surfaceTransparentWarningActive" | "surfaceTransparentNegativeHover" | "surfaceTransparentNegativeActive" | "surfaceTransparentInfoHover" | "surfaceTransparentInfoActive" | "surfaceAccentMinor" | "surfaceTransparentAccent" | "surfaceInfo" | "surfacePositiveMinor" | "surfaceWarningMinor" | "surfaceNegativeMinor" | "surfaceInfoMinor" | "surfaceTransparentInfo" | "surfaceTransparentNegative" | "surfaceTransparentWarning" | "surfaceTransparentPositive" | "onDarkSurfaceSolidPrimaryHover" | "onDarkSurfaceSolidPrimaryActive" | "onDarkSurfaceSolidPrimary" | "onDarkSurfaceSolidPrimaryBrightness" | "onDarkSurfaceSolidSecondaryHover" | "onDarkSurfaceSolidSecondaryActive" | "onDarkSurfaceSolidSecondary" | "onDarkSurfaceSolidTertiaryHover" | "onDarkSurfaceSolidTertiaryActive" | "onDarkSurfaceSolidTertiary" | "onDarkSurfaceSolidCardHover" | "onDarkSurfaceSolidCardActive" | "onDarkSurfaceSolidCard" | "onDarkSurfaceSolidCardBrightness" | "onDarkSurfaceSolidDefaultHover" | "onDarkSurfaceSolidDefaultActive" | "onDarkSurfaceSolidDefault" | "onDarkSurfaceTransparentPrimaryHover" | "onDarkSurfaceTransparentPrimaryActive" | "onDarkSurfaceTransparentPrimary" | "onDarkSurfaceTransparentSecondaryHover" | "onDarkSurfaceTransparentSecondaryActive" | "onDarkSurfaceTransparentSecondary" | "onDarkSurfaceTransparentTertiaryHover" | "onDarkSurfaceTransparentTertiaryActive" | "onDarkSurfaceTransparentTertiary" | "onDarkSurfaceTransparentDeepHover" | "onDarkSurfaceTransparentDeepActive" | "onDarkSurfaceTransparentDeep" | "onDarkSurfaceTransparentCardHover" | "onDarkSurfaceTransparentCardActive" | "onDarkSurfaceTransparentCard" | "onDarkSurfaceTransparentCardBrightness" | "onDarkSurfaceClearHover" | "onDarkSurfaceClearActive" | "onDarkSurfaceClear" | "onDarkSurfaceAccentHover" | "onDarkSurfaceAccentActive" | "onDarkSurfaceAccent" | "onDarkSurfaceAccentMinorHover" | "onDarkSurfaceAccentMinorActive" | "onDarkSurfaceTransparentAccentHover" | "onDarkSurfaceTransparentAccentActive" | "onDarkSurfacePositiveHover" | "onDarkSurfacePositiveActive" | "onDarkSurfacePositive" | "onDarkSurfaceWarningHover" | "onDarkSurfaceWarningActive" | "onDarkSurfaceWarning" | "onDarkSurfaceNegativeHover" | "onDarkSurfaceNegativeActive" | "onDarkSurfaceNegative" | "onDarkSurfaceInfoHover" | "onDarkSurfaceInfoActive" | "onDarkSurfacePositiveMinorHover" | "onDarkSurfacePositiveMinorActive" | "onDarkSurfaceWarningMinorHover" | "onDarkSurfaceWarningMinorActive" | "onDarkSurfaceNegativeMinorHover" | "onDarkSurfaceNegativeMinorActive" | "onDarkSurfaceInfoMinorHover" | "onDarkSurfaceInfoMinorActive" | "onDarkSurfaceTransparentPositiveHover" | "onDarkSurfaceTransparentPositiveActive" | "onDarkSurfaceTransparentWarningHover" | "onDarkSurfaceTransparentWarningActive" | "onDarkSurfaceTransparentNegativeHover" | "onDarkSurfaceTransparentNegativeActive" | "onDarkSurfaceTransparentInfoHover" | "onDarkSurfaceTransparentInfoActive" | "onDarkSurfaceAccentMinor" | "onDarkSurfaceTransparentAccent" | "onDarkSurfaceInfo" | "onDarkSurfacePositiveMinor" | "onDarkSurfaceWarningMinor" | "onDarkSurfaceNegativeMinor" | "onDarkSurfaceInfoMinor" | "onDarkSurfaceTransparentPositive" | "onDarkSurfaceTransparentWarning" | "onDarkSurfaceTransparentNegative" | "onDarkSurfaceTransparentInfo" | "onLightSurfaceSolidPrimaryHover" | "onLightSurfaceSolidPrimaryActive" | "onLightSurfaceSolidPrimary" | "onLightSurfaceSolidPrimaryBrightness" | "onLightSurfaceSolidSecondaryHover" | "onLightSurfaceSolidSecondaryActive" | "onLightSurfaceSolidSecondary" | "onLightSurfaceSolidTertiaryHover" | "onLightSurfaceSolidTertiaryActive" | "onLightSurfaceSolidTertiary" | "onLightSurfaceSolidCardHover" | "onLightSurfaceSolidCardActive" | "onLightSurfaceSolidCard" | "onLightSurfaceSolidCardBrightness" | "onLightSurfaceSolidDefaultHover" | "onLightSurfaceSolidDefaultActive" | "onLightSurfaceSolidDefault" | "onLightSurfaceTransparentPrimaryHover" | "onLightSurfaceTransparentPrimaryActive" | "onLightSurfaceTransparentSecondaryHover" | "onLightSurfaceTransparentSecondaryActive" | "onLightSurfaceTransparentSecondary" | "onLightSurfaceTransparentTertiaryHover" | "onLightSurfaceTransparentTertiaryActive" | "onLightSurfaceTransparentTertiary" | "onLightSurfaceTransparentDeepHover" | "onLightSurfaceTransparentDeepActive" | "onLightSurfaceTransparentDeep" | "onLightSurfaceTransparentCardHover" | "onLightSurfaceTransparentCardActive" | "onLightSurfaceTransparentCard" | "onLightSurfaceTransparentCardBrightness" | "onLightSurfaceClearHover" | "onLightSurfaceClearActive" | "onLightSurfaceClear" | "onLightSurfaceAccentHover" | "onLightSurfaceAccentActive" | "onLightSurfaceAccent" | "onLightSurfaceAccentMinorHover" | "onLightSurfaceAccentMinorActive" | "onLightSurfaceTransparentAccentHover" | "onLightSurfaceTransparentAccentActive" | "onLightSurfacePositiveHover" | "onLightSurfacePositiveActive" | "onLightSurfacePositive" | "onLightSurfaceWarningHover" | "onLightSurfaceWarningActive" | "onLightSurfaceWarning" | "onLightSurfaceNegativeHover" | "onLightSurfaceNegativeActive" | "onLightSurfaceNegative" | "onLightSurfaceInfoHover" | "onLightSurfaceInfoActive" | "onLightSurfacePositiveMinorHover" | "onLightSurfacePositiveMinorActive" | "onLightSurfaceWarningMinorHover" | "onLightSurfaceWarningMinorActive" | "onLightSurfaceNegativeMinorHover" | "onLightSurfaceNegativeMinorActive" | "onLightSurfaceInfoMinorHover" | "onLightSurfaceInfoMinorActive" | "onLightSurfaceTransparentPositiveHover" | "onLightSurfaceTransparentPositiveActive" | "onLightSurfaceTransparentWarningHover" | "onLightSurfaceTransparentWarningActive" | "onLightSurfaceTransparentNegativeHover" | "onLightSurfaceTransparentNegativeActive" | "onLightSurfaceTransparentInfoHover" | "onLightSurfaceTransparentInfoActive" | "onLightSurfaceAccentMinor" | "onLightSurfaceTransparentAccent" | "onLightSurfaceTransparentPositive" | "onLightSurfaceTransparentWarning" | "onLightSurfaceTransparentNegative" | "onLightSurfaceTransparentInfo" | "onLightSurfaceInfo" | "onLightSurfacePositiveMinor" | "onLightSurfaceNegativeMinor" | "onLightSurfaceWarningMinor" | "onLightSurfaceInfoMinor" | "onLightSurfaceTransparentPrimary" | "inverseSurfaceSolidPrimaryHover" | "inverseSurfaceSolidPrimaryActive" | "inverseSurfaceSolidPrimary" | "inverseSurfaceSolidPrimaryBrightness" | "inverseSurfaceSolidSecondaryHover" | "inverseSurfaceSolidSecondaryActive" | "inverseSurfaceSolidSecondary" | "inverseSurfaceSolidTertiaryHover" | "inverseSurfaceSolidTertiaryActive" | "inverseSurfaceSolidTertiary" | "inverseSurfaceSolidCardHover" | "inverseSurfaceSolidCardActive" | "inverseSurfaceSolidCard" | "inverseSurfaceSolidCardBrightness" | "inverseSurfaceSolidDefaultHover" | "inverseSurfaceSolidDefaultActive" | "inverseSurfaceSolidDefault" | "inverseSurfaceTransparentPrimaryHover" | "inverseSurfaceTransparentPrimaryActive" | "inverseSurfaceTransparentSecondaryHover" | "inverseSurfaceTransparentSecondaryActive" | "inverseSurfaceTransparentSecondary" | "inverseSurfaceTransparentTertiaryHover" | "inverseSurfaceTransparentTertiaryActive" | "inverseSurfaceTransparentTertiary" | "inverseSurfaceTransparentDeepHover" | "inverseSurfaceTransparentDeepActive" | "inverseSurfaceTransparentDeep" | "inverseSurfaceTransparentCardHover" | "inverseSurfaceTransparentCardActive" | "inverseSurfaceTransparentCard" | "inverseSurfaceTransparentCardBrightness" | "inverseSurfaceClearHover" | "inverseSurfaceClearActive" | "inverseSurfaceClear" | "inverseSurfaceAccentHover" | "inverseSurfaceAccentActive" | "inverseSurfaceAccent" | "inverseSurfaceAccentMinorHover" | "inverseSurfaceAccentMinorActive" | "inverseSurfaceTransparentAccentHover" | "inverseSurfaceTransparentAccentActive" | "inverseSurfacePositiveHover" | "inverseSurfacePositiveActive" | "inverseSurfacePositive" | "inverseSurfaceWarningHover" | "inverseSurfaceWarningActive" | "inverseSurfaceWarning" | "inverseSurfaceNegativeHover" | "inverseSurfaceNegativeActive" | "inverseSurfaceNegative" | "inverseSurfaceInfoHover" | "inverseSurfaceInfoActive" | "inverseSurfacePositiveMinorHover" | "inverseSurfacePositiveMinorActive" | "inverseSurfaceWarningMinorHover" | "inverseSurfaceWarningMinorActive" | "inverseSurfaceNegativeMinorHover" | "inverseSurfaceNegativeMinorActive" | "inverseSurfaceInfoMinorHover" | "inverseSurfaceInfoMinorActive" | "inverseSurfaceTransparentPositiveHover" | "inverseSurfaceTransparentPositiveActive" | "inverseSurfaceTransparentWarningHover" | "inverseSurfaceTransparentWarningActive" | "inverseSurfaceTransparentNegativeHover" | "inverseSurfaceTransparentNegativeActive" | "inverseSurfaceTransparentInfoHover" | "inverseSurfaceTransparentInfoActive" | "inverseSurfaceAccentMinor" | "inverseSurfaceTransparentAccent" | "inverseSurfaceTransparentPositive" | "inverseSurfaceTransparentWarning" | "inverseSurfaceTransparentNegative" | "inverseSurfaceTransparentInfo" | "inverseSurfaceInfo" | "inverseSurfacePositiveMinor" | "inverseSurfaceWarningMinor" | "inverseSurfaceNegativeMinor" | "inverseSurfaceInfoMinor" | "inverseSurfaceTransparentPrimary" | "backgroundPrimary" | "backgroundPrimaryBrightness" | "darkBackgroundPrimary" | "lightBackgroundPrimary" | "inverseBackgroundPrimary" | "inverseBackgroundPrimaryBrightness" | "overlaySoft" | "overlayHard" | "overlayBlur" | "onDarkOverlaySoft" | "onDarkOverlayHard" | "onDarkOverlayBlur" | "onLightOverlaySoft" | "onLightOverlayHard" | "onLightOverlayBlur" | "inverseOverlaySoft" | "inverseOverlayHard" | "inverseOverlayBlur" | "outlineSolidPrimaryHover" | "outlineSolidPrimaryActive" | "outlineSolidSecondaryHover" | "outlineSolidSecondaryActive" | "outlineSolidTertiaryHover" | "outlineSolidTertiaryActive" | "outlineTransparentDefaultHover" | "outlineTransparentDefaultActive" | "outlineTransparentPrimaryHover" | "outlineTransparentPrimaryActive" | "outlineTransparentSecondaryHover" | "outlineTransparentSecondaryActive" | "outlineTransparentTertiaryHover" | "outlineTransparentTertiaryActive" | "outlineClearHover" | "outlineClearActive" | "outlineAccentHover" | "outlineAccentActive" | "outlineAccentMinorHover" | "outlineAccentMinorActive" | "outlineTransparentAccentHover" | "outlineTransparentAccentActive" | "outlinePromoHover" | "outlinePromoActive" | "outlinePromoMinorHover" | "outlinePromoMinorActive" | "outlinePositiveHover" | "outlinePositiveActive" | "outlineWarningHover" | "outlineWarningActive" | "outlineNegativeHover" | "outlineNegativeActive" | "outlineInfoHover" | "outlineInfoActive" | "outlinePositiveMinorHover" | "outlinePositiveMinorActive" | "outlineWarningMinorHover" | "outlineWarningMinorActive" | "outlineNegativeMinorHover" | "outlineNegativeMinorActive" | "outlineInfoMinorHover" | "outlineInfoMinorActive" | "outlineTransparentPositiveHover" | "outlineTransparentPositiveActive" | "outlineTransparentWarningHover" | "outlineTransparentWarningActive" | "outlineTransparentNegativeHover" | "outlineTransparentNegativeActive" | "outlineTransparentInfoHover" | "outlineTransparentInfoActive" | "outlineSolidPrimary" | "outlineClear" | "outlineAccent" | "outlineAccentMinor" | "outlineTransparentAccent" | "outlinePositive" | "outlineWarning" | "outlineNegative" | "outlineInfo" | "outlinePositiveMinor" | "outlineWarningMinor" | "outlineNegativeMinor" | "outlineInfoMinor" | "outlineTransparentPositive" | "outlineTransparentWarning" | "outlineTransparentNegative" | "outlineTransparentInfo" | "outlineSolidSecondary" | "outlineSolidTertiary" | "outlineTransparentPrimary" | "outlineTransparentSecondary" | "outlineTransparentTertiary" | "onDarkOutlineSolidPrimaryHover" | "onDarkOutlineSolidPrimaryActive" | "onDarkOutlineSolidSecondaryHover" | "onDarkOutlineSolidSecondaryActive" | "onDarkOutlineSolidTertiaryHover" | "onDarkOutlineSolidTertiaryActive" | "onDarkOutlineTransparentDefaultHover" | "onDarkOutlineTransparentDefaultActive" | "onDarkOutlineTransparentPrimaryHover" | "onDarkOutlineTransparentPrimaryActive" | "onDarkOutlineTransparentSecondaryHover" | "onDarkOutlineTransparentSecondaryActive" | "onDarkOutlineTransparentTertiaryHover" | "onDarkOutlineTransparentTertiaryActive" | "onDarkOutlineClearHover" | "onDarkOutlineClearActive" | "onDarkOutlineAccentHover" | "onDarkOutlineAccentActive" | "onDarkOutlineAccentMinorHover" | "onDarkOutlineAccentMinorActive" | "onDarkOutlineTransparentAccentHover" | "onDarkOutlineTransparentAccentActive" | "onDarkOutlinePromoHover" | "onDarkOutlinePromoActive" | "onDarkOutlinePromoMinorHover" | "onDarkOutlinePromoMinorActive" | "onDarkOutlinePositiveHover" | "onDarkOutlinePositiveActive" | "onDarkOutlineWarningHover" | "onDarkOutlineWarningActive" | "onDarkOutlineNegativeHover" | "onDarkOutlineNegativeActive" | "onDarkOutlineInfoHover" | "onDarkOutlineInfoActive" | "onDarkOutlinePositiveMinorHover" | "onDarkOutlinePositiveMinorActive" | "onDarkOutlineWarningMinorHover" | "onDarkOutlineWarningMinorActive" | "onDarkOutlineNegativeMinorHover" | "onDarkOutlineNegativeMinorActive" | "onDarkOutlineInfoMinorHover" | "onDarkOutlineInfoMinorActive" | "onDarkOutlineTransparentPositiveHover" | "onDarkOutlineTransparentPositiveActive" | "onDarkOutlineTransparentWarningHover" | "onDarkOutlineTransparentWarningActive" | "onDarkOutlineTransparentNegativeHover" | "onDarkOutlineTransparentNegativeActive" | "onDarkOutlineTransparentInfoHover" | "onDarkOutlineTransparentInfoActive" | "onDarkOutlineSolidPrimary" | "onDarkOutlineClear" | "onDarkOutlineTransparentAccent" | "onDarkOutlineWarning" | "onDarkOutlineNegative" | "onDarkOutlineInfo" | "onDarkOutlineWarningMinor" | "onDarkOutlineNegativeMinor" | "onDarkOutlineInfoMinor" | "onDarkOutlineTransparentPositive" | "onDarkOutlineTransparentWarning" | "onDarkOutlineTransparentNegative" | "onDarkOutlineTransparentInfo" | "onDarkOutlineAccent" | "onDarkOutlineAccentMinor" | "onDarkOutlinePositiveMinor" | "onDarkOutlinePositive" | "onDarkOutlineTransparentPrimary" | "onDarkOutlineTransparentSecondary" | "onDarkOutlineTransparentTertiary" | "onDarkOutlineSolidSecondary" | "onDarkOutlineSolidTertiary" | "onLightOutlineSolidPrimaryHover" | "onLightOutlineSolidPrimaryActive" | "onLightOutlineSolidSecondaryHover" | "onLightOutlineSolidSecondaryActive" | "onLightOutlineSolidTertiaryHover" | "onLightOutlineSolidTertiaryActive" | "onLightOutlineTransparentDefaultHover" | "onLightOutlineTransparentDefaultActive" | "onLightOutlineTransparentPrimaryHover" | "onLightOutlineTransparentPrimaryActive" | "onLightOutlineTransparentSecondaryHover" | "onLightOutlineTransparentSecondaryActive" | "onLightOutlineTransparentTertiaryHover" | "onLightOutlineTransparentTertiaryActive" | "onLightOutlineClearHover" | "onLightOutlineClearActive" | "onLightOutlineAccentHover" | "onLightOutlineAccentActive" | "onLightOutlineAccentMinorHover" | "onLightOutlineAccentMinorActive" | "onLightOutlineTransparentAccentHover" | "onLightOutlineTransparentAccentActive" | "onLightOutlinePromoHover" | "onLightOutlinePromoActive" | "onLightOutlinePromoMinorHover" | "onLightOutlinePromoMinorActive" | "onLightOutlinePositiveHover" | "onLightOutlinePositiveActive" | "onLightOutlineWarningHover" | "onLightOutlineWarningActive" | "onLightOutlineNegativeHover" | "onLightOutlineNegativeActive" | "onLightOutlineInfoHover" | "onLightOutlineInfoActive" | "onLightOutlinePositiveMinorHover" | "onLightOutlinePositiveMinorActive" | "onLightOutlineWarningMinorHover" | "onLightOutlineWarningMinorActive" | "onLightOutlineNegativeMinorHover" | "onLightOutlineNegativeMinorActive" | "onLightOutlineInfoMinorHover" | "onLightOutlineInfoMinorActive" | "onLightOutlineTransparentPositiveHover" | "onLightOutlineTransparentPositiveActive" | "onLightOutlineTransparentWarningHover" | "onLightOutlineTransparentWarningActive" | "onLightOutlineTransparentNegativeHover" | "onLightOutlineTransparentNegativeActive" | "onLightOutlineTransparentInfoHover" | "onLightOutlineTransparentInfoActive" | "onLightOutlineSolidPrimary" | "onLightOutlineSolidTertiary" | "onLightOutlineClear" | "onLightOutlineTransparentAccent" | "onLightOutlineWarning" | "onLightOutlineNegative" | "onLightOutlineInfo" | "onLightOutlineWarningMinor" | "onLightOutlineNegativeMinor" | "onLightOutlineInfoMinor" | "onLightOutlineTransparentPositive" | "onLightOutlineTransparentWarning" | "onLightOutlineTransparentNegative" | "onLightOutlineTransparentInfo" | "onLightOutlinePositiveMinor" | "onLightOutlinePositive" | "onLightOutlineAccentMinor" | "onLightOutlineAccent" | "onLightOutlineSolidSecondary" | "onLightOutlineTransparentPrimary" | "onLightOutlineTransparentSecondary" | "onLightOutlineTransparentTertiary" | "inverseOutlineSolidPrimaryHover" | "inverseOutlineSolidPrimaryActive" | "inverseOutlineSolidSecondaryHover" | "inverseOutlineSolidSecondaryActive" | "inverseOutlineSolidTertiaryHover" | "inverseOutlineSolidTertiaryActive" | "inverseOutlineTransparentPrimaryHover" | "inverseOutlineTransparentPrimaryActive" | "inverseOutlineTransparentSecondaryHover" | "inverseOutlineTransparentSecondaryActive" | "inverseOutlineTransparentTertiaryHover" | "inverseOutlineTransparentTertiaryActive" | "inverseOutlineClearHover" | "inverseOutlineClearActive" | "inverseOutlineAccentHover" | "inverseOutlineAccentActive" | "inverseOutlineAccentMinorHover" | "inverseOutlineAccentMinorActive" | "inverseOutlineTransparentAccentHover" | "inverseOutlineTransparentAccentActive" | "inverseOutlinePromoHover" | "inverseOutlinePromoActive" | "inverseOutlinePromoMinorHover" | "inverseOutlinePromoMinorActive" | "inverseOutlinePositiveHover" | "inverseOutlinePositiveActive" | "inverseOutlineWarningHover" | "inverseOutlineWarningActive" | "inverseOutlineNegativeHover" | "inverseOutlineNegativeActive" | "inverseOutlineInfoHover" | "inverseOutlineInfoActive" | "inverseOutlinePositiveMinorHover" | "inverseOutlinePositiveMinorActive" | "inverseOutlineWarningMinorHover" | "inverseOutlineWarningMinorActive" | "inverseOutlineNegativeMinorHover" | "inverseOutlineNegativeMinorActive" | "inverseOutlineInfoMinorHover" | "inverseOutlineInfoMinorActive" | "inverseOutlineTransparentPositiveHover" | "inverseOutlineTransparentPositiveActive" | "inverseOutlineTransparentWarningHover" | "inverseOutlineTransparentWarningActive" | "inverseOutlineTransparentNegativeHover" | "inverseOutlineTransparentNegativeActive" | "inverseOutlineTransparentInfoHover" | "inverseOutlineTransparentInfoActive" | "inverseOutlineSolidPrimary" | "inverseOutlineSolidTertiary" | "inverseOutlineClear" | "inverseOutlineAccent" | "inverseOutlineAccentMinor" | "inverseOutlineTransparentAccent" | "inverseOutlineTransparentPositive" | "inverseOutlinePositive" | "inverseOutlineNegative" | "inverseOutlineWarning" | "inverseOutlineInfo" | "inverseOutlinePositiveMinor" | "inverseOutlineWarningMinor" | "inverseOutlineNegativeMinor" | "inverseOutlineInfoMinor" | "inverseOutlineTransparentWarning" | "inverseOutlineTransparentNegative" | "inverseOutlineTransparentInfo" | "inverseOutlineTransparentPrimary" | "inverseOutlineTransparentSecondary" | "inverseOutlineTransparentTertiary" | "inverseOutlineSolidSecondary" | "dataYellow" | "dataYellowHover" | "dataYellowActive" | "dataYellowMinor" | "dataYellowMinorHover" | "dataYellowMinorActive" | "dataYellowTransparent" | "dataYellowTransparentHover" | "dataYellowTransparentActive" | "onDarkDataYellow" | "onDarkDataYellowHover" | "onDarkDataYellowActive" | "onDarkDataYellowMinor" | "onDarkDataYellowMinorHover" | "onDarkDataYellowMinorActive" | "onDarkDataYellowTransparent" | "onDarkDataYellowTransparentHover" | "onDarkDataYellowTransparentActive" | "onLightDataYellow" | "onLightDataYellowHover" | "onLightDataYellowActive" | "onLightDataYellowMinor" | "onLightDataYellowMinorHover" | "onLightDataYellowMinorActive" | "onLightDataYellowTransparent" | "onLightDataYellowTransparentHover" | "onLightDataYellowTransparentActive" | "inverseDataYellow" | "inverseDataYellowHover" | "inverseDataYellowActive" | "inverseDataYellowMinor" | "inverseDataYellowMinorHover" | "inverseDataYellowMinorActive" | "inverseDataYellowTransparent" | "inverseDataYellowTransparentHover" | "inverseDataYellowTransparentActive" | "textAccentGradientHover" | "textAccentGradientActive" | "textAccentGradient" | "onDarkTextAccentGradientHover" | "onDarkTextAccentGradientActive" | "onDarkTextAccentGradient" | "onLightTextAccentGradientHover" | "onLightTextAccentGradientActive" | "onLightTextAccentGradient" | "inverseTextAccentGradientHover" | "inverseTextAccentGradientActive" | "inverseTextAccentGradient" | "surfaceAccentGradientHover" | "surfaceAccentGradientActive" | "surfaceAccentGradient" | "surfaceSkeletonGradient" | "surfaceSkeletonGradientHover" | "surfaceSkeletonGradientActive" | "surfaceSkeletonDeepGradient" | "surfaceSkeletonDeepGradientHover" | "surfaceSkeletonDeepGradientActive" | "onDarkSurfaceAccentGradientHover" | "onDarkSurfaceAccentGradientActive" | "onDarkSurfaceAccentGradient" | "onDarkSurfaceSkeletonGradient" | "onDarkSurfaceSkeletonGradientHover" | "onDarkSurfaceSkeletonGradientActive" | "onDarkSurfaceSkeletonDeepGradient" | "onDarkSurfaceSkeletonDeepGradientHover" | "onDarkSurfaceSkeletonDeepGradientActive" | "onLightSurfaceAccentGradientHover" | "onLightSurfaceAccentGradientActive" | "onLightSurfaceAccentGradient" | "onLightSurfaceSkeletonGradient" | "onLightSurfaceSkeletonGradientHover" | "onLightSurfaceSkeletonGradientActive" | "onLightSurfaceSkeletonDeepGradient" | "onLightSurfaceSkeletonDeepGradientHover" | "onLightSurfaceSkeletonDeepGradientActive" | "inverseSurfaceAccentGradientHover" | "inverseSurfaceAccentGradientActive" | "inverseSurfaceAccentGradient" | "inverseSurfaceSkeletonGradient" | "inverseSurfaceSkeletonGradientHover" | "inverseSurfaceSkeletonGradientActive" | "inverseSurfaceSkeletonDeepGradient" | "inverseSurfaceSkeletonDeepGradientHover" | "inverseSurfaceSkeletonDeepGradientActive" | "outlineAccentGradientHover" | "outlineAccentGradientActive" | "outlineAccentMinorGradientHover" | "outlineAccentMinorGradientActive" | "outlineTransparentAccentGradientHover" | "outlineTransparentAccentGradientActive" | "outlinePromoGradientHover" | "outlinePromoGradientActive" | "outlinePromoMinorGradientHover" | "outlinePromoMinorGradientActive" | "outlineAccentGradient" | "onDarkOutlineAccentGradientHover" | "onDarkOutlineAccentGradientActive" | "onDarkOutlineAccentMinorGradientHover" | "onDarkOutlineAccentMinorGradientActive" | "onDarkOutlineTransparentAccentGradientHover" | "onDarkOutlineTransparentAccentGradientActive" | "onDarkOutlinePromoGradientHover" | "onDarkOutlinePromoGradientActive" | "onDarkOutlinePromoMinorGradientHover" | "onDarkOutlinePromoMinorGradientActive" | "onDarkOutlineAccentGradient" | "onLightOutlineAccentGradientHover" | "onLightOutlineAccentGradientActive" | "onLightOutlineAccentMinorGradientHover" | "onLightOutlineAccentMinorGradientActive" | "onLightOutlineTransparentAccentGradientHover" | "onLightOutlineTransparentAccentGradientActive" | "onLightOutlinePromoGradientHover" | "onLightOutlinePromoGradientActive" | "onLightOutlinePromoMinorGradientHover" | "onLightOutlinePromoMinorGradientActive" | "onLightOutlineAccentGradient" | "inverseOutlineAccentGradientHover" | "inverseOutlineAccentGradientActive" | "inverseOutlineAccentMinorGradientHover" | "inverseOutlineAccentMinorGradientActive" | "inverseOutlineTransparentAccentGradientHover" | "inverseOutlineTransparentAccentGradientActive" | "inverseOutlinePromoGradientHover" | "inverseOutlinePromoGradientActive" | "inverseOutlinePromoMinorGradientHover" | "inverseOutlinePromoMinorGradientActive" | "inverseOutlineAccentGradient") | undefined;
     shadow?: "shadowDownSoftS" | "shadowDownSoftM" | "shadowDownSoftL" | "shadowDownHardS" | "shadowDownHardM" | "shadowDownHardL" | "shadowUpSoftS" | "shadowUpSoftM" | "shadowUpSoftL" | "shadowUpHardS" | "shadowUpHardM" | "shadowUpHardL" | undefined;
     borderRadius?: "borderRadiusXxs" | "borderRadiusXs" | "borderRadiusS" | "borderRadiusM" | "borderRadiusL" | "borderRadiusXl" | "borderRadiusXxl" | undefined;
-    styles?: CSSProperties | undefined;
+    styles?: CSSProperties;
 }) => CSSProperties;
 
 // @public
@@ -327,206 +328,206 @@ m: PolymorphicClassName;
 s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
-}> & ((HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+}> & ((HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: string | number | undefined;
-contentRight?: undefined;
+value?: string | number;
+contentRight?: never;
 } & BaseAttachProps & {
-buttonType?: "button" | undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+buttonType?: "button";
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: string | number | undefined;
-contentRight?: undefined;
+value?: string | number;
+contentRight?: never;
 } & BaseAttachProps & {
-buttonType?: "button" | undefined;
+buttonType?: "button";
 } & {
-value?: undefined;
+value?: never;
 contentRight?: ReactNode;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: string | number | undefined;
-contentRight?: undefined;
+value?: string | number;
+contentRight?: never;
 } & BaseAttachProps & {
-buttonType?: "iconButton" | undefined;
-icon?: ReactNode;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+buttonType?: "iconButton";
+icon?: React.ReactNode;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: string | number | undefined;
-contentRight?: undefined;
+value?: string | number;
+contentRight?: never;
 } & BaseAttachProps & {
-buttonType?: "iconButton" | undefined;
-icon?: ReactNode;
+buttonType?: "iconButton";
+icon?: React.ReactNode;
 } & {
-value?: undefined;
+value?: never;
 contentRight?: ReactNode;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: undefined;
-contentRight?: ReactNode;
-} & BaseAttachProps & {
-buttonType?: "button" | undefined;
-} & {
-value?: string | number | undefined;
-contentRight?: undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
-} & {
-value?: undefined;
+value?: never;
 contentRight?: ReactNode;
 } & BaseAttachProps & {
-buttonType?: "button" | undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+buttonType?: "button";
 } & {
-value?: undefined;
+value?: string | number;
+contentRight?: never;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
+contentLeft?: ReactNode;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
+loader?: ReactNode;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
+} & {
+value?: never;
 contentRight?: ReactNode;
 } & BaseAttachProps & {
-buttonType?: "iconButton" | undefined;
-icon?: ReactNode;
-} & {
-value?: string | number | undefined;
-contentRight?: undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+buttonType?: "button";
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: undefined;
+value?: never;
 contentRight?: ReactNode;
 } & BaseAttachProps & {
-buttonType?: "iconButton" | undefined;
-icon?: ReactNode;
+buttonType?: "iconButton";
+icon?: React.ReactNode;
+} & {
+value?: string | number;
+contentRight?: never;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
+contentLeft?: ReactNode;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
+loader?: ReactNode;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
+} & {
+value?: never;
+contentRight?: ReactNode;
+} & BaseAttachProps & {
+buttonType?: "iconButton";
+icon?: React.ReactNode;
 } & RefAttributes<HTMLDivElement>))>;
 
 // @public (undocumented)
@@ -563,259 +564,259 @@ true: PolymorphicClassName;
 }> & ((BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
 }, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
-}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
-}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
-}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
-}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
 enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
 }, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
 }, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
 enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
+}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
+hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
+hintContentLeft?: ReactNode;
+} & {
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
+}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
+hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
+hintContentLeft?: ReactNode;
+} & {
+enumerationType: "chip";
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
+}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
+} & {
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
+}, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | (BaseProps & Omit<{
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
+} & {
+enumerationType: "chip";
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
 }, "labelPlacement" | "chipView" | "chips" | "onChangeChips" | "enumerationType" | "chipType" | "chipValidator"> & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public (undocumented)
@@ -852,17 +853,17 @@ dark: PolymorphicClassName;
 light: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
-size?: string | undefined;
-name?: string | undefined;
-url?: string | undefined;
-customText?: string | undefined;
-status?: "active" | "inactive" | undefined;
-isScalable?: boolean | undefined;
-focused?: boolean | undefined;
-statusLabels?: StatusLabels | undefined;
-hasExtra?: boolean | undefined;
-type?: "badge" | "counter" | undefined;
-extraPlacement?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | undefined;
+size?: string;
+name?: string;
+url?: string;
+customText?: string;
+status?: "active" | "inactive";
+isScalable?: boolean;
+focused?: boolean;
+statusLabels?: StatusLabels;
+hasExtra?: boolean;
+type?: "badge" | "counter";
+extraPlacement?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 } & {
 badgeView?: string | undefined;
 pilled?: boolean | undefined;
@@ -876,17 +877,17 @@ counterView?: undefined;
 count?: undefined;
 maxCount?: undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-size?: string | undefined;
-name?: string | undefined;
-url?: string | undefined;
-customText?: string | undefined;
-status?: "active" | "inactive" | undefined;
-isScalable?: boolean | undefined;
-focused?: boolean | undefined;
-statusLabels?: StatusLabels | undefined;
-hasExtra?: boolean | undefined;
-type?: "badge" | "counter" | undefined;
-extraPlacement?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | undefined;
+size?: string;
+name?: string;
+url?: string;
+customText?: string;
+status?: "active" | "inactive";
+isScalable?: boolean;
+focused?: boolean;
+statusLabels?: StatusLabels;
+hasExtra?: boolean;
+type?: "badge" | "counter";
+extraPlacement?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 } & {
 counterView?: string | undefined;
 count?: number | undefined;
@@ -898,12 +899,12 @@ text?: undefined;
 customColor?: undefined;
 customBackgroundColor?: undefined;
 contentLeft?: undefined;
-contentRight?: undefined;
+contentRight?: never | undefined;
 } & RefAttributes<HTMLDivElement>))>;
 
 // @public (undocumented)
 export const AvatarGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-children: ReactNode;
+children: React.ReactNode;
 } & RefAttributes<HTMLDivElement>>;
 
 export { AvatarGroupProps }
@@ -937,61 +938,61 @@ clear: {
 true: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
+text?: string;
+customColor?: string;
+customBackgroundColor?: string;
+maxWidth?: CSSProperties["width"];
+size?: string;
+view?: string;
 } & {
 contentLeft?: ReactNode;
-contentRight?: undefined;
+contentRight?: never;
 } & {
-clear?: true | undefined;
-pilled?: undefined;
-transparent?: undefined;
+clear?: true;
+pilled?: never;
+transparent?: never;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
+text?: string;
+customColor?: string;
+customBackgroundColor?: string;
+maxWidth?: CSSProperties["width"];
+size?: string;
+view?: string;
 } & {
 contentLeft?: ReactNode;
-contentRight?: undefined;
+contentRight?: never;
 } & {
-pilled?: boolean | undefined;
-transparent?: boolean | undefined;
-clear?: undefined;
+pilled?: boolean;
+transparent?: boolean;
+clear?: never;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
+text?: string;
+customColor?: string;
+customBackgroundColor?: string;
+maxWidth?: CSSProperties["width"];
+size?: string;
+view?: string;
 } & {
-contentLeft?: undefined;
+contentLeft?: never;
 contentRight?: ReactNode;
 } & {
-clear?: true | undefined;
-pilled?: undefined;
-transparent?: undefined;
+clear?: true;
+pilled?: never;
+transparent?: never;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-text?: string | undefined;
-customColor?: string | undefined;
-customBackgroundColor?: string | undefined;
-maxWidth?: Property.Width<string | number> | undefined;
-size?: string | undefined;
-view?: string | undefined;
+text?: string;
+customColor?: string;
+customBackgroundColor?: string;
+maxWidth?: CSSProperties["width"];
+size?: string;
+view?: string;
 } & {
-contentLeft?: undefined;
+contentLeft?: never;
 contentRight?: ReactNode;
 } & {
-pilled?: boolean | undefined;
-transparent?: boolean | undefined;
-clear?: undefined;
+pilled?: boolean;
+transparent?: boolean;
+clear?: never;
 } & RefAttributes<HTMLDivElement>))>;
 
 export { BadgeProps }
@@ -1002,9 +1003,9 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyL }
@@ -1017,9 +1018,9 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyM }
@@ -1032,9 +1033,9 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyS }
@@ -1047,9 +1048,9 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyXS }
@@ -1062,9 +1063,9 @@ size: {
 xxs: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { bodyXXS }
@@ -1083,11 +1084,11 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
-view?: string | undefined;
-size?: string | undefined;
+view?: string;
+size?: string;
 separator?: ReactNode;
 items: BreadcrumbsItem[];
-showItems?: number | undefined;
+showItems?: number;
 } & RefAttributes<HTMLDivElement>>;
 
 export { BreadcrumbsProps }
@@ -1130,47 +1131,47 @@ auto: PolymorphicClassName;
 filled: PolymorphicClassName;
 fixed: PolymorphicClassName;
 };
-}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: string | number | undefined;
-contentRight?: undefined;
-} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+value?: string | number;
+contentRight?: never;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: undefined;
+value?: never;
 contentRight?: ReactNode;
 } & RefAttributes<HTMLButtonElement>))>;
 
@@ -1283,11 +1284,11 @@ m: PolymorphicClassName;
 s: PolymorphicClassName;
 };
 }> & {
-size?: string | undefined;
-view?: string | undefined;
-orientation?: "horizontal" | "vertical" | undefined;
-selected?: boolean | undefined;
-backgroundType?: "none" | "solid" | undefined;
+size?: string;
+view?: string;
+orientation?: "horizontal" | "vertical";
+selected?: boolean;
+backgroundType?: "none" | "solid";
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { CardContent }
@@ -1308,34 +1309,34 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
 }> & (({
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-alignContentLeft?: AlignProp | undefined;
-alignContentRight?: AlignProp | undefined;
-stretching?: "auto" | "fixed" | "filled" | undefined;
+alignContentLeft?: AlignProp;
+alignContentRight?: AlignProp;
+stretching?: "fixed" | "filled" | "auto";
 content?: ReactNode;
-description?: string | undefined;
+description?: string;
 } & {
-title?: string | undefined;
-subtitle?: string | undefined;
-label?: string | undefined;
-children?: undefined;
+title?: string;
+subtitle?: string;
+label?: string;
+children?: never;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-alignContentLeft?: AlignProp | undefined;
-alignContentRight?: AlignProp | undefined;
-stretching?: "auto" | "fixed" | "filled" | undefined;
+alignContentLeft?: AlignProp;
+alignContentRight?: AlignProp;
+stretching?: "fixed" | "filled" | "auto";
 content?: ReactNode;
-description?: string | undefined;
+description?: string;
 } & {
-title?: undefined;
-subtitle?: undefined;
-label?: undefined;
+title?: never;
+subtitle?: never;
+label?: never;
 children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>))>;
 
@@ -1441,7 +1442,7 @@ export { ColProps }
 export { ColSizeProps }
 
 // @public (undocumented)
-export const Combobox: <T extends ComboboxItemOption>(props: ComboboxProps<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export const Combobox: <T extends ComboboxItemOption>(props: ComboboxProps<T> & React_2.RefAttributes<HTMLInputElement>) => React_2.ReactElement | null;
 
 export { ComboboxItemOption }
 
@@ -1493,28 +1494,28 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & DatePickerVariationProps & {
-requiredPlacement?: "right" | "left" | undefined;
-required?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
-value?: string | Date | undefined;
-defaultDate?: Date | undefined;
-placeholder?: string | undefined;
-name?: string | undefined;
-valueError?: boolean | undefined;
-valueSuccess?: boolean | undefined;
-leftHelper?: string | undefined;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onCommitDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined, dateInfo?: DateInfo | undefined) => void) | undefined;
-onChangeValue?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value?: string | undefined) => void) | undefined;
-onChange?: ((event: {
+requiredPlacement?: "left" | "right";
+required?: boolean;
+hasRequiredIndicator?: boolean;
+value?: Date | string;
+defaultDate?: Date;
+placeholder?: string;
+name?: string;
+valueError?: boolean;
+valueSuccess?: boolean;
+leftHelper?: string;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onCommitDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+onChangeValue?: (event: SyntheticEvent<HTMLInputElement> | null, value?: string) => void;
+onChange?: (event: {
 target: {
-value?: string | undefined;
-name?: string | undefined;
+value?: string;
+name?: string;
 };
-}) => void) | undefined;
+}) => void;
 } & LabelProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
 
 export { datePickerClasses }
@@ -1543,23 +1544,23 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & DatePickerVariationProps & {
-requiredPlacement?: "right" | "left" | undefined;
-required?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
-value?: [Date | null | undefined, Date | null | undefined] | undefined;
-defaultFirstDate?: Date | undefined;
-defaultSecondDate?: Date | undefined;
-name?: string | undefined;
-onChangeFirstValue?: ChangeInstanceCallback | undefined;
-onChangeSecondValue?: ChangeInstanceCallback | undefined;
-onCommitFirstDate?: CommitInstanceCallback | undefined;
-onCommitSecondDate?: CommitInstanceCallback | undefined;
-onChange?: ((event: {
+requiredPlacement?: "left" | "right";
+required?: boolean;
+hasRequiredIndicator?: boolean;
+value?: [Date | null | undefined, Date | null | undefined];
+defaultFirstDate?: Date;
+defaultSecondDate?: Date;
+name?: string;
+onChangeFirstValue?: ChangeInstanceCallback;
+onChangeSecondValue?: ChangeInstanceCallback;
+onCommitFirstDate?: CommitInstanceCallback;
+onCommitSecondDate?: CommitInstanceCallback;
+onChange?: (event: {
 target: {
-value?: string | undefined;
-name?: string | undefined;
+value?: string;
+name?: string;
 };
-}) => void) | undefined;
+}) => void;
 } & {
 label?: string | undefined;
 view?: string | undefined;
@@ -1568,10 +1569,10 @@ autoComplete?: string | undefined;
 readOnly?: boolean | undefined;
 required?: boolean | undefined;
 size?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+contentLeft?: React.ReactNode;
+contentRight?: React.ReactNode;
 leftHelper?: string | undefined;
-requiredPlacement?: "right" | "left" | undefined;
+requiredPlacement?: ("left" | "right") | undefined;
 hasRequiredIndicator?: boolean | undefined;
 firstValueError?: boolean | undefined;
 secondValueError?: boolean | undefined;
@@ -1579,24 +1580,24 @@ firstValueSuccess?: boolean | undefined;
 secondValueSuccess?: boolean | undefined;
 firstPlaceholder?: string | undefined;
 secondPlaceholder?: string | undefined;
-firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentLeft?: React.ReactElement | undefined;
+firstTextfieldContentRight?: React.ReactElement | undefined;
+secondTextfieldContentLeft?: React.ReactElement | undefined;
+secondTextfieldContentRight?: React.ReactElement | undefined;
 firstTextfieldTextAfter?: string | undefined;
 secondTextfieldTextAfter?: string | undefined;
-onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement>) => void) | undefined;
 firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
-dividerVariant?: "none" | "dash" | "icon" | undefined;
-dividerIcon?: ReactNode;
+dividerVariant?: "none" | "icon" | "dash" | undefined;
+dividerIcon?: React.ReactNode;
 } & DatePickerCalendarProps & Omit<DatePickerPopoverProps, "placement"> & {
-placement?: DatePickerRangePlacement | DatePickerRangePlacementBasic[] | undefined;
-isDoubleCalendar?: boolean | undefined;
-closeAfterDateSelect?: boolean | undefined;
+placement?: DatePickerRangePlacement | Array<DatePickerRangePlacementBasic>;
+isDoubleCalendar?: boolean;
+closeAfterDateSelect?: boolean;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>>;
 
 export { DatePickerRangePlacement }
@@ -1639,41 +1640,41 @@ none: PolymorphicClassName;
 default: PolymorphicClassName;
 };
 }> & PopupProps & PanelProps & {
-placement?: "top" | "bottom" | "right" | "left" | undefined;
-asModal?: boolean | undefined;
-customBackgroundColor?: string | undefined;
-customContentBackgroundColor?: string | undefined;
-withBlur?: boolean | undefined;
-closeOnEsc?: boolean | undefined;
-closeOnOverlayClick?: boolean | undefined;
-onEscKeyDown?: ((event: KeyboardEvent) => void) | undefined;
-onOverlayClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-initialFocusRef?: RefObject<HTMLElement> | undefined;
-focusAfterRef?: RefObject<HTMLElement> | undefined;
-onClose?: (() => void) | undefined;
+placement?: DrawerPlacement;
+asModal?: boolean;
+customBackgroundColor?: string;
+customContentBackgroundColor?: string;
+withBlur?: boolean;
+closeOnEsc?: boolean;
+closeOnOverlayClick?: boolean;
+onEscKeyDown?: (event: KeyboardEvent) => void;
+onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+initialFocusRef?: React.RefObject<HTMLElement>;
+focusAfterRef?: React.RefObject<HTMLElement>;
+onClose?: () => void;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const DrawerContent: FunctionComponent<PropsType<Variants> & {
-view?: string | undefined;
+view?: string;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { DrawerContentProps }
 
 // @public
 export const DrawerFooter: FunctionComponent<PropsType<Variants> & {
-view?: string | undefined;
+view?: string;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { DrawerFooterProps }
 
 // @public
 export const DrawerHeader: FunctionComponent<PropsType<Variants> & {
-hasClose?: boolean | undefined;
-closePlacement?: "right" | "left" | undefined;
+hasClose?: boolean;
+closePlacement?: ClosePlacementType;
 actions?: ReactNode;
-onClose?: (() => void) | undefined;
-view?: string | undefined;
+onClose?: () => void;
+view?: string;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { DrawerHeaderProps }
@@ -1693,35 +1694,35 @@ view: {
 default: PolymorphicClassName;
 };
 }> & {
-    items: DropdownItemOption[];
-    alwaysOpened?: boolean | undefined;
+    items: DropdownItemOption_2[];
+    alwaysOpened?: boolean;
     children?: React_2.ReactNode;
-    itemRole?: string | undefined;
-    onHover?: ((index: number) => void) | undefined;
-    onItemSelect?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
-    trigger?: DropdownTrigger | undefined;
-    openByRightClick?: boolean | undefined;
-    placement?: DropdownPlacement | undefined;
-    offset?: [number, number] | undefined;
-    listOverflow?: Property.Overflow | undefined;
-    listMaxHeight?: Property.Height<string | number> | undefined;
-    listWidth?: Property.Width<string | number> | undefined;
-    hasArrow?: boolean | undefined;
-    closeOnSelect?: boolean | undefined;
-    closeOnOverlayClick?: boolean | undefined;
-    onToggle?: ((isOpen: boolean, event: Event | React_2.SyntheticEvent<Element, Event>) => void) | undefined;
-    size?: string | undefined;
-    view?: string | undefined;
-    variant?: "normal" | "tight" | undefined;
-    portal?: string | React_2.RefObject<HTMLElement> | undefined;
-    renderItem?: ((item: DropdownItemOption) => React_2.ReactNode) | undefined;
-    zIndex?: Property.ZIndex | undefined;
+    itemRole?: string;
+    onHover?: (index: number) => void;
+    onItemSelect?: ((item: DropdownItemOption_2, event: React_2.SyntheticEvent) => void) | undefined;
+    trigger?: DropdownTrigger;
+    openByRightClick?: boolean;
+    placement?: DropdownPlacement;
+    offset?: [number, number];
+    listOverflow?: React_2.CSSProperties["overflow"];
+    listMaxHeight?: React_2.CSSProperties["height"];
+    listWidth?: React_2.CSSProperties["width"];
+    hasArrow?: boolean;
+    closeOnSelect?: boolean;
+    closeOnOverlayClick?: boolean;
+    onToggle?: (isOpen: boolean, event: React_2.SyntheticEvent | Event) => void;
+    size?: string;
+    view?: string;
+    variant?: "normal" | "tight";
+    portal?: string | React_2.RefObject<HTMLElement>;
+    renderItem?: ((item: DropdownItemOption_2) => React_2.ReactNode) | undefined;
+    zIndex?: React_2.CSSProperties["zIndex"];
     beforeList?: React_2.ReactNode;
     afterList?: React_2.ReactNode;
-    onItemClick?: ((item: DropdownItemOption, event: React_2.SyntheticEvent<Element, Event>) => void) | undefined;
-    listHeight?: Property.Height<string | number> | undefined;
-    hoverIndex?: number | undefined;
-} & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "size" | "view"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+    onItemClick?: ((item: DropdownItemOption_2, event: React_2.SyntheticEvent) => void) | undefined;
+    listHeight?: React_2.CSSProperties["height"];
+    hoverIndex?: number;
+} & React_2.HTMLAttributes<HTMLDivElement> & React_2.RefAttributes<HTMLDivElement>, "size" | "view"> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement | null;
 
 export { DropdownItemOption }
 
@@ -1742,21 +1743,21 @@ disabled: {
 true: PolymorphicClassName;
 };
 }> & {
-multiple?: boolean | undefined;
-title?: ReactNode;
-description?: ReactNode;
-icon?: ReactNode;
-iconPlacement?: "top" | "left" | undefined;
-size?: string | undefined;
-view?: string | undefined;
-disabled?: boolean | undefined;
-stretch?: boolean | undefined;
-onDragEnter?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
-onDragLeave?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
-onDragOver?: ((event: DragEvent_2<HTMLDivElement>) => void) | undefined;
-validator?: ((files: File[]) => ValidatorReturnType) | undefined;
-onDrop?: FileProcessHandler | undefined;
-onChoseFiles?: FileProcessHandler | undefined;
+multiple?: boolean;
+title?: React.ReactNode;
+description?: React.ReactNode;
+icon?: React.ReactNode;
+iconPlacement?: "top" | "left";
+size?: string;
+view?: string;
+disabled?: boolean;
+stretch?: boolean;
+onDragEnter?: (event: DragEvent_2<HTMLDivElement>) => void;
+onDragLeave?: (event: DragEvent_2<HTMLDivElement>) => void;
+onDragOver?: (event: DragEvent_2<HTMLDivElement>) => void;
+validator?: (files: File[]) => ValidatorReturnType;
+onDrop?: FileProcessHandler;
+onChoseFiles?: FileProcessHandler;
 } & InputHTMLAttributes_2<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
 
 export { dropzoneClasses }
@@ -1769,9 +1770,9 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplL }
@@ -1784,9 +1785,9 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplM }
@@ -1799,9 +1800,9 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { dsplS }
@@ -1820,7 +1821,7 @@ xs: PolymorphicClassName;
 
 // @public (undocumented)
 export const Flow: FunctionComponent<PropsType<    {}> & FlowProps & {
-minColWidth?: string | undefined;
+minColWidth?: string;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -1838,9 +1839,9 @@ size: {
 h1: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h1 }
@@ -1853,9 +1854,9 @@ size: {
 h2: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h2 }
@@ -1868,9 +1869,9 @@ size: {
 h3: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h3 }
@@ -1883,9 +1884,9 @@ size: {
 h4: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h4 }
@@ -1898,9 +1899,9 @@ size: {
 h5: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { h5 }
@@ -1939,55 +1940,55 @@ true: PolymorphicClassName;
 focused: {
 true: PolymorphicClassName;
 };
-}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: string | number | undefined;
-contentRight?: undefined;
-} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
-text?: string | undefined;
+value?: string | number;
+contentRight?: never;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps & {
+text?: string;
 contentLeft?: ReactNode;
-contentPlacing?: ("default" | "relaxed") | undefined;
-isLoading?: boolean | undefined;
+contentPlacing?: "default" | "relaxed";
+isLoading?: boolean;
 loader?: ReactNode;
-stretch?: boolean | undefined;
-stretching?: ("auto" | "fixed" | "filled") | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-disabled?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-outlined?: boolean | undefined;
-shiftLeft?: boolean | undefined;
-shiftRight?: boolean | undefined;
-blur?: "small" | "medium" | "large" | undefined;
+stretch?: boolean;
+stretching?: "auto" | "fixed" | "filled";
+square?: boolean;
+focused?: boolean;
+disabled?: boolean;
+pin?: Pin;
+view?: string;
+size?: string;
+outlined?: boolean;
+shiftLeft?: boolean;
+shiftRight?: boolean;
+blur?: Blur;
 } & {
-value?: undefined;
+value?: never;
 contentRight?: ReactNode;
 } & RefAttributes<HTMLButtonElement>))>;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "img" | "div" | undefined;
-ratio?: "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16 / 9" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
-customRatio?: string | undefined;
+base?: "div" | "img";
+ratio?: Ratio;
+customRatio?: string;
 } & RefAttributes<HTMLDivElement>>;
 export { Image_2 as Image }
 
@@ -2039,8 +2040,8 @@ textS: PolymorphicClassName;
 textXS: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
-customGradientColor?: string | undefined;
-roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+customGradientColor?: string;
+roundness?: Roundness;
 } & SkeletonGradientProps & RefAttributes<HTMLDivElement>>;
 
 // @public
@@ -2086,14 +2087,14 @@ disabled: {
 true: PolymorphicClassName;
 };
 }> & AnchorHTMLAttributes<HTMLAnchorElement> & {
-text?: string | undefined;
-contentRight?: ReactNode;
-contentLeft?: ReactNode;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-disabled?: boolean | undefined;
-view?: string | undefined;
-size?: string | undefined;
+text?: string;
+contentRight?: React.ReactNode;
+contentLeft?: React.ReactNode;
+isLoading?: boolean;
+loader?: React.ReactNode;
+disabled?: boolean;
+view?: string;
+size?: string;
 } & RefAttributes<HTMLAnchorElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "LinkComponent" needs to be exported by the entry point index.d.ts
@@ -2144,41 +2145,41 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2221,355 +2222,43 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-chipView: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-chipView: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-chipView: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
-view: {
-default: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-xs: PolymorphicClassName;
-};
-labelPlacement: {
-inner: PolymorphicClassName;
-outer: PolymorphicClassName;
-};
-clear: {
-true: PolymorphicClassName;
-};
-chipView: {
-default: PolymorphicClassName;
-secondary: PolymorphicClassName;
-accent: PolymorphicClassName;
-positive: PolymorphicClassName;
-warning: PolymorphicClassName;
-negative: PolymorphicClassName;
-};
-hintView: {
-default: PolymorphicClassName;
-};
-hintSize: {
-m: PolymorphicClassName;
-s: PolymorphicClassName;
-};
-disabled: {
-true: PolymorphicClassName;
-};
-readOnly: {
-true: PolymorphicClassName;
-};
-}> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
 enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2612,41 +2301,41 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
 view: {
 default: PolymorphicClassName;
@@ -2689,43 +2378,355 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & {
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
 enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+hintView: {
+default: PolymorphicClassName;
+};
+hintSize: {
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
+hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
+hintContentLeft?: ReactNode;
+} & {
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+hintView: {
+default: PolymorphicClassName;
+};
+hintSize: {
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
+hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
+hintContentLeft?: ReactNode;
+} & {
+enumerationType: "chip";
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+hintView: {
+default: PolymorphicClassName;
+};
+hintSize: {
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
+} & {
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref"> | Omit<PropsType<    {
+view: {
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+size: {
+l: PolymorphicClassName;
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+xs: PolymorphicClassName;
+};
+labelPlacement: {
+inner: PolymorphicClassName;
+outer: PolymorphicClassName;
+};
+clear: {
+true: PolymorphicClassName;
+};
+chipView: {
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+};
+hintView: {
+default: PolymorphicClassName;
+};
+hintSize: {
+m: PolymorphicClassName;
+s: PolymorphicClassName;
+};
+disabled: {
+true: PolymorphicClassName;
+};
+readOnly: {
+true: PolymorphicClassName;
+};
+}> & {
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
+} & {
+enumerationType: "chip";
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement> & MaskProps, "ref">) & RefAttributes<HTMLInputElement>>;
 
 export { mediaQuery }
@@ -2753,15 +2754,15 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
 }> & {
-title?: string | undefined;
-text?: string | undefined;
-contentBefore?: ReactNode;
-contentBeforeSizing?: "fixed" | "scalable" | undefined;
-stretch?: boolean | undefined;
-width?: string | number | undefined;
-height?: string | number | undefined;
-view?: string | undefined;
-size?: string | undefined;
+title?: string;
+text?: string;
+contentBefore?: React.ReactNode;
+contentBeforeSizing?: "fixed" | "scalable";
+stretch?: boolean;
+width?: string | number;
+height?: string | number;
+view?: string;
+size?: string;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { noteClasses }
@@ -2841,57 +2842,57 @@ disabled: {
 true: PolymorphicClassName;
 };
 }> & (({
-value?: number | undefined;
-min?: number | undefined;
-max?: number | undefined;
-step?: number | undefined;
-precision?: number | undefined;
-isLoading?: boolean | undefined;
+value?: number;
+min?: number;
+max?: number;
+step?: number;
+precision?: number;
+isLoading?: boolean;
 loader?: ReactNode;
-size?: string | undefined;
-view?: string | undefined;
-clear?: boolean | undefined;
-shape?: string | undefined;
-disabled?: boolean | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
+size?: string;
+view?: string;
+clear?: boolean;
+shape?: string;
+disabled?: boolean;
+textBefore?: string;
+textAfter?: string;
 customIncrementButton?: ReactNode;
 incrementIcon?: ReactNode;
 customDecrementButton?: ReactNode;
 decrementIcon?: ReactNode;
-isManualInput?: boolean | undefined;
-onChange?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value: string | number) => void) | undefined;
-onIncrement?: ((value: number) => void) | undefined;
-onDecrement?: ((value: number) => void) | undefined;
+isManualInput?: boolean;
+onChange?: (event: SyntheticEvent<HTMLInputElement> | null, value: number | string) => void;
+onIncrement?: (value: number) => void;
+onDecrement?: (value: number) => void;
 } & {
-segmentation?: "clear" | undefined;
-inputBackgroundType?: undefined;
+segmentation?: "clear";
+inputBackgroundType?: never;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "onChange" | "value"> & RefAttributes<HTMLInputElement>) | ({
-value?: number | undefined;
-min?: number | undefined;
-max?: number | undefined;
-step?: number | undefined;
-precision?: number | undefined;
-isLoading?: boolean | undefined;
+value?: number;
+min?: number;
+max?: number;
+step?: number;
+precision?: number;
+isLoading?: boolean;
 loader?: ReactNode;
-size?: string | undefined;
-view?: string | undefined;
-clear?: boolean | undefined;
-shape?: string | undefined;
-disabled?: boolean | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
+size?: string;
+view?: string;
+clear?: boolean;
+shape?: string;
+disabled?: boolean;
+textBefore?: string;
+textAfter?: string;
 customIncrementButton?: ReactNode;
 incrementIcon?: ReactNode;
 customDecrementButton?: ReactNode;
 decrementIcon?: ReactNode;
-isManualInput?: boolean | undefined;
-onChange?: ((event: SyntheticEvent<HTMLInputElement, Event> | null, value: string | number) => void) | undefined;
-onIncrement?: ((value: number) => void) | undefined;
-onDecrement?: ((value: number) => void) | undefined;
+isManualInput?: boolean;
+onChange?: (event: SyntheticEvent<HTMLInputElement> | null, value: number | string) => void;
+onIncrement?: (value: number) => void;
+onDecrement?: (value: number) => void;
 } & {
-segmentation?: string | undefined;
-inputBackgroundType?: string | undefined;
+segmentation?: string;
+inputBackgroundType?: string;
 } & Omit<InputHTMLAttributes_2<HTMLInputElement>, "size" | "onChange" | "value"> & RefAttributes<HTMLInputElement>))>;
 
 export { numberInputClasses }
@@ -3032,125 +3033,125 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & (({
-label?: string | undefined;
-leftHelper?: string | undefined;
+label?: string;
+leftHelper?: string;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-firstValue?: TextfieldPrimitiveValue | undefined;
-secondValue?: TextfieldPrimitiveValue | undefined;
-firstValueError?: boolean | undefined;
-secondValueError?: boolean | undefined;
-firstValueSuccess?: boolean | undefined;
-secondValueSuccess?: boolean | undefined;
-firstPlaceholder?: string | undefined;
-secondPlaceholder?: string | undefined;
-firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldTextAfter?: string | undefined;
-secondTextfieldTextAfter?: string | undefined;
-autoComplete?: string | undefined;
-view?: string | undefined;
-size?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-required?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
-onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
-onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
-onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
-onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
-onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+firstValue?: TextfieldPrimitiveValue;
+secondValue?: TextfieldPrimitiveValue;
+firstValueError?: boolean;
+secondValueError?: boolean;
+firstValueSuccess?: boolean;
+secondValueSuccess?: boolean;
+firstPlaceholder?: string;
+secondPlaceholder?: string;
+firstTextfieldContentLeft?: ReactElement;
+firstTextfieldContentRight?: ReactElement;
+secondTextfieldContentLeft?: ReactElement;
+secondTextfieldContentRight?: ReactElement;
+firstTextfieldTextAfter?: string;
+secondTextfieldTextAfter?: string;
+autoComplete?: string;
+view?: string;
+size?: string;
+readOnly?: boolean;
+disabled?: boolean;
+requiredPlacement?: "left" | "right";
+required?: boolean;
+hasRequiredIndicator?: boolean;
+onChangeFirstValue?: BaseCallbackChangeInstance;
+onChangeSecondValue?: BaseCallbackChangeInstance;
+onSearchFirstValue?: BaseCallbackKeyboardInstance;
+onSearchSecondValue?: BaseCallbackKeyboardInstance;
+onFocusFirstTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onFocusSecondTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onBlurFirstTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onBlurSecondTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
 } & {
 firstTextfieldTextBefore: string;
 secondTextfieldTextBefore: string;
-dividerVariant?: "none" | undefined;
-dividerIcon?: undefined;
+dividerVariant?: "none";
+dividerIcon?: never;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>) | ({
-label?: string | undefined;
-leftHelper?: string | undefined;
+label?: string;
+leftHelper?: string;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-firstValue?: TextfieldPrimitiveValue | undefined;
-secondValue?: TextfieldPrimitiveValue | undefined;
-firstValueError?: boolean | undefined;
-secondValueError?: boolean | undefined;
-firstValueSuccess?: boolean | undefined;
-secondValueSuccess?: boolean | undefined;
-firstPlaceholder?: string | undefined;
-secondPlaceholder?: string | undefined;
-firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldTextAfter?: string | undefined;
-secondTextfieldTextAfter?: string | undefined;
-autoComplete?: string | undefined;
-view?: string | undefined;
-size?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-required?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
-onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
-onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
-onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
-onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
-onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+firstValue?: TextfieldPrimitiveValue;
+secondValue?: TextfieldPrimitiveValue;
+firstValueError?: boolean;
+secondValueError?: boolean;
+firstValueSuccess?: boolean;
+secondValueSuccess?: boolean;
+firstPlaceholder?: string;
+secondPlaceholder?: string;
+firstTextfieldContentLeft?: ReactElement;
+firstTextfieldContentRight?: ReactElement;
+secondTextfieldContentLeft?: ReactElement;
+secondTextfieldContentRight?: ReactElement;
+firstTextfieldTextAfter?: string;
+secondTextfieldTextAfter?: string;
+autoComplete?: string;
+view?: string;
+size?: string;
+readOnly?: boolean;
+disabled?: boolean;
+requiredPlacement?: "left" | "right";
+required?: boolean;
+hasRequiredIndicator?: boolean;
+onChangeFirstValue?: BaseCallbackChangeInstance;
+onChangeSecondValue?: BaseCallbackChangeInstance;
+onSearchFirstValue?: BaseCallbackKeyboardInstance;
+onSearchSecondValue?: BaseCallbackKeyboardInstance;
+onFocusFirstTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onFocusSecondTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onBlurFirstTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onBlurSecondTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
 } & {
-dividerVariant?: "dash" | undefined;
-dividerIcon?: undefined;
-firstTextfieldTextBefore?: string | undefined;
-secondTextfieldTextBefore?: string | undefined;
+dividerVariant?: "dash";
+dividerIcon?: never;
+firstTextfieldTextBefore?: string;
+secondTextfieldTextBefore?: string;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>) | ({
-label?: string | undefined;
-leftHelper?: string | undefined;
+label?: string;
+leftHelper?: string;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
-firstValue?: TextfieldPrimitiveValue | undefined;
-secondValue?: TextfieldPrimitiveValue | undefined;
-firstValueError?: boolean | undefined;
-secondValueError?: boolean | undefined;
-firstValueSuccess?: boolean | undefined;
-secondValueSuccess?: boolean | undefined;
-firstPlaceholder?: string | undefined;
-secondPlaceholder?: string | undefined;
-firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-firstTextfieldTextAfter?: string | undefined;
-secondTextfieldTextAfter?: string | undefined;
-autoComplete?: string | undefined;
-view?: string | undefined;
-size?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-required?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
-onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
-onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
-onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
-onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
-onFocusFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onFocusSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurFirstTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
-onBlurSecondTextfield?: ((event: FocusEvent_2<HTMLInputElement, Element>) => void) | undefined;
+firstValue?: TextfieldPrimitiveValue;
+secondValue?: TextfieldPrimitiveValue;
+firstValueError?: boolean;
+secondValueError?: boolean;
+firstValueSuccess?: boolean;
+secondValueSuccess?: boolean;
+firstPlaceholder?: string;
+secondPlaceholder?: string;
+firstTextfieldContentLeft?: ReactElement;
+firstTextfieldContentRight?: ReactElement;
+secondTextfieldContentLeft?: ReactElement;
+secondTextfieldContentRight?: ReactElement;
+firstTextfieldTextAfter?: string;
+secondTextfieldTextAfter?: string;
+autoComplete?: string;
+view?: string;
+size?: string;
+readOnly?: boolean;
+disabled?: boolean;
+requiredPlacement?: "left" | "right";
+required?: boolean;
+hasRequiredIndicator?: boolean;
+onChangeFirstValue?: BaseCallbackChangeInstance;
+onChangeSecondValue?: BaseCallbackChangeInstance;
+onSearchFirstValue?: BaseCallbackKeyboardInstance;
+onSearchSecondValue?: BaseCallbackKeyboardInstance;
+onFocusFirstTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onFocusSecondTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onBlurFirstTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
+onBlurSecondTextfield?: (event: FocusEvent_2<HTMLInputElement>) => void;
 } & {
 dividerIcon?: ReactNode;
-dividerVariant?: "icon" | undefined;
-firstTextfieldTextBefore?: string | undefined;
-secondTextfieldTextBefore?: string | undefined;
+dividerVariant?: "icon";
+firstTextfieldTextBefore?: string;
+secondTextfieldTextBefore?: string;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>))>;
 export { Range_2 as Range }
 
@@ -3180,19 +3181,19 @@ displayM: PolymorphicClassName;
 displayS: PolymorphicClassName;
 };
 }> & {
-value?: number | null | undefined;
-hasValue?: boolean | undefined;
-precision?: number | undefined;
-valuePlacement?: "before" | "after" | undefined;
-iconSlot?: ReactNode;
-iconSlotOutline?: ReactNode;
-iconSlotHalf?: ReactNode;
-hasIcons?: boolean | undefined;
-iconQuantity?: 1 | 5 | 10 | undefined;
-helperText?: string | undefined;
-helperTextStretching?: "fixed" | "filled" | undefined;
-size?: string | undefined;
-view?: string | undefined;
+value?: number | null;
+hasValue?: boolean;
+precision?: number;
+valuePlacement?: "before" | "after";
+iconSlot?: React.ReactNode;
+iconSlotOutline?: React.ReactNode;
+iconSlotHalf?: React.ReactNode;
+hasIcons?: boolean;
+iconQuantity?: 1 | 5 | 10;
+helperText?: string;
+helperTextStretching?: "fixed" | "filled";
+size?: string;
+view?: string;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>>;
 
 export { ratingClasses }
@@ -3266,14 +3267,14 @@ true: PolymorphicClassName;
 };
 }> & ButtonHTMLAttributes<HTMLButtonElement> & {
 value: string;
-id?: string | undefined;
-label?: ReactNode;
-pilled?: boolean | undefined;
-customHandleSelect?: ((e: MouseEvent_2<HTMLButtonElement, MouseEvent>) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
+id?: string;
+label?: React.ReactNode;
+pilled?: boolean;
+customHandleSelect?: (e: MouseEvent_2<HTMLButtonElement>) => void;
+size?: string;
+view?: string;
+contentLeft?: React.ReactNode;
+contentRight?: React.ReactNode | string;
 } & RefAttributes<HTMLLabelElement>>;
 
 export { SegmentItemProps }
@@ -3283,7 +3284,7 @@ export { SegmentProvider }
 export { SegmentProviderProps }
 
 // @public (undocumented)
-export const Select: <K extends SelectItemOption>(props: SelectProps<K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | null;
+export const Select: <K extends SelectItemOption>(props: SelectProps<K> & React_2.RefAttributes<HTMLButtonElement>) => React_2.ReactElement | null;
 
 export { SelectItemOption }
 
@@ -3321,137 +3322,137 @@ disabled: {
 true: PolymorphicClassName;
 };
 }> & ((SliderBaseProps & SliderInternalProps & {
-onChange?: ((event: FormTypeNumber) => void) | undefined;
+onChange?: (event: FormTypeNumber) => void;
 name: string;
-value?: undefined;
-defaultValue?: number | undefined;
+value?: never;
+defaultValue?: number;
 } & {
-orientation?: "horizontal" | undefined;
-labelPlacement?: "none" | "top" | "left" | undefined;
-scaleAlign?: "none" | "bottom" | "side" | undefined;
-sliderAlign?: "none" | undefined;
-reversed?: undefined;
-labelReversed?: undefined;
+orientation?: "horizontal";
+labelPlacement?: "top" | "left" | "none";
+scaleAlign?: "side" | "bottom" | "none";
+sliderAlign?: never | "none";
+reversed?: never;
+labelReversed?: never;
 } & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
-onChangeCommitted?: ((value: number) => void) | undefined;
-ariaLabel?: string | undefined;
-showCurrentValue?: boolean | undefined;
-showRangeValues?: boolean | undefined;
-rangeValuesPlacement?: string | undefined;
-showScale?: boolean | undefined;
-hideMinValueDiff?: number | undefined;
-hideMaxValueDiff?: number | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+onChangeCommitted?: (value: number) => void;
+ariaLabel?: string;
+showCurrentValue?: boolean;
+showRangeValues?: boolean;
+rangeValuesPlacement?: string;
+showScale?: boolean;
+hideMinValueDiff?: number;
+hideMaxValueDiff?: number;
+labelPlacement?: "inner" | "outer";
 labelContentLeft?: ReactNode;
 labelContent?: ReactNode;
-multipleStepSize?: number | undefined;
-view?: string | undefined;
-size?: "s" | "m" | "l" | undefined;
-type?: "single" | undefined;
-pointerSize?: "none" | "small" | "large" | undefined;
-pointerVisibility: "hover" | "always";
-currentValueVisibility: "hover" | "always";
+multipleStepSize?: number;
+view?: string;
+size?: "s" | "m" | "l";
+type?: "single";
+pointerSize?: "small" | "large" | "none";
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
-onChange?: ((event: FormTypeNumber) => void) | undefined;
+onChange?: (event: FormTypeNumber) => void;
 name: string;
-value?: undefined;
-defaultValue?: number | undefined;
+value?: never;
+defaultValue?: number;
 } & {
 orientation: "vertical";
-sliderAlign?: "none" | "center" | "right" | "left" | undefined;
-scaleAlign?: undefined;
-reversed?: boolean | undefined;
-labelReversed?: boolean | undefined;
+sliderAlign?: "center" | "left" | "right" | "none";
+scaleAlign?: never;
+reversed?: boolean;
+labelReversed?: boolean;
 } & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
-onChangeCommitted?: ((value: number) => void) | undefined;
-ariaLabel?: string | undefined;
-showCurrentValue?: boolean | undefined;
-showRangeValues?: boolean | undefined;
-rangeValuesPlacement?: string | undefined;
-showScale?: boolean | undefined;
-hideMinValueDiff?: number | undefined;
-hideMaxValueDiff?: number | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+onChangeCommitted?: (value: number) => void;
+ariaLabel?: string;
+showCurrentValue?: boolean;
+showRangeValues?: boolean;
+rangeValuesPlacement?: string;
+showScale?: boolean;
+hideMinValueDiff?: number;
+hideMaxValueDiff?: number;
+labelPlacement?: "inner" | "outer";
 labelContentLeft?: ReactNode;
 labelContent?: ReactNode;
-multipleStepSize?: number | undefined;
-view?: string | undefined;
-size?: "s" | "m" | "l" | undefined;
-type?: "single" | undefined;
-pointerSize?: "none" | "small" | "large" | undefined;
-pointerVisibility: "hover" | "always";
-currentValueVisibility: "hover" | "always";
+multipleStepSize?: number;
+view?: string;
+size?: "s" | "m" | "l";
+type?: "single";
+pointerSize?: "small" | "large" | "none";
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
-onChange?: ((value: number) => void) | undefined;
+onChange?: (value: number) => void;
 value: number;
-name?: undefined;
-defaultValue?: undefined;
+name?: never;
+defaultValue?: never;
 } & {
-orientation?: "horizontal" | undefined;
-labelPlacement?: "none" | "top" | "left" | undefined;
-scaleAlign?: "none" | "bottom" | "side" | undefined;
-sliderAlign?: "none" | undefined;
-reversed?: undefined;
-labelReversed?: undefined;
+orientation?: "horizontal";
+labelPlacement?: "top" | "left" | "none";
+scaleAlign?: "side" | "bottom" | "none";
+sliderAlign?: never | "none";
+reversed?: never;
+labelReversed?: never;
 } & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
-onChangeCommitted?: ((value: number) => void) | undefined;
-ariaLabel?: string | undefined;
-showCurrentValue?: boolean | undefined;
-showRangeValues?: boolean | undefined;
-rangeValuesPlacement?: string | undefined;
-showScale?: boolean | undefined;
-hideMinValueDiff?: number | undefined;
-hideMaxValueDiff?: number | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+onChangeCommitted?: (value: number) => void;
+ariaLabel?: string;
+showCurrentValue?: boolean;
+showRangeValues?: boolean;
+rangeValuesPlacement?: string;
+showScale?: boolean;
+hideMinValueDiff?: number;
+hideMaxValueDiff?: number;
+labelPlacement?: "inner" | "outer";
 labelContentLeft?: ReactNode;
 labelContent?: ReactNode;
-multipleStepSize?: number | undefined;
-view?: string | undefined;
-size?: "s" | "m" | "l" | undefined;
-type?: "single" | undefined;
-pointerSize?: "none" | "small" | "large" | undefined;
-pointerVisibility: "hover" | "always";
-currentValueVisibility: "hover" | "always";
+multipleStepSize?: number;
+view?: string;
+size?: "s" | "m" | "l";
+type?: "single";
+pointerSize?: "small" | "large" | "none";
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (SliderBaseProps & SliderInternalProps & {
-onChange?: ((value: number) => void) | undefined;
+onChange?: (value: number) => void;
 value: number;
-name?: undefined;
-defaultValue?: undefined;
+name?: never;
+defaultValue?: never;
 } & {
 orientation: "vertical";
-sliderAlign?: "none" | "center" | "right" | "left" | undefined;
-scaleAlign?: undefined;
-reversed?: boolean | undefined;
-labelReversed?: boolean | undefined;
+sliderAlign?: "center" | "left" | "right" | "none";
+scaleAlign?: never;
+reversed?: boolean;
+labelReversed?: boolean;
 } & Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> & {
-onChangeCommitted?: ((value: number) => void) | undefined;
-ariaLabel?: string | undefined;
-showCurrentValue?: boolean | undefined;
-showRangeValues?: boolean | undefined;
-rangeValuesPlacement?: string | undefined;
-showScale?: boolean | undefined;
-hideMinValueDiff?: number | undefined;
-hideMaxValueDiff?: number | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+onChangeCommitted?: (value: number) => void;
+ariaLabel?: string;
+showCurrentValue?: boolean;
+showRangeValues?: boolean;
+rangeValuesPlacement?: string;
+showScale?: boolean;
+hideMinValueDiff?: number;
+hideMaxValueDiff?: number;
+labelPlacement?: "inner" | "outer";
 labelContentLeft?: ReactNode;
 labelContent?: ReactNode;
-multipleStepSize?: number | undefined;
-view?: string | undefined;
-size?: "s" | "m" | "l" | undefined;
-type?: "single" | undefined;
-pointerSize?: "none" | "small" | "large" | undefined;
-pointerVisibility: "hover" | "always";
-currentValueVisibility: "hover" | "always";
+multipleStepSize?: number;
+view?: string;
+size?: "s" | "m" | "l";
+type?: "single";
+pointerSize?: "small" | "large" | "none";
+pointerVisibility: "always" | "hover";
+currentValueVisibility: "always" | "hover";
 } & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
-onChange?: ((event: FormTypeString) => void) | undefined;
-name?: string | undefined;
-value?: undefined;
-defaultValue?: number[] | undefined;
+onChange?: (event: FormTypeString) => void;
+name?: string;
+value?: never;
+defaultValue?: number[];
 } & RefAttributes<HTMLDivElement>) | (Omit<DoubleSliderProps, "onChange" | "defaultValue" | "value"> & {
-onChange?: ((values: number[]) => void) | undefined;
-name?: undefined;
-value?: number[] | undefined;
-defaultValue?: undefined;
+onChange?: (values: number[]) => void;
+name?: never;
+value?: number[];
+defaultValue?: never;
 } & RefAttributes<HTMLDivElement>))>;
 
 export { SliderProps }
@@ -3469,22 +3470,20 @@ warning: PolymorphicClassName;
 negative: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
-width?: undefined;
-height?: undefined;
-size?: string | undefined;
-view?: string | undefined;
+width?: never;
+height?: never;
+size?: string;
+view?: string;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: number;
 height: number;
-size?: undefined; /**
-* @deprecated
-*/
-view?: string | undefined;
+size?: never;
+view?: string;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: string;
 height: string;
-size?: undefined;
-view?: string | undefined;
+size?: never;
+view?: string;
 } & RefAttributes<HTMLDivElement>))>, any, {}, never>;
 
 // @public (undocumented)
@@ -3591,37 +3590,37 @@ true: PolymorphicClassName;
 disabled: {
 true: PolymorphicClassName;
 };
-}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintOpened?: boolean;
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
 autoResize?: boolean | undefined;
 maxAuto?: number | undefined;
@@ -3635,40 +3634,40 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintOpened?: boolean;
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
-height?: string | number | undefined;
-width?: string | number | undefined;
+height?: (number | string) | undefined;
+width?: (number | string) | undefined;
 } & {
 autoResize?: undefined;
 maxAuto?: undefined;
@@ -3679,37 +3678,37 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintOpened?: boolean;
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
 rows?: number | undefined;
 cols?: number | undefined;
@@ -3723,37 +3722,37 @@ width?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintOpened?: boolean | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintOpened?: boolean;
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
 clear?: true | undefined;
 hasDivider?: boolean | undefined;
@@ -3767,37 +3766,37 @@ minAuto?: undefined;
 } & {
 height?: undefined;
 width?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintText?: never;
+hintOpened?: never;
+hintTrigger?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
 autoResize?: boolean | undefined;
 maxAuto?: number | undefined;
@@ -3811,40 +3810,40 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintText?: never;
+hintOpened?: never;
+hintTrigger?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
-height?: string | number | undefined;
-width?: string | number | undefined;
+height?: (number | string) | undefined;
+width?: (number | string) | undefined;
 } & {
 autoResize?: undefined;
 maxAuto?: undefined;
@@ -3855,37 +3854,37 @@ cols?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintText?: never;
+hintOpened?: never;
+hintTrigger?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
 rows?: number | undefined;
 cols?: number | undefined;
@@ -3899,37 +3898,37 @@ width?: undefined;
 } & {
 clear?: undefined;
 hasDivider?: undefined;
-} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "rows" | "cols"> & {
-status?: "" | "warning" | "success" | "error" | undefined;
-label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "required" | "cols" | "rows"> & {
+status?: "" | "success" | "warning" | "error";
+label?: string;
+labelPlacement?: "inner" | "outer";
 titleCaption?: ReactNode;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
-helperText?: string | undefined;
+contentRight?: React.ReactElement;
+resize?: "none" | "both" | "horizontal" | "vertical";
+helperText?: string;
 leftHelper?: ReactNode;
 rightHelper?: ReactNode;
-leftHelperPlacement?: "outer" | "inner" | undefined;
+leftHelperPlacement?: "inner" | "outer";
 } & {
-required?: boolean | undefined;
-requiredPlacement?: "right" | "left" | undefined;
-optional?: boolean | undefined;
-hasRequiredIndicator?: boolean | undefined;
+required?: boolean;
+requiredPlacement?: "left" | "right";
+optional?: boolean;
+hasRequiredIndicator?: boolean;
 } & {
-hintText?: undefined;
-hintOpened?: undefined;
-hintTrigger?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintText?: never;
+hintOpened?: never;
+hintTrigger?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
-size?: string | undefined;
-view?: string | undefined;
+size?: string;
+view?: string;
 } & {
 clear?: true | undefined;
 hasDivider?: boolean | undefined;
@@ -3988,301 +3987,301 @@ readOnly: {
 true: PolymorphicClassName;
 };
 }> & (({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
 hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
 hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: boolean | undefined;
-hasDivider?: boolean | undefined;
-} & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
-} & {
-enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
-hintContentLeft?: ReactNode;
-} & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
-} & {
-titleCaption?: ReactNode;
-leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
-} & {
-hintText: string;
-hintTrigger?: "hover" | "click" | undefined;
-hintView?: string | undefined;
-hintSize?: string | undefined;
-hintTargetIcon?: ReactNode;
-hintTargetPlacement?: "outer" | "inner" | undefined;
-hintPlacement?: PopoverPlacement | PopoverPlacementBasic[] | undefined;
-hintHasArrow?: boolean | undefined;
-hintOffset?: [number, number] | undefined;
-hintWidth?: string | undefined;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
 hintContentLeft?: ReactNode;
 } & {
 enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
-chips?: undefined;
-onChangeChips?: undefined;
-enumerationType?: "plain" | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-chipType?: undefined;
-chipView?: undefined;
-chipValidator?: undefined;
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
-size?: string | undefined;
-view?: string | undefined;
-readOnly?: boolean | undefined;
-disabled?: boolean | undefined;
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
 } & {
 titleCaption?: ReactNode;
 leftHelper?: ReactNode;
-contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
-textBefore?: string | undefined;
-textAfter?: string | undefined;
-onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 } & LabelProps & RequiredProps & {
-clear?: false | undefined;
-hasDivider?: undefined;
+clear?: boolean;
+hasDivider?: boolean;
 } & {
-hintTrigger?: undefined;
-hintText?: undefined;
-hintView?: undefined;
-hintSize?: undefined;
-hintTargetIcon?: undefined;
-hintTargetPlacement?: undefined;
-hintPlacement?: undefined;
-hintHasArrow?: undefined;
-hintOffset?: undefined;
-hintWidth?: undefined;
-hintContentLeft?: undefined;
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
 } & {
 enumerationType: "chip";
-onSearch?: undefined;
-chips?: TextFieldPrimitiveValue[] | undefined;
-onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-chipType?: "default" | "text" | undefined;
-chipView?: string | undefined;
-chipValidator?: ((value: string) => {
-view?: string | undefined;
-}) | undefined;
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
+hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
+hintContentLeft?: ReactNode;
+} & {
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintText: string;
+hintTrigger?: "hover" | "click";
+hintView?: string;
+hintSize?: string;
+hintTargetIcon?: ReactNode;
+hintTargetPlacement?: "inner" | "outer";
+hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+hintHasArrow?: boolean;
+hintOffset?: [number, number];
+hintWidth?: string;
+hintContentLeft?: ReactNode;
+} & {
+enumerationType: "chip";
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
+} & {
+chips?: never;
+onChangeChips?: never;
+enumerationType?: "plain";
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+chipType?: never;
+chipView?: never;
+chipValidator?: never;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>) | ({
+size?: string;
+view?: string;
+readOnly?: boolean;
+disabled?: boolean;
+} & {
+titleCaption?: ReactNode;
+leftHelper?: ReactNode;
+contentLeft?: React.ReactElement;
+contentRight?: React.ReactElement;
+textBefore?: string;
+textAfter?: string;
+onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+} & LabelProps & RequiredProps & {
+clear?: false;
+hasDivider?: never;
+} & {
+hintTrigger?: never;
+hintText?: never;
+hintView?: never;
+hintSize?: never;
+hintTargetIcon?: never;
+hintTargetPlacement?: never;
+hintPlacement?: never;
+hintHasArrow?: never;
+hintOffset?: never;
+hintWidth?: never;
+hintContentLeft?: never;
+} & {
+enumerationType: "chip";
+onSearch?: never;
+chips?: Array<TextFieldPrimitiveValue>;
+onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
+chipType?: "default" | "text";
+chipView?: string;
+chipValidator?: (value: string) => {
+view?: string;
+};
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "required"> & RefAttributes<HTMLInputElement>))>;
 
 // @public
@@ -4311,21 +4310,21 @@ auto: PolymorphicClassName;
 filled: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
-orientation?: Orientation | undefined;
-stretching?: ("auto" | "filled") | undefined;
-size?: string | undefined;
-isCommonTextFieldStyles?: boolean | undefined;
+orientation?: Orientation;
+stretching?: "auto" | "filled";
+size?: string;
+isCommonTextFieldStyles?: boolean;
 } & {
-gap?: "none" | "dense" | undefined;
-shape?: "segmented" | undefined;
+gap?: "none" | "dense";
+shape?: "segmented";
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-orientation?: Orientation | undefined;
-stretching?: ("auto" | "filled") | undefined;
-size?: string | undefined;
-isCommonTextFieldStyles?: boolean | undefined;
+orientation?: Orientation;
+stretching?: "auto" | "filled";
+size?: string;
+isCommonTextFieldStyles?: boolean;
 } & {
-gap?: "dense" | "wide" | undefined;
-shape?: "default" | undefined;
+gap?: "dense" | "wide";
+shape?: "default";
 } & RefAttributes<HTMLDivElement>))>;
 
 export { TextFieldGroupProps }
@@ -4340,9 +4339,9 @@ size: {
 l: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textL }
@@ -4355,9 +4354,9 @@ size: {
 m: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textM }
@@ -4370,9 +4369,9 @@ size: {
 s: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textS }
@@ -4401,8 +4400,8 @@ textS: PolymorphicClassName;
 textXS: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
-customGradientColor?: string | undefined;
-roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+customGradientColor?: string;
+roundness?: Roundness;
 } & SkeletonGradientProps & RefAttributes<HTMLDivElement> & TextSkeletonBaseProps>;
 
 // @public (undocumented)
@@ -4411,9 +4410,9 @@ size: {
 xs: PolymorphicClassName;
 };
 }> & {
-noWrap?: boolean | undefined;
-breakWord?: boolean | undefined;
-color?: string | undefined;
+noWrap?: boolean;
+breakWord?: boolean;
+color?: string;
 } & SpacingProps & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { textXS }
@@ -4463,11 +4462,11 @@ m: PolymorphicClassName;
 l: PolymorphicClassName;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
-children: ReactNode;
-orientation?: "horizontal" | "vertical" | undefined;
-hasShadow?: boolean | undefined;
-size?: string | undefined;
-view?: string | undefined;
+children: React.ReactNode;
+orientation?: "vertical" | "horizontal";
+hasShadow?: boolean;
+size?: string;
+view?: string;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)

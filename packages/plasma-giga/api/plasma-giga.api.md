@@ -1304,7 +1304,9 @@ s: PolymorphicClassName;
 xs: PolymorphicClassName;
 };
 }> & (({
-size?: string | undefined;
+size?: string | undefined; /**
+* Кнопка.
+*/
 view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
@@ -1319,7 +1321,9 @@ subtitle?: string | undefined;
 label?: string | undefined;
 children?: undefined;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>) | ({
-size?: string | undefined;
+size?: string | undefined; /**
+* Кнопка.
+*/
 view?: string | undefined;
 contentLeft?: ReactNode;
 contentRight?: ReactNode;
@@ -1658,7 +1662,9 @@ export { DrawerContentProps }
 
 // @public
 export const DrawerFooter: FunctionComponent<PropsType<Variants> & {
-view?: string | undefined;
+view?: string | undefined; /**
+* Компонент части контента Drawer.
+*/
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { DrawerFooterProps }
@@ -3472,9 +3478,7 @@ view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: number;
 height: number;
-size?: undefined; /**
-* @deprecated
-*/
+size?: undefined;
 view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: string;

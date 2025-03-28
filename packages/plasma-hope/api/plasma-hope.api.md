@@ -4,8 +4,6 @@
 
 ```ts
 
-/// <reference types="react" />
-
 import { addFocus } from '@salutejs/plasma-core';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -330,10 +328,8 @@ export { canUseDOM }
 
 export { Caption }
 
-// Warning: (ae-forgotten-export) The symbol "BackgroundProps" needs to be exported by the entry point index.d.ts
-//
 // @public
-export const Card: StyledComponent<ForwardRefExoticComponent<CardProps_2 & RefAttributes<HTMLDivElement>>, any, CardProps_2 & RoundnessProps & BackgroundProps, never>;
+export const Card: StyledComponent<ForwardRefExoticComponent<CardProps_2 & RefAttributes<HTMLDivElement>>, any, CardProps, never>;
 
 // @public (undocumented)
 export const CardBadge: StyledComponent<FC<BadgeProps_2>, any, BadgeProps, never>;
@@ -344,7 +340,7 @@ export const CardBody: StyledComponent<"div", any, CardBodyProps, never>;
 export { CardBodyProps }
 
 // @public
-export const CardContent: StyledComponent<"div", any, ({} & CardContentProps_2) & CardContentProps, never>;
+export const CardContent: StyledComponent<"div", any, CardContentProps_2 & CardContentProps, never>;
 
 // @public (undocumented)
 export type CardContentProps = Omit<CardContentProps_2, 'compact' | 'nonce' | 'onResize' | 'onResizeCapture'>;
@@ -353,13 +349,15 @@ export { CardMedia }
 
 export { CardMediaProps }
 
+// Warning: (ae-forgotten-export) The symbol "BackgroundProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
 export type CardProps = CardProps_2 & RoundnessProps & BackgroundProps;
 
 // @public
 export const Carousel: React_2.ForwardRefExoticComponent<Omit<CarouselProps_2, "axis" | "animatedScrollByIndex" | "throttleMs" | "debounceMs"> & {
-    ariaLive?: "off" | "polite" | undefined;
-    isDragScrollDisabled?: boolean | undefined;
+    ariaLive?: "off" | "polite";
+    isDragScrollDisabled?: boolean;
 } & React_2.RefAttributes<HTMLDivElement>>;
 
 export { CarouselGridWrapper }
@@ -389,7 +387,7 @@ export function clearSelection(): void;
 export { convertRoundnessMatrix }
 
 // @public
-export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
+export const defaultValidate: (files: FileList | null, accept?: string) => ValidationResult;
 
 // @public (undocumented)
 export type Design = {
@@ -588,7 +586,7 @@ export const gridMargins: {
 };
 
 // @public (undocumented)
-export const gridSizes: ("XXL" | "XL" | "L" | "M" | "S")[];
+export const gridSizes: Breakpoint[];
 
 export { H1 }
 
@@ -853,7 +851,7 @@ export { ScrollSnapProps }
 // Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Select: ({ design }: Design_2) => <T>(props: SelectProps<T> & React_2.RefAttributes<HTMLButtonElement>) => ReactElement;
+export const Select: ({ design }: Design_2) => <T>(props: SelectProps<T> & RefAttributes<SelectRefElement>) => ReactElement;
 
 // @public (undocumented)
 export const SelectGroup: StyledComponent<"div", any, {}, never>;
@@ -886,7 +884,7 @@ export { ShiftProps }
 
 // @public (undocumented)
 export const SliderThumb: StyledComponent<"div", any, {
-disabled?: boolean | undefined;
+disabled?: boolean;
 }, never>;
 
 // @public
@@ -911,7 +909,7 @@ export { StyledCard }
 // @public (undocumented)
 export const StyledPreviewGallery: StyledComponent<"div", any, {
 isGrabbing: boolean;
-maxHeight?: number | undefined;
+maxHeight?: number;
 }, never>;
 
 // @public (undocumented)
@@ -1062,7 +1060,7 @@ export { views }
 // Warning: (ae-forgotten-export) The symbol "WithAssistiveDropdownProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const withAssistiveDropdown: <P extends object>(Component: React_2.ComponentType<P> | React_2.ForwardRefExoticComponent<P>, Dropdown?: ComponentType<DropdownUncontrolledProps>) => React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<P & WithAssistiveDropdownProps> & React_2.RefAttributes<HTMLButtonElement>>;
+export const withAssistiveDropdown: <P extends object>(Component: ComponentType<P> | ForwardRefExoticComponent<P>, Dropdown?: ComponentType<DropdownUncontrolledProps>) => React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<P & WithAssistiveDropdownProps> & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { withAutoFocus }
 

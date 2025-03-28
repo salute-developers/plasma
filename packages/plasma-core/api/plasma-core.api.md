@@ -4,8 +4,6 @@
 
 ```ts
 
-/// <reference types="react" />
-
 import { applyHyphens } from '@salutejs/plasma-typo';
 import { applySpacing } from '@salutejs/plasma-typo';
 import { BreakWordProps } from '@salutejs/plasma-typo';
@@ -25,7 +23,6 @@ import { MutableRefObject } from 'react';
 import { PropsWithChildren } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
-import { RefObject } from 'react';
 import { spacing } from '@salutejs/plasma-typo';
 import { SpacingProps } from '@salutejs/plasma-typo';
 import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-typo/lib/cjs/mixins/applySpacing';
@@ -137,7 +134,7 @@ export const BaseboxContentWrapper: StyledComponent<"label", any, {}, never>;
 
 // @public (undocumented)
 export const BaseboxDescription: StyledComponent<"div", any, SpacingProps_2 & BreakWordProps_2 & {
-singleLine?: boolean | undefined;
+singleLine?: boolean;
 }, never>;
 
 // @public (undocumented)
@@ -145,7 +142,7 @@ export const BaseboxInput: StyledComponent<"input", any, {}, never>;
 
 // @public (undocumented)
 export const BaseboxLabel: StyledComponent<"div", any, SpacingProps_2 & BreakWordProps_2 & {
-singleLine?: boolean | undefined;
+singleLine?: boolean;
 }, never>;
 
 // Warning: (ae-forgotten-export) The symbol "ControlProps" needs to be exported by the entry point index.d.ts
@@ -396,7 +393,7 @@ export interface CardBodyProps extends React_2.HTMLAttributes<HTMLDivElement> {
 }
 
 // @public
-export const CardContent: StyledComponent<"div", any, {} & CardContentProps, never>;
+export const CardContent: StyledComponent<"div", any, CardContentProps, never>;
 
 // Warning: (ae-forgotten-export) The symbol "CoverProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "NoCoverProps" needs to be exported by the entry point index.d.ts
@@ -501,8 +498,8 @@ export type CarouselTemplateProps = Omit<BasicProps, Exclude<keyof UseCarouselOp
 
 // @public
 export const CarouselTrack: StyledComponent<"div", any, Pick<CarouselProps, "axis" | "paddingStart" | "paddingEnd"> & {
-virtualSize?: number | undefined;
-liteMode?: boolean | undefined;
+virtualSize?: number;
+liteMode?: boolean;
 }, never>;
 
 // @public (undocumented)
@@ -510,8 +507,10 @@ export type CarouselVirtualProps = {
     virtualSize: number;
 } & Omit<CarouselTemplateProps, 'paddingStart' | 'paddingEnd' | 'scrollSnapType'>;
 
+// Warning: (ae-forgotten-export) The symbol "Pin" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const convertRoundnessMatrix: (matrixKey?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined, r?: string | undefined, h?: string | undefined) => string | undefined;
+export const convertRoundnessMatrix: (matrixKey?: Pin, r?: string, h?: string) => string | undefined;
 
 // @public
 export function createButton<T extends HTMLElement, P extends ButtonProps>(Root?: StyledComponent<"button", any, StyledButtonProps, never>): React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<P> & React_2.RefAttributes<T>>;
@@ -576,7 +575,7 @@ export const extractTextFrom: (textSource?: string | number | null | ReactNode) 
 
 // @public (undocumented)
 export const Fade: StyledComponent<"div", any, {
-placement?: "top" | "bottom" | undefined;
+placement?: "top" | "bottom";
 }, never>;
 
 // @public (undocumented)
@@ -588,7 +587,7 @@ export const fieldBackgroundStatuses: {
 
 // @public
 const FieldContent: StyledComponent<"div", any, {
-pos: 'left' | 'right';
+pos: "left" | "right";
 }, never>;
 export { FieldContent }
 export { FieldContent as TextFieldContent }
@@ -847,7 +846,6 @@ export type PickOptional<T, K extends keyof T> = Partial<Pick<T, K>>;
 
 // @public (undocumented)
 export interface PinProps {
-    // Warning: (ae-forgotten-export) The symbol "Pin" needs to be exported by the entry point index.d.ts
     pin: Pin;
 }
 
@@ -1281,7 +1279,7 @@ export interface ThemeProviderContextBase extends DefaultTheme {
 
 // @public (undocumented)
 export const ThumbBase: StyledComponent<"div", any, {
-disabled?: boolean | undefined;
+disabled?: boolean;
 }, never>;
 
 // Warning: (ae-forgotten-export) The symbol "tfs" needs to be exported by the entry point index.d.ts
@@ -1348,7 +1346,7 @@ export type UseCarouselOptions = Pick<CarouselProps, 'index' | 'axis' | 'detectA
 export function useDebouncedFunction(func: (...args: any) => any, delay: number, cleanUp?: boolean): (...args: any[]) => void;
 
 // @public
-export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined, focusAfterAnimation?: boolean | undefined) => (instance: HTMLElement | null) => void;
+export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | React.RefObject<HTMLElement>, focusAfterNode?: React.RefObject<HTMLElement>, focusAfterAnimation?: boolean) => ((instance: HTMLElement | null) => void);
 
 // Warning: (ae-forgotten-export) The symbol "UseForkRefHook" needs to be exported by the entry point index.d.ts
 //
@@ -1370,7 +1368,7 @@ export const usePaginationDots: ({ items, index, visibleItems }: SmartPagination
 export const usePopupBaseContext: () => PopupContextType;
 
 // @public
-export const useResizeObserver: <T extends HTMLElement>(ref: MutableRefObject<T | null>, callback: (element: T) => void) => void;
+export const useResizeObserver: <T extends HTMLElement>(ref: React.MutableRefObject<T | null>, callback: (element: T) => void) => void;
 
 // @public (undocumented)
 export const useToast: () => {
