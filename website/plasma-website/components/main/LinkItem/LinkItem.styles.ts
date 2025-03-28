@@ -1,6 +1,7 @@
 import { TextS } from '@salutejs/plasma-b2c';
-import { accent, secondary, whitePrimary } from '@salutejs/plasma-tokens-b2c';
+import { secondary, whitePrimary } from '@salutejs/plasma-tokens-b2c';
 import styled, { css } from 'styled-components';
+import { general } from '@salutejs/plasma-colors';
 
 import { addGradient } from '../../../mixins';
 import { removeGradient } from '../../../mixins/addGradient';
@@ -49,7 +50,7 @@ export const LinkItemWrapper = styled.a<{ isMeta?: boolean }>`
         }
 
         & ${ContentRightWrapper} {
-            color: ${accent};
+            color: ${general.electricBlue['600']};
         }
     }
 `;

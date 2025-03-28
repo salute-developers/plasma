@@ -14,6 +14,10 @@ type PackagesInfo = {
 export const baseColorCode = '600';
 export const PACKAGES_INFO = (process.env.PACKAGES_INFO as unknown) as PackagesInfo;
 export const basePath = process.env.BASE_PATH || '';
+export const rootFontSize = 16;
+export const topOffsetAfterScroll = 35;
+export const sectionOffsetAccuracy = 5;
+export const stickyNavItemMargin = 0.75;
 
 export const stickyNavSnapVariant = {
     topOfSection: 'top-of-section',

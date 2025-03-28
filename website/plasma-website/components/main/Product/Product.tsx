@@ -1,8 +1,9 @@
-import React, { FC, MouseEvent, ReactNode, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 
+// TODO: забирать иконки из plasma-icons
 import { ArrowRight } from '../../icons/ArrowRight';
 
-import { constants } from './Product.tokens';
+import { constants } from './Product.constants';
 import { Title, Icon, ProductMainInfo, ProductWrapper, ProductAdditionalInfo } from './Product.styles';
 
 export type LinkItem = {

@@ -3,9 +3,10 @@ import { BodyXXS } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 import { useEffect, useRef, useState } from 'react';
 
-import { Menu, Product, ProductList, LinkItem, StickyNav, StickyNavItem } from '../components/main';
+import { Menu, Product, ProductList, LinkItem, StickyNav, StickyNavItem, DraggableContainer } from '../components/main';
 import type { ProductProps } from '../components/main';
 import { currentYear, products, stickyNavSnapVariant, verticals, verticalsMap } from '../utils';
+import { rootFontSize, sectionOffsetAccuracy, stickyNavItemMargin, topOffsetAfterScroll } from '../utils/constants';
 
 const CopyrightText = styled(BodyXXS)`
     position: fixed;
@@ -52,6 +53,8 @@ export default function Home() {
     const stickyNavRefs = useRef<(HTMLDivElement | null)[]>([]);
     const isScrolling = useRef(false);
     const firstBlockHeight = useRef(0);
+    const touchStart = useRef({ x: 0, y: 0 });
+    const touchEnd = useRef({ x: 0, y: 0 });
 
     const [menuExpanded, setMenuExpanded] = useState(false);
 
@@ -99,6 +102,7 @@ export default function Home() {
 
         requestAnimationFrame(recalculateStickyNavPosition);
     };
+
     const cancelAllAnimationFrames = () => {
         let id = window.requestAnimationFrame(() => {});
         while (id--) {
@@ -143,7 +147,12 @@ export default function Home() {
         }, timeout);
     };
 
-    const handleScrollViews = (event: WheelEvent) => {
+    const handleTouchStart = (e: TouchEvent) => {
+        if (isScrolling.current || !scrollContainerRef.current) return;
+        touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    };
+
+    const handleScrollViews = (event?: WheelEvent) => {
         if (isScrolling.current || !scrollSnapBlock?.current || !scrollContainerRef.current) {
             return;
         }
@@ -154,21 +163,24 @@ export default function Home() {
 
         const { scrollTop } = containerBlock;
 
-        const scrollDownCondition = event.deltaY > 0 && Math.abs(event.deltaX) < 1;
-        const scrollUpCondition = event.deltaY < 0 && Math.abs(event.deltaX) < 1;
+        const touchDiffY = touchEnd.current.y - touchStart.current.y;
+        const touchDiffX = touchEnd.current.x - touchStart.current.x;
 
-        if (scrollTop > 50 && scrollTop < firstBlockHeight.current && scrollDownCondition) {
-            scrollViewProcess(firstBlockHeight.current - 20, true, 800, containerBlock);
-        } else if (scrollTop <= 50 && scrollDownCondition) {
-            scrollViewProcess(0, false, 400, containerBlock);
-        } else if (scrollTop < firstBlockHeight.current - 100 && scrollUpCondition) {
+        let scrollDownCondition = false;
+        let scrollUpCondition = false;
+
+        if (event) {
+            scrollDownCondition = event?.deltaY > 0 && Math.abs(event.deltaX) < 1;
+            scrollUpCondition = event?.deltaY < 0 && Math.abs(event.deltaX) < 1;
+        } else {
+            scrollDownCondition = touchDiffY < -10 && Math.abs(touchDiffX) < 10;
+            scrollUpCondition = touchDiffY > 10 && Math.abs(touchDiffX) < 10;
+        }
+
+        if (scrollTop < firstBlockHeight.current && scrollDownCondition) {
+            scrollViewProcess(firstBlockHeight.current - topOffsetAfterScroll, true, 800, containerBlock);
+        } else if (scrollTop < firstBlockHeight.current - topOffsetAfterScroll && scrollUpCondition) {
             scrollViewProcess(0, false, 800, containerBlock);
-        } else if (
-            scrollTop >= firstBlockHeight.current - 100 &&
-            scrollTop < firstBlockHeight.current &&
-            scrollUpCondition
-        ) {
-            scrollViewProcess(firstBlockHeight.current - 80, true, 400, containerBlock);
         }
     };
 
@@ -205,7 +217,7 @@ export default function Home() {
                     return acc;
                 }, 0);
             const extraOffset = Array(offsetIndex)
-                .fill(0.75 * 16)
+                .fill(stickyNavItemMargin * rootFontSize)
                 .reduce((acc, curr) => {
                     acc += curr;
                     return acc;
@@ -217,8 +229,8 @@ export default function Home() {
             // NOTE: above product section
             if (bottomScroll < initialSectionTop + viewportHeight) {
                 const needExtraOffset = index !== 0;
-                const actualNavItemTop = `calc(100% - 4rem - ${extraLineHeightBottomOffset / 16}rem ${
-                    needExtraOffset ? `- ${extraOffset / 16}rem` : ''
+                const actualNavItemTop = `calc(100% - 4rem - ${extraLineHeightBottomOffset / rootFontSize}rem ${
+                    needExtraOffset ? `- ${extraOffset / rootFontSize}rem` : ''
                 })`;
 
                 if (navItem.style.top !== stickyNavSnapVariant.bottomOfViewport) {
@@ -230,8 +242,8 @@ export default function Home() {
 
             // NOTE: inside product section
             if (
-                stickyNavElementTop >= initialSection.offsetTop - 5 &&
-                actualScroll < sectionStart - 5 &&
+                stickyNavElementTop >= initialSection.offsetTop - sectionOffsetAccuracy &&
+                actualScroll < sectionStart - sectionOffsetAccuracy &&
                 bottomScroll > initialSectionTop + viewportHeight
             ) {
                 if (navItem.dataset.snap !== stickyNavSnapVariant.topOfSection) {
@@ -244,8 +256,8 @@ export default function Home() {
             // NOTE: under product section
             if (actualScroll >= sectionStart) {
                 const needExtraOffset = index !== 0;
-                const actualNavItemTop = `calc(12.5rem + ${extraLineHeightOffset / 16}rem ${
-                    needExtraOffset ? `+ ${extraOffset / 16}rem` : ''
+                const actualNavItemTop = `calc(12.5rem + ${extraLineHeightOffset / rootFontSize}rem ${
+                    needExtraOffset ? `+ ${extraOffset / rootFontSize}rem` : ''
                 })`;
 
                 if (navItem.dataset.snap !== stickyNavSnapVariant.topOfViewport) {
@@ -257,7 +269,18 @@ export default function Home() {
         });
     };
 
-    const handleScroll = (event: WheelEvent) => {
+    const handleTouchMove = (e: TouchEvent) => {
+        if (isScrolling.current || !scrollSnapBlock?.current || !scrollContainerRef.current) {
+            return;
+        }
+
+        touchEnd.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+
+        handleChangeSideNavPos();
+        handleScroll();
+    };
+
+    const handleScroll = (event?: WheelEvent) => {
         handleChangeSideNavPos();
         handleScrollViews(event);
     };
@@ -270,8 +293,18 @@ export default function Home() {
 
         handleChangeSideNavPos();
 
+        // NOTE: wheel event for desktop
         containerBlock.addEventListener('wheel', handleScroll, { passive: false });
-        return () => containerBlock.removeEventListener('wheel', handleScroll);
+
+        // NOTE: touch events for mobile
+        containerBlock.addEventListener('touchstart', handleTouchStart, { passive: false });
+        containerBlock.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+        return () => {
+            containerBlock.removeEventListener('wheel', handleScroll);
+            containerBlock.removeEventListener('touchstart', handleTouchStart);
+            containerBlock.removeEventListener('touchmove', handleTouchMove);
+        };
     }, []);
 
     return (
@@ -284,9 +317,19 @@ export default function Home() {
                             key={title + href}
                             href={href}
                             title={title}
-                            additionalInfo={items?.map(({ text, href }) => (
-                                <LinkItem key={text + href} title={text} href={href} />
-                            ))}
+                            additionalInfo={
+                                /**
+                                 * TODO: вернуть вывод ссылок на группы иконок,
+                                 * после добавления фильтров в url на странице
+                                 */
+                                title !== 'Пиктограммы' && (
+                                    <DraggableContainer>
+                                        {items?.map(({ text, href }) => (
+                                            <LinkItem key={text + href} title={text} href={href} />
+                                        ))}
+                                    </DraggableContainer>
+                                )
+                            }
                             alwaysShowIcon
                         />
                     ))}
@@ -353,7 +396,7 @@ export default function Home() {
                                 key={`${group}_${offsetIndex + index}`}
                                 index={index}
                                 offsetIndex={offsetIndex}
-                                group={group}
+                                group={group.replace('Masterbrand', '')}
                                 needExtraOffset={needExtraOffset}
                                 stickyNavRefs={stickyNavRefs}
                                 onClick={() => handleScrollToProductGroup(index)}
