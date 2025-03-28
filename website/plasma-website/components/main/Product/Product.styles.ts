@@ -1,6 +1,7 @@
 import { DsplM } from '@salutejs/plasma-b2c';
-import { accent, whitePrimary } from '@salutejs/plasma-tokens-b2c';
+import { whitePrimary } from '@salutejs/plasma-tokens-b2c';
 import styled, { css } from 'styled-components';
+import { general } from '@salutejs/plasma-colors';
 
 import { addGradient, multipleMediaQuery } from '../../../mixins';
 
@@ -72,7 +73,7 @@ export const ProductMainInfo = styled.a<{ alwaysShowIcon?: boolean }>`
         }
 
         & ${Icon} {
-            color: ${accent};
+            color: ${general.electricBlue['600']};
             opacity: 1;
         }
     }
@@ -89,7 +90,7 @@ export const ProductAdditionalInfo = styled.div`
         display: none;
     }
 
-    padding: 0 4rem;
+    padding-left: 4rem;
 
     ${multipleMediaQuery(['M', 'S'])(css`
         padding-left: 3.5rem;
