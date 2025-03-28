@@ -101,30 +101,20 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                         ? [
                               {
                                   id: SELECT_COLUMN_ID,
-                                  header: ({ table }) => {
-                                      console.log(
-                                          'checkbox',
-                                          table.getIsSomeRowsSelected(),
-                                          table.getIsAllRowsSelected(),
-                                      );
-
-                                      return (
-                                          <StyledCheckbox
-                                              checked={table.getIsSomeRowsSelected() || table.getIsAllRowsSelected()}
-                                              indeterminate={table.getIsSomeRowsSelected()}
-                                              onChange={table.getToggleAllRowsSelectedHandler()}
-                                          />
-                                      );
-                                  },
-                                  cell: ({ row }) => {
-                                      return (
-                                          <StyledCheckbox
-                                              checked={row.getIsSelected()}
-                                              indeterminate={row.getIsSomeSelected()}
-                                              onChange={row.getToggleSelectedHandler()}
-                                          />
-                                      );
-                                  },
+                                  header: ({ table }) => (
+                                      <StyledCheckbox
+                                          checked={table.getIsSomeRowsSelected() || table.getIsAllRowsSelected()}
+                                          indeterminate={table.getIsSomeRowsSelected()}
+                                          onChange={table.getToggleAllRowsSelectedHandler()}
+                                      />
+                                  ),
+                                  cell: ({ row }) => (
+                                      <StyledCheckbox
+                                          checked={row.getIsSelected()}
+                                          indeterminate={row.getIsSomeSelected()}
+                                          onChange={row.getToggleSelectedHandler()}
+                                      />
+                                  ),
                                   enableResizing: false,
                               },
                           ]
@@ -195,7 +185,6 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 getFilteredRowModel: getFilteredRowModel(),
                 onColumnFiltersChange: handleFiltering,
                 onRowSelectionChange: handleRowSelection,
-                // getPaginationRowModel: pagination ? getPaginationRowModel() : undefined,
                 columnResizeMode: 'onChange',
                 columnResizeDirection: 'ltr',
                 meta: {
@@ -227,6 +216,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                                 header={header}
                                                 size={size}
                                                 variant={variant}
+                                                outerFiltered={outerFiltered}
                                             />
                                         );
                                     })}

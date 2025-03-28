@@ -1,85 +1,93 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
+import { useDidMountEffect } from '../../../../../../hooks';
 import { IconFilterFunnel } from '../../../../../_Icon';
 import { getIconSize } from '../../HeadCell';
-import { ButtonAccent, ButtonClear } from '../../../../Table.styles';
+import { ButtonAccent, LinkButton } from '../../../../Table.styles';
 
-import {
-    FilterWrapper,
-    IconFilterWrapper,
-    StyledIndicator,
-    StyledPopover,
-    FilterList,
-    StyledCheckbox,
-    StyledDivider,
-    ButtonWrapper,
-} from './Filter.styles';
+import { IconFilterWrapper, StyledIndicator, Select, StyledDivider, ControlPanel } from './Filter.styles';
 
-export const Filter: React.FC<any> = ({ header, size }) => {
+const getSelectWidth = (size: string) => {
+    switch (size) {
+        case 'l': {
+            return '18.75rem';
+        }
+        case 'm': {
+            return '16rem';
+        }
+        case 's': {
+            return '14rem';
+        }
+        default: {
+            return '14rem';
+        }
+    }
+};
+
+const isFilterChanged = (outerFiltered: string[], localFiltered: string[]) => {
+    return (
+        outerFiltered.length !== localFiltered.length ||
+        new Set([...outerFiltered, ...localFiltered]).size !== outerFiltered.length
+    );
+};
+
+export const Filter: React.FC<any> = ({ header, size, outerFiltered }) => {
     const filtered = header.column.getFilterValue() || [];
 
-    const [isOpen, setIsOpen] = useState(false);
     const [localFiltered, setLocalFiltered] = useState(filtered || []);
 
     const { filters } = header?.column?.columnDef?.meta || {};
 
-    const handleFilterClick = (value: any) => {
-        if (localFiltered.some((k: any) => k === value)) {
-            setLocalFiltered(localFiltered.filter((e: any) => e !== value));
-        } else {
-            setLocalFiltered([...localFiltered, value]);
-        }
-    };
+    const isDisabled = !isFilterChanged(filtered, localFiltered);
 
     const handleFilterSubmit = () => {
         header.column.setFilterValue(localFiltered);
-
-        setIsOpen(false);
     };
 
-    const handleClose = () => {
-        setIsOpen(false);
+    const handleReset = () => {
+        setLocalFiltered([]);
     };
 
-    useEffect(() => {
-        if (!isOpen) {
+    const handleToggle = (opened: boolean) => {
+        if (!opened) {
             setLocalFiltered(header.column.getFilterValue() || []);
         }
-    }, [isOpen]);
+    };
+
+    useDidMountEffect(() => {
+        setLocalFiltered(filtered);
+    }, [outerFiltered]);
 
     return (
-        <StyledPopover
-            opened={isOpen}
-            onToggle={(is) => setIsOpen(is)}
-            placement="bottom"
-            target={
+        <Select
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            placement="bottom-end"
+            multiselect
+            value={localFiltered}
+            onChange={setLocalFiltered}
+            renderTarget={() => (
                 <IconFilterWrapper>
                     <IconFilterFunnel size={getIconSize(size)} />
 
                     {filtered.length ? <StyledIndicator size="s" view="accent" /> : undefined}
                 </IconFilterWrapper>
+            )}
+            items={filters}
+            listWidth={getSelectWidth(size)}
+            onToggle={handleToggle}
+            afterList={
+                <>
+                    <StyledDivider orientation="horizontal" length="auto" />
+
+                    <ControlPanel>
+                        <LinkButton onClick={handleReset}>Сбросить фильтр</LinkButton>
+                        <ButtonAccent disabled={isDisabled} onClick={handleFilterSubmit}>
+                            Применить
+                        </ButtonAccent>
+                    </ControlPanel>
+                </>
             }
-            closeOnOverlayClick
-        >
-            <FilterWrapper>
-                <FilterList>
-                    {filters?.map((filter: any) => (
-                        <StyledCheckbox
-                            key={filter.value}
-                            onClick={() => handleFilterClick(filter.value)}
-                            checked={localFiltered.some((val: any) => filter.value === val)}
-                            label={filter.label}
-                        />
-                    ))}
-                </FilterList>
-
-                <StyledDivider orientation="horizontal" length="100%" />
-
-                <ButtonWrapper>
-                    <ButtonClear onClick={handleClose}>Закрыть</ButtonClear>
-                    <ButtonAccent onClick={handleFilterSubmit}>Применить</ButtonAccent>
-                </ButtonWrapper>
-            </FilterWrapper>
-        </StyledPopover>
+        />
     );
 };

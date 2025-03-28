@@ -45,7 +45,18 @@ const meta: Meta<StoryTreeProps> = {
 
 export default meta;
 
-const rows = [
+type DataRow = {
+    id: number;
+    country: string;
+    capital: string;
+    population: number;
+    continent: string;
+    currency: string;
+    officialLanguage: string;
+    area: number;
+};
+
+const rows: DataRow[] = [
     {
         id: 0,
         country: 'Канада',
@@ -214,6 +225,10 @@ const columnsAllInOne = [
         id: 'officialLanguage',
         label: 'Язык',
         enableResizing: true,
+        filters: [
+            { value: 'eng', label: 'Английский' },
+            { value: 'rus', label: 'Русский' },
+        ],
     },
     {
         id: 'area',
@@ -236,6 +251,93 @@ export const Basic: StoryObj<StoryTreeProps> = {
     },
 };
 
+const filterHelper: (filtered: { id: string; value: string[] }[]) => DataRow[] = (filtered) => {
+    let newData = [...rows];
+
+    filtered.forEach(({ id, value }) => {
+        if (value.length === 0) return;
+
+        switch (id) {
+            case 'population': {
+                newData = newData.filter(({ population }) => {
+                    for (const val of value) {
+                        switch (val) {
+                            case 'small': {
+                                if (population < 50) return true;
+                                break;
+                            }
+
+                            case 'big': {
+                                if (population > 100) return true;
+                                break;
+                            }
+
+                            default: {
+                                return false;
+                            }
+                        }
+                    }
+
+                    return false;
+                });
+
+                break;
+            }
+
+            case 'officialLanguage': {
+                newData = newData.filter(({ officialLanguage }) => {
+                    for (const val of value) {
+                        switch (val) {
+                            case 'eng': {
+                                if (officialLanguage.toLowerCase().includes('английский')) return true;
+                                break;
+                            }
+
+                            case 'rus': {
+                                if (officialLanguage.toLowerCase().includes('русский')) return true;
+                                break;
+                            }
+
+                            default: {
+                                return false;
+                            }
+                        }
+                    }
+
+                    return false;
+                });
+
+                break;
+            }
+
+            default: {
+                break;
+            }
+        }
+    });
+
+    return newData;
+};
+
+const sortedHelper: (data: DataRow[], sorted: { id: string; desc: boolean }[]) => DataRow[] = (data, sorted) => {
+    const newData = [...data];
+
+    if (sorted.length === 0) return newData;
+
+    const sortColumn = sorted[0].id;
+    const descOrder = sorted[0].desc;
+
+    newData.sort((a, b) => {
+        if (descOrder) {
+            return b[sortColumn] - a[sortColumn];
+        }
+
+        return a[sortColumn] - b[sortColumn];
+    });
+
+    return newData;
+};
+
 const StoryAllInOne = (args: StoryTreeProps) => {
     const [data, setData] = useState(rows);
 
@@ -244,11 +346,14 @@ const StoryAllInOne = (args: StoryTreeProps) => {
     const [sorted, setSorted] = useState([]);
 
     const handleChange = ({ selected, sorted, filtered }) => {
-        console.log('handleChange', selected, sorted, filtered);
-
         setSelected(selected);
         setSorted(sorted);
         setFiltered(filtered);
+
+        const filteredData = filterHelper(filtered);
+        const sortedData = sortedHelper(filteredData, sorted);
+
+        setData(sortedData);
     };
 
     const handleCellUpdate = (rowId, columnId, value) => {
@@ -269,8 +374,28 @@ const StoryAllInOne = (args: StoryTreeProps) => {
         <div>
             <ButtonGroup size="xs" view="positive">
                 <Button text="Очистить выбранные" view="default" size="xs" onClick={() => setSelected({})} />
-                <Button text="Убрать сортировку" view="negative" onClick={() => setSorted([])} />
-                <Button text="Очистить фильтры" view="positive" onClick={() => setFiltered([])} />
+                <Button
+                    text="Убрать сортировку"
+                    view="negative"
+                    onClick={() => {
+                        handleChange({
+                            selected,
+                            sorted: [],
+                            filtered,
+                        });
+                    }}
+                />
+                <Button
+                    text="Очистить фильтры"
+                    view="positive"
+                    onClick={() => {
+                        handleChange({
+                            selected,
+                            sorted,
+                            filtered: [],
+                        });
+                    }}
+                />
             </ButtonGroup>
 
             <br />

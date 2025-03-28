@@ -5,6 +5,7 @@ import { component, mergeConfig } from '../../engines';
 import { checkboxConfig, checkboxTokens } from '../Checkbox';
 import { dividerConfig, dividerTokens } from '../Divider';
 import { buttonConfig, buttonTokens } from '../Button';
+import { linkButtonConfig, linkButtonTokens } from '../LinkButton';
 
 import { TableProps } from './Table.types';
 import { tableTokens as tokens } from './Table.tokens';
@@ -17,6 +18,9 @@ const ButtonBase = component(mergedButtonConfig);
 
 const mergedDividerConfig = mergeConfig(dividerConfig);
 const Divider = component(mergedDividerConfig);
+
+const mergedLinkButtonConfig = mergeConfig(linkButtonConfig);
+const LinkButtonBase = component(mergedLinkButtonConfig);
 
 export const base = css`
     display: inline-block;
@@ -114,16 +118,6 @@ export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.fillColor}: var(--text-accent);
     ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
     ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
-
-    ${checkboxTokens.labelFontFamily}: var(${tokens.checkboxLabelFontFamily});
-    ${checkboxTokens.labelFontSize}: var(${tokens.checkboxLabelFontSize});
-    ${checkboxTokens.labelFontStyle}: var(${tokens.checkboxLabelFontStyle});
-    ${checkboxTokens.labelFontWeight}: var(${tokens.checkboxLabelFontWeight});
-    ${checkboxTokens.labelLetterSpacing}: var(${tokens.checkboxLabelLetterSpacing});
-    ${checkboxTokens.labelLineHeight}: var(${tokens.checkboxLabelLineHeight});
-
-    ${checkboxTokens.contentTopOffset}: var(${tokens.checkboxContentTopOffset});
-    ${checkboxTokens.contentLeftOffset}: var(${tokens.checkboxContentLeftOffset});
 `;
 
 export const StyledDivider = styled(Divider)`
@@ -134,14 +128,14 @@ export const StyledDivider = styled(Divider)`
 
 export const Button = styled(ButtonBase)`
     ${buttonTokens.buttonHeight}: var(${tokens.buttonHeight});
-`;
+    ${buttonTokens.buttonDisabledOpacity}: 0.4;
 
-export const ButtonClear = styled(Button)`
-    ${buttonTokens.buttonColor}: var(--text-primary);
-    ${buttonTokens.buttonValueColor}: var(--text-secondary);
-    ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
-    ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-    ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+    ${buttonTokens.buttonFontFamily}: var(${tokens.buttonFontFamily});
+    ${buttonTokens.buttonFontSize}: var(${tokens.buttonFontSize});
+    ${buttonTokens.buttonFontStyle}: var(${tokens.buttonFontStyle});
+    ${buttonTokens.buttonFontWeight}: var(${tokens.buttonFontWeight});
+    ${buttonTokens.buttonLetterSpacing}: var(${tokens.buttonLetterSpacing});
+    ${buttonTokens.buttonLineHeight}: var(${tokens.buttonLineHeight});
 `;
 
 export const ButtonAccent = styled(Button)`
@@ -150,4 +144,19 @@ export const ButtonAccent = styled(Button)`
     ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
     ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
     ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
+`;
+
+export const LinkButton = styled(LinkButtonBase)`
+    ${linkButtonTokens.linkButtonColor}: var(--text-primary);
+    ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+    ${linkButtonTokens.linkButtonColorHover}: var(--text-primary-hover);
+    ${linkButtonTokens.linkButtonColorActive}: var(--text-primary-active);
+    ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+
+    ${linkButtonTokens.linkButtonFontFamily}: var(${tokens.linkButtonFontFamily});
+    ${linkButtonTokens.linkButtonFontSize}: var(${tokens.linkButtonFontSize});
+    ${linkButtonTokens.linkButtonFontStyle}: var(${tokens.linkButtonFontStyle});
+    ${linkButtonTokens.linkButtonFontWeight}: var(${tokens.linkButtonFontWeight});
+    ${linkButtonTokens.linkButtonLetterSpacing}: var(${tokens.linkButtonLetterSpacing});
+    ${linkButtonTokens.linkButtonLineHeight}: var(${tokens.linkButtonLineHeight});
 `;
