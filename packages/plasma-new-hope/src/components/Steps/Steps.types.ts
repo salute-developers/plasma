@@ -19,6 +19,10 @@ export interface StepsProps {
      */
     view?: string;
     /**
+     * Отображение элемента шага
+     */
+    itemView?: string;
+    /**
      * Ориентация компонента
      * @default 'horizontal'
      */
@@ -46,7 +50,7 @@ export interface StepsProps {
      */
     hasContent?: StepsContent;
     /**
-     * Отображает лоадер вместо индикатора активного шага.
+     * Отображает loader вместо индикатора активного шага.
      */
     hasLoader?: boolean;
     /**

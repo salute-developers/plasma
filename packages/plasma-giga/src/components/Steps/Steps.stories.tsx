@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconMic } from '@salutejs/plasma-icons';
 
 import { Steps } from './Steps';
+import { config } from './Steps.config';
 
 import type { StepItemProps } from '.';
+
+const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof Steps> = {
     title: 'Navigation/Steps',
@@ -129,9 +132,11 @@ const DefaultStory = (args) => {
 
 export const Default: Story = {
     args: {
+        view: 'default',
+        itemView: 'default',
+        size: 'm',
         maxWidth: '100%',
         quantity: 6,
-        size: 'm',
         title: 'Title',
         content: 'Content',
         contentAlign: 'left',
@@ -149,10 +154,22 @@ export const Default: Story = {
                 type: 'text',
             },
         },
-        size: {
-            options: ['xs', 's', 'm', 'l'],
+        view: {
+            options: views,
             control: {
-                type: 'inline-radio',
+                type: 'select',
+            },
+        },
+        itemView: {
+            options: ['default', 'negative', 'warning', 'positive'],
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
             },
         },
         orientation: {
@@ -185,7 +202,6 @@ export const Default: Story = {
                 type: 'boolean',
             },
         },
-        ...disableProps(['view']),
     },
     render: (args) => <DefaultStory {...args} />,
 };
