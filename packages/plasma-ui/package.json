@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@salutejs/plasma-core": "1.194.0",
+    "@salutejs/plasma-new-hope": "0.313.0-dev.0",
     "@salutejs/plasma-typo": "0.42.0",
     "color": "3.1.2",
     "lodash.throttle": "4.1.1",
@@ -88,8 +89,8 @@
     "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
     "build": "npm run build:cjs && npm run build:esm && npm run build:css",
     "postbuild": "tsc --outDir . --emitDeclarationOnly",
-    "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-ui USE_COLLECT_PACKAGE_INFO=true babel ./src --out-dir . --extensions .ts,.tsx",
-    "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui USE_COLLECT_PACKAGE_INFO=true babel ./src --out-dir ./es --extensions .ts,.tsx",
+    "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-ui babel ./src --out-dir . --extensions .ts,.tsx",
+    "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui babel ./src --out-dir ./es --extensions .ts,.tsx",
     "prebuild:css": "rm -rf ./css/es ./css/cjs ./src-linaria-temp && node ./scripts/replace-imports.js",
     "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui rollup -c",
     "postbuild:css": "rm -rf ./src-linaria-temp",
