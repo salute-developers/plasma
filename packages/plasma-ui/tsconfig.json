@@ -39,13 +39,15 @@
             "react": ["./node_modules/@types/react"]
         }
     },
-    "include": ["./src"],
+    "include": ["./src", "./src-linaria"],
     "exclude": [
         "./src/helpers",
         "./src/showcase",
         "./src/**/*.stories.tsx",
+        "./src-linaria/**/*.stories.tsx",
         "**/*.test.tsx",
         "./src/**/*.component-test.tsx",
+        "./src-linaria/**/*.component-test.tsx",
         "./src/**/*.perftest.tsx"
     ]
 }

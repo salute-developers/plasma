@@ -1,0 +1,4 @@
+{
+    "module": "es/index.js",
+    "main": "cjs/index.js"
+}
