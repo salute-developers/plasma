@@ -16,6 +16,7 @@ export const config = {
                 ${radioboxTokens.triggerPadding}: 0;
                 ${radioboxTokens.triggerSize}: 1rem;
                 ${radioboxTokens.triggerBorderRadius}: 1.125rem;
+                ${radioboxTokens.triggerBorderWidth}: 0.125rem;
                 ${radioboxTokens.ellipseSize}: 0.5rem;
                 ${radioboxTokens.contentTopOffset}: 0;
                 ${radioboxTokens.contentLeftOffset}: 0.5rem;
@@ -38,6 +39,7 @@ export const config = {
                 ${radioboxTokens.triggerPadding}: 0.063rem;
                 ${radioboxTokens.triggerSize}: 1.375rem;
                 ${radioboxTokens.triggerBorderRadius}: 1.125rem;
+                ${radioboxTokens.triggerBorderWidth}: 0.125rem;
                 ${radioboxTokens.ellipseSize}: 0.625rem;
                 ${radioboxTokens.contentTopOffset}: 0.125rem;
                 ${radioboxTokens.contentLeftOffset}: 0.625rem;
