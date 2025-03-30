@@ -30,12 +30,19 @@ const meta: Meta<typeof Radiobox> = {
                 type: 'radio',
             },
         },
+        appereanc: {
+            options: ['default', 'outline'],
+            control: {
+                type: 'radio',
+            },
+        },
     },
     args: {
         view: 'accent',
         size: 'm',
         disabled: false,
         focused: true,
+        appereanc: 'default',
     },
 };
 
@@ -105,7 +112,7 @@ export const LongText: StoryObj<RadioboxProps> = {
     render: (args) => <StoryDefault {...args} />,
 };
 
-const StoryRadioGroup = () => {
+const StoryRadioGroup = ({ appereanc, ...props }) => {
     const [value, setValue] = useState('c');
 
     return (
@@ -122,6 +129,7 @@ const StoryRadioGroup = () => {
                     disabled={item.disabled}
                     checked={value[item.value]}
                     description={item.description}
+                    appereanc={appereanc}
                     onChange={(event) => {
                         setValue(item.value);
                         onChange(event);
@@ -135,5 +143,8 @@ const StoryRadioGroup = () => {
 };
 
 export const ExampleRadioGroup: StoryObj<RadioboxProps> = {
-    render: () => <StoryRadioGroup />,
+    args: {
+        appereanc: 'default',
+    },
+    render: (args) => <StoryRadioGroup {...args} />,
 };

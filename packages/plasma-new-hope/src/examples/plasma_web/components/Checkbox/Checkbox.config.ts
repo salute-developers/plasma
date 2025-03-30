@@ -67,7 +67,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${checkboxTokens.triggerBorderCheckedColor}: var(--text-accent);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             default: css`
