@@ -51,7 +51,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
         } = props;
 
         const txt = typeof children === 'string' ? children : text;
-        const hasRightContentMargin = Boolean(txt || value || contentRight);
+        const hasRightContentMargin = Boolean(children || txt || value || contentRight);
         const hasLeftContentMargin = Boolean(contentLeft ? contentLeft && (txt || value) : txt || value);
 
         const stretchingClass = stretch
