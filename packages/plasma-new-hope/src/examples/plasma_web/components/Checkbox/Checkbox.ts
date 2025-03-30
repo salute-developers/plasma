@@ -15,15 +15,15 @@ export const CheckboxOutline = component(mergedConfigOutline);
 
 type CheckboxProps =
     | (ComponentProps<typeof CheckboxOutline> & {
-          appereanc: 'outline';
+          appearance: 'outline';
       })
     | (ComponentProps<typeof CheckboxDefalut> & {
-          appereanc?: 'default' | undefined;
+          appearance?: 'default' | undefined;
       });
 
 export const Checkbox = createConditionalComponent<CheckboxProps>(CheckboxDefalut, [
     {
-        conditions: { prop: 'appereanc', value: 'outline' },
+        conditions: { prop: 'appearance', value: 'outline' },
         component: CheckboxOutline,
     },
 ]);

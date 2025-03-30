@@ -29,7 +29,7 @@ const meta: Meta<RadioboxProps> = {
                 type: 'inline-radio',
             },
         },
-        appereanc: {
+        appearance: {
             options: ['default', 'outline'],
             control: {
                 type: 'radio',
@@ -101,7 +101,7 @@ export const Default: Story = {
         singleLine: false,
         size: 'm',
         view: 'accent',
-        appereanc: 'default',
+        appearance: 'default',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -141,7 +141,7 @@ export const Live: Story = {
         view: 'accent',
         singleLine: false,
         focused: true,
-        appereanc: 'default',
+        appearance: 'default',
     },
     render: (args) => <StoryLive {...args} />,
 };

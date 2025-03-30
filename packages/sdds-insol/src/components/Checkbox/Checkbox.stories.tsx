@@ -13,7 +13,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['accent'];
+const views = ['accent', 'negative'];
 
 const propsToDisable = [
     'name',
@@ -31,7 +31,6 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
-    'view',
 ];
 
 const meta: Meta<CheckboxProps> = {
@@ -61,7 +60,7 @@ const meta: Meta<CheckboxProps> = {
                 type: 'inline-radio',
             },
         },
-        appereanc: {
+        appearance: {
             options: ['default', 'outline'],
             control: {
                 type: 'radio',
@@ -173,7 +172,7 @@ export const Default: Story = {
         size: 'm',
         view: 'accent',
         focused: true,
-        appereanc: 'default',
+        appearance: 'default',
     },
     render: (args) => <StoryDefault {...args} />,
 };

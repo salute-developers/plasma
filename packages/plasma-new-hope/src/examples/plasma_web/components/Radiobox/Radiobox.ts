@@ -15,15 +15,15 @@ export const RadioboxOutline = component(mergedConfigOutline);
 
 type CheckboxProps =
     | (ComponentProps<typeof RadioboxDefalut> & {
-          appereanc: 'outline';
+          appearance: 'outline';
       })
     | (ComponentProps<typeof RadioboxOutline> & {
-          appereanc?: 'default' | undefined;
+          appearance?: 'default' | undefined;
       });
 
 export const Radiobox = createConditionalComponent<CheckboxProps>(RadioboxDefalut, [
     {
-        conditions: { prop: 'appereanc', value: 'outline' },
+        conditions: { prop: 'appearance', value: 'outline' },
         component: RadioboxOutline,
     },
 ]);
