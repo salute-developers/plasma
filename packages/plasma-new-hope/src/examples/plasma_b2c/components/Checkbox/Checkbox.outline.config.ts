@@ -129,14 +129,13 @@ export const config = {
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBorderCheckedColor}: var(--text-warning);
             `,
-            // deprecated
             negative: css`
                 ${checkboxTokens.fillColor}: transparent;
                 ${checkboxTokens.iconColor}: var(--text-negative);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: var(--text-negative);
                 ${checkboxTokens.triggerBorderCheckedColor}: var(--text-negative);
             `,
         },
