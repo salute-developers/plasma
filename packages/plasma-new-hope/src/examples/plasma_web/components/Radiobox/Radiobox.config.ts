@@ -17,6 +17,7 @@ export const config = {
                 ${radioboxTokens.triggerPadding}: 0.0625rem 0;
                 ${radioboxTokens.triggerSize}: 1rem;
                 ${radioboxTokens.triggerBorderRadius}: 1.125rem;
+                ${radioboxTokens.triggerBorderWidth}: 0.125rem;
                 ${radioboxTokens.ellipseSize}: 0.5rem;
                 ${radioboxTokens.contentTopOffset}: 0;
                 ${radioboxTokens.contentLeftOffset}: 0.5rem;
@@ -39,6 +40,7 @@ export const config = {
                 ${radioboxTokens.triggerPadding}: 0.0625rem;
                 ${radioboxTokens.triggerSize}: 1.375rem;
                 ${radioboxTokens.triggerBorderRadius}: 1.125rem;
+                ${radioboxTokens.triggerBorderWidth}: 0.125rem;
                 ${radioboxTokens.ellipseSize}: 0.625rem;
                 ${radioboxTokens.contentTopOffset}: 0.125rem;
                 ${radioboxTokens.contentLeftOffset}: 0.625rem;
@@ -67,6 +69,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             default: css`
@@ -75,6 +78,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             secondary: css`
@@ -83,6 +87,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             tertiary: css`
@@ -91,6 +96,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             paragraph: css`
@@ -99,6 +105,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             positive: css`
@@ -107,6 +114,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             warning: css`
@@ -115,6 +123,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             negative: css`
@@ -123,6 +132,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },
         disabled: {
