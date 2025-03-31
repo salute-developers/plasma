@@ -271,7 +271,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 size={size}
                 disabled={disabled}
                 readOnly={readOnly}
-                clear={clear}
                 style={{ width: helperWidth, ...style }}
                 className={cx(clearClass, hasDividerClass, hasHintClass, className)}
                 onClick={handleTextAreaFocus}
