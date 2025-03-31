@@ -65,7 +65,6 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 tabIndex={readOnly ? -1 : 0}
                 onClick={handleClick}
                 disabled={disabled}
-                pilled={pilled}
                 readOnly={!disabled && readOnly}
                 size={size}
                 {...rest}
