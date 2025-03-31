@@ -57,6 +57,8 @@ export const tokens = {
     checkboxFillColor: '--plasma-combobox-checkbox-fill-color',
     checkboxIconColor: '--plasma-combobox-checkbox-icon-color',
     checkboxTriggerBorderColor: '--plasma-combobox-checkbox-trigger-border-color',
+    checkboxTriggerBorderCheckedColor: '--plasma-combobox-checkbox-trigger-border-checked-color',
+    checkboxTriggerBorderWidth: '--plasma-combobox-checkbox-trigger-border-width',
 
     indicatorSize: '--plasma-combobox-indicator-size',
 
