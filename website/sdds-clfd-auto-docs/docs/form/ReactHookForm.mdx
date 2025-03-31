@@ -1,0 +1,415 @@
+---
+id: react-hook-form
+title: React Hook Form
+sidebar_position: 2
+---
+
+# React Hook Form
+
+Компоненты поддерживают работу с библиотекой [React Hook Form](https://react-hook-form.com/)
+
+
+
+```tsx live
+
+import { useForm } from 'react-hook-form';
+import React from 'react';
+import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, DatePickerRange, Autocomplete } from "@salutejs/sdds-clfd-auto";
+
+export function App() {
+    const langName = 'language';
+    const radioboxItems = [
+        { langName, value: 'c', label: 'C', disabled: false },
+        { langName, value: 'cpp', label: 'C++', disabled: false },
+        { langName, value: 'assembly', label: 'Assembly', disabled: false },
+    ];
+
+    const mockData = [
+        { label: 'Алексей Смирнов' },
+        { label: 'Екатерина Иванова' },
+        { label: 'Дмитрий Петров' },
+        { label: 'Ольга Васильева' },
+        { label: 'Сергей Сидоров' },
+        { label: 'Мария Кузнецова' },
+        { label: 'Андрей Попов' },
+        { label: 'Анна Николаева' },
+        { label: 'Иван Федоров' },
+        { label: 'Наталья Морозова' },
+        { label: 'Михаил Павлов' },
+        { label: 'Елена Романова' },
+        { label: 'Владимир Киселев' },
+        { label: 'Татьяна Захарова' },
+        { label: 'Николай Семенов' },
+        { label: 'Юлия Белова' },
+        { label: 'Александр Гусев' },
+        { label: 'Оксана Яковлева' },
+        { label: 'Игорь Егорова' },
+        { label: 'Вера Тихомирова' },
+        { label: 'Артем Григорьев' },
+        { label: 'Евгения Козлова' },
+        { label: 'Максим Лебедев' },
+        { label: 'Виктория Калашникова' },
+        { label: 'Константин Абрамов' },
+        { label: 'Светлана Новикова' },
+        { label: 'Юрий Волков' },
+        { label: 'Валентина Воробьева' },
+        { label: 'Павел Сергеев' },
+        { label: 'Людмила Виноградова' },
+        { label: 'Антон Соловьев' },
+        { label: 'Маргарита Цветкова' },
+        { label: 'Роман Трофимов' },
+        { label: 'Лариса Зайцева' },
+        { label: 'Евгений Никитин' },
+        { label: 'Галина Михайлова' },
+        { label: 'Владислав Антонов' },
+        { label: 'Дарья Филатова' },
+        { label: 'Олег Буров' },
+        { label: 'Инна Медведева' },
+        { label: 'Вячеслав Крылов' },
+        { label: 'Тамара Беляева' },
+        { label: 'Кирилл Марков' },
+        { label: 'Марина Пономарева' },
+        { label: 'Борис Захаров' },
+        { label: 'Жанна Савельева' },
+        { label: 'Федор Жуков' },
+        { label: 'Елизавета Логинова' },
+        { label: 'Виктор Рыбаков' },
+        { label: 'Лилия Макарова' },
+    ];
+
+    const items = [
+        {
+            value: 'north_america',
+            label: 'Северная Америка',
+        },
+        {
+            value: 'south_america',
+            label: 'Южная Америка',
+            items: [
+                {
+                    value: 'brazil',
+                    label: 'Бразилия',
+                    items: [
+                        {
+                            value: 'rio_de_janeiro',
+                            label: 'Рио-де-Жанейро',
+                        },
+                        {
+                            value: 'sao_paulo',
+                            label: 'Сан-Паулу',
+                        },
+                    ],
+                },
+                {
+                    value: 'argentina',
+                    label: 'Аргентина',
+                    items: [
+                        {
+                            value: 'buenos_aires',
+                            label: 'Буэнос-Айрес',
+                        },
+                        {
+                            value: 'cordoba',
+                            label: 'Кордова',
+                        },
+                    ],
+                },
+                {
+                    value: 'colombia',
+                    label: 'Колумбия',
+                    items: [
+                        {
+                            value: 'bogota',
+                            label: 'Богота',
+                        },
+                        {
+                            value: 'medellin',
+                            label: 'Медельин',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            value: 'europe',
+            label: 'Европа',
+            items: [
+                {
+                    value: 'france',
+                    label: 'Франция',
+                    items: [
+                        {
+                            value: 'paris',
+                            label: 'Париж',
+                        },
+                        {
+                            value: 'lyon',
+                            label: 'Лион',
+                        },
+                    ],
+                },
+                {
+                    value: 'germany',
+                    label: 'Германия',
+                    items: [
+                        {
+                            value: 'berlin',
+                            label: 'Берлин',
+                        },
+                        {
+                            value: 'munich',
+                            label: 'Мюнхен',
+                        },
+                    ],
+                },
+                {
+                    value: 'italy',
+                    label: 'Италия',
+                    items: [
+                        {
+                            value: 'rome',
+                            label: 'Рим',
+                        },
+                        {
+                            value: 'milan',
+                            label: 'Милан',
+                        },
+                    ],
+                },
+                {
+                    value: 'spain',
+                    label: 'Испания',
+                    items: [
+                        {
+                            value: 'madrid',
+                            label: 'Мадрид',
+                        },
+                        {
+                            value: 'barcelona',
+                            label: 'Барселона',
+                        },
+                    ],
+                },
+                {
+                    value: 'united_kingdom',
+                    label: 'Великобритания',
+                    items: [
+                        {
+                            value: 'london',
+                            label: 'Лондон',
+                        },
+                        {
+                            value: 'manchester',
+                            label: 'Манчестер',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            value: 'asia',
+            label: 'Азия',
+            items: [
+                {
+                    value: 'china',
+                    label: 'Китай',
+                    items: [
+                        {
+                            value: 'beijing',
+                            label: 'Пекин',
+                        },
+                        {
+                            value: 'shanghai',
+                            label: 'Шанхай',
+                        },
+                    ],
+                },
+                {
+                    value: 'japan',
+                    label: 'Япония',
+                    items: [
+                        {
+                            value: 'tokyo',
+                            label: 'Токио',
+                        },
+                        {
+                            value: 'osaka',
+                            label: 'Осака',
+                        },
+                    ],
+                },
+                {
+                    value: 'india',
+                    label: 'Индия',
+                    items: [
+                        {
+                            value: 'delhi',
+                            label: 'Дели',
+                        },
+                        {
+                            value: 'mumbai',
+                            label: 'Мумбаи',
+                        },
+                    ],
+                },
+                {
+                    value: 'south_korea',
+                    label: 'Южная Корея',
+                    items: [
+                        {
+                            value: 'seoul',
+                            label: 'Сеул',
+                        },
+                        {
+                            value: 'busan',
+                            label: 'Пусан',
+                        },
+                    ],
+                },
+                {
+                    value: 'thailand',
+                    label: 'Таиланд',
+                    items: [
+                        {
+                            value: 'bangkok',
+                            label: 'Бангкок',
+                        },
+                        {
+                            value: 'phuket',
+                            label: 'Пхукет',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            value: 'africa',
+            label: 'Африка',
+            isDisabled: true,
+        },
+    ];
+
+    const { register, handleSubmit } = useForm();
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <TextField {...register('textfield')} placeholder="Textfield"  />
+            <TextArea {...register('textarea')} autoResize placeholder="Textarea" />
+            <Checkbox {...register('checkbox')} label="Checkbox" />
+            <Switch {...register('switch')} label="Switch" labelPosition="after" />
+            <RadioGroup aria-labelledby="radiogroup-title-id">
+                <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
+                    Выберите язык программирования для изучения.
+                </div>
+                {radioboxItems.map((item) => (
+                    <Radiobox
+                        {...register('radiobox')}
+                        key={item.value}
+                        value={item.value}
+                        label={item.label}
+                        disabled={item.disabled}
+                    />
+                ))}
+            </RadioGroup>
+            <Slider {...register('slider')} label="Slider" type="single" min={0} max={100} />
+            <Slider {...register('sliderdouble')} label="Slider Double" type="double" min={0} max={100} />
+            <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
+            <Combobox {...register('combobox')} items={items} />
+            <Combobox {...register('comboboxMultiple')} items={items} />
+            <Select {...register('select')} items={items} />
+            <Select {...register('selectMulti')} items={items} />
+            <Button type="submit">Отправить</Button>
+        </form>
+    );
+}
+
+```
+
+### Особенности работы 
+
+#### DatePicker и DatePickerRange
+
+Свойство `name` и `onChange` лучше передавать напрямую, так как типы передаваемые из `register` в параметрах `min` и `max` несовместимы.
+
+
+
+### Пример с валидацией
+
+[Пример CodeSendBox](https://codesandbox.io/p/sandbox/sdds-form-validation-9ls9rd)
+
+```
+export function App() {
+  const schema = yup
+    .object({
+      email: yup
+        .string()
+        .email("Некорректная почта")
+        .required("Заполните поле"),
+      tel: yup
+        .string()
+        .required("Заполните поле")
+        .min(22, "Телефон должен содержать 11 цифр"),
+      password: yup
+        .string()
+        .required("Заполните поле")
+        .min(8, "Пароль должен быть не менее 8 символов"),
+      accept: yup
+        .boolean("Согласитесь с правилами использования")
+        .oneOf([true], "Согласитесь с правилами использования"),
+    })
+    .required();
+
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+    >
+      <TextField
+        {...register("email")}
+        placeholder="Почта"
+        view={formState.errors.email?.message ? "negative" : "default"}
+        leftHelper={formState.errors.email?.message}
+        required={false}
+      />
+      <Mask
+        {...register("tel")}
+        placeholder="Телефон"
+        mask="+7 (000) 000 - 00 - 00"
+        maskChar="_"
+        view={formState.errors.email?.message ? "negative" : "default"}
+        leftHelper={formState.errors.tel?.message}
+        required={false}
+      />
+      <TextField
+        {...register("password")}
+        type="password"
+        placeholder="Пароль"
+        view={formState.errors.password?.message ? "negative" : "default"}
+        leftHelper={formState.errors.password?.message}
+        required={false}
+      />
+      <Switch
+        {...register("accept")}
+        label="Я согласен с правилами сервиса"
+        labelPosition="after"
+      />
+      {formState.errors.accept?.message && (
+        <TextS color="red">{formState.errors.accept?.message}</TextS>
+      )}
+      <Button type="submit">Войти</Button>
+    </form>
+  );
+}
+
+
+```

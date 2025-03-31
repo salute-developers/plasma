@@ -1,0 +1,126 @@
+---
+id: textFieldGroup
+title: TextFieldGroup
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TextFieldGroup
+<Description name="TextFieldGroup" />
+<PropsTable name="TextFieldGroup" exclude={['css']} />
+
+## Использование
+Компонент `TextFieldGroup` - это обертка для TextField. Принимает в себя группу TextField.
+
+```tsx live
+import React from 'react';
+import { TextFieldGroup, TextField } from '@salutejs/sdds-clfd-auto';
+
+export function App() {
+    return (
+        <TextFieldGroup>
+            {Array(5)
+                .fill(true)
+                .map((_, i) => (
+                    <TextField placeholder={`input #${i}`} />
+                ))}
+        </TextFieldGroup>
+    );
+}
+```
+
+## Примеры
+
+### Размер
+Размер TextFieldGroup задается с помощью свойства `size`.
+С помощью свойства `isCommonTextFieldStyles` можно отключить переопределение стилей для всех input внутри группы. 
+Тогда каждый input будет иметь настраиваемый размер.
+
+```tsx live
+import React from 'react';
+import { TextFieldGroup, TextField } from '@salutejs/sdds-clfd-auto';
+
+export function App() {
+    return (
+        <div>
+            <TextFieldGroup size="s" view="secondary">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </TextFieldGroup>
+            
+            <TextFieldGroup isCommonTextFieldStyles={false}>
+                <TextField placeholder="Размер l" size="l" />
+                <TextField placeholder="Размер m" size="m" />
+                <TextField placeholder="Размер s" size="s" />
+                <TextField placeholder="Размер xs" size="xs" />
+            </TextFieldGroup>
+        </div>
+    );
+}
+```
+
+### Границы
+Границы задаются с помощью свойства `shape`.
+
+```tsx live
+import React from 'react';
+import { TextFieldGroup, TextField } from '@salutejs/sdds-clfd-auto';
+
+export function App() {
+    return (
+        <div>
+            <TextFieldGroup size="xs" shape="segmented">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </TextFieldGroup>
+
+            <TextFieldGroup size="xs" shape="default">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </TextFieldGroup>
+        </div>
+    );
+}
+```
+
+### Ориентация TextFieldGroup и отступы между TextField
+
+TextFieldGroup может располагаться вертикально или горизонтально и иметь два вида отступов, в зависимости от shape.
+При `shape='default'`, `gap` может принимать значения `dense` и `wide`;
+При `shape='segmented'`, `gap` может принимать значения `none` и `dense`;
+
+```tsx live
+import React from 'react';
+import { TextFieldGroup, TextField } from '@salutejs/sdds-clfd-auto';
+
+export function App() {
+    return (
+        <div>
+            <TextFieldGroup size="xs" orientation="vertical" shape="segmented" gap="none">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </TextFieldGroup>
+
+            <TextFieldGroup size="xs" orientation="horizontal" gap="wide">
+                {Array(4)
+                    .fill(true)
+                    .map((_, i) => (
+                        <TextField placeholder={`input #${i}`} />
+                    ))}
+            </TextFieldGroup>
+        </div>
+    );
+}
+```

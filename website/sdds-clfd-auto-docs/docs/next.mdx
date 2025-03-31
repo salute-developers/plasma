@@ -1,0 +1,116 @@
+---
+id: next
+title: Работа с Next
+sidebar_position: 1
+---
+
+Подключение библиотеки и ее компонентов не отличается от стандартного варианта, за исключением некоторых нюансов, о которых ниже.
+
+:::caution
+    <span>Библиотека не поддерживает работу с <strong>React Server Components (App router)</strong>. За исключением тех мест в вашем проекте, где явно задана директива <strong>'use client'</strong>.</span>
+:::
+
+<br />
+
+<blockquote>
+    В дальнейшем речь пойдет исключительно для <u><b>pages</b> router'a</u>, вне зависимости от версии Next.
+</blockquote>
+
+## Подключение тем
+
+Ниже представлены различные способы подключения темы в проект:
+
+### Styled Components
+
+<blockquote>
+    Прежде всего убедитесь, что у вас правильно настроена работа со Styled Components. Для справки: официальный [пример](https://github.com/vercel/next.js/tree/main/examples/with-styled-components) работающей реализации.
+</blockquote>
+
+```jsx
+import type { AppProps } from "next/app";
+import { plasma_b2c__light } from '@salutejs/plasma-themes';
+import { createGlobalStyle } from "styled-components";
+
+const PlasmaTheme = createGlobalStyle(plasma_b2c__light);
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+      <>
+        <PlasmaTheme />
+
+        <Component {...pageProps} />
+      </>
+  );
+}
+```
+
+### Импорт CSS
+
+```jsx
+import type { AppProps } from "next/app";
+import '@salutejs/plasma-themes/css/plasma_b2c__light.css';
+
+export default function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
+}
+```
+
+## Работа с компонентами
+
+Библиотека поставляет компоненты в формате `Styled Components`, `Emotion` и на обычном `CSS`.
+
+### Пример со Styled Components
+
+```jsx
+import React from 'react';
+import { Button } from '@salutejs/sdds-clfd-auto/styled-components'
+
+export default function Home() {
+  return (
+    <div>
+        <Button>Button</Button>
+    </div>
+  );
+}
+```
+
+### Пример с Emotion
+
+```jsx
+import React from 'react';
+import { Button } from '@salutejs/sdds-clfd-auto/emotion'
+
+export default function Home() {
+  return (
+    <div>
+        <Button>Button</Button>
+    </div>
+  );
+}
+```
+
+### Пример с CSS
+
+:::caution
+Next не разрешает импорт CSS из сторонних модулей, поэтому важно не забыть добавить наши библиотеки в `next.config.js` следующим образом:
+:::
+
+```js
+const nextConfig = {
+  reactStrictMode: true,
+  transpilePackages: ['@salutejs/sdds-clfd-auto', '@salutejs/plasma-new-hope']
+};
+````
+И далее уже можно подключать наши компоненты:
+```jsx
+import React from 'react';
+import { Button } from '@salutejs/sdds-clfd-auto'
+
+export default function Home() {
+  return (
+    <div>
+        <Button>Button</Button>
+    </div>
+  );
+}
+```
