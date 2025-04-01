@@ -14,6 +14,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-text-l-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-text-l-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-text-l-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-text-l-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-text-l-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-text-l-line-height);
             `,
@@ -23,6 +24,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-text-m-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-text-m-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-text-m-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-text-m-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-text-m-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-text-m-line-height);
             `,
@@ -32,6 +34,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-text-s-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-text-s-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-text-s-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-text-s-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-text-s-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-text-s-line-height);
             `,
@@ -41,6 +44,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-text-xs-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-text-xs-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-text-xs-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-text-xs-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-text-xs-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-text-xs-line-height);
             `,

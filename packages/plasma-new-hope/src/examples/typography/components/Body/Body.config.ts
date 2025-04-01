@@ -14,6 +14,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-body-l-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-body-l-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-l-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
@@ -23,6 +24,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-m-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
@@ -32,6 +34,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-s-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
@@ -41,6 +44,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-xs-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
@@ -50,6 +54,7 @@ export const config = {
                 ${tokens.typoFontStyle}: var(--plasma-typo-body-xxs-font-style);
                 ${tokens.typoFontWeight}: var(--plasma-typo-body-xxs-font-weight);
                 ${tokens.typoFontWeightBold}: var(--plasma-typo-body-xxs-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-xxs-medium-font-weight);
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-body-xxs-line-height);
             `,

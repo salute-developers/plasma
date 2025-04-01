@@ -22,11 +22,24 @@ const meta: Meta<typeof Dspl> = {
         as: {
             control: 'text',
         },
+        bold: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'medium', truthy: false },
+        },
+        medium: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'bold', truthy: false },
+        },
     },
     args: {
         noWrap: false,
         breakWord: true,
         bold: false,
+        medium: false,
     },
 };
 
