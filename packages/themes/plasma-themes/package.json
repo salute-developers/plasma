@@ -1,7 +1,7 @@
 {
   "name": "@salutejs/plasma-themes",
   "version": "0.30.0",
-  "description": "Plasma-themes package",
+  "description": "Plasma-themes package.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "module": "es/index.js",

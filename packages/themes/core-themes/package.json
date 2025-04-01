@@ -1,7 +1,7 @@
 {
   "name": "@salutejs/core-themes",
   "version": "0.19.0",
-  "description": "Core-themes package.",
+  "description": "Core-themes package",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "module": "build/esm/index.js",
