@@ -16,6 +16,10 @@ export const base = css`
         font-weight: var(${tokens.typoFontWeightBold});
     }
 
+    &.${classes.typoMedium} {
+        font-weight: var(${tokens.typoFontWeightMedium});
+    }
+
     &.${classes.typoWithNoWrap} {
         white-space: nowrap;
     }
