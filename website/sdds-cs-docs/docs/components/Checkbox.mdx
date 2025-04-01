@@ -42,3 +42,16 @@ export function App() {
     );
 }
 ```
+
+Состояние `indeterminate` имеет приоритет и не зависит от свойства `checked`
+
+```tsx live
+import React from 'react';
+import { Checkbox } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <Checkbox label="Чекбокс" description="Описание" defaultChecked indeterminate checked={false} />
+    );
+}
+```

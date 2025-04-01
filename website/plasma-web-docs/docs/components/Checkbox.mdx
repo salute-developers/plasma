@@ -45,3 +45,16 @@ export function App() {
     );
 }
 ```
+
+Состояние `indeterminate` имеет приоритет и не зависит от свойства `checked`
+
+```tsx live
+import React from 'react';
+import { Checkbox } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <Checkbox label="Чекбокс" description="Описание" defaultChecked indeterminate checked={false} />
+    );
+}
+```
