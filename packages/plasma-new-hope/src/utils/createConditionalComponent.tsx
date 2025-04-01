@@ -10,6 +10,7 @@ type ComponentMapping<T> = {
     component: React.ComponentType<T>;
 };
 
+// TODO: Поправить типы, если внутри услвовия типы не совпадают
 export function createConditionalComponent<T extends object>(
     defaultComponent: React.ComponentType<T>,
     mappings: ComponentMapping<T>[],
@@ -20,7 +21,7 @@ export function createConditionalComponent<T extends object>(
 
             const conditionsArray = Array.isArray(conditions) ? conditions : [conditions];
 
-            const allConditionsMatch = conditionsArray.every((condition) => props[condition.prop] === condition.value);
+            const allConditionsMatch = conditionsArray.every(({ prop, value }) => props[prop] === value);
 
             if (allConditionsMatch) {
                 const Component = component;

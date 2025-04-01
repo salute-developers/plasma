@@ -184,7 +184,7 @@ export const config = {
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-accent);
-                ${tokens.checkboxTriggerBorderCheckedColor}: none;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
 
                 ${tokens.indicatorSize}: 0.375rem;

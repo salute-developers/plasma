@@ -5,6 +5,7 @@ export const config = {
         view: 'accent',
         size: 'm',
         focused: 'true',
+        appearance: 'outline',
     },
     variations: {
         size: {

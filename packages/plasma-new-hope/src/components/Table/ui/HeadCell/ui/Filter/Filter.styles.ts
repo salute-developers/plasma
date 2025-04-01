@@ -24,6 +24,8 @@ export const Select = styled(SelectBase)`
     ${selectTokens.cellTitleLineHeight}: var(${tokens.selectCellTitleLineHeight});
     ${selectTokens.checkboxTriggerSize}: var(${tokens.selectCheckboxTriggerSize});
     ${selectTokens.checkboxTriggerBorderRadius}: var(${tokens.selectCheckboxTriggerBorderRadius});
+    ${selectTokens.checkboxTriggerBorderWidth}: var(${tokens.selectCheckboxTriggerBorderWidth});
+    ${selectTokens.checkboxTriggerBorderCheckedColor}: var(${tokens.selectCheckboxTriggerBorderCheckedColor});
     ${selectTokens.checkboxFillColor}: var(--text-accent);
     ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
     ${selectTokens.checkboxTriggerBorderColor}: var(--text-secondary);
