@@ -11,7 +11,7 @@ const commonScope = [
 module.exports = {
     'plasma-giga': {
         scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
-        required: ['plasma-new-hope', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
         themes: 'plasma-themes',
     },
     'plasma-asdk': {
@@ -29,12 +29,12 @@ module.exports = {
             'plasma-tokens-web',
             'plasma-typo',
         ],
-        required: ['plasma-new-hope', 'plasma-core'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core'],
         themes: 'plasma-themes',
     },
     'plasma-new-hope': {
         scope: [...commonScope, 'plasma-themes', 'plasma-core'],
-        required: ['plasma-core', 'core-themes', 'plasma-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'core-themes', 'plasma-themes'],
     },
     'plasma-ui': {
         scope: [
@@ -60,32 +60,32 @@ module.exports = {
             'plasma-tokens-web',
             'plasma-typo',
         ],
-        required: ['plasma-new-hope', 'plasma-core'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core'],
         themes: 'plasma-themes',
     },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-new-hope', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-dfa': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-cs': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-finportal': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-insol': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-new-hope', 'plasma-core', 'sdds-themes'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'sdds-themes'],
         themes: 'sdds-themes',
     },
 };
