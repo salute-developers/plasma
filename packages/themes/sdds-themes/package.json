@@ -1,7 +1,7 @@
 {
   "name": "@salutejs/sdds-themes",
   "version": "0.33.0",
-  "description": "Sdds-themes package",
+  "description": "Sdds-themes package.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "module": "es/index.js",

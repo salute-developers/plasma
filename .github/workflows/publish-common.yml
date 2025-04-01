@@ -56,8 +56,7 @@ jobs:
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
       
       - name: Create Release
-        run: | 
-          git ls-files packages/themes/* | xargs git update-index --assume-unchanged
+        run: |
           npm run release -- ${{ inputs.auto-options }}
       
       - name: Update package-lock files
