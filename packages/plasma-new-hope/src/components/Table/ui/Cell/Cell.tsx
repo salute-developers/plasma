@@ -7,14 +7,14 @@ import { TableProps, TableRowData } from '../../Table.types';
 
 import { Td } from './Cell.styles';
 
-export type CellProps = {
+type Props = {
     cell: CellType<TableRowData, unknown>;
     selected: boolean;
     borderVariant: TableProps['borderVariant'];
     view: TableProps['view'];
 };
 
-export const Cell: React.FC<CellProps> = ({ cell, borderVariant, selected, view }) => {
+export const Cell: React.FC<Props> = ({ cell, borderVariant, selected, view }) => {
     const renderCell = cell.column.columnDef.meta?.renderCell;
 
     return (

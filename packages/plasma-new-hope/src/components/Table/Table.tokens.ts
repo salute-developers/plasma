@@ -1,3 +1,12 @@
+export const classes = {
+    editIcon: 'edit-icon',
+    sortingDefaultIcon: 'sorting-default-icon',
+    sortingAscIcon: 'sorting-asc-icon',
+    sortingDescIcon: 'sorting-desc-icon',
+    filterIcon: 'filter-icon',
+    resizeDivider: 'resize-divider',
+};
+
 export const tableTokens = {
     fontFamily: '--plasma-table-font-family',
     fontSize: '--plasma-table-font-size',

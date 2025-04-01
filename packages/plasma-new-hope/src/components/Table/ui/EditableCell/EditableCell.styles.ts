@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 
 import { component, mergeConfig } from '../../../../engines';
 import { TableProps } from '../../Table.types';
-import { tableTokens as tokens } from '../../Table.tokens';
+import { tableTokens as tokens, classes } from '../../Table.tokens';
 import { iconButtonConfig, iconButtonTokens } from '../../../IconButton';
 
 const mergedIndicatorConfig = mergeConfig(iconButtonConfig);
@@ -24,7 +24,7 @@ export const Td = styled.td<{
             ? `var(${tokens.checkboxCellPadding})`
             : `var(${tokens.cellPadding})`};
     height: var(${tokens.rowHeight});
-    border-width: 1px;
+    border-width: 0.0625rem;
     border-top-width: 0;
     border-style: solid;
     border-color: ${({ selected, borderVariant, view }) =>
@@ -39,11 +39,11 @@ export const Td = styled.td<{
     cursor: pointer;
     box-sizing: border-box;
 
-    & .editIcon {
+    & .${classes.editIcon} {
         opacity: 0;
     }
 
-    &:hover .editIcon {
+    &:hover .${classes.editIcon} {
         opacity: 1;
     }
 `;
@@ -77,7 +77,7 @@ export const InputWrapper = styled.div`
     flex: 1;
     padding: var(${tokens.editableCellInputPadding});
     background: var(${tokens.editableCellInputBackground});
-    border: 1px solid var(${tokens.editableCellInputBorderColor});
+    border: 0.0625rem solid var(${tokens.editableCellInputBorderColor});
     border-radius: var(${tokens.editableCellInputBorderRadius});
     box-sizing: border-box;
     gap: var(${tokens.editableCellIconGap});

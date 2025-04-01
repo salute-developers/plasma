@@ -13,3 +13,9 @@ export const ThWrapper = styled.div`
     align-items: center;
     gap: 0.5rem;
 `;
+
+export const IconWrapper = styled.div`
+    line-height: 0;
+    cursor: pointer;
+    user-select: none;
+`;

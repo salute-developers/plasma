@@ -1,18 +1,28 @@
-import { flexRender } from '@tanstack/react-table';
+import { flexRender, Header } from '@tanstack/react-table';
 import React from 'react';
 
 import { Th, Resizer } from '../../Table.styles';
 import { IconSwapVert, IconArrowDown, IconArrowUp } from '../../../_Icon';
 import { SELECT_COLUMN_ID } from '../../Table';
+import { TableProps, TableRowData } from '../../Table.types';
+import { classes } from '../../Table.tokens';
 
-import { ControlButtons, ThWrapper } from './HeadCell.styles';
+import { ControlButtons, ThWrapper, IconWrapper } from './HeadCell.styles';
 import { Filter } from './ui/Filter/Filter';
 
 export const getIconSize = (size?: string) => {
     return size === 's' ? 'xs' : 's';
 };
 
-export const HeadCell: React.FC<any> = ({ header, size, borderVariant, outerFiltered, tableContainerRef }) => {
+type Props = {
+    borderVariant: TableProps['borderVariant'];
+    size: TableProps['size'];
+    header: Header<TableRowData, unknown>;
+    outerFiltered: TableProps['filtered'];
+    tableContainerRef: React.RefObject<HTMLDivElement>;
+};
+
+export const HeadCell: React.FC<Props> = ({ header, size, borderVariant, outerFiltered, tableContainerRef }) => {
     const { filters } = header?.column?.columnDef?.meta || {};
 
     return (
@@ -40,21 +50,27 @@ export const HeadCell: React.FC<any> = ({ header, size, borderVariant, outerFilt
                                 )}
 
                                 {header.column.getCanSort() && (
-                                    <span
-                                        style={{
-                                            lineHeight: 0,
-                                            cursor: 'pointer',
-                                            userSelect: 'none',
-                                        }}
-                                        onClick={header.column.getToggleSortingHandler()}
-                                    >
+                                    <IconWrapper onClick={header.column.getToggleSortingHandler()}>
                                         {{
-                                            asc: <IconArrowUp size={getIconSize(size)} />,
-                                            desc: <IconArrowDown size={getIconSize(size)} />,
+                                            asc: (
+                                                <IconArrowUp
+                                                    size={getIconSize(size)}
+                                                    className={classes.sortingAscIcon}
+                                                />
+                                            ),
+                                            desc: (
+                                                <IconArrowDown
+                                                    size={getIconSize(size)}
+                                                    className={classes.sortingDescIcon}
+                                                />
+                                            ),
                                         }[header.column.getIsSorted() as string] ?? (
-                                            <IconSwapVert size={getIconSize(size)} />
+                                            <IconSwapVert
+                                                size={getIconSize(size)}
+                                                className={classes.sortingDefaultIcon}
+                                            />
                                         )}
-                                    </span>
+                                    </IconWrapper>
                                 )}
                             </ControlButtons>
                         )}
@@ -63,6 +79,7 @@ export const HeadCell: React.FC<any> = ({ header, size, borderVariant, outerFilt
             )}
             {header.column.getCanResize() && (
                 <Resizer
+                    className={classes.resizeDivider}
                     onMouseDown={header.getResizeHandler()}
                     onTouchStart={header.getResizeHandler()}
                     isResizing={header.column.getIsResizing()}
