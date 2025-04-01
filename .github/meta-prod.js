@@ -57,9 +57,6 @@ module.exports = {
             'plasma-web-docs',
         ],
     },
-    'sdds-clfd-auto': {
-        scope: [...commonScope, 'plasma-themes', 'plasma-core'],
-    },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-serv-docs'],
     },
