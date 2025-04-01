@@ -39,7 +39,7 @@ import {
     Underline,
 } from '.';
 
-const meta: Meta<SpacingProps> = {
+const meta: Meta = {
     title: 'Data Display/Typography',
     component: DsplL,
     argTypes: {
@@ -49,6 +49,24 @@ const meta: Meta<SpacingProps> = {
                 type: 'color',
             },
         },
+        bold: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'medium', truthy: false },
+        },
+        medium: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'bold', truthy: false },
+        },
+    },
+    args: {
+        noWrap: false,
+        breakWord: true,
+        bold: false,
+        medium: false,
     },
     decorators: [InSpacingDecorator],
 };
