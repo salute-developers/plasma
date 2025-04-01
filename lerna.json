@@ -17,8 +17,7 @@
             "ignore": "@salutejs/sdds-clfd-auto"
         },
         "publish": {
-            "verifyAccess": false,
-            "ignoreChanges": "@salutejs/sdds-clfd-auto"
+            "verifyAccess": false
         },
         "list": {
             "ignoreChanges": ["*.md", "package-lock.json"]
