@@ -9,7 +9,7 @@ import { Body } from './Body';
 import { config } from './Body.config';
 
 const meta: Meta<typeof Body> = {
-    title: 'Data Display/Typography/Body',
+    title: 'typography/Body',
     decorators: [WithTheme],
     component: Body,
     argTypes: {
@@ -18,6 +18,9 @@ const meta: Meta<typeof Body> = {
             control: {
                 type: 'color',
             },
+        },
+        as: {
+            control: 'text',
         },
     },
     args: {

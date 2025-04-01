@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
+import { AsProps } from '../..';
 import type { SpacingProps } from '../../mixins/applySpacing';
 
 export type BoldProps = {
@@ -18,4 +19,5 @@ export type FontProps = {
     color?: string;
 } & SpacingProps &
     BoldProps &
+    AsProps &
     HTMLAttributes<HTMLDivElement>;
