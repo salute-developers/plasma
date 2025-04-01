@@ -103,9 +103,7 @@
     "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "npm run storybook:sc",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
-    "storybook:build": "storybook build -c .storybook -o build-sb",
-    "typescript-coverage": "npx typescript-coverage-report > /dev/null",
-    "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
+    "storybook:build": "storybook build -c .storybook -o build-sb"
   },
   "typeCoverage": {
     "ignoreFiles": [

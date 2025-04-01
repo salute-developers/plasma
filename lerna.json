@@ -18,7 +18,7 @@
         },
         "publish": {
             "verifyAccess": false,
-            "ignore": "@salutejs/sdds-clfd-auto"
+            "ignoreChanges": "@salutejs/sdds-clfd-auto"
         },
         "list": {
             "ignoreChanges": ["*.md", "package-lock.json"]
