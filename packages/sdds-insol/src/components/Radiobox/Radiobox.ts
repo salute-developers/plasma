@@ -20,7 +20,7 @@ export type RadioboxProps =
           appearance: 'outline';
       })
     | (ComponentProps<typeof RadioboxOutline> & {
-          appearance?: 'default' | undefined;
+          appearance?: 'default';
       });
 
 export const Radiobox = createConditionalComponent<RadioboxProps>(RadioboxDefalut, [
