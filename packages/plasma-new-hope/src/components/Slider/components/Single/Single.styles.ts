@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { classes, tokens } from '../../Slider.tokens';
+import { Slider } from '../SliderBase/SliderBase.styles';
 
 export const LabelWrapper = styled.div`
     color: var(${tokens.labelColor});
@@ -43,19 +44,26 @@ export const StyledRangeValue = styled.span`
 `;
 
 export const SliderBaseWrapper = styled.div`
-    position: relative;
     display: flex;
     flex: 1;
+    position: relative;
 
     &.${classes.rangeValuesPlacementOuter} {
+        display: grid;
+        grid-template-areas:
+            'a a'
+            'b c';
+
+        ${Slider} {
+            grid-area: a;
+        }
+
         ${StyledRangeValue} {
-            position: absolute;
-            bottom: calc(var(${tokens.railThickness}) * -1.5 - var(${tokens.rangeValueBottomOffset}));
-            left: 0;
+            grid-area: b;
 
             &.${classes.maxRangeValue} {
-                left: unset;
-                right: 0;
+                grid-area: c;
+                justify-self: end;
             }
         }
     }
@@ -195,29 +203,43 @@ export const SingleWrapper = styled.div`
         }
 
         &.${classes.labelAlignLeft}, &.${classes.labelAlignRight} {
-            ${StyledRangeValue} {
-                margin-right: 0;
-                margin-bottom: 0;
-                position: absolute;
-                top: 0;
+            ${SliderBaseWrapper} {
+                display: grid;
+                grid-template-areas:
+                'b a'
+                'c a';
+                flex-direction: unset;
+                align-items: unset;
+                justify-content: unset;
 
-                right: calc(
-                    var(${tokens.railThickness}) / 2 + var(${tokens.size}) / 2 +
-                        var(${tokens.rangeValueHorizontalOffset})
-                );
+                width: unset;
+            }
+
+            ${Slider} {
+                grid-area: a;
+            }
+
+            ${StyledRangeValue} {
+                grid-area: b;
+                align-self: start;
+                justify-self: end;
 
                 &.${classes.maxRangeValue} {
-                    margin-right: 0;
-                    margin-left: 0;
-                    top: auto;
-                    bottom: 0;
+                    grid-area: c;
+                    align-self: end;
                 }
             }
         }
 
         &.${classes.labelAlignRight} {
+            ${SliderBaseWrapper} {
+                grid-template-areas:
+                    'a b'
+                    'a c';
+            }
+
             ${StyledRangeValue} {
-                left: calc(var(${tokens.size}) + var(${tokens.railThickness}));
+                justify-self: start;
             }
         }
     }
