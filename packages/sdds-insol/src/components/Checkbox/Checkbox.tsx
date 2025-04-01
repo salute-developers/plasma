@@ -19,10 +19,10 @@ export const CheckboxOutline = component(mergedConfigOutline);
 
 export type CheckboxProps =
     | (ComponentProps<typeof CheckboxOutline> & {
-          appereanc: 'outline';
+          appereance: 'outline';
       })
     | (ComponentProps<typeof CheckboxDefalut> & {
-          appereanc?: 'default' | undefined;
+          appereance?: 'default' | undefined;
       });
 
 /**
@@ -30,7 +30,7 @@ export type CheckboxProps =
  */
 export const Checkbox = createConditionalComponent<CheckboxProps>(CheckboxDefalut, [
     {
-        conditions: { prop: 'appereanc', value: 'outline' },
+        conditions: { prop: 'appereance', value: 'outline' },
         component: CheckboxOutline,
     },
 ]);

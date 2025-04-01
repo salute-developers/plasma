@@ -31,12 +31,16 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
+    'appearance',
 ];
 
 const meta: Meta<CheckboxProps> = {
     title: 'Data Entry/Checkbox',
     component: Checkbox,
     decorators: [InSpacingDecorator],
+    args: {
+        appereance: 'outline',
+    },
     argTypes: {
         label: {
             control: {
@@ -58,12 +62,6 @@ const meta: Meta<CheckboxProps> = {
             options: views,
             control: {
                 type: 'inline-radio',
-            },
-        },
-        appearance: {
-            options: ['default', 'outline'],
-            control: {
-                type: 'radio',
             },
         },
         ...disableProps(propsToDisable),
@@ -172,7 +170,6 @@ export const Default: Story = {
         size: 'm',
         view: 'accent',
         focused: true,
-        appearance: 'default',
     },
     render: (args) => <StoryDefault {...args} />,
 };
