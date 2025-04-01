@@ -9,7 +9,7 @@ import { Dspl } from './Dspl';
 import { config } from './Dspl.config';
 
 const meta: Meta<typeof Dspl> = {
-    title: 'Data Display/Typography/Dspl',
+    title: 'typography/Dspl',
     decorators: [WithTheme],
     component: Dspl,
     argTypes: {
@@ -18,6 +18,9 @@ const meta: Meta<typeof Dspl> = {
             control: {
                 type: 'color',
             },
+        },
+        as: {
+            control: 'text',
         },
     },
     args: {
