@@ -311,7 +311,7 @@ export const config = {
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: none;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 
@@ -428,7 +428,7 @@ export const config = {
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: none;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 
@@ -545,7 +545,7 @@ export const config = {
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: none;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 
@@ -662,7 +662,7 @@ export const config = {
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: none;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 

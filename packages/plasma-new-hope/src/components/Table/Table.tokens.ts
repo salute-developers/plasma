@@ -22,7 +22,9 @@ export const tableTokens = {
     checkboxCellPadding: '--plasma-checkbox-cell-padding',
 
     checkboxTriggerSize: '--plasma-table-checkbox-trigger-size',
+    checkboxTriggerBorderCheckedColor: '--plasma-table-checkbox-trigger-border-checked-color',
     checkboxTriggerBorderRadius: '--plasma-table-checkbox-trigger-border-radius',
+    checkboxTriggerBorderWidth: '--plasma-table-checkbox-trigger-border-width',
 
     editableCellIconGap: '--plasma-table-editable-cell-icon-gap',
     editableCellIconButtonWidth: '--plasma-table-editable-cell-icon-button-width',

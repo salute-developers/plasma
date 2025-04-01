@@ -31,6 +31,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
+    'appereance',
 ];
 
 const meta: Meta<CheckboxProps> = {
@@ -58,12 +59,6 @@ const meta: Meta<CheckboxProps> = {
             options: views,
             control: {
                 type: 'inline-radio',
-            },
-        },
-        appearance: {
-            options: ['default', 'outline'],
-            control: {
-                type: 'radio',
             },
         },
         ...disableProps(propsToDisable),
@@ -156,6 +151,7 @@ const StoryDefault = (args: CheckboxProps) => {
                 }}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                appereance="outline"
                 {...args}
             />
         </>
@@ -172,8 +168,8 @@ export const Default: Story = {
         size: 'm',
         view: 'accent',
         focused: true,
-        appearance: 'default',
     },
+    ...disableProps(['appereance']),
     render: (args) => <StoryDefault {...args} />,
 };
 
@@ -193,6 +189,7 @@ const StoryLive = (args) => {
             {items.map((item) => (
                 <Checkbox
                     {...getState(values, item.value)}
+                    appereance="outline"
                     style={{ marginLeft: item.parent ? 36 : null }}
                     key={item.value}
                     name={item.name}
@@ -237,7 +234,7 @@ export const Live: Story = {
         disabled: false,
     },
     argTypes: {
-        ...disableProps(['label', 'description']),
+        ...disableProps(['label', 'description', 'appereance']),
     },
     render: (args) => <StoryLive {...args} />,
 };

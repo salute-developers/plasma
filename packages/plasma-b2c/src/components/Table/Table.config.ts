@@ -27,7 +27,8 @@ export const config = {
                 ${tokens.rowHeight}: 3.125rem;
                 ${tokens.cellPadding}: 0.375rem 1rem;
                 ${tokens.checkboxCellPadding}: 0.375rem 1rem;
-
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
 
@@ -89,7 +90,8 @@ export const config = {
                 ${tokens.rowHeight}: 2.75rem;
                 ${tokens.cellPadding}: 0.25rem 0.875rem;
                 ${tokens.checkboxCellPadding}: 0.25rem 0.75rem;
-
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
 
@@ -151,7 +153,8 @@ export const config = {
                 ${tokens.rowHeight}: 2.125rem;
                 ${tokens.cellPadding}: 0.125rem 0.5rem;
                 ${tokens.checkboxCellPadding}: 0.125rem 0.625rem;
-
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerSize}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
 
