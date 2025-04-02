@@ -1,5 +1,16 @@
 import type { ReactNode, HTMLAttributes, CSSProperties } from 'react';
-import { RowSelectionState } from '@tanstack/react-table';
+import { RowData, RowSelectionState } from '@tanstack/react-table';
+
+declare module '@tanstack/react-table' {
+    interface TableMeta<TData extends RowData> {
+        updateData: (rowId: string, columnId: string, value: unknown) => void;
+    }
+    interface ColumnMeta<TData extends RowData, TValue> {
+        filters?: TableColumnData['filters'];
+        enableEditing?: boolean;
+        renderCell?: TableColumnData['renderCell'];
+    }
+}
 
 export type TableRowData = {
     id: string;

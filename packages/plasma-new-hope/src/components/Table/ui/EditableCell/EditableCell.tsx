@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { flexRender } from '@tanstack/react-table';
+import { flexRender, Table, Cell as CellType } from '@tanstack/react-table';
 
 import { Resizer } from '../../Table.styles';
 import { SELECT_COLUMN_ID } from '../../Table';
 import { useOutsideClick } from '../../../../hooks';
 import { IconEditOutline, IconResetOutline, IconDoneCircleOutline } from '../../../_Icon';
 import { getIconSize } from '../HeadCell/HeadCell';
+import { classes } from '../../Table.tokens';
+import { TableProps, TableRowData } from '../../Table.types';
 
 import {
     ContentWrapper,
@@ -24,11 +26,20 @@ const keys = {
     Escape: 'Escape',
 };
 
-export const EditableCell: React.FC<any> = ({ size, cell, borderVariant, table, selected, view }) => {
-    const [value, setValue] = useState<string>(cell.getValue());
+type Props = {
+    size: TableProps['size'];
+    view: TableProps['view'];
+    cell: CellType<TableRowData, unknown>;
+    borderVariant: TableProps['borderVariant'];
+    selected: boolean;
+    table: Table<TableRowData>;
+};
+
+export const EditableCell: React.FC<Props> = ({ size, view, cell, borderVariant, table, selected }) => {
+    const [value, setValue] = useState<string>(cell.getValue() as string);
     const [editingMode, setEditingMode] = useState(false);
 
-    const { updateData } = table.options.meta;
+    const updateData = table.options.meta?.updateData;
 
     const ref = useOutsideClick<HTMLTableDataCellElement>(() => {
         setEditingMode(false);
@@ -38,25 +49,31 @@ export const EditableCell: React.FC<any> = ({ size, cell, borderVariant, table, 
         e.stopPropagation();
 
         setEditingMode(true);
-        setValue(cell.getValue());
+        setValue(cell.getValue() as string);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
     const handleReset = () => {
-        setValue(cell.getValue());
+        setValue(cell.getValue() as string);
     };
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
-        updateData(cell.row.id, cell.column.id, value);
+
+        if (updateData) {
+            updateData(cell.row.id, cell.column.id, value);
+        }
         setEditingMode(false);
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
         switch (event.code) {
             case keys.Enter: {
-                updateData(cell.row.id, cell.column.id, value);
+                if (updateData) {
+                    updateData(cell.row.id, cell.column.id, value);
+                }
+
                 setEditingMode(false);
 
                 break;
@@ -106,7 +123,7 @@ export const EditableCell: React.FC<any> = ({ size, cell, borderVariant, table, 
                     <ContentWrapper>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
 
-                        <IconEditOutline size="xs" className="editIcon" color="var(--text-secondary)" />
+                        <IconEditOutline size="xs" className={classes.editIcon} color="var(--text-secondary)" />
                     </ContentWrapper>
                 )}
             </InnerWrapper>

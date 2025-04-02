@@ -1,6 +1,6 @@
 import React, { useRef, ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconEditOutline } from '@salutejs/plasma-icons';
 
 import { ButtonGroup } from '../ButtonGroup';
@@ -8,12 +8,12 @@ import { Button } from '../Button';
 import { IconButton } from '../IconButton';
 import { Dropdown } from '../Dropdown';
 
+import { config } from './Table.config';
 import { Table } from './Table';
 
 type StoryTableProps = ComponentProps<typeof Table>;
 
-const view = ['default', 'clear'];
-const size = ['s', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
 const borderVariant = ['rows', 'header', 'all'];
 
 const meta: Meta<StoryTableProps> = {
@@ -23,11 +23,11 @@ const meta: Meta<StoryTableProps> = {
     argTypes: {
         view: {
             control: 'select',
-            options: view,
+            options: views,
         },
         size: {
             control: 'select',
-            options: size,
+            options: sizes,
         },
         borderVariant: {
             control: 'select',

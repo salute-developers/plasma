@@ -71,13 +71,15 @@ export const Thead = styled.thead<{
     }
 `;
 
+export const Tbody = styled.tbody``;
+
 export const Resizer = styled.div<{ isResizing: boolean }>`
     display: ${({ isResizing }) => (isResizing ? 'block' : 'none')};
     position: absolute;
     z-index: 1;
-    top: -1px;
+    top: -0.0625rem;
     bottom: 0;
-    right: -2px;
+    right: -0.125rem;
     width: 0.1875rem;
     background: var(--outline-accent);
     cursor: col-resize;
@@ -95,7 +97,7 @@ export const Th = styled.th<{ borderVariant: TableProps['borderVariant']; select
     background-color: transparent;
     color: inherit;
 
-    border-width: 1px;
+    border-width: 0.0625rem;
     border-top-width: 0;
     border-bottom-width: 0;
     border-style: solid;
