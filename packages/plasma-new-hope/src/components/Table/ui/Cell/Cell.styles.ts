@@ -13,7 +13,7 @@ export const Td = styled.td<{
     padding: ${({ selectionCell }) =>
         selectionCell ? `var(${tokens.checkboxCellPadding})` : `var(${tokens.cellPadding})`};
     height: var(${tokens.rowHeight});
-    border-width: 1px;
+    border-width: 0.0625rem;
     border-top-width: 0;
     border-style: solid;
     border-color: ${({ selected, borderVariant, view }) =>

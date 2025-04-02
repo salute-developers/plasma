@@ -1,5 +1,6 @@
 import React, { useRef, ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
@@ -8,12 +9,12 @@ import { IconButton } from '../IconButton/IconButton';
 import { IconEditOutline } from '../../../../components/_Icon';
 import { Dropdown } from '../Dropdown/Dropdown';
 
+import { config } from './Table.config';
 import { Table } from './Table';
 
 type StoryTableProps = ComponentProps<typeof Table>;
 
-const view = ['default', 'clear'];
-const size = ['s', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
 const borderVariant = ['rows', 'header', 'all'];
 
 const meta: Meta<StoryTableProps> = {
@@ -23,11 +24,11 @@ const meta: Meta<StoryTableProps> = {
     argTypes: {
         view: {
             control: 'select',
-            options: view,
+            options: views,
         },
         size: {
             control: 'select',
-            options: size,
+            options: sizes,
         },
         borderVariant: {
             control: 'select',
@@ -514,8 +515,8 @@ const StoryComplex = (args: StoryTableProps) => {
                 <Button text="Очистить выбранные" view="warning" size="xs" onClick={clearSelected} />
                 <Button text="Убрать сортировку" view="warning" size="xs" onClick={clearSorted} />
                 <Button text="Очистить фильтры" view="warning" size="xs" onClick={clearFiltered} />
-                <Button text="Очистить все" view="critical" size="xs" onClick={clearAll} />
-                <Button text="Добавить строку" view="success" size="xs" onClick={addRow} />
+                <Button text="Очистить все" view="negative" size="xs" onClick={clearAll} />
+                <Button text="Добавить строку" view="positive" size="xs" onClick={addRow} />
             </ButtonGroup>
 
             <br />

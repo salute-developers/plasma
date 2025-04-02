@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { Header } from '@tanstack/react-table';
 
 import { useDidMountEffect } from '../../../../../../hooks';
 import { IconFilterFunnel } from '../../../../../_Icon';
 import { getIconSize } from '../../HeadCell';
 import { ButtonAccent, LinkButton } from '../../../../Table.styles';
+import { TableProps, TableRowData } from '../../../../Table.types';
+import { classes } from '../../../../Table.tokens';
 
 import { IconFilterWrapper, StyledIndicator, Select, StyledDivider, ControlPanel } from './Filter.styles';
 
-const getSelectWidth = (size: string) => {
+const getSelectWidth = (size?: string) => {
     switch (size) {
         case 'l': {
             return '18.75rem';
@@ -31,10 +34,17 @@ const isFilterChanged = (outerFiltered: string[], localFiltered: string[]) => {
     );
 };
 
-export const Filter: React.FC<any> = ({ header, size, outerFiltered, tableContainerRef }) => {
-    const filtered = header.column.getFilterValue() || [];
+type Props = {
+    header: Header<TableRowData, unknown>;
+    size: TableProps['size'];
+    outerFiltered: TableProps['filtered'];
+    tableContainerRef: React.RefObject<HTMLDivElement>;
+};
 
-    const [localFiltered, setLocalFiltered] = useState(filtered || []);
+export const Filter: React.FC<Props> = ({ header, size, outerFiltered, tableContainerRef }) => {
+    const filtered = (header.column.getFilterValue() as string[]) || [];
+
+    const [localFiltered, setLocalFiltered] = useState<string[]>(filtered || []);
 
     const { filters } = header?.column?.columnDef?.meta || {};
 
@@ -50,7 +60,7 @@ export const Filter: React.FC<any> = ({ header, size, outerFiltered, tableContai
 
     const handleToggle = (opened: boolean) => {
         if (!opened) {
-            setLocalFiltered(header.column.getFilterValue() || []);
+            setLocalFiltered((header.column.getFilterValue() as string[]) || []);
         }
     };
 
@@ -68,7 +78,7 @@ export const Filter: React.FC<any> = ({ header, size, outerFiltered, tableContai
             onChange={setLocalFiltered}
             renderTarget={() => (
                 <IconFilterWrapper>
-                    <IconFilterFunnel size={getIconSize(size)} />
+                    <IconFilterFunnel size={getIconSize(size)} className={classes.filterIcon} />
 
                     {filtered.length ? <StyledIndicator size="s" view="accent" /> : undefined}
                 </IconFilterWrapper>

@@ -8,7 +8,6 @@ import {
     OnChangeFn,
     ColumnFiltersState,
     RowSelectionState,
-    RowData,
     Table as TableType,
     Row,
 } from '@tanstack/react-table';
@@ -17,10 +16,8 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { RootProps } from '../../engines';
 
 import { HeadCell, Cell, EditableCell } from './ui';
-import { TableProps, TableColumnData } from './Table.types';
-import { base, Table, Tr, Thead, StyledCheckbox } from './Table.styles';
-
-export const SELECT_COLUMN_ID = 'select#65768756432';
+import { TableProps, TableRowData } from './Table.types';
+import { base, Table, Tr, Thead, StyledCheckbox, Tbody } from './Table.styles';
 
 type ColumnSort = {
     id: string;
@@ -28,18 +25,7 @@ type ColumnSort = {
 };
 type SortingState = ColumnSort[];
 
-declare module '@tanstack/react-table' {
-    interface ColumnMeta<TData extends RowData, TValue> {
-        filters?: TableColumnData['filters'];
-        enableEditing?: boolean;
-        renderCell?: TableColumnData['renderCell'];
-    }
-}
-declare module '@tanstack/react-table' {
-    interface TableMeta<TData extends RowData> {
-        updateData: (rowId: string, columnId: string, value: unknown) => void;
-    }
-}
+export const SELECT_COLUMN_ID = 'SELECT_COLUMN_UNIQUE_ID';
 
 export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
     forwardRef<HTMLDivElement, TableProps>(
@@ -58,6 +44,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                 maxHeight,
                 stickyHeader,
                 onCellUpdate,
+                ...props
             },
             ref,
         ) => {
@@ -156,21 +143,11 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                             size: columnSize,
                             enableSorting,
                             enableResizing,
-                            filterFn: (row: Row<typeof data[number]>, columnId: string, filterArr: any) => {
-                                if (outerFilterFn && filterArr && Array.isArray(filterArr)) {
-                                    if (filterArr.length === 0) {
-                                        return true;
-                                    }
-
-                                    for (let i = 0; i < filterArr.length; i++) {
-                                        const filterValue = filterArr[i];
-
-                                        if (outerFilterFn(filterValue, row.getValue(columnId))) {
-                                            return true;
-                                        }
-                                    }
-
-                                    return false;
+                            filterFn: (row: Row<TableRowData>, columnId: string, filterArr: string[]) => {
+                                if (filterArr?.length !== 0 && outerFilterFn && filterArr && Array.isArray(filterArr)) {
+                                    return filterArr.some((filterValue) =>
+                                        outerFilterFn(filterValue, row.getValue(columnId)),
+                                    );
                                 }
 
                                 return true;
@@ -222,6 +199,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                     view={view}
                     size={size}
                     style={{ maxHeight: maxHeight || 'none' }}
+                    {...props}
                 >
                     <Table borderVariant={borderVariant} stickyHeader={stickyHeader}>
                         <Thead view={view} borderVariant={borderVariant} stickyHeader={stickyHeader}>
@@ -241,7 +219,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                             ))}
                         </Thead>
 
-                        <tbody>
+                        <Tbody>
                             {table.getRowModel().rows.map((row) => (
                                 <Tr key={row.id} selected={row.getIsSelected()}>
                                     {row.getVisibleCells().map((cell) =>
@@ -269,7 +247,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                     )}
                                 </Tr>
                             ))}
-                        </tbody>
+                        </Tbody>
                     </Table>
                 </Root>
             );
