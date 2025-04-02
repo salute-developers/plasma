@@ -15,5 +15,5 @@
         "threshold": 0
     },
     "video": false,
-    "retries": 3
+    "retries": 5
 }
