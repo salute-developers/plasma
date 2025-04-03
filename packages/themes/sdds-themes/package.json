@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-themes",
-  "version": "0.34.0-dev.0",
+  "version": "0.34.0",
   "description": "Sdds-themes package",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "index.js.map"
   ],
   "devDependencies": {
-    "@salutejs/core-themes": "0.20.0-dev.0",
+    "@salutejs/core-themes": "0.20.0",
     "@types/node": "16.7.13",
     "ts-node": "10.2.1"
   },
