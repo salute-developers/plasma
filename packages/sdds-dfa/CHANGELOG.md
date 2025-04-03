@@ -1,3 +1,92 @@
+## 0.306.0 (3 апреля 2025)
+
+## Функциональные изменения в компонентах
+
+### Range
+
+* добавлен `hover` для `input` control в компоненте
+
+[PR](https://github.com/salute-developers/plasma/pull/1839)
+
+### Table
+
+* добавлен новый компонент
+
+[PR](https://github.com/salute-developers/plasma/pull/1867)
+
+### Tokens
+
+* добавлены stories с выводом числовых токенов `spacing` и `corner radius`
+
+[PR](https://github.com/salute-developers/plasma/pull/1853)
+
+### Button
+
+* добавлен `margin` при наличии `children` у `contentLeft`
+
+[PR](https://github.com/salute-developers/plasma/pull/1878)
+
+### Textarea
+
+* исправлен баг при вводе `col` и некорректном отображении `outerLabelWrapper`
+
+[PR](https://github.com/salute-developers/plasma/pull/1854)
+
+### Slider
+
+* min/max значения внесены внутрь контейнера одиночного слайдера
+
+[PR](https://github.com/salute-developers/plasma/pull/1882)
+
+### Typography
+
+* Добавлена поддержка свойства `as` для linaria сборки
+
+* Добавлены свойства `as` и `forwradedAs` на уровне типов
+
+* Добавлена документация с примером
+
+[PR](https://github.com/salute-developers/plasma/pull/1885)
+
+* Добавлена поддержка свойства `medium`
+
+[PR](https://github.com/salute-developers/plasma/pull/1886)
+
+* добавлены stories с выводом токенов типографики
+
+<img width="558" src="https://github.com/user-attachments/assets/edcd8629-6de8-45b5-824a-0f2e8ebbb474" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1863)
+
+### Checkbox
+
+* Исправлено поведение `checkbox` на нативное в состоянии `indeterminate`
+
+[PR](https://github.com/salute-developers/plasma/pull/1880)
+
+### Plasma-themes
+
+* Обновлены токены для всех тем этой группы
+* Добавлены токены medium начертаний для типографики во все темы этой группы
+
+### Sdds-themes
+
+* Обновлены токены для всех тем этой группы
+* Добавлены токены medium начертаний для типографики во все темы этой группы
+
+[PR](https://github.com/salute-developers/plasma/pull/1870)
+
+### Plasma-tokens
+
+* Обновление theme `plasma_b2c`
+* Обновление theme `sdds_serv`
+* Обновление theme `plasma_giga`
+* Добавлена theme `plasma_giga_app` (дубликат plasma\_b2c)
+* Добавлены токены теней для native платформ в themes `plasma_b2c` и `plasma_web`
+
+[PR](https://github.com/salute-developers/plasma/pull/1870)
+
+
 ## 0.296.0 (20 марта 2025)
 
 ## Функциональные изменения в компонентах
