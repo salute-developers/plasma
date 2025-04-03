@@ -3,6 +3,7 @@ export const classes = {
     typoWithBreakWord: 'with-break-word',
     typoBold: 'typography-bold',
     typoMedium: 'typography-medium',
+    typoIsNumeric: 'typography-is-numeric',
 };
 
 export const tokens = {

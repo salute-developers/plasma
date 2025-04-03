@@ -40,6 +40,7 @@ const meta: Meta<typeof Body> = {
         breakWord: true,
         bold: false,
         medium: false,
+        isNumeric: false,
     },
 };
 
@@ -48,10 +49,14 @@ export default meta;
 export const Default: StoryObj<typeof Body> = {
     render: (args) => {
         return (
-            <Body {...args}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium nesciunt nihil non ut animi
-                distinctio modi quo, provident quod.
-            </Body>
+            <>
+                <Body {...args}>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium nesciunt nihil non ut animi
+                    distinctio modi quo, provident quod.
+                    <br />
+                    1234567890
+                </Body>
+            </>
         );
     },
 };
