@@ -577,13 +577,13 @@ export const surfaceTransparentDeepHover = 'var(--surface-transparent-deep-hover
 export const surfaceTransparentDeepActive = 'var(--surface-transparent-deep-active, #FFFFFF94)';
 
 /** Прозрачный фон для карточек */
-export const surfaceTransparentCardHover = 'var(--surface-transparent-card-hover, #FFFFFF3D)';
+export const surfaceTransparentCardHover = 'var(--surface-transparent-card-hover, #EBFFFD1C)';
 
 /** Прозрачный фон для карточек */
-export const surfaceTransparentCardActive = 'var(--surface-transparent-card-active, #FFFFFF0F)';
+export const surfaceTransparentCardActive = 'var(--surface-transparent-card-active, #EBFFFD08)';
 
 /** Прозрачный фон для карточек */
-export const surfaceTransparentCardBrightness = 'var(--surface-transparent-card-brightness, #FFFFFF1F)';
+export const surfaceTransparentCardBrightness = 'var(--surface-transparent-card-brightness, #EBFFFD0D)';
 
 /** Фон поверхности/контрола без заливки */
 export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFFFF)';
@@ -592,22 +592,22 @@ export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFFFF)';
 export const surfaceClearActive = 'var(--surface-clear-active, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола */
-export const surfaceAccentHover = 'var(--surface-accent-hover, #4DF5CBFF)';
+export const surfaceAccentHover = 'var(--surface-accent-hover, #7AF5D2FF)';
 
 /** Акцентный фон поверхности/контрола */
-export const surfaceAccentActive = 'var(--surface-accent-active, #1CF2BCFF)';
+export const surfaceAccentActive = 'var(--surface-accent-active, #4BF1C2FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #106550FF)';
+export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #116A51FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #0C4B3BFF)';
+export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #0C4F3CFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #26F2BF66)';
+export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #54F2C552)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #26F2BF38)';
+export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #54F2C524)';
 
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositiveHover = 'var(--surface-positive-hover, #1DAF37FF)';
@@ -705,9 +705,6 @@ export const surfaceSolidCard = 'var(--surface-solid-card, #171717)';
 /** Непрозрачный фон поверхности/контрола по умолчанию */
 export const surfaceSolidDefault = 'var(--surface-solid-default, #FFFFFFFF)';
 
-/** Прозрачный фон для карточек */
-export const surfaceTransparentCard = 'var(--surface-transparent-card, #FFFFFF1F)';
-
 /** Основной прозрачный фон поверхности/контрола */
 export const surfaceTransparentPrimary = 'var(--surface-transparent-primary, #FFFFFF0D)';
 
@@ -751,13 +748,16 @@ export const surfaceInfoMinor = 'var(--surface-info-minor, #082254)';
 export const surfaceTransparentInfo = 'var(--surface-transparent-info, #3F81FD33)';
 
 /** Акцентный фон поверхности/контрола */
-export const surfaceAccent = 'var(--surface-accent, #24F2BFFF)';
+export const surfaceAccent = 'var(--surface-accent, #52F2C5)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinor = 'var(--surface-accent-minor, #0D5442FF)';
+export const surfaceAccentMinor = 'var(--surface-accent-minor, #0E5944)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #24F2BF47)';
+export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #52F2C533)';
+
+/** Прозрачный фон для карточек */
+export const surfaceTransparentCard = 'var(--surface-transparent-card, #EDFFFD0D)';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #121212FF)';
@@ -820,31 +820,31 @@ export const onDarkSurfaceTransparentDeepHover = 'var(--on-dark-surface-transpar
 export const onDarkSurfaceTransparentDeepActive = 'var(--on-dark-surface-transparent-deep-active, #FFFFFF94)';
 
 /** Прозрачный фон для карточек на темном фоне */
-export const onDarkSurfaceTransparentCardHover = 'var(--on-dark-surface-transparent-card-hover, #FFFFFF3D)';
+export const onDarkSurfaceTransparentCardHover = 'var(--on-dark-surface-transparent-card-hover, #EBFFFD1C)';
 
 /** Прозрачный фон для карточек на темном фоне */
-export const onDarkSurfaceTransparentCardActive = 'var(--on-dark-surface-transparent-card-active, #FFFFFF0F)';
+export const onDarkSurfaceTransparentCardActive = 'var(--on-dark-surface-transparent-card-active, #EBFFFD08)';
 
 /** Прозрачный фон для карточек на темном фоне */
-export const onDarkSurfaceTransparentCardBrightness = 'var(--on-dark-surface-transparent-card-brightness, #FFFFFF1F)';
+export const onDarkSurfaceTransparentCardBrightness = 'var(--on-dark-surface-transparent-card-brightness, #EBFFFD0D)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #4DF5CBFF)';
+export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #7AF5D2FF)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #1CF2BCFF)';
+export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #4BF1C2FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #106550FF)';
+export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #116A51FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #0C4B3BFF)';
+export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #0C4F3CFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccentHover = 'var(--on-dark-surface-transparent-accent-hover, #26F2BF66)';
+export const onDarkSurfaceTransparentAccentHover = 'var(--on-dark-surface-transparent-accent-hover, #52F1FF52)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccentActive = 'var(--on-dark-surface-transparent-accent-active, #26F2BF38)';
+export const onDarkSurfaceTransparentAccentActive = 'var(--on-dark-surface-transparent-accent-active, #52F1FF24)';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositiveHover = 'var(--on-dark-surface-positive-hover, #1DAF37FF)';
@@ -942,9 +942,6 @@ export const onDarkSurfaceSolidTertiary = 'var(--on-dark-surface-solid-tertiary,
 /** Непрозрачный фон поверхности/контрола по умолчанию на темном фоне */
 export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #FFFFFFFF)';
 
-/** Прозрачный фон для карточек на темном фоне */
-export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, #FFFFFF1F)';
-
 /** Основной прозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentPrimary = 'var(--on-dark-surface-transparent-primary, #FFFFFF0D)';
 
@@ -985,13 +982,16 @@ export const onDarkSurfaceInfoMinor = 'var(--on-dark-surface-info-minor, #082254
 export const onDarkSurfaceTransparentInfo = 'var(--on-dark-surface-transparent-info, #3F81FD33)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #24F2BFFF)';
+export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #52F2C5)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #0D5442FF)';
+export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #0E5944)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #24F2BF47)';
+export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #52F2FF33)';
+
+/** Прозрачный фон для карточек на темном фоне */
+export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, #EDFFFD0D)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F7F7F7FF)';
@@ -1064,22 +1064,22 @@ export const onLightSurfaceTransparentCardActive = 'var(--on-light-surface-trans
 export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-transparent-card-brightness, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #21DEAFFF)';
+export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #00C28BFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #1DC39AFF)';
+export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #00A375FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #EBFFFAFF)';
+export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #E5FFF8FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #D6FFF5FF)';
+export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #D1FFF2FF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-transparent-accent-hover, #1ECCA166)';
+export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-transparent-accent-hover, #00AD7C3D)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #1ECCA138)';
+export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #00AD7C0F)';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hover, #1DAF37FF)';
@@ -1220,13 +1220,13 @@ export const onLightSurfaceTransparentInfo = 'var(--on-light-surface-transparent
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #332640FF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #1FCCA0FF)';
+export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #00AC7B)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #DEFFF7FF)';
+export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #DBFFF5)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #1FCCA047)';
+export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #00AC7B1F)';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F7F7F7FF)';
@@ -1299,22 +1299,22 @@ export const inverseSurfaceTransparentCardActive = 'var(--inverse-surface-transp
 export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-transparent-card-brightness, #FFFFFFFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #4DF5CBFF)';
+export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #00C28BFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #1CF2BCFF)';
+export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #00A375FF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #EBFFFAFF)';
+export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #E5FFF8FF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #D6FFF5FF)';
+export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #D1FFF2FF)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #1ECCA166)';
+export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #00AD7C3D)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccentActive = 'var(--inverse-surface-transparent-accent-active, #1ECCA138)';
+export const inverseSurfaceTransparentAccentActive = 'var(--inverse-surface-transparent-accent-active, #00AD7C0F)';
 
 /** Инвертированный цвет фона поверхности/контрола успех */
 export const inverseSurfacePositiveHover = 'var(--inverse-surface-positive-hover, #1DAF37FF)';
@@ -1455,13 +1455,13 @@ export const inverseSurfaceTransparentInfo = 'var(--inverse-surface-transparent-
 export const inverseSurfaceSolidDefault = 'var(--inverse-surface-solid-default, #332640FF)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #24F2BFFF)';
+export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #00AC7B)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #DEFFF7FF)';
+export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #DBFFF5)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #1FCCA047)';
+export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #00AC7B1F)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #242326FF)';
@@ -3027,6 +3027,176 @@ export const textXSBold = {
     lineHeight: 'var(--plasma-typo-text-xs-bold-line-height)',
 };
 
+/** typography s display-l-medium */
+export const dsplLMedium = {
+    fontFamily: 'var(--plasma-typo-dspl-l-medium-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-medium-line-height)',
+};
+
+/** typography s display-m-medium */
+export const dsplMMedium = {
+    fontFamily: 'var(--plasma-typo-dspl-m-medium-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-m-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-m-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-m-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-m-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-m-medium-line-height)',
+};
+
+/** typography s display-s-medium */
+export const dsplSMedium = {
+    fontFamily: 'var(--plasma-typo-dspl-s-medium-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-s-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-s-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-s-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-s-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-s-medium-line-height)',
+};
+
+/** typography s header-h1-medium */
+export const h1Medium = {
+    fontFamily: 'var(--plasma-typo-h1-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h1-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h1-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h1-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h1-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h1-medium-line-height)',
+};
+
+/** typography s header-h2-medium */
+export const h2Medium = {
+    fontFamily: 'var(--plasma-typo-h2-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h2-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h2-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h2-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h2-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h2-medium-line-height)',
+};
+
+/** typography s header-h3-medium */
+export const h3Medium = {
+    fontFamily: 'var(--plasma-typo-h3-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h3-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h3-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h3-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h3-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h3-medium-line-height)',
+};
+
+/** typography s header-h4-medium */
+export const h4Medium = {
+    fontFamily: 'var(--plasma-typo-h4-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h4-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h4-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h4-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h4-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h4-medium-line-height)',
+};
+
+/** typography s header-h5-medium */
+export const h5Medium = {
+    fontFamily: 'var(--plasma-typo-h5-medium-font-family)',
+    fontSize: 'var(--plasma-typo-h5-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-h5-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-h5-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h5-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h5-medium-line-height)',
+};
+
+/** typography s body-l-medium */
+export const bodyLMedium = {
+    fontFamily: 'var(--plasma-typo-body-l-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-l-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-l-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-l-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-l-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-l-medium-line-height)',
+};
+
+/** typography s body-m-medium */
+export const bodyMMedium = {
+    fontFamily: 'var(--plasma-typo-body-m-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-m-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-m-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-m-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-m-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-m-medium-line-height)',
+};
+
+/** typography s body-s-medium */
+export const bodySMedium = {
+    fontFamily: 'var(--plasma-typo-body-s-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-s-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-s-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-s-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-s-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-s-medium-line-height)',
+};
+
+/** typography s body-xs-medium */
+export const bodyXSMedium = {
+    fontFamily: 'var(--plasma-typo-body-xs-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-xs-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xs-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xs-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xs-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xs-medium-line-height)',
+};
+
+/** typography s body-xxs-medium */
+export const bodyXXSMedium = {
+    fontFamily: 'var(--plasma-typo-body-xxs-medium-font-family)',
+    fontSize: 'var(--plasma-typo-body-xxs-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xxs-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xxs-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xxs-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xxs-medium-line-height)',
+};
+
+/** typography s text-l-medium */
+export const textLMedium = {
+    fontFamily: 'var(--plasma-typo-text-l-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-l-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-l-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-l-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-l-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-l-medium-line-height)',
+};
+
+/** typography s text-m-medium */
+export const textMMedium = {
+    fontFamily: 'var(--plasma-typo-text-m-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-m-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-m-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-m-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-m-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-m-medium-line-height)',
+};
+
+/** typography s text-s-medium */
+export const textSMedium = {
+    fontFamily: 'var(--plasma-typo-text-s-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-s-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-s-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-s-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-s-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-s-medium-line-height)',
+};
+
+/** typography s text-xs-medium */
+export const textXSMedium = {
+    fontFamily: 'var(--plasma-typo-text-xs-medium-font-family)',
+    fontSize: 'var(--plasma-typo-text-xs-medium-font-size)',
+    fontStyle: 'var(--plasma-typo-text-xs-medium-font-style)',
+    fontWeight: 'var(--plasma-typo-text-xs-medium-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-xs-medium-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-xs-medium-line-height)',
+};
+
 export const viewContainer = {
     dark: `
         --text-primary: var(--on-dark-text-primary);
@@ -3178,7 +3348,6 @@ export const viewContainer = {
         --surface-solid-tertiary: var(--on-dark-surface-solid-tertiary);
         --surface-solid-card: var(--on-dark-surface-solid-card);
         --surface-solid-default: var(--on-dark-surface-solid-default);
-        --surface-transparent-card: var(--on-dark-surface-transparent-card);
         --surface-transparent-primary: var(--on-dark-surface-transparent-primary);
         --surface-transparent-secondary: var(--on-dark-surface-transparent-secondary);
         --surface-transparent-tertiary: var(--on-dark-surface-transparent-tertiary);
@@ -3196,6 +3365,7 @@ export const viewContainer = {
         --surface-accent: var(--on-dark-surface-accent);
         --surface-accent-minor: var(--on-dark-surface-accent-minor);
         --surface-transparent-accent: var(--on-dark-surface-transparent-accent);
+        --surface-transparent-card: var(--on-dark-surface-transparent-card);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --inverse-surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);
@@ -3689,7 +3859,6 @@ export const viewContainer = {
         --inverse-surface-solid-secondary: var(--on-dark-surface-solid-secondary);
         --inverse-surface-solid-tertiary: var(--on-dark-surface-solid-tertiary);
         --inverse-surface-solid-default: var(--on-dark-surface-solid-default);
-        --inverse-surface-transparent-card: var(--on-dark-surface-transparent-card);
         --inverse-surface-transparent-primary: var(--on-dark-surface-transparent-primary);
         --inverse-surface-transparent-secondary: var(--on-dark-surface-transparent-secondary);
         --inverse-surface-transparent-tertiary: var(--on-dark-surface-transparent-tertiary);
@@ -3706,6 +3875,7 @@ export const viewContainer = {
         --inverse-surface-accent: var(--on-dark-surface-accent);
         --inverse-surface-accent-minor: var(--on-dark-surface-accent-minor);
         --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
+        --inverse-surface-transparent-card: var(--on-dark-surface-transparent-card);
         --background-primary: var(--light-background-primary);
         --inverse-background-primary: var(--dark-background-primary);
         --overlay-soft: var(--on-light-overlay-soft);

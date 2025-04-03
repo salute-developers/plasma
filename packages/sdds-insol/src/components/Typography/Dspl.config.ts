@@ -12,6 +12,7 @@ export const configL = {
                 ${typographyTokens.typoFontStyle}: var(--plasma-typo-dspl-l-font-style);
                 ${typographyTokens.typoFontWeight}: var(--plasma-typo-dspl-l-font-weight);
                 ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-dspl-l-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-dspl-l-medium-font-weight);
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-l-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-dspl-l-line-height);
             `,
@@ -31,6 +32,7 @@ export const configM = {
                 ${typographyTokens.typoFontStyle}: var(--plasma-typo-dspl-m-font-style);
                 ${typographyTokens.typoFontWeight}: var(--plasma-typo-dspl-m-font-weight);
                 ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-dspl-m-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-dspl-m-medium-font-weight);
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-m-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-dspl-m-line-height);
             `,
@@ -50,6 +52,7 @@ export const configS = {
                 ${typographyTokens.typoFontStyle}: var(--plasma-typo-dspl-s-font-style);
                 ${typographyTokens.typoFontWeight}: var(--plasma-typo-dspl-s-font-weight);
                 ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-dspl-s-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-dspl-s-medium-font-weight);
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-s-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-dspl-s-line-height);
             `,

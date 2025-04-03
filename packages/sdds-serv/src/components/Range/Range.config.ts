@@ -25,10 +25,13 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
+                ${tokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
+                ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-transparent-negative-hover);
                 ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
+                ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-transparent-positive-hover);
                 ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);

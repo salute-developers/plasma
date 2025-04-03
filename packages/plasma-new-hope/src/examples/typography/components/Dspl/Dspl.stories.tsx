@@ -9,7 +9,7 @@ import { Dspl } from './Dspl';
 import { config } from './Dspl.config';
 
 const meta: Meta<typeof Dspl> = {
-    title: 'Data Display/Typography/Dspl',
+    title: 'typography/Dspl',
     decorators: [WithTheme],
     component: Dspl,
     argTypes: {
@@ -19,11 +19,27 @@ const meta: Meta<typeof Dspl> = {
                 type: 'color',
             },
         },
+        as: {
+            control: 'text',
+        },
+        bold: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'medium', truthy: false },
+        },
+        medium: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'bold', truthy: false },
+        },
     },
     args: {
         noWrap: false,
         breakWord: true,
         bold: false,
+        medium: false,
     },
 };
 

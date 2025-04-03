@@ -17,6 +17,7 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean }) =
             breakWord,
             noWrap,
             bold = defaultArgs?.defaultBold,
+            medium,
             color,
             className,
             style,
@@ -31,10 +32,10 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean }) =
                     noWrap && classes.typoWithNoWrap,
                     breakWord && classes.typoWithBreakWord,
                     bold && classes.typoBold,
+                    medium && classes.typoMedium,
                     className,
                 )}
                 style={{ color, ...style, ...applySpacing(rest) }}
-                bold={bold}
                 {...rest}
             >
                 {children}

@@ -17,4 +17,8 @@ generate([
         name: 'plasma_giga',
         version: 'latest',
     },
+    {
+        name: 'plasma_giga_app',
+        version: 'latest',
+    },
 ]);

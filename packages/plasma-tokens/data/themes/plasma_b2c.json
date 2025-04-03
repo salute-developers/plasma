@@ -6531,20 +6531,12 @@
                     "value": "rgba(42, 114, 248, 0.20)",
                     "comment": ""
                 },
-                "outlineSolidPrimary": {
-                    "value": "[general.gray.900]",
-                    "comment": ""
-                },
                 "outlineSolidPrimaryHover": {
-                    "value": "#787878FF",
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineSolidPrimaryActive": {
-                    "value": "#4F4F4FFF",
-                    "comment": ""
-                },
-                "outlineSolidSecondary": {
-                    "value": "[general.gray.800]",
+                    "value": "#B3B3B3FF",
                     "comment": ""
                 },
                 "outlineSolidSecondaryHover": {
@@ -6552,11 +6544,7 @@
                     "comment": ""
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#404040FF",
-                    "comment": ""
-                },
-                "outlineSolidTertiary": {
-                    "value": "[general.gray.700]",
+                    "value": "#757575FF",
                     "comment": ""
                 },
                 "outlineSolidTertiaryHover": {
@@ -6567,16 +6555,28 @@
                     "value": "#595959FF",
                     "comment": ""
                 },
-                "outlineSolidDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineSolidDefaultHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#595959FF",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
-                    "value": "#C7C7C7FF",
+                    "value": "#303030FF",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
                     "comment": ""
                 }
             },
@@ -7127,20 +7127,12 @@
                     "value": "rgba(42, 114, 248, 0.20)",
                     "comment": ""
                 },
-                "outlineSolidTertiary": {
-                    "value": "[general.gray.700]",
-                    "comment": ""
-                },
                 "outlineSolidTertiaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineSolidTertiaryActive": {
                     "value": "#595959FF",
-                    "comment": ""
-                },
-                "outlineSolidDefault": {
-                    "value": "[general.gray.1000]",
                     "comment": ""
                 },
                 "outlineSolidDefaultHover": {
@@ -7151,10 +7143,6 @@
                     "value": "#303030FF",
                     "comment": ""
                 },
-                "outlineSolidPrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
                 "outlineSolidPrimaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
@@ -7163,16 +7151,28 @@
                     "value": "#B3B3B3FF",
                     "comment": ""
                 },
-                "outlineSolidSecondary": {
-                    "value": "[general.gray.400]",
-                    "comment": ""
-                },
                 "outlineSolidSecondaryHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
                 },
                 "outlineSolidSecondaryActive": {
                     "value": "#757575FF",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.200]",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
                     "comment": ""
                 }
             },
@@ -7437,20 +7437,12 @@
                     "value": "rgba(63,129,253,0.28)",
                     "comment": ""
                 },
-                "outlineSolidPrimary": {
-                    "value": "[general.gray.200]",
-                    "comment": ""
-                },
                 "outlineSolidPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#787878FF",
                     "comment": ""
                 },
                 "outlineSolidPrimaryActive": {
-                    "value": "#B3B3B3FF",
-                    "comment": ""
-                },
-                "outlineSolidSecondary": {
-                    "value": "[general.gray.400]",
+                    "value": "#4F4F4FFF",
                     "comment": ""
                 },
                 "outlineSolidSecondaryHover": {
@@ -7458,11 +7450,7 @@
                     "comment": ""
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#757575FF",
-                    "comment": ""
-                },
-                "outlineSolidTertiary": {
-                    "value": "[general.gray.700]",
+                    "value": "#404040FF",
                     "comment": ""
                 },
                 "outlineSolidTertiaryHover": {
@@ -7473,16 +7461,28 @@
                     "value": "#595959FF",
                     "comment": ""
                 },
-                "outlineSolidDefault": {
-                    "value": "[general.gray.1000]",
-                    "comment": ""
-                },
                 "outlineSolidDefaultHover": {
                     "value": "#595959FF",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
                     "value": "#303030FF",
+                    "comment": ""
+                },
+                "outlineSolidPrimary": {
+                    "value": "[general.gray.900]",
+                    "comment": ""
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlineSolidTertiary": {
+                    "value": "[general.gray.700]",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "[general.gray.1000]",
                     "comment": ""
                 }
             }
@@ -7648,24 +7648,55 @@
                 "s": {
                     "value": [
                         {
-                            "origin": "0px 4px 14px -4px rgba(8, 8, 8, 0.08)"
+                            "origin": "0px 4px 14px -4px rgba(8, 8, 8, 0.08)",
+                            "android": {
+                                "color": "#08080814",
+                                "offsetX": 0,
+                                "offsetY": 4.0,
+                                "spreadRadius": -4.0,
+                                "blurRadius": 14.0,
+                                "fallbackElevation": 2.0
+                            }
                         },
                         {
-                            "origin": "0px 1px 4px -1px rgba(0, 0, 0, 0.04)"
+                            "origin": "0px 1px 4px -1px rgba(0, 0, 0, 0.04)",
+                            "android": {
+                                "color": "#0000000A",
+                                "offsetX": 0,
+                                "offsetY": 1.0,
+                                "spreadRadius": -1.0,
+                                "blurRadius": 4.0
+                            }
                         }
                     ]
                 },
                 "m": {
                     "value": [
                         {
-                            "origin": "0px 24px 48px -8px rgba(0, 0, 0, 0.08)"
+                            "origin": "0px 24px 48px -8px rgba(0, 0, 0, 0.08)",
+                            "android": {
+                                "color": "#00000014",
+                                "offsetX": 0,
+                                "offsetY": 24.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 48.0,
+                                "fallbackElevation": 4.0
+                            }
                         }
                     ]
                 },
                 "l": {
                     "value": [
                         {
-                            "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.08)"
+                            "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.08)",
+                            "android": {
+                                "color": "#00000014",
+                                "offsetX": 0,
+                                "offsetY": 60.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 112.0,
+                                "fallbackElevation": 6.0
+                            }
                         }
                     ]
                 }
@@ -7674,24 +7705,55 @@
                 "s": {
                     "value": [
                         {
-                            "origin": "0px 4px 12px -3px rgba(8, 8, 8, 0.16)"
+                            "origin": "0px 4px 12px -3px rgba(8, 8, 8, 0.16)",
+                            "android": {
+                                "color": "#08080829",
+                                "offsetX": 0,
+                                "offsetY": 4.0,
+                                "spreadRadius": -3.0,
+                                "blurRadius": 12.0,
+                                "fallbackElevation": 2.0
+                            }
                         },
                         {
-                            "origin": "0px 1px 4px -2px rgba(0, 0, 0, 0.08)"
+                            "origin": "0px 1px 4px -2px rgba(0, 0, 0, 0.08)",
+                            "android": {
+                                "color": "#00000014",
+                                "offsetX": 0,
+                                "offsetY": 1.0,
+                                "spreadRadius": -2.0,
+                                "blurRadius": 4.0
+                            }
                         }
                     ]
                 },
                 "m": {
                     "value": [
                         {
-                            "origin": "0px 16px 32px -8px rgba(0, 0, 0, 0.24)"
+                            "origin": "0px 16px 32px -8px rgba(0, 0, 0, 0.24)",
+                            "android": {
+                                "color": "#0000003D",
+                                "offsetX": 0,
+                                "offsetY": 16.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 32.0,
+                                "fallbackElevation": 4.0
+                            }
                         }
                     ]
                 },
                 "l": {
                     "value": [
                         {
-                            "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.40)"
+                            "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.40)",
+                            "android": {
+                                "color": "#00000066",
+                                "offsetX": 0,
+                                "offsetY": 60.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 112.0,
+                                "fallbackElevation": 6.0
+                            }
                         }
                     ]
                 }
@@ -7702,24 +7764,52 @@
                 "s": {
                     "value": [
                         {
-                            "origin": "0px -4px 14px -4px rgba(8, 8, 8, 0.08)"
+                            "origin": "0px -4px 14px -4px rgba(8, 8, 8, 0.08)",
+                            "android": {
+                                "color": "#08080814",
+                                "offsetX": 0,
+                                "offsetY": -4.0,
+                                "spreadRadius": -4.0,
+                                "blurRadius": 14.0
+                            }
                         },
                         {
-                            "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)"
+                            "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)",
+                            "android": {
+                                "color": "#00000008",
+                                "offsetX": 0,
+                                "offsetY": -1.0,
+                                "spreadRadius": -1.0,
+                                "blurRadius": 4.0
+                            }
                         }
                     ]
                 },
                 "m": {
                     "value": [
                         {
-                            "origin": "0px -24px 48px -8px rgba(0, 0, 0, 0.08)"
+                            "origin": "0px -24px 48px -8px rgba(0, 0, 0, 0.08)",
+                            "android": {
+                                "color": "#00000014",
+                                "offsetX": 0,
+                                "offsetY": -24.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 48.0
+                            }
                         }
                     ]
                 },
                 "l": {
                     "value": [
                         {
-                            "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.08)"
+                            "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.08)",
+                            "android": {
+                                "color": "#00000014",
+                                "offsetX": 0,
+                                "offsetY": -60.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 112.0
+                            }
                         }
                     ]
                 }
@@ -7728,24 +7818,52 @@
                 "s": {
                     "value": [
                         {
-                            "origin": "0px -4px 12px -3px rgba(8, 8, 8, 0.20)"
+                            "origin": "0px -4px 12px -3px rgba(8, 8, 8, 0.20)",
+                            "android": {
+                                "color": "#08080833",
+                                "offsetX": 0,
+                                "offsetY": -4.0,
+                                "spreadRadius": -3.0,
+                                "blurRadius": 12.0
+                            }
                         },
                         {
-                            "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)"
+                            "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)",
+                            "android": {
+                                "color": "#00000008",
+                                "offsetX": 0,
+                                "offsetY": -1.0,
+                                "spreadRadius": -1.0,
+                                "blurRadius": 4.0
+                            }
                         }
                     ]
                 },
                 "m": {
                     "value": [
                         {
-                            "origin": "0px -16px 32px -8px rgba(0, 0, 0, 0.24)"
+                            "origin": "0px -16px 32px -8px rgba(0, 0, 0, 0.24)",
+                            "android": {
+                                "color": "#0000003D",
+                                "offsetX": 0,
+                                "offsetY": -16.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 32.0
+                            }
                         }
                     ]
                 },
                 "l": {
                     "value": [
                         {
-                            "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.40)"
+                            "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.40)",
+                            "android": {
+                                "color": "#00000066",
+                                "offsetX": 0,
+                                "offsetY": -60.0,
+                                "spreadRadius": -8.0,
+                                "blurRadius": 112.0
+                            }
                         }
                     ]
                 }

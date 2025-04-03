@@ -9,7 +9,7 @@ import { Text } from './Text';
 import { config } from './Text.config';
 
 const meta: Meta<typeof Text> = {
-    title: 'Data Display/Typography/Text',
+    title: 'typography/Text',
     decorators: [WithTheme],
     component: Text,
     argTypes: {
@@ -19,11 +19,27 @@ const meta: Meta<typeof Text> = {
                 type: 'color',
             },
         },
+        as: {
+            control: 'text',
+        },
+        bold: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'medium', truthy: false },
+        },
+        medium: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'bold', truthy: false },
+        },
     },
     args: {
         noWrap: false,
         breakWord: true,
         bold: false,
+        medium: false,
     },
 };
 

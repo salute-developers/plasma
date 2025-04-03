@@ -337,9 +337,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     size={size}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
-                    clear={clear}
                     labelPlacement={innerLabelPlacementValue}
-                    chipView={chipView}
                     onClick={handleInputFocus}
                     className={cx(
                         labelPlacementClass,

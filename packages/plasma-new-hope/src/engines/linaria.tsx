@@ -12,10 +12,8 @@ export const _component = (componentConfig: ComponentConfig) => {
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
 
-    const Root = tag as React.ElementType;
-
     const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
-        const { className, ...rest } = props;
+        const { className, as, forwardedAs, ...rest } = props;
         const variants = dynamicVariants(rest);
         const intersectionStyles = getIntersectionStyles(rest, intersections);
 
@@ -45,6 +43,8 @@ export const _component = (componentConfig: ComponentConfig) => {
                 }
             }
         }
+
+        const Root = as || forwardedAs || (tag as React.ElementType);
 
         return <Root className={cls} {...htmlAttrs} {...baseProps} />;
     });

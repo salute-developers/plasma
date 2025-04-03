@@ -4005,10 +4005,7 @@ view: {
 default: PolymorphicClassName;
 };
 size: {
-l: PolymorphicClassName;
-m: PolymorphicClassName;
 s: PolymorphicClassName;
-xs: PolymorphicClassName;
 };
 }> & TreeProps_2 & RefAttributes<HTMLDivElement>>;
 

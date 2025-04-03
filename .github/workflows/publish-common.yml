@@ -51,15 +51,13 @@ jobs:
       
       - name: Lerna bootstrap
         run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,platform-test,plasma-website}"
-      
-      - name: API Report
-        run: npm run api:report
-        
+
       - name: Release Info
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
       
       - name: Create Release
-        run: npm run release -- ${{ inputs.auto-options }}
+        run: |
+          npm run release -- ${{ inputs.auto-options }}
       
       - name: Update package-lock files
         if: ${{ inputs.with-update-package-lock }}

@@ -9,7 +9,7 @@ import { Heading } from './Heading';
 import { config } from './Heading.config';
 
 const meta: Meta<typeof Heading> = {
-    title: 'Data Display/Typography/Heading',
+    title: 'typography/Heading',
     decorators: [WithTheme],
     component: Heading,
     argTypes: {
@@ -19,11 +19,27 @@ const meta: Meta<typeof Heading> = {
                 type: 'color',
             },
         },
+        as: {
+            control: 'text',
+        },
+        bold: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'medium', truthy: false },
+        },
+        medium: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'bold', truthy: false },
+        },
     },
     args: {
         noWrap: false,
         breakWord: true,
         bold: false,
+        medium: false,
     },
 };
 

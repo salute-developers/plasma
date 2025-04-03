@@ -9,7 +9,7 @@ import { Body } from './Body';
 import { config } from './Body.config';
 
 const meta: Meta<typeof Body> = {
-    title: 'Data Display/Typography/Body',
+    title: 'typography/Body',
     decorators: [WithTheme],
     component: Body,
     argTypes: {
@@ -19,11 +19,27 @@ const meta: Meta<typeof Body> = {
                 type: 'color',
             },
         },
+        as: {
+            control: 'text',
+        },
+        bold: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'medium', truthy: false },
+        },
+        medium: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'bold', truthy: false },
+        },
     },
     args: {
         noWrap: false,
         breakWord: true,
         bold: false,
+        medium: false,
     },
 };
 

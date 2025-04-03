@@ -271,7 +271,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 size={size}
                 disabled={disabled}
                 readOnly={readOnly}
-                clear={clear}
                 style={{ width: helperWidth, ...style }}
                 className={cx(clearClass, hasDividerClass, hasHintClass, className)}
                 onClick={handleTextAreaFocus}
@@ -281,7 +280,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 })}
             >
                 {(hasOuterLabel || titleCaption) && (
-                    <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
+                    <OuterLabelWrapper width={helperWidth} isInnerLabel={labelPlacement === 'inner'}>
                         {hasOuterLabel && (
                             <StyledIndicatorWrapper>
                                 <StyledLabel>{label}</StyledLabel>

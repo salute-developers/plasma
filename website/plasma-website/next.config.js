@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const withCSS = require('@zeit/next-css');
 
 const packagesInfo = require('./getPackageInfo');
 
@@ -8,7 +7,7 @@ const { PR_NAME } = process.env;
 
 const basePath = PR_NAME ? `/pr/${PR_NAME}` : '';
 
-module.exports = withCSS({
+module.exports = {
     basePath,
     assetPrefix: basePath,
     reactStrictMode: true,
@@ -31,7 +30,4 @@ module.exports = withCSS({
             },
         };
     },
-    cssLoaderOptions: {
-        url: false,
-    },
-});
+};

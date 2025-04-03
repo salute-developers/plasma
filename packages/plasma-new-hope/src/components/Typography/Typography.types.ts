@@ -1,21 +1,42 @@
 import type { HTMLAttributes } from 'react';
 
+import { AsProps } from '../..';
 import type { SpacingProps } from '../../mixins/applySpacing';
 
-export type BoldProps = {
+export interface BoldProps {
     /**
      * Полужирное начертание.
      */
     bold?: boolean;
+    medium?: never | false;
+}
+
+export interface MediumProps {
+    /**
+     * Среднее начертание.
+     */
+    medium?: boolean;
+    bold?: never | false;
+}
+
+export type FontProps = {
+    /**
+     * Не переносить строки.
+     */
+    noWrap?: boolean;
+    /**
+     * Переносить слова.
+     */
+    breakWord?: boolean;
+    /**
+     * Кастомный цвет текста.
+     */
+    color?: string;
     /**
      * Размер текста.
      */
     size?: string;
-};
-export type FontProps = {
-    noWrap?: boolean;
-    breakWord?: boolean;
-    color?: string;
 } & SpacingProps &
-    BoldProps &
+    (BoldProps | MediumProps) &
+    AsProps &
     HTMLAttributes<HTMLDivElement>;

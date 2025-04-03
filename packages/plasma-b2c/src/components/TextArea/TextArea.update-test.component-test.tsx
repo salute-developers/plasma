@@ -5,96 +5,285 @@ import { IconEye } from '@salutejs/plasma-icons';
 describe('plasma-b2c: TextArea', () => {
     const TextArea = getComponent('TextArea');
     const LONG_TEXT = 'TEXT FOR RESIZE TEST ';
+    const Icon = <IconEye color="inherit" size="s" />;
 
     const propsDefault = {
-        placeholder: 'Placeholder Text',
-        leftHelper: 'Left Helper Text',
-        rightHelper: 'Right Helper Text',
+        size: 'l',
+        view: 'default',
+        label: 'label',
+        labelPlacement: 'outer',
+        placeholder: 'Placeholder',
+        leftHelper: 'Left helper',
+        rightHelper: 'Right helper',
     };
 
-    const propsWithContent = {
-        contentRight: <IconEye color="inherit" size="s" />,
-        ...propsDefault,
-    };
-
-    it('[PLASMA-T700] TextArea: size=m, with content', () => {
+    it('[PLASMA-T1580] TextArea: size=l, view=default, label, labelPlacement=inner, value, leftHelperText, rightHelperText, contentRight, required, requiredPlacement=left', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea size="m" {...propsWithContent} />
+                <TextArea
+                    size="l"
+                    view="default"
+                    label="Label"
+                    labelPlacement="inner"
+                    value="Value"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    required
+                    requiredPlacement="left"
+                />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T742] TextArea: with value, without content', () => {
+    it('[PLASMA-T1581] TextArea: size=m, view=positive, label, labelPlacement=outer, placeholder, leftHelper, rightHelper, contentRight, optional', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea value="Value Text" {...propsDefault} />
+                <TextArea
+                    size="m"
+                    view="positive"
+                    label="Label"
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    value="Value"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    optional
+                />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T745] TextArea: status=success, size=s', () => {
+    it('[PLASMA-T1582] TextArea: size=s, view=warning, label, labelPlacement=inner, placeholder, rightHelper, required, requiredPlacement=right', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea status="success" size="s" {...propsWithContent} />
+                <TextArea
+                    size="s"
+                    view="warning"
+                    label="Label"
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    rightHelper="Right helper"
+                    required
+                    requiredPlacement="right"
+                />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T746] TextArea: status=warning, size=l', () => {
+    it('[PLASMA-T1583] TextArea: size=xs, view=negative, labelPlacement=inner, placeholder, leftHelper, rightHelper, contentRight, optional', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea status="warning" size="l" {...propsWithContent} />
+                <TextArea
+                    size="xs"
+                    view="negative"
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    optional
+                />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T747] TextArea: status=error, size=xs', () => {
+    it('[PLASMA-T1584] size=l, view=default, label, labelPlacement=outer, value, contentRight, required, requiredPlacement=left, readOnly', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea status="error" size="xs" {...propsWithContent} />
+                <div style={{ marginLeft: '1rem' }}>
+                    <TextArea
+                        size="l"
+                        view="default"
+                        label="Label"
+                        labelPlacement="outer"
+                        value="Value"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        required
+                        requiredPlacement="left"
+                        readOnly
+                    />
+                </div>
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T743] TextArea: disabled', () => {
+    it('[PLASMA-T1585] TextArea: size=m, view=warning, label, labelPlacement=inner, value, leftHelper, rightHelper, optional', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea disabled {...propsDefault} />
+                <TextArea
+                    size="m"
+                    view="warning"
+                    label="Label"
+                    labelPlacement="inner"
+                    value="Value"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    optional
+                />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T744] TextArea: readOnly', () => {
+    it('[PLASMA-T1586] TextArea: size=s, view=default, labelPlacement=inner, placeholder, leftHelper, rightHelper, required, requiredPlacement=right', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea readOnly {...propsDefault} />
+                <TextArea
+                    size="s"
+                    view="default"
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    required
+                    requiredPlacement="right"
+                />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T766] TextArea: focused', () => {
+    it('[PLASMA-T1587] TextArea: size=xs, view=positive, label, labelPlacement=outer, value, leftHelper, rightHelper, contentRight, optional', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea {...propsDefault} />
+                <TextArea
+                    size="xs"
+                    view="positive"
+                    label="Label"
+                    labelPlacement="outer"
+                    value="Value"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    optional
+                />
             </CypressTestDecorator>,
         );
 
-        cy.get('.textarea').focus();
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1588] TextArea: size=l, view=default, label, labelPlacement=inner, value, placeholder, contentRight, contentLeft, required, requiredPlacement=left, disabled', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    size="l"
+                    view="default"
+                    label="Label"
+                    labelPlacement="inner"
+                    value="Value"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    required
+                    requiredPlacement="left"
+                    disabled
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1589] TextArea: size=m, view=negative, label, labelPlacement=outer, placeholder, leftHelper, rightHelper, optional', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    size="m"
+                    view="negative"
+                    label="Label"
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    optional
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1590] TextArea: size=s, view=warning, label, labelPlacement=inner, placeholder, leftHelper, rightHelper, contentRight, required, requiredPlacement=right, focused', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    size="s"
+                    view="warning"
+                    label="Label"
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    required
+                    requiredPlacement="right"
+                    focused
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1944] TextArea: size=xl, view=default, label, labelPlacement=inner, value, placeholder, leftHelper, rightHelper, contentRight', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    size="xl"
+                    view="default"
+                    label="Label"
+                    labelPlacement="inner"
+                    value="Value"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1963] TextArea: required, without hasRequiredIndicator', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    size="l"
+                    view="default"
+                    label="Label"
+                    labelPlacement="outer"
+                    value="Value"
+                    placeholder="Placeholder"
+                    leftHelper="Left helper"
+                    rightHelper="Right helper"
+                    contentRight={Icon}
+                    required
+                    requiredPlacement="right"
+                    hasRequiredIndicator={false}
+                />
+            </CypressTestDecorator>,
+        );
 
         cy.matchImageSnapshot();
     });
@@ -179,36 +368,21 @@ describe('plasma-b2c: TextArea', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1239] TextArea: labelPlacement=inner, requiredPlacement=left', () => {
+    it('[PLASMA-T1610] TextArea: no hint', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea label="Label" labelPlacement="inner" required requiredPlacement="left" {...propsDefault} />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1240] TextArea: labelPlacement=inner, requiredPlacement=right', () => {
-        mount(
-            <CypressTestDecorator>
-                <TextArea label="Label" labelPlacement="inner" required requiredPlacement="right" {...propsDefault} />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1241] TextArea: labelPlacement=outer, requiredPlacement=left', () => {
-        mount(
-            <CypressTestDecorator>
-                <div style={{ marginLeft: '1rem' }}>
+                <div style={{ marginRight: '100px' }}>
                     <TextArea
+                        size="l"
+                        view="default"
                         label="Label"
-                        labelPlacement="outer"
-                        required
-                        requiredPlacement="left"
-                        {...propsDefault}
+                        labelPlacement="inner"
+                        value="Value"
+                        placeholder="Placeholder"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        titleCaption="Title caption"
                     />
                 </div>
             </CypressTestDecorator>,
@@ -217,12 +391,190 @@ describe('plasma-b2c: TextArea', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1242] TextArea: labelPlacement=outer, requiredPlacement=right', () => {
+    it('[PLASMA-T1611] TextArea: empty titleCaption, empty hint', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea label="Label" labelPlacement="outer" required requiredPlacement="right" {...propsDefault} />
+                <div style={{ marginRight: '100px' }}>
+                    <TextArea
+                        size="l"
+                        view="default"
+                        label="Label"
+                        labelPlacement="inner"
+                        value="Value"
+                        placeholder="Placeholder"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        titleCaption=""
+                        hasHint
+                        hintText=""
+                    />
+                </div>
             </CypressTestDecorator>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1612] TextArea: hasHint, hintTrigger=click, hintHasArrow=false', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ marginRight: '100px' }}>
+                    <TextArea
+                        size="l"
+                        view="default"
+                        label="Label"
+                        labelPlacement="inner"
+                        value="Value"
+                        placeholder="Placeholder"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        titleCaption="Title caption"
+                        hasHint
+                        hintText="Hint text"
+                        hintTrigger="click"
+                        hintHasArrow={false}
+                    />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('svg').first().trigger('mouseover');
+
+        cy.matchImageSnapshot('plasma-b2c TextArea -- [PLASMA-T1612] TextArea mouseover on hint icon');
+
+        cy.get('svg').first().trigger('click');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1613] TextArea: hintTrigger=hover, hintSize=m, hintPlacement=top, hintWidth=1px, hintHasArrow', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ marginRight: '100px', marginTop: '200px' }}>
+                    <TextArea
+                        size="l"
+                        view="default"
+                        label="Label"
+                        labelPlacement="inner"
+                        value="Value"
+                        placeholder="Placeholder"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        titleCaption="Title caption"
+                        hasHint
+                        hintText="Hint text"
+                        hintTrigger="hover"
+                        hintSize="m"
+                        hintPlacement="top"
+                        hintWidth="1px"
+                        hintHasArrow
+                    />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('svg').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1614] TextArea: hintSize=s, hintPlacement=bottom, hintWidth=100px', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ marginRight: '100px' }}>
+                    <TextArea
+                        size="l"
+                        view="default"
+                        label="Label"
+                        labelPlacement="inner"
+                        value="Value"
+                        placeholder="Placeholder"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        titleCaption="Title caption"
+                        hasHint
+                        hintText="Hint text"
+                        hintTrigger="hover"
+                        hintSize="s"
+                        hintPlacement="bottom"
+                        hintWidth="100px"
+                        hintHasArrow
+                    />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('svg').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1615] TextArea: labelPlacement=outer, hintPlacement=left, hintWidth=500px', () => {
+        cy.viewport(800, 500);
+
+        mount(
+            <CypressTestDecorator>
+                <div style={{ marginLeft: '500px' }}>
+                    <TextArea
+                        size="l"
+                        view="default"
+                        label="Label"
+                        labelPlacement="outer"
+                        value="Value"
+                        placeholder="Placeholder"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        titleCaption="Title caption"
+                        hasHint
+                        hintText="Hint text"
+                        hintTrigger="hover"
+                        hintSize="m"
+                        hintPlacement="left"
+                        hintWidth="500px"
+                        hintHasArrow
+                    />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('svg').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1616] TextArea: hintPlacement=right', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ marginRight: '200px' }}>
+                    <TextArea
+                        size="l"
+                        view="default"
+                        label="Label"
+                        labelPlacement="inner"
+                        value="Value"
+                        placeholder="Placeholder"
+                        leftHelper="Left helper"
+                        rightHelper="Right helper"
+                        contentRight={Icon}
+                        titleCaption="Title caption"
+                        hasHint
+                        hintText="Hint text"
+                        hintTrigger="hover"
+                        hintSize="m"
+                        hintPlacement="right"
+                        hintWidth="10rem"
+                        hintHasArrow
+                    />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('svg').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });

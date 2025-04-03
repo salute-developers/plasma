@@ -40,6 +40,16 @@ describe('plasma-b2c: DatePicker', () => {
     );
 
     const Demo = ({
+        label,
+        labelPlacement,
+        leftHelper,
+        placeholder,
+        lang,
+        textBefore,
+        textAfter,
+        maskWithFormat,
+        required,
+        requiredPlacement,
         enableContentLeft,
         enableContentRight,
         valueError,
@@ -54,6 +64,16 @@ describe('plasma-b2c: DatePicker', () => {
 
         return (
             <DatePicker
+                label={label}
+                labelPlacement={labelPlacement}
+                leftHelper={leftHelper}
+                placeholder={placeholder}
+                lang={lang}
+                textBefore={textBefore}
+                textAfter={textAfter}
+                maskWithFormat={maskWithFormat}
+                required={required}
+                requiredPlacement={requiredPlacement}
                 opened={isOpen}
                 size={size}
                 valueError={valueError}
@@ -70,115 +90,23 @@ describe('plasma-b2c: DatePicker', () => {
         );
     };
 
-    // TODO: добавить тесты для prop: lang
-
-    it('[PLASMA-T1097] DatePicker: size=l', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="l" defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1103] DatePicker: size=m', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="m" defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1104] DatePicker: size=s', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="s" defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1105] DatePicker: size=xs', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="xs" defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1098] DatePicker: disabled', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo label="Лейбл" leftHelper="Подсказка к полю" defaultDate={new Date(2023, 5, 14)} disabled />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1099] DatePicker: readOnly', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo label="Лейбл" leftHelper="Подсказка к полю" defaultDate={new Date(2023, 5, 14)} readOnly />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1101] DatePicker: valueError, enableContentRight', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo valueError enableContentRight defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1102] DatePicker: valueSuccess, enableContentLeft', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo valueSuccess enableContentLeft defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1114] DatePicker: label, leftHelper, placeholder', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo label="Лейбл" leftHelper="Подсказка к полю" placeholder="Выберите дату" />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1200] DatePicker: inner label without input value', () => {
+    it('[PLASMA-T1774] DatePicker: size=l, label, labelPlacement=inner, leftHelper, placeholder, lang=ru, textBefore, enableContentLeft, enableContentRight, maskWithFormat, required, requiredPlacement=left, valueError', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
-                    label="Лейбл"
+                    size="l"
+                    label="Label"
                     labelPlacement="inner"
-                    leftHelper="Подсказка к полю"
-                    placeholder="Выберите дату"
-                    size="m"
+                    leftHelper="Left helper"
+                    placeholder="05.05.2023"
+                    lang="ru"
+                    textBefore="Text Before"
+                    enableContentLeft
+                    enableContentRight
+                    maskWithFormat
+                    required
+                    requiredPlacement="left"
+                    valueError
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -186,16 +114,17 @@ describe('plasma-b2c: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1201] DatePicker: inner label with input value', () => {
+    it('[PLASMA-T1775] DatePicker: size=m, labelPlacement=outer, placeholder, lang=en, required, requiredPlacement=right, valueSuccess', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
-                    label="Лейбл"
-                    labelPlacement="inner"
-                    leftHelper="Подсказка к полю"
-                    placeholder="Выберите дату"
-                    defaultDate={new Date(2023, 5, 14)}
                     size="m"
+                    labelPlacement="outer"
+                    placeholder="05.05.2023"
+                    lang="en"
+                    required
+                    requiredPlacement="right"
+                    valueSuccess
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -203,7 +132,86 @@ describe('plasma-b2c: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1112] DatePicker: input date', () => {
+    it('[PLASMA-T1776] size=s, label, labelPlacement=inner, leftHelper, placeholder, lang=en, textBefore, enableContentLeft, valueError', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    size="s"
+                    label="Label"
+                    labelPlacement="inner"
+                    leftHelper="Left helper"
+                    placeholder="05.05.2023"
+                    lang="en"
+                    textBefore="Text before"
+                    enableContentLeft
+                    valueError
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1777] DatePicker: size=xs, labelPlacement=outer, leftHelper, placeholder, lang=ru, enableContentRight, maskWithFormat, valueSuccess', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    size="xs"
+                    labelPlacement="outer"
+                    leftHelper="Left helper"
+                    placeholder="05.05.2023"
+                    lang="ru"
+                    enableContentRight
+                    maskWithFormat
+                    valueSuccess
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1778] DatePicker: disabled', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    size="l"
+                    label="Label"
+                    labelPlacement="inner"
+                    leftHelper="Left helper"
+                    placeholder="05.05.2023"
+                    lang="ru"
+                    enableContentLeft
+                    enableContentRight
+                    required
+                    requiredPlacement="right"
+                    disabled
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1779] DatePicker: readOnly', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    size="m"
+                    label="Label"
+                    labelPlacement="inner"
+                    leftHelper="Left helper"
+                    placeholder="05.05.2023"
+                    lang="ru"
+                    readOnly
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1782] DatePicker: input date', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo />
@@ -216,7 +224,36 @@ describe('plasma-b2c: DatePicker', () => {
         matchImageSnapshotWithTreshold();
     });
 
-    it('[PLASMA-T1106] DatePicker: select month by arrows', () => {
+    it('[PLASMA-T1783] DatePicker: select day in popover', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultDate={new Date(2023, 5, 14)} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.get('.popover-root').should('be.visible');
+        cy.get('[data-day="15"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1784] DatePicker: select month in popover', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultDate={new Date(2023, 5, 14)} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.get('.popover-root').should('be.visible');
+        cy.get('#id-grid-label').click();
+        cy.get('[aria-label="Февраль"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1785] DatePicker: select month by arrows', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo defaultDate={new Date(2023, 5, 14)} />
@@ -232,39 +269,7 @@ describe('plasma-b2c: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1107] DatePicker: select month in popover', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
-        cy.get('#id-grid-label').click();
-        cy.get('[aria-label="Февраль"]').click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1108] DatePicker: select year by arrows', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo defaultDate={new Date(2023, 5, 14)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
-        cy.get('#id-grid-label').click();
-        cy.get('button[aria-label="Предыдущий год"]').click();
-        cy.get('button[aria-label="Следующий год"]').click();
-        cy.get('#id-grid-label').should('have.text', '2023');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1110] DatePicker: select year in popover', () => {
+    it('[PLASMA-T1786] DatePicker: select year in popover', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo defaultDate={new Date(2023, 5, 14)} />
@@ -282,7 +287,7 @@ describe('plasma-b2c: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1111] DatePicker: select day in popover', () => {
+    it('[PLASMA-T1787] DatePicker: select year by arrows', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo defaultDate={new Date(2023, 5, 14)} />
@@ -291,7 +296,10 @@ describe('plasma-b2c: DatePicker', () => {
 
         cy.get('input').first().click();
         cy.get('.popover-root').should('be.visible');
-        cy.get('[data-day="15"]').click();
+        cy.get('#id-grid-label').click();
+        cy.get('button[aria-label="Предыдущий год"]').click();
+        cy.get('button[aria-label="Следующий год"]').click();
+        cy.get('#id-grid-label').should('have.text', '2023');
 
         cy.matchImageSnapshot();
     });
@@ -434,110 +442,128 @@ describe('plasma-b2c: DatePickerRange', () => {
         );
     };
 
-    it('[PLASMA-T1115] DatePickerRange: default', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
-                <PadMe />
-                <Demo id="demo" defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
-            </CypressTestDecoratorWithTypo>,
-        );
+    it('[PLASMA-T1792] DatePickerRange: default, double calendar', () => {
+        cy.viewport(900, 800);
 
-        cy.get('#demo input').first().click();
-
-        matchImageSnapshotWithTreshold();
-    });
-
-    it('prop: size l', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="l" defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prop: size m', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="m" defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        matchImageSnapshotWithTreshold();
-    });
-
-    it('prop: size s', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="s" defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        matchImageSnapshotWithTreshold();
-    });
-
-    it('prop: size xs', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo size="xs" defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        matchImageSnapshotWithTreshold();
-    });
-
-    it('prop: defaultDate, enableContent', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
-                    defaultFirstDate={new Date(2023, 5, 14)}
-                    enableContentLeft
-                    enableContentRight
-                    enableFirstTextfieldContentLeft
-                    enableSecondTextfieldContentLeft
-                    enableFirstTextfieldContentRight
-                    enableSecondTextfieldContentRight
-                />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prop: valueError, valueSuccess', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo
-                    firstValueError
-                    secondValueSuccess
+                    isDoubleCalendar
                     defaultFirstDate={new Date(2023, 5, 14)}
                     defaultSecondDate={new Date(2023, 5, 17)}
                 />
-                <PadMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+
+        matchImageSnapshotWithTreshold();
+    });
+
+    it('[PLASMA-T1793] DatePickerRange: highlight range', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click().type('14.06.2023');
+        cy.get('div:nth-of-type(5) > div:nth-of-type(5)').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1794] DatePickerRange: input date', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click().type('14.06.2023{enter}');
+        cy.focused().type('17.06.2023');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1795] DatePickerRange: input date, double calendar', () => {
+        cy.viewport(900, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo isDoubleCalendar />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click().type('14.06.2023{enter}');
+        cy.focused().type('17.07.2023');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1796] DatePickerRange: input same date', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click().type('14.06.2023{enter}');
+        cy.focused().type('14.06.2023');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1798] DatePickerRange: size=l, multy props', () => {
+        cy.viewport(900, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ marginLeft: '1rem' }}>
+                    <Demo
+                        size="l"
+                        label="Лейбл"
+                        leftHelper="Подсказка к полю"
+                        firstPlaceholder="05.05.2023"
+                        secondPlaceholder="10.05.2023"
+                        firstTextfieldTextBefore="firstTB"
+                        secondTextfieldTextBefore="secondTB"
+                        firstTextfieldTextAfter="firstTA"
+                        secondTextfieldTextAfter="secondTA"
+                        isDoubleCalendar
+                        dividerVariant="none"
+                        lang="ru"
+                        enableContentLeft
+                        enableContentRight
+                        enableFirstTextfieldContentLeft
+                        enableFirstTextfieldContentRight
+                        enableSecondTextfieldContentLeft
+                        enableSecondTextfieldContentRight
+                        firstValueError
+                        secondValueError
+                        maskWithFormat
+                        required
+                        requiredPlacement="left"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1799] DatePickerRange: size=m, multy props', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
                 <Demo
+                    size="m"
+                    firstPlaceholder="05.05.2023"
+                    secondPlaceholder="10.05.2023"
+                    dividerVariant="dash"
+                    lang="en"
+                    format="DD MMMM YYYY"
                     firstValueSuccess
                     secondValueSuccess
-                    defaultFirstDate={new Date(2023, 5, 14)}
-                    defaultSecondDate={new Date(2023, 5, 17)}
-                />
-                <PadMe />
-                <Demo
-                    firstValueError
-                    secondValueError
-                    defaultFirstDate={new Date(2023, 5, 14)}
-                    defaultSecondDate={new Date(2023, 5, 17)}
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -545,46 +571,70 @@ describe('plasma-b2c: DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
-    it('prop: label, leftHelper, placeholder', () => {
+    it('[PLASMA-T1800] DatePickerRange: size=s, multy props', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo label="Лейбл" leftHelper="Подсказка к полю" placeholder="Выберите дату" />
-                <PadMe />
                 <Demo
-                    id="demo"
+                    size="l"
                     label="Лейбл"
-                    leftHelper="Подсказка к полю"
-                    placeholder="Выберите дату"
-                    defaultFirstDate={new Date(2023, 5, 14)}
-                    defaultSecondDate={new Date(2023, 5, 17)}
+                    firstPlaceholder="05.05.2023"
+                    firstTextfieldTextBefore="firstTB"
+                    secondTextfieldTextBefore="secondTB"
+                    firstTextfieldTextAfter="firstTA"
+                    isDoubleCalendar
+                    dividerVariant="icon"
+                    lang="en"
+                    enableContentLeft
+                    enableFirstTextfieldContentLeft
+                    enableSecondTextfieldContentRight
+                    firstValueError
+                    secondValueSuccess
+                    maskWithFormat
                 />
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('#demo input').first().click();
-
         cy.matchImageSnapshot();
     });
 
-    it('prop: format', () => {
+    it('[PLASMA-T1801] DatePickerRange: size=xs, multy props', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo defaultFirstDate={new Date(2023, 5, 14)} format="MM/DD/YYYY" />
-                <PadMe />
-                <Demo defaultFirstDate={new Date(2023, 5, 14)} format="MM.DD.YYYY" />
-                <PadMe />
-                <Demo defaultFirstDate={new Date(2023, 5, 14)} format="YYYY-MM-DD" />
+                <Demo
+                    size="xs"
+                    leftHelper="Подсказка к полю"
+                    secondPlaceholder="10.05.2023"
+                    secondTextfieldTextAfter="secondTA"
+                    dividerVariant="dash"
+                    lang="ru"
+                    format="DD MMMM YYYY"
+                    enableContentRight
+                    enableFirstTextfieldContentRight
+                    enableSecondTextfieldContentLeft
+                    firstValueSuccess
+                    secondValueError
+                    required
+                    requiredPlacement="right"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('prop: disabled, readOnly', () => {
+    it('[PLASMA-T1802] DatePickerRange: disabled', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo label="Лейбл" leftHelper="Подсказка к полю" defaultFirstDate={new Date(2023, 5, 14)} disabled />
-                <PadMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-T1803] DatePickerRange: readOnly', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
                 <Demo label="Лейбл" leftHelper="Подсказка к полю" defaultFirstDate={new Date(2023, 5, 14)} readOnly />
             </CypressTestDecoratorWithTypo>,
         );
@@ -624,64 +674,5 @@ describe('plasma-b2c: DatePickerRange', () => {
 
         cy.get('input').first().click();
         cy.get('#outer').click();
-    });
-
-    it('[PLASMA-T1116] DatePickerRange: input date', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo enableContentRight />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click().type('14.06.2023{enter}');
-        cy.focused().type('17.06.2023');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1117] DatePickerRange: input same date', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo enableContentRight />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click().type('14.06.2023{enter}');
-        cy.focused().type('14.06.2023');
-
-        cy.matchImageSnapshot();
-    });
-
-    it('[PLASMA-T1119] DatePickerRange: default, double calendar', () => {
-        cy.viewport(900, 800);
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo
-                    isDoubleCalendar
-                    defaultFirstDate={new Date(2023, 5, 14)}
-                    defaultSecondDate={new Date(2023, 5, 17)}
-                />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-
-        matchImageSnapshotWithTreshold();
-    });
-
-    it('[PLASMA-T1120] DatePickerRange: input date, double calendar', () => {
-        cy.viewport(900, 800);
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo isDoubleCalendar enableContentRight />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click().type('14.06.2023{enter}');
-        cy.focused().type('17.07.2023');
-
-        cy.matchImageSnapshot();
     });
 });
