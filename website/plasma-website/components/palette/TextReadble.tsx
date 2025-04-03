@@ -53,7 +53,7 @@ const TextReadbleTextSmall = styled.div<{ alignX: string; score: string }>`
     height: 1rem;
 
     &:hover {
-        color: ${({ score }) => (score === 'Poor' ? 'red' : 'inhert')};
+        color: ${({ score }) => (score === 'Poor' ? 'red' : 'inherit')};
         transition: 0.15s;
     }
 `;
@@ -70,7 +70,7 @@ const TextReadbleTextLarge = styled.div<{ alignX: string; score: string }>`
     font-family: var(--plasma-typo-headline1-font-family);
 
     &:hover {
-        color: ${({ score }) => (score === 'Poor' ? 'red' : 'inhert')};
+        color: ${({ score }) => (score === 'Poor' ? 'red' : 'inherit')};
         transition: 0.15s;
     }
 `;

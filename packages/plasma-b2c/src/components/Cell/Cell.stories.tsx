@@ -115,7 +115,7 @@ export const WithContentTextboxCustom: Story = {
                 contentLeft={
                     <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
                 }
-                contentRight={<ChevronRight color="inheart" size="xs" />}
+                contentRight={<ChevronRight color="inherit" size="xs" />}
             >
                 <CellTextbox>
                     <CellTextboxTitle>Title</CellTextboxTitle>
