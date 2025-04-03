@@ -40,6 +40,7 @@ import { Context } from './Select.context';
 export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectProps, 'items'>>) =>
     forwardRef<HTMLButtonElement, MergedSelectProps>((props, ref) => {
         const {
+            // eslint-disable-block @typescript-eslint/ban-ts-comment
             id,
             value: outerValue,
             onChange: outerOnChange,
@@ -78,6 +79,36 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             defaultValue,
             virtual = false,
             onToggle,
+            chipType,
+            multiselect,
+
+            // Извлекаем пропсы для required и hint, чтобы они не попадали в DOM.
+            // @ts-ignore
+            required,
+            // @ts-ignore
+            requiredPlacement,
+            // @ts-ignore
+            hasRequiredIndicator,
+            // @ts-ignore
+            optional,
+            // @ts-ignore
+            hintText,
+            // @ts-ignore
+            hintTrigger,
+            // @ts-ignore
+            hintView,
+            // @ts-ignore
+            hintSize,
+            // @ts-ignore
+            hintTargetPlacement,
+            // @ts-ignore
+            hintPlacement,
+            // @ts-ignore
+            hintWidth,
+            // @ts-ignore
+            hintHasArrow,
+            // @ts-ignore
+            hasHint,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -114,10 +145,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             props.target === 'button-like'
                 ? undefined
                 : ({
-                      required: props.required,
-                      requiredPlacement: props.requiredPlacement,
-                      hasRequiredIndicator: props.hasRequiredIndicator,
-                      optional: props.optional,
+                      required,
+                      requiredPlacement,
+                      hasRequiredIndicator,
+                      optional,
                   } as RequiredProps);
 
         // Собираем объект с пропсами для hint и прокидываем их напрямую в компонент Textfield.
@@ -125,14 +156,14 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             props.target === 'button-like'
                 ? undefined
                 : ({
-                      hintText: props.hintText,
-                      hintTrigger: props.hintTrigger,
-                      hintView: props.hintView,
-                      hintSize: props.hintSize,
-                      hintTargetPlacement: props.hintTargetPlacement,
-                      hintPlacement: props.hintPlacement,
-                      hintWidth: props.hintWidth,
-                      hintHasArrow: props.hintHasArrow,
+                      hintText,
+                      hintTrigger,
+                      hintView,
+                      hintSize,
+                      hintTargetPlacement,
+                      hintPlacement,
+                      hintWidth,
+                      hintHasArrow,
                   } as HintProps);
 
         const targetRef = useOutsideClick<HTMLUListElement>(() => {

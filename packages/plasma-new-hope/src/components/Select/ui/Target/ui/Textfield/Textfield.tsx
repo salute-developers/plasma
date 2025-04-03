@@ -136,7 +136,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                           chipView,
                       }
                     : { enumerationType: 'plain' })}
-                onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
+                _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                 opened={opened}
                 // TODO: #1547
                 _forceChipManipulationWithReadonly={!readOnly}

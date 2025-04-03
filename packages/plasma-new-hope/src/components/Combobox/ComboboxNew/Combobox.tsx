@@ -483,7 +483,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                           }
                                         : { enumerationType: 'plain' })}
                                     {...rest}
-                                    onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
+                                    _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                                 />
                             )}
                             zIndex={zIndex}
