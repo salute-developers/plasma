@@ -31,6 +31,8 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             pilled = false,
             readOnly = false,
             disabled = false,
+            // @ts-ignore
+            _forceChipManipulationWithReadonly,
             ...rest
         } = props;
 
@@ -40,7 +42,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
         const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
             // TODO: #1547
             // eslint-disable-next-line no-underscore-dangle
-            if (disabled || (readOnly && !(rest as any)._forceChipManipulationWithReadonly)) {
+            if (disabled || (readOnly && !_forceChipManipulationWithReadonly)) {
                 return;
             }
 
