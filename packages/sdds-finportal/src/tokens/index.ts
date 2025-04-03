@@ -35,4 +35,4 @@ export {
     textXSBold,
 } from '@salutejs/sdds-themes/tokens';
 
-export * from '@salutejs/sdds-themes/tokens/sdds_serv';
+export * from '@salutejs/sdds-themes/tokens/sdds_finportal';
