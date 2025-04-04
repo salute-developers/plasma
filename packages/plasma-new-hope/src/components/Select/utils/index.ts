@@ -6,7 +6,6 @@ export { sizeToIconSize } from './sizeToIconSize';
 export { getCorrectHeight } from './getCorrectHeight';
 export { getButtonLabel } from './getButtonLabel';
 export { getView } from './getView';
-export { getInitialValue } from './getInitialValue';
 export { getPlacement } from './getPlacement';
 export { getFallbackPlacements } from './getFallbackPlacements';
 export { getItemId } from './getItemId';

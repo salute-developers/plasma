@@ -41,15 +41,15 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
         const getValue = () => {
-            if (multiselect || !value) {
+            if (multiselect || Array.isArray(value) || !value) {
                 return '';
             }
 
             if (renderValue) {
-                return renderValue(valueToItemMap.get(value.toString())!);
+                return renderValue(valueToItemMap.get(value.toString()) || { value, label: value.toString() });
             }
 
-            return valueToItemMap.get(value.toString())?.label || '';
+            return valueToItemMap.get(value.toString())?.label || value.toString();
         };
 
         const getChips = (): string[] => {
@@ -61,8 +61,13 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 }
 
                 const renderValueMapper =
-                    renderValue && ((stringValue: string | number) => renderValue(valueToItemMap.get(stringValue)!));
-                const valueToItemMapper = (stringValue: string | number) => valueToItemMap.get(stringValue)!.label;
+                    renderValue &&
+                    ((stringValue: string | number) =>
+                        renderValue(
+                            valueToItemMap.get(stringValue) || { value: stringValue, label: stringValue.toString() },
+                        ));
+                const valueToItemMapper = (stringValue: string | number) =>
+                    valueToItemMap.get(stringValue)?.label || stringValue.toString();
 
                 return value.map(renderValueMapper || valueToItemMapper);
             }
@@ -80,8 +85,16 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 const resultValues = [...value];
 
                 value.forEach((_, index) => {
+                    const stringValue = value[index];
+                    const label = valueToItemMap.get(stringValue)?.label;
+
                     const labelAfterRenderValue = renderValue(
-                        labelToItemMap.get(valueToItemMap.get(value[index])!.label)!,
+                        label
+                            ? labelToItemMap.get(label)!
+                            : {
+                                  value: stringValue,
+                                  label: stringValue.toString(),
+                              },
                     );
 
                     if (!chipLabels.includes(labelAfterRenderValue)) {
@@ -93,7 +106,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
                 onChange(resultValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
             } else {
-                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value);
+                const newValues = chipLabels.map((chipLabel) => {
+                    return labelToItemMap.get(chipLabel)?.value || chipLabel;
+                });
+
                 const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
 
                 onChange(newValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
