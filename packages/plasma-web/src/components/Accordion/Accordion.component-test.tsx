@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
-import { CypressTestDecorator, getComponent, mount, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, mount, PadMe, processingFailedState } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 
@@ -22,6 +22,8 @@ describe('plasma-web: Accordion', () => {
             {children}
         </CypressTestDecorator>
     );
+
+    processingFailedState(beforeEach, afterEach);
 
     it('simple', () => {
         mount(

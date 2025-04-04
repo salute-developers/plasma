@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import React, { PropsWithChildren } from 'react';
 import { mount as cyMount } from '@cypress/react';
 export declare const getComponent: <T = {
@@ -25,5 +26,6 @@ interface PortalProps {
     id: string;
 }
 export declare const Portal: React.FC<PropsWithChildren<PortalProps>>;
+export declare const processingFailedState: (beforeEach: Mocha.HookFunction, afterEach: Mocha.HookFunction) => void;
 export {};
 //# sourceMappingURL=CypressHelpers.d.ts.map

@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Portal = exports.mount = exports.withNoAnimation = exports.SpaceMe = exports.PadMe = exports.CypressTestDecorator = exports.getComponent = void 0;
+exports.processingFailedState = exports.Portal = exports.mount = exports.withNoAnimation = exports.SpaceMe = exports.PadMe = exports.CypressTestDecorator = exports.getComponent = void 0;
 var react_1 = __importDefault(require("react"));
 var react_dom_1 = require("react-dom");
 var styled_components_1 = __importStar(require("styled-components"));
@@ -157,6 +157,23 @@ exports.Portal = function (_a) {
         };
     }, [el, id]);
     return react_dom_1.createPortal(children, el);
+};
+// INFO: Если текущий тест упал, нет смысла запускать остальные.
+// INFO: На уровне выше запуска тестов, есть логика retry, она перезапустит весь набор тестов
+// INFO: смотрим файл cypress-common.yml
+exports.processingFailedState = function (beforeEach, afterEach) {
+    var hasFailedTest = false;
+    beforeEach(function () {
+        if (hasFailedTest) {
+            this === null || this === void 0 ? void 0 : this.skip();
+        }
+    });
+    afterEach(function () {
+        var _a;
+        if (((_a = this === null || this === void 0 ? void 0 : this.currentTest) === null || _a === void 0 ? void 0 : _a.state) === 'failed') {
+            hasFailedTest = true;
+        }
+    });
 };
 var templateObject_1, templateObject_2, templateObject_3;
 //# sourceMappingURL=CypressHelpers.js.map

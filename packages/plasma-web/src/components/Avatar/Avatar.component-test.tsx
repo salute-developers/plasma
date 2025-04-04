@@ -1,4 +1,4 @@
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe, processingFailedState } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import React, { ComponentProps, FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
@@ -23,6 +23,8 @@ describe('plasma-web: Avatar', () => {
             {children}
         </CypressTestDecorator>
     );
+
+    processingFailedState(beforeEach, afterEach);
 
     it('simple', () => {
         mount(
