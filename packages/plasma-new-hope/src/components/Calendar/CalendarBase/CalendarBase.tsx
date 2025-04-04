@@ -114,26 +114,23 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             }, [calendarState]);
 
             useEffect(() => {
-                if (!prevValue) {
-                    setPrevValue(value);
-                }
-
+                console.log(value, prevValue);
                 if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     dispatch({
                         type: ActionType.UPDATE_DATE,
                         payload: { value },
                     });
-
-                    setPrevValue(value);
                 }
 
-                if (!value) {
+                if (!value && !prevValue) {
                     dispatch({
                         type: ActionType.UPDATE_DATE,
                         payload: { value: renderFrom || min || new Date() },
                     });
                 }
-            }, [value, prevValue]);
+
+                setPrevValue(value);
+            }, [value]);
 
             return (
                 <Root ref={outerRootRef} aria-label={I18N.selectDate[locale]} {...rest}>

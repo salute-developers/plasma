@@ -92,7 +92,7 @@ export interface DisabledDay {
     date: Date;
 }
 
-export type CalendarValueType = Date | undefined | [Date | undefined, Date?];
+export type CalendarValueType = Date | undefined | null | [Date | null | undefined, Date | null | undefined];
 
 export type DateInfo = {
     name: string;

@@ -22,7 +22,7 @@ export const sizeMap: SizeMap = {
 };
 
 export const getInitialState = (
-    value: Date | undefined,
+    value: Date | undefined | null,
     min: Date | undefined,
     renderFromDate: Date | undefined,
     calendarState: CalendarStateType,
