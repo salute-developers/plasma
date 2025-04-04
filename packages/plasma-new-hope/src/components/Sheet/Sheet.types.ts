@@ -43,6 +43,13 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     hasHandle?: boolean;
 
     /**
+     * Наличие ручки у шторки
+     * @default
+     * true
+     */
+    handlePlacement?: string;
+
+    /**
      * Наличие оверлея шторки. Если включен, то контент под шторкой перекрывается оверлеем, при нажатии на
      * который шторка закрывается.
      * @default

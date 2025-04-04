@@ -16,6 +16,7 @@ import {
     StyledSheetHeader,
 } from './Sheet.styles';
 import { base as viewCSS } from './variations/_view/base';
+import { base as handlePlacementCSS } from './variations/_handlePlacement/base';
 import { DEFAULT_Z_INDEX } from './utils';
 
 /**
@@ -30,6 +31,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 children,
                 onClose,
                 hasHandle = true,
+                handlePlacement,
                 contentHeader,
                 isHeaderFixed = false,
                 contentFooter,
@@ -48,6 +50,8 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             const contentRef = useRef<HTMLDivElement>(null);
             const handleRef = useRef<HTMLDivElement>(null);
 
+            console.log(handlePlacement);
+
             useOverflow({ opened });
             useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, onClose });
 
@@ -61,7 +65,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 : `var(${tokens.sheetOverlayColor})`;
 
             return (
-                <Root opened={opened} onClose={onClose} view={view} ref={rootRef}>
+                <Root opened={opened} onClose={onClose} view={view} handlePlacement={handlePlacement} ref={rootRef}>
                     <StyledContentWrapper
                         opened={opened}
                         withTransition={withTransition}
@@ -103,8 +107,12 @@ export const sheetConfig = {
         view: {
             css: viewCSS,
         },
+        handlePlacement: {
+            css: handlePlacementCSS,
+        },
     },
     defaults: {
         view: 'default',
+        handlePlacement: 'outer',
     },
 };
