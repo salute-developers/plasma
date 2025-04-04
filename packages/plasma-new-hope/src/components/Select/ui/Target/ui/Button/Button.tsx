@@ -51,7 +51,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                         activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''
                     }
                     aria-label={label}
-                    renderTarget={Boolean(selectProps.renderTarget)}
                 >
                     <Label>
                         {getButtonLabel({

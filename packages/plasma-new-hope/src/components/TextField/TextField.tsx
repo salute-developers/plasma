@@ -16,6 +16,7 @@ import { base as readOnlyCSS } from './variations/_read-only/base';
 import { base as labelPlacementCSS } from './variations/_label-placement/base';
 import { base as hintViewCSS } from './variations/_hint-view/base';
 import { base as hintSizeCSS } from './variations/_hint-size/base';
+import { base as chipViewCSS } from './variations/_chip-view/base';
 import {
     Input,
     InputContainer,
@@ -112,6 +113,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 onKeyDown,
                 onFocus,
                 onBlur,
+
+                // Пропсы для внутреннего использования, не отдается наружу.
+                // @ts-ignore
+                _onEnterDisabled,
+                // @ts-ignore
+                _forceChipManipulationWithReadonly,
 
                 ...rest
             },
@@ -267,7 +274,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 updateChips,
                 onSearch,
                 onChange,
-                onEnterDisabled: (rest as any).onEnterDisabled,
+                onEnterDisabled: _onEnterDisabled,
             });
 
             const onChipClick = (event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation();
@@ -469,12 +476,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                                 view={resView}
                                                 rootWrapper={Root}
                                                 // TODO: #1547
-                                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                                 // @ts-ignore
-                                                _forceChipManipulationWithReadonly={
-                                                    // eslint-disable-next-line no-underscore-dangle
-                                                    (rest as any)._forceChipManipulationWithReadonly
-                                                }
+                                                _forceChipManipulationWithReadonly={_forceChipManipulationWithReadonly}
                                             />
                                         );
                                     })}
@@ -578,6 +581,9 @@ export const textFieldConfig = {
         },
         hintSize: {
             css: hintSizeCSS,
+        },
+        chipView: {
+            css: chipViewCSS,
         },
     },
     defaults: {
