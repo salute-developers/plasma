@@ -40,7 +40,9 @@ export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.triggerBorderRadius}: var(${tokens.checkboxTriggerBorderRadius});
     ${checkboxTokens.fillColor}: var(${tokens.checkboxFillColor});
     ${checkboxTokens.iconColor}: var(${tokens.checkboxIconColor});
-   ${checkboxTokens.triggerBorderColor}: var(${tokens.checkboxTriggerBorderColor});
+    ${checkboxTokens.triggerBorderColor}: var(${tokens.checkboxTriggerBorderColor});
+    ${checkboxTokens.triggerBorderCheckedColor}: var(${tokens.checkboxTriggerBorderCheckedColor});
+    ${checkboxTokens.triggerBorderWidth}: var(${tokens.checkboxTriggerBorderWidth});
 `;
 
 const mergedIndicatorConfig = mergeConfig(indicatorConfig);

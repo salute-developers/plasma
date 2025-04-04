@@ -212,7 +212,9 @@ export const config = {
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
                 ${tokens.checkboxFillColor}: var(--text-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxTriggerBorderCheckedColor}: none;
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-accent);
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.dropdownBorderWidth}: 0.0625rem;

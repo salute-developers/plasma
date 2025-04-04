@@ -13,7 +13,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['accent'];
+const views = ['accent', 'negative'];
 
 const propsToDisable = [
     'name',
@@ -31,7 +31,6 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
-    'view',
 ];
 
 const meta: Meta<CheckboxProps> = {

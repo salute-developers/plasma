@@ -115,6 +115,8 @@ export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.triggerBorderRadius}: var(${tokens.checkboxTriggerBorderRadius});
     ${checkboxTokens.fillColor}: var(--text-accent);
     ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+    ${checkboxTokens.triggerBorderCheckedColor}: var(${tokens.checkboxTriggerBorderCheckedColor});
+    ${checkboxTokens.triggerBorderWidth}: var(${tokens.checkboxTriggerBorderWidth});
     ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
 `;
 

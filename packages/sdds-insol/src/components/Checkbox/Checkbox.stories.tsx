@@ -13,7 +13,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const sizes = ['m', 's'];
-const views = ['accent'];
+const views = ['accent', 'negative'];
 
 const propsToDisable = [
     'name',
@@ -31,7 +31,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
-    'view',
+    'appereance',
 ];
 
 const meta: Meta<CheckboxProps> = {
@@ -151,6 +151,7 @@ const StoryDefault = (args: CheckboxProps) => {
                 }}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                appereance="outline"
                 {...args}
             />
         </>
@@ -168,6 +169,7 @@ export const Default: Story = {
         view: 'accent',
         focused: true,
     },
+    ...disableProps(['appereance']),
     render: (args) => <StoryDefault {...args} />,
 };
 
@@ -187,6 +189,7 @@ const StoryLive = (args) => {
             {items.map((item) => (
                 <Checkbox
                     {...getState(values, item.value)}
+                    appereance="outline"
                     style={{ marginLeft: item.parent ? 36 : null }}
                     key={item.value}
                     name={item.name}
@@ -231,7 +234,7 @@ export const Live: Story = {
         disabled: false,
     },
     argTypes: {
-        ...disableProps(['label', 'description']),
+        ...disableProps(['label', 'description', 'appereance']),
     },
     render: (args) => <StoryLive {...args} />,
 };
