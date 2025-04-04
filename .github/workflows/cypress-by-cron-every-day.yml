@@ -1,0 +1,21 @@
+name: Cypress component testing by schedule every day at midnight
+
+on:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  cypress:
+    name: "Cypress with React 17"
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [web,b2c,ui]
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      with-react-17: true
+      with-artifacts: true
+    secrets: inherit
+
