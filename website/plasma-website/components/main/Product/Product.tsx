@@ -2,6 +2,7 @@ import React, { FC, ReactNode } from 'react';
 
 // TODO: забирать иконки из plasma-icons
 import { ArrowRight } from '../../icons/ArrowRight';
+import { Link } from '../../Link';
 
 import { constants } from './Product.constants';
 import { Title, Icon, ProductMainInfo, ProductWrapper, ProductAdditionalInfo } from './Product.styles';
@@ -34,13 +35,15 @@ export const Product: FC<ProductProps> = ({
 }) => {
     return (
         <ProductWrapper>
-            <ProductMainInfo href={href} onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
-                <Title bold={false}>{title}</Title>
+            <Link href={href}>
+                <ProductMainInfo onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
+                    <Title bold={false}>{title}</Title>
 
-                <Icon>
-                    <ArrowRight style={{ rotate: constants.rotationVariants[iconRotation] }} />
-                </Icon>
-            </ProductMainInfo>
+                    <Icon>
+                        <ArrowRight style={{ rotate: constants.rotationVariants[iconRotation] }} />
+                    </Icon>
+                </ProductMainInfo>
+            </Link>
             {additionalInfo && <ProductAdditionalInfo>{additionalInfo}</ProductAdditionalInfo>}
         </ProductWrapper>
     );

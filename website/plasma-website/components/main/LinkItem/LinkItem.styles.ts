@@ -5,6 +5,7 @@ import { general } from '@salutejs/plasma-colors';
 
 import { addGradient } from '../../../mixins';
 import { removeGradient } from '../../../mixins/addGradient';
+import { Link } from '../../Link';
 
 export const Title = styled(TextS)`
     white-space: nowrap;
@@ -21,7 +22,7 @@ export const IconContentWrapper = styled.div`
 export const ContentLeftWrapper = styled(IconContentWrapper)``;
 export const ContentRightWrapper = styled(IconContentWrapper)``;
 
-export const LinkItemWrapper = styled.a<{ isMeta?: boolean }>`
+export const LinkItemWrapper = styled(Link)<{ isMeta?: boolean }>`
     height: 1rem;
     width: fit-content;
     color: ${whitePrimary};
