@@ -33,17 +33,3 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
     secrets: inherit
-
-  cypress-react-17:
-    needs: state
-    if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
-    strategy:
-      fail-fast: false
-      matrix:
-        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN }}
-
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: ${{ matrix.scope }}
-      with-react-17: true
-    secrets: inherit
