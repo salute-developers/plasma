@@ -177,17 +177,15 @@ const TextReadableWrapper = styled.div`
 `;
 
 export const PaletteColorPage: React.FC<{
-    query: string | string[] | undefined;
-}> = ({ query }) => {
+    color: string | undefined;
+    code: string | undefined;
+}> = ({ color = '', code = '' }) => {
     const checker = new ContrastRatioChecker();
-
-    const color = query?.[1] ?? '';
-    const colorCode = query?.[3] ?? '';
 
     const router = useRouter();
     const { showToast } = useToast();
 
-    if (!checkColor(color, colorCode)) {
+    if (!checkColor(color, code)) {
         return null;
     }
 
@@ -208,17 +206,16 @@ export const PaletteColorPage: React.FC<{
     };
 
     const handlerSetColor = (code: string) => {
-        router.push(`/palette/color/${color}/code/${code}`);
+        router.push(`/palette/?color=${color}&code=${code}`);
     };
 
     const paletteColor = paletteColors[color];
-    const selectedColor = paletteColor[colorCode];
+    const selectedColor = paletteColor[code];
     const colorCodes = Object.keys(_.omit(paletteColor, '50')).reverse();
 
     const rgb = convertHexToRgb(selectedColor);
     const colorIndex = colorCodes.findIndex((code) => paletteColor[code] === selectedColor);
-    const colorText =
-        Math.round(checker.getContrastRatioByHex(paletteColors[color][colorCode], '#FFFFFF') * 100) / 100 > 3;
+    const colorText = Math.round(checker.getContrastRatioByHex(paletteColors[color][code], '#FFFFFF') * 100) / 100 > 3;
 
     const windowWidth = window.innerWidth;
     const item = windowWidth / 15;
@@ -226,7 +223,7 @@ export const PaletteColorPage: React.FC<{
 
     return (
         <ColorWrapper background={selectedColor}>
-            <Header text={`${color[0].toUpperCase() + color.slice(1)} ${colorCode}`} link="/palette/" />
+            <Header text={`${color[0].toUpperCase() + color.slice(1)} ${code}`} link="/palette/" />
             <ColorPalette>
                 {colorCodes.map((code) => (
                     <ColorItem

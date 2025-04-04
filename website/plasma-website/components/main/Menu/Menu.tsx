@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import cls from 'classnames';
 
 import { ArrowRight } from '../../icons/ArrowRight';
+import { Link } from '../../Link';
 
 import { Icon, Item, List, MenuWrapper, Title } from './Menu.styles';
 import { classes } from './Menu.tokens';
@@ -31,12 +32,14 @@ export const Menu: FC<MenuProps> = ({ products, expanded, handleScrollToTop }) =
                 </Item>
                 {expanded &&
                     products.map((product) => (
-                        <Item key={product.href} href={product.href}>
-                            <Title bold>{product.title}</Title>
-                            <Icon>
-                                <ArrowRight />
-                            </Icon>
-                        </Item>
+                        <Link key={product.href} href={product.href}>
+                            <Item>
+                                <Title bold>{product.title}</Title>
+                                <Icon>
+                                    <ArrowRight />
+                                </Icon>
+                            </Item>
+                        </Link>
                     ))}
             </List>
         </MenuWrapper>
