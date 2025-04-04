@@ -210,7 +210,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleCheckboxChange = (item: MergedDropdownNodeTransformed) => {
-            console.log('handleCheckboxChange');
             if (!props.multiselect) {
                 return;
             }
@@ -255,7 +254,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleItemClick = (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => {
-            console.log('handleItemClick');
             if (!isEmpty(item?.items)) {
                 return;
             }

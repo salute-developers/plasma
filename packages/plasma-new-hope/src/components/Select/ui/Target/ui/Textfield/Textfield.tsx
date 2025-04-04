@@ -104,15 +104,29 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
                 const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
 
-                onChange(resultValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
+                onChange(
+                    resultValues,
+                    removedItemValue
+                        ? valueToItemMap.get(removedItemValue) || {
+                              value: removedItemValue,
+                              label: removedItemValue.toString(),
+                          }
+                        : null,
+                );
             } else {
                 const newValues = chipLabels.map((chipLabel) => {
                     return labelToItemMap.get(chipLabel)?.value || chipLabel;
                 });
 
                 const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
+                const item = removedItemValue
+                    ? valueToItemMap.get(removedItemValue) || {
+                          value: removedItemValue,
+                          label: removedItemValue.toString(),
+                      }
+                    : null;
 
-                onChange(newValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
+                onChange(newValues, item);
             }
         };
 
