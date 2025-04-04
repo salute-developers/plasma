@@ -210,3 +210,22 @@ export const Portal: React.FC<PropsWithChildren<PortalProps>> = ({ id, children 
 
     return createPortal(children, el);
 };
+
+// INFO: Если текущий тест упал, нет смысла запускать остальные.
+// INFO: На уровне выше запуска тестов, есть логика retry, она перезапустит весь набор тестов
+// INFO: смотрим файл cypress-common.yml
+export const processingFailedState = (beforeEach: Mocha.HookFunction, afterEach: Mocha.HookFunction) => {
+    let hasFailedTest = false;
+
+    beforeEach(function () {
+        if (hasFailedTest) {
+            this?.skip();
+        }
+    });
+
+    afterEach(function () {
+        if (this?.currentTest?.state === 'failed') {
+            hasFailedTest = true;
+        }
+    });
+};
