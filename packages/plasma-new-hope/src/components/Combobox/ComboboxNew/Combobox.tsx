@@ -17,7 +17,6 @@ import {
     updateSingleAncestors,
     filterItems,
     getItemId,
-    getInitialValue,
     getRemovedElement,
 } from './utils';
 import { Inner, StyledTextField, VirtualList } from './ui';
@@ -90,13 +89,14 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             items,
         ]);
 
-        const [textValue, setTextValue] = useState(valueToItemMap.get(outerValue as string)?.label || '');
+        const [textValue, setTextValue] = useState(
+            multiple || Array.isArray(outerValue)
+                ? ''
+                : valueToItemMap.get(outerValue as string)?.label || outerValue?.toString() || '',
+        );
         const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
 
-        const value =
-            outerValue !== null && outerValue !== undefined
-                ? getInitialValue(outerValue, valueToItemMap)
-                : internalValue;
+        const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
 
         const inputRef = useRef<HTMLInputElement>(null);
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
@@ -207,8 +207,16 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 const resultValues = [...value];
 
                 value.forEach((_, index) => {
+                    const stringValue = value[index];
+                    const label = valueToItemMap.get(stringValue)?.label;
+
                     const labelAfterRenderValue = renderValue(
-                        labelToItemMap.get(valueToItemMap.get(value[index])!.label)!,
+                        label
+                            ? labelToItemMap.get(label)!
+                            : {
+                                  value: stringValue,
+                                  label: stringValue.toString(),
+                              },
                     );
 
                     if (!chipLabels.includes(labelAfterRenderValue)) {
@@ -218,12 +226,28 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
                 const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
 
-                onChange(resultValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
+                onChange(
+                    resultValues,
+                    removedItemValue
+                        ? valueToItemMap.get(removedItemValue) || {
+                              value: removedItemValue,
+                              label: removedItemValue.toString(),
+                          }
+                        : null,
+                );
             } else {
-                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value);
+                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)?.value || chipLabel);
                 const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
 
-                onChange(newValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
+                onChange(
+                    newValues,
+                    removedItemValue
+                        ? valueToItemMap.get(removedItemValue) || {
+                              value: removedItemValue,
+                              label: removedItemValue.toString(),
+                          }
+                        : null,
+                );
             }
         };
 
@@ -270,6 +294,15 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                     newValues.push(item.value);
                 }
             });
+
+            // Оставляем values, которых нет в items.
+            if (Array.isArray(value)) {
+                value.forEach((val: string) => {
+                    if (!valueToItemMap.has(val)) {
+                        newValues.push(val);
+                    }
+                });
+            }
 
             if (!alwaysOpened && closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
@@ -327,8 +360,13 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 }
 
                 const renderValueMapper =
-                    renderValue && ((stringValue: string) => renderValue(valueToItemMap.get(stringValue)!));
-                const valueToItemMapper = (stringValue: string) => valueToItemMap.get(stringValue)!.label;
+                    renderValue &&
+                    ((stringValue: string) =>
+                        renderValue(
+                            valueToItemMap.get(stringValue) || { value: stringValue, label: stringValue.toString() },
+                        ));
+                const valueToItemMapper = (stringValue: string) =>
+                    valueToItemMap.get(stringValue)?.label || stringValue.toString();
 
                 return value.map(renderValueMapper || valueToItemMapper);
             }
@@ -372,19 +410,26 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             if (!isEmpty(value)) {
                 if (Array.isArray(value)) {
                     value.forEach((val) => {
-                        checkedCopy.set(val, true);
-                        updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
-                        updateAncestors(valueToItemMap.get(val)!, checkedCopy);
+                        // Только если value находится в items, т.к. value может и не существовать в items.
+                        if (valueToItemMap.has(val)) {
+                            checkedCopy.set(val, true);
+                            updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
+                            updateAncestors(valueToItemMap.get(val)!, checkedCopy);
+                        }
                     });
                 } else {
-                    checkedCopy.set(value, 'done');
-                    updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
+                    // Только если value находится в items, т.к. value может и не существовать в items.
+                    // eslint-disable-next-line no-lonely-if
+                    if (valueToItemMap.has(value)) {
+                        checkedCopy.set(value, 'done');
+                        updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
+                    }
                 }
             }
 
             setChecked(checkedCopy);
 
-            setTextValue(valueToItemMap.get(value as string)?.label || '');
+            setTextValue(multiple ? '' : valueToItemMap.get(value as string)?.label || value?.toString() || '');
 
             // В deps мы кладем именно outerValue и internalValue, а не просто value.
             // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
