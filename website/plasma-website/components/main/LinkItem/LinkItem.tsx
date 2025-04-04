@@ -1,10 +1,10 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, MouseEvent } from 'react';
 
 import { ContentLeftWrapper, ContentRightWrapper, LinkItemWrapper, Title } from './LinkItem.styles';
 
 export type LinkItemProps = {
-    isMeta?: boolean;
     href?: string;
+    isMeta?: boolean;
     title?: string;
     contentLeft?: ReactNode;
     contentRight?: ReactNode;
@@ -13,8 +13,18 @@ export type LinkItemProps = {
 };
 
 export const LinkItem: FC<LinkItemProps> = ({ isMeta, title, contentLeft, contentRight, href, onClick, className }) => {
+    const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+        if (isMeta) {
+            e.preventDefault();
+            return;
+        }
+        if (onClick) {
+            onClick();
+        }
+    };
+
     return (
-        <LinkItemWrapper className={className} isMeta={isMeta} onClick={onClick} href={href}>
+        <LinkItemWrapper href={href} className={className} isMeta={isMeta} onClick={handleClick}>
             {contentLeft && <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>}
             <Title>{title}</Title>
             {contentRight && <ContentRightWrapper>{contentRight}</ContentRightWrapper>}
