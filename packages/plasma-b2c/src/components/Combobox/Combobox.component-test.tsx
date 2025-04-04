@@ -1826,4 +1826,152 @@ describe('plasma-b2c: Combobox', () => {
         cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('#multiple').should('not.be.focused');
     });
+
+    it('snapshot: missing value in items', () => {
+        cy.viewport(1000, 200);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('minsk');
+            const [valueMultiple, setValueMultiple] = React.useState(['minsk', 'lyon']);
+
+            const renderValue = (item) => {
+                if (item.value === 'minsk') {
+                    return 'Минск';
+                }
+
+                return item.label;
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ display: 'flex' }}>
+                            <div style={{ width: '400px' }}>
+                                <Combobox label="Label" items={items} value={valueSingle} />
+                            </div>
+
+                            <div style={{ width: '400px' }}>
+                                <Combobox label="Label" multiple items={items} value={valueMultiple} />
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex' }}>
+                            <div style={{ width: '400px' }}>
+                                <Combobox label="Label" items={items} value={valueSingle} renderValue={renderValue} />
+                            </div>
+
+                            <div style={{ width: '400px' }}>
+                                <Combobox
+                                    label="Label"
+                                    multiple
+                                    items={items}
+                                    value={valueMultiple}
+                                    renderValue={renderValue}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow, single: missing value in items', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('');
+
+            const handleClick = () => {
+                setValueSingle('minsk');
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <button id="btn" type="button" onClick={handleClick}>
+                        add missing value
+                    </button>
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                label="Label"
+                                placeholder="Placeholder"
+                                items={items}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#btn').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('.input-wrapper')
+            .click()
+            .type('{backspace}')
+            .type('{backspace}')
+            .type('{backspace}')
+            .type('{backspace}')
+            .type('{backspace}');
+        cy.get('[id$="north_america"]').click();
+        cy.get('.input-wrapper input').should('have.value', 'Северная Америка');
+    });
+
+    it('flow, multiple: missing value in items', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [valueMultiple, setValueMultiple] = React.useState('');
+
+            const handleClick = () => {
+                setValueMultiple([...valueMultiple, 'minsk']);
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <button id="btn" type="button" onClick={handleClick}>
+                        add missing value
+                    </button>
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '400px' }}>
+                            <Combobox
+                                multiple
+                                label="Label"
+                                placeholder="Placeholder"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#btn').click();
+        cy.get('.input-wrapper').click();
+        cy.get('[id$="north_america"]').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('[id$="north_america"]').click();
+        cy.get('.chips-wrapper').should('not.include.text', 'Северная Америка');
+        cy.get('.chips-wrapper').should('include.text', 'minsk');
+        cy.get('.chips-wrapper').contains('minsk').click();
+        cy.get('.chips-wrapper').should('not.exist');
+    });
 });
