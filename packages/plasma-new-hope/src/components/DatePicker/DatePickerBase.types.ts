@@ -1,9 +1,11 @@
-import type { Dispatch, SetStateAction, ChangeEvent } from 'react';
+import type { Dispatch, SetStateAction, ChangeEvent, MutableRefObject } from 'react';
 
 import type { CalendarStateType } from '../Calendar';
 import type { DateInfo, DisabledDay, EventDay } from '../Calendar/Calendar.types';
 
-import type { Langs } from './utils/dateHelper';
+import type { Langs } from './utils/monthFullNameFormatter';
+import type { FormatStructure } from './utils/formatHelper';
+import type { SelectionBeforeChange } from './hooks/useKeyboardNavigation';
 
 export type DatePickerCalendarProps = {
     /**
@@ -67,7 +69,6 @@ export type DatePickerCalendarProps = {
      * Тип отображения календаря: дни, месяца, года.
      */
     type?: CalendarStateType;
-
     /**
      * Язык в маске ввода
      */
@@ -95,10 +96,11 @@ export type DatePickerVariationProps = {
 
 export type UseDatePickerProps = {
     currentValue: string;
-    setInputValue: Dispatch<SetStateAction<string>>;
-    setCalendarValue: Dispatch<SetStateAction<Date | undefined>>;
-    dateFormatDelimiter: () => string;
+    selectionBeforeChange: SelectionBeforeChange;
+    formatStructure: FormatStructure | null;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
     format?: string;
+    type?: CalendarStateType;
     lang?: Langs;
     disabled?: boolean;
     readOnly?: boolean;
@@ -106,9 +108,41 @@ export type UseDatePickerProps = {
     valueError?: boolean;
     valueSuccess?: boolean;
     name?: string;
-    onChangeValue?: (event: ChangeEvent<HTMLInputElement> | null, value?: string) => void;
-    onCommitDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
-    onChange?: (event: { target: { value?: string; name?: string } }) => void;
+    currentKeyPressed?: string;
+    min?: Date;
+    max?: Date;
+    includeEdgeDates?: boolean;
+    setInputValue: Dispatch<SetStateAction<string>>;
+    setCalendarValue: Dispatch<SetStateAction<Date | null | undefined>>;
+    setCorrectDates: Dispatch<
+        SetStateAction<{
+            calendar: Date | undefined;
+            input: string;
+        }>
+    >;
+    dateFormatDelimiter: () => string;
+    onChangeValue?: (
+        event: ChangeEvent<HTMLInputElement> | null,
+        value: string | undefined,
+        originalDate?: Date | null,
+        isoDate?: string,
+    ) => void;
+    onCommitDate?: (
+        value: Date | string,
+        error?: boolean,
+        success?: boolean,
+        dateInfo?: DateInfo,
+        originalDate?: Date,
+        isoDate?: string,
+    ) => void;
+    onChange?: (event: {
+        target: {
+            value?: string;
+            name?: string;
+            originalDate?: Date | null;
+            isoDate?: string;
+        };
+    }) => void;
 };
 
 export type ValidateDateArgs = {
