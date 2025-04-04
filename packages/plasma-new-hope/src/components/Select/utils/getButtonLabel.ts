@@ -6,9 +6,9 @@ const getLabel = ({
     valueToItemMap,
     renderValue,
 }: Omit<GetButtonLabelProps, 'label' | 'selectProps' | 'value'> & { value: any }): string => {
-    const { label } = valueToItemMap.get(value)!;
+    const label = valueToItemMap.get(value)?.label || value.toString();
 
-    return renderValue ? renderValue(valueToItemMap.get(value)!) : label;
+    return renderValue ? renderValue(valueToItemMap.get(value) || { value, label }) : label;
 };
 
 export const getButtonLabel = ({

@@ -16,14 +16,7 @@ import { useOutsideClick } from '../../hooks';
 import type { HintProps } from '../TextField/TextField.types';
 
 import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
-import {
-    initialItemsTransform,
-    updateAncestors,
-    updateDescendants,
-    updateSingleAncestors,
-    getView,
-    getInitialValue,
-} from './utils';
+import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
 import { Inner, Target, VirtualList } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
@@ -122,10 +115,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             props.multiselect ? [] : '',
         );
 
-        const value =
-            outerValue !== null && outerValue !== undefined
-                ? getInitialValue(outerValue, valueToItemMap)
-                : internalValue;
+        const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
 
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
 
@@ -220,6 +210,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleCheckboxChange = (item: MergedDropdownNodeTransformed) => {
+            console.log('handleCheckboxChange');
             if (!props.multiselect) {
                 return;
             }
@@ -244,6 +235,15 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 }
             });
 
+            // Оставляем values, которых нет в items.
+            if (Array.isArray(value)) {
+                value.forEach((val: string) => {
+                    if (!valueToItemMap.has(val)) {
+                        newValues.push(val);
+                    }
+                });
+            }
+
             if (closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
@@ -255,6 +255,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         };
 
         const handleItemClick = (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => {
+            console.log('handleItemClick');
             if (!isEmpty(item?.items)) {
                 return;
             }
@@ -332,13 +333,20 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             if (!isEmpty(value) || typeof value === 'number') {
                 if (Array.isArray(value)) {
                     value.forEach((val) => {
-                        checkedCopy.set(val, true);
-                        updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
-                        updateAncestors(valueToItemMap.get(val)!, checkedCopy);
+                        // Только если value находится в items, т.к. value может и не существовать в items.
+                        if (valueToItemMap.has(val)) {
+                            checkedCopy.set(val, true);
+                            updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
+                            updateAncestors(valueToItemMap.get(val)!, checkedCopy);
+                        }
                     });
                 } else {
-                    checkedCopy.set(value, 'done');
-                    updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
+                    // Только если value находится в items, т.к. value может и не существовать в items.
+                    // eslint-disable-next-line no-lonely-if
+                    if (valueToItemMap.has(value)) {
+                        checkedCopy.set(value, 'done');
+                        updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
+                    }
                 }
             }
 
