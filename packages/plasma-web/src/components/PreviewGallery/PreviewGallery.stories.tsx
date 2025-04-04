@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconTrash, IconTrashFilled, Icon } from '@salutejs/plasma-icons';
+import { IconTrash, IconTrashFilled, IconPlus } from '@salutejs/plasma-icons';
 import { surfaceSolid01 } from '@salutejs/plasma-tokens-web';
 
 import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping, PreviewGallery } from '.';
@@ -35,7 +35,7 @@ const StyledAddButton = styled.div`
     padding-top: 56.25%;
 `;
 
-const StyledIcon = styled(Icon)`
+const StyledIconPlus = styled(IconPlus)`
     position: absolute;
     top: calc(50% - 12px);
     left: calc(50% - 12px);
@@ -44,7 +44,7 @@ const StyledIcon = styled(Icon)`
 const AddButton = () => {
     return (
         <StyledAddButton>
-            <StyledIcon icon="plus" />
+            <StyledIconPlus />
         </StyledAddButton>
     );
 };
