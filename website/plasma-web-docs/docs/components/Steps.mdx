@@ -3,17 +3,36 @@ id: steps
 title: Steps
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 
 # Steps
-Отображают прогресс через последовательность логических шагов. Также могут использоваться для навигации.
-
-## Steps
 
 <Description name="Steps" />
 <PropsTable name="Steps" />
 
-## Вариант использования с управлением текущим элементом из вне
+## Внешнее вид
+
+:::info
+Важно! Значения `ItemView` применяются к шагу только когда его статус — inProgress.
+:::
+
+Внешний вид компонента регулируется 2 свойствами:
+
+#### View
+
+Свойство применяется ко всему компоненту и принимает следующие значения:
+- `default`
+- `accent`
+
+#### ItemView
+
+Свойство применяется к индикатору шага и заголовку, и принимает следующие значения:
+- `default`
+- `negative`
+- `warning`
+- `positive`
+
+## Внешнее управление
 
 ```tsx live
 import React, { useState } from 'react';
@@ -43,7 +62,7 @@ export function App() {
 }
 ```
 
-## Вариант более гибкого использования через onChange и status в items
+## Управление через onChange и статус шага
 
 ```tsx live
 import React, { useState } from 'react';
@@ -79,6 +98,48 @@ export function App() {
     return (
         <section>
             <Steps items={items} onChange={onChange} />
+        </section>
+    );
+}
+```
+
+
+## Использование свойства ItemView
+
+```tsx live
+import React, { useState } from 'react';
+import { Steps, StepItemProps  } from '@salutejs/plasma-web';
+
+export function App() {
+    const initialItems = [{
+        indicator: 1,
+        title: 'Title',
+        content: 'Content',
+    }, {
+        indicator: 2,
+        title: 'Title',
+        content: 'Content',
+    }, {
+        indicator: 3,
+        title: 'Title',
+        content: 'Content',
+    }];
+
+    const [items, setItems] = useState(initialItems);
+
+    const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+        if (prevIndex !== undefined) {
+            items[prevIndex].status = 'completed';
+        }
+
+        items[index].status = 'active';
+
+        setItems([...items]);
+    };
+
+    return (
+        <section>
+            <Steps items={items} itemView="positive" onChange={onChange} />
         </section>
     );
 }
