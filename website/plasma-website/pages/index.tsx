@@ -86,11 +86,17 @@ export default function Home() {
         const containerBlock = scrollContainerRef.current;
         const snapBlock = scrollSnapBlock.current;
 
+        getNavPosRecalculationId();
+
         containerBlock.scrollTo({
-            top: snapBlock.offsetHeight,
+            top: snapBlock.offsetHeight - topOffsetAfterScroll,
             behavior: 'smooth',
         });
         setMenuExpanded(true);
+
+        setTimeout(() => {
+            cancelAllAnimationFrames();
+        }, 800);
     };
 
     const getNavPosRecalculationId = () => {
