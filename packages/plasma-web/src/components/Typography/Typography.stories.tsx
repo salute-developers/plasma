@@ -44,7 +44,7 @@ const meta: Meta = {
     title: 'Data Display/Typography',
     component: DsplL,
     argTypes: {
-        ...disableProps(['size', 'bold', 'medium', 'as', 'forwardedAs']),
+        ...disableProps(['size', 'bold', 'medium', 'as', 'forwardedAs', 'isNumeric']),
         color: {
             control: {
                 type: 'color',
@@ -60,7 +60,9 @@ const meta: Meta = {
 
 export default meta;
 
-export const Dspl: StoryObj<SpacingProps> = {
+type Story = StoryObj<SpacingProps>;
+
+export const Dspl: Story = {
     render: (props) => (
         <>
             <DsplL bold={false} {...props}>
@@ -70,12 +72,18 @@ export const Dspl: StoryObj<SpacingProps> = {
             <DsplL medium {...props}>
                 DsplL Medium
             </DsplL>
+            <DsplL bold={false} isNumeric {...props}>
+                1234567890
+            </DsplL>
             <DsplM bold={false} {...props}>
                 DsplM
             </DsplM>
             <DsplM {...props}>DsplM Bold</DsplM>
             <DsplM medium {...props}>
                 DsplM Medium
+            </DsplM>
+            <DsplM bold={false} isNumeric {...props}>
+                1234567890
             </DsplM>
             <DsplS bold={false} {...props}>
                 DsplS
@@ -84,11 +92,14 @@ export const Dspl: StoryObj<SpacingProps> = {
             <DsplS medium {...props}>
                 DsplS Medium
             </DsplS>
+            <DsplS bold={false} isNumeric {...props}>
+                1234567890
+            </DsplS>
         </>
     ),
 };
 
-export const H: StoryObj<SpacingProps> = {
+export const H: Story = {
     render: (props) => (
         <>
             <H1 bold={false} {...props}>
@@ -98,12 +109,18 @@ export const H: StoryObj<SpacingProps> = {
             <H1 medium {...props}>
                 H1 Medium
             </H1>
+            <H1 bold={false} isNumeric {...props}>
+                1234567890
+            </H1>
             <H2 bold={false} {...props}>
                 H2
             </H2>
             <H2 {...props}>H2 Bold</H2>
             <H2 medium {...props}>
                 H2 Medium
+            </H2>
+            <H2 bold={false} isNumeric {...props}>
+                1234567890
             </H2>
             <H3 bold={false} {...props}>
                 H3
@@ -112,12 +129,18 @@ export const H: StoryObj<SpacingProps> = {
             <H3 medium {...props}>
                 H3 Medium
             </H3>
+            <H3 bold={false} isNumeric {...props}>
+                1234567890
+            </H3>
             <H4 bold={false} {...props}>
                 H4
             </H4>
             <H4 {...props}>H4 Bold</H4>
             <H4 medium {...props}>
                 H4 Medium
+            </H4>
+            <H4 bold={false} isNumeric {...props}>
+                1234567890
             </H4>
             <H5 bold={false} {...props}>
                 H5
@@ -126,11 +149,14 @@ export const H: StoryObj<SpacingProps> = {
             <H5 medium {...props}>
                 H5 Medium
             </H5>
+            <H5 bold={false} isNumeric {...props}>
+                1234567890
+            </H5>
         </>
     ),
 };
 
-export const Body: StoryObj<SpacingProps> = {
+export const Body: Story = {
     render: (props) => (
         <>
             <BodyL {...props}>BodyL</BodyL>
@@ -140,12 +166,18 @@ export const Body: StoryObj<SpacingProps> = {
             <BodyL medium {...props}>
                 BodyL Medium
             </BodyL>
+            <BodyL isNumeric {...props}>
+                1234567890
+            </BodyL>
             <BodyM {...props}>BodyM</BodyM>
             <BodyM bold {...props}>
                 BodyM Bold
             </BodyM>
             <BodyM medium {...props}>
                 BodyM Medium
+            </BodyM>
+            <BodyM isNumeric {...props}>
+                1234567890
             </BodyM>
             <BodyS {...props}>BodyS</BodyS>
             <BodyS bold {...props}>
@@ -154,12 +186,18 @@ export const Body: StoryObj<SpacingProps> = {
             <BodyS medium {...props}>
                 BodyS Medium
             </BodyS>
+            <BodyS isNumeric {...props}>
+                1234567890
+            </BodyS>
             <BodyXS {...props}>BodyXS</BodyXS>
             <BodyXS bold {...props}>
                 BodyXS Bold
             </BodyXS>
             <BodyXS medium {...props}>
                 BodyXS Medium
+            </BodyXS>
+            <BodyXS isNumeric {...props}>
+                1234567890
             </BodyXS>
             <BodyXXS {...props}>BodyXXS</BodyXXS>
             <BodyXXS bold {...props}>
@@ -168,11 +206,14 @@ export const Body: StoryObj<SpacingProps> = {
             <BodyXXS medium {...props}>
                 BodyXXS Medium
             </BodyXXS>
+            <BodyXXS isNumeric {...props}>
+                1234567890
+            </BodyXXS>
         </>
     ),
 };
 
-export const Text: StoryObj<SpacingProps> = {
+export const Text: Story = {
     render: (props) => (
         <>
             <TextL {...props}>TextL</TextL>
@@ -182,12 +223,18 @@ export const Text: StoryObj<SpacingProps> = {
             <TextL medium {...props}>
                 TextL Medium
             </TextL>
+            <TextL isNumeric {...props}>
+                1234567890
+            </TextL>
             <TextM {...props}>TextM</TextM>
             <TextM bold {...props}>
                 TextM Bold
             </TextM>
             <TextM medium {...props}>
                 TextM Medium
+            </TextM>
+            <TextM isNumeric {...props}>
+                1234567890
             </TextM>
             <TextS {...props}>TextS</TextS>
             <TextS bold {...props}>
@@ -196,12 +243,18 @@ export const Text: StoryObj<SpacingProps> = {
             <TextS medium {...props}>
                 TextS Medium
             </TextS>
+            <TextS isNumeric {...props}>
+                1234567890
+            </TextS>
             <TextXS {...props}>TextXS</TextXS>
             <TextXS bold {...props}>
                 TextXS Bold
             </TextXS>
             <TextXS medium {...props}>
                 TextXS Medium
+            </TextXS>
+            <TextXS isNumeric {...props}>
+                1234567890
             </TextXS>
         </>
     ),
