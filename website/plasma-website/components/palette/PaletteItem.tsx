@@ -165,7 +165,7 @@ export const PaletteItem: React.FC<{
     const router = useRouter();
 
     const handlerColorClick = (code: string) => {
-        router.push(`/palette/color/${paletteColor.name}/code/${code}`);
+        router.push(`/palette/?color=${paletteColor.name}&code=${code}`);
     };
 
     return (
