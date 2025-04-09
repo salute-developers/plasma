@@ -37,6 +37,18 @@ type TreeItem = {
      * @default false
      */
     disabled?: boolean;
+    /**
+     * Иконка для текущего элемента.
+     */
+    icon?: React.ReactNode;
+    /**
+     * Дочерние items.
+     */
+    children?: TreeItem[];
+    /**
+     * Контент справа.
+     */
+    contentRight?: React.ReactNode;
 };
 ```
 

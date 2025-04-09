@@ -5,7 +5,7 @@ import { RootProps } from '../../engines';
 import { cx } from '../../utils';
 
 import type { TreeProps } from './Tree.types';
-import { IconArrowWrapper, StyledArrow, base, StyledFolder, IconFolderWrapper } from './Tree.styles';
+import { IconArrowWrapper, StyledArrow, base, StyledFolder, TitleWrapper, Title, ContentRight } from './Tree.styles';
 import { sizeToIconSize } from './utils';
 import { classes } from './Tree.tokens';
 
@@ -79,15 +79,24 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                                 </IconArrowWrapper>
                             );
                         }}
-                        icon={
-                            hasIcon &&
-                            (icon || (
-                                <IconFolderWrapper>
-                                    <StyledFolder size={sizeToIconSize(size)} color="inherit" />
-                                </IconFolderWrapper>
-                            ))
-                        }
-                        titleRender={renderTitle}
+                        icon={hasIcon && (icon || <StyledFolder size={sizeToIconSize(size)} color="inherit" />)}
+                        titleRender={(item) => (
+                            <TitleWrapper
+                                fullWidthItemSelection={fullWidthItemSelection}
+                                arrowPlacement={arrowPlacement}
+                            >
+                                <Title>
+                                    {/* eslint-disable-next-line no-nested-ternary */}
+                                    {renderTitle
+                                        ? renderTitle(item)
+                                        : typeof item.title === 'function'
+                                        ? item.title(item)
+                                        : item.title}
+                                </Title>
+
+                                {item.contentRight && <ContentRight>{item.contentRight}</ContentRight>}
+                            </TitleWrapper>
+                        )}
                     />
                 </Root>
             );
