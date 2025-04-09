@@ -27,7 +27,16 @@ const meta: Meta<typeof Chip> = {
                 type: 'select',
             },
         },
-        ...disableProps(['readOnly', 'onClear', 'contentLeft', 'contentRight', 'contentClearButton', 'text']),
+        ...disableProps([
+            'readOnly',
+            'onClear',
+            'contentLeft',
+            'contentRight',
+            'contentClearButton',
+            'text',
+            'disabled',
+            'pilled',
+        ]),
     },
 };
 
@@ -41,7 +50,7 @@ const TrashIcon = (props) => (
             fillRule="evenodd"
             clipRule="evenodd"
             d="M8 5.5A2.5 2.5 0 0110.5 3h3A2.5 2.5 0 0116 5.5V6h-2v-.5a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5V6H8v-.5zM4 8a1 1 0 011-1h14a1 1 0 110 2h-1v9.5a2.5 2.5 0 01-2.5 2.5h-7A2.5 2.5 0 016 18.5V9H5a1 1 0 01-1-1z"
-            fill="currentColor"
+            fill={props.color}
         />
     </svg>
 );
@@ -52,9 +61,7 @@ export const Default: Story = {
         view: 'default',
         size: 's',
         hasClear: true,
-        disabled: false,
         focused: true,
-        pilled: false,
         onClear,
     },
 };
@@ -68,9 +75,23 @@ export const WithIcon: Story = {
         };
         const iconSize = args.size || 's';
 
+        const getColor = (view) => {
+            if (view !== 'accent') {
+                return 'var(--text-accent)';
+            }
+
+            return 'currentColor';
+        };
+
         return (
             <Chip
-                contentLeft={<TrashIcon width={iconSizeMapper[iconSize]} height={iconSizeMapper[iconSize]} />}
+                contentLeft={
+                    <TrashIcon
+                        width={iconSizeMapper[iconSize]}
+                        height={iconSizeMapper[iconSize]}
+                        color={getColor(args.view)}
+                    />
+                }
                 {...args}
             />
         );
