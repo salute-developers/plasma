@@ -27,7 +27,16 @@ const meta: Meta<typeof Chip> = {
                 type: 'select',
             },
         },
-        ...disableProps(['readOnly', 'onClear', 'contentLeft', 'contentRight', 'contentClearButton', 'text']),
+        ...disableProps([
+            'readOnly',
+            'onClear',
+            'contentLeft',
+            'contentRight',
+            'contentClearButton',
+            'text',
+            'disabled',
+            'pilled',
+        ]),
     },
 };
 
@@ -52,9 +61,7 @@ export const Default: Story = {
         view: 'default',
         size: 's',
         hasClear: true,
-        disabled: false,
         focused: true,
-        pilled: false,
         onClear,
     },
 };
