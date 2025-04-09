@@ -37,10 +37,12 @@ export const tokens = {
     dividerFontWeight: '--plasma-date-picker_range__divider-font-weight',
     dividerLetterSpacing: '--plasma-date-picker_range__divider-letter-spacing',
     dividerLineHeight: '--plasma-date-picker_range__divider-line-height',
+    dividerOpacityReadOnly: '--plasma-date-picker_range__divider-opacity-readonly',
 
-    /** Токены слотов для контента в рендже */
+    /** Токены слотов для контента в range */
     leftContentMargin: '--plasma-date-picker_range__left-content-margin',
     rightContentMargin: '--plasma-date-picker_range__right-content-margin',
+    rightContentOpacityReadOnly: '--plasma-date-picker_range__right-content-opacity-readonly',
 
     /** Токены лейбла */
     labelColor: '--plasma-date-picker__label-color',
