@@ -20,6 +20,7 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-card);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             secondary: css`
                 ${chipTokens.color}: var(--text-primary);
@@ -33,6 +34,7 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -49,7 +51,7 @@ export const config = {
         },
         size: {
             s: css`
-                ${chipTokens.borderRadius}: 0.5rem;
+                ${chipTokens.borderRadius}: 0.625rem;
                 ${chipTokens.pilledBorderRadius}: 1rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2.5rem;

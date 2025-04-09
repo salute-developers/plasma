@@ -21,6 +21,7 @@ export const StyledContentLeft = styled.div`
     display: flex;
     margin-left: var(${tokens.leftContentMarginLeft});
     margin-right: var(${tokens.leftContentMarginRight});
+    color: var(${tokens.leftContentColor});
 `;
 
 export const StyledContentMain = styled.div`
