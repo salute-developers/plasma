@@ -3,57 +3,9 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
+import { IconBlankTxtOutline, IconLock, IconTrash } from '../../../../components/_Icon';
 
 import { Tree } from './Tree';
-
-const treeData: any[] = [
-    {
-        title: 'Parent 1',
-        key: '0-0',
-        children: [
-            {
-                title: 'Parent 1-0',
-                key: '0-0-0',
-                children: [
-                    {
-                        title: 'Leaf',
-                        key: '0-0-0-0',
-                        disabled: true,
-                    },
-                    {
-                        title: 'Leaf',
-                        key: '0-0-0-1',
-                        children: [
-                            {
-                                title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
-                                key: '0-0-0-0-0',
-                            },
-                            {
-                                title: 'Leaf',
-                                key: '0-0-0-0-1',
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                title: 'Parent 1-1',
-                key: '0-0-1',
-                children: [{ title: 'Leaf', key: '0-0-1-0' }],
-            },
-        ],
-    },
-    {
-        title: 'Parent 2',
-        key: '0-1',
-        children: [
-            {
-                title: 'Parent 2-0',
-                key: '0-1-0',
-            },
-        ],
-    },
-];
 
 type StoryTreeProps = ComponentProps<typeof Tree>;
 
@@ -109,6 +61,70 @@ const meta: Meta<StoryTreeProps> = {
 export default meta;
 
 const StoryDefault = (args: StoryTreeProps) => {
+    const treeData: any[] = [
+        {
+            title: 'Основной каталог',
+            key: '0-0',
+            contentRight: <IconTrash size={args.size === 'xs' ? 'xs' : 's'} color="var(--text-secondary)" />,
+            children: [
+                {
+                    title: 'Документы',
+                    key: '0-0-0',
+                    children: [
+                        {
+                            title: 'Отчёты',
+                            key: '0-0-0-0',
+                            contentRight: (
+                                <IconLock size={args.size === 'xs' ? 'xs' : 's'} color="var(--text-secondary)" />
+                            ),
+                            disabled: true,
+                        },
+                        {
+                            title: 'Проекты',
+                            key: '0-0-0-1',
+                            children: [
+                                {
+                                    title: 'Проект Альфа',
+                                    key: '0-0-0-0-0',
+                                    icon: (
+                                        <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
+                                    ),
+                                },
+                                {
+                                    title: 'Проект Бета',
+                                    key: '0-0-0-0-1',
+                                    icon: (
+                                        <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: 'Медиа',
+                    key: '0-0-1',
+                    children: [
+                        {
+                            title: 'Фотографии',
+                            key: '0-0-1-0',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            title: 'Корзина',
+            key: '0-1',
+            children: [
+                {
+                    title: 'Удалённые файлы',
+                    key: '0-1-0',
+                },
+            ],
+        },
+    ];
+
     return <Tree {...args} items={treeData} />;
 };
 
