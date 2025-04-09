@@ -103,6 +103,8 @@ export const StyledRange = styled(Range)`
 
     ${rangeTokens.textFieldLeftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${rangeTokens.textFieldRightContentMargin}: var(${tokens.textFieldRightContentMargin});
+    ${rangeTokens.rightContentOpacityReadOnly}: var(${tokens.rightContentOpacityReadOnly});
+    
     ${rangeTokens.textFieldTextBeforeMargin}: var(${tokens.textFieldTextBeforeMargin});
     ${rangeTokens.textFieldTextAfterMargin}: var(${tokens.textFieldTextAfterMargin});
 
@@ -110,6 +112,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
     ${rangeTokens.leftHelperColorReadOnly}: var(${tokens.leftHelperColorReadOnly});
     ${rangeTokens.dividerColorReadOnly}: var(${tokens.dividerColorReadOnly});
+    ${rangeTokens.dividerOpacityReadOnly}: var(${tokens.dividerOpacityReadOnly});
 
     ${rangeTokens.textFieldColorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${rangeTokens.textFieldBackgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
