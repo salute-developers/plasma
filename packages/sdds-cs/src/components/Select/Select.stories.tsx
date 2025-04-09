@@ -5,7 +5,6 @@ import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import './style.css';
-
 import { Select } from './Select';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
