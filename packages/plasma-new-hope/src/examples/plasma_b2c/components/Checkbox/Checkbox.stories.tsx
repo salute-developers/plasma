@@ -35,6 +35,11 @@ const meta: Meta<typeof Checkbox> = {
                 type: 'radio',
             },
         },
+        indeterminate: {
+            control: {
+                type: 'boolean',
+            },
+        },
     },
     args: {
         view: 'accent',
@@ -42,6 +47,7 @@ const meta: Meta<typeof Checkbox> = {
         disabled: false,
         focused: true,
         appearance: 'default',
+        indeterminate: false,
     },
 };
 

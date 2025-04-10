@@ -25,6 +25,9 @@ export const tableTokens = {
     checkboxTriggerBorderCheckedColor: '--plasma-table-checkbox-trigger-border-checked-color',
     checkboxTriggerBorderRadius: '--plasma-table-checkbox-trigger-border-radius',
     checkboxTriggerBorderWidth: '--plasma-table-checkbox-trigger-border-width',
+    checkboxTriggerBorderColor: '--plasma-table-checkbox-trigger-border-color',
+    checkboxFillColor: '--plasma-table-checkbox-fill-color',
+    checkboxTriggerIconColor: '--plasma-table-checkbox-trigger-icon-color',
 
     editableCellIconGap: '--plasma-table-editable-cell-icon-gap',
     editableCellIconButtonWidth: '--plasma-table-editable-cell-icon-button-width',

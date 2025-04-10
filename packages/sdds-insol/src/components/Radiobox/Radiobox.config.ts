@@ -3,7 +3,6 @@ import { css, radioboxTokens } from '@salutejs/plasma-new-hope/styled-components
 export const config = {
     defaults: {
         view: 'accent',
-        size: 'm',
         focused: 'true',
     },
     variations: {
@@ -87,74 +86,19 @@ export const config = {
         view: {
             accent: css`
                 ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-accent);
+                ${radioboxTokens.ellipseColor}: var(--outline-accent);
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-accent);
+                ${radioboxTokens.triggerBorderColor}: var(--outline-transparent-tertiary);
+                ${radioboxTokens.triggerBorderCheckedColor}: var(--outline-accent);
             `,
-            // deprecated
-            default: css`
-                ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-default);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-default);
-            `,
-            // deprecated
-            secondary: css`
-                ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-secondary);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-secondary);
-            `,
-            // deprecated
-            tertiary: css`
-                ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-tertiary);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-tertiary);
-            `,
-            // deprecated
-            paragraph: css`
-                ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-paragraph);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-paragraph);
-            `,
-            // deprecated
-            positive: css`
-                ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-positive);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-positive);
-            `,
-            // deprecated
-            warning: css`
-                ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-warning);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-warning);
-            `,
-            // deprecated
             negative: css`
                 ${radioboxTokens.fillColor}: transparent;
-                ${radioboxTokens.ellipseColor}: var(--text-negative);
+                ${radioboxTokens.ellipseColor}: var(--outline-negative);
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: var(--text-negative);
+                ${radioboxTokens.triggerBorderColor}: var(--outline-negative);
+                ${radioboxTokens.triggerBorderCheckedColor}: var(--outline-negative);
             `,
         },
         disabled: {
