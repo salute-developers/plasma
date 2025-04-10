@@ -58,6 +58,29 @@ export const config = {
                 ${radioboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${radioboxTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
+            l: css`
+                ${radioboxTokens.margin}: 0;
+                ${radioboxTokens.triggerPadding}: 0.0625rem;
+                ${radioboxTokens.triggerSize}: 1.375rem;
+                ${radioboxTokens.triggerBorderRadius}: 1.125rem;
+                ${radioboxTokens.triggerBorderWidth}: 0.125rem;
+                ${radioboxTokens.ellipseSize}: 0.625rem;
+                ${radioboxTokens.contentTopOffset}: 0.0625rem;
+                ${radioboxTokens.contentLeftOffset}: 0.75rem;
+                ${radioboxTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${radioboxTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${radioboxTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${radioboxTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${radioboxTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${radioboxTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${radioboxTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${radioboxTokens.descriptionMarginTop}: 0.125rem;
+                ${radioboxTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
+                ${radioboxTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${radioboxTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${radioboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${radioboxTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
+            `,
         },
         /**
          * Вид контрола.
