@@ -9,7 +9,7 @@ import { tokens, classes, constants } from '../../../../Select.tokens';
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
-export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
+export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColor}: var(${tokens.buttonColor});
     ${buttonTokens.buttonColorHover}: var(${tokens.buttonColorHover});
     ${buttonTokens.buttonColorActive}: var(${tokens.buttonColorActive});
@@ -17,7 +17,7 @@ export const StyledButton = styled(Button)<{ renderTarget: boolean }>`
     ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.buttonBackgroundColorHover});
     ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.buttonBackgroundColorActive});
     ${buttonTokens.buttonRightContentMargin}: var(${tokens.buttonArrowMargin});
-    ${buttonTokens.buttonHeight}: ${({ renderTarget }) => (renderTarget ? 'auto' : `var(${tokens.targetHeight})`)};
+    ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
     ${buttonTokens.buttonWidth}: 100%;
     ${buttonTokens.buttonPadding}: var(${tokens.buttonPadding});
     ${buttonTokens.buttonRadius}: var(${tokens.borderRadius});

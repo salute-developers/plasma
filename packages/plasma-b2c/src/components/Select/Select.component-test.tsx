@@ -1269,4 +1269,186 @@ describe('plasma-b2c: Select', () => {
         cy.get('#textfield-multiple').realClick({ position: 'center' });
         cy.get('ul[role="tree"]').should('not.exist');
     });
+
+    it('snapshot: missing value in items', () => {
+        cy.viewport(1300, 200);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('minsk');
+            const [valueMultiple, setValueMultiple] = React.useState(['minsk', 'lyon']);
+
+            const renderValue = (item) => {
+                if (item.value === 'minsk') {
+                    return 'Минск';
+                }
+
+                return item.label;
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ display: 'flex' }}>
+                            <div style={{ width: '300px' }}>
+                                <Select target="button-like" items={items} value={valueSingle} />
+                            </div>
+
+                            <div style={{ width: '300px' }}>
+                                <Select multiselect target="button-like" items={items} value={valueMultiple} />
+                            </div>
+
+                            <div style={{ width: '300px' }}>
+                                <Select items={items} value={valueSingle} />
+                            </div>
+
+                            <div style={{ width: '300px' }}>
+                                <Select multiselect items={items} value={valueMultiple} />
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex' }}>
+                            <div style={{ width: '300px' }}>
+                                <Select
+                                    target="button-like"
+                                    items={items}
+                                    value={valueSingle}
+                                    renderValue={renderValue}
+                                />
+                            </div>
+
+                            <div style={{ width: '300px' }}>
+                                <Select
+                                    multiselect
+                                    target="button-like"
+                                    items={items}
+                                    value={valueMultiple}
+                                    renderValue={renderValue}
+                                />
+                            </div>
+
+                            <div style={{ width: '300px' }}>
+                                <Select items={items} value={valueSingle} renderValue={renderValue} />
+                            </div>
+
+                            <div style={{ width: '300px' }}>
+                                <Select multiselect items={items} value={valueMultiple} renderValue={renderValue} />
+                            </div>
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow, single: missing value in items', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('');
+
+            const handleClick = () => {
+                setValueSingle('minsk');
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <button id="btn" type="button" onClick={handleClick}>
+                        add missing value
+                    </button>
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="select"
+                                target="button-like"
+                                label="Label"
+                                items={items}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select label="Label" items={items} value={valueSingle} onChange={setValueSingle} />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#btn').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('#select').click();
+        cy.get('[id$="north_america"]').click();
+        cy.get('#select').should('include.text', 'Северная Америка');
+    });
+
+    it('flow, multiselect: missing value in items', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            const [valueMultiple, setValueMultiple] = React.useState([]);
+
+            const handleClick = () => {
+                setValueMultiple([...valueMultiple, 'minsk']);
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <button id="btn" type="button" onClick={handleClick}>
+                        add missing value
+                    </button>
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="select"
+                                multiselect
+                                target="button-like"
+                                label="Label"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+
+                        <div style={{ width: '500px' }}>
+                            <Select
+                                id="multiselect"
+                                multiselect
+                                label="Label"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#btn').click();
+        cy.get('#select').click();
+        cy.get('[id$="north_america"]').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('[id$="north_america"]').click();
+        cy.get('#select button').should('not.include.text', 'Северная Америка');
+        cy.get('#select button').should('include.text', 'minsk');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#multiselect').contains('minsk').click();
+        cy.get('#multiselect .chips-wrapper').should('include.text', 'Северная Америка');
+        cy.get('#multiselect .chips-wrapper').should('not.include.text', 'minsk');
+    });
 });

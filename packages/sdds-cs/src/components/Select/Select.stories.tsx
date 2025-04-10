@@ -372,7 +372,7 @@ const items = [
     },
 ];
 
-const SingleStory = (args: StorySelectProps) => {
+const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [value, setValue] = useState('');
 
     return (
@@ -382,7 +382,7 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
             />
         </div>
     );
@@ -400,7 +400,7 @@ export const Single: StoryObj<StorySelectProps> = {
     },
 };
 
-const MultiselectStory = (args: StorySelectProps) => {
+const MultiselectStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [value, setValue] = useState<Array<string>>([]);
 
     return (
@@ -410,7 +410,7 @@ const MultiselectStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
             />
         </div>
     );
@@ -424,7 +424,7 @@ export const Multiselect: StoryObj<StorySelectProps> = {
     render: (args) => <MultiselectStory {...args} />,
 };
 
-const PredefinedStory = (args: StorySelectProps) => {
+const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [valueSingle, setValueSingle] = useState('paris');
     const [valueMultiple, setValueMultiple] = useState(['paris', 'north_america']);
 
@@ -435,7 +435,7 @@ const PredefinedStory = (args: StorySelectProps) => {
                 items={items}
                 value={valueSingle}
                 onChange={setValueSingle}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
             />
 
             <br />
@@ -446,7 +446,7 @@ const PredefinedStory = (args: StorySelectProps) => {
                 multiselect
                 value={valueMultiple}
                 onChange={setValueMultiple}
-                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
             />
         </div>
     );
