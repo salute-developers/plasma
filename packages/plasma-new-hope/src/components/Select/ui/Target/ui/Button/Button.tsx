@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
+import { cx } from 'src/utils';
 
-import { cx } from '../../../../../../utils';
 import { classes } from '../../../../Select.tokens';
 import { getButtonLabel, getItemId, sizeToIconSize } from '../../../../utils';
 
