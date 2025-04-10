@@ -22,7 +22,8 @@ import { base as focusedCSS } from './variations/_focused/base';
 import { StyledEllipse, base } from './Radiobox.styles';
 import { classes } from './Radiobox.tokens';
 
-type RadioboxProps = Filter<InputHTMLAttributes<HTMLInputElement>, 'size'> & Omit<BaseboxProps, 'indeterminate'>;
+type RadioboxProps = Filter<InputHTMLAttributes<HTMLInputElement>, 'size'> &
+    Omit<BaseboxProps, 'indeterminate' | 'appearance'>;
 
 export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =>
     forwardRef<HTMLInputElement, RadioboxProps>((props, ref) => {
