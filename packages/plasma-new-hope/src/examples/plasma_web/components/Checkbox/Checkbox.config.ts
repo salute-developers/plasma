@@ -55,6 +55,28 @@ export const config = {
                 ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
+            l: css`
+                ${checkboxTokens.margin}: 0;
+                ${checkboxTokens.triggerPadding}: 0.125rem;
+                ${checkboxTokens.triggerSize}: 1.25rem;
+                ${checkboxTokens.triggerBorderRadius}: 0.375rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
+                ${checkboxTokens.contentTopOffset}: 0.0625rem;
+                ${checkboxTokens.contentLeftOffset}: 0.75rem;
+                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${checkboxTokens.descriptionMarginTop}: 0.125rem;
+                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
+                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
+            `,
         },
         /**
          * Вид контрола.

@@ -1,9 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Link } from '../Link';
+
+import { config } from './Checkbox.config';
 
 import { Checkbox } from '.';
 import type { CheckboxProps } from '.';
@@ -12,8 +14,8 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const sizes = ['m', 's'];
 const views = ['accent', 'negative'];
+const { sizes } = getConfigVariations(config);
 
 const propsToDisable = [
     'name',
@@ -31,7 +33,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
-    'appereance',
+    'appearance',
 ];
 
 const meta: Meta<CheckboxProps> = {
@@ -151,7 +153,6 @@ const StoryDefault = (args: CheckboxProps) => {
                 }}
                 onFocus={onFocus}
                 onBlur={onBlur}
-                appereance="outline"
                 {...args}
             />
         </>
@@ -169,7 +170,6 @@ export const Default: Story = {
         view: 'accent',
         focused: true,
     },
-    ...disableProps(['appereance']),
     render: (args) => <StoryDefault {...args} />,
 };
 
@@ -189,7 +189,6 @@ const StoryLive = (args) => {
             {items.map((item) => (
                 <Checkbox
                     {...getState(values, item.value)}
-                    appereance="outline"
                     style={{ marginLeft: item.parent ? 36 : null }}
                     key={item.value}
                     name={item.name}
@@ -234,7 +233,7 @@ export const Live: Story = {
         disabled: false,
     },
     argTypes: {
-        ...disableProps(['label', 'description', 'appereance']),
+        ...disableProps(['label', 'description']),
     },
     render: (args) => <StoryLive {...args} />,
 };
