@@ -24,7 +24,7 @@ const meta: Meta<typeof Checkbox> = {
             },
         },
         size: {
-            options: ['m', 's'],
+            options: ['l', 'm', 's'],
             control: {
                 type: 'radio',
             },

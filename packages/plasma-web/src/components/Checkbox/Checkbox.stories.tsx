@@ -3,9 +3,11 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { SSRProvider } from '../SSRProvider';
-import { InSpacingDecorator, disableProps } from '../../helpers';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '../../helpers';
 import { Link } from '../Link';
 import { List, ListItem } from '../List';
+
+import { config } from './Checkbox.config';
 
 import { Checkbox } from '.';
 import type { CheckboxProps } from '.';
@@ -32,7 +34,7 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const sizes = ['m', 's'];
+const { sizes } = getConfigVariations(config);
 const views = ['accent', 'negative'];
 
 const meta: Meta<CheckboxProps> = {
