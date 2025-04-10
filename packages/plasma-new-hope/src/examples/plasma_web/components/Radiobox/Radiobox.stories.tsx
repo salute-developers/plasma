@@ -25,7 +25,7 @@ const meta: Meta<typeof Radiobox> = {
             },
         },
         size: {
-            options: ['m', 's'],
+            options: ['l', 'm', 's'],
             control: {
                 type: 'radio',
             },
