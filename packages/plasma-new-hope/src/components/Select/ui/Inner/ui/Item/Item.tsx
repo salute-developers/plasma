@@ -1,10 +1,10 @@
 import React, { useRef, FC, useContext } from 'react';
+import { cx, isEmpty } from 'src/utils';
+import { useDidMountEffect } from 'src/hooks';
 
 import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
-import { cx, isEmpty } from '../../../../../../utils';
 import { Context } from '../../../../Select.context';
-import { useDidMountEffect } from '../../../../../../hooks';
 
 import { ItemProps } from './Item.types';
 import {

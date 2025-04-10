@@ -1,5 +1,6 @@
+import { isEmpty } from 'src/utils';
+
 import { GetButtonLabelProps } from '../ui/Target/ui/Button/Button.types';
-import { isEmpty } from '../../../utils';
 
 const getLabel = ({
     value,
