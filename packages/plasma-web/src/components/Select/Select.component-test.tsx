@@ -1269,4 +1269,42 @@ describe('plasma-web: Select', () => {
         cy.get('#textfield-multiple').realClick({ position: 'center' });
         cy.get('ul[role="tree"]').should('not.exist');
     });
+
+    it('behaviour: should do nothing after clicking on the selected element in single mode', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select id="single" items={items} />
+                    </div>
+
+                    <div style={{ width: '300px' }}>
+                        <Select id="multiple" multiselect items={items} />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.get('#single ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#single ul[role="tree"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+        cy.get('#single').click();
+        cy.get('#single ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#single ul[role="tree"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+        cy.get('#multiple').click();
+        cy.get('#multiple ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').click();
+        cy.get('[id$="north_america"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#multiple ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').should('have.attr', 'aria-selected', 'false');
+    });
 });
