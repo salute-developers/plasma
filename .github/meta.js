@@ -70,17 +70,17 @@ module.exports = {
     },
     'sdds-dfa': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-cs': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-finportal': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-insol': {
