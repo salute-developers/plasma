@@ -54,7 +54,7 @@ const meta: Meta<CheckboxProps> = {
 
 export default meta;
 
-const sizes = ['m', 's'];
+const sizes = ['l', 'm', 's'];
 
 const name = 'languages';
 
