@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Headline4 } from '../Typography';
+
+import { config } from './Radiobox.config';
 
 import { Radiobox, RadioGroup } from '.';
 import type { RadioboxProps as Base } from '.';
@@ -23,7 +26,7 @@ const meta: Meta<RadioboxProps> = {
 
 export default meta;
 
-const sizes = ['m', 's'];
+const { sizes } = getConfigVariations(config);
 
 const items = [
     {
