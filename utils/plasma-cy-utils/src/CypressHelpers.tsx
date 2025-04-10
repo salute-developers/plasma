@@ -161,18 +161,7 @@ export const withNoAnimation = <P extends {}>(Comp: React.FC<P>) =>
 export const mount: typeof cyMount = (...args) => {
     const [jsx, opts = {}] = args;
 
-    opts.stylesheets = (opts?.stylesheets || ([] as string[])).concat(
-        'https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css',
-        'https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css',
-    );
-
-    const cm = cyMount(jsx, opts);
-
-    cy.waitForResources('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css');
-    cy.waitForResources('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css');
-    cy.waitForResources('SBSansText.0.2.0.css', 'SBSansDisplay.0.2.0.css', { timeout: 1500 });
-
-    return cm;
+    return cyMount(jsx, opts);
 };
 
 // NOTE: check cypress/support/index.d.ts
