@@ -84,12 +84,12 @@ export const config = {
         view: {
             accent: css`
                 ${checkboxTokens.fillColor}: transparent;
-                ${checkboxTokens.iconColor}: var(--text-accent);
+                ${checkboxTokens.iconColor}: var(--outline-accent);
                 ${checkboxTokens.labelColor}: var(--text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.descriptionColor}: var(--outline-transparent-tertiary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${checkboxTokens.triggerBorderCheckedColor}: var(--text-accent);
+                ${checkboxTokens.triggerBorderCheckedColor}: var(--outline-accent);
             `,
             // deprecated
             default: css`
@@ -153,12 +153,12 @@ export const config = {
             `,
             negative: css`
                 ${checkboxTokens.fillColor}: transparent;
-                ${checkboxTokens.iconColor}: var(--text-negative);
+                ${checkboxTokens.iconColor}: var(--outline-negative);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-negative);
-                ${checkboxTokens.triggerBorderCheckedColor}: var(--text-negative);
+                ${checkboxTokens.triggerBorderColor}: var(--outline-negative);
+                ${checkboxTokens.triggerBorderCheckedColor}: var(--outline-negative);
             `,
         },
         disabled: {

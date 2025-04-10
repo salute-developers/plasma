@@ -5,6 +5,7 @@ export const config = {
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',
+        _checkboxAppearance: 'outline',
     },
     variations: {
         view: {
@@ -320,11 +321,11 @@ export const config = {
                 ${tokens.checkboxTriggerSizeTight}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
-                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxFillColor}: transparent;
+                ${tokens.checkboxIconColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderCheckedColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderWidth}: 0.063rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
 
                 ${tokens.indicatorSize}: 0.375rem;
 
@@ -445,11 +446,11 @@ export const config = {
                 ${tokens.checkboxTriggerSizeTight}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.375rem;
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
-                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxFillColor}: transparent;
+                ${tokens.checkboxIconColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderCheckedColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderWidth}: 0.063rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
 
                 ${tokens.indicatorSize}: 0.375rem;
 
@@ -572,11 +573,11 @@ export const config = {
                 ${tokens.checkboxTriggerSizeTight}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
-                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxFillColor}: transparent;
+                ${tokens.checkboxIconColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderCheckedColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderWidth}: 0.063rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
 
                 ${tokens.indicatorSize}: 0.375rem;
 
@@ -697,11 +698,11 @@ export const config = {
                 ${tokens.checkboxTriggerSizeTight}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
-                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxFillColor}: transparent;
+                ${tokens.checkboxIconColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderCheckedColor}: var(--outline-accent);
+                ${tokens.checkboxTriggerBorderWidth}: 0.063rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
 
                 ${tokens.indicatorSize}: 0.375rem;
 

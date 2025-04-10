@@ -33,6 +33,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
+    'appearance',
 ];
 
 const meta: Meta<CheckboxProps> = {

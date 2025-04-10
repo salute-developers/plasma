@@ -21,6 +21,7 @@ export interface BaseboxProps {
      * Неопределенное состояние компонента - когда часть потомков не выбрана.
      */
     indeterminate?: boolean;
+    appearance?: string;
     size?: string;
     view?: string;
     focused?: boolean;

@@ -480,6 +480,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             variant,
                             renderItem,
                             treeId,
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            // eslint-disable-next-line no-underscore-dangle
+                            _checkboxAppearance: (rest as any)._checkboxAppearance,
                         }}
                     >
                         <FloatingPopover

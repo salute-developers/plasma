@@ -113,6 +113,8 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                           checked={table.getIsSomeRowsSelected() || table.getIsAllRowsSelected()}
                                           indeterminate={table.getIsSomeRowsSelected()}
                                           onChange={table.getToggleAllRowsSelectedHandler()}
+                                          // eslint-disable-next-line no-underscore-dangle
+                                          appearance={(props as any)._checkboxAppearance ?? 'default'}
                                       />
                                   ),
                                   cell: ({ row }: { row: Row<typeof data[number]> }) => (
@@ -120,6 +122,8 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                           checked={row.getIsSelected()}
                                           indeterminate={row.getIsSomeSelected()}
                                           onChange={row.getToggleSelectedHandler()}
+                                          // eslint-disable-next-line no-underscore-dangle
+                                          appearance={(props as any)._checkboxAppearance ?? 'default'}
                                       />
                                   ),
                                   enableResizing: false,

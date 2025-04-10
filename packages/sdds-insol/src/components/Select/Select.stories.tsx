@@ -479,6 +479,7 @@ const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
         <div style={{ width: '300px' }}>
             <Select
                 {...args}
+                _checkboxAppearance="outline"
                 items={items}
                 value={value}
                 onChange={setValue}

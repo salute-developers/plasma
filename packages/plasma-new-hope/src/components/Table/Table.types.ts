@@ -53,4 +53,5 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChan
     onCellUpdate?: (rowIndex: string, columnId: string, value: unknown) => void;
     size?: string;
     view?: string;
+    checkboxAppearance?: 'default' | 'outline';
 }

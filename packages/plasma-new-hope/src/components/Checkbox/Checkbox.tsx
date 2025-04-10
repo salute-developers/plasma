@@ -8,7 +8,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as focusedCSS } from './variations/_focused/base';
-import { Done, Indeterminate } from './IconsSvg';
+import { Done, Indeterminate, DoneThin, IndeterminateThin } from './IconsSvg';
 import {
     StyledContent,
     StyledContentWrapper,
@@ -33,6 +33,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
             label,
             description,
             indeterminate,
+            appearance,
             style,
             className,
             singleLine = false,
@@ -61,6 +62,23 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
         const singleLineClass = singleLine ? classes.singleLine : undefined;
         const onlyDescriptionClass = !label && description ? classes.onlyDescription : undefined;
 
+        // Временное решение
+        const getIcon = () => {
+            if (appearance === 'outline') {
+                return <DoneThin />;
+            }
+
+            return <Done />;
+        };
+
+        const getIndeterminate = () => {
+            if (appearance === 'outline') {
+                return <IndeterminateThin />;
+            }
+
+            return <Indeterminate />;
+        };
+
         return (
             <Root
                 view={view}
@@ -84,7 +102,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                 <StyledContentWrapper htmlFor={checkboxId} className={singleLineClass}>
                     <StyledTriggerWrapper>
                         <StyledTrigger className={classes.checkboxTrigger}>
-                            {indeterminate ? <Indeterminate /> : <Done />}
+                            {indeterminate ? getIndeterminate() : getIcon()}
                         </StyledTrigger>
                     </StyledTriggerWrapper>
                     {hasContent && (

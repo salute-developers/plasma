@@ -28,6 +28,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
+    'appearance',
 ];
 
 const onChange = action('onChange');
