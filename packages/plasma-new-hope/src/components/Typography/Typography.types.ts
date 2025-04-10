@@ -36,6 +36,10 @@ export type FontProps = {
      * Размер текста.
      */
     size?: string;
+    /**
+     * Делает цифровые значения моноширинным.
+     */
+    isNumeric?: boolean;
 } & SpacingProps &
     (BoldProps | MediumProps) &
     AsProps &
