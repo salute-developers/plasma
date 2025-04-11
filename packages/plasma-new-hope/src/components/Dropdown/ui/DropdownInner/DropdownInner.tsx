@@ -40,7 +40,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                 placement={getPlacement(item?.placement || 'right')}
                 opened={isCurrentListOpen}
                 onToggle={handleToggle}
-                trigger={trigger}
+                trigger={item.trigger || trigger}
                 target={
                     <DropdownItem
                         item={item}
