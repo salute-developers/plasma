@@ -344,6 +344,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         };
 
+        const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+        };
+
         const { onKeyDown } = useKeyNavigation({
             focusedPath,
             dispatchFocusedPath,
@@ -465,7 +469,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     textBefore={textBefore}
                                     textAfter={textAfter}
                                     onKeyDown={onKeyDown}
-                                    leftHelper={helperText}
+                                    leftHelper={<span onClick={helperTextStopPropagation}>{helperText}</span>}
                                     role="combobox"
                                     aria-autocomplete="list"
                                     aria-controls={`${treeId}_tree_level_1`}

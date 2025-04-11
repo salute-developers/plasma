@@ -100,6 +100,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             }
         };
 
+        const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+        };
+
         return (
             <StyledTextField
                 ref={ref}
@@ -121,7 +125,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     </IconArrowWrapper>
                 }
                 onKeyDown={onKeyDown}
-                leftHelper={helperText}
+                leftHelper={<span onClick={helperTextStopPropagation}>{helperText}</span>}
                 role="combobox"
                 aria-autocomplete="list"
                 aria-controls={`${treeId}_tree_level_1`}
