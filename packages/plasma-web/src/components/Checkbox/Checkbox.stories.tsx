@@ -32,7 +32,7 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const sizes = ['m', 's'];
+const sizes = ['l', 'm', 's'];
 const views = ['accent', 'negative'];
 
 const meta: Meta<CheckboxProps> = {
