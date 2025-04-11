@@ -143,13 +143,17 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
     arrowPlacement?: 'left' | 'right';
     /**
      * Флаг включения виртуализации в дерево со скроллом.
-     * @default false
+     * @default true
      */
     virtual?: boolean;
     /**
      * Высота дерева.
      */
     height?: number;
+    /**
+     * Высота item. Обязательное поле для включения виртуализации.
+     */
+    itemHeight?: number;
     /**
      * Флаг включения стиля на всю ширину для выбранного элемента.
      * @default false
