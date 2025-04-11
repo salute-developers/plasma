@@ -55,6 +55,10 @@ export type TreeItem = {
      * Дочерние items.
      */
     children?: TreeItem[];
+    /**
+     * Контент справа.
+     */
+    contentRight?: ReactNode;
 };
 
 export interface TreeProps extends HTMLAttributes<HTMLElement> {

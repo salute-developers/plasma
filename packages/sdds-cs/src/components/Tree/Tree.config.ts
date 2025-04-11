@@ -35,6 +35,7 @@ export const config = {
                 ${tokens.itemBottom}: 0rem;
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0.5rem;
                 ${tokens.switcherMargin}: 0 0 0 0;
+                ${tokens.switcherMarginInverted}: 0 0 0 0;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0 0 0.5rem;
                 ${tokens.checkboxSize}: 1.5rem;

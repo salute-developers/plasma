@@ -35,6 +35,7 @@ export const config = {
                 ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
+                ${tokens.switcherMarginInverted}: 0 0 0 0.5rem;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0.5rem 0 0;
                 ${tokens.checkboxSize}: 1.5rem;
@@ -58,6 +59,7 @@ export const config = {
                 ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
+                ${tokens.switcherMarginInverted}: 0 0 0 0.5rem;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0.5rem 0 0;
                 ${tokens.checkboxSize}: 1.5rem;
@@ -81,6 +83,7 @@ export const config = {
                 ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.375rem 0 0;
                 ${tokens.switcherMargin}: 0 0.375rem 0 0;
+                ${tokens.switcherMarginInverted}: 0 0 0 0.375rem;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0.25rem 0 0;
                 ${tokens.checkboxSize}: 1.5rem;
@@ -104,6 +107,7 @@ export const config = {
                 ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.25rem 0 0;
                 ${tokens.switcherMargin}: 0 0.25rem 0 0;
+                ${tokens.switcherMarginInverted}: 0 0 0 0.25rem;
                 ${tokens.switcherSize}: 1rem;
                 ${tokens.checkboxMargin}: 0 0.25rem 0 0;
                 ${tokens.checkboxSize}: 1rem;

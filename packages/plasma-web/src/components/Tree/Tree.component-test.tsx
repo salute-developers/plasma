@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
+import { IconBlankTxtOutline, IconLock } from '@salutejs/plasma-icons';
 
 const treeData = [
     {
@@ -16,6 +17,7 @@ const treeData = [
                         title: 'Leaf',
                         key: '0-0-0-0',
                         disabled: true,
+                        contentRight: <IconLock size="s" color="inherit" />,
                     },
                     {
                         title: 'Leaf',
@@ -24,10 +26,12 @@ const treeData = [
                             {
                                 title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
                                 key: '0-0-0-0-0',
+                                icon: <IconBlankTxtOutline size="s" color="inherit" />,
                             },
                             {
                                 title: 'Leaf',
                                 key: '0-0-0-0-1',
+                                icon: <IconBlankTxtOutline size="s" color="inherit" />,
                             },
                         ],
                     },
@@ -232,14 +236,16 @@ describe('plasma-web: Tree', () => {
         cy.matchImageSnapshot();
     });
 
-    it('flow: controlled', () => {
-        cy.viewport(1000, 1000);
+    it('flow: thin block', () => {
+        cy.viewport(200, 500);
 
-        mount(<ControlledTree />);
-
-        cy.get('.rc-tree-switcher').first().click();
-        cy.get('[title="Parent 1-0"]').click();
-        cy.get('[aria-label="Select Parent 1-1"]').click();
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '100px' }}>
+                    <Tree items={treeData} defaultExpandAll />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
 
         cy.matchImageSnapshot();
     });

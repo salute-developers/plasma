@@ -47,3 +47,4 @@ export { IconArrowUp } from './Icons/IconArrowUp';
 export { IconEditOutline } from './Icons/IconEditOutline';
 export { IconResetOutline } from './Icons/IconResetOutline';
 export { IconDoneCircleOutline } from './Icons/IconDoneCircleOutline';
+export { IconTrash } from './Icons/IconTrash';

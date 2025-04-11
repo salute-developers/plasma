@@ -25,6 +25,7 @@ export const treeTokens = {
     iconFolderMargin: '--plasma-tree-icon-folder-margin',
     iconFolderColor: '--plasma-tree-icon-folder-color',
     switcherMargin: '--plasma-tree-switcher-margin',
+    switcherMarginInverted: '--plasma-tree-switcher-margin-inverted',
     switcherSize: '--plasma-tree-switcher-size',
     checkboxSize: '--plasma-tree-checkbox-size',
     checkboxInnerSize: '--plasma-tree-checkbox-inner-size',
