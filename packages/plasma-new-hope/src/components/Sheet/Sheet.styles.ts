@@ -29,7 +29,7 @@ export const StyledContentWrapper = styled.div<CommonProps>`
 export const StyledSheetHandle = styled.div`
     width: 3rem;
     padding: 1.75rem 0;
-    margin: -1.375rem 0;
+    margin: var(${tokens.handleMarginTop}) 0;
     opacity: 0.65;
     align-self: center;
 
