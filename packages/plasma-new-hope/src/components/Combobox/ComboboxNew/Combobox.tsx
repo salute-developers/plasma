@@ -22,7 +22,7 @@ import {
 import { Inner, StyledTextField, VirtualList } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
-import { Ul, base, StyledArrow, IconArrowWrapper, StyledEmptyState } from './Combobox.styles';
+import { Ul, base, StyledArrow, IconArrowWrapper, StyledEmptyState, StyledLeftHelper } from './Combobox.styles';
 import type { ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -382,6 +382,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         };
 
+        const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+        };
+
         const { onKeyDown } = useKeyNavigation({
             focusedPath,
             dispatchFocusedPath,
@@ -510,7 +514,13 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     textBefore={textBefore}
                                     textAfter={textAfter}
                                     onKeyDown={onKeyDown}
-                                    leftHelper={helperText}
+                                    leftHelper={
+                                        helperText && (
+                                            <StyledLeftHelper onClick={helperTextStopPropagation}>
+                                                {helperText}
+                                            </StyledLeftHelper>
+                                        )
+                                    }
                                     role="combobox"
                                     aria-autocomplete="list"
                                     aria-controls={`${treeId}_tree_level_1`}

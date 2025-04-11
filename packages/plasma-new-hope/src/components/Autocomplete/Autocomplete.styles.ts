@@ -33,3 +33,8 @@ export const InfiniteLoaderWrapper = styled.li`
     box-sizing: content-box;
     min-height: var(${tokens.textFieldHeight});
 `;
+
+export const StyledLeftHelper = styled.span`
+    margin: 0;
+    padding: 0;
+`;
