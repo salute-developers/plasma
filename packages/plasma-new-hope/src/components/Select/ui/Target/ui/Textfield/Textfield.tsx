@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { sizeToIconSize, getItemId, getRemovedElement } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 
-import { IconArrowWrapper, StyledArrow, StyledTextField } from './Textfield.styles';
+import { IconArrowWrapper, StyledArrow, StyledTextField, StyledLeftHelper } from './Textfield.styles';
 import { TextfieldProps } from './Textfield.types';
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
@@ -130,6 +130,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             }
         };
 
+        const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+        };
+
         return (
             <StyledTextField
                 ref={ref}
@@ -151,7 +155,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     </IconArrowWrapper>
                 }
                 onKeyDown={onKeyDown}
-                leftHelper={helperText}
+                leftHelper={
+                    helperText && <StyledLeftHelper onClick={helperTextStopPropagation}>{helperText}</StyledLeftHelper>
+                }
                 role="combobox"
                 aria-autocomplete="list"
                 aria-controls={`${treeId}_tree_level_1`}

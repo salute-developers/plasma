@@ -238,3 +238,8 @@ export const StyledArrow = styled(IconDisclosureDownCentered)`
     width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
     height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
 `;
+
+export const StyledLeftHelper = styled.span`
+    margin: 0;
+    padding: 0;
+`;

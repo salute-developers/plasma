@@ -76,3 +76,8 @@ export const StyledEmptyState = styled(EmptyState)`
     ${emptyStateTokens.fontLetterSpacing}: var(${tokens.textFieldLetterSpacing});
     ${emptyStateTokens.fontLineHeight}: var(${tokens.textFieldLineHeight});
 `;
+
+export const StyledLeftHelper = styled.span`
+    margin: 0;
+    padding: 0;
+`;
