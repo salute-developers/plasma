@@ -18,8 +18,9 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
             {
                 items,
                 arrowPlacement = 'left',
-                virtual = false,
+                virtual = true,
                 height,
+                itemHeight,
                 size,
                 view,
                 fullWidthItemSelection = false,
@@ -49,6 +50,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                 <Root view={view} size={size} ref={ref} items={items}>
                     <Tree
                         height={height}
+                        itemHeight={itemHeight}
                         virtual={virtual}
                         multiple={multiple}
                         checkable={checkable}
