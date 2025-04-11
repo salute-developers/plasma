@@ -23,7 +23,7 @@ const meta: Meta<RadioboxProps> = {
 
 export default meta;
 
-const sizes = ['m', 's'];
+const sizes = ['l', 'm', 's'];
 
 const items = [
     {
