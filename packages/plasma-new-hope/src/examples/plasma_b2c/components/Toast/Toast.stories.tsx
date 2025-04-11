@@ -17,7 +17,7 @@ const views = ['default', 'positive', 'negative'];
 const closeIconTypes = ['default', 'thin'];
 
 const meta: Meta<typeof ToastController> = {
-    title: 'b2c/Overlay/Toast',
+    title: 'b2c/Overlay/Toast (Legacy)',
     decorators: [WithTheme],
     argTypes: {
         view: {
