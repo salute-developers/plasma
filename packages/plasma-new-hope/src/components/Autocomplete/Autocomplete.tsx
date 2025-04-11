@@ -108,6 +108,10 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 return label.toLowerCase().includes(value.toString().toLowerCase());
             };
 
+            const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+                event.stopPropagation();
+            };
+
             const finalResults = suggestions?.filter(filter || defaultFilterCallback) || [];
 
             virtual = virtual && finalResults.length > VIRTUAL_ITEM_AMOUNT_THRESHOLD;
@@ -173,7 +177,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                 hintText={String(hintText || '')}
                                 labelPlacement={labelPlacement}
                                 keepPlaceholder={keepPlaceholder}
-                                leftHelper={leftHelper}
+                                leftHelper={<span onClick={helperTextStopPropagation}>{leftHelper}</span>}
                                 {...rest}
                             />
                         )}
