@@ -182,4 +182,27 @@ type TreeItem = {
         }
         ```
     </TabItem>
+    <TabItem value="virtual" label="Virtual">
+        Для включения виртуализации обязательными являются 2 свойства: `height` и `itemHeight`. \
+        Также есть опциональный флаг для явного отключения/включения виртуализации: `virtual`.
+
+        ```tsx live
+        import React from 'react';
+        import { Tree } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            return (
+                <div style={{ display: 'block' }}>
+                    <Tree
+                        items={Array(1000)
+                            .fill(1)
+                            .map((_, i) => ({ key: i.toString(), title: i.toString() }))}
+                        height={400}
+                        itemHeight={48}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>

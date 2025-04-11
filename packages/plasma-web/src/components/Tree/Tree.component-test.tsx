@@ -243,4 +243,23 @@ describe('plasma-web: Tree', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('flow: virtual', () => {
+        cy.viewport(500, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tree
+                    items={Array(1000)
+                        .fill(1)
+                        .map((_, i) => ({ key: i.toString(), title: i.toString() }))}
+                    height={400}
+                    itemHeight={48}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('span[title=1]').should('exist');
+        cy.get('span[title=999]').should('not.exist');
+    });
 });
