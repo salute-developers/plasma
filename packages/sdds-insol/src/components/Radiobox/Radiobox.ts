@@ -10,20 +10,20 @@ import { config } from './Radiobox.config';
 import { config as outlineConfig } from './Radiobox.outline.config';
 
 const mergedConfigDefault = mergeConfig(radioboxConfig, config);
-export const RadioboxDefalut = component(mergedConfigDefault);
+export const RadioboxDefault = component(mergedConfigDefault);
 
 const mergedConfigOutline = mergeConfig(radioboxConfig, outlineConfig);
 export const RadioboxOutline = component(mergedConfigOutline);
 
 export type RadioboxProps =
-    | (ComponentProps<typeof RadioboxDefalut> & {
+    | (ComponentProps<typeof RadioboxDefault> & {
           appearance: 'outline';
       })
     | (ComponentProps<typeof RadioboxOutline> & {
           appearance?: 'default';
       });
 
-export const Radiobox = createConditionalComponent<RadioboxProps>(RadioboxDefalut, [
+export const Radiobox = createConditionalComponent<RadioboxProps>(RadioboxDefault, [
     {
         conditions: { prop: 'appearance', value: 'outline' },
         component: RadioboxOutline,

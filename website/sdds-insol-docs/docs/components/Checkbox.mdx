@@ -49,6 +49,22 @@ export function App() {
 }
 ```
 
+Параметр `appearance` имеет значения `default` и `outline`
+
+```tsx live
+import React from 'react';
+import { Checkbox } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <>
+            <Checkbox label="Чекбокс" description="Описание" defaultChecked  />
+            <Checkbox label="Чекбокс" description="Описание" defaultChecked appearance='outline'  />
+        </>
+    );
+}
+```
+
 Состояние `indeterminate` имеет приоритет и не зависит от свойства `checked`
 
 ```tsx live

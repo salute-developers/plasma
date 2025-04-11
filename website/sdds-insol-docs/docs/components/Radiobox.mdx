@@ -44,3 +44,21 @@ export function App() {
     <Radiobox name="radio-1" label="Радиокнопка 2" description="Описание 2" />
 </RadioGroup>
 ```
+
+Параметр `appearance` имеет значения `default` и `outline`
+
+```tsx live
+import React from 'react';
+import { Radiobox } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <>
+            <RadioGroup aria-labelledby="radiogroup-title-id">
+                <Radiobox appearance='outline' name="radio-1" label="Радиокнопка 1" description="Описание 1" defaultChecked />
+                <Radiobox appearance='outline' name="radio-1" label="Радиокнопка 2" description="Описание 2" />
+            </RadioGroup>
+        </>
+    );
+}
+```
