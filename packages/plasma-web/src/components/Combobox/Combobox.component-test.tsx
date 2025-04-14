@@ -1385,23 +1385,6 @@ describe('plasma-web: Combobox', () => {
         cy.get('#single').realClick();
         cy.get('#single').should('be.focused');
         cy.get('[id$="tree_level_1"]').should('be.visible');
-
-        cy.get('[id$="north_america"]').realClick();
-        cy.get('#single').should('not.be.focused');
-        cy.get('[id$="tree_level_1"]').should('not.exist');
-
-        cy.get('.label-placement-outer').realClick();
-        cy.get('#single').should('be.focused');
-        cy.get('[id$="tree_level_1"]').should('be.visible');
-        cy.get('[id$="north_america"] > div:first-child svg').should('exist');
-        cy.get('[id$="north_america"]').realClick();
-        cy.get('#single').should('not.be.focused');
-        cy.get('[id$="tree_level_1"]').should('not.exist');
-        cy.get('[id$="north_america"] > div:first-child svg').should('not.exist');
-
-        cy.get('#single').realClick();
-        cy.get('#single').should('be.focused');
-        cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('#single').type('Париж');
         cy.get('#single').should('have.value', 'Париж');
         cy.get('[id$="tree_level_1"]').find('li').should('have.length', 1);
@@ -1425,6 +1408,23 @@ describe('plasma-web: Combobox', () => {
         cy.get('#single').should('not.be.focused');
         cy.get('#single').should('have.value', 'Париж');
         cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('#single').realClick();
+        cy.get('#single').should('be.focused');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').realClick();
+        cy.get('#single').should('not.be.focused');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('.label-placement-outer').realClick();
+        cy.get('#single').should('be.focused');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('[id$="north_america"] > div:first-child svg').should('exist');
+        cy.get('[id$="north_america"]').realClick();
+        cy.get('#single').should('not.be.focused');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="north_america"] > div:first-child svg').should('not.exist');
     });
 
     it('flow: single controlled', () => {
@@ -1452,23 +1452,6 @@ describe('plasma-web: Combobox', () => {
         cy.get('#single').realClick();
         cy.get('#single').should('be.focused');
         cy.get('[id$="tree_level_1"]').should('be.visible');
-
-        cy.get('[id$="north_america"]').realClick();
-        cy.get('#single').should('not.be.focused');
-        cy.get('[id$="tree_level_1"]').should('not.exist');
-
-        cy.get('.label-placement-outer').realClick();
-        cy.get('#single').should('be.focused');
-        cy.get('[id$="tree_level_1"]').should('be.visible');
-        cy.get('[id$="north_america"] > div:first-child svg').should('exist');
-        cy.get('[id$="north_america"]').realClick();
-        cy.get('#single').should('not.be.focused');
-        cy.get('[id$="tree_level_1"]').should('not.exist');
-        cy.get('[id$="north_america"] > div:first-child svg').should('not.exist');
-
-        cy.get('#single').realClick();
-        cy.get('#single').should('be.focused');
-        cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('#single').type('Париж');
         cy.get('#single').should('have.value', 'Париж');
         cy.get('[id$="tree_level_1"]').find('li').should('have.length', 1);
@@ -1492,6 +1475,23 @@ describe('plasma-web: Combobox', () => {
         cy.get('#single').should('not.be.focused');
         cy.get('#single').should('have.value', 'Париж');
         cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('#single').realClick();
+        cy.get('#single').should('be.focused');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').realClick();
+        cy.get('#single').should('not.be.focused');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('.label-placement-outer').realClick();
+        cy.get('#single').should('be.focused');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('[id$="north_america"] > div:first-child svg').should('exist');
+        cy.get('[id$="north_america"]').realClick();
+        cy.get('#single').should('not.be.focused');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="north_america"] > div:first-child svg').should('not.exist');
     });
 
     it('flow: multiple uncontrolled', () => {
@@ -1825,5 +1825,43 @@ describe('plasma-web: Combobox', () => {
         cy.realPress('ArrowDown').realPress('Tab');
         cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('#multiple').should('not.be.focused');
+    });
+
+    it('behaviour: should do nothing after clicking on the selected element in single mode', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div id="single" style={{ width: '300px' }}>
+                        <Combobox items={items} />
+                    </div>
+
+                    <div id="multiple" style={{ width: '300px' }}>
+                        <Combobox multiple items={items} />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.get('#single ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#single ul[role="tree"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+        cy.get('#single').click();
+        cy.get('#single ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#single ul[role="tree"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+        cy.get('#multiple').click();
+        cy.get('#multiple ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').click();
+        cy.get('[id$="north_america"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#multiple ul[role="tree"]').should('be.visible');
+        cy.get('[id$="north_america"]').should('have.attr', 'aria-selected', 'false');
     });
 });

@@ -313,6 +313,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 dispatchFocusedPath({ type: 'reset' });
             }
 
+            // Закрываем список если элемент уже выбран.
+            if (isCurrentChecked) {
+                return;
+            }
+
             if (onChange) {
                 onChange(isCurrentChecked ? '' : item.value, item);
             }
