@@ -3,6 +3,7 @@ import { css, radioboxTokens } from '@salutejs/plasma-new-hope/styled-components
 export const config = {
     defaults: {
         view: 'accent',
+        size: 'm',
         focused: 'true',
     },
     variations: {
@@ -39,7 +40,7 @@ export const config = {
                 ${radioboxTokens.triggerSize}: 1.125rem;
                 ${radioboxTokens.triggerBorderRadius}: 1.125rem;
                 ${radioboxTokens.triggerBorderWidth}: 0.0625rem;
-                ${radioboxTokens.ellipseSize}: 0.625rem;
+                ${radioboxTokens.ellipseSize}: 0.5rem;
                 ${radioboxTokens.contentTopOffset}: 0.125rem;
                 ${radioboxTokens.contentLeftOffset}: 0.625rem;
                 ${radioboxTokens.descriptionMarginTop}: 0.125rem;
