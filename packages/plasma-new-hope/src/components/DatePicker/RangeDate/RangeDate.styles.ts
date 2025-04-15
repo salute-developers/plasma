@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
+import { component, mergeConfig } from 'src/engines';
 
-import { component, mergeConfig } from '../../../engines';
 import { rangeConfig, rangeTokens } from '../../Range';
 import { classes, tokens } from '../DatePicker.tokens';
 import { popoverConfig } from '../../Popover';

@@ -1,10 +1,10 @@
 import type { ChangeEvent } from 'react';
+import { customDayjs } from 'src/utils/datejs';
 
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
 import type { CalendarValueType, DateInfo } from '../../Calendar/Calendar.types';
 import { formatStaticValue, formatValueOnInput, normalizeDates } from '../utils/valueFormatter';
-import { customDayjs } from '../../../utils/datejs';
 import { QUARTER_NAMES } from '../../Calendar/utils';
 
 export const useDatePicker = ({
@@ -125,7 +125,7 @@ export const useDatePicker = ({
         onChange?.({ target: { value: formattedDate, originalDate, isoDate, name } });
     };
 
-    const handleCalendarPick = (date?: Date, dateInfo?: DateInfo) => {
+    const handleCalendarPick = (date?: Date | null, dateInfo?: DateInfo) => {
         if (disabled || readOnly) {
             return;
         }
@@ -133,11 +133,11 @@ export const useDatePicker = ({
         if (!date) {
             setInputValue('');
             setCalendarValue(date);
-            setCorrectDates({ calendar: date, input: '' });
+            setCorrectDates({ calendar: date || undefined, input: '' });
 
             onChangeValue?.(null, '', date, '');
             onChange?.({ target: { value: '', originalDate: date, isoDate: '', name } });
-            onCommitDate?.('', false, true, dateInfo, date, '');
+            onCommitDate?.('', false, true, dateInfo, date || undefined, '');
 
             return;
         }

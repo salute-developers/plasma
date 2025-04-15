@@ -1,4 +1,12 @@
-import type { CalendarValueType, DateObject, DisabledDay, EventDay, ItemProps, Locales } from '../Calendar.types';
+import type {
+    CalendarValueType,
+    DateObject,
+    DateType,
+    DisabledDay,
+    EventDay,
+    ItemProps,
+    Locales,
+} from '../Calendar.types';
 import type { CalendarStateType } from '../store/types';
 
 import { isSelectProcess } from './calendarRangeHelper';
@@ -41,7 +49,7 @@ export const IsCurrentDay = (date: DateObject, currentDay: number) => {
     return day === currentDay && date.monthIndex === currentMonthIndex && date.year === currentYear;
 };
 
-export const isSelectedDay = (date: DateObject, currentDay: number, value?: Date) => {
+export const isSelectedDay = (date: DateObject, currentDay: number, value: DateType) => {
     if (!value) {
         return false;
     }
@@ -55,7 +63,7 @@ export const isCurrentMonth = (date: DateObject, monthIndex: number) => {
     return monthIndex === currentMonthIndex && date.year === currentYear;
 };
 
-export const isSelectedMonth = (date: DateObject, currentMonth: number, value?: Date) => {
+export const isSelectedMonth = (date: DateObject, currentMonth: number, value?: DateType) => {
     if (!value) {
         return false;
     }
@@ -69,7 +77,7 @@ export const isCurrentYear = (year: number) => {
     return year === currentYear;
 };
 
-export const isSelectedYear = (yearValue: number, value?: Date) => {
+export const isSelectedYear = (yearValue: number, value: DateType) => {
     if (!value) {
         return false;
     }

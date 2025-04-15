@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
+import { component, mergeConfig } from 'src/engines';
+import { applyHidden } from 'src/mixins';
 
 import { calendarBaseConfig, calendarBaseTokens } from '../Calendar';
-import { component, mergeConfig } from '../../engines';
-import { applyHidden } from '../../mixins';
 
 import { tokens } from './DatePicker.tokens';
 

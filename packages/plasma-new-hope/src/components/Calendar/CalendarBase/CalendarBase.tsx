@@ -114,7 +114,6 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             }, [calendarState]);
 
             useEffect(() => {
-                console.log(value, prevValue);
                 if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     dispatch({
                         type: ActionType.UPDATE_DATE,

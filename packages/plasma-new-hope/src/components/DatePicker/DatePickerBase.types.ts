@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction, ChangeEvent, MutableRefObject } from 'react';
 
 import type { CalendarStateType } from '../Calendar';
-import type { DateInfo, DisabledDay, EventDay } from '../Calendar/Calendar.types';
+import type { DateInfo, DateType, DisabledDay, EventDay } from '../Calendar/Calendar.types';
 
 import type { Langs } from './utils/monthFullNameFormatter';
 import type { FormatStructure } from './utils/formatHelper';
@@ -14,7 +14,8 @@ export type DatePickerCalendarProps = {
      */
     format?: string;
     /**
-     * Формат применяется в качестве маски ввода.
+     * @deprecated
+     * Ввод форматируется по умолчанию.
      */
     maskWithFormat?: boolean;
     /**
@@ -113,7 +114,7 @@ export type UseDatePickerProps = {
     max?: Date;
     includeEdgeDates?: boolean;
     setInputValue: Dispatch<SetStateAction<string>>;
-    setCalendarValue: Dispatch<SetStateAction<Date | null | undefined>>;
+    setCalendarValue: Dispatch<SetStateAction<DateType>>;
     setCorrectDates: Dispatch<
         SetStateAction<{
             calendar: Date | undefined;

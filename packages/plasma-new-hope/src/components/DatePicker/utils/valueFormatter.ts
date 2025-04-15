@@ -1,6 +1,6 @@
 import type { MutableRefObject } from 'react';
+import { customDayjs } from 'src/utils/datejs';
 
-import { customDayjs } from '../../../utils/datejs';
 import type { SelectionBeforeChange } from '../hooks/useKeyboardNavigation';
 
 import { dateSymbolsMap } from './formatHelper';
