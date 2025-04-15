@@ -8,9 +8,9 @@ import type {
     PropsWithChildren,
     FC,
 } from 'react';
+import type { RootProps } from 'src/engines';
+import { cx, noop } from 'src/utils';
 
-import type { RootProps } from '../../../engines';
-import { cx, noop } from '../../../utils';
 import { getDateFormatDelimiter } from '../utils/delimiterHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
@@ -18,7 +18,7 @@ import { classes } from '../DatePicker.tokens';
 import { keys, SelectionBeforeChange, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
 import { getSortedValues } from '../../Calendar/utils';
-import type { DateInfo } from '../../Calendar/Calendar.types';
+import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
 import { parseFormatToStructure } from '../utils/formatHelper';
 import { formatStaticValue } from '../utils/valueFormatter';
 
@@ -172,10 +172,10 @@ export const datePickerRangeRoot = (
                 input: endInitialValues.formattedDate,
             });
 
-            const [calendarFirstValue, setCalendarFirstValue] = useState(startInitialValues.originalDate);
+            const [calendarFirstValue, setCalendarFirstValue] = useState<DateType>(startInitialValues.originalDate);
             const [inputFirstValue, setInputFirstValue] = useState(startInitialValues.formattedDate);
 
-            const [calendarSecondValue, setCalendarSecondValue] = useState(endInitialValues.originalDate);
+            const [calendarSecondValue, setCalendarSecondValue] = useState<DateType>(endInitialValues.originalDate);
             const [inputSecondValue, setInputSecondValue] = useState(endInitialValues.formattedDate);
 
             const [fullDateEntered, setFullDateEntered] = useState(Boolean(calendarFirstValue && calendarSecondValue));
@@ -306,6 +306,7 @@ export const datePickerRangeRoot = (
             const { onKeyDown } = useKeyNavigation({
                 isCalendarOpen: isInnerOpen,
                 closeOnEsc,
+                delimiter: dateFormatDelimiter(),
                 onToggle: handleToggle,
                 setCurrentKey,
                 setSelectionBeforeChange,
@@ -401,7 +402,7 @@ export const datePickerRangeRoot = (
                 }
             };
 
-            const handleChangeCalendarValue = ([firstDate, secondDate]: [Date, Date?], dateInfo?: DateInfo) => {
+            const handleChangeCalendarValue = ([firstDate, secondDate]: [DateType, DateType], dateInfo?: DateInfo) => {
                 if (firstDate) {
                     handleFirstCalendarPick(firstDate, dateInfo);
                 }

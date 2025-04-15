@@ -9,9 +9,10 @@ import React, {
     useLayoutEffect,
 } from 'react';
 import type { KeyboardEvent } from 'react';
+import { DateType } from 'src/components/Calendar/Calendar.types';
+import type { RootProps } from 'src/engines';
+import { cx, getPlacements, noop } from 'src/utils';
 
-import type { RootProps } from '../../../engines';
-import { cx, getPlacements, noop } from '../../../utils';
 import { getDateFormatDelimiter } from '../utils/delimiterHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
@@ -125,7 +126,7 @@ export const datePickerRoot = (
                 calendar: initialValues.originalDate,
                 input: initialValues.formattedDate,
             });
-            const [calendarValue, setCalendarValue] = useState<Date | null | undefined>(initialValues.originalDate);
+            const [calendarValue, setCalendarValue] = useState<DateType>(initialValues.originalDate);
             const [inputValue, setInputValue] = useState(initialValues.formattedDate);
 
             const {
