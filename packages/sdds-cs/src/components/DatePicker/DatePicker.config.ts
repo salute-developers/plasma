@@ -73,6 +73,7 @@ export const config = {
                 ${tokens.calendarHeaderArrowColor}: var(--text-accent);
                 ${tokens.calendarBorderColor}: var(--outline-solid-primary);
                 ${tokens.calendarDayOfWeekColor}: var(--text-secondary);
+                ${tokens.calendarDisabledOpacity}: 0.4;
 
                 ${tokens.iconButtonColor}: var(--text-accent);
                 ${tokens.iconButtonBackgroundColor}: var(--surface-clear);
