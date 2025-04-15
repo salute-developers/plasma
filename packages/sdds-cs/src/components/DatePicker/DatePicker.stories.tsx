@@ -9,6 +9,7 @@ import { IconButton } from '../IconButton/IconButton';
 import { DatePicker, DatePickerRange } from './DatePicker';
 
 const onChangeValue = action('onChangeValue');
+const onCommitDate = action('onCommitDate');
 const onBlur = action('onBlur');
 const onFocus = action('onFocus');
 
@@ -107,10 +108,8 @@ const StoryDefault = ({
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => setIsOpen(is)}
-            onChangeValue={(e, currentValue) => {
-                onChangeValue(e, currentValue);
-            }}
-            onCommitDate={() => setIsOpen(false)}
+            onChangeValue={onChangeValue}
+            onCommitDate={onCommitDate}
             {...rest}
         />
     );
@@ -141,6 +140,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         labelPlacement: 'outer',
         defaultDate: new Date(2024, 5, 14),
         renderFromDate: new Date(2024, 4, 14),
+        includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         maskWithFormat: false,
@@ -236,12 +236,8 @@ const StoryRange = ({
                 showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
             }
             onToggle={(is) => setIsOpen(is)}
-            onChangeFirstValue={(e, currentValue) => {
-                onChangeFirstValue(e, currentValue);
-            }}
-            onChangeSecondValue={(e, currentValue) => {
-                onChangeSecondValue(e, currentValue);
-            }}
+            onChangeFirstValue={onChangeFirstValue}
+            onChangeSecondValue={onChangeSecondValue}
             {...dividerIconProps}
             {...rest}
         />
@@ -273,6 +269,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         closeAfterDateSelect: true,
         isDoubleCalendar: false,
         dividerVariant: 'dash',
+        includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
         renderFromDate: new Date(2024, 4, 14),
