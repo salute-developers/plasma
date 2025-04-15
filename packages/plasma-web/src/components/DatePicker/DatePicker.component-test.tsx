@@ -61,7 +61,6 @@ describe('plasma-web: DatePicker', () => {
                     setIsOpen(is);
                     onToggle?.(is, e);
                 }}
-                onCommitDate={() => setIsOpen(false)}
                 {...rest}
             />
         );
@@ -76,7 +75,7 @@ describe('plasma-web: DatePicker', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('#demo input').realClick();
+        cy.get('#demo input').first().realClick();
         cy.matchImageSnapshot({
             failureThreshold: 0.02,
             failureThresholdType: 'percent',
@@ -311,6 +310,7 @@ describe('plasma-web: DatePicker', () => {
                     leftHelper="Подсказка к полю"
                     placeholder="Выберите дату"
                     defaultDate={new Date(2023, 5, 14)}
+                    renderFromDate={new Date(2023, 5, 1)}
                 />
             </CypressTestDecoratorWithTypo>,
         );

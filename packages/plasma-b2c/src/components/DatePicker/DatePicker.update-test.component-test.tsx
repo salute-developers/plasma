@@ -84,7 +84,6 @@ describe('plasma-b2c: DatePicker', () => {
                     setIsOpen(is);
                     onToggle?.(is, e);
                 }}
-                onCommitDate={() => setIsOpen(false)}
                 {...rest}
             />
         );
@@ -436,7 +435,6 @@ describe('plasma-b2c: DatePickerRange', () => {
                     setIsOpen(is);
                     onToggle?.(is, e);
                 }}
-                onCommitSecondDate={() => setIsOpen(false)}
                 {...rest}
             />
         );
