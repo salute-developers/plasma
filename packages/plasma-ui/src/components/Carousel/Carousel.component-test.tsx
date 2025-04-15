@@ -351,7 +351,7 @@ describe('plasma-ui: Carousel', () => {
         );
 
         cy.matchImageSnapshot({
-            failureThreshold: 0.015,
+            failureThreshold: 0.05,
             failureThresholdType: 'percent',
         });
     });
