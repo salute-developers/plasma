@@ -3,9 +3,11 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { SSRProvider } from '../SSRProvider';
-import { disableProps, InSpacingDecorator } from '../../helpers';
+import { disableProps, InSpacingDecorator, getConfigVariations } from '../../helpers';
 import { Headline4 } from '../Typography';
 import { List, ListItem } from '../List';
+
+import { config } from './Radiobox.config';
 
 import { Radiobox, RadioGroup } from '.';
 import type { RadioboxProps } from '.';
@@ -14,7 +16,7 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const sizes = ['m', 's'];
+const { sizes } = getConfigVariations(config);
 const views = ['accent'];
 
 const meta: Meta<RadioboxProps> = {

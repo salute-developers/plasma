@@ -125,6 +125,23 @@ describe('plasma-web: Checkbox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('default size l', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <List>
+                    {items.map((item) => (
+                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                            <Checkbox size="l" {...item} />
+                        </ListItem>
+                    ))}
+                </List>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input[type="checkbox"]').first().focus();
+        cy.matchImageSnapshot();
+    });
+
     it('should check the checkbox on label click', () => {
         mount(
             <CypressTestDecoratorWithTypo>

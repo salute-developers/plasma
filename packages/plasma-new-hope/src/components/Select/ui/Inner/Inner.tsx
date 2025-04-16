@@ -1,8 +1,8 @@
 import React from 'react';
 import type { FC } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
+import { isEmpty } from 'src/utils';
 
-import { isEmpty } from '../../../../utils';
 import { Ul } from '../../Select.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 

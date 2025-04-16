@@ -22,15 +22,13 @@ export function argTypesFromConfig<
     const argTypes: ArgTypes = {};
 
     for (const [key, val] of filteredVariations) {
-        const control: ArgTypes[''] = {
-            control: {},
-        };
+        const control: ArgTypes[''] = {};
 
         if (val.true) {
-            control.control.type = 'boolean';
-            control.table = { defaultValue: { summary: false } };
+            control.control = 'boolean';
+            control.table = { defaultValue: { summary: '' } };
         } else {
-            control.control.type = 'select';
+            control.control = 'select';
             control.options = Object.keys(val).filter((name) => name !== 'css');
         }
 
@@ -39,7 +37,7 @@ export function argTypesFromConfig<
         if (defaultValue) {
             control.table = {
                 defaultValue: {
-                    summary: val.true ? Boolean(defaultValue) : defaultValue,
+                    summary: val.true ? '' : defaultValue,
                 },
             };
         }

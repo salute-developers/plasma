@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { PathState } from '../../reducers/pathReducer';
-import type { DropdownPlacement } from '../../Dropdown.types';
+import type { DropdownPlacement, DropdownTrigger } from '../../Dropdown.types';
 
 export type DropdownItemOption = {
     /**
@@ -44,6 +44,11 @@ export type DropdownItemOption = {
      * Classname для item
      */
     className?: string;
+    /**
+     * Способ открытия дочернего списка.
+     * Имеет больший приоритет над одноименным свойством из DropdownProps.
+     */
+    trigger?: DropdownTrigger;
 
     /**
      * Выбранный item.

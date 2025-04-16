@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
+import { cx } from 'src/utils';
 
-import { cx } from '../../../../../../utils';
 import { classes } from '../../../../Select.tokens';
 import { getButtonLabel, getItemId, sizeToIconSize } from '../../../../utils';
 
@@ -51,7 +51,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                         activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''
                     }
                     aria-label={label}
-                    renderTarget={Boolean(selectProps.renderTarget)}
                 >
                     <Label>
                         {getButtonLabel({

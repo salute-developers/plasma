@@ -125,4 +125,21 @@ describe('plasma-web: Radiobox', () => {
         cy.get('input[type="radio"]').first().focus();
         cy.matchImageSnapshot();
     });
+
+    it('default size l', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <List>
+                    {items.map((item) => (
+                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                            <Radiobox size="l" {...item} />
+                        </ListItem>
+                    ))}
+                </List>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input[type="radio"]').first().focus();
+        cy.matchImageSnapshot();
+    });
 });

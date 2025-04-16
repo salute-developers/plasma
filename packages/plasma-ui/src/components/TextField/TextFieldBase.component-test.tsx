@@ -22,7 +22,9 @@ describe('plasma-ui: TextField', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        // TODO: Найти способ обойти использование wait
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(250).matchImageSnapshot();
     });
 
     it('trailing symbols: long input text', () => {
@@ -42,7 +44,8 @@ describe('plasma-ui: TextField', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(250).matchImageSnapshot();
     });
 
     it('trailing symbols: long text', () => {
@@ -62,7 +65,8 @@ describe('plasma-ui: TextField', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(250).matchImageSnapshot();
     });
 
     it('trailing symbols: placeholder', () => {
@@ -80,6 +84,7 @@ describe('plasma-ui: TextField', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(250).matchImageSnapshot();
     });
 });

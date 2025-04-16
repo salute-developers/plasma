@@ -81,44 +81,20 @@ const DefaultStory = (args) => {
             curItems.map((item, index) => {
                 if (indicatorType === 'numbered') {
                     return simple
-                        ? {
-                              ...item,
-                              indicator: index + 1,
-                          }
-                        : {
-                              ...item,
-                              title: innerTitle,
-                              content,
-                              indicator: index + 1,
-                          };
+                        ? { ...item, indicator: index + 1 }
+                        : { ...item, title: innerTitle, content, indicator: index + 1 };
                 }
 
                 if (indicatorType === 'bullet') {
                     return simple
-                        ? {
-                              ...item,
-                              indicator: undefined,
-                          }
-                        : {
-                              ...item,
-                              title: innerTitle,
-                              content,
-                              indicator: undefined,
-                          };
+                        ? { ...item, indicator: undefined }
+                        : { ...item, title: innerTitle, content, indicator: undefined };
                 }
 
                 if (indicatorType === 'icon') {
                     return simple
-                        ? {
-                              ...item,
-                              indicator: renderIndicator,
-                          }
-                        : {
-                              ...item,
-                              title: innerTitle,
-                              content,
-                              indicator: renderIndicator,
-                          };
+                        ? { ...item, indicator: renderIndicator }
+                        : { ...item, title: innerTitle, content, indicator: renderIndicator };
                 }
 
                 return item;
@@ -127,12 +103,7 @@ const DefaultStory = (args) => {
     }, [indicatorType, innerTitle, content, simple]);
 
     useEffect(() => {
-        setItems((curItems) =>
-            curItems.map((item) => ({
-                ...item,
-                disabled,
-            })),
-        );
+        setItems((curItems) => curItems.map((item) => ({ ...item, disabled })));
     }, [disabled]);
 
     const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
@@ -146,12 +117,7 @@ const DefaultStory = (args) => {
     };
 
     return (
-        <div
-            style={{
-                maxWidth,
-                height: '400px',
-            }}
-        >
+        <div style={{ maxWidth, height: '600px' }}>
             <Steps
                 size={size}
                 items={items}
@@ -166,10 +132,11 @@ const DefaultStory = (args) => {
 
 export const Default: Story = {
     args: {
+        view: 'default',
+        itemView: 'default',
+        size: 'm',
         maxWidth: '100%',
         quantity: 6,
-        size: 'm',
-        view: 'default',
         title: 'Title',
         content: 'Content',
         contentAlign: 'left',
@@ -190,13 +157,19 @@ export const Default: Story = {
         view: {
             options: views,
             control: {
-                type: 'inline-radio',
+                type: 'select',
+            },
+        },
+        itemView: {
+            options: ['default', 'negative', 'warning', 'positive'],
+            control: {
+                type: 'select',
             },
         },
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         orientation: {
@@ -210,10 +183,7 @@ export const Default: Story = {
             control: {
                 type: 'inline-radio',
             },
-            if: {
-                arg: 'orientation',
-                eq: 'horizontal',
-            },
+            if: { arg: 'orientation', eq: 'horizontal' },
         },
         indicatorType: {
             options: ['numbered', 'bullet', 'icon'],

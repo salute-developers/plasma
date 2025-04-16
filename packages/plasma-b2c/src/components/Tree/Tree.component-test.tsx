@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
+import { IconBlankTxtOutline, IconLock } from '@salutejs/plasma-icons';
 
 const treeData = [
     {
@@ -16,6 +17,7 @@ const treeData = [
                         title: 'Leaf',
                         key: '0-0-0-0',
                         disabled: true,
+                        contentRight: <IconLock size="s" color="inherit" />,
                     },
                     {
                         title: 'Leaf',
@@ -24,10 +26,12 @@ const treeData = [
                             {
                                 title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
                                 key: '0-0-0-0-0',
+                                icon: <IconBlankTxtOutline size="s" color="inherit" />,
                             },
                             {
                                 title: 'Leaf',
                                 key: '0-0-0-0-1',
+                                icon: <IconBlankTxtOutline size="s" color="inherit" />,
                             },
                         ],
                     },
@@ -242,5 +246,38 @@ describe('plasma-b2c: Tree', () => {
         cy.get('[aria-label="Select Parent 1-1"]').click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('flow: thin block', () => {
+        cy.viewport(200, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '100px' }}>
+                    <Tree items={treeData} defaultExpandAll />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow: virtual', () => {
+        cy.viewport(500, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tree
+                    items={Array(1000)
+                        .fill(1)
+                        .map((_, i) => ({ key: i.toString(), title: i.toString() }))}
+                    height={400}
+                    itemHeight={48}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('span[title=1]').should('exist');
+        cy.get('span[title=999]').should('not.exist');
     });
 });

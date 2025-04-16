@@ -79,3 +79,23 @@ export const configXS = {
         },
     },
 };
+
+export const configSlim = {
+    defaults: {
+        size: 'slim',
+    },
+    variations: {
+        size: {
+            xs: css`
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-slim-font-family);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-text-slim-font-size);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-text-slim-font-style);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-text-slim-font-weight);
+                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-text-slim-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-text-slim-medium-font-weight);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-slim-letter-spacing);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-slim-line-height);
+            `,
+        },
+    },
+};

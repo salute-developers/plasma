@@ -18,15 +18,26 @@ const meta: Meta<typeof Checkbox> = {
     component: Checkbox,
     argTypes: {
         view: {
-            options: ['accent'],
+            options: ['accent', 'negative'],
             control: {
                 type: 'radio',
             },
         },
         size: {
-            options: ['m', 's'],
+            options: ['l', 'm', 's'],
             control: {
                 type: 'radio',
+            },
+        },
+        appearance: {
+            options: ['default', 'outline'],
+            control: {
+                type: 'radio',
+            },
+        },
+        indeterminate: {
+            control: {
+                type: 'boolean',
             },
         },
     },
@@ -35,6 +46,8 @@ const meta: Meta<typeof Checkbox> = {
         size: 'm',
         disabled: false,
         focused: true,
+        appearance: 'default',
+        indeterminate: false,
     },
 };
 

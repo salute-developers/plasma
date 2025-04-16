@@ -22,7 +22,12 @@ export const tableTokens = {
     checkboxCellPadding: '--plasma-checkbox-cell-padding',
 
     checkboxTriggerSize: '--plasma-table-checkbox-trigger-size',
+    checkboxTriggerBorderCheckedColor: '--plasma-table-checkbox-trigger-border-checked-color',
     checkboxTriggerBorderRadius: '--plasma-table-checkbox-trigger-border-radius',
+    checkboxTriggerBorderWidth: '--plasma-table-checkbox-trigger-border-width',
+    checkboxTriggerBorderColor: '--plasma-table-checkbox-trigger-border-color',
+    checkboxFillColor: '--plasma-table-checkbox-fill-color',
+    checkboxTriggerIconColor: '--plasma-table-checkbox-trigger-icon-color',
 
     editableCellIconGap: '--plasma-table-editable-cell-icon-gap',
     editableCellIconButtonWidth: '--plasma-table-editable-cell-icon-button-width',
@@ -60,6 +65,8 @@ export const tableTokens = {
     selectCellTitleLineHeight: '--plasma-table-select-cell-title-line-height',
     selectCheckboxTriggerSize: '--plasma-table-select-checkbox-trigger-size',
     selectCheckboxTriggerBorderRadius: '--plasma-table-select-checkbox-trigger-border-radius',
+    selectCheckboxTriggerBorderWidth: '--plasma-table-select-checkbox-trigger-border-width',
+    selectCheckboxTriggerBorderCheckedColor: '--plasma-table-select-checkbox-trigger-border-color-checked',
     selectControlPanelPadding: '--plasma-table-select-control-panel-padding',
     selectControlPanelGap: '--plasma-table-select-control-panel-gap',
 

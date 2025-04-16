@@ -18,6 +18,13 @@ import styles from './styles.module.css';
 const LightTheme = createGlobalStyle(plasma_giga__light);
 const DarkTheme = createGlobalStyle(plasma_giga__dark);
 
+// INFO: По договоренности с командой дизайна
+const BackgroundPrimaryTokenOverwrite = createGlobalStyle`
+    :root {
+        --background-primary: rgb(255, 255, 255);
+    }
+`;
+
 const StyledWrap = styled.div`
     width: fit-content;
     position: absolute;
@@ -68,6 +75,7 @@ const ResultWithHeader: FC = () => {
     return (
         <>
             {colorMode === 'dark' ? <DarkTheme /> : <LightTheme />}
+            <BackgroundPrimaryTokenOverwrite />
             <StandardTypo />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">

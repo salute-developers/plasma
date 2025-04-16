@@ -1,10 +1,10 @@
 import React, { useRef, FC, useContext } from 'react';
+import { cx, isEmpty } from 'src/utils';
+import { useDidMountEffect } from 'src/hooks';
 
 import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
-import { cx, isEmpty } from '../../../../../../utils';
 import { Context } from '../../../../Select.context';
-import { useDidMountEffect } from '../../../../../../hooks';
 
 import { ItemProps } from './Item.types';
 import {
@@ -45,6 +45,9 @@ export const Item: FC<ItemProps> = ({
         variant,
         renderItem,
         treeId,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        _checkboxAppearance,
     } = useContext(Context);
 
     const itemDisabled = Boolean(disabled || isDisabled);
@@ -106,6 +109,7 @@ export const Item: FC<ItemProps> = ({
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}
+                            appearance={_checkboxAppearance ?? 'default'}
                         />
                     </StyledCheckboxWrapper>
                 )}

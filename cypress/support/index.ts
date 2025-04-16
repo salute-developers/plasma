@@ -1,6 +1,9 @@
 import './commands';
 import '@cypress/code-coverage/support';
 import 'cypress-real-events';
+
+// Импорт глобальных стилей, включая шрифты
+import '../fixtures/css/plasmaGlobalStyle.css';
 // по какой-то причине axe подключается только через require
 // иначе не поднимается dev-server webpack'а
 require('cypress-axe');

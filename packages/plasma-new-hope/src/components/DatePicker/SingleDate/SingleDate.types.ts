@@ -88,6 +88,10 @@ export type DatePickerTextFieldProps = {
      * @deprecated
      */
     onChange?: (event: { target: { value?: string; name?: string } }) => void;
+    /**
+     * Автозаполнение полей.
+     */
+    autoComplete?: string;
 } & LabelProps;
 
 export type DatePickerPopoverProps = {
