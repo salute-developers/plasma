@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, MouseEvent } from 'react';
+import React, { ComponentProps, useCallback, MouseEvent, forwardRef } from 'react';
 import {
     buttonConfig,
     component,
@@ -28,15 +28,17 @@ const StyledButton = styled(ButtonComponent)`
 /**
  * Кнопка.
  */
-export const Button = ({ onClick, isLoading, ...props }: ButtonProps) => {
-    const handleClick = useCallback(
-        (event: MouseEvent<HTMLButtonElement>) => {
-            if (!isLoading) {
-                onClick?.(event);
-            }
-        },
-        [isLoading, onClick],
-    );
+export const Button = forwardRef<Omit<HTMLButtonElement, 'value'>, ButtonProps>(
+    ({ onClick, isLoading, value, ...props }, ref) => {
+        const handleClick = useCallback(
+            (event: MouseEvent<HTMLButtonElement>) => {
+                if (!isLoading) {
+                    onClick?.(event);
+                }
+            },
+            [isLoading, onClick],
+        );
 
-    return <StyledButton onClick={handleClick} isLoading={isLoading} {...props} />;
-};
+        return <StyledButton value={value} ref={ref} onClick={handleClick} isLoading={isLoading} {...props} />;
+    },
+);
