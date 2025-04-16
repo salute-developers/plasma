@@ -5,6 +5,9 @@ title: Card
 
 import { PropsTable, Description } from '@site/src/components';
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Card
 Визуальный контейнер, который объединяет различные элементы, такие как изображения, текст и кнопки, в единый блок
 
@@ -87,3 +90,2477 @@ export function App() {
     );
 }
 ```
+
+### Карточки с вертикальной ориентацией
+
+<Tabs>
+    <TabItem value="promo" label="CardPromo" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            CardInnerContent,
+            Flow,
+            H1,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент сверху, картинка снизу',
+                reverse: 'Контент снизу, картинка сверху',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const getContentPosition = (contentStretching: boolean, contentPosition: string) => {
+                if (contentStretching) {
+                    return 'spaceBetween';
+                }
+
+                switch (contentPosition) {
+                    case contentPositionsMap.reverse:
+                        return 'end';
+                    default:
+                        return 'start';
+                }
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="radiogroup-title-id">
+                            <TextS id="radiogroup-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={key}
+                                    name={key}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="radiogroup-content-title-id">
+                            <TextS id="radiogroup-content-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={key}
+                                    name={key}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem" style={{ marginBottom: '1.5rem' }}>
+                        <IconPlasma color="var(--text-accent)" />
+                        <H1 bold>Title</H1>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '37.5rem',
+                                height: '37.5rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent orientation="vertical" aspectRatio="1/1" style={{ padding: '2.75rem 3rem' }}>
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentPosition(contentStretching, contentPosition)}
+                                    style={{ width: '100%', height: '100%' }}
+                                >
+                                    <TextBox />
+                                    <Button text="label" />
+                                </Flow>
+                            </CardContent>
+                            <CardInnerContent
+                                orientation="vertical"
+                                style={{
+                                    justifyContent: contentPosition === contentPositionsMap.initial ? 'end' : 'start',
+                                    alignItems: 'end',
+                                    zIndex: '-1',
+                                }}
+                            >
+                                <SvgBackground style={{ width: '15rem', height: '15rem', borderRadius: '0.375rem' }} />
+                            </CardInnerContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            Flow,
+            H1,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент сверху, картинка снизу',
+                reverse: 'Контент снизу, картинка сверху',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const getContentPosition = (contentStretching: boolean, contentPosition: string) => {
+                if (contentStretching) {
+                    return 'spaceBetween';
+                }
+
+                switch (contentPosition) {
+                    case contentPositionsMap.reverse:
+                        return 'end';
+                    default:
+                        return 'start';
+                }
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="radiogroup-second-id">
+                            <TextS id="radiogroup-second-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}second`}
+                                    name={`${key}second`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="radiogroup-content-second-id">
+                            <TextS id="radiogroup-content-second-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}second`}
+                                    name={`${key}second`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem" style={{ marginBottom: '1.5rem' }}>
+                        <IconPlasma color="var(--text-accent)" />
+                        <H1 bold>Title</H1>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '37.5rem',
+                                height: '37.5rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent
+                                orientation="vertical"
+                                style={{
+                                    order: contentPosition === contentPositionsMap.initial ? -1 : 2,
+                                    flex: contentStretching ? 2 : 1,
+                                    padding: '2.75rem 3rem',
+                                }}
+                            >
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentPosition(contentStretching, contentPosition)}
+                                    style={{ width: '100%', height: '100%' }}
+                                >
+                                    <TextBox />
+                                    <Button text="label" />
+                                </Flow>
+                            </CardContent>
+                            <CardContent
+                                orientation="vertical"
+                                style={{ minHeight: contentStretching ? '12.5rem' : 'initial' }}
+                            >
+                                <SvgBackground style={{ width: '100%', height: '100%', borderRadius: '0.375rem' }} />
+                            </CardContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            CardInnerContent,
+            Flow,
+            H1,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem" style={{ marginBottom: '1.5rem' }}>
+                        <IconPlasma color="var(--text-accent)" />
+                        <H1 bold>Title</H1>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '37.5rem',
+                                height: '37.5rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent aspectRatio="1/1">
+                                <CardInnerContent orientation="vertical" style={{ padding: '2.75rem 3rem' }}>
+                                    <Flow
+                                        orientation="vertical"
+                                        arrangement={contentStretching ? 'spaceBetween' : 'start'}
+                                        style={{ width: '100%', height: '100%' }}
+                                    >
+                                        <TextBox />
+                                        <Button text="label" />
+                                    </Flow>
+                                </CardInnerContent>
+                                <SvgBackground />
+                            </CardContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="product" label="CardProduct">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            CardInnerContent,
+            Flow,
+            H3,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент сверху, картинка снизу',
+                reverse: 'Контент снизу, картинка сверху',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const getContentPosition = (contentStretching: boolean, contentPosition: string) => {
+                if (contentStretching) {
+                    return 'spaceBetween';
+                }
+
+                switch (contentPosition) {
+                    case contentPositionsMap.reverse:
+                        return 'end';
+                    default:
+                        return 'start';
+                }
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="radiogroup-title-id">
+                            <TextS id="radiogroup-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}product`}
+                                    name={`${key}product`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="radiogroup-content-title-id">
+                            <TextS id="radiogroup-content-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}product`}
+                                    name={`${key}product`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem" style={{ marginBottom: '1.5rem' }}>
+                        <IconPlasma color="var(--text-accent)" />
+                        <H3 bold>Title</H3>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '22.5rem',
+                                height: '18.75rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent orientation="vertical" aspectRatio="1/1" style={{ padding: '2rem 2.25rem' }}>
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentPosition(contentStretching, contentPosition)}
+                                    style={{ width: '100%', height: '100%' }}
+                                >
+                                    <TextBox />
+                                    <Button text="label" />
+                                </Flow>
+                            </CardContent>
+                            <CardInnerContent
+                                orientation="vertical"
+                                style={{
+                                    justifyContent: contentPosition === contentPositionsMap.initial ? 'end' : 'start',
+                                    alignItems: 'end',
+                                    zIndex: '-1',
+                                }}
+                            >
+                                <SvgBackground style={{ width: '7.5rem', height: '7.5rem', borderRadius: '0.375rem' }} />
+                            </CardInnerContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            Flow,
+            H3,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент сверху, картинка снизу',
+                reverse: 'Контент снизу, картинка сверху',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="radiogroup-second-id">
+                            <TextS id="radiogroup-second-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}product-second`}
+                                    name={`${key}product-second`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="radiogroup-content-second-id">
+                            <TextS id="radiogroup-content-second-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}product-second`}
+                                    name={`${key}product-second`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = ({ contentStretching }) => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <IconPlasma color="var(--text-accent)" />
+                        <H3 bold>Title</H3>
+                        {!contentStretching && <TextM>SubTitle</TextM>}
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '22.5rem',
+                                height: '25rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent
+                                orientation="vertical"
+                                style={{
+                                    order: contentPosition === contentPositionsMap.initial ? -1 : 2,
+                                    flex: contentStretching ? 2 : 1,
+                                    padding: '2rem 2.25rem',
+                                    minHeight: contentStretching ? 'unset' : '16.25rem',
+                                }}
+                            >
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement="spaceBetween"
+                                    style={{ width: '100%', height: '100%' }}
+                                >
+                                    <TextBox contentStretching={contentStretching} />
+                                    <Button text="label" />
+                                </Flow>
+                            </CardContent>
+                            <CardContent
+                                orientation="vertical"
+                                style={{ minHeight: contentStretching ? '12.5rem' : 'unset' }}
+                            >
+                                <SvgBackground style={{ width: '100%', height: '100%', borderRadius: '0.375rem' }} />
+                            </CardContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            CardInnerContent,
+            Flow,
+            H3,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem" style={{ marginBottom: '1.5rem' }}>
+                        <IconPlasma color="var(--text-accent)" />
+                        <H3 bold>Title</H3>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '22.5rem',
+                                height: '18.75rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent aspectRatio="1/1">
+                                <CardInnerContent orientation="vertical" style={{ padding: '2rem 2.25rem' }}>
+                                    <Flow
+                                        orientation="vertical"
+                                        arrangement={contentStretching ? 'spaceBetween' : 'start'}
+                                        style={{ width: '100%', height: '100%' }}
+                                    >
+                                        <TextBox />
+                                        <Button text="label" />
+                                    </Flow>
+                                </CardInnerContent>
+                                <SvgBackground />
+                            </CardContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="offer" label="CardOffer">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            CardInnerContent,
+            Flow,
+            BodyXS,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент сверху, картинка снизу',
+                reverse: 'Контент снизу, картинка сверху',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [hasButton, setHasButton] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const getContentPosition = (contentStretching: boolean, contentPosition: string) => {
+                if (contentStretching) {
+                    if (hasButton) {
+                        return 'spaceBetween';
+                    }
+
+                    return 'center';
+                }
+
+                switch (contentPosition) {
+                    case contentPositionsMap.reverse:
+                        return 'end';
+                    default:
+                        return 'start';
+                }
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Отобразить кнопку"
+                            checked={hasButton}
+                            onChange={(event) => {
+                                setHasButton(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="radiogroup-offer-title-id">
+                            <TextS id="radiogroup-offer-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}offer`}
+                                    name={`${key}offer`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="radiogroup-offer-content-title-id">
+                            <TextS id="radiogroup-offer-content-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}offer`}
+                                    name={`${key}offer`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="0.25rem">
+                        <IconPlasma size="xs" color="var(--text-accent)" />
+                        <BodyXS bold>Title</BodyXS>
+                        <BodyXS>SubTitle</BodyXS>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '8rem',
+                                height: '8rem',
+                                padding: 0,
+                                borderRadius: '1.25rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent orientation="vertical" aspectRatio="1/1" style={{ padding: '1.125rem 1.25rem' }}>
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentPosition(contentStretching, contentPosition)}
+                                    style={{ width: '100%', height: '100%' }}
+                                >
+                                    <TextBox />
+                                    {hasButton && <Button size="xs" text="label" />}
+                                </Flow>
+                            </CardContent>
+                            <CardInnerContent
+                                orientation="vertical"
+                                style={{
+                                    justifyContent: contentPosition === contentPositionsMap.initial ? 'end' : 'start',
+                                    alignItems: 'end',
+                                    zIndex: '-1',
+                                }}
+                            >
+                                <SvgBackground style={{ width: '3.75rem', height: '3.75rem', borderRadius: '0.375rem' }} />
+                            </CardInnerContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Card,
+            CardContent,
+            Flow,
+            BodyXS,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент сверху, картинка снизу',
+                reverse: 'Контент снизу, картинка сверху',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="radiogroup-offer-second-id">
+                            <TextS id="radiogroup-offer-second-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}offer-second`}
+                                    name={`${key}offer-second`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="radiogroup-offer-content-second-id">
+                            <TextS id="radiogrou-offer-content-second-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}offer-second`}
+                                    name={`${key}offer-second`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="0.25rem">
+                        <IconPlasma size="xs" color="var(--text-accent)" />
+                        <BodyXS bold>Title</BodyXS>
+                       <BodyXS>SubTitle</BodyXS>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '8rem',
+                                height: '8rem',
+                                padding: 0,
+                                borderRadius: '1.25rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent
+                                orientation="vertical"
+                                style={{
+                                    order: contentPosition === contentPositionsMap.initial ? -1 : 2,
+                                    flex: contentStretching ? 2 : 1,
+                                    padding: '1.125rem 1.25rem',
+                                    minHeight: contentStretching ? 'unset' : '5.625rem',
+                                }}
+                            >
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement="spaceBetween"
+                                    style={{ width: '100%', height: '100%' }}
+                                >
+                                    <TextBox contentStretching={contentStretching} />
+                                </Flow>
+                            </CardContent>
+                            <CardContent
+                                orientation="vertical"
+                                style={{ minHeight: contentStretching ? '2.5rem' : 'unset' }}
+                            >
+                                <SvgBackground style={{ width: '100%', height: '100%', borderRadius: '0.375rem' }} />
+                            </CardContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Button,
+            Card,
+            CardContent,
+            CardInnerContent,
+            Flow,
+            BodyXS,
+            shadowDownSoftS,
+            Switch,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(true);
+            const [hasButton, setHasButton] = useState(false);
+
+            const getContentPosition = (contentStretching: boolean) => {
+                if (contentStretching) {
+                    if (hasButton) {
+                        return 'spaceBetween';
+                    }
+
+                    return 'center';
+                }
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Отобразить кнопку"
+                            checked={hasButton}
+                            onChange={(event) => {
+                                setHasButton(event.target.checked);
+                            }}
+                        />
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="0.25rem">
+                        <IconPlasma size="xs" color="var(--text-accent)" />
+                        <BodyXS bold>Title</BodyXS>
+                        <BodyXS>SubTitle</BodyXS>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '8rem',
+                                height: '8rem',
+                                padding: 0,
+                                borderRadius: '1.25rem',
+                                overflow: 'hidden',
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardContent aspectRatio="1/1">
+                                <CardInnerContent orientation="vertical" style={{ padding: '1.125rem 1.25rem' }}>
+                                    <Flow
+                                        orientation="vertical"
+                                        arrangement={getContentPosition(contentStretching)}
+                                        style={{ width: '100%', height: '100%' }}
+                                    >
+                                        <TextBox />
+                                        {hasButton && <Button size="xs" text="label" />}
+                                    </Flow>
+                                </CardInnerContent>
+                                <SvgBackground />
+                            </CardContent>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="advantage" label="CardAdvantage">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            Card,
+            CardContent,
+            CardInnerContent,
+            Flow,
+            H3,
+            BodyL,
+            BodyXS,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <RadioGroup aria-labelledby="radiogroup-advantage-title-id">
+                            <TextS id="radiogroup-advantage-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}advantage`}
+                                    name={`${key}advantage`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgPlaceholder = () => {
+                const borderStyles = {
+                    width: '2.25rem',
+                    height: '2.25rem',
+                    position: 'absolute',
+                    top: '-1.125rem',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',
+
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '0.5rem 0.5rem',
+                }
+
+
+                return (
+                    <div style={borderStyles} />
+                )
+            };
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <IconPlasma size="s" color="var(--text-accent)" />
+                        <H3 bold>Title</H3>
+                        <BodyL>SubTitle</BodyL>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '15rem',
+                                height: '16.5rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                backgroundColor,
+                                boxShadow: shadowDownSoftS,
+                            }}
+                        >
+                            <CardContent orientation="vertical" aspectRatio="1/1" style={{ padding: '2.25rem 2rem' }}>
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement="end"
+                                    style={{ width: '100%', height: '100%' }}
+                                >
+                                    <TextBox />
+                                </Flow>
+                            </CardContent>
+                            
+                            <SvgPlaceholder/>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="inform" label="CardInform">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconInfoCircleOutline } from '@salutejs/plasma-icons';
+        import {
+            Badge,
+            Card,
+            CardContent,
+            Flow,
+            H3,
+            H2,
+            H4,
+            BodyM,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <RadioGroup aria-labelledby="radiogroup-inform-title-id">
+                            <TextS id="radiogroup-inform-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}inform`}
+                                    name={`${key}inform`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const LightningBoltIcon = () => (
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.832 8.33333V2.5L3.33203 11.6667H9.16536V17.5L16.6654 8.33333H10.832Z" fill="#333F48" />
+                    <mask
+                        id="mask0_121_3186"
+                        style={{ maskType: 'alpha' }}
+                        maskUnits="userSpaceOnUse"
+                        x="2"
+                        y="1"
+                        width="16"
+                        height="18"
+                    >
+                        <path
+                            d="M10.832 8.33333V2.5L3.33203 11.6667H9.16536V17.5L16.6654 8.33333H10.832Z"
+                            fill="black"
+                            stroke="black"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    </mask>
+                    <g mask="url(#mask0_121_3186)">
+                        <rect y="-1" width="74" height="23" fill="url(#paint0_linear_121_3186)" />
+                    </g>
+                    <defs>
+                        <linearGradient
+                            id="paint0_linear_121_3186"
+                            x1="9.5"
+                            y1="19"
+                            x2="12"
+                            y2="7.5"
+                            gradientUnits="userSpaceOnUse"
+                        >
+                            <stop stopColor="#49C143" />
+                            <stop offset="0.916667" stopColor="#6CD95D" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            );
+
+            const BadgeContainer = () => {
+                return (
+                    <Flow orientation="horizontal" mainAxisGap="1rem" alignment="center">
+                        <Badge
+                            size="l"
+                            customColor="var(--text-primary)"
+                            customBackgroundColor="rgba(255, 255, 255, 0.86)"
+                            style={{ backdropFilter: 'blur(0.438rem)' }}
+                        >
+                            <H4 bold style={{ lineHeight: '1.25rem' }}>₽</H4>
+                        </Badge>
+                        <Flow
+                            alignment="center"
+                            mainAxisGap="0.5rem"
+                            style={{
+                                padding: '0.375rem 0.5rem',
+                                borderRadius: '0.5rem',
+                                backgroundColor: 'rgba(255, 255, 255, 0.86)',
+                            }}
+                        >
+                            <Flow alignment="center" mainAxisGap="0.125rem">
+                                <LightningBoltIcon />
+                                <H4 bold style={{ lineHeight: '1.25rem' }}>2</H4>
+                            </Flow>
+                            <IconInfoCircleOutline size="xs" color="var(--text-secondary)" />
+                        </Flow>
+                        <Badge
+                            size="l"
+                            text="Ежеквартальная выплата"
+                            customColor="var(--text-primary)"
+                            customBackgroundColor="rgba(255, 255, 255, 0.50)"
+                            style={{ backdropFilter: 'blur(0.438rem)' }}
+                        />
+                    </Flow>
+                );
+            };
+
+            return (
+                <div>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '25rem',
+                                height: '21.875rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                backgroundColor,
+                                boxShadow: shadowDownSoftS,
+                            }}
+                        >
+                            <CardContent orientation="vertical" aspectRatio="1/1" style={{ padding: '1.5rem 1.5rem' }}>
+                                <Flow orientation="vertical" style={{ width: '100%', height: '100%', gap: '1rem' }}>
+                                    <BadgeContainer />
+                                    <div style={{ height: '3.875rem' }}>
+                                        <H3 bold>Title</H3>
+                                    </div>
+                                    <div style={{ height: '6rem' }}>
+                                        <BodyM>Subtitle</BodyM>
+                                    </div>
+                                    <Flow orientation="vertical" mainAxisGap="0.375rem">
+                                        <Flow mainAxisGap="0.25rem" alignment="center">
+                                            <BodyM>Title Caption</BodyM>
+                                            <IconInfoCircleOutline size="xs" color="var(--text-secondary)" />
+                                        </Flow>
+                                        <H2>Value</H2>
+                                    </Flow>
+                                </Flow>
+                            </CardContent>
+                            <Badge
+                                view="accent"
+                                size="l"
+                                text="Label"
+                                style={{ position: 'absolute', top: '-0.875rem', right: '1.5rem' }}
+                            />
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Карточки с горизонтальной ориентацией
+
+<Tabs>
+    <TabItem value="promo" label="CardPromo" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import {
+            LinkButton,
+            Badge,
+            Card,
+            Flow,
+            H1,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент слева, картинка спарва',
+                reverse: 'Картинка спарва, контент слева',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const getContentArrangement = (contentStretching: boolean) => {
+                return contentStretching ? 'spaceBetween' : 'start';
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="horizontal-id">
+                            <TextS id="horizontal-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}-horizontal-promo`}
+                                    name={`${key}-horizontal-promo`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="horizontal-content-title-id">
+                            <TextS id="horizontal-content-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}-horizontal-promo`}
+                                    name={`${key}-horizontal-promo`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Badge view="accent" size="s" text="label" />
+                        <H1 bold>Title</H1>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div style={{ paddingBottom: '2rem', overflow: 'scroll' }}>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="horizontal"
+                            backgroundType="solid"
+                            style={{
+                                width: '50rem',
+                                height: '18.125rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <Flow
+                                orientation="horizontal"
+                                arrangement={contentPosition === contentPositionsMap.reverse ? 'start' : 'spaceBetween'}
+                                style={{ width: '100%' }}
+                            >
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentArrangement(contentStretching)}
+                                    style={{ height: '100%', padding: '2.75rem 3rem' }}
+                                >
+                                    <TextBox />
+                                    <LinkButton text="Label" size="l" style={{ marginTop: '0.25rem', width: 'fit-content' }} />
+                                </Flow>
+
+                                <SvgBackground
+                                    style={{
+                                        width: '13.75rem',
+                                        height: '100%',
+                                        order: contentPosition === contentPositionsMap.reverse ? -1 : 2,
+                                    }}
+                                />
+                            </Flow>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { LinkButton, Badge, Card, Flow, H1, shadowDownSoftS, Switch, TextM, CardInnerContent } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+
+            const getContentArrangement = (contentStretching: boolean) => {
+                return contentStretching ? 'spaceBetween' : 'start';
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Badge view="accent" size="s" text="label" />
+                        <H1 bold>Title</H1>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div style={{ paddingBottom: '2rem', overflow: 'scroll' }}>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="horizontal"
+                            backgroundType="solid"
+                            style={{
+                                width: '50rem',
+                                height: '18.125rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardInnerContent>
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentArrangement(contentStretching)}
+                                    style={{ height: '100%', padding: '2.75rem 3rem' }}
+                                >
+                                    <TextBox />
+                                    <LinkButton text="Label" size="l" style={{ marginTop: '0.25rem', width: 'fit-content' }} />
+                                </Flow>
+                            </CardInnerContent>
+
+                            <SvgBackground style={{ width: '100%', height: '100%' }} />
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="product" label="CardProduct">
+        ```tsx live
+        import React, { useState } from 'react';
+        import {
+            LinkButton,
+            Badge,
+            Card,
+            Flow,
+            H3,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextM,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент слева, картинка спарва',
+                reverse: 'Картинка спарва, контент слева',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const getContentArrangement = (contentStretching: boolean) => {
+                return contentStretching ? 'spaceBetween' : 'start';
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="horizontal-product-id">
+                            <TextS id="horizontal-product-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}-horizontal-product`}
+                                    name={`${key}-horizontal-product`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="horizontal-product-content-title-id">
+                            <TextS id="horizontal-product-content-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}-horizontal-product`}
+                                    name={`${key}-horizontal-product`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Badge view="accent" size="s" text="label" />
+                        <H3 bold>Title</H3>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div style={{ paddingBottom: '2rem', overflow: 'scroll' }}>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="horizontal"
+                            backgroundType="solid"
+                            style={{
+                                width: '50rem',
+                                height: '18.125rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <Flow
+                                orientation="horizontal"
+                                arrangement={contentPosition === contentPositionsMap.reverse ? 'start' : 'spaceBetween'}
+                                style={{ width: '100%' }}
+                            >
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentArrangement(contentStretching)}
+                                    style={{ height: '100%', padding: '2.75rem 3rem' }}
+                                >
+                                    <TextBox />
+                                    <LinkButton text="Label" size="l" style={{ marginTop: '0.25rem', width: 'fit-content' }} />
+                                </Flow>
+
+                                <SvgBackground
+                                    style={{
+                                        width: '13.75rem',
+                                        height: '100%',
+                                        order: contentPosition === contentPositionsMap.reverse ? -1 : 2,
+                                    }}
+                                />
+                            </Flow>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { LinkButton, Badge, Card, Flow, H3, shadowDownSoftS, Switch, TextM, CardInnerContent } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+
+            const getContentArrangement = (contentStretching: boolean) => {
+                return contentStretching ? 'spaceBetween' : 'start';
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Badge view="accent" size="s" text="label" />
+                        <H3 bold>Title</H3>
+                        <TextM>SubTitle</TextM>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div style={{ paddingBottom: '2rem', overflow: 'scroll' }}>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="horizontal"
+                            backgroundType="solid"
+                            style={{
+                                width: '50rem',
+                                height: '18.125rem',
+                                padding: 0,
+                                borderRadius: '2rem',
+                                overflow: 'hidden',
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardInnerContent>
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentArrangement(contentStretching)}
+                                    style={{ height: '100%', padding: '2.75rem 3rem' }}
+                                >
+                                    <TextBox />
+                                    <LinkButton text="Label" size="l" style={{ marginTop: '0.25rem', width: 'fit-content' }} />
+                                </Flow>
+                            </CardInnerContent>
+
+                            <SvgBackground style={{ width: '100%', height: '100%' }} />
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="offer" label="CardOffer">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import {
+            BodyXS,
+            LinkButton,
+            Card,
+            Flow,
+            Radiobox,
+            RadioGroup,
+            shadowDownSoftS,
+            Switch,
+            TextS,
+        } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const backgorundColorsMap = {
+                card: 'var(--surface-solid-card)',
+                primary: 'var(--surface-solid-primary)',
+                transparent: 'var(--surface-transparent-card)',
+            };
+
+            const contentPositionsMap = {
+                initial: 'Контент слева, картинка спарва',
+                reverse: 'Картинка спарва, контент слева',
+            };
+
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+            const [backgroundColor, setBackgroundColor] = useState(backgorundColorsMap.card);
+            const [contentPosition, setContentPosition] = useState(contentPositionsMap.initial);
+
+            const getContentArrangement = (contentStretching: boolean) => {
+                return contentStretching ? 'spaceBetween' : 'start';
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                        <RadioGroup aria-labelledby="horizontal-product-id">
+                            <TextS id="horizontal-product-id" style={{ marginBottom: '0.5rem' }}>
+                                Цвет подложки карточки
+                            </TextS>
+                            {Object.entries(backgorundColorsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}-horizontal-product`}
+                                    name={`${key}-horizontal-product`}
+                                    value={key}
+                                    label={key}
+                                    checked={backgroundColor === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setBackgroundColor(backgorundColorsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+
+                        <RadioGroup aria-labelledby="horizontal-product-content-title-id">
+                            <TextS id="horizontal-product-content-title-id" style={{ marginBottom: '0.5rem' }}>
+                                Положение контента на карточке
+                            </TextS>
+                            {Object.entries(contentPositionsMap).map(([key, value]) => (
+                                <Radiobox
+                                    key={`${key}-horizontal-product`}
+                                    name={`${key}-horizontal-product`}
+                                    value={key}
+                                    label={value}
+                                    checked={contentPosition === value}
+                                    size="s"
+                                    onChange={() => {
+                                        setContentPosition(contentPositionsMap[key]);
+                                    }}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="0.25rem">
+                        <IconPlasma size="xs" color="var(--text-accent)" />
+                        <BodyXS bold>Title</BodyXS>
+                        <BodyXS>SubTitle</BodyXS>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div style={{ paddingBottom: '2rem', overflow: 'scroll' }}>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="horizontal"
+                            backgroundType="solid"
+                            style={{
+                                width: '50rem',
+                                height: '8.75rem',
+                                padding: 0,
+                                borderRadius: '1.25rem',
+                                overflow: 'hidden',
+                                backgroundColor,
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <Flow
+                                orientation="horizontal"
+                                arrangement={contentPosition === contentPositionsMap.reverse ? 'start' : 'spaceBetween'}
+                                style={{ width: '100%' }}
+                            >
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentArrangement(contentStretching)}
+                                    style={{ height: '100%', padding: '1.25rem' }}
+                                >
+                                    <TextBox />
+                                    <LinkButton size="xs" text="Label" style={{ marginTop: '0.25rem', width: 'fit-content' }} />
+                                </Flow>
+
+                                <SvgBackground
+                                    style={{
+                                        width: '13.75rem',
+                                        height: '100%',
+                                        order: contentPosition === contentPositionsMap.reverse ? -1 : 2,
+                                    }}
+                                />
+                            </Flow>
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+        import { LinkButton, Card, Flow, shadowDownSoftS, Switch, BodyXS, CardInnerContent } from '@salutejs/sdds-insol';
+
+        export function App() {
+            const [hasShadow, setHasShadow] = useState(true);
+            const [contentStretching, setContentStretching] = useState(false);
+
+            const getContentArrangement = (contentStretching: boolean) => {
+                return contentStretching ? 'spaceBetween' : 'start';
+            };
+
+            const Controls = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="1rem">
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Тень"
+                            checked={hasShadow}
+                            onChange={(event) => {
+                                setHasShadow(event.target.checked);
+                            }}
+                        />
+                        <Switch
+                            size="s"
+                            toggleSize="s"
+                            label="Растянуть контент"
+                            checked={contentStretching}
+                            onChange={(event) => {
+                                setContentStretching(event.target.checked);
+                            }}
+                        />
+                    </Flow>
+                );
+            };
+
+            const SvgBackground = (props) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMinYMin slice"
+                    viewBox="1 0.5 8 8"
+                    {...props}
+                    style={{ ...props.style, background: 'var(--text-tertiary)' }}
+                >
+                    <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+                </svg>
+            );
+
+            const TextBox = () => {
+                return (
+                    <Flow orientation="vertical" mainAxisGap="0.25rem">
+                        <IconPlasma size="xs" color="var(--text-accent)" />
+                        <BodyXS bold>Title</BodyXS>
+                        <BodyXS>SubTitle</BodyXS>
+                    </Flow>
+                );
+            };
+
+            return (
+                <div style={{ paddingBottom: '2rem', overflow: 'scroll' }}>
+                    <Flow orientation="vertical" mainAxisGap="3rem">
+                        <Controls />
+                        <Card
+                            orientation="horizontal"
+                            backgroundType="solid"
+                            style={{
+                                width: '50rem',
+                                height: '8.75rem',
+                                padding: 0,
+                                borderRadius: '1.25rem',
+                                overflow: 'hidden',
+                                ...(hasShadow && { boxShadow: shadowDownSoftS }),
+                            }}
+                        >
+                            <CardInnerContent>
+                                <Flow
+                                    orientation="vertical"
+                                    arrangement={getContentArrangement(contentStretching)}
+                                    style={{ height: '100%', padding: '1.25rem' }}
+                                >
+                                    <TextBox />
+                                    <LinkButton size="xs" text="Label" style={{ marginTop: '0.25rem', width: 'fit-content' }} />
+                                </Flow>
+                            </CardInnerContent>
+
+                            <SvgBackground style={{ width: '100%', height: '100%' }} />
+                        </Card>
+                    </Flow>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
