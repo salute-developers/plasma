@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
+
+import { config } from './Radiobox.config';
 
 import { Radiobox, RadioboxProps } from '.';
 
@@ -9,7 +11,7 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const sizes = ['m', 's'];
+const { sizes } = getConfigVariations(config);
 const views = ['accent'];
 
 const meta: Meta<RadioboxProps> = {
@@ -29,7 +31,7 @@ const meta: Meta<RadioboxProps> = {
                 type: 'inline-radio',
             },
         },
-        ...disableProps(['view']),
+        ...disableProps(['view', 'appearance']),
     },
 };
 

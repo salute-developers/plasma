@@ -4,7 +4,7 @@ import { cx } from '@linaria/core';
 // TODO: #1008 Избавиться от импортов и переделать addFocus
 import 'focus-visible';
 import { getStaticVariants, getDynamicVariants, getIntersectionStyles } from './utils';
-import type { ComponentConfig, HTMLAnyAttributes } from './types';
+import { ComponentConfig, HTMLAnyAttributes } from './types';
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
@@ -15,7 +15,7 @@ export const _component = (componentConfig: ComponentConfig) => {
     const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
         const { className, as, forwardedAs, ...rest } = props;
         const variants = dynamicVariants(rest);
-        const intersectionStyles = getIntersectionStyles(rest, intersections);
+        const intersectionStyles = getIntersectionStyles(rest, intersections) as string[];
 
         const cls = cx(className, base as string, ...(staticVariants as string[]), ...variants, ...intersectionStyles);
 

@@ -1,5 +1,44 @@
 import { css, stepsTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+const baseItemView = `
+    ${tokens.activeTitleColor}: var(--text-primary);
+    ${tokens.activeTitleColorHover}: var(--text-primary-hover);
+    ${tokens.activeIndicatorBorder}: solid var(--surface-solid-default);
+    ${tokens.activeIndicatorColor}: var(--text-primary);
+    ${tokens.activeIndicatorBackground}: var(--surface-clear);
+   
+    ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
+    ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
+    ${tokens.completedIndicatorBackground}: var(--surface-solid-default);
+    ${tokens.completedIndicatorBackgroundHover}: var(--surface-solid-default-hover);
+    ${tokens.completedTitleColor}: var(--text-primary);
+    ${tokens.completedTitleColorHover}: var(--text-primary-hover);
+
+    ${tokens.inactiveTitleColor}: var(--text-secondary);
+    ${tokens.inactiveTitleColorHover}: var(--text-secondary-hover);
+    ${tokens.inactiveIndicatorColor}: var(--text-secondary);
+    ${tokens.inactiveIndicatorColorHover}: var(--text-secondary);
+    ${tokens.inactiveIndicatorBackground}: var(--surface-transparent-secondary);
+    ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-transparent-secondary-hover);
+
+    ${tokens.contentColor}: var(--text-secondary);
+    ${tokens.focusColor}: var(--surface-accent);
+
+    ${tokens.disabledOpacity}: 0.4;
+`;
+
+const accentConfig = `
+    ${tokens.completedTitleColor}: var(--text-primary);
+    ${tokens.completedTitleColorHover}: var(--text-primary-hover);
+    
+    ${tokens.completedIndicatorBackground}: var(--surface-accent);
+    ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-hover);
+    
+    // Цвет контента внутри элемента Step
+    ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
+    ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
+`;
+
 export const config = {
     defaults: {
         size: 'm',
@@ -8,28 +47,39 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.activeTitleColor}: var(--text-primary);
-                ${tokens.activeTitleColorHover}: var(--text-primary-hover);
-                ${tokens.activeIndicatorBorder}: solid var(--surface-solid-default);
-                ${tokens.activeIndicatorColor}: var(--text-primary);
-                ${tokens.activeIndicatorBackground}: var(--surface-clear);
+                ${tokens.dividerColor}: var(--surface-solid-default);
+            `,
+            accent: css`
+                ${tokens.dividerColor}: var(--surface-accent);
+            `,
+        },
+        itemView: {
+            default: css`
+                ${baseItemView};
+            `,
+            negative: css`
+                ${baseItemView};
 
-                ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorBackground}: var(--surface-solid-default);
-                ${tokens.completedIndicatorBackgroundHover}: var(--surface-solid-default-hover);
+                ${tokens.activeTitleColor}: var(--surface-negative);
+                ${tokens.activeTitleColorHover}: var(--surface-negative-hover);
+                ${tokens.activeIndicatorBorder}: solid var(--surface-negative);
+                ${tokens.activeIndicatorColor}: var(--text-negative);
+            `,
+            warning: css`
+                ${baseItemView};
 
-                ${tokens.inactiveTitleColor}: var(--text-secondary);
-                ${tokens.inactiveTitleColorHover}: var(--text-secondary-hover);
-                ${tokens.inactiveIndicatorColor}: var(--text-secondary);
-                ${tokens.inactiveIndicatorColorHover}: var(--text-secondary);
-                ${tokens.inactiveIndicatorBackground}: var(--surface-transparent-secondary);
-                ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.activeTitleColor}: var(--surface-warning);
+                ${tokens.activeTitleColorHover}: var(--surface-warning-hover);
+                ${tokens.activeIndicatorBorder}: solid var(--surface-warning);
+                ${tokens.activeIndicatorColor}: var(--text-warning);
+            `,
+            positive: css`
+                ${baseItemView};
 
-                ${tokens.contentColor}: var(--text-secondary);
-                ${tokens.focusColor}: var(--surface-accent);
-
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.activeTitleColor}: var(--surface-positive);
+                ${tokens.activeTitleColorHover}: var(--surface-positive-hover);
+                ${tokens.activeIndicatorBorder}: solid var(--surface-positive);
+                ${tokens.activeIndicatorColor}: var(--text-positive);
             `,
         },
         size: {
@@ -223,4 +273,37 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'accent',
+            itemView: 'default',
+            style: css`
+                ${tokens.activeIndicatorBorder}: solid var(--text-accent);
+                ${tokens.activeIndicatorColor}: var(--text-accent);
+
+                ${accentConfig};
+            `,
+        },
+        {
+            view: 'accent',
+            itemView: 'negative',
+            style: css`
+                ${accentConfig};
+            `,
+        },
+        {
+            view: 'accent',
+            itemView: 'warning',
+            style: css`
+                ${accentConfig};
+            `,
+        },
+        {
+            view: 'accent',
+            itemView: 'positive',
+            style: css`
+                ${accentConfig};
+            `,
+        },
+    ],
 };

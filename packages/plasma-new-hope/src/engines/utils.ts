@@ -1,4 +1,4 @@
-import type { ComponentConfig, HTMLAnyAttributes, Intersection } from './types';
+import { ComponentConfig, HTMLAnyAttributes, Intersection, PolymorphicClassName } from './types';
 
 export const getStaticVariants = (config: ComponentConfig) => {
     if (!config.variations) {
@@ -40,7 +40,7 @@ export const getIntersectionStyles = (props: Record<string, any>, intersections?
         return [];
     }
 
-    return intersections.reduce((styles: string[], item) => {
+    return intersections.reduce((styles: PolymorphicClassName[], item) => {
         const hasMatchStyle = Object.entries(item)
             .filter(([key]) => key !== 'style')
             .every(([key, value]) => props[key] === value);

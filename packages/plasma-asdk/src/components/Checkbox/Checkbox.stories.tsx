@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Link } from '../Link';
+
+import { config } from './Checkbox.config';
 
 import { Checkbox } from '.';
 import type { CheckboxProps as Base } from '.';
@@ -54,7 +57,7 @@ const meta: Meta<CheckboxProps> = {
 
 export default meta;
 
-const sizes = ['m', 's'];
+const { sizes } = getConfigVariations(config);
 
 const name = 'languages';
 

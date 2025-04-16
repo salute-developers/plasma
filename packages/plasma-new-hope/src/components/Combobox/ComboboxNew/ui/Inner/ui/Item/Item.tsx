@@ -45,6 +45,9 @@ export const Item: FC<ItemProps> = ({
         variant,
         renderItem,
         treeId,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        _checkboxAppearance,
     } = useContext(Context);
 
     const disabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
@@ -105,6 +108,7 @@ export const Item: FC<ItemProps> = ({
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}
+                            appearance={_checkboxAppearance ?? 'default'}
                         />
                     </StyledCheckboxWrapper>
                 )}

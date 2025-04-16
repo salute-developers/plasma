@@ -13,10 +13,26 @@ export const Done = () => (
     </div>
 );
 
+export const DoneThin = () => (
+    <div style={{ display: 'inline-flex' }}>
+        <svg width="10" height="8" viewBox="0 0 10 8" fill="none" style={{ width: `var(${tokens.triggerSize})` }}>
+            <path d="M0.5 4L3.5 7L9.5 1" stroke={`var(${tokens.iconColor})`} />
+        </svg>
+    </div>
+);
+
 export const Indeterminate = () => (
     <div style={{ display: 'inline-flex' }}>
         <svg width="100%" viewBox="0 0 18 18" fill="none" style={{ width: `var(${tokens.triggerSize})` }}>
             <path strokeLinecap="round" strokeWidth="2" stroke={`var(${tokens.iconColor})`} d="m5.09449,9.0315l8,0" />
+        </svg>
+    </div>
+);
+
+export const IndeterminateThin = () => (
+    <div style={{ display: 'inline-flex' }}>
+        <svg width="100%" viewBox="0 0 18 18" fill="none" style={{ width: `var(${tokens.triggerSize})` }}>
+            <path strokeLinecap="round" strokeWidth="1" stroke={`var(${tokens.iconColor})`} d="m5.09449,9.0315l8,0" />
         </svg>
     </div>
 );

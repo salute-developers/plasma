@@ -24,7 +24,9 @@ const mappingOverride = `
 
     ${checkboxTokens.fillColor}: var(${tokens.fillColor});
     ${checkboxTokens.descriptionColor}: var(${tokens.descriptionColor});
+    ${checkboxTokens.triggerBorderWidth}: var(${tokens.triggerBorderWidth});
     ${checkboxTokens.triggerBorderColor}: var(${tokens.triggerBorderColor});
+    ${checkboxTokens.triggerBorderCheckedColor}: var(${tokens.triggerBorderCheckedColor});
     ${checkboxTokens.triggerBackgroundColor}: var(${tokens.triggerBackgroundColor});
 
     ${checkboxTokens.contentTopOffset}: var(${tokens.contentTopOffset});

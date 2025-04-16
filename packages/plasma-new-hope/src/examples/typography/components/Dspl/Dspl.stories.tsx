@@ -40,6 +40,7 @@ const meta: Meta<typeof Dspl> = {
         breakWord: true,
         bold: false,
         medium: false,
+        isNumeric: false,
     },
 };
 
@@ -51,6 +52,8 @@ export const Default: StoryObj<typeof Dspl> = {
             <Dspl {...props}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium nesciunt nihil non ut animi
                 distinctio modi quo, provident quod.
+                <br />
+                1234567890
             </Dspl>
         );
     },

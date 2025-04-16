@@ -1,9 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Link } from '../Link';
+
+import { config } from './Checkbox.config';
 
 import { Checkbox } from '.';
 import type { CheckboxProps } from '.';
@@ -12,8 +14,8 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const sizes = ['m', 's'];
-const views = ['accent'];
+const { sizes } = getConfigVariations(config);
+const views = ['accent', 'negative'];
 
 const propsToDisable = [
     'name',
@@ -31,7 +33,7 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
-    'view',
+    'appearance',
 ];
 
 const meta: Meta<CheckboxProps> = {

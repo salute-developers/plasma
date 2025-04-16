@@ -12,6 +12,14 @@ import type { SheetProps } from '.';
 const meta: Meta<SheetProps> = {
     title: 'Overlay/Sheet',
     decorators: [InSpacingDecorator],
+    argTypes: {
+        handlePlacement: {
+            options: ['inner', 'outer'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
     args: {
         withBlur: false,
         withOverlay: true,
@@ -19,6 +27,8 @@ const meta: Meta<SheetProps> = {
         hasHandle: true,
         isHeaderFixed: false,
         isFooterFixed: false,
+        handlePlacement: 'outer',
+        fullScreen: false,
     },
 };
 
@@ -30,9 +40,16 @@ type StorySheetProps = ComponentProps<typeof Sheet> & {
 };
 
 const StyledBody = styled(BodyM)`
-    padding-bottom: 300px;
+    padding-bottom: 200px;
 `;
 
+const StyledBodyFullScreen = styled(BodyM)`
+    height: calc(100vh - 10rem);
+`;
+
+type StorySheetPropsExtension = StorySheetProps & {
+    fullScreen: boolean;
+};
 const StoryDefault = ({
     withOverlay,
     withTransition,
@@ -42,7 +59,9 @@ const StoryDefault = ({
     isHeaderFixed,
     hasHandle,
     withBlur,
-}: StorySheetProps) => {
+    handlePlacement,
+    fullScreen,
+}: StorySheetPropsExtension) => {
     const [opened, setOpened] = useState(false);
 
     return (
@@ -50,6 +69,7 @@ const StoryDefault = ({
             <Button onClick={() => setOpened(true)}>Открыть</Button>
             <Sheet
                 opened={opened}
+                handlePlacement={handlePlacement}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
                 onClose={() => setOpened(false)}
@@ -72,7 +92,7 @@ const StoryDefault = ({
                 }
                 isFooterFixed={isFooterFixed}
             >
-                <StyledBody>body</StyledBody>
+                {fullScreen ? <StyledBodyFullScreen>body</StyledBodyFullScreen> : <StyledBody>body</StyledBody>}
             </Sheet>
         </>
     );

@@ -9,21 +9,14 @@ import React, {
     ForwardedRef,
 } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
+import { RootProps } from 'src/engines';
+import { isEmpty } from 'src/utils';
+import { useOutsideClick } from 'src/hooks';
 
-import { RootProps } from '../../engines';
-import { isEmpty } from '../../utils';
-import { useOutsideClick } from '../../hooks';
 import type { HintProps } from '../TextField/TextField.types';
 
 import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
-import {
-    initialItemsTransform,
-    updateAncestors,
-    updateDescendants,
-    updateSingleAncestors,
-    getView,
-    getInitialValue,
-} from './utils';
+import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
 import { Inner, Target, VirtualList } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
@@ -40,6 +33,7 @@ import { Context } from './Select.context';
 export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectProps, 'items'>>) =>
     forwardRef<HTMLButtonElement, MergedSelectProps>((props, ref) => {
         const {
+            // eslint-disable-block @typescript-eslint/ban-ts-comment
             id,
             value: outerValue,
             onChange: outerOnChange,
@@ -78,6 +72,36 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             defaultValue,
             virtual = false,
             onToggle,
+            chipType,
+            multiselect,
+
+            // Извлекаем пропсы для required и hint, чтобы они не попадали в DOM.
+            // @ts-ignore
+            required,
+            // @ts-ignore
+            requiredPlacement,
+            // @ts-ignore
+            hasRequiredIndicator,
+            // @ts-ignore
+            optional,
+            // @ts-ignore
+            hintText,
+            // @ts-ignore
+            hintTrigger,
+            // @ts-ignore
+            hintView,
+            // @ts-ignore
+            hintSize,
+            // @ts-ignore
+            hintTargetPlacement,
+            // @ts-ignore
+            hintPlacement,
+            // @ts-ignore
+            hintWidth,
+            // @ts-ignore
+            hintHasArrow,
+            // @ts-ignore
+            hasHint,
             ...rest
         } = props;
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
@@ -91,10 +115,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             props.multiselect ? [] : '',
         );
 
-        const value =
-            outerValue !== null && outerValue !== undefined
-                ? getInitialValue(outerValue, valueToItemMap)
-                : internalValue;
+        const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
 
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
 
@@ -114,10 +135,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             props.target === 'button-like'
                 ? undefined
                 : ({
-                      required: props.required,
-                      requiredPlacement: props.requiredPlacement,
-                      hasRequiredIndicator: props.hasRequiredIndicator,
-                      optional: props.optional,
+                      required,
+                      requiredPlacement,
+                      hasRequiredIndicator,
+                      optional,
                   } as RequiredProps);
 
         // Собираем объект с пропсами для hint и прокидываем их напрямую в компонент Textfield.
@@ -125,14 +146,14 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             props.target === 'button-like'
                 ? undefined
                 : ({
-                      hintText: props.hintText,
-                      hintTrigger: props.hintTrigger,
-                      hintView: props.hintView,
-                      hintSize: props.hintSize,
-                      hintTargetPlacement: props.hintTargetPlacement,
-                      hintPlacement: props.hintPlacement,
-                      hintWidth: props.hintWidth,
-                      hintHasArrow: props.hintHasArrow,
+                      hintText,
+                      hintTrigger,
+                      hintView,
+                      hintSize,
+                      hintTargetPlacement,
+                      hintPlacement,
+                      hintWidth,
+                      hintHasArrow,
                   } as HintProps);
 
         const targetRef = useOutsideClick<HTMLUListElement>(() => {
@@ -212,6 +233,15 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                     newValues.push(item.value);
                 }
             });
+
+            // Оставляем values, которых нет в items.
+            if (Array.isArray(value)) {
+                value.forEach((val: string) => {
+                    if (!valueToItemMap.has(val)) {
+                        newValues.push(val);
+                    }
+                });
+            }
 
             if (closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
@@ -301,13 +331,20 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             if (!isEmpty(value) || typeof value === 'number') {
                 if (Array.isArray(value)) {
                     value.forEach((val) => {
-                        checkedCopy.set(val, true);
-                        updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
-                        updateAncestors(valueToItemMap.get(val)!, checkedCopy);
+                        // Только если value находится в items, т.к. value может и не существовать в items.
+                        if (valueToItemMap.has(val)) {
+                            checkedCopy.set(val, true);
+                            updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
+                            updateAncestors(valueToItemMap.get(val)!, checkedCopy);
+                        }
                     });
                 } else {
-                    checkedCopy.set(value, 'done');
-                    updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
+                    // Только если value находится в items, т.к. value может и не существовать в items.
+                    // eslint-disable-next-line no-lonely-if
+                    if (valueToItemMap.has(value)) {
+                        checkedCopy.set(value, 'done');
+                        updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
+                    }
                 }
             }
 
@@ -357,6 +394,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         variant,
                         renderItem,
                         treeId,
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        // eslint-disable-next-line no-underscore-dangle
+                        _checkboxAppearance: (rest as any)._checkboxAppearance,
                     }}
                 >
                     <FloatingPopover

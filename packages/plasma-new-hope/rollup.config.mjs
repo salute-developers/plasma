@@ -54,7 +54,10 @@ export default {
             mode: 'extract',
             modules: true,
         }),
-        babel({ babelHelpers: 'bundled', extensions: ['.ts', '.tsx'] }),
+        babel({
+            babelHelpers: 'bundled',
+            extensions: ['.ts', '.tsx'],
+        }),
     ],
 };
 
