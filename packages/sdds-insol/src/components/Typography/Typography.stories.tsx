@@ -20,6 +20,7 @@ import {
     TextM,
     TextS,
     TextXS,
+    TextSlim,
 } from '.';
 
 const meta: Meta = {
@@ -238,6 +239,16 @@ export const Text: Story = {
             <TextXS isNumeric {...props}>
                 1234567890
             </TextXS>
+            <TextSlim {...props}>TextXS</TextSlim>
+            <TextSlim bold {...props}>
+                TextSlim Bold
+            </TextSlim>
+            <TextSlim medium {...props}>
+                TextSlim Medium
+            </TextSlim>
+            <TextSlim isNumeric {...props}>
+                1234567890
+            </TextSlim>
         </>
     ),
 };
