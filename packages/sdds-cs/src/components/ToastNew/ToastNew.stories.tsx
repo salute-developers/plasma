@@ -52,9 +52,6 @@ const meta: Meta<typeof ToastContainer> = {
                 type: 'select',
             },
         },
-        gap: {
-            control: { type: 'number' },
-        },
     },
 };
 

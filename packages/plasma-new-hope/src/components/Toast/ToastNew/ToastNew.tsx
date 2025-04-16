@@ -21,7 +21,6 @@ export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContaine
             textColor,
             position = 'bottom-center',
             duration = Infinity,
-            gap,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -29,7 +28,6 @@ export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContaine
         return (
             <Root ref={ref} view={view} size={size} pilled={pilled} {...rest}>
                 <Toaster
-                    gutter={gap}
                     toastOptions={{
                         duration,
                         position,
@@ -91,6 +89,8 @@ export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContaine
 
 export const showToast: ShowToastProps = (text, options) => {
     toast(text, {
+        // INFO: id всегда одинаковый для отключения стекирования
+        id: 'toast',
         ...(options?.position ? { position: options?.position } : undefined),
         ...(options?.duration ? { duration: options?.duration } : undefined),
         // @ts-ignore
