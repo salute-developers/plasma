@@ -52,7 +52,7 @@ export const Icon = styled.div`
     transition: color 0.3s;
 `;
 
-export const Item = styled.a`
+export const Item = styled.li`
     height: 1rem;
     color: ${whitePrimary};
     text-decoration: none;
