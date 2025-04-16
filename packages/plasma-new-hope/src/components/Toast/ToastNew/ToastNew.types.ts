@@ -29,10 +29,6 @@ export interface ToastContainerProps extends HTMLAttributes<HTMLDivElement> {
      * Цвет текста
      */
     textColor?: CSSProperties['color'];
-    /**
-     * Расстояние между тостами
-     */
-    gap?: number;
 
     /**
      * Вид блока подсказки
