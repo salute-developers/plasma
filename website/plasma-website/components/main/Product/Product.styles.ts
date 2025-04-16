@@ -9,20 +9,40 @@ export const ProductList = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+
+    ${multipleMediaQuery(['S'])(css`
+        gap: 2rem;
+    `)}
 `;
 
 export const ProductWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+
+    ${multipleMediaQuery(['M'])(css`
+        padding-left: 1.125rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        gap: 1rem;
+    `)}
 `;
 
 export const Title = styled(DsplM)`
     color: ${whitePrimary};
     padding-left: 4rem;
 
-    ${multipleMediaQuery(['M', 'S'])(css`
-        padding-left: 3.5rem;
+    ${multipleMediaQuery(['XL', 'L'])(css`
+        padding-left: 2.5rem;
+    `)}
+
+    ${multipleMediaQuery(['M'])(css`
+        padding-left: 1.75rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        padding-left: 1.25rem;
     `)}
 `;
 
@@ -82,17 +102,25 @@ export const ProductMainInfo = styled.a<{ alwaysShowIcon?: boolean }>`
 export const ProductAdditionalInfo = styled.div`
     display: flex;
     gap: 1rem;
-
+    padding-left: 4rem;
+    
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: none;
+    
     ::-webkit-scrollbar {
         display: none;
     }
+    
+    ${multipleMediaQuery(['XL', 'L'])(css`
+        padding-left: 2.5rem;
+    `)}
 
-    padding-left: 4rem;
+    ${multipleMediaQuery(['M'])(css`
+        padding-left: 1.75rem;
+    `)}
 
-    ${multipleMediaQuery(['M', 'S'])(css`
-        padding-left: 3.5rem;
+    ${multipleMediaQuery(['S'])(css`
+        padding-left: 1.25rem;
     `)}
 `;
