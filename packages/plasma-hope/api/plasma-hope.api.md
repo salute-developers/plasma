@@ -116,8 +116,6 @@ import { ShiftProps } from '@salutejs/plasma-core';
 import { SmartPaginationDotsProps as SmartPaginationDotsProps_2 } from '@salutejs/plasma-core';
 import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
-import { SortableContainerProps } from 'react-sortable-hoc';
-import { SortableElementProps } from 'react-sortable-hoc';
 import { SpacingProps } from '@salutejs/plasma-core';
 import { StyledCard } from '@salutejs/plasma-core';
 import { StyledComponent } from 'styled-components';
@@ -804,7 +802,7 @@ export { Popup }
 export { PopupProps }
 
 // @public
-export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps>;
+export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export interface PreviewGalleryItemProps {
@@ -826,7 +824,7 @@ export interface PreviewGalleryProps {
     actionIcon: JSX.Element;
     // Warning: (ae-forgotten-export) The symbol "InteractionType" needs to be exported by the entry point index.d.ts
     interactionType?: InteractionType;
-    items?: Array<PreviewGalleryItemProps & Omit<SortableElementProps, 'index'>>;
+    items?: Array<PreviewGalleryItemProps>;
     itemSize?: string;
     maxHeight?: number;
     onItemAction?: (id: string | number) => void;
