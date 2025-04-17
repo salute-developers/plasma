@@ -1,3 +1,104 @@
+## 1.579.0 (17 апреля 2025)
+
+## Функциональные изменения в компонентах
+
+### Steps
+
+* добавлено новое свойство `itemView` <img width="748" src="https://github.com/user-attachments/assets/783c547d-8c68-42f6-a85a-712a9615cd7c" />
+
+* добавлено `accent` `view` и комбинации с `itemView` <img width="748" src="https://github.com/user-attachments/assets/18f0ecb6-9441-4cf2-ba4a-112e7d6596fd" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1872)
+
+### Cell
+
+* исправлены опечатки в "color=inherit"
+
+[PR](https://github.com/salute-developers/plasma/pull/1857)
+
+### IconButton
+
+* исправлены опечатки в "color=inherit"
+
+[PR](https://github.com/salute-developers/plasma/pull/1857)
+
+### Datepicker
+
+* добавлено возможность прокинуть атрибут `autoComplete`
+
+<img width="1024"  src="https://github.com/user-attachments/assets/3b62560d-0ea0-46d6-a5f5-30653e4a3fa5" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1900)
+
+### Checkbox
+
+* добавлен новый размер `L`
+
+[PR](https://github.com/salute-developers/plasma/pull/1912)
+
+### Dropdown
+
+* добавлено индивидуальное свойство `trigger` для каждой группы вложенных списков для кастомной настройки их открытия;
+
+[PR](https://github.com/salute-developers/plasma/pull/1896)
+
+### Tree
+
+* в документацию добавлен пример с виртуализацией;
+
+[PR](https://github.com/salute-developers/plasma/pull/1914)
+
+* добавлено свойство `contentRight`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1908)
+
+### Select
+
+* расширен функционал, позволяющий работать с `value`, которых нет в списке `items`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1894)
+
+* При нажатии на `helperText` список не раскрывается
+
+[PR](https://github.com/salute-developers/plasma/pull/1913)
+
+### Combobox
+
+* расширен функционал, позволяющий работать с `value`, которых нет в списке `items`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1894)
+
+* При нажатии на `helperText` список не раскрывается
+
+[PR](https://github.com/salute-developers/plasma/pull/1913)
+
+### Typography
+
+* Добавлена поддержка свойства `isNumeric`, которое делает цифры моношоринными
+
+[PR](https://github.com/salute-developers/plasma/pull/1899)
+
+### Radiobox
+
+* добавлен новый размер `L`
+
+[PR](https://github.com/salute-developers/plasma/pull/1911)
+
+### Autocomplite
+
+* При нажатии на `helperText` фокус на `textfield` не происходит
+
+[PR](https://github.com/salute-developers/plasma/pull/1913)
+
+### Sheet
+
+* Добавлен props `handlePlacement`
+
+* Добавлен пример в `storybook` с полноэкранным `sheet`
+
+[PR](https://github.com/salute-developers/plasma/pull/1892)
+
+
 ## 1.578.0 (3 апреля 2025)
 
 ## Функциональные изменения в компонентах

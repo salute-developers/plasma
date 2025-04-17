@@ -1,3 +1,171 @@
+## 0.304.0 (17 апреля 2025)
+
+## Функциональные изменения в компонентах
+
+### Steps
+
+* добавлено новое свойство `itemView` <img width="748" src="https://github.com/user-attachments/assets/783c547d-8c68-42f6-a85a-712a9615cd7c" />
+
+* добавлено `accent` `view` и комбинации с `itemView` <img width="748" src="https://github.com/user-attachments/assets/18f0ecb6-9441-4cf2-ba4a-112e7d6596fd" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1872)
+
+### Cell
+
+* исправлены опечатки в "color=inherit"
+
+[PR](https://github.com/salute-developers/plasma/pull/1857)
+
+### IconButton
+
+* исправлены опечатки в "color=inherit"
+
+[PR](https://github.com/salute-developers/plasma/pull/1857)
+
+### Datepicker
+
+* добавлено возможность прокинуть атрибут `autoComplete`
+
+<img width="1024"  src="https://github.com/user-attachments/assets/3b62560d-0ea0-46d6-a5f5-30653e4a3fa5" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1900)
+
+### Checkbox
+
+* добавлен новый размер `L`
+
+[PR](https://github.com/salute-developers/plasma/pull/1912)
+
+### Dropdown
+
+* добавлено индивидуальное свойство `trigger` для каждой группы вложенных списков для кастомной настройки их открытия;
+
+[PR](https://github.com/salute-developers/plasma/pull/1896)
+
+### Tree
+
+* в документацию добавлен пример с виртуализацией;
+
+[PR](https://github.com/salute-developers/plasma/pull/1914)
+
+* добавлено свойство `contentRight`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1908)
+
+### Select
+
+* расширен функционал, позволяющий работать с `value`, которых нет в списке `items`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1894)
+
+* При нажатии на `helperText` список не раскрывается
+
+[PR](https://github.com/salute-developers/plasma/pull/1913)
+
+### Combobox
+
+* расширен функционал, позволяющий работать с `value`, которых нет в списке `items`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1894)
+
+* При нажатии на `helperText` список не раскрывается
+
+[PR](https://github.com/salute-developers/plasma/pull/1913)
+
+### Typography
+
+* Добавлена поддержка свойства `isNumeric`, которое делает цифры моношоринными
+
+[PR](https://github.com/salute-developers/plasma/pull/1899)
+
+### Radiobox
+
+* добавлен новый размер `L`
+
+[PR](https://github.com/salute-developers/plasma/pull/1911)
+
+### Autocomplite
+
+* При нажатии на `helperText` фокус на `textfield` не происходит
+
+[PR](https://github.com/salute-developers/plasma/pull/1913)
+
+### Sheet
+
+* Добавлен props `handlePlacement`
+
+* Добавлен пример в `storybook` с полноэкранным `sheet`
+
+[PR](https://github.com/salute-developers/plasma/pull/1892)
+
+## Изменения в библиотеки
+
+### Typography
+
+* Добавлен типографический компонент `TextSlim` и обновлены значения токенов типографики
+
+[PR](https://github.com/salute-developers/plasma/pull/1919)
+
+### Checkbox
+
+* добавлен вариация `outline`
+
+[PR](https://github.com/salute-developers/plasma/pull/1877)
+
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+<details>
+  <summary>📦 Published PR as canary version: <code>Canary Versions</code></summary>
+  <br />
+
+:sparkles: Test out this PR locally via:
+
+```bash
+npm install @salutejs/plasma-asdk@0.336.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-b2c@1.578.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-core@1.197.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-giga@0.305.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-hope@1.340.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-icons@1.218.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-new-hope@0.322.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-ui@1.316.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-web@1.580.0-canary.1924.14511649579.0
+npm install @salutejs/sdds-clfd-auto@0.309.0-canary.1924.14511649579.0
+npm install @salutejs/sdds-cs@0.314.0-canary.1924.14511649579.0
+npm install @salutejs/sdds-dfa@0.308.0-canary.1924.14511649579.0
+npm install @salutejs/sdds-finportal@0.301.0-canary.1924.14511649579.0
+npm install @salutejs/sdds-insol@0.305.0-canary.1924.14511649579.0
+npm install @salutejs/sdds-serv@0.309.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-themes@0.33.0-canary.1924.14511649579.0
+npm install @salutejs/sdds-themes@0.36.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-cy-utils@0.128.0-canary.1924.14511649579.0
+npm install @salutejs/plasma-sb-utils@0.197.0-canary.1924.14511649579.0
+# or 
+yarn add @salutejs/plasma-asdk@0.336.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-b2c@1.578.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-core@1.197.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-giga@0.305.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-hope@1.340.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-icons@1.218.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-new-hope@0.322.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-ui@1.316.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-web@1.580.0-canary.1924.14511649579.0
+yarn add @salutejs/sdds-clfd-auto@0.309.0-canary.1924.14511649579.0
+yarn add @salutejs/sdds-cs@0.314.0-canary.1924.14511649579.0
+yarn add @salutejs/sdds-dfa@0.308.0-canary.1924.14511649579.0
+yarn add @salutejs/sdds-finportal@0.301.0-canary.1924.14511649579.0
+yarn add @salutejs/sdds-insol@0.305.0-canary.1924.14511649579.0
+yarn add @salutejs/sdds-serv@0.309.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-themes@0.33.0-canary.1924.14511649579.0
+yarn add @salutejs/sdds-themes@0.36.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-cy-utils@0.128.0-canary.1924.14511649579.0
+yarn add @salutejs/plasma-sb-utils@0.197.0-canary.1924.14511649579.0
+```
+
+</details>
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+
 ## 0.303.0 (3 апреля 2025)
 
 ## Функциональные изменения в компонентах
