@@ -86,7 +86,7 @@ export const configSlim = {
     },
     variations: {
         size: {
-            xs: css`
+            slim: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-slim-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-text-slim-font-size);
                 ${typographyTokens.typoFontStyle}: var(--plasma-typo-text-slim-font-style);

@@ -239,7 +239,7 @@ export const Text: Story = {
             <TextXS isNumeric {...props}>
                 1234567890
             </TextXS>
-            <TextSlim {...props}>TextXS</TextSlim>
+            <TextSlim {...props}>TextSlim</TextSlim>
             <TextSlim bold {...props}>
                 TextSlim Bold
             </TextSlim>
