@@ -5,7 +5,7 @@ import {
     fixedForwardRef,
 } from '@salutejs/plasma-new-hope/styled-components';
 import type { ComponentProps } from 'react';
-import type { ItemOption, ComboboxProps, DistributiveOmit, DistributivePick } from '@salutejs/plasma-new-hope';
+import type { ComboboxItemOption, ComboboxProps, DistributiveOmit, DistributivePick } from '@salutejs/plasma-new-hope';
 import React from 'react';
 
 import { config } from './Combobox.config';
@@ -18,12 +18,15 @@ type PropsFromConfig = keyof typeof config['variations'];
 
 type PropsOld = ComponentProps<typeof ComboboxOld> & { items?: never };
 
-type PropsNew<T extends ItemOption> = DistributiveOmit<ComboboxProps<T>, PropsFromConfig> &
+type PropsNew<T extends ComboboxItemOption> = DistributiveOmit<ComboboxProps<T>, PropsFromConfig> &
     DistributivePick<ComponentProps<typeof ComboboxNew>, PropsFromConfig>;
 
-type CommonProps<T extends ItemOption> = PropsOld | PropsNew<T>;
+type CommonProps<T extends ComboboxItemOption> = PropsOld | PropsNew<T>;
 
-const ComboboxComponent = <T extends ItemOption>(props: CommonProps<T>, ref: React.ForwardedRef<HTMLInputElement>) => {
+const ComboboxComponent = <T extends ComboboxItemOption>(
+    props: CommonProps<T>,
+    ref: React.ForwardedRef<HTMLInputElement>,
+) => {
     if (props.items) {
         return <ComboboxNew ref={ref} {...(props as any)} />;
     }
