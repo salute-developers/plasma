@@ -3,3 +3,4 @@ export { ComboboxDivider, ComboboxFooter, ComboboxGroup, ComboboxHeader, Combobo
 export type { ComboboxOldProps as ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 
 export { Combobox } from './Combobox';
+export type { ComboboxItemOption } from './Combobox';
