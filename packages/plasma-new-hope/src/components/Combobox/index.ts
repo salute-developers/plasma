@@ -23,4 +23,4 @@ export {
     comboboxRoot as comboboxNewRoot,
     comboboxConfig as comboboxNewConfig,
 } from './ComboboxNew';
-export type { ItemOption, ComboboxProps } from './ComboboxNew';
+export type { ComboboxItemOption, ComboboxProps } from './ComboboxNew';
