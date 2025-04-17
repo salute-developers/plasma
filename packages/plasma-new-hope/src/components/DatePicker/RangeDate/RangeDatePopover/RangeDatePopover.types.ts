@@ -1,7 +1,7 @@
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 
 import type { DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
-import type { DateInfo } from '../../../Calendar/Calendar.types';
+import type { DateInfo, DateType } from '../../../Calendar/Calendar.types';
 import type { DatePickerCalendarProps } from '../../DatePickerBase.types';
 
 export type RangeDatePopoverProps = DatePickerCalendarProps &
@@ -10,11 +10,11 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         /**
          * Обработчик изменения значения.
          */
-        onChangeValue: (values: [Date, Date?], dateInfo?: DateInfo) => void;
+        onChangeValue: (values: [DateType, DateType], dateInfo?: DateInfo) => void;
         /**
          * Выбранное значение.
          */
-        calendarValue: [Date?, Date?];
+        calendarValue: [DateType, DateType];
         /**
          * Отобразить двойной календарь
          */

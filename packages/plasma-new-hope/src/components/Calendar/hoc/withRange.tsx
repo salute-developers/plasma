@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useCallback } from 'react';
 import type { ReactElement, FC } from 'react';
 
-import type { Calendar, CalendarRange, DateInfo } from '../Calendar.types';
+import type { Calendar, CalendarRange, DateInfo, DateType } from '../Calendar.types';
 import { getSortedValues, isValueUpdate } from '../utils';
 
 /**
@@ -22,7 +22,7 @@ export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
     ...rest
 }: CalendarRange<T>): ReactElement<T> => {
     const [startExternalValue, endExternalValue] = useMemo(() => value, [value]);
-    const [[startValue, endValue], setValues] = useState<[Date?, Date?]>([startExternalValue, endExternalValue]);
+    const [[startValue, endValue], setValues] = useState<[DateType, DateType]>([startExternalValue, endExternalValue]);
     const [prevValue, setPrevValue] = useState(value);
 
     if (isValueUpdate(value, prevValue)) {

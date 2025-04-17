@@ -45,7 +45,7 @@ export type DatePickerRangeFieldProps = {
     /**
      * Выбранные значения.
      */
-    value?: [Date | null | undefined, Date | null | undefined];
+    value?: [Date | string | null | undefined, Date | string | null | undefined];
     /**
      * Значение по умолчанию для первого поля.
      */

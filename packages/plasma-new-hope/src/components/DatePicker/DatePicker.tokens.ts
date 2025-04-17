@@ -247,4 +247,5 @@ export const tokens = {
     calendarContentSecondaryColor: '--plasma-date-picker-calendar__content-secondary-color',
     calendarContentPrimaryDisabledColor: '--plasma-date-picker-calendar__content-primary-disabled-color',
     calendarContentSecondaryDisabledColor: '--plasma-date-picker-calendar__content-secondary-disabled-color',
+    calendarDisabledOpacity: '--plasma-date-picker-calendar__disabled-opacity',
 };

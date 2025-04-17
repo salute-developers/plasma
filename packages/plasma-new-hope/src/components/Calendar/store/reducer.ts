@@ -1,3 +1,4 @@
+import { DateType } from '../Calendar.types';
 import { getDateFromValue, getNextDate, getPrevDate, getStartYear } from '../utils';
 
 import { CalendarStateType, Action, ActionType, InitialState, SizeMap } from './types';
@@ -22,7 +23,7 @@ export const sizeMap: SizeMap = {
 };
 
 export const getInitialState = (
-    value: Date | undefined,
+    value: DateType,
     min: Date | undefined,
     renderFromDate: Date | undefined,
     calendarState: CalendarStateType,

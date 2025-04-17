@@ -61,7 +61,6 @@ describe('plasma-b2c: DatePicker', () => {
                     setIsOpen(is);
                     onToggle?.(is, e);
                 }}
-                onCommitDate={() => setIsOpen(false)}
                 {...rest}
             />
         );
@@ -311,6 +310,7 @@ describe('plasma-b2c: DatePicker', () => {
                     leftHelper="Подсказка к полю"
                     placeholder="Выберите дату"
                     defaultDate={new Date(2023, 5, 14)}
+                    renderFromDate={new Date(2023, 5, 1)}
                 />
             </CypressTestDecoratorWithTypo>,
         );

@@ -65,6 +65,7 @@ export const config = {
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
                 ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
                 ${tokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
+                ${tokens.calendarDisabledOpacity}: 0.4;
 
                 ${tokens.iconButtonColor}: var(--text-primary);
                 ${tokens.iconButtonBackgroundColor}: var(--surface-clear);
