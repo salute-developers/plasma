@@ -16,6 +16,7 @@ export const config = {
                 ${checkboxTokens.triggerPadding}: 0.0625rem;
                 ${checkboxTokens.triggerSize}: 0.875rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.25rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0;
                 ${checkboxTokens.contentLeftOffset}: 0.5rem;
                 ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -37,6 +38,7 @@ export const config = {
                 ${checkboxTokens.triggerPadding}: 0.125rem;
                 ${checkboxTokens.triggerSize}: 1.25rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.375rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0.125rem;
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
                 ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -53,6 +55,28 @@ export const config = {
                 ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
+            l: css`
+                ${checkboxTokens.margin}: 0;
+                ${checkboxTokens.triggerPadding}: 0.125rem;
+                ${checkboxTokens.triggerSize}: 1.25rem;
+                ${checkboxTokens.triggerBorderRadius}: 0.375rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
+                ${checkboxTokens.contentTopOffset}: 0.0625rem;
+                ${checkboxTokens.contentLeftOffset}: 0.75rem;
+                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${checkboxTokens.descriptionMarginTop}: 0.125rem;
+                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
+                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
+            `,
         },
         /**
          * Вид контрола.
@@ -65,6 +89,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: var(--text-accent);
             `,
             // deprecated
             default: css`
@@ -73,6 +98,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             secondary: css`
@@ -81,6 +107,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             tertiary: css`
@@ -89,6 +116,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             paragraph: css`
@@ -97,6 +125,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             positive: css`
@@ -105,6 +134,7 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             warning: css`
@@ -113,14 +143,15 @@ export const config = {
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
-            // deprecated
             negative: css`
                 ${checkboxTokens.fillColor}: var(--text-negative);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: var(--text-negative);
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },
         disabled: {

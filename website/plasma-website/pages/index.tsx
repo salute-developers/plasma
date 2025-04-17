@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { BodyXXS } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 import { useEffect, useRef, useState } from 'react';
@@ -7,6 +7,7 @@ import { Menu, Product, ProductList, LinkItem, StickyNav, StickyNavItem, Draggab
 import type { ProductProps } from '../components/main';
 import { currentYear, products, stickyNavSnapVariant, verticals, verticalsMap } from '../utils';
 import { rootFontSize, sectionOffsetAccuracy, stickyNavItemMargin, topOffsetAfterScroll } from '../utils/constants';
+import { multipleMediaQuery } from '../mixins';
 
 const CopyrightText = styled(BodyXXS)`
     position: fixed;
@@ -34,8 +35,24 @@ const ScrollBlock = styled.div`
 `;
 
 const Products = styled.div`
-    padding: 11.5rem 0 4rem;
+    padding: 11.5rem 0 4.875rem;
     position: relative;
+
+    ${multipleMediaQuery(['XL'])(css`
+        padding-bottom: 4rem;
+    `)}
+
+    ${multipleMediaQuery(['L'])(css`
+        padding-bottom: 2.5rem;
+    `)}
+
+    ${multipleMediaQuery(['M'])(css`
+        padding-bottom: 1.75rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        padding-bottom: 1.25rem;
+    `)}
 `;
 
 const ProductsWrapper = styled.div`

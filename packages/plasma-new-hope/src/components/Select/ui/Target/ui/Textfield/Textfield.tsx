@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { sizeToIconSize, getItemId, getRemovedElement } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 
-import { IconArrowWrapper, StyledArrow, StyledTextField } from './Textfield.styles';
+import { IconArrowWrapper, StyledArrow, StyledTextField, StyledLeftHelper } from './Textfield.styles';
 import { TextfieldProps } from './Textfield.types';
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
@@ -41,15 +41,15 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
         const getValue = () => {
-            if (multiselect || !value) {
+            if (multiselect || Array.isArray(value) || !value) {
                 return '';
             }
 
             if (renderValue) {
-                return renderValue(valueToItemMap.get(value.toString())!);
+                return renderValue(valueToItemMap.get(value.toString()) || { value, label: value.toString() });
             }
 
-            return valueToItemMap.get(value.toString())?.label || '';
+            return valueToItemMap.get(value.toString())?.label || value.toString();
         };
 
         const getChips = (): string[] => {
@@ -61,8 +61,13 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 }
 
                 const renderValueMapper =
-                    renderValue && ((stringValue: string | number) => renderValue(valueToItemMap.get(stringValue)!));
-                const valueToItemMapper = (stringValue: string | number) => valueToItemMap.get(stringValue)!.label;
+                    renderValue &&
+                    ((stringValue: string | number) =>
+                        renderValue(
+                            valueToItemMap.get(stringValue) || { value: stringValue, label: stringValue.toString() },
+                        ));
+                const valueToItemMapper = (stringValue: string | number) =>
+                    valueToItemMap.get(stringValue)?.label || stringValue.toString();
 
                 return value.map(renderValueMapper || valueToItemMapper);
             }
@@ -80,8 +85,16 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 const resultValues = [...value];
 
                 value.forEach((_, index) => {
+                    const stringValue = value[index];
+                    const label = valueToItemMap.get(stringValue)?.label;
+
                     const labelAfterRenderValue = renderValue(
-                        labelToItemMap.get(valueToItemMap.get(value[index])!.label)!,
+                        label
+                            ? labelToItemMap.get(label)!
+                            : {
+                                  value: stringValue,
+                                  label: stringValue.toString(),
+                              },
                     );
 
                     if (!chipLabels.includes(labelAfterRenderValue)) {
@@ -91,13 +104,34 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
                 const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
 
-                onChange(resultValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
+                onChange(
+                    resultValues,
+                    removedItemValue
+                        ? valueToItemMap.get(removedItemValue) || {
+                              value: removedItemValue,
+                              label: removedItemValue.toString(),
+                          }
+                        : null,
+                );
             } else {
-                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)!.value);
-                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
+                const newValues = chipLabels.map((chipLabel) => {
+                    return labelToItemMap.get(chipLabel)?.value || chipLabel;
+                });
 
-                onChange(newValues, removedItemValue ? valueToItemMap.get(removedItemValue) : null);
+                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
+                const item = removedItemValue
+                    ? valueToItemMap.get(removedItemValue) || {
+                          value: removedItemValue,
+                          label: removedItemValue.toString(),
+                      }
+                    : null;
+
+                onChange(newValues, item);
             }
+        };
+
+        const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
         };
 
         return (
@@ -121,7 +155,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     </IconArrowWrapper>
                 }
                 onKeyDown={onKeyDown}
-                leftHelper={helperText}
+                leftHelper={
+                    helperText && <StyledLeftHelper onClick={helperTextStopPropagation}>{helperText}</StyledLeftHelper>
+                }
                 role="combobox"
                 aria-autocomplete="list"
                 aria-controls={`${treeId}_tree_level_1`}
@@ -136,7 +172,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                           chipView,
                       }
                     : { enumerationType: 'plain' })}
-                onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
+                _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                 opened={opened}
                 // TODO: #1547
                 _forceChipManipulationWithReadonly={!readOnly}

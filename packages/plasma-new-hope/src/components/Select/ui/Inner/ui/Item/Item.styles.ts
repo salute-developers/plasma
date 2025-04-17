@@ -1,12 +1,12 @@
 import { styled } from '@linaria/react';
+import { addFocus, applyEllipsis } from 'src/mixins';
+import { component, mergeConfig } from 'src/engines';
+import type { SelectProps } from 'src/components/Select';
 
 import { classes, tokens, constants } from '../../../../Select.tokens';
-import { addFocus, applyEllipsis } from '../../../../../../mixins';
-import { component, mergeConfig } from '../../../../../../engines';
 import { checkboxConfig, checkboxTokens } from '../../../../../Checkbox';
 import { cellConfig, cellTokens } from '../../../../../Cell';
 import { indicatorConfig, indicatorTokens } from '../../../../../Indicator';
-import type { SelectProps } from '../../../../Select.types';
 import { IconDisclosureRightCentered, IconDone } from '../../../../../_Icon';
 
 const mergedCheckboxConfig = mergeConfig(checkboxConfig);
@@ -63,7 +63,9 @@ export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.triggerBorderRadius}: var(${tokens.checkboxTriggerBorderRadius});
     ${checkboxTokens.fillColor}: var(${tokens.checkboxFillColor});
     ${checkboxTokens.iconColor}: var(${tokens.checkboxIconColor});
+    ${checkboxTokens.triggerBorderWidth}: var(${tokens.checkboxTriggerBorderWidth});
     ${checkboxTokens.triggerBorderColor}: var(${tokens.checkboxTriggerBorderColor});
+    ${checkboxTokens.triggerBorderCheckedColor}: var(${tokens.checkboxTriggerBorderCheckedColor});
 `;
 
 export const StyledIndicator = styled(Indicator)`

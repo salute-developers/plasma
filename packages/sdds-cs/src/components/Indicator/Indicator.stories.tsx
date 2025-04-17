@@ -8,7 +8,7 @@ const meta: Meta<typeof Indicator> = {
     component: Indicator,
     argTypes: {
         view: {
-            options: ['default', 'accent', 'inactive', 'positive', 'negative'],
+            options: ['default', 'accent', 'inactive', 'positive', 'negative', 'warning', 'black'],
             control: {
                 type: 'select',
             },

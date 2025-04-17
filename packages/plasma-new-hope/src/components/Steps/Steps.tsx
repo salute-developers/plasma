@@ -9,6 +9,7 @@ import { StepItem } from './ui';
 import { base } from './Steps.styles';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as itemViewCSS } from './variations/_itemView/base';
 import { getItemStatus } from './utils/getItemStatus';
 
 type StepsProps = BaseStepsProps & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
@@ -17,6 +18,7 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
     forwardRef<HTMLDivElement, StepsProps>((props, outerRef) => {
         const {
             view = 'default',
+            itemView = 'default',
             size,
             orientation = 'horizontal',
             contentAlign = 'left',
@@ -75,6 +77,7 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
             <Root
                 size={size}
                 view={view}
+                itemView={itemView}
                 ref={outerRef}
                 className={cls({
                     [classes.verticalOrientation]: orientation === 'vertical',
@@ -122,9 +125,11 @@ export const stepsConfig = {
     variations: {
         size: sizeCSS,
         view: viewCSS,
+        itemView: itemViewCSS,
     },
     defaults: {
         view: 'default',
         size: 'm',
+        itemView: 'default',
     },
 };

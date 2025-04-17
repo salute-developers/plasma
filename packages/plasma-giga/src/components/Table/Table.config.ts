@@ -27,9 +27,13 @@ export const config = {
                 ${tokens.rowHeight}: 3.125rem;
                 ${tokens.cellPadding}: 0.375rem 1rem;
                 ${tokens.checkboxCellPadding}: 0.375rem 1rem;
-
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxTriggerIconColor}: var(--on-dark-text-primary);
 
                 ${tokens.editableCellIconGap}: 0.5rem;
                 ${tokens.editableCellIconButtonWidth}: 3rem;
@@ -67,6 +71,8 @@ export const config = {
                 ${tokens.selectCellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.selectCheckboxTriggerSize}: 1.25rem;
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.selectCheckboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.selectCheckboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.selectControlPanelPadding}: 0.5rem 1rem;
                 ${tokens.selectControlPanelGap}: 0.5rem;
 
@@ -89,9 +95,13 @@ export const config = {
                 ${tokens.rowHeight}: 2.75rem;
                 ${tokens.cellPadding}: 0.25rem 0.875rem;
                 ${tokens.checkboxCellPadding}: 0.25rem 0.75rem;
-
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxTriggerIconColor}: var(--on-dark-text-primary);
 
                 ${tokens.editableCellIconGap}: 0.375rem;
                 ${tokens.editableCellIconButtonWidth}: 2.5rem;
@@ -129,6 +139,8 @@ export const config = {
                 ${tokens.selectCellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.selectCheckboxTriggerSize}: 1.25rem;
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.selectCheckboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.selectCheckboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.selectControlPanelPadding}: 0.25rem 0.875rem;
                 ${tokens.selectControlPanelGap}: 0.625rem;
 
@@ -151,9 +163,13 @@ export const config = {
                 ${tokens.rowHeight}: 2.125rem;
                 ${tokens.cellPadding}: 0.125rem 0.5rem;
                 ${tokens.checkboxCellPadding}: 0.125rem 0.625rem;
-
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerSize}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxTriggerIconColor}: var(--on-dark-text-primary);
 
                 ${tokens.editableCellIconGap}: 0.25rem;
                 ${tokens.editableCellIconButtonWidth}: 2rem;
@@ -191,6 +207,8 @@ export const config = {
                 ${tokens.selectCellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.selectCheckboxTriggerSize}: 0.875rem;
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.25rem;
+                ${tokens.selectCheckboxTriggerBorderWidth}: 0.125rem;
+                ${tokens.selectCheckboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.selectControlPanelPadding}: 0.25rem 0.625rem;
                 ${tokens.selectControlPanelGap}: 0.25rem;
 

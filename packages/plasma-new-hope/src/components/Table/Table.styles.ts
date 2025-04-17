@@ -113,9 +113,11 @@ export const Th = styled.th<{ borderVariant: TableProps['borderVariant']; select
 export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.triggerSize}: var(${tokens.checkboxTriggerSize});
     ${checkboxTokens.triggerBorderRadius}: var(${tokens.checkboxTriggerBorderRadius});
-    ${checkboxTokens.fillColor}: var(--text-accent);
-    ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-    ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+    ${checkboxTokens.fillColor}: var(${tokens.checkboxFillColor});
+    ${checkboxTokens.iconColor}: var(${tokens.checkboxTriggerIconColor});
+    ${checkboxTokens.triggerBorderCheckedColor}: var(${tokens.checkboxTriggerBorderCheckedColor});
+    ${checkboxTokens.triggerBorderWidth}: var(${tokens.checkboxTriggerBorderWidth});
+    ${checkboxTokens.triggerBorderColor}: var(${tokens.checkboxTriggerBorderColor});
 `;
 
 export const StyledDivider = styled(Divider)`

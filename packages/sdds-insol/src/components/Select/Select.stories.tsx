@@ -472,18 +472,19 @@ const items = [
     },
 ];
 
-const SingleStory = (args: StorySelectProps) => {
+const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [value, setValue] = useState('');
 
     return (
         <div style={{ width: '300px' }}>
             <Select
                 {...args}
+                _checkboxAppearance="outline"
                 items={items}
                 value={value}
                 onChange={setValue}
                 contentLeft={
-                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                    enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
                 }
             />
         </div>
@@ -502,7 +503,7 @@ export const Single: StoryObj<StorySelectProps> = {
     },
 };
 
-const MultiselectStory = (args: StorySelectProps) => {
+const MultiselectStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [value, setValue] = useState<Array<string>>([]);
 
     return (
@@ -513,7 +514,7 @@ const MultiselectStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={
-                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                    enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
                 }
             />
         </div>
@@ -528,7 +529,7 @@ export const Multiselect: StoryObj<StorySelectProps> = {
     render: (args) => <MultiselectStory {...args} />,
 };
 
-const PredefinedStory = (args: StorySelectProps) => {
+const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [valueSingle, setValueSingle] = useState('paris');
     const [valueMultiple, setValueMultiple] = useState(['paris', 'north_america']);
 
@@ -540,7 +541,7 @@ const PredefinedStory = (args: StorySelectProps) => {
                 value={valueSingle}
                 onChange={setValueSingle}
                 contentLeft={
-                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                    enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
                 }
             />
 
@@ -553,7 +554,7 @@ const PredefinedStory = (args: StorySelectProps) => {
                 value={valueMultiple}
                 onChange={setValueMultiple}
                 contentLeft={
-                    args.enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
+                    enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
                 }
             />
         </div>
@@ -564,11 +565,9 @@ export const Predefined: StoryObj<StorySelectProps> = {
     render: (args) => <PredefinedStory {...args} />,
 };
 
-const CommonStory = (args: StorySelectProps) => {
+const CommonStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [value, setValue] = useState('');
     const [valueMultiple, setValueMultiple] = useState<Array<string>>([]);
-
-    const { enableContentLeft } = args;
 
     return (
         <div className="container">

@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import List from 'rc-virtual-list';
+import { getHeightAsNumber } from 'src/utils';
 
-import { getHeightAsNumber } from '../../../../utils';
 import type { MergedDropdownNodeTransformed } from '../Inner/ui/Item/Item.types';
 import { Item } from '../Inner/ui';
 

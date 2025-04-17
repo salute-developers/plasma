@@ -24,7 +24,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     size="m"
                     contentLeft={<Avatar size="m" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"
@@ -51,7 +51,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     size="l"
                     contentLeft={<Avatar size="l" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"
@@ -60,7 +60,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     size="m"
                     contentLeft={<Avatar size="m" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"
@@ -69,7 +69,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     size="s"
                     contentLeft={<Avatar size="s" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"
@@ -78,7 +78,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     size="xs"
                     contentLeft={<Avatar size="s" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"
@@ -93,7 +93,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     alignContentLeft="top"
                     contentLeft={<Avatar size="m" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"
@@ -102,7 +102,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     alignContentRight="top"
                     contentLeft={<Avatar size="m" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"
@@ -111,7 +111,7 @@ describe('plasma-web: Cell Styled', () => {
                 <Cell
                     alignContentLeft="bottom"
                     contentLeft={<Avatar size="m" name="Иван Фадеев" />}
-                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    contentRight={<IconChevronRight color="inherit" size="xs" />}
                     title="Title"
                     subtitle="Subtitle"
                     label="Label"

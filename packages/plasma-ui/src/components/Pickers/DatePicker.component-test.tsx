@@ -1,9 +1,11 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mountLegacyMode, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 const noop = () => {};
 
+// TODO: Кажется нужно переписать тесты. Они опираются на `cy.wait(ms)` и это хрупкий механизм
+// TODO: После стабилизации тестов будет использоваться метод mount
 describe('plasma-ui: DatePicker', () => {
     const DatePicker = getComponent('DatePicker');
     const AutofocusedDatePicker = () => (
@@ -19,7 +21,7 @@ describe('plasma-ui: DatePicker', () => {
     );
 
     it('default', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <DatePicker value={new Date(1985, 8, 1)} min={new Date(1975, 1, 1)} max={new Date(1985, 10, 30)} />
             </CypressTestDecorator>,
@@ -29,7 +31,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('without infiniteScroll', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <DatePicker
                     infiniteScroll={false}
@@ -44,7 +46,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('change values', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <DatePicker
                     scrollSnapType="none"
@@ -71,7 +73,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('with controls', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <DatePicker
                     value={new Date(1980, 8, 1)}
@@ -87,7 +89,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('jump 10 down', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <AutofocusedDatePicker />
             </CypressTestDecorator>,
@@ -99,7 +101,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('jump 10 up', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <AutofocusedDatePicker />
             </CypressTestDecorator>,
@@ -111,7 +113,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('jump home', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <AutofocusedDatePicker />
             </CypressTestDecorator>,
@@ -123,7 +125,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('jump end', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <AutofocusedDatePicker />
             </CypressTestDecorator>,
@@ -135,7 +137,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 
     it('with single item', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <>
                     <DatePicker
@@ -183,7 +185,7 @@ describe('plasma-ui: DatePicker update value', () => {
     }
 
     it('change values', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <Demo data={new Date(1984, 3, 10, 3, 0, 0)} type="valueChange" />
             </CypressTestDecorator>,
@@ -195,7 +197,7 @@ describe('plasma-ui: DatePicker update value', () => {
     });
 
     it('change values with max', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <Demo data={new Date(1999, 3, 10, 0, 0, 0)} type="valueChange" />
             </CypressTestDecorator>,
@@ -207,7 +209,7 @@ describe('plasma-ui: DatePicker update value', () => {
     });
 
     it('change values with min', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <Demo data={new Date(1970, 3, 10, 0, 0, 0)} type="valueChange" />
             </CypressTestDecorator>,
@@ -219,7 +221,7 @@ describe('plasma-ui: DatePicker update value', () => {
     });
 
     it('change min value', () => {
-        mount(
+        mountLegacyMode(
             <CypressTestDecorator>
                 <Demo data={new Date(1980, 8, 5, 0, 0, 0)} type="minChange" />
             </CypressTestDecorator>,

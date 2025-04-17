@@ -7,7 +7,7 @@ import { RootProps } from '../../engines';
 import { FloatingPopover } from './FloatingPopover';
 import { focusedReducer } from './reducers/focusedReducer';
 import { SuggestionItem, StyledTextField, VirtualList } from './ui';
-import { Ul, InfiniteLoaderWrapper, base } from './Autocomplete.styles';
+import { Ul, InfiniteLoaderWrapper, base, StyledLeftHelper } from './Autocomplete.styles';
 import type { AutocompleteProps, SuggestionItemType } from './Autocomplete.types';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 
@@ -108,6 +108,10 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 return label.toLowerCase().includes(value.toString().toLowerCase());
             };
 
+            const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+                event.stopPropagation();
+            };
+
             const finalResults = suggestions?.filter(filter || defaultFilterCallback) || [];
 
             virtual = virtual && finalResults.length > VIRTUAL_ITEM_AMOUNT_THRESHOLD;
@@ -173,7 +177,13 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                 hintText={String(hintText || '')}
                                 labelPlacement={labelPlacement}
                                 keepPlaceholder={keepPlaceholder}
-                                leftHelper={leftHelper}
+                                leftHelper={
+                                    leftHelper && (
+                                        <StyledLeftHelper onClick={helperTextStopPropagation}>
+                                            {leftHelper}
+                                        </StyledLeftHelper>
+                                    )
+                                }
                                 {...rest}
                             />
                         )}

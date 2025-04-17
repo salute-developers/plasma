@@ -31,6 +31,7 @@ import {
     configM as textConfigMCustom,
     configS as textConfigSCustom,
     configXS as textConfigXSCustom,
+    configSlim as textConfigSlimCustom,
 } from './Text.config';
 
 const bodyMConfig = mergeConfig(bodyConfig, bodyConfigMCustom);
@@ -84,6 +85,9 @@ const TextSComponent = component(textSConfig);
 const textXSConfig = mergeConfig(textConfig, textConfigXSCustom);
 const TextXSComponent = component(textXSConfig);
 
+const textSlimConfig = mergeConfig(textConfig, textConfigSlimCustom);
+const TextSlimComponent = component(textSlimConfig);
+
 export const BodyM = BodyMComponent;
 export const BodyL = BodyLComponent;
 export const BodyS = BodySComponent;
@@ -104,3 +108,4 @@ export const TextM = TextMComponent;
 export const TextL = TextLComponent;
 export const TextS = TextSComponent;
 export const TextXS = TextXSComponent;
+export const TextSlim = TextSlimComponent;

@@ -1,9 +1,9 @@
 import { styled } from '@linaria/react';
+import { component, mergeConfig } from 'src/engines';
+import { IconDisclosureDownCentered } from 'src/components/_Icon';
+import { textFieldConfig, textFieldTokens } from 'src/components/TextField';
 
-import { component, mergeConfig } from '../../../../../../engines';
-import { textFieldConfig, textFieldTokens } from '../../../../../TextField';
 import { tokens, classes } from '../../../../Select.tokens';
-import { IconDisclosureDownCentered } from '../../../../../_Icon';
 
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
@@ -237,4 +237,9 @@ export const sizeMap: Record<string, string> = {
 export const StyledArrow = styled(IconDisclosureDownCentered)`
     width: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
     height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
+`;
+
+export const StyledLeftHelper = styled.span`
+    margin: 0;
+    padding: 0;
 `;

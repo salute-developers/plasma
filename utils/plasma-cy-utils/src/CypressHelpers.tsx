@@ -161,6 +161,13 @@ export const withNoAnimation = <P extends {}>(Comp: React.FC<P>) =>
 export const mount: typeof cyMount = (...args) => {
     const [jsx, opts = {}] = args;
 
+    return cyMount(jsx, opts);
+};
+
+// INFO: для временного использования в plasma-ui
+export const mountLegacyMode: typeof cyMount = (...args) => {
+    const [jsx, opts = {}] = args;
+
     opts.stylesheets = (opts?.stylesheets || ([] as string[])).concat(
         'https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css',
         'https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css',

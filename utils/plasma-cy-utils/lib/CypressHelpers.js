@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Portal = exports.mount = exports.withNoAnimation = exports.SpaceMe = exports.PadMe = exports.CypressTestDecorator = exports.getComponent = void 0;
+exports.Portal = exports.mountLegacyMode = exports.mount = exports.withNoAnimation = exports.SpaceMe = exports.PadMe = exports.CypressTestDecorator = exports.getComponent = void 0;
 var react_1 = __importDefault(require("react"));
 var react_dom_1 = require("react-dom");
 var styled_components_1 = __importStar(require("styled-components"));
@@ -134,6 +134,15 @@ exports.withNoAnimation = function (Comp) {
     return styled_components_1.default(Comp)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        animation: none !important;\n        /* stylelint-disable-next-line selector-max-universal */\n        & * {\n            animation: none !important;\n        }\n    "], ["\n        animation: none !important;\n        /* stylelint-disable-next-line selector-max-universal */\n        & * {\n            animation: none !important;\n        }\n    "])));
 };
 exports.mount = function () {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    var jsx = args[0], _a = args[1], opts = _a === void 0 ? {} : _a;
+    return react_2.mount(jsx, opts);
+};
+// INFO: для временного использования в plasma-ui
+exports.mountLegacyMode = function () {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];

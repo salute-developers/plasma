@@ -36,7 +36,7 @@ export const base = css`
     input[data-focus-visible-added]:checked + label .checkbox-trigger,
     input[type='checkbox'][data-focus-visible-added]:indeterminate + label .${classes.checkboxTrigger} {
         ${addFocus({
-            outlineOffset: '-0.125rem',
+            outlineOffset: '-0.25rem',
             outlineSize: '0.063rem',
             outlineRadius: `calc(var(${tokens.triggerBorderRadius}) + 0.125rem)`,
             outlineColor: `var(${tokens.focusColor})`,

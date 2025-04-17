@@ -24,6 +24,10 @@ export const base = css`
         white-space: nowrap;
     }
 
+    &.${classes.typoIsNumeric} {
+        font-variant-numeric: tabular-nums;
+    }
+
     ${applyHyphensNormal};
 
     &.${classes.typoWithBreakWord} {

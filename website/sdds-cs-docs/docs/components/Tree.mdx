@@ -37,6 +37,18 @@ type TreeItem = {
      * @default false
      */
     disabled?: boolean;
+    /**
+     * Иконка для текущего элемента.
+     */
+    icon?: React.ReactNode;
+    /**
+     * Дочерние items.
+     */
+    children?: TreeItem[];
+    /**
+     * Контент справа.
+     */
+    contentRight?: React.ReactNode;
 };
 ```
 
@@ -176,6 +188,29 @@ type TreeItem = {
                         onTreeCheck={setChecked}
                         selectedKeys={selected}
                         onTreeSelect={setSelected}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="virtual" label="Virtual">
+        Для включения виртуализации обязательными являются 2 свойства: `height` и `itemHeight`. \
+        Также есть опциональный флаг для явного отключения/включения виртуализации: `virtual`.
+
+        ```tsx live
+        import React from 'react';
+        import { Tree } from '@salutejs/sdds-cs';
+
+        export function App() {
+            return (
+                <div style={{ display: 'block' }}>
+                    <Tree
+                        items={Array(1000)
+                            .fill(1)
+                            .map((_, i) => ({ key: i.toString(), title: i.toString() }))}
+                        height={400}
+                        itemHeight={48}
                     />
                 </div>
             );

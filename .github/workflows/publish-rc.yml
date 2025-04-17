@@ -1,73 +1,11 @@
 name: Release RC
 
 on:
-  push:
-    branches:
-      - dev
+  workflow_dispatch:
 
 jobs:
-  state:
-    if: ${{ github.actor == 'github-merge-queue[bot]' }}
-    name: State
-    runs-on: ubuntu-22.04
-    env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-    outputs:
-      PR: ${{ steps.pull_request.outputs.result }}
-    steps:
-      ## Получаем актуальное состояние dev branch
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          show-progress: false
-          fetch-depth: 0
-      
-      - name: Prepare environment
-        uses: ./.github/actions/prepare-environment
-      
-      ## Получаем информацию о pull request который был влит
-      ## context.sha - это последний commit в dev ветку
-      ## base.sha - это последний commit base branch до влития целевого pull request
-      - name: Get associated pull request by commit
-        id: pull_request
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const teammate = {
-              Yakutoc: "alex_czech",
-              'neretin-trike': "aaneretin",
-              'Yeti-or': "yeti-or",
-              TitanKuzmich: "aakrivonos",
-              kayman233: "ivakudryavtsev",
-              shuga2704: "shuga2704",
-            };
-            
-            const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
-              commit_sha: context.sha,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            });
-            
-            const {
-              base: { sha = context.sha },
-              title,
-              user: { login }
-            } = res?.data[0] || {};
-            
-            return { sha, pr: title, user: teammate[login] || 'alex_czech' };
-      
-      ## Сохраняем вывод команды lerna ls в формате json array
-      - name: Preserve lerna ls state
-        id: lerna_ls
-        env:
-          SHA: ${{ fromJSON(steps.pull_request.outputs.result).sha }}
-        run: |
-          echo "RAW_DATA=$(npx lerna la --json --since=${{ env.SHA }} | jq -c)" >> "$GITHUB_OUTPUT"
-  
   publish:
     name: Publish RC version
-    needs: [ state ]
-    if: ${{ github.actor == 'github-merge-queue[bot]' }}
     uses: ./.github/workflows/publish-common.yml
     with:
       with-update-package-lock: true
@@ -80,44 +18,12 @@ jobs:
   catch:
     name: Handle errors
     runs-on: ubuntu-22.04
-    needs: [ state, publish ]
+    needs: [ publish ]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
-    env:
-      FAILED_JOB_NAME: ${{ contains(needs.change-state.result, 'failure') && 'State' || 'Publish RC version / publish' }}
-      TITLE: ${{ fromJSON(needs.state.outputs.PR).pr }}
-      USER: ${{ fromJSON(needs.state.outputs.PR).user }}
     steps:
-      - name: Get failed job information
-        id: job
-        uses: actions/github-script@v6
-        env:
-          RUN_ID: ${{github.run_id}}
-          FAILED_JOB_NAME: ${{ env.FAILED_JOB_NAME }}
-        with:
-          script: |
-            const { RUN_ID, FAILED_JOB_NAME } = process.env;
-            
-            const res = await github.rest.actions.listJobsForWorkflowRun({
-              run_id: RUN_ID,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            });
-            
-            const { data: { jobs: jobsList } } = res;
-            
-            const { html_url, steps: stepsList } = jobsList.find(({ name }) => name === FAILED_JOB_NAME ) || {};
-            
-            const { name } = stepsList.find(({ conclusion }) => conclusion === "failure" ) || { name: '' };
-            
-            return { job: html_url, name }
-      
       - name: Send notification about failure state
         uses: mattermost/action-mattermost-notify@master
         with:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.WEBHOOKS_NOTIFICATIONS_MM }}
           TEXT: |
             Публикация RC 💀
-            
-            **PR**: ${{ env.TITLE }}
-            **Failure step**: [${{ fromJSON(steps.job.outputs.result).name }}](${{ fromJSON(steps.job.outputs.result).job }})
-            **Автор**: @${{ env.USER }}

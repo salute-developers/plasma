@@ -115,10 +115,8 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: 
 
     return (
         <Button
-            contentLeft={enableContentLeft && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={
-                enableContentRight && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined
-            }
+            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
             size={size}
             onClick={onClick}
             onFocus={onFocus}
@@ -191,10 +189,8 @@ const StoryLoading = ({
         <Button
             autoFocus
             onClick={onClickHandle}
-            contentLeft={enableContentLeft && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined}
-            contentRight={
-                enableContentRight && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined
-            }
+            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
             isLoading={loading}
             size={size}
             loader={<div>Loading - {count}</div>}

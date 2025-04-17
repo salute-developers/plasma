@@ -22,6 +22,12 @@ export const config = {
             negative: css`
                 ${tokens.color}: var(--surface-negative);
             `,
+            warning: css`
+                ${tokens.color}: var(--surface-warning);
+            `,
+            black: css`
+                ${tokens.color}: var(--text-primary);
+            `,
         },
         size: {
             l: css`

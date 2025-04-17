@@ -16,4 +16,5 @@ export {
     TextM,
     TextS,
     TextXS,
+    TextSlim,
 } from './Typography';

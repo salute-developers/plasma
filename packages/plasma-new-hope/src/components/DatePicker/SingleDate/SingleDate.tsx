@@ -78,6 +78,7 @@ export const datePickerRoot = (
                 onBlur,
                 onChange,
 
+                autoComplete,
                 ...rest
             },
             ref,
@@ -171,6 +172,7 @@ export const datePickerRoot = (
                     label={label}
                     labelPlacement={labelPlacement}
                     keepPlaceholder={keepPlaceholder}
+                    autoComplete={autoComplete}
                 />
             );
 
