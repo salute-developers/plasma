@@ -9,6 +9,11 @@ import { PropsTable, Description } from '@site/src/components';
 <Description name="Toast" />
 <PropsTable name="Toast" />
 
+:::caution Устаревшие значения свойства `view`
+Значения `dark` и `light` являются устаревшими.<br/>
+Для изменения фона `Toast` используйте компонент `ViewContainer` (см. <a href="#пример-использования">пример использования</a>)
+:::
+
 ## Система подсказок
 Существует готовая система текстовых подсказок, для использования которой необходимо обернуть приложение в `ToastProvider`:
 
@@ -120,7 +125,6 @@ export interface ShowToastArgs {
 ```
 
 ## Пример использования
-
 Для изменения цветовой темы компонента `Toast` используйте свойство `view` компонента `ViewContainer`.
 
 ```jsx live
@@ -130,7 +134,7 @@ import { useToast, ToastProvider, Button, ViewContainer } from '@salutejs/{{ pac
 export function App() {
 
     const ToastExample = () => {
-        const { showToast, hideToast } = useToast()
+        const { showToast } = useToast()
 
         const onShow = () => {}
         const onHide = () => {}
@@ -165,6 +169,48 @@ export function App() {
                 </ToastProvider>
             </ViewContainer>
         </div>
+    )
+}
+```
+
+## Вид иконки
+Значения `positive` и `negative` свойства `view` изменяют цвет иконки.<br/>
+Чтобы цвет применился, установите в иконке свойство `color` со значением `inherit`:
+
+```jsx live
+import React from 'react'
+import { IconBell } from '@salutejs/plasma-icons';
+import { useToast, ToastProvider, Button } from '@salutejs/{{ package }}'
+
+export function App() {
+    const Icon = () => <IconBell color="inherit" size="xs" />;
+
+    const ToastExample = () => {
+        const { showToast } = useToast()
+
+        const onShow = () => {}
+        const onHide = () => {}
+        const toastData = {
+            contentLeft: <Icon />,
+            text: 'Подсказка c иконкой',
+            position: 'bottom',
+            role: 'status',
+            hasClose: true,
+            fade: false,
+            size: 'm',
+            view: 'positive',
+            timeout: 3000,
+            onShow,
+            onHide
+        }
+
+        return <Button onClick={() => showToast(toastData)} text="Вызвать подсказку" />
+    }
+
+    return (
+        <ToastProvider>
+            <ToastExample />
+        </ToastProvider>
     )
 }
 ```

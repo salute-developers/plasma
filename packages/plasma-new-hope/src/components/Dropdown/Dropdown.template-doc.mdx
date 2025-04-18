@@ -30,7 +30,7 @@ type Items = Array<{
          */
         label: string;
         /**
-        * Сторона открытия вложенного дропдауна относительно текущего элемента;
+        * Сторона открытия вложенного Dropdown относительно текущего элемента;
         */
         placement?: DropdownPlacement;
         /**
@@ -117,7 +117,7 @@ type Items = Array<{
 
 
             return (
-                <div style={{ height:"300px" }}>
+                <div style=\{{ height:"300px" }}>
                     <Dropdown
                         items={items}
                     >
@@ -170,7 +170,7 @@ type Items = Array<{
             ];
 
             return (
-                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
+                <div style=\{{ height: "300px", display: "flex", gap: "50px" }}>
                     <Dropdown
                         items={items}
                         size="l"
@@ -245,7 +245,7 @@ type Items = Array<{
             ];
 
             return (
-                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
+                <div style=\{{ height: "300px", display: "flex", gap: "50px" }}>
                     <Dropdown
                         items={items}
                     >
@@ -327,7 +327,7 @@ type Items = Array<{
             ];
 
             return (
-                <div style={{ height:"300px" }}>
+                <div style=\{{ height:"300px" }}>
                     <Dropdown
                         items={items}
                         trigger="hover"
@@ -380,10 +380,10 @@ type Items = Array<{
                 },
             ];
 
-            const ref = useRef(null)
+            const ref = useRef(null);
 
             return (
-                <div style={{ position: "relative", height: "300px" }} ref={ref}>
+                <div style=\{{ position: "relative", height: "300px" }} ref={ref}>
                     <Dropdown items={items} portal={ref}>
                         <Button text="Список стран" />
                     </Dropdown>
@@ -399,13 +399,13 @@ type Items = Array<{
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
 - `Tab` - закрывает Dropdown. Перемещает фокус на следующий элемент на странице;
-- `Enter` - открывает/закрывает Dropdown. Если на элементе - выбирает его;
-- `Space` - открывает/закрывает Dropdown. Если на элементе - выбирает его;
+- `Enter` - открывает/закрывает Dropdown. Если на элементе — выбирает его;
+- `Space` - открывает/закрывает Dropdown. Если на элементе — выбирает его;
 - `Home` - открывает Dropdown и перемещает фокус на первый элемент;
 - `End` - открывает Dropdown и перемещает фокус на последний элемент;
 - `PageUp` - перемещает фокус на 10 элементов выше либо в начало списка;
 - `PageDown` - перемещает фокус на 10 элементов ниже либо в конце списка;
 - `ArrowUp` - открывает Dropdown и перемещает фокус на первый элемент. Перемещает фокус на один элемент выше;
 - `ArrowDown` - открывает Dropdown и перемещает фокус на первый элемент. Перемещает фокус на один элемент ниже;
-- `ArrowRight` - если фокус на элементе вложенного списка - открывает его и перемещает фокус на первый элемент;
+- `ArrowRight` - если фокус на элементе вложенного списка — открывает его и перемещает фокус на первый элемент;
 - `ArrowLeft` - закрывает текущий список и перемещает фокус на предыдущий;

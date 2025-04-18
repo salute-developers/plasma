@@ -44,7 +44,11 @@
     "prepare": "test ! -n \"$CI\" && husky install || echo skip husky",
     "bootstrap": "npx lerna bootstrap",
     "bootstrap:since": "npm run bootstrap -- --since=$(git merge-base --fork-point origin/dev)",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "lerna:clean": "npx lerna clean -y",
+    "bootstrap:plasma-giga:full": "npx lerna bootstrap --scope='@salutejs/plasma-giga' --scope='@salutejs/{plasma-sb-utils,plasma-tokens,plasma-tokens-utils,core-themes,plasma-typo,plasma-new-hope,plasma-colors,plasma-themes,plasma-core,plasma-docs-ui,plasma-giga-docs}'",
+    "bootstrap:plasma-giga:dev": "npx lerna bootstrap --scope='@salutejs/plasma-giga' --scope='@salutejs/{core-themes,plasma-new-hope,plasma-themes,plasma-core,plasma-docs-ui,plasma-giga-docs}'",
+    "bootstrap:sdds-insol": "npx lerna bootstrap --scope='@salutejs/sdds-insol' --scope='@salutejs/{plasma-sb-utils,plasma-tokens,plasma-tokens-utils,core-themes,plasma-typo,plasma-new-hope,plasma-colors,sdds-themes,plasma-core,plasma-docs-ui,sdds-insol-docs}'"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",

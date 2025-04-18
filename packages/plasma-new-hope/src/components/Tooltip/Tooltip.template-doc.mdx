@@ -17,13 +17,28 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { Tooltip } from '@salutejs/{{ package }}';
-import { IconApps } from '@salutejs/plasma-icons';
+import { Tooltip, Button } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
-        <div style=\{{marginLeft: '100px',marginBottom: '35px'}}>
-            <Tooltip target={( <IconApps />)} text="Высокое качество воспроизведения" placement="bottom" hasArrow opened />
+        <div style=\{{display: 'grid', gridTemplateColumns: 'repeat(3, max-content)', gridGap: '1rem 3.5rem', padding: '3.5rem'}}>
+            <Tooltip
+                target={<Tooltip target={<Button>Btn</Button>} placement="left" opened text="left" />}
+                placement="top-start"
+                opened
+                text="top-start"
+                view="default"
+            />
+            <Tooltip target={<Button>Btn</Button>} placement="top" opened text="top" />
+            <Tooltip
+                target={<Tooltip target={<Button>Btn</Button>} placement="right" opened text="right" />}
+                placement="top-end"
+                opened
+                text="top-end"
+            />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom-start" opened text="bottom-start" />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom" opened text="bottom" />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom-end" opened text="bottom-end" />
         </div>
     );
 }

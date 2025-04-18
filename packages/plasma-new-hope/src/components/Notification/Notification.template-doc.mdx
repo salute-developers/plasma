@@ -20,7 +20,7 @@ import { PropsTable, Description } from '@site/src/components';
 <PropsTable name="NotificationsProvider" />
 
 Поместите `NotificationsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна.
-В качестве свойств можно указать контейнер для оповещений через `frame` и расположение в контейнере через свойство `placement`, как `bottom-right` _(по умолчанию)_ или `bottom-left`.
+В качестве свойств можно указать контейнер для оповещений через `frame`.
 
 ```tsx title="index.ts"
 import ReactDOM from 'react-dom';
@@ -35,6 +35,15 @@ ReactDOM.render(
     document.getElementById('root')
 );
 ```
+
+### Позиционирование
+
+Позиционирование компонента регулируется с помощью свойства `placement`.
+
+```ts
+type NotificationPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
+````
+И производные комбинации, например `bottom-left` или `top-right`.
 
 ### Вызов уведомления
 После подключения `NotificationsProvider` станет возможен вызов функции `addNotification`, который приведет к отображению оповещения.

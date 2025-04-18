@@ -8,6 +8,7 @@ import { PropsTable, Description } from '@site/src/components';
 # Flow
 Универсальный контейнер для упорядоченного размещения вложенных компонентов (например, медиафайлы, карточки или блоки текста).
 
+
 ## Flow
 <Description name="Flow" />
 <PropsTable name="Flow" exclude={['css', 'focused', 'minColWidth']} />
@@ -15,6 +16,7 @@ import { PropsTable, Description } from '@site/src/components';
 ## Использование
 По умолчанию компонент `Flow` отображается на основе `display: flex; flex-wrap: wrap`,
 при указании `itemsPerLine` компонент переходит на `display: flex; flex-wrap: nowrap` с превентивным разбиением на колонки/столбцы.
+
 
 ## Примеры
 
@@ -122,3 +124,4 @@ export function App() {
     );
 }
 ```
+

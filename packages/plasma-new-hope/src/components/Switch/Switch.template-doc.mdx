@@ -7,7 +7,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 # Switch
 <Description name="Switch" />
-<PropsTable name="Switch" />
+<PropsTable name="Switch" include={['defaultChecked']} />
 
 ## Использование
 Компонент `Switch` может содержать лейбл.
@@ -30,7 +30,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{ package }}';
+import { Switch } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
@@ -47,7 +47,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{ package }}';
+import { Switch } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
