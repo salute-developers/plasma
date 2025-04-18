@@ -14,10 +14,7 @@
 /_virtual
 src-sc
 src-linaria
-src-emotion
 src-css
-emotion/cjs
-emotion/es
 styled-components/cjs
 styled-components/es
 linaria/cjs
