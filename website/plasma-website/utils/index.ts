@@ -13,3 +13,6 @@ export {
     verticals,
     currentYear,
 } from './constants';
+
+export { groupVersionsByMonth } from './groupVersionsByMonth';
+export { getFormattedDate } from './getFormattedDate';

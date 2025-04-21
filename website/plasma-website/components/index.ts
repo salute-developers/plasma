@@ -6,3 +6,4 @@ export { TelegramInversion as IconTelegramInversion } from './icons/TelegramInve
 export { Badge } from './Badge';
 export { Link } from './Link';
 export { GlobalStyle } from './GlobalStyle';
+export { PlasmaCopyrightText } from './PlasmaCopyrightText';

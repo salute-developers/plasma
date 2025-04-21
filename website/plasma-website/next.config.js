@@ -16,6 +16,7 @@ module.exports = {
         BASE_PATH: basePath,
         PACKAGES_INFO: packagesInfo,
     },
+    output: 'export',
     webpack: (config) => {
         return {
             ...config,
