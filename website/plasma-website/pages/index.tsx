@@ -1,6 +1,4 @@
 import styled, { css } from 'styled-components';
-import { BodyXXS } from '@salutejs/plasma-b2c';
-import { tertiary } from '@salutejs/plasma-tokens-b2c';
 import { useEffect, useRef, useState } from 'react';
 
 import { Menu, Product, ProductList, LinkItem, StickyNav, StickyNavItem, DraggableContainer } from '../components/main';
@@ -8,15 +6,7 @@ import type { ProductProps } from '../components/main';
 import { currentYear, products, stickyNavSnapVariant, verticals, verticalsMap } from '../utils';
 import { rootFontSize, sectionOffsetAccuracy, stickyNavItemMargin, topOffsetAfterScroll } from '../utils/constants';
 import { multipleMediaQuery } from '../mixins';
-
-const CopyrightText = styled(BodyXXS)`
-    position: fixed;
-    transform-origin: bottom right;
-    right: 0.5rem;
-    bottom: 0.75rem;
-    transform: rotate(-90deg) translateX(100%);
-    color: ${tertiary};
-`;
+import { PlasmaCopyrightText } from '../components';
 
 const ScrollContainer = styled.div`
     overflow-y: scroll;
@@ -82,6 +72,7 @@ export default function Home() {
         }
 
         acc[group].push(vertical);
+
         return acc;
     }, {} as { [key: string]: Array<ProductProps> });
 
@@ -109,6 +100,7 @@ export default function Home() {
             top: snapBlock.offsetHeight - topOffsetAfterScroll,
             behavior: 'smooth',
         });
+
         setMenuExpanded(true);
 
         setTimeout(() => {
@@ -419,7 +411,7 @@ export default function Home() {
                                 key={`${group}_${offsetIndex + index}`}
                                 index={index}
                                 offsetIndex={offsetIndex}
-                                group={group.replace('Masterbrand', '')}
+                                group={group.replace('ДЗО 1', 'ДЗО')}
                                 needExtraOffset={needExtraOffset}
                                 stickyNavRefs={stickyNavRefs}
                                 onClick={() => handleScrollToProductGroup(index)}
@@ -428,7 +420,7 @@ export default function Home() {
                     })}
                 </StickyNav>
             </Products>
-            <CopyrightText>{`©${currentYear} Девайсы`}</CopyrightText>
+            <PlasmaCopyrightText>{`©${currentYear} СалютДевайсы`}</PlasmaCopyrightText>
         </ScrollContainer>
     );
 }
