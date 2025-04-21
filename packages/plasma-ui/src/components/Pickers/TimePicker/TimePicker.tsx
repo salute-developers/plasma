@@ -18,6 +18,11 @@ import {
     getTimeFromStructure,
 } from './utils';
 
+// NOTE: 1000 * 3600 * 24
+const timeToDayCoef = 86_400_000;
+export const MIN_TIME = new Date(1970, 0, 0, 0, 0, 0);
+export const MAX_TIME = new Date(1970, 0, 0, 23, 59, 59);
+
 /**
  * Компонент для выбора времени.
  */
@@ -26,9 +31,10 @@ export const TimePicker = ({
     options = defaultOptions,
     step,
     size,
-    value,
+    value: innerValue,
     min,
     max,
+    maxDateDayDiff = 100,
     disabled,
     controls,
     autofocus,
@@ -48,14 +54,30 @@ export const TimePicker = ({
     hasLabel = false,
     ...rest
 }: TimePickerProps) => {
-    const normalizeValues = useMemo(() => getNormalizeValues(value, min, max, step), [value]);
+    const minTime = !min || !max ? MIN_TIME : min;
+    const maxTime = !min || !max ? MAX_TIME : max;
+
+    const dateDayDiff = Math.abs((maxTime.getTime() - minTime.getTime()) / timeToDayCoef);
+
+    if (dateDayDiff > maxDateDayDiff) {
+        console.error(
+            `Время привязано к определенной дате в TimePicker. Сейчас разница составляет больше ${maxDateDayDiff} дней: ${dateDayDiff}. Генерация такого промежутка значений может повлиять на производительность.`,
+        );
+    }
+
+    const value =
+        !min || !max
+            ? new Date(1970, 0, 0, innerValue.getHours(), innerValue.getMinutes(), innerValue.getSeconds())
+            : innerValue;
+
+    const normalizeValues = useMemo(() => getNormalizeValues(value, minTime, maxTime, step), [value]);
     const [{ year, month, day, hours, minutes, seconds }, setState] = useState(normalizeValues);
-    const minDateStructure = getDateStructure(min);
-    const maxDateStructure = getDateStructure(max);
+    const minDateStructure = getDateStructure(minTime);
+    const maxDateStructure = getDateStructure(maxTime);
 
     const [secondsFrom, secondsTo] = useMemo(() => {
-        const minSecondsDate = new Date(min);
-        const maxSecondsDate = new Date(max);
+        const minSecondsDate = new Date(minTime);
+        const maxSecondsDate = new Date(maxTime);
 
         const currentSecondsDate = new Date(year, month, day, hours, minutes);
 
@@ -82,11 +104,11 @@ export const TimePicker = ({
         }
 
         return [MIN_SECONDS, MAX_SECONDS];
-    }, [min, max, year, month, day, hours, minutes]);
+    }, [minTime, maxTime, year, month, day, hours, minutes]);
 
     const [minutesFrom, minutesTo] = useMemo(() => {
-        const minMinutesDate = new Date(min);
-        const maxMinutesDate = new Date(max);
+        const minMinutesDate = new Date(minTime);
+        const maxMinutesDate = new Date(maxTime);
         const currentMinutesDate = new Date(year, month, day, hours);
 
         const minMinutesValue = getMinutes(minMinutesDate);
@@ -115,7 +137,7 @@ export const TimePicker = ({
         }
 
         return [MIN_MINUTES, MAX_MINUTES];
-    }, [min, max, year, month, day, hours]);
+    }, [minTime, maxTime, year, month, day, hours]);
 
     const secondsRange = useMemo(() => {
         const secondsStep = step ? (step % 3600) % 60 : 1;
@@ -150,8 +172,8 @@ export const TimePicker = ({
 
     const getNextDateStructure = useCallback(
         (currentDate: Date) => {
-            const minDate = new Date(min);
-            const maxDate = new Date(max);
+            const minDate = new Date(minTime);
+            const maxDate = new Date(maxTime);
 
             const nextDate = new Date(currentDate);
             nextDate.setMinutes(minutes);
@@ -171,7 +193,7 @@ export const TimePicker = ({
 
             return { nextMinute: minutes, nextSecond: seconds };
         },
-        [min, max, hours, minutes, seconds],
+        [minTime, maxTime, hours, minutes, seconds],
     );
 
     const onSecondsChange = ({ date }: PickerItem) => {
