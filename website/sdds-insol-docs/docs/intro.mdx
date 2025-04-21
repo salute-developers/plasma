@@ -11,13 +11,13 @@ slug: /
 
 ## Использование
 
-Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) , [styled-components](https://styled-components.com/) и [emotion](https://emotion.sh/);
+Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) , [styled-components](https://styled-components.com/)
 
 Использование данного пакета предполагает установку зависимостей: `react` & `react-dom`;
 
-Использование `styled-components` и `emotion` на проект необязательно, так же как и использование `typescript`.
+Использование `styled-components` на проект необязательно, так же как и использование `typescript`.
 
-**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components` или `emotion`.
+**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components`.
 
 ### Установка зависимостей
 
@@ -30,12 +30,6 @@ $ npm install --save @salutejs/sdds-insol @salutejs/sdds-themes
 
 ```bash
 $ npm install --save styled-components@5.3.1
-```
-
-Если вы используете пакет @emotion, то
-
-```bash
-$ npm install --save @emotion/styled @emotion/react @emotion/css
 ```
 
 Или, если вы используете препроцессоры, например `sass`, то
@@ -80,29 +74,6 @@ const App = () => {
     return (
         <>
             <Theme />
-            <BodyL>Hello world</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
-```
-
-### С помощью `emotion`
-
-```jsx
-import React from 'react';
-import { Global, css } from '@emotion/react';
-import { Button, BodyL } from '@salutejs/sdds-insol';
-import { sdds_insol__light } from '@salutejs/sdds-themes';
-
-const themeStyle = css(sdds_insol__light);
-
-const App = () => {
-    return (
-        <>
-            <Global styles={themeStyle} />
             <BodyL>Hello world</BodyL>
             <Button text="This is themed button" />
         </>
@@ -237,40 +208,6 @@ const App = () => {
                     onChange={() => {
                         setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
                     }}
-                />
-            </div>
-        </>
-    );
-};
-
-export default App;
-```
-
-### Пример на `emotion`:
-
-```jsx
-import React, { useState } from 'react';
-
-import { Global, css } from '@emotion/react';
-import { Switch } from '@salutejs/sdds-insol';
-import { sdds_insol__light, sdds_insol__dark } from '@salutejs/sdds-themes';
-
-import './style.css';
-
-const lightThemeStyle = css(sdds_insol__light);
-const darkThemeStyle = css(sdds_insol__dark);
-
-const App = () => {
-    const [theme, setTheme] = useState('light');
-
-    return (
-        <>
-            <Global styles={theme === 'light' ? lightThemeStyle : darkThemeStyle} />
-
-            <div className="wrapper">
-                <Switch
-                    label="dark theme: "
-                    onChange={() => setTheme((theme) => (theme === 'light' ? 'dark' : 'light'))}
                 />
             </div>
         </>
