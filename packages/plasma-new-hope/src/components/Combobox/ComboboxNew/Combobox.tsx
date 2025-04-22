@@ -312,16 +312,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             if (onChange) {
                 onChange(newValues, item);
             }
-
-            // После выбора/снятия чекбокса скроллим к инпуту
-            setTimeout(() => {
-                if (inputRef.current) {
-                    inputRef.current.scrollIntoView({
-                        behavior: 'smooth',
-                        inline: 'start',
-                    });
-                }
-            }, 1);
         };
 
         // Обработчик клика по айтему выпадающего списка
