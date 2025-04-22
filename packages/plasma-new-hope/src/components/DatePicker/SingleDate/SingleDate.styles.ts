@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
+import { component, mergeConfig } from 'src/engines';
 
-import { component, mergeConfig } from '../../../engines';
 import { textFieldConfig, textFieldTokens } from '../../TextField';
 import { classes, tokens } from '../DatePicker.tokens';
 import { popoverClasses, popoverConfig } from '../../Popover';

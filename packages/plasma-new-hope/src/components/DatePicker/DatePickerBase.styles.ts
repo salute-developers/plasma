@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
+import { component, mergeConfig } from 'src/engines';
+import { applyHidden } from 'src/mixins';
 
 import { calendarBaseConfig, calendarBaseTokens } from '../Calendar';
-import { component, mergeConfig } from '../../engines';
-import { applyHidden } from '../../mixins';
 
 import { tokens } from './DatePicker.tokens';
 
@@ -34,6 +34,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarContentPrimaryDisabledColor}: var(${tokens.calendarContentPrimaryDisabledColor});
     ${calendarBaseTokens.calendarContentSecondaryColor}: var(${tokens.calendarContentSecondaryColor});
     ${calendarBaseTokens.calendarContentSecondaryDisabledColor}: var(${tokens.calendarContentSecondaryDisabledColor});
+    ${calendarBaseTokens.calendarDisabledOpacity}: var(${tokens.calendarDisabledOpacity});
 
     ${calendarBaseTokens.iconButtonColor}: var(${tokens.iconButtonColor});
     ${calendarBaseTokens.iconButtonBackgroundColor}: var(${tokens.iconButtonBackgroundColor});

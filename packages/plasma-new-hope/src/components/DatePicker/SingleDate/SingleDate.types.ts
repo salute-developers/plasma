@@ -76,22 +76,36 @@ export type DatePickerTextFieldProps = {
      */
     textAfter?: string;
     /**
+     * Автозаполнение полей.
+     */
+    autoComplete?: string;
+    /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре.
      */
-    onCommitDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+    onCommitDate?: (
+        value: Date | string,
+        error?: boolean,
+        success?: boolean,
+        dateInfo?: DateInfo,
+        originalDate?: Date,
+        isoDate?: string,
+    ) => void;
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue?: (event: SyntheticEvent<HTMLInputElement> | null, value?: string) => void;
+    onChangeValue?: (
+        event: SyntheticEvent<HTMLInputElement> | null,
+        value?: string,
+        originalDate?: Date | null,
+        isoDate?: string,
+    ) => void;
     /**
      * Свойство устарело, используется формой. Вместо используйте onChangeValue и onCommitDate
      * @deprecated
      */
-    onChange?: (event: { target: { value?: string; name?: string } }) => void;
-    /**
-     * Автозаполнение полей.
-     */
-    autoComplete?: string;
+    onChange?: (event: {
+        target: { value?: string; name?: string; originalDate?: Date | null; isoDate?: string };
+    }) => void;
 } & LabelProps;
 
 export type DatePickerPopoverProps = {
