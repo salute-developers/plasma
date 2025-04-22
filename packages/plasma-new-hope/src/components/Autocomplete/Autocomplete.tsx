@@ -1,8 +1,7 @@
 import React, { forwardRef, useState, useReducer, useLayoutEffect, useRef } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
-
-import { useDidMountEffect, useOutsideClick } from '../../hooks';
-import { RootProps } from '../../engines';
+import { useDidMountEffect, useOutsideClick } from 'src/hooks';
+import { RootProps } from 'src/engines';
 
 import { FloatingPopover } from './FloatingPopover';
 import { focusedReducer } from './reducers/focusedReducer';
@@ -47,6 +46,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 threshold = 2,
                 renderList,
                 renderListEnd,
+                renderItem,
                 onSearch,
                 hintText,
                 hintView = 'default',
@@ -213,6 +213,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                                 listId={listId}
                                                 listMaxHeight={listMaxHeight}
                                                 onScroll={onScroll}
+                                                renderItem={renderItem}
                                             />
                                         ) : (
                                             <>
@@ -225,6 +226,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                                         onClick={handleItemClick}
                                                         id={`${listId}/${index}`}
                                                         focused={focused === index}
+                                                        renderItem={renderItem}
                                                     />
                                                 ))}
 

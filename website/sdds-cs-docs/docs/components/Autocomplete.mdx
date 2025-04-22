@@ -566,6 +566,37 @@ type SuggestionItem = {
         }
         ```
     </TabItem>
+    <TabItem value="renderItem" label="Render item">
+        Пропс `renderItem` для кастомной настройки элемента в выпадающем списке. Принимает коллбэк с одним параметром: `item`.
+        В примере использован другой наш компонент - Cell.
+
+        ```tsx live
+        import React from 'react';
+        import { Select, Cell } from '@salutejs/sdds-cs';
+
+        export function App() {
+            const items = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+            ];
+
+            const renderItem = ({ label }) => (
+                <Cell
+                    view="default"
+                    title={label}
+                    label="Top left"
+                    contentRight={<Cell view="default" title="Bottom right" label="Top right" />}
+                />
+            )
+
+            return (
+                <div style={{ display: 'block', height: "350px" }}>
+                    <Autocomplete suggestions={items} threshold={0} label="Label" placeholder="Placeholder" renderItem={renderItem} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
