@@ -149,10 +149,6 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             }, [calendarState]);
 
             useEffect(() => {
-                if (!prevValue) {
-                    setPrevValue(value);
-                }
-
                 if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     const [minVisibleDate, maxVisibleDate] = getBoundaryDates();
 
@@ -162,17 +158,17 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                             payload: { value },
                         });
                     }
-
-                    setPrevValue(value);
                 }
 
-                if (!value) {
+                if (!value && !prevValue) {
                     dispatch({
                         type: ActionType.UPDATE_DATE,
                         payload: { value: renderFromDate || min || new Date() },
                     });
                 }
-            }, [value, prevValue]);
+
+                setPrevValue(value);
+            }, [value]);
 
             useEffect(() => {
                 setFirstDate(date);
