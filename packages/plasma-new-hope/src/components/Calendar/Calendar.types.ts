@@ -92,7 +92,9 @@ export interface DisabledDay {
     date: Date;
 }
 
-export type CalendarValueType = Date | undefined | [Date | undefined, Date?];
+export type DateType = Date | undefined | null;
+
+export type CalendarValueType = DateType | [DateType, DateType];
 
 export type DateInfo = {
     name: string;
@@ -187,11 +189,11 @@ export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
     /**
      * Выбранное значение.
      */
-    value: [Date?, Date?];
+    value: [DateType, DateType];
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue: (values: [Date, Date?], dateInfo?: DateInfo) => void;
+    onChangeValue: (values: [DateType, DateType], dateInfo?: DateInfo) => void;
     /**
      * Обработчик для выбора стартового значения в диапазоне.
      */
