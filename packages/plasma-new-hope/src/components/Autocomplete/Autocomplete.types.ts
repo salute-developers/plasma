@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes, ReactNode } from 'react';
+import { DistributiveOmit } from 'src/types';
 
-import { DistributiveOmit } from '../../types';
 import { TextFieldPropsBase } from '../TextField/TextField.types';
 
 export type SuggestionItemType = {
@@ -18,7 +18,7 @@ export type SuggestionItemType = {
     contentRight?: ReactNode;
 };
 
-export type BaseProps = {
+export type AutocompleteProps = {
     /**
      * Размер контрола.
      * @default l
@@ -88,6 +88,10 @@ export type BaseProps = {
      */
     renderListEnd?: () => ReactNode;
     /**
+     * Callback для кастомной настройки элемента в выпадающем списке.
+     */
+    renderItem?: (item: SuggestionItemType) => React.ReactNode;
+    /**
      * Изначальное значение.
      */
     defaultValue?: string;
@@ -104,20 +108,17 @@ export type BaseProps = {
      * @default false
      */
     virtual?: boolean;
-};
-
-export type AutocompleteProps = BaseProps &
-    DistributiveOmit<
-        TextFieldPropsBase,
-        'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
-    > &
+} & DistributiveOmit<
+    TextFieldPropsBase,
+    'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
+> &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
     children: React.ReactNode;
     opened: boolean;
-    portal?: BaseProps['portal'];
-    listWidth?: BaseProps['listWidth'];
+    portal?: AutocompleteProps['portal'];
+    listWidth?: AutocompleteProps['listWidth'];
     offset?: number;
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import List from 'rc-virtual-list';
+import { SuggestionItem } from 'src/components/Autocomplete/ui';
+import { getHeightAsNumber } from 'src/utils';
 
 import type { SuggestionItemType } from '../../Autocomplete.types';
-import { SuggestionItem } from '../SuggestionItem/SuggestionItem';
-import { getHeightAsNumber } from '../../../../utils';
 
 interface Props {
     items: SuggestionItemType[];
@@ -11,13 +11,20 @@ interface Props {
     listId: string;
     listMaxHeight?: string;
     onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    renderItem?: (item: SuggestionItemType) => React.ReactNode;
 }
 
-export const VirtualList: React.FC<Props> = ({ items, onClick, listId, listMaxHeight, onScroll }) => (
+export const VirtualList: React.FC<Props> = ({ items, onClick, listId, listMaxHeight, onScroll, renderItem }) => (
     <List data={items} height={getHeightAsNumber(listMaxHeight)} itemHeight={100} itemKey="id" onScroll={onScroll}>
         {(item, index, props) => (
             <div {...props}>
-                <SuggestionItem item={item} onClick={onClick} id={`${listId}/${index}`} focused={false} />
+                <SuggestionItem
+                    item={item}
+                    onClick={onClick}
+                    id={`${listId}/${index}`}
+                    focused={false}
+                    renderItem={renderItem}
+                />
             </div>
         )}
     </List>

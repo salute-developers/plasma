@@ -5,7 +5,7 @@ import { classes } from '../../Autocomplete.tokens';
 import { StyledText, Wrapper } from './SuggestionItem.styles';
 import type { SuggestionItemProps } from './SuggestionItem.type';
 
-export const SuggestionItem: FC<SuggestionItemProps> = ({ item, id, onClick, focused }) => {
+export const SuggestionItem: FC<SuggestionItemProps> = ({ item, id, onClick, focused, renderItem }) => {
     const ref = useRef<HTMLLIElement | null>(null);
 
     const focusedClass = focused ? classes.suggestionItemIsFocused : undefined;
@@ -28,9 +28,15 @@ export const SuggestionItem: FC<SuggestionItemProps> = ({ item, id, onClick, foc
 
     return (
         <Wrapper id={id} role="option" aria-selected={focused} onClick={handleClick} ref={ref} className={focusedClass}>
-            {item.contentLeft}
-            <StyledText>{item.label}</StyledText>
-            {item.contentRight}
+            {renderItem ? (
+                renderItem(item)
+            ) : (
+                <>
+                    {item.contentLeft}
+                    <StyledText>{item.label}</StyledText>
+                    {item.contentRight}
+                </>
+            )}
         </Wrapper>
     );
 };
