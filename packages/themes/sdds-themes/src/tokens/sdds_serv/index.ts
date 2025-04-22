@@ -2814,106 +2814,110 @@ export const inverseOutlineAccentGradient =
     'var(--inverse-outline-accent-gradient, linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%))';
 
 /** shadow down soft s */
-export const shadowDownSoftS = 'var(--shadow-down-soft-s, 0px 4px 14px -4px #08080814,0px 1px 4px -1px #0000000A)';
+export const shadowDownSoftS =
+    'var(--shadow-down-soft-s, 0rem 0.25rem 0.875rem -0.25rem #08080814,0rem 0.0625rem 0.25rem -0.0625rem #0000000A)';
 
 /** shadow down soft m */
-export const shadowDownSoftM = 'var(--shadow-down-soft-m, 0px 24px 48px -8px #00000014)';
+export const shadowDownSoftM = 'var(--shadow-down-soft-m, 0rem 1.5rem 3rem -0.5rem #00000014)';
 
 /** shadow down soft l */
-export const shadowDownSoftL = 'var(--shadow-down-soft-l, 0px 60px 112px -8px #00000014)';
+export const shadowDownSoftL = 'var(--shadow-down-soft-l, 0rem 3.75rem 7rem -0.5rem #00000014)';
 
 /** shadow down hard s */
-export const shadowDownHardS = 'var(--shadow-down-hard-s, 0px 4px 12px -3px #08080829,0px 1px 4px -2px #00000014)';
+export const shadowDownHardS =
+    'var(--shadow-down-hard-s, 0rem 0.25rem 0.75rem -0.1875rem #08080829,0rem 0.0625rem 0.25rem -0.125rem #00000014)';
 
 /** shadow down hard m */
-export const shadowDownHardM = 'var(--shadow-down-hard-m, 0px 16px 32px -8px #0000003D)';
+export const shadowDownHardM = 'var(--shadow-down-hard-m, 0rem 1rem 2rem -0.5rem #0000003D)';
 
 /** shadow down hard l */
-export const shadowDownHardL = 'var(--shadow-down-hard-l, 0px 60px 112px -8px #00000066)';
+export const shadowDownHardL = 'var(--shadow-down-hard-l, 0rem 3.75rem 7rem -0.5rem #00000066)';
 
 /** shadow up soft s */
-export const shadowUpSoftS = 'var(--shadow-up-soft-s, 0px -4px 14px -4px #08080814,0px -1px 4px -1px #00000008)';
+export const shadowUpSoftS =
+    'var(--shadow-up-soft-s, 0rem -0.25rem 0.875rem -0.25rem #08080814,0rem -0.0625rem 0.25rem -0.0625rem #00000008)';
 
 /** shadow up soft m */
-export const shadowUpSoftM = 'var(--shadow-up-soft-m, 0px -24px 48px -8px #00000014)';
+export const shadowUpSoftM = 'var(--shadow-up-soft-m, 0rem -1.5rem 3rem -0.5rem #00000014)';
 
 /** shadow up soft l */
-export const shadowUpSoftL = 'var(--shadow-up-soft-l, 0px -60px 112px -8px #00000014)';
+export const shadowUpSoftL = 'var(--shadow-up-soft-l, 0rem -3.75rem 7rem -0.5rem #00000014)';
 
 /** shadow up hard s */
-export const shadowUpHardS = 'var(--shadow-up-hard-s, 0px -4px 12px -3px #08080833,0px -1px 4px -1px #00000008)';
+export const shadowUpHardS =
+    'var(--shadow-up-hard-s, 0rem -0.25rem 0.75rem -0.1875rem #08080833,0rem -0.0625rem 0.25rem -0.0625rem #00000008)';
 
 /** shadow up hard m */
-export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -16px 32px -8px #0000003D)';
+export const shadowUpHardM = 'var(--shadow-up-hard-m, 0rem -1rem 2rem -0.5rem #0000003D)';
 
 /** shadow up hard l */
-export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px #00000066)';
+export const shadowUpHardL = 'var(--shadow-up-hard-l, 0rem -3.75rem 7rem -0.5rem #00000066)';
 
 /** borderRadius xxs */
-export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
+export const borderRadiusXxs = 'var(--border-radius-xxs, 0.25rem)';
 
 /** borderRadius xs */
-export const borderRadiusXs = 'var(--border-radius-xs, 6px)';
+export const borderRadiusXs = 'var(--border-radius-xs, 0.375rem)';
 
 /** borderRadius s */
-export const borderRadiusS = 'var(--border-radius-s, 8px)';
+export const borderRadiusS = 'var(--border-radius-s, 0.5rem)';
 
 /** borderRadius m */
-export const borderRadiusM = 'var(--border-radius-m, 12px)';
+export const borderRadiusM = 'var(--border-radius-m, 0.75rem)';
 
 /** borderRadius l */
-export const borderRadiusL = 'var(--border-radius-l, 16px)';
+export const borderRadiusL = 'var(--border-radius-l, 1rem)';
 
 /** borderRadius xl */
-export const borderRadiusXl = 'var(--border-radius-xl, 20px)';
+export const borderRadiusXl = 'var(--border-radius-xl, 1.25rem)';
 
 /** borderRadius xxl */
-export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
+export const borderRadiusXxl = 'var(--border-radius-xxl, 2rem)';
 
 /** spacing 0x */
-export const spacing0x = 'var(--spacing-0x, 0px)';
+export const spacing0x = 'var(--spacing-0x, 0rem)';
 
 /** spacing 1x */
-export const spacing1x = 'var(--spacing-1x, 2px)';
+export const spacing1x = 'var(--spacing-1x, 0.125rem)';
 
 /** spacing 2x */
-export const spacing2x = 'var(--spacing-2x, 4px)';
+export const spacing2x = 'var(--spacing-2x, 0.25rem)';
 
 /** spacing 3x */
-export const spacing3x = 'var(--spacing-3x, 6px)';
+export const spacing3x = 'var(--spacing-3x, 0.375rem)';
 
 /** spacing 4x */
-export const spacing4x = 'var(--spacing-4x, 8px)';
+export const spacing4x = 'var(--spacing-4x, 0.5rem)';
 
 /** spacing 6x */
-export const spacing6x = 'var(--spacing-6x, 12px)';
+export const spacing6x = 'var(--spacing-6x, 0.75rem)';
 
 /** spacing 8x */
-export const spacing8x = 'var(--spacing-8x, 16px)';
+export const spacing8x = 'var(--spacing-8x, 1rem)';
 
 /** spacing 10x */
-export const spacing10x = 'var(--spacing-10x, 20px)';
+export const spacing10x = 'var(--spacing-10x, 1.25rem)';
 
 /** spacing 12x */
-export const spacing12x = 'var(--spacing-12x, 24px)';
+export const spacing12x = 'var(--spacing-12x, 1.5rem)';
 
 /** spacing 16x */
-export const spacing16x = 'var(--spacing-16x, 32px)';
+export const spacing16x = 'var(--spacing-16x, 2rem)';
 
 /** spacing 20x */
-export const spacing20x = 'var(--spacing-20x, 40px)';
+export const spacing20x = 'var(--spacing-20x, 2.5rem)';
 
 /** spacing 24x */
-export const spacing24x = 'var(--spacing-24x, 48px)';
+export const spacing24x = 'var(--spacing-24x, 3rem)';
 
 /** spacing 32x */
-export const spacing32x = 'var(--spacing-32x, 64px)';
+export const spacing32x = 'var(--spacing-32x, 4rem)';
 
 /** spacing 40x */
-export const spacing40x = 'var(--spacing-40x, 80px)';
+export const spacing40x = 'var(--spacing-40x, 5rem)';
 
 /** spacing 60x */
-export const spacing60x = 'var(--spacing-60x, 120px)';
+export const spacing60x = 'var(--spacing-60x, 7.5rem)';
 
 /** typography s display-l */
 export const dsplL = {
