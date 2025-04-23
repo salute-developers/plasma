@@ -9,12 +9,19 @@ export type DatePickerRangePlacementBasic = 'top' | 'bottom';
 export type DatePickerRangePlacementVariation = 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
 export type DatePickerRangePlacement = DatePickerRangePlacementBasic | DatePickerRangePlacementVariation;
 
-export type ChangeInstanceCallback = (event: ChangeEvent<HTMLInputElement> | null, value?: string) => void;
+export type ChangeInstanceCallback = (
+    event: ChangeEvent<HTMLInputElement> | null,
+    value?: string,
+    originalDate?: DateType,
+    isoDate?: string,
+) => void;
 export type CommitInstanceCallback = (
     value: Date | string,
     error?: boolean,
     success?: boolean,
     dateInfo?: DateInfo,
+    originalDate?: Date,
+    isoDate?: string,
 ) => void;
 
 type BaseRangeProps = Omit<

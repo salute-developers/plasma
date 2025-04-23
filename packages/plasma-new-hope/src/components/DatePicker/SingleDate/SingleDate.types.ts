@@ -1,7 +1,7 @@
 import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
 import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
-import type { DateInfo } from '../../Calendar/Calendar.types';
+import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
 import { LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
@@ -96,7 +96,7 @@ export type DatePickerTextFieldProps = {
     onChangeValue?: (
         event: SyntheticEvent<HTMLInputElement> | null,
         value?: string,
-        originalDate?: Date | null,
+        originalDate?: DateType,
         isoDate?: string,
     ) => void;
     /**
@@ -104,7 +104,7 @@ export type DatePickerTextFieldProps = {
      * @deprecated
      */
     onChange?: (event: {
-        target: { value?: string; name?: string; originalDate?: Date | null; isoDate?: string };
+        target: { value?: string; name?: string; originalDate?: DateType; isoDate?: string };
     }) => void;
 } & LabelProps;
 

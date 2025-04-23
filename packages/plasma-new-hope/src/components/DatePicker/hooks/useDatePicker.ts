@@ -1,35 +1,55 @@
-import type { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import type { ChangeEvent } from 'react';
+import { customDayjs } from 'src/utils/datejs';
+import { QUARTER_NAMES } from 'src/components/Calendar/utils';
 
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
-import {
-    formatCalendarValue,
-    formatInputValue,
-    getDateFromFormat,
-    getMaskedDateOnInput,
-    validateDateWithFullMonth,
-} from '../utils/dateHelper';
-import type { DateInfo } from '../../Calendar/Calendar.types';
+import type { CalendarValueType, DateInfo } from '../../Calendar/Calendar.types';
+import { getFormattedDates, getMaskedDateOnInput } from '../utils';
 
 export const useDatePicker = ({
     currentValue,
-    setInputValue,
-    setCalendarValue,
-    dateFormatDelimiter,
     format,
     lang = 'ru',
     disabled,
     readOnly,
-    maskWithFormat,
     valueError,
     valueSuccess,
     name,
+    type,
+    min,
+    max,
+    includeEdgeDates,
+    maskWithFormat,
+    dateFormatDelimiter,
+    setCorrectDates,
+    setInputValue,
+    setCalendarValue,
     onChangeValue,
     onCommitDate,
     onChange,
 }: UseDatePickerProps) => {
     const datePickerErrorClass = valueError ? classes.datePickerError : undefined;
     const datePickerSuccessClass = valueSuccess ? classes.datePickerSuccess : undefined;
+
+    const getQuarterInfo = (originalDate: Date) => {
+        if (type !== 'Quarters') {
+            return;
+        }
+
+        const endQuarter = new Date(originalDate);
+
+        endQuarter.setMonth(originalDate.getMonth() + 3);
+        endQuarter.setDate(0);
+
+        customDayjs.locale(lang);
+        const quarterIndex = customDayjs(originalDate).quarter() - 1;
+
+        return {
+            name: QUARTER_NAMES[quarterIndex],
+            fullValue: [originalDate, endQuarter] as CalendarValueType,
+        };
+    };
 
     const handleChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
         if (disabled || readOnly) {
@@ -38,42 +58,66 @@ export const useDatePicker = ({
         const { value } = event.target;
 
         const newValue = maskWithFormat
-            ? getMaskedDateOnInput(value, format, dateFormatDelimiter(), currentValue)
+            ? getMaskedDateOnInput(value, format, dateFormatDelimiter, currentValue)
             : value;
 
-        if (!format) {
-            setCalendarValue(formatCalendarValue(newValue));
-            setInputValue(formatInputValue({ value: newValue, format, lang }));
-            onChangeValue?.(event, newValue);
-            onChange?.({ target: { value: newValue, name } });
+        const { formattedDate, isoDate, originalDate } = getFormattedDates({
+            value: newValue,
+            lang,
+            delimiter: dateFormatDelimiter,
+            format,
+            includeEdgeDates,
+            min,
+            max,
+        });
+
+        if (originalDate) {
+            setCorrectDates({ calendar: originalDate, input: formattedDate });
+
+            const dateInfo = getQuarterInfo(originalDate);
+
+            if (onCommitDate) {
+                onCommitDate(formattedDate, false, true, dateInfo, originalDate, isoDate);
+            }
+
+            setCalendarValue(originalDate);
+            setInputValue(formattedDate);
+
+            if (onChangeValue) {
+                onChangeValue(event, formattedDate, originalDate, isoDate);
+            }
+
+            if (onChange) {
+                onChange({
+                    target: {
+                        value: formattedDate,
+                        originalDate,
+                        isoDate,
+                        name,
+                    },
+                });
+            }
 
             return;
         }
 
-        const { hasMonthFullName, isValidMonth, isLengthEqual } = validateDateWithFullMonth({
-            currentValue: newValue,
-            format,
-            lang,
-        });
-
-        if ((!hasMonthFullName && newValue?.length === format?.length) || (isValidMonth && isLengthEqual)) {
-            setCalendarValue(formatCalendarValue(newValue, format, lang));
+        if (formattedDate === '') {
+            setCorrectDates({ calendar: undefined, input: '' });
         }
 
-        setInputValue(
-            formatInputValue({ value: newValue, format, lang, hasMonthFullName, isValidMonth, isLengthEqual }),
-        );
+        setCalendarValue(originalDate);
+        setInputValue(formattedDate);
 
-        onChangeValue?.(event, newValue);
-        onChange?.({ target: { value: newValue, name } });
+        if (onChangeValue) {
+            onChangeValue(event, formattedDate, originalDate, isoDate);
+        }
+
+        if (onChange) {
+            onChange({ target: { value: formattedDate, originalDate, isoDate, name } });
+        }
     };
 
-    const handleCommitDate = (
-        date?: Date | string,
-        applyFormat?: boolean,
-        isCalendarValue?: boolean,
-        dateInfo?: DateInfo,
-    ) => {
+    const handleSearch = (date: string) => {
         if (disabled || readOnly) {
             return;
         }
@@ -82,56 +126,94 @@ export const useDatePicker = ({
             setCalendarValue(undefined);
             setInputValue('');
 
-            return onCommitDate?.('', false, true);
-        }
-
-        if (isCalendarValue) {
-            const formattedInputValue = formatInputValue({ value: date, format, lang });
-
-            setCalendarValue(formatCalendarValue(date, format, lang));
-            setInputValue(formattedInputValue);
-
-            onCommitDate?.(date, false, true, dateInfo);
-            onChangeValue?.(null, formattedInputValue);
-            onChange?.({ target: { value: formattedInputValue, name } });
+            if (onCommitDate) {
+                onCommitDate('', false, true, undefined, undefined, '');
+            }
 
             return;
         }
 
-        const formatString = applyFormat ? format : undefined;
+        const { formattedDate, isoDate, originalDate } = getFormattedDates({
+            value: date,
+            lang,
+            delimiter: dateFormatDelimiter,
+            format,
+            includeEdgeDates,
+            min,
+            max,
+        });
 
-        const { value: newDate, isError, isSuccess } = getDateFromFormat(date, formatString, lang);
-        const formattedInputValue = formatInputValue({ value: newDate, format, lang });
+        if (originalDate) {
+            const dateInfo = getQuarterInfo(originalDate);
 
-        setCalendarValue(formatCalendarValue(newDate, format, lang));
-        setInputValue(formattedInputValue);
-
-        onCommitDate?.(newDate, isError, isSuccess);
-        onChangeValue?.(null, formattedInputValue);
-        onChange?.({ target: { value: formattedInputValue, name } });
+            if (onCommitDate) {
+                onCommitDate(formattedDate, false, true, dateInfo, originalDate, isoDate);
+            }
+        }
     };
 
-    const updateExternalDate = (
-        externalDate: Date | string | undefined,
-        inputSetter: Dispatch<SetStateAction<string>>,
-        calendarSetter: Dispatch<SetStateAction<Date | undefined>>,
-    ) => {
-        inputSetter(formatInputValue({ value: externalDate, format, lang }));
-
-        if (!format) {
-            calendarSetter(formatCalendarValue(externalDate, undefined, lang));
+    const handleCalendarPick = (date?: Date | null, dateInfo?: DateInfo) => {
+        if (disabled || readOnly) {
             return;
         }
 
-        if (!externalDate) {
-            calendarSetter(undefined);
+        if (!date) {
+            setInputValue('');
+            setCalendarValue(date);
+            setCorrectDates({ calendar: date || undefined, input: '' });
+
+            if (onChangeValue) {
+                onChangeValue(null, '', date, '');
+            }
+            if (onChange) {
+                onChange({ target: { value: '', originalDate: date, isoDate: '', name } });
+            }
+            if (onCommitDate) {
+                onCommitDate('', false, true, dateInfo, date || undefined, '');
+            }
+
             return;
         }
 
-        const { value: newDate, isError } = getDateFromFormat(externalDate, undefined, lang);
+        customDayjs.locale(lang);
+        const formattedDate = customDayjs(date).format(format);
+        const isoDate = date.toISOString();
 
-        if (!isError) {
-            calendarSetter(formatCalendarValue(newDate, format, lang));
+        setCalendarValue(date);
+        setInputValue(formattedDate);
+        setCorrectDates({ calendar: date, input: formattedDate });
+
+        if (onChangeValue) {
+            onChangeValue(null, formattedDate, date, isoDate);
+        }
+        if (onChange) {
+            onChange({ target: { value: formattedDate, originalDate: date, isoDate, name } });
+        }
+        if (onCommitDate) {
+            onCommitDate(formattedDate, false, true, dateInfo, date, isoDate);
+        }
+    };
+
+    const updateExternalDate = (externalDate: Date | string | undefined) => {
+        const { formattedDate, originalDate } = getFormattedDates({
+            value: externalDate || null,
+            lang,
+            delimiter: dateFormatDelimiter,
+            format,
+            includeEdgeDates,
+            min,
+            max,
+        });
+
+        setInputValue(formattedDate);
+        setCalendarValue(originalDate);
+
+        if (originalDate) {
+            setCorrectDates({ calendar: originalDate, input: formattedDate });
+        }
+
+        if (formattedDate === '') {
+            setCorrectDates({ calendar: undefined, input: '' });
         }
     };
 
@@ -139,7 +221,8 @@ export const useDatePicker = ({
         datePickerErrorClass,
         datePickerSuccessClass,
         handleChangeValue,
-        handleCommitDate,
+        handleSearch,
+        handleCalendarPick,
         updateExternalDate,
     };
 };

@@ -162,7 +162,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
-        maskWithFormat: false,
+        maskWithFormat: true,
         required: false,
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
@@ -260,12 +260,8 @@ const StoryRange = ({
                 showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
             }
             onToggle={(is) => setIsOpen(is)}
-            onChangeFirstValue={(e, currentValue) => {
-                onChangeFirstValue(e, currentValue);
-            }}
-            onChangeSecondValue={(e, currentValue) => {
-                onChangeSecondValue(e, currentValue);
-            }}
+            onChangeFirstValue={onChangeFirstValue}
+            onChangeSecondValue={onChangeSecondValue}
             lang={lang}
             min={min}
             max={max}

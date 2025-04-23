@@ -1,13 +1,15 @@
-import React, { forwardRef, SyntheticEvent, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import type { KeyboardEvent } from 'react';
+import React, { forwardRef, SyntheticEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import type { KeyboardEvent, FocusEvent } from 'react';
+import type { DateType } from 'src/components/Calendar/Calendar.types';
 
 import type { RootProps } from '../../../engines';
 import { cx, getPlacements, noop } from '../../../utils';
-import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '../utils/dateHelper';
+import { getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
 import { InputHidden, StyledCalendar } from '../DatePickerBase.styles';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
+import { getFormattedDates } from '../utils';
 
 import type { DatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -83,28 +85,42 @@ export const datePickerRoot = (
             },
             ref,
         ) => {
+            if (value && defaultDate) {
+                throw new Error("Controlled DatePicker can't have `defaultDate`, use `value` instead");
+            }
+
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
-            const [calendarValue, setCalendarValue] = useState(formatCalendarValue(value || defaultDate, format, lang));
-            const [inputValue, setInputValue] = useState(
-                formatInputValue({ value: value || defaultDate, format, lang }),
-            );
+            const dateFormatDelimiter = getDateFormatDelimiter(format);
 
-            const dateFormatDelimiter = useCallback(() => getDateFormatDelimiter(format), [format]);
+            const initialValues = getFormattedDates({
+                value: value || defaultDate,
+                delimiter: dateFormatDelimiter,
+                lang,
+                format,
+                includeEdgeDates,
+                min,
+                max,
+            });
+
+            const [correctDates, setCorrectDates] = useState({
+                calendar: initialValues.originalDate,
+                input: initialValues.formattedDate,
+            });
+            const [calendarValue, setCalendarValue] = useState<DateType>(correctDates.calendar);
+            const [inputValue, setInputValue] = useState(correctDates.input);
 
             const {
                 datePickerErrorClass,
                 datePickerSuccessClass,
                 handleChangeValue,
-                handleCommitDate,
+                handleCalendarPick,
+                handleSearch,
                 updateExternalDate,
             } = useDatePicker({
                 currentValue: inputValue,
-                setInputValue,
-                setCalendarValue,
-                dateFormatDelimiter,
                 format,
                 lang,
                 disabled,
@@ -113,12 +129,20 @@ export const datePickerRoot = (
                 valueError,
                 valueSuccess,
                 name,
+                type,
+                min,
+                max,
+                includeEdgeDates,
+                setCorrectDates,
+                setInputValue,
+                setCalendarValue,
+                dateFormatDelimiter,
                 onChangeValue,
                 onCommitDate,
                 onChange,
             });
 
-            const handleToggle = (opened: boolean, event: SyntheticEvent | Event) => {
+            const handleToggle = (innerOpened: boolean, event: SyntheticEvent | Event) => {
                 if (disabled || readOnly) {
                     return;
                 }
@@ -127,10 +151,10 @@ export const datePickerRoot = (
                     event.target === inputRef?.current &&
                     (event as KeyboardEvent<HTMLInputElement>).code !== keys.Escape
                         ? true
-                        : opened;
+                        : innerOpened;
 
-                if (!isCalendarOpen && inputValue) {
-                    inputRef?.current?.focus();
+                if (!innerOpened && !calendarValue) {
+                    setCalendarValue((prevValue) => (prevValue === undefined ? null : undefined));
                 }
 
                 if (onToggle) {
@@ -144,9 +168,23 @@ export const datePickerRoot = (
 
             const { onKeyDown } = useKeyNavigation({
                 isCalendarOpen: isInnerOpen,
-                onToggle: handleToggle,
+                format,
+                maskWithFormat,
+                delimiter: dateFormatDelimiter,
                 closeOnEsc,
+                onToggle: handleToggle,
             });
+
+            const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+                if (!calendarValue && correctDates.calendar) {
+                    setCalendarValue(new Date(correctDates.calendar));
+                    setInputValue(correctDates.input);
+                }
+
+                if (onBlur) {
+                    onBlur(event);
+                }
+            };
 
             const DatePickerInput = (
                 <StyledInput
@@ -162,9 +200,9 @@ export const datePickerRoot = (
                     textBefore={textBefore}
                     textAfter={textAfter}
                     onChange={handleChangeValue}
-                    onSearch={(date) => handleCommitDate(date, true, false)}
+                    onSearch={handleSearch}
                     onFocus={onFocus}
-                    onBlur={onBlur}
+                    onBlur={handleBlur}
                     onKeyDown={onKeyDown}
                     required={required}
                     requiredPlacement={requiredPlacement}
@@ -181,9 +219,12 @@ export const datePickerRoot = (
             }, [opened]);
 
             useLayoutEffect(() => {
-                const externalDate = value || defaultDate;
-                updateExternalDate(externalDate, setInputValue, setCalendarValue);
-            }, [value, defaultDate, format, lang]);
+                updateExternalDate(value);
+            }, [value, format, lang]);
+
+            useLayoutEffect(() => {
+                updateExternalDate(defaultDate);
+            }, [defaultDate, format, lang]);
 
             return (
                 <Root
@@ -233,7 +274,7 @@ export const datePickerRoot = (
                                 includeEdgeDates={includeEdgeDates}
                                 isRange={false}
                                 locale={lang}
-                                onChangeValue={(date, dateInfo) => handleCommitDate(date, false, true, dateInfo)}
+                                onChangeValue={handleCalendarPick}
                             />
                         </Root>
                     </StyledPopover>
