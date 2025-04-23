@@ -1,6 +1,6 @@
 import { CalendarValueType, DateObject, DateType } from '../Calendar.types';
 
-export const getSortedValues = (values: [DateType, DateType?]) =>
+export const getSortedValues = (values: [DateType, DateType]) =>
     values.sort((start, end) => {
         if (!start || !end) {
             return -1;
