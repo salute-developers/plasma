@@ -182,7 +182,7 @@ export const getGroupedTypographyTokens = (cssString: string) => {
     const fontRootMatch = cssString.match(fontRootInfoRegex);
 
     if (!fontRootMatch) {
-        throw new Error('Provide :root with root font sizem font style and letter spacing');
+        throw new Error('Provide :root with root font size font style and letter spacing');
     }
 
     getFontRootInfo(fontRootMatch[1]);

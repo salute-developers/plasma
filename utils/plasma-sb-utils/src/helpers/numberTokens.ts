@@ -13,7 +13,7 @@ export const getGroupedCornerRadiusTokens = (themes: string): GroupedNumberToken
 
     const processedTokens = actualTokens.reduce((acc, [name, value]) => {
         const actualName = name.replace(/border-radius-/g, 'cR');
-        const actualValue = value.replace(/px/g, '');
+        const actualValue = `${value.match(/px/gim)?.[0] ? value.replace('px', '') : parseFloat(value) * 16}`;
 
         acc[actualName] = actualValue;
 
@@ -34,7 +34,7 @@ export const getGroupedSpacingTokens = (themes: string): GroupedNumberTokens => 
 
     return actualTokens.reduce((acc, [name, value]) => {
         const actualName = name.replace(/-/g, '');
-        const actualValue = value.replace(/px/g, '');
+        const actualValue = `${value.match(/px/gim)?.[0] ? value.replace('px', '') : parseFloat(value) * 16}`;
 
         acc[actualName] = actualValue;
 
