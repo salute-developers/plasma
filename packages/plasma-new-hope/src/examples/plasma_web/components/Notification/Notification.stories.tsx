@@ -3,6 +3,7 @@ import { styled } from '@linaria/react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { action } from '@storybook/addon-actions';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
@@ -40,6 +41,9 @@ const getNotificationProps = (i: number) => ({
     children: texts[i % 3],
     size: size[i % 2],
     iconPlacement: iconPlacement[i % 2] as NotificationIconPlacement,
+    onTimeoutClose: () => {
+        action('onTimeoutClose')('Callback, вызываемый при автоматическом закрытии по timeout.');
+    },
 });
 
 const meta: Meta<NotificationProps> = {

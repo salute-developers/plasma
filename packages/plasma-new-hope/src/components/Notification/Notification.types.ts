@@ -63,17 +63,6 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      */
     showCloseIcon?: boolean;
     /**
-     * Callback при нажатии на кнопку закрытия.
-     */
-    onCloseButtonClick?: () => void;
-    /**
-     * @deprecated
-     * Не влияет на отображение компонента.
-     * Статус компонента Notification.
-     */
-    status?: string;
-
-    /**
      * Вид Notification.
      */
     view?: string;
@@ -101,6 +90,20 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * Цвет заголовка (по умолчанию берётся цвет из view)
      */
     backgroundColor?: string;
+    /**
+     * Callback при нажатии на кнопку закрытия.
+     */
+    onCloseButtonClick?: () => void;
+    /**
+     * Callback, вызываемый при автоматическом закрытии по timeout.
+     */
+    onTimeoutClose?: () => void;
+    /**
+     * @deprecated
+     * Не влияет на отображение компонента.
+     * Статус компонента Notification.
+     */
+    status?: string;
 }
 
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
