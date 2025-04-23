@@ -16,7 +16,7 @@ export type NotificationsEvents = {
 };
 
 /**
- * Создает хранилищие с ключем `notifications` к массиву с окнами.
+ * Создает хранилище с ключом `notifications` к массиву с окнами.
  */
 export const NotificationsStore = createStoreon([
     (store: StoreonStore<NotificationsState, NotificationsEvents>) => {
@@ -42,6 +42,7 @@ export const closeNotification = (id: string, delay = 380) => {
     const { dispatch } = NotificationsStore;
 
     dispatch('hide', id);
+
     setTimeout(() => dispatch('remove', id), delay);
 };
 
@@ -50,9 +51,12 @@ export const closeNotification = (id: string, delay = 380) => {
  * @param props Пропсы всплывающего оповещения
  * @return Идентификатор нового оповещения
  */
-export function addNotification({ id: externalId, ...rest }: NotificationProps, timeout: number | null = 2000) {
+export function addNotification(
+    { id: externalId, onTimeoutClose, ...rest }: NotificationProps,
+    timeout: number | null = 2000,
+) {
     const id = externalId || `plasma-notification-${Date.now()}`;
-    const { dispatch } = NotificationsStore;
+    const { dispatch, get } = NotificationsStore;
 
     dispatch('add', {
         ...rest,
@@ -60,8 +64,21 @@ export function addNotification({ id: externalId, ...rest }: NotificationProps, 
         isHidden: false,
     });
 
+    // TODO: Вынести логику закрытия в отдельный модуль, данный метод должен только создавать новое оповещение
     if (timeout !== 0 && timeout !== null) {
-        setTimeout(() => closeNotification(id), timeout);
+        setTimeout(() => {
+            const { notifications } = get();
+
+            const notification = notifications.find((notification) => notification.id === id);
+
+            if (!notification) {
+                return;
+            }
+
+            closeNotification(id);
+
+            onTimeoutClose?.();
+        }, timeout);
     }
 
     return id;
