@@ -551,7 +551,7 @@ const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
                 value={valueSingle}
                 onChange={setValueSingle}
                 contentLeft={
-                    enableContentLeft ? <IconPlasma size="s" size={getIconSize(args.size)} color="inherit" /> : undefined
+                    enableContentLeft ? <IconPlasma size={getIconSize(args.size)} color="inherit" /> : undefined
                 }
             />
 

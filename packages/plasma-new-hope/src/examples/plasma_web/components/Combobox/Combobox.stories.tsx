@@ -6,7 +6,6 @@ import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '../Popover/Popover';
 import { WithTheme } from '../../../_helpers';
 import { IconDone } from '../../../../components/_Icon';
-import type { PopoverPlacement } from '../Popover/Popover';
 
 import { Combobox } from './Combobox';
 import { config } from './Combobox.config';

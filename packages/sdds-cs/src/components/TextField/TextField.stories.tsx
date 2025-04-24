@@ -104,12 +104,6 @@ const meta: Meta<typeof TextField> = {
                 eq: 'inner',
             },
         },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
         titleCaption: {
             control: { type: 'text' },
         },
@@ -233,7 +227,6 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...r
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         id: 'example-text-field',
-        size: 's',
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
@@ -256,7 +249,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     },
     parameters: {
         controls: {
-            exclude: ['chipType'],
+            exclude: ['chipType', 'size'],
         },
     },
     render: (args) => <StoryDemo {...args} />,
