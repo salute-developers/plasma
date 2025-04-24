@@ -80,7 +80,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
-                ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
@@ -145,7 +145,7 @@ export const config = {
                 ${tokens.buttonPadding}: 1rem 0 1rem;
 
                 ${tokens.padding}: 0.125rem;
-                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.dropdownBorderWidth}: 0.125rem;
 

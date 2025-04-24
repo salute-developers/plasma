@@ -41,8 +41,8 @@ export const config = {
         size: {
             s: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.625rem;
+                ${buttonGroupTokens.buttonSideRadius}: 0.75rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
 
                 ${buttonGroupTokens.buttonHeight}: 2.5rem;
                 ${buttonGroupTokens.buttonPadding}: 1rem;
@@ -55,8 +55,8 @@ export const config = {
             `,
             sr: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.625rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
+                ${buttonGroupTokens.buttonSideRadius}: 0.75rem;
 
                 ${buttonGroupTokens.buttonHeight}: 2.5rem;
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);

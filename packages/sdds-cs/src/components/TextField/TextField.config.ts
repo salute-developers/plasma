@@ -101,7 +101,7 @@ export const config = {
                 ${tokens.height}: 2.5rem;
                 ${tokens.padding}: 0.6875rem 0.75rem 0.6875rem 0.75rem;
                 ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
