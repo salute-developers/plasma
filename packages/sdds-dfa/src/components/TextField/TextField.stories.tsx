@@ -134,7 +134,7 @@ const meta: Meta<typeof TextField> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         titleCaption: {

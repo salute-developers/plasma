@@ -6,8 +6,9 @@ import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconBellFill, IconLockOutline } from '@salutejs/plasma-icons';
 
-import { TextField } from '.';
 import { config } from './TextField.config';
+
+import { TextField } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -144,7 +145,7 @@ const meta: Meta<typeof TextField> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         titleCaption: {
@@ -174,16 +175,6 @@ const meta: Meta<typeof TextField> = {
             options: hintSizes,
             control: {
                 type: 'select',
-            },
-            if: {
-                arg: 'hasHint',
-                truthy: true,
-            },
-        },
-        hintTargetPlacement: {
-            options: hintTargetPlacements,
-            control: {
-                type: 'inline-radio',
             },
             if: {
                 arg: 'hasHint',
