@@ -12,7 +12,7 @@ export const config = {
                 ${textAreaTokens.inputWidth}: 100%;
                 ${textAreaTokens.inputHeight}: 7.187rem;
                 ${textAreaTokens.inputMinHeight}: 0.625rem;
-                ${textAreaTokens.borderRadius}: 0.625rem;
+                ${textAreaTokens.borderRadius}: 0.75rem;
                 ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0 0;
                 ${textAreaTokens.inputPaddingTop}: 0.688rem;

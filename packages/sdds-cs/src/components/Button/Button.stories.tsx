@@ -40,7 +40,6 @@ const meta: Meta<ButtonProps> = {
         stretching: 'auto',
         text: 'Hello',
         value: 'Value',
-        disabled: false,
         focused: true,
         square: false,
         isLoading: false,
@@ -99,6 +98,7 @@ const meta: Meta<ButtonProps> = {
             'forwardedAs',
             'pin',
             'focused',
+            'disabled',
         ]),
     },
 };
