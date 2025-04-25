@@ -301,13 +301,13 @@ export function App() {
     ];
 
     return (
-        <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <form onSubmit={onSubmit} style=\{{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <TextField name="textfield" placeholder="Textfield" />
             <TextArea name="textarea" autoResize placeholder="Textarea" />
             <Checkbox name="checkbox" label="Checkbox" />
             <Switch name="switch" label="Switch" labelPosition="after" />
             <RadioGroup aria-labelledby="radiogroup-title-id">
-                <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
+                <div id="radiogroup-title-id" style=\{{ margin: '1rem 0', fontWeight: '600' }}>
                     Выберите язык программирования для изучения.
                 </div>
                 {radioboxItems.map((item) => (
@@ -442,7 +442,7 @@ export function App() {
             });
 
             return (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <div style=\{{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                     <TextField
                         label="Валидация почты"
                         placeholder="Заполните поле"
@@ -530,7 +530,7 @@ export function App() {
             return (
                 <form
                 onSubmit={onSubmit}
-                style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+                style=\{{ display: "flex", flexDirection: "column", gap: "20px" }}
                 >
                 <TextField
                     name="email"

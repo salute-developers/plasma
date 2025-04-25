@@ -295,13 +295,13 @@ export function App() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <form onSubmit={handleSubmit(onSubmit)} style=\{{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <TextField {...register('textfield')} placeholder="Textfield"  />
             <TextArea {...register('textarea')} autoResize placeholder="Textarea" />
             <Checkbox {...register('checkbox')} label="Checkbox" />
             <Switch {...register('switch')} label="Switch" labelPosition="after" />
             <RadioGroup aria-labelledby="radiogroup-title-id">
-                <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
+                <div id="radiogroup-title-id" style=\{{ margin: '1rem 0', fontWeight: '600' }}>
                     Выберите язык программирования для изучения.
                 </div>
                 {radioboxItems.map((item) => (
@@ -370,7 +370,7 @@ export function App() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+      style=\{{ display: "flex", flexDirection: "column", gap: "20px" }}
     >
       <TextField
         {...register("login")}
