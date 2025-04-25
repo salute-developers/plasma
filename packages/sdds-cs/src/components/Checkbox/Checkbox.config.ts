@@ -13,6 +13,7 @@ export const config = {
                 ${checkboxTokens.triggerPadding}: 0.125rem;
                 ${checkboxTokens.triggerSize}: 1.25rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.375rem;
+                ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0rem;
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
@@ -36,8 +37,9 @@ export const config = {
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
-                ${checkboxTokens.triggerBackgroundColor}: var(--surface-solid-card);
                 ${checkboxTokens.triggerBorderColor}: var(--outline-accent);
+                ${checkboxTokens.triggerBackgroundColor}: transparent;
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },
         disabled: {

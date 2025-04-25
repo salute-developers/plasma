@@ -30,6 +30,7 @@ const propsToDisable = [
     'onBlur',
     'view',
     'size',
+    'appearance',
 ];
 
 const views = ['accent'];
