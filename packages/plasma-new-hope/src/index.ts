@@ -75,3 +75,4 @@ export * from './components/Table';
 export * from './components/LinkButton';
 export * from './components/NumberFormat';
 export * from './components/Toast/ToastNew';
+export * from './components/Carousel';

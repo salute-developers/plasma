@@ -1,17 +1,18 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { ComponentProps } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import styled from 'styled-components';
 
-import { Carousel, CarouselItem } from '.';
+import { WithTheme } from '../../../_helpers';
+
+import { Carousel, CarouselItem } from './Carousel';
 
 type StoryCarouselProps = ComponentProps<typeof Carousel>;
 
 const meta: Meta<StoryCarouselProps> = {
-    title: 'Navigation/Carousel',
+    title: 'web/Navigation/Carousel',
     component: Carousel,
-    decorators: [InSpacingDecorator],
+    decorators: [WithTheme],
     argTypes: {
         align: {
             options: ['center', 'start', 'end'],
