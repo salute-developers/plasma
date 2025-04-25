@@ -43,19 +43,21 @@ export const LeftContent = styled.div`
 
 export const base = css`
     position: relative;
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    box-sizing: border-box;
-    white-space: nowrap;
-
     gap: var(${tokens.itemContentGap});
+
     padding: var(${tokens.itemPaddingOrientationVertical});
 
     appearance: none;
     border: none;
     outline: none;
-    cursor: pointer;
+    cursor: var(${tokens.itemCursor});
+    white-space: nowrap;
+    box-sizing: border-box;
+
     -webkit-tap-highlight-color: transparent;
 
     ${addFocus({
