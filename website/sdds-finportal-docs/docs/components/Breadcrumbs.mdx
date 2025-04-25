@@ -1,0 +1,148 @@
+---
+id: breadcrumbs
+title: Breadcrumbs
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Breadcrumbs
+<PropsTable name="Breadcrumbs" />
+
+# Типизация элементов
+
+Параметр `items` является обязательным и поддерживает следующие типы:
+
+```tsx
+type Items =
+    | {
+          /**
+           * Обработчик клика на элемент
+           */
+          onClick?: () => void;
+          /**
+           * Элемент заголовка
+           */
+          title: string;
+          /**
+           * Элемент выключен
+           */
+          disabled?: boolean;
+      }
+    | {
+          /**
+           * Ссылка на страницу ( если не указана, то ссылка не кликабельна )
+           */
+          href?: string;
+          /**
+           * Элемент заголовка
+           */
+          title: string;
+          /**
+           * Элемент выключен
+           */
+          disabled?: boolean;
+      }
+    | {
+          /**
+           * Функция рендера элемента
+           */
+          renderItem: () => ReactNode;
+      };
+```
+
+При использовании одного из трёх вариантов, свойства остальных будут не доступны.
+
+# Пример
+
+```tsx live
+import React from 'react';
+import { Breadcrumbs } from '@salutejs/sdds-finportal';
+
+export function App() {
+    const items = [
+        { title: 'Home', href: '/' },
+        { title: 'Without link' },
+        { title: 'Disabled', disabled: true },
+        { title: 'Disabled with link', href: '/', disabled: true },
+        {
+            title: 'On Click',
+            onClick: () => {
+                alert('On Click');
+            },
+        },
+        { renderItem: () => <span style={{ cursor: 'pointer' }}>Custom </span> },
+        { title: 'Main' },
+    ];
+
+    return (
+        <div>
+            <Breadcrumbs items={items} />
+        </div>
+    );
+}
+```
+# Использование с shorter
+```tsx live
+import React from 'react';
+import { Breadcrumbs } from '@salutejs/sdds-finportal';
+
+export function App() {
+    const items = [
+        { title: 'Home', href: '/' },
+        { title: 'About as', href: '/' },
+        { renderItem: () => <span>Custom Item</span> },
+        { title: 'Contacts' },
+    ];
+
+    return (
+        <div style={{"flexDirection": 'column'}}>
+            <div>
+                <Breadcrumbs items={items} showItems={2} />
+            </div>
+            <div>
+                 <Breadcrumbs items={items} showItems={3} />
+            </div>
+        </div>
+    );
+}
+```
+
+# Использование с кастомным элементом
+```tsx live
+import React from 'react';
+import { Breadcrumbs, Dropdown } from '@salutejs/sdds-finportal';
+
+export function App() {
+    const items = [
+        { title: 'Home', href: '/' },
+        { title: 'About as', href: '/' },
+        {
+            renderItem: () => {
+                const itemsDropdown = [
+                    {
+                        value: 'Custom Item 1',
+                        label: 'Custom Item 1',
+                    },
+                    {
+                        value: 'Custom Item 2',
+                        label: 'Custom Item 2',
+                    },
+                ];
+                return (
+                    <Dropdown variant="tight" placement="bottom" items={itemsDropdown} trigger="hover">
+                        <span>...</span>
+                    </Dropdown>
+                );
+            },
+        },
+        { title: 'Contacts' },
+    ];
+
+
+    return (
+        <div style={{height: '200px'}}>
+            <Breadcrumbs items={items} />
+        </div>
+    );
+}
+```

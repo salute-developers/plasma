@@ -1,0 +1,20 @@
+```jsx
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { Button, BodyL } from '@salutejs/sdds-finportal';
+import { sdds_finportal__light } from '@salutejs/sdds-themes';
+
+const Theme = createGlobalStyle(sdds_finportal__light);
+
+const App = () => {
+    return (
+        <>
+            <Theme />
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
