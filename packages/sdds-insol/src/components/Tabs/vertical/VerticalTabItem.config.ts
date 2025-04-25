@@ -33,6 +33,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-accent);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-accent);
+
+                ${tabsTokens.itemCursor}: pointer;
             `,
         },
         size: {

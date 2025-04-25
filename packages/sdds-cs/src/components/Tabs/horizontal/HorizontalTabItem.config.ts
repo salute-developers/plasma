@@ -32,6 +32,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
+
+                ${tabsTokens.itemCursor}: default;
             `,
             secondary: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
@@ -57,6 +59,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
+
+                ${tabsTokens.itemCursor}: default;
             `,
             divider: css`
                 ${tabsTokens.itemColor}: var(--text-accent);
@@ -83,6 +87,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
+
+                ${tabsTokens.itemCursor}: default;
             `,
             default: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
@@ -108,6 +114,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--surface-solid-default);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--surface-solid-default-hover);
+
+                ${tabsTokens.itemCursor}: default;
             `,
         },
         size: {

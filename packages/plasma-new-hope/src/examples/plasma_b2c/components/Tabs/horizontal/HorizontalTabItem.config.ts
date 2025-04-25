@@ -34,6 +34,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+
+                ${tabsTokens.itemCursor}: pointer;
             `,
             secondary: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
@@ -59,6 +61,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+
+                ${tabsTokens.itemCursor}: pointer;
             `,
             divider: css`
                 ${tabsTokens.itemColor}: var(--text-secondary);
@@ -85,6 +89,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+
+                ${tabsTokens.itemCursor}: pointer;
             `,
             default: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
@@ -110,6 +116,8 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+
+                ${tabsTokens.itemCursor}: pointer;
             `,
         },
         size: {
