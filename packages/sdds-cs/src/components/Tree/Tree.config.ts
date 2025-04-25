@@ -15,7 +15,7 @@ export const config = {
                 ${tokens.color}: var(--text-primary);
                 ${tokens.colorSelected}: var(--text-primary);
                 ${tokens.itemBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.itemBackgroundColorHover}: var(--surface-transparent-accent-hover);
+                ${tokens.itemBackgroundColorHover}: var(--surface-transparent-accent);
                 ${tokens.itemBackgroundColorActive}: var(--surface-solid-primary-active);
                 ${tokens.checkboxBorderColor}: var(--text-accent);
                 ${tokens.checkboxBackgroundColor}: var(--text-accent);
