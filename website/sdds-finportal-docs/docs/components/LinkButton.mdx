@@ -1,0 +1,85 @@
+---
+id: link-button
+title: LinkButton
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# LinkButton
+Кнопки-ссылки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
+
+<Description name="LinkButton" />
+<PropsTable name="LinkButton" />
+
+## Использование
+Компонент `LinkButton` может содержать текст, который указывается в
+свойстве `text`, или любой контент напрямую через `children`.
+
+Свойство text можно использовать вместе со свойствами `contentLeft` и `contentRight`.
+С их помощью можно размещать **иконку** слева или справа от текста.
+
+```tsx live
+import React from 'react';
+import { LinkButton } from '@salutejs/sdds-finportal';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <LinkButton text="Текст" />
+
+            <LinkButton text="Текст" contentLeft={<IconDownload color="inherit" />} />
+
+            <LinkButton text="Текст" contentRight={<IconDownload color="inherit" />} />
+
+            <LinkButton text="Текст" isLoading />
+
+            <LinkButton text="Текст" isLoading loader={<div>Loader...</div>} />
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер кнопки
+Размер кнопки задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { LinkButton } from '@salutejs/sdds-finportal';
+
+export function App() {
+    return (
+        <div>
+            <LinkButton text="Кнопка" size="xl" />
+            <LinkButton text="Кнопка" size="l" />
+            <LinkButton text="Кнопка" size="m" />
+            <LinkButton text="Кнопка" size="s" />
+            <LinkButton text="Кнопка" size="xs" />
+            <LinkButton text="Кнопка" size="xxs" />
+        </div>
+    );
+}
+```
+
+### Вид кнопки
+Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
+
+```tsx live
+import React from 'react';
+import { LinkButton } from '@salutejs/sdds-finportal';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <LinkButton text="Кнопка" size="s" view="default" />
+            <LinkButton text="Кнопка" size="s" view="accent" />
+            <LinkButton text="Кнопка" size="s" view="secondary" />
+            <LinkButton text="Кнопка" size="s" view="positive" />
+            <LinkButton text="Кнопка" size="s" view="warning" />
+            <LinkButton text="Кнопка" size="s" view="negative" />
+        </div>
+    );
+}
+```
