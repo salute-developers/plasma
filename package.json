@@ -4,7 +4,7 @@
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "scaffold:sb:update": "node scaffold/scaffold-storybook.js",
+    "scaffold:stories:update": "node scaffold/scaffold-storybook.js",
     "scaffold:update-components-docs": "npm run scaffold:components",
     "scaffold:docs": "simple-scaffold -c scaffold/scaffold-config.js --name $npm_config_package",
     "scaffold:components": "node scaffold/scaffold-components.js",

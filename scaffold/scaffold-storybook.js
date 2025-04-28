@@ -9,18 +9,18 @@ const POSTFIX = 'stories.template.tsx';
 
 async function main() {
     const packages = [];
-    const { npm_config_package: npmConfigPackage, npm_config_components: npmConfigComponents } = process.env || {};
+    const { npm_config_packages: npmConfigPackages, npm_config_components: npmConfigComponents } = process.env || {};
 
     const cwd = process.cwd();
 
-    if (!npmConfigPackage) {
+    if (!npmConfigPackages) {
         const blackList = ['plasma-new-hope', 'plasma-ui', 'plasma-asdk'];
 
         const list = Object.keys(META).filter((key) => !blackList.includes(key));
 
         packages.push(...list);
     } else {
-        packages.push(npmConfigPackage);
+        packages.push(npmConfigPackages);
     }
 
     const storyTemplateDir = path.join(cwd, 'packages/plasma-new-hope/src/components');
@@ -52,7 +52,7 @@ async function main() {
                 await rename(`${output}/${component}.${POSTFIX}`, `${output}/${component}.stories.tsx`);
             }
         } catch (err) {
-            console.error(`The package: "${npmConfigPackage}" not exists`);
+            console.error(`The package: "${npmConfigPackages}" not exists`);
 
             process.exit(1);
         }
