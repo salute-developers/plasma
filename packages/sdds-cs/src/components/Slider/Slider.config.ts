@@ -1,4 +1,4 @@
-import { css, sliderTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, sliderTokens, textFieldTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -21,11 +21,15 @@ export const config = {
                 ${sliderTokens.fillColor}: var(--surface-solid-default);
 
                 ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
                 ${sliderTokens.textFieldCaretColor}: var(--text-primary);
                 ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
                 ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+
+                // TODO: На обсуждение, прямое переиспользование токенов от компонента TextField
+                ${textFieldTokens.borderColor}: var(--on-light-outline-solid-primary);
+                ${textFieldTokens.borderColorFocus}: var(--outline-accent);
             `,
             accent: css`
                 ${sliderTokens.labelColor}: var(--text-primary);
@@ -41,31 +45,15 @@ export const config = {
                 ${sliderTokens.fillColor}: var(--surface-accent);
 
                 ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
+
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
                 ${sliderTokens.textFieldCaretColor}: var(--text-primary);
                 ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
                 ${sliderTokens.textFieldActiveColor}: var(--text-primary);
-            `,
-            gradient: css`
-                ${sliderTokens.labelColor}: var(--text-primary);
 
-                ${sliderTokens.rangeValueColor}: var(--text-secondary);
-
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
-                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
-                ${sliderTokens.thumbFocusBorderColor}: var(--surface-accent-gradient);
-
-                ${sliderTokens.railBackgroundColor}: var(--surface-solid-primary);
-
-                ${sliderTokens.fillColor}: var(--surface-accent-gradient);
-
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${textFieldTokens.borderColor}: var(--on-light-outline-solid-primary);
+                ${textFieldTokens.borderColorFocus}: var(--outline-accent);
             `,
         },
         size: {
@@ -119,6 +107,8 @@ export const config = {
                 ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${textFieldTokens.borderWidth}: 0.125rem;
             `,
         },
         disabled: {
