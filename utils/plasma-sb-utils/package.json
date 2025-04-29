@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-sb-utils",
-  "version": "0.196.0",
+  "version": "0.197.0-dev.0",
   "description": "Code shared between ui libraries.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
