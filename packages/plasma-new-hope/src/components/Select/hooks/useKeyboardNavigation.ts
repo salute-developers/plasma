@@ -122,6 +122,10 @@ export const useKeyNavigation = ({
 
                     const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
 
+                    if (currentItem?.disabled || currentItem?.isDisabled) {
+                        break;
+                    }
+
                     if (currentItem?.items) {
                         if (path.length > focusedPath.length) {
                             dispatchFocusedPath({ type: 'add_focus', value: 0 });
