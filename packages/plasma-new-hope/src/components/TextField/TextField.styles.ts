@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { applyEllipsis } from 'src/mixins';
 
 import { component, mergeConfig } from '../../engines';
 import { tooltipConfig } from '../Tooltip';
@@ -54,6 +55,10 @@ export const Input = styled.input`
     outline: none;
     width: 100%;
     z-index: 1;
+
+    &.${classes.inputTextEllipsis} {
+        ${applyEllipsis()}
+    }
 
     &::placeholder {
         opacity: 0;

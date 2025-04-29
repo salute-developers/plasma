@@ -338,6 +338,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 </StyledOptionalText>
             ) : null;
 
+            const classTextEllipsis =
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                // eslint-disable-next-line no-underscore-dangle
+                !(rest as any)._textEllipsisEnable && !textAfter ? classes.inputTextEllipsis : undefined;
+
             return (
                 <Root
                     view={view}
@@ -493,7 +499,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     aria-labelledby={labelId}
                                     aria-describedby={helperTextId}
                                     placeholder={innerPlaceholderValue}
-                                    className={cx(hasValueClass, keepPlaceholderClass)}
+                                    className={cx(hasValueClass, keepPlaceholderClass, classTextEllipsis)}
                                     disabled={disabled}
                                     readOnly={!disabled && readOnly}
                                     onInput={handleInput}
