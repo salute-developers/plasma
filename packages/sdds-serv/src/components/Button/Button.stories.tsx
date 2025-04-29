@@ -3,7 +3,8 @@ import type { ComponentProps } from 'react';
 import { action } from '@storybook/addon-actions';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
-import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, FixturesButton } from '@salutejs/plasma-sb-utils';
+import type { ButtonStoryDefaultProps } from '@salutejs/plasma-sb-utils';
 
 import { config } from './Button.config';
 
@@ -12,40 +13,16 @@ import { Button } from '.';
 type ButtonProps = ComponentProps<typeof Button>;
 
 const { views, sizes } = getConfigVariations(config);
-const stretchingValues = ['auto', 'filled', 'fixed'];
-const pinValues = [
-    '',
-    'square-square',
-    'square-clear',
-    'clear-square',
-    'clear-clear',
-    'clear-circle',
-    'circle-clear',
-    'circle-circle',
-];
-const contentPlacingValues = ['default', 'relaxed'];
 
 const onClick = action('onClick');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const meta: Meta<ButtonProps> = {
-    title: 'Data Entry/Button',
-    decorators: [InSpacingDecorator],
+    ...FixturesButton.meta,
     component: Button,
-    args: {
-        view: 'default',
-        size: 'm',
-        contentPlacing: 'default',
-        stretching: 'auto',
-        text: 'Hello',
-        value: 'Value',
-        disabled: false,
-        focused: true,
-        square: false,
-        isLoading: false,
-    },
     argTypes: {
+        ...FixturesButton.meta.argTypes,
         view: {
             options: views,
             control: {
@@ -58,56 +35,12 @@ const meta: Meta<ButtonProps> = {
                 type: 'select',
             },
         },
-        value: {
-            control: {
-                type: 'text',
-            },
-        },
-        contentPlacing: {
-            options: contentPlacingValues,
-            control: {
-                type: 'select',
-            },
-        },
-        stretching: {
-            options: stretchingValues,
-            control: {
-                type: 'select',
-            },
-        },
-        pin: {
-            options: pinValues,
-            control: {
-                type: 'select',
-            },
-            table: { defaultValue: { summary: 'bottom' } },
-        },
-        ...disableProps([
-            'theme',
-            'loader',
-            'onClick',
-            'onFocus',
-            'onBlur',
-            'outlined',
-            'contentLeft',
-            'contentRight',
-            'shiftLeft',
-            'shiftRight',
-            'stretch',
-            'as',
-            'forwardedAs',
-            'pin',
-            'focused',
-        ]),
     },
 };
 
 export default meta;
 
-type StoryPropsDefault = ComponentProps<typeof Button> & {
-    enableContentLeft: boolean;
-    enableContentRight: boolean;
-};
+type StoryPropsDefault = ButtonStoryDefaultProps<typeof Button>;
 
 const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
     const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
