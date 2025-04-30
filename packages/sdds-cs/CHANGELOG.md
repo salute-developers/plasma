@@ -1,3 +1,121 @@
+## 0.314.0 (30 апреля 2025)
+
+## Функциональные изменения в компонентах
+
+### Docs
+
+* исправлены опечатки и общий шаблон документации
+
+[PR](https://github.com/salute-developers/plasma/pull/1931)
+
+### Textfield
+
+* добавлен в документацию пример  c логикой очистки input
+
+[PR](https://github.com/salute-developers/plasma/pull/1931)
+
+* исправлен механизм truncate для длинных текстов
+
+<img width="448" src="https://github.com/user-attachments/assets/7a3bb763-dac9-412b-941e-483e26713058" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1937)
+
+### DatePicker
+
+* исправлено поведение автофокуса на input после ввода дат
+* исправлено поведение, при корректном вводе даты вызывается onCommit
+* расширен интерфейс для payload событий, добавлены поддержка ISO формат и объект с датами
+* расширен тип value до string
+
+[PR](https://github.com/salute-developers/plasma/pull/1939)
+
+### Tabs
+
+* добавлен токен для регулирования свойства cursor, по-умолчанию `pointer`
+
+[PR](https://github.com/salute-developers/plasma/pull/1943)
+
+### Combobox
+
+* убрано поведение скролла к инпуту после выбора элемента в режиме `multiple`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1934)
+
+* актуализирована документация;
+
+* добавлен явный экспорт типа ComboboxItemOption;
+
+[PR](https://github.com/salute-developers/plasma/pull/1925)
+
+* исправлен баг, не позволявший вызывать коллбэк `filter` в момент полной очистки инпута;
+
+[PR](https://github.com/salute-developers/plasma/pull/1935)
+
+### Notification
+
+* добавлен **новый** callback onTimeoutClose, вызывается при автоматическом закрытии по timeout.
+
+[PR](https://github.com/salute-developers/plasma/pull/1938)
+
+### Autocomplete
+
+* добавлен рендер-пропс `renderItem`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1936)
+
+## Изменения в библиотеки
+
+### Avatar
+
+* добавлен размер `xxl` согласно макетам
+
+[PR](https://github.com/salute-developers/plasma/pull/1929)
+
+### Tabs
+
+* добавлен токен для регулирования свойства cursor, по-умолчанию `default`
+
+[PR](https://github.com/salute-developers/plasma/pull/1943)
+
+### Checkbox
+
+* Исправлен баг с `border` при отжатом `checkbox`
+
+[PR](https://github.com/salute-developers/plasma/pull/1944)
+
+### Button
+
+* Обновлен конфиг в соответствии с дизайном
+
+[PR](https://github.com/salute-developers/plasma/pull/1940)
+
+### Textfield
+
+* Обновлен конфиг в соответствии с дизайном
+
+[PR](https://github.com/salute-developers/plasma/pull/1940)
+
+### Textarea
+
+* Обновлен конфиг в соответствии с дизайном
+
+[PR](https://github.com/salute-developers/plasma/pull/1940)
+
+### Chip
+
+* изменены токены в соответсвии с дизайном
+
+[PR](https://github.com/salute-developers/plasma/pull/1946)
+
+### Slider
+
+* исправлены токены для input в slider range вариации
+
+* исправлены токены для фокусной рамки
+
+[PR](https://github.com/salute-developers/plasma/pull/1950)
+
+
 ## 0.313.0 (17 апреля 2025)
 
 ## Функциональные изменения в компонентах
