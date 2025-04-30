@@ -342,7 +342,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 // eslint-disable-next-line no-underscore-dangle
-                !(rest as any)._textEllipsisEnable && !textAfter ? classes.inputTextEllipsis : undefined;
+                !(rest as any)._textEllipsisDisable && !textAfter ? classes.inputTextEllipsis : undefined;
 
             return (
                 <Root
