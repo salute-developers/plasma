@@ -54,7 +54,7 @@ export const config = {
                 ${paginationTokens.buttonWidth}: 2.5rem;
                 ${paginationTokens.buttonWidthShorter}: 1.75rem;
                 ${paginationTokens.paginationInputWidth}: 3rem;
-                ${paginationTokens.buttonRadius}: 0.625rem;
+                ${paginationTokens.buttonRadius}: 0.75rem;
                 ${paginationTokens.paginationIconSize}: 0.9rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1.15rem;
                 ${paginationTokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;

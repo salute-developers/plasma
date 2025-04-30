@@ -161,11 +161,18 @@ export function App() {
 
 
 ### Обязательность поля
-Обязательность поля задаётся с помощью свойств `required` и `requiredPlacement`. Где `requiredPlacement` отвечает за выравнивание и принимает значения `"left"` и `"right"`:
+
+:::tip
+Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+:::
+
+Обязательность поля задаётся с помощью свойств `required` и `requiredPlacement`.
+
+Где `requiredPlacement` отвечает за выравнивание и принимает значения `"left"` и `"right"`:
 
 ```tsx live
 import React from 'react';
-import { TextField } from '@salutejs/plasma-giga';
+import { TextArea } from '@salutejs/plasma-giga';
 
 export function App() {
     return (

@@ -917,11 +917,11 @@ export const plasma_giga_app__light = ([
 
 :root {
   --border-radius-xxs: 4px;
-  --border-radius-xs: 8px;
-  --border-radius-s: 12px;
-  --border-radius-m: 16px;
-  --border-radius-l: 20px;
-  --border-radius-xl: 24px;
+  --border-radius-xs: 6px;
+  --border-radius-s: 8px;
+  --border-radius-m: 12px;
+  --border-radius-l: 16px;
+  --border-radius-xl: 20px;
   --border-radius-xxl: 32px;
 }
 

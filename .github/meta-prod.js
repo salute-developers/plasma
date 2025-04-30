@@ -67,7 +67,7 @@ module.exports = {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-cs-docs'],
     },
     'sdds-finportal': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-finportal-docs'],
     },
     'sdds-insol': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-insol-docs'],

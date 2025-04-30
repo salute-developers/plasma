@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-serv",
-  "version": "0.308.0",
+  "version": "0.309.0-dev.0",
   "description": "Salute Design System / React UI kit for SDDS SERV web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -32,8 +32,8 @@
     "directory": "packages/sdds-serv"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.321.0",
-    "@salutejs/sdds-themes": "0.35.0"
+    "@salutejs/plasma-new-hope": "0.322.0-dev.0",
+    "@salutejs/sdds-themes": "0.36.0-dev.0"
   },
   "peerDependencies": {
     "@emotion/react": ">=11",
@@ -66,7 +66,7 @@
     "@salutejs/plasma-core": "1.196.0",
     "@salutejs/plasma-cy-utils": "0.127.0",
     "@salutejs/plasma-icons": "1.217.0",
-    "@salutejs/plasma-sb-utils": "0.196.0",
+    "@salutejs/plasma-sb-utils": "0.197.0-dev.0",
     "@storybook/addon-docs": "7.6.17",
     "@storybook/addon-essentials": "7.6.17",
     "@storybook/addons": "7.6.17",
@@ -125,7 +125,8 @@
     "ignoreFiles": [
       "src/**/*.component-test.tsx",
       "src/**/*.stories.tsx",
-      "src/**/*.perftest.tsx"
+      "src/**/*.perftest.tsx",
+      "src/**/*.styles.ts"
     ],
     "atLeast": 99.9
   },

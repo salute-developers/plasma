@@ -14,10 +14,8 @@ import TabItem from '@theme/TabItem';
 <PropsTable name="Autocomplete" />
 
 ## Использование
-Расширенная версия компонента `TextField`.
-
-Добавилась возможность использования выпадающего списка с подсказками.\
-По умолчанию подсказки фильтруются вне зависимости от регистра. Но это можно изменить, прокинув свой callback `filter`.\
+Расширенная версия компонента `TextField`. Добавилась возможность использования выпадающего списка с подсказками.\
+По умолчанию подсказки фильтруются вне зависимости от регистра. Но это можно изменить, прокинув свой коллбэк `filter`.\
 Все пропсы, которые поддерживает компонент `TextField` также поддерживаются и здесь.
 Формат подсказок `suggestions` следующий:
 
@@ -101,7 +99,7 @@ type SuggestionItem = {
             ];
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
                 </div>
             );
@@ -170,7 +168,7 @@ type SuggestionItem = {
             const [value, setValue] = useState('')
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete value={value} onChange={(e) => setValue(e.target.value)} onSuggestionSelect={(e) => setValue(e.label)} suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
                 </div>
             );
@@ -263,7 +261,7 @@ type SuggestionItem = {
             };
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete
                         suggestions={suggestions.data}
                         listMaxHeight="250px"
@@ -357,7 +355,7 @@ type SuggestionItem = {
             }, [value])
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
@@ -460,7 +458,7 @@ type SuggestionItem = {
             }
 
             return (
-                <div style={{ display: 'block', height:"400px" }}>
+                <div style=\{{ display: 'block', height:"400px" }}>
                     <Autocomplete
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
@@ -490,8 +488,39 @@ type SuggestionItem = {
             const items = Array(10000).fill(1).map((_, i) => ({ label: i.toString() }));
 
             return (
-                <div style={{ display: 'block', height: "350px" }}>
+                <div style=\{{ display: 'block', height: "350px" }}>
                     <Autocomplete suggestions={items} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите цифры" virtual />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="renderItem" label="Render item">
+        Пропс `renderItem` для кастомной настройки элемента в выпадающем списке. Принимает коллбэк с одним параметром: `item`.
+        В примере использован другой наш компонент - Cell.
+
+        ```tsx live
+        import React from 'react';
+        import { Select, Cell } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+            ];
+
+            const renderItem = ({ label }) => (
+                <Cell
+                    view="default"
+                    title={label}
+                    label="Top left"
+                    contentRight={<Cell view="default" title="Bottom right" label="Top right" />}
+                />
+            )
+
+            return (
+                <div style=\{{ display: 'block', height: "350px" }}>
+                    <Autocomplete suggestions={items} threshold={0} label="Label" placeholder="Placeholder" />
                 </div>
             );
         }
@@ -503,7 +532,7 @@ type SuggestionItem = {
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/).
 
-- `Tab, Escape` - закрывает Autocomplete. Перемещает фокус на следующий элемент на странице;
+- `Tab, Escape` - закрывает автокомплит. Перемещает фокус на следующий элемент на странице;
 - `Enter` - выбираем подсказку из списка;
 - `Home` - перемещает фокус на первый элемент;
 - `End` - перемещает фокус на последний элемент;

@@ -1,6 +1,6 @@
-import { CalendarValueType, DateObject } from '../Calendar.types';
+import { CalendarValueType, DateObject, DateType } from '../Calendar.types';
 
-export const getSortedValues = (values: [Date | undefined, (Date | undefined)?]) =>
+export const getSortedValues = (values: [DateType, DateType]) =>
     values.sort((start, end) => {
         if (!start || !end) {
             return -1;
@@ -9,12 +9,7 @@ export const getSortedValues = (values: [Date | undefined, (Date | undefined)?])
         return start.getTime() - end.getTime();
     });
 
-export const isDateInRange = (
-    year: number,
-    monthIndex: number,
-    currentDay: number,
-    values: [Date | undefined, Date?],
-) => {
+export const isDateInRange = (year: number, monthIndex: number, currentDay: number, values: [DateType, DateType]) => {
     const [startValue, endValue] = getSortedValues(values);
 
     if (!endValue || !startValue) {
@@ -31,7 +26,7 @@ export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
     firstDate.monthIndex === secondDate.monthIndex &&
     firstDate.year === secondDate.year;
 
-export const isValueUpdate = (value: Date | [Date?, Date?], prevValue: Date | [Date?, Date?]) => {
+export const isValueUpdate = (value: DateType | [DateType, DateType], prevValue: DateType | [DateType, DateType]) => {
     if (!Array.isArray(value) && !Array.isArray(prevValue)) {
         return prevValue?.getTime() !== value?.getTime();
     }

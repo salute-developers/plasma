@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
 
 import { Slider } from './Slider';
+import { config } from './Slider.config';
 
-const sizes = ['s'];
+const { views } = getConfigVariations(config);
+
 const pointerSizes = ['small', 'none'];
-const views = ['default', 'accent', 'gradient'];
 const sliderAligns = ['center', 'left', 'right', 'none'];
 const labelPlacements = ['top', 'left'];
 const scaleAligns = ['side', 'bottom'];
@@ -25,12 +26,6 @@ const meta: Meta<typeof Slider> = {
             options: views,
             control: {
                 type: 'select',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
             },
         },
         pointerSize: {
@@ -80,8 +75,12 @@ type StorySingle = StoryObj<StorySingleProps>;
 type StoryDouble = StoryObj<StoryProps>;
 
 const SliderWrapper = styled.div<{ isVertical?: boolean }>`
-    width: ${({ isVertical }) => (isVertical ? 'auto' : '25rem')};
+    padding: 1rem;
+
+    width: calc(100% - 2rem);
     height: ${({ isVertical }) => (isVertical ? '25rem' : 'auto')};
+
+    background-color: rgb(232, 238, 242, 0.4);
 `;
 
 const StoryDefault = (args: StorySingleProps) => {
@@ -171,7 +170,6 @@ export const Default: StorySingle = {
     },
     args: {
         view: 'default',
-        size: 's',
         pointerSize: 'small',
         pointerVisibility: 'always',
         min: 0,
@@ -246,7 +244,6 @@ const StoryMultipleValues = (args: StoryProps) => {
 export const MultipleValues: StoryDouble = {
     args: {
         view: 'default',
-        size: 's',
         pointerSize: 'small',
         min: 0,
         max: 100,
@@ -259,7 +256,7 @@ export const MultipleValues: StoryDouble = {
         pointerSize: {
             options: ['small', 'large'],
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         ...disableProps(['size', 'orientation']),

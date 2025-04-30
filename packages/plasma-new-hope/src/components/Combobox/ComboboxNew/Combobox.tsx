@@ -103,11 +103,15 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const inputForkRef = useForkRef(inputRef, ref);
         const treeId = safeUseId();
 
-        const filteredItems = filterItems(
-            transformedItems,
-            textValue,
-            valueToItemMap.get(value as string)?.label as string,
-            filter,
+        const filteredItems = useMemo(
+            () =>
+                filterItems(
+                    transformedItems,
+                    textValue,
+                    (valueToItemMap.get(value as string)?.label as string) || (value as string),
+                    filter,
+                ),
+            [transformedItems, textValue, filter],
         );
 
         const [pathMap, focusedToValueMap] = useMemo(() => getPathMap(filteredItems), [filteredItems, textValue]);
@@ -141,8 +145,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             if (textValue !== value) {
                 if (isEmpty(value)) {
                     setTextValue('');
+                } else if (multiple) {
+                    setTextValue('');
                 } else {
-                    setTextValue(valueToItemMap.get(value as string)?.label || '');
+                    setTextValue(valueToItemMap.get(value as string)?.label || (value as string) || '');
                 }
             }
         }, floatingPopoverRef);
@@ -312,16 +318,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             if (onChange) {
                 onChange(newValues, item);
             }
-
-            // После выбора/снятия чекбокса скроллим к инпуту
-            setTimeout(() => {
-                if (inputRef.current) {
-                    inputRef.current.scrollIntoView({
-                        behavior: 'smooth',
-                        inline: 'start',
-                    });
-                }
-            }, 1);
         };
 
         // Обработчик клика по айтему выпадающего списка
@@ -438,7 +434,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             // В deps мы кладем именно outerValue и internalValue, а не просто value.
             // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
-        }, [outerValue, internalValue, items]);
+        }, [outerValue, internalValue]);
 
         useLayoutEffect(() => {
             if (defaultValue) {

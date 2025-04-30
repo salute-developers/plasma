@@ -560,6 +560,28 @@ describe('plasma-web: Autocomplete', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: renderItem', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Autocomplete
+                        label="Label"
+                        placeholder="Placeholder"
+                        suggestions={suggestions}
+                        renderItem={(item) => <div>{item.label} render item</div>}
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').click();
+        cy.focused().type('алексей');
+
+        cy.matchImageSnapshot();
+    });
+
     it('keyboard interactions', () => {
         cy.viewport(1000, 500);
 

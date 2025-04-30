@@ -4,12 +4,15 @@ import * as Tokens from '@salutejs/{{ vertical }}/tokens';
 import * as Package from '@salutejs/{{name}}';
 import { Filler } from '@salutejs/plasma-docs-ui';
 import styled from 'styled-components';
+import { useForm, Controller } from 'react-hook-form';
 
 // Add react-live imports you need here
 const ReactLiveScope = {
     React,
     Filler,
     styled,
+    useForm,
+    Controller,
     ...Icons,
     ...Tokens,
     ...Package,

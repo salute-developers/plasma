@@ -937,46 +937,46 @@
 }
 
 :root {
-  --shadow-down-soft-s: 0px 4px 14px -4px #08080814, 0px 1px 4px -1px #0000000A;
-  --shadow-down-soft-m: 0px 24px 48px -8px #00000014;
-  --shadow-down-soft-l: 0px 60px 112px -8px #00000014;
-  --shadow-down-hard-s: 0px 4px 12px -3px #08080829, 0px 1px 4px -2px #00000014;
-  --shadow-down-hard-m: 0px 16px 32px -8px #0000003D;
-  --shadow-down-hard-l: 0px 60px 112px -8px #00000066;
-  --shadow-up-soft-s: 0px -4px 14px -4px #08080814, 0px -1px 4px -1px #00000008;
-  --shadow-up-soft-m: 0px -24px 48px -8px #00000014;
-  --shadow-up-soft-l: 0px -60px 112px -8px #00000014;
-  --shadow-up-hard-s: 0px -4px 12px -3px #08080833, 0px -1px 4px -1px #00000008;
-  --shadow-up-hard-m: 0px -16px 32px -8px #0000003D;
-  --shadow-up-hard-l: 0px -60px 112px -8px #00000066;
+  --shadow-down-soft-s: 0rem 0.25rem 0.875rem -0.25rem #08080814, 0rem 0.0625rem 0.25rem -0.0625rem #0000000A;
+  --shadow-down-soft-m: 0rem 1.5rem 3rem -0.5rem #00000014;
+  --shadow-down-soft-l: 0rem 3.75rem 7rem -0.5rem #00000014;
+  --shadow-down-hard-s: 0rem 0.25rem 0.75rem -0.1875rem #08080829, 0rem 0.0625rem 0.25rem -0.125rem #00000014;
+  --shadow-down-hard-m: 0rem 1rem 2rem -0.5rem #0000003D;
+  --shadow-down-hard-l: 0rem 3.75rem 7rem -0.5rem #00000066;
+  --shadow-up-soft-s: 0rem -0.25rem 0.875rem -0.25rem #08080814, 0rem -0.0625rem 0.25rem -0.0625rem #00000008;
+  --shadow-up-soft-m: 0rem -1.5rem 3rem -0.5rem #00000014;
+  --shadow-up-soft-l: 0rem -3.75rem 7rem -0.5rem #00000014;
+  --shadow-up-hard-s: 0rem -0.25rem 0.75rem -0.1875rem #08080833, 0rem -0.0625rem 0.25rem -0.0625rem #00000008;
+  --shadow-up-hard-m: 0rem -1rem 2rem -0.5rem #0000003D;
+  --shadow-up-hard-l: 0rem -3.75rem 7rem -0.5rem #00000066;
 }
 
 :root {
-  --border-radius-xxs: 4px;
-  --border-radius-xs: 6px;
-  --border-radius-s: 8px;
-  --border-radius-m: 12px;
-  --border-radius-l: 16px;
-  --border-radius-xl: 20px;
-  --border-radius-xxl: 32px;
+  --border-radius-xxs: 0.25rem;
+  --border-radius-xs: 0.375rem;
+  --border-radius-s: 0.5rem;
+  --border-radius-m: 0.75rem;
+  --border-radius-l: 1rem;
+  --border-radius-xl: 1.25rem;
+  --border-radius-xxl: 2rem;
 }
 
 :root {
-  --spacing-0x: 0px;
-  --spacing-1x: 2px;
-  --spacing-2x: 4px;
-  --spacing-3x: 6px;
-  --spacing-4x: 8px;
-  --spacing-6x: 12px;
-  --spacing-8x: 16px;
-  --spacing-10x: 20px;
-  --spacing-12x: 24px;
-  --spacing-16x: 32px;
-  --spacing-20x: 40px;
-  --spacing-24x: 48px;
-  --spacing-32x: 64px;
-  --spacing-40x: 80px;
-  --spacing-60x: 120px;
+  --spacing-0x: 0rem;
+  --spacing-1x: 0.125rem;
+  --spacing-2x: 0.25rem;
+  --spacing-3x: 0.375rem;
+  --spacing-4x: 0.5rem;
+  --spacing-6x: 0.75rem;
+  --spacing-8x: 1rem;
+  --spacing-10x: 1.25rem;
+  --spacing-12x: 1.5rem;
+  --spacing-16x: 2rem;
+  --spacing-20x: 2.5rem;
+  --spacing-24x: 3rem;
+  --spacing-32x: 4rem;
+  --spacing-40x: 5rem;
+  --spacing-60x: 7.5rem;
 }
 
 :root {

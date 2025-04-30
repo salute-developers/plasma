@@ -1,7 +1,7 @@
 import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
 import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
-import type { DateInfo } from '../../Calendar/Calendar.types';
+import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
 import { LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
@@ -76,22 +76,36 @@ export type DatePickerTextFieldProps = {
      */
     textAfter?: string;
     /**
+     * Автозаполнение полей.
+     */
+    autoComplete?: string;
+    /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре.
      */
-    onCommitDate?: (value: Date | string, error?: boolean, success?: boolean, dateInfo?: DateInfo) => void;
+    onCommitDate?: (
+        value: Date | string,
+        error?: boolean,
+        success?: boolean,
+        dateInfo?: DateInfo,
+        originalDate?: Date,
+        isoDate?: string,
+    ) => void;
     /**
      * Обработчик изменения значения.
      */
-    onChangeValue?: (event: SyntheticEvent<HTMLInputElement> | null, value?: string) => void;
+    onChangeValue?: (
+        event: SyntheticEvent<HTMLInputElement> | null,
+        value?: string,
+        originalDate?: DateType,
+        isoDate?: string,
+    ) => void;
     /**
      * Свойство устарело, используется формой. Вместо используйте onChangeValue и onCommitDate
      * @deprecated
      */
-    onChange?: (event: { target: { value?: string; name?: string } }) => void;
-    /**
-     * Автозаполнение полей.
-     */
-    autoComplete?: string;
+    onChange?: (event: {
+        target: { value?: string; name?: string; originalDate?: DateType; isoDate?: string };
+    }) => void;
 } & LabelProps;
 
 export type DatePickerPopoverProps = {

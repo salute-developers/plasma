@@ -27,7 +27,16 @@ const meta: Meta<typeof Chip> = {
                 type: 'select',
             },
         },
-        ...disableProps(['readOnly', 'onClear', 'contentLeft', 'contentRight', 'contentClearButton', 'text']),
+        ...disableProps([
+            'readOnly',
+            'onClear',
+            'contentLeft',
+            'contentRight',
+            'contentClearButton',
+            'text',
+            'disabled',
+            'pilled',
+        ]),
     },
 };
 
@@ -36,7 +45,7 @@ export default meta;
 type Story = StoryObj<typeof Chip>;
 
 const TrashIcon = (props) => (
-    <svg width="100%" viewBox="0 0 24 24" fill="none" {...props}>
+    <svg width="100%" viewBox="0 0 24 24" fill="none" color="inherit" {...props}>
         <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -52,9 +61,7 @@ export const Default: Story = {
         view: 'default',
         size: 's',
         hasClear: true,
-        disabled: false,
         focused: true,
-        pilled: false,
         onClear,
     },
 };

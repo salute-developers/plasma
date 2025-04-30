@@ -1,0 +1,151 @@
+---
+id: attach
+title: Attach
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Attach
+<Description name="Attach" />
+<PropsTable name="Attach" />
+
+## Примеры
+
+### Подсказка к кнопке
+Вид `helperText` задается с помощью свойства `helperTextView`. Возможные значения свойства:
++ `"default"` – по умолчанию;
++ `"negative"` – ошибка.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/sdds-finportal';
+
+export function App() {
+    return (
+        <div style={{ padding: "1rem" }}>
+            <Attach helperTextView="default" helperText="Подсказка" />
+            <Attach helperTextView="negative" helperText="Подсказка" />
+        </div>
+    );
+}
+```
+
+### Вид кнопки
+С помощью свойства `buttonType` можно менять вид кнопки: обычный или с иконкой.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/sdds-finportal';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
+            <Attach view="accent" buttonType={'button'} />
+            <Attach view="secondary" buttonType={'iconButton'} />
+        </div>
+    );
+}
+```
+
+### Расположение элементов
+C помощью свойства `flow` можно регулировать расположение элементов в зависимости от ширины контейнера.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/sdds-finportal';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
+            <Attach style={{ width: "400px" }} flow="auto" />
+            <Attach style={{ width: "400px" }} flow="horizontal" />
+            <Attach style={{ width: "400px" }} flow="vertical" />
+        </div>
+    );
+}
+```
+
+### Фильтр форматов файлов
+Свойство `acceptedFileFormats` устанавливает доступные форматы файлов.
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/sdds-finportal';
+
+export function App() {
+    return (
+        <div>
+            <Attach acceptedFileFormats={['.pdf', '.doc']} />
+        </div>
+    );
+}
+```
+
+### Пример использования в форме
+
+```tsx live
+import React, { useState } from 'react';
+import { Attach, Button } from '@salutejs/sdds-finportal';
+
+function App() {
+    const ids = ['0', '1', '2'];
+    const [isLoading, setIsLoading] = useState(false);
+    const [attachedFiles, setAttachedFiles] = useState([]);
+
+    const handleAttachFile = (e) => {
+        setAttachedFiles((prevAttachedFiles) => [
+            ...prevAttachedFiles,
+            {
+                fileData: e.target.files[0],
+                id: e.target.id,
+            },
+        ]);
+    };
+
+    const handleAttachClear = (id) => {
+        setAttachedFiles(attachedFiles.filter((file) => file.id !== id));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+  
+        const formData = new FormData(e.target);
+        console.log('formData', Object.fromEntries(formData));
+
+        setTimeout(() => {
+            setAttachedFiles([]);
+            setIsLoading(false);
+        }, 2000);
+    };
+
+    return (
+        <>
+            <span>{isLoading ? 'Форма отправляется' : 'Прикрепленные файлы:'}</span>
+            {!isLoading && attachedFiles.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
+                    {attachedFiles.map((file) => (
+                        <span>{file.fileData.name}</span>
+                    ))}
+                </div>
+            )}
+
+            {!isLoading && (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+                    {ids.map((id) => (
+                        <Attach
+                            id={id}
+                            name={`attach${id}`}
+                            text={`Загрузить файл ${id}`}
+                            onChange={handleAttachFile}
+                            onClear={() => handleAttachClear(id)}
+                        />
+                    ))}
+
+                    <Button type="submit">Отправить</Button>
+                </form>
+            )}
+        </>
+    );
+}
+```

@@ -5,6 +5,10 @@ title: Tabs
 
 import { PropsTable, Description } from '@site/src/components';
 
+# Tabs
+Набор компонентов для создания вкладок.
+Структура для вкладок похожа на структуру маркированных списков.
+
 ## Tabs
 
 <Description name="Tabs" />
@@ -16,7 +20,7 @@ import { PropsTable, Description } from '@site/src/components';
 <PropsTable name="TabItem" />
 
 :::caution Взаимоисключающие свойства
-Свойство `value` - это значение таба. Оно отображается справа от основного текста.<br/>
+Свойство `value` - это значение Tab. Оно отображается справа от основного текста.<br/>
 `value` и `contentRight` взаимоисключающие: если передано одно, второе передать нельзя.
 :::
 
@@ -61,8 +65,8 @@ export function App() {
 }
 ```
 
-### Расположение табов
-Табы могут быть горизонтальными (по умолчанию) и вертикальными. За это отвечает свойство `orientation`.
+### Расположение Tabs
+Компонент может быть горизонтальными (по умолчанию) и вертикальными. За это отвечает свойство `orientation`.
 
 ```tsx live
 import React, { useState } from 'react';
@@ -97,7 +101,7 @@ export function App() {
 ```
 
 ### Пример с прокруткой
-При выборе таба происходит прокрутка до выбранного таба.
+При выборе Tab происходит прокрутка до выбранного TabItem.
 
 ```tsx live
 import React, { useState } from 'react';
@@ -189,8 +193,8 @@ export function App() {
 
 ### Подключение клавиатурной навигации
 Для этого необходимо дополнительно прокинуть свойства `index, itemIndex, onIndexChange`.<br/>
-Для горизонтальных табов: клавиши ArrowLeft, ArrowRight, Home, End для навигации по вкладкам.<br/>
-Для вертикальных табов: клавиши ArrowUp, ArrowDown, Home, End для навигации по вкладкам.
+Для горизонтальных Tabs: клавиши ArrowLeft, ArrowRight, Home, End для навигации по вкладкам.<br/>
+Для вертикальных Tabs: клавиши ArrowUp, ArrowDown, Home, End для навигации по вкладкам.
 
 ```tsx live
 import React, { useState } from 'react';

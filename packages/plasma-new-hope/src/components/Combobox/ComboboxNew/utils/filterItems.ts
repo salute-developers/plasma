@@ -13,7 +13,7 @@ export const filterItems = (
     currentLabel: string,
     customFilter?: (item: ItemOption, value: string) => boolean,
 ): Array<ItemOptionTransformed> => {
-    if (!textValue || textValue === currentLabel) return items;
+    if ((!textValue && !customFilter) || textValue === currentLabel) return items;
 
     const defaultFilter = (item: ItemOption, value: string) => item.label.toLowerCase().includes(value.toLowerCase());
 

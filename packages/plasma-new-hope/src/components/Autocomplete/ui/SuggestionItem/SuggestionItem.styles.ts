@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
+import { addFocus, applyEllipsis } from 'src/mixins';
 
 import { tokens, classes } from '../../Autocomplete.tokens';
-import { addFocus, applyEllipsis } from '../../../../mixins';
 
 export const StyledText = styled.div`
     ${applyEllipsis()};

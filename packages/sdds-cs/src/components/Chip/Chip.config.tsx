@@ -9,29 +9,32 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${chipTokens.color}: var(--inverse-text-primary);
-                ${chipTokens.background}: var(--surface-solid-default);
-                ${chipTokens.colorHover}: var(--inverse-text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-solid-default);
-                ${chipTokens.colorActive}: var(--inverse-text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-solid-default);
-                ${chipTokens.backgroundReadOnly}: var(--surface-solid-default);
-                ${chipTokens.colorReadOnly}: var(--inverse-text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-default);
-                ${chipTokens.colorReadOnlyHover}: var(--inverse-text-primary);
+                ${chipTokens.color}: var(--text-primary);
+                ${chipTokens.background}: var(--surface-solid-card);
+                ${chipTokens.colorHover}: var(--text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-solid-card);
+                ${chipTokens.colorActive}: var(--text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-solid-card);
+                ${chipTokens.backgroundReadOnly}: var(--surface-solid-card);
+                ${chipTokens.colorReadOnly}: var(--text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-card);
+                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+                ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             secondary: css`
                 ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-solid-primary);
+                ${chipTokens.background}: var(--surface-solid-secondary);
                 ${chipTokens.colorHover}: var(--text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-solid-primary);
+                ${chipTokens.backgroundHover}: var(--surface-solid-secondary);
                 ${chipTokens.colorActive}: var(--text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-solid-primary);
+                ${chipTokens.backgroundActive}: var(--surface-solid-secondary);
                 ${chipTokens.backgroundReadOnly}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnly}: var(--text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -48,7 +51,7 @@ export const config = {
         },
         size: {
             s: css`
-                ${chipTokens.borderRadius}: 0.5rem;
+                ${chipTokens.borderRadius}: 0.625rem;
                 ${chipTokens.pilledBorderRadius}: 1rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2.5rem;
@@ -96,18 +99,10 @@ export const config = {
                 ${chipTokens.closeIconSize}: 1rem;
             `,
         },
-        disabled: {
-            true: css`
-                ${chipTokens.disabledOpacity}: 0.4;
-            `,
-        },
         focused: {
             true: css`
                 ${chipTokens.focusColor}: var(--text-accent);
             `,
-        },
-        pilled: {
-            true: css``,
         },
     },
 };

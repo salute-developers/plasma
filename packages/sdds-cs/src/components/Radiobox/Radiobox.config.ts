@@ -45,6 +45,7 @@ export const config = {
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: var(--surface-solid-card);
                 ${radioboxTokens.triggerBorderColor}: var(--outline-accent);
+                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },
         disabled: {

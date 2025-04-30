@@ -99,7 +99,7 @@ export const config = {
             s: css`
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.75rem 0.6875rem 0.75rem;
-                ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
@@ -144,7 +144,7 @@ export const config = {
                 ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
 
-                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderRadius}: 0.75rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.itemPadding}: 0.6875rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.5rem;

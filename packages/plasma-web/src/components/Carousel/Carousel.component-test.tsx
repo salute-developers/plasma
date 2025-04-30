@@ -1,5 +1,5 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
-import React, { FC } from 'react';
+import * as React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 import { CarouselCard } from './Carousel.examples';
@@ -35,6 +35,7 @@ describe('plasma-web: Carousel', () => {
                 </Carousel>
             </CypressTestDecorator>,
         );
+
         cy.wait(100);
         cy.matchImageSnapshot();
     });
