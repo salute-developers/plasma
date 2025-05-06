@@ -712,7 +712,13 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             outer: css``,
         },
@@ -730,15 +736,19 @@ export const config = {
                 ${tokens.textFieldTooltipPaddingRight}: 0.875rem;
                 ${tokens.textFieldTooltipPaddingBottom}: 0.6875rem;
                 ${tokens.textFieldTooltipPaddingLeft}: 0.875rem;
+
                 ${tokens.textFieldTooltipMinHeight}: 2.5rem;
                 ${tokens.textFieldTooltipBorderRadius}: 0.625rem;
+
                 ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
                 ${tokens.textFieldTooltipContentLeftMargin}: 0.375rem;
+
                 ${tokens.textFieldTooltipArrowMaskWidth}: 1.25rem;
                 ${tokens.textFieldTooltipArrowMaskHeight}: 1.25rem;
                 ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
@@ -750,15 +760,19 @@ export const config = {
                 ${tokens.textFieldTooltipPaddingRight}: 0.75rem;
                 ${tokens.textFieldTooltipPaddingBottom}: 0.5rem;
                 ${tokens.textFieldTooltipPaddingLeft}: 0.75rem;
+
                 ${tokens.textFieldTooltipMinHeight}: 2rem;
                 ${tokens.textFieldTooltipBorderRadius}: 0.5rem;
+
                 ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.textFieldTooltipContentLeftMargin}: 0.25rem;
+
                 ${tokens.textFieldTooltipArrowMaskWidth}: 1rem;
                 ${tokens.textFieldTooltipArrowMaskHeight}: 1rem;
                 ${tokens.textFieldTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");

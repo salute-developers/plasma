@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import './style.css';
 
 import { Select } from './Select';
+import { config } from './Select.config';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
     hasHint?: boolean;
 };
 
-const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
-const size = ['xs', 's', 'm', 'l'];
+const { sizes, views } = getConfigVariations(config);
+
 const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
@@ -53,12 +54,12 @@ const meta: Meta<StorySelectProps> = {
             options: ['button-like', 'textfield-like'],
         },
         size: {
-            control: 'select',
-            options: size,
+            control: 'inline-radio',
+            options: sizes,
         },
         view: {
             control: 'select',
-            options: view,
+            options: views,
         },
         labelPlacement: {
             control: 'select',
@@ -1003,7 +1004,7 @@ export const Common: StoryObj<StorySelectProps> = {
     },
     argTypes: {
         size: {
-            options: size,
+            options: sizes,
             control: 'select',
         },
     },

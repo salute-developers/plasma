@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Combobox } from './Combobox';
+import { config } from './Combobox.config';
 
 type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
@@ -16,13 +17,13 @@ const getIconSize = (size?: string) => {
     return size === 'xs' || size === 's' ? 'xs' : 's';
 };
 
-const view = ['default', 'positive', 'warning', 'negative'];
-const size = ['xs', 's', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
 const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
+const hintTargetPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
     'top-start',
@@ -49,13 +50,13 @@ const meta: Meta<StorySelectProps> = {
     component: Combobox,
     argTypes: {
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: view,
+            options: views,
             control: {
                 type: 'select',
             },
@@ -142,6 +143,13 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'hasHint', truthy: true },
         },
+        hintTargetPlacement: {
+            options: hintTargetPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+            if: { arg: 'hasHint', truthy: true },
+        },
         hintTrigger: {
             options: hintTriggers,
             control: {
@@ -192,6 +200,7 @@ const meta: Meta<StorySelectProps> = {
         hintTrigger: 'hover',
         hintView: 'default',
         hintSize: 'm',
+        hintTargetPlacement: 'outer',
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
@@ -226,6 +235,7 @@ const meta: Meta<StorySelectProps> = {
                 'hintTrigger',
                 'hintView',
                 'hintSize',
+                'hintTargetPlacement',
                 'hintPlacement',
                 'hintWidth',
                 'hintHasArrow',
@@ -444,13 +454,12 @@ const items = [
     {
         value: 'africa',
         label: 'Африка',
-        isDisabled: true,
+        disabled: true,
     },
 ];
 
 const SingleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState('');
-
     return (
         <div style={{ width: '400px' }}>
             <Combobox
@@ -466,6 +475,9 @@ const SingleStory = (args: StorySelectProps) => {
 
 export const Single: StoryObj<StorySelectProps> = {
     render: (args) => <SingleStory {...args} />,
+    args: {
+        closeAfterSelect: true,
+    },
     parameters: {
         controls: {
             exclude: ['isTargetAmount'],
@@ -492,4 +504,7 @@ const MultipleStory = (args: StorySelectProps) => {
 
 export const Multiple: StoryObj<StorySelectProps> = {
     render: (args) => <MultipleStory {...args} />,
+    args: {
+        closeAfterSelect: false,
+    },
 };

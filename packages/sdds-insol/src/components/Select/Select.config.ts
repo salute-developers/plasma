@@ -727,7 +727,7 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.125rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.25rem;
-                ${tokens.textFieldChipPadding}: 0 0.375rem 0 0.625rem;
+                ${tokens.textFieldChipPadding}: 0  0.375rem 0 0.625rem;
                 ${tokens.textFieldChipClearContentMarginLeft}: 0.25rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 0.75rem;

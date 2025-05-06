@@ -9,7 +9,7 @@ import { TextField as TextFieldB2C } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const sizes = ['xs', 's', 'm', 'l'];
+const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
 describe('plasma-b2c: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldB2C;
