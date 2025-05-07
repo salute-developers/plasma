@@ -77,3 +77,4 @@ export * from './components/NumberFormat';
 export * from './components/Toast/ToastNew';
 export * from './components/Carousel';
 export * from './components/PaginationDots';
+export * from './components/CodeField';
