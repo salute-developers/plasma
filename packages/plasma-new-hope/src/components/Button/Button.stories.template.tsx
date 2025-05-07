@@ -3,8 +3,7 @@ import type { ComponentProps } from 'react';
 import { action } from '@storybook/addon-actions';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
-import { disableProps, getConfigVariations, FixturesButton } from '@salutejs/plasma-sb-utils';
-import type { ButtonStoryDefaultProps } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, Button as ButtonFixtures } from '@salutejs/plasma-sb-utils';
 
 import { config } from './Button.config';
 
@@ -18,11 +17,11 @@ const onClick = action('onClick');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const meta: Meta<ButtonProps> = {
-    ...FixturesButton.meta,
+const meta = {
+    ...ButtonFixtures.meta,
     component: Button,
     argTypes: {
-        ...FixturesButton.meta.argTypes,
+        ...ButtonFixtures.meta.argTypes,
         view: {
             options: views,
             control: {
@@ -36,11 +35,11 @@ const meta: Meta<ButtonProps> = {
             },
         },
     },
-};
+} as Meta<ButtonProps>;
 
 export default meta;
 
-type StoryPropsDefault = ButtonStoryDefaultProps<typeof Button>;
+type StoryPropsDefault = ButtonFixtures.StoryPropsDefault<typeof Button>;
 
 const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
     const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
