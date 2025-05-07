@@ -1,10 +1,16 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import type { ReactNode, FC } from 'react';
+import type { FC } from 'react';
 
 import type { CustomToastProps, ToastControllerProps, ToastProps } from '../Toast.types';
 import { DEFAULT_CLOSE_ICON_TYPE, DEFAULT_FADE, DEFAULT_POSITION, TIMER_DELAY } from '../utils';
 
-import type { ShowToast, ShowToastArgs, ShowToastCallSignature, ToastContextType } from './ToastProvider.types';
+import type {
+    ShowToast,
+    ShowToastArgs,
+    ShowToastCallSignature,
+    ToastContextType,
+    ToastProviderProps,
+} from './ToastProvider.types';
 
 export const ToastContext = createContext<ToastContextType | null>(null);
 
@@ -42,13 +48,47 @@ const getShowToastCallSignature = (args: ShowToastCallSignature) => {
     }
 
     // TODO: issue https://github.com/salute-developers/plasma/issues/333
-    const [text, position, timeout, fade, contentLeft, role, offset, pilled, width, hasClose, size, view] = args;
+    const [
+        text,
+        position,
+        timeout,
+        fade,
+        contentLeft,
+        role,
+        offset,
+        pilled,
+        width,
+        hasClose,
+        size,
+        view,
+        closeIconType,
+        textColor,
+        onHide,
+        onShow,
+    ] = args;
 
-    return { text, position, timeout, fade, contentLeft, role, offset, pilled, width, hasClose, size, view };
+    return {
+        text: text === undefined ? undefined : String(text),
+        position,
+        timeout,
+        fade,
+        contentLeft,
+        role,
+        offset,
+        pilled,
+        width,
+        hasClose,
+        size,
+        view,
+        closeIconType,
+        textColor,
+        onHide,
+        onShow,
+    };
 };
 
 export const ToastProviderHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
-    function ToastProvider({ children }: { children: ReactNode }) {
+    function ToastProvider({ children, defaultToastArgs }: ToastProviderProps) {
         const [isVisible, setIsVisible] = useState(false);
         const [isHidden, setIsHidden] = useState(true);
         const hideTimeout = useRef<number | null>(null);
@@ -66,22 +106,22 @@ export const ToastProviderHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
             }
 
             const {
-                text,
-                offset,
-                position = DEFAULT_POSITION,
-                fade = DEFAULT_FADE,
-                timeout,
-                contentLeft,
-                role,
-                pilled,
-                hasClose,
-                size,
-                view,
-                width,
-                closeIconType = DEFAULT_CLOSE_ICON_TYPE,
-                textColor,
-                onHide,
-                onShow,
+                text = defaultToastArgs?.text,
+                offset = defaultToastArgs?.offset,
+                position = defaultToastArgs?.position || DEFAULT_POSITION,
+                fade = defaultToastArgs?.fade || DEFAULT_FADE,
+                timeout = defaultToastArgs?.timeout,
+                contentLeft = defaultToastArgs?.contentLeft,
+                role = defaultToastArgs?.role,
+                pilled = defaultToastArgs?.pilled,
+                hasClose = defaultToastArgs?.hasClose,
+                size = defaultToastArgs?.size,
+                view = defaultToastArgs?.view,
+                width = defaultToastArgs?.width,
+                closeIconType = defaultToastArgs?.closeIconType || DEFAULT_CLOSE_ICON_TYPE,
+                textColor = defaultToastArgs?.textColor,
+                onHide = defaultToastArgs?.onHide,
+                onShow = defaultToastArgs?.onShow,
             } = getShowToastCallSignature(args);
 
             setToastProps({

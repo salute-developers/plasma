@@ -3,7 +3,6 @@ import type { MutableRefObject, ReactNode } from 'react';
 import type { ToastControllerProps, ToastPosition, ToastRole } from '../Toast.types';
 
 export type ShowToastArgs = ToastControllerProps & {
-    text: string;
     /**
      * Время отображения подсказки. Если не передать значение подсказка будет отображаться пока ее не закроют.
      */
@@ -21,7 +20,7 @@ export type ShowToastArgs = ToastControllerProps & {
 // TODO: issue https://github.com/salute-developers/plasma/issues/333
 type ShowToastCallSignatureLegacy = Parameters<
     (
-        text: string,
+        text?: string,
         position?: ToastPosition,
         timeout?: number,
         fade?: boolean,
@@ -33,6 +32,10 @@ type ShowToastCallSignatureLegacy = Parameters<
         hasClose?: boolean,
         size?: string,
         view?: string,
+        closeIconType?: 'default' | 'thin',
+        textColor?: string,
+        onHide?: () => void,
+        onShow?: () => void,
     ) => void
 >;
 
@@ -52,4 +55,9 @@ export type ToastContextType = {
     animationRunTimeout: MutableRefObject<number | null>;
     showToast: ShowToast;
     hideToast: () => void;
+};
+
+export type ToastProviderProps = {
+    children: ReactNode;
+    defaultToastArgs?: Partial<ShowToastArgs>;
 };
