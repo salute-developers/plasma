@@ -72,6 +72,7 @@ export * from './components/Tree';
 export * from './components/Rating';
 export * from './components/Note';
 export * from './components/Table';
+export * from './components/List';
 export * from './components/LinkButton';
 export * from './components/NumberFormat';
 export * from './components/Toast/ToastNew';
