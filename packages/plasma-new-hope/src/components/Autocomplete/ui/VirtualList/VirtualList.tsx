@@ -1,8 +1,8 @@
 import React from 'react';
 import List from 'rc-virtual-list';
-import { SuggestionItem } from 'src/components/Autocomplete/ui';
 import { getHeightAsNumber } from 'src/utils';
 
+import { SuggestionItem } from '../SuggestionItem/SuggestionItem';
 import type { SuggestionItemType } from '../../Autocomplete.types';
 
 interface Props {
