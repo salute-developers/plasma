@@ -1,0 +1,95 @@
+---
+id: segment
+title: Segment
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# PaginationDots
+Элементы переключения. Oтображают возможность перемещения между небольшим количеством однородных элементов контента.
+
+## PaginationDots
+
+<Description name="PaginationDots" />
+<PropsTable name="PaginationDots"  exclude={['css']} />
+
+```tsx live
+import React from 'react';
+import { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/{{ package }}';
+
+export function App() {
+    const items = Array(8).fill(0);
+
+    const SegmentTemplate = () => {
+        const {selectedSegmentItems} = useSegment();
+
+        return (
+            <>
+                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>
+                <br />
+                <SegmentGroup hasBackground pilled clip={false}>
+                    {items.map((_, i) => (
+                        <SegmentItem
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            view='default'
+                            pilled
+                        />
+                    ))}
+                </SegmentGroup>
+            </>
+        )
+    }
+
+    return (
+        <div style={{ display: "block" }} >
+            <SegmentProvider defaultSelected={['label_1']}>
+                <SegmentTemplate/>
+            </SegmentProvider>
+        </div>
+    );
+}
+```
+
+### Вертикальное отображение
+
+Для смены ориентации передаем `orientation: 'vertical'`
+
+```tsx live
+import React from 'react';
+import { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/{{ package }}';
+
+export function App() {
+    const items = Array(8).fill(0);
+
+    const SegmentTemplate = () => {
+        const {selectedSegmentItems} = useSegment();
+
+        return (
+            <>
+                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>
+                <br />
+                <SegmentGroup hasBackground clip={false}>
+                    {items.map((_, i) => (
+                        <SegmentItem
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            view='secondary'
+                        />
+                    ))}
+                </SegmentGroup>
+            </>
+        )
+    }
+
+    return (
+        <div style={{ display: "block" }} >
+            <SegmentProvider defaultSelected={['label_1']}>
+                <SegmentTemplate/>
+            </SegmentProvider>
+        </div>
+    );
+}
+```
