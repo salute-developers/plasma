@@ -24,7 +24,11 @@ export interface HandlerProps {
     startOffset?: number;
     endOffset?: number;
     onChange?(value: number, data: DraggableData): void;
+    onTouchStart?(): void;
+    onTouchEnd?(): void;
     onMouseDown?(): void;
+    onFocus?(): void;
+    onBlur?(): void;
     onMouseEnter?(): void;
     onMouseLeave?(): void;
 }
