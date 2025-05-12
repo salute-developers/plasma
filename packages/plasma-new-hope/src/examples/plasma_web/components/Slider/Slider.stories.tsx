@@ -96,7 +96,7 @@ const StoryDefault = (args: StorySingleProps) => {
         setValue(values);
     };
 
-    const { hasIcon, showIcon, orientation, labelPlacement, labelVerticalPlacement, ...rest } = args;
+    const { showIcon, orientation, labelPlacement, ...rest } = args;
     const isVertical = orientation === 'vertical';
 
     return (
@@ -178,7 +178,7 @@ export const Default: StorySingle = {
         max: 100,
         orientation: 'horizontal',
         ariaLabel: 'Цена микрофона',
-        multipleStepSize: 10,
+        multipleStepSize: 50,
         label: 'Цена микрофона',
         labelPlacement: 'top',
         sliderAlign: 'center',

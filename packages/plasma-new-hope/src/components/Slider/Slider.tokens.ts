@@ -12,7 +12,8 @@ export const classes = {
     maxRangeValue: 'slider-max-range-value',
     hideMinValue: 'slider-hide-min-value',
     hideMaxValue: 'slider-hide-max-value',
-    textFieldActive: 'slider-text-field-active',
+    textFieldHovered: 'slider-text-field-hovered',
+    textFieldFocused: 'slider-text-field-focused',
     firstTextField: 'slider-first-text-field',
     secondTextField: 'slider-second-text-field',
     activeRangeValue: 'slider-active-range-value',
@@ -52,6 +53,7 @@ export const tokens = {
     valueLineHeight: '--plasma-slider-value-line-height',
 
     doubleWrapperGap: '--plasma-slider-double-wrapper-gap',
+    doubleBoxShadow: '--plasma-slider-double-box-shadow',
 
     thumbSize: '--plasma-slider-thumb-size',
     thumbSizeLarge: '--plasma-slider-thumb-size-large',
@@ -83,12 +85,22 @@ export const tokens = {
     textFieldPadding: '--plasma-slider-text-field-padding',
     textFieldBorderRadius: '--plasma-slider-text-field-border-radius',
 
+    textFieldWebClipPath: '--plasma-slider-text-field-web-clip-path',
+    textFieldWebReversedClipPath: '--plasma-slider-text-field-web-reversed-clip-path',
+    textFieldWebMarginRight: '--plasma-slider-text-field-web-margin-right',
     textFieldColor: '--plasma-slider-text-field-color',
-    textFieldActiveColor: '--plasma-slider-text-field-active-color',
-    textFieldBackgroundColor: '--plasma-slider-text-field-background-color',
+    textFiledFocusColor: '--plasma-slider-text-field-focus-color',
     textFieldCaretColor: '--plasma-slider-text-field-caret-color',
     textFieldPlaceholderColor: '--plasma-slider-text-field-placeholder-color',
-    textFiledFocusColor: '--plasma-slider-text-field-focus-color',
+
+    textFieldBackgroundColor: '--plasma-slider-text-field-background-color',
+    textFieldBackgroundColorHover: '--plasma-slider-text-field-background-color-hover',
+    textFieldBackgroundColorFocus: '--plasma-slider-text-field-background-color-focus',
+
+    textFieldBorderWidth: '--plasma-slider-text-field-border-width',
+    textFieldBorderColor: '--plasma-slider-text-field-border-color',
+    textFieldBorderColorHover: '--plasma-slider-text-field-border-color-hover',
+    textFieldBorderColorFocus: '--plasma-slider-text-field-border-color-focus',
 
     disabledOpacity: '--plasma-slider-disabled-opacity',
 };
