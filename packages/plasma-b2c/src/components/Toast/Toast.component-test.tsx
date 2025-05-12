@@ -289,7 +289,7 @@ describe('plasma-b2c: Toast', () => {
         cy.matchImageSnapshot();
     });
 
-    it.only('defaultToastArgs', () => {
+    it('defaultToastArgs', () => {
         const Button = getComponent('Button');
 
         const defaultToastArgs = {
