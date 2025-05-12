@@ -1,4 +1,4 @@
-import { css, sliderTokens, textFieldTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, sliderTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -20,16 +20,18 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-solid-default);
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
 
-                // TODO: На обсуждение, прямое переиспользование токенов от компонента TextField
-                ${textFieldTokens.borderColor}: var(--on-light-outline-solid-primary);
-                ${textFieldTokens.borderColorFocus}: var(--outline-accent);
+                ${sliderTokens.textFieldBorderColor}: var(--outline-solid-primary);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--outline-accent);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
+
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-solid-card);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-solid-card-active);
             `,
             accent: css`
                 ${sliderTokens.labelColor}: var(--text-primary);
@@ -46,14 +48,18 @@ export const config = {
 
                 ${sliderTokens.textFieldColor}: var(--text-secondary);
 
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
 
-                ${textFieldTokens.borderColor}: var(--on-light-outline-solid-primary);
-                ${textFieldTokens.borderColorFocus}: var(--outline-accent);
+                ${sliderTokens.textFieldBorderColor}: var(--outline-solid-primary);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--outline-accent);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
+
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-solid-card);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-solid-card-active);
             `,
         },
         size: {
@@ -96,7 +102,8 @@ export const config = {
                 ${sliderTokens.railBorderRadius}: 0.125rem;
                 ${sliderTokens.railIndent}: 0.75rem;
 
-                ${sliderTokens.textFieldWrapperGap}: 0.125rem;
+                ${sliderTokens.textFieldWrapperGap}: 0.063rem;
+                ${sliderTokens.textFieldBorderWidth}: 0.125rem;
 
                 ${sliderTokens.textFieldHeight}: 2.5rem;
                 ${sliderTokens.textFieldPadding}: 0.5rem 1rem 0.5rem 1rem;
@@ -107,8 +114,6 @@ export const config = {
                 ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${textFieldTokens.borderWidth}: 0.125rem;
             `,
         },
         disabled: {
