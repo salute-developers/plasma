@@ -20,12 +20,14 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-solid-default);
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+
+                ${sliderTokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--surface-accent);
             `,
             accent: css`
                 ${sliderTokens.labelColor}: var(--text-primary);
@@ -40,12 +42,14 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-accent);
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+
+                ${sliderTokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--surface-accent);
             `,
             gradient: css`
                 ${sliderTokens.labelColor}: var(--text-primary);
@@ -60,12 +64,14 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-accent-gradient);
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+
+                ${sliderTokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--surface-accent);
             `,
         },
         size: {
@@ -108,7 +114,12 @@ export const config = {
                 ${sliderTokens.railBorderRadius}: 0.125rem;
                 ${sliderTokens.railIndent}: 0.75rem;
 
-                ${sliderTokens.textFieldWrapperGap}: 0.125rem;
+                ${sliderTokens.textFieldWrapperGap}: 0;
+                ${sliderTokens.textFieldWebClipPath}: inset(0 0.063rem 0 0);
+                ${sliderTokens.textFieldWebReversedClipPath}: inset(0 0 0.063rem 0);
+                ${sliderTokens.textFieldWebMarginRight}: -0.063rem;
+
+                ${sliderTokens.textFieldBorderWidth}: 0.063rem;
 
                 ${sliderTokens.textFieldHeight}: 3.5rem;
                 ${sliderTokens.textFieldPadding}: 1.25rem 1rem 1.25rem 1rem;
@@ -159,7 +170,11 @@ export const config = {
                 ${sliderTokens.railBorderRadius}: 0.125rem;
                 ${sliderTokens.railIndent}: 0.75rem;
 
-                ${sliderTokens.textFieldWrapperGap}: 0.125rem;
+                ${sliderTokens.textFieldWrapperGap}: 0;
+                ${sliderTokens.textFieldWebClipPath}: inset(0 0.063rem 0 0);
+                ${sliderTokens.textFieldWebMarginRight}: -0.063rem;
+
+                ${sliderTokens.textFieldBorderWidth}: 0.063rem;
 
                 ${sliderTokens.textFieldHeight}: 3rem;
                 ${sliderTokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
@@ -210,7 +225,11 @@ export const config = {
                 ${sliderTokens.railBorderRadius}: 0.125rem;
                 ${sliderTokens.railIndent}: 0.75rem;
 
-                ${sliderTokens.textFieldWrapperGap}: 0.125rem;
+                ${sliderTokens.textFieldWrapperGap}: 0;
+                ${sliderTokens.textFieldWebClipPath}: inset(0 0.063rem 0 0);
+                ${sliderTokens.textFieldWebMarginRight}: -0.063rem;
+
+                ${sliderTokens.textFieldBorderWidth}: 0.063rem;
 
                 ${sliderTokens.textFieldHeight}: 2.5rem;
                 ${sliderTokens.textFieldPadding}: 0.5rem 1rem 0.5rem 1rem;
