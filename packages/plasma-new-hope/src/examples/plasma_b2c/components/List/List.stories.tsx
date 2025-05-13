@@ -44,6 +44,7 @@ export const Default: Story = {
         view: 'default',
         size: 'm',
         variant: 'normal',
+        disabled: false,
     },
     render: ({ view, size, ...rest }: StoryProps) => {
         return (

@@ -1,3 +1,13 @@
 import { css } from '@linaria/core';
 
-export const base = css``;
+import { classes, tokens } from '../../List.tokens';
+import { StyledListItem } from '../../ui/ListItem.styles';
+
+export const base = css`
+    &.${classes.disabledList} {
+        ${StyledListItem} {
+            cursor: not-allowed;
+            opacity: var(${tokens.listDisabledOpacity});
+        }
+    }
+`;

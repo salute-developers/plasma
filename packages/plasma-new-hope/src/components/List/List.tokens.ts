@@ -3,6 +3,9 @@ export const classes = {
     listItem: 'list-item',
     filledStretching: 'list-stretching-filled',
     fixedStretching: 'list-stretching-fixed',
+    tightListItem: 'list-item-tight',
+    disabledList: 'list-item-disabled',
+    disabledListItem: 'list-item-disabled-item',
 };
 
 export const tokens = {
@@ -22,7 +25,7 @@ export const tokens = {
     listItemIconLeftColor: '--plasma-list-item-color-icon-left',
     listItemIconRightColor: '--plasma-list-item-color-icon-right',
     listItemGap: '--plasma-list-item-gap',
-    listItemVariantDifference: '--plasma-list-item-variant-difference',
+    listItemTightDifference: '--plasma-list-item-tight-difference',
 
     listItemColor: '--plasma-list-item-color',
     listItemColorHover: '--plasma-list-item-color-hover',
