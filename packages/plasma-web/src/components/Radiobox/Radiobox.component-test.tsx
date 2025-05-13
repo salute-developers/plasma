@@ -97,7 +97,12 @@ describe('plasma-web: Radiobox', () => {
             <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
-                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                        <ListItem
+                            key={item.value}
+                            style={{
+                                marginLeft: item.parent ? '24px' : undefined,
+                            }}
+                        >
                             <Radiobox size="s" {...item} />
                         </ListItem>
                     ))}
@@ -114,7 +119,12 @@ describe('plasma-web: Radiobox', () => {
             <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
-                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                        <ListItem
+                            key={item.value}
+                            style={{
+                                marginLeft: item.parent ? '32px' : undefined,
+                            }}
+                        >
                             <Radiobox size="m" {...item} />
                         </ListItem>
                     ))}
@@ -131,7 +141,12 @@ describe('plasma-web: Radiobox', () => {
             <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
-                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                        <ListItem
+                            key={item.value}
+                            style={{
+                                marginLeft: item.parent ? '36px' : undefined,
+                            }}
+                        >
                             <Radiobox size="l" {...item} />
                         </ListItem>
                     ))}

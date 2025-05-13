@@ -1,3 +1,7 @@
 import { css } from '@linaria/core';
 
-export const base = css``;
+import { tokens } from '../../List.tokens';
+
+export const base = css`
+    gap: var(${tokens.listGap});
+`;

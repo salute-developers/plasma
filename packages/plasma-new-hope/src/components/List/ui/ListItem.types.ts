@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 type CustomListItemProps = {
     /**
@@ -10,8 +10,6 @@ type CustomListItemProps = {
      * Контент справа
      */
     contentRight?: ReactNode;
-
-    children?: ReactNode;
 };
 
-export type ListItemProps = CustomListItemProps;
+export type ListItemProps = HTMLAttributes<HTMLLIElement> & CustomListItemProps;

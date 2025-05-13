@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes } from 'react';
 
 type CustomListProps = {
     /**
@@ -14,14 +14,11 @@ type CustomListProps = {
     /**
      * Вариант List
      */
-    variant?: string;
+    variant?: 'tight' | 'normal';
     /**
      * Disabled
      */
-    disabled?: string;
-
-    children?: ReactNode;
-    className?: string;
+    disabled?: boolean;
 };
 
-export type ListProps = CustomListProps;
+export type ListProps = HTMLAttributes<HTMLUListElement> & CustomListProps;

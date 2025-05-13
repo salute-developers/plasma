@@ -1,0 +1,42 @@
+---
+id: list
+title: List
+---
+
+import { PropsTable } from '@site/src/components';
+
+# List
+Компонент ячейки.
+
+<PropsTable name="List" />
+
+Компонент представляет собой спсиок состоящий из `ListItem`.
+
+ListItem представляет собой простой компонент с текстом и иконкой
+
+### Типы ListItem
+<PropsTable name="ListItem" />
+
+## Примеры
+
+### Базовое использование
+```tsx live
+import React from 'react';
+import { List, ListItem } from '@salutejs/plasma-giga';
+import { IconChevronRight } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <List view="default" size="s" variant="normal">
+                <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 1</ListItem>
+                <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
+                <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />} disabled>
+                    Test Item 3
+                </ListItem>
+                <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 4</ListItem>
+            </List>
+        </div>
+    );
+}
+```

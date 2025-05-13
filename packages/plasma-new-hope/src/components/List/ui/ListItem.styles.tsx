@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { tokens } from '../List.tokens';
+import { tokens, classes } from '../List.tokens';
 import { cellConfig, cellTokens } from '../../Cell';
 import { component, mergeConfig } from '../../../engines';
 
@@ -21,10 +21,8 @@ export const CellItem = styled(Cell)`
     ${cellTokens.cellBackgroundColor}: transparent;
 `;
 
-export const StyledListItem = styled.li<{ disabled?: boolean }>`
-    padding: calc(var(${tokens.listItemPaddingTop}) - var(${tokens.listItemVariantDifference}))
-        var(${tokens.listItemPaddingRight})
-        calc(var(${tokens.listItemPaddingBottom}) - var(${tokens.listItemVariantDifference}))
+export const StyledListItem = styled.li`
+    padding: var(${tokens.listItemPaddingTop}) var(${tokens.listItemPaddingRight}) var(${tokens.listItemPaddingBottom})
         var(${tokens.listItemPaddingLeft});
     border-radius: var(${tokens.listItemBorderRadius});
     background: var(${tokens.listItemBackground});
@@ -49,7 +47,7 @@ export const StyledListItem = styled.li<{ disabled?: boolean }>`
         color: var(${tokens.listItemColorHover});
     }
 
-    &[disabled] {
+    &.${classes.disabledListItem} {
         cursor: not-allowed;
         opacity: var(${tokens.listDisabledOpacity});
     }
