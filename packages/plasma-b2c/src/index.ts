@@ -81,3 +81,4 @@ export * from './components/Note';
 export * from './components/LinkButton';
 export * from './components/NumberFormat';
 export * from './components/Table';
+export * from './components/CodeField';
