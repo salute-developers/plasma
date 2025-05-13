@@ -13,13 +13,23 @@ import { PropsTable, Description } from '@site/src/components';
 ## Использование
 
 ```tsx live
-import React from 'react';
-import { Slider } from '@salutejs/sdds-cs';
+import React, { useState } from 'react';
+import { Slider  } from '@salutejs/sdds-cs';
 
 export function App() {
+    const [value, setValue] = useState(30);
+
+    const onChangeCommittedHandle = (value) => {
+        setValue(value);
+    };
+
+    const onChangeHandle = (value) => {
+        setValue(value);
+    };
+
     return (
         <section>
-            <Slider onChangeCommitted={() => {}} min={0} max={100} value={30} />
+            <Slider onChange={onChangeHandle} onChangeCommitted={onChangeCommittedHandle} min={0} max={100} value={value} />
         </section>
     );
 }
@@ -29,7 +39,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { Slider  } from '@salutejs/plasma-web';
+import { Slider  } from '@salutejs/sdds-cs';
 
 export function App() {
     const [value, setValue] = useState([10, 80]);
@@ -80,18 +90,29 @@ export function App() {
 ## Вертикальное отображение
 
 ```tsx live
-import React from 'react';
+import React, { useState } from 'react';
 import { Slider  } from '@salutejs/sdds-cs';
 import { IconMic } from '@salutejs/plasma-icons';
 
 export function App() {
+    const [value, setValue] = useState(30);
+
+    const onChangeCommittedHandle = (value) => {
+        setValue(value);
+    };
+
+    const onChangeHandle = (value) => {
+        setValue(value);
+    };
+    
     return (
         <section style={{ height: '300px' }}>
             <Slider
-                onChangeCommitted={() => {}}
+                value={value}
+                onChange={onChangeHandle}
+                onChangeCommitted={onChangeCommittedHandle}
                 min={0}
                 max={100}
-                value={30}
                 label="Громкость"
                 labelContent={<IconMic size="xs" />}
                 orientation="vertical"

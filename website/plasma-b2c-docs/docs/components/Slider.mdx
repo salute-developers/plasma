@@ -3,24 +3,33 @@ id: slider
 title: Slider
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 
 # Slider
 
 <Description name="Slider" />
 <PropsTable name="Slider" />
-<StorybookLink name="Slider" />
 
 ## Использование
 
 ```tsx live
-import React from 'react';
+import React, { useState } from 'react';
 import { Slider  } from '@salutejs/plasma-b2c';
 
 export function App() {
+    const [value, setValue] = useState(30);
+
+    const onChangeCommittedHandle = (value) => {
+        setValue(value);
+    };
+
+    const onChangeHandle = (value) => {
+        setValue(value);
+    };
+
     return (
-        <section>
-            <Slider onChangeCommitted={() => {}} min={0} max={100} value={30} />
+        <section>            
+            <Slider onChange={onChangeHandle} onChangeCommitted={onChangeCommittedHandle} min={0} max={100} value={value} />
         </section>
     );
 }
@@ -81,18 +90,29 @@ export function App() {
 ## Вертикальное отображение
 
 ```tsx live
-import React from 'react';
+import React, { useState } from 'react';
 import { Slider  } from '@salutejs/plasma-b2c';
 import { IconMic } from '@salutejs/plasma-icons';
 
 export function App() {
+    const [value, setValue] = useState(30);
+
+    const onChangeCommittedHandle = (value) => {
+        setValue(value);
+    };
+
+    const onChangeHandle = (value) => {
+        setValue(value);
+    };
+    
     return (
         <section style={{ height: '300px' }}>
             <Slider
-                onChangeCommitted={() => {}}
+                value={value}
+                onChange={onChangeHandle}
+                onChangeCommitted={onChangeCommittedHandle}
                 min={0}
                 max={100}
-                value={30}
                 label="Громкость"
                 labelContent={<IconMic size="s" />}
                 orientation="vertical"
