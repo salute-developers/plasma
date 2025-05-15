@@ -38,4 +38,12 @@ export type NoteProps = {
      * Размер компонента.
      */
     size?: string;
+    /**
+     * Наличие крестика для закрытия
+     */
+    hasClose?: boolean;
+    /**
+     * Callback при нажатии на кнопку закрытия.
+     */
+    onCloseButtonClick?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
