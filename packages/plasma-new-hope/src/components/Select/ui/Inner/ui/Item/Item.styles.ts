@@ -18,8 +18,9 @@ const Cell = component(mergedCellConfig);
 const mergedIndicatorConfig = mergeConfig(indicatorConfig);
 const Indicator = component(mergedIndicatorConfig);
 
-export const StyledWrapper = styled.div`
-    ${cellTokens.cellTitleColor}: var(${constants.cellTitleColor});
+export const StyledWrapper = styled.div<{ disabled?: boolean }>`
+    ${cellTokens.cellTitleColor}: ${({ disabled }) =>
+    disabled ? `var(${tokens.itemDisabledColor})` : `var(${constants.cellTitleColor})`};
     ${cellTokens.cellBackgroundColor}: var(${constants.cellBackgroundColor});
     ${cellTokens.cellPadding}: var(${tokens.cellPadding});
     ${cellTokens.cellPaddingLeftContent}: var(${tokens.cellPaddingLeftContent});
@@ -145,7 +146,8 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
     }
 
     &.${classes.dropdownItemIsDisabled} {
-        opacity: ${constants.opacity};
+        opacity: var(${tokens.itemDisabledOpacity});
+        color: var(${tokens.itemDisabledColor});
         cursor: not-allowed;
     }
 
