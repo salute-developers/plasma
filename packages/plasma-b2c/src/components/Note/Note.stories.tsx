@@ -66,6 +66,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         text: 'Text',
         enableContentBefore: true,
         contentBeforeSizing: 'fixed',
+        hasClose: false,
     },
     render: ({ enableContentBefore, ...args }) => (
         <div style={{ height: '100vh' }}>

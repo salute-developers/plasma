@@ -4,11 +4,21 @@ import { useResizeObserver } from '@salutejs/plasma-core';
 
 import { canUseDOM, cx, getSizeValueFromProp } from '../../utils';
 import type { RootProps } from '../../engines';
+import { IconCrossThin } from '../_Icon/Icons/IconCrossThin';
 
 import type { NoteProps } from './Note.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base, ContentBefore, ContentWrapper, Text, TextHelper, Title, TitleHelper } from './Note.styles';
+import {
+    base,
+    CloseIconWrapper,
+    ContentBefore,
+    ContentWrapper,
+    Text,
+    TextHelper,
+    Title,
+    TitleHelper,
+} from './Note.styles';
 import { classes, privateTokens, tokens } from './Note.tokens';
 
 export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
@@ -26,6 +36,8 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                 stretch,
                 width,
                 height,
+                hasClose,
+                onCloseButtonClick,
                 ...rest
             },
             outerRef,
@@ -131,7 +143,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                     <ContentWrapper ref={contentWrapperRef}>
                         {title && (
                             <>
-                                <Title>{title}</Title>
+                                <Title hasClose={hasClose}>{title}</Title>
                                 <TitleHelper ref={titleHelperRef}>C</TitleHelper>
                             </>
                         )}
@@ -144,6 +156,16 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                             </>
                         )}
                     </ContentWrapper>
+                    {hasClose && (
+                        <CloseIconWrapper
+                            view="clear"
+                            size="s"
+                            onClick={onCloseButtonClick}
+                            className={cx(classes.closeIcon)}
+                        >
+                            <IconCrossThin size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                        </CloseIconWrapper>
+                    )}
                 </Root>
             );
         },
