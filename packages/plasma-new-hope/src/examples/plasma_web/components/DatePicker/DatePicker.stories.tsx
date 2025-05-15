@@ -175,6 +175,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
         valueSuccess: false,
         lang: 'ru',
         format: 'DD.MM.YYYY',
+        calendarWidth: 0,
+        calendarHeight: 0,
+        stretch: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -260,12 +263,8 @@ const StoryRange = ({
                 showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
             }
             onToggle={(is) => setIsOpen(is)}
-            onChangeFirstValue={(e, currentValue) => {
-                onChangeFirstValue(e, currentValue);
-            }}
-            onChangeSecondValue={(e, currentValue) => {
-                onChangeSecondValue(e, currentValue);
-            }}
+            onChangeFirstValue={onChangeFirstValue}
+            onChangeSecondValue={onChangeSecondValue}
             lang={lang}
             min={min}
             max={max}
@@ -301,6 +300,9 @@ export const Range: StoryObj<StoryPropsRange> = {
         secondTextfieldTextAfter: '',
         size: 'l',
         view: 'default',
+        calendarWidth: 0,
+        calendarHeight: 0,
+        stretch: false,
         isDoubleCalendar: false,
         closeAfterDateSelect: true,
         dividerVariant: 'dash',

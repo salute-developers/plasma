@@ -1,7 +1,10 @@
-import React from 'react';
-import { getPlacements } from 'src/utils';
+import React, { useRef } from 'react';
+import cls from 'classnames';
+import type { MouseEvent } from 'react';
+import { getPlacements, getSizeValueFromProp } from 'src/utils';
 
 import { StyledPopover } from '../RangeDate.styles';
+import { classes } from '../../DatePicker.tokens';
 
 import type { RangeDatePopoverProps } from './RangeDatePopover.types';
 import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles';
@@ -35,16 +38,48 @@ export const RangeDatePopover = ({
     closeOnEsc,
     offset,
 
+    calendarWidth,
+    calendarHeight,
+    stretch,
+
     type,
     size,
     lang = 'ru',
 
+    disabled,
+    readOnly,
+
+    setIsInnerOpen,
     onChangeValue,
     onChangeStartOfRange,
 
     onToggle,
 }: RangeDatePopoverProps) => {
     const innerIsOpen = Boolean(isOpen || opened);
+
+    const calendarRootRef = useRef<HTMLDivElement | null>(null);
+    const doubleCalendarRootRef = useRef<HTMLDivElement | null>(null);
+
+    const calendarWidthValue = calendarWidth ? getSizeValueFromProp(calendarWidth, 'rem') : undefined;
+    const calendarHeightValue = calendarHeight ? getSizeValueFromProp(calendarHeight, 'rem') : undefined;
+
+    const handleCalendarRootClick = (event: MouseEvent<HTMLDivElement>) => {
+        if (disabled || readOnly) {
+            return;
+        }
+
+        if (
+            innerIsOpen &&
+            stretch &&
+            (event.target === calendarRootRef?.current || event.target === doubleCalendarRootRef?.current)
+        ) {
+            setIsInnerOpen(false);
+
+            if (onToggle) {
+                onToggle(false, event);
+            }
+        }
+    };
 
     if (isDoubleCalendar) {
         return (
@@ -61,8 +96,15 @@ export const RangeDatePopover = ({
                 target={target}
                 preventOverflow={false}
             >
-                <Root>
+                <Root
+                    ref={doubleCalendarRootRef}
+                    className={cls(classes.datePickerRoot, { [classes.datePickerStretch]: stretch })}
+                    onClick={handleCalendarRootClick}
+                >
                     <StyledCalendarDouble
+                        className={cls({ [classes.datePickerCalendarStretch]: stretch })}
+                        innerWidth={calendarWidthValue}
+                        innerHeight={calendarHeightValue}
                         size={size}
                         value={calendarValue}
                         eventList={eventList}
@@ -102,8 +144,15 @@ export const RangeDatePopover = ({
             preventOverflow={false}
             closeOnEsc={closeOnEsc}
         >
-            <Root>
+            <Root
+                ref={calendarRootRef}
+                className={cls(classes.datePickerRoot, { [classes.datePickerStretch]: stretch })}
+                onClick={handleCalendarRootClick}
+            >
                 <StyledCalendar
+                    className={cls({ [classes.datePickerCalendarStretch]: stretch })}
+                    innerWidth={calendarWidthValue}
+                    innerHeight={calendarHeightValue}
                     size={size}
                     value={calendarValue}
                     eventList={eventList}
