@@ -26,12 +26,18 @@ const defaultFormatChars = [
 export const composeMask = <T extends CustomInputProps>(InputComponent: FC<T>) => {
     const MaskedInput = maskInputCompose(InputComponent);
 
-    return forwardRef<HTMLInputElement, T & MaskProps>(({ maskFormat = defaultFormatChars, ...rest }, outerRef) => {
-        // TODO: replace inside react-maskinput 'getReference' on 'forwardRef'
-        const [ref, setRef] = useState<HTMLInputElement | null>(null);
+    return forwardRef<HTMLInputElement, T & MaskProps>(
+        ({ mask, maskFormat = defaultFormatChars, ...rest }, outerRef) => {
+            // TODO: replace inside react-maskinput 'getReference' on 'forwardRef'
+            const [ref, setRef] = useState<HTMLInputElement | null>(null);
 
-        useImperativeHandle(outerRef, () => ref as HTMLInputElement, [ref]);
+            useImperativeHandle(outerRef, () => ref as HTMLInputElement, [ref]);
 
-        return <MaskedInput getReference={setRef} maskFormat={maskFormat} {...(rest as T)} />;
-    });
+            if (!mask) {
+                return <InputComponent ref={setRef} {...(rest as T)} />;
+            }
+
+            return <MaskedInput getReference={setRef} mask={mask} maskFormat={maskFormat} {...(rest as T)} />;
+        },
+    );
 };
