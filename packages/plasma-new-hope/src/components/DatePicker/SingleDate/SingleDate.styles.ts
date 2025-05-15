@@ -114,8 +114,16 @@ export const StyledInput = styled(TextField)`
 export const base = css`
     display: inline-block;
 
-    .${String(popoverClasses.wrapper)}, .${String(popoverClasses.target)} {
+    .${popoverClasses.wrapper}, .${popoverClasses.target} {
         width: inherit;
+    }
+
+    &.${classes.datePickerstretched} {
+        width: 100%;
+
+        .${popoverClasses.root} {
+            width: 100%;
+        }
     }
 `;
 
