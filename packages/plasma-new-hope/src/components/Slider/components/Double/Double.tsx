@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { FC, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
+import cls from 'classnames';
 
 import { SliderBase } from '../SliderBase/SliderBase';
 import { Handler } from '../../ui';
 import type { HandlerProps } from '../../ui';
-import { cx, isNumber, noop } from '../../../../utils';
+import { isNumber, noop } from '../../../../utils';
 import { sizeData } from '../../utils';
 import { classes } from '../../Slider.tokens';
 import { InputHidden } from '../SliderBase/SliderBase.styles';
@@ -62,11 +63,10 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const [secondInputHovered, setSecondInputHovered] = useState(false);
     const [secondInputFocused, setSecondInputFocused] = useState(false);
 
-    const firstInputActive = firstInputHovered || firstInputFocused;
-    const secondInputActive = secondInputHovered || secondInputFocused;
-
     const [firstValue, setFirstValue] = useState<number>(value[0]);
     const [secondValue, setSecondValue] = useState<number>(value[1]);
+
+    const handleClicked = useRef(false);
 
     const firstHandleRef = useRef<HTMLDivElement | null>(null);
     const secondHandleRef = useRef<HTMLDivElement | null>(null);
@@ -80,37 +80,6 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const { stepSize } = state;
 
     const hasLabelContent = label || labelContentLeft;
-    const firstInputActiveClass = firstInputActive && !disabled ? classes.textFieldActive : undefined;
-    const secondInputActiveClass = secondInputActive && !disabled ? classes.textFieldActive : undefined;
-
-    useEffect(() => {
-        const firstLocalValue = Math.min(Math.max(value[0], min), max) - min;
-        const secondLocalValue = Math.min(Math.max(value[1], min), max) - min;
-
-        setFirstValue(value[0]);
-        setSecondValue(value[1]);
-
-        setState((prevState) => ({
-            ...prevState,
-            railFillXPosition: stepSize * firstLocalValue,
-            railFillWidth: stepSize * secondLocalValue - stepSize * firstLocalValue,
-            xFirstHandle: stepSize * firstLocalValue,
-            xSecondHandle: stepSize * secondLocalValue,
-        }));
-    }, [value, stepSize, min, max, setFirstValue, setSecondValue]);
-
-    useEffect(() => {
-        const onMouseUp = () => {
-            setFirstInputFocused(false);
-            setSecondInputFocused(false);
-        };
-
-        window.addEventListener('mouseup', onMouseUp);
-
-        return () => {
-            window.removeEventListener('mouseup', onMouseUp);
-        };
-    }, []);
 
     const setStepSize = useCallback(
         (newStepSize: number) => {
@@ -184,6 +153,9 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     };
 
     const onFirstTextfieldBlur = (event: FocusEvent<HTMLInputElement>) => {
+        setFirstInputFocused(false);
+        setFirstInputHovered(false);
+
         if (!isNumber(event.target.value)) {
             return;
         }
@@ -258,6 +230,9 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     };
 
     const onSecondTextfieldBlur = (event: FocusEvent<HTMLInputElement>) => {
+        setSecondInputFocused(false);
+        setSecondInputHovered(false);
+
         if (!isNumber(event.target.value)) {
             return;
         }
@@ -279,6 +254,39 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const [ariaLabelLeft, ariaLabelRight] = ariaLabel || [];
     const currentFirstSliderValue = Math.max(state.firstValue, min);
     const settings = sizeData[size][pointerSize === 'large' ? 'large' : 'small'];
+
+    useEffect(() => {
+        const firstLocalValue = Math.min(Math.max(value[0], min), max) - min;
+        const secondLocalValue = Math.min(Math.max(value[1], min), max) - min;
+
+        setFirstValue(value[0]);
+        setSecondValue(value[1]);
+
+        setState((prevState) => ({
+            ...prevState,
+            railFillXPosition: stepSize * firstLocalValue,
+            railFillWidth: stepSize * secondLocalValue - stepSize * firstLocalValue,
+            xFirstHandle: stepSize * firstLocalValue,
+            xSecondHandle: stepSize * secondLocalValue,
+        }));
+    }, [value, stepSize, min, max, setFirstValue, setSecondValue]);
+
+    useEffect(() => {
+        const onMouseUp = () => {
+            if (handleClicked.current) {
+                handleClicked.current = false;
+
+                setFirstInputFocused(false);
+                setSecondInputFocused(false);
+            }
+        };
+
+        window.addEventListener('mouseup', onMouseUp);
+
+        return () => {
+            window.removeEventListener('mouseup', onMouseUp);
+        };
+    }, []);
 
     return (
         <DoubleWrapper>
@@ -318,7 +326,18 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                         zIndex={state.firstHandleZIndex}
                         value={currentFirstSliderValue}
                         ariaLabel={ariaLabelLeft}
-                        onMouseDown={() => setFirstInputFocused(true)}
+                        onTouchStart={() => {
+                            handleClicked.current = true;
+                            setFirstInputFocused(true);
+                        }}
+                        onTouchEnd={() => {
+                            handleClicked.current = false;
+                            setFirstInputFocused(false);
+                        }}
+                        onMouseDown={() => {
+                            handleClicked.current = true;
+                            setFirstInputFocused(true);
+                        }}
                         onMouseEnter={() => setFirstInputHovered(true)}
                         onMouseLeave={() => setFirstInputHovered(false)}
                     />
@@ -340,7 +359,18 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                         zIndex={state.secondHandleZIndex}
                         value={Math.max(state.secondValue, min)}
                         ariaLabel={ariaLabelRight}
-                        onMouseDown={() => setSecondInputFocused(true)}
+                        onTouchStart={() => {
+                            handleClicked.current = true;
+                            setSecondInputFocused(true);
+                        }}
+                        onTouchEnd={() => {
+                            handleClicked.current = false;
+                            setSecondInputFocused(false);
+                        }}
+                        onMouseDown={() => {
+                            handleClicked.current = true;
+                            setSecondInputFocused(true);
+                        }}
                         onMouseEnter={() => setSecondInputHovered(true)}
                         onMouseLeave={() => setSecondInputHovered(false)}
                     />
@@ -348,20 +378,28 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
                 <InputsWrapper>
                     <StyledInput
-                        className={cx(classes.firstTextField, firstInputActiveClass)}
+                        className={cls(classes.firstTextField, {
+                            [classes.textFieldHovered]: !firstInputFocused && firstInputHovered && !disabled,
+                            [classes.textFieldFocused]: firstInputFocused && !disabled,
+                        })}
                         enumerationType="plain"
                         disabled={disabled}
                         value={firstValue}
                         onChange={onFirstTextfieldChange}
+                        onFocus={() => setFirstInputFocused(true)}
                         onBlur={onFirstTextfieldBlur}
                         onKeyDown={onTextfieldKeyDown}
                     />
                     <StyledInput
-                        className={cx(classes.secondTextField, secondInputActiveClass)}
+                        className={cls(classes.secondTextField, {
+                            [classes.textFieldHovered]: !secondInputFocused && secondInputHovered && !disabled,
+                            [classes.textFieldFocused]: secondInputFocused && !disabled,
+                        })}
                         enumerationType="plain"
                         disabled={disabled}
                         value={secondValue}
                         onChange={onSecondTextfieldChange}
+                        onFocus={() => setSecondInputFocused(true)}
                         onBlur={onSecondTextfieldBlur}
                         onKeyDown={onTextfieldKeyDown}
                     />

@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.322.0",
+  "version": "0.323.0-dev.0",
   "description": "Salute Design System blueprint",
   "main": "cjs/index.js",
   "module": "es/index.js",
@@ -33,8 +33,7 @@
     "build:styled-components:esm": "rm -rf styled-components/es && BABEL_ENV=esm SC=true SC_NAMESPACE=plasma-new-hope babel ./src-sc --out-dir ./styled-components/es --extensions .ts,.tsx --copy-files",
     "postbuild:styled-components": "rm -rf src-sc",
     "postbuild:emotion": "rm -rf src-emotion",
-    "generate:typings:css": "tsc --outDir types --emitDeclarationOnly",
-    "generate:typings": "npm run generate:typings:css",
+    "generate:typings": "tsc --outDir types --emitDeclarationOnly && tsc-alias",
     "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "prestorybook:emotion": "npm run prebuild:emotion",
     "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
@@ -107,6 +106,7 @@
     "rollup": "^3.28.0",
     "storybook": "8.6.12",
     "styled-components": "5.3.1",
+    "tsc-alias": "1.8.16",
     "vite": "4.5.3"
   },
   "dependencies": {

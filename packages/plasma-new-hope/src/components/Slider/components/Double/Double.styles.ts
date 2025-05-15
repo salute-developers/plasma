@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { InputWrapper } from 'src/components/TextField/TextField.styles';
 
 import { classes, tokens } from '../../Slider.tokens';
 import { component, mergeConfig } from '../../../../engines';
@@ -30,6 +31,7 @@ export const InputsWrapper = styled.div`
     display: flex;
     gap: var(${tokens.textFieldWrapperGap});
     margin-top: var(${tokens.doubleWrapperGap});
+    box-shadow: var(${tokens.doubleBoxShadow});
 `;
 
 // NOTE: переопределение токенов TextField
@@ -38,6 +40,12 @@ export const StyledInput = styled(TextField)`
     
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
+    ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundColorHover});
+    ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundColorFocus});
+    ${textFieldTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
+    ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColor});
+    ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
+    ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.disabledOpacity}: var(${tokens.disabledOpacity});
@@ -52,19 +60,50 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.fontWeight}: var(${tokens.textFieldFontWeight});
     ${textFieldTokens.letterSpacing}: var(${tokens.textFieldLetterSpacing});
     ${textFieldTokens.lineHeight}: var(${tokens.textFieldLineHeight});
-
-    &.${classes.firstTextField} > div {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    &.${classes.secondTextField} > div {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+    
+    &&.${classes.textFieldHovered} {
+        ${InputWrapper} {
+            background: var(${tokens.textFieldBackgroundColorHover});
+            box-shadow: inset 0 0 0 var(${tokens.textFieldBorderWidth}) var(${tokens.textFieldBorderColorHover}),
+                inset 0 0 0 0 transparent;
+        }
     }
     
-    input:focus, &.${classes.textFieldActive} {
-        ${textFieldTokens.color}: var(${tokens.textFiledFocusColor});
+    &&.${classes.textFieldFocused} {
+        ${InputWrapper} {
+            background: var(${tokens.textFieldBackgroundColorFocus});
+            box-shadow: inset 0 0 0 var(${tokens.textFieldBorderWidth}) var(${tokens.textFieldBorderColorFocus}),
+                inset 0 0 0 0 transparent;
+        }
+    }
+
+    &.${classes.firstTextField}{
+        margin-right: var(${tokens.textFieldWebMarginRight}, 0);
+    
+        ${InputWrapper} {
+            clip-path: var(${tokens.textFieldWebClipPath});
+        }
+
+        &&.${classes.textFieldHovered},
+        &&.${classes.textFieldFocused} {
+            ${InputWrapper} {
+                clip-path: inset(0 0 0 0);
+            }
+
+            & + .${classes.secondTextField}:not(.${classes.textFieldFocused}) ${InputWrapper} {
+                clip-path: var(${tokens.textFieldWebReversedClipPath});
+            }
+        }
+
+        & > ${InputWrapper} {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    &.${classes.secondTextField} > ${InputWrapper} {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 `;
 

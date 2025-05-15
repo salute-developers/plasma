@@ -22,12 +22,14 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-solid-default);
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
             `,
             accent: css`
                 ${sliderTokens.labelColor}: var(--text-primary);
@@ -42,12 +44,14 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-accent);
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
             `,
             gradient: css`
                 ${sliderTokens.labelColor}: var(--text-primary);
@@ -62,12 +66,14 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-accent-gradient);
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldCaretColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldActiveColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
             `,
         },
         size: {

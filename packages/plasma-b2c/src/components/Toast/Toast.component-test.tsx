@@ -288,4 +288,37 @@ describe('plasma-b2c: Toast', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('defaultToastArgs', () => {
+        const Button = getComponent('Button');
+
+        const defaultToastArgs = {
+            text: 'Toast without args',
+            view: 'default',
+            size: 'm',
+            pilled: true,
+            offset: 5,
+            hasClose: true,
+        };
+
+        const ToastWithoutArgs = () => {
+            const { showToast } = useToast();
+            const onShowToast = () => showToast();
+
+            return <Button id="show" text="show" onClick={onShowToast} />;
+        };
+
+        mount(
+            <CypressTestDecorator>
+                <StandardTypoStyle />
+                <ToastProvider defaultToastArgs={defaultToastArgs}>
+                    <ToastWithoutArgs />
+                </ToastProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('#show').click();
+
+        cy.matchImageSnapshot();
+    });
 });

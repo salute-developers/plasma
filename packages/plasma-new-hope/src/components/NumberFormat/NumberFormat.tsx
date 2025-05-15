@@ -20,7 +20,7 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
             };
 
             const InputComponentWithoutEllipsis = (props: T) => {
-                return <InputComponent _textEllipsisEnable {...props} />;
+                return <InputComponent _textEllipsisDisable {...props} />;
             };
 
             return (
