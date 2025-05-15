@@ -43,6 +43,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             positive: css`
@@ -79,6 +81,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             warning: css`
@@ -115,6 +119,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             negative: css`
@@ -151,6 +157,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             accent: css`
@@ -167,6 +175,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
             `,
             secondary: css`
                 ${tokens.buttonColor}: var(--text-primary);
@@ -182,6 +192,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
             `,
             clear: css`
                 ${tokens.buttonColor}: var(--text-primary);
@@ -197,6 +209,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
             `,
             dark: css`
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
@@ -212,6 +226,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
             `,
             black: css`
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
@@ -227,6 +243,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
             `,
             white: css`
                 ${tokens.buttonColor}: var(--on-light-text-primary);
@@ -242,6 +260,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
             `,
         },
         size: {
