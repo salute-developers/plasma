@@ -11,6 +11,7 @@
         "sdds-cs",
         "sdds-finportal",
         "sdds-insol",
-        "plasma-giga"
+        "plasma-giga",
+        "sdds-crm"
     ]
 }
