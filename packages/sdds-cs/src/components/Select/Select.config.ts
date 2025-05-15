@@ -38,9 +38,11 @@ export const config = {
                 ${selectTokens.disclosureIconColor}: var(--text-accent);
                 ${selectTokens.disclosureIconColorHover}: #1A9E32;
                 ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
+                ${selectTokens.itemDisabledOpacity}: 1;
+                ${selectTokens.itemDisabledColor}: var(--text-secondary);
 
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);
-                ${selectTokens.checkboxIconColor}: var(--text-accent);
+                ${selectTokens.checkboxIconColor}: var(--text-primary);
             `,
             negative: css`
                 ${selectTokens.textFieldColor}: var(--text-primary);
@@ -70,6 +72,8 @@ export const config = {
                 ${selectTokens.disclosureIconColor}: var(--text-accent);
                 ${selectTokens.disclosureIconColorHover}: #1A9E32;
                 ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
+                ${selectTokens.itemDisabledOpacity}: 1;
+                ${selectTokens.itemDisabledColor}: var(--text-secondary);
 
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.checkboxIconColor}: var(--text-accent);
@@ -150,12 +154,12 @@ export const config = {
                 ${tokens.dropdownBorderWidth}: 0.125rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.5rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
+                ${tokens.itemPadding}: 0.5rem 0.5rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1rem;
-                ${tokens.itemIconMargin}: 0 0.375rem 0 0;
+                ${tokens.itemIconMargin}: 0 0.5rem 0 0;
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;
@@ -181,7 +185,7 @@ export const config = {
                 ${tokens.checkboxTriggerSizeTight}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--text-primary);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-accent);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
