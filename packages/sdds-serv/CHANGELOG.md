@@ -1,3 +1,67 @@
+## 0.310.0 (15 мая 2025)
+
+## Функциональные изменения в компонентах
+
+### Dropdown
+
+* исправлен баг, связанный с возможностью открывать вложенный список с флагом `disabled`;
+
+[PR](https://github.com/salute-developers/plasma/pull/1952)
+
+### Toast
+
+* добавлена возможность указывать toastDefaultArgs в ToastProvider
+
+[PR](https://github.com/salute-developers/plasma/pull/1956)
+
+### Slider
+
+* `view` приведены в соответствие с макетами
+
+**After**:
+
+<img width="431" src="https://github.com/user-attachments/assets/c46e8046-783a-4f14-b74f-bcd3fae04a98" />
+
+[PR](https://github.com/salute-developers/plasma/pull/1957)
+
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+<details>
+  <summary>📦 Published PR as canary version: <code>Canary Versions</code></summary>
+  <br />
+
+:sparkles: Test out this PR locally via:
+
+```bash
+npm install @salutejs/plasma-asdk@0.338.0-canary.1960.15021468790.0
+npm install @salutejs/plasma-b2c@1.580.0-canary.1960.15021468790.0
+npm install @salutejs/plasma-giga@0.307.0-canary.1960.15021468790.0
+npm install @salutejs/plasma-new-hope@0.324.0-canary.1960.15021468790.0
+npm install @salutejs/plasma-web@1.582.0-canary.1960.15021468790.0
+npm install @salutejs/sdds-clfd-auto@0.311.0-canary.1960.15021468790.0
+npm install @salutejs/sdds-cs@0.316.0-canary.1960.15021468790.0
+npm install @salutejs/sdds-dfa@0.310.0-canary.1960.15021468790.0
+npm install @salutejs/sdds-finportal@0.303.0-canary.1960.15021468790.0
+npm install @salutejs/sdds-insol@0.307.0-canary.1960.15021468790.0
+npm install @salutejs/sdds-serv@0.311.0-canary.1960.15021468790.0
+# or 
+yarn add @salutejs/plasma-asdk@0.338.0-canary.1960.15021468790.0
+yarn add @salutejs/plasma-b2c@1.580.0-canary.1960.15021468790.0
+yarn add @salutejs/plasma-giga@0.307.0-canary.1960.15021468790.0
+yarn add @salutejs/plasma-new-hope@0.324.0-canary.1960.15021468790.0
+yarn add @salutejs/plasma-web@1.582.0-canary.1960.15021468790.0
+yarn add @salutejs/sdds-clfd-auto@0.311.0-canary.1960.15021468790.0
+yarn add @salutejs/sdds-cs@0.316.0-canary.1960.15021468790.0
+yarn add @salutejs/sdds-dfa@0.310.0-canary.1960.15021468790.0
+yarn add @salutejs/sdds-finportal@0.303.0-canary.1960.15021468790.0
+yarn add @salutejs/sdds-insol@0.307.0-canary.1960.15021468790.0
+yarn add @salutejs/sdds-serv@0.311.0-canary.1960.15021468790.0
+```
+
+</details>
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+
 ## 0.309.0 (30 апреля 2025)
 
 ## Функциональные изменения в компонентах
