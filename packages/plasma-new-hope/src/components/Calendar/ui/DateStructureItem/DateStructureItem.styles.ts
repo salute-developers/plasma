@@ -74,9 +74,6 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
     position: relative;
     box-sizing: border-box;
 
-    min-width: var(${innerTokens.dateStructureWidth});
-    min-height: var(${innerTokens.dateStructureHeight});
-
     border-radius: var(${innerTokens.dateStructureBorderRadius});
 
     ${String(flexCenter)};
@@ -88,8 +85,8 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
 
     &.${String(classes.selectableItem)} {
         ${addSelected({
-            minWidth: `calc(var(${innerTokens.dateStructureWidth}) - 0.25rem)`,
-            minHeight: `calc(var(${innerTokens.dateStructureHeight}) - 0.25rem)`,
+            minWidth: 'calc(100% - 0.125rem)',
+            minHeight: 'calc(100% - 0.125rem)',
             selectedFontWeight: `var(${innerTokens.dateStructureSelectedFontWeight})`,
             selectedBackground: `var(${tokens.calendarSelectedItemBackground})`,
             selectedColor: `var(${tokens.calendarSelectedItemColor})`,

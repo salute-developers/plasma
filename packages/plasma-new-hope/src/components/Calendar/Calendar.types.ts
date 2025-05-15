@@ -172,6 +172,10 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      * Выбранный язык календаря. Влияет на название дней, месяцев
      */
     locale?: Locales;
+    /**
+     * Растянуть календарь на всю доступную ширину и высоту
+     */
+    stretched?: boolean;
 }
 
 export type CalendarConfigProps = {

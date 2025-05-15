@@ -1,17 +1,24 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
-import { tokens } from '../Calendar.tokens';
+import { classes, tokens } from '../Calendar.tokens';
 
 export const StyledCalendar = css`
     position: relative;
     user-select: none;
     z-index: 1;
 
-    width: var(${tokens.calendarWidth});
-    height: var(${tokens.calendarHeight});
+    width: var(${tokens.calendarContainerWidth});
+    height: var(${tokens.calendarContainerHeight});
     border: var(${tokens.calendarBorderWidth}) solid var(${tokens.calendarBorderColor});
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    &.${classes.stretched} {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 export const IsOutOfRange = styled.div`

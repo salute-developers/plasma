@@ -3,7 +3,7 @@ import { calendarDoubleConfig, calendarBaseTokens, withRange, calendarBaseConfig
 import type { CalendarDoubleProps, CalendarBaseProps } from 'src/components/Calendar';
 import { component, mergeConfig } from 'src/engines';
 
-import { tokens } from '../../DatePicker.tokens';
+import { pivateTokens, tokens } from '../../DatePicker.tokens';
 import { baseCalendarTokens } from '../../DatePickerBase.styles';
 
 const mergedCalendarDoubleConfig = mergeConfig(calendarDoubleConfig);
@@ -16,13 +16,19 @@ const CalendarDoubleRange = withRange<CalendarDoubleProps>(CalendarDouble);
 const CalendarRange = withRange<CalendarBaseProps>(Calendar);
 
 // NOTE: переопределение токенов Calendar
-export const StyledCalendarDouble = styled(CalendarDoubleRange)`
+export const StyledCalendarDouble = styled(CalendarDoubleRange)<{ innerWidth?: string; innerHeight?: string }>`
     ${calendarBaseTokens.calendarSeparatorBackground}: var(${tokens.calendarSeparatorBackground});
     ${baseCalendarTokens}
     /* NOTE: помимо умножения ширины на 2, добавляется место под разделитель */
-    ${calendarBaseTokens.calendarWidth}: calc(var(${tokens.calendarWidth}) * 2 + 2.063rem);
+    ${pivateTokens.calendarDoubleWidth}: calc(var(${tokens.calendarContainerWidth}) * 2 + 2.063rem);
+
+    width: ${({ innerWidth }) => innerWidth || `var(${pivateTokens.calendarDoubleWidth})`};
+    height: ${({ innerHeight }) => innerHeight || `var(${tokens.calendarContainerHeight})`};
 `;
 
-export const StyledCalendar = styled(CalendarRange)`
+export const StyledCalendar = styled(CalendarRange)<{ innerWidth?: string; innerHeight?: string }>`
     ${baseCalendarTokens}
+
+    width: ${({ innerWidth }) => innerWidth || `var(${tokens.calendarContainerWidth})`};
+    height: ${({ innerHeight }) => innerHeight || `var(${tokens.calendarContainerHeight})`};
 `;

@@ -4,7 +4,7 @@ import { component, mergeConfig } from 'src/engines';
 
 import { rangeConfig, rangeTokens } from '../../Range';
 import { classes, tokens } from '../DatePicker.tokens';
-import { popoverConfig } from '../../Popover';
+import { popoverClasses, popoverConfig } from '../../Popover';
 
 const mergedRangeConfig = mergeConfig(rangeConfig);
 const Range = component(mergedRangeConfig);
@@ -118,6 +118,18 @@ export const StyledRange = styled(Range)`
 
 export const base = css`
     display: inline-block;
+
+    .${popoverClasses.wrapper}, .${popoverClasses.target} {
+        width: inherit;
+    }
+
+    &.${classes.datePickerstretched} {
+        width: 100%;
+
+        .${popoverClasses.root}, ${StyledRange} {
+            width: 100%;
+        }
+    }
 `;
 
 export const LeftHelper = styled.div`

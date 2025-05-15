@@ -8,6 +8,7 @@ import React, {
     useEffect,
     useReducer,
 } from 'react';
+import cls from 'classnames';
 
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate, I18N } from '../utils';
@@ -17,6 +18,7 @@ import { RootProps } from '../../../engines/types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
 import { IsOutOfRange } from '../CalendarBase/CalendarBase.styles';
+import { classes } from '../Calendar.tokens';
 
 import { base as viewCSS } from './variations/_view/base';
 import { StyledCalendar, StyledSeparator, StyledWrapper } from './CalendarDouble.styles';
@@ -30,6 +32,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
     forwardRef<HTMLDivElement, CalendarDoubleProps>(
         (
             {
+                className,
                 value: externalValue,
                 min: minDate,
                 max: maxDate,
@@ -44,8 +47,9 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                 disabledQuarterList,
                 eventYearList,
                 disabledYearList,
-                onChangeValue,
                 locale = 'ru',
+                stretched,
+                onChangeValue,
                 ...rest
             },
             outerRootRef,
@@ -177,7 +181,12 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             }, [date, calendarState]);
 
             return (
-                <Root ref={outerRootRef} aria-label={I18N.selectDate[locale]} {...rest}>
+                <Root
+                    ref={outerRootRef}
+                    className={cls(className, { [classes.stretched]: stretched })}
+                    aria-label={I18N.selectDate[locale]}
+                    {...rest}
+                >
                     {isOutOfRange && (
                         <IsOutOfRange
                             key={outOfRangeKey}

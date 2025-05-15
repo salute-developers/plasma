@@ -8,7 +8,7 @@ import {
     getDatesWithModifications,
     quarterDates,
     isSelectedMonth as isSelectedQuarter,
-    isCurrentMonth as isCurrentQuarter,
+    isCurrentQuarter,
 } from '../utils';
 import { CalendarState } from '../store/types';
 
