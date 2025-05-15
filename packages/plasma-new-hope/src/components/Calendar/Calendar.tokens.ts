@@ -14,6 +14,7 @@ export const classes = {
     doubleHeaderDate: 'double-header-date',
     doubleHeaderLastDateWrapper: 'double-header--last-date-wrapper',
     disabledPrevButton: 'disabled-prev-button',
+    stretched: 'plasma-calendar-stretched',
 };
 
 export const innerTokens = {
@@ -26,23 +27,18 @@ export const innerTokens = {
 
     dateStructureSelectedFontWeight: '--plasma-calendar-date-structure-selected-font-weight',
 
-    dateStructureWidth: '--plasma-calendar-date-structure-width',
-    dateStructureHeight: '--plasma-calendar-date-structure-height',
-
     dateStructureBorderRadius: '--plasma-calendar-date-structure-border-radius',
 };
 
 export const tokens = {
-    calendarWidth: '--plasma-calendar-width',
-    calendarHeight: '--plasma-calendar-height',
+    calendarContainerWidth: '--plasma-calendar-container-width',
+    calendarContainerHeight: '--plasma-calendar-container-height',
     calendarBorderWidth: '--plasma-calendar-border-width',
     calendarBorderColor: '--plasma-calendar-border-color',
 
     /* Токены размера сетки лет */
     calendarYearsPadding: '--plasma-calendar-years-padding',
     calendarYearItemBorderRadius: '--plasma-calendar-year-item-border-radius',
-    calendarYearItemWidth: '--plasma-calendar-year-item-width',
-    calendarYearItemHeight: '--plasma-calendar-year-item-height',
 
     calendarYearFontFamily: '--plasma-calendar-year-font-family',
     calendarYearFontSize: '--plasma-calendar-year-font-size',
@@ -55,8 +51,6 @@ export const tokens = {
     /* Токены размера сетки дней */
     calendarQuartersPadding: '--plasma-calendar-quarters-padding',
     calendarQuarterItemBorderRadius: '--plasma-calendar-quarter-item-border-radius',
-    calendarQuarterItemWidth: '--plasma-calendar-quarter-item-width',
-    calendarQuarterItemHeight: '--plasma-calendar-quarter-item-height',
 
     calendarQuarterFontFamily: '--plasma-calendar-quarter-font-family',
     calendarQuarterFontSize: '--plasma-calendar-quarter-font-size',
@@ -69,8 +63,6 @@ export const tokens = {
     /* Токены размера сетки месяцев */
     calendarMonthsPadding: '--plasma-calendar-months-padding',
     calendarMonthItemBorderRadius: '--plasma-calendar-month-item-border-radius',
-    calendarMonthItemWidth: '--plasma-calendar-month-item-width',
-    calendarMonthItemHeight: '--plasma-calendar-month-item-height',
 
     calendarMonthFontFamily: '--plasma-calendar-month-font-family',
     calendarMonthFontSize: '--plasma-calendar-month-font-size',
@@ -83,8 +75,6 @@ export const tokens = {
     /* Токены размера сетки дней */
     calendarDaysPadding: '--plasma-calendar-days-padding',
     calendarDayItemBorderRadius: '--plasma-calendar-day-item-border-radius',
-    calendarDayItemWidth: '--plasma-calendar-day-item-width',
-    calendarDayItemHeight: '--plasma-calendar-day-item-height',
 
     calendarDayFontFamily: '--plasma-calendar-day-font-family',
     calendarDayFontSize: '--plasma-calendar-day-font-size',
