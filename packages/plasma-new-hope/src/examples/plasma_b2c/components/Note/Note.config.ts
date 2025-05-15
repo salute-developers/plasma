@@ -44,6 +44,13 @@ export const config = {
                 ${tokens.gapScalable}: 1rem;
                 ${tokens.contentGap}: 0.25rem;
 
+                ${tokens.closeIconTop}: 1rem;
+                ${tokens.closeIconRight}: 1rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1.5rem;
+                ${tokens.closeIconButtonSize}: 1.5rem;
+
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
                 ${tokens.fixedContentBeforeHeight}: 2rem;
                 ${tokens.fixedContentBeforePadding}: 0.25rem 0;
@@ -54,6 +61,7 @@ export const config = {
                 ${tokens.titleFontWeight}: var(--plasma-typo-text-l-bold-font-weight);
                 ${tokens.titleLetterSpacing}: var(--plasma-typo-text-l-letter-spacing);
                 ${tokens.titleLineHeight}: var(--plasma-typo-text-l-line-height);
+                ${tokens.titlePaddingRight}: 1.875rem;
 
                 ${tokens.textFontFamily}: var(--plasma-typo-text-l-font-family);
                 ${tokens.textFontSize}: var(--plasma-typo-text-l-font-size);
@@ -70,6 +78,13 @@ export const config = {
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.closeIconTop}: 0.75rem;
+                ${tokens.closeIconRight}: 0.75rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1.5rem;
+                ${tokens.closeIconButtonSize}: 1.5rem;
+
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
                 ${tokens.fixedContentBeforeHeight}: 1.5rem;
                 ${tokens.fixedContentBeforePadding}: 0;
@@ -80,6 +95,7 @@ export const config = {
                 ${tokens.titleFontWeight}: var(--plasma-typo-text-m-bold-font-weight);
                 ${tokens.titleLetterSpacing}: var(--plasma-typo-text-m-letter-spacing);
                 ${tokens.titleLineHeight}: var(--plasma-typo-text-m-line-height);
+                ${tokens.titlePaddingRight}: 1.75rem;
 
                 ${tokens.textFontFamily}: var(--plasma-typo-text-m-font-family);
                 ${tokens.textFontSize}: var(--plasma-typo-text-m-font-size);
@@ -96,6 +112,13 @@ export const config = {
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.closeIconTop}: 0.625rem;
+                ${tokens.closeIconRight}: 0.625rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1.5rem;
+                ${tokens.closeIconButtonSize}: 1.5rem;
+
                 ${tokens.fixedContentBeforeWidth}: 1rem;
                 ${tokens.fixedContentBeforeHeight}: 1.125rem;
                 ${tokens.fixedContentBeforePadding}: 0.063rem 0;
@@ -106,6 +129,7 @@ export const config = {
                 ${tokens.titleFontWeight}: var(--plasma-typo-text-s-bold-font-weight);
                 ${tokens.titleLetterSpacing}: var(--plasma-typo-text-s-letter-spacing);
                 ${tokens.titleLineHeight}: var(--plasma-typo-text-s-line-height);
+                ${tokens.titlePaddingRight}: 1.625rem;
 
                 ${tokens.textFontFamily}: var(--plasma-typo-text-s-font-family);
                 ${tokens.textFontSize}: var(--plasma-typo-text-s-font-size);
@@ -122,6 +146,13 @@ export const config = {
                 ${tokens.gapScalable}: 0.5rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.closeIconTop}: 0.625rem;
+                ${tokens.closeIconRight}: 0.625rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1rem;
+                ${tokens.closeIconButtonSize}: 1rem;
+
                 ${tokens.fixedContentBeforeWidth}: 1rem;
                 ${tokens.fixedContentBeforeHeight}: 1rem;
                 ${tokens.fixedContentBeforePadding}: 0;
@@ -132,6 +163,7 @@ export const config = {
                 ${tokens.titleFontWeight}: var(--plasma-typo-text-xs-bold-font-weight);
                 ${tokens.titleLetterSpacing}: var(--plasma-typo-text-xs-letter-spacing);
                 ${tokens.titleLineHeight}: var(--plasma-typo-text-xs-line-height);
+                ${tokens.titlePaddingRight}: 1.5rem;
 
                 ${tokens.textFontFamily}: var(--plasma-typo-text-xs-font-family);
                 ${tokens.textFontSize}: var(--plasma-typo-text-xs-font-size);
