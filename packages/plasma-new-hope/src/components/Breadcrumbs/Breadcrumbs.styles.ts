@@ -5,6 +5,7 @@ import { linkConfig } from '../Link';
 import { component, mergeConfig } from '../../engines';
 import { IconDisclosureRight } from '../_Icon';
 import { addFocus } from '../../mixins';
+import { tokens as linkTokens } from '../Link/Link.tokens';
 
 import { tokens } from './Breadcrumbs.tokens';
 
@@ -15,11 +16,11 @@ export const StyledLink = styled(Link)<{ isHref: boolean }>`
     --plasma__private-color: ${({ isHref }) =>
         isHref ? `var(${tokens.breadcrumbsColor})` : `var(${tokens.breadcrumbsColorText})`};
 
-    --plasma-link-color: var(--plasma__private-color);
-    --plasma-link-color-hover: var(--plasma__private-color);
-    --plasma-link-color-active: var(--plasma__private-color);
+    ${linkTokens.linkColor}: var(--plasma__private-color);
+    ${linkTokens.linkColorHover}: var(--plasma__private-color);
+    ${linkTokens.linkColorActive}: var(--plasma__private-color);
 
-    --plasma-link-disabled-opacity: var(${tokens.breadcrumbsOpacity});
+    ${linkTokens.linkDisabledOpacity}: var(${tokens.breadcrumbsOpacity});
     opacity: ${({ isHref }) => (isHref ? 1 : `var(${tokens.breadcrumbsOpacity})`)};
 
     cursor: pointer;
