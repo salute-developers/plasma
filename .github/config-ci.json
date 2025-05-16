@@ -6,12 +6,13 @@
         "plasma-ui",
         "plasma-new-hope",
         "plasma-asdk",
+        "plasma-giga",
         "sdds-serv",
         "sdds-dfa",
         "sdds-cs",
         "sdds-finportal",
         "sdds-insol",
-        "plasma-giga",
-        "sdds-crm"
+        "sdds-crm",
+        "sdds-netology"
     ]
 }
