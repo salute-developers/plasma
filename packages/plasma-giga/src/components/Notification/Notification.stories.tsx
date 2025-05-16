@@ -165,7 +165,11 @@ const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
         addNotification(
-            { icon: <IconDisclosureRight color="inherit" />, ...rest, ...getNotificationProps(count.current) },
+            {
+                icon: <IconDisclosureRight color="inherit" />,
+                ...rest,
+                ...getNotificationProps(count.current),
+            },
             timeout,
         );
         count.current++;
@@ -198,6 +202,8 @@ export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
         role: 'alert',
         layout: 'vertical',
         placement: 'bottom-right',
+        width: '',
+        maxWidth: '',
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };
