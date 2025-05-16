@@ -16,6 +16,7 @@ export const classes = {
     inputWrapper: 'input-wrapper',
     inputTextEllipsis: 'textfield-input-text-ellipsis',
     contentRightCompensationMargin: 'textfield-content-right-compensation-margin',
+    readOnly: 'textfield-readonly-input',
 };
 
 export const tokens = {
