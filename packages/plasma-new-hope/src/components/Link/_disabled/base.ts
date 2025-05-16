@@ -1,13 +1,15 @@
 import { css } from '@linaria/core';
 
+import { tokens } from '../Link.tokens';
+
 export const base = css`
     &[disabled] {
-        opacity: var(--plasma-link-disabled-opacity);
+        opacity: var(${tokens.linkDisabledOpacity});
         cursor: not-allowed;
 
         :hover,
         :active {
-            color: var(--plasma-link-color);
+            color: var(${tokens.linkColor});
         }
 
         ::before {
