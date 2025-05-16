@@ -147,13 +147,12 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarBorderWidth}: 0.125rem;
-                ${tokens.calendarWidth}: 19.5rem;
+                ${tokens.calendarContainerWidth}: 19.5rem;
+                ${tokens.calendarContainerHeight}: 18.625rem;
                 ${tokens.calendarBorderRadius}: 0.875rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 1rem 0.875rem 1rem;
                 ${tokens.calendarYearItemBorderRadius}: 0.5rem;
-                ${tokens.calendarYearItemWidth}: 5.5rem;
-                ${tokens.calendarYearItemHeight}: 3.5rem;
 
                 ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.calendarYearFontSize}: var(--plasma-typo-body-s-font-size);
@@ -165,8 +164,6 @@ export const config = {
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0.5rem 0 0.5rem;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
-                ${tokens.calendarQuarterItemWidth}: 8.25rem;
-                ${tokens.calendarQuarterItemHeight}: 7rem;
 
                 ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
@@ -178,8 +175,6 @@ export const config = {
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 1rem 0.875rem 1rem;
                 ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
-                ${tokens.calendarMonthItemWidth}: 5.5rem;
-                ${tokens.calendarMonthItemHeight}: 3.5rem;
 
                 ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
@@ -191,8 +186,6 @@ export const config = {
 
                 ${tokens.calendarDaysPadding}: 0.5rem 1rem 0.875rem 1rem;
                 ${tokens.calendarDayItemBorderRadius}: 0.5rem;
-                ${tokens.calendarDayItemWidth}: 2.5rem;
-                ${tokens.calendarDayItemHeight}: 2rem;
 
                 ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);
