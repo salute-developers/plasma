@@ -6,6 +6,7 @@ import type { RootProps } from '../../engines/types';
 import { base as viewCSS } from './_view/base';
 import { base as disabledCSS } from './_disabled/base';
 import { base as focusedCSS } from './_focused/base';
+import { LinkProps } from './Link.types';
 
 const base = css`
     position: relative;
@@ -19,27 +20,6 @@ const base = css`
         opacity: 0.4;
     }
 `;
-
-export type LinkCustomProps = {
-    /**
-     * Компонент может фокусироваться.
-     */
-    focused?: boolean;
-    /**
-     * Компонент неактивен.
-     */
-    disabled?: boolean;
-    /**
-     * Вид компонента.
-     */
-    view?: string;
-    /**
-     * Размер компонента.
-     */
-    size?: string;
-};
-
-type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps;
 
 export const linkRoot = (Root: RootProps<HTMLAnchorElement, LinkProps>) =>
     forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
