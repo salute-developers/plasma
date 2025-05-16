@@ -199,6 +199,15 @@ const meta: Meta<StoryProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        listWidth: {
+            control: { type: 'text' },
+        },
+        listMaxHeight: {
+            control: { type: 'text' },
+        },
+        virtual: {
+            control: { type: 'boolean' },
+        },
     },
     args: {
         view: 'default',
@@ -212,8 +221,6 @@ const meta: Meta<StoryProps> = {
         placeholder: 'Заполните поле',
         keepPlaceholder: false,
         leftHelper: 'Введите имя Алексей',
-        listWidth: '100%',
-        listMaxHeight: '200px',
         threshold: 2,
         enableContentLeft: true,
         enableContentRight: true,
@@ -230,6 +237,7 @@ const meta: Meta<StoryProps> = {
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+        virtual: false,
     },
 };
 

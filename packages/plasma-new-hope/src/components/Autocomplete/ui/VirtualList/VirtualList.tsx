@@ -15,7 +15,14 @@ interface Props {
 }
 
 export const VirtualList: React.FC<Props> = ({ items, onClick, listId, listMaxHeight, onScroll, renderItem }) => (
-    <List data={items} height={getHeightAsNumber(listMaxHeight)} itemHeight={100} itemKey="id" onScroll={onScroll}>
+    <List
+        data={items}
+        height={getHeightAsNumber(listMaxHeight)}
+        fullHeight={false}
+        itemHeight={100}
+        itemKey="id"
+        onScroll={onScroll}
+    >
         {(item, index, props) => (
             <div {...props}>
                 <SuggestionItem
