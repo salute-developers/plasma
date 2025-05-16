@@ -40,13 +40,11 @@ export const config = {
         },
         size: {
             s: css`
-                ${calendarDoubleTokens.calendarWidth}: 37.063rem;
-                ${calendarDoubleTokens.calendarHeight}: 17rem;
+                ${calendarDoubleTokens.calendarContainerWidth}: 37.063rem;
+                ${calendarDoubleTokens.calendarContainerHeight}: 17rem;
 
                 ${calendarDoubleTokens.calendarYearsPadding}: 0.5rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.5rem;
-                ${calendarDoubleTokens.calendarYearItemWidth}: 5.5rem;
-                ${calendarDoubleTokens.calendarYearItemHeight}: 3.5rem;
 
                 ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarDoubleTokens.calendarYearFontSize}: var(--plasma-typo-body-s-font-size);
@@ -58,8 +56,6 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarQuartersPadding}: 0.5rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.5rem;
-                ${calendarDoubleTokens.calendarQuarterItemWidth}: 8.25rem;
-                ${calendarDoubleTokens.calendarQuarterItemHeight}: 7rem;
 
                 ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarDoubleTokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
@@ -71,8 +67,6 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarMonthsPadding}: 0.5rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.5rem;
-                ${calendarDoubleTokens.calendarMonthItemWidth}: 5.5rem;
-                ${calendarDoubleTokens.calendarMonthItemHeight}: 3.5rem;
 
                 ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarDoubleTokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
@@ -83,8 +77,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
 
                 ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.5rem;
-                ${calendarDoubleTokens.calendarDayItemWidth}: 2.5rem;
-                ${calendarDoubleTokens.calendarDayItemHeight}: 2rem;
 
                 ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarDoubleTokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);
