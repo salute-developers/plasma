@@ -149,7 +149,17 @@ describe('plasma-b2c: Calendar', () => {
     );
 
     const Demo = (args) => {
-        const { min, max, includeEdgeDates, displayDouble, baseValue, size = 's', type = 'Days', locale = 'ru' } = args;
+        const {
+            min,
+            max,
+            includeEdgeDates,
+            displayDouble,
+            baseValue,
+            size = 's',
+            type = 'Days',
+            locale = 'ru',
+            stretched,
+        } = args;
         const [value, setValue] = useState(baseValue);
 
         const handleOnChange = useCallback((newValue: Date) => {
@@ -167,6 +177,7 @@ describe('plasma-b2c: Calendar', () => {
                     includeEdgeDates={includeEdgeDates}
                     type={type}
                     locale={locale}
+                    stretched={stretched}
                     onChangeValue={handleOnChange}
                 />
             ) : (
@@ -179,6 +190,7 @@ describe('plasma-b2c: Calendar', () => {
                     includeEdgeDates={includeEdgeDates}
                     type={type}
                     locale={locale}
+                    stretched={stretched}
                     onChangeValue={handleOnChange}
                 />
             );
@@ -239,6 +251,26 @@ describe('plasma-b2c: Calendar', () => {
                 <PadMe />
                 <Demo baseValue={baseDate} size="xs" />
             </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('stretch single', () => {
+        mount(
+            <div style={{ height: '40rem' }}>
+                <Demo baseValue={baseDate} stretched />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('stretch double', () => {
+        mount(
+            <div style={{ height: '40rem' }}>
+                <Demo baseValue={baseDate} displayDouble stretched />
+            </div>,
         );
 
         cy.matchImageSnapshot();

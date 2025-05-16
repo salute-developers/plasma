@@ -244,6 +244,26 @@ describe('plasma-web: Calendar', () => {
         cy.matchImageSnapshot();
     });
 
+    it('stretch single', () => {
+        mount(
+            <div style={{ height: '40rem' }}>
+                <Demo baseValue={baseDate} stretched />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('stretch double', () => {
+        mount(
+            <div style={{ height: '40rem' }}>
+                <Demo baseValue={baseDate} displayDouble stretched />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('value as undefined', () => {
         mount(<Demo />);
 
