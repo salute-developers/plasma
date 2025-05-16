@@ -167,12 +167,13 @@ type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     placement?: NotificationPlacement;
 };
 
-const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
+const StoryLiveDemo = ({ timeout, placement, width, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
         addNotification(
             {
                 icon: <IconDisclosureRight color="inherit" />,
+                width,
                 ...rest,
                 ...getNotificationProps(count.current),
             },
@@ -210,6 +211,7 @@ export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
         role: 'alert',
         layout: 'vertical',
         placement: 'bottom-right',
+        width: '',
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };
