@@ -564,19 +564,19 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 >
                                     {beforeList}
 
-                                    {virtual ? (
-                                        <VirtualList
-                                            items={filteredItems}
-                                            listMaxHeight={listMaxHeight || listHeight}
-                                            onScroll={onScroll}
+                                    {isEmpty(filteredItems) ? (
+                                        <StyledEmptyState
+                                            className={classes.emptyStateWrapper}
+                                            size={size}
+                                            description={emptyStateDescription || 'Ничего не найдено'}
                                         />
                                     ) : (
                                         <>
-                                            {isEmpty(filteredItems) ? (
-                                                <StyledEmptyState
-                                                    className={classes.emptyStateWrapper}
-                                                    size={size}
-                                                    description={emptyStateDescription || 'Ничего не найдено'}
+                                            {virtual ? (
+                                                <VirtualList
+                                                    items={filteredItems}
+                                                    listMaxHeight={listMaxHeight || listHeight}
+                                                    onScroll={onScroll}
                                                 />
                                             ) : (
                                                 filteredItems.map((item, index) => (

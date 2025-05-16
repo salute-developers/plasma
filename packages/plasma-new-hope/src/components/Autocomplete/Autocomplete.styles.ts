@@ -10,8 +10,6 @@ export const Ul = styled.ul<{
     listMaxHeight: AutocompleteProps['listMaxHeight'];
     virtual: AutocompleteProps['virtual'];
 }>`
-    box-sizing: border-box;
-
     background: var(${tokens.background});
     box-shadow: var(${tokens.boxShadow});
 

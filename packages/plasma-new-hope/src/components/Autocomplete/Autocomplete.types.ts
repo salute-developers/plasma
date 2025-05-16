@@ -73,6 +73,7 @@ export type AutocompleteProps = {
     onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
     /**
      * Максимальная высота выпадающего списка подсказок.
+     * @default 25rem
      */
     listMaxHeight?: string;
     /**

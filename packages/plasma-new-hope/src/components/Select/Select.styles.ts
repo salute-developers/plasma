@@ -12,8 +12,6 @@ export const Ul = styled.ul<{
     listWidth?: SelectProps['listWidth'];
     isInnerUl?: boolean;
 }>`
-    box-sizing: border-box;
-
     background: var(${constants.background});
     box-shadow: ${constants.boxShadow},
         inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);

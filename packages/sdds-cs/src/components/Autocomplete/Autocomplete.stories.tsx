@@ -105,6 +105,15 @@ const meta: Meta<StoryProps> = {
             },
             if: { arg: 'required', truthy: false },
         },
+        listWidth: {
+            control: { type: 'text' },
+        },
+        listMaxHeight: {
+            control: { type: 'text' },
+        },
+        virtual: {
+            control: { type: 'boolean' },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -128,8 +137,6 @@ const meta: Meta<StoryProps> = {
         textAfter: '',
         placeholder: 'Заполните поле',
         leftHelper: 'Введите имя Алексей',
-        listWidth: '100%',
-        listMaxHeight: '200px',
         threshold: 2,
         enableContentLeft: true,
         enableContentRight: true,
@@ -137,6 +144,7 @@ const meta: Meta<StoryProps> = {
         required: false,
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
+        virtual: false,
     },
 };
 
