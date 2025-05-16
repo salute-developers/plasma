@@ -154,6 +154,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         valueError: false,
         valueSuccess: false,
+        calendarWidth: 0,
+        calendarHeight: 0,
+        stretch: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -290,6 +293,9 @@ export const Range: StoryObj<StoryPropsRange> = {
         firstValueSuccess: false,
         secondValueError: false,
         secondValueSuccess: false,
+        calendarWidth: 0,
+        calendarHeight: 0,
+        stretch: false,
     },
     render: (args) => <StoryRange {...args} />,
 };
