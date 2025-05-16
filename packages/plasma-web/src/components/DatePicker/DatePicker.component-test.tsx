@@ -126,6 +126,28 @@ describe('plasma-web: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: stretch', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultDate={new Date(2023, 5, 14)} stretch />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: calendarWidth, calendarHeight', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultDate={new Date(2023, 5, 14)} calendarWidth="35rem" calendarHeight="40rem" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
     it('prop: defaultDate, enableContentLeft, enableContentRight', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -508,6 +530,33 @@ describe('plasma-web: DatePickerRange', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo size="xs" defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: stretch', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} stretch />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: calendarWidth, calendarHeight', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    defaultFirstDate={new Date(2023, 5, 14)}
+                    defaultSecondDate={new Date(2023, 5, 17)}
+                    calendarWidth="35rem"
+                    calendarHeight="40rem"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 

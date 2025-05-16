@@ -268,7 +268,7 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarWidth}: 23rem;
-                ${tokens.calendarHeight}: 23rem;
+                ${tokens.calendarHeight}: 22.875rem;
                 ${tokens.calendarBorderRadius}: 0.875rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 1rem 1.125rem 1rem;
@@ -395,7 +395,7 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarWidth}: 19.5rem;
-                ${tokens.calendarHeight}: 19rem;
+                ${tokens.calendarHeight}: 18.125rem;
                 ${tokens.calendarBorderRadius}: 0.875rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 1rem 0.875rem 1rem;
