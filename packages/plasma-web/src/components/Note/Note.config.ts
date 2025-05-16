@@ -42,6 +42,13 @@ export const config = {
                 ${tokens.gapScalable}: 1rem;
                 ${tokens.contentGap}: 0.25rem;
 
+                ${tokens.closeIconTop}: 1rem;
+                ${tokens.closeIconRight}: 1rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1.5rem;
+                ${tokens.closeIconButtonSize}: 1.5rem;
+
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
                 ${tokens.fixedContentBeforeHeight}: 2rem;
                 ${tokens.fixedContentBeforePadding}: 0.25rem 0;
@@ -67,6 +74,13 @@ export const config = {
                 ${tokens.gap}: 0.625rem;
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
+
+                ${tokens.closeIconTop}: 0.75rem;
+                ${tokens.closeIconRight}: 0.75rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1.5rem;
+                ${tokens.closeIconButtonSize}: 1.5rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
                 ${tokens.fixedContentBeforeHeight}: 1.5rem;
@@ -94,6 +108,13 @@ export const config = {
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.closeIconTop}: 0.625rem;
+                ${tokens.closeIconRight}: 0.625rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1.5rem;
+                ${tokens.closeIconButtonSize}: 1.5rem;
+
                 ${tokens.fixedContentBeforeWidth}: 1rem;
                 ${tokens.fixedContentBeforeHeight}: 1.125rem;
                 ${tokens.fixedContentBeforePadding}: 0.063rem 0;
@@ -119,6 +140,13 @@ export const config = {
                 ${tokens.gap}: 0.375rem;
                 ${tokens.gapScalable}: 0.5rem;
                 ${tokens.contentGap}: 0.125rem;
+
+                ${tokens.closeIconTop}: 0.625rem;
+                ${tokens.closeIconRight}: 0.625rem;
+                ${tokens.closeIconColor}: var(--text-secondary);
+                ${tokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${tokens.closeIconSize}: 1rem;
+                ${tokens.closeIconButtonSize}: 1rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1rem;
                 ${tokens.fixedContentBeforeHeight}: 1rem;
