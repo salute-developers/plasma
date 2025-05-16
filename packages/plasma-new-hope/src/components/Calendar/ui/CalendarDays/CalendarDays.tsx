@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { Fragment, useCallback, useEffect, useRef } from 'react';
 
 import { useDays } from '../../hooks';
 import {
@@ -16,7 +16,7 @@ import { DateStructureItem } from '../DateStructureItem/DateStructureItem';
 import { DateItem } from '../../Calendar.types';
 import { innerTokens, tokens } from '../../Calendar.tokens';
 
-import { StyledCalendarDays, StyledCalendarDaysHint, StyledFlex } from './CalendarDays.styles';
+import { StyledCalendarDays, StyledCalendarDaysHint } from './CalendarDays.styles';
 import type { CalendarDaysProps } from './CalendarDays.types';
 
 /**
@@ -55,8 +55,6 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
         [`${innerTokens.dateStructureFontLetterSpacing}`]: `var(${tokens.calendarDayFontLetterSpacing})`,
         [`${innerTokens.dateStructureFontStyle}`]: `var(${tokens.calendarDayFontStyle})`,
         [`${innerTokens.dateStructureSelectedFontWeight}`]: `var(${tokens.calendarDaySelectedFontWeight})`,
-        [`${innerTokens.dateStructureWidth}`]: `var(${tokens.calendarDayItemWidth})`,
-        [`${innerTokens.dateStructureHeight}`]: `var(${tokens.calendarDayItemHeight})`,
         [`${innerTokens.dateStructureBorderRadius}`]: `var(${tokens.calendarDayItemBorderRadius})`,
     };
 
@@ -132,7 +130,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
             onMouseLeave={handleMouseOutGrid}
         >
             <StyledCalendarDaysHint id="withShift">{I18N.navigationByShift[locale]}</StyledCalendarDaysHint>
-            <StyledFlex role="row">
+            <>
                 {SHORT_DAY_NAMES[locale].map((name) => (
                     <DateStructureItem
                         role="columnheader"
@@ -145,9 +143,9 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                         {name}
                     </DateStructureItem>
                 ))}
-            </StyledFlex>
+            </>
             {days.map((day: DateItem[], i) => (
-                <StyledFlex role="row" key={i}>
+                <Fragment key={i}>
                     {day.map(
                         (
                             {
@@ -193,7 +191,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                             </DateStructureItem>
                         ),
                     )}
-                </StyledFlex>
+                </Fragment>
             ))}
         </StyledCalendarDays>
     );

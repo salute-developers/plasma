@@ -466,7 +466,7 @@ describe('plasma-b2c: DatePickerRange', () => {
         );
 
         cy.get('input').first().click().type('14.06.2023');
-        cy.get('div:nth-of-type(5) > div:nth-of-type(5)').first().trigger('mouseover');
+        cy.get('[data-day="23"]').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
