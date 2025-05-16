@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
@@ -32,13 +33,20 @@ export const CloseIconWrapper = styled(Button)`
     }
 `;
 
-export const Wrapper = styled.div<{ backgroundColor?: string }>`
+export const Wrapper = styled.div<{
+    backgroundColor?: string;
+    width?: CSSProperties['width'];
+    maxWidth?: CSSProperties['maxWidth'];
+}>`
     position: relative;
-    box-sizing: border-box;
+    width: ${({ width = `var(${tokens.width})` }) => width};
+    max-width: ${({ maxWidth }) => maxWidth || 'unset'};
 
-    background: ${({ backgroundColor }) => backgroundColor || `var(${tokens.background})`};
     border-radius: var(${tokens.borderRadius});
     border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
+
+    background: ${({ backgroundColor }) => backgroundColor || `var(${tokens.background})`};
+    box-sizing: border-box;
 
     &.${classes.horizontal} {
         display: flex;

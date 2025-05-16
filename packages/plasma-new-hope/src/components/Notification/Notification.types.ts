@@ -1,5 +1,6 @@
 import type { AsProps } from '@salutejs/plasma-core';
 import { HTMLAttributes, ReactNode } from 'react';
+import type { CSSProperties } from 'react';
 
 import { ComponentConfig, PropsType, Variants } from '../../engines/types';
 import type { PopupPlacement } from '../Popup';
@@ -90,6 +91,14 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * Цвет заголовка (по умолчанию берётся цвет из view)
      */
     backgroundColor?: string;
+    /**
+     * Свойства для управления шириной уведомления
+     */
+    width?: CSSProperties['width'];
+    /**
+     * Свойства для ограничения ширины уведомления
+     */
+    maxWidth?: CSSProperties['maxWidth'];
     /**
      * Callback при нажатии на кнопку закрытия.
      */
