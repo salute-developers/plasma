@@ -126,6 +126,32 @@ describe('plasma-web: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: stretch', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultDate={new Date(2023, 5, 14)} stretched />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    defaultDate={new Date(2023, 5, 14)}
+                    calendarContainerWidth="35rem"
+                    calendarContainerHeight="40rem"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
     it('prop: defaultDate, enableContentLeft, enableContentRight', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -508,6 +534,33 @@ describe('plasma-web: DatePickerRange', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo size="xs" defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: stretch', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} stretched />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().realClick();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    defaultFirstDate={new Date(2023, 5, 14)}
+                    defaultSecondDate={new Date(2023, 5, 17)}
+                    calendarContainerWidth="35rem"
+                    calendarContainerHeight="40rem"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
