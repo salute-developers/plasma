@@ -164,7 +164,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         fixedDecimalScale: false,
         allowNegative: true,
         allowLeadingZeros: false,
-        size: 'l',
+        size: 's',
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
