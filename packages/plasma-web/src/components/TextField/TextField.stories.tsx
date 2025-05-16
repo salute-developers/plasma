@@ -364,7 +364,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     },
     parameters: {
         controls: {
-            exclude: ['chipType'],
+            exclude: ['chipType', 'labelPlacement'],
         },
     },
     render: (args) => <StoryDemo {...args} />,

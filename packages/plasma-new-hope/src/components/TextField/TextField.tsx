@@ -499,7 +499,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     aria-labelledby={labelId}
                                     aria-describedby={helperTextId}
                                     placeholder={innerPlaceholderValue}
-                                    className={cx(hasValueClass, keepPlaceholderClass, classTextEllipsis)}
+                                    className={cx(
+                                        hasValueClass,
+                                        keepPlaceholderClass,
+                                        classTextEllipsis,
+                                        readOnly && classes.readOnlyInput,
+                                    )}
                                     disabled={disabled}
                                     readOnly={!disabled && readOnly}
                                     onInput={handleInput}
