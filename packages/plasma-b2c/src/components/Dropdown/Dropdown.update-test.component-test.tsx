@@ -7,8 +7,6 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const sizes = ['xs', 's', 'm', 'l', 'xl'];
-
 const items = [
     {
         value: 'north_america',
@@ -222,71 +220,6 @@ const items = [
         value: 'africa',
         label: 'Африка',
         disabled: true,
-    },
-];
-
-const itemsWithPlacement = [
-    {
-        value: 'europe',
-        label: 'Европа',
-        placement: 'bottom',
-        items: [
-            {
-                value: 'france',
-                label: 'Франция',
-                placement: 'right',
-                items: [
-                    {
-                        value: 'paris',
-                        label: 'Париж',
-                        placement: 'top',
-                        items: [
-                            {
-                                value: 'antoni',
-                                label: 'Антони',
-                                placement: 'left',
-                                items: [
-                                    {
-                                        value: 'bojole',
-                                        label: 'Божоле',
-                                    },
-                                    {
-                                        value: 'Cambona',
-                                        label: 'Камбона',
-                                    },
-                                ],
-                            },
-                            {
-                                value: 'banyo',
-                                label: 'Баньё',
-                            },
-                            {
-                                value: 'pontuaz',
-                                label: 'Понтуаз',
-                            },
-                        ],
-                    },
-                    {
-                        value: 'lyon',
-                        label: 'Лион',
-                    },
-                ],
-            },
-            {
-                value: 'germany',
-                label: 'Германия',
-                items: [
-                    {
-                        value: 'berlin',
-                        label: 'Берлин',
-                    },
-                    {
-                        value: 'munich',
-                        label: 'Мюнхен',
-                    },
-                ],
-            },
-        ],
     },
 ];
 
