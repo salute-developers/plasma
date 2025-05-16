@@ -21,7 +21,7 @@ const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
 const hintTargetPlacements = ['outer', 'inner'];
-const labelPlacements = ['label', 'placeholder'];
+const labelPlacements = ['outer', 'inner'];
 const placements: Array<PopoverPlacement> = [
     'top',
     'top-start',
@@ -107,12 +107,6 @@ const meta: Meta<typeof TextField> = {
             options: { ...TextFieldView, ...{ empty: '' } },
             control: {
                 type: 'select',
-            },
-        },
-        animatedHint: {
-            options: labelPlacements,
-            control: {
-                type: 'inline-radio',
             },
         },
         maxLength: {
@@ -339,7 +333,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
         size: 'l',
         view: 'default',
         label: 'Лейбл',
-        animatedHint: undefined,
         labelPlacement: 'outer',
         keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
