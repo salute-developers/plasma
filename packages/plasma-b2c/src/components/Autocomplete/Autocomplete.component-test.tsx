@@ -582,6 +582,51 @@ describe('plasma-b2c: Autocomplete', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: virtual', () => {
+        cy.viewport(400, 600);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Autocomplete
+                        label="Label"
+                        placeholder="Placeholder"
+                        suggestions={suggestions}
+                        threshold={0}
+                        virtual
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: virtual dynamic height', () => {
+        cy.viewport(400, 600);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Autocomplete
+                        label="Label"
+                        placeholder="Placeholder"
+                        suggestions={suggestions}
+                        threshold={0}
+                        virtual
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').click();
+        cy.focused().type('алек');
+
+        cy.matchImageSnapshot();
+    });
+
     it('keyboard interactions', () => {
         cy.viewport(1000, 500);
 
