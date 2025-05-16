@@ -135,12 +135,6 @@ const meta: Meta<typeof TextField> = {
                 type: 'inline-radio',
             },
         },
-        animatedHint: {
-            options: labelPlacements,
-            control: {
-                type: 'inline-radio',
-            },
-        },
         label: {
             control: 'text',
         },
@@ -335,7 +329,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
         id: 'example-text-field',
         size: 'l',
         label: 'Лейбл',
-        animatedHint: undefined,
         keepPlaceholder: false,
         titleCaption: 'Подпись к полю',
         textBefore: '',
