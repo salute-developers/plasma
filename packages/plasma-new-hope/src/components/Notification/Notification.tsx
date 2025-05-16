@@ -44,6 +44,8 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             textColor,
             titleColor,
             backgroundColor,
+            width,
+            maxWidth,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -78,6 +80,8 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             >
                 <Wrapper
                     backgroundColor={backgroundColor}
+                    width={width}
+                    maxWidth={maxWidth}
                     className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass, withoutCloseIconClass)}
                 >
                     <ContentBox
