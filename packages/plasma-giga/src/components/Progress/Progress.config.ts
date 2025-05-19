@@ -27,6 +27,11 @@ export const config = {
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
+            info: css`
+                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
+                ${progressTokens.progressFilledBackgroundColor}: var(--surface-info);
+                ${progressTokens.valueColor}: var(--text-tertiary);
+            `,
             success: css`
                 ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-positive);
