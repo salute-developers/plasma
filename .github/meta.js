@@ -98,4 +98,9 @@ module.exports = {
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
         themes: 'plasma-themes',
     },
+    'sdds-scan': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
+        themes: 'sdds-themes',
+    },
 };

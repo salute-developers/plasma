@@ -13,6 +13,7 @@
         "sdds-finportal",
         "sdds-insol",
         "sdds-crm",
-        "sdds-netology"
+        "sdds-netology",
+        "sdds-scan"
     ]
 }
