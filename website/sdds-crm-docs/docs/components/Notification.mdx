@@ -1,0 +1,135 @@
+---
+id: notification
+title: Notification
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Notification
+<Description name="Notification" />
+<PropsTable name="Notification" />
+
+## Использование
+Компонент `Notification` может использоваться для создания собственных систем оповещения.
+Вид компонента контролируется свойствами (props).
+Текстовая часть оповещения состоит из `title` и `children`.
+Слева или сверху от нее, также можно пробросить иконку через свойство `icon`.
+Также есть часть `actions`, в которой предполагается отображение кнопок для взаимодействия.
+
+### Провайдер контекста
+<PropsTable name="NotificationsProvider" />
+
+Поместите `NotificationsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна.
+В качестве свойств можно указать контейнер для оповещений через `frame`.
+
+```tsx title="index.ts"
+import ReactDOM from 'react-dom';
+import { NotificationsProvider } from '@salutejs/sdds-crm';
+
+import { App } from './App';
+
+ReactDOM.render(
+    <NotificationsProvider>
+        <App />
+    </NotificationsProvider>,
+    document.getElementById('root')
+);
+```
+
+### Позиционирование
+
+Позиционирование компонента регулируется с помощью свойства `placement`.
+
+```ts
+type NotificationPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
+````
+И производные комбинации, например `bottom-left` или `top-right`.
+
+### Вызов уведомления
+
+:::info
+Уведомления закрываются автоматически по истечению указанного `timeout` в миллисекундах или если передан `0` или `null` то будут висеть бесконечно.
+:::
+
+:::tip
+`onTimeoutClose` - вызывается при автоматическом закрытии по timeout
+:::
+
+После подключения `NotificationsProvider` станет возможен вызов функции `addNotification`, который приведет к отображению оповещения.
+Функция принимает значения свойств компонента `Notification`, включая необязательное поле `id`. И возвращает сгенерированный или переданный `id`, по которому можно закрыть оповещение через вызов `closeNotification`.
+
+
+```tsx live
+import React, { useCallback } from 'react';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-crm';
+
+export function App() {
+    const handleShow = useCallback(() => {
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            children: 'Принять?',
+            onTimeoutClose: () => {
+                console.log("Callback, вызываемый при автоматическом закрытии по timeout.")
+            },
+        }, 3000);
+    }, []);
+
+    const handleHide = useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup>
+                <Button text="Показать оповещение" onClick={handleShow} />
+                <Button text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```
+
+## Вид иконки и текста
+:::tip
+Чтобы компонент иконки наследовал `color` от `view` используйте значение `inherit`.
+
+```tsx
+<IconBell color="inherit" size="xs" />
+```
+:::
+
+Также имеются свойства `titleColor, textColor` для **переопределения** `color` текста контента и заголовка.
+
+```jsx live
+import React, { useCallback } from 'react';
+import { IconBell } from '@salutejs/plasma-icons';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-crm';
+
+export function App() {
+    const handleShow = useCallback(() => {
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            icon: <IconBell color="inherit" size="xs" />,
+            children: 'Принять?',
+            view: 'positive',
+            textColor: 'black',
+            titleColor: 'blue'
+        }, 3000);
+    }, []);
+
+    const handleHide = useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup>
+                <Button text="Показать оповещение" onClick={handleShow} />
+                <Button text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```

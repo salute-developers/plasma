@@ -1,0 +1,289 @@
+---
+id: rating
+title: Rating
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Rating
+<Description name="Rating" />
+<PropsTable name="Rating" exclude={['css']} />
+
+## Использование
+Компонент `Rating` представляет собой неинтерактивный компонент для отображения оценки.
+
+```tsx live
+import React, {useState} from 'react';
+import { Rating, Button } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div>
+            <Rating
+                view="default"
+                size="l"
+                value={3.8}
+                helperText="Helper text"
+            />
+        </div>
+    );
+}
+```
+
+### Вид Rating
+Вид Rating задаётся с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { Rating } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <Rating
+                view="default"
+                size="l"
+                value={3.8}
+                helperText="Helper text"
+            />
+            <Rating
+                view="accent"
+                size="l"
+                value={3.8}
+                helperText="Helper text"
+            />
+        </div>
+    );
+}
+```
+
+### Размер Rating
+Размер Rating задается с помощью свойства `size`:
+
+<Tabs>
+    <TabItem value="common" label="Common" default>
+        ```tsx live
+            import React from 'react';
+            import { Rating } from '@salutejs/sdds-crm';
+
+            export function App() {
+                return (
+                    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                        <Rating
+                            view="default"
+                            size="l"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="m"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="s"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="xs"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="xxs"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                    </div>
+                );
+            }
+        ```
+    </TabItem>
+
+    <TabItem value="heading" label="Heading">
+        ```tsx live
+            import React from 'react';
+            import { Rating } from '@salutejs/sdds-crm';
+
+            export function App() {
+                return (
+                    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                        <Rating
+                            view="default"
+                            size="h1"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="h2"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="h3"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="h4"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="h5"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                    </div>
+                );
+            }
+        ```
+    </TabItem>
+
+    <TabItem value="display" label="Display">
+        ```tsx live
+            import React from 'react';
+            import { Rating } from '@salutejs/sdds-crm';
+
+            export function App() {
+                return (
+                    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                        <Rating
+                            view="default"
+                            size="displayL"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="displayM"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="displayS"
+                            value={3.8}
+                            helperText="Helper text"
+                        />
+                    </div>
+                );
+            }
+        ```
+    </TabItem>
+</Tabs>
+
+### Количество иконок в Rating
+Количество иконок в Rating задается с помощью свойства `iconQuantity`:
+
+```tsx live
+import React from 'react';
+import { Rating } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <Rating
+                view="default"
+                size="l"
+                value={3.8}
+                iconQuantity={5}
+                helperText="Helper text"
+            />
+            <Rating
+                view="accent"
+                size="l"
+                value={3.8}
+                iconQuantity={10}
+                helperText="Helper text"
+            />
+            <Rating
+                view="accent"
+                size="l"
+                value={3.8}
+                iconQuantity={1}
+                helperText="Helper text"
+            />
+        </div>
+    );
+}
+```
+
+### Положение значения в Rating
+Положение значения в Rating задается с помощью свойства `valuePlacement`. 
+Отображение значения можно выключить с помощью свойства `hasValue`:
+
+```tsx live
+import React from 'react';
+import { Rating } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <Rating
+                view="default"
+                size="l"
+                value={3.8}
+                valuePlacement="before"
+                helperText="Helper text"
+            />
+            <Rating
+                view="accent"
+                size="l"
+                value={3.8}
+                valuePlacement="after"
+                helperText="Helper text"
+            />
+            <Rating
+                view="accent"
+                size="l"
+                value={3.8}
+                hasValue={false}
+                helperText="Helper text"
+            />
+        </div>
+    );
+}
+```
+
+### Пользовтельские иконки в Rating
+Пользовтельские иконки в Rating задаются с помощью свойств:
++ `iconSlot` – закрашенная иконка;
++ `iconSlotOutline` – outline иконка;
++ `iconSlotHalf` - иконка для отображения дробного значения оценки.
+
+Для корректного применения размеров к иконкам, необходимо передавать класс `ratingClasses.customIconSizing` ("custom-icon-sizing")
+
+
+```tsx live
+import React from 'react';
+import { IconKeyFill, IconKeyOutline, IconLockFill } from '@salutejs/plasma-icons';
+import { ratingClasses, Rating } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <Rating
+                view="default"
+                size="l"
+                value={3.8}
+                helperText="Helper text"
+                iconSlot={<IconKeyFill size="s" className={ratingClasses.customIconSizing} />}
+                iconSlotOutline={<IconLockFill size="s" className={ratingClasses.customIconSizing} />}
+                iconSlotHalf={<IconKeyOutline size="s" className={ratingClasses.customIconSizing} />}
+            />
+        </div>
+    );
+}
+```
