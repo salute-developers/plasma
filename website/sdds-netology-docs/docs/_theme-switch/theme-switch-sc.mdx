@@ -1,0 +1,33 @@
+```jsx
+import React, { useState } from 'react';
+import { createGlobalStyle } from 'styled-components';
+
+import { Switch } from '@salutejs/sdds-netology';
+import { plasma_b2c__light, plasma_b2c__dark } from '@salutejs/plasma-themes';
+
+import './style.css';
+
+const LightTheme = createGlobalStyle(plasma_b2c__light);
+const DarkTheme = createGlobalStyle(plasma_b2c__dark);
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    return (
+        <>
+            {theme === 'light' ? <LightTheme /> : <DarkTheme />}
+
+            <div className="wrapper">
+                <Switch
+                    label={`app theme: ${theme}`}
+                    onChange={() => {
+                        setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                    }}
+                />
+            </div>
+        </>
+    );
+};
+
+export default App;
+```

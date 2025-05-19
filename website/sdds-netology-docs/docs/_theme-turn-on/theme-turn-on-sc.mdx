@@ -1,0 +1,20 @@
+```jsx
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { Button, BodyL } from '@salutejs/sdds-netology/styled-components';
+import { plasma_b2c__light } from '@salutejs/plasma-themes';
+
+const Theme = createGlobalStyle(plasma_b2c__light);
+
+const App = () => {
+    return (
+        <>
+            <Theme />
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
