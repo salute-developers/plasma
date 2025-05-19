@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
-import { component, mergeConfig } from 'src/engines';
-import { IconDisclosureDownCentered } from 'src/components/_Icon';
-import { textFieldConfig, textFieldTokens } from 'src/components/TextField';
 
+import { IconDisclosureDownCentered } from '../../../../../_Icon';
+import { textFieldConfig, textFieldTokens } from '../../../../../TextField';
+import { component, mergeConfig } from '../../../../../../engines';
 import { tokens, classes } from '../../../../Select.tokens';
 
 const mergedConfig = mergeConfig(textFieldConfig);

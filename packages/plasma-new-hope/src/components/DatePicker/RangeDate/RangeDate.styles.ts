@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
-import { component, mergeConfig } from 'src/engines';
 
+import { component, mergeConfig } from '../../../engines';
 import { rangeConfig, rangeTokens } from '../../Range';
 import { classes, tokens } from '../DatePicker.tokens';
 import { popoverConfig } from '../../Popover';
@@ -19,11 +19,11 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.background}: var(${tokens.background});
     ${rangeTokens.backgroundError}: var(${tokens.backgroundError});
     ${rangeTokens.backgroundSuccess}: var(${tokens.backgroundSuccess});
-    
+
     ${rangeTokens.borderColor}: var(${tokens.borderColor});
     ${rangeTokens.borderColorError}: var(${tokens.borderColorError});
     ${rangeTokens.borderColorSuccess}: var(${tokens.borderColorSuccess});
-    
+
     ${rangeTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
 
     ${rangeTokens.dividerColor}: var(${tokens.dividerColor});

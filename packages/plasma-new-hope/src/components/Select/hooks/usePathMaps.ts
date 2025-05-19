@@ -1,5 +1,4 @@
-import { isEmpty } from 'src/utils';
-
+import { isEmpty } from '../../../utils';
 import { MergedSelectProps } from '../Select.types';
 import { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
 

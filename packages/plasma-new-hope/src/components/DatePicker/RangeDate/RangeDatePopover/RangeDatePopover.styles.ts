@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
-import { calendarDoubleConfig, calendarBaseTokens, withRange, calendarBaseConfig } from 'src/components/Calendar';
-import type { CalendarDoubleProps, CalendarBaseProps } from 'src/components/Calendar';
-import { component, mergeConfig } from 'src/engines';
 
+import type { CalendarDoubleProps, CalendarBaseProps } from '../../../Calendar';
+import { component, mergeConfig } from '../../../../engines';
+import { calendarDoubleConfig, calendarBaseTokens, withRange, calendarBaseConfig } from '../../../Calendar';
 import { tokens } from '../../DatePicker.tokens';
 import { baseCalendarTokens } from '../../DatePickerBase.styles';
 

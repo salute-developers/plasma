@@ -1,7 +1,7 @@
 import React, { forwardRef, SyntheticEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { KeyboardEvent, FocusEvent } from 'react';
-import type { DateType } from 'src/components/Calendar/Calendar.types';
 
+import type { DateType } from '../../Calendar/Calendar.types';
 import type { RootProps } from '../../../engines';
 import { cx, getPlacements, noop } from '../../../utils';
 import { getDateFormatDelimiter } from '../utils/dateHelper';

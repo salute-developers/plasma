@@ -1,4 +1,4 @@
-import { customDayjs } from 'src/utils/datejs';
+import { customDayjs } from '../../../utils/datejs';
 
 import type { Langs } from './dateHelper';
 

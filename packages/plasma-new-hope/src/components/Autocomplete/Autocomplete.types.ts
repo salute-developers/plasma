@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes, ReactNode } from 'react';
-import { DistributiveOmit } from 'src/types';
 
+import { DistributiveOmit } from '../../types';
 import { TextFieldPropsBase } from '../TextField/TextField.types';
 
 export type SuggestionItemType = {

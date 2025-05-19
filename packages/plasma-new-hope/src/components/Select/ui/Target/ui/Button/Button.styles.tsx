@@ -1,9 +1,9 @@
 import { styled } from '@linaria/react';
-import { applyEllipsis } from 'src/mixins';
-import { component, mergeConfig } from 'src/engines';
-import { buttonConfig, buttonTokens } from 'src/components/Button';
-import { IconDisclosureDownCentered } from 'src/components/_Icon';
 
+import { IconDisclosureDownCentered } from '../../../../../_Icon';
+import { component, mergeConfig } from '../../../../../../engines';
+import { buttonConfig, buttonTokens } from '../../../../../Button';
+import { applyEllipsis } from '../../../../../../mixins';
 import { tokens, classes, constants } from '../../../../Select.tokens';
 
 const mergedButtonConfig = mergeConfig(buttonConfig);

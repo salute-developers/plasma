@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react';
-import { applyHidden } from 'src/mixins';
+
+import { applyHidden } from '../../../../mixins';
 
 export const SelectHidden = styled.select`
     ${applyHidden()};

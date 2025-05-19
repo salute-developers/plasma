@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
-import { customDayjs } from 'src/utils/datejs';
-import { QUARTER_NAMES } from 'src/components/Calendar/utils';
 
+import { QUARTER_NAMES } from '../../Calendar/utils';
+import { customDayjs } from '../../../utils/datejs';
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
 import type { CalendarValueType, DateInfo } from '../../Calendar/Calendar.types';

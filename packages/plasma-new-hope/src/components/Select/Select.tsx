@@ -9,10 +9,10 @@ import React, {
     ForwardedRef,
 } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
-import { RootProps } from 'src/engines';
-import { isEmpty } from 'src/utils';
-import { useOutsideClick } from 'src/hooks';
 
+import { isEmpty } from '../../utils';
+import { useOutsideClick } from '../../hooks';
+import { RootProps } from '../../engines';
 import type { HintProps } from '../TextField/TextField.types';
 
 import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';

@@ -1,6 +1,6 @@
 import React from 'react';
-import { getPlacements } from 'src/utils';
 
+import { getPlacements } from '../../../../utils';
 import { StyledPopover } from '../RangeDate.styles';
 
 import type { RangeDatePopoverProps } from './RangeDatePopover.types';
