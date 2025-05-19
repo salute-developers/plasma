@@ -19,9 +19,9 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
                 }
             };
 
-            const InputComponentWithoutEllipsis = (props: T) => {
-                return <InputComponent _textEllipsisDisable {...props} />;
-            };
+            const InputComponentWithoutEllipsis = forwardRef((props: T, ref) => {
+                return <InputComponent ref={ref} _textEllipsisDisable {...props} />;
+            });
 
             return (
                 <NumericFormat
