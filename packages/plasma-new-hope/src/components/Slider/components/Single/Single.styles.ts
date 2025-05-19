@@ -59,6 +59,7 @@ export const SliderBaseWrapper = styled.div`
         }
 
         ${StyledRangeValue} {
+            width: fit-content;
             grid-area: b;
 
             &.${classes.maxRangeValue} {
