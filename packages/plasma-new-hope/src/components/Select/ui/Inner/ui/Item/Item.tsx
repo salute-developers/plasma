@@ -1,7 +1,7 @@
 import React, { useRef, FC, useContext } from 'react';
-import { cx, isEmpty } from 'src/utils';
-import { useDidMountEffect } from 'src/hooks';
 
+import { useDidMountEffect } from '../../../../../../hooks';
+import { cx, isEmpty } from '../../../../../../utils';
 import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 import { Context } from '../../../../Select.context';

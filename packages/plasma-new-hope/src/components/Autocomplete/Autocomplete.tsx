@@ -1,7 +1,8 @@
 import React, { forwardRef, useState, useReducer, useLayoutEffect, useRef } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
-import { useDidMountEffect, useOutsideClick } from 'src/hooks';
-import { RootProps } from 'src/engines';
+
+import { useDidMountEffect, useOutsideClick } from '../../hooks';
+import { RootProps } from '../../engines';
 
 import { FloatingPopover } from './FloatingPopover';
 import { focusedReducer } from './reducers/focusedReducer';

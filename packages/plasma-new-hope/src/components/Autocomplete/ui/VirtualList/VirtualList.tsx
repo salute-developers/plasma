@@ -1,7 +1,7 @@
 import React from 'react';
 import List from 'rc-virtual-list';
-import { getHeightAsNumber } from 'src/utils';
 
+import { getHeightAsNumber } from '../../../../utils';
 import { SuggestionItem } from '../SuggestionItem/SuggestionItem';
 import type { SuggestionItemType } from '../../Autocomplete.types';
 

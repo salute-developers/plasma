@@ -1,6 +1,7 @@
-import { RootProps } from 'src/engines';
 import React, { forwardRef } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
+
+import { RootProps } from '../../engines';
 
 import { base, CarouselWrapper, CarouselTrack } from './Carousel.styles';
 import { CarouselProps } from './Carousel.types';

@@ -1,8 +1,8 @@
 import type { CSSProperties } from 'react';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
-import { component, mergeConfig } from 'src/engines';
 
+import { component, mergeConfig } from '../../../engines';
 import { buttonConfig } from '../../Button';
 
 import { tokens } from './ToastNew.tokens';

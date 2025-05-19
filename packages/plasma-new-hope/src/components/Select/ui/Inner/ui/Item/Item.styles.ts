@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
-import { addFocus, applyEllipsis } from 'src/mixins';
-import { component, mergeConfig } from 'src/engines';
-import type { SelectProps } from 'src/components/Select';
 
+import { component, mergeConfig } from '../../../../../../engines';
+import type { SelectProps } from '../../../../Select.types';
+import { addFocus, applyEllipsis } from '../../../../../../mixins';
 import { classes, tokens, constants } from '../../../../Select.tokens';
 import { checkboxConfig, checkboxTokens } from '../../../../../Checkbox';
 import { cellConfig, cellTokens } from '../../../../../Cell';

@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
-import { InputWrapper } from 'src/components/TextField/TextField.styles';
 
+import { InputWrapper } from '../../../TextField/TextField.styles';
 import { classes, tokens } from '../../Slider.tokens';
 import { component, mergeConfig } from '../../../../engines';
 import { textFieldConfig, textFieldTokens } from '../../../TextField';
@@ -37,7 +37,7 @@ export const InputsWrapper = styled.div`
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
     flex: 1;
-    
+
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
     ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundColorHover});
@@ -60,7 +60,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.fontWeight}: var(${tokens.textFieldFontWeight});
     ${textFieldTokens.letterSpacing}: var(${tokens.textFieldLetterSpacing});
     ${textFieldTokens.lineHeight}: var(${tokens.textFieldLineHeight});
-    
+
     &&.${classes.textFieldHovered} {
         ${InputWrapper} {
             background: var(${tokens.textFieldBackgroundColorHover});
@@ -68,7 +68,7 @@ export const StyledInput = styled(TextField)`
                 inset 0 0 0 0 transparent;
         }
     }
-    
+
     &&.${classes.textFieldFocused} {
         ${InputWrapper} {
             background: var(${tokens.textFieldBackgroundColorFocus});
@@ -79,7 +79,7 @@ export const StyledInput = styled(TextField)`
 
     &.${classes.firstTextField}{
         margin-right: var(${tokens.textFieldWebMarginRight}, 0);
-    
+
         ${InputWrapper} {
             clip-path: var(${tokens.textFieldWebClipPath});
         }

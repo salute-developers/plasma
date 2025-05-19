@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import toast, { Toaster, resolveValue } from 'react-hot-toast';
 import type { Toast as ToastInterface } from 'react-hot-toast';
-import type { RootProps } from 'src/engines';
-import { tokens } from 'src/components/Toast/Toast.tokens';
 
+import { tokens } from '../Toast.tokens';
+import type { RootProps } from '../../../engines';
 import { IconCrossThin } from '../../_Icon/Icons/IconCrossThin';
 
 import { base, Toast, CloseIconWrapper, StyledContentLeft } from './ToastNew.styles';

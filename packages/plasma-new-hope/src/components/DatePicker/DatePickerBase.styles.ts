@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
-import { component, mergeConfig } from 'src/engines';
-import { applyHidden } from 'src/mixins';
 
+import { component, mergeConfig } from '../../engines';
+import { applyHidden } from '../../mixins';
 import { calendarBaseConfig, calendarBaseTokens } from '../Calendar';
 
 import { tokens } from './DatePicker.tokens';
@@ -83,7 +83,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarQuarterFontLineHeight}: var(${tokens.calendarQuarterFontLineHeight});
     ${calendarBaseTokens.calendarQuarterFontWeight}: var(${tokens.calendarQuarterFontWeight});
     ${calendarBaseTokens.calendarQuarterSelectedFontWeight}: var(${tokens.calendarQuarterSelectedFontWeight});
-    
+
     ${calendarBaseTokens.calendarDaysPadding}: var(${tokens.calendarDaysPadding});
     ${calendarBaseTokens.calendarDayItemBorderRadius}: var(${tokens.calendarDayItemBorderRadius});
     ${calendarBaseTokens.calendarDayItemWidth}: var(${tokens.calendarDayItemWidth});
@@ -96,7 +96,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarDayFontWeight}: var(${tokens.calendarDayFontWeight});
     ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(${tokens.calendarDaySelectedFontWeight});
     ${calendarBaseTokens.calendarDayOfWeekColor}: var(${tokens.calendarDayOfWeekColor});
-    
+
     ${calendarBaseTokens.calendarHeaderWrapperPadding}: var(${tokens.calendarHeaderWrapperPadding});
     ${calendarBaseTokens.calendarHeaderArrowGap}: var(${tokens.calendarHeaderArrowGap});
     ${calendarBaseTokens.calendarHeaderArrowPadding}: var(${tokens.calendarHeaderArrowPadding});
@@ -110,7 +110,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarHeaderFontWeight}: var(${tokens.calendarHeaderFontWeight});
     ${calendarBaseTokens.calendarHeaderFontWeightBold}: var(${tokens.calendarHeaderFontWeightBold});
     ${calendarBaseTokens.calendarHeaderArrowColor}: var(${tokens.calendarHeaderArrowColor});
-    
+
     ${calendarBaseTokens.iconButtonHeight}: var(${tokens.iconButtonHeight});
     ${calendarBaseTokens.iconButtonWidth}: var(${tokens.iconButtonWidth});
     ${calendarBaseTokens.iconButtonPadding}: var(${tokens.iconButtonPadding});

@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'react';
-import { AsProps } from 'src/types';
+
+import { AsProps } from '../../types';
 
 export type SnapType = 'mandatory' | 'proximity' | 'none';
 export type SnapAlign = 'start' | 'center' | 'end';

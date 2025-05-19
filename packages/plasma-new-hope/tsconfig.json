@@ -36,9 +36,6 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "./",
         "rootDir": "./src",
-        "paths": {
-            "src/*": ["./src/*"]
-        }
     },
     "include": ["./src"],
     "exclude": ["./src/helpers", "./src/examples/", "./src/**/*.component-test.tsx"]

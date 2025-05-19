@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
-import { applyEllipsis } from 'src/mixins';
 
+import { applyEllipsis } from '../../mixins';
 import { component, mergeConfig } from '../../engines';
 import { tooltipConfig } from '../Tooltip';
 import { popoverClasses } from '../Popover';
