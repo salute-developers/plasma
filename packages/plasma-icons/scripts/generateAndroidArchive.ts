@@ -19,7 +19,12 @@ destinations.forEach((destination) => {
     }
 });
 
-const camelToSnakeCase = (str: string) => str.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
+const camelToSnakeCase = (str: string) => {
+    // INFO: Заменяем ключевое слово
+    const data = /sber/i.test(str) ? str.replace(/sber/i, 'Sb') : str;
+
+    return data.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
+};
 
 const options = {
     floatPrecision: 3,
