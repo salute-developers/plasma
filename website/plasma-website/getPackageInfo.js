@@ -30,6 +30,7 @@ module.exports = {
     '@salutejs/plasma-b2c': getLatestReleaseVersion('plasma-b2c'),
     '@salutejs/plasma-web': getLatestReleaseVersion('plasma-web'),
     '@salutejs/plasma-giga': getLatestReleaseVersion('plasma-giga'),
+    '@salutejs/sdds-netology': getLatestReleaseVersion('sdds-netology'),
     '@salutejs/plasma-icons': getLatestReleaseVersion('plasma-icons'),
     '@salutejs/plasma-ui': getLatestReleaseVersion('plasma-ui'),
     '@salutejs/sdds-cs': getLatestReleaseVersion('sdds-cs'),
