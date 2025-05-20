@@ -16,7 +16,16 @@ import type { UseYearsArgs } from './types';
 /**
  * Хук для получения списка годов.
  */
-export const useYears = ({ date, value, startYear, eventList, disabledList, min, max }: UseYearsArgs) =>
+export const useYears = ({
+    date,
+    value,
+    startYear,
+    eventList,
+    disabledList,
+    min,
+    max,
+    includeEdgeDates,
+}: UseYearsArgs) =>
     useMemo(() => {
         // type-coverage:ignore-next-line
         const years = Array.from(Array(YEAR_RENDER_COUNT), (_, i) => {
@@ -39,6 +48,7 @@ export const useYears = ({ date, value, startYear, eventList, disabledList, min,
                 type: CalendarState.Years,
                 min,
                 max,
+                includeEdgeDates,
                 eventList,
                 disabledList,
             });
