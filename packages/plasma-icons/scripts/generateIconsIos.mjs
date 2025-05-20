@@ -40,11 +40,19 @@ try {
     for (const sourceDirectory of listSVG) {
         const [fullSvgName, dir] = sourceDirectory.split('/').reverse();
       
-        // @example Icon.svg.24
+        // @example input Icon.svg.24
+        // @example ouput 24
         const [size] = dir.split('.').reverse();
         
         // @example Accessibility.svg
-        const [svgName] = fullSvgName.split('.');
+        const [svgNameRaw] = fullSvgName.split('.');
+        
+        // INFO: Заменяем имя по ключевому слову и приводим к формату аля SbBoom, вместо Sbboom
+        const svgName = /sber/i.test(svgNameRaw)
+            ? svgNameRaw
+                .replace(/sber/i, 'Sb')
+                .replace(/(Sb)(.)/, (_, sb, char) => sb + char.toUpperCase())
+            : svgNameRaw;
         
         // @example ./icons-ios/ScenarioSyncAuto45Fill24.imageset
         const pngDirectory = `${iosIconsDirectory}/${svgName}${size}.imageset`;
