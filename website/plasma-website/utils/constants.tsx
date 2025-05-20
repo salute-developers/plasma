@@ -104,6 +104,17 @@ export const verticalsMap = [
         ],
     },
     {
+        title: 'SDDS CRM',
+        package: '@salutejs/sdds-crm',
+        group: 'SDDS Masterbrand',
+        href: '/sdds-crm-storybook/',
+        items: [
+            { text: 'Сторибук', href: '/sdds-crm-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-crm/', contentRight: <ArrowTopRight /> },
+            { text: PACKAGES_INFO['@salutejs/sdds-crm'][0], contentLeft: <CardstackOutline />, isMeta: true },
+        ],
+    },
+    {
         title: 'SDDS Insol',
         package: '@salutejs/sdds-insol',
         group: 'Отдельные сборки',
