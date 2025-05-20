@@ -60,6 +60,17 @@ export const verticalsMap = [
         ],
     },
     {
+        title: 'SDDS NETOLOGY',
+        package: '@salutejs/sdds-netology',
+        group: 'Плазма',
+        href: '/sdds-netology-storybook/',
+        items: [
+            { text: 'Сторибук', href: '/sdds-netology-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-netology/', contentRight: <ArrowTopRight /> },
+            { text: PACKAGES_INFO['@salutejs/sdds-netology'][0], contentLeft: <CardstackOutline />, isMeta: true },
+        ],
+    },
+    {
         title: 'SDDS Service',
         package: '@salutejs/sdds-serv',
         group: 'SDDS Masterbrand',
