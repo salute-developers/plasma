@@ -116,7 +116,13 @@ export const ${iconName}: React.FC<IconProps> = (props) => (
 /**
  * Функция генерации файла `/Icons/Icon<Name>.tsx`. Здесь формируется компонент иконки.
  */
-export const getIconComponent = (iconName: string) => {
+export const getIconComponent = (iconName: string, options?: any) => {
+    const deprecationBlock = options?.deprecated
+        ? `/**
+ * @deprecated Эта иконка устарела
+ * @see используете вместо этого ${options.replacement}
+ */`
+        : '';
     return `import React from 'react';
 
 import { ${iconName} as Icon16 } from '../Icon.assets.16/${iconName}';
@@ -124,6 +130,7 @@ import { ${iconName} as Icon24 } from '../Icon.assets.24/${iconName}';
 import { ${iconName} as Icon36 } from '../Icon.assets.36/${iconName}';
 import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
+${deprecationBlock}
 export const Icon${iconName}: React.FC<IconProps> = ({ size = 's', color, className }) => {
     const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
     if (!IconComponent) {
