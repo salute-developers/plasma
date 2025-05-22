@@ -87,6 +87,7 @@ type IsMultiselect<K extends ItemOption> =
                  * Callback для кастомной настройки значения в селекте.
                  */
                 renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
+                selectAllOptions?: never;
             }
           | {
                 multiselect: true;
@@ -104,6 +105,7 @@ type IsMultiselect<K extends ItemOption> =
                 value?: never;
                 isTargetAmount?: never | false;
                 renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
+                selectAllOptions?: never;
             }
           | {
                 multiselect: true;

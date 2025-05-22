@@ -19,7 +19,7 @@ import {
     getItemId,
     getRemovedElement,
 } from './utils';
-import { Inner, StyledTextField, VirtualList } from './ui';
+import { Inner, StyledTextField, VirtualList, SelectAll } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
 import { Ul, base, StyledArrow, IconArrowWrapper, StyledEmptyState, StyledLeftHelper } from './Combobox.styles';
@@ -572,6 +572,13 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         />
                                     ) : (
                                         <>
+                                            {props.multiple && props.selectAllOptions && (
+                                                <SelectAll
+                                                    selectAllOptions={props.selectAllOptions}
+                                                    variant={variant}
+                                                />
+                                            )}
+
                                             {virtual ? (
                                                 <VirtualList
                                                     items={filteredItems}

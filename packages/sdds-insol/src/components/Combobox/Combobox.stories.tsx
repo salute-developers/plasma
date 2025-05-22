@@ -10,6 +10,8 @@ import { Combobox } from './Combobox';
 type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
     hasHint?: boolean;
+    enableSelectAll?: boolean;
+    selectAllSticky?: boolean;
 };
 
 const getIconSize = (size?: string) => {
@@ -168,6 +170,13 @@ const meta: Meta<StorySelectProps> = {
         emptyStateDescription: {
             control: { type: 'text' },
         },
+        enableSelectAll: {
+            control: 'boolean',
+        },
+        selectAllSticky: {
+            control: 'boolean',
+            if: { arg: 'enableSelectAll', truthy: true },
+        },
     },
     args: {
         label: 'Label',
@@ -196,6 +205,8 @@ const meta: Meta<StorySelectProps> = {
         hintWidth: '10rem',
         hintHasArrow: true,
         emptyStateDescription: '',
+        enableSelectAll: false,
+        selectAllSticky: false,
     },
     parameters: {
         controls: {
@@ -229,6 +240,8 @@ const meta: Meta<StorySelectProps> = {
                 'hintPlacement',
                 'hintWidth',
                 'hintHasArrow',
+                'enableSelectAll',
+                'selectAllSticky',
             ],
         },
     },
@@ -468,12 +481,12 @@ export const Single: StoryObj<StorySelectProps> = {
     render: (args) => <SingleStory {...args} />,
     parameters: {
         controls: {
-            exclude: ['isTargetAmount'],
+            exclude: ['isTargetAmount', 'enableSelectAll'],
         },
     },
 };
 
-const MultipleStory = (args: StorySelectProps) => {
+const MultipleStory = ({ enableSelectAll, selectAllSticky, ...args }: StorySelectProps) => {
     const [value, setValue] = useState([]);
 
     return (
@@ -485,6 +498,7 @@ const MultipleStory = (args: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={args.enableContentLeft ? <IconDone size={getIconSize(args.size)} /> : undefined}
+                selectAllOptions={enableSelectAll ? { sticky: selectAllSticky || false } : undefined}
             />
         </div>
     );

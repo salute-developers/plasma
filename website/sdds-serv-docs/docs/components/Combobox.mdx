@@ -434,6 +434,64 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="selectAll" label="Выбрать всё">
+        Работа с кнопкой "Выбрать всё" осуществляется через свойство `selectAllOptions` только в режиме `multiple`:
+        ```tsx
+        type SelectAllProps = {
+            checked?: boolean;
+            indeterminate?: boolean;
+            label?: string;
+            onClick?: () => void;
+            sticky?: boolean;
+        };
+        ```
+        Вся логика выбора элементов и взаимодействия с компонентом лежит на стороне пользователя.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Select } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const [checked, setChecked] = useState(false);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <Combobox
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                        multiple
+                        selectAllOptions={{
+                            checked,
+                            onClick: () => setChecked(prev => !prev)
+                        }}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Использование с React Hook Form и нативной формой
