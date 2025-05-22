@@ -9,6 +9,8 @@ import { Select } from './Select';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
+    enableSelectAll?: boolean;
+    selectAllSticky?: boolean;
 };
 
 const view = ['default', 'negative'];
@@ -98,6 +100,13 @@ const meta: Meta<StorySelectProps> = {
             options: ['default', 'text'],
             if: { arg: 'target', eq: 'textfield-like' },
         },
+        enableSelectAll: {
+            control: 'boolean',
+        },
+        selectAllSticky: {
+            control: 'boolean',
+            if: { arg: 'enableSelectAll', truthy: true },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -129,6 +138,8 @@ const meta: Meta<StorySelectProps> = {
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
         chipType: 'default',
+        enableSelectAll: false,
+        selectAllSticky: false,
     },
     parameters: {
         controls: {
@@ -152,6 +163,8 @@ const meta: Meta<StorySelectProps> = {
                 'requiredPlacement',
                 'hasRequiredIndicator',
                 'chipType',
+                'enableSelectAll',
+                'selectAllSticky',
             ],
         },
     },
@@ -390,7 +403,7 @@ const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
 export const Single: StoryObj<StorySelectProps> = {
     parameters: {
         controls: {
-            exclude: ['isTargetAmount', 'chipType'],
+            exclude: ['isTargetAmount', 'chipType', 'enableSelectAll'],
         },
     },
     render: (args) => <SingleStory {...args} />,
@@ -399,7 +412,7 @@ export const Single: StoryObj<StorySelectProps> = {
     },
 };
 
-const MultiselectStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
+const MultiselectStory = ({ enableContentLeft, enableSelectAll, selectAllSticky, ...args }: StorySelectProps) => {
     const [value, setValue] = useState<Array<string>>([]);
 
     return (
@@ -410,6 +423,7 @@ const MultiselectStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                selectAllOptions={enableSelectAll ? { sticky: selectAllSticky || false } : undefined}
             />
         </div>
     );
@@ -452,5 +466,10 @@ const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
 };
 
 export const Predefined: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            exclude: ['enableSelectAll'],
+        },
+    },
     render: (args) => <PredefinedStory {...args} />,
 };
