@@ -64,6 +64,14 @@ export const tokens = {
 
     targetHeight: '--plasma-select-target-height',
 
+    dividerMarginTop: '--plasma-select-divider-margin-top',
+    dividerMarginTopTight: '--plasma-select-divider-margin-top-tight',
+    dividerMarginRight: '--plasma-select-divider-margin-right',
+    dividerMarginBottom: '--plasma-select-divider-margin-bottom',
+    dividerMarginBottomTight: '--plasma-select-divider-margin-bottom-tight',
+    dividerMarginLeft: '--plasma-select-divider-margin-left',
+    dividerColor: '--plasma-select-divider-color',
+
     // Токены для Button
     buttonColor: '--plasma-select-button-color',
     buttonColorHover: '--plasma-select-button-color-hover',
