@@ -261,6 +261,14 @@ export const tokens = {
     disclosureIconColorHover: '--plasma-combobox-disclosure-icon-color-hover',
     disclosureIconSize: '--plasma-select-disclosure-icon-size',
     disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
+
+    dividerMarginTop: '--plasma-combobox-divider-margin-top',
+    dividerMarginTopTight: '--plasma-combobox-divider-margin-top-tight',
+    dividerMarginRight: '--plasma-combobox-divider-margin-right',
+    dividerMarginBottom: '--plasma-combobox-divider-margin-bottom',
+    dividerMarginBottomTight: '--plasma-combobox-divider-margin-bottom-tight',
+    dividerMarginLeft: '--plasma-combobox-divider-margin-left',
+    dividerColor: '--plasma-combobox-divider-color',
 };
 
 export const constants = {

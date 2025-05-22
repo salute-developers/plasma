@@ -8,6 +8,14 @@ import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType } from './hooks/getPathMaps';
 
+export type SelectAllProps = {
+    checked?: boolean;
+    indeterminate?: boolean;
+    label?: string;
+    onClick?: () => void;
+    sticky?: boolean;
+};
+
 export type Placement =
     | 'top'
     | 'top-start'
@@ -42,6 +50,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                  * Callback для кастомной настройки значения в селекте.
                  */
                 renderValue?: never;
+                selectAllOptions?: never;
             }
           | {
                 multiple: true;
@@ -50,6 +59,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                 isTargetAmount?: true;
                 targetAmount?: number;
                 renderValue?: (item: T) => string;
+                selectAllOptions?: SelectAllProps;
             }
       ))
     | ({ name: string; onChange?: ChangeEventHandler } & (
@@ -60,6 +70,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                 isTargetAmount?: never | false;
                 targetAmount?: never;
                 renderValue?: never;
+                selectAllOptions?: never;
             }
           | {
                 multiple: true;
@@ -68,6 +79,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                 isTargetAmount?: true;
                 targetAmount?: number;
                 renderValue?: (item: T) => string;
+                selectAllOptions?: SelectAllProps;
             }
       ));
 

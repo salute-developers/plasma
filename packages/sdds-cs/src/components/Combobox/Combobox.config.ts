@@ -57,6 +57,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-accent);
                 ${tokens.disclosureIconColorHover}: #1A9E32;
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
+
+                ${tokens.dividerColor}: var(--surface-solid-primary);
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--text-primary);
@@ -107,6 +109,8 @@ export const config = {
                 ${tokens.disclosureIconColor}: var(--text-accent);
                 ${tokens.disclosureIconColorHover}: #1A9E32;
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
+
+                ${tokens.dividerColor}: var(--surface-solid-primary);
             `,
         },
         size: {
@@ -218,6 +222,13 @@ export const config = {
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.dropdownBorderWidth}: 0.0625rem;
+
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.75rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.75rem;
+                ${tokens.dividerMarginTopTight}: 0.25rem;
+                ${tokens.dividerMarginBottomTight}: 0.25rem;
             `,
         },
         labelPlacement: {
