@@ -133,3 +133,47 @@ export function App() {
     );
 }
 ```
+
+## Управление шириной уведомления
+
+Для управления шириной компонента доступны следующие свойства:
+
+- `width` — устанавливает ширину компонента.
+- `maxWidth` — устанавливает максимальную ширину компонента.
+
+Оба свойства принимает любые действительные CSS значения для [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width#syntax) и [maxWidth](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width#syntax)
+
+```jsx live
+import React, { useCallback } from 'react';
+import { IconBell } from '@salutejs/plasma-icons';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-cs';
+
+export function App() {
+    const handleShow = useCallback(() => {
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            icon: <IconBell color="inherit" size="xs" />,
+            children: 'Задача организации, в особенности же сплочённость команды профессионалов требует определения и уточнения глубокомысленных рассуждений.',
+            view: 'positive',
+            textColor: 'black',
+            titleColor: 'blue',
+            width: 'fit-content',
+            maxWidth: '30rem'
+        }, 3000);
+    }, []);
+
+    const handleHide = useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup>
+                <Button text="Показать оповещение" onClick={handleShow} />
+                <Button text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```
