@@ -17,7 +17,7 @@ import type { HintProps } from '../TextField/TextField.types';
 
 import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
-import { Inner, Target, VirtualList } from './ui';
+import { Inner, Target, VirtualList, SelectAll } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { Ul, base } from './Select.styles';
@@ -462,6 +462,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             >
                                 {beforeList}
 
+                                {props.multiselect && props.selectAllOptions && (
+                                    <SelectAll selectAllOptions={props.selectAllOptions} variant={variant} />
+                                )}
+
                                 {virtual ? (
                                     <VirtualList
                                         items={transformedItems}
@@ -481,7 +485,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                         />
                                     ))
                                 )}
-
                                 {afterList}
                             </Ul>
                         </Root>

@@ -17,6 +17,14 @@ export type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
 
 export type { RequiredProps };
 
+export type SelectAllProps = {
+    checked?: boolean;
+    indeterminate?: boolean;
+    label?: string;
+    onClick?: () => void;
+    sticky?: boolean;
+};
+
 type Target = LabelProps &
     (
         | (RequiredProps &
@@ -86,6 +94,7 @@ type IsMultiselect<K extends ItemOption> =
                 onChange?: (value: string[], item: K | null) => void;
                 isTargetAmount?: true;
                 renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
+                selectAllOptions?: SelectAllProps;
             }
       ))
     | ({ name: string; onChange?: ChangeEventHandler } & (
@@ -102,6 +111,7 @@ type IsMultiselect<K extends ItemOption> =
                 value?: never;
                 isTargetAmount?: true;
                 renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
+                selectAllOptions?: SelectAllProps;
             }
       ));
 
@@ -282,6 +292,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
         | {
               multiselect?: true;
               separator?: string;
+              selectAllOptions?: SelectAllProps;
           }
     ) & {
         value?: T;
