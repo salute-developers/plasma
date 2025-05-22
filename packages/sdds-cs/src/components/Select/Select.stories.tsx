@@ -9,7 +9,7 @@ import { Select } from './Select';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
-    enableSelectAll?: boolean;
+    selectAllLabel?: string;
     selectAllSticky?: boolean;
 };
 
@@ -100,13 +100,6 @@ const meta: Meta<StorySelectProps> = {
             options: ['default', 'text'],
             if: { arg: 'target', eq: 'textfield-like' },
         },
-        enableSelectAll: {
-            control: 'boolean',
-        },
-        selectAllSticky: {
-            control: 'boolean',
-            if: { arg: 'enableSelectAll', truthy: true },
-        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -138,8 +131,6 @@ const meta: Meta<StorySelectProps> = {
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
         chipType: 'default',
-        enableSelectAll: false,
-        selectAllSticky: false,
     },
     parameters: {
         controls: {
@@ -163,8 +154,6 @@ const meta: Meta<StorySelectProps> = {
                 'requiredPlacement',
                 'hasRequiredIndicator',
                 'chipType',
-                'enableSelectAll',
-                'selectAllSticky',
             ],
         },
     },
@@ -403,7 +392,7 @@ const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
 export const Single: StoryObj<StorySelectProps> = {
     parameters: {
         controls: {
-            exclude: ['isTargetAmount', 'chipType', 'enableSelectAll'],
+            exclude: ['isTargetAmount', 'chipType'],
         },
     },
     render: (args) => <SingleStory {...args} />,
@@ -412,7 +401,7 @@ export const Single: StoryObj<StorySelectProps> = {
     },
 };
 
-const MultiselectStory = ({ enableContentLeft, enableSelectAll, selectAllSticky, ...args }: StorySelectProps) => {
+const MultiselectStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [value, setValue] = useState<Array<string>>([]);
 
     return (
@@ -423,7 +412,6 @@ const MultiselectStory = ({ enableContentLeft, enableSelectAll, selectAllSticky,
                 value={value}
                 onChange={setValue}
                 contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
-                selectAllOptions={enableSelectAll ? { sticky: selectAllSticky || false } : undefined}
             />
         </div>
     );
@@ -466,10 +454,189 @@ const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
 };
 
 export const Predefined: StoryObj<StorySelectProps> = {
-    parameters: {
-        controls: {
-            exclude: ['enableSelectAll'],
+    render: (args) => <PredefinedStory {...args} />,
+};
+
+const flatItems = [
+    {
+        value: 'north_america',
+        label: 'Северная Америка',
+    },
+    {
+        value: 'rio_de_janeiro',
+        label: 'Рио-де-Жанейро',
+    },
+    {
+        value: 'sao_paulo',
+        label: 'Сан-Паулу',
+    },
+    {
+        value: 'buenos_aires',
+        label: 'Буэнос-Айрес',
+    },
+    {
+        value: 'cordoba',
+        label: 'Кордова',
+    },
+    {
+        value: 'bogota',
+        label: 'Богота',
+    },
+    {
+        value: 'medellin',
+        label: 'Медельин',
+    },
+    {
+        value: 'paris',
+        label: 'Париж',
+    },
+    {
+        value: 'lyon',
+        label: 'Лион',
+    },
+    {
+        value: 'berlin',
+        label: 'Берлин',
+    },
+    {
+        value: 'munich',
+        label: 'Мюнхен',
+    },
+    {
+        value: 'rome',
+        label: 'Рим',
+    },
+    {
+        value: 'milan',
+        label: 'Милан',
+    },
+    {
+        value: 'madrid',
+        label: 'Мадрид',
+    },
+    {
+        value: 'barcelona',
+        label: 'Барселона',
+    },
+    {
+        value: 'london',
+        label: 'Лондон',
+    },
+    {
+        value: 'manchester',
+        label: 'Манчестер',
+    },
+    {
+        value: 'beijing',
+        label: 'Пекин',
+    },
+    {
+        value: 'shanghai',
+        label: 'Шанхай',
+    },
+    {
+        value: 'tokyo',
+        label: 'Токио',
+    },
+    {
+        value: 'osaka',
+        label: 'Осака',
+    },
+    {
+        value: 'delhi',
+        label: 'Дели',
+    },
+    {
+        value: 'mumbai',
+        label: 'Мумбаи',
+    },
+    {
+        value: 'seoul',
+        label: 'Сеул',
+    },
+    {
+        value: 'busan',
+        label: 'Пусан',
+    },
+    {
+        value: 'bangkok',
+        label: 'Бангкок',
+    },
+    {
+        value: 'phuket',
+        label: 'Пхукет',
+    },
+    {
+        value: 'africa',
+        label: 'Африка',
+    },
+];
+
+const SelectAllStory = (args: StorySelectProps) => {
+    const [value, setValue] = useState([]);
+    const [checked, setChecked] = useState(false);
+    const [indeterminate, setIndeterminate] = useState(false);
+
+    const handleClick = () => {
+        if (checked && !indeterminate) {
+            setValue([]);
+        } else {
+            setValue(flatItems.map((item) => item.value));
+        }
+    };
+
+    React.useEffect(() => {
+        if (value.length === 0) {
+            setChecked(false);
+            setIndeterminate(false);
+        } else if (value.length === flatItems.length) {
+            setChecked(true);
+            setIndeterminate(false);
+        } else {
+            setChecked(true);
+            setIndeterminate(true);
+        }
+    }, [value]);
+
+    return (
+        <div style={{ width: '400px' }}>
+            <Select
+                placeholder="Placeholder"
+                multiselect
+                items={flatItems}
+                value={value}
+                onChange={setValue}
+                listOverflow="auto"
+                listMaxHeight="300px"
+                selectAllOptions={{
+                    sticky: args?.selectAllSticky || false,
+                    label: args?.selectAllLabel,
+                    checked,
+                    indeterminate,
+                    onClick: handleClick,
+                }}
+            />
+        </div>
+    );
+};
+
+export const SelectAll: StoryObj<StorySelectProps> = {
+    render: (args) => <SelectAllStory {...args} />,
+    argTypes: {
+        selectAllSticky: {
+            control: 'boolean',
+        },
+        selectAllLabel: {
+            control: 'text',
         },
     },
-    render: (args) => <PredefinedStory {...args} />,
+    args: {
+        selectAllSticky: false,
+        selectAllLabel: 'Выбрать все',
+    },
+    parameters: {
+        controls: {
+            include: ['selectAllSticky', 'selectAllLabel'],
+        },
+    },
 };
