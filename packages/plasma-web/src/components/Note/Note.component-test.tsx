@@ -161,6 +161,23 @@ describe('plasma-web: Note', () => {
         cy.matchImageSnapshot();
     });
 
+    it(':long title with close icon', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Note
+                    title="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                    text={commonProps.text}
+                    size="s"
+                    hasClose
+                    contentBefore={<IconSaluteOutline size={getIconSize('s')} color="inherit" />}
+                    width={400}
+                    height={116}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.matchImageSnapshot();
+    });
+
     it(':long text', () => {
         mount(
             <CypressTestDecoratorWithTypo>
