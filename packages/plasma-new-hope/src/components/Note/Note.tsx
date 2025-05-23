@@ -161,7 +161,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                             view="clear"
                             size="s"
                             onClick={onCloseButtonClick}
-                            className={cx(classes.closeIcon)}
+                            className={classes.closeIcon}
                         >
                             <IconCrossThin size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
                         </CloseIconWrapper>
