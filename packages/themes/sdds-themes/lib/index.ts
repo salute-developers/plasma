@@ -25,4 +25,8 @@ generate([
         name: 'sdds_insol',
         version: 'latest',
     },
+    {
+        name: 'sdds_scan',
+        version: 'latest',
+    },
 ]);
