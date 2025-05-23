@@ -19,17 +19,14 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
                 }
             };
 
-            const InputComponentWithoutEllipsis = forwardRef((props: T, ref) => {
-                return <InputComponent ref={ref} _textEllipsisDisable {...props} />;
-            });
-
             return (
                 <NumericFormat
                     thousandSeparator={thousandSeparator}
                     decimalScale={decimalScale}
                     decimalSeparator={decimalSeparator}
-                    customInput={InputComponentWithoutEllipsis}
+                    customInput={InputComponent}
                     getInputRef={outerRef}
+                    _textEllipsisDisable
                     onValueChange={handleChangeValue}
                     {...rest}
                 />
